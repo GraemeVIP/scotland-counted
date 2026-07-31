@@ -1,0 +1,59 @@
+# Glasgow Counted
+
+> An independent, fully sourced record of poverty in Glasgow, Scotland,
+> since 2000. Every figure comes from official published data (ONS, DWP,
+> Scottish Government, End Child Poverty / Loughborough University), every
+> source is linked, and corrections are logged publicly. A personal
+> project by Graeme at Strathmark Consulting; no party affiliation.
+
+Key facts (checked July 2026):
+
+- 36.1% of Glasgow's children (39,319 children) lived in relative poverty
+  after housing costs in 2023/24 — the highest rate of any Scottish
+  council area, up from 27.1% in 2014/15 (the steepest rise in Scotland).
+- Glasgow's working-age employment rate rose from 62.7% (2004) to a peak
+  of 72.1% (2022): work no longer reliably prevents poverty. Across
+  Scotland, 69% of children in poverty live in a working household.
+- Glasgow has more jobs than working-age adults (jobs density 1.08 in
+  2021) but the median full-time resident earns less than the median job
+  located in the city pays (£745.50 vs £796.50 per week, 2025).
+- All four statutory interim child poverty targets under the Child
+  Poverty (Scotland) Act 2017 were missed for 2023/24, including
+  persistent poverty at 23% against a target of 8%.
+- Glasgow East has Scotland's highest constituency child poverty rate
+  (34.9%, 2023/24); six of Scotland's seven worst seats are in Glasgow.
+- In 2020/21, when benefits were temporarily raised, Glasgow's child
+  poverty fell (32.2% to 29.4%) and rose straight back when support was
+  withdrawn — evidence that income transfers, not employment programmes,
+  drive the rate (as modelled by JRF, IPPR Scotland and the Fraser of
+  Allander Institute).
+
+## Main pages
+
+- [The numbers](/the-numbers): six indicators charted from 2000, each
+  with raw data tables and sources.
+- [Why Glasgow](/why-glasgow): the four evidenced causes.
+- [What would fix it](/what-would-fix-it): seven costed policies and
+  their current status.
+- [Accountability](/accountability): decisions by Westminster, Holyrood
+  and Glasgow City Council, with measured consequences.
+- [Your area](/areas): all 32 Scottish council areas, each with child
+  poverty, claimant count and pay data.
+- [Constituencies](/constituencies): all 57 Scottish Westminster seats
+  ranked by child poverty.
+- [Take action](/take-action): a letter builder pre-filled with official
+  local figures.
+- [Methods and sources](/methods): how every figure was obtained,
+  including stated derivations and limitations.
+- [Download the data](/data): CSVs of every series.
+- [Glossary](/glossary): plain-English definitions of every technical
+  term used.
+- [What changed](/updates): dated public log of data refreshes and
+  corrections, with RSS at /feed.xml.
+
+## Citation
+
+Free to quote and reuse with attribution to Glasgow Counted. Underlying
+data belongs to its original publishers (mostly Open Government
+Licence). When quoting a figure, the after-housing-costs basis and the
+year matter; both are stated wherever the figure appears.

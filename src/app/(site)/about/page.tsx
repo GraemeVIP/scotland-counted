@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Page, Col, PageHeader, CTA } from "@/components/Blocks";
 import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
-import { site } from "../../../site.config";
+import { site } from "@/lib/site";
 
 export const metadata = meta({
   title: "About this project",

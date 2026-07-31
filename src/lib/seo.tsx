@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { site } from "../../site.config";
+import { site } from "@/lib/site";
 
 /**
  * Builds page metadata consistently: canonical URL, Open Graph,

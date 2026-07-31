@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { site } from "../../site.config";
+import { site } from "@/lib/site";
 import { ScrollProgress } from "@/components/Motion";
 
 export const NAV = [
@@ -169,7 +169,10 @@ export function Footer() {
               The site
             </p>
             <ul className="space-y-3 text-[15px]">
-              {NAV.concat([{ href: "/take-action", label: "Take action" }]).map((n) => (
+              {NAV.concat([
+                { href: "/constituencies", label: "Constituencies" },
+                { href: "/take-action", label: "Take action" },
+              ]).map((n) => (
                 <li key={n.href}>
                   <Link href={n.href} className="opacity-75 hover:opacity-100 transition-opacity">
                     {n.label}
@@ -188,6 +191,8 @@ export function Footer() {
                 { href: "/methods", label: "Methods and sources" },
                 { href: "/glossary", label: "Plain-English glossary" },
                 { href: "/data", label: "Download the data" },
+                { href: "/press", label: "Press and reuse" },
+                { href: "/updates", label: "What changed" },
                 { href: "/corrections", label: "Corrections" },
               ].map((n) => (
                 <li key={n.href}>

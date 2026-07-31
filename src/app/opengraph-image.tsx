@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-import { site } from "../../site.config";
+import { site } from "@/lib/site";
 
 export const alt =
   "Glasgow Counted — 36.1% of Glasgow's children were living in poverty in 2023/24";

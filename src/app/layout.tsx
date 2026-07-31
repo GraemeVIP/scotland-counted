@@ -1,14 +1,14 @@
 import type { Metadata, Viewport } from "next";
 import { Archivo, Newsreader, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
-import { Header, Footer } from "@/components/Chrome";
-import { JsonLd, orgJsonLd } from "@/lib/seo";
-import { site } from "../../site.config";
+import { site } from "@/lib/site";
 
 /**
- * Archivo — a grotesque drawn for newspapers and highway signage. Used
- * heavy and tight for display, so headlines and figures read as statements.
+ * Root layout: document shell, fonts and theme only. Site chrome
+ * (header, footer, grain) lives in the (site) route group so that
+ * embed routes can render bare inside other people's pages.
  */
+
 const archivo = Archivo({
   subsets: ["latin"],
   variable: "--font-display",
@@ -16,7 +16,6 @@ const archivo = Archivo({
   display: "swap",
 });
 
-/** Newsreader — an editorial serif for long-form argument. */
 const newsreader = Newsreader({
   subsets: ["latin"],
   variable: "--font-text",
@@ -25,7 +24,6 @@ const newsreader = Newsreader({
   display: "swap",
 });
 
-/** IBM Plex Mono — institutional, for labels, sources and data. */
 const plexMono = IBM_Plex_Mono({
   subsets: ["latin"],
   variable: "--font-mono-face",
@@ -91,18 +89,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
       </head>
-      <body className="min-h-full flex flex-col">
-        <div className="grain" aria-hidden="true" />
-        <a href="#main" className="skip-link">
-          Skip to content
-        </a>
-        <Header />
-        <main id="main" className="flex-1">
-          {children}
-        </main>
-        <Footer />
-        <JsonLd data={orgJsonLd()} />
-      </body>
+      <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
 }

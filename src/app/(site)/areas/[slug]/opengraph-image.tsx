@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 import { councils, getCouncil, COUNCIL_YEARS, COUNCIL_COUNT } from "@/lib/data/councils";
-import { site } from "../../../../site.config";
+import { site } from "@/lib/site";
 
 export const alt = "Child poverty in this council area";
 export const size = { width: 1200, height: 630 };

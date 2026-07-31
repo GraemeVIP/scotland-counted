@@ -12,6 +12,13 @@ import {
   SCOTLAND_PCTS,
   COUNCIL_COUNT,
 } from "@/lib/data/councils";
+import {
+  councilExtra,
+  SCOTLAND_EXTRA,
+  CC_YEARS,
+  JD_YEARS,
+  PAY_YEARS,
+} from "@/lib/data/councilExtra";
 
 export function generateStaticParams() {
   return councils.map((c) => ({ slug: c.slug }));
@@ -174,6 +181,128 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
             />
           </Figure>
         </div>
+
+        {/* ---------- Labour market ---------- */}
+        {(() => {
+          const ex = councilExtra[c.slug];
+          if (!ex) return null;
+          const cc = ex.cc as number[];
+          const jdLast = [...ex.jd].reverse().find((v) => v !== null) as number | null;
+          const jdYear = jdLast === null ? null : JD_YEARS[ex.jd.lastIndexOf(jdLast)];
+          const pay = ex.pay as number[];
+          const scoPay = SCOTLAND_EXTRA.pay as number[];
+          return (
+            <section className="pt-14">
+              <h2 className="h2 mb-4 max-w-[26ch]">Work and pay in {c.name}</h2>
+              <Col>
+                <p>
+                  Child poverty sits on a labour market. Here is {c.name}&apos;s, from the same
+                  official sources as the rest of this site
+                  {jdLast !== null && (
+                    <>
+                      {" "}
+                      — including{" "}
+                      <strong className="tnum">
+                        {jdLast} job{jdLast === 1 ? "" : "s"} located here for every working-age
+                        resident
+                      </strong>{" "}
+                      in {jdYear}.
+                    </>
+                  )}
+                </p>
+              </Col>
+
+              <div className="grid gap-5 lg:grid-cols-2 mt-8">
+                <Figure
+                  n={2}
+                  title="Out-of-work benefit claimants"
+                  sub={`% of residents aged 16–64 claiming, each January · 2000 – 2026 · ONS Claimant Count via NOMIS`}
+                  legend={[
+                    { name: c.name, colorVar: "--glasgow" },
+                    { name: "Scotland", colorVar: "--scotland" },
+                  ]}
+                  table={
+                    <DataTable
+                      head={["January", `${c.name} %`, "Scotland %"]}
+                      rows={CC_YEARS.map((y, i) => [
+                        y,
+                        cc[i]?.toFixed(1) ?? "—",
+                        (SCOTLAND_EXTRA.cc[i] as number).toFixed(1),
+                      ])}
+                    />
+                  }
+                  technical={[
+                    "From 2015 this count includes Universal Credit claimants required to look for work, a wider group than the Jobseeker's Allowance count it replaced.",
+                  ]}
+                >
+                  <LineChart
+                    x={CC_YEARS}
+                    series={[
+                      { name: c.name, colorVar: "--glasgow", data: cc },
+                      { name: "Scotland", colorVar: "--scotland", data: SCOTLAND_EXTRA.cc as number[] },
+                    ]}
+                    yMin={0}
+                    yMax={9}
+                    yTicks={[0, 2, 4, 6, 8]}
+                    unit="%"
+                    decimals={1}
+                    gapBand
+                    ariaLabel={`Out-of-work benefit claimants in ${c.name} compared with Scotland, 2000 to 2026.`}
+                  />
+                </Figure>
+
+                {ex.payComplete ? (
+                  <Figure
+                    n={3}
+                    title="Typical full-time weekly pay"
+                    sub={`Median gross pay, residence basis, cash terms · 2008 – 2025 · ONS ASHE via NOMIS`}
+                    legend={[
+                      { name: c.name, colorVar: "--glasgow" },
+                      { name: "Scotland", colorVar: "--scotland" },
+                    ]}
+                    table={
+                      <DataTable
+                        head={["Year", c.name, "Scotland"]}
+                        rows={PAY_YEARS.map((y, i) => [
+                          y,
+                          `£${pay[i]?.toFixed(0)}`,
+                          `£${scoPay[i]?.toFixed(0)}`,
+                        ])}
+                      />
+                    }
+                    technical={[
+                      "Cash terms, not adjusted for inflation — compare the two lines within a year, not along them. Residence basis: pay of people living in the area, wherever they work.",
+                    ]}
+                  >
+                    <LineChart
+                      x={PAY_YEARS}
+                      series={[
+                        { name: c.name, colorVar: "--glasgow", data: pay },
+                        { name: "Scotland", colorVar: "--scotland", data: scoPay },
+                      ]}
+                      yMin={350}
+                      yMax={850}
+                      yTicks={[400, 500, 600, 700, 800]}
+                      unit="£"
+                      decimals={0}
+                      gapBand
+                      ariaLabel={`Median full-time weekly pay for residents of ${c.name} compared with Scotland, 2008 to 2025.`}
+                    />
+                  </Figure>
+                ) : (
+                  <div className="bg-[var(--surface)] border border-[var(--rule)] p-7 flex flex-col justify-center">
+                    <p className="h4 mb-2">Pay data withheld</p>
+                    <p className="text-[15px] text-[var(--ink-2)] leading-[1.6] max-w-[46ch]">
+                      The ONS suppresses median pay for {c.name} in at least one year because the
+                      survey sample is too small to publish safely. We show nothing rather than
+                      estimate — see <Link href="/methods">how we handle missing data</Link>.
+                    </p>
+                  </div>
+                )}
+              </div>
+            </section>
+          );
+        })()}
 
         <Col className="pt-11">
           <h2 className="h2 mb-4">What this means</h2>

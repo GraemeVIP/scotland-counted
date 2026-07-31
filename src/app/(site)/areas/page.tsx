@@ -125,6 +125,13 @@ export default function Areas() {
         </section>
 
         <Col className="pt-12">
+          <p className="text-[15.5px] text-[var(--ink-2)] border-l-[3px] border-[var(--brand)] pl-5 py-1 mb-10">
+            Looking for your MP rather than your council?{" "}
+            <Link href="/constituencies">
+              All 57 Scottish Westminster constituencies are ranked here
+            </Link>
+            .
+          </p>
           <h2 className="h2 mb-4">The pattern behind the ranking</h2>
           <p>
             The three areas with the lowest child poverty — {byLevel[31].name},{" "}

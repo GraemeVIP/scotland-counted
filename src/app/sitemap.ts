@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { councils } from "@/lib/data/councils";
+import { constituencies } from "@/lib/data/constituencies";
 import { indicators, lifeExpectancy, deprivation } from "@/lib/data/indicators";
 import { site } from "../../site.config";
 
@@ -14,6 +15,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${site.url}/accountability`, changeFrequency: "monthly", priority: 0.9 },
     { url: `${site.url}/take-action`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${site.url}/areas`, changeFrequency: "yearly", priority: 0.8 },
+    { url: `${site.url}/constituencies`, changeFrequency: "yearly", priority: 0.8 },
+    { url: `${site.url}/press`, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${site.url}/updates`, changeFrequency: "weekly", priority: 0.6 },
     { url: `${site.url}/methods`, changeFrequency: "yearly", priority: 0.6 },
     { url: `${site.url}/glossary`, changeFrequency: "yearly", priority: 0.6 },
     { url: `${site.url}/data`, changeFrequency: "yearly", priority: 0.6 },
@@ -37,7 +41,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: c.slug === "glasgow-city" ? 0.9 : 0.6,
   }));
 
-  return [...core, ...indicatorPages, ...areaPages].map((e) => ({
+  const constituencyPages: MetadataRoute.Sitemap = constituencies.map((c) => ({
+    url: `${site.url}/constituencies/${c.slug}`,
+    changeFrequency: "yearly" as const,
+    priority: 0.6,
+  }));
+
+  return [...core, ...indicatorPages, ...areaPages, ...constituencyPages].map((e) => ({
     ...e,
     lastModified: now,
   }));

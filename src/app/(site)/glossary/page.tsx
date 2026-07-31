@@ -1,7 +1,7 @@
 import { Page, Col, PageHeader, CTA } from "@/components/Blocks";
 import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
 import { terms } from "@/lib/data/glossary";
-import { site } from "../../../site.config";
+import { site } from "@/lib/site";
 
 export const metadata = meta({
   title: "Plain-English glossary",

@@ -24,7 +24,7 @@ import {
   GLASGOW_CHILD_COUNTS,
 } from "@/lib/data/indicators";
 import { councilsByLevel } from "@/lib/data/councils";
-import { site } from "../../site.config";
+import { site } from "@/lib/site";
 import Hero from "./Hero";
 import DecadeScroll from "./DecadeScroll";
 
@@ -166,6 +166,7 @@ export default function Home() {
             <div className="mt-10">
               <Figure
                 n={1}
+                embedSlug={cp.slug}
                 title={cp.chartTitle}
                 sub={cp.chartSub}
                 legend={cp.series.map((s) => ({ name: s.name, colorVar: s.colorVar }))}

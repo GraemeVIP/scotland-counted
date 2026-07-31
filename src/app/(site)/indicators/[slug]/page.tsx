@@ -329,6 +329,7 @@ export default async function IndicatorPage(props: PageProps<"/indicators/[slug]
         <div className="pt-9">
           <Figure
             n={1}
+            embedSlug={ind.slug}
             title={ind.chartTitle}
             sub={ind.chartSub}
             legend={ind.series.map((s) => ({ name: s.name, colorVar: s.colorVar }))}

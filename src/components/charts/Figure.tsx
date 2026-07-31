@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import Reveal from "@/components/Reveal";
+import EmbedButton from "@/components/charts/EmbedButton";
 
 /** The card every chart sits in: title, source line, legend, chart, caption. */
 export default function Figure({
@@ -11,6 +12,7 @@ export default function Figure({
   caption,
   table,
   technical,
+  embedSlug,
   className = "",
 }: {
   /** Figure number, shown in the corner. Real information, not decoration. */
@@ -22,6 +24,8 @@ export default function Figure({
   caption?: ReactNode;
   table?: ReactNode;
   technical?: string[];
+  /** When set, offers a copyable iframe snippet for /embed/[slug]. */
+  embedSlug?: string;
   className?: string;
 }) {
   return (
@@ -80,6 +84,12 @@ export default function Figure({
           <figcaption className="text-[14.5px] leading-[1.6] text-[var(--ink-2)] mt-5 pt-4 border-t border-[var(--rule)] max-w-[74ch]">
             {caption}
           </figcaption>
+        )}
+
+        {embedSlug && (
+          <div className="border-t border-[var(--rule)] mt-4 pt-1">
+            <EmbedButton slug={embedSlug} title={title} />
+          </div>
         )}
 
         {technical && technical.length > 0 && (
