@@ -27,7 +27,7 @@ const COLS: { key: SortKey; label: string; numeric: boolean }[] = [
   { key: "name", label: "", numeric: false },
   { key: "latest", label: "", numeric: true },
   { key: "first", label: "", numeric: true },
-  { key: "change", label: "Change", numeric: true },
+  { key: "change", label: "10-year change", numeric: true },
   { key: "children", label: "Children", numeric: true },
 ];
 
@@ -50,7 +50,7 @@ export default function RankTable({
     name: nameLabel,
     latest: latestLabel,
     first: firstLabel,
-    change: "Change",
+    change: "10-year change",
     children: "Children",
   };
 
@@ -94,7 +94,7 @@ export default function RankTable({
                 setAsc(m.asc);
               }}
               aria-pressed={activeMobile === m.id}
-              className={`ui rounded-full px-4 py-2 text-[13.5px] font-[640] border transition-colors ${
+              className={`ui rounded-full px-4 py-2 text-[15px] font-[640] border transition-colors ${
                 activeMobile === m.id
                   ? "bg-[var(--ink)] text-[var(--paper)] border-[var(--ink)]"
                   : "bg-[var(--surface)] text-[var(--ink-2)] border-[var(--rule-strong)]"
@@ -115,7 +115,7 @@ export default function RankTable({
                 href={r.href}
                 className="flex items-center gap-3 py-3.5 px-2 border-b border-[var(--rule)] active:bg-[var(--surface-2)]"
               >
-                <span className="ui text-[13px] text-[var(--muted)] tnum w-[2ch] shrink-0 text-right">
+                <span className="ui text-[15px] text-[var(--muted)] tnum w-[2ch] shrink-0 text-right">
                   {r.rank}
                 </span>
                 <span className="min-w-0 flex-1">
@@ -126,12 +126,8 @@ export default function RankTable({
                   >
                     {r.name}
                   </span>
-                  <span className="ui block text-[12.5px] text-[var(--muted)] mt-0.5">
-                    was {r.first}% ·{" "}
-                    <span className={r.change > 0 ? "text-[var(--bad)]" : "text-[var(--good)]"}>
-                      {r.change > 0 ? "up" : "down"} {Math.abs(r.change)}
-                    </span>{" "}
-                    · {r.children.toLocaleString("en-GB")} children
+                  <span className="ui block text-[15px] text-[var(--muted)] mt-1 leading-[1.45]">
+                    Ten years ago: {r.first}% · {r.children.toLocaleString("en-GB")} children now
                   </span>
                 </span>
                 <span className="figure-num text-[21px] tnum shrink-0">{r.latest}%</span>
@@ -162,7 +158,7 @@ export default function RankTable({
                   <button
                     type="button"
                     onClick={() => toggle(c.key)}
-                    className={`ui w-full text-[12.5px] font-[680] pr-4 pt-1 pb-2.5 whitespace-nowrap transition-colors ${
+                    className={`ui w-full text-[15px] font-[680] pr-4 pt-1 pb-2.5 whitespace-nowrap transition-colors ${
                       c.numeric && c.key !== "rank" ? "text-right" : "text-left"
                     } ${active ? "text-[var(--brand)]" : "text-[var(--muted)] hover:text-[var(--ink)]"}`}
                   >
@@ -209,7 +205,7 @@ export default function RankTable({
                 }`}
               >
                 {r.change > 0 ? "+" : ""}
-                {r.change}
+                {r.change} points
               </td>
               <td className="py-2.5 border-b border-[var(--rule)] text-right tnum text-[var(--ink-2)]">
                 {r.children.toLocaleString("en-GB")}

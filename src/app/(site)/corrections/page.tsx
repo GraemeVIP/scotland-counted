@@ -27,7 +27,7 @@ export default function Corrections() {
         <PageHeader
           eyebrow="Accuracy"
           title="Corrections"
-          lede="This site argues that politicians should be held to published figures. That obligation runs in both directions, so every correction is logged in public rather than quietly edited."
+          lede="The figures must be right. If we make a mistake, we fix it and list the change here instead of quietly hiding it."
         />
 
         <Col className="pt-11">
@@ -38,9 +38,8 @@ export default function Corrections() {
             still.
           </p>
           <p>
-            Errors of fact are fixed as soon as they are confirmed, and logged below. Differences
-            of interpretation are worth having too — if you think a figure is right but the
-            conclusion drawn from it is not, say so and we will publish the challenge.
+            We fix confirmed errors as soon as we can and list them below. You can also tell us if
+            the number is right but you think we have explained it unfairly.
           </p>
         </Col>
 
@@ -61,7 +60,7 @@ export default function Corrections() {
                     {["Date", "Page", "What changed"].map((h) => (
                       <th
                         key={h}
-                        className="ui text-[12.5px] font-[680] text-[var(--muted)] text-left pr-4 pb-2.5 border-b border-[var(--rule)]"
+                        className="ui text-[15px] font-[680] text-[var(--muted)] text-left pr-4 pb-2.5 border-b border-[var(--rule)]"
                       >
                         {h}
                       </th>
@@ -71,7 +70,7 @@ export default function Corrections() {
                 <tbody>
                   {LOG.map((l, i) => (
                     <tr key={i}>
-                      <td className="pr-4 py-3 border-b border-[var(--rule)] ui text-[13.5px] whitespace-nowrap">
+                      <td className="pr-4 py-3 border-b border-[var(--rule)] ui text-[15px] whitespace-nowrap">
                         {l.date}
                       </td>
                       <td className="pr-4 py-3 border-b border-[var(--rule)]">{l.page}</td>
@@ -89,9 +88,8 @@ export default function Corrections() {
         <Col className="pt-12">
           <h2 className="h2 mb-4">Known limitations</h2>
           <p>
-            Separately from errors, there are things the data genuinely cannot support. Those are
-            listed on the <Link href="/methods">methods page</Link> and are not corrections — they
-            are the boundary of what any of these figures can be used to claim.
+            Some questions cannot be answered safely by the available data. Those limits are
+            listed on the <Link href="/methods">how we counted it page</Link>.
           </p>
         </Col>
       </Page>

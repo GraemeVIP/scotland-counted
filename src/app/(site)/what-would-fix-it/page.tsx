@@ -18,9 +18,9 @@ import { fixes, type FixStatus } from "@/lib/data/policy";
 import { getSources } from "@/lib/data/sources";
 
 export const metadata = meta({
-  title: "What would actually fix it",
+  title: "What would help cut poverty",
   description:
-    "Seven costed policies that would cut poverty in Scotland, what each would achieve, what each costs, who controls it and where it stands today. Modelled by JRF, IPPR Scotland and the Fraser of Allander Institute.",
+    "Seven practical changes that experts say would cut poverty in Scotland, with the exact cost, likely effect and the government that can act.",
   path: "/what-would-fix-it",
 });
 
@@ -33,7 +33,7 @@ const TAG: Record<FixStatus, string> = {
 function StatusTag({ status, label }: { status: FixStatus; label: string }) {
   return (
     <span
-      className={`ui inline-block rounded-full text-[12px] font-[660] px-3 py-1.5 border whitespace-nowrap ${TAG[status]}`}
+      className={`ui inline-block rounded-full text-[15px] font-[700] px-3 py-2 border whitespace-nowrap ${TAG[status]}`}
       style={{ borderColor: "currentColor" }}
     >
       {label}
@@ -44,15 +44,15 @@ function StatusTag({ status, label }: { status: FixStatus; label: string }) {
 const FAQ = [
   {
     q: "Does getting more people into work reduce child poverty?",
-    a: "Not on its own. Across Scotland, 75% of children in poverty live in a household where at least one adult works. Glasgow's employment rate rose nine points between 2013 and 2022 while its child poverty rate rose too. Independent modelling by JRF, IPPR Scotland and the Fraser of Allander Institute all find that income transfers, not employment programmes, drive the child poverty figure.",
+    a: "Not on its own. Three in four children in poverty live with someone who works. More Glaswegians found jobs while child poverty still rose. The research says families need enough money coming in as well as access to work.",
   },
   {
     q: "What happened to the two-child limit?",
-    a: "It ran from April 2017 and was abolished in April 2026. It withheld benefit support for third and subsequent children, and because it targeted larger families it fell hardest on places with bigger average family sizes, Glasgow among them.",
+    a: "From April 2017 to April 2026, families could not get normal benefit support for a third or later child. It hit larger families hardest, including many in Glasgow.",
   },
   {
     q: "How much would it cost to hit Scotland's child poverty target?",
-    a: "There is no single figure, but the costed components are known: about £310m a year for a targeted Scottish Child Payment supplement, £60m a year to reach full take-up, and £8-9.2bn over a parliament for a housing programme adequate to need, against £4.1bn currently planned.",
+    a: "There is no single price. The main estimates are £310m a year for extra Scottish Child Payment, £60m a year to make sure every eligible family receives it, and £8–9.2bn over five years for enough housing. The exact figures and sources are shown below.",
   },
 ];
 
@@ -78,20 +78,20 @@ export default function WhatWouldFixIt() {
 
       <Page>
         <PageHeader
-          eyebrow="Scotland · The evidence · Seven costed measures"
-          title="What would actually fix it"
-          lede="This is one of the better-researched questions in Scottish politics. Most measures apply across Scotland; the final housing shortfall is the Glasgow case study. Three independent bodies have run the numbers, and they land in the same place."
+          eyebrow="Scotland · Seven practical changes"
+          title="What would help cut poverty"
+          lede="We do not have to guess. Independent experts have tested the main ideas. They agree that families need more money coming in, affordable housing and childcare that works around real jobs."
           stat={{
             value: `${done} of ${fixes.length}`,
-            label: "of the costed, evidenced measures on this page has actually been delivered",
+            label: "of the seven changes on this page has been fully delivered",
             tone: "bad",
           }}
         />
 
         <InShort>
-          <p>Experts agree on what works: put money directly in families&apos; pockets.</p>
-          <p>Job schemes alone do not fix child poverty.</p>
-          <p>Most of the things that would work have not been done yet.</p>
+          <p><strong>Families need enough money to live on.</strong> Job schemes alone do not fix poverty.</p>
+          <p>Affordable homes and childcare that fits shift work also matter.</p>
+          <p>Most of the changes experts recommend have not been fully delivered.</p>
         </InShort>
 
         <EditorialImage
@@ -105,74 +105,29 @@ export default function WhatWouldFixIt() {
       </Page>
 
       <Slab attribution="The shared finding of JRF, IPPR Scotland and the Fraser of Allander Institute">
-        Putting money directly into families&apos; hands is what works. Training and job schemes
-        barely shift it.
+        A job matters. But families also need enough money left after rent, childcare and bills.
       </Slab>
 
       <Page>
         <Col>
           <p>
-            Not one model gets anywhere near the 2030 target through employment policy alone.
-            Here is what has been costed, what each measure would achieve, who has the power to do
-            it — and where each one stands today.
+            The research does not reach the 2030 target through job schemes alone. These are the
+            seven changes experts have priced, what each could do and who can make it happen.
           </p>
         </Col>
 
-        {/* ---------- The ledger, desktop ---------- */}
-        <Reveal>
-          <div className="mt-10 overflow-x-auto hidden md:block rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] p-2">
-            <table className="w-full border-collapse text-[15px]">
-              <thead>
-                <tr>
-                  {["What could be done", "What it would do", "What it costs", "Who decides", "Where it stands"].map(
-                    (h) => (
-                      <th
-                        key={h}
-                        className="ui text-[12.5px] font-[680] text-[var(--muted)] text-left align-bottom px-4 pt-4 pb-3 border-b-2 border-[var(--ink)]"
-                      >
-                        {h}
-                      </th>
-                    )
-                  )}
-                </tr>
-              </thead>
-              <tbody>
-                {fixes.map((f) => (
-                  <tr key={f.id} className="align-top hover:bg-[var(--surface-2)] transition-colors">
-                    <td className="ui px-4 py-4 border-b border-[var(--rule)] min-w-[200px] font-[640] text-[15px] leading-[1.35]">
-                      {f.what}
-                    </td>
-                    <td className="px-4 py-4 border-b border-[var(--rule)] text-[var(--ink-2)] text-[15px] leading-[1.55]">
-                      {f.effect}
-                    </td>
-                    <td className="ui tnum px-4 py-4 border-b border-[var(--rule)] whitespace-nowrap text-[14px]">
-                      {f.cost}
-                    </td>
-                    <td className="ui px-4 py-4 border-b border-[var(--rule)] whitespace-nowrap text-[14px] text-[var(--ink-2)]">
-                      {f.lever}
-                    </td>
-                    <td className="px-4 py-4 border-b border-[var(--rule)]">
-                      <StatusTag status={f.status} label={f.statusLabel} />
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </Reveal>
-
-        {/* ---------- The ledger, mobile ---------- */}
-        <div className="mt-10 grid gap-4 md:hidden">
+        <div className="mt-10 grid gap-4 md:grid-cols-2">
           {fixes.map((f, i) => (
             <Reveal key={f.id} delay={i * 40}>
-              <div className="rounded-[var(--r-s)] bg-[var(--surface)] border border-[var(--rule)] p-5">
-                <div className="flex items-start justify-between gap-3 mb-3">
-                  <p className="ui font-[640] text-[16px] leading-[1.35]">{f.what}</p>
+              <div className="h-full flex flex-col rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] p-6">
+                <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
+                  <p className="ui font-[750] text-[18px] leading-[1.35] max-w-[30ch]">{f.what}</p>
                   <StatusTag status={f.status} label={f.statusLabel} />
                 </div>
-                <p className="text-[15px] text-[var(--ink-2)] leading-[1.55] mb-3.5">{f.effect}</p>
-                <p className="ui tnum text-[12.5px] text-[var(--muted)]">
-                  {f.cost} · decided by {f.lever}
+                <p className="text-[16px] text-[var(--ink-2)] leading-[1.55] mb-5">{f.effect}</p>
+                <p className="ui tnum text-[15px] text-[var(--muted)] border-t border-[var(--rule)] pt-4 mt-auto">
+                  <strong className="text-[var(--ink)]">Cost:</strong> {f.cost}<br />
+                  <strong className="text-[var(--ink)]">Who can do it:</strong> {f.lever}
                 </p>
               </div>
             </Reveal>
@@ -189,9 +144,8 @@ export default function WhatWouldFixIt() {
             }
           >
             <p>
-              The <G t="scp">Scottish Child Payment</G> demonstrably works — and on every model, it
-              is not enough by itself. That is the pattern across this table: the measures that
-              exist are real, and they are smaller than the problem they are set against.
+              The <G t="scp">Scottish Child Payment</G> works. But it is not enough on its own.
+              The help that exists is real; it is simply too small to match the problem.
             </p>
           </Split>
         </div>
@@ -201,27 +155,25 @@ export default function WhatWouldFixIt() {
           <SectionHead
             n={1}
             eyebrow="The pattern"
-            title="Why employment schemes keep being chosen anyway"
+            title="Why governments keep choosing cheaper ideas"
           />
           <div className="sm:pl-[calc(2ch+2rem)] mt-8">
             <Split
               aside={
                 <Note label="Employability spending, 2026–31 plan" value="£90m">
-                  A year — against £310m a year for the supplement the modelling says would lift
-                  10,000 children out of poverty.
+                  That is each year. Experts estimate £310m a year for the extra payment that could
+                  lift about 10,000 children out of poverty.
                 </Note>
               }
             >
               <p>
-                Because they are cheaper, and because they let a government say it is doing
-                something without committing to recurring spending. The 2026&ndash;31 delivery
-                plan commits about £90m a year to employability support — real money, and a
-                fraction of what the effective lever costs.
+                Job support is cheaper than giving families more money every week. The 2026–31
+                plan puts about £90m a year into helping people find work. That is real help, but
+                it is far less than the ideas that experts say would cut poverty most.
               </p>
               <p>
-                The difficulty is that the government&apos;s own commissioned evidence says the
-                expensive lever is the one that works.{" "}
-                <Link href="/accountability">That is a choice, and it is on the record.</Link>
+                The government&apos;s own research says the more expensive option is the one that
+                works better. <Link href="/accountability">That choice is on the record.</Link>
               </p>
             </Split>
           </div>
@@ -229,7 +181,7 @@ export default function WhatWouldFixIt() {
 
         {/* ---------- FAQ ---------- */}
         <section className="pt-20 sm:pt-24">
-          <SectionHead n={2} eyebrow="Questions" title="What people ask about the fixes" />
+          <SectionHead n={2} eyebrow="Questions" title="What people ask about the changes" />
           <div className="grid gap-x-14 gap-y-9 lg:grid-cols-2 mt-10">
             {FAQ.map((f) => (
               <div key={f.q} className="border-t-2 border-[var(--ink)] pt-5">
@@ -242,10 +194,10 @@ export default function WhatWouldFixIt() {
 
         {/* ---------- Sources ---------- */}
         <section className="mt-20 pt-8 border-t-2 border-[var(--ink)]">
-          <p className="label mb-6">Where the modelling comes from</p>
+          <p className="label mb-6">The research and exact workings</p>
           <div className="grid gap-x-12 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
             {getSources(["sg-poverty-2026", "jrf", "ippr", "fai", "cpag", "housing"]).map((s) => (
-              <div key={s.id} className="text-[14.5px] text-[var(--ink-2)] leading-[1.55]">
+              <div key={s.id} className="text-[15px] text-[var(--ink-2)] leading-[1.55]">
                 <a
                   href={s.url}
                   target="_blank"
@@ -254,7 +206,7 @@ export default function WhatWouldFixIt() {
                 >
                   {s.title}
                 </a>
-                <p className="ui text-[12.5px] text-[var(--muted)] mt-1.5 mb-1.5">
+                <p className="ui text-[15px] text-[var(--muted)] mt-1.5 mb-1.5">
                   {s.publisher}
                 </p>
                 {s.used}
@@ -265,12 +217,12 @@ export default function WhatWouldFixIt() {
       </Page>
 
       <CTA
-        title="Ask your representative which of these they support"
-        body="Every measure on this page has a named decision-maker. The take-action page writes the letter for you, with the figures for your own council area already in it."
+        title="Ask the people who can make these changes"
+        body="Enter your postcode. We find your MP and MSP, add the local facts and put the right requests into each email automatically. You do not need to choose."
         href="/take-action"
-        cta="Write to them"
+        cta="Find my MP and MSP"
         secondaryHref="/accountability"
-        secondaryCta="See the record"
+        secondaryCta="See who decides"
       />
     </>
   );

@@ -95,12 +95,12 @@ export function G({ t, children }: { t: string; children: React.ReactNode }) {
           >
             &times;
           </button>
-          <div className="ui text-[13px] font-[680] text-[var(--brand)] mb-1.5">
+          <div className="ui text-[15px] font-[680] text-[var(--brand)] mb-1.5">
             {term.term}
           </div>
           <div className="text-[var(--ink)]">{term.def}</div>
           {term.tech && (
-            <div className="mt-2.5 pt-2.5 border-t border-[var(--rule)] text-[13px]">
+            <div className="mt-2.5 pt-2.5 border-t border-[var(--rule)] text-[15px]">
               {term.tech}
             </div>
           )}

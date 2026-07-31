@@ -53,7 +53,7 @@ export default function NewsletterSignup({
       <p
         className={
           compact
-            ? "text-[14px] leading-[1.55] opacity-80 max-w-[34ch]"
+            ? "text-[15px] leading-[1.55] opacity-80 max-w-[34ch]"
             : "text-[16px] leading-[1.6] text-[var(--ink-2)] max-w-[46ch]"
         }
         role="status"
@@ -91,7 +91,7 @@ export default function NewsletterSignup({
           aria-label="Your email address"
           className={
             compact
-              ? "ui flex-1 min-w-0 bg-transparent border border-current/30 focus:border-current px-3.5 py-2.5 text-[14px] outline-none placeholder:opacity-50 transition-colors"
+              ? "ui flex-1 min-w-0 bg-transparent border border-current/30 focus:border-current px-3.5 py-2.5 text-[15px] outline-none placeholder:opacity-50 transition-colors"
               : "ui flex-1 min-w-0 bg-[var(--paper)] border border-[var(--rule-strong)] focus:border-[var(--brand)] px-3.5 py-3 text-[15px] outline-none transition-colors"
           }
         />
@@ -100,7 +100,7 @@ export default function NewsletterSignup({
           disabled={state === "sending"}
           className={
             compact
-              ? "btn btn-on-deep !px-4 !py-2.5 !text-[13.5px] shrink-0 disabled:opacity-60"
+              ? "btn btn-on-deep !px-4 !py-2.5 !text-[15px] shrink-0 disabled:opacity-60"
               : "btn btn-primary shrink-0 disabled:opacity-60"
           }
         >
@@ -110,8 +110,8 @@ export default function NewsletterSignup({
       <p
         className={
           compact
-            ? "text-[12px] leading-[1.5] opacity-55 mt-2.5"
-            : "text-[13px] leading-[1.55] text-[var(--muted)] mt-2.5 max-w-[52ch]"
+            ? "text-[15px] leading-[1.5] opacity-55 mt-2.5"
+            : "text-[15px] leading-[1.55] text-[var(--muted)] mt-2.5 max-w-[52ch]"
         }
       >
         {state === "error"

@@ -27,8 +27,8 @@
   /* Ink */
   --ink: #191512;
   --ink-2: #554e45;
-  --ink-3: #7d7568;
-  --muted: #948b7c;
+  --ink-3: #6f675c;
+  --muted: #6b6257;
   --rule: #ded7c8;
   --rule-strong: #c4bba7;
   --grid: #e6dfd1;
@@ -38,8 +38,8 @@
   --brand: #14547a;
   --brand-deep: #0d2f45;
   --brand-wash: rgba(20, 84, 122, 0.07);
-  --action: #c2661b;
-  --action-hover: #a5560f;
+  --action: #a94d08;
+  --action-hover: #873b04;
 
   /* Data series — validated for colour-vision deficiency */
   --glasgow: #2a78d6;
@@ -89,8 +89,8 @@
   --deep-ink: #eee9de;
   --ink: #f4f0e7;
   --ink-2: #b5ac9d;
-  --ink-3: #8e8577;
-  --muted: #857c6e;
+  --ink-3: #aaa092;
+  --muted: #b4aa9c;
   --rule: #2d2823;
   --rule-strong: #443d35;
   --grid: #282320;
@@ -98,8 +98,8 @@
   --brand: #5ca4cc;
   --brand-deep: #0a1f2e;
   --brand-wash: rgba(92, 164, 204, 0.12);
-  --action: #e08a3c;
-  --action-hover: #eda256;
+  --action: #f0a35b;
+  --action-hover: #ffc17f;
   --glasgow: #3987e5;
   --scotland: #d95926;
   --workplace: #199e70;
@@ -161,9 +161,9 @@
   body {
     background: var(--paper);
     color: var(--ink);
-    font-family: var(--font-serif);
-    font-size: 18.5px;
-    line-height: 1.64;
+    font-family: var(--font-sans);
+    font-size: 18px;
+    line-height: 1.6;
     margin: 0;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
@@ -225,8 +225,8 @@
   /* Small label. Sans, not mono — mono everywhere reads as a terminal. */
   .label {
     font-family: var(--font-sans);
-    font-size: 13.5px;
-    font-weight: 680;
+    font-size: 15px;
+    font-weight: 720;
     letter-spacing: 0.01em;
     color: var(--brand);
   }
@@ -282,11 +282,11 @@
   }
 
   .lede {
-    font-family: var(--font-serif);
-    font-size: clamp(20px, 2.2vw, 25px);
-    line-height: 1.48;
+    font-family: var(--font-sans);
+    font-size: clamp(18px, 1.8vw, 22px);
+    line-height: 1.52;
     color: var(--ink-2);
-    font-weight: 300;
+    font-weight: 440;
   }
 
   .figure-num {
@@ -325,7 +325,7 @@
     background: var(--action);
   }
   .prose strong {
-    font-weight: 600;
+    font-weight: 720;
     color: var(--ink);
   }
   .prose em {
@@ -359,9 +359,10 @@
     align-items: center;
     gap: 10px;
     border-radius: var(--r-pill);
-    padding: 14px 28px;
-    font-size: 15.5px;
-    font-weight: 640;
+    min-height: 48px;
+    padding: 13px 26px;
+    font-size: 16px;
+    font-weight: 700;
     letter-spacing: -0.008em;
     border: 1px solid transparent;
     transition: background 0.18s var(--ease), color 0.18s var(--ease),
@@ -376,6 +377,9 @@
   }
   .btn-primary:hover {
     background: var(--action-hover);
+  }
+  :root[data-theme="dark"] .btn-primary {
+    color: var(--deep);
   }
   .btn-ghost {
     border-color: var(--rule-strong);
@@ -424,7 +428,7 @@
     border: 1px solid var(--rule-strong);
     box-shadow: var(--shadow-3);
     padding: 17px 19px 18px;
-    font-family: var(--font-serif);
+    font-family: var(--font-sans);
     font-size: 15px;
     line-height: 1.5;
     color: var(--ink-2);

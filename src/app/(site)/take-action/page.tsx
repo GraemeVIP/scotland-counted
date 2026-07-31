@@ -4,28 +4,28 @@ import LetterBuilder from "./LetterBuilder";
 import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
 
 export const metadata = meta({
-  title: "Take action",
+  title: "Email your MP and MSP",
   description:
-    "Write to your MP and MSP about poverty, work and living standards in your area. Their names, email addresses and your council evidence are found and filled in automatically.",
+    "Enter your postcode. We find your MP and MSP, add the local poverty figures, write both emails and open them in your email app.",
   path: "/take-action",
 });
 
 const OTHER = [
   {
-    title: "Share one chart, not the whole site",
-    body: "A single figure with a source travels further than a link to a homepage. Every chart on this site has a data table underneath it, and every page has a permanent URL you can link to directly.",
+    title: "Share one clear fact",
+    body: "A simple local fact is easier to understand and share than a full report. Every local page has the exact figure and source underneath.",
   },
   {
-    title: "Use the numbers in your own work",
-    body: "If you run a charity, a community group, a union branch or a newsroom, the data here is free to reuse with attribution. Download the CSVs and check them against the original publishers.",
+    title: "Use the figures in your own work",
+    body: "Charities, community groups, unions and newsrooms can reuse everything for free. The download page has the exact files and original sources.",
   },
   {
-    title: "Ask a specific question at a surgery",
-    body: "General concern is easy to absorb. \"Do you support restoring Local Housing Allowance to the 30th percentile?\" is not. The costed options page lists each measure and who decides it.",
+    title: "Take the question to a local surgery",
+    body: "Ask what your MP or MSP will do, and what they expect the local poverty figure to be in five years. A clear question is harder to avoid.",
   },
   {
     title: "Correct us in public",
-    body: "If a figure here is wrong, that matters more than anything else on the site. Report it and we will fix it and log the change where anyone can see it.",
+    body: "If a figure is wrong, tell us. We will check it, fix any error and keep a public record of the change.",
   },
 ];
 
@@ -41,71 +41,32 @@ export default function TakeAction() {
 
       <Page>
         <PageHeader
-          eyebrow="Two minutes"
-          title="Ask the people who can act"
-          lede="You do not need to know who your representatives are or which government controls what. Enter your postcode once: the site finds your MP, MSP and council evidence, routes each policy request correctly and opens the addressed emails in your own email app."
-          stat={{
-            value: "2 min",
-            label: "from entering a postcode to addressed emails, with the local evidence filled in",
-            tone: "neutral",
-          }}
+          eyebrow="No politics knowledge needed"
+          title="Email your MP and MSP"
+          lede="Enter your postcode. We find the right people, add the facts for your area, write both emails and open them in your own email app. You do not have to choose who gets which request."
         />
-
-        {/* Plain instructions before the tool */}
-        <div className="grid gap-px bg-[var(--rule)] border-y border-[var(--rule)] mt-2 sm:grid-cols-3">
-          {[
-            {
-              n: 1,
-              t: "Enter your postcode",
-              b: "Your MP, MSP and council figures are found and filled in automatically.",
-            },
-            {
-              n: 2,
-              t: "Choose what should change",
-              b: "Each request is routed to the politician who can actually act on it. You do not need to know who decides what.",
-            },
-            {
-              n: 3,
-              t: "Open and send",
-              b: "Your email app opens with the right name, address, subject and message already filled in.",
-            },
-          ].map((s) => (
-            <div key={s.n} className="bg-[var(--paper)] px-6 py-6">
-              <div className="flex items-baseline gap-3 mb-2">
-                <span className="figure-num text-[30px] text-[var(--action)]" aria-hidden="true">
-                  {s.n}
-                </span>
-                <h2 className="ui text-[15px] font-[660] tracking-[-0.01em]">{s.t}</h2>
-              </div>
-              <p className="text-[15px] text-[var(--ink-2)] leading-[1.55]">{s.b}</p>
-            </div>
-          ))}
-        </div>
 
         <LetterBuilder />
 
         <Col className="pt-14">
-          <h2 className="h2 mb-4">Why a letter, and why this one</h2>
+          <h2 className="h2 mb-4">Why send an email?</h2>
           <p>
-            Constituency correspondence is logged, counted and reported internally. A letter that
-            cites the right figure and asks a closed question is much harder to answer with a
-            template than one that expresses concern.
+            MPs and MSPs keep a record of messages from local people. A short email with a local
+            fact and a clear question is harder to brush aside than a general complaint.
           </p>
           <p>
-            This letter names the measure, the year, the source and the ask. It also asks for a
-            forecast — what they expect the rate to be in five years — because a forecast is a
-            commitment that can be checked later.
+            Each email gives the exact local figure and asks what they will do. It also asks what
+            they expect the figure to be in five years, so their answer can be checked later.
           </p>
           <p className="text-[15px] text-[var(--ink-2)]">
             No email is sent through this site and nothing you type is stored. Your postcode is
-            used only to retrieve your area and representatives from Postcodes.io, UK Parliament
-            and the Scottish Parliament. Your name and personal message stay in your browser, and
-            the finished email opens in your own email app.
+            used only to find your area and representatives from official services. Your name and
+            personal message stay in your browser. The finished email opens in your own email app.
           </p>
         </Col>
 
         <section className="pt-14">
-          <h2 className="h2 mb-6">Other things that actually help</h2>
+          <h2 className="h2 mb-6">Other simple ways to help</h2>
           <div className="grid gap-4 sm:grid-cols-2">
             {OTHER.map((o) => (
               <div

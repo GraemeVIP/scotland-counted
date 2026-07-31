@@ -97,7 +97,7 @@ export default function Data() {
         <PageHeader
           eyebrow="Free to download and reuse"
           title="Download the data"
-          lede="Two kinds of file: tidy extracts we prepared, and the raw pulls exactly as the publisher returned them. Both are here so you can check our working rather than take it on trust."
+          lede="This is the proof behind the simple pages. Download the clean files we prepared or the original files exactly as the publisher supplied them."
         />
 
         <div className="mt-9 grid gap-3 sm:grid-cols-2">
@@ -112,41 +112,38 @@ export default function Data() {
                 <h2 className="text-[16.5px] font-[620] leading-[1.3] group-hover:text-[var(--brand)] transition-colors">
                   {f.title}
                 </h2>
-                <span className="ui text-[12.5px] text-[var(--muted)] shrink-0 pt-1">
+                <span className="ui text-[15px] text-[var(--muted)] shrink-0 pt-1">
                   {f.size}
                 </span>
               </div>
-              <p className="text-[14.5px] text-[var(--ink-2)] leading-[1.5] mb-2.5">{f.body}</p>
-              <p className="ui text-[13px] font-[620] text-[var(--brand)]">Download · {f.file}</p>
+              <p className="text-[15px] text-[var(--ink-2)] leading-[1.5] mb-2.5">{f.body}</p>
+              <p className="ui text-[15px] font-[620] text-[var(--brand)]">Download · {f.file}</p>
             </a>
           ))}
         </div>
 
         <Col className="pt-12">
-          <h2 className="h2 mb-4">Licence and attribution</h2>
+          <h2 className="h2 mb-4">Can I reuse it?</h2>
           <p>
-            The underlying data belongs to its original publishers — ONS, DWP, the Scottish
-            Government, End Child Poverty and Loughborough University — and is almost all
-            available under the Open Government Licence. Their terms apply to the raw files.
+            Yes. The original data belongs to ONS, DWP, the Scottish Government, End Child Poverty
+            and Loughborough University. Their licence rules still apply to the original files.
           </p>
           <p>
-            Our derived files, charts and analysis are free to reuse with attribution to {site.name}.
-            No permission needed. If you are a journalist or researcher and want a series
-            in a different shape, ask and we will prepare it.
+            Our cleaned files, charts and words are free to reuse if you credit {site.name}. You do
+            not need permission. Journalists and researchers can ask for a different file format.
           </p>
           <p>
-            The derivations we applied are documented on the{" "}
-            <Link href="/methods">methods page</Link>, source by source.
+            Any calculation we made is explained on the <Link href="/methods">how we counted it page</Link>.
           </p>
         </Col>
 
         <CTA
-          title="If our numbers do not match the publisher's, tell us"
-          body="Everything here was retrieved from primary sources, but retrieval and transcription can both go wrong. A confirmed error gets fixed the day it is reported and logged in public."
+          title="If a number does not match, tell us"
+          body="People can make mistakes when copying or cleaning data. We check reported errors, fix confirmed mistakes and keep a public record."
           href="/corrections"
           cta="Report an error"
           secondaryHref="/methods"
-          secondaryCta="Read the methods"
+          secondaryCta="See how it was counted"
         />
       </Page>
     </>

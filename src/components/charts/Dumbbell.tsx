@@ -66,8 +66,8 @@ export default function Dumbbell({
 
   const narrow = w < 520;
   const labelW = narrow ? 118 : 168;
-  const rowH = narrow ? 17 : 19;
-  const m = { t: 26, r: narrow ? 14 : 54, b: 26, l: labelW };
+  const rowH = narrow ? 23 : 23;
+  const m = { t: 30, r: narrow ? 18 : 62, b: 34, l: labelW };
   const h = m.t + rows.length * rowH + m.b;
   const iw = w - m.l - m.r;
   const X = (v: number) => m.l + ((v - xMin) / (xMax - xMin)) * iw;
@@ -92,7 +92,7 @@ export default function Dumbbell({
         {ticks.map((t) => (
           <g key={t}>
             <line x1={X(t)} x2={X(t)} y1={m.t - 6} y2={m.t + rows.length * rowH} stroke={grid} strokeWidth={1} />
-            <text x={X(t)} y={12} textAnchor="middle" fill={muted} fontSize={narrow ? 10 : 11} fontFamily="var(--font-sans)">
+            <text x={X(t)} y={16} textAnchor="middle" fill={muted} fontSize={15} fontFamily="var(--font-sans)">
               {t}%
             </text>
           </g>
@@ -109,7 +109,7 @@ export default function Dumbbell({
                 y={y + 4}
                 textAnchor="end"
                 fill={hi ? ink : readVar("--ink-2")}
-                fontSize={narrow ? 10.5 : 12}
+                fontSize={15}
                 fontWeight={hi ? 640 : 400}
               >
                 {r.name}
@@ -134,7 +134,7 @@ export default function Dumbbell({
                   y={y + 4}
                   textAnchor="end"
                   fill={hi ? ink : muted}
-                  fontSize={11.5}
+                  fontSize={15}
                   fontWeight={hi ? 620 : 400}
                   fontFamily="var(--font-sans)"
                 >
@@ -157,11 +157,11 @@ export default function Dumbbell({
         })}
 
         <circle cx={m.l + 4} cy={h - 11} r={4.5} fill={cOld} />
-        <text x={m.l + 13} y={h - 7} fill={readVar("--ink-2")} fontSize={narrow ? 10.5 : 11.5} fontFamily="var(--font-sans)">
+        <text x={m.l + 13} y={h - 7} fill={readVar("--ink-2")} fontSize={15} fontFamily="var(--font-sans)">
           {fromLabel}
         </text>
         <circle cx={m.l + (narrow ? 78 : 86)} cy={h - 11} r={4.5} fill={cNew} />
-        <text x={m.l + (narrow ? 87 : 95)} y={h - 7} fill={readVar("--ink-2")} fontSize={narrow ? 10.5 : 11.5} fontFamily="var(--font-sans)">
+        <text x={m.l + (narrow ? 87 : 95)} y={h - 7} fill={readVar("--ink-2")} fontSize={15} fontFamily="var(--font-sans)">
           {toLabel}
         </text>
       </svg>
@@ -176,20 +176,20 @@ export default function Dumbbell({
           }}
           role="status"
         >
-          <div className="ui text-[12.5px] font-[680] text-[var(--ink-2)] mb-1.5">
+          <div className="ui text-[15px] font-[680] text-[var(--ink-2)] mb-1.5">
             {rows[hover].name}
           </div>
-          <div className="flex items-center gap-2 text-[13px]">
+          <div className="flex items-center gap-2 text-[15px]">
             <span className="w-2 h-2 rounded-full shrink-0" style={{ background: cOld }} />
             {fromLabel}
             <b className="ml-auto tnum text-[var(--ink)]">{rows[hover].from.toFixed(1)}%</b>
           </div>
-          <div className="flex items-center gap-2 text-[13px]">
+          <div className="flex items-center gap-2 text-[15px]">
             <span className="w-2 h-2 rounded-full shrink-0" style={{ background: cNew }} />
             {toLabel}
             <b className="ml-auto tnum text-[var(--ink)]">{rows[hover].to.toFixed(1)}%</b>
           </div>
-          <div className="flex items-center gap-2 mt-1.5 pt-1.5 border-t border-[var(--rule)] text-[12px] text-[var(--muted)]">
+          <div className="flex items-center gap-2 mt-1.5 pt-1.5 border-t border-[var(--rule)] text-[15px] text-[var(--muted)]">
             Change
             <b className="ml-auto tnum">
               {rows[hover].to - rows[hover].from >= 0 ? "+" : ""}

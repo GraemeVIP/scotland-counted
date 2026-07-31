@@ -1,13 +1,13 @@
 import Link from "next/link";
-import { Page, Col, PageHeader, DirectionChip, CTA, Reveal } from "@/components/Blocks";
+import { Page, Col, PageHeader, DirectionChip, CTA, InShort, Reveal } from "@/components/Blocks";
 import Spark from "@/components/charts/Spark";
 import { JsonLd, breadcrumbJsonLd, datasetJsonLd, meta } from "@/lib/seo";
 import { indicators, lifeExpectancy, deprivation } from "@/lib/data/indicators";
 
 export const metadata = meta({
-  title: "The Glasgow record — six measures since 2000",
+  title: "Glasgow — what changed since 2000",
   description:
-    "Six measures of poverty in Glasgow charted from 2000: child poverty, employment, out-of-work benefits, pay, neighbourhood deprivation and life expectancy. Every figure sourced, every data table downloadable.",
+    "See what changed in Glasgow since 2000: child poverty, work, out-of-work benefits, pay, neighbourhoods and how long people live.",
   path: "/the-numbers",
 });
 
@@ -73,15 +73,20 @@ export default function TheNumbers() {
 
       <Page>
         <PageHeader
-          eyebrow="Glasgow deep dive · Six measures · 2000–2026"
-          title="The Glasgow record"
-          lede="Scotland Counted covers every council area. Glasgow is where the historical record goes deepest: poverty, work, benefits, pay, neighbourhoods and life expectancy do not all point the same way. Here is each measure with the data behind it."
+          eyebrow="Glasgow · Six parts of the story · 2000–2026"
+          title="What changed in Glasgow"
+          lede="Glasgow has Scotland's worst child-poverty rate and the biggest ten-year rise. These six pages show the wider story: children, work, benefits, wages, neighbourhoods and how long people live."
           stat={{
             value: "6",
-            label: "measures, each with its chart, its raw data, and its sources",
+            label: "parts of Glasgow's story, each with an easy summary and the exact proof",
             tone: "neutral",
           }}
         />
+
+        <InShort>
+          <p><strong>Start with any card.</strong> It gives the simple answer first.</p>
+          <p>If you want to check it, open the chart, exact figures and original source on the same page.</p>
+        </InShort>
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 mt-4">
           {CARDS.map((c, i) => (
@@ -91,7 +96,7 @@ export default function TheNumbers() {
                 className="group flex flex-col h-full rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] p-6 sm:p-7 transition-all duration-300 hover:border-[var(--brand)] hover:-translate-y-1 hover:shadow-[var(--shadow-2)]"
               >
                 <div className="flex items-start justify-between gap-4 mb-5">
-                  <p className="ui text-[13px] font-[650] text-[var(--muted)]">{c.label}</p>
+                  <p className="ui text-[15px] font-[700] text-[var(--muted)]">{c.label}</p>
                   <DirectionChip direction={c.direction} />
                 </div>
                 <h2 className="h3 mb-3 group-hover:text-[var(--brand)] transition-colors">
@@ -101,7 +106,7 @@ export default function TheNumbers() {
                 <div className="mt-auto pt-2">
                   <Spark data={c.spark} />
                   <div className="flex items-baseline justify-between mt-2">
-                    <span className="ui text-[11.5px] text-[var(--muted)]">{c.sparkNote}</span>
+                    <span className="ui text-[15px] text-[var(--muted)]">{c.sparkNote}</span>
                     <span
                       aria-hidden="true"
                       className="text-[var(--action)] text-[17px] group-hover:translate-x-1.5 transition-transform"
@@ -117,31 +122,28 @@ export default function TheNumbers() {
 
         <section className="pt-20 sm:pt-24">
           <Col>
-            <h2 className="h2 mb-5">How to read a chart on this site</h2>
+            <h2 className="h2 mb-5">If you want to look at the charts</h2>
             <p>
-              Blue is always Glasgow. Orange is always Scotland. Where a third line appears it is
-              labelled in the legend.
+              Blue means Glasgow. Orange means Scotland. Any other line is named above the chart.
             </p>
             <p>
-              Where data is unreliable we show it rather than hide it — dotted, shaded, and
-              labelled with the reason. Where a series has a break in definition, the technical
-              note under the chart says so. Every chart has a data table with the underlying
-              numbers, and you can <Link href="/data">download the whole dataset</Link> as CSV.
+              If a figure may be unreliable, the line is dotted and the reason is stated. Tap
+              “See the numbers behind this chart” for every exact value. Journalists and
+              researchers can also <Link href="/data">download all the data</Link>.
             </p>
             <p>
-              We do this because the point of the site is that you should not have to take our
-              word for anything.
+              The simple version comes first, but nobody has to take our word for it.
             </p>
           </Col>
         </section>
 
         <CTA
           title="Want the figures for your own council area?"
-          body="Every one of Scotland's 32 council areas has its own page, with ten years of child poverty data, its rank, and how it compares with Glasgow."
+          body="Every Scottish council area has its own page with a clear summary first and the exact local figures underneath."
           href="/areas"
           cta="Find your area"
           secondaryHref="/methods"
-          secondaryCta="Read the methods"
+          secondaryCta="Check how it was counted"
         />
       </Page>
     </>

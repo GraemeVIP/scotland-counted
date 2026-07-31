@@ -24,7 +24,7 @@ export default function CopyLine({ text }: { text: string }) {
       <button
         type="button"
         onClick={copy}
-        className="ui shrink-0 self-stretch bg-[var(--ink)] text-[var(--paper)] rounded-r-[var(--r-s)] px-4 text-[13px] font-[620] hover:bg-[var(--brand)] hover:text-white transition-colors"
+        className="ui shrink-0 self-stretch bg-[var(--ink)] text-[var(--paper)] rounded-r-[var(--r-s)] px-4 text-[15px] font-[620] hover:bg-[var(--brand)] hover:text-white transition-colors"
         aria-label={copied ? "Copied" : "Copy this line"}
       >
         {copied ? "Copied" : "Copy"}

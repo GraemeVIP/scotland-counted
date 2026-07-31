@@ -34,7 +34,7 @@ const plexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — poverty, work and living standards across Scotland`,
+    default: `${site.name} — poverty in Scotland, explained clearly`,
     template: `%s — ${site.name}`,
   },
   description: site.description,
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     siteName: site.name,
     locale: site.locale,
     url: site.url,
-    title: `${site.name} — poverty, work and living standards across Scotland`,
+    title: `${site.name} — poverty in Scotland, explained clearly`,
     description: site.description,
   },
   twitter: { card: "summary_large_image" },

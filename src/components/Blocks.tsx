@@ -101,7 +101,7 @@ export function PageHeader({
                 );
               })()}
             </div>
-            <p className="text-[14.5px] leading-[1.5] text-[var(--ink-2)] mt-5">{stat.label}</p>
+            <p className="text-[15px] leading-[1.5] text-[var(--ink-2)] mt-5">{stat.label}</p>
           </div>
         )}
       </div>
@@ -120,10 +120,10 @@ export function DirectionChip({ direction }: { direction: Direction }) {
   const d = DIR[direction];
   return (
     <span
-      className={`ui inline-flex items-center gap-2 rounded-full text-[13px] font-[640] px-3.5 py-1.5 border whitespace-nowrap ${d.cls}`}
+      className={`ui inline-flex items-center gap-2 rounded-full text-[15px] font-[680] px-3.5 py-2 border whitespace-nowrap ${d.cls}`}
       style={{ borderColor: "currentColor" }}
     >
-      <span aria-hidden="true" className="text-[10px] leading-none">
+      <span aria-hidden="true" className="text-[15px] leading-none">
         {d.glyph}
       </span>
       {d.label}
@@ -153,27 +153,54 @@ export function InShort({
       className="rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] border-l-[5px] border-l-[var(--action)] px-6 sm:px-8 py-6 max-w-[760px]"
       style={{ boxShadow: "var(--shadow-1)" }}
     >
-      <p className="ui text-[13.5px] font-[750] text-[var(--action)] mb-3">In short</p>
-      <div className="ui text-[17.5px] sm:text-[18.5px] leading-[1.6] font-[460] space-y-2 [&_strong]:font-[700]">
+      <p className="ui text-[15px] font-[750] text-[var(--action)] mb-3">What this means</p>
+      <div className="ui text-[18px] sm:text-[19px] leading-[1.55] font-[480] space-y-2.5 [&_strong]:font-[750]">
         {children}
       </div>
       {expert && (
-        <p className="ui mt-5 pt-4 border-t border-[var(--rule)] text-[13.5px] text-[var(--ink-2)]">
-          <span className="font-[680]">For journalists and researchers:</span>{" "}
+        <p className="ui mt-5 pt-4 border-t border-[var(--rule)] text-[15px] leading-[1.55] text-[var(--ink-2)]">
+          <span className="font-[700]">Want to check the proof?</span>{" "}
           <Link href="/data" className="underline underline-offset-2 decoration-[var(--rule-strong)] hover:decoration-[var(--brand)]">
-            the data
+            Exact data
           </Link>
           {" · "}
           <Link href="/methods" className="underline underline-offset-2 decoration-[var(--rule-strong)] hover:decoration-[var(--brand)]">
-            methods
+            how it was counted
           </Link>
           {" · "}
           <Link href="/press" className="underline underline-offset-2 decoration-[var(--rule-strong)] hover:decoration-[var(--brand)]">
-            press kit and embeds
+            press downloads
           </Link>
         </p>
       )}
     </div>
+  );
+}
+
+/** Keeps precise figures easy to reach without making them the first hurdle. */
+export function EvidenceDetails({
+  children,
+  summary = "See the exact figures and sources",
+  className = "",
+}: {
+  children: ReactNode;
+  summary?: string;
+  className?: string;
+}) {
+  return (
+    <details
+      className={`group rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] ${className}`}
+    >
+      <summary className="ui min-h-12 cursor-pointer list-none flex items-center gap-3 px-5 py-3 text-[16px] font-[700] text-[var(--brand)] hover:bg-[var(--surface-2)]">
+        <span className="transition-transform group-open:rotate-90" aria-hidden="true">
+          ▸
+        </span>
+        {summary}
+      </summary>
+      <div className="border-t border-[var(--rule)] px-5 py-5 text-[16px] leading-[1.6] text-[var(--ink-2)]">
+        {children}
+      </div>
+    </details>
   );
 }
 
@@ -244,7 +271,7 @@ export function StatStrip({
         const dp = s.value.includes(".") ? 1 : 0;
         const inner = (
           <>
-            <div className="ui text-[13.5px] font-[600] text-[var(--ink-2)] leading-[1.45] mb-5 sm:min-h-[3em]">
+            <div className="ui text-[15px] font-[650] text-[var(--ink-2)] leading-[1.45] mb-5 sm:min-h-[3em]">
               {s.label}
             </div>
             <div
@@ -258,10 +285,10 @@ export function StatStrip({
                 s.value
               )}
             </div>
-            <div className="ui text-[13.5px] text-[var(--ink-2)] mt-4 tnum">
+            <div className="ui text-[15px] text-[var(--ink-2)] mt-4 tnum">
               was {s.from}, now {s.to}
             </div>
-            <div className="ui text-[12.5px] text-[var(--muted)] mt-0.5 tnum">
+            <div className="ui text-[15px] text-[var(--muted)] mt-0.5 tnum">
               {s.period.replace("→", "to")}
             </div>
           </>
@@ -330,7 +357,7 @@ export function Slab({
               {children}
             </p>
             {attribution && (
-              <p className="ui text-[13.5px] opacity-60 mt-8">
+              <p className="ui text-[15px] opacity-70 mt-8">
                 {attribution}
               </p>
             )}

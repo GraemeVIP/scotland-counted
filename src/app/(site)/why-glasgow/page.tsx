@@ -20,9 +20,9 @@ import { getCouncil } from "@/lib/data/councils";
 import { getSources } from "@/lib/data/sources";
 
 export const metadata = meta({
-  title: "Glasgow deep dive — why the city is different",
+  title: "Why poverty is worse in Glasgow",
   description:
-    "Glasgow has more jobs than working-age adults, yet the highest child poverty in Scotland. Four evidenced reasons: a policy-made historical inheritance, a commuter economy, a concentration of exposed households, and housing costs.",
+    "Glasgow has Scotland's worst child-poverty rate. Four clear reasons explain why: past decisions, who gets the better-paid jobs, which families are hit hardest and rent.",
   path: "/why-glasgow",
 });
 
@@ -32,7 +32,7 @@ function SourceStrip({ ids }: { ids: string[] }) {
       <p className="label mb-6">Where this comes from</p>
       <div className="grid gap-x-12 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
         {getSources(ids).map((s) => (
-          <div key={s.id} className="text-[14.5px] text-[var(--ink-2)] leading-[1.55]">
+          <div key={s.id} className="text-[15px] text-[var(--ink-2)] leading-[1.55]">
             <a
               href={s.url}
               target="_blank"
@@ -41,7 +41,7 @@ function SourceStrip({ ids }: { ids: string[] }) {
             >
               {s.title}
             </a>
-            <p className="ui text-[12.5px] text-[var(--muted)] mt-1.5 mb-1.5">
+            <p className="ui text-[15px] text-[var(--muted)] mt-1.5 mb-1.5">
               {s.publisher}
             </p>
             {s.used}
@@ -77,22 +77,22 @@ export default function WhyGlasgow() {
 
       <Page>
         <PageHeader
-          eyebrow="The founding deep dive · Four reasons"
-          title="Why Glasgow is different"
-          lede="Scotland Counted covers every council area. Glasgow is the founding and most detailed case study because its evidence poses a hard question: the city is full of jobs, yet its child-poverty rate is Scotland's highest and rose fastest."
+          eyebrow="Glasgow · Four clear reasons"
+          title="Why poverty is worse in Glasgow"
+          lede="More than 1 in 3 Glasgow children are growing up in poverty. That is the worst rate in Scotland, and it rose faster here than anywhere else. Glasgow keeps its own detailed record so those facts are never watered down."
           stat={{
             value: jobsDensity.glasgow.toFixed(2),
-            label: `Jobs in Glasgow for every working-age adult living here (${jobsDensity.year}). Scotland: ${jobsDensity.scotland}`,
+            label: `jobs in Glasgow for every working-age adult living here. There are more jobs than adults. Scotland: ${jobsDensity.scotland}.`,
             tone: "neutral",
           }}
         />
 
         <InShort>
-          <p>Glasgow is poorer than other places for clear reasons — not bad luck.</p>
-          <p>Big decisions made long ago left the city with deep problems. Today Glasgow is full of jobs, but the best-paid ones mostly go to people who live outside it.</p>
+          <p><strong>Glasgow&apos;s figures are not bad luck, and they are not the fault of ordinary Glaswegians.</strong></p>
+          <p>Decisions made long ago left lasting damage. Today the city is full of jobs, but many of the better-paid workers live outside Glasgow.</p>
           <p>
-            And rent takes a bigger share of a family&apos;s money here than almost anywhere in
-            Scotland.
+            Benefit cuts hit Glasgow harder because more of the families most affected live here.
+            High rent then leaves less money for everything else.
           </p>
         </InShort>
 
@@ -101,54 +101,52 @@ export default function WhyGlasgow() {
           <SectionHead
             n={1}
             eyebrow="Reason one"
-            title="The damage was done deliberately, decades ago"
+            title="Past decisions did lasting damage"
           />
           <div className="sm:pl-[calc(2ch+2rem)] mt-8">
             <Split
               aside={
                 <div className="grid gap-6">
-                  <Note label="Deaths above Liverpool and Manchester" value="+15%">
-                    Across all ages, after adjusting for deprivation. For people under 65 the gap
-                    is about 30%.
+                  <Note label="More deaths than similar UK cities" value="15% more">
+                    This is after comparing Glasgow with Liverpool and Manchester and allowing for
+                    how poor each city is. For people under 65, it is about 30% more.
                   </Note>
-                  <Note label="Factory jobs lost, 1971–1983" value="45%">
-                    The same collapse hit the English cities. The outcome here was worse.
+                  <Note label="Factory jobs lost from 1971 to 1983" value="Almost half">
+                    Liverpool and Manchester lost many jobs too, but the lasting harm was worse in Glasgow.
                   </Note>
                 </div>
               }
             >
               <p>
-                Here is the striking thing. Even when you compare Glasgow with places that are just
-                as poor, Glasgow does worse. Set against Liverpool and Manchester — matched for
-                deprivation — deaths in Glasgow run about <strong>15% higher</strong> across all
-                ages, and about <strong>30% higher</strong> for people under 65.
+                Glasgow does worse even when it is compared with cities that are just as poor.
+                There are about <strong>15% more deaths</strong> than in Liverpool and Manchester,
+                rising to about <strong>30% more</strong> among people under 65.
               </p>
               <p>
-                Researchers spent years on why, and the answer is not culture, weather or diet. It
-                is decisions:
+                Researchers spent years asking why. The answer is not Glaswegian culture, weather
+                or diet. It is what happened to the city:
               </p>
               <ul>
                 <li>
-                  Glasgow was overcrowded far longer and far worse than comparable cities, and the
-                  damage from that carried down the generations.
+                  Glasgow stayed badly overcrowded for longer than similar cities. The harm was
+                  passed down through families.
                 </li>
                 <li>
-                  Post-war planning moved younger, skilled workers and their families out to the{" "}
-                  <G t="newtowns">New Towns</G>. The people left behind were older, sicker and
-                  poorer. Liverpool and Manchester were not hollowed out the same way.
+                  After the war, plans moved many younger workers and families to the{" "}
+                  <G t="newtowns">New Towns</G>. The people left in Glasgow were more likely to be
+                  older, ill or poor.
                 </li>
                 <li>
-                  Slum clearance replaced tenements with big, isolated estates on the city&apos;s
-                  edge, cut off from work and services.
+                  Tenements were replaced by large housing estates far from jobs and services.
                 </li>
                 <li>
-                  When the 1980s recession hit, Glasgow&apos;s council responded differently — and
-                  less protectively — than councils in the English cities.
+                  When factory jobs disappeared in the 1980s, Glasgow&apos;s response protected people
+                  less than the response in the English cities.
                 </li>
               </ul>
               <p>
-                None of that is the fault of anyone currently in office. But it is the hand they
-                were dealt, and it explains why the same national policy does more damage here.
+                People in Glasgow today did not cause this. But the damage helps explain why the
+                same cut can hurt Glasgow more than another place.
               </p>
             </Split>
           </div>
@@ -157,8 +155,7 @@ export default function WhyGlasgow() {
 
       {/* ---------- 2 ---------- */}
       <Slab attribution="ONS jobs density and Annual Survey of Hours and Earnings, 2021 and 2025">
-        There are more jobs in Glasgow than there are adults in Glasgow. Glaswegians are not the
-        ones in them.
+        Glasgow has more jobs than working-age adults. Too many of the better-paid workers live elsewhere.
       </Slab>
 
       <Page>
@@ -166,16 +163,17 @@ export default function WhyGlasgow() {
           <SectionHead
             n={2}
             eyebrow="Reason two"
-            title="A commuter economy that exports its wages"
+            title="Glasgow has jobs. Local people miss out on too many of the better-paid ones."
           />
           <div className="sm:pl-[calc(2ch+2rem)] mt-8">
             <Split
               aside={
                 <div className="grid gap-6">
-                  <Note label={`Weekly pay leaving the city, ${pay.x[n]}`} value={`£${gap}`}>
-                    The difference between what jobs in Glasgow pay and what Glaswegians earn.
+                  <Note label={`Weekly pay gap, ${pay.x[n]}`} value={`£${gap}`}>
+                    This is the gap between what a typical job in Glasgow pays and what a typical
+                    full-time worker living in Glasgow earns.
                   </Note>
-                  <Note label="Scotland's two lowest child poverty rates">
+                  <Note label="Two of Scotland's lowest child-poverty rates">
                     <strong className="text-[var(--ink)]">{er.name}</strong> at {er.pcts[9]}% and{" "}
                     <strong className="text-[var(--ink)]">{ed.name}</strong> at {ed.pcts[9]}%. Both
                     border Glasgow.
@@ -184,7 +182,7 @@ export default function WhyGlasgow() {
               }
             >
               <p>
-                Glasgow is not short of work. In {jobsDensity.year} there were{" "}
+                Glasgow is not short of jobs. In {jobsDensity.year} there were{" "}
                 <strong>
                   {jobsDensity.glasgow} jobs inside the city for every working-age person living in
                   it
@@ -192,8 +190,8 @@ export default function WhyGlasgow() {
                 — against {jobsDensity.scotland} for Scotland as a whole.
               </p>
               <p>
-                But look at who gets paid what. In {pay.x[n]}, the typical full-time job{" "}
-                <em>based in</em> Glasgow paid{" "}
+                The problem is who gets the better-paid work. In {pay.x[n]}, a typical full-time
+                job <em>based in</em> Glasgow paid{" "}
                 <strong>£{pay.series[0].data[n].toFixed(2)} a week</strong> — better than the
                 Scottish average of £{pay.series[2].data[n].toFixed(2)}. The typical full-time
                 worker <em>living in</em> Glasgow took home{" "}
@@ -201,9 +199,8 @@ export default function WhyGlasgow() {
                 average.
               </p>
               <p>
-                The city hosts the region&apos;s well-paid work and sends the wages home to the
-                suburbs. So when Glasgow&apos;s employment rate rose after 2013, residents were
-                mostly moving into the bottom half of that labour market, not the top. That is why{" "}
+                Many better wages leave the city every payday. More Glaswegians found work after
+                2013, but too many of those jobs were lower-paid. That is why{" "}
                 <Link href="/indicators/work">the employment chart</Link> and{" "}
                 <Link href="/indicators/child-poverty">the child poverty chart</Link> point in
                 opposite directions.
@@ -214,7 +211,7 @@ export default function WhyGlasgow() {
               <Figure
                 n={2}
                 title="The jobs in Glasgow pay more than Glaswegians earn"
-                sub={pay.chartSub}
+                sub={`Typical full-time weekly pay before tax · ${pay.x[0]} to ${pay.x[n]}`}
                 legend={pay.series.map((s) => ({ name: s.name, colorVar: s.colorVar }))}
                 caption={pay.caption}
                 technical={pay.technical}
@@ -257,39 +254,37 @@ export default function WhyGlasgow() {
           <SectionHead
             n={3}
             eyebrow="Reason three"
-            title="The families hit hardest are concentrated here"
+            title="Cuts hit Glasgow families harder"
           />
           <div className="sm:pl-[calc(2ch+2rem)] mt-8">
             <Split
               aside={
                 <div className="grid gap-6">
-                  <Note label="Children in poverty with a disabled household member" value="Over half">
-                    The single largest priority group in Scotland.
+                  <Note label="Poor children living with a disabled family member" value="More than half">
+                    This is the largest group of children at special risk of poverty in Scotland.
                   </Note>
-                  <Note label="Scotland's dispersed asylum seekers housed in Glasgow" value="~95%">
-                    Around 4,000–4,500 people, barred from working and unable to claim benefits.
+                  <Note label="Asylum seekers sent to Glasgow" value="About 95%">
+                    Almost all people sent to Scotland through the UK asylum scheme are housed in
+                    Glasgow. Most cannot work or claim normal benefits.
                   </Note>
                 </div>
               }
             >
               <p>
-                Poverty in Scotland is not spread evenly. It clusters in particular households:
-                those with a disabled member, single-parent families, larger families, and families
-                from minority ethnic backgrounds.
+                Some families are much more likely to be poor: families with a disabled person,
+                single parents, larger families and some minority ethnic families.
               </p>
               <p>
-                Glasgow has more of every single one of those than the Scottish average. So a
-                UK-wide benefit cut aimed at any of those groups lands harder here than anywhere
-                else in Scotland.{" "}
+                Glasgow has more of these families than the Scottish average. So a UK-wide benefit
+                cut can hurt more people here.{" "}
                 <strong>
-                  It is not that Glasgow is treated differently — it is that being treated the same
-                  hurts more.
+                  The rule may be the same everywhere, but the harm is not.
                 </strong>
               </p>
               <p>
-                The city is also the destination for almost all of Scotland&apos;s dispersed asylum
-                seekers, placed here by a government department that does not pay for the
-                consequences.
+                Glasgow also houses almost all asylum seekers sent to Scotland through the UK
+                scheme. The UK department that sends people here does not cover all the costs for
+                the city.
               </p>
             </Split>
           </div>
@@ -300,34 +295,31 @@ export default function WhyGlasgow() {
           <SectionHead
             n={4}
             eyebrow="Reason four"
-            title="Rent, which is why the numbers moved at all"
+            title="Rent leaves families with too little"
           />
           <div className="sm:pl-[calc(2ch+2rem)] mt-8">
             <Split
               aside={
                 <div className="grid gap-6">
-                  <Note label="Spent on temporary accommodation" value="£4.5m">
-                    Every month, on hotels and B&amp;Bs — the most expensive possible way to house
-                    people badly.
+                  <Note label="Spent on hotels and B&Bs" value="£4.5m a month">
+                    Temporary rooms cost a huge amount and still give families a poor place to live.
                   </Note>
-                  <Note label="Unfunded homelessness gap by 2027/28" value="£73m">
-                    Up from £27m in 2024/25. The council expects to be breaching homelessness law
-                    into the early 2030s.
+                  <Note label="Homelessness funding missing by 2027/28" value="£73m">
+                    The gap was £27m in 2024/25. The council expects it will keep breaking its legal
+                    duty to house people into the early 2030s.
                   </Note>
                 </div>
               }
             >
               <p>
-                Every child poverty figure on this site is counted{" "}
-                <G t="ahc">after housing costs</G>. Glasgow&apos;s rents rose faster than the help
-                available to pay them, because{" "}
-                <G t="lha">housing benefit for private renters</G> has been frozen for most of the
-                past decade.
+                The figures look at money left <G t="ahc">after rent or mortgage</G>. Glasgow rents
+                rose faster than the <G t="lha">help private renters can get</G>. Families have to
+                fill the gap using money meant for food, heating and everything else.
               </p>
               <p>
-                The council declared a <strong>housing emergency in November 2023</strong>. It is
-                now carrying a shortfall it cannot close on its own, in the one policy area that
-                moves the headline measure most directly.
+                Glasgow declared a <strong>housing emergency in November 2023</strong>. The council
+                says it does not have enough money to meet its legal duty to house people. Because
+                poverty is counted after rent, housing has a direct effect on the figure.
               </p>
             </Split>
           </div>
@@ -337,12 +329,12 @@ export default function WhyGlasgow() {
       </Page>
 
       <CTA
-        title="Knowing why is only useful if it changes what gets done"
-        body="The causes are settled. The remedies are costed. What is missing is anyone being made to choose between them."
+        title="The reasons are clear. Now ask what will change."
+        body="See the practical changes experts say would help, then enter your postcode and email the people who can make them happen."
         href="/what-would-fix-it"
-        cta="What would fix it"
+        cta="See what would help"
         secondaryHref="/accountability"
-        secondaryCta="Who decided this"
+        secondaryCta="See who decides"
       />
 
       <Page>

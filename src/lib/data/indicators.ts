@@ -66,7 +66,7 @@ export const indicators: Indicator[] = [
     label: "Children",
     title: "More than one in three Glasgow children is growing up poor",
     summary:
-      "Child poverty in Glasgow rose from 27.1% to 36.1% in a decade — the steepest rise of any council area in Scotland.",
+      "Ten years ago the figure was 27.1%. It is now 36.1% — the biggest rise of any Scottish council area.",
     direction: "worsening",
     unit: "%",
     x: CHILD_POVERTY_YEARS,
@@ -104,7 +104,7 @@ export const indicators: Indicator[] = [
     label: "Work",
     title: "Far more Glaswegians are in work than in 2004",
     summary:
-      "The employment rate climbed from 62.7% to 72.1% at its peak, closing most of a ten-point gap with Scotland.",
+      "In 2004, 62.7% of working-age Glaswegians had a job. The figure reached 72.1% in 2022, much closer to Scotland as a whole.",
     direction: "improving",
     unit: "%",
     x: [
@@ -151,9 +151,9 @@ export const indicators: Indicator[] = [
   {
     slug: "benefits",
     label: "Benefits",
-    title: "Out-of-work claims fell by a quarter, then the pandemic hit",
+    title: "Fewer people need out-of-work benefits than in 2000",
     summary:
-      "6.0% of working-age Glaswegians claimed out-of-work benefits in 2000, 3.2% by 2016, 8.3% in the pandemic, and about 4.5% now.",
+      "The figure fell from 6.0% in 2000 to 3.2% in 2016, jumped during the pandemic and is about 4.5% now.",
     direction: "improving",
     unit: "%",
     x: [
@@ -169,7 +169,7 @@ export const indicators: Indicator[] = [
     chartTitle: "Share of working-age people claiming out-of-work benefits",
     chartSub: "Each January · 2000 – 2026 · ONS Claimant Count",
     caption:
-      "Glasgow has sat between 1.2 and 1.6 times the Scottish rate for the whole 26 years. Whatever else changed, that ratio did not.",
+      "Glasgow's figure has stayed higher than Scotland's throughout the full 26 years.",
     series: [
       {
         name: "Glasgow",
@@ -200,7 +200,7 @@ export const indicators: Indicator[] = [
     label: "Pay",
     title: "The jobs in Glasgow pay more than Glaswegians earn",
     summary:
-      "Jobs based in Glasgow paid £796.50 a week in 2025. People living in Glasgow took home £745.50 — below the Scottish average.",
+      "A typical full-time job in Glasgow paid £796.50 a week in 2025. A typical full-time worker living in Glasgow earned £745.50.",
     direction: "worsening",
     unit: "£",
     x: [
@@ -256,7 +256,7 @@ export const lifeExpectancy = {
   label: "Life expectancy",
   title: "Glasgow gained four years of life, then it stopped",
   summary:
-    "Life expectancy rose steadily until 2012 and has been flat since. A boy born in Glasgow can expect 73.6 years — the lowest in Scotland.",
+    "People in Glasgow were living longer until about 2012. Then progress stopped. The latest male figure on this chart is 73.6 years, the lowest in Scotland.",
   direction: "stalled" as Direction,
   x: [
     "2001-03", "2002-04", "2003-05", "2004-06", "2005-07", "2006-08", "2007-09",
@@ -276,7 +276,7 @@ export const deprivation = {
   label: "Neighbourhoods",
   title: "Far fewer Glaswegians live in Scotland's worst-off neighbourhoods",
   summary:
-    "46% of Glaswegians lived in Scotland's worst-off tenth of neighbourhoods in 2004. By 2020 it was 29%.",
+    "Almost half of Glaswegians lived in Scotland's worst-off tenth of neighbourhoods in 2004. By 2020 it was under a third — 29%.",
   direction: "improving" as Direction,
   rows: [
     { year: "SIMD 2004", pct: 46, note: "nearly half the city" },

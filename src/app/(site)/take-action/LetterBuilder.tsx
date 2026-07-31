@@ -5,7 +5,6 @@ import Link from "next/link";
 import { councils, COUNCIL_YEARS, SCOTLAND_PCTS } from "@/lib/data/councils";
 import {
   councilExtra,
-  SCOTLAND_EXTRA,
   CC_YEARS,
   PAY_YEARS,
 } from "@/lib/data/councilExtra";
@@ -14,44 +13,33 @@ import {
   type Representative,
   type RepresentativeLookup,
 } from "@/lib/representatives";
+import { asOneIn } from "@/lib/plain-language";
 
 type RepresentativeRole = "MP" | "MSP";
 
 const ASKS: Array<{
-  id: string;
-  label: string;
   line: string;
   who: RepresentativeRole;
   localOnly?: string;
 }> = [
   {
-    id: "lha",
-    label: "Restore housing benefit to real local rents",
-    line: "restore Local Housing Allowance to at least the 30th percentile of local rents, so that housing support reflects what landlords actually charge",
+    line: "Make sure help with private rent keeps up with real rents in this area.",
     who: "MP",
   },
   {
-    id: "scp",
-    label: "Expand the Scottish Child Payment",
-    line: "back a targeted Scottish Child Payment supplement for families with a baby, a disabled member or a single parent — costed at around £310m a year and modelled to lift roughly 10,000 children out of poverty",
+    line: "Increase the Scottish Child Payment for the families most likely to be poor.",
     who: "MSP",
   },
   {
-    id: "takeup",
-    label: "Get the Scottish Child Payment to everyone entitled",
-    line: "fund the work needed to reach 100% take-up of the Scottish Child Payment, costed at around £60m a year",
+    line: "Make sure every family entitled to the Scottish Child Payment actually gets it.",
     who: "MSP",
   },
   {
-    id: "housing",
-    label: "Fund housing at the level assessed as needed",
-    line: "close the gap between the £4.1bn currently planned for housing and the £8–9.2bn independently assessed as necessary",
+    line: "Fund enough affordable homes to meet the level experts say Scotland needs.",
     who: "MSP",
   },
   {
-    id: "homelessness",
-    label: "Fund Glasgow's homelessness shortfall",
-    line: "fund the projected homelessness shortfall of £56m in 2026/27 and £73m in 2027/28, so that a statutory duty stops being breached and public money stops going on hotel rooms",
+    line: "Close Glasgow's homelessness funding gap so families are not left in hotels and B&Bs.",
     who: "MSP",
     localOnly: "glasgow-city",
   },
@@ -90,7 +78,6 @@ function RepresentativeSummary({ representative }: { representative: Representat
 
 export default function LetterBuilder() {
   const [slug, setSlug] = useState("glasgow-city");
-  const [picked, setPicked] = useState<string[]>(["lha", "scp"]);
   const [name, setName] = useState("");
   const [postcode, setPostcode] = useState("");
   const [personal, setPersonal] = useState("");
@@ -110,45 +97,37 @@ export default function LetterBuilder() {
   );
 
   function makeLetter(role: RepresentativeRole, representative?: Representative) {
-    const asks = availableAsks.filter((ask) => ask.who === role && picked.includes(ask.id));
+    const asks = availableAsks.filter((ask) => ask.who === role);
     const localEvidence = councilExtra[council.slug];
     const claimant = localEvidence?.cc[CC_YEARS.length - 1];
-    const scotlandClaimant = SCOTLAND_EXTRA.cc[CC_YEARS.length - 1];
     const pay = localEvidence?.pay[PAY_YEARS.length - 1];
-    const scotlandPay = SCOTLAND_EXTRA.pay[PAY_YEARS.length - 1];
-    const direction =
-      council.change > 0
-        ? `an increase of ${council.change} percentage points since ${first}`
-        : `a fall of ${Math.abs(council.change)} percentage points since ${first}`;
+    const direction = council.change > 0 ? "It has got worse." : "It has improved.";
     const personalPara = personal.trim() ? `\n${personal.trim()}\n` : "";
     const signoffPostcode = lookup?.postcode ?? postcode.trim().toUpperCase();
 
-    const labourMarketParagraph =
+    const localWorkLine =
       typeof claimant === "number" && typeof pay === "number"
-        ? `\nThe wider local evidence matters too. In January ${CC_YEARS[CC_YEARS.length - 1]}, ${claimant.toFixed(1)}% of working-age residents in ${council.name} were claiming out-of-work benefits, compared with ${scotlandClaimant.toFixed(1)}% across Scotland. In ${PAY_YEARS[PAY_YEARS.length - 1]}, median gross weekly pay for full-time workers living in the area was £${pay.toFixed(2)}, compared with £${scotlandPay.toFixed(2)} across Scotland. Neither measure defines poverty on its own, but together they show why work, pay, housing costs and social security have to be considered together.\n`
+        ? `The wider local figures show ${claimant.toFixed(1)}% of working-age people needed out-of-work benefits in January ${CC_YEARS[CC_YEARS.length - 1]}. A typical full-time worker living here earned £${pay.toFixed(0)} a week before tax in ${PAY_YEARS[PAY_YEARS.length - 1]}.\n\n`
         : "";
 
     return `Dear ${representative?.name ?? `your ${role}`},
 
-I am writing as a constituent in ${council.name} about poverty, work and living standards in this area.
+I live in ${council.name}, and I am writing about poverty in our area.
 
-In ${last}, ${council.pcts[9]}% of children in ${council.name} were living in relative poverty after housing costs. That is ${council.counts[9].toLocaleString("en-GB")} children, and ${direction}. The Scottish figure for the same year was ${SCOTLAND_PCTS[9]}%. These are the End Child Poverty and Loughborough University estimates, drawn from HMRC and DWP administrative data.
-${labourMarketParagraph}
+${asOneIn(council.pcts[9])} children here are growing up in poverty. The exact figure is ${council.pcts[9]}%, or ${council.counts[9].toLocaleString("en-GB")} children. It was ${council.pcts[0]}% in ${first}. ${direction}
 
-I am also aware that all four of the statutory interim child poverty targets set out in the Child Poverty (Scotland) Act 2017 were missed for 2023/24, including persistent poverty at 23% against a target of 8%.
+${localWorkLine}The figures come from End Child Poverty and Loughborough University, using HMRC and DWP records. The Scottish figure for the same year was ${SCOTLAND_PCTS[9]}%.
 ${personalPara}
-I would like to know whether you support the following:
+As my ${role}, please tell me if you will support these steps:
 
-${asks.map((ask) => `- That the government should ${ask.line}.`).join("\n")}
+${asks.map((ask) => `- ${ask.line}`).join("\n")}
 
-Independent modelling by the Joseph Rowntree Foundation, IPPR Scotland and the Fraser of Allander Institute all reach the same conclusion: income transfers reduce child poverty, and employment programmes alone do not.
+Please also tell me:
 
-Could you tell me:
+1. What have you done on these issues so far?
+2. What do you expect the child-poverty figure in ${council.name} to be in five years?
 
-1. Which of the measures above you support, and what you have done to advance them?
-2. What you expect the child poverty rate in ${council.name} to be in five years' time, and on what basis?
-
-I would be grateful for a substantive reply rather than a general statement of concern.
+I would be grateful for a clear reply to both questions.
 
 Yours sincerely,
 ${name.trim() || "[your name]"}
@@ -159,17 +138,13 @@ ${signoffPostcode || "[your postcode]"}`;
   const drafts = useMemo(() => {
     if (!lookup) return [];
 
-    return ([lookup.mp, lookup.msp] as Representative[])
-      .filter((representative) =>
-        availableAsks.some((ask) => ask.who === representative.role && picked.includes(ask.id))
-      )
-      .map((representative) => ({
-        representative,
-        letter: makeLetter(representative.role, representative),
-      }));
+    return ([lookup.mp, lookup.msp] as Representative[]).map((representative) => ({
+      representative,
+      letter: makeLetter(representative.role, representative),
+    }));
     // makeLetter is intentionally local: all of its reactive inputs are listed here.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [lookup, picked, council, first, last, name, personal, postcode, availableAsks]);
+  }, [lookup, council, first, last, name, personal, postcode, availableAsks]);
 
   const findRepresentativesFor = useCallback(async (value: string) => {
     setLookupState("loading");
@@ -212,7 +187,10 @@ ${signoffPostcode || "[your postcode]"}`;
 
   function findRepresentatives(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    void findRepresentativesFor(postcode);
+    const field = event.currentTarget.elements.namedItem("postcode") as HTMLInputElement | null;
+    const value = field?.value ?? postcode;
+    setPostcode(value.toUpperCase());
+    void findRepresentativesFor(value);
   }
 
   function changePostcode(value: string) {
@@ -234,7 +212,7 @@ ${signoffPostcode || "[your postcode]"}`;
   }
 
   function mailtoFor(representative: Representative, letter: string) {
-    const subject = `Poverty and living standards in ${council.name} — a constituent's question`;
+    const subject = `Poverty in ${council.name} — what will you do?`;
     return `mailto:${representative.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(letter)}`;
   }
 
@@ -249,6 +227,7 @@ ${signoffPostcode || "[your postcode]"}`;
           <form onSubmit={findRepresentatives} className="grid gap-2.5">
             <input
               type="text"
+              name="postcode"
               value={postcode}
               onChange={(event) => changePostcode(event.target.value)}
               placeholder="Postcode, e.g. G12 8QQ"
@@ -279,51 +258,20 @@ ${signoffPostcode || "[your postcode]"}`;
                 <RepresentativeSummary representative={lookup.mp} />
                 <RepresentativeSummary representative={lookup.msp} />
                 <p className="text-[15px] text-[var(--ink-2)] leading-[1.5] border-t border-[var(--rule)] pt-3">
-                  Using the official figures for {lookup.council.name}: {council.pcts[9]}% of
-                  children, or {council.counts[9].toLocaleString("en-GB")}, in {last}.
+                  Using the official figures for {lookup.council.name}: {asOneIn(council.pcts[9])}
+                  children, exactly {council.pcts[9]}% or {council.counts[9].toLocaleString("en-GB")} children.
                 </p>
               </div>
             )}
           </div>
 
           <p className="text-[15px] text-[var(--muted)] leading-[1.5] mt-3">
-            Your postcode is used only to retrieve your area, MP and constituency MSP. This site
-            does not store it.
+            We use your postcode only to find your area, MP and MSP. We do not save it.
           </p>
         </div>
 
-        <fieldset className="mb-8">
-          <legend>
-            <StepLabel n={2}>What are you asking for?</StepLabel>
-          </legend>
-          <div className="space-y-3">
-            {availableAsks.map((ask) => (
-              <label key={ask.id} className="flex gap-3 items-start cursor-pointer group">
-                <input
-                  type="checkbox"
-                  checked={picked.includes(ask.id)}
-                  onChange={(event) =>
-                    setPicked((current) =>
-                      event.target.checked
-                        ? [...current, ask.id]
-                        : current.filter((id) => id !== ask.id)
-                    )
-                  }
-                  className="mt-1 accent-[var(--brand)] w-4 h-4 shrink-0"
-                />
-                <span className="text-[15px] leading-[1.45] group-hover:text-[var(--brand)] transition-colors">
-                  {ask.label}
-                  <span className="ui text-[15px] font-[620] text-[var(--muted)] block mt-1">
-                    Routed to your {ask.who} automatically
-                  </span>
-                </span>
-              </label>
-            ))}
-          </div>
-        </fieldset>
-
         <div className="mb-8">
-          <StepLabel n={3}>Make it yours</StepLabel>
+          <StepLabel n={2}>Add your name if you want</StepLabel>
           <div className="space-y-3">
             <input
               type="text"
@@ -337,35 +285,29 @@ ${signoffPostcode || "[your postcode]"}`;
             <textarea
               value={personal}
               onChange={(event) => setPersonal(event.target.value)}
-              placeholder="Add one personal sentence (optional). A line about your street, school or work can make the email harder to answer with a template."
+              placeholder="Optional: add one sentence about your street, family, work or bills."
               aria-label="A personal sentence for the email, optional"
               rows={4}
-              className={`${inputCls} resize-y font-serif`}
+              className={`${inputCls} resize-y`}
             />
           </div>
           <p className="text-[15px] text-[var(--muted)] leading-[1.5] mt-3">
-            Your name and personal sentence never leave this page. They go straight into the draft
-            opened by your own email app.
+            This is optional. Anything you add goes only into the draft opened by your email app.
           </p>
         </div>
 
         <div>
-          <StepLabel n={4}>Open and send</StepLabel>
+          <StepLabel n={3}>Open and send</StepLabel>
           {!lookup ? (
             <p className="rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--paper)] p-4 text-[15px] text-[var(--ink-2)] leading-[1.5]">
-              Enter your postcode above. We will address the email and send each request to the
-              representative who can act on it.
-            </p>
-          ) : drafts.length === 0 ? (
-            <p className="rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--paper)] p-4 text-[15px] text-[var(--ink-2)] leading-[1.5]">
-              Choose at least one action above and the right email will appear here.
+              Enter your postcode above. We will find both people and prepare both emails. You do
+              not need to choose who should receive which request.
             </p>
           ) : (
             <div className="space-y-4">
               <p className="text-[15px] text-[var(--ink-2)] leading-[1.55]">
-                {drafts.length === 2
-                  ? "Two emails are ready. Send both: each contains only the decisions that person can act on."
-                  : "Your email is addressed to the person who can act on what you selected."}
+                <strong>Two emails are ready.</strong> One goes to your MP and one to your MSP.
+                Each asks only for changes that person can act on.
               </p>
               {drafts.map(({ representative, letter }, index) => (
                 <div
@@ -397,7 +339,7 @@ ${signoffPostcode || "[your postcode]"}`;
                       className="btn btn-primary w-full justify-center text-center"
                       aria-label={`Open ready-to-send email to ${representative.name}, your ${representative.role}`}
                     >
-                      Open ready-to-send email
+                      Open email to {representative.name}
                     </a>
                     <button
                       type="button"
@@ -405,7 +347,7 @@ ${signoffPostcode || "[your postcode]"}`;
                       className="btn btn-ghost w-full justify-center"
                       aria-live="polite"
                     >
-                      {copied === representative.role ? "Copied" : "Copy this email instead"}
+                      {copied === representative.role ? "Copied" : "Copy email instead"}
                     </button>
                   </div>
                   <a
@@ -419,8 +361,8 @@ ${signoffPostcode || "[your postcode]"}`;
                 </div>
               ))}
               <p className="text-[15px] text-[var(--muted)] leading-[1.5]">
-                Your email app opens with the recipient, subject and message filled in. Add your
-                street address if it is not already in your email signature, review, then send.
+                Your email app opens with everything filled in. Read it, add your street address
+                if needed, then press send when you are happy.
               </p>
             </div>
           )}
@@ -442,10 +384,10 @@ ${signoffPostcode || "[your postcode]"}`;
             className="rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] border-t-[3px] border-t-[var(--brand)] p-7 sm:p-10"
             style={{ boxShadow: "var(--shadow-2)" }}
           >
-            <p className="text-[20px] font-[680]">Your addressed email will appear here</p>
+            <p className="text-[20px] font-[720]">Your two addressed emails will appear here</p>
             <p className="text-[16px] text-[var(--ink-2)] leading-[1.6] mt-3 max-w-[58ch]">
-              Enter your postcode and the site will find the right people, use your council&apos;s
-              official figures and address each draft for you.
+              Enter your postcode. We find your MP and MSP, use your area&apos;s official figures and
+              write one email for each person automatically.
             </p>
           </div>
         ) : (
@@ -467,7 +409,7 @@ ${signoffPostcode || "[your postcode]"}`;
                     {letter.split(/\s+/).length} words
                   </p>
                 </div>
-                <pre className="text-[16px] leading-[1.7] whitespace-pre-wrap font-serif text-[var(--ink-2)] overflow-x-auto m-0">
+                <pre className="text-[16px] leading-[1.65] whitespace-pre-wrap font-sans text-[var(--ink-2)] overflow-x-auto m-0">
                   {letter}
                 </pre>
               </article>
@@ -476,9 +418,8 @@ ${signoffPostcode || "[your postcode]"}`;
         )}
 
         <p className="text-[15px] text-[var(--ink-2)] leading-[1.55] mt-4 max-w-[64ch]">
-          Every figure in the email is from the published data on this site, so your representative
-          can check it — and so can you: <Link href="/areas">your area&apos;s page</Link> shows the
-          same numbers with their sources.
+          Every figure in the email is published on this site. You and your representative can
+          check it on <Link href="/areas">your area&apos;s page</Link>, alongside the source.
         </p>
       </div>
     </div>

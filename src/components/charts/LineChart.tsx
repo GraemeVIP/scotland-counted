@@ -117,7 +117,7 @@ export default function LineChart({
 
   const narrow = w < 500;
   const h = Math.max(230, Math.min(360, Math.round(w * (narrow ? 0.72 : 0.5))));
-  const m = { t: 14, r: narrow ? 10 : 48, b: 30, l: narrow ? 38 : 46 };
+  const m = { t: 20, r: narrow ? 12 : 52, b: 38, l: narrow ? 52 : 54 };
   const iw = w - m.l - m.r;
   const ih = h - m.t - m.b;
   const n = x.length;
@@ -194,7 +194,7 @@ export default function LineChart({
               y={Y(t) + 4}
               textAnchor="end"
               fill={muted}
-              fontSize={narrow ? 10 : 11}
+              fontSize={15}
               fontFamily="var(--font-sans)"
             >
               {unit === "£" ? `£${t}` : `${t}${unit}`}
@@ -209,7 +209,7 @@ export default function LineChart({
             y={h - 10}
             textAnchor={i === 0 ? "start" : i === n - 1 ? "end" : "middle"}
             fill={muted}
-            fontSize={narrow ? 10 : 11}
+            fontSize={15}
             fontFamily="var(--font-sans)"
           >
             {x[i]}
@@ -242,7 +242,7 @@ export default function LineChart({
                 x={X(pf) + 5}
                 y={m.t + 11}
                 fill={muted}
-                fontSize={10.5}
+                fontSize={15}
                 fontFamily="var(--font-sans)"
               >
                 {provisionalLabel}
@@ -304,7 +304,7 @@ export default function LineChart({
                     y={Y(s.data[labelAt]) + 4}
                     textAnchor={pf >= 0 ? "end" : "start"}
                     fill={ink}
-                    fontSize={13}
+                    fontSize={15}
                     fontWeight={700}
                     fontFamily="var(--font-sans)"
                   >
@@ -344,7 +344,7 @@ export default function LineChart({
           }}
           role="status"
         >
-          <div className="ui text-[12.5px] font-[680] text-[var(--ink-2)] mb-1.5">
+          <div className="ui text-[15px] font-[680] text-[var(--ink-2)] mb-1.5">
             {x[hover]}
           </div>
           {series.map((s) => (
@@ -353,15 +353,15 @@ export default function LineChart({
                 className="w-2 h-2 rounded-full shrink-0"
                 style={{ background: readVar(s.colorVar) }}
               />
-              <span className="text-[13px]">{s.name}</span>
-              <b className="ml-auto tnum text-[13px] font-semibold text-[var(--ink)]">
+              <span className="text-[15px]">{s.name}</span>
+              <b className="ml-auto tnum text-[15px] font-semibold text-[var(--ink)]">
                 {fmt(s.data[hover])}
               </b>
             </div>
           ))}
           {extra && extra.values[hover] !== undefined && (
             <div
-              className="flex items-center gap-2 mt-1.5 pt-1.5 text-[12px] text-[var(--muted)]"
+              className="flex items-center gap-2 mt-1.5 pt-1.5 text-[15px] text-[var(--muted)]"
               style={{ borderTop: `1px solid ${rule}` }}
             >
               {extra.label}

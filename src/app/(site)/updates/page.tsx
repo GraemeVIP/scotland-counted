@@ -41,7 +41,7 @@ export default function Updates() {
         <PageHeader
           eyebrow="The public log"
           title="What changed"
-          lede="Every data refresh, new section and correction, dated. The underlying releases follow a calendar — claimant count monthly, child poverty and pay annually — so this page is where the next number lands first."
+          lede="Every new figure, new page and correction is dated here. Out-of-work benefit figures change monthly. Child poverty and pay normally change once a year."
         >
           <div className="mt-8 flex flex-wrap items-end gap-x-10 gap-y-5">
             {site.web3formsKey ? (
@@ -53,7 +53,7 @@ export default function Updates() {
             )}
             <a
               href="/feed.xml"
-              className="ui inline-flex items-center gap-2 text-[14px] font-[620] text-[var(--brand)] underline decoration-[var(--rule-strong)] underline-offset-3 hover:decoration-current pb-1"
+              className="ui inline-flex items-center gap-2 text-[15px] font-[620] text-[var(--brand)] underline decoration-[var(--rule-strong)] underline-offset-3 hover:decoration-current pb-1"
             >
               Or subscribe by RSS
             </a>
@@ -67,11 +67,11 @@ export default function Updates() {
               className="grid gap-x-10 gap-y-2 sm:grid-cols-[150px_minmax(0,1fr)] py-7 border-b border-[var(--rule)]"
             >
               <div>
-                <time dateTime={e.date} className="ui text-[13px] text-[var(--muted)] block">
+                <time dateTime={e.date} className="ui text-[15px] text-[var(--muted)] block">
                   {fmtDate(e.date)}
                 </time>
                 <span
-                  className={`ui text-[12.5px] font-[680] ${KIND[e.kind].cls}`}
+                  className={`ui text-[15px] font-[680] ${KIND[e.kind].cls}`}
                 >
                   {KIND[e.kind].label}
                 </span>

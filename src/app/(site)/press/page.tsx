@@ -67,7 +67,7 @@ export default function Press() {
             >
               <span className="label">32 permanent council pages</span>
               <strong className="block text-[20px] mt-3">Poverty, work and pay by area</strong>
-              <span className="ui block text-[14px] text-[var(--brand)] font-[650] mt-4">
+              <span className="ui block text-[15px] text-[var(--brand)] font-[650] mt-4">
                 Find a council page →
               </span>
             </Link>
@@ -77,7 +77,7 @@ export default function Press() {
             >
               <span className="label">57 permanent constituency pages</span>
               <strong className="block text-[20px] mt-3">Child poverty by MP seat</strong>
-              <span className="ui block text-[14px] text-[var(--brand)] font-[650] mt-4">
+              <span className="ui block text-[15px] text-[var(--brand)] font-[650] mt-4">
                 Find a constituency page →
               </span>
             </Link>
@@ -108,7 +108,7 @@ export default function Press() {
                   className="w-full h-auto"
                   loading="lazy"
                 />
-                <span className="ui flex items-center justify-between text-[13px] font-[620] px-2 pt-2.5 pb-1 text-[var(--ink-2)] group-hover:text-[var(--brand)] transition-colors">
+                <span className="ui flex items-center justify-between text-[15px] font-[620] px-2 pt-2.5 pb-1 text-[var(--ink-2)] group-hover:text-[var(--brand)] transition-colors">
                   {i.chartTitle}
                   <span aria-hidden="true">↓ PNG</span>
                 </span>
@@ -125,7 +125,7 @@ export default function Press() {
               Every indicator chart can be embedded with an iframe and stays current as the data
               updates. The embed button sits under each chart on{" "}
               <Link href="/the-numbers">the indicator pages</Link>, or point an iframe at{" "}
-              <code className="datum text-[14px] bg-[var(--paper-2)] px-1.5 py-0.5">
+              <code className="datum text-[15px] bg-[var(--paper-2)] px-1.5 py-0.5">
                 {site.url}/embed/child-poverty
               </code>{" "}
               and swap the final segment for any indicator.

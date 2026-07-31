@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { CountUp, Pictogram } from "@/components/Motion";
+import { Pictogram } from "@/components/Motion";
 import PostcodeStart from "@/components/PostcodeStart";
 
 /**
@@ -42,20 +42,20 @@ export default function Hero() {
           <div>
             <p className="label mb-5 flex items-center gap-3 rise" style={{ animationDelay: "60ms" }}>
               <span className="inline-block w-8 h-[2px] bg-[var(--action)]" aria-hidden="true" />
-              Scotland &middot; Poverty, work and living standards
+              Scotland &middot; The facts in plain English
             </p>
 
-            <h1 className="h1 max-w-[16ch] mb-6 rise" style={{ animationDelay: "150ms" }}>
-              Poverty has an address. So does power.
+            <h1 className="h1 !text-[clamp(40px,5vw,68px)] max-w-[18ch] mb-6 rise" style={{ animationDelay: "150ms" }}>
+              Nearly one million people in Scotland are living in poverty.
             </h1>
 
             <p
               className="lede max-w-[52ch] mb-7 !text-[clamp(17px,1.6vw,20px)] rise"
               style={{ animationDelay: "260ms" }}
             >
-              Around 940,000 people in Scotland are living in poverty after housing costs. See
-              what the evidence says where you live, who controls the decisions, and contact the
-              right representative without having to look them up.
+              That means struggling to pay for rent, food, heating, travel and the basics. Enter
+              your postcode and we will show what is happening where you live, find your MP and
+              MSP, and write the emails for you.
             </p>
 
             <div className="rise" style={{ animationDelay: "370ms" }}>
@@ -67,10 +67,10 @@ export default function Hero() {
               style={{ animationDelay: "470ms" }}
             >
               <Link href="/areas" className="font-[650]">
-                Explore all 32 council areas →
+                See every Scottish area →
               </Link>
               <Link href="/methods" className="text-[var(--ink-2)]">
-                Every figure sourced
+                Check every number
               </Link>
             </div>
             <p
@@ -78,10 +78,10 @@ export default function Hero() {
               style={{ animationDelay: "540ms" }}
             >
               <Link href="/the-numbers" className="font-[680]">
-                Glasgow keeps its own record:
+                Glasgow needs its own spotlight:
               </Link>{" "}
-              36.1% — 39,319 children — live in relative poverty after housing costs, the highest
-              rate and steepest decade rise of any Scottish council area.
+              more than 1 in 3 children are growing up in poverty. That is 39,319 children — the
+              worst rate in Scotland and the biggest rise over the last ten years.
             </p>
           </div>
 
@@ -93,16 +93,16 @@ export default function Hero() {
             >
               <div className="flex items-end justify-between gap-6 mb-5">
                 <div>
-                  <div className="figure-num text-[clamp(44px,4.5vw,64px)] text-[var(--action)]">
-                    <CountUp value={17} suffix="%" />
+                  <div className="display text-[clamp(36px,4vw,56px)] text-[var(--action)] leading-[0.95]">
+                    About 1 in 6
                   </div>
-                  <p className="ui text-[15px] font-[600] text-[var(--muted)] mt-2">
-                    of everyone in Scotland
+                  <p className="ui text-[16px] font-[650] text-[var(--ink-2)] mt-3">
+                    people in Scotland
                   </p>
                 </div>
                 <div className="text-right">
-                  <div className="figure-num text-[22px] text-[var(--ink)]">940,000</div>
-                  <p className="ui text-[15px] font-[600] text-[var(--muted)] mt-1.5">people</p>
+                  <div className="figure-num text-[24px] text-[var(--ink)]">17%</div>
+                  <p className="ui text-[15px] font-[650] text-[var(--muted)] mt-1.5">exact figure</p>
                 </div>
               </div>
 
@@ -113,8 +113,8 @@ export default function Hero() {
               />
 
               <p className="mt-5 pt-4 border-t border-[var(--rule)] text-[15px] leading-[1.55] text-[var(--ink-2)]">
-                Relative poverty after housing costs, 2022–25. Children: 21%. Working-age adults:
-                18%. Pensioners: 13%. Scottish Government official statistics.
+                17 out of every 100 people — around 940,000 people — did not have enough money
+                left after housing costs. Official Scottish Government figures, 2022–25.
               </p>
             </div>
           </div>

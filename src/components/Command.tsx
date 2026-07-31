@@ -24,22 +24,22 @@ type Item = {
 };
 
 const CORE: Item[] = [
-  { label: "Home", href: "/", group: "Pages" },
-  { label: "Poverty, work and pay — all 32 councils", href: "/areas", group: "Pages" },
-  { label: "Constituencies — all 57 seats", href: "/constituencies", group: "Pages" },
-  { label: "The Glasgow record — six measures", href: "/the-numbers", group: "Pages" },
-  { label: "Glasgow deep dive — why the city is different", href: "/why-glasgow", group: "Pages" },
-  { label: "What would actually change poverty", href: "/what-would-fix-it", group: "Pages" },
-  { label: "Who has power — accountability", href: "/accountability", group: "Pages" },
-  { label: "Take action — write the letter", href: "/take-action", group: "Pages", keywords: "letter mp msp email write" },
-  { label: "Methods and sources", href: "/methods", group: "Pages" },
-  { label: "Download the data", href: "/data", group: "Pages", keywords: "csv download dataset" },
-  { label: "Press and reuse", href: "/press", group: "Pages", keywords: "media journalist embed png" },
-  { label: "What changed", href: "/updates", group: "Pages", keywords: "changelog rss updates news" },
-  { label: "Plain-English glossary", href: "/glossary", group: "Pages" },
-  { label: "About this project", href: "/about", group: "Pages" },
-  { label: "Corrections", href: "/corrections", group: "Pages" },
-  { label: "Get in touch — contact form", href: "/contact", group: "Pages", keywords: "email press error report message" },
+  { label: "Home", href: "/", group: "Main pages" },
+  { label: "Every Scottish council area", href: "/areas", group: "Main pages" },
+  { label: "Find the area your MP represents", href: "/constituencies", group: "Main pages" },
+  { label: "What changed in Glasgow", href: "/the-numbers", group: "Main pages" },
+  { label: "Why poverty is worse in Glasgow", href: "/why-glasgow", group: "Main pages" },
+  { label: "What would help cut poverty", href: "/what-would-fix-it", group: "Main pages" },
+  { label: "Who decides what", href: "/accountability", group: "Main pages" },
+  { label: "Email your MP and MSP", href: "/take-action", group: "Main pages", keywords: "letter mp msp email write" },
+  { label: "How the figures were counted", href: "/methods", group: "Check the proof" },
+  { label: "Download the data", href: "/data", group: "Check the proof", keywords: "csv download dataset" },
+  { label: "Press and reuse", href: "/press", group: "Check the proof", keywords: "media journalist embed png" },
+  { label: "What changed", href: "/updates", group: "More", keywords: "changelog rss updates news" },
+  { label: "Words explained", href: "/glossary", group: "Check the proof" },
+  { label: "About this project", href: "/about", group: "More" },
+  { label: "Report or see corrections", href: "/corrections", group: "More" },
+  { label: "Get in touch", href: "/contact", group: "More", keywords: "email press error report message" },
 ];
 
 function buildRegistry(): Item[] {
@@ -48,7 +48,7 @@ function buildRegistry(): Item[] {
     ...indicators.map((i) => ({
       label: i.title,
       href: `/indicators/${i.slug}`,
-      group: "Indicators",
+      group: "Glasgow facts",
       keywords: `${i.label} chart data`,
     })),
     ...councils.map((c) => ({
@@ -61,7 +61,7 @@ function buildRegistry(): Item[] {
     ...constituencies.map((c) => ({
       label: c.name,
       href: `/constituencies/${c.slug}`,
-      group: "Constituencies",
+      group: "Areas represented by an MP",
       meta: `${c.pcts[9]}%`,
       keywords: "constituency mp seat westminster",
     })),
@@ -84,7 +84,7 @@ function score(item: Item, q: string): number {
   return 0;
 }
 
-const GROUP_ORDER = ["Pages", "Indicators", "Council areas", "Constituencies", "Glossary"];
+const GROUP_ORDER = ["Main pages", "Council areas", "Areas represented by an MP", "Glasgow facts", "Glossary", "Check the proof", "More"];
 
 export default function CommandPalette() {
   const router = useRouter();
@@ -221,7 +221,7 @@ export default function CommandPalette() {
               setActive(0);
             }}
             onKeyDown={onInputKey}
-            placeholder="Type where you live — a council or constituency — or any word"
+            placeholder="Type a place or a topic"
             aria-label="Search"
             className="ui w-full bg-transparent py-4 text-[16.5px] outline-none placeholder:text-[var(--muted)]"
             role="combobox"
@@ -232,7 +232,7 @@ export default function CommandPalette() {
           <button
             type="button"
             onClick={() => setOpen(false)}
-            className="ui text-[12.5px] text-[var(--muted)] hover:text-[var(--ink)] shrink-0 py-1"
+            className="ui text-[15px] text-[var(--muted)] hover:text-[var(--ink)] shrink-0 py-1"
           >
             Close
           </button>
@@ -246,7 +246,7 @@ export default function CommandPalette() {
         >
           {results.length === 0 && (
             <p className="px-5 py-6 text-[15px] text-[var(--ink-2)]">
-              Nothing matches &ldquo;{q}&rdquo;. Try a council, a constituency, or a term like
+              Nothing matches &ldquo;{q}&rdquo;. Try a place name or a term like
               &ldquo;housing costs&rdquo;.
             </p>
           )}
@@ -255,7 +255,7 @@ export default function CommandPalette() {
             return (
               <div key={r.href + r.label}>
                 {showGroup && (
-                  <p className="ui text-[11.5px] font-[680] text-[var(--muted)] px-5 pt-3.5 pb-1.5">
+                  <p className="ui text-[15px] font-[680] text-[var(--muted)] px-5 pt-3.5 pb-1.5">
                     {r.group}
                   </p>
                 )}
@@ -282,7 +282,7 @@ export default function CommandPalette() {
                     {r.label}
                   </span>
                   {r.meta && (
-                    <span className="ui tnum text-[12.5px] text-[var(--muted)] shrink-0">
+                    <span className="ui tnum text-[15px] text-[var(--muted)] shrink-0">
                       {r.meta}
                     </span>
                   )}
@@ -293,10 +293,10 @@ export default function CommandPalette() {
         </div>
 
         <div className="flex items-center gap-4 px-5 py-3 border-t border-[var(--rule)] bg-[var(--surface-2)]">
-          <span className="ui text-[12px] text-[var(--muted)]">
+          <span className="ui text-[15px] text-[var(--muted)]">
             Type, then choose from the list
           </span>
-          <span className="ui text-[12px] text-[var(--muted)] ml-auto">
+          <span className="ui text-[15px] text-[var(--muted)] ml-auto">
             Every page on the site is in here
           </span>
         </div>

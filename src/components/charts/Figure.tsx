@@ -37,12 +37,12 @@ export default function Figure({
         <div className="flex items-start justify-between gap-6 mb-1">
           <p className="h4 max-w-[46ch]">{title}</p>
           {n !== undefined && (
-            <span className="ui text-[12px] text-[var(--muted)] shrink-0 pt-1" aria-hidden="true">
+            <span className="ui text-[15px] text-[var(--muted)] shrink-0 pt-1" aria-hidden="true">
               Figure {n}
             </span>
           )}
         </div>
-        <p className="ui text-[12.5px] text-[var(--muted)] leading-[1.55] max-w-[80ch]">
+        <p className="ui text-[15px] text-[var(--muted)] leading-[1.55] max-w-[80ch]">
           {sub}
         </p>
 
@@ -51,7 +51,7 @@ export default function Figure({
             {legend.map((l) => (
               <span
                 key={l.name}
-                className="ui inline-flex items-center gap-2.5 text-[13px] font-[520] text-[var(--ink-2)]"
+                className="ui inline-flex items-center gap-2.5 text-[15px] font-[520] text-[var(--ink-2)]"
               >
                 <span
                   className="w-[16px] h-[3px] shrink-0"
@@ -67,7 +67,7 @@ export default function Figure({
 
         {table && (
           <details className="mt-4 group">
-            <summary className="ui text-[13.5px] font-[620] text-[var(--ink-2)] hover:text-[var(--brand)] cursor-pointer py-2 w-fit list-none flex items-center gap-2">
+            <summary className="ui text-[15px] font-[620] text-[var(--ink-2)] hover:text-[var(--brand)] cursor-pointer py-2 w-fit list-none flex items-center gap-2">
               <span className="transition-transform group-open:rotate-90" aria-hidden="true">
                 ▸
               </span>
@@ -78,7 +78,7 @@ export default function Figure({
         )}
 
         {caption && (
-          <figcaption className="text-[14.5px] leading-[1.6] text-[var(--ink-2)] mt-5 pt-4 border-t border-[var(--rule)] max-w-[74ch]">
+          <figcaption className="text-[15px] leading-[1.6] text-[var(--ink-2)] mt-5 pt-4 border-t border-[var(--rule)] max-w-[74ch]">
             {caption}
           </figcaption>
         )}
@@ -91,7 +91,7 @@ export default function Figure({
 
         {technical && technical.length > 0 && (
           <details className="border-t border-[var(--rule)] mt-4 group">
-            <summary className="ui text-[13.5px] font-[620] text-[var(--ink-2)] hover:text-[var(--brand)] cursor-pointer py-4 w-fit list-none flex items-center gap-2">
+            <summary className="ui text-[15px] font-[620] text-[var(--ink-2)] hover:text-[var(--brand)] cursor-pointer py-4 w-fit list-none flex items-center gap-2">
               <span className="transition-transform group-open:rotate-90" aria-hidden="true">
                 ▸
               </span>
@@ -120,13 +120,13 @@ export function DataTable({
   rows: (string | number)[][];
 }) {
   return (
-    <table className="border-collapse text-[13px] tnum min-w-full font-mono">
+    <table className="border-collapse text-[15px] tnum min-w-full font-mono">
       <thead>
         <tr>
           {head.map((h) => (
             <th
               key={h}
-              className="text-[10.5px] uppercase tracking-[0.1em] text-[var(--muted)] font-semibold text-right first:text-left pr-4 pb-2 border-b border-[var(--rule-strong)] whitespace-nowrap"
+              className="text-[15px] uppercase tracking-[0.1em] text-[var(--muted)] font-semibold text-right first:text-left pr-4 pb-2 border-b border-[var(--rule-strong)] whitespace-nowrap"
             >
               {h}
             </th>

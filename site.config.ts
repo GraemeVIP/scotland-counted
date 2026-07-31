@@ -15,9 +15,9 @@ export const site = {
    */
   url: "https://scotland-counted.vercel.app",
 
-  tagline: "Scotland's poverty, counted properly.",
+  tagline: "Poverty in Scotland, explained clearly.",
   description:
-    "Independent evidence on poverty, work and living standards across Scotland. See the figures where you live, understand who has the power to change them, and contact the right representative without looking them up.",
+    "Poverty, work and living costs across Scotland in ordinary words. Enter your postcode to see the local facts and open ready-written emails to your MP and MSP.",
 
   locale: "en_GB",
   themeColor: "#2a78d6",

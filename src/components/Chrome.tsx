@@ -9,10 +9,10 @@ import NewsletterSignup from "@/components/NewsletterSignup";
 
 export const NAV = [
   { href: "/areas", label: "Your area" },
-  { href: "/constituencies", label: "MP seats" },
+  { href: "/constituencies", label: "Your MP" },
   { href: "/why-glasgow", label: "Glasgow" },
-  { href: "/what-would-fix-it", label: "What works" },
-  { href: "/accountability", label: "Power" },
+  { href: "/what-would-fix-it", label: "What would help" },
+  { href: "/accountability", label: "Who decides" },
 ];
 
 function Wordmark({ className = "" }: { className?: string }) {
@@ -32,14 +32,14 @@ function SearchButton() {
       type="button"
       onClick={() => window.dispatchEvent(new CustomEvent("open-command"))}
       aria-label="Find your area, or search the site"
-      className="group flex items-center gap-2.5 rounded-full bg-[var(--surface)] border border-[var(--rule-strong)] hover:border-[var(--brand)] transition-colors px-4 py-2.5"
+      className="group min-h-11 flex items-center gap-2.5 rounded-full bg-[var(--surface)] border border-[var(--rule-strong)] hover:border-[var(--brand)] transition-colors px-4 py-2.5"
       style={{ boxShadow: "var(--shadow-1)" }}
     >
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" className="text-[var(--brand)]" aria-hidden="true">
         <circle cx="11" cy="11" r="7" />
         <path d="m20 20-3.8-3.8" />
       </svg>
-      <span className="ui hidden md:block text-[14px] font-[560] text-[var(--ink-2)] group-hover:text-[var(--ink)] transition-colors">
+      <span className="ui hidden md:block text-[15px] font-[620] text-[var(--ink-2)] group-hover:text-[var(--ink)] transition-colors">
         Find your area
       </span>
     </button>
@@ -64,7 +64,7 @@ function ThemeToggle() {
       type="button"
       onClick={toggle}
       aria-label="Switch between light and dark"
-      className="p-2 text-[var(--muted)] hover:text-[var(--ink)] transition-colors"
+      className="w-11 h-11 inline-flex items-center justify-center text-[var(--muted)] hover:text-[var(--ink)] transition-colors"
     >
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
         <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" />
@@ -104,7 +104,7 @@ export function Header() {
           <Wordmark className="text-[19px]" />
         </Link>
 
-        <nav aria-label="Main" className="hidden lg:flex items-center gap-7 ml-2">
+        <nav aria-label="Main" className="hidden lg:flex items-center gap-5 ml-2">
           {NAV.map((n) => {
             const active = pathname === n.href || pathname.startsWith(n.href + "/");
             return (
@@ -112,7 +112,7 @@ export function Header() {
                 key={n.href}
                 href={n.href}
                 aria-current={active ? "page" : undefined}
-                className={`ui relative text-[14px] font-[520] tracking-[-0.005em] py-1 transition-colors ${
+                className={`ui relative text-[15px] font-[620] tracking-[-0.005em] py-1 transition-colors ${
                   active ? "text-[var(--ink)]" : "text-[var(--ink-2)] hover:text-[var(--ink)]"
                 }`}
               >
@@ -130,13 +130,13 @@ export function Header() {
           <ThemeToggle />
           <Link
             href="/take-action"
-            className="btn btn-primary hidden sm:inline-flex !px-5 !py-2.5 !text-[14px]"
+            className="btn btn-primary hidden sm:inline-flex !px-5 !py-2.5 !text-[15px]"
           >
-            Take action
+            Email your MP/MSP
           </Link>
           <button
             type="button"
-            className="lg:hidden p-2 text-[var(--ink-2)]"
+            className="lg:hidden w-11 h-11 inline-flex items-center justify-center text-[var(--ink-2)]"
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label="Menu"
@@ -156,7 +156,7 @@ export function Header() {
           aria-label="Main"
           className="lg:hidden border-t border-[var(--rule)] bg-[var(--surface)]"
         >
-          {[...NAV, { href: "/take-action", label: "Take action" }].map((n) => (
+          {[...NAV, { href: "/take-action", label: "Email your MP/MSP" }].map((n) => (
             <Link
               key={n.href}
               href={n.href}
@@ -180,12 +180,11 @@ export function Footer() {
           <div>
             <Wordmark className="text-[24px]" />
             <p className="text-[15px] leading-[1.55] opacity-70 max-w-[36ch] mt-4">
-              Independent evidence on poverty, work and living standards. Free to read, quote and
-              reuse.
+              Poverty and living costs explained in ordinary words. Every number can be checked.
             </p>
             {site.web3formsKey && (
               <div className="mt-6">
-                <p className="ui text-[13px] font-[640] opacity-80 mb-2.5">
+                <p className="ui text-[15px] font-[680] opacity-80 mb-2.5">
                   One email when the data changes
                 </p>
                 <NewsletterSignup variant="footer" />
@@ -194,11 +193,11 @@ export function Footer() {
           </div>
 
           <div>
-            <p className="ui text-[12px] font-[680] opacity-50 mb-4">Explore</p>
-            <ul className="space-y-2.5 text-[14.5px]">
+            <p className="ui text-[15px] font-[720] opacity-70 mb-4">Explore</p>
+            <ul className="space-y-2.5 text-[15px]">
               {NAV.concat([
                 { href: "/the-numbers", label: "The Glasgow record" },
-                { href: "/take-action", label: "Take action" },
+                { href: "/take-action", label: "Email your MP/MSP" },
               ]).map((n) => (
                 <li key={n.href}>
                   <Link href={n.href} className="opacity-75 hover:opacity-100 transition-opacity">
@@ -210,8 +209,8 @@ export function Footer() {
           </div>
 
           <div>
-            <p className="ui text-[12px] font-[680] opacity-50 mb-4">The evidence</p>
-            <ul className="space-y-2.5 text-[14.5px]">
+            <p className="ui text-[15px] font-[720] opacity-70 mb-4">Check the proof</p>
+            <ul className="space-y-2.5 text-[15px]">
               {[
                 { href: "/methods", label: "Methods and sources" },
                 { href: "/glossary", label: "Plain-English glossary" },
@@ -230,15 +229,15 @@ export function Footer() {
           </div>
 
           <div>
-            <p className="ui text-[12px] font-[680] opacity-50 mb-4">Who made this</p>
-            <p className="text-[14.5px] leading-[1.55] opacity-75 max-w-[28ch]">
+            <p className="ui text-[15px] font-[720] opacity-70 mb-4">Who made this</p>
+            <p className="text-[15px] leading-[1.55] opacity-80 max-w-[28ch]">
               A personal project by {site.author.name} at{" "}
               <a href={site.organisation.url} className="underline underline-offset-2">
                 {site.organisation.name}
               </a>
               . No party, no funding, no paywall.
             </p>
-            <div className="flex flex-wrap gap-x-5 mt-3.5 text-[14.5px]">
+            <div className="flex flex-wrap gap-x-5 mt-3.5 text-[15px]">
               <Link href="/about" className="underline underline-offset-2 opacity-75 hover:opacity-100">
                 About
               </Link>
@@ -249,7 +248,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 pt-5 border-t border-current/15 flex flex-wrap items-baseline gap-x-6 gap-y-2 ui text-[12px] opacity-55">
+        <div className="mt-10 pt-5 border-t border-current/15 flex flex-wrap items-baseline gap-x-6 gap-y-2 ui text-[15px] opacity-70">
           <span>Data last checked {site.dataUpdated}</span>
           <span>ONS · DWP · Scottish Government · academic sources</span>
           <Link href="/methods" className="underline underline-offset-2 hover:opacity-100">

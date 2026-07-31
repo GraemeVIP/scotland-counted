@@ -23,52 +23,43 @@ export default function About() {
         <PageHeader
           eyebrow="Who made this and why"
           title="About this project"
-          lede={`${site.name} is an independent evidence-to-action project covering every Scottish council area and Westminster constituency. It is a personal project by ${site.author.name}, founder of ${site.organisation.name}, with no party, campaign or charity affiliation.`}
+          lede={`${site.name} explains poverty in ordinary words, shows the proof and helps people email the right MP and MSP. It is a personal project by ${site.author.name}, founder of ${site.organisation.name}. No political party, charity or campaign runs it.`}
         />
 
         <Col className="pt-11">
           <h2 className="h2 mb-4">Why it exists</h2>
           <p>
-            Every figure on this site was already public. Local child-poverty rates sit in a
-            Loughborough University spreadsheet. Claimant and pay data for all 32 councils sit
-            behind the NOMIS query builder. Life expectancy is a 22-megabyte CSV on an ONS
-            download server. The national poverty headline lives in a government statistical
-            release.
+            Every figure on this site was already public. The problem was finding it. Some numbers
+            were buried in large spreadsheets, government downloads or difficult search tools.
           </p>
           <p>
-            None of it is secret. All of it is effectively inaccessible to the people it describes.
-            That gap — between technically published and actually available — is where a lot of
-            bad argument lives, because a claim is much easier to make when checking it takes a
-            weekend.
+            People should not need data skills or a free weekend to understand what is happening
+            in their own area. A public number is not truly useful if ordinary people cannot find
+            or understand it.
           </p>
           <p>
             <strong>
-              This site closes that gap across Scotland. It connects national evidence, all 32
-              council areas, all 57 Westminster constituencies and a Glasgow deep dive — then
-              finds the reader&apos;s representatives and prepares the right addressed email.
+              This site covers all 32 council areas and all 57 areas represented by an MP. Glasgow
+              keeps its own detailed story because its figures are the worst in Scotland. The site
+              then finds the reader&apos;s MP and MSP and writes both emails.
             </strong>{" "}
             Nothing here is new information. It is the same information, made usable.
           </p>
 
           <h2 className="h2 mb-4 mt-11">What it is not</h2>
           <p>
-            It is not campaign material, and it is not neutral about evidence. Where independent
-            modelling reaches a clear conclusion — that income transfers reduce child poverty and
-            employment programmes alone do not — the site says so, because that is what the
-            evidence shows, not because of a political preference.
+            It is not party campaign material. It follows the evidence. When several independent
+            experts reach the same answer, the site says so in plain words.
           </p>
           <p>
-            The <Link href="/accountability">accountability pages</Link> are deliberately
-            cross-party. Labour ran Glasgow for most of the post-war period and the SNP has run it
-            since 2017. The two-child limit was introduced by a Conservative government and
-            retained by a Labour one. Every layer of government named there has a real record, and
-            the point is the decisions, not the rosettes.
+            The <Link href="/accountability">who decides page</Link> covers every main party that
+            made relevant decisions. The point is what governments did and what happened next,
+            not the colour of a party badge.
           </p>
           <p>
-            The analytical record does not attribute motives or make claims about anyone&apos;s
-            honesty. Individual representatives are named only when a reader asks the postcode
-            tool to find their current MP and MSP from official sources. The accountability record
-            remains decisions and measured consequences, not personalities.
+            The site does not guess why a politician made a choice or claim that someone is
+            dishonest. It names your current MP and MSP only after you ask the postcode tool to
+            find them from official sources.
           </p>
 
           <h2 className="h2 mb-4 mt-11">How it is funded</h2>
@@ -79,11 +70,9 @@ export default function About() {
 
           <h2 className="h2 mb-4 mt-11">Reuse</h2>
           <p>
-            The analysis and charts are free to reuse with attribution to {site.name}. The
-            underlying data belongs to its original publishers and is subject to their licences,
-            which are almost all Open Government Licence.{" "}
-            <Link href="/data">The extracts are downloadable</Link> so you can verify rather than
-            trust.
+            The words and charts are free to reuse if you credit {site.name}. The original data
+            still belongs to the organisations that published it.{" "}
+            <Link href="/data">Download the exact files</Link> if you want to check our work.
           </p>
           <p>
             Journalists, researchers, councillors and community organisations are welcome to use

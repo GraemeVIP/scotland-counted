@@ -17,9 +17,9 @@ import { tiers, statutoryTargets } from "@/lib/data/policy";
 import { getSources } from "@/lib/data/sources";
 
 export const metadata = meta({
-  title: "Who decided this",
+  title: "Who decides what",
   description:
-    "Who controls the decisions that shape poverty in Scotland: Westminster, Holyrood and councils. The national targets, the policy record and Glasgow as the local case study — sourced and cross-party.",
+    "A plain-English guide to what the UK Government, Scottish Government and councils can do about poverty, with the exact record and sources.",
   path: "/accountability",
 });
 
@@ -42,29 +42,27 @@ export default function Accountability() {
 
       <Page>
         <PageHeader
-          eyebrow="The record · Cross-party"
-          title="Who decided this"
-          lede="Three layers of government touch poverty in Scotland: Westminster, Holyrood and local councils. The first two set national rules; Glasgow provides the detailed local record. Each can blame the others — which is exactly the accountability problem."
+          eyebrow="Politics explained simply"
+          title="Who decides what"
+          lede="The UK Government, Scottish Government and councils each control different things. You should not need a politics degree to know who to ask. This page explains the split and shows the exact record."
           stat={{
             value: "4 / 4",
-            label:
-              "legally binding child poverty targets for 2023/24. Scotland missed every one of them.",
+            label: "legal child-poverty promises for 2023/24 were missed. Every one of them.",
             tone: "bad",
           }}
         />
 
         <InShort>
-          <p>Scotland made child poverty targets the law. All four targets were missed.</p>
-          <p>Nobody was punished, because the law has no punishment.</p>
-          <p>Three governments each blame the other two.</p>
+          <p><strong>Scotland put four child-poverty promises into law. All four were missed.</strong></p>
+          <p>The UK Government controls most benefits. The Scottish Government controls the Scottish Child Payment, housing and childcare. Councils deal with homelessness and local services.</p>
+          <p>Enter your postcode and we send the right question to the right person automatically.</p>
         </InShort>
 
         <Col className="pt-2">
           <p className="text-[15.5px] text-[var(--ink-2)]">
-            What follows is a record of documented decisions and published outcomes. We do not
-            attribute motives, and we do not name individual politicians. Where a party is named,
-            it is because the decision was taken by a government that party formed. If you believe
-            anything here is wrong,{" "}
+            This page records decisions and what happened next. It does not guess what a politician
+            intended. A party is named only when it formed the government that made the decision.
+            If anything here is wrong,{" "}
             <Link href="/corrections">tell us and we will correct it publicly</Link>.
           </p>
         </Col>
@@ -73,23 +71,22 @@ export default function Accountability() {
         <section className="pt-16 sm:pt-20">
           <SectionHead
             n={1}
-            eyebrow="The Child Poverty (Scotland) Act 2017"
-            title="Scotland wrote its targets into law, then missed all four"
+            eyebrow="Four promises written into law"
+            title="Scotland missed every child-poverty target"
           />
           <div className="sm:pl-[calc(2ch+2rem)] mt-8">
             <Split
               aside={
-                <Note label="Persistent poverty" value="23%">
-                  Against a legal target of 8% — children stuck poor for three of the last four
-                  years, the measure most closely linked to lasting harm.
+                <Note label="Children poor for years" value="23%">
+                  The legal target was below 8%. This means children were poor in at least three of
+                  the last four years.
                 </Note>
               }
             >
               <p>
-                The Act set legally binding interim targets for 2023/24. Here is what was
-                promised, and what was delivered. Ministers have conceded there is{" "}
-                <strong>no penalty for missing them</strong> — which raises a fair question about
-                what the legislation was for.
+                The law set four targets for 2023/24. The table shows the exact promise and what
+                actually happened. Ministers have said there is <strong>no punishment for missing
+                them</strong>.
               </p>
             </Split>
 
@@ -103,11 +100,11 @@ export default function Accountability() {
                   >
                     <div className="flex items-start justify-between gap-3 mb-1.5">
                       <p className="ui font-[660] text-[15.5px] leading-[1.3]">{t.measure}</p>
-                      <span className="ui rounded-full text-[11.5px] font-[680] text-[var(--bad)] border border-current px-2.5 py-1 whitespace-nowrap">
+                      <span className="ui rounded-full text-[15px] font-[700] text-[var(--bad)] border border-current px-3 py-2 whitespace-nowrap">
                         Missed
                       </span>
                     </div>
-                    <p className="ui text-[14px] text-[var(--ink-2)]">
+                    <p className="ui text-[15px] text-[var(--ink-2)]">
                       The law said {t.target}. What happened:{" "}
                       <strong className="text-[var(--bad)] font-[700]">{t.actual}</strong>
                     </p>
@@ -122,7 +119,7 @@ export default function Accountability() {
                       {["Measure", "The legal target", "What happened", ""].map((h, i) => (
                         <th
                           key={i}
-                          className="ui text-[12.5px] font-[680] text-[var(--muted)] text-left px-4 pt-4 pb-3 border-b-2 border-[var(--ink)]"
+                          className="ui text-[15px] font-[700] text-[var(--muted)] text-left px-4 pt-4 pb-3 border-b-2 border-[var(--ink)]"
                         >
                           {h}
                         </th>
@@ -135,14 +132,14 @@ export default function Accountability() {
                         <td className="ui px-4 py-3.5 border-b border-[var(--rule)] font-[640] text-[15px]">
                           {t.measure}
                         </td>
-                        <td className="ui tnum px-4 py-3.5 border-b border-[var(--rule)] text-[14px] text-[var(--ink-2)]">
+                        <td className="ui tnum px-4 py-3.5 border-b border-[var(--rule)] text-[15px] text-[var(--ink-2)]">
                           {t.target}
                         </td>
                         <td className="ui tnum px-4 py-3.5 border-b border-[var(--rule)] text-[16px] font-[700] text-[var(--bad)]">
                           {t.actual}
                         </td>
                         <td className="px-4 py-3.5 border-b border-[var(--rule)]">
-                          <span className="ui rounded-full text-[12px] font-[660] text-[var(--bad)] border border-current px-3 py-1.5 whitespace-nowrap">
+                          <span className="ui rounded-full text-[15px] font-[700] text-[var(--bad)] border border-current px-3 py-2 whitespace-nowrap">
                             Missed
                           </span>
                         </td>
@@ -157,21 +154,20 @@ export default function Accountability() {
       </Page>
 
       <Slab attribution="The structure, not an accident of politics">
-        The target is set in Edinburgh. The money is controlled in London. The consequences land
-        in Glasgow. Nobody owns the outcome.
+        London, Edinburgh and councils control different parts. That makes blame easy and change hard.
       </Slab>
 
       <Page>
         {/* ---------- The three tiers ---------- */}
         <section>
-          <SectionHead n={2} eyebrow="Decision by decision" title="The record, by who holds the power" />
+          <SectionHead n={2} eyebrow="Government by government" title="Who can do what" />
           <div className="grid gap-6 mt-10">
             {tiers.map((t, i) => (
               <Reveal key={t.id} delay={i * 60}>
                 <article className="rounded-[var(--r-s)] bg-[var(--surface)] border border-[var(--rule)] border-l-[4px] border-l-[var(--bad)] px-6 sm:px-9 pt-7 pb-5">
                   <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1 mb-1.5">
                     <p className="label">{t.who}</p>
-                    <p className="ui text-[12px] text-[var(--muted)]">{t.power}</p>
+                    <p className="ui text-[15px] text-[var(--muted)]">{t.power}</p>
                   </div>
                   <h3 className="h3 mb-5 max-w-[36ch]">{t.heading}</h3>
                   <ul className="space-y-3.5 mb-2">
@@ -195,28 +191,25 @@ export default function Accountability() {
 
         {/* ---------- The structural point ---------- */}
         <section className="pt-20 sm:pt-24">
-          <SectionHead n={3} eyebrow="What settles it" title="The data closes one argument" />
+          <SectionHead n={3} eyebrow="One clear lesson" title="Extra money to families reduced child poverty" />
           <div className="sm:pl-[calc(2ch+2rem)] mt-8">
             <Split
               aside={
-                <Note label="The natural experiment" value="2020/21">
-                  Benefits rose, child poverty fell. The support was withdrawn the next year, and
-                  it went straight back up.
+                <Note label="What happened in the pandemic" value="2020/21">
+                  Benefits went up and child poverty fell. The extra help ended the next year and
+                  poverty went back up.
                 </Note>
               }
             >
               <p>
-                Every one of the three tiers can honestly say the main levers sit with someone
-                else, and every one of them is partly right. See{" "}
-                <G t="reserved">reserved and devolved</G> for how the split works. But the split
-                is why <strong>no single body can be removed for failing to deliver</strong> — and
-                that is a design flaw, not bad luck.
+                Each government can point to something another government controls, and each is
+                partly right. <G t="reserved">See the exact split here.</G> The problem is that no
+                single government owns the whole result.
               </p>
               <p>
-                The data does settle one argument. Child poverty in Glasgow fell in the single
-                year that payments to families went up, and rose again the moment they were
-                withdrawn. Whatever Glasgow&apos;s history, that swing was not caused by it. It
-                was policy, working in both directions.
+                One thing is clear. Child poverty in Glasgow fell when payments to families went
+                up. It rose again when that extra support ended. Government choices changed the
+                figure in both directions.
               </p>
             </Split>
           </div>
@@ -227,7 +220,7 @@ export default function Accountability() {
           <p className="label mb-6">Where this comes from</p>
           <div className="grid gap-x-12 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
             {getSources(["targets", "cpag", "housing", "jrf", "fai", "migration"]).map((s) => (
-              <div key={s.id} className="text-[14.5px] text-[var(--ink-2)] leading-[1.55]">
+              <div key={s.id} className="text-[15px] text-[var(--ink-2)] leading-[1.55]">
                 <a
                   href={s.url}
                   target="_blank"
@@ -236,7 +229,7 @@ export default function Accountability() {
                 >
                   {s.title}
                 </a>
-                <p className="ui text-[12.5px] text-[var(--muted)] mt-1.5 mb-1.5">
+                <p className="ui text-[15px] text-[var(--muted)] mt-1.5 mb-1.5">
                   {s.publisher}
                 </p>
                 {s.used}
@@ -247,12 +240,12 @@ export default function Accountability() {
       </Page>
 
       <CTA
-        title="A record is only accountability if someone is shown it"
-        body="Your MSP and MP both have a say in at least one of the decisions on this page. It takes about two minutes to ask them where they stand."
+        title="Ask the right people without working out the politics"
+        body="Enter your postcode. We find your MP and MSP and put the right request into each email automatically."
         href="/take-action"
-        cta="Write to your representative"
+        cta="Find my MP and MSP"
         secondaryHref="/what-would-fix-it"
-        secondaryCta="See the costed options"
+        secondaryCta="See what would help"
       />
     </>
   );

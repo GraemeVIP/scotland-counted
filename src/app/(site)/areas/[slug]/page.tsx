@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Page, Col, PageHeader, CTA, InShort } from "@/components/Blocks";
+import { Page, Col, PageHeader, CTA, InShort, EvidenceDetails } from "@/components/Blocks";
 import Figure, { DataTable } from "@/components/charts/Figure";
 import LineChart from "@/components/charts/LineChart";
 import { G } from "@/components/Glossary";
@@ -20,6 +20,7 @@ import {
   JD_YEARS,
   PAY_YEARS,
 } from "@/lib/data/councilExtra";
+import { asOneIn, changeInWords } from "@/lib/plain-language";
 
 export function generateStaticParams() {
   return councils.map((c) => ({ slug: c.slug }));
@@ -29,10 +30,9 @@ export async function generateMetadata(props: PageProps<"/areas/[slug]">) {
   const { slug } = await props.params;
   const c = getCouncil(slug);
   if (!c) return {};
-  const last = COUNCIL_YEARS[9];
   return meta({
     title: `Poverty, work and pay in ${c.name}`,
-    description: `${c.pcts[9]}% of children in ${c.name} were living in poverty in ${last}. See local child poverty, out-of-work claimant rates and resident pay compared with Scotland, fully sourced.`,
+    description: `${asOneIn(c.pcts[9])} children in ${c.name} are living in poverty. See the exact local figures for poverty, out-of-work benefits and pay.`,
     path: `/areas/${slug}`,
   });
 }
@@ -54,21 +54,22 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
   const isGlasgow = c.slug === "glasgow-city";
   const rose = c.change > 0;
   const vsScotland = +(c.pcts[9] - SCOTLAND_PCTS[9]).toFixed(1);
+  const plainShare = asOneIn(c.pcts[9]);
 
   const faq = [
     {
       q: `How many children live in poverty in ${c.name}?`,
-      a: `${c.counts[9].toLocaleString("en-GB")} children — ${c.pcts[9]}% of all children in the area — were living in relative poverty after housing costs in ${last}.`,
+      a: `${plainShare} children. The exact figure is ${c.pcts[9]}%, or ${c.counts[9].toLocaleString("en-GB")} children, after rent or mortgage costs in ${last}.`,
     },
     {
       q: `Is child poverty in ${c.name} rising or falling?`,
       a: rose
-        ? `Rising. The rate went from ${c.pcts[0]}% in ${first} to ${c.pcts[9]}% in ${last}, an increase of ${c.change} percentage points.`
-        : `Falling. The rate went from ${c.pcts[0]}% in ${first} to ${c.pcts[9]}% in ${last}, a fall of ${Math.abs(c.change)} percentage points.`,
+        ? `Rising. It was ${c.pcts[0]}% in ${first} and is ${c.pcts[9]}% now.`
+        : `Falling. It was ${c.pcts[0]}% in ${first} and is ${c.pcts[9]}% now.`,
     },
     {
       q: `How does ${c.name} compare with the rest of Scotland?`,
-      a: `${c.name} ranks ${c.rankLevel} of ${COUNCIL_COUNT} council areas by child poverty rate, where 1 is the highest. The Scottish rate in ${last} was ${SCOTLAND_PCTS[9]}%, so ${c.name} is ${Math.abs(vsScotland)} percentage points ${vsScotland > 0 ? "above" : "below"} the national figure.`,
+      a: `${c.name} is ${ordinal(c.rankLevel)} of ${COUNCIL_COUNT} Scottish council areas, where 1st is the worst. The exact Scottish figure is ${SCOTLAND_PCTS[9]}%, compared with ${c.pcts[9]}% here.`,
     },
   ];
 
@@ -92,15 +93,12 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
 
       <Page>
         <PageHeader
-          eyebrow={`Council area · ${c.code}`}
-          title={`Poverty, work and pay in ${c.name}`}
+          eyebrow="Your area · Latest local figures"
+          title={`Poverty and pay in ${c.name}`}
           lede={
             <>
-              {c.pcts[9]}% of children here were living in poverty in {last} — that is{" "}
-              {c.counts[9].toLocaleString("en-GB")} children.{" "}
-              {rose
-                ? `The rate rose ${c.change} percentage points over the decade.`
-                : `The rate fell ${Math.abs(c.change)} percentage points over the decade.`}
+              <strong>{plainShare} children</strong> here are growing up in poverty. That is{" "}
+              {c.counts[9].toLocaleString("en-GB")} children. {rose ? "It has got worse over the last ten years." : "It has improved over the last ten years."}
             </>
           }
         />
@@ -108,17 +106,16 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
         <div className="mt-2 mb-10">
           <InShort>
             <p>
-              In {c.name}, about <strong>{Math.round(c.pcts[9])} in every 100 children</strong>{" "}
-              grow up poor. That is {c.counts[9].toLocaleString("en-GB")} children.
+              In {c.name}, <strong>{plainShare} children</strong> are growing up without enough
+              money at home. The exact figure is {c.pcts[9]}%.
             </p>
             <p>
-              Ten years ago it was {Math.round(c.pcts[0])} in 100.{" "}
-              {rose ? "Things have got worse here." : "Things have got a little better here."}{" "}
-              Across Scotland it is {Math.round(SCOTLAND_PCTS[9])} in 100.
+              {changeInWords(c.pcts[0], c.pcts[9])}{" "}
+              {rose ? "Things have got worse here." : "Things have got better here."}
             </p>
             <p>
-              Below that are the area&apos;s out-of-work claimant rate and resident pay, both compared
-              with Scotland over time.
+              You can also see how many people need out-of-work benefits and what a typical
+              full-time worker earns. The full numbers and sources are kept below.
             </p>
           </InShort>
         </div>
@@ -127,34 +124,34 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
         <div className="grid gap-px bg-[var(--rule)] border-y border-[var(--rule)] mt-9 [grid-template-columns:repeat(auto-fit,minmax(180px,1fr))]">
           {[
             {
-              label: `Child poverty, ${last}`,
-              value: `${c.pcts[9]}%`,
-              note: `${c.counts[9].toLocaleString("en-GB")} children`,
+              label: "Children in poverty now",
+              value: plainShare,
+              note: `Exactly ${c.pcts[9]}% · ${c.counts[9].toLocaleString("en-GB")} children`,
             },
             {
-              label: "Change over the decade",
-              value: `${rose ? "+" : ""}${c.change} pp`,
-              note: `from ${c.pcts[0]}% in ${first}`,
+              label: "Over the last ten years",
+              value: rose ? "Worse" : "Better",
+              note: `${c.pcts[0]}% then · ${c.pcts[9]}% now`,
             },
             {
-              label: "Rank in Scotland",
+              label: "Compared with every Scottish area",
               value: `${ordinal(c.rankLevel)}`,
-              note: `of ${COUNCIL_COUNT}, where 1st is worst`,
+              note: `of ${COUNCIL_COUNT} · 1st means the worst rate`,
             },
             {
-              label: "Against the Scottish rate",
-              value: `${vsScotland > 0 ? "+" : ""}${vsScotland} pp`,
-              note: `Scotland was ${SCOTLAND_PCTS[9]}%`,
+              label: "Compared with Scotland",
+              value: vsScotland > 1 ? "Higher" : vsScotland < -1 ? "Lower" : "About the same",
+              note: `${c.name}: ${c.pcts[9]}% · Scotland: ${SCOTLAND_PCTS[9]}%`,
             },
           ].map((s) => (
             <div key={s.label} className="bg-[var(--paper)] px-5 pt-5 pb-6">
-              <div className="ui text-[11px] uppercase tracking-[0.1em] font-[620] text-[var(--muted)] leading-[1.45] mb-3 sm:min-h-[2.9em]">
+              <div className="ui text-[15px] font-[700] text-[var(--muted)] leading-[1.45] mb-3 sm:min-h-[2.9em]">
                 {s.label}
               </div>
               <div className="text-[30px] font-[640] tracking-[-0.028em] leading-none tnum">
                 {s.value}
               </div>
-              <div className="ui text-[13px] text-[var(--ink-2)] mt-2.5 tnum">{s.note}</div>
+              <div className="ui text-[15px] text-[var(--ink-2)] mt-2.5 tnum">{s.note}</div>
             </div>
           ))}
         </div>
@@ -169,12 +166,13 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
         <div className="mt-9">
           <Figure
             title={`Children living in poverty in ${c.name}`}
-            sub={`After housing costs · ${first} – ${last} · End Child Poverty / Loughborough University`}
+            sub={`Money left after rent or mortgage · ${first} to ${last}`}
             legend={[
               { name: c.name, colorVar: "--glasgow" },
               { name: "Scotland", colorVar: "--scotland" },
             ]}
-            caption={`The dip in 2020/21 is the pandemic, when benefits were temporarily raised. The support was withdrawn and the rate went back up — a pattern visible in almost every council area.`}
+            caption="The line fell during the pandemic, when benefits were temporarily raised. When that extra help ended, the line went back up in almost every council area."
+            technical={["Source: End Child Poverty and Loughborough University. The local estimates use HMRC and DWP records and are adjusted to match the official UK poverty survey."]}
             table={
               <DataTable
                 head={["Year", `${c.name} %`, "Children", "Scotland %"]}
@@ -219,15 +217,14 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
           const scoPay = SCOTLAND_EXTRA.pay as number[];
           return (
             <section className="pt-14">
-              <h2 className="h2 mb-4 max-w-[26ch]">Work and pay in {c.name}</h2>
+              <h2 className="h2 mb-4 max-w-[26ch]">Work, benefits and wages in {c.name}</h2>
               <Col>
                 <p>
-                  Child poverty sits on a labour market. Here is {c.name}&apos;s, from the same
-                  official sources as the rest of this site
+                  These figures answer two everyday questions: how many people need out-of-work
+                  benefits, and what does a typical full-time worker living here earn?
                   {jdLast !== null && (
                     <>
-                      {" "}
-                      — including{" "}
+                      {" "}There were also{" "}
                       <strong className="tnum">
                         {jdLast} job{jdLast === 1 ? "" : "s"} located here for every working-age
                         resident
@@ -241,8 +238,8 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
               <div className="grid gap-5 lg:grid-cols-2 mt-8">
                 <Figure
                   n={2}
-                  title="Out-of-work benefit claimants"
-                  sub={`% of residents aged 16–64 claiming, each January · 2000 – 2026 · ONS Claimant Count via NOMIS`}
+                  title="People who need out-of-work benefits"
+                  sub="Residents aged 16 to 64 · each January · 2000 to 2026"
                   legend={[
                     { name: c.name, colorVar: "--glasgow" },
                     { name: "Scotland", colorVar: "--scotland" },
@@ -279,9 +276,9 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
 
                 {ex.payComplete ? (
                   <Figure
-                    n={3}
-                    title="Typical full-time weekly pay"
-                    sub={`Median gross pay, residence basis, cash terms · 2008 – 2025 · ONS ASHE via NOMIS`}
+                  n={3}
+                  title="Typical full-time weekly pay"
+                    sub="Before tax · people who live in the area · 2008 to 2025"
                     legend={[
                       { name: c.name, colorVar: "--glasgow" },
                       { name: "Scotland", colorVar: "--scotland" },
@@ -330,36 +327,31 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
           );
         })()}
 
-        <Col className="pt-11">
-          <h2 className="h2 mb-4">What this means</h2>
-          <p>
-            Child poverty here is measured <G t="ahc">after housing costs</G>: a child counts as
-            poor if the household has less than 60% of typical UK income once the rent or mortgage
-            is paid.
-          </p>
+        <div className="pt-11 max-w-[780px]">
+          <EvidenceDetails summary="How these local figures are counted">
+            <p>
+              Child poverty is counted <G t="ahc">after housing costs</G>. The exact rule is that a
+              household has less than 60% of the usual UK income once rent or mortgage is paid.
+            </p>
           {isGlasgow ? (
             <p>
-              Glasgow has both the highest rate in Scotland and the steepest rise. It is the
-              subject of the rest of this site —{" "}
-              <Link href="/why-glasgow">why it is worse here</Link> and{" "}
-              <Link href="/what-would-fix-it">what would change it</Link>.
+              Glasgow has the highest rate in Scotland and the biggest rise. It therefore has a
+              separate record showing <Link href="/why-glasgow">why it is worse here</Link> and{" "}
+              <Link href="/what-would-fix-it">what would help</Link>.
             </p>
           ) : (
             <p>
-              {c.name} ranks {ordinal(c.rankLevel)} of {COUNCIL_COUNT}. For comparison, Glasgow
-              City — the highest in Scotland — was at {glasgow.pcts[9]}% in {last}, having risen{" "}
-              {glasgow.change} points over the same decade.{" "}
-              <Link href="/why-glasgow">Why Glasgow specifically</Link> explains the drivers, most
-              of which apply in some measure everywhere.
+              {c.name} is {ordinal(c.rankLevel)} of {COUNCIL_COUNT}. Glasgow City is the highest at{" "}
+              {glasgow.pcts[9]}%. <Link href="/why-glasgow">Glasgow&apos;s separate story</Link> explains
+              why it has been hit so hard.
             </p>
           )}
           <p>
-            The causes are national policy, not local failure: the same benefit rules, the same
-            frozen <G t="lha">housing support</G> and the same labour market apply across
-            Scotland.{" "}
-            <Link href="/what-would-fix-it">The costed remedies are here</Link>.
+            Benefit rules and <G t="lha">help with private rent</G> affect every Scottish area.
+            <Link href="/what-would-fix-it"> See the changes experts say would help.</Link>
           </p>
-        </Col>
+          </EvidenceDetails>
+        </div>
 
         <section className="pt-12">
           <h2 className="h2 mb-6">Questions people ask</h2>
@@ -382,7 +374,7 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
                 <Link
                   key={o.slug}
                   href={`/areas/${o.slug}`}
-                  className="text-[14px] px-3 py-1.5 border border-[var(--rule)] bg-[var(--surface)] hover:border-[var(--brand)] transition-colors"
+                  className="text-[15px] px-3 py-2 border border-[var(--rule)] bg-[var(--surface)] hover:border-[var(--brand)] transition-colors"
                 >
                   {o.name} <span className="text-[var(--muted)] tnum">{o.pcts[9]}%</span>
                 </Link>
@@ -391,12 +383,12 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
         </section>
 
         <CTA
-          title={`Ask what is being done about ${c.name}`}
-          body="The letter below is pre-filled with the figures for this area. It takes about two minutes, and it goes to the people who vote on the decisions that set these numbers."
+          title={`Email the people who represent ${c.name}`}
+          body="Enter your postcode. We find your MP and MSP, add these local figures, write both emails and open them in your email app. You do not need to know who decides what."
           href="/take-action"
-          cta="Write to your representative"
+          cta="Find my MP and MSP"
           secondaryHref="/areas"
-          secondaryCta="Compare all 32 areas"
+          secondaryCta="See all 32 areas"
         />
       </Page>
     </>

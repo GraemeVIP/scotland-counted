@@ -123,7 +123,7 @@ export default function ContactForm() {
       />
 
       <label className="block mb-5">
-        <span className="ui block text-[14px] font-[660] mb-2">What is this about?</span>
+        <span className="ui block text-[15px] font-[660] mb-2">What is this about?</span>
         <select
           value={reason}
           onChange={(e) => setReason(e.target.value as ReasonId)}
@@ -136,7 +136,7 @@ export default function ContactForm() {
           ))}
         </select>
         {active.hint && (
-          <span className="block text-[13.5px] text-[var(--ink-2)] leading-[1.5] mt-2">
+          <span className="block text-[15px] text-[var(--ink-2)] leading-[1.5] mt-2">
             {active.hint}
           </span>
         )}
@@ -144,7 +144,7 @@ export default function ContactForm() {
 
       <div className="grid gap-3 sm:grid-cols-2 mb-3">
         <label className="block">
-          <span className="ui block text-[14px] font-[660] mb-2">Your name</span>
+          <span className="ui block text-[15px] font-[660] mb-2">Your name</span>
           <input
             type="text"
             value={name}
@@ -154,7 +154,7 @@ export default function ContactForm() {
           />
         </label>
         <label className="block">
-          <span className="ui block text-[14px] font-[660] mb-2">Your email</span>
+          <span className="ui block text-[15px] font-[660] mb-2">Your email</span>
           <input
             type="email"
             required
@@ -167,7 +167,7 @@ export default function ContactForm() {
       </div>
 
       <label className="block mb-6">
-        <span className="ui block text-[14px] font-[660] mb-2">Your message</span>
+        <span className="ui block text-[15px] font-[660] mb-2">Your message</span>
         <textarea
           required
           value={message}
@@ -178,7 +178,7 @@ export default function ContactForm() {
               ? "Page, figure, and what it should be…"
               : "What can we help with?"
           }
-          className="w-full bg-[var(--paper)] border border-[var(--rule-strong)] px-3.5 py-3 text-[15.5px] font-serif focus:border-[var(--brand)] outline-none transition-colors resize-y"
+          className="w-full bg-[var(--paper)] border border-[var(--rule-strong)] px-3.5 py-3 text-[15.5px] font-sans focus:border-[var(--brand)] outline-none transition-colors resize-y"
         />
       </label>
 
@@ -190,7 +190,7 @@ export default function ContactForm() {
         {state === "sending" ? "Sending…" : "Send it"}
       </button>
 
-      <p className="text-[13px] text-[var(--muted)] leading-[1.55] mt-3.5">
+      <p className="text-[15px] text-[var(--muted)] leading-[1.55] mt-3.5">
         {state === "error"
           ? "That didn't send — try again in a moment."
           : "Delivered by Web3Forms straight to a real inbox. Your details are used to reply and for nothing else."}

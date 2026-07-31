@@ -39,8 +39,8 @@ export default function Glossary() {
       <Page>
         <PageHeader
           eyebrow={`${terms.length} terms`}
-          title="Plain-English glossary"
-          lede="Jargon is how a subject stays the property of specialists. Here is every technical term this site uses, in ordinary words — with the precise version underneath for anyone who wants it."
+          title="Words explained"
+          lede="If the site has to use a technical word, it is explained here in ordinary language. Open the extra detail only if you want the exact definition."
         />
 
         <div className="mt-9 grid gap-5 sm:grid-cols-2 max-w-[1080px]">
@@ -53,9 +53,9 @@ export default function Glossary() {
               <h2 className="text-[17px] font-[620] tracking-[-0.012em] mb-2">{t.term}</h2>
               <p className="text-[15.5px] leading-[1.55]">{t.def}</p>
               {t.tech && (
-                <p className="mt-3 pt-3 border-t border-[var(--rule)] text-[14px] text-[var(--ink-2)] leading-[1.55]">
-                  <span className="ui text-[12px] font-[650] text-[var(--muted)] block mb-1">
-                    The technical detail
+                <p className="mt-3 pt-3 border-t border-[var(--rule)] text-[15px] text-[var(--ink-2)] leading-[1.55]">
+                  <span className="ui text-[15px] font-[650] text-[var(--muted)] block mb-1">
+                    The exact detail
                   </span>
                   {t.tech}
                 </p>
@@ -65,15 +65,13 @@ export default function Glossary() {
         </div>
 
         <Col className="pt-12">
-          <h2 className="h2 mb-4">Why this page exists</h2>
+          <h2 className="h2 mb-4">Why the exact words matter</h2>
           <p>
-            Almost every term here is doing real work — the difference between measuring income
-            before or after rent changes Glasgow&apos;s poverty rate by several points, and the
-            difference between a ranking and a headcount changes what the deprivation figures can
-            legitimately be used to claim.
+            Counting money before rent and counting it after rent can tell a very different story.
+            A list that ranks neighbourhoods is also different from counting every person in need.
           </p>
           <p>
-            None of that is difficult. It is just unexplained, in most of the places it appears.
+            The ideas are not difficult once the words are explained.
           </p>
         </Col>
 

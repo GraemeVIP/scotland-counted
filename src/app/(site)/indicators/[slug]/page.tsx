@@ -316,7 +316,7 @@ export default async function IndicatorPage(props: PageProps<"/indicators/[slug]
             <div className="grid gap-5 py-3">
               {d.rows.map((r) => (
                 <div key={r.year} className="grid grid-cols-[84px_1fr] gap-x-4 gap-y-2 items-center">
-                  <span className="ui text-[13.5px] font-[600] text-[var(--ink-2)]">
+                  <span className="ui text-[15px] font-[600] text-[var(--ink-2)]">
                     {r.year}
                   </span>
                   <div className="bg-[var(--surface-2)] h-[42px] relative">
@@ -327,13 +327,13 @@ export default async function IndicatorPage(props: PageProps<"/indicators/[slug]
                       {r.pct}%
                     </div>
                   </div>
-                  <span className="col-start-2 ui text-[12.5px] text-[var(--muted)] -mt-0.5">
+                  <span className="col-start-2 ui text-[15px] text-[var(--muted)] -mt-0.5">
                     {r.note}
                   </span>
                 </div>
               ))}
             </div>
-            <p className="ui text-[12.5px] text-[var(--muted)]">Bars drawn to a 50% scale.</p>
+            <p className="ui text-[15px] text-[var(--muted)]">Bars drawn to a 50% scale.</p>
           </Figure>
 
           <SourceList ids={d.sourceIds} />

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Page, Col, PageHeader, CTA, InShort } from "@/components/Blocks";
+import { Page, Col, PageHeader, CTA, InShort, EvidenceDetails } from "@/components/Blocks";
 import Figure, { DataTable } from "@/components/charts/Figure";
 import LineChart from "@/components/charts/LineChart";
 import { G } from "@/components/Glossary";
@@ -13,6 +13,7 @@ import {
   CONSTITUENCY_COUNT,
 } from "@/lib/data/constituencies";
 import { SCOTLAND_PCTS } from "@/lib/data/councils";
+import { asOneIn, changeInWords } from "@/lib/plain-language";
 
 export function generateStaticParams() {
   return constituencies.map((c) => ({ slug: c.slug }));
@@ -22,10 +23,9 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
   const { slug } = await props.params;
   const c = getConstituency(slug);
   if (!c) return {};
-  const last = CONSTITUENCY_YEARS[9];
   return meta({
     title: `Child poverty in ${c.name}`,
-    description: `${c.pcts[9]}% of children in the ${c.name} constituency were living in poverty in ${last} — ${c.counts[9].toLocaleString("en-GB")} children, ranked ${c.rankLevel} of ${CONSTITUENCY_COUNT} Scottish seats. The figures your MP is answerable for.`,
+    description: `${asOneIn(c.pcts[9])} children in the area represented by the ${c.name} MP are living in poverty. See the exact figures and email your MP.`,
     path: `/constituencies/${slug}`,
   });
 }
@@ -45,19 +45,20 @@ export default async function ConstituencyPage(props: { params: Promise<{ slug: 
   const last = CONSTITUENCY_YEARS[9];
   const rose = c.change > 0;
   const vsScotland = +(c.pcts[9] - SCOTLAND_PCTS[9]).toFixed(1);
+  const plainShare = asOneIn(c.pcts[9]);
 
   const faq = [
     {
       q: `How many children live in poverty in ${c.name}?`,
-      a: `${c.counts[9].toLocaleString("en-GB")} children — ${c.pcts[9]}% of children in the constituency — were living in relative poverty after housing costs in ${last}.`,
+      a: `${plainShare} children. The exact figure is ${c.pcts[9]}%, or ${c.counts[9].toLocaleString("en-GB")} children, after rent or mortgage costs in ${last}.`,
     },
     {
       q: `How does ${c.name} compare with other Scottish constituencies?`,
-      a: `${c.name} ranks ${c.rankLevel} of ${CONSTITUENCY_COUNT} Scottish UK Parliament constituencies by child poverty rate, where 1 is the highest. The Scottish average in ${last} was ${SCOTLAND_PCTS[9]}%.`,
+      a: `${c.name} is ${c.rankLevel} of ${CONSTITUENCY_COUNT} MP areas in Scotland, where 1 is the worst. The exact Scottish figure was ${SCOTLAND_PCTS[9]}%.`,
     },
     {
       q: `What can the MP for ${c.name} actually do about child poverty?`,
-      a: `The largest levers are reserved to Westminster, where the MP votes: Universal Credit rates, Local Housing Allowance, and the successor arrangements to the two-child limit abolished in April 2026. Independent modelling shows these transfers, not employment programmes, drive the child poverty rate.`,
+      a: `Your MP votes on Universal Credit and help with private rent. These choices change how much money a family has left each week. Enter your postcode and we will find the MP and write the email for you.`,
     },
   ];
 
@@ -81,15 +82,12 @@ export default async function ConstituencyPage(props: { params: Promise<{ slug: 
 
       <Page>
         <PageHeader
-          eyebrow={`UK Parliament constituency · ${c.code}`}
+          eyebrow="The area represented by one MP"
           title={`Child poverty in ${c.name}`}
           lede={
             <>
-              One MP represents this seat, and this is the number they are answerable for:{" "}
-              {c.counts[9].toLocaleString("en-GB")} children in poverty in {last}.{" "}
-              {rose
-                ? `The rate rose ${c.change} percentage points over the decade.`
-                : `The rate fell ${Math.abs(c.change)} percentage points over the decade.`}
+              One MP represents this area. <strong>{plainShare} children</strong> here are growing
+              up in poverty — {c.counts[9].toLocaleString("en-GB")} children in total.
             </>
           }
           stat={{
@@ -102,12 +100,15 @@ export default async function ConstituencyPage(props: { params: Promise<{ slug: 
         <div className="mt-2 mb-10">
           <InShort>
             <p>
-              In {c.name}, about <strong>{Math.round(c.pcts[9])} in every 100 children</strong>{" "}
-              grow up poor. That is {c.counts[9].toLocaleString("en-GB")} children.
+              In {c.name}, <strong>{plainShare} children</strong> are growing up without enough
+              money at home. The exact figure is {c.pcts[9]}%.
             </p>
             <p>
-              One MP speaks for this area in London. The rules that matter most here — benefits
-              and help with rent — are decided there.
+              One MP speaks for this area in the UK Parliament. They vote on benefits and help
+              with private rent. Enter your postcode and we will find that person for you.
+            </p>
+            <p>
+              {changeInWords(c.pcts[0], c.pcts[9])} {rose ? "It has got worse." : "It has improved."}
             </p>
           </InShort>
         </div>
@@ -115,30 +116,30 @@ export default async function ConstituencyPage(props: { params: Promise<{ slug: 
         <div className="grid gap-px bg-[var(--rule)] border-y border-[var(--rule)] mt-2 [grid-template-columns:repeat(auto-fit,minmax(180px,1fr))]">
           {[
             {
-              label: "Rank in Scotland",
+              label: "Compared with every MP area in Scotland",
               value: ordinal(c.rankLevel),
-              note: `of ${CONSTITUENCY_COUNT} seats, where 1st is worst`,
+              note: `of ${CONSTITUENCY_COUNT} · 1st means the worst rate`,
             },
             {
-              label: "Change over the decade",
-              value: `${rose ? "+" : ""}${c.change} pp`,
-              note: `from ${c.pcts[0]}% in ${first}`,
+              label: "Over the last ten years",
+              value: rose ? "Worse" : "Better",
+              note: `${c.pcts[0]}% then · ${c.pcts[9]}% now`,
             },
             {
-              label: "Against the Scottish rate",
-              value: `${vsScotland > 0 ? "+" : ""}${vsScotland} pp`,
-              note: `Scotland was ${SCOTLAND_PCTS[9]}%`,
+              label: "Compared with Scotland",
+              value: vsScotland > 1 ? "Higher" : vsScotland < -1 ? "Lower" : "About the same",
+              note: `${c.name}: ${c.pcts[9]}% · Scotland: ${SCOTLAND_PCTS[9]}%`,
             },
             {
-              label: "Children in poverty",
-              value: c.counts[9].toLocaleString("en-GB"),
-              note: `in ${last}`,
+              label: "Children in poverty now",
+              value: plainShare,
+              note: `Exactly ${c.pcts[9]}% · ${c.counts[9].toLocaleString("en-GB")} children`,
             },
           ].map((s) => (
             <div key={s.label} className="bg-[var(--paper)] px-5 pt-5 pb-6">
-              <div className="ui text-[13px] font-[600] text-[var(--ink-2)] leading-[1.45] mb-3 sm:min-h-[2.9em]">{s.label}</div>
+              <div className="ui text-[15px] font-[700] text-[var(--ink-2)] leading-[1.45] mb-3 sm:min-h-[2.9em]">{s.label}</div>
               <div className="figure-num text-[30px] tnum">{s.value}</div>
-              <div className="ui text-[13px] text-[var(--ink-2)] mt-2.5 tnum">{s.note}</div>
+              <div className="ui text-[15px] text-[var(--ink-2)] mt-2.5 tnum">{s.note}</div>
             </div>
           ))}
         </div>
@@ -154,12 +155,12 @@ export default async function ConstituencyPage(props: { params: Promise<{ slug: 
           <Figure
             n={1}
             title={`Children living in poverty in ${c.name}`}
-            sub={`After housing costs · ${first} – ${last} · End Child Poverty / Loughborough University · 2024 boundaries`}
+            sub={`Money left after rent or mortgage · ${first} to ${last}`}
             legend={[
               { name: c.name, colorVar: "--glasgow" },
               { name: "Scotland", colorVar: "--scotland" },
             ]}
-            caption="The dip in 2020/21 is the pandemic, when benefits were temporarily raised. The support was withdrawn and the rate went back up — visible in almost every seat in Scotland."
+            caption="The line fell during the pandemic, when benefits were temporarily raised. When that extra help ended, the line went back up in almost every MP area in Scotland."
             table={
               <DataTable
                 head={["Year", `${c.name} %`, "Children", "Scotland %"]}
@@ -172,7 +173,7 @@ export default async function ConstituencyPage(props: { params: Promise<{ slug: 
               />
             }
             technical={[
-              "Constituency figures use the 2024 Westminster boundaries throughout, so the whole series is comparable. The estimates come from HMRC and DWP administrative data calibrated to the national poverty surveys.",
+              "The technical name for an MP area is a constituency. These figures use the 2024 boundaries throughout. They come from HMRC and DWP records and are adjusted to match the official national poverty survey.",
             ]}
           >
             <LineChart
@@ -197,22 +198,27 @@ export default async function ConstituencyPage(props: { params: Promise<{ slug: 
         </div>
 
         <Col className="pt-11">
-          <h2 className="h2 mb-4">What your MP controls</h2>
+          <h2 className="h2 mb-4">What your MP can vote on</h2>
           <p>
-            Child poverty here is measured <G t="ahc">after housing costs</G>. The policies that
-            move it most are <G t="reserved">reserved</G> — decided at Westminster, where the MP
-            for {c.name} votes: Universal Credit rates, <G t="lha">housing benefit</G> levels, and
-            what replaces the <G t="tcl">two-child limit</G> era.
+            The MP for {c.name} votes on Universal Credit and <G t="lha">help with private rent</G>.
+            These choices decide how much money many families have left each week after housing.
           </p>
           <p>
-            That makes this page a fair question to put to them:{" "}
+            A fair question is:{" "}
             <strong>
-              what do you expect this constituency&apos;s rate to be in five years, and what have
-              you voted for that gets it there?
+              what do you expect this area&apos;s child-poverty figure to be in five years, and what
+              are you doing to bring it down?
             </strong>{" "}
-            <Link href="/take-action">The letter tool</Link> will write it with you in two minutes.
+            <Link href="/take-action">We will find your MP and write the email for you.</Link>
           </p>
         </Col>
+
+        <EvidenceDetails className="mt-8 max-w-[780px]" summary="See the exact definition used here">
+          <p>
+            A child is counted as living in relative poverty after housing costs when the family
+            has less than 60% of the usual UK household income once rent or mortgage is paid.
+          </p>
+        </EvidenceDetails>
 
         <section className="pt-12">
           <h2 className="h2 mb-6">Questions people ask</h2>
@@ -235,7 +241,7 @@ export default async function ConstituencyPage(props: { params: Promise<{ slug: 
                 <Link
                   key={o.slug}
                   href={`/constituencies/${o.slug}`}
-                  className="ui text-[13.5px] px-3 py-1.5 border border-[var(--rule)] bg-[var(--surface)] hover:border-[var(--brand)] transition-colors"
+                  className="ui text-[15px] px-3 py-2 border border-[var(--rule)] bg-[var(--surface)] hover:border-[var(--brand)] transition-colors"
                 >
                   {o.name} <span className="text-[var(--muted)] tnum">{o.pcts[9]}%</span>
                 </Link>
@@ -244,12 +250,12 @@ export default async function ConstituencyPage(props: { params: Promise<{ slug: 
         </section>
 
         <CTA
-          title={`Ask the MP for ${c.name} where they stand`}
-          body="The letter is pre-filled with this constituency's figures and the specific reserved policies the modelling says would move them. It takes about two minutes."
+          title={`Email the MP for ${c.name}`}
+          body="Enter your postcode. We find the right MP, add these exact local figures and open a ready-written email in your own email app."
           href="/take-action"
-          cta="Write the letter"
+          cta="Find and email my MP"
           secondaryHref="/constituencies"
-          secondaryCta="All 57 seats ranked"
+          secondaryCta="See every MP area"
         />
       </Page>
     </>

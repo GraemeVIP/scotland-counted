@@ -62,10 +62,10 @@ export default function Contact() {
             {EXPECT.map((e) => (
               <div key={e.t} className="border-l-[3px] border-[var(--brand)] pl-6 py-1">
                 <p className="h4 mb-1.5">{e.t}</p>
-                <p className="text-[14.5px] text-[var(--ink-2)] leading-[1.55] mb-2">{e.b}</p>
+                <p className="text-[15px] text-[var(--ink-2)] leading-[1.55] mb-2">{e.b}</p>
                 <Link
                   href={e.href}
-                  className="ui text-[13.5px] font-[640] text-[var(--brand)] underline decoration-[var(--rule-strong)] underline-offset-3 hover:decoration-current"
+                  className="ui text-[15px] font-[640] text-[var(--brand)] underline decoration-[var(--rule-strong)] underline-offset-3 hover:decoration-current"
                 >
                   {e.link}
                 </Link>

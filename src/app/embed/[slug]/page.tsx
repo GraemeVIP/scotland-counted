@@ -31,13 +31,13 @@ export default async function EmbedPage(props: { params: Promise<{ slug: string 
   return (
     <div className="p-4 sm:p-5">
       <p className="h4 mb-0.5">{ind.chartTitle}</p>
-      <p className="ui text-[12px] text-[var(--muted)] leading-[1.5]">{ind.chartSub}</p>
+      <p className="ui text-[15px] text-[var(--muted)] leading-[1.5]">{ind.chartSub}</p>
 
       <div className="flex flex-wrap gap-x-5 gap-y-1.5 mt-3 mb-1">
         {ind.series.map((s) => (
           <span
             key={s.name}
-            className="ui inline-flex items-center gap-2 text-[12.5px] font-[520] text-[var(--ink-2)]"
+            className="ui inline-flex items-center gap-2 text-[15px] font-[520] text-[var(--ink-2)]"
           >
             <span className="w-[14px] h-[3px] shrink-0" style={{ background: `var(${s.colorVar})` }} />
             {s.name}
@@ -64,11 +64,11 @@ export default async function EmbedPage(props: { params: Promise<{ slug: string 
           href={`${site.url}/indicators/${ind.slug}`}
           target="_blank"
           rel="noopener"
-          className="ui text-[12px] font-[640] text-[var(--brand)] hover:underline underline-offset-2"
+          className="ui text-[15px] font-[640] text-[var(--brand)] hover:underline underline-offset-2"
         >
           Scotland<span className="text-[var(--action)]">Counted</span> — the data behind this chart
         </a>
-        <span className="ui text-[12px] text-[var(--muted)]">
+        <span className="ui text-[15px] text-[var(--muted)]">
           Free to embed with this link
         </span>
       </p>

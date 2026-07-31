@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Page, Col, PageHeader, CTA } from "@/components/Blocks";
+import { Page, Col, PageHeader, CTA, InShort } from "@/components/Blocks";
 import Figure from "@/components/charts/Figure";
 import AreaDumbbell from "./AreaDumbbell";
 import RankTable from "@/components/RankTable";
@@ -7,9 +7,9 @@ import { JsonLd, breadcrumbJsonLd, datasetJsonLd, meta } from "@/lib/seo";
 import { councilsByLevel, councilsByChange, COUNCIL_YEARS } from "@/lib/data/councils";
 
 export const metadata = meta({
-  title: "Poverty, work and pay in every Scottish council area",
+  title: "Poverty and pay in every Scottish area",
   description:
-    "Evidence for all 32 Scottish council areas: child poverty after housing costs, out-of-work claimant rates from 2000 and resident pay from 2008, each compared with Scotland.",
+    "Choose any Scottish council area and see a simple summary, exact poverty figures, out-of-work benefits and typical pay.",
   path: "/areas",
 });
 
@@ -49,16 +49,22 @@ export default function Areas() {
 
       <Page>
         <PageHeader
-          eyebrow={`All 32 council areas · ${first} – ${last}`}
-          title="Poverty, work and pay in every Scottish council area"
-          lede={`Every area has child-poverty, claimant-count and resident-pay evidence against Scotland. The ranking below uses child poverty, the strongest comparable local income measure: ${rose} of 32 areas worsened over the decade.`}
+          eyebrow="All 32 Scottish council areas"
+          title="See what is happening where you live"
+          lede={`Choose an area for a clear answer first, then open the exact figures and sources. Things got worse in ${rose} of 32 areas over the last ten years.`}
         />
+
+        <InShort>
+          <p>Tap your area to see how many children are in poverty, how that has changed, how many people need out-of-work benefits and what a typical worker earns.</p>
+          <p><strong>Glasgow is highlighted because it has the worst child-poverty rate in Scotland and the biggest ten-year rise.</strong></p>
+        </InShort>
 
         <div className="mt-9">
           <Figure
-            title={`Every council area in Scotland, ${first} and ${last}`}
-            sub="Child poverty after housing costs · ranked by today's level · End Child Poverty / Loughborough University"
-            caption="Tap or click any row for that area's own page. Blue connectors mean the rate rose over the decade; grey means it fell."
+            title="How child poverty changed in every area"
+            sub={`${first} compared with ${last} · exact percentage after rent or mortgage`}
+            caption="Tap any row to open that area's page. Blue means the figure got worse; grey means it improved. Glasgow is marked so its record stays visible."
+            technical={["Source: End Child Poverty and Loughborough University. Areas are ordered by the latest exact rate."]}
           >
             <AreaDumbbell
               rows={byLevel.map((c) => ({
@@ -75,14 +81,14 @@ export default function Areas() {
         </div>
 
         <section className="pt-12">
-          <h2 className="h2 mb-2">Ranked by the latest child-poverty rate</h2>
-          <p className="text-[14.5px] text-[var(--ink-2)] mb-6">
-            Glasgow is shaded. The rank number always refers to the {last} rate.
+          <h2 className="h2 mb-2">Every area, from highest to lowest</h2>
+          <p className="text-[15px] text-[var(--ink-2)] mb-6">
+            Glasgow is shaded. Number 1 has the highest child-poverty rate.
           </p>
           <RankTable
             nameLabel="Council area"
-            latestLabel={last}
-            firstLabel={first}
+            latestLabel="Now"
+            firstLabel="10 years ago"
             rows={byLevel.map((c) => ({
               rank: c.rankLevel,
               name: c.name,
@@ -104,26 +110,26 @@ export default function Areas() {
             </Link>
             .
           </p>
-          <h2 className="h2 mb-4">The pattern behind the ranking</h2>
+          <h2 className="h2 mb-4">Why nearby places can look very different</h2>
           <p>
             The three areas with the lowest child poverty — {byLevel[31].name},{" "}
-            {byLevel[30].name} and {byLevel[29].name} — are all commuter belt. Two of them border
-            Glasgow directly.
+            {byLevel[30].name} and {byLevel[29].name} — are places where many people travel to
+            better-paid jobs elsewhere. Two border Glasgow.
           </p>
           <p>
             That is not a coincidence.{" "}
             <Link href="/why-glasgow">
-              Glasgow hosts the region&apos;s better-paid jobs and exports the wages
+              Many better-paid jobs are in Glasgow, but the people doing them often live outside it
             </Link>{" "}
             to exactly these places.
           </p>
         </Col>
 
         <CTA
-          title="Your postcode is the shortest route to the evidence"
-          body="Enter it once and the action tool finds your council figures, MP and constituency MSP automatically, then prepares the right addressed emails."
+          title="Enter your postcode and we do the rest"
+          body="We find your area, MP and MSP automatically, add the local facts and prepare two addressed emails."
           href="/take-action"
-          cta="Find my area and representatives"
+          cta="Find my MP and MSP"
           secondaryHref={`/areas/${byLevel[0].slug}`}
           secondaryCta={`See ${byLevel[0].name}`}
         />

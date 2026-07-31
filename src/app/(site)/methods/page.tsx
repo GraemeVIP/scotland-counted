@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Page, Col, PageHeader, CTA } from "@/components/Blocks";
+import { Page, Col, PageHeader, CTA, InShort } from "@/components/Blocks";
 import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
 import { sources } from "@/lib/data/sources";
 
@@ -12,39 +12,39 @@ export const metadata = meta({
 
 const PRINCIPLES = [
   {
-    title: "Primary sources only",
-    body: "Every figure was retrieved from the body that published it — ONS, DWP, the Scottish Government, End Child Poverty, or a named academic study. Nothing is cited from newspaper reporting of a statistic.",
+    title: "Go to the original source",
+    body: "Every figure comes from the organisation that published it — not a newspaper story repeating the number.",
   },
   {
-    title: "Derived numbers are labelled as derived",
-    body: "Where we calculated something that is not published directly, the calculation is stated and, where possible, validated against a published figure. The Scotland-wide child poverty rate is the main example: our method reproduces the official 24.5% for 2022/23.",
+    title: "Say when we did the maths",
+    body: "If we calculated a number ourselves, we say so and show the calculation. We also check it against a published figure whenever possible.",
   },
   {
-    title: "Bad data is shown, not hidden",
-    body: "Where a series becomes unreliable, we plot it dotted and shaded with the reason on the chart, rather than quietly truncating it. Readers can see the weakness and judge for themselves.",
+    title: "Do not hide weak figures",
+    body: "If a figure may be unreliable, the chart uses a dotted line and explains why. Readers can decide for themselves.",
   },
   {
-    title: "Definitional breaks are declared",
-    body: "Where a measure changed what it counts mid-series — the claimant count in 2015, for example — the technical note under the chart says so, and says whether the comparison still holds.",
+    title: "Say when the rules changed",
+    body: "Sometimes an official figure starts counting different people. We mark the point where that happened and explain what can still be compared.",
   },
   {
-    title: "Accountability is about decisions",
-    body: "The analysis describes decisions and measured consequences without attributing motives or making claims about anyone's honesty. Current representatives are named only when the postcode tool retrieves the reader's MP and MSP from official sources.",
+    title: "Record choices, not motives",
+    body: "The site says what a government did and what happened next. It does not guess why someone did it or claim to know whether they are honest.",
   },
   {
     title: "Corrections are public",
-    body: "If a figure is wrong we change it and log the change. A record that quietly edits itself is not a record.",
+    body: "If a figure is wrong, we fix it and keep a public note of what changed.",
   },
 ];
 
 const LIMITS = [
-  "The Family Resources Survey supports the official Scotland-wide poverty headline but is not robust at council level. Local pages therefore use separate administrative child-poverty, claimant-count and pay datasets; these measures should be read together, not treated as interchangeable.",
-  "There is no consistent local child poverty series before 2014/15. The earlier part of the period is covered only by labour-market and neighbourhood measures.",
-  "The neighbourhood deprivation ranking (SIMD) is a league table, not a headcount of hardship. A place can improve in absolute terms and still fall in the ranking.",
-  "Survey-based figures from 2024 onward are unreliable at council level because response rates collapsed. We show them, dotted, rather than pretend they do not exist.",
-  "Local figures are council- or constituency-wide averages, not descriptions of a street or household. Child poverty within Glasgow, for example, ranges from roughly 5% in some neighbourhoods to roughly 75% in others.",
-  "Pay figures are in cash, not adjusted for inflation. Compare the lines with each other within a year, not along them.",
-  "Life expectancy is a period measure describing death rates in a given window, not a forecast for any individual.",
+  "The main poverty survey is reliable for Scotland as a whole, but not for each council area. Local pages therefore use separate records for child poverty, out-of-work benefits and pay. They show different parts of the story and should not be treated as the same thing.",
+  "There is no reliable local child-poverty series before 2014/15. Older local pages can show work and neighbourhood figures, but not the same poverty measure.",
+  "Scotland's neighbourhood list ranks places from worst-off to best-off. It does not count every person in hardship. A place can improve and still move down if other places improve faster.",
+  "Some job figures from 2024 onward are unreliable because too few people answered the survey. We show that part with a dotted line and a warning.",
+  "An area-wide figure does not describe every street or family. Within Glasgow, estimated child poverty ranges from roughly 5% in some neighbourhoods to roughly 75% in others.",
+  "Pay figures show the cash amount at the time and do not remove the effect of rising prices. Compare places within the same year.",
+  "The life-expectancy figure describes death rates across the population. It is not a prediction for any one person.",
 ];
 
 export default function Methods() {
@@ -61,11 +61,16 @@ export default function Methods() {
         <PageHeader
           eyebrow="How this was built"
           title="Methods and sources"
-          lede="The whole argument of this site is that the data was always public and simply hard to reach. So the working has to be visible, including the parts that weaken the case."
+          lede="You should not have to trust us. This page shows where every number came from, any maths we did and what the figures cannot prove."
         />
 
+        <InShort expert={false}>
+          <p><strong>The simple pages tell the story. This page lets you check the working.</strong></p>
+          <p>Every source is linked. Weak or missing data is labelled instead of hidden.</p>
+        </InShort>
+
         <section className="pt-11">
-          <h2 className="h2 mb-6">Six rules we hold to</h2>
+          <h2 className="h2 mb-6">Six rules we follow</h2>
           <div className="grid gap-4 sm:grid-cols-2">
             {PRINCIPLES.map((p) => (
               <div
@@ -80,11 +85,10 @@ export default function Methods() {
         </section>
 
         <section className="pt-14">
-          <h2 className="h2 mb-4">What this site cannot tell you</h2>
+          <h2 className="h2 mb-4">What the figures cannot prove</h2>
           <Col>
             <p>
-              Every one of these is a genuine limitation. If a claim on this site seems to outrun
-              one of them, the claim is wrong and we want to know.
+              These limits matter. If the site claims more than the figures can support, tell us.
             </p>
             <ul>
               {LIMITS.map((l) => (
@@ -97,14 +101,13 @@ export default function Methods() {
         <section className="pt-14">
           <h2 className="h2 mb-2">Every source</h2>
           <p className="text-[15px] text-[var(--ink-2)] mb-7 max-w-[62ch]">
-            {sources.length} sources. Each entry says what we took from it and any transformation
-            we applied.
+            {sources.length} sources. Each entry says what we used and any calculation we made.
           </p>
 
           <ol className="space-y-6 max-w-[78ch]">
             {sources.map((s, i) => (
               <li key={s.id} className="grid grid-cols-[2rem_1fr] gap-3">
-                <span className="ui text-[13px] text-[var(--muted)] pt-1 tnum">
+                <span className="ui text-[15px] text-[var(--muted)] pt-1 tnum">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <div>
@@ -116,14 +119,14 @@ export default function Methods() {
                   >
                     {s.title}
                   </a>
-                  <p className="ui text-[12.5px] text-[var(--muted)] mt-0.5 mb-1.5">
+                  <p className="ui text-[15px] text-[var(--muted)] mt-0.5 mb-1.5">
                     {s.publisher}
                   </p>
                   <p className="text-[15px] text-[var(--ink-2)] leading-[1.55]">{s.used}</p>
                   {s.derivation && (
-                    <p className="text-[14.5px] text-[var(--ink-2)] leading-[1.55] mt-1.5 pl-3 border-l-2 border-[var(--rule)]">
-                      <span className="ui text-[12px] font-[650] text-[var(--muted)] block mb-0.5">
-                        Our derivation
+                    <p className="text-[15px] text-[var(--ink-2)] leading-[1.55] mt-1.5 pl-3 border-l-2 border-[var(--rule)]">
+                      <span className="ui text-[15px] font-[650] text-[var(--muted)] block mb-0.5">
+                        Our calculation
                       </span>
                       {s.derivation}
                     </p>
@@ -135,12 +138,12 @@ export default function Methods() {
         </section>
 
         <CTA
-          title="Check us"
-          body="The raw extracts are downloadable, the publishers are linked above, and the corrections page is not decorative. If something here is wrong, it should be found and fixed."
+          title="Check the work yourself"
+          body="Download the original extracts, open the source links and tell us if something does not match. Confirmed errors are fixed and recorded publicly."
           href="/data"
           cta="Download the data"
           secondaryHref="/corrections"
-          secondaryCta="Report an error"
+          secondaryCta="Tell us about an error"
         />
 
         <p className="mt-10 text-[15px] text-[var(--ink-2)] max-w-[66ch]">

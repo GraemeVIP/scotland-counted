@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Page, Col, PageHeader, CTA } from "@/components/Blocks";
+import { Page, Col, PageHeader, CTA, InShort } from "@/components/Blocks";
 import { JsonLd, breadcrumbJsonLd, datasetJsonLd, meta } from "@/lib/seo";
 import RankTable from "@/components/RankTable";
 import {
@@ -9,15 +9,14 @@ import {
 } from "@/lib/data/constituencies";
 
 export const metadata = meta({
-  title: "Child poverty in every Scottish constituency",
+  title: "Child poverty in every Scottish MP area",
   description:
-    "All 57 Scottish UK Parliament constituencies ranked by child poverty after housing costs. Glasgow East is highest at 34.9%. One MP is answerable for each number — find yours.",
+    "See child poverty in all 57 areas represented by a Scottish MP. Glasgow East is highest. Enter your postcode and we find your MP for you.",
   path: "/constituencies",
 });
 
 export default function Constituencies() {
   const byLevel = constituenciesByLevel();
-  const first = CONSTITUENCY_YEARS[0];
   const last = CONSTITUENCY_YEARS[9];
   const worst = byLevel[0];
 
@@ -42,9 +41,9 @@ export default function Constituencies() {
 
       <Page>
         <PageHeader
-          eyebrow={`All ${CONSTITUENCY_COUNT} Westminster seats · ${first} – ${last}`}
-          title="Child poverty, one MP at a time"
-          lede="Every UK Parliament constituency in Scotland, ranked by child poverty after housing costs. Each of these numbers has exactly one MP answerable for the reserved policies that drive it — benefits, the two-child limit's legacy, and housing support."
+          eyebrow={`All ${CONSTITUENCY_COUNT} areas represented by a Scottish MP`}
+          title="See the facts for the area your MP represents"
+          lede="One MP represents each area. You do not need to know the political name for your area or who your MP is — enter your postcode and we find them for you."
           stat={{
             value: `${worst.pcts[9]}%`,
             label: `${worst.name} — the highest constituency rate in Scotland, ${last}`,
@@ -52,14 +51,19 @@ export default function Constituencies() {
           }}
         />
 
+        <InShort>
+          <p>This list shows child poverty in every part of Scotland represented by an MP. Number 1 has the worst rate.</p>
+          <p><strong>Six of the seven worst areas are in Glasgow.</strong> Glasgow is shaded so that is impossible to miss.</p>
+        </InShort>
+
         <section className="pt-2">
-          <p className="text-[14.5px] text-[var(--ink-2)] mb-6">
-            Glasgow seats are shaded. The rank number always refers to the {last} rate.
+          <p className="text-[15px] text-[var(--ink-2)] mb-6 mt-8">
+            Glasgow areas are shaded. Number 1 has the highest rate.
           </p>
           <RankTable
-            nameLabel="Constituency"
-            latestLabel={last}
-            firstLabel={first}
+            nameLabel="Area represented by an MP"
+            latestLabel="Now"
+            firstLabel="10 years ago"
             rows={byLevel.map((c) => ({
               rank: c.rankLevel,
               name: c.name,
@@ -74,27 +78,25 @@ export default function Constituencies() {
         </section>
 
         <Col className="pt-12">
-          <h2 className="h2 mb-4">Why constituencies, as well as councils</h2>
+          <h2 className="h2 mb-4">Why show the area your MP represents?</h2>
           <p>
-            Council areas are where services are delivered, but the biggest levers on child
-            poverty — Universal Credit, housing benefit, the two-child limit that ran until 2026 —
-            are reserved to Westminster. A constituency is the one geography where a single named
-            person answers for those choices at an election.
+            Councils run local services. MPs vote on Universal Credit and help with private rent.
+            Showing the figure for each MP&apos;s area makes it clear who local people can question.
           </p>
           <p>
-            Six of the seven worst constituency rates in Scotland are Glasgow seats.{" "}
-            <Link href="/why-glasgow">Why Glasgow specifically</Link> explains what sits behind
-            that. Council-level figures are on <Link href="/areas">the area pages</Link>.
+            Six of the seven worst MP areas in Scotland are in Glasgow.{" "}
+            <Link href="/why-glasgow">See why Glasgow is hit harder</Link>. Council-level figures
+            are on <Link href="/areas">the local area pages</Link>.
           </p>
         </Col>
 
         <CTA
-          title="Your MP's constituency has a number"
-          body="Every seat page carries ten years of figures and a letter you can send in two minutes, pre-filled with the data. MPs count their postbag."
-          href={`/constituencies/${worst.slug}`}
-          cta={`Start with ${worst.name}`}
-          secondaryHref="/take-action"
-          secondaryCta="Write to your MP"
+          title="You do not need to work out who your MP is"
+          body="Enter your postcode. We find your MP, add the exact local figure and open a ready-written email."
+          href="/take-action"
+          cta="Find and email my MP"
+          secondaryHref={`/constituencies/${worst.slug}`}
+          secondaryCta={`See ${worst.name}`}
         />
       </Page>
     </>

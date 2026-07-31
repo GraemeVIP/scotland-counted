@@ -26,8 +26,8 @@ export const fixes: Fix[] = [
     id: "two-child-limit",
     what: "Scrap the two-child limit",
     effect:
-      "The single biggest lever there is. It hits larger families hardest, and Glasgow has more of them than anywhere comparable in Scotland.",
-    cost: "Paid by the UK",
+      "This stopped families getting normal support for a third or later child. It hit larger families hardest and was finally scrapped in April 2026.",
+    cost: "Paid from the UK benefits budget",
     status: "done",
     statusLabel: "Done, April 2026",
     lever: "Westminster",
@@ -35,8 +35,8 @@ export const fixes: Fix[] = [
   },
   {
     id: "scp-supplement",
-    what: "Top up the Scottish Child Payment for babies, disabled households and single parents",
-    effect: "Around 10,000 children lifted out of poverty.",
+    what: "Give extra Scottish Child Payment to the families at greatest risk",
+    effect: "Experts estimate this could lift around 10,000 children out of poverty.",
     cost: "£310m a year",
     status: "partial",
     statusLabel: "Partly",
@@ -45,8 +45,8 @@ export const fixes: Fix[] = [
   },
   {
     id: "scp-takeup",
-    what: "Make sure every family entitled to the Scottish Child Payment actually receives it",
-    effect: "Up to 10,000 more children out of poverty by 2030/31.",
+    what: "Make sure every eligible family gets the Scottish Child Payment",
+    effect: "Experts estimate this could lift up to 10,000 more children out of poverty by 2030/31.",
     cost: "£60m a year",
     status: "not-done",
     statusLabel: "Not done",
@@ -55,9 +55,9 @@ export const fixes: Fix[] = [
   },
   {
     id: "housing-supply",
-    what: "Build enough housing to meet assessed need",
+    what: "Build enough affordable homes",
     effect:
-      "Cuts poverty directly, because poverty is counted after rent. Ends the temporary accommodation bill.",
+      "Lower housing costs leave families with more money for food, heat and other basics. It would also cut the huge hotel and B&B bill.",
     cost: "£8–9.2bn over five years",
     status: "not-done",
     statusLabel: "£4.1bn planned",
@@ -66,9 +66,9 @@ export const fixes: Fix[] = [
   },
   {
     id: "lha",
-    what: "Raise housing benefit back in line with real local rents",
-    effect: "A direct lever on poverty after housing costs wherever private rents exceed support.",
-    cost: "UK decision",
+    what: "Make help with private rent match real local rents",
+    effect: "Families would no longer have to fill such a large rent gap using money meant for other basics.",
+    cost: "Paid from the UK benefits budget",
     status: "not-done",
     statusLabel: "Not done",
     lever: "Westminster",
@@ -76,9 +76,9 @@ export const fixes: Fix[] = [
   },
   {
     id: "childcare",
-    what: "Childcare for under-3s, with hours that match shift work",
+    what: "Provide childcare for under-3s at times that fit shift work",
     effect:
-      "Removes the main thing stopping single parents taking or increasing work.",
+      "This would help single parents take a job or work more hours.",
     cost: "£15m set aside",
     status: "partial",
     statusLabel: "Barely",
@@ -89,7 +89,7 @@ export const fixes: Fix[] = [
     id: "homelessness",
     what: "Fund Glasgow's homelessness shortfall",
     effect:
-      "Ends a projected seven-year breach of the law and stops reserves being spent on hotel rooms.",
+      "This would help Glasgow meet its legal duty to house people and stop so much public money going on hotel rooms.",
     cost: "£56m (2026/27), £73m (2027/28)",
     status: "not-done",
     statusLabel: "Not done",
@@ -111,24 +111,24 @@ export const tiers: Tier[] = [
   {
     id: "westminster",
     who: "Westminster",
-    power: "Controls Universal Credit, the two-child limit and housing benefit",
-    heading: "Nine years of the two-child limit",
+    power: "The UK Government controls Universal Credit and help with private rent",
+    heading: "UK Government decisions reduced help to families",
     points: [
       {
         emphasis: "The two-child limit ran from April 2017 to April 2026.",
-        text: "No extra benefit support for a third or later child. A Conservative government introduced it; a Labour government kept it for nearly two years after taking office. It was designed to cut support for larger families, and Glasgow has more larger families than anywhere comparable in Scotland. It was scrapped only after nine years.",
+        text: "Families received no normal extra support for a third or later child. A Conservative government introduced the rule. A Labour government kept it for nearly two more years before scrapping it.",
       },
       {
         emphasis: "The benefit freeze from 2016 to 2020",
-        text: "held payments flat in cash while prices rose — a real cut every year, during exactly the years Glasgow's child poverty climbed from 27.1% to 32.2%.",
+        text: "kept payments at the same cash amount while prices rose. During those years Glasgow child poverty rose from 27.1% to 32.2%.",
       },
       {
-        emphasis: "Housing benefit has been frozen for most of the past decade,",
-        text: "so it drifted further below what landlords actually charge. Since poverty is measured after rent, that is arithmetic, not bad luck.",
+        emphasis: "Help with private rent has been frozen for much of the last decade,",
+        text: "so it fell further behind real rents. Families filled the gap using money meant for food, heating and other basics.",
       },
       {
-        emphasis: "Asylum dispersal placed roughly 95% of Scotland's asylum seekers in one city",
-        text: "without funding the consequences. The council estimated one batch of Home Office decisions alone could cost it more than £53m.",
+        emphasis: "About 95% of asylum seekers sent to Scotland were housed in Glasgow",
+        text: "without enough money to cover the cost. The council said one group of Home Office decisions could cost it more than £53m.",
       },
     ],
     sourceIds: ["cpag", "housing", "migration"],
@@ -136,28 +136,28 @@ export const tiers: Tier[] = [
   {
     id: "holyrood",
     who: "Holyrood",
-    power: "Sets the legal targets, and controls housing, childcare and the Scottish Child Payment",
-    heading: "Legal targets, missed, with no consequence",
+    power: "The Scottish Government controls housing, childcare and the Scottish Child Payment",
+    heading: "Scottish Government promises were missed",
     points: [
       {
         emphasis: "All four legally binding interim targets for 2023/24 were missed.",
-        text: "Relative poverty came in at 22% against a target under 18%. Absolute poverty 17% against 14%. Low income and material deprivation 9% against 8%. Persistent poverty — children stuck poor for years — hit 23% against a target of 8%, nearly three times over.",
+        text: "The exact results were 22% against a target below 18%; 17% against 14%; 9% against 8%; and 23% against 8% for children poor for years.",
       },
       {
         emphasis: "Ministers have conceded there is no penalty for missing them,",
         text: "which raises a fair question about what the legislation was for.",
       },
       {
-        emphasis: "Housing is funded at £4.1bn against £8–9.2bn assessed as needed",
-        text: "— roughly half, in the policy area that most directly drives the poverty figure.",
+        emphasis: "Housing has £4.1bn planned, against £8–9.2bn experts say is needed",
+        text: "— about half of the higher estimate.",
       },
       {
-        emphasis: "Repeated council tax freezes",
-        text: "have frozen the only significant revenue lever councils control. Holyrood takes the credit; councils administer the cuts.",
+        emphasis: "Council tax was frozen several times,",
+        text: "which limited one of the few ways councils can raise money themselves.",
       },
       {
-        emphasis: "The 2026–31 delivery plan leans on about £90m a year of employment schemes",
-        text: "when the government's own commissioned evidence says cash transfers, not job programmes, are what move the number. It picked the cheaper lever, not the effective one.",
+        emphasis: "The 2026–31 plan spends about £90m a year on job support",
+        text: "even though the government's own research says direct family income changes the poverty figure more.",
       },
     ],
     sourceIds: ["targets", "jrf", "fai"],
@@ -165,16 +165,16 @@ export const tiers: Tier[] = [
   {
     id: "glasgow",
     who: "Glasgow City Council",
-    power: "Runs housing, homelessness and local services",
-    heading: "A budget mortgaged to its own past",
+    power: "Glasgow City Council runs homelessness and local services",
+    heading: "Past council decisions still cost Glasgow today",
     points: [
       {
         emphasis: "The £770m equal pay settlement",
-        text: "was the bill for decades of underpaying a mostly female workforce — carers, cleaners, caterers. No other Scottish council carries anything like it, and it was self-inflicted. It was funded by selling the City Chambers and Kelvingrove and renting them back, now costing £32.1m a year plus inflation. Money that would be services is permanently rent.",
+        text: "covered years of underpaying mainly female workers such as carers, cleaners and caterers. The council sold buildings including the City Chambers and Kelvingrove, then rented them back. That now costs £32.1m a year plus inflation.",
       },
       {
         emphasis: "The council has been in a declared housing emergency since November 2023",
-        text: "and expects to be breaching homelessness law until the early 2030s, while spending about £4.5m a month on temporary accommodation — the most expensive possible way to house people badly.",
+        text: "and expects to keep breaking its legal housing duty into the early 2030s. It spends about £4.5m a month on temporary rooms such as hotels and B&Bs.",
       },
       {
         emphasis: "Both main parties have had long runs at this.",

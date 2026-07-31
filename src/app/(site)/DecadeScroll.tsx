@@ -115,7 +115,7 @@ export default function DecadeScroll() {
           <div className="grid gap-x-16 gap-y-9 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] lg:items-center">
             {/* ---- Narration ---- */}
             <div className="order-2 lg:order-1">
-              <p className="ui text-[14px] font-[600] opacity-65 mb-6">
+              <p className="ui text-[15px] font-[600] opacity-65 mb-6">
                 The decade, in your hands — keep scrolling
               </p>
 
@@ -143,7 +143,7 @@ export default function DecadeScroll() {
                     }}
                   />
                 </div>
-                <div className="flex justify-between mt-3 ui text-[12.5px] opacity-45">
+                <div className="flex justify-between mt-3 ui text-[15px] opacity-45">
                   <span>{years[0]}</span>
                   <span>{years[last]}</span>
                 </div>
@@ -153,7 +153,7 @@ export default function DecadeScroll() {
                 {caption.text}
               </p>
 
-              <p className="ui text-[12.5px] opacity-45 mt-7">
+              <p className="ui text-[15px] opacity-45 mt-7">
                 End Child Poverty / Loughborough University · after housing costs
               </p>
             </div>
