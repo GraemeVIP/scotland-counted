@@ -1,4 +1,5 @@
 import Link from "next/link";
+import EditorialImage from "@/components/EditorialImage";
 import {
   Page,
   Col,
@@ -196,6 +197,14 @@ export default function Home() {
             eyebrow="Poverty and the labour market"
             title="A job matters. It is not the whole answer."
           />
+          <EditorialImage
+            src="/images/editorial/scotland-working-family.webp"
+            alt="An illustrated working parent walking home with a child and groceries on a rainy Scottish evening."
+            caption="Three quarters of children in poverty live with someone who works. Housing, food, travel and energy costs can still overwhelm a wage."
+            aspect="wide"
+            className="mt-10 sm:ml-[calc(2ch+2rem)]"
+            objectPosition="center 42%"
+          />
           <div className="sm:pl-[calc(2ch+2rem)] mt-8">
             <Split
               aside={
@@ -231,7 +240,15 @@ export default function Home() {
             eyebrow="National outlier · dedicated record"
             title="Glasgow is Scotland's starkest child-poverty outlier"
           />
-          <div className="grid gap-5 lg:grid-cols-[minmax(0,1.25fr)_minmax(300px,0.75fr)] mt-10">
+          <EditorialImage
+            src="/images/editorial/glasgow-everyday-street.webp"
+            alt="An illustrated everyday Glasgow tenement street with residents walking home after rain."
+            caption="Glasgow's figures are not an abstract city average. They describe tens of thousands of children growing up across ordinary streets and neighbourhoods."
+            aspect="wide"
+            className="mt-10"
+            objectPosition="center 56%"
+          />
+          <div className="grid gap-5 lg:grid-cols-[minmax(0,1.25fr)_minmax(300px,0.75fr)] mt-5">
             <div className="rounded-[var(--r-m)] bg-[var(--deep)] text-[var(--deep-ink)] p-7 sm:p-10">
               <p className="label !text-[var(--deep-ink)] opacity-60 mb-5">Glasgow · 2000–2026</p>
               <h3 className="display text-[clamp(27px,3.2vw,44px)] font-[750] max-w-[22ch]">

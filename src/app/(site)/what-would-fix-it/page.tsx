@@ -1,4 +1,5 @@
 import Link from "next/link";
+import EditorialImage from "@/components/EditorialImage";
 import {
   Page,
   Col,
@@ -92,6 +93,15 @@ export default function WhatWouldFixIt() {
           <p>Job schemes alone do not fix child poverty.</p>
           <p>Most of the things that would work have not been done yet.</p>
         </InShort>
+
+        <EditorialImage
+          src="/images/editorial/scotland-secure-homes.webp"
+          alt="An illustrated family arriving home on a modern affordable-housing street in Scotland."
+          caption="Security is the outcome: enough income and housing for families to plan ahead instead of constantly absorbing another bill."
+          aspect="wide"
+          className="mt-10"
+          objectPosition="center 48%"
+        />
       </Page>
 
       <Slab attribution="The shared finding of JRF, IPPR Scotland and the Fraser of Allander Institute">
