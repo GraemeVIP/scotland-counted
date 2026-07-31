@@ -1,5 +1,4 @@
 import Link from "next/link";
-import EditorialImage from "@/components/EditorialImage";
 import {
   Page,
   Col,
@@ -17,6 +16,8 @@ import { councilsByChange, councilsByLevel, SCOTLAND_PCTS } from "@/lib/data/cou
 import { scotlandPoverty } from "@/lib/data/scotland";
 import { getSources } from "@/lib/data/sources";
 import { site } from "@/lib/site";
+import AreaGrid from "@/components/AreaGrid";
+import WhyBother from "@/components/WhyBother";
 import Hero from "./Hero";
 
 export const metadata = meta({
@@ -98,6 +99,8 @@ export default function Home() {
       <Hero />
 
       <Page>
+        <AreaGrid className="pt-16 sm:pt-20" />
+
         <section className="pt-20 sm:pt-28">
           <SectionHead
             n={1}
@@ -160,6 +163,8 @@ export default function Home() {
           </EvidenceDetails>
         </section>
 
+        <WhyBother className="pt-20 sm:pt-28" />
+
         <section className="pt-20 sm:pt-28">
           <SectionHead
             n={2}
@@ -201,14 +206,6 @@ export default function Home() {
             eyebrow="Work and wages"
             title="Having a job does not always mean having enough money"
           />
-          <EditorialImage
-            src="/images/editorial/scotland-working-family.webp"
-            alt="An illustrated working parent walking home with a child and groceries on a rainy Scottish evening."
-            caption="Three quarters of children in poverty live with someone who works. Housing, food, travel and energy costs can still overwhelm a wage."
-            aspect="wide"
-            className="mt-10 sm:ml-[calc(2ch+2rem)]"
-            objectPosition="center 42%"
-          />
           <div className="sm:pl-[calc(2ch+2rem)] mt-8">
             <Split
               aside={
@@ -242,14 +239,6 @@ export default function Home() {
             n={4}
             eyebrow="Glasgow · Its own record"
             title="Glasgow needs its own spotlight"
-          />
-          <EditorialImage
-            src="/images/editorial/glasgow-everyday-street.webp"
-            alt="An illustrated everyday Glasgow tenement street with residents walking home after rain."
-            caption="Glasgow's figures are not an abstract city average. They describe tens of thousands of children growing up across ordinary streets and neighbourhoods."
-            aspect="wide"
-            className="mt-10"
-            objectPosition="center 56%"
           />
           <div className="grid gap-5 lg:grid-cols-[minmax(0,1.25fr)_minmax(300px,0.75fr)] mt-5">
             <div className="rounded-[var(--r-m)] bg-[var(--deep)] text-[var(--deep-ink)] p-7 sm:p-10">
@@ -295,6 +284,18 @@ export default function Home() {
           </div>
         </section>
 
+      </Page>
+
+      <CTA
+        title="You do not need to know politics to ask for change"
+        body="Enter your postcode once. We find your MP and MSP, add the official figures for your area, write both emails and open them in your own email app."
+        href="/take-action"
+        cta="Find my MP and MSP"
+        secondaryHref="/areas"
+        secondaryCta="See every area"
+      />
+
+      <Page>
         <section className="pt-20 sm:pt-28">
           <SectionHead n={5} eyebrow="Questions" title="What people ask first" />
           <div className="grid gap-x-14 gap-y-9 lg:grid-cols-2 mt-10">
@@ -308,18 +309,6 @@ export default function Home() {
             ))}
           </div>
         </section>
-      </Page>
-
-      <CTA
-        title="You do not need to know politics to ask for change"
-        body="Enter your postcode once. We find your MP and MSP, add the official figures for your area, write both emails and open them in your own email app."
-        href="/take-action"
-        cta="Find my MP and MSP"
-        secondaryHref="/areas"
-        secondaryCta="See every area"
-      />
-
-      <Page>
         <p className="ui mt-12 text-[15px] text-[var(--muted)]">
           {site.name} — a personal public-interest project by {site.author.name} at{" "}
           {site.organisation.name}. No party affiliation, no funding, no paywall.
