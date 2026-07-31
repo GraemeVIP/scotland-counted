@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { site } from "@/lib/site";
 import { ScrollProgress, PictoGrid } from "@/components/Motion";
+import NewsletterSignup from "@/components/NewsletterSignup";
 
 export const NAV = [
   { href: "/the-numbers", label: "The numbers" },
@@ -254,14 +255,31 @@ export function Footer() {
               </a>
               . Not funded by, or affiliated with, any political party or campaign.
             </p>
-            <Link
-              href="/about"
-              className="inline-block mt-4 text-[15px] underline underline-offset-2 opacity-75 hover:opacity-100"
-            >
-              About this project
-            </Link>
+            <div className="flex flex-wrap gap-x-5 mt-4">
+              <Link
+                href="/about"
+                className="text-[15px] underline underline-offset-2 opacity-75 hover:opacity-100"
+              >
+                About this project
+              </Link>
+              <Link
+                href="/contact"
+                className="text-[15px] underline underline-offset-2 opacity-75 hover:opacity-100"
+              >
+                Get in touch
+              </Link>
+            </div>
           </div>
         </div>
+
+        {site.web3formsKey && (
+          <div className="mt-14 pt-10 border-t border-current/15">
+            <p className="ui text-[11px] uppercase tracking-[0.12em] font-[620] opacity-50 mb-4">
+              The Count — one email when the data changes
+            </p>
+            <NewsletterSignup variant="footer" />
+          </div>
+        )}
 
         <div className="mt-14 pt-7 border-t border-current/15 flex flex-wrap gap-x-8 gap-y-2 ui text-[11px] uppercase tracking-[0.12em] font-[620] opacity-50">
           <span>ONS · DWP · Scottish Government · Academic sources</span>

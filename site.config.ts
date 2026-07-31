@@ -12,7 +12,7 @@ export const site = {
    * CHANGE ME before going live. Used for canonical URLs, the sitemap,
    * Open Graph tags and JSON-LD. No trailing slash.
    */
-  url: "https://glasgowcounted.org",
+  url: "https://glasgowcounted.co.uk",
 
   tagline: "Glasgow's poverty, counted properly.",
   description:
@@ -44,11 +44,12 @@ export const site = {
   },
 
   /**
-   * Newsletter. Paste the form action URL from your provider
-   * (Buttondown, Mailchimp, Kit, Beehiiv...). Leave blank and the
-   * sign-up block renders a mailto fallback instead.
+   * The Count — the email list. Create a free access key at
+   * web3forms.com (submissions arrive in your inbox), paste it here
+   * and redeploy: every sign-up form on the site goes live. While it
+   * is empty the forms stay hidden, so nothing broken ever ships.
    */
-  newsletterAction: "",
+  web3formsKey: "4bcc9b22-6c82-45cc-ab20-0882fc8144d5",
 
   /** Last full data refresh, shown in the footer. */
   dataUpdated: "July 2026",

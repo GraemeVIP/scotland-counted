@@ -17,10 +17,10 @@ Open `site.config.ts` and change these four things:
 
 | Field | Why |
 |---|---|
-| `url` | Canonical URLs, sitemap, Open Graph tags and JSON-LD all derive from it. Must be the live domain, no trailing slash. |
+| `url` | Canonical URLs, sitemap, Open Graph tags and JSON-LD all derive from it. Must be the live domain, no trailing slash — currently set to glasgowcounted.co.uk. |
 | `author.name` | Currently just "Graeme" — add your surname if you want the byline to carry it. |
 | `contactEmail` | Used on the about and corrections pages. |
-| `newsletterAction` | Optional. Paste a form action URL from your email provider, or leave blank. |
+| `web3formsKey` | Optional. A free web3forms.com access key; pasting it turns on the email sign-up forms site-wide. |
 
 Nothing else needs touching to go live.
 

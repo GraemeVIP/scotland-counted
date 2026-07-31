@@ -90,7 +90,8 @@ export default function About() {
           <h2 className="h2 mb-4 mt-11">Contact</h2>
           <p>
             Corrections, questions and data requests:{" "}
-            <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>.
+            <Link href="/contact">the contact form</Link> goes straight to a real inbox, pre-sorted
+            by reason.
           </p>
           <p>
             {site.organisation.name}:{" "}

@@ -39,6 +39,7 @@ const CORE: Item[] = [
   { label: "Plain-English glossary", href: "/glossary", group: "Pages" },
   { label: "About this project", href: "/about", group: "Pages" },
   { label: "Corrections", href: "/corrections", group: "Pages" },
+  { label: "Get in touch — contact form", href: "/contact", group: "Pages", keywords: "email press error report message" },
 ];
 
 function buildRegistry(): Item[] {

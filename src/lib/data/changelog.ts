@@ -18,6 +18,13 @@ export type ChangeEntry = {
 export const changelog: ChangeEntry[] = [
   {
     date: "2026-07-31",
+    title: "The Count opens, and a contact form",
+    body: "The email list is live — one email when the data changes, nothing else. And a contact form replaces the published email address: report an error, make a press enquiry, request data, or suggest an improvement, pre-sorted by reason.",
+    href: "/contact",
+    kind: "feature",
+  },
+  {
+    date: "2026-07-31",
     title: "Constituency pages: all 57 Scottish Westminster seats",
     body: "Every UK Parliament constituency in Scotland now has its own page with ten years of child poverty figures, its rank, and a letter tool pre-filled for the MP who answers for it. Glasgow East is the highest in Scotland at 34.9%.",
     href: "/constituencies",

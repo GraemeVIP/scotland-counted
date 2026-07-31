@@ -23,6 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${site.url}/data`, changeFrequency: "yearly", priority: 0.6 },
     { url: `${site.url}/about`, changeFrequency: "yearly", priority: 0.5 },
     { url: `${site.url}/corrections`, changeFrequency: "monthly", priority: 0.3 },
+    { url: `${site.url}/contact`, changeFrequency: "yearly", priority: 0.4 },
   ];
 
   const indicatorPages: MetadataRoute.Sitemap = [
