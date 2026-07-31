@@ -119,6 +119,61 @@ export function ScrollProgress() {
 }
 
 /**
+ * The bare grid of figures — pure and controlled, no animation of its
+ * own. `lit` figures take litColor; the rest take dimColor.
+ */
+export function PictoGrid({
+  lit,
+  total = 100,
+  columns = 20,
+  litColor = "var(--action)",
+  dimColor = "var(--rule-strong)",
+  dimOpacity = 0.6,
+}: {
+  lit: number;
+  total?: number;
+  columns?: number;
+  litColor?: string;
+  dimColor?: string;
+  dimOpacity?: number;
+}) {
+  const rows = Math.ceil(total / columns);
+  const cw = 10;
+  const ch = 22;
+  return (
+    <svg viewBox={`0 0 ${columns * cw} ${rows * ch}`} className="w-full h-auto" aria-hidden="true">
+      {Array.from({ length: total }, (_, i) => {
+        const col = i % columns;
+        const row = Math.floor(i / columns);
+        const x = col * cw + cw / 2;
+        const y = row * ch + 2;
+        const on = i < lit;
+        return (
+          <g
+            key={i}
+            className="pict"
+            style={{ fill: on ? litColor : dimColor, opacity: on ? 1 : dimOpacity }}
+          >
+            <circle cx={x} cy={y + 3.4} r={2.9} />
+            <path
+              d={`M${x - 3.3} ${y + 8}
+                 a3.3 3.3 0 0 1 6.6 0
+                 l0 6.2
+                 a0.9 0.9 0 0 1 -1.8 0
+                 l0 -3.6
+                 l-0.7 0 l0 8.4
+                 a1 1 0 0 1 -2 0 l0 -5 l-0.8 0 l0 5
+                 a1 1 0 0 1 -2 0 l0 -8.4 l-0.7 0 l0 3.6
+                 a0.9 0.9 0 0 1 -1.8 0 z`}
+            />
+          </g>
+        );
+      })}
+    </svg>
+  );
+}
+
+/**
  * A hundred figures, of which `filled` are highlighted. The oldest and
  * plainest way to show a proportion, and the one people read fastest.
  */
@@ -171,48 +226,9 @@ export function Pictogram({
     };
   }, [armed, seen, filled]);
 
-  const rows = Math.ceil(total / columns);
-  const cw = 10;
-  const ch = 22;
-
   return (
     <div ref={ref} role="img" aria-label={label}>
-      <svg
-        viewBox={`0 0 ${columns * cw} ${rows * ch}`}
-        className="w-full h-auto"
-        aria-hidden="true"
-      >
-        {Array.from({ length: total }, (_, i) => {
-          const col = i % columns;
-          const row = Math.floor(i / columns);
-          const x = col * cw + cw / 2;
-          const y = row * ch + 2;
-          const on = i < lit;
-          return (
-            <g
-              key={i}
-              className="pict"
-              style={{
-                fill: on ? "var(--action)" : "var(--rule-strong)",
-                opacity: on ? 1 : 0.6,
-              }}
-            >
-              <circle cx={x} cy={y + 3.4} r={2.9} />
-              <path
-                d={`M${x - 3.3} ${y + 8}
-                   a3.3 3.3 0 0 1 6.6 0
-                   l0 6.2
-                   a0.9 0.9 0 0 1 -1.8 0
-                   l0 -3.6
-                   l-0.7 0 l0 8.4
-                   a1 1 0 0 1 -2 0 l0 -5 l-0.8 0 l0 5
-                   a1 1 0 0 1 -2 0 l0 -8.4 l-0.7 0 l0 3.6
-                   a0.9 0.9 0 0 1 -1.8 0 z`}
-              />
-            </g>
-          );
-        })}
-      </svg>
+      <PictoGrid lit={lit} total={total} columns={columns} />
     </div>
   );
 }

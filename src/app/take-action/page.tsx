@@ -44,7 +44,43 @@ export default function TakeAction() {
           eyebrow="Two minutes"
           title="Ask them where they stand"
           lede="Politicians respond to specific, checkable questions far better than to general concern. This builds a letter with the official figures for your own council area and the exact policies you want them to back."
+          stat={{
+            value: "2 min",
+            label: "from picking your area to a finished letter, with every figure filled in",
+            tone: "neutral",
+          }}
         />
+
+        {/* Plain instructions before the tool */}
+        <div className="grid gap-px bg-[var(--rule)] border-y border-[var(--rule)] mt-2 sm:grid-cols-3">
+          {[
+            {
+              n: 1,
+              t: "Build the letter below",
+              b: "Pick your council area and what you want done. The official figures fill themselves in.",
+            },
+            {
+              n: 2,
+              t: "Copy it",
+              b: "One button. Add a sentence of your own first if you can — personal letters get better replies.",
+            },
+            {
+              n: 3,
+              t: "Send it to your MSP or MP",
+              b: "The lookup button finds who represents you from your postcode. Paste, add your address, send.",
+            },
+          ].map((s) => (
+            <div key={s.n} className="bg-[var(--paper)] px-6 py-6">
+              <div className="flex items-baseline gap-3 mb-2">
+                <span className="figure-num text-[30px] text-[var(--action)]" aria-hidden="true">
+                  {s.n}
+                </span>
+                <h2 className="ui text-[15px] font-[660] tracking-[-0.01em]">{s.t}</h2>
+              </div>
+              <p className="text-[14.5px] text-[var(--ink-2)] leading-[1.55]">{s.b}</p>
+            </div>
+          ))}
+        </div>
 
         <LetterBuilder />
 

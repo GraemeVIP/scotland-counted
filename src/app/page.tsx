@@ -26,6 +26,7 @@ import {
 import { councilsByLevel } from "@/lib/data/councils";
 import { site } from "../../site.config";
 import Hero from "./Hero";
+import DecadeScroll from "./DecadeScroll";
 
 export const metadata = meta({
   title: "Poverty in Glasgow, counted properly",
@@ -119,13 +120,33 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ================= THE CHART ================= */}
+        {/* ================= THE DECADE, SCROLLED ================= */}
         <section className="pt-20 sm:pt-28">
           <SectionHead
             n={2}
             eyebrow="The measure that moved"
-            title="Glasgow climbed while Scotland held steady"
+            title="Watch the decade happen"
             direction="worsening"
+          />
+          <div className="sm:pl-[calc(2ch+2rem)] mt-8 mb-10">
+            <Col>
+              <p>
+                Each figure below is one in every hundred Glasgow children. Scroll, and the
+                decade plays out — including the one year the figures dim, because benefits
+                went up and child poverty genuinely fell.
+              </p>
+            </Col>
+          </div>
+        </section>
+
+        <DecadeScroll />
+
+        {/* ================= THE CHART ================= */}
+        <section className="pt-20 sm:pt-28">
+          <SectionHead
+            n={3}
+            eyebrow="The same decade, as a chart"
+            title="Glasgow climbed while Scotland held steady"
           />
           <div className="sm:pl-[calc(2ch+2rem)] mt-8">
             <Split
@@ -206,7 +227,7 @@ export default function Home() {
 
         {/* ================= SIGNPOSTS ================= */}
         <section className="pt-20 sm:pt-28">
-          <SectionHead n={3} eyebrow="Six measures, four causes, one record" title="Start anywhere" />
+          <SectionHead n={4} eyebrow="Six measures, four causes, one record" title="Start anywhere" />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 mt-10">
             {[
               {
@@ -255,7 +276,7 @@ export default function Home() {
 
         {/* ================= FAQ ================= */}
         <section className="pt-20 sm:pt-28">
-          <SectionHead n={4} eyebrow="Questions" title="What people ask first" />
+          <SectionHead n={5} eyebrow="Questions" title="What people ask first" />
           <div className="grid gap-x-14 gap-y-9 lg:grid-cols-2 mt-10">
             {FAQ.map((f) => (
               <div key={f.q} className="border-t-2 border-[var(--ink)] pt-5">

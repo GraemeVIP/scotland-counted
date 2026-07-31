@@ -36,11 +36,11 @@ function SourceStrip({ ids }: { ids: string[] }) {
               href={s.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[var(--ink)] underline decoration-[var(--rule-strong)] underline-offset-3 hover:decoration-[var(--glasgow)]"
+              className="text-[var(--ink)] underline decoration-[var(--rule-strong)] underline-offset-3 hover:decoration-[var(--brand)]"
             >
               {s.title}
             </a>
-            <p className="font-mono text-[10.5px] uppercase tracking-[0.12em] text-[var(--muted)] mt-1.5 mb-1.5">
+            <p className="ui text-[10.5px] uppercase tracking-[0.12em] font-[620] text-[var(--muted)] mt-1.5 mb-1.5">
               {s.publisher}
             </p>
             {s.used}
