@@ -1,7 +1,11 @@
 import { changelog } from "@/lib/data/changelog";
+import { postsByDate } from "@/lib/data/posts";
 import { site } from "@/lib/site";
 
-/** RSS feed of the public change log. Static at build time. */
+/**
+ * RSS feed of the public change log and the articles, newest first. Static at
+ * build time. Journalists subscribe to one feed, not two.
+ */
 
 export const dynamic = "force-static";
 
@@ -13,18 +17,34 @@ function esc(s: string) {
     .replace(/"/g, "&quot;");
 }
 
+type FeedEntry = { date: string; title: string; body: string; link: string };
+
 export async function GET() {
-  const items = changelog
-    .map((e) => {
-      const link = `${site.url}${e.href ?? "/updates"}`;
-      return `    <item>
+  const entries: FeedEntry[] = [
+    ...postsByDate().map((p) => ({
+      date: p.date,
+      title: p.title,
+      body: p.description,
+      link: `${site.url}/blog/${p.slug}`,
+    })),
+    ...changelog.map((e) => ({
+      date: e.date,
+      title: e.title,
+      body: e.body,
+      link: `${site.url}${e.href ?? "/updates"}`,
+    })),
+  ].sort((a, b) => b.date.localeCompare(a.date));
+
+  const items = entries
+    .map(
+      (e) => `    <item>
       <title>${esc(e.title)}</title>
-      <link>${esc(link)}</link>
+      <link>${esc(e.link)}</link>
       <guid isPermaLink="false">${esc(`${e.date}-${e.title}`)}</guid>
       <pubDate>${new Date(e.date + "T12:00:00Z").toUTCString()}</pubDate>
       <description>${esc(e.body)}</description>
-    </item>`;
-    })
+    </item>`
+    )
     .join("\n");
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>

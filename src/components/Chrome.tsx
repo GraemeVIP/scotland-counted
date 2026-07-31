@@ -13,6 +13,7 @@ export const NAV = [
   { href: "/why-glasgow", label: "Glasgow" },
   { href: "/what-would-fix-it", label: "What would help" },
   { href: "/accountability", label: "Who decides" },
+  { href: "/blog", label: "Explained" },
 ];
 
 function Wordmark({ className = "" }: { className?: string }) {
@@ -32,14 +33,14 @@ function SearchButton() {
       type="button"
       onClick={() => window.dispatchEvent(new CustomEvent("open-command"))}
       aria-label="Find your area, or search the site"
-      className="group min-h-11 flex items-center gap-2.5 rounded-full bg-[var(--surface)] border border-[var(--rule-strong)] hover:border-[var(--brand)] transition-colors px-4 py-2.5"
+      className="group min-h-11 shrink-0 flex items-center gap-2.5 rounded-full bg-[var(--surface)] border border-[var(--rule-strong)] hover:border-[var(--brand)] transition-colors px-4 py-2.5"
       style={{ boxShadow: "var(--shadow-1)" }}
     >
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" className="text-[var(--brand)]" aria-hidden="true">
         <circle cx="11" cy="11" r="7" />
         <path d="m20 20-3.8-3.8" />
       </svg>
-      <span className="ui hidden md:block text-[15px] font-[620] text-[var(--ink-2)] group-hover:text-[var(--ink)] transition-colors">
+      <span className="ui hidden md:block whitespace-nowrap text-[15px] font-[620] text-[var(--ink-2)] group-hover:text-[var(--ink)] transition-colors">
         Find your area
       </span>
     </button>
@@ -104,7 +105,7 @@ export function Header() {
           <Wordmark className="text-[19px]" />
         </Link>
 
-        <nav aria-label="Main" className="hidden lg:flex items-center gap-5 ml-2">
+        <nav aria-label="Main" className="hidden xl:flex items-center gap-5 ml-2">
           {NAV.map((n) => {
             const active = pathname === n.href || pathname.startsWith(n.href + "/");
             return (
@@ -112,7 +113,7 @@ export function Header() {
                 key={n.href}
                 href={n.href}
                 aria-current={active ? "page" : undefined}
-                className={`ui relative text-[15px] font-[620] tracking-[-0.005em] py-1 transition-colors ${
+                className={`ui relative whitespace-nowrap text-[15px] font-[620] tracking-[-0.005em] py-1 transition-colors ${
                   active ? "text-[var(--ink)]" : "text-[var(--ink-2)] hover:text-[var(--ink)]"
                 }`}
               >
@@ -130,13 +131,13 @@ export function Header() {
           <ThemeToggle />
           <Link
             href="/take-action"
-            className="btn btn-primary hidden sm:inline-flex !px-5 !py-2.5 !text-[15px]"
+            className="btn btn-primary hidden sm:inline-flex whitespace-nowrap !px-5 !py-2.5 !text-[15px]"
           >
             Email your MP/MSP
           </Link>
           <button
             type="button"
-            className="lg:hidden w-11 h-11 inline-flex items-center justify-center text-[var(--ink-2)]"
+            className="xl:hidden w-11 h-11 inline-flex items-center justify-center text-[var(--ink-2)]"
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label="Menu"
@@ -154,7 +155,7 @@ export function Header() {
         <nav
           id="mobile-nav"
           aria-label="Main"
-          className="lg:hidden border-t border-[var(--rule)] bg-[var(--surface)]"
+          className="xl:hidden border-t border-[var(--rule)] bg-[var(--surface)]"
         >
           {[...NAV, { href: "/take-action", label: "Email your MP/MSP" }].map((n) => (
             <Link
@@ -212,6 +213,7 @@ export function Footer() {
             <p className="ui text-[15px] font-[720] opacity-70 mb-4">Check the proof</p>
             <ul className="space-y-2.5 text-[15px]">
               {[
+                { href: "/blog", label: "Explained in plain English" },
                 { href: "/methods", label: "Methods and sources" },
                 { href: "/glossary", label: "Plain-English glossary" },
                 { href: "/data", label: "Download the data" },

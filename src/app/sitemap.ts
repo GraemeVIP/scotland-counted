@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { councils } from "@/lib/data/councils";
 import { constituencies } from "@/lib/data/constituencies";
 import { indicators, lifeExpectancy, deprivation } from "@/lib/data/indicators";
+import { posts } from "@/lib/data/posts";
 import { site } from "../../site.config";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -11,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: site.url, changeFrequency: "monthly", priority: 1 },
     { url: `${site.url}/areas`, changeFrequency: "monthly", priority: 0.95 },
     { url: `${site.url}/take-action`, changeFrequency: "monthly", priority: 0.95 },
+    { url: `${site.url}/blog`, changeFrequency: "weekly", priority: 0.9 },
     { url: `${site.url}/constituencies`, changeFrequency: "yearly", priority: 0.9 },
     { url: `${site.url}/what-would-fix-it`, changeFrequency: "monthly", priority: 0.85 },
     { url: `${site.url}/accountability`, changeFrequency: "monthly", priority: 0.85 },
@@ -48,7 +50,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...core, ...indicatorPages, ...areaPages, ...constituencyPages].map((e) => ({
+  const postPages: MetadataRoute.Sitemap = posts.map((p) => ({
+    url: `${site.url}/blog/${p.slug}`,
+    changeFrequency: "monthly" as const,
+    priority: 0.85,
+  }));
+
+  return [...core, ...postPages, ...indicatorPages, ...areaPages, ...constituencyPages].map((e) => ({
     ...e,
     lastModified: now,
   }));

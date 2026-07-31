@@ -2,7 +2,16 @@
 
 import { useState } from "react";
 
-export default function SharePage({ title, text }: { title: string; text: string }) {
+export default function SharePage({
+  title,
+  text,
+  label = "Share this local evidence",
+}: {
+  title: string;
+  text: string;
+  /** Area pages share evidence; articles share an article. */
+  label?: string;
+}) {
   const [state, setState] = useState<"idle" | "copied">("idle");
 
   async function share() {
@@ -44,7 +53,7 @@ export default function SharePage({ title, text }: { title: string; text: string
         <circle cx="18" cy="19" r="3" />
         <path d="m8.6 10.5 6.8-4M8.6 13.5l6.8 4" />
       </svg>
-      {state === "copied" ? "Link copied" : "Share this local evidence"}
+      {state === "copied" ? "Link copied" : label}
     </button>
   );
 }
