@@ -9,11 +9,11 @@ export const site = {
   shortName: "Scotland Counted",
 
   /**
-   * Temporary Vercel canonical until the permanent Scotland Counted domain is
-   * registered. Used for canonical URLs, the sitemap, Open Graph tags and
-   * JSON-LD. No trailing slash.
+   * The permanent home. Used for canonical URLs, the sitemap, Open Graph tags
+   * and JSON-LD, and by src/middleware.ts to decide which host may be indexed:
+   * any host that is not this one is served noindex. No trailing slash.
    */
-  url: "https://scotland-counted.vercel.app",
+  url: "https://scotlandcounted.co.uk",
 
   tagline: "Poverty in Scotland, explained clearly.",
   description:
