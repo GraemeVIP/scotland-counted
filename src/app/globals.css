@@ -3,60 +3,70 @@
 /* ============================================================
    SCOTLAND COUNTED — design system
 
-   Direction: a civic institution, not a dashboard. Warm paper as the
-   default ground, a deep Clyde blue as the institutional voice, amber
-   for anything that asks the reader to act. Data colours are held
-   separate from brand colours so a chart never looks like a button.
+   Direction: a modern civic product, not a printed report. Pure white
+   and cool light greys as the ground, near-black slabs for drama,
+   electric blue as the voice and hot coral for anything that asks the
+   reader to act. A high-visibility signal yellow is reserved for
+   highlight bars — the marker-pen emphasis that makes a claim land.
+
+   Built for people in their twenties and thirties who do not follow
+   politics, on a phone, at speed. High contrast, big shapes, heavy
+   type, no warmth-of-paper nostalgia. Data colours stay separate from
+   brand colours so a chart never looks like a button.
    ============================================================ */
 
 :root {
   color-scheme: light;
 
-  /* Grounds — warm paper */
-  --paper: #f7f4ee;
-  --paper-2: #efeae0;
-  --paper-3: #e6dfd1;
+  /* Grounds — cool, bright, app-like */
+  --paper: #ffffff;
+  --paper-2: #f4f6fb;
+  --paper-3: #e8ecf5;
   --surface: #ffffff;
-  --surface-2: #faf7f2;
+  --surface-2: #f8faff;
 
-  /* Institutional deep — used for full-bleed bands and the footer */
-  --deep: #0d2f45;
-  --deep-2: #113b56;
-  --deep-ink: #f3efe6;
+  /* Near-black slabs — full-bleed bands, the footer, dramatic pauses */
+  --deep: #0d1117;
+  --deep-2: #161c26;
+  --deep-ink: #ffffff;
 
-  /* Ink */
-  --ink: #191512;
-  --ink-2: #554e45;
-  --ink-3: #6f675c;
-  --muted: #6b6257;
-  --rule: #ded7c8;
-  --rule-strong: #c4bba7;
-  --grid: #e6dfd1;
-  --baseline: #bdb4a0;
+  /* Ink — proper contrast, no brown */
+  --ink: #0d1117;
+  --ink-2: #4a5261;
+  --ink-3: #667085;
+  --muted: #667085;
+  --rule: #e3e8f0;
+  --rule-strong: #c6cedc;
+  --grid: #eef1f7;
+  --baseline: #c6cedc;
 
   /* Brand */
-  --brand: #14547a;
-  --brand-deep: #0d2f45;
-  --brand-wash: rgba(20, 84, 122, 0.07);
-  --action: #a94d08;
-  --action-hover: #873b04;
+  --brand: #2c5cff;
+  --brand-deep: #1b3ec7;
+  --brand-wash: rgba(44, 92, 255, 0.08);
+  --action: #ff5a3c;
+  --action-hover: #e63e20;
+
+  /* High-visibility emphasis. Only ever behind text, never a surface. */
+  --signal: #f5e400;
+  --signal-ink: #0d1117;
 
   /* Data series — validated for colour-vision deficiency */
-  --glasgow: #2a78d6;
-  --scotland: #eb6834;
-  --workplace: #1baf7a;
-  --glasgow-wash: rgba(42, 120, 214, 0.08);
+  --glasgow: #2c5cff;
+  --scotland: #ff5a3c;
+  --workplace: #00c48c;
+  --glasgow-wash: rgba(44, 92, 255, 0.08);
 
   /* Signal — restrained, never the brand */
-  --good: #1d7a45;
-  --warn: #9a6b00;
-  --bad: #a8321f;
-  --flat: #7d7568;
+  --good: #00a870;
+  --warn: #f5a300;
+  --bad: #e5484d;
+  --flat: #8a93a3;
 
-  --grain-opacity: 0.028;
-  --shadow-1: 0 1px 2px rgba(25, 21, 18, 0.04);
-  --shadow-2: 0 1px 3px rgba(25, 21, 18, 0.05), 0 14px 34px -22px rgba(25, 21, 18, 0.32);
-  --shadow-3: 0 2px 6px rgba(25, 21, 18, 0.06), 0 30px 60px -30px rgba(25, 21, 18, 0.4);
+  --grain-opacity: 0;
+  --shadow-1: 0 1px 2px rgba(13, 17, 23, 0.04), 0 1px 3px rgba(13, 17, 23, 0.03);
+  --shadow-2: 0 4px 12px rgba(13, 17, 23, 0.06), 0 16px 40px -20px rgba(13, 17, 23, 0.22);
+  --shadow-3: 0 8px 24px rgba(13, 17, 23, 0.08), 0 32px 64px -28px rgba(13, 17, 23, 0.32);
 
   --font-sans: var(--font-display), system-ui, sans-serif;
   --font-serif: var(--font-text), Georgia, serif;
@@ -64,11 +74,11 @@
 
   --ease: cubic-bezier(0.22, 0.68, 0.28, 1);
 
-  /* Radius scale. Square panels read as a terminal; a measured curve
-     reads as print. Buttons are pills — the friendliest control shape
-     there is, and unmistakably pressable. */
-  --r-s: 10px;
-  --r-m: 14px;
+  /* Radius scale. Bigger and softer than print — this should feel like
+     something you tap, not something you read. */
+  --r-s: 14px;
+  --r-m: 20px;
+  --r-l: 28px;
   --r-pill: 999px;
 }
 
@@ -79,39 +89,41 @@
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --paper: #14110e;
-  --paper-2: #1b1714;
-  --paper-3: #241f1a;
-  --surface: #1a1613;
-  --surface-2: #211c18;
-  --deep: #0a1f2e;
-  --deep-2: #0d2a3d;
-  --deep-ink: #eee9de;
-  --ink: #f4f0e7;
-  --ink-2: #b5ac9d;
-  --ink-3: #aaa092;
-  --muted: #b4aa9c;
-  --rule: #2d2823;
-  --rule-strong: #443d35;
-  --grid: #282320;
-  --baseline: #4a4239;
-  --brand: #5ca4cc;
-  --brand-deep: #0a1f2e;
-  --brand-wash: rgba(92, 164, 204, 0.12);
-  --action: #f0a35b;
-  --action-hover: #ffc17f;
-  --glasgow: #3987e5;
-  --scotland: #d95926;
-  --workplace: #199e70;
-  --glasgow-wash: rgba(57, 135, 229, 0.13);
-  --good: #3fae67;
-  --warn: #d9a13a;
-  --bad: #dd6a55;
-  --flat: #857c6e;
-  --grain-opacity: 0.045;
-  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.5);
-  --shadow-2: 0 1px 3px rgba(0, 0, 0, 0.5), 0 14px 34px -22px rgba(0, 0, 0, 1);
-  --shadow-3: 0 2px 6px rgba(0, 0, 0, 0.5), 0 30px 60px -30px rgba(0, 0, 0, 1);
+  --paper: #0a0c10;
+  --paper-2: #12161d;
+  --paper-3: #1a1f28;
+  --surface: #12161d;
+  --surface-2: #181d26;
+  --deep: #05070a;
+  --deep-2: #0d1117;
+  --deep-ink: #ffffff;
+  --ink: #f2f4f8;
+  --ink-2: #a8b1c1;
+  --ink-3: #8a93a3;
+  --muted: #8a93a3;
+  --rule: #232935;
+  --rule-strong: #38404f;
+  --grid: #1a1f28;
+  --baseline: #38404f;
+  --brand: #5b84ff;
+  --brand-deep: #2c5cff;
+  --brand-wash: rgba(91, 132, 255, 0.14);
+  --action: #ff7a5c;
+  --action-hover: #ff9a80;
+  --signal: #f5e400;
+  --signal-ink: #0d1117;
+  --glasgow: #5b84ff;
+  --scotland: #ff7a5c;
+  --workplace: #00d9a0;
+  --glasgow-wash: rgba(91, 132, 255, 0.15);
+  --good: #00c48c;
+  --warn: #ffb32e;
+  --bad: #ff6369;
+  --flat: #8a93a3;
+  --grain-opacity: 0;
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.6);
+  --shadow-2: 0 4px 12px rgba(0, 0, 0, 0.5), 0 16px 40px -20px rgba(0, 0, 0, 0.9);
+  --shadow-3: 0 8px 24px rgba(0, 0, 0, 0.6), 0 32px 64px -28px rgba(0, 0, 0, 1);
 }
 
 @theme inline {
@@ -140,6 +152,7 @@
   --color-warn: var(--warn);
   --color-bad: var(--bad);
   --color-flat: var(--flat);
+  --color-signal: var(--signal);
   --font-sans: var(--font-sans);
   --font-serif: var(--font-serif);
   --font-mono: var(--font-mono);
@@ -345,6 +358,40 @@
   .tnum {
     font-variant-numeric: tabular-nums;
   }
+  /* Marker-pen emphasis. The one place the signal yellow is allowed:
+     always behind text, never as a surface, so contrast stays fixed. */
+  .mark {
+    background: var(--signal);
+    color: var(--signal-ink);
+    padding: 0.06em 0.28em;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+
+  /* A slab of near-black used to punctuate a light page. */
+  .slab-dark {
+    background: var(--deep);
+    color: var(--deep-ink);
+  }
+
+  /* Oversized display number. Tight, heavy, unmistakably the point. */
+  .display-stat {
+    font-family: var(--font-sans);
+    font-weight: 800;
+    letter-spacing: -0.045em;
+    line-height: 0.9;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Small all-caps eyebrow, the campaign register. */
+  .kicker {
+    font-family: var(--font-sans);
+    font-weight: 750;
+    font-size: 13px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+
   .ui {
     font-family: var(--font-sans);
   }

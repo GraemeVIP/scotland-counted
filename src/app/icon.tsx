@@ -19,13 +19,13 @@ export default function Icon() {
           alignItems: "flex-end",
           justifyContent: "center",
           gap: 3,
-          background: "#0d2f45",
+          background: "#0d1117",
           paddingBottom: 6,
         }}
       >
-        <div style={{ width: 5, height: 9, background: "#e08a3c" }} />
-        <div style={{ width: 5, height: 15, background: "#e08a3c" }} />
-        <div style={{ width: 5, height: 21, background: "#f3efe6" }} />
+        <div style={{ width: 5, height: 9, background: "#f5e400" }} />
+        <div style={{ width: 5, height: 15, background: "#f5e400" }} />
+        <div style={{ width: 5, height: 21, background: "#ffffff" }} />
       </div>
     ),
     size

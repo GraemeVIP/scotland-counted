@@ -25,8 +25,8 @@ export default async function Image(props: { params: Promise<{ slug: string }> }
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            background: "#0d2f45",
-            color: "#f3efe6",
+            background: "#0d1117",
+            color: "#ffffff",
             fontSize: 48,
           }}
         >
@@ -47,8 +47,8 @@ export default async function Image(props: { params: Promise<{ slug: string }> }
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          background: "#0d2f45",
-          color: "#f3efe6",
+          background: "#0d1117",
+          color: "#ffffff",
           padding: "64px 72px",
           fontFamily: "sans-serif",
         }}
@@ -59,7 +59,7 @@ export default async function Image(props: { params: Promise<{ slug: string }> }
             fontSize: 22,
             letterSpacing: 3,
             textTransform: "uppercase",
-            color: "#8fa4b3",
+            color: "#8a93a3",
           }}
         >
           {`Child poverty · ${last} · After housing costs`}
@@ -86,7 +86,7 @@ export default async function Image(props: { params: Promise<{ slug: string }> }
                 fontWeight: 800,
                 letterSpacing: -7,
                 lineHeight: 0.85,
-                color: rose ? "#f08a70" : "#57c78b",
+                color: rose ? "#ff7a5c" : "#00c48c",
               }}
             >
               {`${c.pcts[9]}%`}
@@ -98,7 +98,7 @@ export default async function Image(props: { params: Promise<{ slug: string }> }
                 gap: 10,
                 paddingBottom: 10,
                 fontSize: 28,
-                color: "#c3d0d9",
+                color: "#a8b1c1",
               }}
             >
               <div style={{ display: "flex" }}>
@@ -121,14 +121,14 @@ export default async function Image(props: { params: Promise<{ slug: string }> }
             alignItems: "center",
             marginTop: 44,
             paddingTop: 28,
-            borderTop: "2px solid #2a4b63",
+            borderTop: "2px solid #232935",
             fontSize: 24,
           }}
         >
           <div style={{ display: "flex", fontWeight: 700 }}>
-            Scotland<span style={{ color: "#e08a3c" }}>&nbsp;Counted</span>
+            Scotland<span style={{ color: "#f5e400" }}>&nbsp;Counted</span>
           </div>
-          <div style={{ display: "flex", color: "#8fa4b3" }}>
+          <div style={{ display: "flex", color: "#8a93a3" }}>
             {site.url.replace("https://", "")}
           </div>
         </div>

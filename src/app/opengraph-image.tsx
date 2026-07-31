@@ -15,8 +15,8 @@ export default async function Image() {
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          background: "#0d2f45",
-          color: "#f3efe6",
+          background: "#0d1117",
+          color: "#ffffff",
           padding: "64px 72px",
           fontFamily: "sans-serif",
         }}
@@ -27,7 +27,7 @@ export default async function Image() {
             fontSize: 22,
             letterSpacing: 3,
             textTransform: "uppercase",
-            color: "#8fa4b3",
+            color: "#8a93a3",
           }}
         >
           Scotland · Every council area · Every figure sourced
@@ -54,7 +54,7 @@ export default async function Image() {
                 fontWeight: 800,
                 letterSpacing: -8,
                 lineHeight: 0.85,
-                color: "#e08a3c",
+                color: "#f5e400",
               }}
             >
               17%
@@ -64,7 +64,7 @@ export default async function Image() {
                 display: "flex",
                 fontSize: 32,
                 lineHeight: 1.3,
-                color: "#c3d0d9",
+                color: "#a8b1c1",
                 maxWidth: 520,
                 paddingBottom: 8,
               }}
@@ -94,14 +94,14 @@ export default async function Image() {
             alignItems: "center",
             marginTop: 44,
             paddingTop: 28,
-            borderTop: "2px solid #2a4b63",
+            borderTop: "2px solid #232935",
             fontSize: 24,
           }}
         >
           <div style={{ display: "flex", fontWeight: 700 }}>
-            Scotland<span style={{ color: "#e08a3c" }}>&nbsp;Counted</span>
+            Scotland<span style={{ color: "#f5e400" }}>&nbsp;Counted</span>
           </div>
-          <div style={{ display: "flex", color: "#8fa4b3" }}>
+          <div style={{ display: "flex", color: "#8a93a3" }}>
             {site.url.replace("https://", "")}
           </div>
         </div>
