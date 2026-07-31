@@ -67,7 +67,7 @@ export const fixes: Fix[] = [
   {
     id: "lha",
     what: "Raise housing benefit back in line with real local rents",
-    effect: "The most direct lever on the one measure Glasgow fails worst.",
+    effect: "A direct lever on poverty after housing costs wherever private rents exceed support.",
     cost: "UK decision",
     status: "not-done",
     statusLabel: "Not done",

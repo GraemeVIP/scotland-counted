@@ -7,9 +7,9 @@ import { JsonLd, breadcrumbJsonLd, datasetJsonLd, meta } from "@/lib/seo";
 import { councilsByLevel, councilsByChange, COUNCIL_YEARS } from "@/lib/data/councils";
 
 export const metadata = meta({
-  title: "Child poverty in every Scottish council area",
+  title: "Poverty, work and pay in every Scottish council area",
   description:
-    "All 32 Scottish council areas ranked by child poverty after housing costs, 2014/15 to 2023/24. Glasgow is highest at 36.1%; East Renfrewshire lowest at 12.0%.",
+    "Evidence for all 32 Scottish council areas: child poverty after housing costs, out-of-work claimant rates from 2000 and resident pay from 2008, each compared with Scotland.",
   path: "/areas",
 });
 
@@ -30,20 +30,28 @@ export default function Areas() {
       />
       <JsonLd
         data={datasetJsonLd({
-          name: "Child poverty by Scottish council area, 2014/15–2023/24",
+          name: "Poverty, claimant count and pay by Scottish council area, 2000–2026",
           description:
-            "Relative child poverty after housing costs for all 32 Scottish council areas across ten financial years, with counts of children and change over the period.",
+            "Relative child poverty after housing costs, out-of-work claimant rates and median resident pay for all 32 Scottish council areas, compared with Scotland across time.",
           path: "/areas",
-          keywords: ["child poverty", "Scotland", "council area", "local authority", "deprivation"],
-          temporalCoverage: "2014/2024",
+          keywords: [
+            "poverty",
+            "child poverty",
+            "claimant count",
+            "pay",
+            "Scotland",
+            "council area",
+            "local authority",
+          ],
+          temporalCoverage: "2000/2026",
         })}
       />
 
       <Page>
         <PageHeader
           eyebrow={`All 32 council areas · ${first} – ${last}`}
-          title="Child poverty in every Scottish council area"
-          lede={`Glasgow is highest in Scotland and rose fastest. ${rose} of the 32 areas got worse over the decade; the rest improved. Pick any area for its own page.`}
+          title="Poverty, work and pay in every Scottish council area"
+          lede={`Every area has child-poverty, claimant-count and resident-pay evidence against Scotland. The ranking below uses child poverty, the strongest comparable local income measure: ${rose} of 32 areas worsened over the decade.`}
         />
 
         <div className="mt-9">
@@ -67,7 +75,7 @@ export default function Areas() {
         </div>
 
         <section className="pt-12">
-          <h2 className="h2 mb-2">Ranked by today&apos;s rate</h2>
+          <h2 className="h2 mb-2">Ranked by the latest child-poverty rate</h2>
           <p className="text-[14.5px] text-[var(--ink-2)] mb-6">
             Glasgow is shaded. The rank number always refers to the {last} rate.
           </p>
@@ -112,12 +120,12 @@ export default function Areas() {
         </Col>
 
         <CTA
-          title="Find the figures for where you live"
-          body="Every council area has its own page with ten years of data, its rank, and how it compares with Glasgow and with Scotland."
-          href={`/areas/${byLevel[0].slug}`}
-          cta={`Start with ${byLevel[0].name}`}
-          secondaryHref="/take-action"
-          secondaryCta="Write to your representative"
+          title="Your postcode is the shortest route to the evidence"
+          body="Enter it once and the action tool finds your council figures, MP and constituency MSP automatically, then prepares the right addressed emails."
+          href="/take-action"
+          cta="Find my area and representatives"
+          secondaryHref={`/areas/${byLevel[0].slug}`}
+          secondaryCta={`See ${byLevel[0].name}`}
         />
       </Page>
     </>

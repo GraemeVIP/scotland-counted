@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { site } from "@/lib/site";
 
 export const alt =
-  "Glasgow Counted — 36.1% of Glasgow's children were living in poverty in 2023/24";
+  "Scotland Counted — poverty, work and living standards across Scotland";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -30,7 +30,7 @@ export default async function Image() {
             color: "#8fa4b3",
           }}
         >
-          Glasgow City · 2000–2026 · Every figure sourced
+          Scotland · Every council area · Every figure sourced
         </div>
 
         <div
@@ -57,7 +57,7 @@ export default async function Image() {
                 color: "#e08a3c",
               }}
             >
-              36.1%
+              17%
             </div>
             <div
               style={{
@@ -69,7 +69,7 @@ export default async function Image() {
                 paddingBottom: 8,
               }}
             >
-              of Glasgow&apos;s children were living in poverty in 2023/24, after the rent is paid
+              of people in Scotland were living in relative poverty after housing costs in 2022–25
             </div>
           </div>
 
@@ -83,7 +83,7 @@ export default async function Image() {
               maxWidth: 900,
             }}
           >
-            Poverty in Glasgow has not fallen. It has changed shape.
+            Poverty has an address. So does power.
           </div>
         </div>
 
@@ -99,7 +99,7 @@ export default async function Image() {
           }}
         >
           <div style={{ display: "flex", fontWeight: 700 }}>
-            Glasgow<span style={{ color: "#e08a3c" }}>&nbsp;Counted</span>
+            Scotland<span style={{ color: "#e08a3c" }}>&nbsp;Counted</span>
           </div>
           <div style={{ display: "flex", color: "#8fa4b3" }}>
             {site.url.replace("https://", "")}

@@ -207,8 +207,11 @@ export function Pictogram({
 
   useEffect(() => {
     if (reduced()) return;
-    setLit(0);
-    setArmed(true);
+    const raf = requestAnimationFrame(() => {
+      setLit(0);
+      setArmed(true);
+    });
+    return () => cancelAnimationFrame(raf);
   }, []);
 
   useEffect(() => {

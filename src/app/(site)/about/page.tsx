@@ -23,16 +23,17 @@ export default function About() {
         <PageHeader
           eyebrow="Who made this and why"
           title="About this project"
-          lede={`${site.name} is a personal project by ${site.author.name}, founder of ${site.organisation.name}. It is not commissioned, funded or affiliated with any political party, campaign or charity.`}
+          lede={`${site.name} is an independent evidence-to-action project covering every Scottish council area and Westminster constituency. It is a personal project by ${site.author.name}, founder of ${site.organisation.name}, with no party, campaign or charity affiliation.`}
         />
 
         <Col className="pt-11">
           <h2 className="h2 mb-4">Why it exists</h2>
           <p>
-            Every figure on this site was already public. Child poverty rates sit in a Loughborough
-            University spreadsheet. Employment and pay data sit behind the NOMIS query builder.
-            Life expectancy is a 22-megabyte CSV on an ONS download server. Neighbourhood
-            deprivation is a ranking most people have never heard of.
+            Every figure on this site was already public. Local child-poverty rates sit in a
+            Loughborough University spreadsheet. Claimant and pay data for all 32 councils sit
+            behind the NOMIS query builder. Life expectancy is a 22-megabyte CSV on an ONS
+            download server. The national poverty headline lives in a government statistical
+            release.
           </p>
           <p>
             None of it is secret. All of it is effectively inaccessible to the people it describes.
@@ -42,8 +43,9 @@ export default function About() {
           </p>
           <p>
             <strong>
-              This site closes that gap for one city. The data is assembled, plotted, explained in
-              plain English, and sourced line by line.
+              This site closes that gap across Scotland. It connects national evidence, all 32
+              council areas, all 57 Westminster constituencies and a Glasgow deep dive — then
+              finds the reader&apos;s representatives and prepares the right addressed email.
             </strong>{" "}
             Nothing here is new information. It is the same information, made usable.
           </p>
@@ -63,9 +65,10 @@ export default function About() {
             the point is the decisions, not the rosettes.
           </p>
           <p>
-            No individual politician is named anywhere on this site, and no claim is made about
-            anyone&apos;s honesty or motives. The record is decisions and their measured
-            consequences. That is both fairer and considerably harder to dismiss.
+            The analytical record does not attribute motives or make claims about anyone&apos;s
+            honesty. Individual representatives are named only when a reader asks the postcode
+            tool to find their current MP and MSP from official sources. The accountability record
+            remains decisions and measured consequences, not personalities.
           </p>
 
           <h2 className="h2 mb-4 mt-11">How it is funded</h2>

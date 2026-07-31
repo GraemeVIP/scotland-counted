@@ -28,8 +28,8 @@ const PRINCIPLES = [
     body: "Where a measure changed what it counts mid-series — the claimant count in 2015, for example — the technical note under the chart says so, and says whether the comparison still holds.",
   },
   {
-    title: "No individuals are named",
-    body: "The accountability pages describe decisions and their measured consequences. Where a party is named it is because a government it formed took the decision. We do not attribute motives or make claims about anyone's honesty.",
+    title: "Accountability is about decisions",
+    body: "The analysis describes decisions and measured consequences without attributing motives or making claims about anyone's honesty. Current representatives are named only when the postcode tool retrieves the reader's MP and MSP from official sources.",
   },
   {
     title: "Corrections are public",
@@ -38,10 +38,11 @@ const PRINCIPLES = [
 ];
 
 const LIMITS = [
+  "The Family Resources Survey supports the official Scotland-wide poverty headline but is not robust at council level. Local pages therefore use separate administrative child-poverty, claimant-count and pay datasets; these measures should be read together, not treated as interchangeable.",
   "There is no consistent local child poverty series before 2014/15. The earlier part of the period is covered only by labour-market and neighbourhood measures.",
   "The neighbourhood deprivation ranking (SIMD) is a league table, not a headcount of hardship. A place can improve in absolute terms and still fall in the ranking.",
   "Survey-based figures from 2024 onward are unreliable at council level because response rates collapsed. We show them, dotted, rather than pretend they do not exist.",
-  "Everything here is a city or council-wide average. Child poverty within Glasgow ranges from roughly 5% in some neighbourhoods to roughly 75% in others, so no single number describes anyone's street.",
+  "Local figures are council- or constituency-wide averages, not descriptions of a street or household. Child poverty within Glasgow, for example, ranges from roughly 5% in some neighbourhoods to roughly 75% in others.",
   "Pay figures are in cash, not adjusted for inflation. Compare the lines with each other within a year, not along them.",
   "Life expectancy is a period measure describing death rates in a given window, not a forecast for any individual.",
 ];

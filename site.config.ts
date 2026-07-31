@@ -5,18 +5,19 @@
  */
 
 export const site = {
-  name: "Glasgow Counted",
-  shortName: "Glasgow Counted",
+  name: "Scotland Counted",
+  shortName: "Scotland Counted",
 
   /**
-   * CHANGE ME before going live. Used for canonical URLs, the sitemap,
-   * Open Graph tags and JSON-LD. No trailing slash.
+   * Keep the established domain canonical until a Scotland Counted domain is
+   * registered and redirected. Used for canonical URLs, the sitemap, Open
+   * Graph tags and JSON-LD. No trailing slash.
    */
   url: "https://glasgowcounted.co.uk",
 
-  tagline: "Glasgow's poverty, counted properly.",
+  tagline: "Scotland's poverty, counted properly.",
   description:
-    "An independent, fully sourced record of poverty in Glasgow since 2000. Every figure comes from official data, every source is linked, and every technical term is explained in plain English.",
+    "Independent evidence on poverty, work and living standards across Scotland. See the figures where you live, understand who has the power to change them, and contact the right representative without looking them up.",
 
   locale: "en_GB",
   themeColor: "#2a78d6",

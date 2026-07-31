@@ -63,7 +63,7 @@ export function orgJsonLd() {
         name: site.organisation.name,
         url: site.organisation.url,
         description:
-          "Independent research and analysis. Glasgow Counted is a personal public-interest project.",
+          "Independent research and analysis. Scotland Counted is a personal public-interest project.",
       },
       {
         "@type": "Person",
@@ -116,12 +116,14 @@ export function datasetJsonLd({
   path,
   keywords,
   temporalCoverage,
+  spatialCoverage = "Scotland",
 }: {
   name: string;
   description: string;
   path: string;
   keywords: string[];
   temporalCoverage: string;
+  spatialCoverage?: string;
 }) {
   return {
     "@context": "https://schema.org",
@@ -131,7 +133,7 @@ export function datasetJsonLd({
     url: `${site.url}${path}`,
     keywords,
     temporalCoverage,
-    spatialCoverage: { "@type": "Place", name: "Glasgow, Scotland" },
+    spatialCoverage: { "@type": "Place", name: spatialCoverage },
     license: "https://creativecommons.org/licenses/by/4.0/",
     isAccessibleForFree: true,
     creator: {

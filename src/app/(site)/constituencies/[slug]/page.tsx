@@ -4,6 +4,7 @@ import { Page, Col, PageHeader, CTA, InShort } from "@/components/Blocks";
 import Figure, { DataTable } from "@/components/charts/Figure";
 import LineChart from "@/components/charts/LineChart";
 import { G } from "@/components/Glossary";
+import SharePage from "@/components/SharePage";
 import { JsonLd, articleJsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
 import {
   constituencies,
@@ -140,6 +141,13 @@ export default async function ConstituencyPage(props: { params: Promise<{ slug: 
               <div className="ui text-[13px] text-[var(--ink-2)] mt-2.5 tnum">{s.note}</div>
             </div>
           ))}
+        </div>
+
+        <div className="mt-5 flex justify-end">
+          <SharePage
+            title={`Child poverty in ${c.name}`}
+            text={`${c.pcts[9]}% of children in ${c.name} were living in poverty after housing costs in ${last}. See the sourced constituency evidence.`}
+          />
         </div>
 
         <div className="mt-9">

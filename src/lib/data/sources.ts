@@ -19,6 +19,13 @@ export type Source = {
 
 export const sources: Source[] = [
   {
+    id: "sg-poverty-2026",
+    title: "Poverty and Income Inequality in Scotland 2022–25",
+    publisher: "Scottish Government",
+    url: "https://www.gov.scot/publications/poverty-and-income-inequality-in-scotland-2022-25/",
+    used: "The Scotland-wide headline poverty rates for all people, children, working-age adults and pensioners, and the share of children in poverty living in a working household.",
+  },
+  {
     id: "ecp",
     title: "Local child poverty estimates after housing costs, 2015–2024",
     publisher: "End Child Poverty / Loughborough University",

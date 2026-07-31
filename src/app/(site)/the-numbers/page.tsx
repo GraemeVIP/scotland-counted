@@ -5,7 +5,7 @@ import { JsonLd, breadcrumbJsonLd, datasetJsonLd, meta } from "@/lib/seo";
 import { indicators, lifeExpectancy, deprivation } from "@/lib/data/indicators";
 
 export const metadata = meta({
-  title: "The numbers",
+  title: "The Glasgow record — six measures since 2000",
   description:
     "Six measures of poverty in Glasgow charted from 2000: child poverty, employment, out-of-work benefits, pay, neighbourhood deprivation and life expectancy. Every figure sourced, every data table downloadable.",
   path: "/the-numbers",
@@ -48,7 +48,7 @@ export default function TheNumbers() {
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Home", path: "/" },
-          { name: "The numbers", path: "/the-numbers" },
+          { name: "The Glasgow record", path: "/the-numbers" },
         ])}
       />
       <JsonLd
@@ -67,14 +67,15 @@ export default function TheNumbers() {
             "Scotland",
           ],
           temporalCoverage: "2000/2026",
+          spatialCoverage: "Glasgow, Scotland",
         })}
       />
 
       <Page>
         <PageHeader
-          eyebrow="Six measures · 2000–2026"
-          title="The numbers"
-          lede="Poverty is not one thing, and Glasgow's measures do not all point the same way. Two improved, one stalled, and one got substantially worse. Here is each of them, with the data behind it."
+          eyebrow="Glasgow deep dive · Six measures · 2000–2026"
+          title="The Glasgow record"
+          lede="Scotland Counted covers every council area. Glasgow is where the historical record goes deepest: poverty, work, benefits, pay, neighbourhoods and life expectancy do not all point the same way. Here is each measure with the data behind it."
           stat={{
             value: "6",
             label: "measures, each with its chart, its raw data, and its sources",

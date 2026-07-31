@@ -15,7 +15,7 @@ function glossaryJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "DefinedTermSet",
-    name: "Glasgow Counted glossary",
+    name: "Scotland Counted glossary",
     url: `${site.url}/glossary`,
     hasDefinedTerm: terms.map((t) => ({
       "@type": "DefinedTerm",
@@ -78,10 +78,10 @@ export default function Glossary() {
         </Col>
 
         <CTA
-          title="Now read the numbers"
+          title="Now read the Glasgow record"
           body="Every technical term on the site is tappable in context, so you never have to leave the page you are reading to find out what something means."
           href="/the-numbers"
-          cta="The numbers"
+          cta="The Glasgow record"
           secondaryHref="/methods"
           secondaryCta="Methods and sources"
         />

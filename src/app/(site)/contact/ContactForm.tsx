@@ -71,7 +71,7 @@ export default function ContactForm() {
         body: JSON.stringify({
           access_key: site.web3formsKey,
           subject: `${active.subject} — ${site.name}`,
-          from_name: name.trim() || "Glasgow Counted contact form",
+          from_name: name.trim() || `${site.name} contact form`,
           email: email.trim(),
           reason: active.label,
           message: message.trim(),

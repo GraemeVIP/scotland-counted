@@ -35,7 +35,7 @@ export default async function Image(props: { params: Promise<{ slug: string }> }
             fontSize: 48,
           }}
         >
-          Glasgow Counted
+          Scotland Counted
         </div>
       ),
       size
@@ -131,7 +131,7 @@ export default async function Image(props: { params: Promise<{ slug: string }> }
           }}
         >
           <div style={{ display: "flex", fontWeight: 700 }}>
-            Glasgow<span style={{ color: "#e08a3c" }}>&nbsp;Counted</span>
+            Scotland<span style={{ color: "#e08a3c" }}>&nbsp;Counted</span>
           </div>
           <div style={{ display: "flex", color: "#8fa4b3" }}>
             {site.url.replace("https://", "")}

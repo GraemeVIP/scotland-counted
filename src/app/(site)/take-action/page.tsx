@@ -6,7 +6,7 @@ import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
 export const metadata = meta({
   title: "Take action",
   description:
-    "Write to your MSP or MP about child poverty in your area in about two minutes. The letter is pre-filled with the official figures for your council area and the specific costed policies you want them to back.",
+    "Write to your MP and MSP about poverty, work and living standards in your area. Their names, email addresses and your council evidence are found and filled in automatically.",
   path: "/take-action",
 });
 
@@ -42,11 +42,11 @@ export default function TakeAction() {
       <Page>
         <PageHeader
           eyebrow="Two minutes"
-          title="Ask them where they stand"
-          lede="Politicians respond to specific, checkable questions far better than to general concern. This builds a letter with the official figures for your own council area and the exact policies you want them to back."
+          title="Ask the people who can act"
+          lede="You do not need to know who your representatives are or which government controls what. Enter your postcode once: the site finds your MP, MSP and council evidence, routes each policy request correctly and opens the addressed emails in your own email app."
           stat={{
             value: "2 min",
-            label: "from picking your area to a finished letter, with every figure filled in",
+            label: "from entering a postcode to addressed emails, with the local evidence filled in",
             tone: "neutral",
           }}
         />

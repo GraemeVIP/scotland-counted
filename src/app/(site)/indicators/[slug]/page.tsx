@@ -143,7 +143,7 @@ export default async function IndicatorPage(props: PageProps<"/indicators/[slug]
     <JsonLd
       data={breadcrumbJsonLd([
         { name: "Home", path: "/" },
-        { name: "The numbers", path: "/the-numbers" },
+        { name: "The Glasgow record", path: "/the-numbers" },
         { name: m.title, path: `/indicators/${slug}` },
       ])}
     />

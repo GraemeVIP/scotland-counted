@@ -68,8 +68,8 @@ export default function LineChart({
     const host = hostRef.current;
     if (!host) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setDrawn(true);
-      return;
+      const show = window.setTimeout(() => setDrawn(true), 0);
+      return () => window.clearTimeout(show);
     }
     const io = new IntersectionObserver(
       ([e]) => {

@@ -4,6 +4,7 @@ import { Page, Col, PageHeader, CTA, InShort } from "@/components/Blocks";
 import Figure, { DataTable } from "@/components/charts/Figure";
 import LineChart from "@/components/charts/LineChart";
 import { G } from "@/components/Glossary";
+import SharePage from "@/components/SharePage";
 import { JsonLd, articleJsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
 import {
   councils,
@@ -30,8 +31,8 @@ export async function generateMetadata(props: PageProps<"/areas/[slug]">) {
   if (!c) return {};
   const last = COUNCIL_YEARS[9];
   return meta({
-    title: `Child poverty in ${c.name}`,
-    description: `${c.pcts[9]}% of children in ${c.name} were living in poverty in ${last} — ${c.counts[9].toLocaleString("en-GB")} children. That ranks ${c.rankLevel} of ${COUNCIL_COUNT} Scottish council areas. Ten years of figures, fully sourced.`,
+    title: `Poverty, work and pay in ${c.name}`,
+    description: `${c.pcts[9]}% of children in ${c.name} were living in poverty in ${last}. See local child poverty, out-of-work claimant rates and resident pay compared with Scotland, fully sourced.`,
     path: `/areas/${slug}`,
   });
 }
@@ -82,8 +83,8 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
       />
       <JsonLd
         data={articleJsonLd({
-          headline: `Child poverty in ${c.name}`,
-          description: `${c.pcts[9]}% of children in ${c.name} live in poverty after housing costs.`,
+          headline: `Poverty, work and pay in ${c.name}`,
+          description: `${c.pcts[9]}% of children in ${c.name} live in poverty after housing costs, alongside local claimant-count and resident-pay evidence.`,
           path: `/areas/${c.slug}`,
         })}
       />
@@ -92,7 +93,7 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
       <Page>
         <PageHeader
           eyebrow={`Council area · ${c.code}`}
-          title={`Child poverty in ${c.name}`}
+          title={`Poverty, work and pay in ${c.name}`}
           lede={
             <>
               {c.pcts[9]}% of children here were living in poverty in {last} — that is{" "}
@@ -114,6 +115,10 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
               Ten years ago it was {Math.round(c.pcts[0])} in 100.{" "}
               {rose ? "Things have got worse here." : "Things have got a little better here."}{" "}
               Across Scotland it is {Math.round(SCOTLAND_PCTS[9])} in 100.
+            </p>
+            <p>
+              Below that are the area&apos;s out-of-work claimant rate and resident pay, both compared
+              with Scotland over time.
             </p>
           </InShort>
         </div>
@@ -152,6 +157,13 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
               <div className="ui text-[13px] text-[var(--ink-2)] mt-2.5 tnum">{s.note}</div>
             </div>
           ))}
+        </div>
+
+        <div className="mt-5 flex justify-end">
+          <SharePage
+            title={`Poverty, work and pay in ${c.name}`}
+            text={`${c.pcts[9]}% of children in ${c.name} were living in poverty after housing costs in ${last}. See the sourced local evidence.`}
+          />
         </div>
 
         <div className="mt-9">

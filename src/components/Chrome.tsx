@@ -8,11 +8,11 @@ import { ScrollProgress } from "@/components/Motion";
 import NewsletterSignup from "@/components/NewsletterSignup";
 
 export const NAV = [
-  { href: "/the-numbers", label: "The numbers" },
-  { href: "/why-glasgow", label: "Why Glasgow" },
-  { href: "/what-would-fix-it", label: "What would fix it" },
-  { href: "/accountability", label: "Accountability" },
   { href: "/areas", label: "Your area" },
+  { href: "/constituencies", label: "MP seats" },
+  { href: "/why-glasgow", label: "Glasgow" },
+  { href: "/what-would-fix-it", label: "What works" },
+  { href: "/accountability", label: "Power" },
 ];
 
 function Wordmark({ className = "" }: { className?: string }) {
@@ -21,7 +21,7 @@ function Wordmark({ className = "" }: { className?: string }) {
       className={`ui font-[800] tracking-[-0.04em] leading-none ${className}`}
       style={{ fontFamily: "var(--font-sans)" }}
     >
-      Glasgow<span className="text-[var(--action)]">Counted</span>
+      Scotland<span className="text-[var(--action)]">Counted</span>
     </span>
   );
 }
@@ -47,20 +47,16 @@ function SearchButton() {
 }
 
 function ThemeToggle() {
-  const [theme, setTheme] = useState<"light" | "dark" | null>(null);
-
-  useEffect(() => {
-    const stored = localStorage.getItem("theme") as "light" | "dark" | null;
-    if (stored) setTheme(stored);
-  }, []);
-
   function toggle() {
+    const applied = document.documentElement.getAttribute("data-theme") as
+      | "light"
+      | "dark"
+      | null;
     const current =
-      theme ?? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      applied ?? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
     const next = current === "dark" ? "light" : "dark";
     document.documentElement.setAttribute("data-theme", next);
     localStorage.setItem("theme", next);
-    setTheme(next);
   }
 
   return (
@@ -79,10 +75,9 @@ function ThemeToggle() {
 
 export function Header() {
   const pathname = usePathname();
-  const [open, setOpen] = useState(false);
+  const [menuPath, setMenuPath] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => setOpen(false), [pathname]);
+  const open = menuPath === pathname;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -100,7 +95,12 @@ export function Header() {
       }`}
     >
       <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 flex items-center gap-8 h-[68px]">
-        <Link href="/" className="shrink-0" aria-label="Glasgow Counted, home">
+        <Link
+          href="/"
+          className="shrink-0"
+          aria-label={`${site.name}, home`}
+          onClick={() => setMenuPath(null)}
+        >
           <Wordmark className="text-[19px]" />
         </Link>
 
@@ -140,7 +140,7 @@ export function Header() {
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label="Menu"
-            onClick={() => setOpen((o) => !o)}
+            onClick={() => setMenuPath(open ? null : pathname)}
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
               {open ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M3 7h18M3 17h18" />}
@@ -160,6 +160,7 @@ export function Header() {
             <Link
               key={n.href}
               href={n.href}
+              onClick={() => setMenuPath(null)}
               className="ui block px-6 py-4 border-b border-[var(--rule)] text-[16px] font-[560]"
             >
               {n.label}
@@ -179,7 +180,8 @@ export function Footer() {
           <div>
             <Wordmark className="text-[24px]" />
             <p className="text-[15px] leading-[1.55] opacity-70 max-w-[36ch] mt-4">
-              {site.tagline} Free to read, quote and reuse.
+              Independent evidence on poverty, work and living standards. Free to read, quote and
+              reuse.
             </p>
             {site.web3formsKey && (
               <div className="mt-6">
@@ -192,10 +194,10 @@ export function Footer() {
           </div>
 
           <div>
-            <p className="ui text-[12px] font-[680] opacity-50 mb-4">The site</p>
+            <p className="ui text-[12px] font-[680] opacity-50 mb-4">Explore</p>
             <ul className="space-y-2.5 text-[14.5px]">
               {NAV.concat([
-                { href: "/constituencies", label: "Constituencies" },
+                { href: "/the-numbers", label: "The Glasgow record" },
                 { href: "/take-action", label: "Take action" },
               ]).map((n) => (
                 <li key={n.href}>

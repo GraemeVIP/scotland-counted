@@ -9,13 +9,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const core: MetadataRoute.Sitemap = [
     { url: site.url, changeFrequency: "monthly", priority: 1 },
-    { url: `${site.url}/the-numbers`, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${site.url}/why-glasgow`, changeFrequency: "yearly", priority: 0.9 },
-    { url: `${site.url}/what-would-fix-it`, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${site.url}/accountability`, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${site.url}/take-action`, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${site.url}/areas`, changeFrequency: "yearly", priority: 0.8 },
-    { url: `${site.url}/constituencies`, changeFrequency: "yearly", priority: 0.8 },
+    { url: `${site.url}/areas`, changeFrequency: "monthly", priority: 0.95 },
+    { url: `${site.url}/take-action`, changeFrequency: "monthly", priority: 0.95 },
+    { url: `${site.url}/constituencies`, changeFrequency: "yearly", priority: 0.9 },
+    { url: `${site.url}/what-would-fix-it`, changeFrequency: "monthly", priority: 0.85 },
+    { url: `${site.url}/accountability`, changeFrequency: "monthly", priority: 0.85 },
+    { url: `${site.url}/the-numbers`, changeFrequency: "monthly", priority: 0.75 },
+    { url: `${site.url}/why-glasgow`, changeFrequency: "yearly", priority: 0.75 },
     { url: `${site.url}/press`, changeFrequency: "monthly", priority: 0.6 },
     { url: `${site.url}/updates`, changeFrequency: "weekly", priority: 0.6 },
     { url: `${site.url}/methods`, changeFrequency: "yearly", priority: 0.6 },
@@ -39,13 +39,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const areaPages: MetadataRoute.Sitemap = councils.map((c) => ({
     url: `${site.url}/areas/${c.slug}`,
     changeFrequency: "yearly" as const,
-    priority: c.slug === "glasgow-city" ? 0.9 : 0.6,
+    priority: 0.75,
   }));
 
   const constituencyPages: MetadataRoute.Sitemap = constituencies.map((c) => ({
     url: `${site.url}/constituencies/${c.slug}`,
     changeFrequency: "yearly" as const,
-    priority: 0.6,
+    priority: 0.7,
   }));
 
   return [...core, ...indicatorPages, ...areaPages, ...constituencyPages].map((e) => ({

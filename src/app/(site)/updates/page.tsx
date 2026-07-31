@@ -8,7 +8,7 @@ import { site } from "@/lib/site";
 export const metadata = meta({
   title: "What changed",
   description:
-    "Every data refresh, new section and correction on Glasgow Counted, in one public log — with an RSS feed. The site's news is the data's news.",
+    `Every data refresh, new section and correction on ${site.name}, in one public log — with an RSS feed. The site's news is the data's news.`,
   path: "/updates",
 });
 

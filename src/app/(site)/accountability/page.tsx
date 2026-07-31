@@ -19,7 +19,7 @@ import { getSources } from "@/lib/data/sources";
 export const metadata = meta({
   title: "Who decided this",
   description:
-    "Three layers of government touch child poverty in Glasgow. The decisions each made, and the measured consequences — including all four statutory Scottish targets missed in 2023/24. Sourced, and cross-party.",
+    "Who controls the decisions that shape poverty in Scotland: Westminster, Holyrood and councils. The national targets, the policy record and Glasgow as the local case study — sourced and cross-party.",
   path: "/accountability",
 });
 
@@ -44,7 +44,7 @@ export default function Accountability() {
         <PageHeader
           eyebrow="The record · Cross-party"
           title="Who decided this"
-          lede="Three layers of government touch this problem: Westminster, Holyrood and the City Chambers. Each has made things worse in its own way, and each can blame the other two — which is exactly the problem."
+          lede="Three layers of government touch poverty in Scotland: Westminster, Holyrood and local councils. The first two set national rules; Glasgow provides the detailed local record. Each can blame the others — which is exactly the accountability problem."
           stat={{
             value: "4 / 4",
             label:

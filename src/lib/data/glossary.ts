@@ -133,7 +133,7 @@ export const terms: Term[] = [
     id: "in-work-poverty",
     term: "In-work poverty",
     def: "Being poor even though someone in the household has a job. It is now the most common kind of poverty in Scotland.",
-    tech: "Across Scotland, 69% of children in poverty live in a household where at least one adult works. It is driven by low hourly pay, too few hours, insecure contracts and housing costs — which is why raising the employment rate alone does not reduce it.",
+    tech: "Across Scotland, 75% of children in poverty live in a household where at least one adult works (Scottish Government, 2022–25). It is driven by low hourly pay, too few hours, insecure contracts and housing costs — which is why raising the employment rate alone does not reduce it.",
   },
 ];
 

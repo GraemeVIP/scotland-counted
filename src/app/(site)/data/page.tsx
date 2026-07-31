@@ -1,15 +1,22 @@
 import Link from "next/link";
 import { Page, Col, PageHeader, CTA } from "@/components/Blocks";
 import { JsonLd, breadcrumbJsonLd, datasetJsonLd, meta } from "@/lib/seo";
+import { site } from "@/lib/site";
 
 export const metadata = meta({
   title: "Download the data",
   description:
-    "Every dataset behind this site, free to download as CSV. Child poverty for all 32 Scottish council areas, employment, claimant count, pay, jobs density and life expectancy.",
+    "Every dataset behind Scotland Counted, free to download: national poverty rates, all 32 council areas, employment, claimant count, pay, jobs density and life expectancy.",
   path: "/data",
 });
 
 const FILES = [
+  {
+    file: "scotland-poverty-headline-2022-25.csv",
+    title: "Scotland-wide poverty headline",
+    body: "The latest official relative-poverty rates after housing costs for all people, children, working-age adults and pensioners, 2022–25.",
+    size: "<1 KB",
+  },
   {
     file: "glasgow-poverty-indicators.csv",
     title: "All headline indicators",
@@ -77,11 +84,11 @@ export default function Data() {
       />
       <JsonLd
         data={datasetJsonLd({
-          name: "Glasgow Counted — full dataset",
+          name: "Scotland Counted — full dataset",
           description:
-            "Child poverty, employment, benefit claims, pay, jobs density and life expectancy data for Glasgow and Scotland, 2000–2026, as CSV.",
+            "National poverty rates, council child poverty, employment, benefit claims, pay, jobs density and life expectancy data for Scotland, including the Glasgow deep series, 2000–2026.",
           path: "/data",
-          keywords: ["Glasgow", "poverty", "open data", "Scotland", "CSV", "child poverty"],
+          keywords: ["poverty", "open data", "Scotland", "CSV", "child poverty", "Glasgow"],
           temporalCoverage: "2000/2026",
         })}
       />
@@ -123,8 +130,8 @@ export default function Data() {
             available under the Open Government Licence. Their terms apply to the raw files.
           </p>
           <p>
-            Our derived files, charts and analysis are free to reuse with attribution to Glasgow
-            Counted. No permission needed. If you are a journalist or researcher and want a series
+            Our derived files, charts and analysis are free to reuse with attribution to {site.name}.
+            No permission needed. If you are a journalist or researcher and want a series
             in a different shape, ask and we will prepare it.
           </p>
           <p>

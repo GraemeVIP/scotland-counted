@@ -1,13 +1,16 @@
-# Glasgow Counted
+# Scotland Counted
 
-An independent, fully sourced record of poverty in Glasgow since 2000.
+Independent evidence on poverty, work and living standards across Scotland, connected directly
+to the representatives with the power to act.
 
 A personal project by Graeme at [Strathmark Consulting](https://strathmarkconsulting.com).
 Not commissioned, not funded, no party affiliation.
 
-**The argument:** every figure on this site was already public. It was just spread
-across a dozen government portals in formats nobody reads. This puts it in one
-place, in plain English, with the source on every number.
+**The argument:** every figure on this site was already public. It was just spread across a dozen
+government portals in formats nobody reads. This puts national evidence, all 32 council areas,
+all 57 Scottish Westminster constituencies and the Glasgow deep dive in one place, in plain
+English, with the source on every number. A postcode then finds the right MP and MSP and prepares
+the addressed emails.
 
 ---
 
@@ -17,7 +20,7 @@ Open `site.config.ts` and change these four things:
 
 | Field | Why |
 |---|---|
-| `url` | Canonical URLs, sitemap, Open Graph tags and JSON-LD all derive from it. Must be the live domain, no trailing slash — currently set to glasgowcounted.co.uk. |
+| `url` | Canonical URLs, sitemap, Open Graph tags and JSON-LD all derive from it. Must be the live domain, no trailing slash — retained as glasgowcounted.co.uk until a Scotland Counted domain is registered. |
 | `author.name` | Currently just "Graeme" — add your surname if you want the byline to carry it. |
 | `contactEmail` | Used on the about and corrections pages. |
 | `web3formsKey` | Optional. A free web3forms.com access key; pasting it turns on the email sign-up forms site-wide. |
@@ -29,7 +32,7 @@ Nothing else needs touching to go live.
 ```bash
 npm install
 npm run dev      # http://localhost:3000
-npm run build    # production build, 55 static pages
+npm run build    # production build
 ```
 
 ## Deploying to Vercel
@@ -38,9 +41,9 @@ npm run build    # production build, 55 static pages
 npx vercel --prod
 ```
 
-Or connect the GitHub repo in the Vercel dashboard. There is no configuration to
-add: no environment variables, no database, no external services. Every page is
-statically generated at build time.
+Or connect the GitHub repo in the Vercel dashboard. There are no required environment variables or
+database. Content pages are statically generated; the representative lookup is a dynamic,
+no-storage route that calls official postcode and parliamentary sources.
 
 Once the domain is attached, update `site.config.ts` with the real URL and redeploy —
 otherwise canonical tags and the sitemap will point at the placeholder.
@@ -58,10 +61,11 @@ otherwise canonical tags and the sitemap will point at the placeholder.
 site.config.ts              identity, URL, contact — the only file most changes need
 src/app/                    routes (App Router)
   page.tsx                    home
-  the-numbers/                indicator index
+  the-numbers/                six-measure Glasgow record
   indicators/[slug]/          six indicator pages
-  areas/                      all 32 councils + one page each
-  why-glasgow/                the causal argument
+  areas/                      poverty, claimant count and pay for all 32 councils
+  constituencies/             child poverty for all 57 Scottish Westminster seats
+  why-glasgow/                the founding deep dive and causal argument
   what-would-fix-it/          costed policy options
   accountability/             the record, by tier of government
   take-action/                postcode lookup and automatically addressed letter builder
@@ -99,8 +103,9 @@ These are stated publicly on `/methods` and are worth keeping:
    where one exists.
 3. Unreliable data is shown dotted and shaded with the reason, not quietly dropped.
 4. Definitional breaks in a series are declared.
-5. No individual politician is named, and no claim is made about anyone's motives or
-   honesty. The record is decisions and their measured consequences.
+5. The analytical record makes no claim about anyone's motives or honesty. Individual politicians
+   are named only when the postcode tool retrieves the reader's current representatives from
+   official sources.
 6. Corrections are logged in public.
 
 Rule 5 is not timidity. Named, sourced decisions are much harder to dismiss than

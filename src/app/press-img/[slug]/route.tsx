@@ -195,7 +195,7 @@ export async function GET(_req: Request, ctx: { params: Promise<{ slug: string }
           }}
         >
           <div style={{ display: "flex", fontWeight: 700 }}>
-            Glasgow<span style={{ color: "#e08a3c" }}>&nbsp;Counted</span>
+            Scotland<span style={{ color: "#e08a3c" }}>&nbsp;Counted</span>
           </div>
           <div style={{ display: "flex", color: "#8fa4b3" }}>
             {`${site.url.replace("https://", "")}/indicators/${ind.slug}`}

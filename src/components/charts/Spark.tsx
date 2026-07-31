@@ -25,9 +25,11 @@ export default function Spark({
     const el = ref.current;
     if (!el) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setDrawn(true);
-      setSettled(true);
-      return;
+      const show = window.setTimeout(() => {
+        setDrawn(true);
+        setSettled(true);
+      }, 0);
+      return () => window.clearTimeout(show);
     }
     const io = new IntersectionObserver(
       ([e]) => {

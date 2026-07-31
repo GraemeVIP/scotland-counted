@@ -1,9 +1,19 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { councils, COUNCIL_YEARS, SCOTLAND_PCTS } from "@/lib/data/councils";
-import type { Representative, RepresentativeLookup } from "@/lib/representatives";
+import {
+  councilExtra,
+  SCOTLAND_EXTRA,
+  CC_YEARS,
+  PAY_YEARS,
+} from "@/lib/data/councilExtra";
+import {
+  POSTCODE_SESSION_KEY,
+  type Representative,
+  type RepresentativeLookup,
+} from "@/lib/representatives";
 
 type RepresentativeRole = "MP" | "MSP";
 
@@ -12,6 +22,7 @@ const ASKS: Array<{
   label: string;
   line: string;
   who: RepresentativeRole;
+  localOnly?: string;
 }> = [
   {
     id: "lha",
@@ -42,6 +53,7 @@ const ASKS: Array<{
     label: "Fund Glasgow's homelessness shortfall",
     line: "fund the projected homelessness shortfall of £56m in 2026/27 and £73m in 2027/28, so that a statutory duty stops being breached and public money stops going on hotel rooms",
     who: "MSP",
+    localOnly: "glasgow-city",
   },
 ];
 
@@ -92,9 +104,18 @@ export default function LetterBuilder() {
   const council = councils.find((item) => item.slug === slug)!;
   const last = COUNCIL_YEARS[9];
   const first = COUNCIL_YEARS[0];
+  const availableAsks = useMemo(
+    () => ASKS.filter((ask) => !ask.localOnly || ask.localOnly === council.slug),
+    [council.slug]
+  );
 
   function makeLetter(role: RepresentativeRole, representative?: Representative) {
-    const asks = ASKS.filter((ask) => ask.who === role && picked.includes(ask.id));
+    const asks = availableAsks.filter((ask) => ask.who === role && picked.includes(ask.id));
+    const localEvidence = councilExtra[council.slug];
+    const claimant = localEvidence?.cc[CC_YEARS.length - 1];
+    const scotlandClaimant = SCOTLAND_EXTRA.cc[CC_YEARS.length - 1];
+    const pay = localEvidence?.pay[PAY_YEARS.length - 1];
+    const scotlandPay = SCOTLAND_EXTRA.pay[PAY_YEARS.length - 1];
     const direction =
       council.change > 0
         ? `an increase of ${council.change} percentage points since ${first}`
@@ -102,11 +123,17 @@ export default function LetterBuilder() {
     const personalPara = personal.trim() ? `\n${personal.trim()}\n` : "";
     const signoffPostcode = lookup?.postcode ?? postcode.trim().toUpperCase();
 
+    const labourMarketParagraph =
+      typeof claimant === "number" && typeof pay === "number"
+        ? `\nThe wider local evidence matters too. In January ${CC_YEARS[CC_YEARS.length - 1]}, ${claimant.toFixed(1)}% of working-age residents in ${council.name} were claiming out-of-work benefits, compared with ${scotlandClaimant.toFixed(1)}% across Scotland. In ${PAY_YEARS[PAY_YEARS.length - 1]}, median gross weekly pay for full-time workers living in the area was £${pay.toFixed(2)}, compared with £${scotlandPay.toFixed(2)} across Scotland. Neither measure defines poverty on its own, but together they show why work, pay, housing costs and social security have to be considered together.\n`
+        : "";
+
     return `Dear ${representative?.name ?? `your ${role}`},
 
-I am writing as a constituent in ${council.name} about child poverty in this area.
+I am writing as a constituent in ${council.name} about poverty, work and living standards in this area.
 
 In ${last}, ${council.pcts[9]}% of children in ${council.name} were living in relative poverty after housing costs. That is ${council.counts[9].toLocaleString("en-GB")} children, and ${direction}. The Scottish figure for the same year was ${SCOTLAND_PCTS[9]}%. These are the End Child Poverty and Loughborough University estimates, drawn from HMRC and DWP administrative data.
+${labourMarketParagraph}
 
 I am also aware that all four of the statutory interim child poverty targets set out in the Child Poverty (Scotland) Act 2017 were missed for 2023/24, including persistent poverty at 23% against a target of 8%.
 ${personalPara}
@@ -134,7 +161,7 @@ ${signoffPostcode || "[your postcode]"}`;
 
     return ([lookup.mp, lookup.msp] as Representative[])
       .filter((representative) =>
-        ASKS.some((ask) => ask.who === representative.role && picked.includes(ask.id))
+        availableAsks.some((ask) => ask.who === representative.role && picked.includes(ask.id))
       )
       .map((representative) => ({
         representative,
@@ -142,16 +169,15 @@ ${signoffPostcode || "[your postcode]"}`;
       }));
     // makeLetter is intentionally local: all of its reactive inputs are listed here.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [lookup, picked, council, first, last, name, personal, postcode]);
+  }, [lookup, picked, council, first, last, name, personal, postcode, availableAsks]);
 
-  async function findRepresentatives(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
+  const findRepresentativesFor = useCallback(async (value: string) => {
     setLookupState("loading");
     setLookupError("");
     setLookup(null);
 
     try {
-      const response = await fetch(`/api/representatives?postcode=${encodeURIComponent(postcode)}`, {
+      const response = await fetch(`/api/representatives?postcode=${encodeURIComponent(value)}`, {
         cache: "no-store",
       });
       const result = (await response.json()) as RepresentativeLookup | { error?: string };
@@ -169,6 +195,24 @@ ${signoffPostcode || "[your postcode]"}`;
         error instanceof Error ? error.message : "The representative lookup is unavailable."
       );
     }
+  }, []);
+
+  useEffect(() => {
+    const carriedPostcode = sessionStorage.getItem(POSTCODE_SESSION_KEY);
+    if (!carriedPostcode) return;
+
+    const timer = window.setTimeout(() => {
+      sessionStorage.removeItem(POSTCODE_SESSION_KEY);
+      setPostcode(carriedPostcode);
+      void findRepresentativesFor(carriedPostcode);
+    }, 0);
+
+    return () => window.clearTimeout(timer);
+  }, [findRepresentativesFor]);
+
+  function findRepresentatives(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    void findRepresentativesFor(postcode);
   }
 
   function changePostcode(value: string) {
@@ -190,12 +234,12 @@ ${signoffPostcode || "[your postcode]"}`;
   }
 
   function mailtoFor(representative: Representative, letter: string) {
-    const subject = `Child poverty in ${council.name} — a constituent's question`;
+    const subject = `Poverty and living standards in ${council.name} — a constituent's question`;
     return `mailto:${representative.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(letter)}`;
   }
 
   return (
-    <div className="mt-10 grid gap-7 lg:grid-cols-[420px_1fr] items-start">
+    <div id="letter-builder" className="mt-10 grid gap-7 lg:grid-cols-[420px_1fr] items-start scroll-mt-24">
       <div
         className="rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] p-6 sm:p-7 lg:sticky lg:top-[84px]"
         style={{ boxShadow: "var(--shadow-2)" }}
@@ -253,7 +297,7 @@ ${signoffPostcode || "[your postcode]"}`;
             <StepLabel n={2}>What are you asking for?</StepLabel>
           </legend>
           <div className="space-y-3">
-            {ASKS.map((ask) => (
+            {availableAsks.map((ask) => (
               <label key={ask.id} className="flex gap-3 items-start cursor-pointer group">
                 <input
                   type="checkbox"

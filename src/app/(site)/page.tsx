@@ -5,65 +5,86 @@ import {
   Split,
   Note,
   Slab,
-  StatStrip,
   CTA,
   Card,
   SectionHead,
   Reveal,
-  FullBleed,
 } from "@/components/Blocks";
-import Figure, { DataTable } from "@/components/charts/Figure";
-import LineChart from "@/components/charts/LineChart";
-import { G } from "@/components/Glossary";
 import { JsonLd, articleJsonLd, faqJsonLd, meta } from "@/lib/seo";
-import {
-  getIndicator,
-  headlineStats,
-  povertyLine,
-  jobsDensity,
-  GLASGOW_CHILD_COUNTS,
-} from "@/lib/data/indicators";
-import { councilsByLevel } from "@/lib/data/councils";
+import { councilsByChange, councilsByLevel } from "@/lib/data/councils";
+import { scotlandPoverty } from "@/lib/data/scotland";
+import { getSources } from "@/lib/data/sources";
 import { site } from "@/lib/site";
 import Hero from "./Hero";
-import DecadeScroll from "./DecadeScroll";
 
 export const metadata = meta({
-  title: "Poverty in Glasgow, counted properly",
+  title: "Poverty in Scotland — evidence by area and the people with power",
   description:
-    "More than one in three Glasgow children lives in poverty — the steepest rise of any Scottish council area. An independent, fully sourced record of what changed since 2000, why, and who decided it.",
+    "Independent evidence on poverty, work and living standards across Scotland. Find your council, see the figures, and open an addressed email to your MP or MSP.",
   path: "/",
   type: "website",
 });
 
 const FAQ = [
   {
-    q: "How many children live in poverty in Glasgow?",
-    a: "39,319 children — 36.1% of all children in the city — were living in relative poverty after housing costs in 2023/24. That is more than one in three, and up from 27.1% in 2014/15.",
+    q: "How many people live in poverty in Scotland?",
+    a: "Around 940,000 people — 17% of Scotland's population — were living in relative poverty after housing costs in the latest official three-year period, 2022–25.",
   },
   {
-    q: "Is child poverty in Glasgow getting better or worse?",
-    a: "Worse. Glasgow's child poverty rate rose by 9.0 percentage points between 2014/15 and 2023/24, the largest increase of any of Scotland's 32 council areas. Over the same period the Scottish rate rose by 1.7 points.",
+    q: "Is this only about child poverty?",
+    a: "No. Child poverty is the strongest comparable local income measure, but every council page also carries out-of-work claimant and resident-pay data. The Glasgow deep dive adds employment, benefits, jobs, neighbourhood deprivation and life expectancy.",
   },
   {
-    q: "Why is poverty worse in Glasgow than elsewhere in Scotland?",
-    a: "Four reasons: a historical inheritance created by post-war policy decisions; a commuter economy in which the city's better-paid jobs are largely held by people who live outside it; a concentration of the household types most exposed to benefit cuts; and housing costs that rose faster than the support available to meet them.",
+    q: "Why does local poverty use a child-poverty measure?",
+    a: "The main official poverty survey is robust at Scotland level, not council level. Local child-poverty estimates use HMRC and DWP administrative data and can be compared consistently across all 32 councils and 57 Westminster constituencies.",
   },
   {
-    q: "What would actually reduce child poverty in Glasgow?",
-    a: "Independent modelling by the Joseph Rowntree Foundation, IPPR Scotland and the Fraser of Allander Institute agrees that income transfers do the heavy lifting and employment programmes do not. Scrapping the two-child limit, expanding the Scottish Child Payment, restoring housing benefit to real local rents and building enough housing are the measures with costed, evidenced effects.",
+    q: "Who has the power to reduce poverty?",
+    a: "Different decisions sit at Westminster, Holyrood and local councils. The action tool routes each request to the MP or MSP who can act on it, so the reader does not need to understand the constitutional split first.",
+  },
+  {
+    q: "What happens to the postcode I enter?",
+    a: "It is used to find the council area, MP and constituency MSP. Scotland Counted does not save it, and names or personal sentences added to a draft stay in the reader's browser and email app.",
+  },
+];
+
+const COVERAGE = [
+  {
+    href: "/areas",
+    eyebrow: "All 32 council areas",
+    title: "Poverty, work and pay where you live",
+    body: "Ten years of local child-poverty figures, claimant counts from 2000 and resident pay from 2008, each compared with Scotland.",
+  },
+  {
+    href: "/constituencies",
+    eyebrow: "All 57 Westminster seats",
+    title: "One constituency, one answerable MP",
+    body: "Every Scottish seat ranked by child poverty, with a permanent page that turns a national decision into a local question.",
+  },
+  {
+    href: "/what-would-fix-it",
+    eyebrow: "Costed policies",
+    title: "What would actually change the numbers",
+    body: "The measures independent researchers have modelled, what each would achieve, what it costs and which government controls it.",
+  },
+  {
+    href: "/accountability",
+    eyebrow: "Three levels of government",
+    title: "Follow the power, not the blame",
+    body: "Westminster, Holyrood and councils each control part of the outcome. The record shows the decisions and measured consequences.",
   },
 ];
 
 export default function Home() {
-  const cp = getIndicator("child-poverty")!;
-  const worst = councilsByLevel().slice(0, 3);
+  const byLevel = councilsByLevel();
+  const rose = councilsByChange().filter((council) => council.change > 0).length;
+  const nationalSource = getSources([scotlandPoverty.sourceId])[0];
 
   return (
     <>
       <JsonLd
         data={articleJsonLd({
-          headline: "Poverty in Glasgow has not fallen. It has changed shape.",
+          headline: "Poverty has an address. So does power.",
           description: metadata.description as string,
           path: "/",
         })}
@@ -73,216 +94,183 @@ export default function Home() {
       <Hero />
 
       <Page>
-        <StatStrip stats={headlineStats} />
-
-        {/* ================= PRIMER ================= */}
         <section className="pt-20 sm:pt-28">
           <SectionHead
             n={1}
-            eyebrow="Start here"
-            title="What &ldquo;poverty&rdquo; means on this site"
+            eyebrow={`Scotland · Official statistics · ${scotlandPoverty.period}`}
+            title="Poverty is not one group of people"
           />
           <div className="sm:pl-[calc(2ch+2rem)] mt-8">
             <Split
               aside={
-                <div className="grid gap-3">
-                  {povertyLine.rows.map((r) => (
-                    <div
-                      key={r.amount}
-                      className="rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] px-5 py-4"
-                    >
-                      <div className="text-[14px] text-[var(--ink-2)] leading-[1.45]">{r.who}</div>
-                      <div className="figure-num text-[30px] mt-2">{r.amount}</div>
-                    </div>
-                  ))}
-                  <p className="ui text-[12.5px] text-[var(--muted)] mt-1">
-                    Poverty line, {povertyLine.year}, after housing costs
-                  </p>
-                </div>
-              }
-            >
-              <p>
-                A household counts as poor if its income is less than 60% of what a typical UK
-                household has &mdash; and we count that <G t="ahc">after housing costs</G>, meaning
-                after the rent or mortgage is paid. What is left is what a family actually has for
-                food, heating, shoes and bus fares.
-              </p>
-              <p>
-                Counting after rent matters enormously in Glasgow, because rents here have risen
-                faster than the help available to pay them.
-              </p>
-              <p className="text-[16px] text-[var(--ink-2)]">
-                Anything <G t="pp">underlined like this</G> can be tapped for a plain explanation,
-                plus the technical detail if you want it. Every chart has the raw numbers
-                underneath, and <Link href="/methods">every figure is sourced</Link>.
-              </p>
-            </Split>
-          </div>
-        </section>
-
-        {/* ================= THE DECADE, SCROLLED ================= */}
-        <section className="pt-20 sm:pt-28">
-          <SectionHead
-            n={2}
-            eyebrow="The measure that moved"
-            title="Watch the decade happen"
-            direction="worsening"
-          />
-          <div className="sm:pl-[calc(2ch+2rem)] mt-8 mb-10">
-            <Col>
-              <p>
-                Each figure below is one in every hundred Glasgow children. Scroll, and the
-                decade plays out — including the one year the figures dim, because benefits
-                went up and child poverty genuinely fell.
-              </p>
-            </Col>
-          </div>
-        </section>
-
-        <DecadeScroll />
-
-        {/* ================= THE CHART ================= */}
-        <section className="pt-20 sm:pt-28">
-          <SectionHead
-            n={3}
-            eyebrow="The same decade, as a chart"
-            title="Glasgow climbed while Scotland held steady"
-          />
-          <div className="sm:pl-[calc(2ch+2rem)] mt-8">
-            <Split
-              aside={
-                <Note label="The gap with Scotland" value="5.5 → 12.8">
-                  Percentage points between Glasgow and the Scottish rate. It more than doubled in
-                  nine years.
+                <Note label="Children in poverty living with someone in paid work" value="75%">
+                  Work lowers the risk of poverty. It does not guarantee an income high enough to
+                  escape it.
                 </Note>
               }
             >
               <p>
-                Scotland held steady largely because of the <G t="scp">Scottish Child Payment</G>,
-                which does not exist in England. Cities south of the border rose faster still.
+                Poverty means having less than 60% of typical UK household income after housing
+                costs. It reaches children, working-age adults and pensioners — and it reaches
+                households where somebody is working.
+              </p>
+              <p>
+                The national figures below come from the Scottish Government&apos;s Family Resources
+                Survey analysis. Local pages use administrative data because that survey cannot
+                produce reliable council-level poverty rates.
               </p>
             </Split>
-
-            <div className="mt-10">
-              <Figure
-                n={1}
-                embedSlug={cp.slug}
-                title={cp.chartTitle}
-                sub={cp.chartSub}
-                legend={cp.series.map((s) => ({ name: s.name, colorVar: s.colorVar }))}
-                caption={cp.caption}
-                technical={cp.technical}
-                table={
-                  <DataTable
-                    head={["Year", "Glasgow %", "Glasgow children", "Scotland %", "Gap (pp)"]}
-                    rows={cp.x.map((y, i) => [
-                      y,
-                      cp.series[0].data[i].toFixed(1),
-                      GLASGOW_CHILD_COUNTS[i].toLocaleString("en-GB"),
-                      cp.series[1].data[i].toFixed(1),
-                      `+${(cp.series[0].data[i] - cp.series[1].data[i]).toFixed(1)}`,
-                    ])}
-                  />
-                }
-              >
-                <LineChart
-                  x={cp.x}
-                  series={cp.series}
-                  yMin={cp.yMin}
-                  yMax={cp.yMax}
-                  yTicks={cp.yTicks}
-                  unit="%"
-                  decimals={1}
-                  gapBand
-                  extra={{
-                    label: "Glasgow children",
-                    values: GLASGOW_CHILD_COUNTS.map((v) => v.toLocaleString("en-GB")),
-                  }}
-                  ariaLabel="Glasgow child poverty rises from 27.1% in 2014/15 to 36.1% in 2023/24, while Scotland moves from 21.6% to 23.3%."
-                />
-              </Figure>
-            </div>
           </div>
-        </section>
-      </Page>
 
-      {/* ================= THE ARGUMENT ================= */}
-      <Slab attribution="Across Scotland, 69% of children in poverty live in a working household">
-        In 2000 the problem was that there wasn&apos;t enough work. In 2026 the problem is that
-        work doesn&apos;t reliably keep you out of poverty.
-      </Slab>
-
-      <Page>
-        <Col>
-          <p>
-            Two of the measures on this site improved. One improved and then stalled. One got much
-            worse. That is not a contradiction &mdash; it is the answer.
-          </p>
-          <p>
-            The clearest proof is in the chart above. In 2020/21, benefits went up and child
-            poverty fell. In 2021/22, the support was withdrawn and it went straight back up.
-            Nothing about Glasgow&apos;s history explains a two-year swing like that.{" "}
-            <strong>Policy does &mdash; in both directions.</strong>
-          </p>
-        </Col>
-
-        {/* ================= SIGNPOSTS ================= */}
-        <section className="pt-20 sm:pt-28">
-          <SectionHead n={4} eyebrow="Six measures, four causes, one record" title="Start anywhere" />
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 mt-10">
+          <div className="grid gap-px bg-[var(--rule)] border-y border-[var(--rule)] mt-10 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              {
-                href: "/the-numbers",
-                eyebrow: "Six measures",
-                title: "The numbers",
-                body: "Child poverty, work, benefits, pay, neighbourhoods and life expectancy — charted from 2000, with the data behind each one.",
-              },
-              {
-                href: "/why-glasgow",
-                eyebrow: "The causes",
-                title: "Why Glasgow",
-                body: `There are ${jobsDensity.glasgow} jobs in Glasgow for every working-age adult who lives here. So why is the city poor? Four reasons, evidenced.`,
-              },
-              {
-                href: "/what-would-fix-it",
-                eyebrow: "The evidence",
-                title: "What would fix it",
-                body: "Seven costed policies, what each would achieve, what each costs, and exactly where each one currently stands.",
-              },
-              {
-                href: "/accountability",
-                eyebrow: "The record",
-                title: "Who decided this",
-                body: "Three layers of government, the decisions each made, and the measured consequences. Sourced, and cross-party.",
-              },
-              {
-                href: "/areas",
-                eyebrow: "All 32 councils",
-                title: "Your area",
-                body: `Every Scottish council area, ranked. ${worst[0].name} is worst at ${worst[0].pcts[9]}%, followed by ${worst[1].name} and ${worst[2].name}.`,
-              },
-              {
-                href: "/take-action",
-                eyebrow: "Two minutes",
-                title: "Take action",
-                body: "Write to your MSP or MP with the figures for your own area filled in automatically, and a specific question they have to answer.",
-              },
-            ].map((c, i) => (
-              <Reveal key={c.href} delay={i * 40}>
-                <Card {...c} />
+              scotlandPoverty.all,
+              scotlandPoverty.children,
+              scotlandPoverty.workingAge,
+              scotlandPoverty.pensioners,
+            ].map((group) => (
+              <div key={group.label} className="bg-[var(--paper)] px-6 py-7">
+                <p className="ui text-[14px] font-[620] text-[var(--ink-2)] min-h-[2.8em]">
+                  {group.label}
+                </p>
+                <p className="figure-num text-[48px] text-[var(--action)] mt-3">{group.pct}%</p>
+                {"count" in group && (
+                  <p className="ui text-[14px] text-[var(--muted)] mt-2">
+                    {group.count.toLocaleString("en-GB")} people
+                  </p>
+                )}
+              </div>
+            ))}
+          </div>
+
+          <p className="mt-4 text-[15px] text-[var(--ink-2)]">
+            Source:{" "}
+            <a href={nationalSource.url} target="_blank" rel="noopener noreferrer">
+              {nationalSource.title}, {nationalSource.publisher}
+            </a>
+            .
+          </p>
+        </section>
+
+        <section className="pt-20 sm:pt-28">
+          <SectionHead
+            n={2}
+            eyebrow="The evidence, made local"
+            title="Start with where you live"
+          />
+          <div className="sm:pl-[calc(2ch+2rem)] mt-8">
+            <Col>
+              <p>
+                Every Scottish council area has its own evidence page. Child poverty, out-of-work
+                claims and resident pay sit together, so no place is reduced to one number.
+              </p>
+              <p>
+                The child-poverty ranking still reveals a hard national pattern: {rose} of 32
+                council areas worsened over the decade. {byLevel[0].name} is highest at{" "}
+                {byLevel[0].pcts[9]}%; {byLevel[31].name} is lowest at {byLevel[31].pcts[9]}%.
+              </p>
+            </Col>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2 mt-10">
+            {COVERAGE.map((card, index) => (
+              <Reveal key={card.href} delay={index * 45}>
+                <Card {...card} />
               </Reveal>
             ))}
           </div>
         </section>
+      </Page>
 
-        {/* ================= FAQ ================= */}
+      <Slab attribution="Scottish Government, Poverty and Income Inequality in Scotland 2022–25">
+        Three quarters of children in poverty live in a household where somebody works.
+      </Slab>
+
+      <Page>
+        <section>
+          <SectionHead
+            n={3}
+            eyebrow="Poverty and the labour market"
+            title="A job matters. It is not the whole answer."
+          />
+          <div className="sm:pl-[calc(2ch+2rem)] mt-8">
+            <Split
+              aside={
+                <div className="grid gap-6">
+                  <Note label="Local evidence">
+                    Every council page compares claimant rates and resident pay with the Scottish
+                    line across time.
+                  </Note>
+                  <Note label="National evidence">
+                    The latest official poverty release separates children, working-age adults and
+                    pensioners, before and after housing costs.
+                  </Note>
+                </div>
+              }
+            >
+              <p>
+                Calling poverty an unemployment problem misses low pay, insecure hours, rent and
+                the value of social security. That is why this record places work and pay beside
+                income poverty rather than treating any one measure as the answer.
+              </p>
+              <p>
+                The local series are deliberately separate: claimant count is not the same thing
+                as unemployment, pay is shown in cash terms, and child poverty is measured after
+                housing costs. <Link href="/methods">The limits are stated, not hidden.</Link>
+              </p>
+            </Split>
+          </div>
+        </section>
+
+        <section className="pt-20 sm:pt-28">
+          <SectionHead
+            n={4}
+            eyebrow="The founding deep dive"
+            title="Glasgow is where the record goes deepest"
+          />
+          <div className="grid gap-5 lg:grid-cols-[minmax(0,1.25fr)_minmax(300px,0.75fr)] mt-10">
+            <div className="rounded-[var(--r-m)] bg-[var(--deep)] text-[var(--deep-ink)] p-7 sm:p-10">
+              <p className="label !text-[var(--deep-ink)] opacity-60 mb-5">Glasgow · 2000–2026</p>
+              <h3 className="display text-[clamp(27px,3.2vw,44px)] font-[750] max-w-[18ch]">
+                Work improved. Deprivation fell. Child poverty still climbed.
+              </h3>
+              <p className="mt-6 text-[17px] leading-[1.6] opacity-80 max-w-[58ch]">
+                Six long-run measures show how jobs, benefits, pay, neighbourhoods, housing and
+                life expectancy interact. Glasgow remains the detailed case study — not the limit
+                of the site.
+              </p>
+              <div className="flex flex-wrap gap-3 mt-8">
+                <Link href="/the-numbers" className="btn btn-primary">
+                  See the Glasgow record
+                  <span aria-hidden="true">→</span>
+                </Link>
+                <Link href="/why-glasgow" className="btn border-current/35 text-current hover:bg-white/10">
+                  Why Glasgow is different
+                </Link>
+              </div>
+            </div>
+            <div className="rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] p-7 sm:p-8">
+              <p className="label mb-5">What the deep dive adds</p>
+              <ul className="space-y-4 text-[16px] text-[var(--ink-2)] leading-[1.5]">
+                <li>Employment and claimant trends since 2000</li>
+                <li>Resident pay against workplace pay</li>
+                <li>Neighbourhood deprivation and life expectancy</li>
+                <li>Four evidenced causes specific to the city</li>
+                <li>Decisions across Westminster, Holyrood and the council</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
         <section className="pt-20 sm:pt-28">
           <SectionHead n={5} eyebrow="Questions" title="What people ask first" />
           <div className="grid gap-x-14 gap-y-9 lg:grid-cols-2 mt-10">
-            {FAQ.map((f) => (
-              <div key={f.q} className="border-t-2 border-[var(--ink)] pt-5">
-                <h3 className="h3 mb-3 max-w-[32ch]">{f.q}</h3>
-                <p className="text-[16px] text-[var(--ink-2)] leading-[1.6] max-w-[56ch]">{f.a}</p>
+            {FAQ.map((item) => (
+              <div key={item.q} className="border-t-2 border-[var(--ink)] pt-5">
+                <h3 className="h3 mb-3 max-w-[34ch]">{item.q}</h3>
+                <p className="text-[16px] text-[var(--ink-2)] leading-[1.6] max-w-[58ch]">
+                  {item.a}
+                </p>
               </div>
             ))}
           </div>
@@ -290,18 +278,18 @@ export default function Home() {
       </Page>
 
       <CTA
-        title="These figures are only useful if someone has to answer for them"
-        body="Every chart here is public data that already existed — it was just spread across a dozen government portals in formats nobody reads. Now it is in one place, in plain English. Use it."
+        title="The evidence is local. The responsibility is named."
+        body="Enter your postcode once. The site finds your area, fills in the official figures, routes each request to the right level of government and opens the addressed email in your own email app."
         href="/take-action"
-        cta="Write to your representative"
-        secondaryHref="/data"
-        secondaryCta="Download the data"
+        cta="Find who can act"
+        secondaryHref="/areas"
+        secondaryCta="Explore every area"
       />
 
       <Page>
-        <p className="ui mt-12 text-[13px] text-[var(--muted)]">
-          {site.name} — a personal project by {site.author.name} at {site.organisation.name}. No
-          party affiliation, no funding, no paywall.
+        <p className="ui mt-12 text-[15px] text-[var(--muted)]">
+          {site.name} — a personal public-interest project by {site.author.name} at{" "}
+          {site.organisation.name}. No party affiliation, no funding, no paywall.
         </p>
       </Page>
     </>

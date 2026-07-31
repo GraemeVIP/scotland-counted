@@ -20,7 +20,7 @@ import { getCouncil } from "@/lib/data/councils";
 import { getSources } from "@/lib/data/sources";
 
 export const metadata = meta({
-  title: "Why Glasgow and not somewhere else",
+  title: "Glasgow deep dive — why the city is different",
   description:
     "Glasgow has more jobs than working-age adults, yet the highest child poverty in Scotland. Four evidenced reasons: a policy-made historical inheritance, a commuter economy, a concentration of exposed households, and housing costs.",
   path: "/why-glasgow",
@@ -64,12 +64,12 @@ export default function WhyGlasgow() {
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Home", path: "/" },
-          { name: "Why Glasgow", path: "/why-glasgow" },
+          { name: "Glasgow deep dive", path: "/why-glasgow" },
         ])}
       />
       <JsonLd
         data={articleJsonLd({
-          headline: "Why Glasgow and not somewhere else",
+          headline: "Glasgow deep dive — why the city is different",
           description: metadata.description as string,
           path: "/why-glasgow",
         })}
@@ -77,9 +77,9 @@ export default function WhyGlasgow() {
 
       <Page>
         <PageHeader
-          eyebrow="The causes · Four reasons"
-          title="Why Glasgow and not somewhere else"
-          lede="Dundee is poorer on some measures. Inverclyde and North Ayrshire lost their industries too. Neither has Glasgow's rate, and neither has its direction of travel."
+          eyebrow="The founding deep dive · Four reasons"
+          title="Why Glasgow is different"
+          lede="Scotland Counted covers every council area. Glasgow is the founding and most detailed case study because its evidence poses a hard question: the city is full of jobs, yet its child-poverty rate is Scotland's highest and rose fastest."
           stat={{
             value: jobsDensity.glasgow.toFixed(2),
             label: `Jobs in Glasgow for every working-age adult living here (${jobsDensity.year}). Scotland: ${jobsDensity.scotland}`,
@@ -90,7 +90,10 @@ export default function WhyGlasgow() {
         <InShort>
           <p>Glasgow is poorer than other places for clear reasons — not bad luck.</p>
           <p>Big decisions made long ago left the city with deep problems. Today Glasgow is full of jobs, but the best-paid ones mostly go to people who live outside it.</p>
-          <p>And rent takes a bigger share of a family's money here than almost anywhere in Scotland.</p>
+          <p>
+            And rent takes a bigger share of a family&apos;s money here than almost anywhere in
+            Scotland.
+          </p>
         </InShort>
 
         {/* ---------- 1 ---------- */}

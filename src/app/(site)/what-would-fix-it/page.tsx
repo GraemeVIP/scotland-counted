@@ -19,7 +19,7 @@ import { getSources } from "@/lib/data/sources";
 export const metadata = meta({
   title: "What would actually fix it",
   description:
-    "Seven costed policies that would cut child poverty in Glasgow, what each would achieve, what each costs, and exactly where each one stands today. Modelled by JRF, IPPR Scotland and the Fraser of Allander Institute.",
+    "Seven costed policies that would cut poverty in Scotland, what each would achieve, what each costs, who controls it and where it stands today. Modelled by JRF, IPPR Scotland and the Fraser of Allander Institute.",
   path: "/what-would-fix-it",
 });
 
@@ -43,7 +43,7 @@ function StatusTag({ status, label }: { status: FixStatus; label: string }) {
 const FAQ = [
   {
     q: "Does getting more people into work reduce child poverty?",
-    a: "Not on its own. Across Scotland, 69% of children in poverty live in a household where at least one adult works. Glasgow's employment rate rose nine points between 2013 and 2022 while its child poverty rate rose too. Independent modelling by JRF, IPPR Scotland and the Fraser of Allander Institute all find that income transfers, not employment programmes, drive the child poverty figure.",
+    a: "Not on its own. Across Scotland, 75% of children in poverty live in a household where at least one adult works. Glasgow's employment rate rose nine points between 2013 and 2022 while its child poverty rate rose too. Independent modelling by JRF, IPPR Scotland and the Fraser of Allander Institute all find that income transfers, not employment programmes, drive the child poverty figure.",
   },
   {
     q: "What happened to the two-child limit?",
@@ -77,9 +77,9 @@ export default function WhatWouldFixIt() {
 
       <Page>
         <PageHeader
-          eyebrow="The evidence · Seven costed measures"
+          eyebrow="Scotland · The evidence · Seven costed measures"
           title="What would actually fix it"
-          lede="This is one of the better-researched questions in Scottish politics. Three independent bodies have run the numbers, and they land in the same place."
+          lede="This is one of the better-researched questions in Scottish politics. Most measures apply across Scotland; the final housing shortfall is the Glasgow case study. Three independent bodies have run the numbers, and they land in the same place."
           stat={{
             value: `${done} of ${fixes.length}`,
             label: "of the costed, evidenced measures on this page has actually been delivered",
@@ -88,7 +88,7 @@ export default function WhatWouldFixIt() {
         />
 
         <InShort>
-          <p>Experts agree on what works: put money directly in families' pockets.</p>
+          <p>Experts agree on what works: put money directly in families&apos; pockets.</p>
           <p>Job schemes alone do not fix child poverty.</p>
           <p>Most of the things that would work have not been done yet.</p>
         </InShort>
@@ -234,7 +234,7 @@ export default function WhatWouldFixIt() {
         <section className="mt-20 pt-8 border-t-2 border-[var(--ink)]">
           <p className="label mb-6">Where the modelling comes from</p>
           <div className="grid gap-x-12 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
-            {getSources(["jrf", "ippr", "fai", "cpag", "housing"]).map((s) => (
+            {getSources(["sg-poverty-2026", "jrf", "ippr", "fai", "cpag", "housing"]).map((s) => (
               <div key={s.id} className="text-[14.5px] text-[var(--ink-2)] leading-[1.55]">
                 <a
                   href={s.url}

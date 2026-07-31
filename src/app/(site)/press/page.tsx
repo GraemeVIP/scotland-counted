@@ -8,12 +8,14 @@ import { site } from "@/lib/site";
 export const metadata = meta({
   title: "Press and reuse",
   description:
-    "Charts as downloadable images, pre-written sourced stat lines, embeddable live charts and the reuse terms. Everything a journalist, researcher or campaigner needs to cite Glasgow Counted in one place.",
+    "Scotland-wide local poverty pages, downloadable chart images, sourced stat lines, live embeds and reuse terms. Everything needed to cite Scotland Counted in one place.",
   path: "/press",
 });
 
 /** Pre-written lines a journalist can lift, each carrying its source. */
 const STAT_LINES = [
+  "Around 940,000 people — 17% of Scotland's population — were living in relative poverty after housing costs in 2022–25 (Scottish Government).",
+  "Three quarters of children in relative poverty in Scotland live in a household where at least one person is in paid work (Scottish Government, 2022–25).",
   "36.1% of Glasgow's children — 39,319 children — were living in relative poverty after housing costs in 2023/24, the highest rate of any Scottish council area (End Child Poverty / Loughborough University).",
   "Child poverty in Glasgow rose 9.0 percentage points between 2014/15 and 2023/24 — the steepest rise of Scotland's 32 council areas, more than double the next steepest (End Child Poverty / Loughborough University).",
   "Glasgow has more jobs than working-age adults — 1.08 jobs per resident aged 16–64 in 2021 — yet the median full-time worker living in the city earns £51 a week less than the median job located in it pays (ONS, jobs density and ASHE 2025).",
@@ -35,8 +37,8 @@ export default function Press() {
       <Page>
         <PageHeader
           eyebrow="For journalists, researchers and campaigners"
-          title="Cite us in one minute"
-          lede="Everything here is free to reuse with attribution. The numbers come from official published data, the derivations are documented, and corrections are logged in public — so citing this site is safe."
+          title="Cite Scotland in one minute"
+          lede="Every council and constituency has a permanent local evidence page. Charts and lines are free to reuse with attribution, derivations are documented, and corrections are logged in public."
         />
 
         {/* ---------- Stat lines ---------- */}
@@ -52,6 +54,36 @@ export default function Press() {
           </div>
         </section>
 
+        <section className="pt-16">
+          <h2 className="h2 mb-3">A local link for every Scottish story</h2>
+          <p className="text-[15.5px] text-[var(--ink-2)] mb-7 max-w-[65ch]">
+            Link readers to the place in the story, not a generic homepage. Each local page carries
+            its own share control, source trail and direct route to the representatives who can act.
+          </p>
+          <div className="grid gap-4 sm:grid-cols-2 max-w-[860px]">
+            <Link
+              href="/areas"
+              className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-6 hover:border-[var(--brand)] transition-colors"
+            >
+              <span className="label">32 permanent council pages</span>
+              <strong className="block text-[20px] mt-3">Poverty, work and pay by area</strong>
+              <span className="ui block text-[14px] text-[var(--brand)] font-[650] mt-4">
+                Find a council page →
+              </span>
+            </Link>
+            <Link
+              href="/constituencies"
+              className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-6 hover:border-[var(--brand)] transition-colors"
+            >
+              <span className="label">57 permanent constituency pages</span>
+              <strong className="block text-[20px] mt-3">Child poverty by MP seat</strong>
+              <span className="ui block text-[14px] text-[var(--brand)] font-[650] mt-4">
+                Find a constituency page →
+              </span>
+            </Link>
+          </div>
+        </section>
+
         {/* ---------- Chart images ---------- */}
         <section className="pt-16">
           <h2 className="h2 mb-3">Charts as images</h2>
@@ -64,7 +96,7 @@ export default function Press() {
               <a
                 key={i.slug}
                 href={`/press-img/${i.slug}`}
-                download={`glasgow-counted-${i.slug}.png`}
+                download={`scotland-counted-${i.slug}.png`}
                 className="group block rounded-[var(--r-m)] overflow-hidden border border-[var(--rule)] bg-[var(--surface)] p-3 hover:border-[var(--brand)] transition-colors"
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -106,7 +138,7 @@ export default function Press() {
           <h2 className="h2 mb-3">About, in one paragraph</h2>
           <div className="max-w-[860px]">
             <CopyLine
-              text={`Glasgow Counted (${site.url.replace("https://", "")}) is an independent, fully sourced record of poverty in Glasgow since 2000, built from ONS, DWP, Scottish Government and academic data. It is a personal project by ${site.author.name} of ${site.organisation.name}, with no party affiliation or funding. Every figure links to its original publisher and corrections are logged publicly.`}
+              text={`${site.name} (${site.url.replace("https://", "")}) is an independent evidence-to-action project covering poverty, work and living standards across all 32 Scottish council areas and all 57 Scottish Westminster constituencies, with Glasgow as its detailed historical case study. Built from ONS, DWP, Scottish Government and academic data, it finds a reader's MP and MSP and prepares addressed emails without storing the postcode. It is a personal project by ${site.author.name} of ${site.organisation.name}, with no party affiliation or funding.`}
             />
           </div>
         </section>
@@ -116,8 +148,8 @@ export default function Press() {
           <h2 className="h2 mb-4">Reuse terms</h2>
           <Col>
             <p>
-              Charts, stat lines and analysis: free for any use with attribution to Glasgow
-              Counted. The underlying data belongs to its original publishers, almost all under
+              Charts, stat lines and analysis: free for any use with attribution to {site.name}.
+              The underlying data belongs to its original publishers, almost all under
               the Open Government Licence — <Link href="/methods">sources here</Link>,{" "}
               <Link href="/data">raw files here</Link>.
             </p>

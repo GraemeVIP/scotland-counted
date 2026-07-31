@@ -25,12 +25,12 @@ type Item = {
 
 const CORE: Item[] = [
   { label: "Home", href: "/", group: "Pages" },
-  { label: "The numbers — six measures", href: "/the-numbers", group: "Pages" },
-  { label: "Why Glasgow and not somewhere else", href: "/why-glasgow", group: "Pages" },
-  { label: "What would actually fix it", href: "/what-would-fix-it", group: "Pages" },
-  { label: "Who decided this — accountability", href: "/accountability", group: "Pages" },
-  { label: "Your area — all 32 councils", href: "/areas", group: "Pages" },
+  { label: "Poverty, work and pay — all 32 councils", href: "/areas", group: "Pages" },
   { label: "Constituencies — all 57 seats", href: "/constituencies", group: "Pages" },
+  { label: "The Glasgow record — six measures", href: "/the-numbers", group: "Pages" },
+  { label: "Glasgow deep dive — why the city is different", href: "/why-glasgow", group: "Pages" },
+  { label: "What would actually change poverty", href: "/what-would-fix-it", group: "Pages" },
+  { label: "Who has power — accountability", href: "/accountability", group: "Pages" },
   { label: "Take action — write the letter", href: "/take-action", group: "Pages", keywords: "letter mp msp email write" },
   { label: "Methods and sources", href: "/methods", group: "Pages" },
   { label: "Download the data", href: "/data", group: "Pages", keywords: "csv download dataset" },
@@ -93,7 +93,7 @@ export default function CommandPalette() {
   const [active, setActive] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
-  const registry = useMemo(buildRegistry, []);
+  const registry = useMemo(() => buildRegistry(), []);
 
   const results = useMemo(() => {
     const query = q.trim().toLowerCase();
@@ -122,17 +122,19 @@ export default function CommandPalette() {
       .map((r) => r.item);
   }, [q, registry]);
 
-  useEffect(() => setActive(0), [q, open]);
-
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
         e.preventDefault();
+        setQ("");
+        setActive(0);
         setOpen((o) => !o);
       }
       if (e.key === "Escape") setOpen(false);
     }
     function onOpen() {
+      setQ("");
+      setActive(0);
       setOpen(true);
     }
     window.addEventListener("keydown", onKey);
@@ -145,7 +147,6 @@ export default function CommandPalette() {
 
   useEffect(() => {
     if (open) {
-      setQ("");
       // Focus after the dialog paints.
       const t = setTimeout(() => inputRef.current?.focus(), 20);
       document.body.style.overflow = "hidden";
@@ -181,8 +182,6 @@ export default function CommandPalette() {
 
   if (!open) return null;
 
-  let lastGroup = "";
-
   return (
     <div
       className="fixed inset-0 z-[80] flex items-start justify-center px-4 pt-[12vh] no-print"
@@ -217,7 +216,10 @@ export default function CommandPalette() {
           <input
             ref={inputRef}
             value={q}
-            onChange={(e) => setQ(e.target.value)}
+            onChange={(e) => {
+              setQ(e.target.value);
+              setActive(0);
+            }}
             onKeyDown={onInputKey}
             placeholder="Type where you live — a council or constituency — or any word"
             aria-label="Search"
@@ -249,8 +251,7 @@ export default function CommandPalette() {
             </p>
           )}
           {results.map((r, i) => {
-            const showGroup = r.group !== lastGroup;
-            lastGroup = r.group;
+            const showGroup = i === 0 || results[i - 1].group !== r.group;
             return (
               <div key={r.href + r.label}>
                 {showGroup && (
