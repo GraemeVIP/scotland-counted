@@ -77,7 +77,23 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-const THEME_SCRIPT = `try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}`;
+/**
+ * Runs before first paint: restores the chosen theme, and arms the
+ * entrance animation only when it can actually play. The class is
+ * removed once the sequence would have finished, so a suspended
+ * animation can never leave content stuck invisible.
+ */
+const BOOT_SCRIPT = `
+try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}
+try{
+  var ok = !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        && document.visibilityState === 'visible';
+  if(ok){
+    document.documentElement.classList.add('anim');
+    setTimeout(function(){document.documentElement.classList.remove('anim')}, 2600);
+  }
+}catch(e){}
+`;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -87,7 +103,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${archivo.variable} ${newsreader.variable} ${plexMono.variable}`}
     >
       <head>
-        <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
+        <script dangerouslySetInnerHTML={{ __html: BOOT_SCRIPT }} />
       </head>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

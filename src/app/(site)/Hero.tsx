@@ -41,22 +41,25 @@ export default function Hero() {
         <div className="grid gap-x-16 gap-y-14 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-start">
           {/* ---- Statement ---- */}
           <div>
-            <p className="label mb-5 flex items-center gap-3">
+            <p className="label mb-5 flex items-center gap-3 rise" style={{ animationDelay: "60ms" }}>
               <span className="inline-block w-8 h-[2px] bg-[var(--action)]" aria-hidden="true" />
               Glasgow City &middot; 2000&ndash;2026
             </p>
 
-            <h1 className="h1 max-w-[16ch] mb-6">
+            <h1 className="h1 max-w-[16ch] mb-6 rise" style={{ animationDelay: "150ms" }}>
               More than one in three Glasgow children is growing up poor.
             </h1>
 
-            <p className="lede max-w-[52ch] mb-7 !text-[clamp(17px,1.6vw,20px)]">
+            <p
+              className="lede max-w-[52ch] mb-7 !text-[clamp(17px,1.6vw,20px)] rise"
+              style={{ animationDelay: "260ms" }}
+            >
               Far more Glaswegians are in work than in 2000, and far fewer live in the
               country&apos;s worst-off neighbourhoods. Both are real gains. Yet child poverty here
               rose faster than in any other council area in Scotland.
             </p>
 
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-3 rise" style={{ animationDelay: "370ms" }}>
               <Link href="/the-numbers" className="btn btn-primary">
                 See the evidence
                 <span aria-hidden="true">→</span>
@@ -66,7 +69,10 @@ export default function Hero() {
               </Link>
             </div>
 
-            <p className="mt-6 text-[14px] text-[var(--ink-2)] max-w-[46ch] leading-[1.55]">
+            <p
+              className="mt-6 text-[14px] text-[var(--ink-2)] max-w-[46ch] leading-[1.55] rise"
+              style={{ animationDelay: "470ms" }}
+            >
               Every figure on this site comes from official published data, and every source is
               linked. Nothing here is an estimate of ours.
             </p>
@@ -74,7 +80,9 @@ export default function Hero() {
 
           {/* ---- The proportion, drawn ---- */}
           <div className="lg:pl-6 lg:justify-self-end w-full max-w-[460px] mx-auto lg:mx-0">
-            <div className="rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] p-6 sm:p-7" style={{ boxShadow: "var(--shadow-2)" }}>
+            <div
+              className="rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] p-6 sm:p-7 scale-in" style={{ boxShadow: "var(--shadow-2)", animationDelay: "300ms" }}
+            >
               <div className="flex items-end justify-between gap-6 mb-5">
                 <div>
                   <div className="figure-num text-[clamp(44px,4.5vw,64px)] text-[var(--action)]">
@@ -105,12 +113,18 @@ export default function Hero() {
 
       {/* ---- Scroll cue ---- */}
       <div
-        className="hidden lg:flex absolute bottom-7 left-1/2 -translate-x-1/2 flex-col items-center gap-2 pointer-events-none"
+        className="hidden lg:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-3 pointer-events-none"
         style={{ opacity: fade }}
         aria-hidden="true"
       >
-        <span className="label label-quiet text-[10px]">Scroll</span>
-        <span className="block w-[1px] h-8 bg-[var(--rule-strong)]" />
+        <span className="ui text-[13px] font-[600] text-[var(--muted)]">
+          Scroll to see the decade
+        </span>
+        <span className="nudge grid h-9 w-9 place-items-center rounded-full border border-[var(--rule-strong)] bg-[var(--surface)] text-[var(--action)]">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M12 5v14M6 13l6 6 6-6" />
+          </svg>
+        </span>
       </div>
     </section>
   );

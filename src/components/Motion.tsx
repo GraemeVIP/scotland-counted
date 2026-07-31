@@ -138,15 +138,20 @@ export function PictoGrid({
   dimOpacity?: number;
 }) {
   const rows = Math.ceil(total / columns);
-  const cw = 10;
-  const ch = 22;
+  const cw = 9.6;
+  const ch = 19;
+
   return (
-    <svg viewBox={`0 0 ${columns * cw} ${rows * ch}`} className="w-full h-auto" aria-hidden="true">
+    <svg
+      viewBox={`0 0 ${columns * cw} ${rows * ch}`}
+      className="w-full h-auto overflow-visible"
+      aria-hidden="true"
+    >
       {Array.from({ length: total }, (_, i) => {
         const col = i % columns;
         const row = Math.floor(i / columns);
         const x = col * cw + cw / 2;
-        const y = row * ch + 2;
+        const y = row * ch + 1.5;
         const on = i < lit;
         return (
           <g
@@ -154,17 +159,18 @@ export function PictoGrid({
             className="pict"
             style={{ fill: on ? litColor : dimColor, opacity: on ? 1 : dimOpacity }}
           >
-            <circle cx={x} cy={y + 3.4} r={2.9} />
+            {/* Head */}
+            <circle cx={x} cy={y + 3} r={2.55} />
+            {/* Body: domed shoulders, softly squared base — reads cleanly at 10px */}
             <path
-              d={`M${x - 3.3} ${y + 8}
-                 a3.3 3.3 0 0 1 6.6 0
-                 l0 6.2
-                 a0.9 0.9 0 0 1 -1.8 0
-                 l0 -3.6
-                 l-0.7 0 l0 8.4
-                 a1 1 0 0 1 -2 0 l0 -5 l-0.8 0 l0 5
-                 a1 1 0 0 1 -2 0 l0 -8.4 l-0.7 0 l0 3.6
-                 a0.9 0.9 0 0 1 -1.8 0 z`}
+              d={`M${x - 3.15} ${y + 15.4}
+                  V${y + 10.6}
+                  a3.15 3.15 0 0 1 6.3 0
+                  V${y + 15.4}
+                  a1.15 1.15 0 0 1 -1.15 1.15
+                  h-4
+                  a1.15 1.15 0 0 1 -1.15 -1.15
+                  Z`}
             />
           </g>
         );

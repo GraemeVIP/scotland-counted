@@ -471,6 +471,60 @@
   .pict {
     transition: fill 0.45s var(--ease), opacity 0.45s var(--ease);
   }
+
+  /* ============================================================
+     Entrance choreography — the hero is above the fold, so it can
+     never rely on scroll to animate. It plays on load instead.
+     ============================================================ */
+
+  @keyframes riseIn {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  /* Scoped to .anim on <html>, which the boot script adds only when
+     motion is allowed and the page is actually visible, then removes
+     once the sequence is over. If the class never lands — reduced
+     motion, a background tab, a JS failure — the content is simply
+     visible. An entrance animation must never be able to hide a page. */
+  .anim .rise {
+    animation: riseIn 0.75s var(--ease) both;
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: translateY(22px) scale(0.985);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  .anim .scale-in {
+    animation: scaleIn 0.9s var(--ease) both;
+  }
+
+  /* The scroll cue: a slow, patient nudge downward. */
+  @keyframes nudge {
+    0%,
+    100% {
+      transform: translateY(0);
+      opacity: 0.45;
+    }
+    50% {
+      transform: translateY(7px);
+      opacity: 1;
+    }
+  }
+  .nudge {
+    animation: nudge 2.1s var(--ease) infinite;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
