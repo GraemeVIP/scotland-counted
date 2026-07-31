@@ -7,6 +7,7 @@ import { G } from "@/components/Glossary";
 import SharePage from "@/components/SharePage";
 import WhoDoesWhat from "@/components/WhoDoesWhat";
 import WhyBother from "@/components/WhyBother";
+import VotingRecord from "@/components/VotingRecord";
 import ConstituencyLetter from "./ConstituencyLetter";
 import { JsonLd, articleJsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
 import {
@@ -203,8 +204,10 @@ export default async function ConstituencyPage(props: { params: Promise<{ slug: 
           </Figure>
         </div>
 
+        <VotingRecord slug={c.slug} constituency={c.name} className="mt-16" />
+
         {/* The action follows the evidence: the reader has just seen the chart
-            that makes the case, which is the moment to offer them the email. */}
+            and the record, which is the moment to offer them the email. */}
         <div className="mt-12">
           <ConstituencyLetter
             slug={c.slug}
