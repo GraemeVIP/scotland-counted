@@ -5,6 +5,7 @@ import Figure, { DataTable } from "@/components/charts/Figure";
 import LineChart from "@/components/charts/LineChart";
 import { G } from "@/components/Glossary";
 import SharePage from "@/components/SharePage";
+import WhyBother from "@/components/WhyBother";
 import { JsonLd, articleJsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
 import {
   councils,
@@ -165,6 +166,7 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
 
         <div className="mt-9">
           <Figure
+            embedSlug={`area-${c.slug}`}
             title={`Children living in poverty in ${c.name}`}
             sub={`Money left after rent or mortgage · ${first} to ${last}`}
             legend={[
@@ -381,6 +383,8 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
               ))}
           </div>
         </section>
+
+        <WhyBother className="pt-16" />
 
         <CTA
           title={`Email the people who represent ${c.name}`}

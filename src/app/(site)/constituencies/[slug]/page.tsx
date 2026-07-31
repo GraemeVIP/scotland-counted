@@ -6,6 +6,7 @@ import LineChart from "@/components/charts/LineChart";
 import { G } from "@/components/Glossary";
 import SharePage from "@/components/SharePage";
 import WhoDoesWhat from "@/components/WhoDoesWhat";
+import WhyBother from "@/components/WhyBother";
 import ConstituencyLetter from "./ConstituencyLetter";
 import { JsonLd, articleJsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
 import {
@@ -158,6 +159,7 @@ export default async function ConstituencyPage(props: { params: Promise<{ slug: 
         <div className="mt-9">
           <Figure
             n={1}
+            embedSlug={`mp-${c.slug}`}
             title={`Children living in poverty in ${c.name}`}
             sub={`Money left after rent or mortgage · ${first} to ${last}`}
             legend={[
@@ -216,6 +218,8 @@ export default async function ConstituencyPage(props: { params: Promise<{ slug: 
             }}
           />
         </div>
+
+        <WhyBother className="mt-14" />
 
         <WhoDoesWhat className="mt-14" />
 

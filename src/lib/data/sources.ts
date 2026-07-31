@@ -159,6 +159,36 @@ export const sources: Source[] = [
     url: "https://www.understandingglasgow.com/",
     used: "In-work poverty, neighbourhood variation in child poverty, and workless household figures.",
   },
+  {
+    id: "ipsa-pay",
+    title: "IPSA confirms decision on MPs' pay for 2026-27",
+    publisher: "Independent Parliamentary Standards Authority",
+    url: "https://www.theipsa.org.uk/news/press-releases/ipsa-confirms-decision-on-mps-pay-for-2026-27",
+    used: "The basic annual salary of an MP from 1 April 2026, and the stated target for the rest of this parliament.",
+  },
+  {
+    id: "msp-pay",
+    title: "MSP salaries, Scottish Parliament Salaries Scheme",
+    publisher: "Scottish Parliament",
+    url: "https://www.parliament.scot/msps/msp-salaries",
+    used: "The basic annual salary of an MSP from 1 April 2026.",
+  },
+  {
+    id: "written-questions",
+    title: "Written questions and answers",
+    publisher: "UK Parliament",
+    url: "https://www.parliament.uk/about/how/business/written-answers/",
+    used: "How a written parliamentary question works, the convention that it is answered within seven days, and the fact that every question and answer is published permanently.",
+    derivation:
+      "The seven-day expectation is a convention rather than a binding rule, and we say so wherever we use it.",
+  },
+  {
+    id: "hansard",
+    title: "Written questions, answers and statements",
+    publisher: "UK Parliament (Hansard)",
+    url: "https://questions-statements.parliament.uk/",
+    used: "The public, searchable record in which written questions and their answers are published.",
+  },
 ];
 
 export const sourcesById: Record<string, Source> = Object.fromEntries(

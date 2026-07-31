@@ -13,6 +13,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${site.url}/areas`, changeFrequency: "monthly", priority: 0.95 },
     { url: `${site.url}/take-action`, changeFrequency: "monthly", priority: 0.95 },
     { url: `${site.url}/blog`, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${site.url}/your-power`, changeFrequency: "monthly", priority: 0.95 },
+    { url: `${site.url}/browse`, changeFrequency: "weekly", priority: 0.7 },
     { url: `${site.url}/constituencies`, changeFrequency: "yearly", priority: 0.9 },
     { url: `${site.url}/what-would-fix-it`, changeFrequency: "monthly", priority: 0.85 },
     { url: `${site.url}/accountability`, changeFrequency: "monthly", priority: 0.85 },

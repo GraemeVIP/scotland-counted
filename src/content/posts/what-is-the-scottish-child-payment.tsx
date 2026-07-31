@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Prose, Lead, P, H2, UL, LI, BigStat, Aside, PostCTA } from "@/components/Prose";
+import { Prose, Lead, P, H2, BigStat, Aside, PostCTA } from "@/components/Prose";
 import { G } from "@/components/Glossary";
 
 export default function Post() {

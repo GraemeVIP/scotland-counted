@@ -6,15 +6,9 @@ import { useEffect, useState } from "react";
 import { site } from "@/lib/site";
 import { ScrollProgress } from "@/components/Motion";
 import NewsletterSignup from "@/components/NewsletterSignup";
+import { PRIMARY, SECTIONS } from "@/lib/data/navigation";
 
-export const NAV = [
-  { href: "/areas", label: "Your area" },
-  { href: "/constituencies", label: "Your MP" },
-  { href: "/why-glasgow", label: "Glasgow" },
-  { href: "/what-would-fix-it", label: "What would help" },
-  { href: "/accountability", label: "Who decides" },
-  { href: "/blog", label: "Explained" },
-];
+export const NAV = PRIMARY;
 
 function Wordmark({ className = "" }: { className?: string }) {
   return (
@@ -78,7 +72,10 @@ export function Header() {
   const pathname = usePathname();
   const [menuPath, setMenuPath] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
+  const [browsePath, setBrowsePath] = useState<string | null>(null);
   const open = menuPath === pathname;
+  /** Panel is only open for the path it was opened on, so navigating closes it. */
+  const browse = browsePath === pathname;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -124,6 +121,18 @@ export function Header() {
               </Link>
             );
           })}
+          <button
+            type="button"
+            onClick={() => setBrowsePath(browse ? null : pathname)}
+            aria-expanded={browse}
+            aria-controls="browse-panel"
+            className="ui relative whitespace-nowrap text-[15px] font-[620] tracking-[-0.005em] py-1 transition-colors text-[var(--ink-2)] hover:text-[var(--ink)] inline-flex items-center gap-1.5"
+          >
+            Everything
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" aria-hidden="true" className={`transition-transform ${browse ? "rotate-180" : ""}`}>
+              <path d="m5 8 7 7 7-7" />
+            </svg>
+          </button>
         </nav>
 
         <div className="ml-auto flex items-center gap-2.5">
@@ -150,6 +159,48 @@ export function Header() {
         </div>
       </div>
       <ScrollProgress />
+
+      {browse && (
+        <div
+          id="browse-panel"
+          className="hidden xl:block border-t border-[var(--rule)] bg-[var(--surface)] shadow-[var(--shadow-2)]"
+        >
+          <div className="max-w-[1440px] mx-auto px-14 py-9 grid grid-cols-4 gap-8">
+            {SECTIONS.map((sec) => (
+              <div key={sec.title}>
+                <p className="ui text-[15px] font-[750] text-[var(--action)] mb-1.5">{sec.title}</p>
+                <p className="text-[14.5px] leading-[1.45] text-[var(--muted)] mb-3.5">{sec.intro}</p>
+                <ul className="space-y-2.5">
+                  {sec.items.map((n) => (
+                    <li key={n.href}>
+                      <Link href={n.href} className="group block no-underline">
+                        <span className="ui text-[15.5px] font-[640] text-[var(--ink)] group-hover:text-[var(--action)] transition-colors">
+                          {n.label}
+                        </span>
+                        {n.blurb && (
+                          <span className="block text-[14px] leading-[1.4] text-[var(--ink-2)] mt-0.5">
+                            {n.blurb}
+                          </span>
+                        )}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+          <div className="border-t border-[var(--rule)] bg-[var(--surface-2)]">
+            <div className="max-w-[1440px] mx-auto px-14 py-4 flex flex-wrap items-center justify-between gap-3">
+              <p className="text-[15px] text-[var(--ink-2)]">
+                Looking for one particular place? Every council and MP area has its own page.
+              </p>
+              <Link href="/browse" className="ui text-[15px] font-[700]">
+                See every page on this site →
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
 
       {open && (
         <nav
@@ -193,40 +244,36 @@ export function Footer() {
             )}
           </div>
 
-          <div>
-            <p className="ui text-[15px] font-[720] opacity-70 mb-4">Explore</p>
-            <ul className="space-y-2.5 text-[15px]">
-              {NAV.concat([
-                { href: "/the-numbers", label: "The Glasgow record" },
-                { href: "/take-action", label: "Email your MP/MSP" },
-              ]).map((n) => (
-                <li key={n.href}>
-                  <Link href={n.href} className="opacity-75 hover:opacity-100 transition-opacity">
-                    {n.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {SECTIONS.slice(0, 2).map((sec) => (
+            <div key={sec.title}>
+              <p className="ui text-[15px] font-[720] opacity-70 mb-4">{sec.title}</p>
+              <ul className="space-y-2.5 text-[15px]">
+                {sec.items.map((n) => (
+                  <li key={n.href}>
+                    <Link href={n.href} className="opacity-75 hover:opacity-100 transition-opacity">
+                      {n.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
 
           <div>
-            <p className="ui text-[15px] font-[720] opacity-70 mb-4">Check the proof</p>
+            <p className="ui text-[15px] font-[720] opacity-70 mb-4">Check us</p>
             <ul className="space-y-2.5 text-[15px]">
-              {[
-                { href: "/blog", label: "Explained in plain English" },
-                { href: "/methods", label: "Methods and sources" },
-                { href: "/glossary", label: "Plain-English glossary" },
-                { href: "/data", label: "Download the data" },
-                { href: "/press", label: "Press and reuse" },
-                { href: "/updates", label: "What changed" },
-                { href: "/corrections", label: "Corrections" },
-              ].map((n) => (
+              {SECTIONS[3].items.slice(0, 5).map((n) => (
                 <li key={n.href}>
                   <Link href={n.href} className="opacity-75 hover:opacity-100 transition-opacity">
                     {n.label}
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link href="/browse" className="opacity-75 hover:opacity-100 transition-opacity">
+                  Every page on this site
+                </Link>
+              </li>
             </ul>
           </div>
 

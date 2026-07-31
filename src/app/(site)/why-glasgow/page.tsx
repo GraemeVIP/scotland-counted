@@ -14,6 +14,7 @@ import {
 import Figure, { DataTable } from "@/components/charts/Figure";
 import LineChart from "@/components/charts/LineChart";
 import { G } from "@/components/Glossary";
+import DecadeScroll from "../DecadeScroll";
 import { JsonLd, articleJsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
 import { getIndicator, jobsDensity } from "@/lib/data/indicators";
 import { getCouncil } from "@/lib/data/councils";
@@ -95,7 +96,11 @@ export default function WhyGlasgow() {
             High rent then leaves less money for everything else.
           </p>
         </InShort>
+      </Page>
 
+      <DecadeScroll />
+
+      <Page>
         {/* ---------- 1 ---------- */}
         <section className="pt-4">
           <SectionHead

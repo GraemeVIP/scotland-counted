@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Page } from "@/components/Blocks";
 import SharePage from "@/components/SharePage";
+import AuthorBio from "@/components/AuthorBio";
 import { JsonLd, articleJsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
 import { posts, getPost, relatedPosts } from "@/lib/data/posts";
 import { sourcesById, type Source } from "@/lib/data/sources";
@@ -69,7 +70,7 @@ export default async function BlogPost(props: { params: Promise<{ slug: string }
             </Link>
           </div>
 
-          <header className="mt-5 max-w-[24ch] sm:max-w-[20ch]">
+          <header className="mt-5 max-w-[30ch] sm:max-w-[26ch]">
             <p className="ui text-[15px] font-[750] text-[var(--action)]">{post.topic}</p>
             <h1 className="text-[34px] sm:text-[52px] font-[800] leading-[1.06] tracking-[-0.015em] mt-2.5 text-[var(--ink)]">
               {post.title}
@@ -124,6 +125,8 @@ export default async function BlogPost(props: { params: Promise<{ slug: string }
             </ul>
           </section>
         )}
+
+        <AuthorBio className="mt-14" />
 
         {related.length > 0 && (
           <section className="pt-14">
