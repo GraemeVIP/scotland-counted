@@ -48,13 +48,13 @@ export default function Glossary() {
             <article
               key={t.id}
               id={t.id}
-              className="bg-[var(--surface)] border border-[var(--rule)] rounded-[3px] p-5 scroll-mt-24"
+              className="bg-[var(--surface)] border border-[var(--rule)] p-5 scroll-mt-24"
             >
               <h2 className="text-[17px] font-[620] tracking-[-0.012em] mb-2">{t.term}</h2>
               <p className="text-[15.5px] leading-[1.55]">{t.def}</p>
               {t.tech && (
                 <p className="mt-3 pt-3 border-t border-[var(--rule)] text-[14px] text-[var(--ink-2)] leading-[1.55]">
-                  <span className="font-mono text-[10.5px] uppercase tracking-[0.07em] text-[var(--muted)] block mb-1">
+                  <span className="ui text-[10.5px] uppercase tracking-[0.1em] font-[620] text-[var(--muted)] block mb-1">
                     The technical detail
                   </span>
                   {t.tech}

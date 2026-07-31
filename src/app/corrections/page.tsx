@@ -47,7 +47,7 @@ export default function Corrections() {
         <section className="pt-12">
           <h2 className="h2 mb-5">Correction log</h2>
           {LOG.length === 0 ? (
-            <div className="bg-[var(--surface)] border border-[var(--rule)] rounded-[3px] p-6 max-w-[640px]">
+            <div className="bg-[var(--surface)] border border-[var(--rule)] p-6 max-w-[640px]">
               <p className="text-[15.5px] text-[var(--ink-2)]">
                 No corrections yet. This site published in {site.dataUpdated}. When the first
                 correction is made it will appear here with the date, the page and what changed.
@@ -61,7 +61,7 @@ export default function Corrections() {
                     {["Date", "Page", "What changed"].map((h) => (
                       <th
                         key={h}
-                        className="font-mono text-[11px] uppercase tracking-[0.05em] text-[var(--muted)] font-normal text-left pr-4 pb-2.5 border-b border-[var(--rule)]"
+                        className="ui text-[10.5px] uppercase tracking-[0.1em] font-[680] text-[var(--muted)] font-normal text-left pr-4 pb-2.5 border-b border-[var(--rule)]"
                       >
                         {h}
                       </th>
@@ -71,7 +71,7 @@ export default function Corrections() {
                 <tbody>
                   {LOG.map((l, i) => (
                     <tr key={i}>
-                      <td className="pr-4 py-3 border-b border-[var(--rule)] font-mono text-[13px] whitespace-nowrap">
+                      <td className="pr-4 py-3 border-b border-[var(--rule)] datum text-[13px] whitespace-nowrap">
                         {l.date}
                       </td>
                       <td className="pr-4 py-3 border-b border-[var(--rule)]">{l.page}</td>

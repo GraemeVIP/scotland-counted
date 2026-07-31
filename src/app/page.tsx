@@ -94,7 +94,7 @@ export default function Home() {
                       <div className="figure-num text-[30px] mt-2">{r.amount}</div>
                     </div>
                   ))}
-                  <p className="font-mono text-[10.5px] uppercase tracking-[0.13em] text-[var(--muted)] mt-1">
+                  <p className="ui text-[10.5px] uppercase tracking-[0.12em] font-[620] text-[var(--muted)] mt-1">
                     Poverty line, {povertyLine.year}, after housing costs
                   </p>
                 </div>

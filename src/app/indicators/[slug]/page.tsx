@@ -23,6 +23,43 @@ export function generateStaticParams() {
 
 type Meta = { title: string; summary: string; sourceIds: string[] };
 
+/** The single figure each page leads with, pinned beside the headline. */
+const HEADER_STAT: Record<
+  string,
+  { value: string; label: string; tone: "bad" | "good" | "neutral" }
+> = {
+  "child-poverty": {
+    value: "36.1%",
+    label: "of Glasgow's children in poverty in 2023/24, after housing costs",
+    tone: "bad",
+  },
+  work: {
+    value: "71.2%",
+    label: "of working-age Glaswegians in work in 2023 — up from 62.7% in 2004",
+    tone: "good",
+  },
+  benefits: {
+    value: "4.5%",
+    label: "claiming out-of-work benefits in January 2026 — down from 6.0% in 2000",
+    tone: "good",
+  },
+  pay: {
+    value: "£51",
+    label: "a week — the gap between what jobs in Glasgow pay and what Glaswegians take home (2025)",
+    tone: "bad",
+  },
+  "life-expectancy": {
+    value: "73.6",
+    label: "years — male life expectancy at birth, the lowest of Scotland's 32 council areas",
+    tone: "bad",
+  },
+  neighbourhoods: {
+    value: "29%",
+    label: "of Glaswegians in Scotland's worst-off tenth of neighbourhoods — down from 46% in 2004",
+    tone: "good",
+  },
+};
+
 function lookup(slug: string): Meta | null {
   const i = getIndicator(slug);
   if (i) return { title: i.title, summary: i.summary, sourceIds: i.sourceIds };
@@ -43,7 +80,7 @@ function SourceList({ ids }: { ids: string[] }) {
   if (!list.length) return null;
   return (
     <section className="mt-12 pt-6 border-t border-[var(--rule)]">
-      <p className="eyebrow mb-4">Where this comes from</p>
+      <p className="label mb-4">Where this comes from</p>
       <ul className="space-y-4 max-w-[74ch]">
         {list.map((s) => (
           <li key={s.id} className="text-[15px] text-[var(--ink-2)] leading-[1.55]">
@@ -102,7 +139,7 @@ export default async function IndicatorPage(props: PageProps<"/indicators/[slug]
         {crumbs}
         {article}
         <Page>
-          <PageHeader eyebrow="Life expectancy" title={le.title} lede={le.summary}>
+          <PageHeader eyebrow="Life expectancy" title={le.title} lede={le.summary} stat={HEADER_STAT[slug]}>
             <div className="mt-5">
               <DirectionChip direction={le.direction} />
             </div>
@@ -130,6 +167,7 @@ export default async function IndicatorPage(props: PageProps<"/indicators/[slug]
             ].map((p) => (
               <Figure
                 key={p.title}
+                n={p.title === "Men" ? 1 : 2}
                 title={`${p.title} — life expectancy at birth`}
                 sub="Years · 2001–03 to 2017–19 · ONS"
                 legend={[
@@ -157,6 +195,7 @@ export default async function IndicatorPage(props: PageProps<"/indicators/[slug]
 
           <Figure
             className="mt-4"
+            n={3}
             title="All four series"
             sub="Life expectancy at birth, years"
             table={
@@ -203,7 +242,7 @@ export default async function IndicatorPage(props: PageProps<"/indicators/[slug]
         {crumbs}
         {article}
         <Page>
-          <PageHeader eyebrow="Neighbourhoods" title={d.title} lede={d.summary}>
+          <PageHeader eyebrow="Neighbourhoods" title={d.title} lede={d.summary} stat={HEADER_STAT[slug]}>
             <div className="mt-5">
               <DirectionChip direction={d.direction} />
             </div>
@@ -226,6 +265,7 @@ export default async function IndicatorPage(props: PageProps<"/indicators/[slug]
 
           <Figure
             className="mt-7"
+            n={1}
             title="Share of Glaswegians in Scotland's worst-off 10% of neighbourhoods"
             sub="2004 compared with 2020 · Scottish Government"
             technical={[
@@ -236,24 +276,24 @@ export default async function IndicatorPage(props: PageProps<"/indicators/[slug]
             <div className="grid gap-5 py-3">
               {d.rows.map((r) => (
                 <div key={r.year} className="grid grid-cols-[84px_1fr] gap-x-4 gap-y-2 items-center">
-                  <span className="font-mono text-[13px] text-[var(--ink-2)] tracking-[0.04em]">
+                  <span className="datum text-[13px] text-[var(--ink-2)] tracking-[0.04em]">
                     {r.year}
                   </span>
-                  <div className="bg-[var(--surface-2)] rounded-[2px] h-[42px] relative">
+                  <div className="bg-[var(--surface-2)] h-[42px] relative">
                     <div
-                      className="h-full bg-[var(--glasgow)] rounded-r-[3px] flex items-center justify-end pr-3 text-white text-[16px] font-[640] tnum"
+                      className="h-full bg-[var(--glasgow)] flex items-center justify-end pr-3 text-white text-[16px] font-[640] tnum"
                       style={{ width: `${(r.pct / 50) * 100}%` }}
                     >
                       {r.pct}%
                     </div>
                   </div>
-                  <span className="col-start-2 font-mono text-[12px] text-[var(--muted)] -mt-0.5">
+                  <span className="col-start-2 datum text-[12px] text-[var(--muted)] -mt-0.5">
                     {r.note}
                   </span>
                 </div>
               ))}
             </div>
-            <p className="font-mono text-[11.5px] text-[var(--muted)]">Bars drawn to a 50% scale.</p>
+            <p className="datum text-[11.5px] text-[var(--muted)]">Bars drawn to a 50% scale.</p>
           </Figure>
 
           <SourceList ids={d.sourceIds} />
@@ -280,7 +320,7 @@ export default async function IndicatorPage(props: PageProps<"/indicators/[slug]
       {crumbs}
       {article}
       <Page>
-        <PageHeader eyebrow={ind.label} title={ind.title} lede={ind.summary}>
+        <PageHeader eyebrow={ind.label} title={ind.title} lede={ind.summary} stat={HEADER_STAT[slug]}>
           <div className="mt-5">
             <DirectionChip direction={ind.direction} />
           </div>
@@ -288,6 +328,7 @@ export default async function IndicatorPage(props: PageProps<"/indicators/[slug]
 
         <div className="pt-9">
           <Figure
+            n={1}
             title={ind.chartTitle}
             sub={ind.chartSub}
             legend={ind.series.map((s) => ({ name: s.name, colorVar: s.colorVar }))}

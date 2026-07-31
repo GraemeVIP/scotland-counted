@@ -121,8 +121,8 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
               note: `Scotland was ${SCOTLAND_PCTS[9]}%`,
             },
           ].map((s) => (
-            <div key={s.label} className="bg-[var(--ground)] px-5 pt-5 pb-6">
-              <div className="font-mono text-[11px] uppercase tracking-[0.07em] text-[var(--muted)] leading-[1.45] mb-3 sm:min-h-[2.9em]">
+            <div key={s.label} className="bg-[var(--paper)] px-5 pt-5 pb-6">
+              <div className="ui text-[11px] uppercase tracking-[0.1em] font-[620] text-[var(--muted)] leading-[1.45] mb-3 sm:min-h-[2.9em]">
                 {s.label}
               </div>
               <div className="text-[30px] font-[640] tracking-[-0.028em] leading-none tnum">
@@ -219,7 +219,7 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
         </section>
 
         <section className="pt-12">
-          <p className="eyebrow mb-4">Other council areas</p>
+          <p className="label mb-4">Other council areas</p>
           <div className="flex flex-wrap gap-2">
             {councils
               .filter((o) => o.slug !== c.slug)
@@ -227,7 +227,7 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
                 <Link
                   key={o.slug}
                   href={`/areas/${o.slug}`}
-                  className="text-[14px] px-3 py-1.5 border border-[var(--rule)] rounded-[3px] bg-[var(--surface)] hover:border-[var(--glasgow)] transition-colors"
+                  className="text-[14px] px-3 py-1.5 border border-[var(--rule)] bg-[var(--surface)] hover:border-[var(--brand)] transition-colors"
                 >
                   {o.name} <span className="text-[var(--muted)] tnum">{o.pcts[9]}%</span>
                 </Link>

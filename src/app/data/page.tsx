@@ -99,10 +99,10 @@ export default function Data() {
               key={f.file}
               href={`/data/${f.file}`}
               download
-              className="group block bg-[var(--surface)] border border-[var(--rule)] rounded-[3px] p-5 hover:border-[var(--glasgow)] transition-colors"
+              className="group block bg-[var(--surface)] border border-[var(--rule)] p-5 hover:border-[var(--brand)] transition-colors"
             >
               <div className="flex items-start justify-between gap-3 mb-2">
-                <h2 className="text-[16.5px] font-[620] leading-[1.3] group-hover:text-[var(--glasgow)] transition-colors">
+                <h2 className="text-[16.5px] font-[620] leading-[1.3] group-hover:text-[var(--brand)] transition-colors">
                   {f.title}
                 </h2>
                 <span className="font-mono text-[11px] text-[var(--muted)] shrink-0 pt-1">
@@ -110,7 +110,7 @@ export default function Data() {
                 </span>
               </div>
               <p className="text-[14.5px] text-[var(--ink-2)] leading-[1.5] mb-2.5">{f.body}</p>
-              <p className="font-mono text-[11.5px] text-[var(--glasgow)]">↓ {f.file}</p>
+              <p className="font-mono text-[11.5px] text-[var(--brand)]">↓ {f.file}</p>
             </a>
           ))}
         </div>

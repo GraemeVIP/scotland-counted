@@ -74,7 +74,7 @@ export default function Areas() {
                   {["#", "Council area", last, first, "Change", "Children"].map((h) => (
                     <th
                       key={h}
-                      className="font-mono text-[11px] uppercase tracking-[0.05em] text-[var(--muted)] font-normal text-right first:text-left [&:nth-child(2)]:text-left pr-4 pb-2.5 border-b border-[var(--rule)] whitespace-nowrap"
+                      className="ui text-[10.5px] uppercase tracking-[0.1em] font-[680] text-[var(--muted)] font-normal text-right first:text-left [&:nth-child(2)]:text-left pr-4 pb-2.5 border-b border-[var(--rule)] whitespace-nowrap"
                     >
                       {h}
                     </th>

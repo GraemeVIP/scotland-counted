@@ -28,7 +28,7 @@ export const metadata = meta({
 function SourceStrip({ ids }: { ids: string[] }) {
   return (
     <section className="mt-20 pt-8 border-t-2 border-[var(--ink)]">
-      <p className="eyebrow mb-6">Where this comes from</p>
+      <p className="label mb-6">Where this comes from</p>
       <div className="grid gap-x-12 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
         {getSources(ids).map((s) => (
           <div key={s.id} className="text-[14.5px] text-[var(--ink-2)] leading-[1.55]">

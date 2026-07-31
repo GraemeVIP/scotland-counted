@@ -1,5 +1,15 @@
 import Link from "next/link";
-import { Page, Col, PageHeader, CTA } from "@/components/Blocks";
+import {
+  Page,
+  Col,
+  Split,
+  Note,
+  Slab,
+  SectionHead,
+  PageHeader,
+  CTA,
+  Reveal,
+} from "@/components/Blocks";
 import { G } from "@/components/Glossary";
 import { JsonLd, articleJsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
 import { tiers, statutoryTargets } from "@/lib/data/policy";
@@ -31,13 +41,19 @@ export default function Accountability() {
 
       <Page>
         <PageHeader
-          eyebrow="The record"
+          eyebrow="The record · Cross-party"
           title="Who decided this"
           lede="Three layers of government touch this problem: Westminster, Holyrood and the City Chambers. Each has made things worse in its own way, and each can blame the other two — which is exactly the problem."
+          stat={{
+            value: "4 / 4",
+            label:
+              "legally binding child poverty targets for 2023/24. Scotland missed every one of them.",
+            tone: "bad",
+          }}
         />
 
-        <Col className="pt-9">
-          <p className="text-[15px] text-[var(--ink-2)]">
+        <Col className="pt-2">
+          <p className="text-[15.5px] text-[var(--ink-2)]">
             What follows is a record of documented decisions and published outcomes. We do not
             attribute motives, and we do not name individual politicians. Where a party is named,
             it is because the decision was taken by a government that party formed. If you believe
@@ -47,151 +63,169 @@ export default function Accountability() {
         </Col>
 
         {/* ---------- The four missed targets ---------- */}
-        <section className="pt-12">
-          <h2 className="h2 mb-3">Scotland wrote its targets into law, then missed all four</h2>
-          <Col>
-            <p>
-              The Child Poverty (Scotland) Act 2017 set legally binding interim targets for
-              2023/24. Here is what was promised, and what was delivered.
-            </p>
-          </Col>
+        <section className="pt-16 sm:pt-20">
+          <SectionHead
+            n={1}
+            eyebrow="The Child Poverty (Scotland) Act 2017"
+            title="Scotland wrote its targets into law, then missed all four"
+          />
+          <div className="sm:pl-[calc(2ch+2rem)] mt-8">
+            <Split
+              aside={
+                <Note label="Persistent poverty" value="23%">
+                  Against a legal target of 8% — children stuck poor for three of the last four
+                  years, the measure most closely linked to lasting harm.
+                </Note>
+              }
+            >
+              <p>
+                The Act set legally binding interim targets for 2023/24. Here is what was
+                promised, and what was delivered. Ministers have conceded there is{" "}
+                <strong>no penalty for missing them</strong> — which raises a fair question about
+                what the legislation was for.
+              </p>
+            </Split>
 
-          <div className="mt-6 overflow-x-auto">
-            <table className="w-full max-w-[720px] border-collapse text-[15px]">
-              <thead>
-                <tr>
-                  {["Measure", "Target", "Actual", ""].map((h, i) => (
-                    <th
-                      key={i}
-                      className="font-mono text-[11px] uppercase tracking-[0.05em] text-[var(--muted)] font-normal text-left pr-4 pb-2.5 border-b border-[var(--rule)]"
-                    >
-                      {h}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {statutoryTargets.map((t) => (
-                  <tr key={t.measure}>
-                    <td className="pr-4 py-3 border-b border-[var(--rule)] font-[560]">
-                      {t.measure}
-                    </td>
-                    <td className="pr-4 py-3 border-b border-[var(--rule)] tnum text-[var(--ink-2)]">
-                      {t.target}
-                    </td>
-                    <td className="pr-4 py-3 border-b border-[var(--rule)] tnum font-[640] text-[var(--bad)]">
-                      {t.actual}
-                    </td>
-                    <td className="py-3 border-b border-[var(--rule)]">
-                      <span className="font-mono text-[10.5px] uppercase tracking-[0.07em] text-[var(--bad)] border border-current rounded-[2px] px-2 py-1">
-                        Missed
-                      </span>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <Reveal>
+              <div className="mt-8 overflow-x-auto bg-[var(--surface)] border border-[var(--rule)] p-2 max-w-[780px]">
+                <table className="w-full border-collapse text-[15px]">
+                  <thead>
+                    <tr>
+                      {["Measure", "The legal target", "What happened", ""].map((h, i) => (
+                        <th
+                          key={i}
+                          className="ui text-[10.5px] uppercase tracking-[0.1em] font-[680] text-[var(--muted)] text-left px-4 pt-4 pb-3 border-b-2 border-[var(--ink)]"
+                        >
+                          {h}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {statutoryTargets.map((t) => (
+                      <tr key={t.measure} className="hover:bg-[var(--surface-2)] transition-colors">
+                        <td className="ui px-4 py-3.5 border-b border-[var(--rule)] font-[640] text-[15px]">
+                          {t.measure}
+                        </td>
+                        <td className="datum px-4 py-3.5 border-b border-[var(--rule)] text-[14px] text-[var(--ink-2)]">
+                          {t.target}
+                        </td>
+                        <td className="datum px-4 py-3.5 border-b border-[var(--rule)] text-[16px] font-[700] text-[var(--bad)]">
+                          {t.actual}
+                        </td>
+                        <td className="px-4 py-3.5 border-b border-[var(--rule)]">
+                          <span className="ui text-[10.5px] uppercase tracking-[0.09em] font-[680] text-[var(--bad)] border border-current px-2.5 py-1.5 whitespace-nowrap">
+                            Missed
+                          </span>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </Reveal>
           </div>
-
-          <Col className="pt-6">
-            <p>
-              <G t="persistent">Persistent poverty</G> — children stuck poor for three of the last
-              four years — came in at <strong>23% against a target of 8%</strong>. That is nearly
-              three times over, on the measure most closely linked to lasting harm.
-            </p>
-            <p>
-              Ministers have conceded there is <strong>no penalty for missing them</strong>. Which
-              raises a fair question about what the legislation was for.
-            </p>
-          </Col>
         </section>
+      </Page>
 
+      <Slab attribution="The structure, not an accident of politics">
+        The target is set in Edinburgh. The money is controlled in London. The consequences land
+        in Glasgow. Nobody owns the outcome.
+      </Slab>
+
+      <Page>
         {/* ---------- The three tiers ---------- */}
-        <section className="pt-14">
-          <h2 className="h2 mb-6">The record, by who holds the power</h2>
-          <div className="grid gap-5">
-            {tiers.map((t) => (
-              <article
-                key={t.id}
-                className="bg-[var(--surface)] border border-[var(--rule)] border-l-[3px] border-l-[var(--bad)] rounded-r-[3px] px-6 sm:px-7 pt-5 pb-3"
-              >
-                <p className="font-mono text-[11px] uppercase tracking-[0.09em] text-[var(--muted)] mb-1">
-                  {t.who} — {t.power}
-                </p>
-                <h3 className="text-[18px] font-[620] tracking-[-0.012em] mb-4">{t.heading}</h3>
-                <ul className="list-disc pl-[1.15em] space-y-2.5">
-                  {t.points.map((p, i) => (
-                    <li
-                      key={i}
-                      className="text-[15.5px] leading-[1.55] text-[var(--ink-2)] max-w-[68ch]"
-                    >
-                      {p.emphasis && (
-                        <strong className="text-[var(--ink)] font-[600]">{p.emphasis} </strong>
-                      )}
-                      {p.text}
-                    </li>
-                  ))}
-                </ul>
-              </article>
+        <section>
+          <SectionHead n={2} eyebrow="Decision by decision" title="The record, by who holds the power" />
+          <div className="grid gap-6 mt-10">
+            {tiers.map((t, i) => (
+              <Reveal key={t.id} delay={i * 60}>
+                <article className="bg-[var(--surface)] border border-[var(--rule)] border-l-[3px] border-l-[var(--bad)] px-6 sm:px-9 pt-7 pb-5">
+                  <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1 mb-1.5">
+                    <p className="label">{t.who}</p>
+                    <p className="ui text-[12px] text-[var(--muted)]">{t.power}</p>
+                  </div>
+                  <h3 className="h3 mb-5 max-w-[36ch]">{t.heading}</h3>
+                  <ul className="space-y-3.5 mb-2">
+                    {t.points.map((p, j) => (
+                      <li
+                        key={j}
+                        className="relative pl-6 text-[15.5px] leading-[1.6] text-[var(--ink-2)] max-w-[74ch] before:content-[''] before:absolute before:left-0 before:top-[0.72em] before:w-[11px] before:h-[2px] before:bg-[var(--bad)]"
+                      >
+                        {p.emphasis && (
+                          <strong className="text-[var(--ink)] font-[600]">{p.emphasis} </strong>
+                        )}
+                        {p.text}
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              </Reveal>
             ))}
           </div>
         </section>
 
         {/* ---------- The structural point ---------- */}
-        <section className="pt-14">
-          <h2 className="h2 mb-5 max-w-[26ch]">The fault underneath all three</h2>
-          <Col>
-            <p>
-              The target is set in Edinburgh. The money that would actually move it — Universal
-              Credit, the two-child limit, <G t="lha">housing benefit</G> — is controlled in
-              London. The consequences land in Glasgow, on a council with a frozen tax base and a
-              mortgaged budget.
-            </p>
-            <p>
-              <strong>
-                Nobody owns the outcome. So nobody can be removed for failing to deliver it.
-              </strong>{" "}
-              Every one of the three can honestly say the main levers sit with someone else, and
-              every one of them is partly right. That is not an accident of politics; it is the
-              structure. See <G t="reserved">reserved and devolved</G> for how the split works.
-            </p>
-            <p>
-              But the data does settle one argument. Child poverty in Glasgow fell in the single
-              year that payments to families went up, and rose again the moment they were
-              withdrawn. Whatever Glasgow&apos;s history, that swing was not caused by it. It was
-              policy, working in both directions.
-            </p>
-          </Col>
+        <section className="pt-20 sm:pt-24">
+          <SectionHead n={3} eyebrow="What settles it" title="The data closes one argument" />
+          <div className="sm:pl-[calc(2ch+2rem)] mt-8">
+            <Split
+              aside={
+                <Note label="The natural experiment" value="2020/21">
+                  Benefits rose, child poverty fell. The support was withdrawn the next year, and
+                  it went straight back up.
+                </Note>
+              }
+            >
+              <p>
+                Every one of the three tiers can honestly say the main levers sit with someone
+                else, and every one of them is partly right. See{" "}
+                <G t="reserved">reserved and devolved</G> for how the split works. But the split
+                is why <strong>no single body can be removed for failing to deliver</strong> — and
+                that is a design flaw, not bad luck.
+              </p>
+              <p>
+                The data does settle one argument. Child poverty in Glasgow fell in the single
+                year that payments to families went up, and rose again the moment they were
+                withdrawn. Whatever Glasgow&apos;s history, that swing was not caused by it. It
+                was policy, working in both directions.
+              </p>
+            </Split>
+          </div>
         </section>
 
-        <section className="mt-14 pt-6 border-t border-[var(--rule)]">
-          <p className="eyebrow mb-4">Where this comes from</p>
-          <ul className="space-y-4 max-w-[74ch]">
+        {/* ---------- Sources ---------- */}
+        <section className="mt-20 pt-8 border-t-2 border-[var(--ink)]">
+          <p className="label mb-6">Where this comes from</p>
+          <div className="grid gap-x-12 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
             {getSources(["targets", "cpag", "housing", "jrf", "fai", "migration"]).map((s) => (
-              <li key={s.id} className="text-[15px] text-[var(--ink-2)] leading-[1.55]">
+              <div key={s.id} className="text-[14.5px] text-[var(--ink-2)] leading-[1.55]">
                 <a
                   href={s.url}
-                  className="text-[var(--ink)] underline decoration-[var(--baseline)] underline-offset-2 hover:decoration-current"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[var(--ink)] underline decoration-[var(--rule-strong)] underline-offset-3 hover:decoration-[var(--brand)]"
                 >
                   {s.title}
                 </a>
-                <span className="text-[var(--muted)]"> — {s.publisher}</span>
-                <br />
+                <p className="ui text-[10.5px] uppercase tracking-[0.12em] font-[620] text-[var(--muted)] mt-1.5 mb-1.5">
+                  {s.publisher}
+                </p>
                 {s.used}
-              </li>
+              </div>
             ))}
-          </ul>
+          </div>
         </section>
-
-        <CTA
-          title="A record is only accountability if someone is shown it"
-          body="Your MSP and MP both have a say in at least one of the decisions on this page. It takes about two minutes to ask them where they stand."
-          href="/take-action"
-          cta="Write to your representative"
-          secondaryHref="/what-would-fix-it"
-          secondaryCta="See the costed options"
-        />
       </Page>
+
+      <CTA
+        title="A record is only accountability if someone is shown it"
+        body="Your MSP and MP both have a say in at least one of the decisions on this page. It takes about two minutes to ask them where they stand."
+        href="/take-action"
+        cta="Write to your representative"
+        secondaryHref="/what-would-fix-it"
+        secondaryCta="See the costed options"
+      />
     </>
   );
 }

@@ -15,8 +15,8 @@ export default async function Image() {
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          background: "#100f0e",
-          color: "#f5f3ef",
+          background: "#0d2f45",
+          color: "#f3efe6",
           padding: "64px 72px",
           fontFamily: "sans-serif",
         }}
@@ -27,7 +27,7 @@ export default async function Image() {
             fontSize: 22,
             letterSpacing: 3,
             textTransform: "uppercase",
-            color: "#8d887e",
+            color: "#8fa4b3",
           }}
         >
           Glasgow City · 2000–2026 · Every figure sourced
@@ -54,7 +54,7 @@ export default async function Image() {
                 fontWeight: 800,
                 letterSpacing: -8,
                 lineHeight: 0.85,
-                color: "#3987e5",
+                color: "#e08a3c",
               }}
             >
               36.1%
@@ -64,7 +64,7 @@ export default async function Image() {
                 display: "flex",
                 fontSize: 32,
                 lineHeight: 1.3,
-                color: "#b9b5ab",
+                color: "#c3d0d9",
                 maxWidth: 520,
                 paddingBottom: 8,
               }}
@@ -94,14 +94,14 @@ export default async function Image() {
             alignItems: "center",
             marginTop: 44,
             paddingTop: 28,
-            borderTop: "2px solid #2e2d2a",
+            borderTop: "2px solid #2a4b63",
             fontSize: 24,
           }}
         >
           <div style={{ display: "flex", fontWeight: 700 }}>
-            Glasgow<span style={{ color: "#3987e5" }}>&nbsp;Counted</span>
+            Glasgow<span style={{ color: "#e08a3c" }}>&nbsp;Counted</span>
           </div>
-          <div style={{ display: "flex", color: "#8d887e" }}>
+          <div style={{ display: "flex", color: "#8fa4b3" }}>
             {site.url.replace("https://", "")}
           </div>
         </div>

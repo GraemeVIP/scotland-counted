@@ -94,17 +94,17 @@ ${name || "[your name]"}
   return (
     <div className="mt-8 grid gap-6 lg:grid-cols-[380px_1fr] items-start">
       {/* ---------- Controls ---------- */}
-      <div className="bg-[var(--surface)] border border-[var(--rule)] rounded-[3px] p-5 sm:p-6 lg:sticky lg:top-[74px]">
-        <h2 className="text-[17px] font-[620] mb-4">Build your letter</h2>
+      <div className="bg-[var(--surface)] border border-[var(--rule)] p-6 sm:p-7 lg:sticky lg:top-[84px]" style={{ boxShadow: "var(--shadow-2)" }}>
+        <h2 className="h3 mb-5">Build your letter</h2>
 
         <label className="block mb-4">
-          <span className="font-mono text-[11px] uppercase tracking-[0.07em] text-[var(--muted)] block mb-1.5">
+          <span className="ui text-[11px] uppercase tracking-[0.1em] font-[620] text-[var(--muted)] block mb-1.5">
             1. Where do you live?
           </span>
           <select
             value={slug}
             onChange={(e) => setSlug(e.target.value)}
-            className="w-full bg-[var(--ground)] border border-[var(--baseline)] rounded-[3px] px-3 py-2.5 text-[15px]"
+            className="ui w-full bg-[var(--paper)] border border-[var(--rule-strong)] px-3.5 py-3 text-[15px] focus:border-[var(--brand)] outline-none transition-colors"
           >
             {councils.map((c) => (
               <option key={c.slug} value={c.slug}>
@@ -115,7 +115,7 @@ ${name || "[your name]"}
         </label>
 
         <fieldset className="mb-4">
-          <legend className="font-mono text-[11px] uppercase tracking-[0.07em] text-[var(--muted)] mb-2">
+          <legend className="ui text-[11px] uppercase tracking-[0.1em] font-[620] text-[var(--muted)] mb-2">
             2. What are you asking for?
           </legend>
           <div className="space-y-2.5">
@@ -129,11 +129,11 @@ ${name || "[your name]"}
                       e.target.checked ? [...p, a.id] : p.filter((x) => x !== a.id)
                     )
                   }
-                  className="mt-1 accent-[var(--glasgow)] w-4 h-4 shrink-0"
+                  className="mt-1 accent-[var(--brand)] w-4 h-4 shrink-0"
                 />
                 <span className="text-[14.5px] leading-[1.4]">
                   {a.label}
-                  <span className="text-[var(--muted)] font-mono text-[11px] block">
+                  <span className="ui text-[10.5px] uppercase tracking-[0.08em] font-[620] text-[var(--muted)] block mt-0.5">
                     decided by your {a.who}
                   </span>
                 </span>
@@ -143,7 +143,7 @@ ${name || "[your name]"}
         </fieldset>
 
         <label className="block mb-5">
-          <span className="font-mono text-[11px] uppercase tracking-[0.07em] text-[var(--muted)] block mb-1.5">
+          <span className="ui text-[11px] uppercase tracking-[0.1em] font-[620] text-[var(--muted)] block mb-1.5">
             3. Your name (optional)
           </span>
           <input
@@ -151,7 +151,7 @@ ${name || "[your name]"}
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="Left blank if you prefer"
-            className="w-full bg-[var(--ground)] border border-[var(--baseline)] rounded-[3px] px-3 py-2.5 text-[15px]"
+            className="ui w-full bg-[var(--paper)] border border-[var(--rule-strong)] px-3.5 py-3 text-[15px] focus:border-[var(--brand)] outline-none transition-colors"
           />
         </label>
 
@@ -159,14 +159,11 @@ ${name || "[your name]"}
           <button
             type="button"
             onClick={copy}
-            className="flex-1 min-w-[140px] bg-[var(--glasgow)] text-white px-4 py-3 rounded-[3px] font-[580] text-[15px] hover:opacity-90 transition-opacity"
+            className="btn btn-primary flex-1 min-w-[140px] justify-center"
           >
-            {copied ? "Copied" : "Copy letter"}
+            {copied ? "Copied ✓" : "Copy letter"}
           </button>
-          <a
-            href={mailto}
-            className="flex-1 min-w-[140px] text-center border border-[var(--baseline)] px-4 py-3 rounded-[3px] font-[580] text-[15px] hover:border-[var(--ink)] transition-colors"
-          >
+          <a href={mailto} className="btn btn-ghost flex-1 min-w-[140px] justify-center">
             Open in email
           </a>
         </div>
@@ -188,14 +185,19 @@ ${name || "[your name]"}
       {/* ---------- Preview ---------- */}
       <div>
         <div className="flex items-baseline justify-between gap-4 mb-2.5">
-          <p className="eyebrow">Your letter</p>
-          <p className="font-mono text-[11px] text-[var(--muted)]">
+          <p className="label">Your letter</p>
+          <p className="datum text-[11.5px] text-[var(--muted)]">
             {letter.split(/\s+/).length} words
           </p>
         </div>
-        <pre className="bg-[var(--surface)] border border-[var(--rule)] rounded-[3px] p-5 sm:p-6 text-[14.5px] leading-[1.6] whitespace-pre-wrap font-sans text-[var(--ink-2)] overflow-x-auto">
-          {letter}
-        </pre>
+        <div
+          className="bg-[var(--surface)] border border-[var(--rule)] border-t-[3px] border-t-[var(--brand)] p-6 sm:p-9"
+          style={{ boxShadow: "var(--shadow-2)" }}
+        >
+          <pre className="text-[15.5px] leading-[1.7] whitespace-pre-wrap font-serif text-[var(--ink-2)] overflow-x-auto m-0">
+            {letter}
+          </pre>
+        </div>
       </div>
     </div>
   );
