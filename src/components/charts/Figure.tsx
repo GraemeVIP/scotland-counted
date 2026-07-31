@@ -1,7 +1,9 @@
 import type { ReactNode } from "react";
+import Reveal from "@/components/Reveal";
 
 /** The card every chart sits in: title, source line, legend, chart, caption. */
 export default function Figure({
+  n,
   title,
   sub,
   legend,
@@ -11,6 +13,8 @@ export default function Figure({
   technical,
   className = "",
 }: {
+  /** Figure number, shown in the corner. Real information, not decoration. */
+  n?: number;
   title: string;
   sub: string;
   legend?: { name: string; colorVar: string }[];
@@ -21,61 +25,82 @@ export default function Figure({
   className?: string;
 }) {
   return (
-    <figure
-      className={`bg-[var(--surface)] border border-[var(--rule)] rounded-[3px] p-4 sm:p-5 pb-3 ${className}`}
-      style={{ boxShadow: "var(--shadow)" }}
-    >
-      <p className="text-[16px] font-[620] tracking-[-0.01em] mb-0.5">{title}</p>
-      <p className="font-mono text-[11.5px] tracking-[0.04em] text-[var(--muted)] leading-[1.5]">
-        {sub}
-      </p>
-
-      {legend && legend.length > 0 && (
-        <div className="flex flex-wrap gap-x-[18px] gap-y-1.5 mt-3 mb-1">
-          {legend.map((l) => (
-            <span key={l.name} className="inline-flex items-center gap-2 text-[13.5px] text-[var(--ink-2)]">
-              <span
-                className="w-[15px] h-[3px] rounded-sm shrink-0"
-                style={{ background: `var(${l.colorVar})` }}
-              />
-              {l.name}
+    <Reveal>
+      <figure
+        className={`relative bg-[var(--surface)] border border-[var(--rule)] p-5 sm:p-8 pb-4 ${className}`}
+        style={{ boxShadow: "var(--shadow-1)" }}
+      >
+        <div className="flex items-start justify-between gap-6 mb-1">
+          <p className="h4 max-w-[46ch]">{title}</p>
+          {n !== undefined && (
+            <span
+              className="font-mono text-[10.5px] uppercase tracking-[0.14em] text-[var(--muted)] shrink-0 pt-1"
+              aria-hidden="true"
+            >
+              Fig. {String(n).padStart(2, "0")}
             </span>
-          ))}
+          )}
         </div>
-      )}
+        <p className="font-mono text-[11px] tracking-[0.05em] text-[var(--muted)] leading-[1.55] max-w-[80ch]">
+          {sub}
+        </p>
 
-      {children}
-
-      {table && (
-        <details className="mt-2.5">
-          <summary className="font-mono text-[11.5px] uppercase tracking-[0.06em] text-[var(--ink-2)] hover:text-[var(--ink)] cursor-pointer py-1 w-fit">
-            Show data table
-          </summary>
-          <div className="overflow-x-auto mt-2.5">{table}</div>
-        </details>
-      )}
-
-      {caption && (
-        <figcaption className="font-mono text-[11.5px] leading-[1.55] text-[var(--muted)] mt-3 pt-2.5 border-t border-[var(--rule)] max-w-[78ch]">
-          {caption}
-        </figcaption>
-      )}
-
-      {technical && technical.length > 0 && (
-        <details className="border-t border-[var(--rule)] mt-4 pt-1">
-          <summary className="font-mono text-[11.5px] uppercase tracking-[0.06em] text-[var(--ink-2)] hover:text-[var(--ink)] cursor-pointer py-2.5 w-fit">
-            The technical detail
-          </summary>
-          <div className="text-[15px] text-[var(--ink-2)] pb-2 space-y-3">
-            {technical.map((t, i) => (
-              <p key={i} className="max-w-[68ch]">
-                {t}
-              </p>
+        {legend && legend.length > 0 && (
+          <div className="flex flex-wrap gap-x-6 gap-y-2 mt-5 mb-1">
+            {legend.map((l) => (
+              <span
+                key={l.name}
+                className="ui inline-flex items-center gap-2.5 text-[13px] font-[520] text-[var(--ink-2)]"
+              >
+                <span
+                  className="w-[16px] h-[3px] shrink-0"
+                  style={{ background: `var(${l.colorVar})` }}
+                />
+                {l.name}
+              </span>
             ))}
           </div>
-        </details>
-      )}
-    </figure>
+        )}
+
+        {children}
+
+        {table && (
+          <details className="mt-4 group">
+            <summary className="font-mono text-[11px] uppercase tracking-[0.13em] text-[var(--ink-2)] hover:text-[var(--ink)] cursor-pointer py-1.5 w-fit list-none flex items-center gap-2">
+              <span className="transition-transform group-open:rotate-90" aria-hidden="true">
+                ▸
+              </span>
+              Show the numbers
+            </summary>
+            <div className="overflow-x-auto mt-3">{table}</div>
+          </details>
+        )}
+
+        {caption && (
+          <figcaption className="text-[14.5px] leading-[1.6] text-[var(--ink-2)] mt-5 pt-4 border-t border-[var(--rule)] max-w-[74ch]">
+            {caption}
+          </figcaption>
+        )}
+
+        {technical && technical.length > 0 && (
+          <details className="border-t border-[var(--rule)] mt-4 group">
+            <summary className="font-mono text-[11px] uppercase tracking-[0.13em] text-[var(--ink-2)] hover:text-[var(--ink)] cursor-pointer py-3.5 w-fit list-none flex items-center gap-2">
+              <span className="transition-transform group-open:rotate-90" aria-hidden="true">
+                ▸
+              </span>
+              The technical detail
+            </summary>
+            <div className="text-[15px] text-[var(--ink-2)] pb-3 space-y-3.5">
+              {technical.map((t, i) => (
+                <p key={i} className="max-w-[72ch] leading-[1.6]">
+                  {t}
+                </p>
+              ))}
+            </div>
+          </details>
+        )}
+      </figure>
+    </Reveal>
   );
 }
 
@@ -88,13 +113,13 @@ export function DataTable({
   rows: (string | number)[][];
 }) {
   return (
-    <table className="border-collapse text-[13px] tnum min-w-full">
+    <table className="border-collapse text-[13px] tnum min-w-full font-mono">
       <thead>
         <tr>
           {head.map((h) => (
             <th
               key={h}
-              className="font-mono text-[11px] uppercase tracking-[0.05em] text-[var(--muted)] font-normal text-right first:text-left pr-3 pb-1.5 border-b border-[var(--rule)] whitespace-nowrap"
+              className="text-[10.5px] uppercase tracking-[0.1em] text-[var(--muted)] font-medium text-right first:text-left pr-4 pb-2 border-b border-[var(--rule-strong)] whitespace-nowrap"
             >
               {h}
             </th>
@@ -103,11 +128,11 @@ export function DataTable({
       </thead>
       <tbody>
         {rows.map((r, i) => (
-          <tr key={i}>
+          <tr key={i} className="hover:bg-[var(--surface-2)]">
             {r.map((c, j) => (
               <td
                 key={j}
-                className="text-right first:text-left pr-3 py-1 border-b border-[var(--rule)] whitespace-nowrap"
+                className="text-right first:text-left pr-4 py-1.5 border-b border-[var(--rule)] whitespace-nowrap"
               >
                 {c}
               </td>

@@ -1,95 +1,130 @@
 @import "tailwindcss";
 
 /* ============================================================
-   Design tokens.
-   Warm stone neutrals (Glasgow sandstone), one blue for the city,
-   one orange for Scotland, one green for workplace pay. The series
-   colours are validated for colour-vision deficiency and contrast.
+   GLASGOW COUNTED — design system
+
+   Art direction: a public record kept properly. Blonde sandstone
+   neutrals, a heavy grotesque set tight for display, an editorial
+   serif for argument, and a mono for anything a reader might need
+   to verify. Depth comes from layered surfaces and a faint grain,
+   never from decorative shadow.
    ============================================================ */
 
 :root {
   color-scheme: light;
 
-  --ground: #f6f4f0;
-  --surface: #fcfcfb;
-  --surface-2: #f1eee8;
-  --ink: #14120f;
-  --ink-2: #55524b;
-  --muted: #8a857c;
-  --rule: #e0dcd2;
-  --grid: #e6e2d9;
-  --baseline: #c6c1b5;
+  /* Surfaces, darkest ground to highest panel */
+  --ground: #f2efe8;
+  --ground-2: #eae6dc;
+  --surface: #fbfaf7;
+  --surface-2: #f2efe8;
+  --surface-3: #e6e1d5;
+  --invert: #16140f;
+  --invert-ink: #f7f5ef;
 
+  /* Ink */
+  --ink: #16140f;
+  --ink-2: #4f4b42;
+  --muted: #86806f;
+  --rule: #ddd7c8;
+  --rule-strong: #c8c1ae;
+  --grid: #e3ded1;
+  --baseline: #bdb6a2;
+
+  /* Data */
   --glasgow: #2a78d6;
   --scotland: #eb6834;
   --workplace: #1baf7a;
-  --glasgow-wash: rgba(42, 120, 214, 0.1);
+  --glasgow-wash: rgba(42, 120, 214, 0.09);
 
-  --good: #0ca30c;
-  --warn: #b07d00;
-  --bad: #d03b3b;
-  --flat: #7b766c;
+  /* Signal — used only for direction of travel and accountability */
+  --good: #0a7d33;
+  --warn: #9a6b00;
+  --bad: #c0392b;
+  --flat: #6f6a5d;
 
-  --shadow: 0 1px 2px rgba(20, 18, 15, 0.05), 0 8px 24px -18px rgba(20, 18, 15, 0.35);
+  --grain-opacity: 0.035;
+  --shadow-1: 0 1px 2px rgba(22, 20, 15, 0.04);
+  --shadow-2: 0 2px 4px rgba(22, 20, 15, 0.05), 0 12px 28px -20px rgba(22, 20, 15, 0.4);
 
-  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+  --font-sans: var(--font-display), system-ui, sans-serif;
+  --font-serif: var(--font-text), Georgia, serif;
+  --font-mono: var(--font-mono-face), ui-monospace, Menlo, monospace;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:where(:not([data-theme="light"])) {
     color-scheme: dark;
-    --ground: #100f0e;
-    --surface: #1a1a19;
-    --surface-2: #232220;
-    --ink: #f5f3ef;
-    --ink-2: #b9b5ab;
-    --muted: #8d887e;
-    --rule: #2e2d2a;
-    --grid: #2a2926;
-    --baseline: #3d3b37;
-    --glasgow: #3987e5;
-    --scotland: #d95926;
-    --workplace: #199e70;
-    --glasgow-wash: rgba(57, 135, 229, 0.14);
-    --good: #0ca30c;
-    --warn: #fab219;
-    --bad: #e46a6a;
-    --flat: #8d887e;
-    --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px -18px rgba(0, 0, 0, 0.9);
+    --ground: #0b0a09;
+    --ground-2: #121110;
+    --surface: #171614;
+    --surface-2: #1e1c1a;
+    --surface-3: #262320;
+    --invert: #f7f5ef;
+    --invert-ink: #16140f;
+    --ink: #f5f2ea;
+    --ink-2: #b3ad9f;
+    --muted: #837d70;
+    --rule: #2a2724;
+    --rule-strong: #3b3733;
+    --grid: #262320;
+    --baseline: #423d38;
+    --glasgow: #4a92ea;
+    --scotland: #ef7748;
+    --workplace: #25c089;
+    --glasgow-wash: rgba(74, 146, 234, 0.12);
+    --good: #35c05c;
+    --warn: #e0a52a;
+    --bad: #ef6b5c;
+    --flat: #837d70;
+    --grain-opacity: 0.05;
+    --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.5);
+    --shadow-2: 0 2px 4px rgba(0, 0, 0, 0.4), 0 14px 32px -22px rgba(0, 0, 0, 1);
   }
 }
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --ground: #100f0e;
-  --surface: #1a1a19;
-  --surface-2: #232220;
-  --ink: #f5f3ef;
-  --ink-2: #b9b5ab;
-  --muted: #8d887e;
-  --rule: #2e2d2a;
-  --grid: #2a2926;
-  --baseline: #3d3b37;
-  --glasgow: #3987e5;
-  --scotland: #d95926;
-  --workplace: #199e70;
-  --glasgow-wash: rgba(57, 135, 229, 0.14);
-  --good: #0ca30c;
-  --warn: #fab219;
-  --bad: #e46a6a;
-  --flat: #8d887e;
-  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px -18px rgba(0, 0, 0, 0.9);
+  --ground: #0b0a09;
+  --ground-2: #121110;
+  --surface: #171614;
+  --surface-2: #1e1c1a;
+  --surface-3: #262320;
+  --invert: #f7f5ef;
+  --invert-ink: #16140f;
+  --ink: #f5f2ea;
+  --ink-2: #b3ad9f;
+  --muted: #837d70;
+  --rule: #2a2724;
+  --rule-strong: #3b3733;
+  --grid: #262320;
+  --baseline: #423d38;
+  --glasgow: #4a92ea;
+  --scotland: #ef7748;
+  --workplace: #25c089;
+  --glasgow-wash: rgba(74, 146, 234, 0.12);
+  --good: #35c05c;
+  --warn: #e0a52a;
+  --bad: #ef6b5c;
+  --flat: #837d70;
+  --grain-opacity: 0.05;
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-2: 0 2px 4px rgba(0, 0, 0, 0.4), 0 14px 32px -22px rgba(0, 0, 0, 1);
 }
 
 @theme inline {
   --color-ground: var(--ground);
+  --color-ground-2: var(--ground-2);
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-invert: var(--invert);
+  --color-invert-ink: var(--invert-ink);
   --color-ink: var(--ink);
   --color-ink-2: var(--ink-2);
   --color-muted: var(--muted);
   --color-rule: var(--rule);
+  --color-rule-strong: var(--rule-strong);
   --color-baseline: var(--baseline);
   --color-glasgow: var(--glasgow);
   --color-scotland: var(--scotland);
@@ -99,6 +134,7 @@
   --color-bad: var(--bad);
   --color-flat: var(--flat);
   --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
   --font-mono: var(--font-mono);
 }
 
@@ -106,182 +142,287 @@
    Base
    ============================================================ */
 
-* {
-  box-sizing: border-box;
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--font-serif);
+    font-size: 18px;
+    line-height: 1.62;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Faint paper grain. Stops large dark areas reading as flat digital black. */
+  .grain {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: var(--grain-opacity);
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  ::selection {
+    background: var(--glasgow);
+    color: #fff;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--glasgow);
+    outline-offset: 3px;
+    border-radius: 1px;
+  }
+
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 100;
+    background: var(--surface);
+    color: var(--ink);
+    padding: 12px 18px;
+    border: 1px solid var(--rule);
+  }
+  .skip-link:focus {
+    left: 0;
+  }
 }
 
-html {
-  scroll-behavior: smooth;
-}
+@layer components {
+  /* ============================================================
+     Typography
+     ============================================================ */
 
-body {
-  background: var(--ground);
-  color: var(--ink);
-  font-family: var(--font-sans);
-  font-size: 17px;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  margin: 0;
-}
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
 
-::selection {
-  background: var(--glasgow);
-  color: #fff;
-}
+  .display {
+    font-family: var(--font-sans);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 0.94;
+    text-wrap: balance;
+  }
 
-a {
-  color: inherit;
-}
+  .h1 {
+    font-family: var(--font-sans);
+    font-size: clamp(42px, 7.2vw, 92px);
+    font-weight: 800;
+    line-height: 0.94;
+    letter-spacing: -0.038em;
+    text-wrap: balance;
+  }
 
-:focus-visible {
-  outline: 2px solid var(--glasgow);
-  outline-offset: 2px;
-  border-radius: 2px;
-}
+  .h2 {
+    font-family: var(--font-sans);
+    font-size: clamp(27px, 3.9vw, 44px);
+    font-weight: 750;
+    line-height: 1.04;
+    letter-spacing: -0.028em;
+    text-wrap: balance;
+  }
 
-.skip-link {
-  position: absolute;
-  left: -9999px;
-  top: 0;
-  z-index: 100;
-  background: var(--surface);
-  color: var(--ink);
-  padding: 12px 18px;
-  border: 1px solid var(--rule);
-  border-radius: 0 0 4px 0;
-}
-.skip-link:focus {
-  left: 0;
-}
+  .h3 {
+    font-family: var(--font-sans);
+    font-size: 20px;
+    font-weight: 650;
+    letter-spacing: -0.016em;
+    line-height: 1.25;
+  }
 
-/* ============================================================
-   Typography primitives
-   ============================================================ */
+  .h4 {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    font-weight: 620;
+    letter-spacing: -0.008em;
+  }
 
-.eyebrow {
-  font-family: var(--font-mono);
-  font-size: 11.5px;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
+  .lede {
+    font-family: var(--font-serif);
+    font-size: clamp(19px, 2.2vw, 23px);
+    line-height: 1.5;
+    color: var(--ink-2);
+    font-weight: 300;
+  }
 
-.h1 {
-  font-size: clamp(34px, 6vw, 60px);
-  line-height: 1.02;
-  letter-spacing: -0.032em;
-  font-weight: 680;
-  text-wrap: balance;
-}
+  .figure-num {
+    font-family: var(--font-sans);
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    font-variant-numeric: tabular-nums;
+    line-height: 0.82;
+  }
 
-.h2 {
-  font-size: clamp(24px, 3.4vw, 33px);
-  line-height: 1.13;
-  letter-spacing: -0.024em;
-  font-weight: 640;
-  text-wrap: balance;
-}
+  .prose p {
+    margin: 0 0 20px;
+    max-width: 62ch;
+  }
+  .prose p:last-child {
+    margin-bottom: 0;
+  }
+  .prose ul {
+    margin: 0 0 22px;
+    padding-left: 0;
+    list-style: none;
+    max-width: 60ch;
+  }
+  .prose ul > li {
+    position: relative;
+    padding-left: 22px;
+    margin-bottom: 12px;
+  }
+  .prose ul > li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.72em;
+    width: 9px;
+    height: 1.5px;
+    background: var(--glasgow);
+  }
+  .prose strong {
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .prose em {
+    font-style: italic;
+  }
+  .prose a:not(.gl) {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-decoration-color: var(--rule-strong);
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.15s;
+  }
+  .prose a:not(.gl):hover {
+    text-decoration-color: var(--glasgow);
+  }
 
-.h3 {
-  font-size: 19px;
-  font-weight: 620;
-  letter-spacing: -0.012em;
-}
+  .tnum {
+    font-variant-numeric: tabular-nums;
+  }
 
-.lede {
-  font-size: clamp(17px, 2.1vw, 20.5px);
-  line-height: 1.52;
-  color: var(--ink-2);
-}
+  .ui {
+    font-family: var(--font-sans);
+  }
 
-.prose p {
-  margin: 0 0 16px;
-  max-width: 66ch;
-}
-.prose p:last-child {
-  margin-bottom: 0;
-}
-.prose ul {
-  margin: 0 0 18px;
-  padding-left: 1.2em;
-  max-width: 64ch;
-}
-.prose li {
-  margin-bottom: 9px;
-}
-.prose strong {
-  font-weight: 620;
-  color: var(--ink);
-}
-.prose a:not(.gl) {
-  text-decoration: underline;
-  text-decoration-color: var(--baseline);
-  text-underline-offset: 2px;
-}
-.prose a:not(.gl):hover {
-  text-decoration-color: currentColor;
-}
+  /* ============================================================
+     Glossary
+     ============================================================ */
 
-.tnum {
-  font-variant-numeric: tabular-nums;
-}
+  button.gl {
+    font: inherit;
+    color: inherit;
+    background: none;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    cursor: help;
+    border-bottom: 1.5px dotted var(--glasgow);
+    text-align: left;
+    transition: background 0.15s;
+  }
+  button.gl:hover {
+    border-bottom-style: solid;
+    background: var(--glasgow-wash);
+  }
+  button.gl[aria-expanded="true"] {
+    border-bottom-style: solid;
+    background: var(--glasgow-wash);
+  }
 
-/* ============================================================
-   Glossary term + popover
-   ============================================================ */
+  .glossbox {
+    position: absolute;
+    z-index: 60;
+    max-width: 350px;
+    background: var(--surface);
+    border: 1px solid var(--rule-strong);
+    box-shadow: var(--shadow-2);
+    padding: 16px 18px 17px;
+    font-family: var(--font-serif);
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--ink-2);
+  }
 
-button.gl {
-  font: inherit;
-  color: inherit;
-  background: none;
-  border: 0;
-  padding: 0;
-  margin: 0;
-  cursor: help;
-  border-bottom: 1.5px dotted var(--glasgow);
-  text-align: left;
-}
-button.gl:hover {
-  border-bottom-style: solid;
-}
-button.gl[aria-expanded="true"] {
-  border-bottom-style: solid;
-  background: var(--glasgow-wash);
-}
+  /* ============================================================
+     Reveal on scroll
+     ============================================================ */
 
-.glossbox {
-  position: absolute;
-  z-index: 60;
-  max-width: 340px;
-  background: var(--surface);
-  border: 1px solid var(--baseline);
-  border-radius: 4px;
-  box-shadow: var(--shadow);
-  padding: 14px 16px 15px;
-  font-size: 14.5px;
-  line-height: 1.5;
-  color: var(--ink-2);
-}
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.7s cubic-bezier(0.2, 0.7, 0.3, 1),
+      transform 0.7s cubic-bezier(0.2, 0.7, 0.3, 1);
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: none;
+  }
 
-/* ============================================================
-   Reduced motion + print
-   ============================================================ */
+  /* ============================================================
+     Rules that carry meaning
+     ============================================================ */
+
+  .rule-heavy {
+    border-top: 2px solid var(--ink);
+  }
+  .rule-hair {
+    border-top: 1px solid var(--rule);
+  }
+
+  /* Vertical measure marks, echoing a survey grid */
+  .tick-rail {
+    background-image: repeating-linear-gradient(
+      to right,
+      var(--rule) 0 1px,
+      transparent 1px 100%
+    );
+    background-size: 60px 100%;
+  }
+}
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
   *,
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
 }
 
 @media print {
-  .no-print {
+  .no-print,
+  .grain {
     display: none !important;
   }
 }

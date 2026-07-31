@@ -1,58 +1,171 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import type { Direction } from "@/lib/data/indicators";
+import Reveal from "@/components/Reveal";
 
-/** Page shell: consistent width and rhythm on every route. */
+/* ============================================================
+   Containers
+   ============================================================ */
+
+/** Full page width. Wide enough for data, with real margins. */
 export function Page({ children }: { children: ReactNode }) {
-  return <div className="max-w-[1180px] mx-auto px-4 sm:px-6">{children}</div>;
+  return <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14">{children}</div>;
 }
 
-/** A reading column. Prose stays narrow even when charts go wide. */
+/** A reading column. Prose stays narrow even when the page is wide. */
 export function Col({ children, className = "" }: { children: ReactNode; className?: string }) {
-  return <div className={`max-w-[660px] prose ${className}`}>{children}</div>;
+  return <div className={`max-w-[640px] prose ${className}`}>{children}</div>;
 }
+
+/**
+ * Editorial two-column: argument on the left, supporting material in the
+ * margin. Collapses to one column below lg.
+ */
+export function Split({
+  children,
+  aside,
+  className = "",
+}: {
+  children: ReactNode;
+  aside?: ReactNode;
+  className?: string;
+}) {
+  return (
+    <div className={`grid gap-x-14 gap-y-8 lg:grid-cols-[minmax(0,640px)_minmax(0,1fr)] ${className}`}>
+      <div className="prose">{children}</div>
+      {aside && <div className="lg:pt-1.5">{aside}</div>}
+    </div>
+  );
+}
+
+/** Breaks out of the page container to the full viewport width. */
+export function FullBleed({
+  children,
+  className = "",
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
+  return (
+    <div className={`relative left-1/2 right-1/2 -mx-[50vw] w-screen ${className}`}>
+      {children}
+    </div>
+  );
+}
+
+/* ============================================================
+   Page furniture
+   ============================================================ */
 
 export function PageHeader({
   eyebrow,
   title,
   lede,
   children,
+  stat,
 }: {
   eyebrow?: string;
   title: string;
   lede?: ReactNode;
   children?: ReactNode;
+  /** Optional big number pinned to the right of the header. */
+  stat?: { value: string; label: string; tone?: "bad" | "good" | "neutral" };
 }) {
+  const tone =
+    stat?.tone === "bad"
+      ? "text-[var(--bad)]"
+      : stat?.tone === "good"
+        ? "text-[var(--good)]"
+        : "text-[var(--glasgow)]";
+
   return (
-    <header className="pt-12 sm:pt-16 pb-8 border-b border-[var(--rule)]">
-      {eyebrow && <p className="eyebrow mb-4">{eyebrow}</p>}
-      <h1 className="h1 max-w-[17ch] mb-5">{title}</h1>
-      {lede && <div className="lede max-w-[58ch]">{lede}</div>}
-      {children}
+    <header className="pt-14 sm:pt-24 pb-10 sm:pb-14">
+      <div className="grid gap-x-14 gap-y-10 lg:grid-cols-[minmax(0,1fr)_auto] items-end">
+        <div>
+          {eyebrow && <p className="eyebrow mb-6">{eyebrow}</p>}
+          <h1 className="h1 max-w-[15ch] mb-7">{title}</h1>
+          {lede && <div className="lede max-w-[54ch]">{lede}</div>}
+          {children}
+        </div>
+
+        {stat && (
+          <div className="lg:pb-2 lg:border-l lg:border-[var(--rule)] lg:pl-12 max-w-[340px]">
+            <div className={`figure-num text-[clamp(64px,8vw,110px)] ${tone}`}>{stat.value}</div>
+            <p className="text-[14.5px] leading-[1.5] text-[var(--ink-2)] mt-5">{stat.label}</p>
+          </div>
+        )}
+      </div>
+      <div className="rule-heavy mt-12 sm:mt-16" />
     </header>
   );
 }
 
-const DIR_STYLE: Record<Direction, { cls: string; glyph: string; label: string }> = {
+const DIR: Record<Direction, { cls: string; glyph: string; label: string }> = {
   worsening: { cls: "text-[var(--bad)]", glyph: "▲", label: "Worsening" },
   improving: { cls: "text-[var(--good)]", glyph: "▼", label: "Improving" },
   stalled: { cls: "text-[var(--flat)]", glyph: "■", label: "Stalled" },
 };
 
 export function DirectionChip({ direction }: { direction: Direction }) {
-  const d = DIR_STYLE[direction];
+  const d = DIR[direction];
   return (
     <span
-      className={`inline-flex items-center gap-1.5 font-mono text-[11px] font-semibold uppercase tracking-[0.08em] px-2 py-1 border rounded-[2px] whitespace-nowrap ${d.cls}`}
+      className={`inline-flex items-center gap-1.5 font-mono text-[10.5px] font-semibold uppercase tracking-[0.12em] px-2.5 py-1.5 border whitespace-nowrap ${d.cls}`}
       style={{ borderColor: "currentColor" }}
     >
-      <span aria-hidden="true" className="text-[12px] leading-none">
+      <span aria-hidden="true" className="text-[11px] leading-none">
         {d.glyph}
       </span>
       {d.label}
     </span>
   );
 }
+
+/**
+ * A numbered section marker. The number is real information — these are
+ * the report's figures, in order — not decoration.
+ */
+export function SectionHead({
+  n,
+  eyebrow,
+  title,
+  direction,
+  id,
+  className = "",
+}: {
+  n?: number;
+  eyebrow?: string;
+  title: string;
+  direction?: Direction;
+  id?: string;
+  className?: string;
+}) {
+  return (
+    <div className={`grid gap-x-8 sm:grid-cols-[auto_minmax(0,1fr)] items-start ${className}`}>
+      {n !== undefined && (
+        <div
+          className="figure-num text-[clamp(40px,5vw,64px)] text-[var(--rule-strong)] select-none hidden sm:block"
+          aria-hidden="true"
+        >
+          {String(n).padStart(2, "0")}
+        </div>
+      )}
+      <div>
+        {eyebrow && <p className="eyebrow mb-3">{eyebrow}</p>}
+        <div className="flex flex-wrap items-baseline gap-x-4 gap-y-3">
+          <h2 id={id} className="h2 max-w-[22ch]">
+            {title}
+          </h2>
+          {direction && <DirectionChip direction={direction} />}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ============================================================
+   Data furniture
+   ============================================================ */
 
 export function StatStrip({
   stats,
@@ -68,36 +181,42 @@ export function StatStrip({
   }[];
 }) {
   return (
-    <div className="grid gap-px bg-[var(--rule)] border-y border-[var(--rule)] [grid-template-columns:repeat(auto-fit,minmax(196px,1fr))]">
-      {stats.map((s) => {
+    <div className="grid gap-px bg-[var(--rule)] border-y border-[var(--rule)] [grid-template-columns:repeat(auto-fit,minmax(230px,1fr))]">
+      {stats.map((s, i) => {
         const inner = (
           <>
-            <div className="font-mono text-[11px] uppercase tracking-[0.07em] text-[var(--muted)] leading-[1.45] mb-3 sm:min-h-[2.9em]">
-              {s.label}
-            </div>
+            <div className="eyebrow leading-[1.5] mb-5 sm:min-h-[3em]">{s.label}</div>
             <div
-              className={`text-[30px] font-[640] tracking-[-0.028em] leading-none ${
+              className={`figure-num text-[42px] ${
                 s.direction === "worsening" ? "text-[var(--bad)]" : "text-[var(--good)]"
               }`}
             >
               {s.value}
             </div>
-            <div className="font-mono text-[12.5px] text-[var(--ink-2)] mt-2.5">
-              {s.from} <span className="text-[var(--muted)] px-1">→</span> {s.to}
-              <span className="text-[var(--muted)]"> · {s.period}</span>
+            <div className="font-mono text-[12px] text-[var(--ink-2)] mt-4 tracking-tight">
+              {s.from} <span className="text-[var(--muted)] px-0.5">→</span> {s.to}
             </div>
+            <div className="font-mono text-[11px] text-[var(--muted)] mt-1">{s.period}</div>
           </>
         );
         return s.href ? (
           <Link
             key={s.label}
             href={s.href}
-            className="bg-[var(--ground)] px-5 pt-5 pb-6 hover:bg-[var(--surface-2)] transition-colors"
+            className="group bg-[var(--ground)] px-6 pt-7 pb-8 hover:bg-[var(--ground-2)] transition-colors relative"
           >
             {inner}
+            <span
+              aria-hidden="true"
+              className="absolute top-6 right-6 text-[var(--muted)] opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"
+            >
+              →
+            </span>
+            <span className="sr-only">Read more about {s.label}</span>
+            <span className="sr-only">{i}</span>
           </Link>
         ) : (
-          <div key={s.label} className="bg-[var(--ground)] px-5 pt-5 pb-6">
+          <div key={s.label} className="bg-[var(--ground)] px-6 pt-7 pb-8">
             {inner}
           </div>
         );
@@ -106,12 +225,58 @@ export function StatStrip({
   );
 }
 
+/** A margin note beside the argument — a fact that supports the paragraph. */
+export function Note({
+  label,
+  value,
+  children,
+}: {
+  label: string;
+  value?: string;
+  children?: ReactNode;
+}) {
+  return (
+    <aside className="border-l-2 border-[var(--glasgow)] pl-5 py-1 max-w-[340px]">
+      <p className="eyebrow mb-2">{label}</p>
+      {value && <p className="figure-num text-[38px] text-[var(--ink)] mb-2">{value}</p>}
+      {children && (
+        <div className="text-[15px] leading-[1.55] text-[var(--ink-2)]">{children}</div>
+      )}
+    </aside>
+  );
+}
+
+/** A full-width inverted slab. Used for the one line that matters most. */
+export function Slab({
+  children,
+  attribution,
+}: {
+  children: ReactNode;
+  attribution?: string;
+}) {
+  return (
+    <FullBleed className="my-16 sm:my-24">
+      <div className="bg-[var(--invert)] text-[var(--invert-ink)] py-16 sm:py-24">
+        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14">
+          <Reveal>
+            <p className="display text-[clamp(26px,3.6vw,46px)] max-w-[19ch] font-[750]">
+              {children}
+            </p>
+            {attribution && (
+              <p className="font-mono text-[11px] uppercase tracking-[0.16em] opacity-55 mt-8">
+                {attribution}
+              </p>
+            )}
+          </Reveal>
+        </div>
+      </div>
+    </FullBleed>
+  );
+}
+
 export function Callout({ children }: { children: ReactNode }) {
   return (
-    <div
-      className="border-l-[3px] border-[var(--glasgow)] rounded-r-[3px] px-5 py-4 my-6 prose"
-      style={{ background: "var(--glasgow-wash)" }}
-    >
+    <div className="border-l-2 border-[var(--glasgow)] bg-[var(--surface-2)] px-6 py-5 my-8 prose max-w-[680px]">
       {children}
     </div>
   );
@@ -133,45 +298,71 @@ export function CTA({
   secondaryCta?: string;
 }) {
   return (
-    <section className="mt-16 bg-[var(--surface)] border border-[var(--rule)] rounded-[3px] p-7 sm:p-9" style={{ boxShadow: "var(--shadow)" }}>
-      <h2 className="h2 mb-3 max-w-[20ch]">{title}</h2>
-      <p className="text-[var(--ink-2)] max-w-[58ch] mb-6">{body}</p>
-      <div className="flex flex-wrap gap-3">
-        <Link
-          href={href}
-          className="inline-flex items-center gap-2 bg-[var(--glasgow)] text-white px-5 py-3 rounded-[3px] font-[580] text-[15.5px] hover:opacity-90 transition-opacity"
-        >
-          {cta}
-          <span aria-hidden="true">→</span>
-        </Link>
-        {secondaryHref && secondaryCta && (
-          <Link
-            href={secondaryHref}
-            className="inline-flex items-center gap-2 border border-[var(--baseline)] px-5 py-3 rounded-[3px] font-[580] text-[15.5px] hover:border-[var(--ink)] transition-colors"
-          >
-            {secondaryCta}
-          </Link>
-        )}
+    <FullBleed className="mt-20 sm:mt-28">
+      <div className="bg-[var(--ground-2)] border-y border-[var(--rule)] py-16 sm:py-20">
+        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14">
+          <div className="grid gap-x-14 gap-y-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
+            <div>
+              <h2 className="h2 mb-4 max-w-[18ch]">{title}</h2>
+              <p className="text-[var(--ink-2)] max-w-[54ch] text-[17px] leading-[1.55]">{body}</p>
+            </div>
+            <div className="flex flex-wrap gap-3 shrink-0">
+              <Link
+                href={href}
+                className="ui inline-flex items-center gap-2.5 bg-[var(--ink)] text-[var(--ground)] px-7 py-4 font-[620] text-[15.5px] tracking-[-0.01em] hover:bg-[var(--glasgow)] hover:text-white transition-colors"
+              >
+                {cta}
+                <span aria-hidden="true">→</span>
+              </Link>
+              {secondaryHref && secondaryCta && (
+                <Link
+                  href={secondaryHref}
+                  className="ui inline-flex items-center border border-[var(--rule-strong)] px-7 py-4 font-[620] text-[15.5px] tracking-[-0.01em] hover:border-[var(--ink)] transition-colors"
+                >
+                  {secondaryCta}
+                </Link>
+              )}
+            </div>
+          </div>
+        </div>
       </div>
-    </section>
+    </FullBleed>
   );
 }
 
-export function SectionHead({
+/** A link card used in grids. */
+export function Card({
+  href,
+  eyebrow,
   title,
-  direction,
-  id,
+  body,
+  meta,
 }: {
+  href: string;
+  eyebrow: string;
   title: string;
-  direction?: Direction;
-  id?: string;
+  body: string;
+  meta?: ReactNode;
 }) {
   return (
-    <div className="flex flex-wrap items-baseline gap-x-3.5 gap-y-2 mb-3.5">
-      <h2 id={id} className="h2">
-        {title}
-      </h2>
-      {direction && <DirectionChip direction={direction} />}
-    </div>
+    <Link
+      href={href}
+      className="group relative flex flex-col bg-[var(--surface)] border border-[var(--rule)] p-6 sm:p-7 hover:border-[var(--ink)] transition-colors"
+    >
+      <div className="flex items-start justify-between gap-4 mb-4">
+        <p className="eyebrow">{eyebrow}</p>
+        {meta}
+      </div>
+      <h3 className="h3 mb-3 group-hover:text-[var(--glasgow)] transition-colors">{title}</h3>
+      <p className="text-[15.5px] text-[var(--ink-2)] leading-[1.55]">{body}</p>
+      <span
+        aria-hidden="true"
+        className="mt-6 text-[var(--muted)] group-hover:text-[var(--glasgow)] group-hover:translate-x-1 transition-all"
+      >
+        →
+      </span>
+    </Link>
   );
 }
+
+export { Reveal };

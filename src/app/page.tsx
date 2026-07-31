@@ -1,5 +1,17 @@
 import Link from "next/link";
-import { Page, Col, StatStrip, Callout, CTA, SectionHead } from "@/components/Blocks";
+import {
+  Page,
+  Col,
+  Split,
+  Note,
+  Slab,
+  StatStrip,
+  CTA,
+  Card,
+  SectionHead,
+  Reveal,
+  FullBleed,
+} from "@/components/Blocks";
 import Figure, { DataTable } from "@/components/charts/Figure";
 import LineChart from "@/components/charts/LineChart";
 import { G } from "@/components/Glossary";
@@ -56,178 +68,188 @@ export default function Home() {
       />
       <JsonLd data={faqJsonLd(FAQ)} />
 
-      <Page>
-        {/* ---------- Hero ---------- */}
-        <header className="pt-12 sm:pt-20 pb-9 border-b-2 border-[var(--ink)]">
-          <p className="eyebrow mb-5">
-            Glasgow City · 2000–2026 · Independent and fully sourced
-          </p>
-          <h1 className="h1 max-w-[16ch] mb-6">
-            Poverty in Glasgow has not fallen. It has changed shape.
-          </h1>
-          <p className="lede max-w-[60ch]">
-            Since 2000 far more Glaswegians have got into work, and far fewer live in the
-            country&apos;s worst-off neighbourhoods. Both are real gains. But over the same years
-            the share of the city&apos;s children growing up poor{" "}
-            <strong className="text-[var(--ink)] font-[600]">
-              rose by nine percentage points
-            </strong>{" "}
-            — the biggest rise of any council area in Scotland.
-          </p>
-        </header>
+      {/* ================= HERO ================= */}
+      <FullBleed className="border-b border-[var(--rule)]">
+        <div className="bg-[var(--ground-2)] relative overflow-hidden">
+          <div
+            className="absolute inset-y-0 right-0 w-1/2 tick-rail opacity-40 pointer-events-none hidden lg:block"
+            aria-hidden="true"
+          />
+          <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 pt-16 pb-14 sm:pt-24 sm:pb-20 relative">
+            <Reveal>
+              <p className="eyebrow mb-8">
+                Glasgow City · 2000&ndash;2026 · Independent and fully sourced
+              </p>
+            </Reveal>
 
-        {/* ---------- Hero number ---------- */}
-        <div className="flex flex-wrap items-end gap-x-8 gap-y-3 py-9 border-b border-[var(--rule)]">
-          <div className="text-[clamp(62px,12vw,104px)] leading-[0.86] font-[660] tracking-[-0.045em] text-[var(--glasgow)]">
-            36.1%
-          </div>
-          <div className="max-w-[42ch]">
-            <p className="text-[18px] font-[560] mb-1.5">
-              of Glasgow&apos;s children were living in poverty in 2023/24, counted after the rent
-              is paid.
-            </p>
-            <p className="text-[16px] text-[var(--ink-2)] leading-[1.5]">
-              That is 39,319 children — more than one in three. Ten years earlier it was 29,527,
-              or 27.1%. Across Scotland the figure barely moved, from 21.6% to 23.3%.
-            </p>
+            <Reveal delay={60}>
+              <h1 className="h1 max-w-[13ch] mb-10">
+                Poverty in Glasgow has not fallen. It changed shape.
+              </h1>
+            </Reveal>
+
+            <Reveal delay={120}>
+              <div className="grid gap-x-16 gap-y-10 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
+                <p className="lede max-w-[52ch]">
+                  Far more Glaswegians are in work than in 2000, and far fewer live in the
+                  country&apos;s worst-off neighbourhoods. Both are real gains. Over the same years
+                  the share of the city&apos;s children growing up poor rose by nine percentage
+                  points &mdash; the steepest rise of any council area in Scotland.
+                </p>
+
+                <div className="lg:border-l lg:border-[var(--rule-strong)] lg:pl-14 shrink-0">
+                  <div className="figure-num text-[clamp(84px,13vw,168px)] text-[var(--bad)]">
+                    36.1%
+                  </div>
+                  <p className="text-[16px] leading-[1.5] text-[var(--ink-2)] max-w-[30ch] mt-5">
+                    of Glasgow&apos;s children were living in poverty in 2023/24, counted after the
+                    rent is paid. That is{" "}
+                    <strong className="text-[var(--ink)] font-[600]">39,319 children</strong>.
+                  </p>
+                </div>
+              </div>
+            </Reveal>
           </div>
         </div>
+      </FullBleed>
 
+      <Page>
         <StatStrip stats={headlineStats} />
 
-        {/* ---------- Plain-English primer ---------- */}
-        <section
-          className="border border-[var(--rule)] border-t-[3px] border-t-[var(--glasgow)] bg-[var(--surface)] rounded-b-[3px] p-6 sm:p-8 mt-9"
-          style={{ boxShadow: "var(--shadow)" }}
-        >
-          <h2 className="text-[21px] font-[640] tracking-[-0.02em] mb-3">
-            What &ldquo;poverty&rdquo; means on this site
-          </h2>
-          <div className="prose">
-            <p>
-              A household counts as poor if its income is less than 60% of what a typical UK
-              household has — and we count that <G t="ahc">after housing costs</G>, meaning after
-              the rent or mortgage is paid. What is left is what a family actually has for food,
-              heating, shoes and bus fares.
-            </p>
-            <p>In cash, in {povertyLine.year}, the line sat roughly here:</p>
-          </div>
-
-          <div className="grid gap-3.5 my-5 [grid-template-columns:repeat(auto-fit,minmax(210px,1fr))]">
-            {povertyLine.rows.map((r) => (
-              <div key={r.amount} className="bg-[var(--surface-2)] rounded-[3px] px-4 py-3.5">
-                <div className="text-[14px] text-[var(--ink-2)] leading-[1.4]">{r.who}</div>
-                <div className="text-[22px] font-[640] tracking-[-0.02em] mt-1.5">{r.amount}</div>
-              </div>
-            ))}
-          </div>
-
-          <div className="prose">
-            <p>
-              Below that, you are counted as being in poverty. Counting after rent matters
-              enormously in Glasgow, because rents here have risen faster than the help available
-              to pay them.
-            </p>
-            <p className="text-[15px] text-[var(--ink-2)]">
-              Anything <G t="pp">underlined like this</G> can be tapped for a plain explanation,
-              plus the technical detail if you want it. Every chart has a data table with the raw
-              numbers, and <Link href="/methods">every figure is sourced</Link>.
-            </p>
-          </div>
-        </section>
-
-        {/* ---------- The headline chart ---------- */}
-        <section className="pt-14">
-          <SectionHead title="The number that moved" direction="worsening" />
-          <Col>
-            <p>
-              In 2014/15, Glasgow was 5.5 <G t="pp">percentage points</G> worse than Scotland as a
-              whole. By 2023/24 the difference had more than doubled, to 12.8 points. Glasgow
-              climbed; Scotland roughly held steady.
-            </p>
-            <p>
-              Scotland held steady largely because of the <G t="scp">Scottish Child Payment</G>,
-              which does not exist in England. Cities south of the border rose faster still.
-            </p>
-          </Col>
-
-          <div className="mt-6">
-            <Figure
-              title={cp.chartTitle}
-              sub={cp.chartSub}
-              legend={cp.series.map((s) => ({ name: s.name, colorVar: s.colorVar }))}
-              caption={cp.caption}
-              technical={cp.technical}
-              table={
-                <DataTable
-                  head={["Year", "Glasgow %", "Glasgow children", "Scotland %", "Gap (pp)"]}
-                  rows={cp.x.map((y, i) => [
-                    y,
-                    cp.series[0].data[i].toFixed(1),
-                    GLASGOW_CHILD_COUNTS[i].toLocaleString("en-GB"),
-                    cp.series[1].data[i].toFixed(1),
-                    `+${(cp.series[0].data[i] - cp.series[1].data[i]).toFixed(1)}`,
-                  ])}
-                />
+        {/* ================= PRIMER ================= */}
+        <section className="pt-20 sm:pt-28">
+          <SectionHead
+            n={1}
+            eyebrow="Start here"
+            title="What &ldquo;poverty&rdquo; means on this site"
+          />
+          <div className="sm:pl-[calc(2ch+2rem)] mt-8">
+            <Split
+              aside={
+                <div className="grid gap-3">
+                  {povertyLine.rows.map((r) => (
+                    <div
+                      key={r.amount}
+                      className="border border-[var(--rule)] bg-[var(--surface)] px-5 py-4"
+                    >
+                      <div className="text-[14px] text-[var(--ink-2)] leading-[1.45]">{r.who}</div>
+                      <div className="figure-num text-[30px] mt-2">{r.amount}</div>
+                    </div>
+                  ))}
+                  <p className="font-mono text-[10.5px] uppercase tracking-[0.13em] text-[var(--muted)] mt-1">
+                    Poverty line, {povertyLine.year}, after housing costs
+                  </p>
+                </div>
               }
             >
-              <LineChart
-                x={cp.x}
-                series={cp.series}
-                yMin={cp.yMin}
-                yMax={cp.yMax}
-                yTicks={cp.yTicks}
-                unit="%"
-                decimals={1}
-                gapBand
-                extra={{
-                  label: "Glasgow children",
-                  values: GLASGOW_CHILD_COUNTS.map((v) => v.toLocaleString("en-GB")),
-                }}
-                ariaLabel="Glasgow child poverty rises from 27.1% in 2014/15 to 36.1% in 2023/24, while Scotland moves from 21.6% to 23.3%."
-              />
-            </Figure>
+              <p>
+                A household counts as poor if its income is less than 60% of what a typical UK
+                household has &mdash; and we count that <G t="ahc">after housing costs</G>, meaning
+                after the rent or mortgage is paid. What is left is what a family actually has for
+                food, heating, shoes and bus fares.
+              </p>
+              <p>
+                Counting after rent matters enormously in Glasgow, because rents here have risen
+                faster than the help available to pay them.
+              </p>
+              <p className="text-[16px] text-[var(--ink-2)]">
+                Anything <G t="pp">underlined like this</G> can be tapped for a plain explanation,
+                plus the technical detail if you want it. Every chart has the raw numbers
+                underneath, and <Link href="/methods">every figure is sourced</Link>.
+              </p>
+            </Split>
           </div>
         </section>
 
-        {/* ---------- The pivot ---------- */}
-        <section className="pt-14">
-          <SectionHead title="What actually changed" />
-          <Col>
-            <p>
-              Two measures improved. One improved and then stalled. One got much worse. That is
-              not a contradiction — it is the answer.
-            </p>
-          </Col>
+        {/* ================= THE CHART ================= */}
+        <section className="pt-20 sm:pt-28">
+          <SectionHead
+            n={2}
+            eyebrow="The measure that moved"
+            title="Glasgow climbed while Scotland held steady"
+            direction="worsening"
+          />
+          <div className="sm:pl-[calc(2ch+2rem)] mt-8">
+            <Split
+              aside={
+                <Note label="The gap with Scotland" value="5.5 → 12.8">
+                  Percentage points between Glasgow and the Scottish rate. It more than doubled in
+                  nine years.
+                </Note>
+              }
+            >
+              <p>
+                Scotland held steady largely because of the <G t="scp">Scottish Child Payment</G>,
+                which does not exist in England. Cities south of the border rose faster still.
+              </p>
+            </Split>
 
-          <Callout>
-            <p>
-              <strong>
-                In 2000, Glasgow&apos;s problem was that there wasn&apos;t enough work. In 2026,
-                the problem is that work doesn&apos;t reliably keep you out of poverty.
-              </strong>
-            </p>
-            <p>
-              Across Scotland, 69% of children in poverty now live in a household where at least
-              one adult has a job. Getting people into work — which moved every other number on
-              this site — has stopped being enough on its own.
-            </p>
-          </Callout>
-
-          <Col>
-            <p>
-              The clearest proof is in the chart above. In 2020/21, benefits went up and child
-              poverty fell. In 2021/22, the support was withdrawn and it went straight back up.
-              Nothing about Glasgow&apos;s history explains a two-year swing like that.{" "}
-              <strong>Policy does — in both directions.</strong>
-            </p>
-          </Col>
+            <div className="mt-10">
+              <Figure
+                n={1}
+                title={cp.chartTitle}
+                sub={cp.chartSub}
+                legend={cp.series.map((s) => ({ name: s.name, colorVar: s.colorVar }))}
+                caption={cp.caption}
+                technical={cp.technical}
+                table={
+                  <DataTable
+                    head={["Year", "Glasgow %", "Glasgow children", "Scotland %", "Gap (pp)"]}
+                    rows={cp.x.map((y, i) => [
+                      y,
+                      cp.series[0].data[i].toFixed(1),
+                      GLASGOW_CHILD_COUNTS[i].toLocaleString("en-GB"),
+                      cp.series[1].data[i].toFixed(1),
+                      `+${(cp.series[0].data[i] - cp.series[1].data[i]).toFixed(1)}`,
+                    ])}
+                  />
+                }
+              >
+                <LineChart
+                  x={cp.x}
+                  series={cp.series}
+                  yMin={cp.yMin}
+                  yMax={cp.yMax}
+                  yTicks={cp.yTicks}
+                  unit="%"
+                  decimals={1}
+                  gapBand
+                  extra={{
+                    label: "Glasgow children",
+                    values: GLASGOW_CHILD_COUNTS.map((v) => v.toLocaleString("en-GB")),
+                  }}
+                  ariaLabel="Glasgow child poverty rises from 27.1% in 2014/15 to 36.1% in 2023/24, while Scotland moves from 21.6% to 23.3%."
+                />
+              </Figure>
+            </div>
+          </div>
         </section>
+      </Page>
 
-        {/* ---------- Signpost cards ---------- */}
-        <section className="pt-14">
-          <h2 className="h2 mb-6">Start anywhere</h2>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {/* ================= THE ARGUMENT ================= */}
+      <Slab attribution="Across Scotland, 69% of children in poverty live in a working household">
+        In 2000 the problem was that there wasn&apos;t enough work. In 2026 the problem is that
+        work doesn&apos;t reliably keep you out of poverty.
+      </Slab>
+
+      <Page>
+        <Col>
+          <p>
+            Two of the measures on this site improved. One improved and then stalled. One got much
+            worse. That is not a contradiction &mdash; it is the answer.
+          </p>
+          <p>
+            The clearest proof is in the chart above. In 2020/21, benefits went up and child
+            poverty fell. In 2021/22, the support was withdrawn and it went straight back up.
+            Nothing about Glasgow&apos;s history explains a two-year swing like that.{" "}
+            <strong>Policy does &mdash; in both directions.</strong>
+          </p>
+        </Col>
+
+        {/* ================= SIGNPOSTS ================= */}
+        <section className="pt-20 sm:pt-28">
+          <SectionHead n={3} eyebrow="Six measures, four causes, one record" title="Start anywhere" />
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 mt-10">
             {[
               {
                 href: "/the-numbers",
@@ -261,51 +283,44 @@ export default function Home() {
               },
               {
                 href: "/take-action",
-                eyebrow: "Do something",
+                eyebrow: "Two minutes",
                 title: "Take action",
-                body: "Write to your MSP or MP in two minutes, with the figures for your own area filled in automatically.",
+                body: "Write to your MSP or MP with the figures for your own area filled in automatically, and a specific question they have to answer.",
               },
-            ].map((c) => (
-              <Link
-                key={c.href}
-                href={c.href}
-                className="group block bg-[var(--surface)] border border-[var(--rule)] rounded-[3px] p-5 hover:border-[var(--glasgow)] transition-colors"
-                style={{ boxShadow: "var(--shadow)" }}
-              >
-                <p className="eyebrow mb-2.5">{c.eyebrow}</p>
-                <p className="text-[19px] font-[620] tracking-[-0.012em] mb-2 group-hover:text-[var(--glasgow)] transition-colors">
-                  {c.title}
-                </p>
-                <p className="text-[14.5px] text-[var(--ink-2)] leading-[1.5]">{c.body}</p>
-              </Link>
+            ].map((c, i) => (
+              <Reveal key={c.href} delay={i * 40}>
+                <Card {...c} />
+              </Reveal>
             ))}
           </div>
         </section>
 
-        <CTA
-          title="These figures are only useful if someone has to answer for them"
-          body="Every chart here is public data that already existed — it was just spread across a dozen government portals in formats nobody reads. Now it is in one place, in plain English. Use it."
-          href="/take-action"
-          cta="Write to your representative"
-          secondaryHref="/data"
-          secondaryCta="Download the data"
-        />
-
-        {/* ---------- FAQ, also feeds structured data ---------- */}
-        <section className="pt-16">
-          <h2 className="h2 mb-6">Common questions</h2>
-          <div className="grid gap-4 lg:grid-cols-2 max-w-[1000px]">
+        {/* ================= FAQ ================= */}
+        <section className="pt-20 sm:pt-28">
+          <SectionHead n={4} eyebrow="Questions" title="What people ask first" />
+          <div className="grid gap-x-14 gap-y-9 lg:grid-cols-2 mt-10">
             {FAQ.map((f) => (
-              <div key={f.q} className="border-t border-[var(--rule)] pt-4">
-                <h3 className="h3 mb-2">{f.q}</h3>
-                <p className="text-[15.5px] text-[var(--ink-2)] leading-[1.55]">{f.a}</p>
+              <div key={f.q} className="border-t-2 border-[var(--ink)] pt-5">
+                <h3 className="h3 mb-3 max-w-[32ch]">{f.q}</h3>
+                <p className="text-[16px] text-[var(--ink-2)] leading-[1.6] max-w-[56ch]">{f.a}</p>
               </div>
             ))}
           </div>
         </section>
+      </Page>
 
-        <p className="mt-14 mb-4 font-mono text-[11.5px] text-[var(--muted)]">
-          {site.name} is a personal project by {site.author.name} at {site.organisation.name}. No
+      <CTA
+        title="These figures are only useful if someone has to answer for them"
+        body="Every chart here is public data that already existed — it was just spread across a dozen government portals in formats nobody reads. Now it is in one place, in plain English. Use it."
+        href="/take-action"
+        cta="Write to your representative"
+        secondaryHref="/data"
+        secondaryCta="Download the data"
+      />
+
+      <Page>
+        <p className="mt-12 font-mono text-[11px] uppercase tracking-[0.13em] text-[var(--muted)]">
+          {site.name} — a personal project by {site.author.name} at {site.organisation.name}. No
           party affiliation, no funding, no paywall.
         </p>
       </Page>

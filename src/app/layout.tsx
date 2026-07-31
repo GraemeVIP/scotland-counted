@@ -1,8 +1,37 @@
 import type { Metadata, Viewport } from "next";
+import { Archivo, Newsreader, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { Header, Footer } from "@/components/Chrome";
 import { JsonLd, orgJsonLd } from "@/lib/seo";
 import { site } from "../../site.config";
+
+/**
+ * Archivo — a grotesque drawn for newspapers and highway signage. Used
+ * heavy and tight for display, so headlines and figures read as statements.
+ */
+const archivo = Archivo({
+  subsets: ["latin"],
+  variable: "--font-display",
+  weight: ["400", "500", "600", "700", "800", "900"],
+  display: "swap",
+});
+
+/** Newsreader — an editorial serif for long-form argument. */
+const newsreader = Newsreader({
+  subsets: ["latin"],
+  variable: "--font-text",
+  weight: ["300", "400", "500", "600"],
+  style: ["normal", "italic"],
+  display: "swap",
+});
+
+/** IBM Plex Mono — institutional, for labels, sources and data. */
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono-face",
+  weight: ["400", "500", "600"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -46,26 +75,27 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f6f4f0" },
-    { media: "(prefers-color-scheme: dark)", color: "#100f0e" },
+    { media: "(prefers-color-scheme: light)", color: "#f2efe8" },
+    { media: "(prefers-color-scheme: dark)", color: "#0b0a09" },
   ],
   width: "device-width",
   initialScale: 1,
 };
 
-/**
- * Applies the stored theme before first paint so the page never flashes
- * the wrong colour scheme.
- */
 const THEME_SCRIPT = `try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}`;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-GB" suppressHydrationWarning>
+    <html
+      lang="en-GB"
+      suppressHydrationWarning
+      className={`${archivo.variable} ${newsreader.variable} ${plexMono.variable}`}
+    >
       <head>
         <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
       </head>
       <body className="min-h-full flex flex-col">
+        <div className="grain" aria-hidden="true" />
         <a href="#main" className="skip-link">
           Skip to content
         </a>
