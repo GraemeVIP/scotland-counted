@@ -1,0 +1,62 @@
+indicator,period,glasgow,scotland,glasgow_count,source,note
+child_poverty_ahc_pct,2014/15,27.1,21.6,29527,End Child Poverty / Loughborough,
+child_poverty_ahc_pct,2015/16,29.5,22.8,32182,End Child Poverty / Loughborough,
+child_poverty_ahc_pct,2016/17,29.6,23.3,32294,End Child Poverty / Loughborough,
+child_poverty_ahc_pct,2017/18,30.9,24.2,32796,End Child Poverty / Loughborough,
+child_poverty_ahc_pct,2018/19,31.0,23.1,30383,End Child Poverty / Loughborough,
+child_poverty_ahc_pct,2019/20,32.2,24.2,33734,End Child Poverty / Loughborough,
+child_poverty_ahc_pct,2020/21,29.4,20.9,34829,End Child Poverty / Loughborough,
+child_poverty_ahc_pct,2021/22,32.0,23.9,35891,End Child Poverty / Loughborough,
+child_poverty_ahc_pct,2022/23,32.9,24.5,36348,End Child Poverty / Loughborough,
+child_poverty_ahc_pct,2023/24,36.1,23.3,39319,End Child Poverty / Loughborough,
+employment_rate_16_64_pct,2004,62.7,72.6,,ONS APS via NOMIS,
+employment_rate_16_64_pct,2005,64.1,73.0,,ONS APS via NOMIS,
+employment_rate_16_64_pct,2006,62.7,73.7,,ONS APS via NOMIS,
+employment_rate_16_64_pct,2007,64.6,73.9,,ONS APS via NOMIS,
+employment_rate_16_64_pct,2008,64.8,73.6,,ONS APS via NOMIS,
+employment_rate_16_64_pct,2009,61.8,72.0,,ONS APS via NOMIS,
+employment_rate_16_64_pct,2010,61.4,71.0,,ONS APS via NOMIS,
+employment_rate_16_64_pct,2011,63.0,70.5,,ONS APS via NOMIS,
+employment_rate_16_64_pct,2012,58.6,70.5,,ONS APS via NOMIS,
+employment_rate_16_64_pct,2013,62.5,70.8,,ONS APS via NOMIS,
+employment_rate_16_64_pct,2014,64.2,72.6,,ONS APS via NOMIS,
+employment_rate_16_64_pct,2015,66.8,73.1,,ONS APS via NOMIS,
+employment_rate_16_64_pct,2016,67.4,73.0,,ONS APS via NOMIS,
+employment_rate_16_64_pct,2017,65.9,74.2,,ONS APS via NOMIS,
+employment_rate_16_64_pct,2018,64.3,74.1,,ONS APS via NOMIS,
+employment_rate_16_64_pct,2019,67.3,74.8,,ONS APS via NOMIS,
+employment_rate_16_64_pct,2020,69.8,73.4,,ONS APS via NOMIS,
+employment_rate_16_64_pct,2021,69.7,73.2,,ONS APS via NOMIS,
+employment_rate_16_64_pct,2022,72.1,74.4,,ONS APS via NOMIS,
+employment_rate_16_64_pct,2023,71.2,74.8,,ONS APS via NOMIS,
+employment_rate_16_64_pct,2024,65.6,74.2,,ONS APS via NOMIS,ONS flags 2024-25 as unreliable
+employment_rate_16_64_pct,2025,67.4,74.7,,ONS APS via NOMIS,ONS flags 2024-25 as unreliable
+claimant_count_pct_16_64,2000-01,6.0,4.1,,ONS Claimant Count via NOMIS,
+claimant_count_pct_16_64,2001-01,5.4,3.6,,ONS Claimant Count via NOMIS,
+claimant_count_pct_16_64,2002-01,4.8,3.4,,ONS Claimant Count via NOMIS,
+claimant_count_pct_16_64,2003-01,4.6,3.3,,ONS Claimant Count via NOMIS,
+claimant_count_pct_16_64,2004-01,4.6,3.2,,ONS Claimant Count via NOMIS,
+claimant_count_pct_16_64,2005-01,4.1,2.9,,ONS Claimant Count via NOMIS,
+claimant_count_pct_16_64,2006-01,4.0,2.7,,ONS Claimant Count via NOMIS,
+claimant_count_pct_16_64,2007-01,4.0,2.6,,ONS Claimant Count via NOMIS,
+claimant_count_pct_16_64,2008-01,3.4,2.2,,ONS Claimant Count via NOMIS,
+claimant_count_pct_16_64,2009-01,4.5,3.2,,ONS Claimant Count via NOMIS,
+claimant_count_pct_16_64,2010-01,6.0,4.2,,ONS Claimant Count via NOMIS,
+claimant_count_pct_16_64,2011-01,6.2,4.2,,ONS Claimant Count via NOMIS,
+claimant_count_pct_16_64,2012-01,6.0,4.3,,ONS Claimant Count via NOMIS,
+claimant_count_pct_16_64,2013-01,5.8,4.1,,ONS Claimant Count via NOMIS,
+claimant_count_pct_16_64,2014-01,4.6,3.3,,ONS Claimant Count via NOMIS,
+claimant_count_pct_16_64,2015-01,3.7,2.4,,ONS Claimant Count via NOMIS,UC claimants included from 2015
+claimant_count_pct_16_64,2016-01,3.2,2.2,,ONS Claimant Count via NOMIS,UC claimants included from 2015
+claimant_count_pct_16_64,2017-01,3.2,2.3,,ONS Claimant Count via NOMIS,UC claimants included from 2015
+claimant_count_pct_16_64,2018-01,3.2,2.4,,ONS Claimant Count via NOMIS,UC claimants included from 2015
+claimant_count_pct_16_64,2019-01,3.4,2.9,,ONS Claimant Count via NOMIS,UC claimants included from 2015
+claimant_count_pct_16_64,2020-01,4.6,3.2,,ONS Claimant Count via NOMIS,UC claimants included from 2015
+claimant_count_pct_16_64,2021-01,8.3,6.0,,ONS Claimant Count via NOMIS,UC claimants included from 2015
+claimant_count_pct_16_64,2022-01,5.8,3.9,,ONS Claimant Count via NOMIS,UC claimants included from 2015
+claimant_count_pct_16_64,2023-01,4.7,3.1,,ONS Claimant Count via NOMIS,UC claimants included from 2015
+claimant_count_pct_16_64,2024-01,4.4,3.0,,ONS Claimant Count via NOMIS,UC claimants included from 2015
+claimant_count_pct_16_64,2025-01,4.7,3.0,,ONS Claimant Count via NOMIS,UC claimants included from 2015
+claimant_count_pct_16_64,2026-01,4.5,2.9,,ONS Claimant Count via NOMIS,UC claimants included from 2015
+simd_pop_in_most_deprived_decile_pct,2004,46,,,SIMD 2004 via Understanding Glasgow,
+simd_pop_in_most_deprived_decile_pct,2020,29,,185000,SIMD 2020 via Understanding Glasgow,"185,000 people"

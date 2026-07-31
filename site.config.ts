@@ -1,0 +1,57 @@
+/**
+ * Single source of truth for site identity.
+ * Change these values and every page, meta tag, sitemap entry and
+ * structured-data block updates with them.
+ */
+
+export const site = {
+  name: "Glasgow Counted",
+  shortName: "Glasgow Counted",
+
+  /**
+   * CHANGE ME before going live. Used for canonical URLs, the sitemap,
+   * Open Graph tags and JSON-LD. No trailing slash.
+   */
+  url: "https://glasgowcounted.org",
+
+  tagline: "Glasgow's poverty, counted properly.",
+  description:
+    "An independent, fully sourced record of poverty in Glasgow since 2000. Every figure comes from official data, every source is linked, and every technical term is explained in plain English.",
+
+  locale: "en_GB",
+  themeColor: "#2a78d6",
+
+  author: {
+    name: "Graeme",
+    role: "Founder, Strathmark Consulting",
+    /** CHANGE ME — used in the byline and structured data. */
+    url: "https://strathmarkconsulting.com",
+  },
+
+  organisation: {
+    name: "Strathmark Consulting",
+    url: "https://strathmarkconsulting.com",
+  },
+
+  /** CHANGE ME — shown on the about page and used for corrections. */
+  contactEmail: "hello@strathmarkconsulting.com",
+
+  /** Optional. Leave blank to hide the link. */
+  social: {
+    x: "",
+    bluesky: "",
+    linkedin: "",
+  },
+
+  /**
+   * Newsletter. Paste the form action URL from your provider
+   * (Buttondown, Mailchimp, Kit, Beehiiv...). Leave blank and the
+   * sign-up block renders a mailto fallback instead.
+   */
+  newsletterAction: "",
+
+  /** Last full data refresh, shown in the footer. */
+  dataUpdated: "July 2026",
+} as const;
+
+export type Site = typeof site;
