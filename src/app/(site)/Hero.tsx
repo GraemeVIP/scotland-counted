@@ -80,7 +80,7 @@ export default function Hero() {
               <div className="flex items-start justify-between gap-6">
                 <div>
                   <p className="kicker text-[var(--muted)] mb-2">Right now</p>
-                  <div className="display-stat text-[clamp(46px,5.4vw,72px)] text-[var(--action)]">
+                  <div className="display-stat text-[clamp(46px,5.4vw,72px)] text-[var(--brand)]">
                     1 in 6
                   </div>
                   <p className="text-[17px] font-[650] text-[var(--ink-2)] mt-2.5">
@@ -101,6 +101,7 @@ export default function Hero() {
                 <Pictogram
                   filled={17}
                   columns={20}
+                  litColor="var(--brand)"
                   label="A hundred figures representing Scotland's population. Seventeen are highlighted, showing the share living in relative poverty after housing costs in 2022 to 2025."
                 />
               </div>
@@ -121,7 +122,7 @@ export default function Hero() {
             <div className="flex flex-wrap gap-x-11 gap-y-5">
               {SCALE.map((s) => (
                 <div key={s.label}>
-                  <div className="display-stat text-[30px] sm:text-[36px] text-[var(--signal)]">
+                  <div className="display-stat text-[30px] sm:text-[36px] text-[var(--deep-ink)]">
                     {s.value}
                   </div>
                   <p className="text-[14.5px] font-[600] opacity-75 mt-1">{s.label}</p>
@@ -130,7 +131,7 @@ export default function Hero() {
             </div>
             <Link
               href="/browse"
-              className="ui text-[16px] font-[700] text-[var(--deep-ink)] underline underline-offset-4 decoration-[var(--signal)] decoration-2"
+              className="ui text-[16px] font-[700] text-[var(--deep-ink)] underline underline-offset-4 decoration-[var(--action)] decoration-2"
             >
               See everything on this site →
             </Link>

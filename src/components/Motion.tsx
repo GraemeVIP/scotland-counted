@@ -188,11 +188,14 @@ export function Pictogram({
   total = 100,
   columns = 20,
   label,
+  litColor,
 }: {
   filled: number;
   total?: number;
   columns?: number;
   label: string;
+  /** Overrides the highlight colour so a pictogram can match its own stat. */
+  litColor?: string;
 }) {
   const { ref, seen } = useInView<HTMLDivElement>("0px");
 
@@ -213,6 +216,20 @@ export function Pictogram({
     });
     return () => cancelAnimationFrame(raf);
   }, []);
+
+  /**
+   * The restore has to live outside the `seen` gate below.
+   *
+   * Arming blanks the grid, but the animation that refills it only runs once
+   * the observer reports the element on screen. In a background tab the
+   * observer never fires, so the grid would stay blank for good. This lands
+   * on the true value regardless of whether the animation ever ran.
+   */
+  useEffect(() => {
+    if (!armed) return;
+    const failsafe = setTimeout(() => setLit(filled), 2600);
+    return () => clearTimeout(failsafe);
+  }, [armed, filled]);
 
   useEffect(() => {
     if (!armed || !seen) return;
@@ -237,7 +254,7 @@ export function Pictogram({
 
   return (
     <div ref={ref} role="img" aria-label={label}>
-      <PictoGrid lit={lit} total={total} columns={columns} />
+      <PictoGrid lit={lit} total={total} columns={columns} litColor={litColor} />
     </div>
   );
 }

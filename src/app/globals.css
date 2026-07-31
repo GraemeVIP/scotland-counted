@@ -26,13 +26,13 @@
   --surface-2: #f8faff;
 
   /* Near-black slabs — full-bleed bands, the footer, dramatic pauses */
-  --deep: #0d1117;
-  --deep-2: #161c26;
+  --deep: #16203a;
+  --deep-2: #1e2b4a;
   --deep-ink: #ffffff;
 
   /* Ink — proper contrast, no brown */
-  --ink: #0d1117;
-  --ink-2: #4a5261;
+  --ink: #131926;
+  --ink-2: #4d5666;
   --ink-3: #667085;
   --muted: #667085;
   --rule: #e3e8f0;
@@ -47,9 +47,9 @@
   --action: #ff5a3c;
   --action-hover: #e63e20;
 
-  /* High-visibility emphasis. Only ever behind text, never a surface. */
-  --signal: #f5e400;
-  --signal-ink: #0d1117;
+  /* Emphasis wash — the marker-pen bar, in the brand blue. */
+  --signal: rgba(44, 92, 255, 0.16);
+  --signal-ink: #131926;
 
   /* Data series — validated for colour-vision deficiency */
   --glasgow: #2c5cff;
@@ -94,8 +94,8 @@
   --paper-3: #1a1f28;
   --surface: #12161d;
   --surface-2: #181d26;
-  --deep: #05070a;
-  --deep-2: #0d1117;
+  --deep: #0e1626;
+  --deep-2: #16203a;
   --deep-ink: #ffffff;
   --ink: #f2f4f8;
   --ink-2: #a8b1c1;
@@ -110,8 +110,8 @@
   --brand-wash: rgba(91, 132, 255, 0.14);
   --action: #ff7a5c;
   --action-hover: #ff9a80;
-  --signal: #f5e400;
-  --signal-ink: #0d1117;
+  --signal: rgba(91, 132, 255, 0.26);
+  --signal-ink: #f2f4f8;
   --glasgow: #5b84ff;
   --scotland: #ff7a5c;
   --workplace: #00d9a0;
@@ -363,7 +363,8 @@
   .mark {
     background: var(--signal);
     color: var(--signal-ink);
-    padding: 0.06em 0.28em;
+    padding: 0.04em 0.22em;
+    border-radius: 4px;
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
   }
