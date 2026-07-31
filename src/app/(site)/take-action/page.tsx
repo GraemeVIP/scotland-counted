@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Page, Col, PageHeader } from "@/components/Blocks";
+import WhoDoesWhat from "@/components/WhoDoesWhat";
 import LetterBuilder from "./LetterBuilder";
 import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
 
@@ -47,6 +48,8 @@ export default function TakeAction() {
         />
 
         <LetterBuilder />
+
+        <WhoDoesWhat className="pt-16" />
 
         <Col className="pt-14">
           <h2 className="h2 mb-4">Why send an email?</h2>

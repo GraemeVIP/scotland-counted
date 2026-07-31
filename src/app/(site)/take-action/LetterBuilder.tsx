@@ -14,36 +14,12 @@ import {
   type RepresentativeLookup,
 } from "@/lib/representatives";
 import { asOneIn } from "@/lib/plain-language";
-
-type RepresentativeRole = "MP" | "MSP";
-
-const ASKS: Array<{
-  line: string;
-  who: RepresentativeRole;
-  localOnly?: string;
-}> = [
-  {
-    line: "Make sure help with private rent keeps up with real rents in this area.",
-    who: "MP",
-  },
-  {
-    line: "Increase the Scottish Child Payment for the families most likely to be poor.",
-    who: "MSP",
-  },
-  {
-    line: "Make sure every family entitled to the Scottish Child Payment actually gets it.",
-    who: "MSP",
-  },
-  {
-    line: "Fund enough affordable homes to meet the level experts say Scotland needs.",
-    who: "MSP",
-  },
-  {
-    line: "Close Glasgow's homelessness funding gap so families are not left in hotels and B&Bs.",
-    who: "MSP",
-    localOnly: "glasgow-city",
-  },
-];
+import {
+  buildLetter,
+  letterSubject,
+  type LetterArea,
+  type RepresentativeRole,
+} from "@/lib/letter";
 
 function StepLabel({ n, children }: { n: number; children: React.ReactNode }) {
   return (
@@ -89,62 +65,44 @@ export default function LetterBuilder() {
   const [copied, setCopied] = useState<RepresentativeRole | null>(null);
 
   const council = councils.find((item) => item.slug === slug)!;
-  const last = COUNCIL_YEARS[9];
   const first = COUNCIL_YEARS[0];
-  const availableAsks = useMemo(
-    () => ASKS.filter((ask) => !ask.localOnly || ask.localOnly === council.slug),
-    [council.slug]
-  );
 
-  function makeLetter(role: RepresentativeRole, representative?: Representative) {
-    const asks = availableAsks.filter((ask) => ask.who === role);
+  /** The area this letter argues from, in the shape the shared writer expects. */
+  const area = useMemo<LetterArea>(() => {
     const localEvidence = councilExtra[council.slug];
     const claimant = localEvidence?.cc[CC_YEARS.length - 1];
     const pay = localEvidence?.pay[PAY_YEARS.length - 1];
-    const direction = council.change > 0 ? "It has got worse." : "It has improved.";
-    const personalPara = personal.trim() ? `\n${personal.trim()}\n` : "";
-    const signoffPostcode = lookup?.postcode ?? postcode.trim().toUpperCase();
 
-    const localWorkLine =
-      typeof claimant === "number" && typeof pay === "number"
-        ? `The wider local figures show ${claimant.toFixed(1)}% of working-age people needed out-of-work benefits in January ${CC_YEARS[CC_YEARS.length - 1]}. A typical full-time worker living here earned £${pay.toFixed(0)} a week before tax in ${PAY_YEARS[PAY_YEARS.length - 1]}.\n\n`
-        : "";
-
-    return `Dear ${representative?.name ?? `your ${role}`},
-
-I live in ${council.name}, and I am writing about poverty in our area.
-
-${asOneIn(council.pcts[9])} children here are growing up in poverty. The exact figure is ${council.pcts[9]}%, or ${council.counts[9].toLocaleString("en-GB")} children. It was ${council.pcts[0]}% in ${first}. ${direction}
-
-${localWorkLine}The figures come from End Child Poverty and Loughborough University, using HMRC and DWP records. The Scottish figure for the same year was ${SCOTLAND_PCTS[9]}%.
-${personalPara}
-As my ${role}, please tell me if you will support these steps:
-
-${asks.map((ask) => `- ${ask.line}`).join("\n")}
-
-Please also tell me:
-
-1. What have you done on these issues so far?
-2. What do you expect the child-poverty figure in ${council.name} to be in five years?
-
-I would be grateful for a clear reply to both questions.
-
-Yours sincerely,
-${name.trim() || "[your name]"}
-[your street address]
-${signoffPostcode || "[your postcode]"}`;
-  }
+    return {
+      name: council.name,
+      pct: council.pcts[9],
+      count: council.counts[9],
+      firstPct: council.pcts[0],
+      firstYear: first,
+      scotlandPct: SCOTLAND_PCTS[9],
+      evidenceLine:
+        typeof claimant === "number" && typeof pay === "number"
+          ? `The wider local figures show ${claimant.toFixed(1)}% of working-age people needed out-of-work benefits in January ${CC_YEARS[CC_YEARS.length - 1]}. A typical full-time worker living here earned £${pay.toFixed(0)} a week before tax in ${PAY_YEARS[PAY_YEARS.length - 1]}.`
+          : undefined,
+    };
+  }, [council, first]);
 
   const drafts = useMemo(() => {
     if (!lookup) return [];
 
-    return ([lookup.mp, lookup.msp] as Representative[]).map((representative) => ({
+    return [lookup.mp, lookup.msp].filter((r): r is Representative => r !== null).map((representative) => ({
       representative,
-      letter: makeLetter(representative.role, representative),
+      letter: buildLetter({
+        area,
+        role: representative.role,
+        representative,
+        senderName: name,
+        personal,
+        postcode: lookup.postcode ?? postcode,
+        councilSlug: council.slug,
+      }),
     }));
-    // makeLetter is intentionally local: all of its reactive inputs are listed here.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [lookup, council, first, last, name, personal, postcode, availableAsks]);
+  }, [lookup, area, council.slug, name, personal, postcode]);
 
   const findRepresentativesFor = useCallback(async (value: string) => {
     setLookupState("loading");
@@ -212,8 +170,7 @@ ${signoffPostcode || "[your postcode]"}`;
   }
 
   function mailtoFor(representative: Representative, letter: string) {
-    const subject = `Poverty in ${council.name} — what will you do?`;
-    return `mailto:${representative.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(letter)}`;
+    return `mailto:${representative.email}?subject=${encodeURIComponent(letterSubject(area))}&body=${encodeURIComponent(letter)}`;
   }
 
   return (
@@ -256,7 +213,13 @@ ${signoffPostcode || "[your postcode]"}`;
                   Found automatically for {lookup.postcode}
                 </p>
                 <RepresentativeSummary representative={lookup.mp} />
-                <RepresentativeSummary representative={lookup.msp} />
+                {lookup.msp ? (
+                  <RepresentativeSummary representative={lookup.msp} />
+                ) : (
+                  <p className="text-[15px] text-[var(--warn)] leading-[1.5] border-t border-[var(--rule)] pt-3">
+                    {lookup.mspUnavailable ?? "We could not find your MSP just now."}
+                  </p>
+                )}
                 <p className="text-[15px] text-[var(--ink-2)] leading-[1.5] border-t border-[var(--rule)] pt-3">
                   Using the official figures for {lookup.council.name}: {asOneIn(council.pcts[9])}
                   children, exactly {council.pcts[9]}% or {council.counts[9].toLocaleString("en-GB")} children.
@@ -306,8 +269,18 @@ ${signoffPostcode || "[your postcode]"}`;
           ) : (
             <div className="space-y-4">
               <p className="text-[15px] text-[var(--ink-2)] leading-[1.55]">
-                <strong>Two emails are ready.</strong> One goes to your MP and one to your MSP.
-                Each asks only for changes that person can act on.
+                {drafts.length === 2 ? (
+                  <>
+                    <strong>Two emails are ready.</strong> One goes to your MP in London and one
+                    to your MSP in Edinburgh. Each one only asks for things that person can
+                    actually do.
+                  </>
+                ) : (
+                  <>
+                    <strong>Your email is ready.</strong> It goes to your MP, and only asks for
+                    things your MP can actually do.
+                  </>
+                )}
               </p>
               {drafts.map(({ representative, letter }, index) => (
                 <div

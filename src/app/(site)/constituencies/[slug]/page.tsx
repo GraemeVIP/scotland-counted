@@ -5,6 +5,8 @@ import Figure, { DataTable } from "@/components/charts/Figure";
 import LineChart from "@/components/charts/LineChart";
 import { G } from "@/components/Glossary";
 import SharePage from "@/components/SharePage";
+import WhoDoesWhat from "@/components/WhoDoesWhat";
+import ConstituencyLetter from "./ConstituencyLetter";
 import { JsonLd, articleJsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
 import {
   constituencies,
@@ -105,8 +107,9 @@ export default async function ConstituencyPage(props: { params: Promise<{ slug: 
               money at home. The exact figure is {c.pcts[9]}%.
             </p>
             <p>
-              One MP speaks for this area in the UK Parliament. They vote on benefits and help
-              with private rent. Enter your postcode and we will find that person for you.
+              One MP speaks for this area in the UK Parliament, in London. They help decide
+              benefits and help with rent. <strong>We already know who they are</strong> — you can
+              send them an email from this page without entering anything.
             </p>
             <p>
               {changeInWords(c.pcts[0], c.pcts[9])} {rose ? "It has got worse." : "It has improved."}
@@ -153,6 +156,22 @@ export default async function ConstituencyPage(props: { params: Promise<{ slug: 
         </div>
 
         <div className="mt-9">
+          <ConstituencyLetter
+            slug={c.slug}
+            area={{
+              name: c.name,
+              pct: c.pcts[9],
+              count: c.counts[9],
+              firstPct: c.pcts[0],
+              firstYear: first,
+              scotlandPct: SCOTLAND_PCTS[9],
+            }}
+          />
+        </div>
+
+        <WhoDoesWhat className="mt-14" />
+
+        <div className="mt-14">
           <Figure
             n={1}
             title={`Children living in poverty in ${c.name}`}
@@ -210,7 +229,7 @@ export default async function ConstituencyPage(props: { params: Promise<{ slug: 
               what do you expect this area&apos;s child-poverty figure to be in five years, and what
               are you doing to bring it down?
             </strong>{" "}
-            <Link href="/take-action">We will find your MP and write the email for you.</Link>
+            <Link href="#email-your-mp">We have already written that email for you.</Link>
           </p>
         </Col>
 
@@ -252,9 +271,9 @@ export default async function ConstituencyPage(props: { params: Promise<{ slug: 
 
         <CTA
           title={`Email the MP for ${c.name}`}
-          body="Enter your postcode. We find the right MP, add these exact local figures and open a ready-written email in your own email app."
-          href="/take-action"
-          cta="Find and email my MP"
+          body="You do not need to enter anything. We know who your MP is, and the email is already written with these exact local figures."
+          href="#email-your-mp"
+          cta="Write my email to the MP"
           secondaryHref="/constituencies"
           secondaryCta="See every MP area"
         />
