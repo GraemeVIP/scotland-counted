@@ -95,7 +95,7 @@ export function G({ t, children }: { t: string; children: React.ReactNode }) {
           >
             &times;
           </button>
-          <div className="ui text-[11px] uppercase tracking-[0.1em] font-[620] text-[var(--muted)] mb-1.5">
+          <div className="ui text-[13px] font-[680] text-[var(--brand)] mb-1.5">
             {term.term}
           </div>
           <div className="text-[var(--ink)]">{term.def}</div>

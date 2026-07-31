@@ -54,7 +54,7 @@ export default function Glossary() {
               <p className="text-[15.5px] leading-[1.55]">{t.def}</p>
               {t.tech && (
                 <p className="mt-3 pt-3 border-t border-[var(--rule)] text-[14px] text-[var(--ink-2)] leading-[1.55]">
-                  <span className="ui text-[10.5px] uppercase tracking-[0.1em] font-[620] text-[var(--muted)] block mb-1">
+                  <span className="ui text-[12px] font-[650] text-[var(--muted)] block mb-1">
                     The technical detail
                   </span>
                   {t.tech}

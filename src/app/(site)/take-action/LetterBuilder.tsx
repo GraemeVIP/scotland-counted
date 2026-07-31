@@ -50,9 +50,7 @@ function StepLabel({ n, children }: { n: number; children: React.ReactNode }) {
       <span className="figure-num text-[22px] text-[var(--action)]" aria-hidden="true">
         {n}
       </span>
-      <span className="ui text-[12px] uppercase tracking-[0.1em] font-[680] text-[var(--ink)]">
-        {children}
-      </span>
+      <span className="ui text-[15px] font-[680] text-[var(--ink)]">{children}</span>
     </div>
   );
 }

@@ -90,7 +90,7 @@ export default function TheNumbers() {
                 className="group flex flex-col h-full rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] p-6 sm:p-7 transition-all duration-300 hover:border-[var(--brand)] hover:-translate-y-1 hover:shadow-[var(--shadow-2)]"
               >
                 <div className="flex items-start justify-between gap-4 mb-5">
-                  <p className="label label-quiet">{c.label}</p>
+                  <p className="ui text-[13px] font-[650] text-[var(--muted)]">{c.label}</p>
                   <DirectionChip direction={c.direction} />
                 </div>
                 <h2 className="h3 mb-3 group-hover:text-[var(--brand)] transition-colors">

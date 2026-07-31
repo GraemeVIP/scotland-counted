@@ -37,11 +37,8 @@ export default function Figure({
         <div className="flex items-start justify-between gap-6 mb-1">
           <p className="h4 max-w-[46ch]">{title}</p>
           {n !== undefined && (
-            <span
-              className="label label-quiet shrink-0 pt-1 text-[11px]"
-              aria-hidden="true"
-            >
-              Fig. {String(n).padStart(2, "0")}
+            <span className="ui text-[12px] text-[var(--muted)] shrink-0 pt-1" aria-hidden="true">
+              Figure {n}
             </span>
           )}
         </div>
@@ -70,11 +67,11 @@ export default function Figure({
 
         {table && (
           <details className="mt-4 group">
-            <summary className="label label-quiet hover:text-[var(--brand)] cursor-pointer py-2 w-fit list-none flex items-center gap-2 text-[11px]">
+            <summary className="ui text-[13.5px] font-[620] text-[var(--ink-2)] hover:text-[var(--brand)] cursor-pointer py-2 w-fit list-none flex items-center gap-2">
               <span className="transition-transform group-open:rotate-90" aria-hidden="true">
                 ▸
               </span>
-              Show the numbers
+              See the numbers behind this chart
             </summary>
             <div className="overflow-x-auto mt-3">{table}</div>
           </details>
@@ -94,7 +91,7 @@ export default function Figure({
 
         {technical && technical.length > 0 && (
           <details className="border-t border-[var(--rule)] mt-4 group">
-            <summary className="label label-quiet hover:text-[var(--brand)] cursor-pointer py-4 w-fit list-none flex items-center gap-2 text-[11px]">
+            <summary className="ui text-[13.5px] font-[620] text-[var(--ink-2)] hover:text-[var(--brand)] cursor-pointer py-4 w-fit list-none flex items-center gap-2">
               <span className="transition-transform group-open:rotate-90" aria-hidden="true">
                 ▸
               </span>

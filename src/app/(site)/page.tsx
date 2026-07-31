@@ -95,7 +95,7 @@ export default function Home() {
                       <div className="figure-num text-[30px] mt-2">{r.amount}</div>
                     </div>
                   ))}
-                  <p className="ui text-[10.5px] uppercase tracking-[0.12em] font-[620] text-[var(--muted)] mt-1">
+                  <p className="ui text-[12.5px] text-[var(--muted)] mt-1">
                     Poverty line, {povertyLine.year}, after housing costs
                   </p>
                 </div>
@@ -299,7 +299,7 @@ export default function Home() {
       />
 
       <Page>
-        <p className="mt-12 font-mono text-[11px] uppercase tracking-[0.13em] text-[var(--muted)]">
+        <p className="ui mt-12 text-[13px] text-[var(--muted)]">
           {site.name} — a personal project by {site.author.name} at {site.organisation.name}. No
           party affiliation, no funding, no paywall.
         </p>

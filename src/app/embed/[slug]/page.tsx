@@ -31,7 +31,7 @@ export default async function EmbedPage(props: { params: Promise<{ slug: string 
   return (
     <div className="p-4 sm:p-5">
       <p className="h4 mb-0.5">{ind.chartTitle}</p>
-      <p className="datum text-[11px] text-[var(--muted)] leading-[1.5]">{ind.chartSub}</p>
+      <p className="ui text-[12px] text-[var(--muted)] leading-[1.5]">{ind.chartSub}</p>
 
       <div className="flex flex-wrap gap-x-5 gap-y-1.5 mt-3 mb-1">
         {ind.series.map((s) => (
@@ -68,7 +68,7 @@ export default async function EmbedPage(props: { params: Promise<{ slug: string 
         >
           Glasgow<span className="text-[var(--action)]">Counted</span> — the data behind this chart
         </a>
-        <span className="ui text-[10.5px] uppercase tracking-[0.1em] font-[620] text-[var(--muted)]">
+        <span className="ui text-[12px] text-[var(--muted)]">
           Free to embed with this link
         </span>
       </p>

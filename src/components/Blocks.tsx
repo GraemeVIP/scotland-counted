@@ -80,11 +80,11 @@ export function PageHeader({
         : "text-[var(--brand)]";
 
   return (
-    <header className="pt-14 sm:pt-24 pb-10 sm:pb-14">
+    <header className="pt-10 sm:pt-14 pb-8 sm:pb-10">
       <div className="grid gap-x-14 gap-y-10 lg:grid-cols-[minmax(0,1fr)_auto] items-end">
         <div>
           {eyebrow && <p className="label mb-6">{eyebrow}</p>}
-          <h1 className="h1 max-w-[15ch] mb-7">{title}</h1>
+          <h1 className="h1 max-w-[17ch] mb-5">{title}</h1>
           {lede && <div className="lede max-w-[54ch]">{lede}</div>}
           {children}
         </div>
@@ -105,7 +105,7 @@ export function PageHeader({
           </div>
         )}
       </div>
-      <div className="mt-12 sm:mt-16 border-t-2 border-[var(--ink)]" />
+      <div className="mt-8 sm:mt-10 border-t-2 border-[var(--ink)]" />
     </header>
   );
 }
@@ -330,7 +330,7 @@ export function Slab({
               {children}
             </p>
             {attribution && (
-              <p className="font-mono text-[11px] uppercase tracking-[0.16em] opacity-55 mt-8">
+              <p className="ui text-[13.5px] opacity-60 mt-8">
                 {attribution}
               </p>
             )}

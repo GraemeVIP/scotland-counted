@@ -37,20 +37,20 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 pt-16 pb-16 sm:pt-24 sm:pb-24">
-        <div className="grid gap-x-16 gap-y-14 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-center">
+      <div className="relative max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 pt-8 pb-12 sm:pt-12 sm:pb-14">
+        <div className="grid gap-x-16 gap-y-14 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-start">
           {/* ---- Statement ---- */}
           <div>
-            <p className="label mb-7 flex items-center gap-3">
+            <p className="label mb-5 flex items-center gap-3">
               <span className="inline-block w-8 h-[2px] bg-[var(--action)]" aria-hidden="true" />
               Glasgow City &middot; 2000&ndash;2026
             </p>
 
-            <h1 className="h1 max-w-[13ch] mb-8">
+            <h1 className="h1 max-w-[16ch] mb-6">
               More than one in three Glasgow children is growing up poor.
             </h1>
 
-            <p className="lede max-w-[50ch] mb-10">
+            <p className="lede max-w-[52ch] mb-7 !text-[clamp(17px,1.6vw,20px)]">
               Far more Glaswegians are in work than in 2000, and far fewer live in the
               country&apos;s worst-off neighbourhoods. Both are real gains. Yet child poverty here
               rose faster than in any other council area in Scotland.
@@ -66,25 +66,25 @@ export default function Hero() {
               </Link>
             </div>
 
-            <p className="mt-9 text-[14.5px] text-[var(--ink-2)] max-w-[46ch] leading-[1.55]">
+            <p className="mt-6 text-[14px] text-[var(--ink-2)] max-w-[46ch] leading-[1.55]">
               Every figure on this site comes from official published data, and every source is
               linked. Nothing here is an estimate of ours.
             </p>
           </div>
 
           {/* ---- The proportion, drawn ---- */}
-          <div className="lg:pl-6">
-            <div className="rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] p-7 sm:p-9" style={{ boxShadow: "var(--shadow-2)" }}>
-              <div className="flex items-end justify-between gap-6 mb-7">
+          <div className="lg:pl-6 lg:justify-self-end w-full max-w-[460px] mx-auto lg:mx-0">
+            <div className="rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] p-6 sm:p-7" style={{ boxShadow: "var(--shadow-2)" }}>
+              <div className="flex items-end justify-between gap-6 mb-5">
                 <div>
-                  <div className="figure-num text-[clamp(56px,7vw,88px)] text-[var(--action)]">
+                  <div className="figure-num text-[clamp(44px,4.5vw,64px)] text-[var(--action)]">
                     <CountUp value={36.1} decimals={1} suffix="%" />
                   </div>
-                  <p className="label label-quiet mt-3">of Glasgow&apos;s children</p>
+                  <p className="ui text-[13px] font-[600] text-[var(--muted)] mt-2">of Glasgow&apos;s children</p>
                 </div>
                 <div className="text-right">
-                  <div className="figure-num text-[26px] text-[var(--ink)]">39,319</div>
-                  <p className="label label-quiet mt-2">children</p>
+                  <div className="figure-num text-[22px] text-[var(--ink)]">39,319</div>
+                  <p className="ui text-[13px] font-[600] text-[var(--muted)] mt-1.5">children</p>
                 </div>
               </div>
 
@@ -94,7 +94,7 @@ export default function Hero() {
                 label="A hundred figures representing Glasgow's children. Thirty-six are highlighted, showing the share living in poverty in 2023 to 2024."
               />
 
-              <p className="mt-7 pt-5 border-t border-[var(--rule)] text-[14.5px] leading-[1.6] text-[var(--ink-2)]">
+              <p className="mt-5 pt-4 border-t border-[var(--rule)] text-[13.5px] leading-[1.55] text-[var(--ink-2)]">
                 Living in poverty in 2023/24, counted after the rent is paid. Ten years earlier it
                 was 27.1%.
               </p>

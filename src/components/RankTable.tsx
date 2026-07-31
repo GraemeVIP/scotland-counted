@@ -162,7 +162,7 @@ export default function RankTable({
                   <button
                     type="button"
                     onClick={() => toggle(c.key)}
-                    className={`ui w-full text-[10.5px] uppercase tracking-[0.1em] font-[680] pr-4 pt-1 pb-2.5 whitespace-nowrap transition-colors ${
+                    className={`ui w-full text-[12.5px] font-[680] pr-4 pt-1 pb-2.5 whitespace-nowrap transition-colors ${
                       c.numeric && c.key !== "rank" ? "text-right" : "text-left"
                     } ${active ? "text-[var(--brand)]" : "text-[var(--muted)] hover:text-[var(--ink)]"}`}
                   >

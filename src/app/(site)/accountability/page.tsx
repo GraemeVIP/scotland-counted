@@ -122,7 +122,7 @@ export default function Accountability() {
                       {["Measure", "The legal target", "What happened", ""].map((h, i) => (
                         <th
                           key={i}
-                          className="ui text-[10.5px] uppercase tracking-[0.1em] font-[680] text-[var(--muted)] text-left px-4 pt-4 pb-3 border-b-2 border-[var(--ink)]"
+                          className="ui text-[12.5px] font-[680] text-[var(--muted)] text-left px-4 pt-4 pb-3 border-b-2 border-[var(--ink)]"
                         >
                           {h}
                         </th>
@@ -135,14 +135,14 @@ export default function Accountability() {
                         <td className="ui px-4 py-3.5 border-b border-[var(--rule)] font-[640] text-[15px]">
                           {t.measure}
                         </td>
-                        <td className="datum px-4 py-3.5 border-b border-[var(--rule)] text-[14px] text-[var(--ink-2)]">
+                        <td className="ui tnum px-4 py-3.5 border-b border-[var(--rule)] text-[14px] text-[var(--ink-2)]">
                           {t.target}
                         </td>
-                        <td className="datum px-4 py-3.5 border-b border-[var(--rule)] text-[16px] font-[700] text-[var(--bad)]">
+                        <td className="ui tnum px-4 py-3.5 border-b border-[var(--rule)] text-[16px] font-[700] text-[var(--bad)]">
                           {t.actual}
                         </td>
                         <td className="px-4 py-3.5 border-b border-[var(--rule)]">
-                          <span className="ui text-[10.5px] uppercase tracking-[0.09em] font-[680] text-[var(--bad)] border border-current px-2.5 py-1.5 whitespace-nowrap">
+                          <span className="ui rounded-full text-[12px] font-[660] text-[var(--bad)] border border-current px-3 py-1.5 whitespace-nowrap">
                             Missed
                           </span>
                         </td>
@@ -236,7 +236,7 @@ export default function Accountability() {
                 >
                   {s.title}
                 </a>
-                <p className="ui text-[10.5px] uppercase tracking-[0.12em] font-[620] text-[var(--muted)] mt-1.5 mb-1.5">
+                <p className="ui text-[12.5px] text-[var(--muted)] mt-1.5 mb-1.5">
                   {s.publisher}
                 </p>
                 {s.used}

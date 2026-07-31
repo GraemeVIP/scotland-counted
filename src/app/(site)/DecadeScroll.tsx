@@ -117,7 +117,7 @@ export default function DecadeScroll() {
           <div className="grid gap-x-16 gap-y-8 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-center min-h-0">
             {/* ---- Narration ---- */}
             <div className="order-2 lg:order-1">
-              <p className="ui text-[11px] uppercase tracking-[0.16em] font-[650] opacity-55 mb-5">
+              <p className="ui text-[14px] font-[600] opacity-70 mb-5">
                 The decade, in your hands — keep scrolling
               </p>
 
@@ -157,7 +157,7 @@ export default function DecadeScroll() {
                 {caption.text}
               </p>
 
-              <p className="ui text-[11px] uppercase tracking-[0.13em] font-[620] opacity-45 mt-6">
+              <p className="ui text-[12.5px] opacity-50 mt-6">
                 End Child Poverty / Loughborough University · after housing costs
               </p>
             </div>
@@ -170,7 +170,7 @@ export default function DecadeScroll() {
                 dimColor="#f3efe6"
                 dimOpacity={0.16}
               />
-              <p className="ui text-[11.5px] uppercase tracking-[0.12em] font-[620] opacity-55 mt-5 text-center lg:text-left">
+              <p className="ui text-[14px] font-[560] opacity-75 mt-5 text-center lg:text-left">
                 <span className="text-[var(--action)] font-[750]">{lit}</span> in every 100
                 Glasgow children · {GLASGOW_CHILD_COUNTS[yearIdx].toLocaleString("en-GB")} children
               </p>

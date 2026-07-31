@@ -118,7 +118,7 @@ export default function WhatWouldFixIt() {
                     (h) => (
                       <th
                         key={h}
-                        className="ui text-[10.5px] uppercase tracking-[0.1em] font-[680] text-[var(--muted)] text-left align-bottom px-4 pt-4 pb-3 border-b-2 border-[var(--ink)]"
+                        className="ui text-[12.5px] font-[680] text-[var(--muted)] text-left align-bottom px-4 pt-4 pb-3 border-b-2 border-[var(--ink)]"
                       >
                         {h}
                       </th>
@@ -135,7 +135,7 @@ export default function WhatWouldFixIt() {
                     <td className="px-4 py-4 border-b border-[var(--rule)] text-[var(--ink-2)] text-[15px] leading-[1.55]">
                       {f.effect}
                     </td>
-                    <td className="datum px-4 py-4 border-b border-[var(--rule)] whitespace-nowrap text-[14px]">
+                    <td className="ui tnum px-4 py-4 border-b border-[var(--rule)] whitespace-nowrap text-[14px]">
                       {f.cost}
                     </td>
                     <td className="ui px-4 py-4 border-b border-[var(--rule)] whitespace-nowrap text-[14px] text-[var(--ink-2)]">
@@ -161,7 +161,7 @@ export default function WhatWouldFixIt() {
                   <StatusTag status={f.status} label={f.statusLabel} />
                 </div>
                 <p className="text-[15px] text-[var(--ink-2)] leading-[1.55] mb-3.5">{f.effect}</p>
-                <p className="datum text-[12px] text-[var(--muted)]">
+                <p className="ui tnum text-[12.5px] text-[var(--muted)]">
                   {f.cost} · decided by {f.lever}
                 </p>
               </div>
@@ -244,7 +244,7 @@ export default function WhatWouldFixIt() {
                 >
                   {s.title}
                 </a>
-                <p className="ui text-[10.5px] uppercase tracking-[0.12em] font-[620] text-[var(--muted)] mt-1.5 mb-1.5">
+                <p className="ui text-[12.5px] text-[var(--muted)] mt-1.5 mb-1.5">
                   {s.publisher}
                 </p>
                 {s.used}

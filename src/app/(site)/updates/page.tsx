@@ -71,7 +71,7 @@ export default function Updates() {
                   {fmtDate(e.date)}
                 </time>
                 <span
-                  className={`ui text-[10.5px] uppercase tracking-[0.1em] font-[680] ${KIND[e.kind].cls}`}
+                  className={`ui text-[12.5px] font-[680] ${KIND[e.kind].cls}`}
                 >
                   {KIND[e.kind].label}
                 </span>

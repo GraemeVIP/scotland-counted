@@ -103,7 +103,7 @@ export default function Methods() {
           <ol className="space-y-6 max-w-[78ch]">
             {sources.map((s, i) => (
               <li key={s.id} className="grid grid-cols-[2rem_1fr] gap-3">
-                <span className="datum text-[12px] text-[var(--muted)] pt-1 tnum">
+                <span className="ui text-[13px] text-[var(--muted)] pt-1 tnum">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <div>
@@ -115,13 +115,13 @@ export default function Methods() {
                   >
                     {s.title}
                   </a>
-                  <p className="datum text-[11.5px] text-[var(--muted)] mt-0.5 mb-1.5">
+                  <p className="ui text-[12.5px] text-[var(--muted)] mt-0.5 mb-1.5">
                     {s.publisher}
                   </p>
                   <p className="text-[15px] text-[var(--ink-2)] leading-[1.55]">{s.used}</p>
                   {s.derivation && (
                     <p className="text-[14.5px] text-[var(--ink-2)] leading-[1.55] mt-1.5 pl-3 border-l-2 border-[var(--rule)]">
-                      <span className="ui text-[10.5px] uppercase tracking-[0.1em] font-[620] text-[var(--muted)] block mb-0.5">
+                      <span className="ui text-[12px] font-[650] text-[var(--muted)] block mb-0.5">
                         Our derivation
                       </span>
                       {s.derivation}

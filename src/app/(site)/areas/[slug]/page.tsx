@@ -149,7 +149,7 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
               <div className="text-[30px] font-[640] tracking-[-0.028em] leading-none tnum">
                 {s.value}
               </div>
-              <div className="font-mono text-[12.5px] text-[var(--ink-2)] mt-2.5">{s.note}</div>
+              <div className="ui text-[13px] text-[var(--ink-2)] mt-2.5 tnum">{s.note}</div>
             </div>
           ))}
         </div>

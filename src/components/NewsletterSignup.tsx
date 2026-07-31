@@ -68,7 +68,7 @@ export default function NewsletterSignup({
   return (
     <form onSubmit={submit} className={compact ? "max-w-[340px]" : "max-w-[480px]"}>
       {!compact && (
-        <p className="label mb-3">The Count — one email when the data changes</p>
+        <p className="ui text-[15px] font-[680] mb-3">One email when the data changes</p>
       )}
       <div className="flex items-stretch gap-2">
         {/* Honeypot: hidden from people, tempting to bots. */}

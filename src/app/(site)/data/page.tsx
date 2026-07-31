@@ -105,12 +105,12 @@ export default function Data() {
                 <h2 className="text-[16.5px] font-[620] leading-[1.3] group-hover:text-[var(--brand)] transition-colors">
                   {f.title}
                 </h2>
-                <span className="font-mono text-[11px] text-[var(--muted)] shrink-0 pt-1">
+                <span className="ui text-[12.5px] text-[var(--muted)] shrink-0 pt-1">
                   {f.size}
                 </span>
               </div>
               <p className="text-[14.5px] text-[var(--ink-2)] leading-[1.5] mb-2.5">{f.body}</p>
-              <p className="font-mono text-[11.5px] text-[var(--brand)]">↓ {f.file}</p>
+              <p className="ui text-[13px] font-[620] text-[var(--brand)]">Download · {f.file}</p>
             </a>
           ))}
         </div>

@@ -20,7 +20,7 @@ export default function EmbedButton({ slug, title }: { slug: string; title: stri
 
   return (
     <details className="group">
-      <summary className="label label-quiet hover:text-[var(--brand)] cursor-pointer py-2 w-fit list-none flex items-center gap-2 text-[11px]">
+      <summary className="ui text-[13.5px] font-[620] text-[var(--ink-2)] hover:text-[var(--brand)] cursor-pointer py-2 w-fit list-none flex items-center gap-2">
         <span className="transition-transform group-open:rotate-90" aria-hidden="true">
           ▸
         </span>

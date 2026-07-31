@@ -41,7 +41,7 @@ function SourceStrip({ ids }: { ids: string[] }) {
             >
               {s.title}
             </a>
-            <p className="ui text-[10.5px] uppercase tracking-[0.12em] font-[620] text-[var(--muted)] mt-1.5 mb-1.5">
+            <p className="ui text-[12.5px] text-[var(--muted)] mt-1.5 mb-1.5">
               {s.publisher}
             </p>
             {s.used}

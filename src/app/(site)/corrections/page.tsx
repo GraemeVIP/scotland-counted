@@ -61,7 +61,7 @@ export default function Corrections() {
                     {["Date", "Page", "What changed"].map((h) => (
                       <th
                         key={h}
-                        className="ui text-[10.5px] uppercase tracking-[0.1em] font-[680] text-[var(--muted)] font-normal text-left pr-4 pb-2.5 border-b border-[var(--rule)]"
+                        className="ui text-[12.5px] font-[680] text-[var(--muted)] text-left pr-4 pb-2.5 border-b border-[var(--rule)]"
                       >
                         {h}
                       </th>
@@ -71,7 +71,7 @@ export default function Corrections() {
                 <tbody>
                   {LOG.map((l, i) => (
                     <tr key={i}>
-                      <td className="pr-4 py-3 border-b border-[var(--rule)] datum text-[13px] whitespace-nowrap">
+                      <td className="pr-4 py-3 border-b border-[var(--rule)] ui text-[13.5px] whitespace-nowrap">
                         {l.date}
                       </td>
                       <td className="pr-4 py-3 border-b border-[var(--rule)]">{l.page}</td>

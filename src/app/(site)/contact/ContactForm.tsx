@@ -123,7 +123,7 @@ export default function ContactForm() {
       />
 
       <label className="block mb-5">
-        <span className="label block mb-2">What is this about?</span>
+        <span className="ui block text-[14px] font-[660] mb-2">What is this about?</span>
         <select
           value={reason}
           onChange={(e) => setReason(e.target.value as ReasonId)}
@@ -144,7 +144,7 @@ export default function ContactForm() {
 
       <div className="grid gap-3 sm:grid-cols-2 mb-3">
         <label className="block">
-          <span className="label block mb-2">Your name</span>
+          <span className="ui block text-[14px] font-[660] mb-2">Your name</span>
           <input
             type="text"
             value={name}
@@ -154,7 +154,7 @@ export default function ContactForm() {
           />
         </label>
         <label className="block">
-          <span className="label block mb-2">Your email</span>
+          <span className="ui block text-[14px] font-[660] mb-2">Your email</span>
           <input
             type="email"
             required
@@ -167,7 +167,7 @@ export default function ContactForm() {
       </div>
 
       <label className="block mb-6">
-        <span className="label block mb-2">Your message</span>
+        <span className="ui block text-[14px] font-[660] mb-2">Your message</span>
         <textarea
           required
           value={message}
