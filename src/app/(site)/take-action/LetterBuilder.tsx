@@ -248,7 +248,7 @@ ${name.trim() || "[your name]"}
       <div>
         <div className="flex items-baseline justify-between gap-4 mb-2.5">
           <p className="label">Your letter — updates as you choose</p>
-          <p className="datum text-[11.5px] text-[var(--muted)]">
+          <p className="ui tnum text-[12px] text-[var(--muted)]">
             {letter.split(/\s+/).length} words
           </p>
         </div>

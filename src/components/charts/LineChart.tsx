@@ -195,7 +195,7 @@ export default function LineChart({
               textAnchor="end"
               fill={muted}
               fontSize={narrow ? 10 : 11}
-              fontFamily="var(--font-mono)"
+              fontFamily="var(--font-sans)"
             >
               {unit === "£" ? `£${t}` : `${t}${unit}`}
             </text>
@@ -210,7 +210,7 @@ export default function LineChart({
             textAnchor={i === 0 ? "start" : i === n - 1 ? "end" : "middle"}
             fill={muted}
             fontSize={narrow ? 10 : 11}
-            fontFamily="var(--font-mono)"
+            fontFamily="var(--font-sans)"
           >
             {x[i]}
           </text>
@@ -243,7 +243,7 @@ export default function LineChart({
                 y={m.t + 11}
                 fill={muted}
                 fontSize={10.5}
-                fontFamily="var(--font-mono)"
+                fontFamily="var(--font-sans)"
               >
                 {provisionalLabel}
               </text>

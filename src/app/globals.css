@@ -226,8 +226,8 @@
   .label {
     font-family: var(--font-sans);
     font-size: 12px;
-    font-weight: 620;
-    letter-spacing: 0.1em;
+    font-weight: 680;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--brand);
   }

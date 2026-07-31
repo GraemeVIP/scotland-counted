@@ -244,7 +244,9 @@ export function StatStrip({
         const dp = s.value.includes(".") ? 1 : 0;
         const inner = (
           <>
-            <div className="label label-quiet leading-[1.5] mb-5 sm:min-h-[3em]">{s.label}</div>
+            <div className="ui text-[13.5px] font-[600] text-[var(--ink-2)] leading-[1.45] mb-5 sm:min-h-[3em]">
+              {s.label}
+            </div>
             <div
               className={`figure-num text-[46px] ${
                 s.direction === "worsening" ? "text-[var(--bad)]" : "text-[var(--ink)]"
@@ -256,10 +258,12 @@ export function StatStrip({
                 s.value
               )}
             </div>
-            <div className="datum text-[12.5px] text-[var(--ink-2)] mt-4">
-              {s.from} <span className="text-[var(--muted)] px-0.5">→</span> {s.to}
+            <div className="ui text-[13.5px] text-[var(--ink-2)] mt-4 tnum">
+              was {s.from}, now {s.to}
             </div>
-            <div className="datum text-[11.5px] text-[var(--muted)] mt-1">{s.period}</div>
+            <div className="ui text-[12.5px] text-[var(--muted)] mt-0.5 tnum">
+              {s.period.replace("→", "to")}
+            </div>
           </>
         );
         return s.href ? (

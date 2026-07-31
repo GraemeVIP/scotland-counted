@@ -92,7 +92,7 @@ export default function Dumbbell({
         {ticks.map((t) => (
           <g key={t}>
             <line x1={X(t)} x2={X(t)} y1={m.t - 6} y2={m.t + rows.length * rowH} stroke={grid} strokeWidth={1} />
-            <text x={X(t)} y={12} textAnchor="middle" fill={muted} fontSize={narrow ? 10 : 11} fontFamily="var(--font-mono)">
+            <text x={X(t)} y={12} textAnchor="middle" fill={muted} fontSize={narrow ? 10 : 11} fontFamily="var(--font-sans)">
               {t}%
             </text>
           </g>
@@ -136,7 +136,7 @@ export default function Dumbbell({
                   fill={hi ? ink : muted}
                   fontSize={11.5}
                   fontWeight={hi ? 620 : 400}
-                  fontFamily="var(--font-mono)"
+                  fontFamily="var(--font-sans)"
                 >
                   {r.to.toFixed(1)}%
                 </text>
@@ -157,11 +157,11 @@ export default function Dumbbell({
         })}
 
         <circle cx={m.l + 4} cy={h - 11} r={4.5} fill={cOld} />
-        <text x={m.l + 13} y={h - 7} fill={readVar("--ink-2")} fontSize={narrow ? 10.5 : 11.5} fontFamily="var(--font-mono)">
+        <text x={m.l + 13} y={h - 7} fill={readVar("--ink-2")} fontSize={narrow ? 10.5 : 11.5} fontFamily="var(--font-sans)">
           {fromLabel}
         </text>
         <circle cx={m.l + (narrow ? 78 : 86)} cy={h - 11} r={4.5} fill={cNew} />
-        <text x={m.l + (narrow ? 87 : 95)} y={h - 7} fill={readVar("--ink-2")} fontSize={narrow ? 10.5 : 11.5} fontFamily="var(--font-mono)">
+        <text x={m.l + (narrow ? 87 : 95)} y={h - 7} fill={readVar("--ink-2")} fontSize={narrow ? 10.5 : 11.5} fontFamily="var(--font-sans)">
           {toLabel}
         </text>
       </svg>

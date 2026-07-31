@@ -281,7 +281,7 @@ export default function CommandPalette() {
                     {r.label}
                   </span>
                   {r.meta && (
-                    <span className="datum text-[12.5px] text-[var(--muted)] shrink-0">
+                    <span className="ui tnum text-[12.5px] text-[var(--muted)] shrink-0">
                       {r.meta}
                     </span>
                   )}

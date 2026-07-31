@@ -67,7 +67,7 @@ export default function Updates() {
               className="grid gap-x-10 gap-y-2 sm:grid-cols-[150px_minmax(0,1fr)] py-7 border-b border-[var(--rule)]"
             >
               <div>
-                <time dateTime={e.date} className="datum text-[13px] text-[var(--muted)] block">
+                <time dateTime={e.date} className="ui text-[13px] text-[var(--muted)] block">
                   {fmtDate(e.date)}
                 </time>
                 <span
