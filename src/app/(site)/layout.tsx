@@ -1,4 +1,5 @@
 import { Header, Footer } from "@/components/Chrome";
+import CommandPalette from "@/components/Command";
 import { JsonLd, orgJsonLd } from "@/lib/seo";
 
 /** Site chrome for every ordinary page. Embed routes skip this. */
@@ -14,6 +15,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
         {children}
       </main>
       <Footer />
+      <CommandPalette />
       <JsonLd data={orgJsonLd()} />
     </>
   );

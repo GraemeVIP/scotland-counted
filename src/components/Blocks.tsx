@@ -91,7 +91,16 @@ export function PageHeader({
 
         {stat && (
           <div className="lg:pb-2 lg:border-l lg:border-[var(--rule)] lg:pl-12 max-w-[340px]">
-            <div className={`figure-num text-[clamp(64px,8vw,110px)] ${tone}`}>{stat.value}</div>
+            <div className={`figure-num text-[clamp(64px,8vw,110px)] ${tone}`}>
+              {(() => {
+                const m = stat.value.match(/^(£?)(\d+(?:\.\d+)?)(%?)$/);
+                if (!m) return stat.value;
+                const dp = m[2].includes(".") ? m[2].split(".")[1].length : 0;
+                return (
+                  <CountUp value={parseFloat(m[2])} decimals={dp} prefix={m[1]} suffix={m[3]} />
+                );
+              })()}
+            </div>
             <p className="text-[14.5px] leading-[1.5] text-[var(--ink-2)] mt-5">{stat.label}</p>
           </div>
         )}

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Page, Col, PageHeader, CTA } from "@/components/Blocks";
 import Figure from "@/components/charts/Figure";
 import AreaDumbbell from "./AreaDumbbell";
+import RankTable from "@/components/RankTable";
 import { JsonLd, breadcrumbJsonLd, datasetJsonLd, meta } from "@/lib/seo";
 import { councilsByLevel, councilsByChange, COUNCIL_YEARS } from "@/lib/data/councils";
 
@@ -66,62 +67,25 @@ export default function Areas() {
         </div>
 
         <section className="pt-12">
-          <h2 className="h2 mb-5">Ranked by today&apos;s rate</h2>
-          <div className="overflow-x-auto">
-            <table className="w-full border-collapse text-[15px]">
-              <thead>
-                <tr>
-                  {["#", "Council area", last, first, "Change", "Children"].map((h) => (
-                    <th
-                      key={h}
-                      className="ui text-[10.5px] uppercase tracking-[0.1em] font-[680] text-[var(--muted)] font-normal text-right first:text-left [&:nth-child(2)]:text-left pr-4 pb-2.5 border-b border-[var(--rule)] whitespace-nowrap"
-                    >
-                      {h}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {byLevel.map((c) => (
-                  <tr
-                    key={c.slug}
-                    className={c.slug === "glasgow-city" ? "bg-[var(--glasgow-wash)]" : undefined}
-                  >
-                    <td className="pr-4 py-2.5 border-b border-[var(--rule)] tnum text-[var(--muted)]">
-                      {c.rankLevel}
-                    </td>
-                    <td className="pr-4 py-2.5 border-b border-[var(--rule)]">
-                      <Link
-                        href={`/areas/${c.slug}`}
-                        className={`hover:text-[var(--glasgow)] ${
-                          c.slug === "glasgow-city" ? "font-[640]" : ""
-                        }`}
-                      >
-                        {c.name}
-                      </Link>
-                    </td>
-                    <td className="pr-4 py-2.5 border-b border-[var(--rule)] text-right tnum font-[600]">
-                      {c.pcts[9]}%
-                    </td>
-                    <td className="pr-4 py-2.5 border-b border-[var(--rule)] text-right tnum text-[var(--ink-2)]">
-                      {c.pcts[0]}%
-                    </td>
-                    <td
-                      className={`pr-4 py-2.5 border-b border-[var(--rule)] text-right tnum ${
-                        c.change > 0 ? "text-[var(--bad)]" : "text-[var(--good)]"
-                      }`}
-                    >
-                      {c.change > 0 ? "+" : ""}
-                      {c.change}
-                    </td>
-                    <td className="py-2.5 border-b border-[var(--rule)] text-right tnum text-[var(--ink-2)]">
-                      {c.counts[9].toLocaleString("en-GB")}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <h2 className="h2 mb-2">Ranked by today&apos;s rate</h2>
+          <p className="text-[14.5px] text-[var(--ink-2)] mb-6">
+            Click any column heading to re-sort. The rank always refers to the {last} rate.
+          </p>
+          <RankTable
+            nameLabel="Council area"
+            latestLabel={last}
+            firstLabel={first}
+            rows={byLevel.map((c) => ({
+              rank: c.rankLevel,
+              name: c.name,
+              href: `/areas/${c.slug}`,
+              latest: c.pcts[9],
+              first: c.pcts[0],
+              change: c.change,
+              children: c.counts[9],
+              highlight: c.slug === "glasgow-city",
+            }))}
+          />
         </section>
 
         <Col className="pt-12">

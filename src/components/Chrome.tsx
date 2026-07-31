@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { site } from "@/lib/site";
-import { ScrollProgress } from "@/components/Motion";
+import { ScrollProgress, PictoGrid } from "@/components/Motion";
 
 export const NAV = [
   { href: "/the-numbers", label: "The numbers" },
@@ -22,6 +22,32 @@ function Wordmark({ className = "" }: { className?: string }) {
     >
       Glasgow<span className="text-[var(--action)]">Counted</span>
     </span>
+  );
+}
+
+function SearchButton() {
+  const [mac, setMac] = useState(false);
+  useEffect(() => {
+    setMac(/Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent));
+  }, []);
+  return (
+    <button
+      type="button"
+      onClick={() => window.dispatchEvent(new CustomEvent("open-command"))}
+      aria-label="Search the site"
+      className="group flex items-center gap-2.5 border border-[var(--rule-strong)] hover:border-[var(--ink)] transition-colors px-3 py-2"
+    >
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" className="text-[var(--muted)] group-hover:text-[var(--ink)] transition-colors" aria-hidden="true">
+        <circle cx="11" cy="11" r="7" />
+        <path d="m20 20-3.8-3.8" />
+      </svg>
+      <span className="ui hidden md:block text-[12.5px] text-[var(--muted)] group-hover:text-[var(--ink)] transition-colors">
+        Search
+      </span>
+      <kbd className="datum hidden md:block text-[10px] text-[var(--muted)] border border-[var(--rule)] px-1 py-0.5">
+        {mac ? "⌘K" : "Ctrl K"}
+      </kbd>
+    </button>
   );
 }
 
@@ -104,7 +130,8 @@ export function Header() {
           })}
         </nav>
 
-        <div className="ml-auto flex items-center gap-2">
+        <div className="ml-auto flex items-center gap-2.5">
+          <SearchButton />
           <ThemeToggle />
           <Link
             href="/take-action"
@@ -162,6 +189,18 @@ export function Footer() {
             <p className="ui text-[11px] uppercase tracking-[0.12em] font-[620] opacity-50 mt-7">
               Data last checked {site.dataUpdated}
             </p>
+            <div className="max-w-[280px] mt-8" aria-hidden="true">
+              <PictoGrid
+                lit={36}
+                columns={25}
+                litColor="var(--action)"
+                dimColor="#f3efe6"
+                dimOpacity={0.14}
+              />
+              <p className="ui text-[10px] uppercase tracking-[0.14em] font-[620] opacity-40 mt-2.5">
+                36 in every 100 Glasgow children · 2023/24
+              </p>
+            </div>
           </div>
 
           <div>
