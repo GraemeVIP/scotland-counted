@@ -25,6 +25,7 @@ import {
 } from "@/lib/data/indicators";
 import { councilsByLevel } from "@/lib/data/councils";
 import { site } from "../../site.config";
+import Hero from "./Hero";
 
 export const metadata = meta({
   title: "Poverty in Glasgow, counted properly",
@@ -68,50 +69,7 @@ export default function Home() {
       />
       <JsonLd data={faqJsonLd(FAQ)} />
 
-      {/* ================= HERO ================= */}
-      <FullBleed className="border-b border-[var(--rule)]">
-        <div className="bg-[var(--ground-2)] relative overflow-hidden">
-          <div
-            className="absolute inset-y-0 right-0 w-1/2 tick-rail opacity-40 pointer-events-none hidden lg:block"
-            aria-hidden="true"
-          />
-          <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 pt-16 pb-14 sm:pt-24 sm:pb-20 relative">
-            <Reveal>
-              <p className="eyebrow mb-8">
-                Glasgow City · 2000&ndash;2026 · Independent and fully sourced
-              </p>
-            </Reveal>
-
-            <Reveal delay={60}>
-              <h1 className="h1 max-w-[13ch] mb-10">
-                Poverty in Glasgow has not fallen. It changed shape.
-              </h1>
-            </Reveal>
-
-            <Reveal delay={120}>
-              <div className="grid gap-x-16 gap-y-10 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
-                <p className="lede max-w-[52ch]">
-                  Far more Glaswegians are in work than in 2000, and far fewer live in the
-                  country&apos;s worst-off neighbourhoods. Both are real gains. Over the same years
-                  the share of the city&apos;s children growing up poor rose by nine percentage
-                  points &mdash; the steepest rise of any council area in Scotland.
-                </p>
-
-                <div className="lg:border-l lg:border-[var(--rule-strong)] lg:pl-14 shrink-0">
-                  <div className="figure-num text-[clamp(84px,13vw,168px)] text-[var(--bad)]">
-                    36.1%
-                  </div>
-                  <p className="text-[16px] leading-[1.5] text-[var(--ink-2)] max-w-[30ch] mt-5">
-                    of Glasgow&apos;s children were living in poverty in 2023/24, counted after the
-                    rent is paid. That is{" "}
-                    <strong className="text-[var(--ink)] font-[600]">39,319 children</strong>.
-                  </p>
-                </div>
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </FullBleed>
+      <Hero />
 
       <Page>
         <StatStrip stats={headlineStats} />

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { site } from "../../site.config";
+import { ScrollProgress } from "@/components/Motion";
 
 export const NAV = [
   { href: "/the-numbers", label: "The numbers" },
@@ -19,7 +20,7 @@ function Wordmark({ className = "" }: { className?: string }) {
       className={`ui font-[800] tracking-[-0.04em] leading-none ${className}`}
       style={{ fontFamily: "var(--font-sans)" }}
     >
-      Glasgow<span className="text-[var(--glasgow)]">Counted</span>
+      Glasgow<span className="text-[var(--action)]">Counted</span>
     </span>
   );
 }
@@ -73,8 +74,8 @@ export function Header() {
     <header
       className={`sticky top-0 z-50 no-print transition-colors ${
         scrolled
-          ? "bg-[var(--ground)]/92 backdrop-blur-md border-b border-[var(--rule)]"
-          : "bg-transparent border-b border-transparent"
+          ? "bg-[var(--paper)]/94 backdrop-blur-md border-b border-[var(--rule)] shadow-[var(--shadow-1)]"
+          : "bg-[var(--paper)] border-b border-transparent"
       }`}
     >
       <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 flex items-center gap-8 h-[68px]">
@@ -96,7 +97,7 @@ export function Header() {
               >
                 {n.label}
                 {active && (
-                  <span className="absolute -bottom-0.5 left-0 right-0 h-[2px] bg-[var(--glasgow)]" />
+                  <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-[var(--action)]" />
                 )}
               </Link>
             );
@@ -107,7 +108,7 @@ export function Header() {
           <ThemeToggle />
           <Link
             href="/take-action"
-            className="ui hidden sm:inline-flex items-center gap-2 bg-[var(--ink)] text-[var(--ground)] px-4 py-2.5 text-[13.5px] font-[620] tracking-[-0.005em] hover:bg-[var(--glasgow)] hover:text-white transition-colors"
+            className="btn btn-primary hidden sm:inline-flex !px-5 !py-2.5 !text-[14px]"
           >
             Take action
           </Link>
@@ -125,6 +126,7 @@ export function Header() {
           </button>
         </div>
       </div>
+      <ScrollProgress />
 
       {open && (
         <nav
@@ -149,7 +151,7 @@ export function Header() {
 
 export function Footer() {
   return (
-    <footer className="mt-28 no-print bg-[var(--invert)] text-[var(--invert-ink)]">
+    <footer className="mt-28 no-print bg-[var(--deep)] text-[var(--deep-ink)]">
       <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 py-16 sm:py-20">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1.4fr)_repeat(3,minmax(0,1fr))]">
           <div>
@@ -157,13 +159,13 @@ export function Footer() {
             <p className="text-[15.5px] leading-[1.6] opacity-70 max-w-[36ch] mt-5">
               {site.tagline} An independent, fully sourced record — free to read, quote and reuse.
             </p>
-            <p className="font-mono text-[11px] uppercase tracking-[0.14em] opacity-45 mt-7">
+            <p className="ui text-[11px] uppercase tracking-[0.12em] font-[620] opacity-50 mt-7">
               Data last checked {site.dataUpdated}
             </p>
           </div>
 
           <div>
-            <p className="font-mono text-[11px] uppercase tracking-[0.16em] opacity-45 mb-5">
+            <p className="ui text-[11px] uppercase tracking-[0.12em] font-[620] opacity-50 mb-5">
               The site
             </p>
             <ul className="space-y-3 text-[15px]">
@@ -178,7 +180,7 @@ export function Footer() {
           </div>
 
           <div>
-            <p className="font-mono text-[11px] uppercase tracking-[0.16em] opacity-45 mb-5">
+            <p className="ui text-[11px] uppercase tracking-[0.12em] font-[620] opacity-50 mb-5">
               The evidence
             </p>
             <ul className="space-y-3 text-[15px]">
@@ -198,7 +200,7 @@ export function Footer() {
           </div>
 
           <div>
-            <p className="font-mono text-[11px] uppercase tracking-[0.16em] opacity-45 mb-5">
+            <p className="ui text-[11px] uppercase tracking-[0.12em] font-[620] opacity-50 mb-5">
               Who made this
             </p>
             <p className="text-[15px] leading-[1.6] opacity-75 max-w-[30ch]">
@@ -217,7 +219,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 pt-7 border-t border-current/15 flex flex-wrap gap-x-8 gap-y-2 font-mono text-[11px] uppercase tracking-[0.13em] opacity-45">
+        <div className="mt-14 pt-7 border-t border-current/15 flex flex-wrap gap-x-8 gap-y-2 ui text-[11px] uppercase tracking-[0.12em] font-[620] opacity-50">
           <span>ONS · DWP · Scottish Government · Academic sources</span>
           <Link href="/methods" className="hover:opacity-100 underline underline-offset-2">
             Every number is sourced

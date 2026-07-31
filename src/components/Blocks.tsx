@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import type { Direction } from "@/lib/data/indicators";
 import Reveal from "@/components/Reveal";
+import { CountUp } from "@/components/Motion";
 
 /* ============================================================
    Containers
@@ -76,13 +77,13 @@ export function PageHeader({
       ? "text-[var(--bad)]"
       : stat?.tone === "good"
         ? "text-[var(--good)]"
-        : "text-[var(--glasgow)]";
+        : "text-[var(--brand)]";
 
   return (
     <header className="pt-14 sm:pt-24 pb-10 sm:pb-14">
       <div className="grid gap-x-14 gap-y-10 lg:grid-cols-[minmax(0,1fr)_auto] items-end">
         <div>
-          {eyebrow && <p className="eyebrow mb-6">{eyebrow}</p>}
+          {eyebrow && <p className="label mb-6">{eyebrow}</p>}
           <h1 className="h1 max-w-[15ch] mb-7">{title}</h1>
           {lede && <div className="lede max-w-[54ch]">{lede}</div>}
           {children}
@@ -95,7 +96,7 @@ export function PageHeader({
           </div>
         )}
       </div>
-      <div className="rule-heavy mt-12 sm:mt-16" />
+      <div className="mt-12 sm:mt-16 border-t-2 border-[var(--ink)]" />
     </header>
   );
 }
@@ -110,7 +111,7 @@ export function DirectionChip({ direction }: { direction: Direction }) {
   const d = DIR[direction];
   return (
     <span
-      className={`inline-flex items-center gap-1.5 font-mono text-[10.5px] font-semibold uppercase tracking-[0.12em] px-2.5 py-1.5 border whitespace-nowrap ${d.cls}`}
+      className={`ui inline-flex items-center gap-1.5 text-[11px] font-[650] uppercase tracking-[0.1em] px-3 py-1.5 border whitespace-nowrap ${d.cls}`}
       style={{ borderColor: "currentColor" }}
     >
       <span aria-hidden="true" className="text-[11px] leading-none">
@@ -144,14 +145,14 @@ export function SectionHead({
     <div className={`grid gap-x-8 sm:grid-cols-[auto_minmax(0,1fr)] items-start ${className}`}>
       {n !== undefined && (
         <div
-          className="figure-num text-[clamp(40px,5vw,64px)] text-[var(--rule-strong)] select-none hidden sm:block"
+          className="figure-num text-[clamp(40px,5vw,64px)] text-[var(--action)] opacity-30 select-none hidden sm:block"
           aria-hidden="true"
         >
           {String(n).padStart(2, "0")}
         </div>
       )}
       <div>
-        {eyebrow && <p className="eyebrow mb-3">{eyebrow}</p>}
+        {eyebrow && <p className="label mb-3">{eyebrow}</p>}
         <div className="flex flex-wrap items-baseline gap-x-4 gap-y-3">
           <h2 id={id} className="h2 max-w-[22ch]">
             {title}
@@ -183,27 +184,34 @@ export function StatStrip({
   return (
     <div className="grid gap-px bg-[var(--rule)] border-y border-[var(--rule)] [grid-template-columns:repeat(auto-fit,minmax(230px,1fr))]">
       {stats.map((s, i) => {
+        const num = parseFloat(s.value.replace(/[^0-9.]/g, ""));
+        const suffix = s.value.replace(/^[0-9.]+/, "");
+        const dp = s.value.includes(".") ? 1 : 0;
         const inner = (
           <>
-            <div className="eyebrow leading-[1.5] mb-5 sm:min-h-[3em]">{s.label}</div>
+            <div className="label label-quiet leading-[1.5] mb-5 sm:min-h-[3em]">{s.label}</div>
             <div
-              className={`figure-num text-[42px] ${
-                s.direction === "worsening" ? "text-[var(--bad)]" : "text-[var(--good)]"
+              className={`figure-num text-[46px] ${
+                s.direction === "worsening" ? "text-[var(--bad)]" : "text-[var(--ink)]"
               }`}
             >
-              {s.value}
+              {Number.isFinite(num) ? (
+                <CountUp value={num} decimals={dp} suffix={suffix} />
+              ) : (
+                s.value
+              )}
             </div>
-            <div className="font-mono text-[12px] text-[var(--ink-2)] mt-4 tracking-tight">
+            <div className="datum text-[12.5px] text-[var(--ink-2)] mt-4">
               {s.from} <span className="text-[var(--muted)] px-0.5">→</span> {s.to}
             </div>
-            <div className="font-mono text-[11px] text-[var(--muted)] mt-1">{s.period}</div>
+            <div className="datum text-[11.5px] text-[var(--muted)] mt-1">{s.period}</div>
           </>
         );
         return s.href ? (
           <Link
             key={s.label}
             href={s.href}
-            className="group bg-[var(--ground)] px-6 pt-7 pb-8 hover:bg-[var(--ground-2)] transition-colors relative"
+            className="group bg-[var(--paper)] px-6 pt-7 pb-8 hover:bg-[var(--surface)] transition-colors relative"
           >
             {inner}
             <span
@@ -216,7 +224,7 @@ export function StatStrip({
             <span className="sr-only">{i}</span>
           </Link>
         ) : (
-          <div key={s.label} className="bg-[var(--ground)] px-6 pt-7 pb-8">
+          <div key={s.label} className="bg-[var(--paper)] px-6 pt-7 pb-8">
             {inner}
           </div>
         );
@@ -236,8 +244,8 @@ export function Note({
   children?: ReactNode;
 }) {
   return (
-    <aside className="border-l-2 border-[var(--glasgow)] pl-5 py-1 max-w-[340px]">
-      <p className="eyebrow mb-2">{label}</p>
+    <aside className="border-l-[3px] border-[var(--brand)] pl-6 py-1 max-w-[350px]">
+      <p className="label mb-2">{label}</p>
       {value && <p className="figure-num text-[38px] text-[var(--ink)] mb-2">{value}</p>}
       {children && (
         <div className="text-[15px] leading-[1.55] text-[var(--ink-2)]">{children}</div>
@@ -256,7 +264,7 @@ export function Slab({
 }) {
   return (
     <FullBleed className="my-16 sm:my-24">
-      <div className="bg-[var(--invert)] text-[var(--invert-ink)] py-16 sm:py-24">
+      <div className="bg-[var(--deep)] text-[var(--deep-ink)] py-20 sm:py-28">
         <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14">
           <Reveal>
             <p className="display text-[clamp(26px,3.6vw,46px)] max-w-[19ch] font-[750]">
@@ -276,7 +284,7 @@ export function Slab({
 
 export function Callout({ children }: { children: ReactNode }) {
   return (
-    <div className="border-l-2 border-[var(--glasgow)] bg-[var(--surface-2)] px-6 py-5 my-8 prose max-w-[680px]">
+    <div className="border-l-[3px] border-[var(--action)] bg-[var(--surface-2)] px-6 py-5 my-8 prose max-w-[680px]">
       {children}
     </div>
   );
@@ -299,17 +307,17 @@ export function CTA({
 }) {
   return (
     <FullBleed className="mt-20 sm:mt-28">
-      <div className="bg-[var(--ground-2)] border-y border-[var(--rule)] py-16 sm:py-20">
+      <div className="bg-[var(--deep)] text-[var(--deep-ink)] py-18 sm:py-24">
         <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14">
           <div className="grid gap-x-14 gap-y-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
             <div>
               <h2 className="h2 mb-4 max-w-[18ch]">{title}</h2>
-              <p className="text-[var(--ink-2)] max-w-[54ch] text-[17px] leading-[1.55]">{body}</p>
+              <p className="opacity-80 max-w-[54ch] text-[17.5px] leading-[1.55]">{body}</p>
             </div>
             <div className="flex flex-wrap gap-3 shrink-0">
               <Link
                 href={href}
-                className="ui inline-flex items-center gap-2.5 bg-[var(--ink)] text-[var(--ground)] px-7 py-4 font-[620] text-[15.5px] tracking-[-0.01em] hover:bg-[var(--glasgow)] hover:text-white transition-colors"
+                className="btn btn-primary"
               >
                 {cta}
                 <span aria-hidden="true">→</span>
@@ -317,7 +325,7 @@ export function CTA({
               {secondaryHref && secondaryCta && (
                 <Link
                   href={secondaryHref}
-                  className="ui inline-flex items-center border border-[var(--rule-strong)] px-7 py-4 font-[620] text-[15.5px] tracking-[-0.01em] hover:border-[var(--ink)] transition-colors"
+                  className="btn border-current/35 text-current hover:bg-white/10"
                 >
                   {secondaryCta}
                 </Link>
@@ -347,17 +355,17 @@ export function Card({
   return (
     <Link
       href={href}
-      className="group relative flex flex-col bg-[var(--surface)] border border-[var(--rule)] p-6 sm:p-7 hover:border-[var(--ink)] transition-colors"
+      className="group relative flex flex-col bg-[var(--surface)] border border-[var(--rule)] p-7 sm:p-8 transition-all duration-300 hover:border-[var(--brand)] hover:-translate-y-1 hover:shadow-[var(--shadow-2)]"
     >
       <div className="flex items-start justify-between gap-4 mb-4">
-        <p className="eyebrow">{eyebrow}</p>
+        <p className="label">{eyebrow}</p>
         {meta}
       </div>
-      <h3 className="h3 mb-3 group-hover:text-[var(--glasgow)] transition-colors">{title}</h3>
+      <h3 className="h3 mb-3 group-hover:text-[var(--brand)] transition-colors">{title}</h3>
       <p className="text-[15.5px] text-[var(--ink-2)] leading-[1.55]">{body}</p>
       <span
         aria-hidden="true"
-        className="mt-6 text-[var(--muted)] group-hover:text-[var(--glasgow)] group-hover:translate-x-1 transition-all"
+        className="mt-7 text-[var(--action)] text-[18px] group-hover:translate-x-1.5 transition-transform"
       >
         →
       </span>

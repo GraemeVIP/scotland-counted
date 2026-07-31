@@ -34,14 +34,14 @@ export default function Figure({
           <p className="h4 max-w-[46ch]">{title}</p>
           {n !== undefined && (
             <span
-              className="font-mono text-[10.5px] uppercase tracking-[0.14em] text-[var(--muted)] shrink-0 pt-1"
+              className="label label-quiet shrink-0 pt-1 text-[11px]"
               aria-hidden="true"
             >
               Fig. {String(n).padStart(2, "0")}
             </span>
           )}
         </div>
-        <p className="font-mono text-[11px] tracking-[0.05em] text-[var(--muted)] leading-[1.55] max-w-[80ch]">
+        <p className="datum text-[11.5px] text-[var(--muted)] leading-[1.55] max-w-[80ch]">
           {sub}
         </p>
 
@@ -66,7 +66,7 @@ export default function Figure({
 
         {table && (
           <details className="mt-4 group">
-            <summary className="font-mono text-[11px] uppercase tracking-[0.13em] text-[var(--ink-2)] hover:text-[var(--ink)] cursor-pointer py-1.5 w-fit list-none flex items-center gap-2">
+            <summary className="label label-quiet hover:text-[var(--brand)] cursor-pointer py-2 w-fit list-none flex items-center gap-2 text-[11px]">
               <span className="transition-transform group-open:rotate-90" aria-hidden="true">
                 ▸
               </span>
@@ -84,7 +84,7 @@ export default function Figure({
 
         {technical && technical.length > 0 && (
           <details className="border-t border-[var(--rule)] mt-4 group">
-            <summary className="font-mono text-[11px] uppercase tracking-[0.13em] text-[var(--ink-2)] hover:text-[var(--ink)] cursor-pointer py-3.5 w-fit list-none flex items-center gap-2">
+            <summary className="label label-quiet hover:text-[var(--brand)] cursor-pointer py-4 w-fit list-none flex items-center gap-2 text-[11px]">
               <span className="transition-transform group-open:rotate-90" aria-hidden="true">
                 ▸
               </span>
@@ -119,7 +119,7 @@ export function DataTable({
           {head.map((h) => (
             <th
               key={h}
-              className="text-[10.5px] uppercase tracking-[0.1em] text-[var(--muted)] font-medium text-right first:text-left pr-4 pb-2 border-b border-[var(--rule-strong)] whitespace-nowrap"
+              className="text-[10.5px] uppercase tracking-[0.1em] text-[var(--muted)] font-semibold text-right first:text-left pr-4 pb-2 border-b border-[var(--rule-strong)] whitespace-nowrap"
             >
               {h}
             </th>

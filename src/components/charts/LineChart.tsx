@@ -50,6 +50,10 @@ export default function LineChart({
   const [w, setW] = useState(0);
   const [hover, setHover] = useState<number | null>(null);
   const [themeTick, setThemeTick] = useState(0);
+  const [drawn, setDrawn] = useState(false);
+  /** Once the draw-in has had its moment, drop the dash entirely so a
+   *  suspended transition can never leave a line invisible. */
+  const [settled, setSettled] = useState(false);
 
   useEffect(() => {
     const host = hostRef.current;
@@ -59,6 +63,38 @@ export default function LineChart({
     setW(host.clientWidth);
     return () => ro.disconnect();
   }, []);
+
+  useEffect(() => {
+    const host = hostRef.current;
+    if (!host) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setDrawn(true);
+      return;
+    }
+    const io = new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting) {
+          setDrawn(true);
+          io.disconnect();
+        }
+      },
+      { threshold: 0.15 }
+    );
+    io.observe(host);
+    // Safety net: a chart must never stay invisible because an
+    // animation did not run. Timers fire even when rAF is suspended.
+    const settle = setTimeout(() => setDrawn(true), 2500);
+    return () => {
+      io.disconnect();
+      clearTimeout(settle);
+    };
+  }, [w]);
+
+  useEffect(() => {
+    if (!drawn) return;
+    const t = setTimeout(() => setSettled(true), 1900);
+    return () => clearTimeout(t);
+  }, [drawn]);
 
   useEffect(() => {
     const bump = () => setThemeTick((t) => t + 1);
@@ -106,6 +142,15 @@ export default function LineChart({
     if (i % step !== 0 && i !== n - 1) continue;
     if (i !== n - 1 && n - 1 - i < step * 0.6) continue;
     xTickIdx.push(i);
+  }
+
+  /** Length of a path segment, so the draw-in animation has a dash to run. */
+  function pathLength(s: LineSeries, from: number, to: number) {
+    let total = 0;
+    for (let i = from; i < to; i++) {
+      total += Math.hypot(X(i + 1) - X(i), Y(s.data[i + 1]) - Y(s.data[i]));
+    }
+    return Math.ceil(total) + 8;
   }
 
   function path(s: LineSeries, from: number, to: number) {
@@ -212,26 +257,61 @@ export default function LineChart({
             <g key={s.name}>
               {pf >= 0 ? (
                 <>
-                  <path d={path(s, 0, pf)} fill="none" stroke={col} strokeWidth={2} strokeLinejoin="round" strokeLinecap="round" />
-                  <path d={path(s, pf, n - 1)} fill="none" stroke={col} strokeWidth={2} strokeDasharray="2 4" opacity={0.55} strokeLinecap="round" />
+                  <path
+                    d={path(s, 0, pf)}
+                    fill="none"
+                    stroke={col}
+                    strokeWidth={2.25}
+                    strokeLinejoin="round"
+                    strokeLinecap="round"
+                    className={settled ? undefined : `draw ${drawn ? "in" : ""}`}
+                    style={settled ? undefined : { ["--len" as string]: pathLength(s, 0, pf) }}
+                  />
+                  <path
+                    d={path(s, pf, n - 1)}
+                    fill="none"
+                    stroke={col}
+                    strokeWidth={2.25}
+                    strokeDasharray="2 4"
+                    opacity={drawn ? 0.55 : 0}
+                    strokeLinecap="round"
+                    style={{ transition: "opacity 0.6s 1.1s" }}
+                  />
                 </>
               ) : (
-                <path d={path(s, 0, n - 1)} fill="none" stroke={col} strokeWidth={2} strokeLinejoin="round" strokeLinecap="round" />
+                <path
+                  d={path(s, 0, n - 1)}
+                  fill="none"
+                  stroke={col}
+                  strokeWidth={2.25}
+                  strokeLinejoin="round"
+                  strokeLinecap="round"
+                  className={settled ? undefined : `draw ${drawn ? "in" : ""}`}
+                  style={settled ? undefined : { ["--len" as string]: pathLength(s, 0, n - 1) }}
+                />
               )}
-              <circle cx={X(labelAt)} cy={Y(s.data[labelAt])} r={5.5} fill={surface} />
-              <circle cx={X(labelAt)} cy={Y(s.data[labelAt])} r={4} fill={col} />
-              {!narrow && (
-                <text
-                  x={pf >= 0 ? X(labelAt) - 9 : X(labelAt) + 9}
-                  y={Y(s.data[labelAt]) + 4}
-                  textAnchor={pf >= 0 ? "end" : "start"}
-                  fill={ink}
-                  fontSize={12.5}
-                  fontWeight={620}
-                >
-                  {s.data[labelAt].toFixed(decimals)}
-                </text>
-              )}
+              <g
+                style={{
+                  opacity: drawn ? 1 : 0,
+                  transition: "opacity 0.5s 1.2s",
+                }}
+              >
+                <circle cx={X(labelAt)} cy={Y(s.data[labelAt])} r={5.5} fill={surface} />
+                <circle cx={X(labelAt)} cy={Y(s.data[labelAt])} r={4} fill={col} />
+                {!narrow && (
+                  <text
+                    x={pf >= 0 ? X(labelAt) - 9 : X(labelAt) + 9}
+                    y={Y(s.data[labelAt]) + 4}
+                    textAnchor={pf >= 0 ? "end" : "start"}
+                    fill={ink}
+                    fontSize={13}
+                    fontWeight={700}
+                    fontFamily="var(--font-sans)"
+                  >
+                    {s.data[labelAt].toFixed(decimals)}
+                  </text>
+                )}
+              </g>
             </g>
           );
         })}

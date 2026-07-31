@@ -3,129 +3,129 @@
 /* ============================================================
    GLASGOW COUNTED — design system
 
-   Art direction: a public record kept properly. Blonde sandstone
-   neutrals, a heavy grotesque set tight for display, an editorial
-   serif for argument, and a mono for anything a reader might need
-   to verify. Depth comes from layered surfaces and a faint grain,
-   never from decorative shadow.
+   Direction: a civic institution, not a dashboard. Warm paper as the
+   default ground, a deep Clyde blue as the institutional voice, amber
+   for anything that asks the reader to act. Data colours are held
+   separate from brand colours so a chart never looks like a button.
    ============================================================ */
 
 :root {
   color-scheme: light;
 
-  /* Surfaces, darkest ground to highest panel */
-  --ground: #f2efe8;
-  --ground-2: #eae6dc;
-  --surface: #fbfaf7;
-  --surface-2: #f2efe8;
-  --surface-3: #e6e1d5;
-  --invert: #16140f;
-  --invert-ink: #f7f5ef;
+  /* Grounds — warm paper */
+  --paper: #f7f4ee;
+  --paper-2: #efeae0;
+  --paper-3: #e6dfd1;
+  --surface: #ffffff;
+  --surface-2: #faf7f2;
+
+  /* Institutional deep — used for full-bleed bands and the footer */
+  --deep: #0d2f45;
+  --deep-2: #113b56;
+  --deep-ink: #f3efe6;
 
   /* Ink */
-  --ink: #16140f;
-  --ink-2: #4f4b42;
-  --muted: #86806f;
-  --rule: #ddd7c8;
-  --rule-strong: #c8c1ae;
-  --grid: #e3ded1;
-  --baseline: #bdb6a2;
+  --ink: #191512;
+  --ink-2: #554e45;
+  --ink-3: #7d7568;
+  --muted: #948b7c;
+  --rule: #ded7c8;
+  --rule-strong: #c4bba7;
+  --grid: #e6dfd1;
+  --baseline: #bdb4a0;
 
-  /* Data */
+  /* Brand */
+  --brand: #14547a;
+  --brand-deep: #0d2f45;
+  --brand-wash: rgba(20, 84, 122, 0.07);
+  --action: #c2661b;
+  --action-hover: #a5560f;
+
+  /* Data series — validated for colour-vision deficiency */
   --glasgow: #2a78d6;
   --scotland: #eb6834;
   --workplace: #1baf7a;
-  --glasgow-wash: rgba(42, 120, 214, 0.09);
+  --glasgow-wash: rgba(42, 120, 214, 0.08);
 
-  /* Signal — used only for direction of travel and accountability */
-  --good: #0a7d33;
+  /* Signal — restrained, never the brand */
+  --good: #1d7a45;
   --warn: #9a6b00;
-  --bad: #c0392b;
-  --flat: #6f6a5d;
+  --bad: #a8321f;
+  --flat: #7d7568;
 
-  --grain-opacity: 0.035;
-  --shadow-1: 0 1px 2px rgba(22, 20, 15, 0.04);
-  --shadow-2: 0 2px 4px rgba(22, 20, 15, 0.05), 0 12px 28px -20px rgba(22, 20, 15, 0.4);
+  --grain-opacity: 0.028;
+  --shadow-1: 0 1px 2px rgba(25, 21, 18, 0.04);
+  --shadow-2: 0 1px 3px rgba(25, 21, 18, 0.05), 0 14px 34px -22px rgba(25, 21, 18, 0.32);
+  --shadow-3: 0 2px 6px rgba(25, 21, 18, 0.06), 0 30px 60px -30px rgba(25, 21, 18, 0.4);
 
   --font-sans: var(--font-display), system-ui, sans-serif;
   --font-serif: var(--font-text), Georgia, serif;
   --font-mono: var(--font-mono-face), ui-monospace, Menlo, monospace;
+
+  --ease: cubic-bezier(0.22, 0.68, 0.28, 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:where(:not([data-theme="light"])) {
-    color-scheme: dark;
-    --ground: #0b0a09;
-    --ground-2: #121110;
-    --surface: #171614;
-    --surface-2: #1e1c1a;
-    --surface-3: #262320;
-    --invert: #f7f5ef;
-    --invert-ink: #16140f;
-    --ink: #f5f2ea;
-    --ink-2: #b3ad9f;
-    --muted: #837d70;
-    --rule: #2a2724;
-    --rule-strong: #3b3733;
-    --grid: #262320;
-    --baseline: #423d38;
-    --glasgow: #4a92ea;
-    --scotland: #ef7748;
-    --workplace: #25c089;
-    --glasgow-wash: rgba(74, 146, 234, 0.12);
-    --good: #35c05c;
-    --warn: #e0a52a;
-    --bad: #ef6b5c;
-    --flat: #837d70;
-    --grain-opacity: 0.05;
-    --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.5);
-    --shadow-2: 0 2px 4px rgba(0, 0, 0, 0.4), 0 14px 32px -22px rgba(0, 0, 0, 1);
-  }
-}
+/* Light is the default, deliberately: the warm paper ground is the
+   identity. Dark is available, but only when the reader asks for it
+   with the toggle — we do not follow the OS setting, because flipping
+   a civic publication to near-black changes what it looks like it is. */
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --ground: #0b0a09;
-  --ground-2: #121110;
-  --surface: #171614;
-  --surface-2: #1e1c1a;
-  --surface-3: #262320;
-  --invert: #f7f5ef;
-  --invert-ink: #16140f;
-  --ink: #f5f2ea;
-  --ink-2: #b3ad9f;
-  --muted: #837d70;
-  --rule: #2a2724;
-  --rule-strong: #3b3733;
-  --grid: #262320;
-  --baseline: #423d38;
-  --glasgow: #4a92ea;
-  --scotland: #ef7748;
-  --workplace: #25c089;
-  --glasgow-wash: rgba(74, 146, 234, 0.12);
-  --good: #35c05c;
-  --warn: #e0a52a;
-  --bad: #ef6b5c;
-  --flat: #837d70;
-  --grain-opacity: 0.05;
+  --paper: #14110e;
+  --paper-2: #1b1714;
+  --paper-3: #241f1a;
+  --surface: #1a1613;
+  --surface-2: #211c18;
+  --deep: #0a1f2e;
+  --deep-2: #0d2a3d;
+  --deep-ink: #eee9de;
+  --ink: #f4f0e7;
+  --ink-2: #b5ac9d;
+  --ink-3: #8e8577;
+  --muted: #857c6e;
+  --rule: #2d2823;
+  --rule-strong: #443d35;
+  --grid: #282320;
+  --baseline: #4a4239;
+  --brand: #5ca4cc;
+  --brand-deep: #0a1f2e;
+  --brand-wash: rgba(92, 164, 204, 0.12);
+  --action: #e08a3c;
+  --action-hover: #eda256;
+  --glasgow: #3987e5;
+  --scotland: #d95926;
+  --workplace: #199e70;
+  --glasgow-wash: rgba(57, 135, 229, 0.13);
+  --good: #3fae67;
+  --warn: #d9a13a;
+  --bad: #dd6a55;
+  --flat: #857c6e;
+  --grain-opacity: 0.045;
   --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.5);
-  --shadow-2: 0 2px 4px rgba(0, 0, 0, 0.4), 0 14px 32px -22px rgba(0, 0, 0, 1);
+  --shadow-2: 0 1px 3px rgba(0, 0, 0, 0.5), 0 14px 34px -22px rgba(0, 0, 0, 1);
+  --shadow-3: 0 2px 6px rgba(0, 0, 0, 0.5), 0 30px 60px -30px rgba(0, 0, 0, 1);
 }
 
 @theme inline {
-  --color-ground: var(--ground);
-  --color-ground-2: var(--ground-2);
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-paper-3: var(--paper-3);
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
-  --color-surface-3: var(--surface-3);
-  --color-invert: var(--invert);
-  --color-invert-ink: var(--invert-ink);
+  --color-deep: var(--deep);
+  --color-deep-2: var(--deep-2);
+  --color-deep-ink: var(--deep-ink);
   --color-ink: var(--ink);
   --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
   --color-muted: var(--muted);
   --color-rule: var(--rule);
   --color-rule-strong: var(--rule-strong);
   --color-baseline: var(--baseline);
+  --color-brand: var(--brand);
+  --color-brand-deep: var(--brand-deep);
+  --color-action: var(--action);
   --color-glasgow: var(--glasgow);
   --color-scotland: var(--scotland);
   --color-workplace: var(--workplace);
@@ -152,29 +152,31 @@
   }
 
   body {
-    background: var(--ground);
+    background: var(--paper);
     color: var(--ink);
     font-family: var(--font-serif);
-    font-size: 18px;
-    line-height: 1.62;
+    font-size: 18.5px;
+    line-height: 1.64;
     margin: 0;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
 
-  /* Faint paper grain. Stops large dark areas reading as flat digital black. */
   .grain {
     position: fixed;
     inset: 0;
     z-index: 1;
     pointer-events: none;
     opacity: var(--grain-opacity);
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  :root[data-theme="dark"] .grain {
     mix-blend-mode: overlay;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
   ::selection {
-    background: var(--glasgow);
+    background: var(--brand);
     color: #fff;
   }
 
@@ -183,9 +185,8 @@
   }
 
   :focus-visible {
-    outline: 2px solid var(--glasgow);
+    outline: 2px solid var(--brand);
     outline-offset: 3px;
-    border-radius: 1px;
   }
 
   .skip-link {
@@ -208,60 +209,70 @@
      Typography
      ============================================================ */
 
-  .eyebrow {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.16em;
+  /* Small label. Sans, not mono — mono everywhere reads as a terminal. */
+  .label {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 620;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
+    color: var(--brand);
+  }
+  .label-quiet {
     color: var(--muted);
+  }
+
+  /* Mono is reserved for data the reader might verify. */
+  .datum {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
   }
 
   .display {
     font-family: var(--font-sans);
     font-weight: 800;
     letter-spacing: -0.035em;
-    line-height: 0.94;
+    line-height: 0.96;
     text-wrap: balance;
   }
 
   .h1 {
     font-family: var(--font-sans);
-    font-size: clamp(42px, 7.2vw, 92px);
+    font-size: clamp(44px, 7vw, 96px);
     font-weight: 800;
-    line-height: 0.94;
+    line-height: 0.95;
     letter-spacing: -0.038em;
     text-wrap: balance;
   }
 
   .h2 {
     font-family: var(--font-sans);
-    font-size: clamp(27px, 3.9vw, 44px);
-    font-weight: 750;
-    line-height: 1.04;
+    font-size: clamp(28px, 3.8vw, 46px);
+    font-weight: 760;
+    line-height: 1.05;
     letter-spacing: -0.028em;
     text-wrap: balance;
   }
 
   .h3 {
     font-family: var(--font-sans);
-    font-size: 20px;
-    font-weight: 650;
+    font-size: 21px;
+    font-weight: 660;
     letter-spacing: -0.016em;
     line-height: 1.25;
   }
 
   .h4 {
     font-family: var(--font-sans);
-    font-size: 16px;
-    font-weight: 620;
+    font-size: 17px;
+    font-weight: 640;
     letter-spacing: -0.008em;
   }
 
   .lede {
     font-family: var(--font-serif);
-    font-size: clamp(19px, 2.2vw, 23px);
-    line-height: 1.5;
+    font-size: clamp(20px, 2.2vw, 25px);
+    line-height: 1.48;
     color: var(--ink-2);
     font-weight: 300;
   }
@@ -275,7 +286,7 @@
   }
 
   .prose p {
-    margin: 0 0 20px;
+    margin: 0 0 21px;
     max-width: 62ch;
   }
   .prose p:last-child {
@@ -289,17 +300,17 @@
   }
   .prose ul > li {
     position: relative;
-    padding-left: 22px;
-    margin-bottom: 12px;
+    padding-left: 24px;
+    margin-bottom: 13px;
   }
   .prose ul > li::before {
     content: "";
     position: absolute;
     left: 0;
-    top: 0.72em;
-    width: 9px;
-    height: 1.5px;
-    background: var(--glasgow);
+    top: 0.7em;
+    width: 11px;
+    height: 2px;
+    background: var(--action);
   }
   .prose strong {
     font-weight: 600;
@@ -316,15 +327,57 @@
     transition: text-decoration-color 0.15s;
   }
   .prose a:not(.gl):hover {
-    text-decoration-color: var(--glasgow);
+    text-decoration-color: var(--brand);
   }
 
   .tnum {
     font-variant-numeric: tabular-nums;
   }
-
   .ui {
     font-family: var(--font-sans);
+  }
+
+  /* ============================================================
+     Buttons
+     ============================================================ */
+
+  .btn {
+    font-family: var(--font-sans);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 28px;
+    font-size: 15.5px;
+    font-weight: 640;
+    letter-spacing: -0.008em;
+    border: 1px solid transparent;
+    transition: background 0.18s var(--ease), color 0.18s var(--ease),
+      border-color 0.18s var(--ease), transform 0.18s var(--ease);
+  }
+  .btn:hover {
+    transform: translateY(-1px);
+  }
+  .btn-primary {
+    background: var(--action);
+    color: #fff;
+  }
+  .btn-primary:hover {
+    background: var(--action-hover);
+  }
+  .btn-ghost {
+    border-color: var(--rule-strong);
+    color: var(--ink);
+  }
+  .btn-ghost:hover {
+    border-color: var(--ink);
+    background: var(--surface);
+  }
+  .btn-on-deep {
+    background: var(--deep-ink);
+    color: var(--deep);
+  }
+  .btn-on-deep:hover {
+    background: #fff;
   }
 
   /* ============================================================
@@ -339,17 +392,14 @@
     padding: 0;
     margin: 0;
     cursor: help;
-    border-bottom: 1.5px dotted var(--glasgow);
+    border-bottom: 1.5px dotted var(--brand);
     text-align: left;
     transition: background 0.15s;
   }
-  button.gl:hover {
-    border-bottom-style: solid;
-    background: var(--glasgow-wash);
-  }
+  button.gl:hover,
   button.gl[aria-expanded="true"] {
     border-bottom-style: solid;
-    background: var(--glasgow-wash);
+    background: var(--brand-wash);
   }
 
   .glossbox {
@@ -358,8 +408,8 @@
     max-width: 350px;
     background: var(--surface);
     border: 1px solid var(--rule-strong);
-    box-shadow: var(--shadow-2);
-    padding: 16px 18px 17px;
+    box-shadow: var(--shadow-3);
+    padding: 17px 19px 18px;
     font-family: var(--font-serif);
     font-size: 15px;
     line-height: 1.5;
@@ -367,39 +417,45 @@
   }
 
   /* ============================================================
-     Reveal on scroll
+     Motion
      ============================================================ */
 
   .reveal {
     opacity: 0;
-    transform: translateY(18px);
-    transition: opacity 0.7s cubic-bezier(0.2, 0.7, 0.3, 1),
-      transform 0.7s cubic-bezier(0.2, 0.7, 0.3, 1);
+    transform: translateY(24px);
+    transition: opacity 0.85s var(--ease), transform 0.85s var(--ease);
   }
   .reveal.in {
     opacity: 1;
     transform: none;
   }
 
-  /* ============================================================
-     Rules that carry meaning
-     ============================================================ */
-
-  .rule-heavy {
-    border-top: 2px solid var(--ink);
+  /* Scroll progress, pinned under the header */
+  .progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: var(--action);
+    z-index: 60;
+    transform-origin: 0 50%;
+    will-change: transform;
   }
-  .rule-hair {
-    border-top: 1px solid var(--rule);
+
+  /* Chart lines draw themselves in */
+  .draw {
+    stroke-dasharray: var(--len);
+    stroke-dashoffset: var(--len);
+    transition: stroke-dashoffset 1.5s var(--ease);
+  }
+  .draw.in {
+    stroke-dashoffset: 0;
   }
 
-  /* Vertical measure marks, echoing a survey grid */
-  .tick-rail {
-    background-image: repeating-linear-gradient(
-      to right,
-      var(--rule) 0 1px,
-      transparent 1px 100%
-    );
-    background-size: 60px 100%;
+  /* Pictogram array. Fill is set inline per figure so it cannot be
+     out-cascaded; this only carries the transition. */
+  .pict {
+    transition: fill 0.45s var(--ease), opacity 0.45s var(--ease);
   }
 }
 
@@ -412,6 +468,14 @@
     transform: none;
     transition: none;
   }
+  .draw {
+    stroke-dasharray: none;
+    stroke-dashoffset: 0;
+    transition: none;
+  }
+  .btn:hover {
+    transform: none;
+  }
   *,
   *::before,
   *::after {
@@ -422,7 +486,8 @@
 
 @media print {
   .no-print,
-  .grain {
+  .grain,
+  .progress {
     display: none !important;
   }
 }
