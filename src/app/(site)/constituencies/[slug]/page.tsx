@@ -156,22 +156,6 @@ export default async function ConstituencyPage(props: { params: Promise<{ slug: 
         </div>
 
         <div className="mt-9">
-          <ConstituencyLetter
-            slug={c.slug}
-            area={{
-              name: c.name,
-              pct: c.pcts[9],
-              count: c.counts[9],
-              firstPct: c.pcts[0],
-              firstYear: first,
-              scotlandPct: SCOTLAND_PCTS[9],
-            }}
-          />
-        </div>
-
-        <WhoDoesWhat className="mt-14" />
-
-        <div className="mt-14">
           <Figure
             n={1}
             title={`Children living in poverty in ${c.name}`}
@@ -217,7 +201,25 @@ export default async function ConstituencyPage(props: { params: Promise<{ slug: 
           </Figure>
         </div>
 
-        <Col className="pt-11">
+        {/* The action follows the evidence: the reader has just seen the chart
+            that makes the case, which is the moment to offer them the email. */}
+        <div className="mt-12">
+          <ConstituencyLetter
+            slug={c.slug}
+            area={{
+              name: c.name,
+              pct: c.pcts[9],
+              count: c.counts[9],
+              firstPct: c.pcts[0],
+              firstYear: first,
+              scotlandPct: SCOTLAND_PCTS[9],
+            }}
+          />
+        </div>
+
+        <WhoDoesWhat className="mt-14" />
+
+        <Col className="pt-14">
           <h2 className="h2 mb-4">What your MP can vote on</h2>
           <p>
             The MP for {c.name} votes on Universal Credit and <G t="lha">help with private rent</G>.
