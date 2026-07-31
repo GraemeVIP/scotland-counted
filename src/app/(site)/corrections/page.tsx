@@ -47,7 +47,7 @@ export default function Corrections() {
         <section className="pt-12">
           <h2 className="h2 mb-5">Correction log</h2>
           {LOG.length === 0 ? (
-            <div className="bg-[var(--surface)] border border-[var(--rule)] p-6 max-w-[640px]">
+            <div className="rounded-[var(--r-s)] bg-[var(--surface)] border border-[var(--rule)] p-6 max-w-[640px]">
               <p className="text-[15.5px] text-[var(--ink-2)]">
                 No corrections yet. This site published in {site.dataUpdated}. When the first
                 correction is made it will appear here with the date, the page and what changed.

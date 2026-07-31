@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Page, Col, PageHeader, CTA } from "@/components/Blocks";
+import { Page, Col, PageHeader, CTA, InShort } from "@/components/Blocks";
 import Figure, { DataTable } from "@/components/charts/Figure";
 import LineChart from "@/components/charts/LineChart";
 import { G } from "@/components/Glossary";
@@ -97,6 +97,19 @@ export default async function ConstituencyPage(props: { params: Promise<{ slug: 
             tone: rose ? "bad" : "good",
           }}
         />
+
+        <div className="mt-2 mb-10">
+          <InShort>
+            <p>
+              In {c.name}, about <strong>{Math.round(c.pcts[9])} in every 100 children</strong>{" "}
+              grow up poor. That is {c.counts[9].toLocaleString("en-GB")} children.
+            </p>
+            <p>
+              One MP speaks for this area in London. The rules that matter most here — benefits
+              and help with rent — are decided there.
+            </p>
+          </InShort>
+        </div>
 
         <div className="grid gap-px bg-[var(--rule)] border-y border-[var(--rule)] mt-2 [grid-template-columns:repeat(auto-fit,minmax(180px,1fr))]">
           {[

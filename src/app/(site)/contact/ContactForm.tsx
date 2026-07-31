@@ -88,7 +88,7 @@ export default function ContactForm() {
   if (state === "done") {
     return (
       <div
-        className="bg-[var(--surface)] border border-[var(--rule)] border-t-[3px] border-t-[var(--good)] p-7 sm:p-9 max-w-[560px]"
+        className="rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] border-t-[3px] border-t-[var(--good)] p-7 sm:p-9 max-w-[560px]"
         style={{ boxShadow: "var(--shadow-2)" }}
         role="status"
       >
@@ -107,7 +107,7 @@ export default function ContactForm() {
   return (
     <form
       onSubmit={submit}
-      className="bg-[var(--surface)] border border-[var(--rule)] p-6 sm:p-8 max-w-[560px]"
+      className="rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] p-6 sm:p-8 max-w-[560px]"
       style={{ boxShadow: "var(--shadow-2)" }}
     >
       {/* Honeypot — hidden from people, tempting to bots. */}

@@ -48,7 +48,7 @@ export default function Glossary() {
             <article
               key={t.id}
               id={t.id}
-              className="bg-[var(--surface)] border border-[var(--rule)] p-5 scroll-mt-24"
+              className="rounded-[var(--r-s)] bg-[var(--surface)] border border-[var(--rule)] p-5 scroll-mt-24"
             >
               <h2 className="text-[17px] font-[620] tracking-[-0.012em] mb-2">{t.term}</h2>
               <p className="text-[15.5px] leading-[1.55]">{t.def}</p>

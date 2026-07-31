@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Page, Col, PageHeader, DirectionChip, CTA } from "@/components/Blocks";
+import { Page, Col, PageHeader, DirectionChip, CTA, InShort } from "@/components/Blocks";
 import Figure, { DataTable } from "@/components/charts/Figure";
 import LineChart from "@/components/charts/LineChart";
 import {
@@ -22,6 +22,34 @@ export function generateStaticParams() {
 }
 
 type Meta = { title: string; summary: string; sourceIds: string[] };
+
+/** The plain-English opening for each measure — short sentences, no jargon. */
+const IN_SHORT: Record<string, string[]> = {
+  "child-poverty": [
+    "More than 1 in 3 children in Glasgow are growing up poor. That is 39,319 children.",
+    "Ten years ago it was about 1 in 4. Things are getting worse, not better.",
+  ],
+  work: [
+    "Far more people in Glasgow have a job now than 20 years ago. That part is good news.",
+    "But for many families, a job is no longer a way out of poverty.",
+  ],
+  benefits: [
+    "Fewer people claim out-of-work benefits than in 2000.",
+    "The number jumped in the pandemic, then came back down.",
+  ],
+  pay: [
+    "Glasgow is full of good jobs. But most of the best-paid ones go to people who live outside the city.",
+    "Money made in Glasgow leaves Glasgow every payday.",
+  ],
+  "life-expectancy": [
+    "People in Glasgow live shorter lives than anywhere else in Scotland.",
+    "Lives were getting longer until about 2012. Then it stopped.",
+  ],
+  neighbourhoods: [
+    "Fewer Glasgow neighbourhoods are among Scotland's poorest than in 2004. That is real progress.",
+    "But nearly half the city still lives in Scotland's poorest fifth.",
+  ],
+};
 
 /** The single figure each page leads with, pinned beside the headline. */
 const HEADER_STAT: Record<
@@ -145,6 +173,12 @@ export default async function IndicatorPage(props: PageProps<"/indicators/[slug]
             </div>
           </PageHeader>
 
+          <InShort>
+            {IN_SHORT[slug].map((t) => (
+              <p key={t}>{t}</p>
+            ))}
+          </InShort>
+
           <Col className="pt-9">
             <p>
               Between 2001 and 2012, Glasgow men gained more than four years of life. Then it
@@ -248,6 +282,12 @@ export default async function IndicatorPage(props: PageProps<"/indicators/[slug]
             </div>
           </PageHeader>
 
+          <InShort>
+            {IN_SHORT[slug].map((t) => (
+              <p key={t}>{t}</p>
+            ))}
+          </InShort>
+
           <Col className="pt-9">
             <p>
               Scotland ranks every small neighbourhood in the country from worst-off to best-off.
@@ -325,6 +365,12 @@ export default async function IndicatorPage(props: PageProps<"/indicators/[slug]
             <DirectionChip direction={ind.direction} />
           </div>
         </PageHeader>
+
+        <InShort>
+          {IN_SHORT[slug].map((t) => (
+            <p key={t}>{t}</p>
+          ))}
+        </InShort>
 
         <div className="pt-9">
           <Figure

@@ -7,6 +7,7 @@ import {
   Slab,
   SectionHead,
   PageHeader,
+  InShort,
   CTA,
   Reveal,
 } from "@/components/Blocks";
@@ -52,6 +53,12 @@ export default function Accountability() {
           }}
         />
 
+        <InShort>
+          <p>Scotland made child poverty targets the law. All four targets were missed.</p>
+          <p>Nobody was punished, because the law has no punishment.</p>
+          <p>Three governments each blame the other two.</p>
+        </InShort>
+
         <Col className="pt-2">
           <p className="text-[15.5px] text-[var(--ink-2)]">
             What follows is a record of documented decisions and published outcomes. We do not
@@ -87,7 +94,7 @@ export default function Accountability() {
             </Split>
 
             <Reveal>
-              <div className="mt-8 overflow-x-auto bg-[var(--surface)] border border-[var(--rule)] p-2 max-w-[780px]">
+              <div className="mt-8 overflow-x-auto rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] p-2 max-w-[780px]">
                 <table className="w-full border-collapse text-[15px]">
                   <thead>
                     <tr>
@@ -140,7 +147,7 @@ export default function Accountability() {
           <div className="grid gap-6 mt-10">
             {tiers.map((t, i) => (
               <Reveal key={t.id} delay={i * 60}>
-                <article className="bg-[var(--surface)] border border-[var(--rule)] border-l-[3px] border-l-[var(--bad)] px-6 sm:px-9 pt-7 pb-5">
+                <article className="rounded-[var(--r-s)] bg-[var(--surface)] border border-[var(--rule)] border-l-[4px] border-l-[var(--bad)] px-6 sm:px-9 pt-7 pb-5">
                   <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1 mb-1.5">
                     <p className="label">{t.who}</p>
                     <p className="ui text-[12px] text-[var(--muted)]">{t.power}</p>

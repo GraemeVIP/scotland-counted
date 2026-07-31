@@ -89,7 +89,7 @@ export default function Home() {
                   {povertyLine.rows.map((r) => (
                     <div
                       key={r.amount}
-                      className="border border-[var(--rule)] bg-[var(--surface)] px-5 py-4"
+                      className="rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] px-5 py-4"
                     >
                       <div className="text-[14px] text-[var(--ink-2)] leading-[1.45]">{r.who}</div>
                       <div className="figure-num text-[30px] mt-2">{r.amount}</div>

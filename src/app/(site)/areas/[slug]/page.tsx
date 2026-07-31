@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Page, Col, PageHeader, CTA } from "@/components/Blocks";
+import { Page, Col, PageHeader, CTA, InShort } from "@/components/Blocks";
 import Figure, { DataTable } from "@/components/charts/Figure";
 import LineChart from "@/components/charts/LineChart";
 import { G } from "@/components/Glossary";
@@ -103,6 +103,20 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
             </>
           }
         />
+
+        <div className="mt-2 mb-10">
+          <InShort>
+            <p>
+              In {c.name}, about <strong>{Math.round(c.pcts[9])} in every 100 children</strong>{" "}
+              grow up poor. That is {c.counts[9].toLocaleString("en-GB")} children.
+            </p>
+            <p>
+              Ten years ago it was {Math.round(c.pcts[0])} in 100.{" "}
+              {rose ? "Things have got worse here." : "Things have got a little better here."}{" "}
+              Across Scotland it is {Math.round(SCOTLAND_PCTS[9])} in 100.
+            </p>
+          </InShort>
+        </div>
 
         {/* ---------- Key facts ---------- */}
         <div className="grid gap-px bg-[var(--rule)] border-y border-[var(--rule)] mt-9 [grid-template-columns:repeat(auto-fit,minmax(180px,1fr))]">

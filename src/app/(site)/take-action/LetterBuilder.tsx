@@ -126,7 +126,7 @@ ${name.trim() || "[your name]"}
     <div className="mt-10 grid gap-7 lg:grid-cols-[400px_1fr] items-start">
       {/* ================= Controls ================= */}
       <div
-        className="bg-[var(--surface)] border border-[var(--rule)] p-6 sm:p-7 lg:sticky lg:top-[84px]"
+        className="rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] p-6 sm:p-7 lg:sticky lg:top-[84px]"
         style={{ boxShadow: "var(--shadow-2)" }}
       >
         <div className="mb-7">
@@ -253,7 +253,7 @@ ${name.trim() || "[your name]"}
           </p>
         </div>
         <div
-          className="bg-[var(--surface)] border border-[var(--rule)] border-t-[3px] border-t-[var(--brand)] p-6 sm:p-10"
+          className="rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] border-t-[3px] border-t-[var(--brand)] p-6 sm:p-10"
           style={{ boxShadow: "var(--shadow-2)" }}
         >
           <pre className="text-[15.5px] leading-[1.7] whitespace-pre-wrap font-serif text-[var(--ink-2)] overflow-x-auto m-0">

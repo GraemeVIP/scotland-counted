@@ -65,7 +65,7 @@ export default function Press() {
                 key={i.slug}
                 href={`/press-img/${i.slug}`}
                 download={`glasgow-counted-${i.slug}.png`}
-                className="group block border border-[var(--rule)] bg-[var(--surface)] p-3 hover:border-[var(--brand)] transition-colors"
+                className="group block rounded-[var(--r-m)] overflow-hidden border border-[var(--rule)] bg-[var(--surface)] p-3 hover:border-[var(--brand)] transition-colors"
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img

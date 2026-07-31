@@ -63,6 +63,13 @@
   --font-mono: var(--font-mono-face), ui-monospace, Menlo, monospace;
 
   --ease: cubic-bezier(0.22, 0.68, 0.28, 1);
+
+  /* Radius scale. Square panels read as a terminal; a measured curve
+     reads as print. Buttons are pills — the friendliest control shape
+     there is, and unmistakably pressable. */
+  --r-s: 10px;
+  --r-m: 14px;
+  --r-pill: 999px;
 }
 
 /* Light is the default, deliberately: the warm paper ground is the
@@ -201,6 +208,12 @@
   }
   .skip-link:focus {
     left: 0;
+  }
+
+  input:not([type="checkbox"]):not([type="radio"]),
+  select,
+  textarea {
+    border-radius: var(--r-s);
   }
 }
 
@@ -346,7 +359,8 @@
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    padding: 15px 28px;
+    border-radius: var(--r-pill);
+    padding: 14px 28px;
     font-size: 15.5px;
     font-weight: 640;
     letter-spacing: -0.008em;
@@ -406,6 +420,7 @@
     position: absolute;
     z-index: 60;
     max-width: 350px;
+    border-radius: var(--r-m);
     background: var(--surface);
     border: 1px solid var(--rule-strong);
     box-shadow: var(--shadow-3);

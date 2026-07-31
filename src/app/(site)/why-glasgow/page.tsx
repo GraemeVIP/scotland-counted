@@ -7,6 +7,7 @@ import {
   Slab,
   SectionHead,
   PageHeader,
+  InShort,
   CTA,
   Reveal,
 } from "@/components/Blocks";
@@ -85,6 +86,12 @@ export default function WhyGlasgow() {
             tone: "neutral",
           }}
         />
+
+        <InShort>
+          <p>Glasgow is poorer than other places for clear reasons — not bad luck.</p>
+          <p>Big decisions made long ago left the city with deep problems. Today Glasgow is full of jobs, but the best-paid ones mostly go to people who live outside it.</p>
+          <p>And rent takes a bigger share of a family's money here than almost anywhere in Scotland.</p>
+        </InShort>
 
         {/* ---------- 1 ---------- */}
         <section className="pt-4">

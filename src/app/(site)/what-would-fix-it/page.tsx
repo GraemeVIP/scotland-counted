@@ -7,6 +7,7 @@ import {
   Slab,
   SectionHead,
   PageHeader,
+  InShort,
   CTA,
   Reveal,
 } from "@/components/Blocks";
@@ -31,7 +32,7 @@ const TAG: Record<FixStatus, string> = {
 function StatusTag({ status, label }: { status: FixStatus; label: string }) {
   return (
     <span
-      className={`ui inline-block text-[10.5px] font-[680] uppercase tracking-[0.09em] px-2.5 py-1.5 border whitespace-nowrap ${TAG[status]}`}
+      className={`ui inline-block rounded-full text-[12px] font-[660] px-3 py-1.5 border whitespace-nowrap ${TAG[status]}`}
       style={{ borderColor: "currentColor" }}
     >
       {label}
@@ -85,6 +86,12 @@ export default function WhatWouldFixIt() {
             tone: "bad",
           }}
         />
+
+        <InShort>
+          <p>Experts agree on what works: put money directly in families' pockets.</p>
+          <p>Job schemes alone do not fix child poverty.</p>
+          <p>Most of the things that would work have not been done yet.</p>
+        </InShort>
       </Page>
 
       <Slab attribution="The shared finding of JRF, IPPR Scotland and the Fraser of Allander Institute">
@@ -103,7 +110,7 @@ export default function WhatWouldFixIt() {
 
         {/* ---------- The ledger, desktop ---------- */}
         <Reveal>
-          <div className="mt-10 overflow-x-auto hidden md:block bg-[var(--surface)] border border-[var(--rule)] p-2">
+          <div className="mt-10 overflow-x-auto hidden md:block rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] p-2">
             <table className="w-full border-collapse text-[15px]">
               <thead>
                 <tr>
@@ -148,7 +155,7 @@ export default function WhatWouldFixIt() {
         <div className="mt-10 grid gap-4 md:hidden">
           {fixes.map((f, i) => (
             <Reveal key={f.id} delay={i * 40}>
-              <div className="bg-[var(--surface)] border border-[var(--rule)] p-5">
+              <div className="rounded-[var(--r-s)] bg-[var(--surface)] border border-[var(--rule)] p-5">
                 <div className="flex items-start justify-between gap-3 mb-3">
                   <p className="ui font-[640] text-[16px] leading-[1.35]">{f.what}</p>
                   <StatusTag status={f.status} label={f.statusLabel} />

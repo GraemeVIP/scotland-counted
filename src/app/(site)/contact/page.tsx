@@ -52,7 +52,7 @@ export default function Contact() {
         <div className="grid gap-x-14 gap-y-10 lg:grid-cols-[minmax(0,560px)_minmax(0,1fr)] items-start pt-2">
           <Suspense
             fallback={
-              <div className="bg-[var(--surface)] border border-[var(--rule)] p-8 max-w-[560px] min-h-[420px]" />
+              <div className="rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] p-8 max-w-[560px] min-h-[420px]" />
             }
           >
             <ContactForm />

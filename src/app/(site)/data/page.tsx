@@ -99,7 +99,7 @@ export default function Data() {
               key={f.file}
               href={`/data/${f.file}`}
               download
-              className="group block bg-[var(--surface)] border border-[var(--rule)] p-5 hover:border-[var(--brand)] transition-colors"
+              className="group block rounded-[var(--r-s)] bg-[var(--surface)] border border-[var(--rule)] p-5 hover:border-[var(--brand)] transition-colors"
             >
               <div className="flex items-start justify-between gap-3 mb-2">
                 <h2 className="text-[16.5px] font-[620] leading-[1.3] group-hover:text-[var(--brand)] transition-colors">

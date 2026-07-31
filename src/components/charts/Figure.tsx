@@ -31,7 +31,7 @@ export default function Figure({
   return (
     <Reveal>
       <figure
-        className={`relative bg-[var(--surface)] border border-[var(--rule)] p-5 sm:p-8 pb-4 ${className}`}
+        className={`relative rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] p-5 sm:p-8 pb-4 ${className}`}
         style={{ boxShadow: "var(--shadow-1)" }}
       >
         <div className="flex items-start justify-between gap-6 mb-1">
@@ -45,7 +45,7 @@ export default function Figure({
             </span>
           )}
         </div>
-        <p className="datum text-[11.5px] text-[var(--muted)] leading-[1.55] max-w-[80ch]">
+        <p className="ui text-[12.5px] text-[var(--muted)] leading-[1.55] max-w-[80ch]">
           {sub}
         </p>
 

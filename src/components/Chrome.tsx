@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { site } from "@/lib/site";
-import { ScrollProgress, PictoGrid } from "@/components/Motion";
+import { ScrollProgress } from "@/components/Motion";
 import NewsletterSignup from "@/components/NewsletterSignup";
 
 export const NAV = [
@@ -27,27 +27,21 @@ function Wordmark({ className = "" }: { className?: string }) {
 }
 
 function SearchButton() {
-  const [mac, setMac] = useState(false);
-  useEffect(() => {
-    setMac(/Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent));
-  }, []);
   return (
     <button
       type="button"
       onClick={() => window.dispatchEvent(new CustomEvent("open-command"))}
-      aria-label="Search the site"
-      className="group flex items-center gap-2.5 border border-[var(--rule-strong)] hover:border-[var(--ink)] transition-colors px-3 py-2"
+      aria-label="Find your area, or search the site"
+      className="group flex items-center gap-2.5 rounded-full bg-[var(--surface)] border border-[var(--rule-strong)] hover:border-[var(--brand)] transition-colors px-4 py-2.5"
+      style={{ boxShadow: "var(--shadow-1)" }}
     >
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" className="text-[var(--muted)] group-hover:text-[var(--ink)] transition-colors" aria-hidden="true">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" className="text-[var(--brand)]" aria-hidden="true">
         <circle cx="11" cy="11" r="7" />
         <path d="m20 20-3.8-3.8" />
       </svg>
-      <span className="ui hidden md:block text-[12.5px] text-[var(--muted)] group-hover:text-[var(--ink)] transition-colors">
-        Search
+      <span className="ui hidden md:block text-[14px] font-[560] text-[var(--ink-2)] group-hover:text-[var(--ink)] transition-colors">
+        Find your area
       </span>
-      <kbd className="datum hidden md:block text-[10px] text-[var(--muted)] border border-[var(--rule)] px-1 py-0.5">
-        {mac ? "⌘K" : "Ctrl K"}
-      </kbd>
     </button>
   );
 }
@@ -179,36 +173,27 @@ export function Header() {
 
 export function Footer() {
   return (
-    <footer className="mt-28 no-print bg-[var(--deep)] text-[var(--deep-ink)]">
-      <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 py-16 sm:py-20">
-        <div className="grid gap-12 lg:grid-cols-[minmax(0,1.4fr)_repeat(3,minmax(0,1fr))]">
+    <footer className="mt-24 no-print bg-[var(--deep)] text-[var(--deep-ink)]">
+      <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 py-12 sm:py-14">
+        <div className="grid gap-x-12 gap-y-10 md:grid-cols-2 lg:grid-cols-[minmax(0,1.5fr)_repeat(3,minmax(0,1fr))]">
           <div>
-            <Wordmark className="text-[26px]" />
-            <p className="text-[15.5px] leading-[1.6] opacity-70 max-w-[36ch] mt-5">
-              {site.tagline} An independent, fully sourced record — free to read, quote and reuse.
+            <Wordmark className="text-[24px]" />
+            <p className="text-[15px] leading-[1.55] opacity-70 max-w-[36ch] mt-4">
+              {site.tagline} Free to read, quote and reuse.
             </p>
-            <p className="ui text-[11px] uppercase tracking-[0.12em] font-[620] opacity-50 mt-7">
-              Data last checked {site.dataUpdated}
-            </p>
-            <div className="max-w-[280px] mt-8" aria-hidden="true">
-              <PictoGrid
-                lit={36}
-                columns={25}
-                litColor="var(--action)"
-                dimColor="#f3efe6"
-                dimOpacity={0.14}
-              />
-              <p className="ui text-[10px] uppercase tracking-[0.14em] font-[620] opacity-40 mt-2.5">
-                36 in every 100 Glasgow children · 2023/24
-              </p>
-            </div>
+            {site.web3formsKey && (
+              <div className="mt-6">
+                <p className="ui text-[13px] font-[640] opacity-80 mb-2.5">
+                  One email when the data changes
+                </p>
+                <NewsletterSignup variant="footer" />
+              </div>
+            )}
           </div>
 
           <div>
-            <p className="ui text-[11px] uppercase tracking-[0.12em] font-[620] opacity-50 mb-5">
-              The site
-            </p>
-            <ul className="space-y-3 text-[15px]">
+            <p className="ui text-[12px] font-[680] opacity-50 mb-4">The site</p>
+            <ul className="space-y-2.5 text-[14.5px]">
               {NAV.concat([
                 { href: "/constituencies", label: "Constituencies" },
                 { href: "/take-action", label: "Take action" },
@@ -223,10 +208,8 @@ export function Footer() {
           </div>
 
           <div>
-            <p className="ui text-[11px] uppercase tracking-[0.12em] font-[620] opacity-50 mb-5">
-              The evidence
-            </p>
-            <ul className="space-y-3 text-[15px]">
+            <p className="ui text-[12px] font-[680] opacity-50 mb-4">The evidence</p>
+            <ul className="space-y-2.5 text-[14.5px]">
               {[
                 { href: "/methods", label: "Methods and sources" },
                 { href: "/glossary", label: "Plain-English glossary" },
@@ -245,45 +228,29 @@ export function Footer() {
           </div>
 
           <div>
-            <p className="ui text-[11px] uppercase tracking-[0.12em] font-[620] opacity-50 mb-5">
-              Who made this
-            </p>
-            <p className="text-[15px] leading-[1.6] opacity-75 max-w-[30ch]">
+            <p className="ui text-[12px] font-[680] opacity-50 mb-4">Who made this</p>
+            <p className="text-[14.5px] leading-[1.55] opacity-75 max-w-[28ch]">
               A personal project by {site.author.name} at{" "}
               <a href={site.organisation.url} className="underline underline-offset-2">
                 {site.organisation.name}
               </a>
-              . Not funded by, or affiliated with, any political party or campaign.
+              . No party, no funding, no paywall.
             </p>
-            <div className="flex flex-wrap gap-x-5 mt-4">
-              <Link
-                href="/about"
-                className="text-[15px] underline underline-offset-2 opacity-75 hover:opacity-100"
-              >
-                About this project
+            <div className="flex flex-wrap gap-x-5 mt-3.5 text-[14.5px]">
+              <Link href="/about" className="underline underline-offset-2 opacity-75 hover:opacity-100">
+                About
               </Link>
-              <Link
-                href="/contact"
-                className="text-[15px] underline underline-offset-2 opacity-75 hover:opacity-100"
-              >
+              <Link href="/contact" className="underline underline-offset-2 opacity-75 hover:opacity-100">
                 Get in touch
               </Link>
             </div>
           </div>
         </div>
 
-        {site.web3formsKey && (
-          <div className="mt-14 pt-10 border-t border-current/15">
-            <p className="ui text-[11px] uppercase tracking-[0.12em] font-[620] opacity-50 mb-4">
-              The Count — one email when the data changes
-            </p>
-            <NewsletterSignup variant="footer" />
-          </div>
-        )}
-
-        <div className="mt-14 pt-7 border-t border-current/15 flex flex-wrap gap-x-8 gap-y-2 ui text-[11px] uppercase tracking-[0.12em] font-[620] opacity-50">
-          <span>ONS · DWP · Scottish Government · Academic sources</span>
-          <Link href="/methods" className="hover:opacity-100 underline underline-offset-2">
+        <div className="mt-10 pt-5 border-t border-current/15 flex flex-wrap items-baseline gap-x-6 gap-y-2 ui text-[12px] opacity-55">
+          <span>Data last checked {site.dataUpdated}</span>
+          <span>ONS · DWP · Scottish Government · academic sources</span>
+          <Link href="/methods" className="underline underline-offset-2 hover:opacity-100">
             Every number is sourced
           </Link>
         </div>

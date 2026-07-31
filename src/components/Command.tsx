@@ -98,8 +98,18 @@ export default function CommandPalette() {
   const results = useMemo(() => {
     const query = q.trim().toLowerCase();
     if (!query) {
-      // A useful resting state: the core pages plus the worst-ranked areas.
-      return registry.filter((r) => r.group === "Pages").slice(0, 9);
+      // Resting state answers the most common intent first: where you live.
+      const pin = [
+        "/areas/glasgow-city",
+        "/areas",
+        "/constituencies",
+        "/take-action",
+        "/the-numbers",
+        "/glossary",
+      ];
+      return pin
+        .map((href) => registry.find((r) => r.href === href)!)
+        .filter(Boolean);
     }
     return registry
       .map((item) => ({ item, s: score(item, query) }))
@@ -187,7 +197,7 @@ export default function CommandPalette() {
         onClick={() => setOpen(false)}
       />
       <div
-        className="relative w-full max-w-[640px] bg-[var(--surface)] border border-[var(--rule-strong)] overflow-hidden"
+        className="relative w-full max-w-[640px] rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule-strong)] overflow-hidden"
         style={{ boxShadow: "var(--shadow-3)" }}
       >
         <div className="flex items-center gap-3 px-5 border-b-2 border-[var(--ink)]">
@@ -209,7 +219,7 @@ export default function CommandPalette() {
             value={q}
             onChange={(e) => setQ(e.target.value)}
             onKeyDown={onInputKey}
-            placeholder="Search areas, constituencies, measures, terms…"
+            placeholder="Type where you live — a council or constituency — or any word"
             aria-label="Search"
             className="ui w-full bg-transparent py-4 text-[16.5px] outline-none placeholder:text-[var(--muted)]"
             role="combobox"
@@ -217,9 +227,13 @@ export default function CommandPalette() {
             aria-controls="command-results"
             aria-activedescendant={results[active] ? `cmd-${active}` : undefined}
           />
-          <kbd className="datum hidden sm:block text-[10.5px] text-[var(--muted)] border border-[var(--rule)] px-1.5 py-0.5 shrink-0">
-            esc
-          </kbd>
+          <button
+            type="button"
+            onClick={() => setOpen(false)}
+            className="ui text-[12.5px] text-[var(--muted)] hover:text-[var(--ink)] shrink-0 py-1"
+          >
+            Close
+          </button>
         </div>
 
         <div
@@ -240,7 +254,9 @@ export default function CommandPalette() {
             return (
               <div key={r.href + r.label}>
                 {showGroup && (
-                  <p className="label label-quiet px-5 pt-3 pb-1.5 text-[10px]">{r.group}</p>
+                  <p className="ui text-[11.5px] font-[680] text-[var(--muted)] px-5 pt-3.5 pb-1.5">
+                    {r.group}
+                  </p>
                 )}
                 <button
                   type="button"
@@ -275,11 +291,12 @@ export default function CommandPalette() {
           })}
         </div>
 
-        <div className="flex items-center gap-4 px-5 py-2.5 border-t border-[var(--rule)] bg-[var(--surface-2)]">
-          <span className="datum text-[10.5px] text-[var(--muted)]">↑↓ choose</span>
-          <span className="datum text-[10.5px] text-[var(--muted)]">↵ open</span>
-          <span className="datum text-[10.5px] text-[var(--muted)] ml-auto">
-            {registry.length} pages indexed
+        <div className="flex items-center gap-4 px-5 py-3 border-t border-[var(--rule)] bg-[var(--surface-2)]">
+          <span className="ui text-[12px] text-[var(--muted)]">
+            Type, then choose from the list
+          </span>
+          <span className="ui text-[12px] text-[var(--muted)] ml-auto">
+            Every page on the site is in here
           </span>
         </div>
       </div>

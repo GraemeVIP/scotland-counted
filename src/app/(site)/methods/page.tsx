@@ -69,7 +69,7 @@ export default function Methods() {
             {PRINCIPLES.map((p) => (
               <div
                 key={p.title}
-                className="bg-[var(--surface)] border border-[var(--rule)] p-5"
+                className="rounded-[var(--r-s)] bg-[var(--surface)] border border-[var(--rule)] p-5"
               >
                 <h3 className="h3 mb-2">{p.title}</h3>
                 <p className="text-[15px] text-[var(--ink-2)] leading-[1.55]">{p.body}</p>

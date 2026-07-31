@@ -87,7 +87,7 @@ export default function TheNumbers() {
             <Reveal key={c.slug} delay={(i % 3) * 60}>
               <Link
                 href={`/indicators/${c.slug}`}
-                className="group flex flex-col h-full bg-[var(--surface)] border border-[var(--rule)] p-6 sm:p-7 transition-all duration-300 hover:border-[var(--brand)] hover:-translate-y-1 hover:shadow-[var(--shadow-2)]"
+                className="group flex flex-col h-full rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] p-6 sm:p-7 transition-all duration-300 hover:border-[var(--brand)] hover:-translate-y-1 hover:shadow-[var(--shadow-2)]"
               >
                 <div className="flex items-start justify-between gap-4 mb-5">
                   <p className="label label-quiet">{c.label}</p>
@@ -100,7 +100,7 @@ export default function TheNumbers() {
                 <div className="mt-auto pt-2">
                   <Spark data={c.spark} />
                   <div className="flex items-baseline justify-between mt-2">
-                    <span className="datum text-[10.5px] text-[var(--muted)]">{c.sparkNote}</span>
+                    <span className="ui text-[11.5px] text-[var(--muted)]">{c.sparkNote}</span>
                     <span
                       aria-hidden="true"
                       className="text-[var(--action)] text-[17px] group-hover:translate-x-1.5 transition-transform"

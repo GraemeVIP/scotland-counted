@@ -109,7 +109,7 @@ export default function TakeAction() {
             {OTHER.map((o) => (
               <div
                 key={o.title}
-                className="bg-[var(--surface)] border border-[var(--rule)] p-5"
+                className="rounded-[var(--r-s)] bg-[var(--surface)] border border-[var(--rule)] p-5"
               >
                 <h3 className="h3 mb-2">{o.title}</h3>
                 <p className="text-[15px] text-[var(--ink-2)] leading-[1.55]">{o.body}</p>

@@ -74,7 +74,7 @@ export default function Hero() {
 
           {/* ---- The proportion, drawn ---- */}
           <div className="lg:pl-6">
-            <div className="bg-[var(--surface)] border border-[var(--rule)] p-7 sm:p-9" style={{ boxShadow: "var(--shadow-2)" }}>
+            <div className="rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] p-7 sm:p-9" style={{ boxShadow: "var(--shadow-2)" }}>
               <div className="flex items-end justify-between gap-6 mb-7">
                 <div>
                   <div className="figure-num text-[clamp(56px,7vw,88px)] text-[var(--action)]">

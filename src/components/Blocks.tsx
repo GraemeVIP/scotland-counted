@@ -111,8 +111,8 @@ export function PageHeader({
 }
 
 const DIR: Record<Direction, { cls: string; glyph: string; label: string }> = {
-  worsening: { cls: "text-[var(--bad)]", glyph: "▲", label: "Worsening" },
-  improving: { cls: "text-[var(--good)]", glyph: "▼", label: "Improving" },
+  worsening: { cls: "text-[var(--bad)]", glyph: "▲", label: "Getting worse" },
+  improving: { cls: "text-[var(--good)]", glyph: "▼", label: "Getting better" },
   stalled: { cls: "text-[var(--flat)]", glyph: "■", label: "Stalled" },
 };
 
@@ -120,14 +120,60 @@ export function DirectionChip({ direction }: { direction: Direction }) {
   const d = DIR[direction];
   return (
     <span
-      className={`ui inline-flex items-center gap-1.5 text-[11px] font-[650] uppercase tracking-[0.1em] px-3 py-1.5 border whitespace-nowrap ${d.cls}`}
+      className={`ui inline-flex items-center gap-2 rounded-full text-[13px] font-[640] px-3.5 py-1.5 border whitespace-nowrap ${d.cls}`}
       style={{ borderColor: "currentColor" }}
     >
-      <span aria-hidden="true" className="text-[11px] leading-none">
+      <span aria-hidden="true" className="text-[10px] leading-none">
         {d.glyph}
       </span>
       {d.label}
     </span>
+  );
+}
+
+/* ============================================================
+   The two-audience layer
+   ============================================================ */
+
+/**
+ * The plain-English opening every heavy page leads with. Short
+ * sentences, no jargon, sans type — written for a reader who does not
+ * do charts. The footer of the same panel is the clearly-marked door
+ * for the other audience, so both know where they are.
+ */
+export function InShort({
+  children,
+  expert = true,
+}: {
+  children: ReactNode;
+  expert?: boolean;
+}) {
+  return (
+    <div
+      className="rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] border-l-[5px] border-l-[var(--action)] px-6 sm:px-8 py-6 max-w-[760px]"
+      style={{ boxShadow: "var(--shadow-1)" }}
+    >
+      <p className="ui text-[13.5px] font-[750] text-[var(--action)] mb-3">In short</p>
+      <div className="ui text-[17.5px] sm:text-[18.5px] leading-[1.6] font-[460] space-y-2 [&_strong]:font-[700]">
+        {children}
+      </div>
+      {expert && (
+        <p className="ui mt-5 pt-4 border-t border-[var(--rule)] text-[13.5px] text-[var(--ink-2)]">
+          <span className="font-[680]">For journalists and researchers:</span>{" "}
+          <Link href="/data" className="underline underline-offset-2 decoration-[var(--rule-strong)] hover:decoration-[var(--brand)]">
+            the data
+          </Link>
+          {" · "}
+          <Link href="/methods" className="underline underline-offset-2 decoration-[var(--rule-strong)] hover:decoration-[var(--brand)]">
+            methods
+          </Link>
+          {" · "}
+          <Link href="/press" className="underline underline-offset-2 decoration-[var(--rule-strong)] hover:decoration-[var(--brand)]">
+            press kit and embeds
+          </Link>
+        </p>
+      )}
+    </div>
   );
 }
 
@@ -293,7 +339,7 @@ export function Slab({
 
 export function Callout({ children }: { children: ReactNode }) {
   return (
-    <div className="border-l-[3px] border-[var(--action)] bg-[var(--surface-2)] px-6 py-5 my-8 prose max-w-[680px]">
+    <div className="rounded-[var(--r-s)] border-l-[4px] border-[var(--action)] bg-[var(--surface-2)] px-6 py-5 my-8 prose max-w-[680px]">
       {children}
     </div>
   );
@@ -364,7 +410,7 @@ export function Card({
   return (
     <Link
       href={href}
-      className="group relative flex flex-col bg-[var(--surface)] border border-[var(--rule)] p-7 sm:p-8 transition-all duration-300 hover:border-[var(--brand)] hover:-translate-y-1 hover:shadow-[var(--shadow-2)]"
+      className="group relative flex flex-col rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] p-7 sm:p-8 transition-all duration-300 hover:border-[var(--brand)] hover:-translate-y-1 hover:shadow-[var(--shadow-2)]"
     >
       <div className="flex items-start justify-between gap-4 mb-4">
         <p className="label">{eyebrow}</p>

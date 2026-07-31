@@ -18,13 +18,13 @@ export default function CopyLine({ text }: { text: string }) {
 
   return (
     <div className="flex items-stretch gap-2">
-      <p className="flex-1 text-[15.5px] leading-[1.55] text-[var(--ink-2)] bg-[var(--surface)] border border-[var(--rule)] px-4 py-3 m-0">
+      <p className="flex-1 text-[15.5px] leading-[1.55] text-[var(--ink-2)] bg-[var(--surface)] border border-[var(--rule)] rounded-l-[var(--r-s)] px-4 py-3 m-0">
         {text}
       </p>
       <button
         type="button"
         onClick={copy}
-        className="ui shrink-0 self-stretch bg-[var(--ink)] text-[var(--paper)] px-4 text-[13px] font-[620] hover:bg-[var(--brand)] hover:text-white transition-colors"
+        className="ui shrink-0 self-stretch bg-[var(--ink)] text-[var(--paper)] rounded-r-[var(--r-s)] px-4 text-[13px] font-[620] hover:bg-[var(--brand)] hover:text-white transition-colors"
         aria-label={copied ? "Copied" : "Copy this line"}
       >
         {copied ? "Copied" : "Copy"}
