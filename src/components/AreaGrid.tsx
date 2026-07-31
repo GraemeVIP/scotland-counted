@@ -10,8 +10,13 @@ import { councilsByLevel, COUNCIL_YEARS } from "@/lib/data/councils";
  * the site visible: 32 areas on screen answers "is my place in here" without
  * anyone having to search.
  *
- * Tiles are shaded by rate rather than coloured categorically, so the spread
- * reads at a glance without implying a threshold the data does not have.
+ * Column counts are fixed to 2, 4 and 8 rather than auto-filling, because 32
+ * divides evenly by all three. Auto-fill left a ragged half-empty last row at
+ * most widths, which is what made the section look broken.
+ *
+ * The rate sits under the name rather than beside it. Side by side, a long
+ * name like Clackmannanshire and a percentage fight for the same line and one
+ * of them gets clipped.
  */
 export default function AreaGrid({ className = "" }: { className?: string }) {
   const areas = councilsByLevel();
@@ -21,56 +26,52 @@ export default function AreaGrid({ className = "" }: { className?: string }) {
 
   return (
     <section className={className} aria-labelledby="find-your-area">
-      <div className="flex flex-wrap items-end justify-between gap-x-8 gap-y-4 mb-7">
+      <div className="flex flex-wrap items-end justify-between gap-x-10 gap-y-4 mb-8">
         <div>
           <p className="kicker text-[var(--brand)] mb-2.5">Find your place</p>
           <h2
             id="find-your-area"
-            className="display-stat text-[clamp(30px,3.6vw,46px)] max-w-[18ch]"
+            className="display-stat text-[clamp(30px,3.6vw,46px)] max-w-[16ch]"
           >
             Every council area in Scotland
           </h2>
-          <p className="text-[18px] leading-[1.6] text-[var(--ink-2)] mt-4 max-w-[54ch]">
-            Worst rate first. Each one has its own page with ten years of figures, the people who
-            represent it, and an email already written.
-          </p>
         </div>
-        <p className="text-[15px] text-[var(--muted)] tnum">
-          Children in poverty · {COUNCIL_YEARS[9]}
+        <p className="text-[16px] leading-[1.55] text-[var(--ink-2)] max-w-[38ch]">
+          Worst rate first. Each has its own page with ten years of figures, the people who
+          represent it, and an email already written.
+          <span className="block text-[14.5px] text-[var(--muted)] mt-2 tnum">
+            Children in poverty · {COUNCIL_YEARS[9]}
+          </span>
         </p>
       </div>
 
-      {/* 140px lets two tiles sit side by side on a phone; one column would
-          make 32 areas an 1,800px scroll before anything else happens. */}
-      <div className="grid gap-2 [grid-template-columns:repeat(auto-fill,minmax(140px,1fr))]">
+      <div className="grid gap-2.5 grid-cols-2 sm:grid-cols-4 lg:grid-cols-8">
         {areas.map((a) => {
           const t = (a.pcts[9] - best) / span;
           return (
             <Link
               key={a.slug}
               href={`/areas/${a.slug}`}
-              className="group relative rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] px-4 py-3.5 no-underline overflow-hidden transition-[border-color,transform] hover:border-[var(--brand)] hover:-translate-y-0.5"
+              className="group relative flex flex-col justify-between min-h-[104px] rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] px-3.5 py-3 no-underline overflow-hidden transition-[border-color,transform,box-shadow] hover:border-[var(--brand)] hover:-translate-y-0.5 hover:shadow-[var(--shadow-2)]"
             >
               {/* Rate as a wash, so the spread is visible before anything is read. */}
               <span
                 aria-hidden="true"
                 className="absolute inset-0 pointer-events-none"
-                style={{ background: "var(--brand)", opacity: 0.04 + t * 0.16 }}
+                style={{ background: "var(--brand)", opacity: 0.03 + t * 0.15 }}
               />
-              <span className="relative flex items-baseline justify-between gap-3">
-                <span className="ui text-[15.5px] font-[650] text-[var(--ink)] leading-[1.25]">
-                  {a.name}
-                </span>
-                <span className="display-stat text-[19px] text-[var(--ink)] tnum shrink-0">
-                  {a.pcts[9]}%
-                </span>
+              <span className="relative ui text-[14px] font-[640] leading-[1.25] [overflow-wrap:anywhere] hyphens-auto text-[var(--ink-2)] group-hover:text-[var(--ink)] transition-colors">
+                {a.name}
+              </span>
+              <span className="relative display-stat text-[24px] leading-[1.15] text-[var(--ink)] tnum mt-2">
+                {a.pcts[9]}%
               </span>
             </Link>
           );
         })}
       </div>
 
-      <div className="flex flex-wrap items-center gap-x-6 gap-y-3 mt-6">
+      <div className="flex flex-wrap items-center gap-x-6 gap-y-3 mt-7">
         <Link href="/constituencies" className="ui text-[16px] font-[700]">
           Or find it by your MP&apos;s area →
         </Link>
