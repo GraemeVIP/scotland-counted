@@ -94,7 +94,28 @@ export default function Accountability() {
             </Split>
 
             <Reveal>
-              <div className="mt-8 overflow-x-auto rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] p-2 max-w-[780px]">
+              {/* Phone: one card per target, nothing cut off */}
+              <div className="sm:hidden mt-8 grid gap-3">
+                {statutoryTargets.map((t) => (
+                  <div
+                    key={t.measure}
+                    className="rounded-[var(--r-s)] bg-[var(--surface)] border border-[var(--rule)] p-4"
+                  >
+                    <div className="flex items-start justify-between gap-3 mb-1.5">
+                      <p className="ui font-[660] text-[15.5px] leading-[1.3]">{t.measure}</p>
+                      <span className="ui rounded-full text-[11.5px] font-[680] text-[var(--bad)] border border-current px-2.5 py-1 whitespace-nowrap">
+                        Missed
+                      </span>
+                    </div>
+                    <p className="ui text-[14px] text-[var(--ink-2)]">
+                      The law said {t.target}. What happened:{" "}
+                      <strong className="text-[var(--bad)] font-[700]">{t.actual}</strong>
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="hidden sm:block mt-8 overflow-x-auto rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] p-2 max-w-[780px]">
                 <table className="w-full border-collapse text-[15px]">
                   <thead>
                     <tr>

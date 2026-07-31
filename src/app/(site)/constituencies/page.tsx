@@ -54,8 +54,7 @@ export default function Constituencies() {
 
         <section className="pt-2">
           <p className="text-[14.5px] text-[var(--ink-2)] mb-6">
-            Click any column heading to re-sort. Glasgow seats are shaded; the rank always refers
-            to the {last} rate.
+            Glasgow seats are shaded. The rank number always refers to the {last} rate.
           </p>
           <RankTable
             nameLabel="Constituency"

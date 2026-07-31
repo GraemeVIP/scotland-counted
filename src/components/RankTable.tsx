@@ -54,6 +54,15 @@ export default function RankTable({
     children: "Children",
   };
 
+  /** Phone sorts, in plain words. */
+  const MOBILE_SORTS: { id: string; label: string; key: SortKey; asc: boolean }[] = [
+    { id: "worst", label: "Highest rate", key: "rank", asc: true },
+    { id: "rise", label: "Biggest rise", key: "change", asc: false },
+    { id: "az", label: "A to Z", key: "name", asc: true },
+  ];
+  const activeMobile =
+    MOBILE_SORTS.find((m) => m.key === key && m.asc === asc)?.id ?? null;
+
   const sorted = useMemo(() => {
     const r = [...rows].sort((a, b) => {
       if (key === "name") return a.name.localeCompare(b.name);
@@ -72,7 +81,71 @@ export default function RankTable({
   }
 
   return (
-    <div className="overflow-x-auto">
+    <div>
+      {/* ---------- Phone: a list you can actually read ---------- */}
+      <div className="sm:hidden">
+        <div className="flex flex-wrap gap-2 mb-5" role="group" aria-label="Sort the list">
+          {MOBILE_SORTS.map((m) => (
+            <button
+              key={m.id}
+              type="button"
+              onClick={() => {
+                setKey(m.key);
+                setAsc(m.asc);
+              }}
+              aria-pressed={activeMobile === m.id}
+              className={`ui rounded-full px-4 py-2 text-[13.5px] font-[640] border transition-colors ${
+                activeMobile === m.id
+                  ? "bg-[var(--ink)] text-[var(--paper)] border-[var(--ink)]"
+                  : "bg-[var(--surface)] text-[var(--ink-2)] border-[var(--rule-strong)]"
+              }`}
+            >
+              {m.label}
+            </button>
+          ))}
+        </div>
+
+        <ol className="border-t border-[var(--rule)]">
+          {sorted.map((r) => (
+            <li
+              key={r.href}
+              className={r.highlight ? "bg-[var(--glasgow-wash)]" : undefined}
+            >
+              <Link
+                href={r.href}
+                className="flex items-center gap-3 py-3.5 px-2 border-b border-[var(--rule)] active:bg-[var(--surface-2)]"
+              >
+                <span className="ui text-[13px] text-[var(--muted)] tnum w-[2ch] shrink-0 text-right">
+                  {r.rank}
+                </span>
+                <span className="min-w-0 flex-1">
+                  <span
+                    className={`ui block text-[15.5px] leading-[1.3] ${
+                      r.highlight ? "font-[680]" : "font-[540]"
+                    }`}
+                  >
+                    {r.name}
+                  </span>
+                  <span className="ui block text-[12.5px] text-[var(--muted)] mt-0.5">
+                    was {r.first}% ·{" "}
+                    <span className={r.change > 0 ? "text-[var(--bad)]" : "text-[var(--good)]"}>
+                      {r.change > 0 ? "up" : "down"} {Math.abs(r.change)}
+                    </span>{" "}
+                    · {r.children.toLocaleString("en-GB")} children
+                  </span>
+                </span>
+                <span className="figure-num text-[21px] tnum shrink-0">{r.latest}%</span>
+                <span aria-hidden="true" className="text-[var(--muted)] shrink-0">
+                  ›
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ol>
+      </div>
+
+      {/* ---------- Wider screens: the full table ---------- */}
+      <div className="hidden sm:block overflow-x-auto">
       <table className="w-full border-collapse text-[15px]">
         <thead>
           <tr>
@@ -145,6 +218,7 @@ export default function RankTable({
           ))}
         </tbody>
       </table>
+      </div>
     </div>
   );
 }

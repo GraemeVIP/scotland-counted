@@ -69,7 +69,7 @@ export default function Areas() {
         <section className="pt-12">
           <h2 className="h2 mb-2">Ranked by today&apos;s rate</h2>
           <p className="text-[14.5px] text-[var(--ink-2)] mb-6">
-            Click any column heading to re-sort. The rank always refers to the {last} rate.
+            Glasgow is shaded. The rank number always refers to the {last} rate.
           </p>
           <RankTable
             nameLabel="Council area"
