@@ -1,17 +1,18 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Link from "next/link";
 import { councils, COUNCIL_YEARS, SCOTLAND_PCTS } from "@/lib/data/councils";
+import type { Representative, RepresentativeLookup } from "@/lib/representatives";
 
-/**
- * The letter tool. Everything happens in the browser: the letter is
- * assembled from the reader's choices and the published figures for
- * their council area, and nothing they type is sent or stored anywhere.
- * The postcode is used for one thing only — opening WriteToThem's
- * lookup so they can find who represents them.
- */
+type RepresentativeRole = "MP" | "MSP";
 
-const ASKS = [
+const ASKS: Array<{
+  id: string;
+  label: string;
+  line: string;
+  who: RepresentativeRole;
+}> = [
   {
     id: "lha",
     label: "Restore housing benefit to real local rents",
@@ -47,16 +48,33 @@ const ASKS = [
 function StepLabel({ n, children }: { n: number; children: React.ReactNode }) {
   return (
     <div className="flex items-baseline gap-3 mb-3">
-      <span className="figure-num text-[22px] text-[var(--action)]" aria-hidden="true">
+      <span className="figure-num text-[24px] text-[var(--action)]" aria-hidden="true">
         {n}
       </span>
-      <span className="ui text-[15px] font-[680] text-[var(--ink)]">{children}</span>
+      <span className="ui text-[16px] font-[680] text-[var(--ink)]">{children}</span>
     </div>
   );
 }
 
 const inputCls =
-  "ui w-full bg-[var(--paper)] border border-[var(--rule-strong)] px-3.5 py-3 text-[15px] focus:border-[var(--brand)] outline-none transition-colors";
+  "ui w-full rounded-[var(--r-s)] bg-[var(--paper)] border border-[var(--rule-strong)] px-3.5 py-3 text-[16px] focus:border-[var(--brand)] outline-none transition-colors";
+
+function normalisePostcode(value: string) {
+  return value.toUpperCase().replace(/\s+/g, "");
+}
+
+function RepresentativeSummary({ representative }: { representative: Representative }) {
+  return (
+    <div className="border-t border-[var(--rule)] pt-3 first:border-t-0 first:pt-0">
+      <p className="ui text-[15px] font-[720] text-[var(--ink)]">
+        Your {representative.role}: {representative.name}
+      </p>
+      <p className="text-[15px] text-[var(--ink-2)] leading-[1.5] mt-1">
+        {representative.party} · {representative.constituency}
+      </p>
+    </div>
+  );
+}
 
 export default function LetterBuilder() {
   const [slug, setSlug] = useState("glasgow-city");
@@ -64,23 +82,27 @@ export default function LetterBuilder() {
   const [name, setName] = useState("");
   const [postcode, setPostcode] = useState("");
   const [personal, setPersonal] = useState("");
-  const [copied, setCopied] = useState(false);
+  const [lookup, setLookup] = useState<RepresentativeLookup | null>(null);
+  const [lookupState, setLookupState] = useState<"idle" | "loading" | "error" | "success">(
+    "idle"
+  );
+  const [lookupError, setLookupError] = useState("");
+  const [copied, setCopied] = useState<RepresentativeRole | null>(null);
 
-  const council = councils.find((c) => c.slug === slug)!;
+  const council = councils.find((item) => item.slug === slug)!;
   const last = COUNCIL_YEARS[9];
   const first = COUNCIL_YEARS[0];
 
-  const letter = useMemo(() => {
-    const asks = ASKS.filter((a) => picked.includes(a.id));
+  function makeLetter(role: RepresentativeRole, representative?: Representative) {
+    const asks = ASKS.filter((ask) => ask.who === role && picked.includes(ask.id));
     const direction =
       council.change > 0
         ? `an increase of ${council.change} percentage points since ${first}`
         : `a fall of ${Math.abs(council.change)} percentage points since ${first}`;
-    const personalPara = personal.trim()
-      ? `\n${personal.trim()}\n`
-      : "";
+    const personalPara = personal.trim() ? `\n${personal.trim()}\n` : "";
+    const signoffPostcode = lookup?.postcode ?? postcode.trim().toUpperCase();
 
-    return `Dear [name of your MSP or MP],
+    return `Dear ${representative?.name ?? `your ${role}`},
 
 I am writing as a constituent in ${council.name} about child poverty in this area.
 
@@ -88,7 +110,11 @@ In ${last}, ${council.pcts[9]}% of children in ${council.name} were living in re
 
 I am also aware that all four of the statutory interim child poverty targets set out in the Child Poverty (Scotland) Act 2017 were missed for 2023/24, including persistent poverty at 23% against a target of 8%.
 ${personalPara}
-${asks.length ? `I would like to know whether you support the following:\n\n${asks.map((a) => `- That the government should ${a.line}.`).join("\n")}\n\n` : ""}Independent modelling by the Joseph Rowntree Foundation, IPPR Scotland and the Fraser of Allander Institute all reach the same conclusion: income transfers reduce child poverty, and employment programmes alone do not.
+I would like to know whether you support the following:
+
+${asks.map((ask) => `- That the government should ${ask.line}.`).join("\n")}
+
+Independent modelling by the Joseph Rowntree Foundation, IPPR Scotland and the Fraser of Allander Institute all reach the same conclusion: income transfers reduce child poverty, and employment programmes alone do not.
 
 Could you tell me:
 
@@ -99,77 +125,152 @@ I would be grateful for a substantive reply rather than a general statement of c
 
 Yours sincerely,
 ${name.trim() || "[your name]"}
-[your address, so they can confirm you are a constituent]`;
-  }, [council, picked, name, personal, first, last]);
+[your street address]
+${signoffPostcode || "[your postcode]"}`;
+  }
 
-  async function copy() {
+  const drafts = useMemo(() => {
+    if (!lookup) return [];
+
+    return ([lookup.mp, lookup.msp] as Representative[])
+      .filter((representative) =>
+        ASKS.some((ask) => ask.who === representative.role && picked.includes(ask.id))
+      )
+      .map((representative) => ({
+        representative,
+        letter: makeLetter(representative.role, representative),
+      }));
+    // makeLetter is intentionally local: all of its reactive inputs are listed here.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [lookup, picked, council, first, last, name, personal, postcode]);
+
+  async function findRepresentatives(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setLookupState("loading");
+    setLookupError("");
+    setLookup(null);
+
     try {
-      await navigator.clipboard.writeText(letter);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 3200);
-    } catch {
-      setCopied(false);
+      const response = await fetch(`/api/representatives?postcode=${encodeURIComponent(postcode)}`, {
+        cache: "no-store",
+      });
+      const result = (await response.json()) as RepresentativeLookup | { error?: string };
+      if (!response.ok || !("mp" in result)) {
+        throw new Error("error" in result && result.error ? result.error : "The lookup failed.");
+      }
+
+      setLookup(result);
+      setSlug(result.council.slug);
+      setPostcode(result.postcode);
+      setLookupState("success");
+    } catch (error) {
+      setLookupState("error");
+      setLookupError(
+        error instanceof Error ? error.message : "The representative lookup is unavailable."
+      );
     }
   }
 
-  const mailto = `mailto:?subject=${encodeURIComponent(
-    `Child poverty in ${council.name} — a constituent's question`
-  )}&body=${encodeURIComponent(letter)}`;
+  function changePostcode(value: string) {
+    setPostcode(value.toUpperCase());
+    if (lookup && normalisePostcode(value) !== normalisePostcode(lookup.postcode)) {
+      setLookup(null);
+      setLookupState("idle");
+    }
+  }
 
-  const wtt = `https://www.writetothem.com/${
-    postcode.trim() ? `?pc=${encodeURIComponent(postcode.trim())}` : ""
-  }`;
+  async function copyDraft(role: RepresentativeRole, letter: string) {
+    try {
+      await navigator.clipboard.writeText(letter);
+      setCopied(role);
+      setTimeout(() => setCopied(null), 3200);
+    } catch {
+      setCopied(null);
+    }
+  }
+
+  function mailtoFor(representative: Representative, letter: string) {
+    const subject = `Child poverty in ${council.name} — a constituent's question`;
+    return `mailto:${representative.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(letter)}`;
+  }
 
   return (
-    <div className="mt-10 grid gap-7 lg:grid-cols-[400px_1fr] items-start">
-      {/* ================= Controls ================= */}
+    <div className="mt-10 grid gap-7 lg:grid-cols-[420px_1fr] items-start">
       <div
         className="rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] p-6 sm:p-7 lg:sticky lg:top-[84px]"
         style={{ boxShadow: "var(--shadow-2)" }}
       >
-        <div className="mb-7">
-          <StepLabel n={1}>Where do you live?</StepLabel>
-          <select
-            value={slug}
-            onChange={(e) => setSlug(e.target.value)}
-            className={inputCls}
-            aria-label="Your council area"
-          >
-            {councils.map((c) => (
-              <option key={c.slug} value={c.slug}>
-                {c.name}
-              </option>
-            ))}
-          </select>
-          <p className="text-[13.5px] text-[var(--ink-2)] leading-[1.5] mt-2.5">
-            The letter fills in the official figures for {council.name} automatically —{" "}
-            <strong className="tnum">{council.pcts[9]}%</strong> of children,{" "}
-            <strong className="tnum">{council.counts[9].toLocaleString("en-GB")}</strong> children
-            in {last}.
+        <div className="mb-8">
+          <StepLabel n={1}>Enter your postcode</StepLabel>
+          <form onSubmit={findRepresentatives} className="grid gap-2.5">
+            <input
+              type="text"
+              value={postcode}
+              onChange={(event) => changePostcode(event.target.value)}
+              placeholder="Postcode, e.g. G12 8QQ"
+              aria-label="Your postcode"
+              className={inputCls}
+              autoComplete="postal-code"
+              inputMode="text"
+              required
+            />
+            <button
+              type="submit"
+              className="btn btn-primary w-full justify-center"
+              disabled={lookupState === "loading"}
+            >
+              {lookupState === "loading" ? "Finding them…" : "Find my MP and MSP"}
+            </button>
+          </form>
+
+          <div className="mt-3" aria-live="polite">
+            {lookupState === "error" && (
+              <p className="text-[15px] text-[var(--bad)] leading-[1.5]">{lookupError}</p>
+            )}
+            {lookup && (
+              <div className="rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--paper)] p-4 space-y-3">
+                <p className="ui text-[15px] font-[720] text-[var(--good)]">
+                  Found automatically for {lookup.postcode}
+                </p>
+                <RepresentativeSummary representative={lookup.mp} />
+                <RepresentativeSummary representative={lookup.msp} />
+                <p className="text-[15px] text-[var(--ink-2)] leading-[1.5] border-t border-[var(--rule)] pt-3">
+                  Using the official figures for {lookup.council.name}: {council.pcts[9]}% of
+                  children, or {council.counts[9].toLocaleString("en-GB")}, in {last}.
+                </p>
+              </div>
+            )}
+          </div>
+
+          <p className="text-[15px] text-[var(--muted)] leading-[1.5] mt-3">
+            Your postcode is used only to retrieve your area, MP and constituency MSP. This site
+            does not store it.
           </p>
         </div>
 
-        <fieldset className="mb-7">
+        <fieldset className="mb-8">
           <legend>
             <StepLabel n={2}>What are you asking for?</StepLabel>
           </legend>
           <div className="space-y-3">
-            {ASKS.map((a) => (
-              <label key={a.id} className="flex gap-3 items-start cursor-pointer group">
+            {ASKS.map((ask) => (
+              <label key={ask.id} className="flex gap-3 items-start cursor-pointer group">
                 <input
                   type="checkbox"
-                  checked={picked.includes(a.id)}
-                  onChange={(e) =>
-                    setPicked((p) =>
-                      e.target.checked ? [...p, a.id] : p.filter((x) => x !== a.id)
+                  checked={picked.includes(ask.id)}
+                  onChange={(event) =>
+                    setPicked((current) =>
+                      event.target.checked
+                        ? [...current, ask.id]
+                        : current.filter((id) => id !== ask.id)
                     )
                   }
                   className="mt-1 accent-[var(--brand)] w-4 h-4 shrink-0"
                 />
-                <span className="text-[14.5px] leading-[1.4] group-hover:text-[var(--brand)] transition-colors">
-                  {a.label}
-                  <span className="ui text-[10.5px] uppercase tracking-[0.08em] font-[620] text-[var(--muted)] block mt-0.5">
-                    decided by your {a.who}
+                <span className="text-[15px] leading-[1.45] group-hover:text-[var(--brand)] transition-colors">
+                  {ask.label}
+                  <span className="ui text-[15px] font-[620] text-[var(--muted)] block mt-1">
+                    Routed to your {ask.who} automatically
                   </span>
                 </span>
               </label>
@@ -177,91 +278,163 @@ ${name.trim() || "[your name]"}
           </div>
         </fieldset>
 
-        <div className="mb-7">
-          <StepLabel n={3}>Your details</StepLabel>
+        <div className="mb-8">
+          <StepLabel n={3}>Make it yours</StepLabel>
           <div className="space-y-3">
             <input
               type="text"
               value={name}
-              onChange={(e) => setName(e.target.value)}
+              onChange={(event) => setName(event.target.value)}
               placeholder="Your name (optional)"
               aria-label="Your name, optional"
               className={inputCls}
-            />
-            <input
-              type="text"
-              value={postcode}
-              onChange={(e) => setPostcode(e.target.value)}
-              placeholder="Your postcode, e.g. G1 1AA (optional)"
-              aria-label="Your postcode, optional — used only to look up your representatives"
-              className={inputCls}
-              autoComplete="postal-code"
+              autoComplete="name"
             />
             <textarea
               value={personal}
-              onChange={(e) => setPersonal(e.target.value)}
-              placeholder="Add one sentence of your own (optional). Personal letters get better replies — a line about your street, your school, your work."
-              aria-label="A personal sentence for the letter, optional"
-              rows={3}
+              onChange={(event) => setPersonal(event.target.value)}
+              placeholder="Add one personal sentence (optional). A line about your street, school or work can make the email harder to answer with a template."
+              aria-label="A personal sentence for the email, optional"
+              rows={4}
               className={`${inputCls} resize-y font-serif`}
             />
           </div>
-          <p className="text-[12.5px] text-[var(--muted)] leading-[1.5] mt-2.5">
-            Nothing you type leaves your browser. The postcode is used once, to open the lookup in
-            step 4.
+          <p className="text-[15px] text-[var(--muted)] leading-[1.5] mt-3">
+            Your name and personal sentence never leave this page. They go straight into the draft
+            opened by your own email app.
           </p>
         </div>
 
         <div>
-          <StepLabel n={4}>Send it</StepLabel>
-          <div className="grid gap-2.5">
-            <button
-              type="button"
-              onClick={copy}
-              className="btn btn-primary w-full justify-center"
-              aria-live="polite"
-            >
-              {copied ? "Copied — now paste it into an email" : "Copy the letter"}
-            </button>
-            <a
-              href={wtt}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-ghost w-full justify-center"
-            >
-              Find who represents you →
-            </a>
-            <a href={mailto} className="btn btn-ghost w-full justify-center">
-              Or open in your email app
-            </a>
-          </div>
-          <p className="text-[12.5px] text-[var(--muted)] leading-[1.5] mt-3">
-            The lookup is WriteToThem, run by the charity mySociety. Paste the letter into the
-            message box it gives you, add your address, and send.
-          </p>
+          <StepLabel n={4}>Open and send</StepLabel>
+          {!lookup ? (
+            <p className="rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--paper)] p-4 text-[15px] text-[var(--ink-2)] leading-[1.5]">
+              Enter your postcode above. We will address the email and send each request to the
+              representative who can act on it.
+            </p>
+          ) : drafts.length === 0 ? (
+            <p className="rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--paper)] p-4 text-[15px] text-[var(--ink-2)] leading-[1.5]">
+              Choose at least one action above and the right email will appear here.
+            </p>
+          ) : (
+            <div className="space-y-4">
+              <p className="text-[15px] text-[var(--ink-2)] leading-[1.55]">
+                {drafts.length === 2
+                  ? "Two emails are ready. Send both: each contains only the decisions that person can act on."
+                  : "Your email is addressed to the person who can act on what you selected."}
+              </p>
+              {drafts.map(({ representative, letter }, index) => (
+                <div
+                  key={representative.role}
+                  className="rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--paper)] p-4"
+                >
+                  <p className="ui text-[15px] font-[720] text-[var(--action)]">
+                    {drafts.length === 2 ? `Email ${index + 1} of 2 · ` : "Email · "}
+                    your {representative.role}
+                  </p>
+                  <p className="text-[18px] font-[680] mt-1">{representative.name}</p>
+                  <p className="text-[15px] text-[var(--ink-2)] leading-[1.45] mt-1">
+                    {representative.party} · {representative.constituency}
+                  </p>
+                  <a
+                    href={`mailto:${representative.email}`}
+                    className="text-[15px] break-all inline-block mt-2"
+                  >
+                    {representative.email}
+                  </a>
+                  {representative.phone && (
+                    <p className="text-[15px] text-[var(--ink-2)] mt-1">
+                      {representative.phone}
+                    </p>
+                  )}
+                  <div className="grid gap-2.5 mt-4">
+                    <a
+                      href={mailtoFor(representative, letter)}
+                      className="btn btn-primary w-full justify-center text-center"
+                      aria-label={`Open ready-to-send email to ${representative.name}, your ${representative.role}`}
+                    >
+                      Open ready-to-send email
+                    </a>
+                    <button
+                      type="button"
+                      onClick={() => copyDraft(representative.role, letter)}
+                      className="btn btn-ghost w-full justify-center"
+                      aria-live="polite"
+                    >
+                      {copied === representative.role ? "Copied" : "Copy this email instead"}
+                    </button>
+                  </div>
+                  <a
+                    href={representative.profileUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="ui text-[15px] inline-block mt-3"
+                  >
+                    Check official profile →
+                  </a>
+                </div>
+              ))}
+              <p className="text-[15px] text-[var(--muted)] leading-[1.5]">
+                Your email app opens with the recipient, subject and message filled in. Add your
+                street address if it is not already in your email signature, review, then send.
+              </p>
+            </div>
+          )}
         </div>
       </div>
 
-      {/* ================= The letter ================= */}
       <div>
-        <div className="flex items-baseline justify-between gap-4 mb-2.5">
-          <p className="label">Your letter — updates as you choose</p>
-          <p className="ui tnum text-[12px] text-[var(--muted)]">
-            {letter.split(/\s+/).length} words
-          </p>
+        <div className="flex items-baseline justify-between gap-4 mb-3">
+          <p className="label">Your email{drafts.length === 2 ? "s" : ""}</p>
+          {drafts.length > 0 && (
+            <p className="ui tnum text-[15px] text-[var(--muted)]">
+              {drafts.length} ready
+            </p>
+          )}
         </div>
-        <div
-          className="rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] border-t-[3px] border-t-[var(--brand)] p-6 sm:p-10"
-          style={{ boxShadow: "var(--shadow-2)" }}
-        >
-          <pre className="text-[15.5px] leading-[1.7] whitespace-pre-wrap font-serif text-[var(--ink-2)] overflow-x-auto m-0">
-            {letter}
-          </pre>
-        </div>
-        <p className="text-[13.5px] text-[var(--ink-2)] leading-[1.55] mt-4 max-w-[64ch]">
-          Every figure in the letter is from the published data on this site, so your MSP or MP can
-          check it — and so can you: <a href="/areas" className="underline decoration-[var(--rule-strong)] underline-offset-2 hover:decoration-[var(--brand)]">your area&apos;s page</a> shows
-          the same numbers with their sources.
+
+        {drafts.length === 0 ? (
+          <div
+            className="rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] border-t-[3px] border-t-[var(--brand)] p-7 sm:p-10"
+            style={{ boxShadow: "var(--shadow-2)" }}
+          >
+            <p className="text-[20px] font-[680]">Your addressed email will appear here</p>
+            <p className="text-[16px] text-[var(--ink-2)] leading-[1.6] mt-3 max-w-[58ch]">
+              Enter your postcode and the site will find the right people, use your council&apos;s
+              official figures and address each draft for you.
+            </p>
+          </div>
+        ) : (
+          <div className="space-y-6">
+            {drafts.map(({ representative, letter }) => (
+              <article
+                key={representative.role}
+                className="rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] border-t-[3px] border-t-[var(--brand)] p-6 sm:p-10"
+                style={{ boxShadow: "var(--shadow-2)" }}
+              >
+                <div className="flex flex-wrap items-baseline justify-between gap-3 border-b border-[var(--rule)] pb-4 mb-5">
+                  <div>
+                    <p className="ui text-[15px] font-[720] text-[var(--action)]">
+                      To your {representative.role}
+                    </p>
+                    <h2 className="text-[22px] font-[700] mt-1">{representative.name}</h2>
+                  </div>
+                  <p className="ui tnum text-[15px] text-[var(--muted)]">
+                    {letter.split(/\s+/).length} words
+                  </p>
+                </div>
+                <pre className="text-[16px] leading-[1.7] whitespace-pre-wrap font-serif text-[var(--ink-2)] overflow-x-auto m-0">
+                  {letter}
+                </pre>
+              </article>
+            ))}
+          </div>
+        )}
+
+        <p className="text-[15px] text-[var(--ink-2)] leading-[1.55] mt-4 max-w-[64ch]">
+          Every figure in the email is from the published data on this site, so your representative
+          can check it — and so can you: <Link href="/areas">your area&apos;s page</Link> shows the
+          same numbers with their sources.
         </p>
       </div>
     </div>

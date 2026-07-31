@@ -64,7 +64,8 @@ src/app/                    routes (App Router)
   why-glasgow/                the causal argument
   what-would-fix-it/          costed policy options
   accountability/             the record, by tier of government
-  take-action/                letter builder (runs entirely in the browser)
+  take-action/                postcode lookup and automatically addressed letter builder
+  api/representatives/        no-storage MP/MSP lookup from parliamentary sources
   methods/  glossary/  data/  about/  corrections/
   sitemap.ts  robots.ts  opengraph-image.tsx
 src/lib/data/               all datasets, typed
@@ -108,8 +109,9 @@ accusations, and the site's whole value is that it cannot easily be waved away.
 ## Stack
 
 Next.js 16 (App Router, Turbopack) · React 19 · Tailwind 4 · TypeScript.
-No database, no CMS, no client-side data fetching. Charts are hand-built SVG with
-no charting dependency.
+No database or CMS. The representative lookup uses one no-storage server route backed by
+Postcodes.io, the UK Parliament Members API and the Scottish Parliament website. Charts are
+hand-built SVG with no charting dependency.
 
 ## Licence
 

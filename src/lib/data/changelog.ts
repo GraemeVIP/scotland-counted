@@ -18,6 +18,13 @@ export type ChangeEntry = {
 export const changelog: ChangeEntry[] = [
   {
     date: "2026-07-31",
+    title: "Letters now find and address the right representatives",
+    body: "Enter a postcode and the action tool now finds the reader's MP and constituency MSP, routes each policy request to the tier that controls it, and opens a fully addressed draft in the reader's own email app.",
+    href: "/take-action",
+    kind: "feature",
+  },
+  {
+    date: "2026-07-31",
     title: "The Count opens, and a contact form",
     body: "The email list is live — one email when the data changes, nothing else. And a contact form replaces the published email address: report an error, make a press enquiry, request data, or suggest an improvement, pre-sorted by reason.",
     href: "/contact",

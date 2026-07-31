@@ -56,18 +56,18 @@ export default function TakeAction() {
           {[
             {
               n: 1,
-              t: "Build the letter below",
-              b: "Pick your council area and what you want done. The official figures fill themselves in.",
+              t: "Enter your postcode",
+              b: "Your MP, MSP and council figures are found and filled in automatically.",
             },
             {
               n: 2,
-              t: "Copy it",
-              b: "One button. Add a sentence of your own first if you can — personal letters get better replies.",
+              t: "Choose what should change",
+              b: "Each request is routed to the politician who can actually act on it. You do not need to know who decides what.",
             },
             {
               n: 3,
-              t: "Send it to your MSP or MP",
-              b: "The lookup button finds who represents you from your postcode. Paste, add your address, send.",
+              t: "Open and send",
+              b: "Your email app opens with the right name, address, subject and message already filled in.",
             },
           ].map((s) => (
             <div key={s.n} className="bg-[var(--paper)] px-6 py-6">
@@ -77,7 +77,7 @@ export default function TakeAction() {
                 </span>
                 <h2 className="ui text-[15px] font-[660] tracking-[-0.01em]">{s.t}</h2>
               </div>
-              <p className="text-[14.5px] text-[var(--ink-2)] leading-[1.55]">{s.b}</p>
+              <p className="text-[15px] text-[var(--ink-2)] leading-[1.55]">{s.b}</p>
             </div>
           ))}
         </div>
@@ -97,9 +97,10 @@ export default function TakeAction() {
             commitment that can be checked later.
           </p>
           <p className="text-[15px] text-[var(--ink-2)]">
-            Nothing is sent through this site and nothing you type is stored. The letter is
-            assembled in your browser; you copy it or open it in your own email client. We never
-            see it.
+            No email is sent through this site and nothing you type is stored. Your postcode is
+            used only to retrieve your area and representatives from Postcodes.io, UK Parliament
+            and the Scottish Parliament. Your name and personal message stay in your browser, and
+            the finished email opens in your own email app.
           </p>
         </Col>
 
