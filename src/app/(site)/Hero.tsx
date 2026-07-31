@@ -1,9 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { CountUp } from "@/components/Motion";
+import { CountUp, Pictogram } from "@/components/Motion";
 import PostcodeStart from "@/components/PostcodeStart";
 
 /**
@@ -86,46 +85,37 @@ export default function Hero() {
             </p>
           </div>
 
-          {/* ---- The people behind the proportion ---- */}
+          {/* ---- The proportion, drawn ---- */}
           <div className="lg:pl-6 lg:justify-self-end w-full max-w-[460px] mx-auto lg:mx-0">
             <div
-              className="relative aspect-[4/3] overflow-hidden rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--deep)] scale-in sm:aspect-[5/4] lg:aspect-square"
+              className="rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] p-6 sm:p-7 scale-in"
               style={{ boxShadow: "var(--shadow-2)", animationDelay: "300ms" }}
             >
-              <Image
-                src="/images/editorial/scotland-school-morning.webp"
-                alt="An illustrated parent helping a child get ready for school in an ordinary Scottish kitchen."
-                fill
-                priority
-                sizes="(min-width: 1024px) 460px, (min-width: 640px) 70vw, calc(100vw - 40px)"
-                className="object-cover object-center"
-              />
-              <div
-                className="absolute inset-x-0 bottom-0 px-5 pb-5 pt-20 text-white sm:px-6 sm:pb-6"
-                style={{
-                  background:
-                    "linear-gradient(to top, rgba(15, 22, 27, 0.96) 0%, rgba(15, 22, 27, 0.78) 58%, transparent 100%)",
-                }}
-              >
-                <div className="flex items-end justify-between gap-5">
-                  <div>
-                    <div className="figure-num text-[clamp(46px,5vw,62px)] text-[#f4a261]">
-                      <CountUp value={17} suffix="%" />
-                    </div>
-                    <p className="ui mt-1 text-[15px] font-[650] text-white/85">
-                      of everyone in Scotland
-                    </p>
+              <div className="flex items-end justify-between gap-6 mb-5">
+                <div>
+                  <div className="figure-num text-[clamp(44px,4.5vw,64px)] text-[var(--action)]">
+                    <CountUp value={17} suffix="%" />
                   </div>
-                  <div className="pb-1 text-right">
-                    <div className="figure-num text-[24px] text-white">940,000</div>
-                    <p className="ui mt-1 text-[15px] font-[650] text-white/75">people</p>
-                  </div>
+                  <p className="ui text-[15px] font-[600] text-[var(--muted)] mt-2">
+                    of everyone in Scotland
+                  </p>
                 </div>
-                <p className="mt-4 border-t border-white/20 pt-3 text-[15px] leading-[1.5] text-white/80">
-                  AI-generated illustration. Relative poverty after housing costs, 2022–25;
-                  Scottish Government official statistics.
-                </p>
+                <div className="text-right">
+                  <div className="figure-num text-[22px] text-[var(--ink)]">940,000</div>
+                  <p className="ui text-[15px] font-[600] text-[var(--muted)] mt-1.5">people</p>
+                </div>
               </div>
+
+              <Pictogram
+                filled={17}
+                columns={20}
+                label="A hundred figures representing Scotland's population. Seventeen are highlighted, showing the share living in relative poverty after housing costs in 2022 to 2025."
+              />
+
+              <p className="mt-5 pt-4 border-t border-[var(--rule)] text-[15px] leading-[1.55] text-[var(--ink-2)]">
+                Relative poverty after housing costs, 2022–25. Children: 21%. Working-age adults:
+                18%. Pensioners: 13%. Scottish Government official statistics.
+              </p>
             </div>
           </div>
         </div>
