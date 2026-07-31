@@ -18,7 +18,7 @@ export type ChangeEntry = {
 export const changelog: ChangeEntry[] = [
   {
     date: "2026-07-31",
-    title: "Glasgow Counted becomes Scotland Counted",
+    title: "Scotland-wide relaunch",
     body: "The project now leads with Scotland-wide poverty, work and living-standards evidence. Every council area carries local child-poverty, claimant-count and pay data; every Scottish Westminster seat has a constituency page; Glasgow remains the founding deep dive; and the postcode action is now the main route through the site.",
     href: "/",
     kind: "feature",
@@ -61,7 +61,7 @@ export const changelog: ChangeEntry[] = [
   {
     date: "2026-07-31",
     title: "Site launched",
-    body: "The project launched as Glasgow Counted: six indicators from 2000, all 32 council areas, the four causes, seven costed fixes, and the accountability record. Every figure was retrieved from the original publisher.",
+    body: "The project launched with six indicators from 2000, all 32 council areas, the four causes, seven costed fixes, and the accountability record. Every figure was retrieved from the original publisher.",
     href: "/",
     kind: "feature",
   },

@@ -11,7 +11,7 @@ import {
   Reveal,
 } from "@/components/Blocks";
 import { JsonLd, articleJsonLd, faqJsonLd, meta } from "@/lib/seo";
-import { councilsByChange, councilsByLevel } from "@/lib/data/councils";
+import { councilsByChange, councilsByLevel, SCOTLAND_PCTS } from "@/lib/data/councils";
 import { scotlandPoverty } from "@/lib/data/scotland";
 import { getSources } from "@/lib/data/sources";
 import { site } from "@/lib/site";
@@ -78,6 +78,9 @@ const COVERAGE = [
 export default function Home() {
   const byLevel = councilsByLevel();
   const rose = councilsByChange().filter((council) => council.change > 0).length;
+  const glasgow = byLevel.find((council) => council.slug === "glasgow-city")!;
+  const glasgowGap = (glasgow.pcts[9] - SCOTLAND_PCTS[9]).toFixed(1);
+  const scotlandChange = (SCOTLAND_PCTS[9] - SCOTLAND_PCTS[0]).toFixed(1);
   const nationalSource = getSources([scotlandPoverty.sourceId])[0];
 
   return (
@@ -225,19 +228,21 @@ export default function Home() {
         <section className="pt-20 sm:pt-28">
           <SectionHead
             n={4}
-            eyebrow="The founding deep dive"
-            title="Glasgow is where the record goes deepest"
+            eyebrow="National outlier · dedicated record"
+            title="Glasgow is Scotland's starkest child-poverty outlier"
           />
           <div className="grid gap-5 lg:grid-cols-[minmax(0,1.25fr)_minmax(300px,0.75fr)] mt-10">
             <div className="rounded-[var(--r-m)] bg-[var(--deep)] text-[var(--deep-ink)] p-7 sm:p-10">
               <p className="label !text-[var(--deep-ink)] opacity-60 mb-5">Glasgow · 2000–2026</p>
-              <h3 className="display text-[clamp(27px,3.2vw,44px)] font-[750] max-w-[18ch]">
-                Work improved. Deprivation fell. Child poverty still climbed.
+              <h3 className="display text-[clamp(27px,3.2vw,44px)] font-[750] max-w-[22ch]">
+                {glasgow.pcts[9]}%. {glasgow.counts[9].toLocaleString("en-GB")} children. Highest
+                of all 32 council areas.
               </h3>
               <p className="mt-6 text-[17px] leading-[1.6] opacity-80 max-w-[58ch]">
-                Six long-run measures show how jobs, benefits, pay, neighbourhoods, housing and
-                life expectancy interact. Glasgow remains the detailed case study — not the limit
-                of the site.
+                Glasgow is {glasgowGap} percentage points above the Scottish rate. Over the decade
+                its rate rose {glasgow.change.toFixed(1)} points, compared with {scotlandChange} in
+                Scotland. Scotland-wide coverage does not fold those figures into an average: the
+                city keeps a separate six-measure record of what changed and why.
               </p>
               <div className="flex flex-wrap gap-3 mt-8">
                 <Link href="/the-numbers" className="btn btn-primary">
@@ -250,7 +255,17 @@ export default function Home() {
               </div>
             </div>
             <div className="rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] p-7 sm:p-8">
-              <p className="label mb-5">What the deep dive adds</p>
+              <p className="label mb-5">Why Glasgow has its own record</p>
+              <div className="grid grid-cols-2 gap-px bg-[var(--rule)] border border-[var(--rule)] mb-6">
+                <div className="bg-[var(--paper)] p-4">
+                  <p className="figure-num text-[31px] text-[var(--action)]">+{glasgow.change.toFixed(1)}</p>
+                  <p className="text-[15px] text-[var(--ink-2)] mt-1">point rise in Glasgow</p>
+                </div>
+                <div className="bg-[var(--paper)] p-4">
+                  <p className="figure-num text-[31px]">+{scotlandChange}</p>
+                  <p className="text-[15px] text-[var(--ink-2)] mt-1">point rise in Scotland</p>
+                </div>
+              </div>
               <ul className="space-y-4 text-[16px] text-[var(--ink-2)] leading-[1.5]">
                 <li>Employment and claimant trends since 2000</li>
                 <li>Resident pay against workplace pay</li>

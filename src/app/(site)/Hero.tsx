@@ -20,10 +20,8 @@ export default function Hero() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const fade = Math.max(0, 1 - y / 520);
-
   return (
-    <section className="relative overflow-hidden border-b border-[var(--rule)]">
+    <section className="relative overflow-hidden border-b border-[var(--rule)] lg:min-h-[calc(100svh-68px)]">
       {/* A very faint survey grid, drifting slowly as you scroll */}
       <div
         aria-hidden="true"
@@ -38,8 +36,8 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 pt-8 pb-12 sm:pt-12 sm:pb-14">
-        <div className="grid gap-x-16 gap-y-14 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-start">
+      <div className="relative max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 pt-8 pb-12 sm:pt-12 sm:pb-14 lg:min-h-[calc(100svh-68px)] lg:flex lg:items-center">
+        <div className="grid w-full gap-x-16 gap-y-14 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-start">
           {/* ---- Statement ---- */}
           <div>
             <p className="label mb-5 flex items-center gap-3 rise" style={{ animationDelay: "60ms" }}>
@@ -75,9 +73,15 @@ export default function Hero() {
                 Every figure sourced
               </Link>
             </div>
-            <p className="mt-5 text-[15px] text-[var(--muted)] leading-[1.5] rise" style={{ animationDelay: "540ms" }}>
-              Formerly Glasgow Counted. Same independent project, now built around every Scottish
-              area.
+            <p
+              className="mt-5 text-[15px] text-[var(--ink-2)] leading-[1.5] rise"
+              style={{ animationDelay: "540ms" }}
+            >
+              <Link href="/the-numbers" className="font-[680]">
+                Glasgow keeps its own record:
+              </Link>{" "}
+              36.1% — 39,319 children — live in relative poverty after housing costs, the highest
+              rate and steepest decade rise of any Scottish council area.
             </p>
           </div>
 
@@ -116,21 +120,6 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* ---- Scroll cue ---- */}
-      <div
-        className="hidden lg:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-3 pointer-events-none"
-        style={{ opacity: fade }}
-        aria-hidden="true"
-      >
-        <span className="ui text-[13px] font-[600] text-[var(--muted)]">
-          Scroll to see Scotland
-        </span>
-        <span className="nudge grid h-9 w-9 place-items-center rounded-full border border-[var(--rule-strong)] bg-[var(--surface)] text-[var(--action)]">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M12 5v14M6 13l6 6 6-6" />
-          </svg>
-        </span>
-      </div>
     </section>
   );
 }

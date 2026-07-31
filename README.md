@@ -20,7 +20,7 @@ Open `site.config.ts` and change these four things:
 
 | Field | Why |
 |---|---|
-| `url` | Canonical URLs, sitemap, Open Graph tags and JSON-LD all derive from it. Must be the live domain, no trailing slash — retained as glasgowcounted.co.uk until a Scotland Counted domain is registered. |
+| `url` | Canonical URLs, sitemap, Open Graph tags and JSON-LD all derive from it. It uses `scotland-counted.vercel.app` until the permanent domain is registered. |
 | `author.name` | Currently just "Graeme" — add your surname if you want the byline to carry it. |
 | `contactEmail` | Used on the about and corrections pages. |
 | `web3formsKey` | Optional. A free web3forms.com access key; pasting it turns on the email sign-up forms site-wide. |
@@ -45,8 +45,8 @@ Or connect the GitHub repo in the Vercel dashboard. There are no required enviro
 database. Content pages are statically generated; the representative lookup is a dynamic,
 no-storage route that calls official postcode and parliamentary sources.
 
-Once the domain is attached, update `site.config.ts` with the real URL and redeploy —
-otherwise canonical tags and the sitemap will point at the placeholder.
+Once the permanent domain is attached, update `site.config.ts` with it and redeploy — otherwise
+canonical tags and the sitemap will continue to point at the temporary Vercel address.
 
 ## After it is live
 
