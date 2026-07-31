@@ -7,6 +7,7 @@ import {
   CONSTITUENCY_YEARS,
   CONSTITUENCY_COUNT,
 } from "@/lib/data/constituencies";
+import { asOneIn } from "@/lib/plain-language";
 
 export const metadata = meta({
   title: "Child poverty in every Scottish MP area",
@@ -19,6 +20,7 @@ export default function Constituencies() {
   const byLevel = constituenciesByLevel();
   const last = CONSTITUENCY_YEARS[9];
   const worst = byLevel[0];
+  const worstShare = asOneIn(worst.pcts[9]);
 
   return (
     <>
@@ -45,8 +47,8 @@ export default function Constituencies() {
           title="See the facts for the area your MP represents"
           lede="One MP represents each area. You do not need to know the political name for your area or who your MP is — enter your postcode and we find them for you."
           stat={{
-            value: `${worst.pcts[9]}%`,
-            label: `${worst.name} — the highest constituency rate in Scotland, ${last}`,
+            value: worstShare.replace(/^(about|more than|almost)\s+/, ""),
+            label: `About one child in every three in ${worst.name} is growing up in poverty. Exact figure: ${worst.pcts[9]}% in ${last} — the highest in Scotland.`,
             tone: "bad",
           }}
         />

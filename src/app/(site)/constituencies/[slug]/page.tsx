@@ -46,6 +46,7 @@ export default async function ConstituencyPage(props: { params: Promise<{ slug: 
   const rose = c.change > 0;
   const vsScotland = +(c.pcts[9] - SCOTLAND_PCTS[9]).toFixed(1);
   const plainShare = asOneIn(c.pcts[9]);
+  const plainShareSentence = plainShare.charAt(0).toUpperCase() + plainShare.slice(1);
 
   const faq = [
     {
@@ -91,8 +92,8 @@ export default async function ConstituencyPage(props: { params: Promise<{ slug: 
             </>
           }
           stat={{
-            value: `${c.pcts[9]}%`,
-            label: `of children in ${c.name}, after housing costs, ${last}`,
+            value: plainShare.replace(/^(about|more than|almost)\s+/, ""),
+            label: `${plainShareSentence} children in ${c.name} are growing up in poverty. Exact figure: ${c.pcts[9]}% in ${last}.`,
             tone: rose ? "bad" : "good",
           }}
         />
