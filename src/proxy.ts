@@ -4,12 +4,12 @@ import { site } from "../site.config";
 /**
  * Keeps every host except the real one out of search results.
  *
- * The site is served from a temporary Vercel domain until scotlandcounted.co.uk
- * is registered and pointed at it. Anything indexed on the temporary domain
- * would have to be migrated and redirected later, so this sends noindex on any
- * host that is not the canonical one. The temporary host remains crawlable so
- * audits and search engines can follow the full site while the real domain is
- * being prepared.
+ * The canonical home is scotlandcounted.org.uk. The site is also reachable on
+ * scotlandcounted.co.uk (which 308-redirects at the edge) and on the Vercel
+ * deployment domain. Anything indexed on those would have to be migrated and
+ * redirected later, so this sends noindex on any host that is not the canonical
+ * one. They stay crawlable, so audits and search engines can still follow the
+ * full site.
  *
  * Gating on the host rather than hardcoding a flag means there is no switch to
  * remember on launch day: the moment the real domain resolves here, the header

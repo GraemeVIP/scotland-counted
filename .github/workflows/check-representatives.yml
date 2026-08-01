@@ -22,4 +22,4 @@ jobs:
 
       - name: Check MP and MSP lookups against production
         # Set CHECK_BASE_URL as a repository variable once the site has a home.
-        run: node scripts/check-representatives.mjs "${{ vars.CHECK_BASE_URL || 'https://scotlandcounted.co.uk' }}"
+        run: node scripts/check-representatives.mjs "${{ vars.CHECK_BASE_URL || 'https://scotlandcounted.org.uk' }}"

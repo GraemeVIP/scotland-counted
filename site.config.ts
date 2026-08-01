@@ -13,7 +13,7 @@ export const site = {
    * and JSON-LD, and by src/middleware.ts to decide which host may be indexed:
    * any host that is not this one is served noindex. No trailing slash.
    */
-  url: "https://scotlandcounted.co.uk",
+  url: "https://scotlandcounted.org.uk",
 
   tagline: "A free guide to poverty, work and living costs in Scotland.",
   description:
