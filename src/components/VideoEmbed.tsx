@@ -68,29 +68,29 @@ export default function VideoEmbed({
               sizes="(max-width: 900px) 100vw, 900px"
               className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
             />
-            {/* Darkened so the title and button stay legible over any frame. */}
+            {/*
+              No title or "watch on YouTube" caption over the poster. These
+              thumbnails already carry their own words, so a second layer of
+              text on top of them fought the artwork and repeated the heading
+              sitting right beside it. A play button on a picture is
+              self-explanatory.
+
+              The scrim is only deep enough to keep the button readable over a
+              pale frame, and it lifts on hover.
+            */}
             <span
               aria-hidden="true"
-              className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-black/10"
+              className="absolute inset-0 bg-black/15 transition-colors duration-300 group-hover:bg-black/5"
             />
 
             <span
               aria-hidden="true"
               className="absolute left-1/2 top-1/2 flex h-[68px] w-[68px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[var(--action)] transition-transform duration-300 group-hover:scale-110"
-              style={{ boxShadow: "0 8px 30px rgba(0,0,0,0.4)" }}
+              style={{ boxShadow: "0 8px 30px rgba(0,0,0,0.45)" }}
             >
               <svg width="26" height="26" viewBox="0 0 24 24" fill="#fff" className="ml-1">
                 <path d="M8 5v14l11-7z" />
               </svg>
-            </span>
-
-            <span className="absolute inset-x-0 bottom-0 p-5 text-left sm:p-6">
-              <span className="ui block text-[13.5px] font-[750] uppercase tracking-[0.09em] text-white/75">
-                Watch · YouTube
-              </span>
-              <span className="mt-1.5 block text-[19px] font-[750] leading-[1.25] text-white sm:text-[23px]">
-                {title}
-              </span>
             </span>
           </button>
         )}
