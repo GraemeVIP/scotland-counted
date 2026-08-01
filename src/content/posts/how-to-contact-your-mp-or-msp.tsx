@@ -15,7 +15,7 @@ export default function Post() {
         right, and no way to do it wrong.
       </P>
 
-      <H2>First: you have two of them</H2>
+      <H2 id="mp-and-msp">First: you have two of them</H2>
 
       <P>
         Everyone in Scotland has both an MP and an MSP. They are different people in different
@@ -47,7 +47,7 @@ export default function Post() {
         </p>
       </Aside>
 
-      <H2>What to actually say</H2>
+      <H2 id="what-to-say">What to actually say</H2>
 
       <P>
         Short is better than long. A message that takes two minutes to read is more likely to be
@@ -83,7 +83,7 @@ export default function Post() {
 
       <P>Being angry is fine. Threatening anybody is not, and will get your message binned.</P>
 
-      <H2>What happens next</H2>
+      <H2 id="what-happens-next">What happens next</H2>
 
       <P>
         You will usually get a reply, though it can take a few weeks. It might be a standard letter
@@ -104,7 +104,7 @@ export default function Post() {
         </p>
       </Aside>
 
-      <H2>The one-minute version</H2>
+      <H2 id="one-minute-version">The one-minute version</H2>
 
       <P>
         If all of that still feels like effort, that is exactly why this site exists. Put in your

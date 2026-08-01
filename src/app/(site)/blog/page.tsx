@@ -8,10 +8,11 @@ import { postsByDate } from "@/lib/data/posts";
 import { site } from "@/lib/site";
 
 export const metadata = meta({
-  title: "Explained in plain English",
+  title: "Money, bills and poverty explained in plain English",
   description:
-    "Short, clear answers to the questions people actually ask about poverty in Scotland — what the numbers mean, who decides what, and how to do something about it.",
+    "Plain-English guides to Scotland's cost of living, poverty, work, benefits and political decisions. Short answers first, exact sources underneath.",
   path: "/blog",
+  type: "website",
 });
 
 export default function Blog() {
@@ -36,6 +37,11 @@ export default function Blog() {
             headline: p.title,
             description: p.description,
             datePublished: p.date,
+            dateModified: p.updated ?? p.date,
+            image: `${site.url}${p.image.src}`,
+            articleSection: p.category,
+            keywords: p.tags.join(", "),
+            author: { "@id": `${site.url}/#author` },
             url: `${site.url}/blog/${p.slug}`,
           })),
         }}
@@ -43,9 +49,9 @@ export default function Blog() {
 
       <Page>
         <PageHeader
-          eyebrow="Explained"
-          title="Poverty in Scotland, in plain English"
-          lede="Short answers to the questions people actually ask. No jargon, no assumed knowledge, and every number sourced. If something here is still unclear, that is our fault and we want to know."
+          eyebrow="Explained · the evidence hub"
+          title="Money, bills and poverty — without the jargon"
+          lede="Start with the answer in ordinary words. Then open the figures, dates and original sources if you want to check us. No political knowledge assumed."
         />
 
         <BlogList posts={all} />

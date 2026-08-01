@@ -13,7 +13,7 @@ export default function Post() {
         readable.
       </Lead>
 
-      <H2>The short version</H2>
+      <H2 id="short-version">The short version</H2>
 
       <P>
         A household is counted as being in poverty when it has <strong>less than 60% of what a
@@ -25,7 +25,7 @@ export default function Post() {
         is normal in the country they live in.
       </P>
 
-      <H2>What that is in real money</H2>
+      <H2 id="real-money">What that is in real money</H2>
 
       <P>
         Percentages are hard to picture, so here is the same line in pounds per week. This is the
@@ -56,7 +56,7 @@ export default function Post() {
         a birthday. If a family has less than that, they are in poverty by the official measure.
       </P>
 
-      <H2>Why “after housing costs” matters so much</H2>
+      <H2 id="after-housing-costs">Why “after housing costs” matters so much</H2>
 
       <P>
         You will see two versions of poverty figures, before housing costs and after. This site
@@ -77,7 +77,7 @@ export default function Post() {
         </p>
       </Aside>
 
-      <H2>Relative, absolute and persistent</H2>
+      <H2 id="three-measures">Relative, absolute and persistent</H2>
 
       <P>Three words get used, and they measure different things.</P>
 
@@ -97,7 +97,7 @@ export default function Post() {
         </LI>
       </UL>
 
-      <H2>Where Scotland stands</H2>
+      <H2 id="where-scotland-stands">Where Scotland stands</H2>
 
       <P>
         On the main measure, {scotlandPoverty.all.pct}% of people in Scotland —{" "}

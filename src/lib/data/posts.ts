@@ -1,16 +1,33 @@
 /**
- * The blog: plain-English explainers.
+ * Plain-English articles and their search/wayfinding metadata.
  *
- * The area and constituency pages answer "how bad is it where I live". They
- * cannot answer the questions people actually type into Google first — what
- * poverty even means, whether poor families work, what the Scottish Child
- * Payment is, how you contact an MP. Those questions are the front door, and
- * every post is written to send the reader on to the local figures and the
- * action tool.
- *
- * Every claim here is already published and sourced elsewhere on the site.
- * Posts do not introduce new numbers; they explain the ones we hold.
+ * The first screen gives a normal reader the answer. The same article then
+ * exposes the dates, definitions and original sources that a journalist or
+ * representative may need to check it.
  */
+
+export const postCategories = [
+  {
+    slug: "money-and-bills",
+    name: "Money and bills",
+    description: "Why food, rent, energy and wages no longer add up — and who controls the rules.",
+    color: "var(--action)",
+  },
+  {
+    slug: "poverty-explained",
+    name: "Poverty explained",
+    description: "The words and numbers stripped of jargon, with the proof underneath.",
+    color: "var(--brand)",
+  },
+  {
+    slug: "take-action",
+    name: "Take action",
+    description: "Simple ways to make the people with power answer for what they decide.",
+    color: "var(--good)",
+  },
+] as const;
+
+export type PostCategorySlug = (typeof postCategories)[number]["slug"];
 
 export type Post = {
   slug: string;
@@ -23,9 +40,18 @@ export type Post = {
   date: string;
   /** ISO date last checked or revised. */
   updated?: string;
-  /** Grouping label shown on cards. */
-  topic: "How it works" | "The numbers" | "Take action";
+  category: PostCategorySlug;
+  tags: string[];
   readingMinutes: number;
+  featured?: boolean;
+  image: {
+    src: string;
+    alt: string;
+    caption: string;
+    objectPosition?: string;
+  };
+  /** Explicit headings keep the contents list honest and stable. */
+  toc: { id: string; label: string }[];
   /** Feeds FAQPage structured data and the questions block at the foot. */
   faq: { q: string; a: string }[];
   /** Source ids from src/lib/data/sources.ts. */
@@ -34,6 +60,69 @@ export type Post = {
 
 export const posts: Post[] = [
   {
+    slug: "why-is-the-cost-of-living-so-high",
+    title: "Why everything still costs so much — and the choices that made it worse",
+    description:
+      "The cost of living crisis in Scotland did not end when inflation fell. See why food, rent and energy stay expensive, which political decisions made the squeeze worse, and who can change it.",
+    standfirst:
+      "War and the pandemic pushed prices up. That is true. It is also true that political choices left ordinary families with less protection — and added avoidable costs of their own.",
+    date: "2026-08-01",
+    updated: "2026-08-01",
+    category: "money-and-bills",
+    tags: ["Cost of living", "Food", "Energy", "Rent", "Universal Credit"],
+    readingMinutes: 10,
+    featured: true,
+    image: {
+      src: "/images/editorial/glasgow-cost-of-living.webp",
+      alt: "A supermarket worker at a Glasgow kitchen table checking household bills beside a bag of groceries",
+      caption:
+        "The squeeze is not one bill. Food, energy, rent and tax all land on the same household income.",
+      objectPosition: "center 48%",
+    },
+    toc: [
+      { id: "what-is-happening", label: "What is happening now" },
+      { id: "what-started-it", label: "What started the crisis" },
+      { id: "decisions-made-it-worse", label: "The choices that made it worse" },
+      { id: "glasgow-hit", label: "Why Glasgow feels it harder" },
+      { id: "what-helped", label: "Decisions that did help" },
+      { id: "who-can-fix-it", label: "Who can fix what" },
+    ],
+    faq: [
+      {
+        q: "Has the cost of living crisis ended because inflation is lower?",
+        a: "No. Lower inflation means prices are rising more slowly; it does not put them back where they were. By March 2026, the ONS Household Costs Index was about 34% higher than five years earlier for low-income households.",
+      },
+      {
+        q: "Did MPs cause the cost of living crisis?",
+        a: "Not by themselves. Pandemic disruption and Russia’s invasion of Ukraine caused major global food and energy shocks. But UK governments and MPs made choices on benefits, rent support, trade, tax and the 2022 mini-budget that left households more exposed or added extra cost.",
+      },
+      {
+        q: "Who controls help with the cost of living in Scotland?",
+        a: "Both parliaments do. Westminster controls Universal Credit, Local Housing Allowance, the legal minimum wage, most tax allowances and energy regulation. Holyrood controls the Scottish Child Payment, housing, Scottish income-tax bands, childcare and much of public transport. Councils control local crisis support and services.",
+      },
+    ],
+    sourceIds: [
+      "ons-cpi-2026",
+      "ons-household-costs-2026",
+      "sg-cost-living-2025",
+      "sg-private-rents-2025",
+      "welfare-freeze-act",
+      "welfare-freeze-vote",
+      "welfare-freeze-impact",
+      "uc-uplift-withdrawal",
+      "lha-2026",
+      "mini-budget-2022",
+      "brexit-food-prices",
+      "nao-energy-market",
+      "obr-tax-thresholds-2025",
+      "scottish-housing-budget",
+      "sg-child-payment-2026",
+      "cpag",
+      "minimum-wage-2026",
+      "mis-2025",
+    ],
+  },
+  {
     slug: "do-people-in-poverty-work",
     title: "Most children in poverty in Scotland have a parent who works",
     description:
@@ -41,8 +130,21 @@ export const posts: Post[] = [
     standfirst:
       "The most common thing said about poverty is that people should get a job. Most of them already have one.",
     date: "2026-07-31",
-    topic: "The numbers",
+    category: "poverty-explained",
+    tags: ["Work", "Low pay", "Housing costs"],
     readingMinutes: 4,
+    image: {
+      src: "/images/editorial/scotland-working-family.webp",
+      alt: "A parent in work clothes walking home with her school-age child and a bag of groceries",
+      caption:
+        "Having a job is no longer a guaranteed route out of poverty. Most children in poverty have a working parent.",
+      objectPosition: "center 42%",
+    },
+    toc: [
+      { id: "why-work-does-not-fix-it", label: "Why work does not fix it" },
+      { id: "housing-costs", label: "How housing changes the picture" },
+      { id: "what-this-changes", label: "What this changes" },
+    ],
     faq: [
       {
         q: "Do most people in poverty work?",
@@ -63,8 +165,22 @@ export const posts: Post[] = [
     standfirst:
       "The word gets used loosely. The measure behind it is precise, and knowing it makes every other number on this site readable.",
     date: "2026-07-31",
-    topic: "How it works",
+    category: "poverty-explained",
+    tags: ["Poverty line", "Housing costs", "Definitions"],
     readingMinutes: 5,
+    image: {
+      src: "/images/editorial/glasgow-everyday-street.webp",
+      alt: "People walking along a wet Glasgow tenement street after rain",
+      caption:
+        "Poverty is not a type of person or place. It is a household being left with too little to take part in ordinary life.",
+    },
+    toc: [
+      { id: "short-version", label: "The short version" },
+      { id: "real-money", label: "What it means in pounds" },
+      { id: "after-housing-costs", label: "Why housing matters" },
+      { id: "three-measures", label: "Three different measures" },
+      { id: "where-scotland-stands", label: "Where Scotland stands" },
+    ],
     faq: [
       {
         q: "What is the poverty line in the UK?",
@@ -83,10 +199,25 @@ export const posts: Post[] = [
     description:
       "A weekly payment for every child in a low-income family in Scotland. What it is worth, who can get it, and why thousands of eligible families still do not claim it.",
     standfirst:
-      "It does not exist anywhere else in the UK, and some families entitled to it have never claimed it.",
+      "It does not exist anywhere else in the UK, and some families who are entitled to it have never claimed it.",
     date: "2026-07-31",
-    topic: "How it works",
+    updated: "2026-08-01",
+    category: "money-and-bills",
+    tags: ["Benefits", "Families", "Scottish Child Payment"],
     readingMinutes: 4,
+    image: {
+      src: "/images/editorial/scotland-secure-homes.webp",
+      alt: "Two children arriving home from school to a secure family home",
+      caption:
+        "The payment is designed to give low-income families more room for everyday essentials, for every eligible child.",
+      objectPosition: "center 44%",
+    },
+    toc: [
+      { id: "who-can-get-it", label: "Who can get it" },
+      { id: "why-it-matters", label: "Why it matters" },
+      { id: "who-decides", label: "Who decides it" },
+      { id: "take-up", label: "The money going unclaimed" },
+    ],
     faq: [
       {
         q: "How much is the Scottish Child Payment?",
@@ -107,8 +238,22 @@ export const posts: Post[] = [
     standfirst:
       "Most people never contact their representatives, and the main reason is not apathy. It is not knowing how it works.",
     date: "2026-07-31",
-    topic: "Take action",
+    category: "take-action",
+    tags: ["MP", "MSP", "Email"],
     readingMinutes: 4,
+    image: {
+      src: "/images/editorial/email-your-representative.webp",
+      alt: "A woman writing an email on a laptop at her Glasgow kitchen table",
+      caption:
+        "You do not need political knowledge or perfect words. You live in their area, so you are entitled to ask for an answer.",
+      objectPosition: "center 38%",
+    },
+    toc: [
+      { id: "mp-and-msp", label: "Your MP and your MSP" },
+      { id: "what-to-say", label: "What to actually say" },
+      { id: "what-happens-next", label: "What happens next" },
+      { id: "one-minute-version", label: "The one-minute version" },
+    ],
     faq: [
       {
         q: "Do I have to have voted for my MP to contact them?",
@@ -133,16 +278,27 @@ export function getPost(slug: string) {
   return posts.find((p) => p.slug === slug);
 }
 
+export function getPostCategory(slug: string) {
+  return postCategories.find((category) => category.slug === slug);
+}
+
+export function postsInCategory(slug: string) {
+  return postsByDate().filter((post) => post.category === slug);
+}
+
 /** Newest first, which is how the index and the feed should read. */
 export function postsByDate() {
   return [...posts].sort((a, b) => b.date.localeCompare(a.date));
 }
 
-/** Two other posts to show at the foot of a post. */
+/** Other posts, prioritising the same category and then recency. */
 export function relatedPosts(slug: string, limit = 2) {
   const current = getPost(slug);
   if (!current) return [];
-  const others = posts.filter((p) => p.slug !== slug);
-  const sameTopic = others.filter((p) => p.topic === current.topic);
-  return [...sameTopic, ...others.filter((p) => p.topic !== current.topic)].slice(0, limit);
+  const others = postsByDate().filter((p) => p.slug !== slug);
+  const sameCategory = others.filter((p) => p.category === current.category);
+  return [
+    ...sameCategory,
+    ...others.filter((p) => p.category !== current.category),
+  ].slice(0, limit);
 }

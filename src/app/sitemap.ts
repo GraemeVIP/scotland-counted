@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { councils } from "@/lib/data/councils";
 import { constituencies } from "@/lib/data/constituencies";
 import { indicators, lifeExpectancy, deprivation } from "@/lib/data/indicators";
-import { posts } from "@/lib/data/posts";
+import { postCategories, posts } from "@/lib/data/posts";
 import { site } from "../../site.config";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -58,7 +58,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
-  return [...core, ...postPages, ...indicatorPages, ...areaPages, ...constituencyPages].map((e) => ({
+  const categoryPages: MetadataRoute.Sitemap = postCategories.map((category) => ({
+    url: `${site.url}/blog/category/${category.slug}`,
+    changeFrequency: "weekly" as const,
+    priority: 0.75,
+  }));
+
+  return [...core, ...categoryPages, ...postPages, ...indicatorPages, ...areaPages, ...constituencyPages].map((e) => ({
     ...e,
     lastModified: now,
   }));

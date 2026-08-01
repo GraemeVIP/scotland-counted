@@ -3,6 +3,7 @@ import DoPeopleInPovertyWork from "./do-people-in-poverty-work";
 import WhatDoesPovertyMean from "./what-does-poverty-mean";
 import WhatIsTheScottishChildPayment from "./what-is-the-scottish-child-payment";
 import HowToContactYourMpOrMsp from "./how-to-contact-your-mp-or-msp";
+import WhyIsTheCostOfLivingSoHigh from "./why-is-the-cost-of-living-so-high";
 
 /**
  * Slug to post body. Statically imported so every post is prerendered and no
@@ -10,6 +11,7 @@ import HowToContactYourMpOrMsp from "./how-to-contact-your-mp-or-msp";
  * to src/lib/data/posts.ts.
  */
 export const postBodies: Record<string, ComponentType> = {
+  "why-is-the-cost-of-living-so-high": WhyIsTheCostOfLivingSoHigh,
   "do-people-in-poverty-work": DoPeopleInPovertyWork,
   "what-does-poverty-mean": WhatDoesPovertyMean,
   "what-is-the-scottish-child-payment": WhatIsTheScottishChildPayment,

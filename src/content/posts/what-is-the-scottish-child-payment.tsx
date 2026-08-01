@@ -23,7 +23,7 @@ export default function Post() {
         them.
       </P>
 
-      <H2>Who can get it</H2>
+      <H2 id="who-can-get-it">Who can get it</H2>
 
       <P>
         Broadly, families on a low income who are getting a qualifying benefit such as{" "}
@@ -48,7 +48,7 @@ export default function Post() {
         </p>
       </Aside>
 
-      <H2>Why it matters more than its size suggests</H2>
+      <H2 id="why-it-matters">Why it matters more than its size suggests</H2>
 
       <P>
         Independent analysis credits this payment with holding Scotland&apos;s child poverty rate
@@ -61,7 +61,7 @@ export default function Post() {
         to decisions. It also means decisions in the other direction show up just as fast.
       </P>
 
-      <H2>Who decides it</H2>
+      <H2 id="who-decides">Who decides it</H2>
 
       <P>
         The Scottish Parliament in Edinburgh. It is <G t="reserved">devolved</G>, which means your{" "}
@@ -75,7 +75,7 @@ export default function Post() {
         <Link href="/take-action">you have both of them</Link>.
       </P>
 
-      <H2>The bit that gets missed: take-up</H2>
+      <H2 id="take-up">The bit that gets missed: take-up</H2>
 
       <P>
         A payment only lifts a family out of poverty if the family receives it. Money that goes

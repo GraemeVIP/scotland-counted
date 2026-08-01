@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { site } from "@/lib/site";
 import { ScrollProgress } from "@/components/Motion";
-import NewsletterSignup from "@/components/NewsletterSignup";
 import { PRIMARY, SECTIONS } from "@/lib/data/navigation";
 
 export const NAV = PRIMARY;
@@ -225,84 +224,53 @@ export function Header() {
 }
 
 export function Footer() {
+  const compactLinks = [
+    ...PRIMARY,
+    { href: "/data", label: "Data" },
+    { href: "/methods", label: "Sources" },
+    { href: "/about", label: "About" },
+    { href: "/contact", label: "Contact" },
+  ];
+
   return (
-    <footer className="mt-24 no-print bg-[var(--deep)] text-[var(--deep-ink)]">
-      <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 py-12 sm:py-14">
-        <div className="grid gap-x-12 gap-y-10 md:grid-cols-2 lg:grid-cols-[minmax(0,1.5fr)_repeat(3,minmax(0,1fr))]">
+    <footer className="mt-20 no-print bg-[var(--deep)] text-[var(--deep-ink)]">
+      <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 py-8 sm:py-9">
+        <div className="grid gap-6 lg:grid-cols-[minmax(260px,0.8fr)_minmax(0,1.7fr)] lg:items-center">
           <div>
-            <Wordmark className="text-[24px]" />
-            <p className="text-[15px] leading-[1.55] opacity-70 max-w-[36ch] mt-4">
-              Poverty and living costs explained in ordinary words. Every number can be checked.
+            <Wordmark className="text-[22px]" />
+            <p className="text-[15px] leading-[1.5] opacity-72 max-w-[42ch] mt-2.5">
+              Poverty and living costs, in ordinary words. No party, funding or paywall.
             </p>
-            {site.web3formsKey && (
-              <div className="mt-6">
-                <p className="ui text-[15px] font-[680] opacity-80 mb-2.5">
-                  One email when the data changes
-                </p>
-                <NewsletterSignup variant="footer" />
-              </div>
-            )}
           </div>
 
-          {SECTIONS.slice(0, 2).map((sec) => (
-            <div key={sec.title}>
-              <p className="ui text-[15px] font-[720] opacity-70 mb-4">{sec.title}</p>
-              <ul className="space-y-2.5 text-[15px]">
-                {sec.items.map((n) => (
-                  <li key={n.href}>
-                    <Link href={n.href} className="opacity-75 hover:opacity-100 transition-opacity">
-                      {n.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-
-          <div>
-            <p className="ui text-[15px] font-[720] opacity-70 mb-4">Check us</p>
-            <ul className="space-y-2.5 text-[15px]">
-              {SECTIONS[3].items.slice(0, 5).map((n) => (
-                <li key={n.href}>
-                  <Link href={n.href} className="opacity-75 hover:opacity-100 transition-opacity">
-                    {n.label}
+          <nav aria-label="Footer" className="lg:justify-self-end">
+            <ul className="flex flex-wrap gap-x-5 gap-y-2.5 ui text-[15px] font-[620]">
+              {compactLinks.map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href} className="opacity-76 hover:opacity-100 transition-opacity">
+                    {item.label}
                   </Link>
                 </li>
               ))}
               <li>
-                <Link href="/browse" className="opacity-75 hover:opacity-100 transition-opacity">
-                  Every page on this site
+                <Link href="/browse" className="text-[var(--deep-ink)] underline underline-offset-4">
+                  Every page →
                 </Link>
               </li>
             </ul>
-          </div>
-
-          <div>
-            <p className="ui text-[15px] font-[720] opacity-70 mb-4">Who made this</p>
-            <p className="text-[15px] leading-[1.55] opacity-80 max-w-[28ch]">
-              A personal project by {site.author.name} at{" "}
-              <a href={site.organisation.url} className="underline underline-offset-2">
-                {site.organisation.name}
-              </a>
-              . No party, no funding, no paywall.
-            </p>
-            <div className="flex flex-wrap gap-x-5 mt-3.5 text-[15px]">
-              <Link href="/about" className="underline underline-offset-2 opacity-75 hover:opacity-100">
-                About
-              </Link>
-              <Link href="/contact" className="underline underline-offset-2 opacity-75 hover:opacity-100">
-                Get in touch
-              </Link>
-            </div>
-          </div>
+          </nav>
         </div>
 
-        <div className="mt-10 pt-5 border-t border-current/15 flex flex-wrap items-baseline gap-x-6 gap-y-2 ui text-[15px] opacity-70">
-          <span>Data last checked {site.dataUpdated}</span>
-          <span>ONS · DWP · Scottish Government · academic sources</span>
-          <Link href="/methods" className="underline underline-offset-2 hover:opacity-100">
-            Every number is sourced
-          </Link>
+        <div className="mt-6 pt-4 border-t border-current/15 flex flex-wrap items-center justify-between gap-x-8 gap-y-2 text-[15px] leading-[1.5] opacity-68">
+          <p>
+            Data checked {site.dataUpdated} · ONS, DWP, Scottish Government and named research
+          </p>
+          <p className="sm:text-right">
+            A personal project by {site.author.name} ·{" "}
+            <a href={site.organisation.url} className="underline underline-offset-3 hover:opacity-100">
+              {site.organisation.name}
+            </a>
+          </p>
         </div>
       </div>
     </footer>

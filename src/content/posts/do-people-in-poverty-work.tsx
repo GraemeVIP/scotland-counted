@@ -29,7 +29,7 @@ export default function Post() {
         does not fit the facts. Something else is going on.
       </P>
 
-      <H2>So why does the work not fix it?</H2>
+      <H2 id="why-work-does-not-fix-it">So why does the work not fix it?</H2>
 
       <P>Three things, and they stack on top of each other.</P>
 
@@ -49,7 +49,7 @@ export default function Post() {
         </LI>
       </UL>
 
-      <H2>Why housing changes the picture</H2>
+      <H2 id="housing-costs">Why housing changes the picture</H2>
 
       <P>
         Poverty in these figures is measured <G t="ahc">after housing costs</G>. Rent or mortgage
@@ -69,7 +69,7 @@ export default function Post() {
         </p>
       </Aside>
 
-      <H2>What this changes about the argument</H2>
+      <H2 id="what-this-changes">What this changes about the argument</H2>
 
       <P>
         If poverty were mostly about worklessness, the fix would be jobs. Scotland does not have a

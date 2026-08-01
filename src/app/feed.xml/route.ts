@@ -17,7 +17,14 @@ function esc(s: string) {
     .replace(/"/g, "&quot;");
 }
 
-type FeedEntry = { date: string; title: string; body: string; link: string };
+type FeedEntry = {
+  date: string;
+  title: string;
+  body: string;
+  link: string;
+  category?: string;
+  image?: string;
+};
 
 export async function GET() {
   const entries: FeedEntry[] = [
@@ -26,6 +33,8 @@ export async function GET() {
       title: p.title,
       body: p.description,
       link: `${site.url}/blog/${p.slug}`,
+      category: p.category,
+      image: `${site.url}${p.image.src}`,
     })),
     ...changelog.map((e) => ({
       date: e.date,
@@ -43,12 +52,14 @@ export async function GET() {
       <guid isPermaLink="false">${esc(`${e.date}-${e.title}`)}</guid>
       <pubDate>${new Date(e.date + "T12:00:00Z").toUTCString()}</pubDate>
       <description>${esc(e.body)}</description>
+${e.category ? `      <category>${esc(e.category)}</category>` : ""}
+${e.image ? `      <media:content url="${esc(e.image)}" type="image/webp" medium="image" />` : ""}
     </item>`
     )
     .join("\n");
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
     <title>${esc(site.name)} — what changed</title>
     <link>${esc(site.url)}/updates</link>

@@ -12,6 +12,8 @@ export function meta({
   type = "article",
   published,
   modified,
+  image,
+  keywords,
 }: {
   title: string;
   description: string;
@@ -19,11 +21,19 @@ export function meta({
   type?: "website" | "article";
   published?: string;
   modified?: string;
+  image?: string;
+  keywords?: string[];
 }): Metadata {
   const url = `${site.url}${path === "/" ? "" : path}`;
+  const imageUrl = image
+    ? image.startsWith("http")
+      ? image
+      : `${site.url}${image}`
+    : undefined;
   return {
     title,
     description,
+    ...(keywords ? { keywords } : {}),
     alternates: { canonical: url },
     openGraph: {
       title,
@@ -32,6 +42,7 @@ export function meta({
       siteName: site.name,
       locale: site.locale,
       type,
+      ...(imageUrl ? { images: [{ url: imageUrl, alt: title }] } : {}),
       ...(published ? { publishedTime: published } : {}),
       ...(modified ? { modifiedTime: modified } : {}),
     },
@@ -39,6 +50,7 @@ export function meta({
       card: "summary_large_image",
       title,
       description,
+      ...(imageUrl ? { images: [imageUrl] } : {}),
     },
   };
 }
@@ -83,12 +95,18 @@ export function articleJsonLd({
   path,
   published = "2026-07-31",
   modified = "2026-07-31",
+  image,
+  section,
+  keywords,
 }: {
   headline: string;
   description: string;
   path: string;
   published?: string;
   modified?: string;
+  image?: string;
+  section?: string;
+  keywords?: string[];
 }) {
   return {
     "@context": "https://schema.org",
@@ -100,7 +118,10 @@ export function articleJsonLd({
     inLanguage: "en-GB",
     isAccessibleForFree: true,
     mainEntityOfPage: `${site.url}${path}`,
-    author: { "@type": "Person", name: site.author.name, url: site.author.url },
+    ...(image ? { image: image.startsWith("http") ? image : `${site.url}${image}` } : {}),
+    ...(section ? { articleSection: section } : {}),
+    ...(keywords ? { keywords: keywords.join(", ") } : {}),
+    author: { "@id": `${site.url}/#author`, "@type": "Person", name: site.author.name, url: site.author.url },
     publisher: {
       "@type": "Organization",
       name: site.organisation.name,
