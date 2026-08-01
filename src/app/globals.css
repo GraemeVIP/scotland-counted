@@ -388,8 +388,8 @@
   .kicker {
     font-family: var(--font-sans);
     font-weight: 750;
-    font-size: 13px;
-    letter-spacing: 0.09em;
+    font-size: 15px;
+    letter-spacing: 0.065em;
     text-transform: uppercase;
   }
 
@@ -531,8 +531,8 @@
 
   @keyframes riseIn {
     from {
-      opacity: 0;
-      transform: translateY(16px);
+      opacity: 1;
+      transform: translateY(8px);
     }
     to {
       opacity: 1;
@@ -550,8 +550,8 @@
 
   @keyframes scaleIn {
     from {
-      opacity: 0;
-      transform: translateY(22px) scale(0.985);
+      opacity: 1;
+      transform: translateY(10px) scale(0.99);
     }
     to {
       opacity: 1;

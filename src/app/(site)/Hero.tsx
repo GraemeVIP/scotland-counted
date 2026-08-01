@@ -7,14 +7,8 @@ import PostcodeStart from "@/components/PostcodeStart";
 /**
  * The national opening statement.
  *
- * Written for a phone, for someone in their twenties who does not follow
- * politics and has about four seconds of patience. One enormous claim, one
- * marker-pen emphasis on the part that matters, one thing to do. The proof
- * sits beside it rather than after it, so the page never asks for trust it
- * has not earned.
- *
- * The strip at the foot exists because the site has 311 pages and used to
- * look like it had five. Saying how much is here is part of the pitch.
+ * The proof sits beside the claim and the postcode box does the hard work.
+ * Nothing above the fold waits for an entrance animation before it can be read.
  */
 
 const SCALE = [
@@ -27,41 +21,29 @@ const SCALE = [
 export default function Hero() {
   return (
     <section className="relative overflow-hidden">
-      <div className="relative max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 pt-10 pb-10 sm:pt-14">
-        <div className="grid w-full gap-x-14 gap-y-12 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] lg:items-center">
+      <div className="relative max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 py-10 sm:py-12">
+        <div className="grid w-full gap-x-12 gap-y-10 lg:grid-cols-[minmax(0,1.12fr)_minmax(420px,0.88fr)] lg:items-center">
           {/* ---- Statement ---- */}
           <div>
-            <p
-              className="kicker text-[var(--brand)] mb-6 rise"
-              style={{ animationDelay: "60ms" }}
-            >
-              Scotland · the facts in plain English
+            <p className="kicker text-[var(--brand)] mb-5">
+              Scotland&apos;s poverty, explained simply
             </p>
 
-            <h1
-              className="display-stat text-[clamp(44px,6.4vw,86px)] max-w-[15ch] mb-7 rise"
-              style={{ animationDelay: "140ms" }}
-            >
-              Nearly a million people in Scotland are{" "}
-              <span className="mark">living in poverty.</span>
+            <h1 className="display-stat text-[clamp(44px,5.7vw,78px)] max-w-[16ch] mb-6">
+              Nearly a million people in Scotland{" "}
+              <span className="mark">live in poverty.</span>
             </h1>
 
-            <p
-              className="text-[clamp(18px,1.7vw,22px)] leading-[1.5] text-[var(--ink-2)] max-w-[46ch] mb-8 rise"
-              style={{ animationDelay: "250ms" }}
-            >
-              We find your MP and MSP, put your area&apos;s own figures in an email and write it
-              for you. <strong className="text-[var(--ink)]">It takes about a minute.</strong>
+            <p className="text-[clamp(18px,1.55vw,21px)] leading-[1.5] text-[var(--ink-2)] max-w-[49ch] mb-7">
+              We find your MP and MSP, add the facts for your area and write both emails. You read
+              them and press send. <strong className="text-[var(--ink)]">It takes about a minute.</strong>
             </p>
 
-            <div className="rise" style={{ animationDelay: "350ms" }}>
+            <div>
               <PostcodeStart />
             </div>
 
-            <div
-              className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-2 text-[16px] rise"
-              style={{ animationDelay: "450ms" }}
-            >
+            <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-[16px]">
               <Link href="/areas" className="font-[700]">
                 Or browse all 32 areas →
               </Link>
@@ -74,8 +56,8 @@ export default function Hero() {
           {/* ---- The proportion, drawn ---- */}
           <div className="w-full max-w-[520px] mx-auto lg:mx-0 lg:justify-self-end">
             <div
-              className="rounded-[var(--r-l)] bg-[var(--surface)] border border-[var(--rule)] p-6 sm:p-8 scale-in"
-              style={{ boxShadow: "var(--shadow-3)", animationDelay: "280ms" }}
+              className="rounded-[var(--r-l)] bg-[var(--surface)] border border-[var(--rule)] p-6 sm:p-7"
+              style={{ boxShadow: "var(--shadow-3)" }}
             >
               <div className="flex items-start justify-between gap-6">
                 <div>
@@ -89,7 +71,7 @@ export default function Hero() {
                 </div>
                 <div className="text-right shrink-0">
                   <div className="display-stat text-[30px] text-[var(--ink)]">17%</div>
-                  <p className="text-[14px] font-[620] text-[var(--muted)] mt-1.5 leading-[1.3]">
+                  <p className="text-[15px] font-[620] text-[var(--muted)] mt-1.5 leading-[1.3]">
                     exact
                     <br />
                     figure
@@ -125,7 +107,7 @@ export default function Hero() {
                   <div className="display-stat text-[30px] sm:text-[36px] text-[var(--deep-ink)]">
                     {s.value}
                   </div>
-                  <p className="text-[14.5px] font-[600] opacity-75 mt-1">{s.label}</p>
+                  <p className="text-[15px] font-[600] opacity-75 mt-1">{s.label}</p>
                 </div>
               ))}
             </div>

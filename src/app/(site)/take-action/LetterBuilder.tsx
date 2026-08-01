@@ -221,7 +221,7 @@ export default function LetterBuilder() {
                   </p>
                 )}
                 <p className="text-[15px] text-[var(--ink-2)] leading-[1.5] border-t border-[var(--rule)] pt-3">
-                  Using the official figures for {lookup.council.name}: {asOneIn(council.pcts[9])}
+                  Using the official figures for {lookup.council.name}: {asOneIn(council.pcts[9])}{" "}
                   children, exactly {council.pcts[9]}% or {council.counts[9].toLocaleString("en-GB")} children.
                 </p>
               </div>

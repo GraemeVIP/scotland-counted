@@ -1,21 +1,11 @@
 import Link from "next/link";
-import {
-  Page,
-  Col,
-  Split,
-  Note,
-  Slab,
-  CTA,
-  Card,
-  SectionHead,
-  EvidenceDetails,
-  Reveal,
-} from "@/components/Blocks";
+import { Page, EvidenceDetails } from "@/components/Blocks";
 import { JsonLd, articleJsonLd, faqJsonLd, meta } from "@/lib/seo";
-import { councilsByChange, councilsByLevel, SCOTLAND_PCTS } from "@/lib/data/councils";
+import { councilsByLevel, SCOTLAND_PCTS } from "@/lib/data/councils";
 import { scotlandPoverty } from "@/lib/data/scotland";
 import { getSources } from "@/lib/data/sources";
 import { site } from "@/lib/site";
+import { PictoGrid } from "@/components/Motion";
 import AreaGrid from "@/components/AreaGrid";
 import WhyBother from "@/components/WhyBother";
 import Hero from "./Hero";
@@ -51,45 +41,23 @@ const FAQ = [
   },
 ];
 
-const COVERAGE = [
-  {
-    href: "/areas",
-    eyebrow: "Find your place",
-    title: "See what is happening in your area",
-    body: "Choose any Scottish council area. Start with the simple answer, then open the full figures and sources if you want them.",
-  },
-  {
-    href: "/constituencies",
-    eyebrow: "Find your MP",
-    title: "See the facts for the area your MP represents",
-    body: "There is one MP for each area. Enter your postcode and we will find yours — you do not need to know their name or political area.",
-  },
-  {
-    href: "/what-would-fix-it",
-    eyebrow: "What would help",
-    title: "See the changes experts say would work",
-    body: "A short list of practical changes, how much they would help, what they cost and who can make them happen.",
-  },
-  {
-    href: "/accountability",
-    eyebrow: "Who decides",
-    title: "See which government is responsible for what",
-    body: "The UK Government, Scottish Government and councils control different parts. This page explains the split without expecting you to know politics.",
-  },
-];
-
 export default function Home() {
   const byLevel = councilsByLevel();
-  const rose = councilsByChange().filter((council) => council.change > 0).length;
   const glasgow = byLevel.find((council) => council.slug === "glasgow-city")!;
   const scotlandChange = (SCOTLAND_PCTS[9] - SCOTLAND_PCTS[0]).toFixed(1);
   const nationalSource = getSources([scotlandPoverty.sourceId])[0];
+  const groups = [
+    { ...scotlandPoverty.all, plain: "1 in 6" },
+    { ...scotlandPoverty.children, plain: "1 in 5" },
+    { ...scotlandPoverty.workingAge, plain: "1 in 6" },
+    { ...scotlandPoverty.pensioners, plain: "1 in 8" },
+  ];
 
   return (
     <>
       <JsonLd
         data={articleJsonLd({
-          headline: "Poverty has an address. So does power.",
+          headline: "Nearly a million people in Scotland live in poverty",
           description: metadata.description as string,
           path: "/",
         })}
@@ -99,220 +67,236 @@ export default function Home() {
       <Hero />
 
       <Page>
-        <AreaGrid className="pt-16 sm:pt-20" />
+        <AreaGrid className="py-16 sm:py-20" />
+      </Page>
 
-        <section className="pt-20 sm:pt-28">
-          <SectionHead
-            n={1}
-            eyebrow={`Scotland · Latest official figures · ${scotlandPoverty.period}`}
-            title="What poverty looks like in Scotland"
-          />
-          <div className="sm:pl-[calc(2ch+2rem)] mt-8">
-            <Split
-              aside={
-                <Note label="Children in poverty who have a working parent" value="3 in 4">
-                  Having a job helps, but many wages still do not cover rent, food, heating and
-                  other basics.
-                </Note>
-              }
-            >
-              <p>
-                Poverty is not only rough sleeping or having no food. It can mean working, paying
-                the rent, and still not having enough left for heating, travel, clothes or an
-                unexpected bill.
-              </p>
-              <p>
-                It affects children, adults and pensioners. It also affects families where someone
-                works. The cards below give the easy-to-picture number first and the exact figure
-                underneath.
-              </p>
-            </Split>
-          </div>
-
-          <div className="grid gap-px bg-[var(--rule)] border-y border-[var(--rule)] mt-10 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              { ...scotlandPoverty.all, plain: "About 1 in 6" },
-              { ...scotlandPoverty.children, plain: "About 1 in 5" },
-              { ...scotlandPoverty.workingAge, plain: "About 1 in 6" },
-              { ...scotlandPoverty.pensioners, plain: "About 1 in 8" },
-            ].map((group) => (
-              <div key={group.label} className="bg-[var(--paper)] px-6 py-7">
-                <p className="ui text-[15px] font-[700] text-[var(--ink-2)] min-h-[2.8em]">
-                  {group.label}
-                </p>
-                <p className="display text-[31px] text-[var(--action)] mt-3 leading-none">{group.plain}</p>
-                <p className="ui text-[15px] font-[650] text-[var(--ink-2)] mt-3">Exact: {group.pct}%</p>
-                {"count" in group && (
-                  <p className="ui text-[15px] text-[var(--muted)] mt-1">
-                    {group.count.toLocaleString("en-GB")} people
+      <div className="border-y border-[var(--rule)] bg-[var(--paper-2)]">
+        <Page>
+          <section className="py-16 sm:py-20" aria-labelledby="national-picture">
+            <div className="grid gap-x-14 gap-y-9 lg:grid-cols-[minmax(300px,0.72fr)_minmax(0,1.28fr)] lg:items-start">
+              <div>
+                <p className="kicker text-[var(--brand)] mb-3">Across Scotland</p>
+                <h2
+                  id="national-picture"
+                  className="display-stat text-[clamp(34px,4.2vw,54px)] max-w-[15ch]"
+                >
+                  Poverty is not rare, and it is not one kind of person
+                </h2>
+                <div className="mt-6 max-w-[48ch] space-y-4 text-[17px] leading-[1.6] text-[var(--ink-2)]">
+                  <p>
+                    It can mean working, paying the rent and still not having enough left for
+                    heating, travel, clothes or an unexpected bill.
                   </p>
-                )}
-              </div>
-            ))}
-          </div>
-
-          <EvidenceDetails className="mt-5 max-w-[780px]">
-            <p>
-              The official measure calls this <strong>relative poverty after housing costs</strong>.
-              It means a household has less than 60% of the usual UK income after rent or mortgage
-              costs. The source is{" "}
-              <a href={nationalSource.url} target="_blank" rel="noopener noreferrer">
-                {nationalSource.title}, {nationalSource.publisher}
-              </a>.
-            </p>
-          </EvidenceDetails>
-        </section>
-
-        <WhyBother className="pt-20 sm:pt-28" />
-
-        <section className="pt-20 sm:pt-28">
-          <SectionHead
-            n={2}
-            eyebrow="Your place"
-            title="See what is happening where you live"
-          />
-          <div className="sm:pl-[calc(2ch+2rem)] mt-8">
-            <Col>
-              <p>
-                Every Scottish council area has its own page. It starts with a short answer, then
-                shows child poverty, people needing out-of-work benefits and typical pay.
-              </p>
-              <p>
-                The pattern is clear: things got worse in {rose} of Scotland&apos;s 32 council
-                areas over the last ten years. Glasgow is worst. We keep that story visible rather
-                than hiding it inside a Scotland-wide average.
-              </p>
-            </Col>
-          </div>
-
-          <div className="grid gap-4 sm:grid-cols-2 mt-10">
-            {COVERAGE.map((card, index) => (
-              <Reveal key={card.href} delay={index * 45}>
-                <Card {...card} />
-              </Reveal>
-            ))}
-          </div>
-        </section>
-      </Page>
-
-      <Slab attribution="Official Scottish Government figures, 2022–25">
-        3 in 4 children in poverty live with someone who works.
-      </Slab>
-
-      <Page>
-        <section>
-          <SectionHead
-            n={3}
-            eyebrow="Work and wages"
-            title="Having a job does not always mean having enough money"
-          />
-          <div className="sm:pl-[calc(2ch+2rem)] mt-8">
-            <Split
-              aside={
-                <div className="grid gap-6">
-                  <Note label="Your area">
-                    Every council page shows how many people need out-of-work benefits and what a
-                    typical full-time worker earns.
-                  </Note>
-                  <Note label="Across Scotland">
-                    The official figures show children, working-age adults and pensioners
-                    separately, so no group disappears inside one total.
-                  </Note>
+                  <p>
+                    It affects children, adults and pensioners. The easy-to-picture number comes
+                    first. The exact figure stays beside it for anyone who wants to check.
+                  </p>
                 </div>
-              }
-            >
-              <p>
-                A job can be low-paid, have too few hours or change from week to week. Rent, food
-                and energy can rise faster than wages. Benefits can also fall short. That is why a
-                simple message to “get a job” does not answer the problem.
-              </p>
-              <p>
-                We show work, pay and poverty together, but do not pretend they are the same thing.
-                <Link href="/methods"> You can see exactly how every figure was counted.</Link>
-              </p>
-            </Split>
-          </div>
-        </section>
+              </div>
 
-        <section className="pt-20 sm:pt-28">
-          <SectionHead
-            n={4}
-            eyebrow="Glasgow · Its own record"
-            title="Glasgow needs its own spotlight"
-          />
-          <div className="grid gap-5 lg:grid-cols-[minmax(0,1.25fr)_minmax(300px,0.75fr)] mt-5">
-            <div className="rounded-[var(--r-m)] bg-[var(--deep)] text-[var(--deep-ink)] p-7 sm:p-10">
-              <p className="label !text-[var(--deep-ink)] opacity-60 mb-5">Glasgow · 2000–2026</p>
-              <h3 className="display text-[clamp(27px,3.2vw,44px)] font-[750] max-w-[22ch]">
-                More than 1 in 3 children in Glasgow are growing up in poverty.
-              </h3>
-              <p className="mt-6 text-[17px] leading-[1.6] opacity-80 max-w-[58ch]">
-                The exact figure is {glasgow.pcts[9]}%, or {glasgow.counts[9].toLocaleString("en-GB")} children.
-                It is the highest rate in Scotland. It also rose more than anywhere else over the
-                last ten years. Scotland-wide coverage will not be allowed to water that down.
-              </p>
-              <div className="flex flex-wrap gap-3 mt-8">
-                <Link href="/the-numbers" className="btn btn-primary">
-                  See Glasgow&apos;s full story
-                  <span aria-hidden="true">→</span>
-                </Link>
-                <Link href="/why-glasgow" className="btn border-current/35 text-current hover:bg-white/10">
-                  Why it is worse here
-                </Link>
+              <div className="grid gap-3 sm:grid-cols-2">
+                {groups.map((group) => (
+                  <article
+                    key={group.label}
+                    className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-6 sm:p-7"
+                    style={{ boxShadow: "var(--shadow-1)" }}
+                  >
+                    <p className="ui text-[16px] font-[720] text-[var(--ink-2)]">{group.label}</p>
+                    <p className="display-stat mt-5 text-[clamp(38px,4vw,52px)] text-[var(--brand)]">
+                      {group.plain}
+                    </p>
+                    <p className="ui mt-4 text-[15.5px] font-[650] text-[var(--ink-2)]">
+                      Exact figure: {group.pct}%
+                    </p>
+                    {"count" in group && (
+                      <p className="ui mt-1 text-[15px] text-[var(--muted)]">
+                        {group.count.toLocaleString("en-GB")} people
+                      </p>
+                    )}
+                  </article>
+                ))}
               </div>
             </div>
-            <div className="rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] p-7 sm:p-8">
-              <p className="label mb-5">Why Glasgow stands out</p>
-              <div className="grid grid-cols-2 gap-px bg-[var(--rule)] border border-[var(--rule)] mb-6">
-                <div className="bg-[var(--paper)] p-4">
-                  <p className="figure-num text-[31px] text-[var(--action)]">+{glasgow.change.toFixed(1)}</p>
-                  <p className="text-[15px] text-[var(--ink-2)] mt-1">rise in Glasgow</p>
-                </div>
-                <div className="bg-[var(--paper)] p-4">
-                  <p className="figure-num text-[31px]">+{scotlandChange}</p>
-                  <p className="text-[15px] text-[var(--ink-2)] mt-1">rise across Scotland</p>
-                </div>
-              </div>
-              <ul className="space-y-4 text-[16px] text-[var(--ink-2)] leading-[1.5]">
-                <li>Work and out-of-work benefits since 2000</li>
-                <li>What jobs in Glasgow pay, and what Glaswegians earn</li>
-                <li>Neighbourhoods and how long people live</li>
-                <li>Four clear reasons Glasgow is hit harder</li>
-                <li>Which government made which decisions</li>
-              </ul>
-            </div>
-          </div>
-        </section>
 
-      </Page>
-
-      <CTA
-        title="You do not need to know politics to ask for change"
-        body="Enter your postcode once. We find your MP and MSP, add the official figures for your area, write both emails and open them in your own email app."
-        href="/take-action"
-        cta="Find my MP and MSP"
-        secondaryHref="/areas"
-        secondaryCta="See every area"
-      />
+            <EvidenceDetails className="mt-7 max-w-[820px]">
+              <p>
+                The official measure calls this <strong>relative poverty after housing costs</strong>.
+                It means a household has less than 60% of the usual UK income after rent or
+                mortgage costs. The source is {" "}
+                <a href={nationalSource.url} target="_blank" rel="noopener noreferrer">
+                  {nationalSource.title}, {nationalSource.publisher}
+                </a>
+                .
+              </p>
+            </EvidenceDetails>
+          </section>
+        </Page>
+      </div>
 
       <Page>
-        <section className="pt-20 sm:pt-28">
-          <SectionHead n={5} eyebrow="Questions" title="What people ask first" />
-          <div className="grid gap-x-14 gap-y-9 lg:grid-cols-2 mt-10">
-            {FAQ.map((item) => (
-              <div key={item.q} className="border-t-2 border-[var(--ink)] pt-5">
-                <h3 className="h3 mb-3 max-w-[34ch]">{item.q}</h3>
-                <p className="text-[16px] text-[var(--ink-2)] leading-[1.6] max-w-[58ch]">
-                  {item.a}
+        <section className="py-16 sm:py-20" aria-labelledby="work-and-poverty">
+          <div className="overflow-hidden rounded-[var(--r-l)] bg-[var(--deep)] text-[var(--deep-ink)]">
+            <div className="grid lg:grid-cols-[minmax(310px,0.78fr)_minmax(0,1.22fr)]">
+              <div className="bg-[var(--brand)] p-7 sm:p-10 lg:p-12">
+                <p className="kicker mb-5 text-white/80">Work and poverty</p>
+                <p className="display-stat text-[clamp(68px,8vw,108px)]">3 in 4</p>
+                <div className="mt-7 max-w-[300px]">
+                  <PictoGrid
+                    lit={3}
+                    total={4}
+                    columns={4}
+                    litColor="#ffffff"
+                    dimColor="#ffffff"
+                    dimOpacity={0.24}
+                  />
+                </div>
+                <p className="mt-6 max-w-[18ch] text-[20px] font-[720] leading-[1.35]">
+                  children in poverty live with someone who works
+                </p>
+                <p className="mt-3 text-[15px] text-white/70">
+                  Official Scottish Government figures, 2022–25
                 </p>
               </div>
-            ))}
+
+              <div className="p-7 sm:p-10 lg:p-12">
+                <p className="kicker mb-3 text-[var(--action)]">What that tells us</p>
+                <h2
+                  id="work-and-poverty"
+                  className="display-stat max-w-[18ch] text-[clamp(34px,4vw,52px)]"
+                >
+                  A job does not always pay enough to live on
+                </h2>
+                <p className="mt-6 max-w-[58ch] text-[18px] leading-[1.6] opacity-85">
+                  A job can be low-paid, offer too few hours or change from week to week. Rent,
+                  food and energy can rise faster than wages. Benefits can also fall short.
+                </p>
+                <div className="mt-8 grid gap-3 sm:grid-cols-3">
+                  {["Low pay", "Too few hours", "Bills rising faster"].map((reason) => (
+                    <div
+                      key={reason}
+                      className="rounded-[var(--r-s)] border border-white/15 bg-white/[0.055] px-4 py-4 text-[16px] font-[700]"
+                    >
+                      {reason}
+                    </div>
+                  ))}
+                </div>
+                <p className="mt-7 text-[16px] leading-[1.55] opacity-80">
+                  Every area page shows poverty, out-of-work benefits and typical pay together. {" "}
+                  <Link
+                    href="/areas"
+                    className="font-[720] text-white underline decoration-[var(--action)] decoration-2 underline-offset-4"
+                  >
+                    See the figures where you live
+                  </Link>
+                  .
+                </p>
+              </div>
+            </div>
           </div>
         </section>
-        <p className="ui mt-12 text-[15px] text-[var(--muted)]">
-          {site.name} — a personal public-interest project by {site.author.name} at{" "}
-          {site.organisation.name}. No party affiliation, no funding, no paywall.
-        </p>
+
+        <section className="pb-16 sm:pb-20" aria-labelledby="glasgow-spotlight">
+          <div className="mb-8 grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.65fr)] lg:items-end">
+            <div>
+              <p className="kicker mb-3 text-[var(--brand)]">Glasgow · its own record</p>
+              <h2
+                id="glasgow-spotlight"
+                className="display-stat max-w-[16ch] text-[clamp(34px,4.2vw,54px)]"
+              >
+                Glasgow has been hit hardest
+              </h2>
+            </div>
+            <p className="max-w-[44ch] text-[17px] leading-[1.6] text-[var(--ink-2)] lg:justify-self-end">
+              Scotland-wide figures matter, but they must not hide what has happened in Glasgow.
+              It has the highest rate and the steepest ten-year rise of any Scottish council area.
+            </p>
+          </div>
+
+          <div className="overflow-hidden rounded-[var(--r-l)] bg-[var(--deep)] text-[var(--deep-ink)]">
+            <div className="grid lg:grid-cols-[minmax(320px,0.78fr)_minmax(0,1.22fr)]">
+              <div className="bg-[var(--brand)] p-7 sm:p-10 lg:p-12">
+                <p className="kicker text-white/80">Children in poverty</p>
+                <p className="display-stat mt-7 text-[clamp(72px,9vw,120px)]">{glasgow.pcts[9]}%</p>
+                <p className="mt-5 max-w-[18ch] text-[22px] font-[730] leading-[1.3]">
+                  more than 1 in 3 children in Glasgow
+                </p>
+                <p className="mt-4 text-[16px] text-white/75">
+                  {glasgow.counts[9].toLocaleString("en-GB")} children
+                </p>
+              </div>
+
+              <div className="p-7 sm:p-10 lg:p-12">
+                <h3 className="max-w-[22ch] text-[28px] font-[780] leading-[1.15] sm:text-[34px]">
+                  The worst rate in Scotland — and the biggest rise
+                </h3>
+                <div className="mt-7 grid gap-3 sm:grid-cols-2">
+                  <div className="rounded-[var(--r-s)] border border-white/15 bg-white/[0.055] p-5">
+                    <p className="display-stat text-[38px] text-[var(--action)]">
+                      +{glasgow.change.toFixed(1)} points
+                    </p>
+                    <p className="mt-2 text-[15.5px] opacity-75">rise in Glasgow over ten years</p>
+                  </div>
+                  <div className="rounded-[var(--r-s)] border border-white/15 bg-white/[0.055] p-5">
+                    <p className="display-stat text-[38px]">+{scotlandChange} points</p>
+                    <p className="mt-2 text-[15.5px] opacity-75">rise across Scotland</p>
+                  </div>
+                </div>
+                <p className="mt-7 max-w-[58ch] text-[17px] leading-[1.6] opacity-[0.82]">
+                  The Glasgow record also follows work, benefits, wages, neighbourhoods and life
+                  expectancy. It shows what changed, why the city was hit harder and which
+                  government made which decisions.
+                </p>
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <Link href="/the-numbers" className="btn btn-primary">
+                    See Glasgow&apos;s full story <span aria-hidden="true">→</span>
+                  </Link>
+                  <Link href="/why-glasgow" className="btn border-current/35 text-current hover:bg-white/10">
+                    Why it is worse here
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <WhyBother className="pb-10 sm:pb-12" />
+
+        <section className="border-t border-[var(--rule)] py-12 sm:py-14" aria-labelledby="questions">
+          <div className="grid gap-x-14 gap-y-8 lg:grid-cols-[minmax(280px,0.62fr)_minmax(0,1.38fr)]">
+            <div>
+              <p className="kicker mb-3 text-[var(--brand)]">Straight answers</p>
+              <h2 id="questions" className="display-stat max-w-[12ch] text-[clamp(34px,4vw,52px)]">
+                What people ask first
+              </h2>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {FAQ.map((item, index) => (
+                <details
+                  key={item.q}
+                  className={`group rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] p-5 open:border-[var(--brand)] ${index === FAQ.length - 1 ? "sm:col-span-2" : ""}`}
+                >
+                  <summary className="ui flex cursor-pointer list-none items-start justify-between gap-4 text-[17px] font-[720] leading-[1.35]">
+                    {item.q}
+                    <span
+                      aria-hidden="true"
+                      className="text-[22px] leading-none text-[var(--action)] transition-transform group-open:rotate-45"
+                    >
+                      +
+                    </span>
+                  </summary>
+                  <p className="mt-4 border-t border-[var(--rule)] pt-4 text-[15.5px] leading-[1.6] text-[var(--ink-2)]">
+                    {item.a}
+                  </p>
+                </details>
+              ))}
+            </div>
+          </div>
+
+          <p className="ui mt-10 text-[15px] text-[var(--muted)]">
+            {site.name} — a personal public-interest project by {site.author.name} at {" "}
+            {site.organisation.name}. No party affiliation, no funding, no paywall.
+          </p>
+        </section>
       </Page>
     </>
   );

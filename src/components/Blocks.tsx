@@ -150,29 +150,33 @@ export function InShort({
 }) {
   return (
     <div
-      className="rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] border-l-[5px] border-l-[var(--action)] px-6 sm:px-8 py-6 max-w-[760px]"
+      className={`rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] border-l-[5px] border-l-[var(--action)] px-6 sm:px-8 py-6 ${expert ? "max-w-[1120px]" : "max-w-[760px]"}`}
       style={{ boxShadow: "var(--shadow-1)" }}
     >
-      <p className="ui text-[15px] font-[750] text-[var(--action)] mb-3">What this means</p>
-      <div className="ui text-[18px] sm:text-[19px] leading-[1.55] font-[480] space-y-2.5 [&_strong]:font-[750]">
-        {children}
+      <div className={expert ? "grid gap-6 lg:grid-cols-[minmax(0,1fr)_250px] lg:gap-9" : ""}>
+        <div>
+          <p className="ui text-[15px] font-[750] text-[var(--action)] mb-3">What this means</p>
+          <div className="ui text-[18px] sm:text-[19px] leading-[1.55] font-[480] space-y-2.5 [&_strong]:font-[750]">
+            {children}
+          </div>
+        </div>
+        {expert && (
+          <aside className="border-t border-[var(--rule)] pt-5 lg:border-l lg:border-t-0 lg:pl-7 lg:pt-0">
+            <p className="ui text-[15px] font-[750] text-[var(--ink)] mb-3">Want to check the proof?</p>
+            <div className="grid gap-2.5 ui text-[15px] leading-[1.45] text-[var(--ink-2)]">
+              <Link href="/data" className="font-[650] hover:text-[var(--brand)]">
+                Exact data →
+              </Link>
+              <Link href="/methods" className="font-[650] hover:text-[var(--brand)]">
+                How it was counted →
+              </Link>
+              <Link href="/press" className="font-[650] hover:text-[var(--brand)]">
+                Press downloads →
+              </Link>
+            </div>
+          </aside>
+        )}
       </div>
-      {expert && (
-        <p className="ui mt-5 pt-4 border-t border-[var(--rule)] text-[15px] leading-[1.55] text-[var(--ink-2)]">
-          <span className="font-[700]">Want to check the proof?</span>{" "}
-          <Link href="/data" className="underline underline-offset-2 decoration-[var(--rule-strong)] hover:decoration-[var(--brand)]">
-            Exact data
-          </Link>
-          {" · "}
-          <Link href="/methods" className="underline underline-offset-2 decoration-[var(--rule-strong)] hover:decoration-[var(--brand)]">
-            how it was counted
-          </Link>
-          {" · "}
-          <Link href="/press" className="underline underline-offset-2 decoration-[var(--rule-strong)] hover:decoration-[var(--brand)]">
-            press downloads
-          </Link>
-        </p>
-      )}
     </div>
   );
 }
@@ -392,30 +396,33 @@ export function CTA({
   secondaryCta?: string;
 }) {
   return (
-    <FullBleed className="mt-20 sm:mt-28">
-      <div className="bg-[var(--deep)] text-[var(--deep-ink)] py-18 sm:py-24">
+    <FullBleed className="mt-20 -mb-24 sm:mt-28">
+      <div className="bg-[var(--deep)] text-[var(--deep-ink)] py-16 sm:py-20">
         <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14">
-          <div className="grid gap-x-14 gap-y-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
+          <div className="grid gap-x-14 gap-y-8 lg:grid-cols-[minmax(0,1fr)_minmax(380px,0.72fr)] lg:items-center">
             <div>
               <h2 className="h2 mb-4 max-w-[18ch]">{title}</h2>
               <p className="opacity-80 max-w-[54ch] text-[17.5px] leading-[1.55]">{body}</p>
             </div>
-            <div className="flex flex-wrap gap-3 shrink-0">
-              <Link
-                href={href}
-                className="btn btn-primary"
-              >
-                {cta}
-                <span aria-hidden="true">→</span>
-              </Link>
-              {secondaryHref && secondaryCta && (
+            <div className="rounded-[var(--r-m)] border border-white/15 bg-white/[0.055] p-5 sm:p-6">
+              <p className="kicker mb-4 text-[var(--action)]">One simple next step</p>
+              <div className="flex flex-wrap gap-3">
                 <Link
-                  href={secondaryHref}
-                  className="btn border-current/35 text-current hover:bg-white/10"
+                  href={href}
+                  className="btn btn-primary"
                 >
-                  {secondaryCta}
+                  {cta}
+                  <span aria-hidden="true">→</span>
                 </Link>
-              )}
+                {secondaryHref && secondaryCta && (
+                  <Link
+                    href={secondaryHref}
+                    className="btn border-current/35 text-current hover:bg-white/10"
+                  >
+                    {secondaryCta}
+                  </Link>
+                )}
+              </div>
             </div>
           </div>
         </div>

@@ -169,7 +169,7 @@ export function Header() {
             {SECTIONS.map((sec) => (
               <div key={sec.title}>
                 <p className="ui text-[15px] font-[750] text-[var(--action)] mb-1.5">{sec.title}</p>
-                <p className="text-[14.5px] leading-[1.45] text-[var(--muted)] mb-3.5">{sec.intro}</p>
+                <p className="text-[15px] leading-[1.45] text-[var(--muted)] mb-3.5">{sec.intro}</p>
                 <ul className="space-y-2.5">
                   {sec.items.map((n) => (
                     <li key={n.href}>
@@ -178,7 +178,7 @@ export function Header() {
                           {n.label}
                         </span>
                         {n.blurb && (
-                          <span className="block text-[14px] leading-[1.4] text-[var(--ink-2)] mt-0.5">
+                          <span className="block text-[15px] leading-[1.4] text-[var(--ink-2)] mt-0.5">
                             {n.blurb}
                           </span>
                         )}

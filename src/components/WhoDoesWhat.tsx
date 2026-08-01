@@ -119,7 +119,7 @@ export default function WhoDoesWhat({
 
               <p className="text-[18px] leading-[1.55] font-[560] mt-4">{p.lead}</p>
 
-              <p className="ui text-[14.5px] font-[720] text-[var(--ink-2)] mt-5 mb-2.5">
+              <p className="ui text-[15px] font-[720] text-[var(--ink-2)] mt-5 mb-2.5">
                 Things they help decide
               </p>
               <ul className="space-y-2">

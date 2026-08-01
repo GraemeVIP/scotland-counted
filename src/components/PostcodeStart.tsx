@@ -1,11 +1,12 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useId, useState } from "react";
 import { POSTCODE_SESSION_KEY } from "@/lib/representatives";
 
 export default function PostcodeStart() {
   const router = useRouter();
+  const inputId = useId();
   const [postcode, setPostcode] = useState("");
 
   function submit(event: React.FormEvent<HTMLFormElement>) {
@@ -21,11 +22,11 @@ export default function PostcodeStart() {
   return (
     <div className="max-w-[620px]">
       <form onSubmit={submit} className="grid gap-2.5 sm:grid-cols-[minmax(0,260px)_auto]">
-        <label className="sr-only" htmlFor="home-postcode">
+        <label className="sr-only" htmlFor={inputId}>
           Your Scottish postcode
         </label>
         <input
-          id="home-postcode"
+          id={inputId}
           name="postcode"
           type="text"
           value={postcode}

@@ -133,7 +133,7 @@ export default function VotingRecord({
 
                   <dl className="grid gap-x-8 gap-y-3 sm:grid-cols-2 mt-5 pt-5 border-t border-[var(--rule)]">
                     <div>
-                      <dt className="ui text-[14.5px] font-[700] text-[var(--good)]">
+                      <dt className="ui text-[15px] font-[700] text-[var(--good)]">
                         Voting for it meant
                       </dt>
                       <dd className="text-[15.5px] leading-[1.5] text-[var(--ink-2)] mt-1">
@@ -141,7 +141,7 @@ export default function VotingRecord({
                       </dd>
                     </div>
                     <div>
-                      <dt className="ui text-[14.5px] font-[700] text-[var(--bad)]">
+                      <dt className="ui text-[15px] font-[700] text-[var(--bad)]">
                         Voting against it meant
                       </dt>
                       <dd className="text-[15.5px] leading-[1.5] text-[var(--ink-2)] mt-1">

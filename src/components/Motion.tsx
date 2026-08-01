@@ -1,88 +1,27 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-
-const reduced = () =>
-  typeof window !== "undefined" &&
-  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-/** Fires once when the element first scrolls into view. */
-export function useInView<T extends HTMLElement>(rootMargin = "0px 0px -10% 0px") {
-  const ref = useRef<T>(null);
-  const [seen, setSeen] = useState(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const io = new IntersectionObserver(
-      ([e]) => {
-        if (e.isIntersecting) {
-          setSeen(true);
-          io.disconnect();
-        }
-      },
-      { rootMargin, threshold: 0.05 }
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, [rootMargin]);
-
-  return { ref, seen };
-}
+import { useEffect, useState } from "react";
 
 /**
- * Counts a number up when it enters view. The final value is rendered
- * server-side, so the real figure is always in the HTML for search
- * engines and for anyone without JavaScript.
+ * Formats a number without animating through false interim values.
  */
 export function CountUp({
   value,
   decimals = 1,
   prefix = "",
   suffix = "",
-  duration = 1300,
   className = "",
 }: {
   value: number;
   decimals?: number;
   prefix?: string;
   suffix?: string;
-  duration?: number;
   className?: string;
 }) {
-  const { ref, seen } = useInView<HTMLSpanElement>();
-  const [n, setN] = useState<number | null>(null);
-
-  useEffect(() => {
-    if (!seen) return;
-    if (reduced()) return;
-    let raf = 0;
-    const start = performance.now();
-    const from = value * 0.35;
-    const tick = (t: number) => {
-      const p = Math.min(1, (t - start) / duration);
-      // easeOutExpo — fast off the mark, settles precisely
-      const e = p === 1 ? 1 : 1 - Math.pow(2, -10 * p);
-      setN(from + (value - from) * e);
-      if (p < 1) raf = requestAnimationFrame(tick);
-      else setN(null);
-    };
-    raf = requestAnimationFrame(tick);
-    // If the tab is backgrounded mid-count, rAF stops and the figure
-    // would freeze part-way. Timers still run, so snap to the truth.
-    const settle = setTimeout(() => setN(null), duration + 700);
-    return () => {
-      cancelAnimationFrame(raf);
-      clearTimeout(settle);
-    };
-  }, [seen, value, duration]);
-
-  const shown = n === null ? value : n;
-
   return (
-    <span ref={ref} className={className}>
+    <span className={className}>
       {prefix}
-      {shown.toLocaleString("en-GB", {
+      {value.toLocaleString("en-GB", {
         minimumFractionDigits: decimals,
         maximumFractionDigits: decimals,
       })}
@@ -179,10 +118,7 @@ export function PictoGrid({
   );
 }
 
-/**
- * A hundred figures, of which `filled` are highlighted. The oldest and
- * plainest way to show a proportion, and the one people read fastest.
- */
+/** A static proportion: the picture is truthful from the first paint. */
 export function Pictogram({
   filled,
   total = 100,
@@ -197,64 +133,9 @@ export function Pictogram({
   /** Overrides the highlight colour so a pictogram can match its own stat. */
   litColor?: string;
 }) {
-  const { ref, seen } = useInView<HTMLDivElement>("0px");
-
-  /**
-   * Starts at the true value, so the correct proportion is in the HTML
-   * even if the animation never runs — a background tab suspends
-   * requestAnimationFrame, and a chart that silently shows zero would
-   * be worse than no animation at all.
-   */
-  const [lit, setLit] = useState(filled);
-  const [armed, setArmed] = useState(false);
-
-  useEffect(() => {
-    if (reduced()) return;
-    const raf = requestAnimationFrame(() => {
-      setLit(0);
-      setArmed(true);
-    });
-    return () => cancelAnimationFrame(raf);
-  }, []);
-
-  /**
-   * The restore has to live outside the `seen` gate below.
-   *
-   * Arming blanks the grid, but the animation that refills it only runs once
-   * the observer reports the element on screen. In a background tab the
-   * observer never fires, so the grid would stay blank for good. This lands
-   * on the true value regardless of whether the animation ever ran.
-   */
-  useEffect(() => {
-    if (!armed) return;
-    const failsafe = setTimeout(() => setLit(filled), 2600);
-    return () => clearTimeout(failsafe);
-  }, [armed, filled]);
-
-  useEffect(() => {
-    if (!armed || !seen) return;
-    let raf = 0;
-    const start = performance.now();
-    const dur = 1500;
-    const tick = (t: number) => {
-      const p = Math.min(1, (t - start) / dur);
-      const e = 1 - Math.pow(1 - p, 3);
-      setLit(Math.round(filled * e));
-      if (p < 1) raf = requestAnimationFrame(tick);
-      else setLit(filled);
-    };
-    raf = requestAnimationFrame(tick);
-    // Timers still fire when rAF is suspended, so the figure always lands.
-    const settle = setTimeout(() => setLit(filled), dur + 900);
-    return () => {
-      cancelAnimationFrame(raf);
-      clearTimeout(settle);
-    };
-  }, [armed, seen, filled]);
-
   return (
-    <div ref={ref} role="img" aria-label={label}>
-      <PictoGrid lit={lit} total={total} columns={columns} litColor={litColor} />
+    <div role="img" aria-label={label}>
+      <PictoGrid lit={filled} total={total} columns={columns} litColor={litColor} />
     </div>
   );
 }

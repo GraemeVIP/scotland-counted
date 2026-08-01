@@ -1,23 +1,7 @@
 import Link from "next/link";
 import { councilsByLevel, COUNCIL_YEARS } from "@/lib/data/councils";
 
-/**
- * Every council area at once, worst rate first.
- *
- * Two jobs. It is the second place on the homepage a visitor is asked to do
- * something — before this, the postcode box in the hero was the only one, and
- * anyone who scrolled past it was never asked again. And it makes the size of
- * the site visible: 32 areas on screen answers "is my place in here" without
- * anyone having to search.
- *
- * Column counts are fixed to 2, 4 and 8 rather than auto-filling, because 32
- * divides evenly by all three. Auto-fill left a ragged half-empty last row at
- * most widths, which is what made the section look broken.
- *
- * The rate sits under the name rather than beside it. Side by side, a long
- * name like Clackmannanshire and a percentage fight for the same line and one
- * of them gets clipped.
- */
+/** Every council area at once, worst rate first. */
 export default function AreaGrid({ className = "" }: { className?: string }) {
   const areas = councilsByLevel();
   const worst = areas[0].pcts[9];
@@ -26,44 +10,48 @@ export default function AreaGrid({ className = "" }: { className?: string }) {
 
   return (
     <section className={className} aria-labelledby="find-your-area">
-      <div className="flex flex-wrap items-end justify-between gap-x-10 gap-y-4 mb-8">
+      <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.62fr)] lg:items-end mb-8">
         <div>
           <p className="kicker text-[var(--brand)] mb-2.5">Find your place</p>
           <h2
             id="find-your-area"
-            className="display-stat text-[clamp(30px,3.6vw,46px)] max-w-[16ch]"
+            className="display-stat text-[clamp(32px,3.6vw,48px)] max-w-[18ch]"
           >
             Every council area in Scotland
           </h2>
         </div>
-        <p className="text-[16px] leading-[1.55] text-[var(--ink-2)] max-w-[38ch]">
-          Worst rate first. Each has its own page with ten years of figures, the people who
-          represent it, and an email already written.
-          <span className="block text-[14.5px] text-[var(--muted)] mt-2 tnum">
-            Children in poverty · {COUNCIL_YEARS[9]}
+        <p className="text-[16px] leading-[1.55] text-[var(--ink-2)] max-w-[44ch] lg:justify-self-end">
+          Pick your area. You will get the short answer first, then the full figures, sources and
+          a ready-written email for the people who represent you.
+          <span className="block text-[15px] text-[var(--muted)] mt-2 tnum">
+            Ranked by children in poverty · {COUNCIL_YEARS[9]}
           </span>
         </p>
       </div>
 
-      <div className="grid gap-2.5 grid-cols-2 sm:grid-cols-4 lg:grid-cols-8">
-        {areas.map((a) => {
+      <div className="grid grid-cols-2 gap-2.5 lg:grid-cols-4">
+        {areas.map((a, index) => {
           const t = (a.pcts[9] - best) / span;
           return (
             <Link
               key={a.slug}
               href={`/areas/${a.slug}`}
-              className="group relative flex flex-col justify-between min-h-[104px] rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] px-3.5 py-3 no-underline overflow-hidden transition-[border-color,transform,box-shadow] hover:border-[var(--brand)] hover:-translate-y-0.5 hover:shadow-[var(--shadow-2)]"
+              className="group relative flex min-h-[108px] flex-col items-start justify-between gap-3 overflow-hidden rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] px-4 py-3.5 no-underline transition-[border-color,transform,box-shadow] hover:-translate-y-0.5 hover:border-[var(--brand)] hover:shadow-[var(--shadow-2)] sm:grid sm:min-h-[78px] sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center"
             >
-              {/* Rate as a wash, so the spread is visible before anything is read. */}
               <span
                 aria-hidden="true"
-                className="absolute inset-0 pointer-events-none"
-                style={{ background: "var(--brand)", opacity: 0.03 + t * 0.15 }}
+                className="absolute inset-y-0 left-0 pointer-events-none bg-[var(--brand)]"
+                style={{ width: `${18 + t * 82}%`, opacity: 0.035 + t * 0.09 }}
               />
-              <span className="relative ui text-[14px] font-[640] leading-[1.25] [overflow-wrap:anywhere] hyphens-auto text-[var(--ink-2)] group-hover:text-[var(--ink)] transition-colors">
-                {a.name}
+              <span className="relative min-w-0">
+                <span className="ui block text-[15.5px] font-[700] leading-[1.25] text-[var(--ink)]">
+                  {a.name}
+                </span>
+                <span className="ui mt-1 block text-[15px] leading-none text-[var(--muted)]">
+                  {index + 1} of 32
+                </span>
               </span>
-              <span className="relative display-stat text-[24px] leading-[1.15] text-[var(--ink)] tnum mt-2">
+              <span className="relative display-stat text-[25px] leading-none text-[var(--ink)] tnum">
                 {a.pcts[9]}%
               </span>
             </Link>

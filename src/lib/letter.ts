@@ -90,12 +90,14 @@ export function buildLetter({
   const direction = area.pct > area.firstPct ? "It has got worse." : "It has improved.";
   const personalPara = personal.trim() ? `\n${personal.trim()}\n` : "";
   const evidence = area.evidenceLine ? `${area.evidenceLine}\n\n` : "";
+  const plainShare = asOneIn(area.pct);
+  const shareSentence = plainShare.charAt(0).toUpperCase() + plainShare.slice(1);
 
   return `Dear ${representative?.name ?? `your ${role}`},
 
 I live in ${area.name}, and I am writing about poverty in our area.
 
-${asOneIn(area.pct)} children here are growing up in poverty. The exact figure is ${area.pct}%, or ${area.count.toLocaleString("en-GB")} children. It was ${area.firstPct}% in ${area.firstYear}. ${direction}
+${shareSentence} children here are growing up in poverty. The exact figure is ${area.pct}%, or ${area.count.toLocaleString("en-GB")} children. It was ${area.firstPct}% in ${area.firstYear}. ${direction}
 
 ${evidence}The figures come from End Child Poverty and Loughborough University, using HMRC and DWP records. The Scottish figure for the same year was ${area.scotlandPct}%.
 ${personalPara}
