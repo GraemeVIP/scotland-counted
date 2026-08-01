@@ -102,7 +102,6 @@ export function Header() {
         <Link
           href="/"
           className="shrink-0"
-          aria-label={`${site.name}, home`}
           onClick={() => setMenuPath(null)}
         >
           <Wordmark className="text-[19px]" />
