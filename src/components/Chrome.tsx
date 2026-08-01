@@ -37,9 +37,12 @@ function SearchButton() {
       <span className="ui hidden md:block whitespace-nowrap text-[15px] font-[560] text-[var(--muted)] group-hover:text-[var(--ink)] transition-colors">
         Search site or area
       </span>
-      <span className="ui ml-auto hidden 2xl:inline-flex rounded border border-[var(--rule)] bg-[var(--paper)] px-1.5 py-0.5 text-[15px] font-[650] text-[var(--muted)]">
-        ⌘K
-      </span>
+      {/*
+        No ⌘K badge. It is Mac-only notation, and on Windows, Linux, Android and
+        iOS it is either wrong or meaningless — a keyboard hint that most
+        visitors cannot act on. The shortcut still works, and still accepts
+        Ctrl+K as well as ⌘K for anyone who tries it.
+      */}
     </button>
   );
 }

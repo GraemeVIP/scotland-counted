@@ -4,9 +4,11 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { councils } from "@/lib/data/councils";
 import { constituencies } from "@/lib/data/constituencies";
-import { indicators } from "@/lib/data/indicators";
+import { indicators, lifeExpectancy, deprivation } from "@/lib/data/indicators";
 import { terms } from "@/lib/data/glossary";
 import { faqItems } from "@/lib/data/faqs";
+import { posts, postCategories } from "@/lib/data/posts";
+import { BAND_LETTERS } from "@/lib/data/councilTax";
 
 /**
  * The command palette: every page on the site reachable in two
@@ -32,7 +34,26 @@ const CORE: Item[] = [
   { label: "Why poverty is worse in Glasgow", href: "/why-glasgow", group: "Main pages" },
   { label: "What would help cut poverty", href: "/what-would-fix-it", group: "Main pages" },
   { label: "Who decides what", href: "/accountability", group: "Main pages" },
-  { label: "Email your MP and MSP", href: "/take-action", group: "Main pages", keywords: "letter mp msp email write" },
+  { label: "Email your MP and MSP", href: "/take-action", group: "Main pages", keywords: "letter mp msp email write postcode who is my mp find" },
+  { label: "Explained in plain English", href: "/blog", group: "Main pages", keywords: "blog articles guides explainers" },
+  {
+    label: "Take-home pay calculator",
+    href: "/take-home-pay-calculator-scotland",
+    group: "Free tools",
+    keywords: "salary wage tax national insurance pension student loan net pay after tax scottish rates",
+  },
+  {
+    label: "Council tax by band",
+    href: "/council-tax-bands-scotland",
+    group: "Free tools",
+    keywords: "council tax band a b c d e f g h water charges how much bill",
+  },
+  {
+    label: "Guess the figure",
+    href: "/quiz",
+    group: "Free tools",
+    keywords: "quiz test questions how much do you know",
+  },
   { label: "How the figures were counted", href: "/methods", group: "Check the proof" },
   { label: "Download the data", href: "/data", group: "Check the proof", keywords: "csv download dataset" },
   { label: "Press and reuse", href: "/press", group: "Check the proof", keywords: "media journalist embed png" },
@@ -42,6 +63,7 @@ const CORE: Item[] = [
   { label: "About this project", href: "/about", group: "More" },
   { label: "Report or see corrections", href: "/corrections", group: "More" },
   { label: "Get in touch", href: "/contact", group: "More", keywords: "email press error report message" },
+  { label: "Privacy", href: "/privacy", group: "More", keywords: "data cookies tracking gdpr postcode stored" },
 ];
 
 function buildRegistry(): Item[] {
@@ -52,6 +74,17 @@ function buildRegistry(): Item[] {
       href: `/indicators/${i.slug}`,
       group: "Glasgow facts",
       keywords: `${i.label} chart data`,
+    })),
+    /*
+     * lifeExpectancy and deprivation are separate exports, not members of the
+     * indicators array, so mapping over that array alone silently left two
+     * whole pages out of search. The sitemap already spread all three.
+     */
+    ...[lifeExpectancy, deprivation].map((i) => ({
+      label: i.title,
+      href: `/indicators/${i.slug}`,
+      group: "Glasgow facts",
+      keywords: `${i.summary} chart data`,
     })),
     ...councils.map((c) => ({
       label: c.name,
@@ -79,20 +112,88 @@ function buildRegistry(): Item[] {
       group: "Glossary",
       keywords: t.def.slice(0, 60),
     })),
+
+    /*
+     * Everything below was missing, which meant search could not find most of
+     * the site's writing. The blog alone is 23 pages, and the council tax
+     * cluster is 40 — between them the largest body of content here, and none
+     * of it was reachable from the search box.
+     */
+    ...posts.map((p) => ({
+      label: p.title,
+      href: `/blog/${p.slug}`,
+      group: "Explainers",
+      meta: `${p.readingMinutes} min`,
+      keywords: `${p.description} ${p.tags.join(" ")} blog article guide`,
+    })),
+    ...postCategories.map((c) => ({
+      label: c.name,
+      href: `/blog/category/${c.slug}`,
+      group: "Explainers",
+      keywords: `${c.description} category topic`,
+    })),
+    ...councils.map((c) => ({
+      label: `${c.name} council tax`,
+      href: `/council-tax-bands-scotland/${c.slug}`,
+      group: "Council tax",
+      keywords: `council tax bands rates water charges ${c.name}`,
+    })),
+    ...BAND_LETTERS.map((b) => ({
+      label: `Council tax Band ${b}`,
+      href: `/council-tax-bands-scotland/band-${b.toLowerCase()}`,
+      group: "Council tax",
+      keywords: `band ${b} council tax how much cost every council water`,
+    })),
   ];
 }
 
+/**
+ * Punctuation is not a search term.
+ *
+ * Matching raw strings meant "take home" found nothing, because the label is
+ * "Take-home pay calculator" and a hyphen is not a space. That is the most
+ * likely thing anyone would type to find that page. The same trap catches
+ * "na h eileanan siar", "scotlands" and anything with an apostrophe or an
+ * ampersand in it, so everything is flattened to letters, digits and single
+ * spaces on both sides of the comparison.
+ */
+function normalise(s: string) {
+  return s
+    .toLowerCase()
+    // Apostrophes close up rather than splitting, so "Scotland's" becomes
+    // "scotlands" — which is what people type. Turning it into "scotland s"
+    // would match neither spelling.
+    .replace(/['’]/g, "")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
+
 function score(item: Item, q: string): number {
-  const hay = `${item.label} ${item.keywords ?? ""}`.toLowerCase();
-  const label = item.label.toLowerCase();
+  const label = normalise(item.label);
+  const hay = `${label} ${normalise(item.keywords ?? "")}`;
   if (label.startsWith(q)) return 4;
-  if (label.split(/\s+/).some((w) => w.startsWith(q))) return 3;
+  if (label.split(" ").some((w) => w.startsWith(q))) return 3;
   if (label.includes(q)) return 2;
   if (hay.includes(q)) return 1;
+  // Every word typed appears somewhere — "glasgow tax", "band c edinburgh".
+  const words = q.split(" ").filter(Boolean);
+  if (words.length > 1 && words.every((w) => hay.includes(w))) return 1;
   return 0;
 }
 
-const GROUP_ORDER = ["Main pages", "Questions", "Council areas", "Areas represented by an MP", "Glasgow facts", "Glossary", "Check the proof", "More"];
+const GROUP_ORDER = [
+  "Main pages",
+  "Free tools",
+  "Questions",
+  "Explainers",
+  "Council areas",
+  "Council tax",
+  "Areas represented by an MP",
+  "Glasgow facts",
+  "Glossary",
+  "Check the proof",
+  "More",
+];
 
 export default function CommandPalette() {
   const router = useRouter();
@@ -104,7 +205,7 @@ export default function CommandPalette() {
   const registry = useMemo(() => buildRegistry(), []);
 
   const results = useMemo(() => {
-    const query = q.trim().toLowerCase();
+    const query = normalise(q);
     if (!query) {
       // Resting state answers the most common intent first: where you live.
       const pin = [
