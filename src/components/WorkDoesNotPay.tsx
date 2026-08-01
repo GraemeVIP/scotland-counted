@@ -6,6 +6,8 @@ import {
   rentShareOfTakeHome,
   leftAfterRentMonthly,
   minimumIncomeStandard,
+  costsThenAndNow,
+  councilTaxNote,
   benefitsComparison as bc,
 } from "@/lib/data/livingCosts";
 
@@ -103,6 +105,34 @@ export default function WorkDoesNotPay({ className = "" }: { className?: string 
           {pounds.format(minimumWageTakeHome.annual)} a year: {pounds.format(minimumWage.annualGross)} gross,
           less {pounds.format(minimumWageTakeHome.tax)} income tax and {pounds.format(minimumWageTakeHome.ni)} National
           Insurance.
+        </p>
+      </div>
+
+      {/* ---- What the bills have done ---- */}
+      <div className="mt-10">
+        <h3 className="h3 mb-3">Why it is tighter than it used to be</h3>
+        <p className="max-w-[62ch] text-[17px] leading-[1.6] text-[var(--ink-2)]">
+          Wages are only half of it. The other half is what the same bills now cost.
+        </p>
+        <div className="mt-6 grid gap-4 sm:grid-cols-2">
+          {costsThenAndNow.map((c) => (
+            <div
+              key={c.what}
+              className="rounded-[var(--r-m)] border border-[var(--rule)] border-l-[5px] border-l-[var(--bad)] bg-[var(--surface)] p-6"
+            >
+              <p className="kicker text-[var(--muted)]">{c.what}</p>
+              <p className="display-stat mt-2 text-[clamp(28px,3vw,38px)] text-[var(--bad)]">
+                {c.change}
+              </p>
+              <p className="mt-2 text-[16px] leading-[1.5] font-[620]">{c.against}</p>
+              <p className="mt-3 border-t border-[var(--rule)] pt-3 text-[14.5px] leading-[1.5] text-[var(--muted)]">
+                <span className="font-[700] text-[var(--ink-2)]">{c.now}</span> · {c.detail}
+              </p>
+            </div>
+          ))}
+        </div>
+        <p className="mt-5 max-w-[64ch] rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface-2)] px-5 py-4 text-[15px] leading-[1.55] text-[var(--ink-2)]">
+          <span className="font-[700] text-[var(--ink)]">One gap, stated.</span> {councilTaxNote}
         </p>
       </div>
 

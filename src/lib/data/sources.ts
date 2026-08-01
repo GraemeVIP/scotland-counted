@@ -212,6 +212,22 @@ export const sources: Source[] = [
     used: "Median gross weekly pay for full-time employees in Scotland, £773.80 in April 2025, used to show that a Glasgow figure slightly above it is expected rather than anomalous.",
   },
   {
+    id: "ofgem-cap-2026",
+    title: "Changes to the energy price cap between 1 July and 30 September 2026",
+    publisher: "Ofgem",
+    url: "https://www.ofgem.gov.uk/news/changes-energy-price-cap-between-1-july-and-30-september-2026",
+    used: "The 13% rise from 1 July 2026, and the cap level for a typical dual-fuel household paying by direct debit.",
+    derivation:
+      "Ofgem published unit rates for this period rather than a headline annual figure. £1,854 is the previous cap of £1,641 for April to June 2026 uprated by the announced 13%.",
+  },
+  {
+    id: "ons-food-prices",
+    title: "Cost of living insights: Food",
+    publisher: "Office for National Statistics",
+    url: "https://www.ons.gov.uk/economy/inflationandpriceindices/articles/costoflivinginsights/food",
+    used: "Food and non-alcoholic drink prices rose 38.6% between November 2020 and November 2025, and 31.6% between January 2021 and August 2024 against 9.5% in the preceding decade.",
+  },
+  {
     id: "scottish-tax-2026",
     title: "Scottish Income Tax: rates and bands, 2026 to 2027",
     publisher: "Scottish Government",

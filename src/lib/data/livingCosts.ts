@@ -136,3 +136,41 @@ export const benefitsComparison = {
   },
   sourceIds: ["uc-what-youll-get", "uc-earnings"],
 };
+
+
+/**
+ * What the bills have done, then against now.
+ *
+ * People do not experience inflation as a percentage. They experience it as
+ * the same shop costing more, so these are shown as what changed and over
+ * what period, with the comparison period named.
+ */
+export const costsThenAndNow = [
+  {
+    what: "Energy",
+    now: "£1,854 a year",
+    detail: "Ofgem cap for a typical dual-fuel home paying by direct debit, from 1 July 2026, after a 13% rise",
+    change: "53% higher",
+    against: "than winter 2021/22, before the energy crisis",
+    sourceId: "ofgem-cap-2026",
+  },
+  {
+    what: "Food",
+    now: "38.6% dearer",
+    detail: "The price of food and non-alcoholic drinks across the UK, November 2020 to November 2025",
+    change: "31.6% in three and a half years",
+    against: "against 9.5% across the whole decade before it",
+    sourceId: "ons-food-prices",
+  },
+];
+
+/**
+ * Council tax is a real line in any household budget and it is missing here
+ * on purpose. Glasgow City Council blocks automated access to its charges,
+ * and the figures circulating on commercial council-tax sites disagree with
+ * each other — two of them give different Scottish Water charges for the same
+ * band. We would rather leave a stated gap than publish a number we cannot
+ * trace to the council. Anyone can read theirs off their own bill.
+ */
+export const councilTaxNote =
+  "Council tax and water charges are not included here. Glasgow publishes them, but we could not retrieve them from the council directly, and we do not publish figures we cannot trace to the source. Yours is on your bill. Council Tax Reduction may also apply at this income.";
