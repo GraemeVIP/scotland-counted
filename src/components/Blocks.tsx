@@ -447,20 +447,26 @@ export function CTA({
               <h2 className="h2 mb-4 max-w-[18ch]">{title}</h2>
               <p className="opacity-80 max-w-[54ch] text-[17.5px] leading-[1.55]">{body}</p>
             </div>
+            {/*
+              The buttons stack and fill the card rather than sitting inline.
+              Inline with flex-wrap, two labels of different lengths could not
+              fit side by side in this column, so they wrapped to separate rows
+              at their own widths — a wide primary above a narrow secondary,
+              both ragged against a stripe of dead space. Matching widths make
+              it read as one deliberate choice and its alternative, and give
+              the card a straight right edge to sit on.
+            */}
             <div className="rounded-[var(--r-m)] border border-white/15 bg-white/[0.055] p-5 sm:p-6">
               <p className="kicker mb-4 text-[var(--action)]">One simple next step</p>
-              <div className="flex flex-wrap gap-3">
-                <Link
-                  href={href}
-                  className="btn btn-primary"
-                >
+              <div className="grid gap-3">
+                <Link href={href} className="btn btn-primary w-full justify-center">
                   {cta}
                   <span aria-hidden="true">→</span>
                 </Link>
                 {secondaryHref && secondaryCta && (
                   <Link
                     href={secondaryHref}
-                    className="btn border-current/35 text-current hover:bg-white/10"
+                    className="btn w-full justify-center border-current/35 text-current hover:bg-white/10"
                   >
                     {secondaryCta}
                   </Link>
