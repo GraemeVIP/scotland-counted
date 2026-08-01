@@ -187,7 +187,8 @@ export function Footer() {
           <div>
             <Wordmark className="text-[22px]" />
             <p className="text-[15px] leading-[1.5] opacity-72 max-w-[42ch] mt-2.5">
-              Poverty and living costs, in ordinary words. No party, funding or paywall.
+              A free, independent guide to poverty, work and living costs in Scotland — with local
+              facts, plain-English explanations and a way to contact the people who decide.
             </p>
           </div>
 

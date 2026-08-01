@@ -15,9 +15,9 @@ export const site = {
    */
   url: "https://scotlandcounted.co.uk",
 
-  tagline: "Poverty in Scotland, explained clearly.",
+  tagline: "A free guide to poverty, work and living costs in Scotland.",
   description:
-    "Poverty, work and living costs across Scotland in ordinary words. Enter your postcode to see the local facts and open ready-written emails to your MP and MSP.",
+    "Scotland Counted is a free, independent guide to poverty, work and living costs across Scotland. See the facts for your area, understand who has the power to change things and open a ready-written email to your MP and MSP.",
 
   locale: "en_GB",
   themeColor: "#2a78d6",

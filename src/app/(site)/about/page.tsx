@@ -21,9 +21,9 @@ export default function About() {
 
       <Page>
         <PageHeader
-          eyebrow="Who made this and why"
+          eyebrow="What Scotland Counted is"
           title="About this project"
-          lede={`${site.name} explains poverty in ordinary words, shows the proof and helps people email the right MP and MSP. It is a personal project by ${site.author.name}, founder of ${site.organisation.name}. No political party, charity or campaign runs it.`}
+          lede={`${site.name} is a free, independent guide to poverty, work and living costs in Scotland. It shows the local facts, explains who has the power to change them and helps people email the right MP and MSP. It is a personal project by ${site.author.name}, founder of ${site.organisation.name}. No political party, charity or campaign runs it.`}
         />
 
         <ContentFrame>

@@ -26,7 +26,7 @@ export default function Hero() {
           {/* ---- Statement ---- */}
           <div>
             <p className="kicker text-[var(--brand)] mb-5">
-              Scotland&apos;s poverty, explained simply
+              A free, independent guide to poverty in Scotland
             </p>
 
             <h1 className="display-stat text-[clamp(44px,5.7vw,78px)] max-w-[16ch] mb-6">
@@ -35,8 +35,10 @@ export default function Hero() {
             </h1>
 
             <p className="text-[clamp(18px,1.55vw,21px)] leading-[1.5] text-[var(--ink-2)] max-w-[49ch] mb-7">
-              We find your MP and MSP, add the facts for your area and write both emails. You read
-              them and press send. <strong className="text-[var(--ink)]">It takes about a minute.</strong>
+              Scotland Counted explains poverty, work and living costs in ordinary words. See what
+              is happening in your area, understand who can change what, use the free calculators
+              and read plain-English explainers. Then we find your MP and MSP and write both emails
+              for you. <strong className="text-[var(--ink)]">It takes about a minute.</strong>
             </p>
 
             <div>
