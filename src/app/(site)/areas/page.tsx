@@ -4,7 +4,12 @@ import Figure from "@/components/charts/Figure";
 import AreaDumbbell from "./AreaDumbbell";
 import RankTable from "@/components/RankTable";
 import { JsonLd, breadcrumbJsonLd, datasetJsonLd, meta } from "@/lib/seo";
-import { councilsByLevel, councilsByChange, COUNCIL_YEARS } from "@/lib/data/councils";
+import {
+  councilsByLevel,
+  councilsByChange,
+  COUNCIL_YEARS,
+  COUNCIL_COUNT,
+} from "@/lib/data/councils";
 
 export const metadata = meta({
   title: "Poverty and pay in every Scottish area",
@@ -81,11 +86,11 @@ export default function Areas() {
         </div>
 
         <section className="pt-12">
-          <h2 className="h2 mb-2">Every area, from highest to lowest</h2>
-          <p className="text-[15px] text-[var(--ink-2)] mb-6">
-            Glasgow is shaded. Number 1 has the highest child-poverty rate.
-          </p>
           <RankTable
+            kicker={`All ${COUNCIL_COUNT} council areas`}
+            title="Every council area in Scotland, worst rate first"
+            standfirst="The ten highest are shown to begin with. Glasgow is shaded. Tap any column to sort, or any row to open that area."
+            measure={`Children in poverty · ${last}`}
             nameLabel="Council area"
             latestLabel="Now"
             firstLabel="10 years ago"

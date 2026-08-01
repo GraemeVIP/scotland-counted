@@ -58,12 +58,12 @@ export default function Constituencies() {
           <p><strong>Six of the seven worst areas are in Glasgow.</strong> Glasgow is shaded so that is impossible to miss.</p>
         </InShort>
 
-        <section className="pt-2">
-          <p className="text-[15px] text-[var(--ink-2)] mb-6 mt-8">
-            The ten highest rates are shown first. Glasgow areas are shaded. Number 1 has the
-            highest rate.
-          </p>
+        <section className="pt-10">
           <RankTable
+            kicker={`All ${CONSTITUENCY_COUNT} MP areas`}
+            title="Every MP area in Scotland, worst rate first"
+            standfirst="The ten highest are shown to begin with. Glasgow areas are shaded. Tap any column to sort, or any row to open that area."
+            measure={`Children in poverty · ${last}`}
             nameLabel="Area represented by an MP"
             latestLabel="Now"
             firstLabel="10 years ago"

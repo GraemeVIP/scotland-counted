@@ -39,6 +39,10 @@ export default function RankTable({
   collapsedRows,
   showAllLabel,
   showLessLabel = "Show the top 10 only",
+  kicker,
+  title,
+  standfirst,
+  measure,
 }: {
   rows: RankRow[];
   nameLabel: string;
@@ -47,6 +51,15 @@ export default function RankTable({
   collapsedRows?: number;
   showAllLabel?: string;
   showLessLabel?: string;
+  /** Small label above the title. */
+  kicker?: string;
+  /** What the table shows. Required in practice: a table with no heading is
+   *  meaningless to anyone skimming, which is most people. */
+  title?: string;
+  /** One line under the title explaining how to read it. */
+  standfirst?: string;
+  /** What is being measured and when, shown right-aligned with the title. */
+  measure?: string;
 }) {
   const [key, setKey] = useState<SortKey>("rank");
   const [asc, setAsc] = useState(true);
@@ -92,6 +105,22 @@ export default function RankTable({
 
   return (
     <div>
+      {title && (
+        <div className="mb-6 flex flex-wrap items-end justify-between gap-x-8 gap-y-3 border-b-2 border-[var(--ink)] pb-4">
+          <div>
+            {kicker && <p className="kicker mb-2 text-[var(--brand)]">{kicker}</p>}
+            <h2 className="display-stat text-[clamp(26px,3.2vw,40px)] max-w-[20ch]">{title}</h2>
+            {standfirst && (
+              <p className="mt-3 max-w-[62ch] text-[16.5px] leading-[1.55] text-[var(--ink-2)]">
+                {standfirst}
+              </p>
+            )}
+          </div>
+          {measure && (
+            <p className="ui text-[14.5px] font-[650] text-[var(--muted)] tnum">{measure}</p>
+          )}
+        </div>
+      )}
       <div id={rowsId}>
       {/* ---------- Phone: a list you can actually read ---------- */}
       <div className="sm:hidden">
