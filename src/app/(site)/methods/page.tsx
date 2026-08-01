@@ -16,8 +16,8 @@ const PRINCIPLES = [
     body: "Every figure comes from the organisation that published it — not a newspaper story repeating the number.",
   },
   {
-    title: "Say when we did the maths",
-    body: "If we calculated a number ourselves, we say so and show the calculation. We also check it against a published figure whenever possible.",
+    title: "Say when I did the maths",
+    body: "If I calculated a number ourselves, I say so and show the calculation. I also check it against a published figure whenever possible.",
   },
   {
     title: "Do not hide weak figures",
@@ -25,7 +25,7 @@ const PRINCIPLES = [
   },
   {
     title: "Say when the rules changed",
-    body: "Sometimes an official figure starts counting different people. We mark the point where that happened and explain what can still be compared.",
+    body: "Sometimes an official figure starts counting different people. I mark the point where that happened and explain what can still be compared.",
   },
   {
     title: "Record choices, not motives",
@@ -33,7 +33,7 @@ const PRINCIPLES = [
   },
   {
     title: "Corrections are public",
-    body: "If a figure is wrong, we fix it and keep a public note of what changed.",
+    body: "If a figure is wrong, I fix it and keep a public note of what changed.",
   },
 ];
 
@@ -41,7 +41,7 @@ const LIMITS = [
   "The main poverty survey is reliable for Scotland as a whole, but not for each council area. Local pages therefore use separate records for child poverty, out-of-work benefits and pay. They show different parts of the story and should not be treated as the same thing.",
   "There is no reliable local child-poverty series before 2014/15. Older local pages can show work and neighbourhood figures, but not the same poverty measure.",
   "Scotland's neighbourhood list ranks places from worst-off to best-off. It does not count every person in hardship. A place can improve and still move down if other places improve faster.",
-  "Some job figures from 2024 onward are unreliable because too few people answered the survey. We show that part with a dotted line and a warning.",
+  "Some job figures from 2024 onward are unreliable because too few people answered the survey. I show that part with a dotted line and a warning.",
   "An area-wide figure does not describe every street or family. Within Glasgow, estimated child poverty ranges from roughly 5% in some neighbourhoods to roughly 75% in others.",
   "The ONS pay charts are not the average wage. They cover a restricted sample of full-time PAYE employee jobs and exclude all part-time jobs, self-employment, employees outside PAYE, junior rates and pay affected by absence.",
   "Workplace and residence pay are separate medians for separate groups. The difference between them does not track the same people and cannot prove that a particular amount of wages leaves an area.",
@@ -63,7 +63,7 @@ export default function Methods() {
         <PageHeader
           eyebrow="How this was built"
           title="Methods and sources"
-          lede="You should not have to trust us. This page shows where every number came from, any maths we did and what the figures cannot prove."
+          lede="You should not have to trust me. This page shows where every number came from, any maths I did and what the figures cannot prove."
         />
 
         <ContentFrame>
@@ -73,7 +73,7 @@ export default function Methods() {
           </InShort>
 
         <section className="pt-11">
-          <h2 className="h2 mb-6">Six rules we follow</h2>
+          <h2 className="h2 mb-6">Six rules I follow</h2>
           <div className="grid gap-4 sm:grid-cols-2">
             {PRINCIPLES.map((p) => (
               <div
@@ -91,7 +91,7 @@ export default function Methods() {
           <h2 className="h2 mb-4">What the figures cannot prove</h2>
           <Col>
             <p>
-              These limits matter. If the site claims more than the figures can support, tell us.
+              These limits matter. If the site claims more than the figures can support, tell me.
             </p>
             <ul>
               {LIMITS.map((l) => (
@@ -104,7 +104,7 @@ export default function Methods() {
         <section className="pt-14">
           <h2 className="h2 mb-2">Every source</h2>
           <p className="text-[15px] text-[var(--ink-2)] mb-7 max-w-[62ch]">
-            {sources.length} sources. Each entry says what we used and any calculation we made.
+            {sources.length} sources. Each entry says what I used and any calculation I made.
           </p>
 
           <ol className="space-y-6 max-w-[78ch]">
@@ -129,7 +129,7 @@ export default function Methods() {
                   {s.derivation && (
                     <p className="text-[15px] text-[var(--ink-2)] leading-[1.55] mt-1.5 pl-3 border-l-2 border-[var(--rule)]">
                       <span className="ui text-[15px] font-[650] text-[var(--muted)] block mb-0.5">
-                        Our calculation
+                        My calculation
                       </span>
                       {s.derivation}
                     </p>
@@ -142,11 +142,11 @@ export default function Methods() {
 
         <CTA
           title="Check the work yourself"
-          body="Download the original extracts, open the source links and tell us if something does not match. Confirmed errors are fixed and recorded publicly."
+          body="Download the original extracts, open the source links and tell me if something does not match. Confirmed errors are fixed and recorded publicly."
           href="/data"
           cta="Download the data"
           secondaryHref="/corrections"
-          secondaryCta="Tell us about an error"
+          secondaryCta="Tell me about an error"
         />
 
         <p className="mt-10 text-[15px] text-[var(--ink-2)] max-w-[66ch]">

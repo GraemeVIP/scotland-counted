@@ -84,7 +84,7 @@ export default function YourPower() {
                 politics. You just need to ask them a question they have to answer.
               </p>
               <p>
-                We write the email. You read it and press send. It takes about a minute.
+                I write the email. You read it and press send. It takes about a minute.
               </p>
             </InShort>
           </div>
@@ -241,15 +241,15 @@ export default function YourPower() {
             ))}
           </ul>
           <p className="mt-4 text-[15px]">
-            We do not publish figures for how often MPs reply, because no reliable national figure
-            exists. Where something is a convention rather than a rule, we say so.{" "}
-            <Link href="/methods">Read our methods</Link>.
+            I do not publish figures for how often MPs reply, because no reliable national figure
+            exists. Where something is a convention rather than a rule, I say so.{" "}
+            <Link href="/methods">Read the methods</Link>.
           </p>
         </EvidenceDetails>
 
         <CTA
           title="Right — who represents you?"
-          body="Put in your postcode. We find your MP and MSP, put your own area's figures into both emails and write them for you."
+          body="Put in your postcode. I find your MP and MSP, put your own area's figures into both emails and write them for you."
           href="/take-action"
           cta="Find mine and write the emails"
           secondaryHref="/areas"

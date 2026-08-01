@@ -74,7 +74,7 @@ export default function Post() {
 
       <PostCTA
         title="Low pay is a decision, not a mystery"
-        body="Westminster sets the legal minimum. Employers decide whether to stop there. We can find your MP automatically and prepare the right email without asking you to understand the political split."
+        body="Westminster sets the legal minimum. Employers decide whether to stop there. I can find your MP automatically and prepare the right email without asking you to understand the political split."
         href="/take-action"
         cta="Email my MP"
       />

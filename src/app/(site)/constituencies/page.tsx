@@ -12,7 +12,7 @@ import { asOneIn } from "@/lib/plain-language";
 export const metadata = meta({
   title: "Child poverty in every Scottish MP area",
   description:
-    "See child poverty in all 57 areas represented by a Scottish MP. Glasgow East is highest. Enter your postcode and we find your MP for you.",
+    "See child poverty in all 57 areas represented by a Scottish MP. Glasgow East is highest. Enter your postcode and I find your MP for you.",
   path: "/constituencies",
 });
 
@@ -45,7 +45,7 @@ export default function Constituencies() {
         <PageHeader
           eyebrow={`All ${CONSTITUENCY_COUNT} Scottish MP areas`}
           title="See the facts for your MP's area"
-          lede="One MP represents each area. You do not need to know the political name for your area or who your MP is — enter your postcode and we find them for you."
+          lede="One MP represents each area. You do not need to know the political name for your area or who your MP is — enter your postcode and I find them for you."
           stat={{
             value: worstShare.replace(/^(about|more than|almost)\s+/, ""),
             label: `About one child in every three in ${worst.name} is growing up in poverty. Exact figure: ${worst.pcts[9]}% in ${last} — the highest in Scotland.`,
@@ -97,7 +97,7 @@ export default function Constituencies() {
 
         <CTA
           title="You do not need to work out who your MP is"
-          body="Enter your postcode. We find your MP, add the exact local figure and open a ready-written email."
+          body="Enter your postcode. I find your MP, add the exact local figure and open a ready-written email."
           href="/take-action"
           cta="Find and email my MP"
           secondaryHref={`/constituencies/${worst.slug}`}

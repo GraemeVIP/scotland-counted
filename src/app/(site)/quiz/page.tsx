@@ -50,7 +50,7 @@ export default function QuizPage() {
             <p className="text-[18px] leading-[1.6] text-[var(--ink-2)]">
               That matters, because pressure follows attention. A figure nobody knows cannot embarrass
               anyone. Every answer here links to the page where the same number is shown with the
-              organisation that published it, so you can check any of it rather than take our word.
+              organisation that published it, so you can check any of it rather than take my word.
             </p>
           </div>
         </ContentFrame>
@@ -84,14 +84,14 @@ export default function QuizPage() {
           <p className="mt-6 max-w-[70ch] text-[15px] leading-[1.6] text-[var(--muted)]">
             Nothing in the quiz is written for effect. Every figure appears elsewhere on this site
             with its working shown — if you think one is wrong,{" "}
-            <Link href="/corrections">tell us and we will correct it publicly</Link>.
+            <Link href="/corrections">tell me and I will correct it publicly</Link>.
           </p>
         </ContentFrame>
       </Page>
 
       <CTA
         title="Now put one of those numbers to the person who decides it"
-        body="Enter your postcode. We find your MP and MSP, add the figures for your own area and write both emails. You read them and press send."
+        body="Enter your postcode. I find your MP and MSP, add the figures for your own area and write both emails. You read them and press send."
         href="/take-action"
         cta="Find my MP and MSP"
         secondaryHref="/the-numbers"

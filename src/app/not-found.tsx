@@ -24,7 +24,7 @@ const HELP = [
   {
     href: "/take-action",
     title: "Email your MP and MSP",
-    body: "Enter a postcode and we find both, then write both emails for you.",
+    body: "Enter a postcode and I find both, then write both emails for you.",
   },
   {
     href: "/council-tax-bands-scotland",
@@ -87,7 +87,7 @@ export default function NotFound() {
 
         <p className="mt-8 text-[15.5px] leading-[1.6] text-[var(--ink-2)] max-w-[62ch]">
           If you followed a link from somewhere on this site and it brought you here,{" "}
-          <Link href="/contact">tell us</Link> and we will fix it.
+          <Link href="/contact">tell me</Link> and I will fix it.
         </p>
       </div>
     </div>

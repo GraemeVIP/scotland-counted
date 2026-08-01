@@ -144,7 +144,7 @@ export default function WhatWouldFixIt() {
         <PageHeader
           eyebrow="Scotland · Seven practical changes"
           title="What would help cut poverty"
-          lede="We do not have to guess. Independent experts have tested the main ideas. They agree that families need more money coming in, affordable housing and childcare that works around real jobs."
+          lede="I do not have to guess. Independent experts have tested the main ideas. They agree that families need more money coming in, affordable housing and childcare that works around real jobs."
           stat={{
             value: `${done} of ${fixes.length}`,
             label:
@@ -364,7 +364,7 @@ export default function WhatWouldFixIt() {
 
       <CTA
         title="Ask the people who can make these changes"
-        body="Enter your postcode. We find your MP and MSP, add the local facts and put the right requests into each email automatically. You do not need to choose."
+        body="Enter your postcode. I find your MP and MSP, add the local facts and put the right requests into each email automatically. You do not need to choose."
         href="/take-action"
         cta="Find my MP and MSP"
         secondaryHref="/accountability"

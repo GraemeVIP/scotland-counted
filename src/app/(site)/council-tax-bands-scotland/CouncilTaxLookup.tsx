@@ -42,7 +42,7 @@ export default function CouncilTaxLookup() {
     const charges = chargesFor(slug);
     if (!charges) {
       setState("error");
-      setMessage("We do not have charges for that council yet.");
+      setMessage("There are no charges listed for that council yet.");
       return;
     }
     setResult({ councilName, slug, charges });
@@ -248,7 +248,7 @@ export default function CouncilTaxLookup() {
             Council tax figures are {COUNCIL_TAX_YEAR}, the latest complete national set. Water is{" "}
             {WATER_YEAR}. Some councils have since announced rises for 2026-27, so your bill may be
             a little higher.{" "}
-            <Link href="/methods">How we source this</Link>.
+            <Link href="/methods">How I source this</Link>.
           </p>
         </div>
       )}

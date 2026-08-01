@@ -16,7 +16,7 @@ const LOG: { date: string; page: string; change: string }[] = [
     date: "1 August 2026",
     page: "Pay and council-area pages",
     change:
-      "The published ASHE numbers were correct, but we described the selected full-time PAYE sample as a typical wage and implied that the £51 difference between two separate medians measured wages leaving Glasgow. It does not. We removed those claims, made the sample exclusions prominent, added the current minimum-wage and living-cost evidence, and removed the pay estimate from campaign emails.",
+      "The published ASHE numbers were correct, but I described the selected full-time PAYE sample as a typical wage and implied that the £51 difference between two separate medians measured wages leaving Glasgow. It does not. I removed those claims, made the sample exclusions prominent, added the current minimum-wage and living-cost evidence, and removed the pay estimate from campaign emails.",
   },
 ];
 
@@ -34,7 +34,7 @@ export default function Corrections() {
         <PageHeader
           eyebrow="Accuracy"
           title="Corrections"
-          lede="The figures must be right. If we make a mistake, we fix it and list the change here instead of quietly hiding it."
+          lede="The figures must be right. If I make a mistake, I fix it and list the change here instead of quietly hiding it."
         />
 
         <ContentFrame>
@@ -46,8 +46,8 @@ export default function Corrections() {
             still.
           </p>
           <p>
-            We fix confirmed errors as soon as we can and list them below. You can also tell us if
-            the number is right but you think we have explained it unfairly.
+            I fix confirmed errors as soon as I can and list them below. You can also tell me if
+            the number is right but you think I have explained it unfairly.
           </p>
         </Col>
 
@@ -97,7 +97,7 @@ export default function Corrections() {
           <h2 className="h2 mb-4">Known limitations</h2>
           <p>
             Some questions cannot be answered safely by the available data. Those limits are
-            listed on the <Link href="/methods">how we counted it page</Link>.
+            listed on the <Link href="/methods">how I counted it page</Link>.
           </p>
         </Col>
         </ContentFrame>

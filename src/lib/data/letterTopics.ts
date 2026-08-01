@@ -276,7 +276,7 @@ export const LETTER_TOPICS: LetterTopic[] = [
   {
     id: "other",
     label: "Something else",
-    blurb: "Anything at all. You write it, we handle the rest.",
+    blurb: "Anything at all. You write it, I handle the rest.",
     who: "both",
     whyWho:
       "Both, so it reaches whoever is responsible. One of them will be able to act, and the other can pass it on — you do not need to know which is which.",

@@ -37,7 +37,7 @@ export default function Hero() {
             <p className="text-[clamp(18px,1.55vw,21px)] leading-[1.5] text-[var(--ink-2)] max-w-[49ch] mb-7">
               Scotland Counted explains poverty, work and living costs in ordinary words. See what
               is happening in your area, understand who can change what, use the free calculators
-              and read plain-English explainers. Then we find your MP and MSP and write both emails
+              and read plain-English explainers. Then I find your MP and MSP and write both emails
               for you. <strong className="text-[var(--ink)]">It takes about a minute.</strong>
             </p>
 

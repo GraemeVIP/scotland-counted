@@ -131,8 +131,8 @@ export default function Areas() {
         </Col>
 
         <CTA
-          title="Enter your postcode and we do the rest"
-          body="We find your area, MP and MSP automatically, add the local facts and prepare two addressed emails."
+          title="Enter your postcode and I do the rest"
+          body="I find your area, MP and MSP automatically, add the local facts and prepare two addressed emails."
           href="/take-action"
           cta="Find my MP and MSP"
           secondaryHref={`/areas/${byLevel[0].slug}`}

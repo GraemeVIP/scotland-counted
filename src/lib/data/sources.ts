@@ -32,7 +32,7 @@ export const sources: Source[] = [
     url: "https://endchildpoverty.org.uk/child-poverty-2025/",
     used: "Child poverty rates and counts for Glasgow and all 32 Scottish council areas.",
     derivation:
-      "The Scotland-wide rate is not published in this dataset. We recompute it by summing the 32 council counts and dividing by the implied child populations. The method reproduces the published Scottish rate of 24.5% for 2022/23.",
+      "The Scotland-wide rate is not published in this dataset. I recompute it by summing the 32 council counts and dividing by the implied child populations. The method reproduces the published Scottish rate of 24.5% for 2022/23.",
   },
   {
     id: "aps",
@@ -329,7 +329,7 @@ export const sources: Source[] = [
     url: "https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/bulletins/earningsandemploymentfrompayasyouearnrealtimeinformationuk/november2025",
     used: "Median monthly pay of £2,538 in October 2025 across all payrolled employees, used as an independent check on the survey-based earnings figures.",
     derivation:
-      "This is not a sample. It covers every payroll submission to HMRC, so it is a different method and a different population from ASHE. We annualise it as 12 monthly payments: £30,456.",
+      "This is not a sample. It covers every payroll submission to HMRC, so it is a different method and a different population from ASHE. I annualise it as 12 monthly payments: £30,456.",
   },
   {
     id: "ashe-uk-2025",
@@ -373,7 +373,7 @@ export const sources: Source[] = [
     url: "https://www.parliament.uk/about/how/business/written-answers/",
     used: "How a written parliamentary question works, the convention that it is answered within seven days, and the fact that every question and answer is published permanently.",
     derivation:
-      "The seven-day expectation is a convention rather than a binding rule, and we say so wherever we use it.",
+      "The seven-day expectation is a convention rather than a binding rule, and I say so wherever I use it.",
   },
   {
     id: "hansard",
@@ -396,7 +396,7 @@ export const sources: Source[] = [
     url: "https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/householdcostsindicesforukhouseholdgroups/januarytomarch2026",
     used: "Five-year cumulative household-cost growth and the March 2026 rates for low-income households and renters.",
     derivation:
-      "We describe the published five-year rise for low-income households of 33.9% as 'about a third'. The HCI figures are official statistics in development and may be revised.",
+      "I describe the published five-year rise for low-income households of 33.9% as 'about a third'. The HCI figures are official statistics in development and may be revised.",
   },
   {
     id: "sg-cost-living-2025",
@@ -412,7 +412,7 @@ export const sources: Source[] = [
     url: "https://www.gov.scot/publications/private-sector-rent-statistics-scotland-2010-to-2025/",
     used: "Greater Glasgow's average advertised and new-let rents, including the £1,094 monthly two-bedroom average in 2025 and its 94% rise since 2010.",
     derivation:
-      "The publication is based predominantly on advertised rents and does not represent what every existing tenant pays. We state that limitation beside the figures.",
+      "The publication is based predominantly on advertised rents and does not represent what every existing tenant pays. I state that limitation beside the figures.",
   },
   {
     id: "welfare-freeze-act",

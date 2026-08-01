@@ -31,7 +31,7 @@ export default function AuthorBio({ className = "" }: { className?: string }) {
 
       <p className="text-[16.5px] leading-[1.6] text-[var(--ink-2)] mt-3 max-w-[60ch]">
         <strong className="text-[var(--ink)]">No party, no funding, no paywall.</strong> Nothing
-        here is sponsored and nobody pays to appear. If a figure is wrong we correct it in public
+        here is sponsored and nobody pays to appear. If a figure is wrong I correct it in public
         and keep the old version on the record.
       </p>
 

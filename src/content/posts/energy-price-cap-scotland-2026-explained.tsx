@@ -75,7 +75,7 @@ export default function Post() {
 
       <PostCTA
         title="Energy rules are set at Westminster"
-        body="Ofgem and UK energy policy sit with your MP. Enter your postcode and we find the right person, add the facts and prepare the email."
+        body="Ofgem and UK energy policy sit with your MP. Enter your postcode and I find the right person, add the facts and prepare the email."
         href="/take-action"
         cta="Email my MP"
       />

@@ -81,7 +81,7 @@ export default function Post() {
 
       <PostCTA
         title="Ask why work leaves so little extra"
-        body="The Universal Credit taper and work-allowance rules are decided at Westminster. Enter your postcode and we find your MP, use your local evidence and prepare the email."
+        body="The Universal Credit taper and work-allowance rules are decided at Westminster. Enter your postcode and I find your MP, use your local evidence and prepare the email."
         href="/take-action"
         cta="Email my MP"
       />

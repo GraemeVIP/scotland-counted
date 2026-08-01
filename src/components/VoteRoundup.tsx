@@ -129,7 +129,7 @@ export default function VoteRoundup({ className = "" }: { className?: string }) 
         style={{ boxShadow: "var(--shadow-1)" }}
       >
         <p className="text-[19px] sm:text-[21px] leading-[1.5] font-[620] max-w-[60ch]">
-          One of those MPs is yours. Find your area and we will show you how they were recorded, by
+          One of those MPs is yours. Find your area and I will show you how they were recorded, by
           name, on each of these votes.
         </p>
         <div className="flex flex-wrap gap-3 mt-5">

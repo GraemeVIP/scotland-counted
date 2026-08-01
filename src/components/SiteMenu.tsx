@@ -119,7 +119,7 @@ function FindYourPlace({ onNavigate, autoFocus }: { onNavigate: () => void; auto
     <div className="rounded-[var(--r-m)] bg-[var(--surface-2)] border border-[var(--rule)] p-4 sm:p-5">
       <p className="ui text-[16px] font-[750] text-[var(--ink)]">Go straight to your area</p>
       <p className="text-[14.5px] leading-[1.45] text-[var(--ink-2)] mt-1 mb-3.5">
-        You do not need to know your council or your MP. We work it out.
+        You do not need to know your council or your MP. I work it out.
       </p>
       <PostcodeJump onDone={onNavigate} autoFocus={autoFocus} />
       <p className="kicker text-[var(--muted)] mt-4 mb-2.5">Or pick a place</p>

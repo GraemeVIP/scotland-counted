@@ -116,7 +116,7 @@ export default function NewsletterSignup({
       >
         {state === "error"
           ? "That didn't send — try again in a moment, or use the RSS feed instead."
-          : "A few emails a year, when the figures update. Your address is forwarded to us by Web3Forms, used for nothing else, and never shared."}
+          : "A few emails a year, when the figures update. Your address is forwarded to me by Web3Forms, used for nothing else, and never shared."}
       </p>
     </form>
   );

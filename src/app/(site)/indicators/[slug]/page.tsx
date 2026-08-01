@@ -500,7 +500,7 @@ export default async function IndicatorPage(props: PageProps<"/indicators/[slug]
 
         <CTA
           title="Every number here is checkable"
-          body="Open the data table above, or download the whole dataset. If you find an error, we will correct it and say so publicly."
+          body="Open the data table above, or download the whole dataset. If you find an error, I will correct it and say so publicly."
           href="/data"
           cta="Download the data"
           secondaryHref="/corrections"

@@ -94,7 +94,7 @@ export const indicators: Indicator[] = [
     ],
     technical: [
       "These are relative poverty figures after housing costs: children in households with less than 60% of median UK income once rent or mortgage is paid.",
-      "The Scotland figure is not published directly in this dataset. It is recomputed here by summing the 32 council-area counts and dividing by the implied child populations. That method reproduces the published Scottish rate of 24.5% for 2022/23, which is how we know it is sound.",
+      "The Scotland figure is not published directly in this dataset. It is recomputed here by summing the 32 council-area counts and dividing by the implied child populations. That method reproduces the published Scottish rate of 24.5% for 2022/23, which is how I know it is sound.",
     ],
     sourceIds: ["ecp"],
   },

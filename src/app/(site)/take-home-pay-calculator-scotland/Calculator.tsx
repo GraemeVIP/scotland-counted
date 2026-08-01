@@ -473,7 +473,7 @@ export default function Calculator() {
                 }`}
               >
                 {codeInvalid
-                  ? "That is not a tax code we recognise. Leave it blank for the standard 1257L."
+                  ? "That is not a tax code I recognise. Leave it blank for the standard 1257L."
                   : "Leave blank for the standard 1257L. Accepts K codes, BR, D0 to D3, 0T and NT."}
               </p>
             </div>
@@ -717,7 +717,7 @@ export default function Calculator() {
           Figures are {TAX_DATA.taxYear}. Income tax in Scotland is set by the Scottish Parliament;
           National Insurance is UK-wide. Based on 52 weeks and a five-day week, and Class 1 employee
           NI on annual earnings. This is a guide, not financial advice. If a number here looks wrong,{" "}
-          <Link href="/corrections">tell us</Link>.
+          <Link href="/corrections">tell me</Link>.
         </p>
       </section>
     </div>

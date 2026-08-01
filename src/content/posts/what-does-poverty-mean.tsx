@@ -73,7 +73,7 @@ export default function Post() {
         <p>
           Because the line moves with what is normal, relative poverty can fall in a bad year — if
           everyone&apos;s income drops together, the line drops too. That is why serious reporting
-          reads it alongside other measures, and why we show ten years rather than one.
+          reads it alongside other measures, and why I show ten years rather than one.
         </p>
       </Aside>
 

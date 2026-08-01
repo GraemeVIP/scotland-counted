@@ -34,7 +34,7 @@ export default function Post() {
       <H2 id="full-time">What full-time adds up to</H2>
       <P>
         There is no official “minimum wage salary” because the law sets an hourly rate. To make it
-        useful, we use 37.5 paid hours a week for all 52 weeks.
+        useful, I use 37.5 paid hours a week for all 52 weeks.
       </P>
       <BigStat
         value="£24,784.50"

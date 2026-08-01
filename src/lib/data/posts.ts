@@ -120,7 +120,7 @@ export const posts: Post[] = [
     description:
       "Minimum wage in Scotland is £12.71 an hour. See the weekly, monthly and yearly pay, and what is left after Scottish tax and National Insurance.",
     standfirst:
-      "£12.71 an hour sounds clear. A payslip is not. We have done the tax and National Insurance working for a 37.5-hour week so you can see what reaches the bank.",
+      "£12.71 an hour sounds clear. A payslip is not. I have done the tax and National Insurance working for a 37.5-hour week so you can see what reaches the bank.",
     date: "2026-08-01",
     category: "money-and-bills",
     tags: ["Minimum wage", "Take-home pay", "Scottish income tax", "Low pay"],

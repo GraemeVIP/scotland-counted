@@ -8,7 +8,7 @@ import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
 export const metadata = meta({
   title: "Who is my MP and MSP? Find both by postcode",
   description:
-    "Enter your postcode and we find your MP and MSP, add your local poverty figures, write both emails and open them in your email app.",
+    "Enter your postcode and I find your MP and MSP, add your local poverty figures, write both emails and open them in your email app.",
   path: "/take-action",
 });
 
@@ -26,8 +26,8 @@ const OTHER = [
     body: "Ask what your MP or MSP will do, and what they expect the local poverty figure to be in five years. A clear question is harder to avoid.",
   },
   {
-    title: "Correct us in public",
-    body: "If a figure is wrong, tell us. We will check it, fix any error and keep a public record of the change.",
+    title: "Correct me in public",
+    body: "If a figure is wrong, tell me. I will check it, fix any error and keep a public record of the change.",
   },
 ];
 
@@ -45,7 +45,7 @@ export default function TakeAction() {
         <PageHeader
           eyebrow="No politics knowledge needed"
           title="Email your MP and MSP"
-          lede="Enter your postcode. We find the right people, add the facts for your area, write both emails and open them in your own email app. You do not have to choose who gets which request."
+          lede="Enter your postcode. I find the right people, add the facts for your area, write both emails and open them in your own email app. You do not have to choose who gets which request."
         />
 
         <ContentFrame>

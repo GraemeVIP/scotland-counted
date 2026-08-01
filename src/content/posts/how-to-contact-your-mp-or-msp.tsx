@@ -108,14 +108,14 @@ export default function Post() {
 
       <P>
         If all of that still feels like effort, that is exactly why this site exists. Put in your
-        postcode and we will find both of your representatives, put your own area&apos;s figures
+        postcode and I will find both of your representatives, put your own area&apos;s figures
         into the message, write both emails and open them in your email app. You read them, change
         anything you like, and press send.
       </P>
 
       <PostCTA
         title="Write to your MP and MSP now"
-        body="Enter your postcode. We find the right people and write both emails for you. Nothing is sent from this site and your postcode is not saved."
+        body="Enter your postcode. I find the right people and write both emails for you. Nothing is sent from this site and your postcode is not saved."
         href="/take-action"
         cta="Write my emails for me"
       />

@@ -43,7 +43,7 @@ export default function PostcodeStart() {
         </button>
       </form>
       <p className="mt-3 text-[15px] text-[var(--ink-2)] leading-[1.5]">
-        We find the right people and write the emails for you. We do not save your postcode.
+        I find the right people and write the emails for you. I do not save your postcode.
       </p>
     </div>
   );

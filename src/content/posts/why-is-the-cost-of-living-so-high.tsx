@@ -296,7 +296,7 @@ export default function Post() {
 
       <PostCTA
         title="Ask the right people what they will change"
-        body="Enter your postcode. We find your MP and MSP automatically, use the right local facts, write both emails and open them in your email app. You do not need to know who represents you."
+        body="Enter your postcode. I find your MP and MSP automatically, use the right local facts, write both emails and open them in your email app. You do not need to know who represents you."
         href="/take-action"
         cta="Find them and write my emails"
       />

@@ -157,7 +157,7 @@ export default async function BlogPost(props: { params: Promise<{ slug: string }
                     — {source.publisher}. {source.used}
                     {source.derivation && (
                       <span className="block mt-1 text-[15px] text-[var(--muted)]">
-                        How we used it: {source.derivation}
+                        How I used it: {source.derivation}
                       </span>
                     )}
                   </li>

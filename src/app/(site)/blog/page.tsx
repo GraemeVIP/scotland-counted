@@ -51,7 +51,7 @@ export default function Blog() {
         <PageHeader
           eyebrow="Explained · the evidence hub"
           title="Money, bills and poverty — without the jargon"
-          lede="Start with the answer in ordinary words. Then open the figures, dates and original sources if you want to check us. No political knowledge assumed."
+          lede="Start with the answer in ordinary words. Then open the figures, dates and original sources if you want to check the work. No political knowledge assumed."
         />
 
         <ContentFrame>
@@ -63,7 +63,7 @@ export default function Blog() {
           <div className="rounded-[var(--r-m)] bg-[var(--surface-2)] border border-[var(--rule)] p-6 sm:p-8">
             <h2 className="h2 mb-2">Get the next one</h2>
             <p className="text-[17px] text-[var(--ink-2)] leading-[1.6] max-w-[58ch] mb-5">
-              We publish when the official figures change, and when something is worth explaining
+              I publish when the official figures change, and when something is worth explaining
               properly. No spam, and you can leave whenever you like.
             </p>
             {site.web3formsKey ? (

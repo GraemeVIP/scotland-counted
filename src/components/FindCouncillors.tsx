@@ -92,7 +92,7 @@ export default function FindCouncillors({ className = "" }: { className?: string
             </li>
           </ol>
           <p className="mt-4 text-[15.5px] leading-[1.55] text-[var(--muted)]">
-            Not sure which council you are in? Enter a postcode above and we will tell you.
+            Not sure which council you are in? Enter a postcode above and I will tell you.
           </p>
         </div>
       </div>

@@ -83,7 +83,7 @@ export default function CouncilTaxPage() {
               Water&apos;s charge, not the council&apos;s, but it arrives on the same bill — and at
               Band A it is £434.88 a year on its own.
             </p>
-            <p>On a low income you may pay a lot less. We explain how below.</p>
+            <p>On a low income you may pay a lot less. I explain how below.</p>
           </InShort>
           <p className="mt-4 text-[16px] leading-[1.6] text-[var(--ink-2)]">
             Need the rules as well as the price? Read the{" "}

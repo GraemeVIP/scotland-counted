@@ -50,7 +50,7 @@ export default function ConstituencyLetter({
     } catch (caught) {
       setState("error");
       setMessage(
-        caught instanceof Error ? caught.message : "We could not reach Parliament's records."
+        caught instanceof Error ? caught.message : "Parliament's records could not be reached just now."
       );
     }
   }
@@ -87,8 +87,8 @@ export default function ConstituencyLetter({
       {state !== "ready" && (
         <>
           <p className="text-[17px] text-[var(--ink-2)] leading-[1.6] max-w-[62ch]">
-            One MP speaks for this area. We already know who it is, so you do not need to enter
-            anything. Press the button and we will write the email, with the figures from this
+            One MP speaks for this area. I already know who it is, so you do not need to enter
+            anything. Press the button and I will write the email, with the figures from this
             page, ready for you to read and send.
           </p>
 
@@ -195,7 +195,7 @@ export default function ConstituencyLetter({
           than asking one.
         </p>
         <p className="text-[16px] text-[var(--ink-2)] leading-[1.6] max-w-[62ch] mt-2.5">
-          Put your postcode in and we will find your MSP and write that email too. It takes a
+          Put your postcode in and I will find your MSP and write that email too. It takes a
           few seconds.
         </p>
         <form onSubmit={goToFullFlow} className="mt-4 grid gap-2.5 sm:grid-cols-[minmax(0,240px)_auto] sm:justify-start">
@@ -220,7 +220,7 @@ export default function ConstituencyLetter({
           </button>
         </form>
         <p className="mt-3 text-[15px] text-[var(--muted)] leading-[1.5]">
-          We use your postcode only to find your representatives. We do not save it.
+          I use your postcode only to find your representatives. I do not save it.
         </p>
       </div>
     </section>

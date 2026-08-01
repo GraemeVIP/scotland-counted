@@ -120,7 +120,7 @@ export default function TakeHomePayCalculator() {
           <p className="mt-6 text-[18px] leading-[1.6] text-[var(--ink-2)] max-w-[62ch]">
             Every salary calculator gives you a figure and stops. What matters is whether the figure
             covers rent, council tax, energy and food where you live. On full-time minimum wage in
-            Glasgow it does not, and we show the whole household budget rather than asserting it.
+            Glasgow it does not, and I show the whole household budget rather than asserting it.
           </p>
 
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 max-w-[1000px]">
@@ -195,7 +195,7 @@ export default function TakeHomePayCalculator() {
 
       <CTA
         title="Pay is a political choice, not weather"
-        body="What is left after tax, rent and bills is decided by people you can write to. Enter your postcode and we find your MP and MSP, then write both emails for you."
+        body="What is left after tax, rent and bills is decided by people you can write to. Enter your postcode and I find your MP and MSP, then write both emails for you."
         href="/take-action"
         cta="Find my MP and MSP"
         secondaryHref="/what-would-fix-it"

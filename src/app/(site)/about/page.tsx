@@ -73,7 +73,7 @@ export default function About() {
           <p>
             The words and charts are free to reuse if you credit {site.name}. The original data
             still belongs to the organisations that published it.{" "}
-            <Link href="/data">Download the exact files</Link> if you want to check our work.
+            <Link href="/data">Download the exact files</Link> if you want to check my work.
           </p>
           <p>
             Journalists, researchers, councillors and community organisations are welcome to use
@@ -96,7 +96,7 @@ export default function About() {
 
         <CTA
           title="Found something wrong?"
-          body="A correction is more valuable than a share. If a figure here does not match the source, that is a serious problem and we want to know about it today."
+          body="A correction is more valuable than a share. If a figure here does not match the source, that is a serious problem and I want to know about it today."
           href="/corrections"
           cta="Report an error"
           secondaryHref="/methods"

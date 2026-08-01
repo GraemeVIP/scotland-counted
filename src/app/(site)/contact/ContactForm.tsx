@@ -206,7 +206,7 @@ export default function ContactForm() {
           placeholder={
             reason === "error"
               ? "Page, figure, and what it should be…"
-              : "What can we help with?"
+              : "What can I help with?"
           }
           className="w-full bg-[var(--paper)] border border-[var(--rule-strong)] px-3.5 py-3 text-[15.5px] font-sans focus:border-[var(--brand)] outline-none transition-colors resize-y"
         />

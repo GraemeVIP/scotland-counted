@@ -231,7 +231,7 @@ export default function WhyGlasgow() {
               <strong className="text-[var(--ink)]">Before you read the chart below:</strong> the
               £796.50 on it is not the average Glasgow wage. It covers a selected sample of
               full-time employee jobs and excludes every part-time job and all self-employment.{" "}
-              <Link href="/indicators/pay">We explain what it does and does not measure</Link>,
+              <Link href="/indicators/pay">I explain what it does and does not measure</Link>,
               including the full spread of pay and what it means after tax.
             </p>
 
@@ -363,7 +363,7 @@ export default function WhyGlasgow() {
           <Col className="mt-14">
             <p className="text-[15px] text-[var(--ink-2)]">
               Every claim on this page is drawn from a named published source. If you think one of
-              them is wrong, <Link href="/corrections">tell us and we will correct it publicly</Link>.
+              them is wrong, <Link href="/corrections">tell me and I will correct it publicly</Link>.
             </p>
           </Col>
         </Reveal>

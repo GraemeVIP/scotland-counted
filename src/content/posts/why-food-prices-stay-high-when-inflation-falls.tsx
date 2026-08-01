@@ -45,7 +45,7 @@ export default function Post() {
         Brexit added a UK-specific cost. Research from the London School of Economics estimated
         that new non-tariff barriers added about eight percentage points to food-price growth from
         late 2019 to March 2023 — roughly £250 for the average household over that period. It is an
-        academic estimate, not a receipt count, and we label it that way.
+        academic estimate, not a receipt count, and I label it that way.
       </P>
 
       <H2 id="fall">Can food prices actually fall?</H2>
@@ -76,7 +76,7 @@ export default function Post() {
 
       <PostCTA
         title="Inflation is not an excuse to ignore the price level"
-        body="The site turns the official figures into a ready-written question for the people who control wages, benefits and food policy. We find your MP and MSP automatically."
+        body="The site turns the official figures into a ready-written question for the people who control wages, benefits and food policy. I find your MP and MSP automatically."
         href="/take-action"
         cta="Ask for an answer"
       />

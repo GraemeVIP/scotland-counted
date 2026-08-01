@@ -64,7 +64,7 @@ export default function Privacy() {
             inside your browser.
           </p>
           <p>
-            If you join the mailing list we keep your email address, and nothing else. You can have
+            If you join the mailing list I keep your email address, and nothing else. You can have
             it deleted at any time by asking.
           </p>
         </InShort>
@@ -294,7 +294,7 @@ export default function Privacy() {
             {site.organisation.name}. It has no funding, no advertising and nothing to sell, which
             is the main reason there is so little to say on this page. If anything here does not
             match what the site actually does,{" "}
-            <Link href="/contact">tell us and it will be corrected</Link>.
+            <Link href="/contact">tell me and it will be corrected</Link>.
           </p>
         </ContentFrame>
       </Page>

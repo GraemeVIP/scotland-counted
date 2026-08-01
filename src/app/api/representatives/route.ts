@@ -88,7 +88,7 @@ export async function GET(request: Request) {
     const area = geography.area;
     const council = councils.find((item) => item.code === area.councilCode);
     if (!council) {
-      return error("We found the postcode but could not match its council data.", 404);
+      return error("I found the postcode but could not match its council data.", 404);
     }
 
     const holyroodUrl = new URL(
@@ -113,7 +113,7 @@ export async function GET(request: Request) {
         : null;
 
     if (!member) {
-      return error("We could not find your MP just now. Please try again shortly.", 502);
+      return error("I could not find your MP just now. Please try again shortly.", 502);
     }
 
     const mp = await toRepresentative(member);
@@ -129,7 +129,7 @@ export async function GET(request: Request) {
       /** Set when Holyrood could not be reached, so the page can say so plainly. */
       mspUnavailable: msp
         ? undefined
-        : "We could not reach the Scottish Parliament's website just now, so we could not find your MSP. Your MP email is ready below.",
+        : "The Scottish Parliament's website could not be reached just now, so your MSP could not be found. Your MP email is ready below.",
     };
 
     return NextResponse.json(result, { headers: NO_STORE_HEADERS });

@@ -33,7 +33,7 @@ export default function FaqPage() {
 
           <CTA
             title="Still cannot find the answer?"
-            body="Ask a real question, suggest one we should add, or tell us when an answer is unclear. Corrections and confusing explanations are taken seriously."
+            body="Ask a real question, suggest one I should add, or tell me when an answer is unclear. Corrections and confusing explanations are taken seriously."
             href="/contact"
             cta="Ask a question"
             secondaryHref="/methods"

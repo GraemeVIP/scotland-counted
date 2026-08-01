@@ -65,7 +65,7 @@ export default function Quiz({ className = "" }: { className?: string }) {
 
         <p className="mt-7 max-w-[56ch] text-[19px] leading-[1.5] font-[660]">
           Every one of those figures was decided by someone. You can write to them in about a
-          minute, and we will do the writing.
+          minute, and I will do the writing.
         </p>
 
         <div className="mt-7 flex flex-wrap gap-3">

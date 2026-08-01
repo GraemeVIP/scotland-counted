@@ -95,7 +95,7 @@ export default function Accountability() {
         <InShort>
           <p><strong>Scotland put four child-poverty promises into law. All four were missed.</strong></p>
           <p>The UK Government controls most benefits. The Scottish Government controls the Scottish Child Payment, housing and childcare. Councils deal with homelessness and local services.</p>
-          <p>Enter your postcode and we send the right question to the right person automatically.</p>
+          <p>Enter your postcode and I send the right question to the right person automatically.</p>
         </InShort>
 
         <ContentFrame className="pt-4">
@@ -103,7 +103,7 @@ export default function Accountability() {
             This page records decisions and what happened next. It does not guess what a politician
             intended. A party is named only when it formed the government that made the decision.
             If anything here is wrong,{" "}
-            <Link href="/corrections">tell us and we will correct it publicly</Link>.
+            <Link href="/corrections">tell me and I will correct it publicly</Link>.
           </p>
         </ContentFrame>
 
@@ -326,7 +326,7 @@ export default function Accountability() {
 
       <CTA
         title="Ask the right people without working out the politics"
-        body="Enter your postcode. We find your MP and MSP and put the right request into each email automatically."
+        body="Enter your postcode. I find your MP and MSP and put the right request into each email automatically."
         href="/take-action"
         cta="Find my MP and MSP"
         secondaryHref="/what-would-fix-it"

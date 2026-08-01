@@ -329,8 +329,8 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
                     <p className="h4 mb-2">Pay data withheld</p>
                     <p className="text-[15px] text-[var(--ink-2)] leading-[1.6] max-w-[46ch]">
                       The ONS suppresses median pay for {c.name} in at least one year because the
-                      survey sample is too small to publish safely. We show nothing rather than
-                      estimate — see <Link href="/methods">how we handle missing data</Link>.
+                      survey sample is too small to publish safely. I show nothing rather than
+                      estimate — see <Link href="/methods">how I handle missing data</Link>.
                     </p>
                   </div>
                 )}
@@ -388,7 +388,7 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
 
         <CTA
           title={`Email the people who represent ${c.name}`}
-          body="Enter your postcode. We find your MP and MSP, add these local figures, write both emails and open them in your email app. You do not need to know who decides what."
+          body="Enter your postcode. I find your MP and MSP, add these local figures, write both emails and open them in your email app. You do not need to know who decides what."
           href="/take-action"
           cta="Find my MP and MSP"
           secondaryHref="/areas"

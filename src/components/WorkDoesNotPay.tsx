@@ -210,8 +210,8 @@ export default function WorkDoesNotPay({ className = "" }: { className?: string 
           a decision someone made, not a law of nature.
         </p>
         <p className="mt-4 max-w-[62ch] text-[16px] leading-[1.6] opacity-75">
-          We do not publish claims about why individuals are out of work. Health assessments are
-          decided by the DWP, not by us, and we have no data on anyone&apos;s honesty.
+          I do not publish claims about why individuals are out of work. Health assessments are
+          decided by the DWP, and I have no data on anyone&apos;s honesty.
         </p>
         <Link
           href="/take-action"

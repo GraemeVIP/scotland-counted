@@ -62,7 +62,7 @@ export const whatHappens: Array<{
     title: "Enough letters change what gets raised",
     body: "One email is a person. A hundred emails from the same place is a problem an office has to manage. Subjects that fill the postbag are the subjects that get raised.",
     detail:
-      "We are not going to pretend there is a magic number. What is true is that offices prioritise by volume, because that is the only signal they have about what their area cares about.",
+      "I are not going to pretend there is a magic number. What is true is that offices prioritise by volume, because that is the only signal they have about what their area cares about.",
   },
 ];
 
@@ -84,11 +84,11 @@ export const paperTrail = {
 export const friction: Array<{ before: string; now: string }> = [
   {
     before: "Work out who your MP even is",
-    now: "We find them from your postcode, or straight from your area's page",
+    now: "I find them from your postcode, or straight from your area's page",
   },
   {
     before: "Find an email address that works",
-    now: "We take it from the official parliamentary records",
+    now: "I take it from the official parliamentary records",
   },
   {
     before: "Find figures for your own area",

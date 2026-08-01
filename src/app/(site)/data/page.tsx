@@ -133,7 +133,7 @@ const FILES: DataFile[] = [
 const GROUPS = [
   {
     kind: "prepared" as const,
-    title: "Files we prepared",
+    title: "Files I prepared",
     blurb:
       "Built from the sources below and tidied so they open cleanly in a spreadsheet: one row per observation, column names you can read, and the source named in the file. Start here unless you specifically need the raw output.",
   },
@@ -141,7 +141,7 @@ const GROUPS = [
     kind: "original" as const,
     title: "Original files, exactly as published",
     blurb:
-      "Saved and served unaltered, down to the publisher's own column names — NOMIS uses DATE_NAME, GEOGRAPHY_NAME and OBS_VALUE. Nothing has been renamed, reordered, rounded or filtered. Use these to check our working.",
+      "Saved and served unaltered, down to the publisher's own column names — NOMIS uses DATE_NAME, GEOGRAPHY_NAME and OBS_VALUE. Nothing has been renamed, reordered, rounded or filtered. Use these to check my working.",
   },
 ];
 
@@ -169,7 +169,7 @@ export default function Data() {
         <PageHeader
           eyebrow="Free to download and reuse"
           title="Download the data"
-          lede="This is the proof behind the simple pages. Nine CSVs and one Excel workbook, all free. Four we prepared and tidied so they open cleanly in a spreadsheet; the other six are the publishers' own files, served exactly as they came, so you can check our working against them."
+          lede="This is the proof behind the simple pages. Nine CSVs and one Excel workbook, all free. Four I prepared and tidied so they open cleanly in a spreadsheet; the other six are the publishers' own files, served exactly as they came, so you can check my working against them."
         />
 
         <ContentFrame>
@@ -231,17 +231,17 @@ export default function Data() {
             and Loughborough University. Their licence rules still apply to the original files.
           </p>
           <p>
-            Our cleaned files, charts and words are free to reuse if you credit {site.name}. You do
+            My cleaned files, charts and words are free to reuse if you credit {site.name}. You do
             not need permission. Journalists and researchers can ask for a different file format.
           </p>
           <p>
-            Any calculation we made is explained on the <Link href="/methods">how we counted it page</Link>.
+            Any calculation I made is explained on the <Link href="/methods">how I counted it page</Link>.
           </p>
         </Col>
 
         <CTA
-          title="If a number does not match, tell us"
-          body="People can make mistakes when copying or cleaning data. We check reported errors, fix confirmed mistakes and keep a public record."
+          title="If a number does not match, tell me"
+          body="People can make mistakes when copying or cleaning data. I check reported errors, fix confirmed mistakes and keep a public record."
           href="/corrections"
           cta="Report an error"
           secondaryHref="/methods"

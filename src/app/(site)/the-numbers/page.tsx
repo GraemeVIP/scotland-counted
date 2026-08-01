@@ -138,7 +138,7 @@ export default function TheNumbers() {
               values.
             </p>
             <p>
-              The simple version comes first, but nobody has to take our word for it. Journalists
+              The simple version comes first, but nobody has to take my word for it. Journalists
               and researchers can <Link href="/data">download all the data</Link>.
             </p>
           </Col>

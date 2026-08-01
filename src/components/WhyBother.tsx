@@ -4,11 +4,11 @@ import PostcodeStart from "@/components/PostcodeStart";
 
 const HOW_IT_WORKS = [
   {
-    title: "We find the right people",
-    body: "Your postcode tells us your MP, MSP and council area. You do not need to know any of them.",
+    title: "I find the right people",
+    body: "Your postcode is enough to find your MP, MSP and council area. You do not need to know any of them.",
   },
   {
-    title: "We add the proof",
+    title: "I add the proof",
     body: "The email includes your area's official figure and sends each question to the person who controls it.",
   },
   {
@@ -95,7 +95,7 @@ export default function WhyBother({ className = "" }: { className?: string }) {
             <div>
               <p className="kicker text-[var(--action)] mb-2">Ready when you are</p>
               <h3 className="text-[26px] font-[780] leading-[1.12] max-w-[18ch]">
-                Put in your postcode. We do the rest.
+                Put in your postcode. I do the rest.
               </h3>
             </div>
             <PostcodeStart />

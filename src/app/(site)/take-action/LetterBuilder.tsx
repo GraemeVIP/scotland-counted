@@ -253,7 +253,7 @@ export default function LetterBuilder() {
                   <RepresentativeSummary representative={lookup.msp} />
                 ) : (
                   <p className="text-[15px] text-[var(--warn-text)] leading-[1.5] border-t border-[var(--rule)] pt-3">
-                    {lookup.mspUnavailable ?? "We could not find your MSP just now."}
+                    {lookup.mspUnavailable ?? "I could not find your MSP just now."}
                   </p>
                 )}
                 <p className="text-[15px] text-[var(--ink-2)] leading-[1.5] border-t border-[var(--rule)] pt-3">
@@ -265,7 +265,7 @@ export default function LetterBuilder() {
           </div>
 
           <p className="text-[15px] text-[var(--muted)] leading-[1.5] mt-3">
-            We use your postcode only to find your area, MP and MSP. We do not save it.
+            I use your postcode only to find your area, MP and MSP. I do not save it.
           </p>
         </div>
 
@@ -311,7 +311,7 @@ export default function LetterBuilder() {
 
           {topics.length === 0 ? (
             <p className="mt-3 rounded-[var(--r-s)] border-l-[3px] border-[var(--warn)] bg-[var(--surface-2)] px-4 py-3 text-[15px] leading-[1.55] text-[var(--ink-2)]">
-              Tick at least one thing above and we will work out who can act on it.
+              Tick at least one thing above and I will work out who can act on it.
             </p>
           ) : (
             /*
@@ -366,7 +366,7 @@ export default function LetterBuilder() {
           </div>
           <p className="text-[15px] text-[var(--muted)] leading-[1.5] mt-3">
             Optional, but it is the part only you can write, and it goes in first — before
-            any of the policy asks. Nothing is sent to us and nothing is saved.
+            any of the policy asks. Nothing is sent to me and nothing is saved.
           </p>
         </div>
 
@@ -374,7 +374,7 @@ export default function LetterBuilder() {
           <StepLabel n={4}>Open and send</StepLabel>
           {!lookup ? (
             <p className="rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--paper)] p-4 text-[15px] text-[var(--ink-2)] leading-[1.5]">
-              Enter your postcode above. We will find both people and prepare both emails. You do
+              Enter your postcode above. I will find both people and prepare both emails. You do
               not need to choose who should receive which request.
             </p>
           ) : (
@@ -476,7 +476,7 @@ export default function LetterBuilder() {
           >
             <p className="text-[20px] font-[720]">Your two addressed emails will appear here</p>
             <p className="text-[16px] text-[var(--ink-2)] leading-[1.6] mt-3 max-w-[58ch]">
-              Enter your postcode. We find your MP and MSP, use your area&apos;s official figures and
+              Enter your postcode. I find your MP and MSP, use your area&apos;s official figures and
               write one email for each person automatically.
             </p>
           </div>

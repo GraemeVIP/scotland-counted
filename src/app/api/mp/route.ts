@@ -20,13 +20,13 @@ function error(message: string, status: number) {
 export async function GET(request: Request) {
   const slug = new URL(request.url).searchParams.get("constituency")?.trim() ?? "";
   const constituency = getConstituency(slug);
-  if (!constituency) return error("We do not have a page for that area.", 404);
+  if (!constituency) return error("I do not have a page for that area.", 404);
 
   try {
     const mp = await fetchMpForConstituency(constituency.name);
     if (!mp) {
       return error(
-        "We could not reach Parliament's records just now. Try again shortly.",
+        "Parliament's records could not be reached just now. Try again shortly.",
         502
       );
     }
@@ -36,6 +36,6 @@ export async function GET(request: Request) {
       { headers: NO_STORE_HEADERS }
     );
   } catch {
-    return error("We could not reach Parliament's records just now. Try again shortly.", 502);
+    return error("Parliament's records could not be reached just now. Try again shortly.", 502);
   }
 }

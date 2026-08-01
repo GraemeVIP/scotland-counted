@@ -50,7 +50,7 @@ export const SECTIONS: Array<{
     title: "Do something",
     intro: "The part that actually changes anything.",
     items: [
-      { href: "/take-action", label: "Email your MP and MSP", blurb: "We write both emails for you", featured: true },
+      { href: "/take-action", label: "Email your MP and MSP", blurb: "I write both emails for you", featured: true },
       { href: "/your-power", label: "Why it is worth the bother", blurb: "What happens after you press send" },
       { href: "/what-would-fix-it", label: "What would fix it", blurb: "Costed options, and who can do them" },
       { href: "/accountability", label: "Who decides what", blurb: "London, Edinburgh or the council" },
@@ -67,14 +67,14 @@ export const SECTIONS: Array<{
     ],
   },
   {
-    title: "Check us",
-    intro: "Everything we publish can be verified. Nothing here is behind a login.",
+    title: "Check the work",
+    intro: "Everything I publish can be verified. Nothing here is behind a login.",
     items: [
       { href: "/data", label: "Download the data", blurb: "The raw files, free to reuse" },
       { href: "/methods", label: "Methods and sources", blurb: "Exactly how every figure was counted" },
       { href: "/press", label: "Press and reuse", blurb: "Charts, embeds and a press kit" },
       { href: "/updates", label: "What changed", blurb: "The public log, with RSS" },
-      { href: "/corrections", label: "Corrections", blurb: "Errors, and what we did about them" },
+      { href: "/corrections", label: "Corrections", blurb: "Errors, and what I did about them" },
       { href: "/contact", label: "Ask a question", blurb: "A real person reads it. No question is too basic", featured: true },
     ],
   },
