@@ -8,7 +8,7 @@ import Quiz from "@/components/Quiz";
 export const metadata = meta({
   title: "How much do you actually know about poverty in Scotland?",
   description:
-    "Six questions, about ninety seconds. Guess the real figures on child poverty, wages, council tax and what happened when payments went up. Most people are wrong.",
+    "Six questions, about ninety seconds. Guess the real figures on child poverty, wages, council tax and what happened when payments rose. Most people are wrong.",
   path: "/quiz",
   type: "website",
 });
