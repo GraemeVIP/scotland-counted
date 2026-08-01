@@ -201,6 +201,17 @@
 
   html {
     scroll-behavior: smooth;
+    /*
+     * The header is sticky and 68px tall, so anything scrolled to lands
+     * underneath it — an anchor link, a jump to a question, a browser restoring
+     * where you were. A handful of elements carried scroll-mt-24 as a per-case
+     * patch, but most did not: on the home page, none of the ten id targets had
+     * any offset at all.
+     *
+     * Setting it once on the root covers every anchor, every scrollIntoView and
+     * every id added later, without anyone having to remember the class.
+     */
+    scroll-padding-top: 88px;
   }
 
   body {
