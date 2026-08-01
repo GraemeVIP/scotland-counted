@@ -93,11 +93,11 @@ export function PageHeader({
   return (
     <header className="pt-10 sm:pt-14 pb-8 sm:pb-10">
       <div
-        className={
+        className={`max-w-[1120px] mx-auto ${
           stat
-            ? "grid gap-x-14 gap-y-10 lg:grid-cols-[minmax(0,1fr)_minmax(280px,340px)] items-end"
-            : "max-w-[1120px] mx-auto"
-        }
+            ? "grid gap-x-12 gap-y-10 lg:grid-cols-[minmax(0,1fr)_minmax(280px,320px)] items-end"
+            : ""
+        }`}
       >
         <div>
           {eyebrow && <p className="label mb-6">{eyebrow}</p>}
@@ -122,9 +122,7 @@ export function PageHeader({
           </div>
         )}
       </div>
-      <div
-        className={`mt-8 sm:mt-10 border-t-2 border-[var(--ink)] ${stat ? "" : "max-w-[1120px] mx-auto"}`}
-      />
+      <div className="mt-8 sm:mt-10 max-w-[1120px] mx-auto border-t-2 border-[var(--ink)]" />
     </header>
   );
 }

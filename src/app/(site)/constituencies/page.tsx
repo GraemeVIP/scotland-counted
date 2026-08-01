@@ -43,8 +43,8 @@ export default function Constituencies() {
 
       <Page>
         <PageHeader
-          eyebrow={`All ${CONSTITUENCY_COUNT} areas represented by a Scottish MP`}
-          title="See the facts for the area your MP represents"
+          eyebrow={`All ${CONSTITUENCY_COUNT} Scottish MP areas`}
+          title="See the facts for your MP's area"
           lede="One MP represents each area. You do not need to know the political name for your area or who your MP is — enter your postcode and we find them for you."
           stat={{
             value: worstShare.replace(/^(about|more than|almost)\s+/, ""),
