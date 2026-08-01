@@ -10,19 +10,19 @@ export const postCategories = [
   {
     slug: "money-and-bills",
     name: "Money and bills",
-    description: "Why food, rent, energy and wages no longer add up — and who controls the rules.",
+    description: "Why food, rent, energy and wages no longer add up in Scotland — what each one actually costs now, and who controls the rules that set the price.",
     color: "var(--action)",
   },
   {
     slug: "poverty-explained",
     name: "Poverty explained",
-    description: "The words and numbers stripped of jargon, with the proof underneath.",
+    description: "The words and the numbers stripped of jargon: what poverty officially means, how it is measured in Scotland, and the proof under every figure.",
     color: "var(--brand)",
   },
   {
     slug: "take-action",
     name: "Take action",
-    description: "Simple ways to make the people with power answer for what they decide.",
+    description: "Simple ways to make the people with power answer for what they decide — who to write to, what to ask, and what happens after you press send.",
     color: "var(--good)",
   },
 ] as const;
@@ -118,7 +118,7 @@ export const posts: Post[] = [
     slug: "minimum-wage-take-home-pay-scotland-2026",
     title: "What minimum wage actually pays in Scotland in 2026",
     description:
-      "Minimum wage in Scotland is £12.71 for workers aged 21 and over. See the weekly, monthly and yearly pay, then what is left after Scottish tax and National Insurance.",
+      "Minimum wage in Scotland is £12.71 an hour. See the weekly, monthly and yearly pay, and what is left after Scottish tax and National Insurance.",
     standfirst:
       "£12.71 an hour sounds clear. A payslip is not. We have done the tax and National Insurance working for a 37.5-hour week so you can see what reaches the bank.",
     date: "2026-08-01",
@@ -192,7 +192,7 @@ export const posts: Post[] = [
     slug: "universal-credit-when-you-work-more-hours",
     title: "What happens to Universal Credit when you work more hours?",
     description:
-      "Universal Credit does not simply stop when you work. See the 55% taper, work allowance and why an extra £1 of take-home pay can leave only 45p of extra support.",
+      "Universal Credit does not stop when you work. See the 55% taper, the work allowance, and why an extra £1 of pay leaves only 45p of extra support.",
     standfirst:
       "Working more always leaves you with more total money. But the increase can feel painfully small because Universal Credit is reduced as earnings rise.",
     date: "2026-08-01",
@@ -229,7 +229,7 @@ export const posts: Post[] = [
     slug: "local-housing-allowance-rent-shortfall-scotland",
     title: "Why rent help does not cover the rent in much of Scotland",
     description:
-      "Local Housing Allowance limits Universal Credit help for private rent. Scotland's 2026 rates are frozen at 2024 levels while advertised rents have kept rising.",
+      "Local Housing Allowance caps the Universal Credit help you get for private rent. Scotland's rates are frozen at 2024 levels while rents keep rising.",
     standfirst:
       "The benefit is meant to help with a cheaper local rent. In 2026 it is still using rates fixed from 2024, even though newer rent evidence is higher in most Scottish areas.",
     date: "2026-08-01",
@@ -338,9 +338,9 @@ export const posts: Post[] = [
   },
   {
     slug: "crisis-grant-scotland-how-to-apply",
-    title: "A Crisis Grant can help when you have no money for food or heating",
+    title: "Crisis Grant Scotland: how to apply and what you get",
     description:
-      "A Scottish Welfare Fund Crisis Grant is emergency money you do not repay. See who can apply, what it can cover, how to apply through your council and what to do if refused.",
+      "A Scottish Welfare Fund Crisis Grant is emergency money you do not repay. Who can apply, what it covers, and how to claim through your council.",
     standfirst:
       "This is not a loan and it is not an advance from Universal Credit. It is a council grant for a low-income person facing an immediate emergency.",
     date: "2026-08-01",
@@ -375,9 +375,9 @@ export const posts: Post[] = [
   },
   {
     slug: "discretionary-housing-payment-scotland",
-    title: "Rent help people miss: Discretionary Housing Payments explained",
+    title: "Discretionary Housing Payments in Scotland, explained",
     description:
-      "A Discretionary Housing Payment can help when Housing Benefit or Universal Credit does not cover your rent, the bedroom tax or the benefit cap. How to apply in Scotland.",
+      "A Discretionary Housing Payment can top up rent when Universal Credit or Housing Benefit falls short, including the bedroom tax. How to apply in Scotland.",
     standfirst:
       "If you get help with rent but there is still a gap, your council has another fund. It can sometimes cover the shortfall, a deposit, rent in advance or moving costs.",
     date: "2026-08-01",
@@ -414,7 +414,7 @@ export const posts: Post[] = [
     slug: "free-school-meals-clothing-grant-scotland",
     title: "Free school meals and clothing grants: what families can get",
     description:
-      "Who gets free school meals in Scotland in 2026, how P1 to P5 works, the rules for older pupils, and how to claim at least £120 or £150 towards school clothing.",
+      "Who gets free school meals in Scotland, how P1 to P5 works, the rules for older pupils, and how to claim £120 or £150 towards school clothing.",
     standfirst:
       "Some help is automatic, some has to be claimed, and the rules change with a child's school year. This is the short version for a busy parent.",
     date: "2026-08-01",
@@ -449,9 +449,9 @@ export const posts: Post[] = [
   },
   {
     slug: "why-is-the-cost-of-living-so-high",
-    title: "Why everything still costs so much — and the choices that made it worse",
+    title: "Why is the cost of living still so high in Scotland?",
     description:
-      "The cost of living crisis in Scotland did not end when inflation fell. See why food, rent and energy stay expensive, which political decisions made the squeeze worse, and who can change it.",
+      "The cost of living crisis in Scotland did not end when inflation fell. Why food, rent and energy stay expensive, and which decisions made it worse.",
     standfirst:
       "War and the pandemic pushed prices up. That is true. It is also true that political choices left ordinary families with less protection — and added avoidable costs of their own.",
     date: "2026-08-01",
@@ -547,9 +547,9 @@ export const posts: Post[] = [
   },
   {
     slug: "what-does-poverty-mean",
-    title: "What does “poverty” actually mean when the government says it?",
+    title: "What does poverty actually mean in the UK?",
     description:
-      "Poverty has an official definition, and it is not what most people assume. What the poverty line is in pounds per week, and why 'after housing costs' changes everything.",
+      "Poverty has an official definition, and it is not what most people assume. What the poverty line is in pounds a week, and why 'after housing costs' matters.",
     standfirst:
       "The word gets used loosely. The measure behind it is precise, and knowing it makes every other number on this site readable.",
     date: "2026-07-31",
@@ -583,9 +583,9 @@ export const posts: Post[] = [
   },
   {
     slug: "what-is-the-scottish-child-payment",
-    title: "What is the Scottish Child Payment, and is your family missing out?",
+    title: "What is the Scottish Child Payment, and who can get it?",
     description:
-      "A weekly payment for every child in a low-income family in Scotland. What it is worth, who can get it, and why thousands of eligible families still do not claim it.",
+      "A weekly payment for every child in a low-income family in Scotland. What it is worth, who can get it, and why many eligible families never claim.",
     standfirst:
       "It does not exist anywhere else in the UK, and some families who are entitled to it have never claimed it.",
     date: "2026-07-31",

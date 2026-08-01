@@ -6,7 +6,7 @@ import { sources } from "@/lib/data/sources";
 export const metadata = meta({
   title: "Methods and sources",
   description:
-    "How every figure on this site was obtained, what was derived rather than published, and what the data cannot tell you. Full source list with links to the original publishers.",
+    "How every figure here was obtained, what was derived rather than published, and what the data cannot tell you. Full sources, linked to the originals.",
   path: "/methods",
 });
 

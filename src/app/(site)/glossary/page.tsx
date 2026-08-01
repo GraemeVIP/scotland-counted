@@ -6,7 +6,7 @@ import { site } from "@/lib/site";
 export const metadata = meta({
   title: "Plain-English glossary",
   description:
-    "Every technical term used on this site, explained in plain English, with the methodological detail underneath. After housing costs, relative poverty, SIMD, percentage points, jobs density and more.",
+    "Every technical term on this site in plain English: after housing costs, relative poverty, SIMD, percentage points — with the detail underneath.",
   path: "/glossary",
 });
 

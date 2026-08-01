@@ -7,7 +7,7 @@ import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
 export const metadata = meta({
   title: "Get in touch",
   description:
-    "Report an error, make a press enquiry, request data in a different shape, or suggest an improvement. One form, straight to a real inbox — corrections outrank everything.",
+    "Report an error, make a press enquiry, ask for data in a different shape or suggest an improvement. One form, straight to a real inbox.",
   path: "/contact",
 });
 

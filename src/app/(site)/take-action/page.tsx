@@ -5,9 +5,9 @@ import LetterBuilder from "./LetterBuilder";
 import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
 
 export const metadata = meta({
-  title: "Email your MP and MSP",
+  title: "Who is my MP and MSP? Find both by postcode",
   description:
-    "Enter your postcode. We find your MP and MSP, add the local poverty figures, write both emails and open them in your email app.",
+    "Enter your postcode and we find your MP and MSP, add your local poverty figures, write both emails and open them in your email app.",
   path: "/take-action",
 });
 

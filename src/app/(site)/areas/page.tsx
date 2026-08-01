@@ -14,7 +14,7 @@ import {
 export const metadata = meta({
   title: "Poverty and pay in every Scottish area",
   description:
-    "Choose any Scottish council area and see a simple summary, exact poverty figures, out-of-work benefits, minimum-wage reality and carefully labelled pay evidence.",
+    "Choose any Scottish council area for a plain summary: exact child poverty figures, out-of-work benefits, and pay evidence that is carefully labelled.",
   path: "/areas",
 });
 

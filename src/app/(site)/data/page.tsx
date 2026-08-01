@@ -6,7 +6,7 @@ import { site } from "@/lib/site";
 export const metadata = meta({
   title: "Download the data",
   description:
-    "Every dataset behind Scotland Counted, free to download: national poverty rates, all 32 council areas, employment, claimant count, pay, jobs density and life expectancy.",
+    "Every dataset behind Scotland Counted, free to download: poverty rates for all 32 council areas, employment, claimant count, pay and life expectancy.",
   path: "/data",
 });
 

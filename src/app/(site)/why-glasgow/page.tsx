@@ -22,7 +22,7 @@ import { getSources } from "@/lib/data/sources";
 export const metadata = meta({
   title: "Why poverty is worse in Glasgow",
   description:
-    "Glasgow has Scotland's worst child-poverty rate. Four clear reasons explain why: past decisions, work that can still leave people short, which families are hit hardest and rent.",
+    "Glasgow has Scotland's worst child-poverty rate. Four clear reasons why: old decisions, low-paid work, which families live here, and the rent.",
   path: "/why-glasgow",
 });
 

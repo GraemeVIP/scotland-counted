@@ -100,11 +100,47 @@ function lookup(slug: string): Meta | null {
   return null;
 }
 
+/**
+ * An indicator's title and summary are written to work as the page's headline
+ * and opening line. A search result wants different things from the same two
+ * fields — a title that survives truncation, and a description of about 150
+ * characters that reads as a standalone answer. Where the two genuinely pull
+ * apart, the search version lives here and the page keeps its own words.
+ */
+const SEO_OVERRIDE: Record<string, { title?: string; description?: string }> = {
+  pay: {
+    description:
+      "£796.50 a week sounds far too high because it is not what a typical worker earns. It counts full-time employees only, and jobs in Glasgow, not Glaswegians.",
+  },
+  "child-poverty": {
+    description:
+      "More than one in three Glasgow children live in poverty after housing costs. Ten years ago it was 27.1%; it is now 36.1%, the biggest rise in Scotland.",
+  },
+  benefits: {
+    description:
+      "The share of working-age Glaswegians on out-of-work benefits fell from 6.0% in 2000 to 3.2% in 2016, jumped during the pandemic, and is about 4.5% now.",
+  },
+  neighbourhoods: {
+    title: "Fewer Glaswegians live in Scotland's worst-off areas",
+    description:
+      "Almost half of Glaswegians lived in Scotland's worst-off tenth of neighbourhoods in 2004. By 2020 it was under a third, at 29%. Here is what changed.",
+  },
+  work: {
+    description:
+      "In 2004, 62.7% of working-age Glaswegians had a job. By 2022 it was 72.1%, much closer to Scotland as a whole — and child poverty rose over the same years.",
+  },
+};
+
 export async function generateMetadata(props: PageProps<"/indicators/[slug]">) {
   const { slug } = await props.params;
   const m = lookup(slug);
   if (!m) return {};
-  return meta({ title: m.title, description: m.summary, path: `/indicators/${slug}` });
+  const o = SEO_OVERRIDE[slug];
+  return meta({
+    title: o?.title ?? m.title,
+    description: o?.description ?? m.summary,
+    path: `/indicators/${slug}`,
+  });
 }
 
 function SourceList({ ids }: { ids: string[] }) {

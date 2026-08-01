@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
 
 export const metadata = meta({
   title: "About this project",
-  description: `${site.name} is a personal, independent project by ${site.author.name} at ${site.organisation.name}. No party affiliation, no funding, no paywall — just public data made readable.`,
+  description: `${site.name} is a personal, independent project by ${site.author.name} at ${site.organisation.name}. No party affiliation, no funding and no paywall.`,
   path: "/about",
 });
 

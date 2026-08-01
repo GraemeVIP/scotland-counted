@@ -8,7 +8,7 @@ import { site } from "@/lib/site";
 export const metadata = meta({
   title: "Press and reuse",
   description:
-    "Scotland-wide local poverty pages, downloadable chart images, sourced stat lines, live embeds and reuse terms. Everything needed to cite Scotland Counted in one place.",
+    "Local poverty pages for all of Scotland, downloadable charts, sourced stat lines, live embeds and reuse terms. Everything needed to cite this site.",
   path: "/press",
 });
 

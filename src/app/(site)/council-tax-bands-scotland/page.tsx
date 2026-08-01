@@ -10,7 +10,7 @@ import { getSources } from "@/lib/data/sources";
 export const metadata = meta({
   title: "Council tax bands in Scotland: how much is my council tax?",
   description:
-    "How much council tax you pay in Scotland, by band and by council. Every band from A to H with water and waste water included, which most figures leave out. Enter your postcode for your own council.",
+    "How much council tax you pay in Scotland, by band and by council. Every band A to H with water charges included, which most figures leave out.",
   path: "/council-tax-bands-scotland",
   type: "website",
 });

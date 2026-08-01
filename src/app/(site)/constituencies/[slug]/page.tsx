@@ -29,7 +29,7 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
   if (!c) return {};
   return meta({
     title: `Child poverty in ${c.name}`,
-    description: `${asOneIn(c.pcts[9])} children in the area represented by the ${c.name} MP are living in poverty. See the exact figures and email your MP.`,
+    description: `${asOneIn(c.pcts[9])} children in the area represented by the ${c.name} MP are living in poverty. See the figures and email your MP.`,
     path: `/constituencies/${slug}`,
     ownImage: true,
   });

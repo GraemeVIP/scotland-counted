@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { site } from "@/lib/site";
 
+/** What the root layout appends, and roughly what Google will display. */
+const BRAND_SUFFIX = ` — ${site.name}`;
+const TITLE_BUDGET = 60;
+
 /**
  * Builds page metadata consistently: canonical URL, Open Graph,
  * Twitter card and title template all derive from one call.
@@ -46,7 +50,14 @@ export function meta({
       : `${site.url}${resolved}`
     : undefined;
   return {
-    title,
+    /**
+     * The root layout appends " — Scotland Counted" to every title. That is 19
+     * of the ~60 characters Google will show, and on a site nobody has heard of
+     * yet the brand earns nothing while the words that describe the page earn
+     * everything. So the suffix is kept where it fits and dropped where it
+     * would push the useful part off the end of the result.
+     */
+    title: title.length + BRAND_SUFFIX.length <= TITLE_BUDGET ? title : { absolute: title },
     description,
     ...(keywords ? { keywords } : {}),
     alternates: { canonical: url },

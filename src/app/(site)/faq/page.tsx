@@ -6,7 +6,7 @@ import FaqSearch from "./FaqSearch";
 export const metadata = meta({
   title: "Questions about poverty, your area, MPs and the evidence",
   description:
-    "Straight answers to common questions about poverty in Scotland, Glasgow, local figures, MPs and MSPs, privacy, ready-written emails and the proof behind the site.",
+    "Straight answers about poverty in Scotland, your local figures, MPs and MSPs, the ready-written emails, privacy, and the proof behind every number.",
   path: "/faq",
 });
 

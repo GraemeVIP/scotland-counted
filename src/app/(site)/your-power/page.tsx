@@ -15,7 +15,7 @@ import { getSources } from "@/lib/data/sources";
 export const metadata = meta({
   title: "What happens when you email your MP",
   description:
-    "Your MP is paid £98,599 a year and has to deal with people who live in their area. Here is what actually happens after you press send, and why a written answer matters.",
+    "Your MP is paid £98,599 and has to deal with people who live in their area. What actually happens after you press send, and why a written answer matters.",
   path: "/your-power",
 });
 

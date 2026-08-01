@@ -96,8 +96,8 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
   const a = v.charges[0];
   const d = v.charges[3];
   return meta({
-    title: `${v.name} council tax bands and rates`,
-    description: `Council tax in ${v.name} by band, water charges included. Band A is ${pounds.format(a.total)} a year and Band D is ${pounds.format(d.total)}. Every band from A to H with monthly figures.`,
+    title: `${v.name} council tax bands: how much you pay`,
+    description: `Council tax in ${v.name} by band, water charges included. Band A is ${pounds.format(a.total)} a year and Band D is ${pounds.format(d.total)}. Every band A to H, with monthly figures.`,
     path: `/council-tax-bands-scotland/${v.slug}`,
     type: "website",
   });
