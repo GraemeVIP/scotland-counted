@@ -131,13 +131,13 @@ export default function Accountability() {
                   >
                     <div className="flex items-start justify-between gap-3 mb-1.5">
                       <p className="ui font-[660] text-[15.5px] leading-[1.3]">{t.measure}</p>
-                      <span className="ui rounded-full text-[15px] font-[700] text-[var(--bad)] border border-current px-3 py-2 whitespace-nowrap">
+                      <span className="ui rounded-full text-[15px] font-[700] text-[var(--bad-text)] border border-current px-3 py-2 whitespace-nowrap">
                         Missed
                       </span>
                     </div>
                     <p className="ui text-[15px] text-[var(--ink-2)]">
                       The law said {t.target}. What happened:{" "}
-                      <strong className="text-[var(--bad)] font-[700]">{t.actual}</strong>
+                      <strong className="text-[var(--bad-text)] font-[700]">{t.actual}</strong>
                     </p>
                   </div>
                 ))}
@@ -166,11 +166,11 @@ export default function Accountability() {
                         <td className="ui tnum px-4 py-3.5 border-b border-[var(--rule)] text-[15px] text-[var(--ink-2)]">
                           {t.target}
                         </td>
-                        <td className="ui tnum px-4 py-3.5 border-b border-[var(--rule)] text-[16px] font-[700] text-[var(--bad)]">
+                        <td className="ui tnum px-4 py-3.5 border-b border-[var(--rule)] text-[16px] font-[700] text-[var(--bad-text)]">
                           {t.actual}
                         </td>
                         <td className="px-4 py-3.5 border-b border-[var(--rule)]">
-                          <span className="ui rounded-full text-[15px] font-[700] text-[var(--bad)] border border-current px-3 py-2 whitespace-nowrap">
+                          <span className="ui rounded-full text-[15px] font-[700] text-[var(--bad-text)] border border-current px-3 py-2 whitespace-nowrap">
                             Missed
                           </span>
                         </td>

@@ -54,6 +54,14 @@ export const site = {
 
   /** Last full data refresh, shown in the footer. */
   dataUpdated: "July 2026",
+
+  /**
+   * The same refresh as an ISO date. This is the one source of truth for every
+   * machine-readable date on the site — sitemap lastmod and the dateModified in
+   * article structured data both read it, so they can never drift apart or fall
+   * back to "whenever this happened to build". Update it with dataUpdated.
+   */
+  dataCheckedISO: "2026-07-31",
 } as const;
 
 export type Site = typeof site;

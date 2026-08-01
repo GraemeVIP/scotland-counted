@@ -63,6 +63,20 @@
   --bad: #e5484d;
   --flat: #8a93a3;
 
+  /*
+   * The same signals, dark enough to be read.
+   *
+   * The colours above are tuned for bars, borders and big numbers, where they
+   * only ever need the 3:1 that large text and graphics require. Used as small
+   * text they all fail WCAG AA on white — the amber worst of all, at 2.07:1,
+   * which fails even the large-text threshold. Status pills, direction chips
+   * and any other signal-coloured text below about 19px use these instead.
+   */
+  --good-text: #00794f;
+  --warn-text: #8a5c00;
+  --bad-text: #c0272d;
+  --flat-text: #69707d;
+
   --grain-opacity: 0;
   --shadow-1: 0 1px 2px rgba(13, 17, 23, 0.04), 0 1px 3px rgba(13, 17, 23, 0.03);
   --shadow-2: 0 4px 12px rgba(13, 17, 23, 0.06), 0 16px 40px -20px rgba(13, 17, 23, 0.22);
@@ -120,6 +134,11 @@
   --warn: #ffb32e;
   --bad: #ff6369;
   --flat: #8a93a3;
+  /* Lifted rather than darkened: on a dark surface, legibility runs the other way. */
+  --good-text: #3ce0ab;
+  --warn-text: #ffc65c;
+  --bad-text: #ff8a8f;
+  --flat-text: #a3abb8;
   --grain-opacity: 0;
   --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.6);
   --shadow-2: 0 4px 12px rgba(0, 0, 0, 0.5), 0 16px 40px -20px rgba(0, 0, 0, 0.9);
@@ -152,6 +171,10 @@
   --color-warn: var(--warn);
   --color-bad: var(--bad);
   --color-flat: var(--flat);
+  --color-good-text: var(--good-text);
+  --color-warn-text: var(--warn-text);
+  --color-bad-text: var(--bad-text);
+  --color-flat-text: var(--flat-text);
   --color-signal: var(--signal);
   --font-sans: var(--font-sans);
   --font-serif: var(--font-serif);

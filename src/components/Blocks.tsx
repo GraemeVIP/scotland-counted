@@ -145,9 +145,9 @@ export function PageHeader({
 }
 
 const DIR: Record<Direction, { cls: string; glyph: string; label: string }> = {
-  worsening: { cls: "text-[var(--bad)]", glyph: "▲", label: "Getting worse" },
-  improving: { cls: "text-[var(--good)]", glyph: "▼", label: "Getting better" },
-  stalled: { cls: "text-[var(--flat)]", glyph: "■", label: "Stalled" },
+  worsening: { cls: "text-[var(--bad-text)]", glyph: "▲", label: "Getting worse" },
+  improving: { cls: "text-[var(--good-text)]", glyph: "▼", label: "Getting better" },
+  stalled: { cls: "text-[var(--flat-text)]", glyph: "■", label: "Stalled" },
 };
 
 export function DirectionChip({ direction }: { direction: Direction }) {

@@ -203,18 +203,18 @@ export default function LetterBuilder() {
 
           <div className="mt-3" aria-live="polite">
             {lookupState === "error" && (
-              <p className="text-[15px] text-[var(--bad)] leading-[1.5]">{lookupError}</p>
+              <p className="text-[15px] text-[var(--bad-text)] leading-[1.5]">{lookupError}</p>
             )}
             {lookup && (
               <div className="rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--paper)] p-4 space-y-3">
-                <p className="ui text-[15px] font-[720] text-[var(--good)]">
+                <p className="ui text-[15px] font-[720] text-[var(--good-text)]">
                   Found automatically for {lookup.postcode}
                 </p>
                 <RepresentativeSummary representative={lookup.mp} />
                 {lookup.msp ? (
                   <RepresentativeSummary representative={lookup.msp} />
                 ) : (
-                  <p className="text-[15px] text-[var(--warn)] leading-[1.5] border-t border-[var(--rule)] pt-3">
+                  <p className="text-[15px] text-[var(--warn-text)] leading-[1.5] border-t border-[var(--rule)] pt-3">
                     {lookup.mspUnavailable ?? "We could not find your MSP just now."}
                   </p>
                 )}

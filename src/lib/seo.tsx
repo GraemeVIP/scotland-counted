@@ -13,6 +13,7 @@ export function meta({
   published,
   modified,
   image,
+  ownImage = false,
   keywords,
 }: {
   title: string;
@@ -22,13 +23,27 @@ export function meta({
   published?: string;
   modified?: string;
   image?: string;
+  /**
+   * Set by routes that generate their own card through an adjacent
+   * opengraph-image file (areas, constituencies). Those cards are served from a
+   * hashed URL we cannot name here, so the only safe thing is to stay out of the
+   * way and let the file convention fill the field.
+   */
+  ownImage?: boolean;
   keywords?: string[];
 }): Metadata {
   const url = `${site.url}${path === "/" ? "" : path}`;
-  const imageUrl = image
-    ? image.startsWith("http")
-      ? image
-      : `${site.url}${image}`
+  /**
+   * Every page gets a share card. The opengraph-image file convention only
+   * covers the segment it sits in — it does not reach nested routes whose own
+   * metadata defines openGraph — which left most of the site sharing as a bare
+   * link. Defaulting here covers every page from one place.
+   */
+  const resolved = image ?? (ownImage ? undefined : "/opengraph-image");
+  const imageUrl = resolved
+    ? resolved.startsWith("http")
+      ? resolved
+      : `${site.url}${resolved}`
     : undefined;
   return {
     title,
@@ -93,8 +108,8 @@ export function articleJsonLd({
   headline,
   description,
   path,
-  published = "2026-07-31",
-  modified = "2026-07-31",
+  published = site.dataCheckedISO,
+  modified = site.dataCheckedISO,
   image,
   section,
   keywords,

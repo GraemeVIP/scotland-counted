@@ -105,7 +105,7 @@ export default function CouncilTaxPage() {
             {bandD.map((c, i) => (
               <Link
                 key={c.slug}
-                href={`/areas/${c.slug}`}
+                href={`/council-tax-bands-scotland/${c.slug}`}
                 className="group flex items-baseline justify-between gap-3 rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] px-4 py-3 no-underline transition-colors hover:border-[var(--brand)]"
               >
                 <span className="ui text-[14.5px] font-[640] leading-[1.25] text-[var(--ink-2)] group-hover:text-[var(--ink)]">

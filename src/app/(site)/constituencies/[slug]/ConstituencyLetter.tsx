@@ -110,7 +110,7 @@ export default function ConstituencyLetter({
 
       <div aria-live="polite">
         {state === "error" && (
-          <p className="mt-4 text-[15px] text-[var(--bad)] leading-[1.5]">
+          <p className="mt-4 text-[15px] text-[var(--bad-text)] leading-[1.5]">
             {message} You can still{" "}
             <a href="/take-action">use the postcode finder</a>.
           </p>

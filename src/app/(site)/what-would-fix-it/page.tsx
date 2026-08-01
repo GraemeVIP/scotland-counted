@@ -23,9 +23,9 @@ export const metadata = meta({
 });
 
 const TAG: Record<FixStatus, string> = {
-  done: "text-[var(--good)]",
-  partial: "text-[var(--warn)]",
-  "not-done": "text-[var(--bad)]",
+  done: "text-[var(--good-text)]",
+  partial: "text-[var(--warn-text)]",
+  "not-done": "text-[var(--bad-text)]",
 };
 
 const STATUS_VAR: Record<FixStatus, string> = {

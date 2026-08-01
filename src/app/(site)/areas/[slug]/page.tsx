@@ -36,6 +36,7 @@ export async function generateMetadata(props: PageProps<"/areas/[slug]">) {
     title: `Poverty, work and pay in ${c.name}`,
     description: `${asOneIn(c.pcts[9])} children in ${c.name} are living in poverty. See the exact local figures for poverty, out-of-work benefits and pay.`,
     path: `/areas/${slug}`,
+    ownImage: true,
   });
 }
 

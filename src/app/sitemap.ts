@@ -7,7 +7,7 @@ import { site } from "../../site.config";
 import { BAND_LETTERS } from "@/lib/data/councilTax";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
+  const dataChecked = new Date(`${site.dataCheckedISO}T00:00:00Z`);
 
   const core: MetadataRoute.Sitemap = [
     { url: site.url, changeFrequency: "monthly", priority: 1 },
@@ -64,10 +64,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  /**
+   * Posts carry a real date, so they get a real lastModified. Everything else
+   * gets the date the underlying data was last checked. Stamping every URL with
+   * the build time told search engines the whole site changes on every deploy,
+   * which is both untrue and the fastest way to have lastmod ignored entirely.
+   */
   const postPages: MetadataRoute.Sitemap = posts.map((p) => ({
     url: `${site.url}/blog/${p.slug}`,
     changeFrequency: "monthly" as const,
     priority: 0.85,
+    lastModified: new Date(p.updated ?? p.date),
   }));
 
   const categoryPages: MetadataRoute.Sitemap = postCategories.map((category) => ({
@@ -76,8 +83,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.75,
   }));
 
-  return [...core, ...categoryPages, ...postPages, ...indicatorPages, ...areaPages, ...constituencyPages].map((e) => ({
-    ...e,
-    lastModified: now,
-  }));
+  return [
+    ...core,
+    ...categoryPages,
+    ...postPages,
+    ...indicatorPages,
+    ...areaPages,
+    ...constituencyPages,
+    ...councilTaxPages,
+  ].map((e) => ({ lastModified: dataChecked, ...e }));
 }

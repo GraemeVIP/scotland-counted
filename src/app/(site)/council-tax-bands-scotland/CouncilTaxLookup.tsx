@@ -99,7 +99,7 @@ export default function CouncilTaxLookup() {
 
         <div aria-live="polite">
           {state === "error" && (
-            <p className="mt-3 text-[15px] leading-[1.5] text-[var(--bad)]">{message}</p>
+            <p className="mt-3 text-[15px] leading-[1.5] text-[var(--bad-text)]">{message}</p>
           )}
         </div>
 

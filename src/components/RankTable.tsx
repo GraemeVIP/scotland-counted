@@ -241,7 +241,7 @@ export default function RankTable({
               </td>
               <td
                 className={`pr-4 py-2.5 border-b border-[var(--rule)] text-right tnum ${
-                  r.change > 0 ? "text-[var(--bad)]" : "text-[var(--good)]"
+                  r.change > 0 ? "text-[var(--bad-text)]" : "text-[var(--good-text)]"
                 }`}
               >
                 {r.change > 0 ? "+" : ""}

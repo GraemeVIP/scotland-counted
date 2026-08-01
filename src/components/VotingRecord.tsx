@@ -16,25 +16,33 @@ import Reveal from "@/components/Reveal";
  * reasons and we are not in the business of implying otherwise.
  */
 
+/**
+ * `colorVar` is the vivid signal, used for the stripe and the glyph where the
+ * 3:1 graphics threshold applies. `textVar` is the darker variant used wherever
+ * the colour carries actual words, which need 4.5:1 to pass WCAG AA.
+ */
 const VERDICT: Record<
   Side,
-  { label: string; colorVar: string; bg: string; glyph: string }
+  { label: string; colorVar: string; textVar: string; bg: string; glyph: string }
 > = {
   Aye: {
     label: "Voted for it",
     colorVar: "--good",
+    textVar: "--good-text",
     bg: "rgba(29,122,69,0.10)",
     glyph: "✓",
   },
   No: {
     label: "Voted against it",
     colorVar: "--bad",
+    textVar: "--bad-text",
     bg: "rgba(168,50,31,0.10)",
     glyph: "✕",
   },
   Absent: {
     label: "Not recorded",
     colorVar: "--flat",
+    textVar: "--flat-text",
     bg: "rgba(125,117,104,0.10)",
     glyph: "–",
   },
@@ -115,7 +123,7 @@ export default function VotingRecord({
                     </span>
                     <span className="ui text-[17px] sm:text-[19px] font-[760]">
                       {mpName ? `${mpName} ` : "Your MP "}
-                      <span style={{ color: `var(${v.colorVar})` }}>{v.label.toLowerCase()}</span>
+                      <span style={{ color: `var(${v.textVar})` }}>{v.label.toLowerCase()}</span>
                     </span>
                   </div>
 
@@ -133,7 +141,7 @@ export default function VotingRecord({
 
                   <dl className="grid gap-x-8 gap-y-3 sm:grid-cols-2 mt-5 pt-5 border-t border-[var(--rule)]">
                     <div>
-                      <dt className="ui text-[15px] font-[700] text-[var(--good)]">
+                      <dt className="ui text-[15px] font-[700] text-[var(--good-text)]">
                         Voting for it meant
                       </dt>
                       <dd className="text-[15.5px] leading-[1.5] text-[var(--ink-2)] mt-1">
@@ -141,7 +149,7 @@ export default function VotingRecord({
                       </dd>
                     </div>
                     <div>
-                      <dt className="ui text-[15px] font-[700] text-[var(--bad)]">
+                      <dt className="ui text-[15px] font-[700] text-[var(--bad-text)]">
                         Voting against it meant
                       </dt>
                       <dd className="text-[15.5px] leading-[1.5] text-[var(--ink-2)] mt-1">
@@ -159,9 +167,9 @@ export default function VotingRecord({
                     </p>
                     <p className="ui text-[15px] text-[var(--ink-2)] tnum">
                       Scotland&apos;s 57 MPs:{" "}
-                      <span className="font-[740] text-[var(--good)]">{tally.aye} for</span>,{" "}
-                      <span className="font-[740] text-[var(--bad)]">{tally.no} against</span>,{" "}
-                      <span className="font-[740] text-[var(--flat)]">
+                      <span className="font-[740] text-[var(--good-text)]">{tally.aye} for</span>,{" "}
+                      <span className="font-[740] text-[var(--bad-text)]">{tally.no} against</span>,{" "}
+                      <span className="font-[740] text-[var(--flat-text)]">
                         {tally.absent} not recorded
                       </span>
                     </p>
