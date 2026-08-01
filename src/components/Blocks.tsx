@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { ReactNode } from "react";
+import type { HTMLAttributes, ReactNode } from "react";
 import type { Direction } from "@/lib/data/indicators";
 import Reveal from "@/components/Reveal";
 import { CountUp } from "@/components/Motion";
@@ -13,15 +13,28 @@ export function Page({ children }: { children: ReactNode }) {
   return <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14">{children}</div>;
 }
 
-/** One shared desktop frame for editorial content, cards and supporting panels. */
+/**
+ * One shared desktop frame for editorial content, cards and supporting panels.
+ *
+ * `PageHeader` centres itself on the same 1120px measure, so anything that does
+ * not use this frame sits noticeably further left than the header rule above
+ * it. `as` exists so a page section can keep its own element and still line up.
+ */
 export function ContentFrame({
   children,
   className = "",
+  as: Tag = "div",
+  ...rest
 }: {
   children: ReactNode;
   className?: string;
-}) {
-  return <div className={`max-w-[1120px] mx-auto ${className}`}>{children}</div>;
+  as?: "div" | "section";
+} & Omit<HTMLAttributes<HTMLElement>, "className" | "children">) {
+  return (
+    <Tag className={`max-w-[1120px] mx-auto ${className}`} {...rest}>
+      {children}
+    </Tag>
+  );
 }
 
 /** A reading column. Prose stays narrow even when the page is wide. */
