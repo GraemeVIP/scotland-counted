@@ -20,8 +20,8 @@ const SCALE = [
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden">
-      <div className="relative max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 py-10 sm:py-12">
+    <section className="relative overflow-hidden lg:flex lg:min-h-[calc(100svh-69px)] lg:flex-col">
+      <div className="relative max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 py-10 sm:py-12 lg:flex lg:flex-1 lg:items-center">
         <div className="grid w-full gap-x-12 gap-y-10 lg:grid-cols-[minmax(0,1.12fr)_minmax(420px,0.88fr)] lg:items-center">
           {/* ---- Statement ---- */}
           <div>
@@ -98,7 +98,7 @@ export default function Hero() {
       </div>
 
       {/* ---- The scale of the thing ---- */}
-      <div className="slab-dark">
+      <div className="slab-dark lg:shrink-0">
         <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 py-7">
           <div className="flex flex-wrap items-center gap-x-12 gap-y-6 justify-between">
             <div className="flex flex-wrap gap-x-11 gap-y-5">
