@@ -5,7 +5,8 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { site } from "@/lib/site";
 import { ScrollProgress } from "@/components/Motion";
-import { PRIMARY, SECTIONS } from "@/lib/data/navigation";
+import { PRIMARY } from "@/lib/data/navigation";
+import { DesktopMenu, MobileMenu } from "@/components/SiteMenu";
 
 export const NAV = PRIMARY;
 
@@ -162,70 +163,9 @@ export function Header() {
       </div>
       <ScrollProgress />
 
-      {browse && (
-        <div
-          id="browse-panel"
-          className="hidden xl:block border-t border-[var(--rule)] bg-[var(--surface)] shadow-[var(--shadow-2)]"
-        >
-          <div className="max-w-[1440px] mx-auto px-14 py-9 grid grid-cols-4 gap-8">
-            {SECTIONS.map((sec) => (
-              <div key={sec.title}>
-                <p className="ui text-[15px] font-[750] text-[var(--action)] mb-1.5">{sec.title}</p>
-                <p className="text-[15px] leading-[1.45] text-[var(--muted)] mb-3.5">{sec.intro}</p>
-                <ul className="space-y-2.5">
-                  {sec.items.map((n) => (
-                    <li key={n.href}>
-                      <Link href={n.href} className="group block no-underline">
-                        <span className="ui text-[15.5px] font-[640] text-[var(--ink)] group-hover:text-[var(--action)] transition-colors">
-                          {n.label}
-                        </span>
-                        {n.blurb && (
-                          <span className="block text-[15px] leading-[1.4] text-[var(--ink-2)] mt-0.5">
-                            {n.blurb}
-                          </span>
-                        )}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-          <div className="border-t border-[var(--rule)] bg-[var(--surface-2)]">
-            <div className="max-w-[1440px] mx-auto px-14 py-4 flex flex-wrap items-center justify-between gap-3">
-              <p className="text-[15px] text-[var(--ink-2)]">
-                Looking for one particular place? Every council and MP area has its own page.
-              </p>
-              <Link href="/browse" className="ui text-[15px] font-[700]">
-                See every page on this site →
-              </Link>
-            </div>
-          </div>
-        </div>
-      )}
+      {browse && <DesktopMenu onNavigate={() => setBrowsePath(null)} />}
 
-      {open && (
-        <nav
-          id="mobile-nav"
-          aria-label="Main"
-          className="xl:hidden border-t border-[var(--rule)] bg-[var(--surface)]"
-        >
-          {[
-            ...NAV,
-            { href: "/faq", label: "Questions and answers" },
-            { href: "/take-action", label: "Email your MP/MSP" },
-          ].map((n) => (
-            <Link
-              key={n.href}
-              href={n.href}
-              onClick={() => setMenuPath(null)}
-              className="ui block px-6 py-4 border-b border-[var(--rule)] text-[16px] font-[560]"
-            >
-              {n.label}
-            </Link>
-          ))}
-        </nav>
-      )}
+      {open && <MobileMenu onNavigate={() => setMenuPath(null)} />}
     </header>
   );
 }

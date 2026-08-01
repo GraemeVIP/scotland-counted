@@ -66,8 +66,38 @@ export const SECTIONS: Array<{
       { href: "/press", label: "Press and reuse", blurb: "Charts, embeds and a press kit" },
       { href: "/updates", label: "What changed", blurb: "The public log, with RSS" },
       { href: "/corrections", label: "Corrections", blurb: "Errors, and what we did about them" },
-      { href: "/about", label: "Who makes this", blurb: "Who we are and why" },
-      { href: "/contact", label: "Get in touch", blurb: "Questions, corrections, or a story" },
     ],
   },
+];
+
+/**
+ * The places most people are looking for, for the menu's quick picks.
+ *
+ * Hard-coded rather than derived from the council data so the header does not
+ * pull the whole dataset into the client bundle on every page. Names and hrefs
+ * only — the figures live on the pages themselves.
+ */
+export const QUICK_AREAS: NavItem[] = [
+  { href: "/areas/glasgow-city", label: "Glasgow" },
+  { href: "/areas/city-of-edinburgh", label: "Edinburgh" },
+  { href: "/areas/north-lanarkshire", label: "North Lanarkshire" },
+  { href: "/areas/fife", label: "Fife" },
+  { href: "/areas/aberdeen-city", label: "Aberdeen" },
+  { href: "/areas/dundee-city", label: "Dundee" },
+  { href: "/areas/south-lanarkshire", label: "South Lanarkshire" },
+  { href: "/areas/renfrewshire", label: "Renfrewshire" },
+];
+
+/** What the site actually holds, for the menu footer. */
+export const INVENTORY = [
+  { count: "32", label: "council areas", href: "/areas" },
+  { count: "57", label: "MP areas", href: "/constituencies" },
+  { count: "46", label: "questions answered", href: "/faq" },
+  { count: "6", label: "measures tracked", href: "/the-numbers" },
+];
+
+/** About and contact, which sit in the menu footer rather than a column. */
+export const MENU_FOOTER_LINKS: NavItem[] = [
+  { href: "/about", label: "Who makes this" },
+  { href: "/contact", label: "Get in touch" },
 ];
