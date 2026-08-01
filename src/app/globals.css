@@ -34,7 +34,15 @@
   --ink: #131926;
   --ink-2: #4d5666;
   --ink-3: #667085;
-  --muted: #667085;
+  /*
+   * Was #667085, the same as --ink-3, at 4.97:1 on white. That scrapes past AA
+   * and still reads as thin — and it is doing real work in 111 places: chart
+   * captions, source notes, table headers, the line telling people where to
+   * find their council tax band. Darkened to 6.33:1. Still a clear step below
+   * --ink-2 (7.40:1) so the hierarchy holds, but no longer something you have
+   * to lean in for.
+   */
+  --muted: #59606d;
   --rule: #e3e8f0;
   --rule-strong: #c6cedc;
   --grid: #eef1f7;
@@ -114,7 +122,8 @@
   --ink: #f2f4f8;
   --ink-2: #a8b1c1;
   --ink-3: #8a93a3;
-  --muted: #8a93a3;
+  /* The same lift in the other direction: 5.86:1 to 6.96:1 on --surface. */
+  --muted: #98a1b0;
   --rule: #232935;
   --rule-strong: #38404f;
   --grid: #1a1f28;
