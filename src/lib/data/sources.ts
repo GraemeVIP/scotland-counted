@@ -212,6 +212,22 @@ export const sources: Source[] = [
     used: "Median gross weekly pay for full-time employees in Scotland, £773.80 in April 2025, used to show that a Glasgow figure slightly above it is expected rather than anomalous.",
   },
   {
+    id: "hmrc-rti",
+    title: "Earnings and employment from Pay As You Earn Real Time Information, UK: November 2025",
+    publisher: "HM Revenue and Customs / Office for National Statistics",
+    url: "https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/bulletins/earningsandemploymentfrompayasyouearnrealtimeinformationuk/november2025",
+    used: "Median monthly pay of £2,538 in October 2025 across all payrolled employees, used as an independent check on the survey-based earnings figures.",
+    derivation:
+      "This is not a sample. It covers every payroll submission to HMRC, so it is a different method and a different population from ASHE. We annualise it as 12 monthly payments: £30,456.",
+  },
+  {
+    id: "ashe-uk-2025",
+    title: "Employee earnings in the UK: 2025",
+    publisher: "Office for National Statistics",
+    url: "https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/bulletins/annualsurveyofhoursandearnings/2025",
+    used: "UK median gross weekly pay for full-time employees, £766.60 in April 2025, for comparison against the all-employee payroll figure.",
+  },
+  {
     id: "ons-low-pay-2025",
     title: "Low and high pay in the UK: 2025",
     publisher: "Office for National Statistics",
