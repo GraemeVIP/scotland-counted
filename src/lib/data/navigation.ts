@@ -69,6 +69,7 @@ export const SECTIONS: Array<{
       { href: "/press", label: "Press and reuse", blurb: "Charts, embeds and a press kit" },
       { href: "/updates", label: "What changed", blurb: "The public log, with RSS" },
       { href: "/corrections", label: "Corrections", blurb: "Errors, and what we did about them" },
+      { href: "/contact", label: "Ask a question", blurb: "A real person reads it. No question is too basic" },
     ],
   },
 ];

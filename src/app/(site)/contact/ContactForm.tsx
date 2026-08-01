@@ -11,7 +11,35 @@ import { site } from "@/lib/site";
  * site owner's inbox; nothing is stored on the site.
  */
 
+/*
+ * Ordered by who is most likely to be writing, which is not the same as who
+ * used to be catered for. Every reason here was once about the site — an
+ * error, a press deadline, a data cut. Somebody who had simply read the thing
+ * and had a question found nothing that fitted and had to pick "Something
+ * else", which reads like being told they are an edge case.
+ *
+ * So the ordinary human reasons come first now. "question" is deliberately the
+ * default when no reason is passed in the URL.
+ */
 const REASONS = [
+  {
+    id: "question",
+    label: "I have a question about something on the site",
+    subject: "Question",
+    hint: "Ask it however you like. There is no wrong question, and it does not matter if you are not sure of the right words for it.",
+  },
+  {
+    id: "help",
+    label: "I am trying to work out who can help me",
+    subject: "Pointing in the right direction",
+    hint: "Say roughly what you are dealing with and I will point you at whoever actually handles it. I cannot give benefits or legal advice, but I can usually save you a few wrong turns.",
+  },
+  {
+    id: "using",
+    label: "I want to use this in my work",
+    subject: "Using the site",
+    hint: "Charity, school, union, community group, council team — say what you are doing and what would make it easier.",
+  },
   {
     id: "error",
     label: "Report an error in a figure",
@@ -48,9 +76,11 @@ type ReasonId = (typeof REASONS)[number]["id"];
 
 export default function ContactForm() {
   const params = useSearchParams();
-  const initial = (params.get("reason") as ReasonId) || "other";
+  // Defaults to a plain question rather than "other" — arriving on a form
+  // already set to the catch-all tells a reader their reason is unusual.
+  const initial = (params.get("reason") as ReasonId) || "question";
   const [reason, setReason] = useState<ReasonId>(
-    REASONS.some((r) => r.id === initial) ? initial : "other"
+    REASONS.some((r) => r.id === initial) ? initial : "question"
   );
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");

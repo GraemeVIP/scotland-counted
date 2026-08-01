@@ -1,34 +1,61 @@
 import Link from "next/link";
 import { Suspense } from "react";
-import { Page, ContentFrame, PageHeader } from "@/components/Blocks";
+import { Page, ContentFrame, PageHeader, SectionHead } from "@/components/Blocks";
 import ContactForm from "./ContactForm";
 import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
+import { site } from "@/lib/site";
 
 export const metadata = meta({
   title: "Get in touch",
   description:
-    "Report an error, make a press enquiry, ask for data in a different shape or suggest an improvement. One form, straight to a real inbox.",
+    "Ask a question about anything on this site, find out who can help with a problem, or report an error. One form, read by one person, no automated reply.",
   path: "/contact",
 });
 
-const EXPECT = [
+/**
+ * The page used to be built for people writing about the site — corrections,
+ * press deadlines, data cuts. That is a small and fairly confident audience.
+ * The much larger one is somebody who has just read that a third of children
+ * near them are in poverty, has a question, and has no idea whether they are
+ * allowed to ask it. Everything here is aimed at that person first.
+ *
+ * Two things earn their place by being true rather than promotional.
+ *
+ * The support signposting exists because inviting an audience in poverty to
+ * "ask anything" reliably produces messages from people in real trouble. A
+ * reply in a few days is no use to somebody being evicted on Friday, and the
+ * honest thing is to say so on the page rather than in a reply they may not
+ * read in time.
+ *
+ * The block naming Strathmark answers the question every serious reader and
+ * every journalist asks of a site making claims about public figures: who is
+ * behind this and who pays for it. Answering it plainly is a trust signal
+ * first. That it also tells people what the author does for a living is a
+ * consequence of the answer being honest, and it only works while it stays
+ * that way — the moment this page sells something, the impartiality the whole
+ * site rests on is worth less than whatever it sold.
+ */
+
+const SUPPORT = [
   {
-    t: "Corrections come first",
-    b: "A figure that doesn't match its source is the most important message this site can receive. Confirmed errors are fixed and logged publicly.",
-    href: "/corrections",
-    link: "The corrections policy",
+    name: "Advice Direct Scotland",
+    what: "Money, benefits, energy bills and consumer problems. Free, national, and funded to give proper advice rather than a leaflet.",
+    href: "https://www.advice.scot/",
   },
   {
-    t: "Press: check the kit first",
-    b: "Sourced stat lines, downloadable charts and embeds are ready-made — you may not need to wait for a reply at all.",
-    href: "/press",
-    link: "The press kit",
+    name: "Citizens Advice Scotland",
+    what: "Face-to-face help at a local bureau, including benefit applications, appeals and debt.",
+    href: "https://www.cas.org.uk/bureaux",
   },
   {
-    t: "Data in another shape",
-    b: "Every series is already downloadable as CSV. If you need a different cut for research or campaigning, ask.",
-    href: "/data",
-    link: "The data downloads",
+    name: "Shelter Scotland",
+    what: "Housing and homelessness, including if you have been asked to leave or have nowhere to stay tonight.",
+    href: "https://scotland.shelter.org.uk/get_help",
+  },
+  {
+    name: "Samaritans",
+    what: "If things have got too much. Free to call, any time, from any phone — 116 123.",
+    href: "https://www.samaritans.org/scotland/",
   },
 ];
 
@@ -44,9 +71,9 @@ export default function Contact() {
 
       <Page>
         <PageHeader
-          eyebrow="One form, a real inbox"
-          title="Get in touch"
-          lede="Report an error, ask a press question, request data, or suggest an improvement. Pick the reason and the message arrives pre-sorted."
+          eyebrow="A real person reads these"
+          title="Ask me anything"
+          lede="A question about a figure, a problem you are trying to find the right door for, an error you have spotted, or an idea. You do not need a reason that sounds official."
         />
 
         <ContentFrame className="grid gap-x-14 gap-y-10 lg:grid-cols-2 items-start pt-2">
@@ -58,19 +85,101 @@ export default function Contact() {
             <ContactForm />
           </Suspense>
 
-          <div className="grid gap-7">
-            {EXPECT.map((e) => (
-              <div key={e.t} className="border-l-[3px] border-[var(--brand)] pl-6 py-1">
-                <p className="h4 mb-1.5">{e.t}</p>
-                <p className="text-[15px] text-[var(--ink-2)] leading-[1.55] mb-2">{e.b}</p>
-                <Link
-                  href={e.href}
-                  className="ui text-[15px] font-[640] text-[var(--brand)] underline decoration-[var(--rule-strong)] underline-offset-3 hover:decoration-current"
+          <div className="grid gap-6">
+            <div className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] px-6 py-6">
+              <p className="ui text-[15px] font-[750] mb-3">What happens when you send it</p>
+              <ul className="grid gap-2.5 text-[16px] leading-[1.6] text-[var(--ink-2)]">
+                {[
+                  "One person reads it. There is no team, no ticket number and no automated reply.",
+                  "Most messages get an answer within a few days. Corrections and press deadlines jump the queue.",
+                  "Your email is used to reply to you and nothing else. It is not added to any list.",
+                  "No question here is too basic. Plenty of people who work in this field cannot explain the difference between an MP and an MSP either.",
+                ].map((line) => (
+                  <li key={line} className="flex gap-3">
+                    <span
+                      aria-hidden="true"
+                      className="mt-[9px] h-[6px] w-[6px] shrink-0 rounded-full bg-[var(--brand)]"
+                    />
+                    {line}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="rounded-[var(--r-m)] border-l-[3px] border-[var(--warn)] bg-[var(--surface)] px-6 py-6">
+              <p className="ui text-[15px] font-[750] mb-2">If you need help this week</p>
+              <p className="text-[16px] leading-[1.6] text-[var(--ink-2)]">
+                Please do not wait for me. This site explains the figures — it cannot give
+                benefits, debt or legal advice, and a reply in a few days is no use if something
+                is happening on Friday. The services below do this properly and they are free.
+              </p>
+            </div>
+          </div>
+        </ContentFrame>
+
+        <ContentFrame as="section" className="pt-16 sm:pt-20">
+          <SectionHead eyebrow="Free, and better at this than I am" title="Where to get real help" />
+          <ul className="mt-7 grid gap-4 sm:grid-cols-2 max-w-[1000px]">
+            {SUPPORT.map((s) => (
+              <li
+                key={s.name}
+                className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] px-6 py-5"
+              >
+                <a
+                  href={s.href}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  className="ui text-[17px] font-[720] text-[var(--brand)]"
                 >
-                  {e.link}
-                </Link>
-              </div>
+                  {s.name}
+                </a>
+                <p className="mt-1.5 text-[15.5px] leading-[1.55] text-[var(--ink-2)]">{s.what}</p>
+              </li>
             ))}
+          </ul>
+          <p className="mt-5 max-w-[68ch] text-[15.5px] leading-[1.55] text-[var(--muted)]">
+            You can also{" "}
+            <Link href="/take-action">write to your MP and MSP</Link> about a problem of your own.
+            Constituency casework is a real part of their job and it is free.
+          </p>
+        </ContentFrame>
+
+        <ContentFrame as="section" className="pt-16 sm:pt-20">
+          <SectionHead eyebrow="No mystery about it" title="Who you are writing to" />
+          <div className="mt-7 grid gap-5 lg:grid-cols-[1.25fr_1fr] items-start max-w-[1000px]">
+            <div>
+              <p className="text-[18px] leading-[1.65] text-[var(--ink-2)] max-w-[62ch]">
+                Scotland Counted is written and maintained by{" "}
+                <strong className="text-[var(--ink)]">{site.author.name}</strong>, who runs{" "}
+                <a href={site.organisation.url} rel="noopener noreferrer" target="_blank">
+                  {site.organisation.name}
+                </a>
+                . Turning messy public data into something a person can actually read is the day
+                job, which is the only reason a site like this exists at all.
+              </p>
+              <p className="mt-4 text-[18px] leading-[1.65] text-[var(--ink-2)] max-w-[62ch]">
+                It matters that you know that. A site making claims about councils and elected
+                members should say who is behind it and who pays for it, so you can weigh what you
+                are reading.
+              </p>
+              <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-[16px]">
+                <Link href="/about">More about the project</Link>
+                <Link href="/methods">How every figure was counted</Link>
+                <Link href="/corrections">Corrections policy</Link>
+              </div>
+            </div>
+
+            <div className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] px-6 py-6">
+              <p className="ui text-[15px] font-[750] mb-3">Who pays for this</p>
+              <p className="text-[16px] leading-[1.6] text-[var(--ink-2)]">
+                Nobody. There is no funder, no sponsor, no party, no advertising and no paywall.
+                Nothing on the site is for sale and nobody has paid to appear on it.
+              </p>
+              <p className="mt-3 text-[15.5px] leading-[1.55] text-[var(--muted)]">
+                If that ever changes it will be written here first, before you have to find out
+                some other way.
+              </p>
+            </div>
           </div>
         </ContentFrame>
       </Page>

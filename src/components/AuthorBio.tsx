@@ -38,7 +38,7 @@ export default function AuthorBio({ className = "" }: { className?: string }) {
         <Link href="/about">Who makes this</Link>
         <Link href="/methods">How every figure was counted</Link>
         <Link href="/corrections">Corrections</Link>
-        <Link href="/contact">Tell us we are wrong</Link>
+        <Link href="/contact">Ask a question</Link>
       </div>
     </aside>
   );
