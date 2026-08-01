@@ -201,6 +201,7 @@ export default function LetterBuilder() {
               value={postcode}
               onChange={(event) => changePostcode(event.target.value)}
               placeholder="Postcode, e.g. G12 8QQ"
+              data-clarity-mask="true"
               aria-label="Your postcode"
               className={inputCls}
               autoComplete="postal-code"
@@ -291,6 +292,7 @@ export default function LetterBuilder() {
               value={name}
               onChange={(event) => setName(event.target.value)}
               placeholder="Your name (optional)"
+              data-clarity-mask="true"
               aria-label="Your name, optional"
               className={inputCls}
               autoComplete="name"
@@ -299,6 +301,7 @@ export default function LetterBuilder() {
               value={personal}
               onChange={(event) => setPersonal(event.target.value)}
               placeholder={topic.prompt}
+              data-clarity-mask="true"
               aria-label={topic.needsDetail ? "What you want to tell them" : "A personal sentence for the email, optional"}
               rows={topic.needsDetail ? 7 : 4}
               className={`${inputCls} resize-y`}

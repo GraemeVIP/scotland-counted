@@ -52,6 +52,32 @@ export const site = {
    */
   web3formsKey: "4bcc9b22-6c82-45cc-ab20-0882fc8144d5",
 
+  /**
+   * Analytics. Every field is off until you paste an ID in, and each one is
+   * independent — filling in one does not switch on the others.
+   *
+   * Two things happen automatically when you do fill them in. The
+   * Content-Security-Policy in next.config.ts opens up only the hosts that
+   * the tools you enabled actually need, so the policy stays tight for
+   * anything you leave blank. And the privacy page reads these values, so
+   * what it tells people is always what is really running.
+   *
+   * These load without a consent banner, which is a decision taken with the
+   * PECR position understood. If that changes, gate <Analytics /> rather than
+   * blanking these — blanking them also removes the disclosure.
+   */
+  analytics: {
+    /** GA4 measurement ID, looks like G-XXXXXXXXXX. */
+    ga4: "G-5XZC7EX4KP",
+    /** Microsoft Clarity project ID, from the Clarity dashboard URL. */
+    clarity: "xvpsd85ara",
+    /**
+     * Search Console: the content="…" value from the HTML-tag method, not the
+     * whole tag. Verification only — it sets no cookie and collects nothing.
+     */
+    googleSiteVerification: "",
+  },
+
   /** Last full data refresh, shown in the footer. */
   dataUpdated: "July 2026",
 

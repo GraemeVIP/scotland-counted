@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Archivo, Newsreader, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { site } from "@/lib/site";
+import Analytics from "@/components/Analytics";
 
 /**
  * Root layout: document shell, fonts and theme only. Site chrome
@@ -77,6 +78,13 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
   },
   formatDetection: { telephone: false },
+  /*
+   * Search Console verification. Next only emits the meta tag when the value
+   * is non-empty, so an unconfigured site ships no empty tag.
+   */
+  ...(site.analytics.googleSiteVerification
+    ? { verification: { google: site.analytics.googleSiteVerification } }
+    : {}),
 };
 
 export const viewport: Viewport = {
@@ -113,7 +121,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <script dangerouslySetInnerHTML={{ __html: BOOT_SCRIPT }} />
       </head>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
