@@ -10,7 +10,13 @@
  * where do I live, who is responsible, why would I bother, what do I do.
  */
 
-export type NavItem = { href: string; label: string; blurb?: string };
+/**
+ * `featured` lights an item up in the menu. Used sparingly and on purpose:
+ * one per column, so the eye lands on a short diagonal instead of scanning a
+ * wall of identical links. Highlighting a fifth would mean highlighting
+ * nothing.
+ */
+export type NavItem = { href: string; label: string; blurb?: string; featured?: boolean };
 
 /** The five items in the header. Deliberately short, deliberately task-shaped. */
 export const PRIMARY: NavItem[] = [
@@ -32,7 +38,7 @@ export const SECTIONS: Array<{
     title: "Where you live",
     intro: "The figures for your own council area and your own MP's area.",
     items: [
-      { href: "/areas", label: "All 32 council areas", blurb: "Child poverty, benefits and pay context where you live" },
+      { href: "/areas", label: "All 32 council areas", blurb: "Child poverty, benefits and pay context where you live", featured: true },
       { href: "/constituencies", label: "All 57 MP areas", blurb: "The area each MP is responsible for" },
       { href: "/why-glasgow", label: "Glasgow", blurb: "Why the worst rate in Scotland is where it is" },
       { href: "/council-tax-bands-scotland", label: "Council tax by band", blurb: "What it really costs, water included" },
@@ -44,7 +50,7 @@ export const SECTIONS: Array<{
     title: "Do something",
     intro: "The part that actually changes anything.",
     items: [
-      { href: "/take-action", label: "Email your MP and MSP", blurb: "We write both emails for you" },
+      { href: "/take-action", label: "Email your MP and MSP", blurb: "We write both emails for you", featured: true },
       { href: "/your-power", label: "Why it is worth the bother", blurb: "What happens after you press send" },
       { href: "/what-would-fix-it", label: "What would fix it", blurb: "Costed options, and who can do them" },
       { href: "/accountability", label: "Who decides what", blurb: "London, Edinburgh or the council" },
@@ -54,7 +60,7 @@ export const SECTIONS: Array<{
     title: "Understand it",
     intro: "Plain-English explainers, no assumed knowledge.",
     items: [
-      { href: "/blog", label: "Explained in plain English", blurb: "Short answers to common questions" },
+      { href: "/blog", label: "Explained in plain English", blurb: "Short answers to common questions", featured: true },
       { href: "/faq", label: "Questions and answers", blurb: "Search the things people actually ask" },
       { href: "/glossary", label: "Plain-English glossary", blurb: "Every term, in ordinary words" },
       { href: "/the-numbers", label: "The Glasgow record", blurb: "Every indicator in one place" },
@@ -69,7 +75,7 @@ export const SECTIONS: Array<{
       { href: "/press", label: "Press and reuse", blurb: "Charts, embeds and a press kit" },
       { href: "/updates", label: "What changed", blurb: "The public log, with RSS" },
       { href: "/corrections", label: "Corrections", blurb: "Errors, and what we did about them" },
-      { href: "/contact", label: "Ask a question", blurb: "A real person reads it. No question is too basic" },
+      { href: "/contact", label: "Ask a question", blurb: "A real person reads it. No question is too basic", featured: true },
     ],
   },
 ];

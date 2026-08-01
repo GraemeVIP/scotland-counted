@@ -54,6 +54,11 @@
   --brand-wash: rgba(44, 92, 255, 0.08);
   --action: #ff5a3c;
   --action-hover: #e63e20;
+  /* Menu highlight. A wash, not a fill — the label on top of it must stay
+     --ink, because --action on white is about 3:1 and these labels are
+     15.5px, which needs 4.5:1. The colour comes from the tint and the dot,
+     never from the text. */
+  --action-tint: #fff1ed;
 
   /* Emphasis wash — the marker-pen bar, in the brand blue. */
   --signal: rgba(44, 92, 255, 0.16);
@@ -133,6 +138,7 @@
   --brand-wash: rgba(91, 132, 255, 0.14);
   --action: #ff7a5c;
   --action-hover: #ff9a80;
+  --action-tint: #2a1c19;
   --signal: rgba(91, 132, 255, 0.26);
   --signal-ink: #f2f4f8;
   --glasgow: #5b84ff;
@@ -173,6 +179,7 @@
   --color-brand: var(--brand);
   --color-brand-deep: var(--brand-deep);
   --color-action: var(--action);
+  --color-action-tint: var(--action-tint);
   --color-glasgow: var(--glasgow);
   --color-scotland: var(--scotland);
   --color-workplace: var(--workplace);
