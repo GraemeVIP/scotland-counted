@@ -4,7 +4,6 @@ import { JsonLd, articleJsonLd, faqJsonLd, videoJsonLd, meta } from "@/lib/seo";
 import { councilsByLevel, SCOTLAND_PCTS } from "@/lib/data/councils";
 import { scotlandPoverty } from "@/lib/data/scotland";
 import { getSources } from "@/lib/data/sources";
-import { site } from "@/lib/site";
 import { PictoGrid } from "@/components/Motion";
 import AreaGrid from "@/components/AreaGrid";
 import WhyBother from "@/components/WhyBother";
@@ -429,11 +428,6 @@ export default function Home() {
               </Link>
             </div>
           </div>
-
-          <p className="ui mt-10 text-[15px] text-[var(--muted)]">
-            {site.name} — a personal public-interest project by {site.author.name} at {" "}
-            {site.organisation.name}. No party affiliation, no funding, no paywall.
-          </p>
         </section>
       </Page>
     </>
