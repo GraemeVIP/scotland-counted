@@ -7,7 +7,9 @@ import { site } from "../site.config";
  * The site is served from a temporary Vercel domain until scotlandcounted.co.uk
  * is registered and pointed at it. Anything indexed on the temporary domain
  * would have to be migrated and redirected later, so this sends noindex on any
- * host that is not the canonical one.
+ * host that is not the canonical one. The temporary host remains crawlable so
+ * audits and search engines can follow the full site while the real domain is
+ * being prepared.
  *
  * Gating on the host rather than hardcoding a flag means there is no switch to
  * remember on launch day: the moment the real domain resolves here, the header
@@ -22,7 +24,7 @@ export function middleware(request: NextRequest) {
   const host = request.headers.get("host");
 
   if (host !== CANONICAL_HOST) {
-    response.headers.set("X-Robots-Tag", "noindex, nofollow");
+    response.headers.set("X-Robots-Tag", "noindex, follow");
   }
 
   return response;
