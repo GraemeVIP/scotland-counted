@@ -133,9 +133,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           That method also requires the snippet to be in <head>, which it was
           not, since <Analytics /> renders at the end of <body>.
 
-          send_page_view is off here on purpose. config would otherwise send a
-          page view of its own, and RouteTracker in Analytics.tsx sends one for
-          every route including the first — leaving the two to double up.
+          Page views are left entirely to GA4. This config call reports the
+          landing page, and Enhanced Measurement's "page changes based on
+          browser history events" reports each client-side move after it —
+          App Router navigates by pushState, which is exactly what that setting
+          watches for. It is on by default, so nothing needs configuring.
+
+          That option is therefore load-bearing here, which is not obvious from
+          the dashboard. Switch it off and every navigation after the landing
+          page stops being counted. There is no code path that would notice or
+          make up the difference.
         */}
         {site.analytics.ga4 && (
           <>
@@ -148,7 +155,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 __html: `window.dataLayer=window.dataLayer||[];
 function gtag(){dataLayer.push(arguments)}
 gtag('js',new Date());
-gtag('config','${site.analytics.ga4}',{send_page_view:false});`,
+gtag('config','${site.analytics.ga4}');`,
               }}
             />
           </>
