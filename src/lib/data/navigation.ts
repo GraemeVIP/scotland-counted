@@ -37,6 +37,7 @@ export const SECTIONS: Array<{
       { href: "/why-glasgow", label: "Glasgow", blurb: "Why the worst rate in Scotland is where it is" },
       { href: "/council-tax-bands-scotland", label: "Council tax by band", blurb: "What it really costs, water included" },
       { href: "/take-home-pay-calculator-scotland", label: "Take-home pay calculator", blurb: "What you keep on Scottish tax rates" },
+      { href: "/quiz", label: "Guess the figure", blurb: "Six questions. Most people get them wrong" },
     ],
   },
   {
@@ -102,4 +103,5 @@ export const INVENTORY = [
 export const MENU_FOOTER_LINKS: NavItem[] = [
   { href: "/about", label: "Who makes this" },
   { href: "/contact", label: "Get in touch" },
+  { href: "/privacy", label: "Privacy" },
 ];

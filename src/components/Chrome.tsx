@@ -178,6 +178,7 @@ export function Footer() {
     { href: "/faq", label: "Questions" },
     { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
+    { href: "/privacy", label: "Privacy" },
   ];
 
   return (
@@ -223,6 +224,7 @@ export function Footer() {
           {[
             { href: "/take-home-pay-calculator-scotland", label: "Take-home pay calculator" },
             { href: "/council-tax-bands-scotland", label: "Council tax by band" },
+            { href: "/quiz", label: "Guess the figure" },
           ].map((t) => (
             <Link
               key={t.href}

@@ -1,0 +1,25 @@
+name: Representative lookup
+
+# The MSP half of /api/representatives scrapes parliament.scot, because Holyrood
+# publishes no API. When Holyrood changes its markup the site keeps working and
+# quietly stops returning an MSP, so this runs daily and turns that silence into
+# a failed run and an email.
+on:
+  schedule:
+    # 07:00 UTC daily. Nothing here is time-critical; this is a tripwire.
+    - cron: "0 7 * * *"
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Check MP and MSP lookups against production
+        # Set CHECK_BASE_URL as a repository variable once the site has a home.
+        run: node scripts/check-representatives.mjs "${{ vars.CHECK_BASE_URL || 'https://scotlandcounted.co.uk' }}"

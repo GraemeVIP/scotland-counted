@@ -18,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${site.url}/your-power`, changeFrequency: "monthly", priority: 0.95 },
     { url: `${site.url}/council-tax-bands-scotland`, changeFrequency: "yearly", priority: 0.9 },
     { url: `${site.url}/take-home-pay-calculator-scotland`, changeFrequency: "yearly", priority: 0.9 },
+    { url: `${site.url}/quiz`, changeFrequency: "monthly", priority: 0.85 },
     { url: `${site.url}/browse`, changeFrequency: "weekly", priority: 0.7 },
     { url: `${site.url}/constituencies`, changeFrequency: "yearly", priority: 0.9 },
     { url: `${site.url}/what-would-fix-it`, changeFrequency: "monthly", priority: 0.85 },
@@ -32,6 +33,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${site.url}/about`, changeFrequency: "yearly", priority: 0.5 },
     { url: `${site.url}/corrections`, changeFrequency: "monthly", priority: 0.3 },
     { url: `${site.url}/contact`, changeFrequency: "yearly", priority: 0.4 },
+    { url: `${site.url}/privacy`, changeFrequency: "yearly", priority: 0.3 },
   ];
 
   const indicatorPages: MetadataRoute.Sitemap = [

@@ -10,6 +10,7 @@ import AreaGrid from "@/components/AreaGrid";
 import WhyBother from "@/components/WhyBother";
 import Hero from "./Hero";
 import VideoEmbed from "@/components/VideoEmbed";
+import Quiz from "@/components/Quiz";
 import { costOfLivingVideo as VIDEO } from "@/lib/data/video";
 
 export const metadata = meta({
@@ -113,6 +114,36 @@ export default function Home() {
           </Page>
         </div>
       </FullBleed>
+
+      {/*
+        The quiz runs inline rather than behind a link, because a link to a quiz
+        is an ask and a question already on the screen is not. Deliberately not
+        a popup: Google demotes intrusive interstitials on mobile, and on a site
+        whose credibility is its restraint, ambushing people undercuts the thing
+        that makes it worth trusting.
+      */}
+      <Page>
+        <section className="py-16 sm:py-20" aria-labelledby="quiz-teaser">
+          <div className="mx-auto max-w-[1120px]">
+            <div className="grid gap-x-14 gap-y-8 lg:grid-cols-[minmax(280px,0.62fr)_minmax(0,1.38fr)] lg:items-center">
+              <div>
+                <p className="kicker mb-3 text-[var(--action)]">6 questions · 90 seconds</p>
+                <h2
+                  id="quiz-teaser"
+                  className="display-stat text-[clamp(34px,4.2vw,54px)] max-w-[13ch]"
+                >
+                  How much do you actually know?
+                </h2>
+                <p className="mt-5 max-w-[38ch] text-[17px] leading-[1.6] text-[var(--ink-2)]">
+                  Official figures about the country you live in. Almost nobody gets them right,
+                  and the gap between what people assume and what is true is the whole problem.
+                </p>
+              </div>
+              <Quiz />
+            </div>
+          </div>
+        </section>
+      </Page>
 
       <Page>
         <AreaGrid className="py-16 sm:py-20" />
