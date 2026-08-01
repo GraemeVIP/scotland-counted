@@ -6,7 +6,6 @@ import { councils, COUNCIL_YEARS, SCOTLAND_PCTS } from "@/lib/data/councils";
 import {
   councilExtra,
   CC_YEARS,
-  PAY_YEARS,
 } from "@/lib/data/councilExtra";
 import {
   POSTCODE_SESSION_KEY,
@@ -71,7 +70,6 @@ export default function LetterBuilder() {
   const area = useMemo<LetterArea>(() => {
     const localEvidence = councilExtra[council.slug];
     const claimant = localEvidence?.cc[CC_YEARS.length - 1];
-    const pay = localEvidence?.pay[PAY_YEARS.length - 1];
 
     return {
       name: council.name,
@@ -81,8 +79,8 @@ export default function LetterBuilder() {
       firstYear: first,
       scotlandPct: SCOTLAND_PCTS[9],
       evidenceLine:
-        typeof claimant === "number" && typeof pay === "number"
-          ? `The wider local figures show ${claimant.toFixed(1)}% of working-age people needed out-of-work benefits in January ${CC_YEARS[CC_YEARS.length - 1]}. A typical full-time worker living here earned £${pay.toFixed(0)} a week before tax in ${PAY_YEARS[PAY_YEARS.length - 1]}.`
+        typeof claimant === "number"
+          ? `The wider local figures show ${claimant.toFixed(1)}% of working-age people needed out-of-work benefits in January ${CC_YEARS[CC_YEARS.length - 1]}.`
           : undefined,
     };
   }, [council, first]);

@@ -18,7 +18,7 @@ const STAT_LINES = [
   "Three quarters of children in relative poverty in Scotland live in a household where at least one person is in paid work (Scottish Government, 2022–25).",
   "36.1% of Glasgow's children — 39,319 children — were living in relative poverty after housing costs in 2023/24, the highest rate of any Scottish council area (End Child Poverty / Loughborough University).",
   "Child poverty in Glasgow rose 9.0 percentage points between 2014/15 and 2023/24 — the steepest rise of Scotland's 32 council areas, more than double the next steepest (End Child Poverty / Loughborough University).",
-  "Glasgow has more jobs than working-age adults — 1.08 jobs per resident aged 16–64 in 2021 — yet the median full-time worker living in the city earns £51 a week less than the median job located in it pays (ONS, jobs density and ASHE 2025).",
+  "A single adult working full time at the legal minimum reached only 76% of the UK's Minimum Income Standard in 2025; a lone parent with children aged 3 and 7 reached 69% (Joseph Rowntree Foundation / Loughborough University).",
   "All four of Scotland's legally binding interim child poverty targets for 2023/24 were missed, including persistent poverty at 23% against a target of 8% (Scottish Government progress report, 2024–25).",
   "Glasgow East has the highest constituency child poverty rate in Scotland at 34.9%; six of the seven worst Scottish seats are in Glasgow (End Child Poverty / Loughborough University, 2023/24).",
   "In 2020/21 — the one year benefits were raised — child poverty in Glasgow fell, from 32.2% to 29.4%. When the £20 uplift was withdrawn it rose straight back (End Child Poverty / Loughborough University).",

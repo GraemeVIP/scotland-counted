@@ -55,7 +55,52 @@ export const sources: Source[] = [
     title: "Annual Survey of Hours and Earnings, resident and workplace analyses",
     publisher: "Office for National Statistics, via NOMIS",
     url: "https://www.nomisweb.co.uk/",
-    used: "Median gross weekly pay for full-time employees, 2008–2025, on both the workplace and residence bases.",
+    used: "Median gross weekly pay within the published full-time employee-job sample, 2008–2025, on both the workplace and residence bases.",
+    derivation:
+      "These figures are never described as the average wage or annualised as a salary. The two bases are separate medians and cannot show that a particular amount of money leaves an area.",
+  },
+  {
+    id: "ashe-guide",
+    title: "Guide to interpreting Annual Survey of Hours and Earnings estimates",
+    publisher: "Office for National Statistics",
+    url: "https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/methodologies/guidetointerpretingannualsurveyofhoursandearningsasheestimates",
+    used: "The sample, exclusions and definition of gross weekly pay behind the pay charts.",
+    derivation:
+      "ASHE samples PAYE employee jobs, not every worker. The displayed full-time series excludes part-time jobs, self-employment, employees outside PAYE, junior rates and pay affected by absence; gross pay can include overtime, bonuses, shift premiums and allowances.",
+  },
+  {
+    id: "glasgow-labour-profile",
+    title: "Labour Market Profile — Glasgow City",
+    publisher: "Office for National Statistics, via NOMIS",
+    url: "https://www.nomisweb.co.uk/reports/lmp/lad/1778385245/report.aspx",
+    used: "The 2025 Glasgow workplace and residence pay estimates and the 2024 split between full-time and part-time employee jobs.",
+    derivation:
+      "The employee-jobs count shows 128,000 of 442,000 Glasgow employee jobs were part-time in 2024 — 29%. Those jobs are excluded from the full-time pay series.",
+  },
+  {
+    id: "minimum-wage-2026",
+    title: "National Minimum Wage and National Living Wage rates",
+    publisher: "UK Government",
+    url: "https://www.gov.uk/national-minimum-wage-rates",
+    used: "The legal hourly minimums from 1 April 2026: £12.71 for workers aged 21 and over, £10.85 for ages 18–20, and £8 for under-18s and eligible apprentices.",
+    derivation:
+      "The full-time illustration is £12.71 multiplied by 37.5 paid hours and 52 weeks: £24,784.50 gross a year. It is an illustration, not a claim that every minimum-wage worker receives those hours.",
+  },
+  {
+    id: "mis-2025",
+    title: "A Minimum Income Standard for the United Kingdom in 2025",
+    publisher: "Joseph Rowntree Foundation / Loughborough University",
+    url: "https://www.jrf.org.uk/a-minimum-income-standard-for-the-united-kingdom-in-2025",
+    used: "The finding that a single adult working full time at the legal minimum reached 76% of the Minimum Income Standard, while a lone parent with children aged 3 and 7 reached 69%.",
+  },
+  {
+    id: "real-living-wage",
+    title: "Real Living Wage rates and frequently asked questions",
+    publisher: "Living Wage Foundation",
+    url: "https://www.livingwage.org.uk/faqs",
+    used: "The current voluntary real Living Wage of £13.45 an hour outside London, calculated from living costs rather than set as the legal wage floor.",
+    derivation:
+      "At 37.5 paid hours for 52 weeks this is £26,227.50 gross a year, £1,443 more than the same-hours illustration at the 2026 legal minimum.",
   },
   {
     id: "jobs-density",

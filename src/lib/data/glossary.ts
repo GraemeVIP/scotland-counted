@@ -78,8 +78,8 @@ export const terms: Term[] = [
   {
     id: "workres",
     term: "Workplace and residence pay",
-    def: "Two different questions. Workplace pay asks what the jobs sitting in Glasgow pay, whoever holds them. Residence pay asks what Glaswegians earn, wherever they work.",
-    tech: "From the ONS Annual Survey of Hours and Earnings, which samples employer payroll records rather than asking households. The gap between the two bases is a direct measure of commuting: where workplace pay exceeds residence pay, better-paid jobs in the area are disproportionately held by people who live elsewhere.",
+    def: "Two restricted pay estimates. Workplace pay covers selected full-time employee jobs based in Glasgow. Residence pay covers selected full-time employee jobs held by people who live in Glasgow. Neither is the average wage of everyone who works.",
+    tech: "Both come from the ONS Annual Survey of Hours and Earnings, which samples PAYE employee jobs. The full-time figures exclude all part-time jobs, self-employment and other workers outside the selected sample. The two lines describe separate groups, so the difference between them is not a direct measure of commuting and cannot show that a particular amount of wages leaves Glasgow.",
   },
   {
     id: "jobs-density",

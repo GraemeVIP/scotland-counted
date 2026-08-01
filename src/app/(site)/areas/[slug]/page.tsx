@@ -4,6 +4,7 @@ import { Page, Col, PageHeader, CTA, InShort, EvidenceDetails } from "@/componen
 import Figure, { DataTable } from "@/components/charts/Figure";
 import LineChart from "@/components/charts/LineChart";
 import { G } from "@/components/Glossary";
+import MinimumWageReality from "@/components/MinimumWageReality";
 import SharePage from "@/components/SharePage";
 import WhyBother from "@/components/WhyBother";
 import { JsonLd, articleJsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
@@ -115,8 +116,9 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
               {rose ? "Things have got worse here." : "Things have got better here."}
             </p>
             <p>
-              You can also see how many people need out-of-work benefits and what a typical
-              full-time worker earns. The full numbers and sources are kept below.
+              You can also see what minimum-wage work really pays and how many people need
+              out-of-work benefits. A separate ONS pay estimate is kept below, clearly marked so
+              it is not mistaken for the average wage.
             </p>
           </InShort>
         </div>
@@ -219,11 +221,12 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
           const scoPay = SCOTLAND_EXTRA.pay as number[];
           return (
             <section className="pt-14">
-              <h2 className="h2 mb-4 max-w-[26ch]">Work, benefits and wages in {c.name}</h2>
+              <h2 className="h2 mb-4 max-w-[26ch]">Work, benefits and pay in {c.name}</h2>
               <Col>
                 <p>
-                  These figures answer two everyday questions: how many people need out-of-work
-                  benefits, and what does a typical full-time worker living here earn?
+                  Start with the legal minimum below. The ONS pay chart further down is not what
+                  the average worker earns: it covers only a selected group of full-time PAYE
+                  employee jobs held by people living here.
                   {jdLast !== null && (
                     <>
                       {" "}There were also{" "}
@@ -237,7 +240,9 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
                 </p>
               </Col>
 
-              <div className="grid gap-5 lg:grid-cols-2 mt-8">
+              <MinimumWageReality className="mt-8" />
+
+              <div className="grid gap-5 lg:grid-cols-2 mt-5">
                 <Figure
                   n={2}
                   title="People who need out-of-work benefits"
@@ -278,9 +283,9 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
 
                 {ex.payComplete ? (
                   <Figure
-                  n={3}
-                  title="Typical full-time weekly pay"
-                    sub="Before tax · people who live in the area · 2008 to 2025"
+                    n={3}
+                    title="Restricted full-time employee-pay estimate"
+                    sub="Not the average wage · selected PAYE jobs held by residents · 2008–2025"
                     legend={[
                       { name: c.name, colorVar: "--glasgow" },
                       { name: "Scotland", colorVar: "--scotland" },
@@ -295,8 +300,11 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
                         ])}
                       />
                     }
+                    caption="This does not show what the average worker, a minimum-wage worker or a person in poverty earns. It is the median only within a restricted sample of full-time PAYE employee jobs held by residents."
                     technical={[
-                      "Cash terms, not adjusted for inflation — compare the two lines within a year, not along them. Residence basis: pay of people living in the area, wherever they work.",
+                      "The series excludes every part-time job, self-employment, employees outside PAYE, junior rates and people whose pay was affected by absence. It counts employee jobs rather than necessarily counting unique people.",
+                      "Gross weekly pay can include overtime, bonuses, shift premiums and allowances. The estimate relates to one April pay period in each year.",
+                      "Cash terms, not adjusted for inflation — compare the two lines within a year, not along them. Residence basis means selected jobs held by people living in the area, wherever those jobs are based.",
                     ]}
                   >
                     <LineChart
@@ -311,7 +319,7 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
                       unit="£"
                       decimals={0}
                       gapBand
-                      ariaLabel={`Median full-time weekly pay for residents of ${c.name} compared with Scotland, 2008 to 2025.`}
+                      ariaLabel={`Restricted median gross weekly pay estimate for selected full-time PAYE employee jobs held by residents of ${c.name}, compared with Scotland, 2008 to 2025.`}
                     />
                   </Figure>
                 ) : (

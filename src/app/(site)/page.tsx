@@ -181,7 +181,8 @@ export default function Home() {
                   ))}
                 </div>
                 <p className="mt-7 text-[16px] leading-[1.55] opacity-80">
-                  Every area page shows poverty, out-of-work benefits and typical pay together. {" "}
+                  Every area page shows poverty, out-of-work benefits, the legal minimum wage and
+                  a carefully labelled ONS pay estimate. {" "}
                   <Link
                     href="/areas"
                     className="font-[720] text-white underline decoration-[var(--action)] decoration-2 underline-offset-4"

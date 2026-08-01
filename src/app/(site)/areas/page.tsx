@@ -9,7 +9,7 @@ import { councilsByLevel, councilsByChange, COUNCIL_YEARS } from "@/lib/data/cou
 export const metadata = meta({
   title: "Poverty and pay in every Scottish area",
   description:
-    "Choose any Scottish council area and see a simple summary, exact poverty figures, out-of-work benefits and typical pay.",
+    "Choose any Scottish council area and see a simple summary, exact poverty figures, out-of-work benefits, minimum-wage reality and carefully labelled pay evidence.",
   path: "/areas",
 });
 
@@ -55,7 +55,7 @@ export default function Areas() {
         />
 
         <InShort>
-          <p>Tap your area to see how many children are in poverty, how that has changed, how many people need out-of-work benefits and what a typical worker earns.</p>
+          <p>Tap your area to see how many children are in poverty, how that has changed, how many people need out-of-work benefits and what minimum-wage work actually pays.</p>
           <p><strong>Glasgow is highlighted because it has the worst child-poverty rate in Scotland and the biggest ten-year rise.</strong></p>
         </InShort>
 

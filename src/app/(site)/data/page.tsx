@@ -49,14 +49,14 @@ const FILES = [
   },
   {
     file: "nomis-ashe-pay-workplace.csv",
-    title: "Pay — workplace basis (raw)",
-    body: "Median gross weekly pay for full-time jobs located in Glasgow, and in Scotland.",
+    title: "Restricted full-time pay — workplace basis (raw)",
+    body: "ASHE median gross weekly pay for selected full-time PAYE employee jobs located in Glasgow and Scotland. This is not the average wage of everyone working there.",
     size: "2 KB",
   },
   {
     file: "nomis-ashe-pay-residence.csv",
-    title: "Pay — residence basis (raw)",
-    body: "Median gross weekly pay for full-time jobs held by Glasgow residents, and by Scottish residents.",
+    title: "Restricted full-time pay — residence basis (raw)",
+    body: "ASHE median gross weekly pay for selected full-time PAYE employee jobs held by Glasgow and Scottish residents. Part-time jobs and self-employment are excluded.",
     size: "1 KB",
   },
   {

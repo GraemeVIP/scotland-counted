@@ -17,6 +17,13 @@ export type ChangeEntry = {
 
 export const changelog: ChangeEntry[] = [
   {
+    date: "2026-08-01",
+    title: "Pay figures relabelled and minimum-wage reality added",
+    body: "The ASHE values were correct but the words around them were not careful enough. The site no longer calls the restricted full-time PAYE estimate a typical wage or treats the workplace-residence difference as wages leaving Glasgow. Every council page now starts with the current legal minimum, its full-time annual equivalent and independent evidence on what a basic living standard costs. The restricted pay estimate is clearly separated from poverty figures and removed from campaign emails.",
+    href: "/indicators/pay",
+    kind: "correction",
+  },
+  {
     date: "2026-07-31",
     title: "Scotland-wide relaunch",
     body: "The project now leads with Scotland-wide poverty, work and living-standards evidence. Every council area carries local child-poverty, claimant-count and pay data; every Scottish Westminster seat has a constituency page; Glasgow remains the founding deep dive; and the postcode action is now the main route through the site.",

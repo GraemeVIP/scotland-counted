@@ -29,7 +29,7 @@ export type LetterArea = {
   /** The national rate for the latest year, for comparison. */
   scotlandPct: number;
   /**
-   * An optional extra paragraph of local evidence (claimant count, pay).
+   * An optional extra paragraph of local evidence (currently claimant count).
    * Only councils publish these series, so MP areas leave it out.
    */
   evidenceLine?: string;

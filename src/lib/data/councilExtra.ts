@@ -4,9 +4,11 @@
  *
  * cc  — claimant count as a share of residents aged 16-64, each January.
  * jd  — jobs density: jobs located in the area per working-age resident.
- * pay — median gross weekly pay, full-time employees, residence basis,
- *       cash terms, from 2008 (earlier years are not published for
- *       council areas). null where the ONS suppressed a small sample;
+ * pay — median gross weekly pay within the restricted ASHE sample of
+ *       full-time PAYE employee jobs held by residents, cash terms,
+ *       from 2008 (earlier years are not published for council areas).
+ *       This is not the average wage of every worker. null where the
+ *       ONS suppressed a small sample;
  *       payComplete is false for those areas and the chart is omitted
  *       rather than interpolated.
  */

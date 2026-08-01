@@ -43,7 +43,9 @@ const LIMITS = [
   "Scotland's neighbourhood list ranks places from worst-off to best-off. It does not count every person in hardship. A place can improve and still move down if other places improve faster.",
   "Some job figures from 2024 onward are unreliable because too few people answered the survey. We show that part with a dotted line and a warning.",
   "An area-wide figure does not describe every street or family. Within Glasgow, estimated child poverty ranges from roughly 5% in some neighbourhoods to roughly 75% in others.",
-  "Pay figures show the cash amount at the time and do not remove the effect of rising prices. Compare places within the same year.",
+  "The ONS pay charts are not the average wage. They cover a restricted sample of full-time PAYE employee jobs and exclude all part-time jobs, self-employment, employees outside PAYE, junior rates and pay affected by absence.",
+  "Workplace and residence pay are separate medians for separate groups. The difference between them does not track the same people and cannot prove that a particular amount of wages leaves an area.",
+  "Pay figures show the cash amount at the time and do not remove the effect of rising prices. Compare places within the same year, not along the line.",
   "The life-expectancy figure describes death rates across the population. It is not a prediction for any one person.",
 ];
 

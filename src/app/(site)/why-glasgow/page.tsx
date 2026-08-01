@@ -17,13 +17,12 @@ import { G } from "@/components/Glossary";
 import DecadeScroll from "../DecadeScroll";
 import { JsonLd, articleJsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
 import { getIndicator, jobsDensity } from "@/lib/data/indicators";
-import { getCouncil } from "@/lib/data/councils";
 import { getSources } from "@/lib/data/sources";
 
 export const metadata = meta({
   title: "Why poverty is worse in Glasgow",
   description:
-    "Glasgow has Scotland's worst child-poverty rate. Four clear reasons explain why: past decisions, who gets the better-paid jobs, which families are hit hardest and rent.",
+    "Glasgow has Scotland's worst child-poverty rate. Four clear reasons explain why: past decisions, work that can still leave people short, which families are hit hardest and rent.",
   path: "/why-glasgow",
 });
 
@@ -55,10 +54,6 @@ function SourceStrip({ ids }: { ids: string[] }) {
 
 export default function WhyGlasgow() {
   const pay = getIndicator("pay")!;
-  const er = getCouncil("east-renfrewshire")!;
-  const ed = getCouncil("east-dunbartonshire")!;
-  const n = pay.x.length - 1;
-  const gap = (pay.series[0].data[n] - pay.series[1].data[n]).toFixed(2);
 
   return (
     <>
@@ -90,7 +85,7 @@ export default function WhyGlasgow() {
 
         <InShort>
           <p><strong>Glasgow&apos;s figures are not bad luck, and they are not the fault of ordinary Glaswegians.</strong></p>
-          <p>Decisions made long ago left lasting damage. Today the city is full of jobs, but many of the better-paid workers live outside Glasgow.</p>
+          <p>Decisions made long ago left lasting damage. Today the city is full of jobs, but a job can still mean low pay, too few hours or an insecure rota.</p>
           <p>
             Benefit cuts hit Glasgow harder because more of the families most affected live here.
             High rent then leaves less money for everything else.
@@ -159,8 +154,8 @@ export default function WhyGlasgow() {
       </Page>
 
       {/* ---------- 2 ---------- */}
-      <Slab attribution="ONS jobs density and Annual Survey of Hours and Earnings, 2021 and 2025">
-        Glasgow has more jobs than working-age adults. Too many of the better-paid workers live elsewhere.
+      <Slab attribution="ONS jobs density; UK minimum-wage rates; JRF / Loughborough minimum-income research">
+        Glasgow has more jobs than working-age adults. A job can still leave a family without enough to live on.
       </Slab>
 
       <Page>
@@ -168,20 +163,19 @@ export default function WhyGlasgow() {
           <SectionHead
             n={2}
             eyebrow="Reason two"
-            title="Glasgow has jobs. Local people miss out on too many of the better-paid ones."
+            title="There are plenty of jobs. Pay and hours can still leave people short."
           />
           <div className="sm:pl-[calc(2ch+2rem)] mt-8">
             <Split
               aside={
                 <div className="grid gap-6">
-                  <Note label={`Weekly pay gap, ${pay.x[n]}`} value={`£${gap}`}>
-                    This is the gap between what a typical job in Glasgow pays and what a typical
-                    full-time worker living in Glasgow earns.
+                  <Note label="Adult legal minimum now" value="£12.71 an hour">
+                    At 37.5 paid hours every week, that is about £24,785 a year before tax — not
+                    £41,000. Fewer or changing hours mean less.
                   </Note>
-                  <Note label="Two of Scotland's lowest child-poverty rates">
-                    <strong className="text-[var(--ink)]">{er.name}</strong> at {er.pcts[9]}% and{" "}
-                    <strong className="text-[var(--ink)]">{ed.name}</strong> at {ed.pcts[9]}%. Both
-                    border Glasgow.
+                  <Note label="Single adult, full-time legal minimum" value="76%">
+                    That was how much of a basic, decent living standard the pay covered in 2025.
+                    For a lone parent with children aged 3 and 7 it covered 69%.
                   </Note>
                 </div>
               }
@@ -195,39 +189,45 @@ export default function WhyGlasgow() {
                 — against {jobsDensity.scotland} for Scotland as a whole.
               </p>
               <p>
-                The problem is who gets the better-paid work. In {pay.x[n]}, a typical full-time
-                job <em>based in</em> Glasgow paid{" "}
-                <strong>£{pay.series[0].data[n].toFixed(2)} a week</strong> — better than the
-                Scottish average of £{pay.series[2].data[n].toFixed(2)}. The typical full-time
-                worker <em>living in</em> Glasgow took home{" "}
-                <strong>£{pay.series[1].data[n].toFixed(2)}</strong> — worse than the Scottish
-                average.
+                More jobs does not automatically mean enough money. The legal minimum for someone
+                aged 21 or over is £12.71 an hour. At 37.5 paid hours a week for a full year, that
+                is <strong>£24,784.50 before tax</strong>. Many people get fewer hours, changing
+                shifts or unpaid gaps and receive less.
               </p>
               <p>
-                Many better wages leave the city every payday. More Glaswegians found work after
-                2013, but too many of those jobs were lower-paid. That is why{" "}
+                Minimum Income Standard research found that in 2025 a single adult working full
+                time at the legal minimum reached only 76% of what the public agreed was needed
+                for a basic, decent life. A lone parent with children aged 3 and 7 reached only
+                69%. That
+                helps explain why{" "}
                 <Link href="/indicators/work">the employment chart</Link> and{" "}
                 <Link href="/indicators/child-poverty">the child poverty chart</Link> point in
                 opposite directions.
+              </p>
+              <p>
+                The pay chart below is narrower. Its £796.50 figure is for a selected sample of
+                full-time PAYE employee jobs based in Glasgow in one April 2025 pay period. It is
+                not the average Glasgow wage, and it excludes part-time jobs, self-employment and
+                other workers. The two lines describe separate groups, so their £51 difference
+                does not prove that £51 of wages leaves the city.
               </p>
             </Split>
 
             <div className="mt-10">
               <Figure
                 n={2}
-                title="The jobs in Glasgow pay more than Glaswegians earn"
-                sub={`Typical full-time weekly pay before tax · ${pay.x[0]} to ${pay.x[n]}`}
+                title={pay.chartTitle}
+                sub={pay.chartSub}
                 legend={pay.series.map((s) => ({ name: s.name, colorVar: s.colorVar }))}
                 caption={pay.caption}
                 technical={pay.technical}
                 table={
                   <DataTable
-                    head={["Year", "Jobs in Glasgow", "Glasgow residents", "Gap", "Scotland"]}
+                    head={["Year", "Selected jobs in Glasgow", "Selected jobs held by Glasgow residents", "Selected jobs held by Scottish residents"]}
                     rows={pay.x.map((y, i) => [
                       y,
                       `£${pay.series[0].data[i].toFixed(2)}`,
                       `£${pay.series[1].data[i].toFixed(2)}`,
-                      `£${(pay.series[0].data[i] - pay.series[1].data[i]).toFixed(2)}`,
                       `£${pay.series[2].data[i].toFixed(2)}`,
                     ])}
                   />
@@ -241,13 +241,7 @@ export default function WhyGlasgow() {
                   yTicks={pay.yTicks}
                   unit="£"
                   decimals={0}
-                  extra={{
-                    label: "Gap",
-                    values: pay.x.map(
-                      (_, i) => `£${(pay.series[0].data[i] - pay.series[1].data[i]).toFixed(1)}`
-                    ),
-                  }}
-                  ariaLabel="Median weekly pay for jobs based in Glasgow stays above pay for people living in Glasgow throughout 2008 to 2025, and Glasgow residents earn below the Scottish median."
+                  ariaLabel="Restricted median gross weekly pay estimates for selected full-time PAYE employee jobs based in Glasgow, held by Glasgow residents and held by Scottish residents, 2008 to 2025."
                 />
               </Figure>
             </div>
@@ -330,7 +324,7 @@ export default function WhyGlasgow() {
           </div>
         </section>
 
-        <SourceStrip ids={["gcph", "scotpho", "ashe", "jobs-density", "housing", "migration", "ug"]} />
+        <SourceStrip ids={["gcph", "scotpho", "minimum-wage-2026", "mis-2025", "ashe", "ashe-guide", "jobs-density", "housing", "migration", "ug"]} />
       </Page>
 
       <CTA

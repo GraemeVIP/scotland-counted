@@ -198,9 +198,9 @@ export const indicators: Indicator[] = [
   {
     slug: "pay",
     label: "Pay",
-    title: "The jobs in Glasgow pay more than Glaswegians earn",
+    title: "The £796.50 figure is not the average Glasgow wage",
     summary:
-      "A typical full-time job in Glasgow paid £796.50 a week in 2025. A typical full-time worker living in Glasgow earned £745.50.",
+      "It is a restricted estimate for selected full-time PAYE employee jobs in one April 2025 pay period. It excludes part-time workers, self-employed people and others.",
     direction: "worsening",
     unit: "£",
     x: [
@@ -212,13 +212,13 @@ export const indicators: Indicator[] = [
     yMax: 820,
     yTicks: [400, 500, 600, 700, 800],
     decimals: 0,
-    chartTitle: "Typical full-time weekly pay before tax",
-    chartSub: "2008 – 2025 · ONS Annual Survey of Hours and Earnings",
+    chartTitle: "Pay in a restricted sample of full-time employee jobs",
+    chartSub: "Gross weekly pay in one April pay period · cash terms · 2008–2025 · ONS ASHE",
     caption:
-      "The green line counts jobs located in Glasgow, whoever holds them. The blue line counts jobs held by people who live in Glasgow, wherever they work. The space between the two is wages leaving the city.",
+      "This is not what the average worker earns, and it is not the pay of people in poverty. Green is the median within selected full-time PAYE employee jobs located in Glasgow. Blue is the same restricted measure for jobs held by Glasgow residents. Grey is Scotland. The difference between the lines compares separate groups; it does not track wages or people moving between them.",
     series: [
       {
-        name: "Jobs based in Glasgow",
+        name: "Selected full-time jobs based in Glasgow",
         colorVar: "--workplace",
         data: [
           459.8, 476.0, 476.8, 486.4, 498.9, 523.6, 539.1, 538.3, 546.7, 558.2,
@@ -226,7 +226,7 @@ export const indicators: Indicator[] = [
         ],
       },
       {
-        name: "People living in Glasgow",
+        name: "Selected full-time jobs held by Glasgow residents",
         colorVar: "--glasgow",
         data: [
           434.1, 451.7, 452.5, 460.0, 474.3, 483.9, 497.1, 514.9, 522.2, 519.7,
@@ -234,7 +234,7 @@ export const indicators: Indicator[] = [
         ],
       },
       {
-        name: "Scotland",
+        name: "Selected full-time jobs held by Scottish residents",
         colorVar: "--scotland",
         data: [
           462.9, 471.2, 486.6, 487.2, 498.3, 507.9, 518.6, 527.0, 536.0, 547.4,
@@ -243,10 +243,12 @@ export const indicators: Indicator[] = [
       },
     ],
     technical: [
-      "These are median gross weekly earnings for full-time employees, on the ONS workplace and residence bases.",
+      "ASHE samples employee jobs from PAYE records. This displayed series is then restricted to jobs classed as full-time, paid at adult rates and unaffected by absence. It excludes every part-time job, self-employment, employees outside PAYE, junior rates and pay affected by sickness or other absence. A person with more than one job can be counted more than once.",
+      "For scale, a separate ONS count found 128,000 of Glasgow's 442,000 employee jobs were part-time in 2024 — 29%. None of those part-time jobs is represented in this full-time series.",
+      "Gross weekly pay can include overtime, bonuses, shift premiums and allowances. ONS normally defines full-time as more than 30 paid hours a week, with a separate rule for teaching jobs.",
       "Figures are in cash, not adjusted for inflation. Compare the lines against each other within a year — that comparison is valid. Do not read the upward slope as people getting better off; most of it is price rises.",
     ],
-    sourceIds: ["ashe"],
+    sourceIds: ["ashe", "ashe-guide", "glasgow-labour-profile", "minimum-wage-2026", "mis-2025", "real-living-wage"],
   },
 ];
 

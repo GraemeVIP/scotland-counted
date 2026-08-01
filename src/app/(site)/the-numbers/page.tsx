@@ -55,7 +55,7 @@ export default function TheNumbers() {
         data={datasetJsonLd({
           name: "Poverty indicators for Glasgow, 2000–2026",
           description:
-            "Six time series covering child poverty after housing costs, employment, out-of-work benefit claims, median pay on workplace and residence bases, neighbourhood deprivation and life expectancy at birth.",
+            "Six time series covering child poverty after housing costs, employment, out-of-work benefit claims, restricted full-time employee-pay estimates, neighbourhood deprivation and life expectancy at birth.",
           path: "/the-numbers",
           keywords: [
             "Glasgow",
@@ -97,7 +97,7 @@ export default function TheNumbers() {
               >
                 <div className="flex items-start justify-between gap-4 mb-5">
                   <p className="ui text-[15px] font-[700] text-[var(--muted)]">{c.label}</p>
-                  <DirectionChip direction={c.direction} />
+                  {c.slug !== "pay" && <DirectionChip direction={c.direction} />}
                 </div>
                 <h2 className="h3 mb-3 group-hover:text-[var(--brand)] transition-colors">
                   {c.title}

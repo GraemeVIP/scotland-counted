@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { Page, Col, PageHeader, DirectionChip, CTA, InShort } from "@/components/Blocks";
 import Figure, { DataTable } from "@/components/charts/Figure";
 import LineChart from "@/components/charts/LineChart";
+import MinimumWageReality from "@/components/MinimumWageReality";
 import {
   indicators,
   lifeExpectancy,
@@ -38,8 +39,9 @@ const IN_SHORT: Record<string, string[]> = {
     "The number jumped in the pandemic, then came back down.",
   ],
   pay: [
-    "Glasgow is full of good jobs. But most of the best-paid ones go to people who live outside the city.",
-    "Money made in Glasgow leaves Glasgow every payday.",
+    "An adult on today's legal minimum gets £12.71 an hour. At 37.5 paid hours every week, that is about £24,785 a year before tax — not £41,000.",
+    "The £796.50 figure below is not the average Glasgow wage and it is not what people in poverty earn. It covers a restricted group of full-time PAYE employee jobs.",
+    "It excludes all part-time jobs. For scale, 29% of Glasgow employee jobs were part-time in a separate 2024 count.",
   ],
   "life-expectancy": [
     "People in Glasgow live shorter lives than anywhere else in Scotland.",
@@ -72,8 +74,8 @@ const HEADER_STAT: Record<
     tone: "good",
   },
   pay: {
-    value: "£51",
-    label: "a week — the gap between what jobs in Glasgow pay and what Glaswegians take home (2025)",
+    value: "£24,785",
+    label: "gross yearly pay at today's legal minimum, if aged 21+ and paid for 37.5 hours every week",
     tone: "bad",
   },
   "life-expectancy": {
@@ -361,9 +363,11 @@ export default async function IndicatorPage(props: PageProps<"/indicators/[slug]
       {article}
       <Page>
         <PageHeader eyebrow={ind.label} title={ind.title} lede={ind.summary} stat={HEADER_STAT[slug]}>
-          <div className="mt-5">
-            <DirectionChip direction={ind.direction} />
-          </div>
+          {!isPay && (
+            <div className="mt-5">
+              <DirectionChip direction={ind.direction} />
+            </div>
+          )}
         </PageHeader>
 
         <InShort>
@@ -371,6 +375,8 @@ export default async function IndicatorPage(props: PageProps<"/indicators/[slug]
             <p key={t}>{t}</p>
           ))}
         </InShort>
+
+        {isPay && <MinimumWageReality className="mt-8" />}
 
         <div className="pt-9">
           <Figure
@@ -412,15 +418,7 @@ export default async function IndicatorPage(props: PageProps<"/indicators/[slug]
                       label: "Glasgow children",
                       values: GLASGOW_CHILD_COUNTS.map((v) => v.toLocaleString("en-GB")),
                     }
-                  : isPay
-                    ? {
-                        label: "Gap",
-                        values: ind.x.map(
-                          (_, i) =>
-                            `£${(ind.series[0].data[i] - ind.series[1].data[i]).toFixed(1)}`
-                        ),
-                      }
-                    : undefined
+                  : undefined
               }
               ariaLabel={ind.summary}
             />
@@ -440,12 +438,14 @@ export default async function IndicatorPage(props: PageProps<"/indicators/[slug]
 
         {isPay && (
           <Col className="pt-10">
-            <h2 className="h2 mb-4">Why this chart matters</h2>
+            <h2 className="h2 mb-4">What this chart can — and cannot — tell us</h2>
             <p>
-              The gap between the green and blue lines is the single clearest piece of evidence on
-              this site. Glasgow hosts the region&apos;s well-paid work and sends the wages home to
-              the suburbs — which is why raising the city&apos;s employment rate did not reduce its
-              child poverty. <Link href="/why-glasgow">The full argument is here</Link>.
+              It compares ONS pay estimates for selected full-time employee jobs by workplace and
+              by where the job holder lives. It cannot tell us what the average Glasgow worker
+              earns, what people in poverty earn, or that the £51 difference is money leaving the
+              city. The direct poverty figures prove the scale of poverty; the minimum-wage figures
+              above show why having a job does not always provide enough to live on.{" "}
+              <Link href="/why-glasgow">See Glasgow&apos;s wider evidence</Link>.
             </p>
           </Col>
         )}

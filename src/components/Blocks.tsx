@@ -81,7 +81,7 @@ export function PageHeader({
 
   return (
     <header className="pt-10 sm:pt-14 pb-8 sm:pb-10">
-      <div className="grid gap-x-14 gap-y-10 lg:grid-cols-[minmax(0,1fr)_auto] items-end">
+      <div className="grid gap-x-14 gap-y-10 lg:grid-cols-[minmax(0,1fr)_minmax(280px,340px)] items-end">
         <div>
           {eyebrow && <p className="label mb-6">{eyebrow}</p>}
           <h1 className="h1 max-w-[17ch] mb-5">{title}</h1>
@@ -90,8 +90,8 @@ export function PageHeader({
         </div>
 
         {stat && (
-          <div className="lg:pb-2 lg:border-l lg:border-[var(--rule)] lg:pl-12 max-w-[340px]">
-            <div className={`figure-num text-[clamp(64px,8vw,110px)] ${tone}`}>
+          <div className="min-w-0 max-w-[340px] lg:pb-2 lg:border-l lg:border-[var(--rule)] lg:pl-12">
+            <div className={`figure-num whitespace-nowrap text-[clamp(56px,6.5vw,96px)] ${tone}`}>
               {(() => {
                 const m = stat.value.match(/^(£?)(\d+(?:\.\d+)?)(%?)$/);
                 if (!m) return stat.value;

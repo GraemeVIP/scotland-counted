@@ -38,7 +38,8 @@ export default function Browse() {
           <h2 className="h2 mb-2">Your council area</h2>
           <p className="text-[17px] text-[var(--ink-2)] leading-[1.6] max-w-[62ch] mb-5">
             All {councils.length} council areas in Scotland, worst rate first. Each page has ten
-            years of figures for child poverty, out-of-work benefits and pay.
+            years of figures for child poverty and out-of-work benefits, plus minimum-wage context
+            and a clearly restricted ONS pay estimate.
           </p>
           <div className="flex flex-wrap gap-2">
             {councils.map((c) => (
