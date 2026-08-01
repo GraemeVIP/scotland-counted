@@ -26,15 +26,18 @@ function SearchButton() {
       type="button"
       onClick={() => window.dispatchEvent(new CustomEvent("open-command"))}
       aria-label="Find your area, or search the site"
-      className="group min-h-11 shrink-0 flex items-center gap-2.5 rounded-full bg-[var(--surface)] border border-[var(--rule-strong)] hover:border-[var(--brand)] transition-colors px-4 py-2.5"
+      className="group min-h-11 shrink-0 flex items-center gap-2.5 rounded-[var(--r-s)] bg-[var(--surface)] border border-[var(--rule-strong)] hover:border-[var(--brand)] transition-colors px-3.5 py-2.5 xl:min-w-[150px] 2xl:min-w-[230px]"
       style={{ boxShadow: "var(--shadow-1)" }}
     >
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" className="text-[var(--brand)]" aria-hidden="true">
         <circle cx="11" cy="11" r="7" />
         <path d="m20 20-3.8-3.8" />
       </svg>
-      <span className="ui hidden md:block whitespace-nowrap text-[15px] font-[620] text-[var(--ink-2)] group-hover:text-[var(--ink)] transition-colors">
-        Find your area
+      <span className="ui hidden md:block whitespace-nowrap text-[15px] font-[560] text-[var(--muted)] group-hover:text-[var(--ink)] transition-colors">
+        Search site or area
+      </span>
+      <span className="ui ml-auto hidden 2xl:inline-flex rounded border border-[var(--rule)] bg-[var(--paper)] px-1.5 py-0.5 text-[15px] font-[650] text-[var(--muted)]">
+        ⌘K
       </span>
     </button>
   );
@@ -207,7 +210,11 @@ export function Header() {
           aria-label="Main"
           className="xl:hidden border-t border-[var(--rule)] bg-[var(--surface)]"
         >
-          {[...NAV, { href: "/take-action", label: "Email your MP/MSP" }].map((n) => (
+          {[
+            ...NAV,
+            { href: "/faq", label: "Questions and answers" },
+            { href: "/take-action", label: "Email your MP/MSP" },
+          ].map((n) => (
             <Link
               key={n.href}
               href={n.href}
@@ -228,6 +235,7 @@ export function Footer() {
     ...PRIMARY,
     { href: "/data", label: "Data" },
     { href: "/methods", label: "Sources" },
+    { href: "/faq", label: "Questions" },
     { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
   ];

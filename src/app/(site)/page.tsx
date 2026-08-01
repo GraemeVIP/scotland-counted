@@ -270,26 +270,31 @@ export default function Home() {
                 What people ask first
               </h2>
             </div>
-            <div className="grid gap-3 sm:grid-cols-2">
-              {FAQ.map((item, index) => (
-                <details
-                  key={item.q}
-                  className={`group rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] p-5 open:border-[var(--brand)] ${index === FAQ.length - 1 ? "sm:col-span-2" : ""}`}
-                >
-                  <summary className="ui flex cursor-pointer list-none items-start justify-between gap-4 text-[17px] font-[720] leading-[1.35]">
-                    {item.q}
-                    <span
-                      aria-hidden="true"
-                      className="text-[22px] leading-none text-[var(--action)] transition-transform group-open:rotate-45"
-                    >
-                      +
-                    </span>
-                  </summary>
-                  <p className="mt-4 border-t border-[var(--rule)] pt-4 text-[15.5px] leading-[1.6] text-[var(--ink-2)]">
-                    {item.a}
-                  </p>
-                </details>
-              ))}
+            <div>
+              <div className="grid gap-3 sm:grid-cols-2">
+                {FAQ.map((item, index) => (
+                  <details
+                    key={item.q}
+                    className={`group rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] p-5 open:border-[var(--brand)] ${index === FAQ.length - 1 ? "sm:col-span-2" : ""}`}
+                  >
+                    <summary className="ui flex cursor-pointer list-none items-start justify-between gap-4 text-[17px] font-[720] leading-[1.35]">
+                      {item.q}
+                      <span
+                        aria-hidden="true"
+                        className="text-[22px] leading-none text-[var(--action)] transition-transform group-open:rotate-45"
+                      >
+                        +
+                      </span>
+                    </summary>
+                    <p className="mt-4 border-t border-[var(--rule)] pt-4 text-[15.5px] leading-[1.6] text-[var(--ink-2)]">
+                      {item.a}
+                    </p>
+                  </details>
+                ))}
+              </div>
+              <Link href="/faq" className="btn btn-ghost mt-6">
+                Search all questions <span aria-hidden="true">→</span>
+              </Link>
             </div>
           </div>
 

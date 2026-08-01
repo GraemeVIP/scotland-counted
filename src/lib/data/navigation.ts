@@ -52,6 +52,7 @@ export const SECTIONS: Array<{
     intro: "Plain-English explainers, no assumed knowledge.",
     items: [
       { href: "/blog", label: "Explained in plain English", blurb: "Short answers to common questions" },
+      { href: "/faq", label: "Questions and answers", blurb: "Search the things people actually ask" },
       { href: "/glossary", label: "Plain-English glossary", blurb: "Every term, in ordinary words" },
       { href: "/the-numbers", label: "The Glasgow record", blurb: "Every indicator in one place" },
     ],

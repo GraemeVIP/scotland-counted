@@ -6,6 +6,7 @@ import { councils } from "@/lib/data/councils";
 import { constituencies } from "@/lib/data/constituencies";
 import { indicators } from "@/lib/data/indicators";
 import { terms } from "@/lib/data/glossary";
+import { faqItems } from "@/lib/data/faqs";
 
 /**
  * The command palette: every page on the site reachable in two
@@ -37,6 +38,7 @@ const CORE: Item[] = [
   { label: "Press and reuse", href: "/press", group: "Check the proof", keywords: "media journalist embed png" },
   { label: "What changed", href: "/updates", group: "More", keywords: "changelog rss updates news" },
   { label: "Words explained", href: "/glossary", group: "Check the proof" },
+  { label: "Questions and straight answers", href: "/faq", group: "Main pages", keywords: "faq help search question answer" },
   { label: "About this project", href: "/about", group: "More" },
   { label: "Report or see corrections", href: "/corrections", group: "More" },
   { label: "Get in touch", href: "/contact", group: "More", keywords: "email press error report message" },
@@ -65,6 +67,12 @@ function buildRegistry(): Item[] {
       meta: `${c.pcts[9]}%`,
       keywords: "constituency mp seat westminster",
     })),
+    ...faqItems.map((item) => ({
+      label: item.q,
+      href: `/faq#${item.id}`,
+      group: "Questions",
+      keywords: `${item.a} ${item.keywords ?? ""}`,
+    })),
     ...terms.map((t) => ({
       label: t.term,
       href: `/glossary#${t.id}`,
@@ -84,7 +92,7 @@ function score(item: Item, q: string): number {
   return 0;
 }
 
-const GROUP_ORDER = ["Main pages", "Council areas", "Areas represented by an MP", "Glasgow facts", "Glossary", "Check the proof", "More"];
+const GROUP_ORDER = ["Main pages", "Questions", "Council areas", "Areas represented by an MP", "Glasgow facts", "Glossary", "Check the proof", "More"];
 
 export default function CommandPalette() {
   const router = useRouter();
