@@ -95,7 +95,7 @@ export function Header() {
           : "bg-[var(--paper)] border-b border-transparent"
       }`}
     >
-      <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 flex items-center gap-8 h-[68px]">
+      <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 flex items-center gap-6 2xl:gap-8 h-[68px]">
         <Link
           href="/"
           className="shrink-0"
@@ -105,7 +105,7 @@ export function Header() {
           <Wordmark className="text-[19px]" />
         </Link>
 
-        <nav aria-label="Main" className="hidden xl:flex items-center gap-5 ml-2">
+        <nav aria-label="Main" className="hidden xl:flex items-center gap-4 2xl:gap-5 ml-2">
           {NAV.map((n) => {
             const active = pathname === n.href || pathname.startsWith(n.href + "/");
             return (

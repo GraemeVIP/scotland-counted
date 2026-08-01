@@ -175,22 +175,52 @@ export default function YourPower() {
             Five separate jobs stood between a person being angry and a person being heard. That
             is why almost nobody did it. Every one of them is now done for you.
           </p>
-          <div className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] overflow-hidden">
+          {/*
+            Two columns of plain text left the pairs drifting apart on a wide
+            screen, with the old job in faint struck-through grey that read as
+            broken rather than as beaten. Each row is now a single line you read
+            left to right — the job, a tick, the thing that replaced it — on a
+            measure narrow enough that the pair stays together.
+          */}
+          <div
+            className="max-w-[900px] overflow-hidden rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)]"
+            style={{ boxShadow: "var(--shadow-1)" }}
+          >
+            <div className="grid grid-cols-[auto_minmax(0,1fr)] gap-x-4 border-b-2 border-[var(--ink)] bg-[var(--surface-2)] px-5 py-3.5 sm:grid-cols-[auto_minmax(0,0.95fr)_minmax(0,1.15fr)] sm:px-6">
+              <span aria-hidden="true" className="w-6" />
+              <p className="ui text-[14px] font-[750] uppercase tracking-[0.08em] text-[var(--muted)]">
+                What used to stop you
+              </p>
+              <p className="ui hidden text-[14px] font-[750] uppercase tracking-[0.08em] text-[var(--good-text)] sm:block">
+                What happens now
+              </p>
+            </div>
+
             {friction.map((f, i) => (
               <div
                 key={f.before}
-                className={`grid sm:grid-cols-2 gap-x-6 gap-y-1 px-5 sm:px-6 py-4 ${
+                className={`grid grid-cols-[auto_minmax(0,1fr)] items-baseline gap-x-4 gap-y-1.5 px-5 py-4 sm:grid-cols-[auto_minmax(0,0.95fr)_minmax(0,1.15fr)] sm:px-6 ${
                   i > 0 ? "border-t border-[var(--rule)]" : ""
                 }`}
               >
-                <p className="text-[16.5px] leading-[1.5] text-[var(--muted)] line-through decoration-[var(--rule-strong)]">
+                <span
+                  aria-hidden="true"
+                  className="flex h-6 w-6 shrink-0 translate-y-[3px] items-center justify-center rounded-full bg-[var(--good)] text-[13px] font-[800] text-white"
+                >
+                  ✓
+                </span>
+                <p className="text-[16.5px] leading-[1.5] text-[var(--muted)] line-through decoration-[var(--rule-strong)] decoration-[1.5px]">
                   {f.before}
                 </p>
-                <p className="text-[16.5px] leading-[1.5] text-[var(--ink)] font-[560]">
+                <p className="col-start-2 text-[16.5px] font-[600] leading-[1.5] text-[var(--ink)] sm:col-start-3">
                   {f.now}
                 </p>
               </div>
             ))}
+
+            <p className="border-t-2 border-[var(--ink)] bg-[var(--surface-2)] px-5 py-4 text-[17px] font-[680] leading-[1.45] sm:px-6">
+              Five jobs. Every one of them already done before you arrive.
+            </p>
           </div>
         </section>
 
