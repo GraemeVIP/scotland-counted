@@ -27,6 +27,7 @@ import {
   rolesForTopics,
   topicsByIds,
 } from "@/lib/data/letterTopics";
+import { trackEvent } from "@/lib/analytics";
 
 function StepLabel({ n, children }: { n: number; children: React.ReactNode }) {
   return (
@@ -149,11 +150,13 @@ export default function LetterBuilder() {
       setSlug(result.council.slug);
       setPostcode(result.postcode);
       setLookupState("success");
+      trackEvent("postcode_lookup_success", { council: result.council.slug });
     } catch (error) {
       setLookupState("error");
       setLookupError(
         error instanceof Error ? error.message : "The representative lookup is unavailable."
       );
+      trackEvent("postcode_lookup_error");
     }
   }, []);
 
@@ -190,6 +193,7 @@ export default function LetterBuilder() {
     try {
       await navigator.clipboard.writeText(letter);
       setCopied(role);
+      trackEvent("letter_copied", { role, topic_count: topics.length });
       setTimeout(() => setCopied(null), 3200);
     } catch {
       setCopied(null);
@@ -416,6 +420,12 @@ export default function LetterBuilder() {
                   <div className="grid gap-2.5 mt-4">
                     <a
                       href={mailtoFor(representative, letter)}
+                      onClick={() =>
+                        trackEvent("mailto_opened", {
+                          role: representative.role,
+                          topic_count: topics.length,
+                        })
+                      }
                       className="btn btn-primary w-full justify-center text-center"
                       aria-label={`Open ready-to-send email to ${representative.name}, your ${representative.role}`}
                     >
