@@ -83,6 +83,12 @@ export default function CouncilTaxPage() {
             </p>
             <p>On a low income you may pay a lot less. We explain how below.</p>
           </InShort>
+          <p className="mt-4 text-[16px] leading-[1.6] text-[var(--ink-2)]">
+            Need the rules as well as the price? Read the{" "}
+            <Link href="/blog/council-tax-in-scotland-guide">
+              plain-English guide to bands, discounts, reductions, appeals and arrears
+            </Link>.
+          </p>
         </div>
 
         <WaterCharge className="mb-10" />

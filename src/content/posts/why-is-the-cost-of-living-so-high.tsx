@@ -73,6 +73,12 @@ export default function Post() {
         ))}
       </div>
 
+      <P>
+        The detailed guides explain <Link href="/blog/why-food-prices-stay-high-when-inflation-falls">why
+        food stays expensive when inflation falls</Link> and why the <Link href="/blog/energy-price-cap-scotland-2026-explained">energy
+        price cap is not a maximum bill</Link>.
+      </P>
+
       <H2 id="what-started-it">What started the crisis</H2>
 
       <P>Two big shocks were real, global and outside the control of any Scottish MP.</P>
@@ -165,7 +171,8 @@ export default function Post() {
           <p>
             Local Housing Allowance limits how much Universal Credit can help a private renter
             with rent. It was reset in April 2024, then frozen again. The present UK Government
-            has continued that freeze through 2026–27.
+            has continued that freeze through 2026–27. <Link href="/blog/local-housing-allowance-rent-shortfall-scotland">See
+            the current Scottish rates and the Greater Glasgow shortfall</Link>.
           </p>
         </Decision>
 
@@ -218,7 +225,9 @@ export default function Post() {
         A worker aged 21 or over on the legal minimum of £12.71 an hour, paid for 37.5 hours every
         week, earns £24,784.50 gross a year. The Joseph Rowntree Foundation found that full-time
         minimum-wage pay covered only 76% of what a single adult needed for a basic acceptable
-        living standard in 2025. For a lone parent with two young children it covered 69%.
+        living standard in 2025. For a lone parent with two young children it covered 69%. See the
+        full <Link href="/blog/minimum-wage-take-home-pay-scotland-2026">minimum-wage take-home
+        calculation</Link>.
       </P>
 
       <Aside title="This is why 'get a job' is not an answer">
