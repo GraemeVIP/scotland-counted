@@ -13,6 +13,7 @@ export function G({ t, children }: { t: string; children: React.ReactNode }) {
   const [pos, setPos] = useState<{ top: number; left: number } | null>(null);
   const btnRef = useRef<HTMLButtonElement>(null);
   const boxRef = useRef<HTMLDivElement>(null);
+  const closeRef = useRef<HTMLButtonElement>(null);
   const term = getTerm(t);
 
   useEffect(() => {
@@ -35,6 +36,7 @@ export function G({ t, children }: { t: string; children: React.ReactNode }) {
       setPos({ top, left });
     }
     place();
+    const focusTimer = window.setTimeout(() => closeRef.current?.focus(), 0);
     const close = () => setOpen(false);
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -52,6 +54,7 @@ export function G({ t, children }: { t: string; children: React.ReactNode }) {
     window.addEventListener("resize", close);
     window.addEventListener("scroll", close, { passive: true });
     return () => {
+      window.clearTimeout(focusTimer);
       document.removeEventListener("keydown", onKey);
       document.removeEventListener("click", onClick);
       window.removeEventListener("resize", close);
@@ -68,6 +71,7 @@ export function G({ t, children }: { t: string; children: React.ReactNode }) {
         type="button"
         className="gl"
         aria-expanded={open}
+        aria-controls={open ? `glossary-${term.id}` : undefined}
         aria-label={`${typeof children === "string" ? children : term.term} — what this means`}
         onClick={(e) => {
           e.stopPropagation();
@@ -79,12 +83,15 @@ export function G({ t, children }: { t: string; children: React.ReactNode }) {
       {open && (
         <div
           ref={boxRef}
+          id={`glossary-${term.id}`}
           role="dialog"
-          aria-label={term.term}
+          aria-labelledby={`glossary-${term.id}-title`}
+          aria-describedby={`glossary-${term.id}-description`}
           className="glossbox"
           style={{ top: pos?.top ?? -9999, left: pos?.left ?? -9999 }}
         >
           <button
+            ref={closeRef}
             type="button"
             aria-label="Close"
             className="absolute top-1.5 right-2 text-[var(--muted)] hover:text-[var(--ink)] text-[17px] leading-none p-1"
@@ -95,10 +102,10 @@ export function G({ t, children }: { t: string; children: React.ReactNode }) {
           >
             &times;
           </button>
-          <div className="ui text-[15px] font-[680] text-[var(--brand)] mb-1.5">
+          <div id={`glossary-${term.id}-title`} className="ui text-[15px] font-[680] text-[var(--brand)] mb-1.5">
             {term.term}
           </div>
-          <div className="text-[var(--ink)]">{term.def}</div>
+          <div id={`glossary-${term.id}-description`} className="text-[var(--ink)]">{term.def}</div>
           {term.tech && (
             <div className="mt-2.5 pt-2.5 border-t border-[var(--rule)] text-[15px]">
               {term.tech}

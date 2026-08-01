@@ -27,7 +27,7 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
     type: "article",
     published: post.date,
     modified: post.updated ?? post.date,
-    image: post.image.src,
+    ownImage: true,
     keywords: post.tags,
   });
 }

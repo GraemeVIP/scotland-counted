@@ -202,6 +202,8 @@ export default function CommandPalette() {
   const [active, setActive] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const previousFocusRef = useRef<HTMLElement | null>(null);
   const registry = useMemo(() => buildRegistry(), []);
 
   const results = useMemo(() => {
@@ -238,8 +240,29 @@ export default function CommandPalette() {
         setQ("");
         setActive(0);
         setOpen((o) => !o);
+        return;
       }
-      if (e.key === "Escape") setOpen(false);
+      if (e.key === "Escape") {
+        e.preventDefault();
+        setOpen(false);
+        return;
+      }
+      if (!open || e.key !== "Tab") return;
+
+      const focusable = dialogRef.current?.querySelectorAll<HTMLElement>(
+        'button:not([disabled]), input:not([disabled]), [href], [tabindex]:not([tabindex="-1"])'
+      );
+      if (!focusable?.length) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
     }
     function onOpen() {
       setQ("");
@@ -252,18 +275,29 @@ export default function CommandPalette() {
       window.removeEventListener("keydown", onKey);
       window.removeEventListener("open-command", onOpen);
     };
-  }, []);
+  }, [open]);
 
   useEffect(() => {
-    if (open) {
-      // Focus after the dialog paints.
-      const t = setTimeout(() => inputRef.current?.focus(), 20);
-      document.body.style.overflow = "hidden";
-      return () => {
-        clearTimeout(t);
-        document.body.style.overflow = "";
-      };
+    if (!open) {
+      const previous = previousFocusRef.current;
+      if (previous && document.contains(previous)) {
+        requestAnimationFrame(() => previous.focus());
+      }
+      return;
     }
+
+    previousFocusRef.current = document.activeElement instanceof HTMLElement
+      ? document.activeElement
+      : null;
+
+    // Focus after the dialog paints and keep the page behind it still.
+    const t = setTimeout(() => inputRef.current?.focus(), 20);
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      clearTimeout(t);
+      document.body.style.overflow = previousOverflow;
+    };
   }, [open]);
 
   function go(item: Item) {
@@ -305,6 +339,7 @@ export default function CommandPalette() {
         onClick={() => setOpen(false)}
       />
       <div
+        ref={dialogRef}
         className="relative w-full max-w-[640px] rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule-strong)] overflow-hidden"
         style={{ boxShadow: "var(--shadow-3)" }}
       >

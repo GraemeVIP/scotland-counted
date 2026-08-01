@@ -34,7 +34,7 @@ function SearchButton() {
         <circle cx="11" cy="11" r="7" />
         <path d="m20 20-3.8-3.8" />
       </svg>
-      <span className="ui hidden md:block whitespace-nowrap text-[15px] font-[560] text-[var(--muted)] group-hover:text-[var(--ink)] transition-colors">
+      <span className="ui hidden xl:block whitespace-nowrap text-[15px] font-[560] text-[var(--muted)] group-hover:text-[var(--ink)] transition-colors">
         Search site or area
       </span>
       {/*
@@ -108,7 +108,7 @@ export function Header() {
           <Wordmark className="text-[19px]" />
         </Link>
 
-        <nav aria-label="Main" className="hidden xl:flex items-center gap-4 2xl:gap-5 ml-2">
+        <nav aria-label="Main" className="hidden lg:flex items-center gap-3 xl:gap-4 2xl:gap-5 ml-2">
           {NAV.map((n) => {
             const active = pathname === n.href || pathname.startsWith(n.href + "/");
             return (
@@ -132,7 +132,7 @@ export function Header() {
             onClick={() => setBrowsePath(browse ? null : pathname)}
             aria-expanded={browse}
             aria-controls="browse-panel"
-            className="ui relative whitespace-nowrap text-[15px] font-[620] tracking-[-0.005em] py-1 transition-colors text-[var(--ink-2)] hover:text-[var(--ink)] inline-flex items-center gap-1.5"
+            className="ui relative hidden lg:inline-flex whitespace-nowrap text-[15px] font-[620] tracking-[-0.005em] py-1 transition-colors text-[var(--ink-2)] hover:text-[var(--ink)] items-center gap-1.5"
           >
             Everything
             <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" aria-hidden="true" className={`transition-transform ${browse ? "rotate-180" : ""}`}>
@@ -152,7 +152,7 @@ export function Header() {
           </Link>
           <button
             type="button"
-            className="xl:hidden w-11 h-11 inline-flex items-center justify-center text-[var(--ink-2)]"
+            className="lg:hidden w-11 h-11 inline-flex items-center justify-center text-[var(--ink-2)]"
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label="Menu"

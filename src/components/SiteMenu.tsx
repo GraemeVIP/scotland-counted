@@ -143,16 +143,16 @@ export function DesktopMenu({ onNavigate }: { onNavigate: () => void }) {
   return (
     <div
       id="browse-panel"
-      className="hidden xl:block border-t border-[var(--rule)] bg-[var(--surface)] shadow-[var(--shadow-3)]"
+      className="hidden lg:block border-t border-[var(--rule)] bg-[var(--surface)] shadow-[var(--shadow-3)]"
     >
-      <div className="max-w-[1440px] mx-auto px-14 py-9 grid grid-cols-[minmax(0,0.9fr)_minmax(0,2.1fr)] gap-12">
+      <div className="max-w-[1232px] mx-auto px-5 sm:px-8 lg:px-14 py-9 grid gap-8 xl:gap-12 lg:grid-cols-[minmax(250px,0.9fr)_minmax(0,2.1fr)]">
         <FindYourPlace onNavigate={onNavigate} />
-        <div className="grid grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 xl:grid-cols-4 gap-6 xl:gap-8">
           <SectionList onNavigate={onNavigate} />
         </div>
       </div>
       <div className="border-t border-[var(--rule)] bg-[var(--surface-2)]">
-        <div className="max-w-[1440px] mx-auto px-14 py-5 flex flex-wrap items-center justify-between gap-6">
+        <div className="max-w-[1232px] mx-auto px-5 sm:px-8 lg:px-14 py-5 flex flex-wrap items-center justify-between gap-6">
           <Inventory onNavigate={onNavigate} />
           <div className="flex flex-wrap items-center gap-x-7 gap-y-2">
             {MENU_FOOTER_LINKS.map((l) => (
@@ -190,7 +190,7 @@ export function MobileMenu({ onNavigate }: { onNavigate: () => void }) {
     <nav
       id="mobile-nav"
       aria-label="Main"
-      className="xl:hidden fixed inset-x-0 top-[68px] bottom-0 z-40 overflow-y-auto overscroll-contain border-t border-[var(--rule)] bg-[var(--paper)]"
+      className="lg:hidden fixed inset-x-0 top-[68px] bottom-0 z-40 overflow-y-auto overscroll-contain border-t border-[var(--rule)] bg-[var(--paper)]"
     >
       <div className="px-5 py-5 space-y-7">
         <FindYourPlace onNavigate={onNavigate} />

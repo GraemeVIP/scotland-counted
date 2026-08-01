@@ -8,9 +8,12 @@ import { CountUp } from "@/components/Motion";
    Containers
    ============================================================ */
 
-/** Full page width. Wide enough for data, with real margins. */
+/** Shared content frame. Full-bleed sections opt out explicitly below. */
 export function Page({ children }: { children: ReactNode }) {
-  return <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14">{children}</div>;
+  // 1,232px includes the desktop gutters (56px each), leaving the same
+  // 1,120px reading frame used by PageHeader and ContentFrame. Keeping the
+  // outer and inner frames separate lets the mobile gutters stay fluid.
+  return <div className="max-w-[1232px] mx-auto px-5 sm:px-8 lg:px-14">{children}</div>;
 }
 
 /**
@@ -76,7 +79,7 @@ export function FullBleed({
   className?: string;
 }) {
   return (
-    <div className={`relative left-1/2 right-1/2 -mx-[50vw] w-screen ${className}`}>
+    <div className={`relative left-1/2 -ml-[50vw] w-screen ${className}`}>
       {children}
     </div>
   );
@@ -395,7 +398,7 @@ export function Slab({
   return (
     <FullBleed className="my-16 sm:my-24">
       <div className="bg-[var(--deep)] text-[var(--deep-ink)] py-20 sm:py-28">
-        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14">
+        <div className="max-w-[1232px] mx-auto px-5 sm:px-8 lg:px-14">
           <Reveal>
             <p className="display text-[clamp(26px,3.6vw,46px)] max-w-[19ch] font-[750]">
               {children}
@@ -438,7 +441,7 @@ export function CTA({
   return (
     <FullBleed className="mt-20 -mb-24 sm:mt-28">
       <div className="bg-[var(--deep)] text-[var(--deep-ink)] py-16 sm:py-20">
-        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14">
+        <div className="max-w-[1232px] mx-auto px-5 sm:px-8 lg:px-14">
           <div className="grid gap-x-14 gap-y-8 lg:grid-cols-[minmax(0,1fr)_minmax(380px,0.72fr)] lg:items-center">
             <div>
               <h2 className="h2 mb-4 max-w-[18ch]">{title}</h2>

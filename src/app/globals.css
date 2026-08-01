@@ -201,6 +201,9 @@
 
   html {
     scroll-behavior: smooth;
+    /* Full-bleed bands are deliberately viewport-wide; hide the fractional
+       scrollbar gutter they can otherwise expose as a desktop x-scrollbar. */
+    overflow-x: clip;
     /*
      * The header is sticky and 68px tall, so anything scrolled to lands
      * underneath it — an anchor link, a jump to a question, a browser restoring
@@ -221,6 +224,7 @@
     font-size: 18px;
     line-height: 1.6;
     margin: 0;
+    overflow-x: clip;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }

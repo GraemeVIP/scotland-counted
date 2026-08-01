@@ -88,7 +88,7 @@ export default function DecadeScroll() {
     <section
       ref={outerRef}
       id="the-decade"
-      className="relative left-1/2 right-1/2 -mx-[50vw] w-screen h-[420vh] no-print"
+      className="relative w-full h-[300vh] no-print"
       aria-label="The decade, year by year: child poverty in Glasgow from 2014/15 to 2023/24"
     >
       {/* Full story for screen readers and print, independent of scroll state. */}
@@ -111,7 +111,7 @@ export default function DecadeScroll() {
           }}
         />
 
-        <div className="relative max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 h-full flex flex-col justify-center py-10">
+        <div className="relative max-w-[1232px] mx-auto px-5 sm:px-8 lg:px-14 h-full flex flex-col justify-center py-10">
           <div className="grid gap-x-16 gap-y-9 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] lg:items-center">
             {/* ---- Narration ---- */}
             <div className="order-2 lg:order-1">

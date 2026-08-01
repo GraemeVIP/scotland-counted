@@ -103,7 +103,7 @@ export default function WhyGlasgow() {
             eyebrow="Reason one"
             title="Past decisions did lasting damage"
           />
-          <div className="sm:pl-[calc(2ch+2rem)] mt-8">
+          <div className="mt-8">
             <Split
               aside={
                 <div className="grid gap-6">
@@ -165,7 +165,7 @@ export default function WhyGlasgow() {
             eyebrow="Reason two"
             title="There are plenty of jobs. Pay and hours can still leave people short."
           />
-          <div className="sm:pl-[calc(2ch+2rem)] mt-8">
+          <div className="mt-8">
             <Split
               aside={
                 <div className="grid gap-6">
@@ -277,7 +277,7 @@ export default function WhyGlasgow() {
             eyebrow="Reason three"
             title="Cuts hit Glasgow families harder"
           />
-          <div className="sm:pl-[calc(2ch+2rem)] mt-8">
+          <div className="mt-8">
             <Split
               aside={
                 <div className="grid gap-6">
@@ -318,7 +318,7 @@ export default function WhyGlasgow() {
             eyebrow="Reason four"
             title="Rent leaves families with too little"
           />
-          <div className="sm:pl-[calc(2ch+2rem)] mt-8">
+          <div className="mt-8">
             <Split
               aside={
                 <div className="grid gap-6">

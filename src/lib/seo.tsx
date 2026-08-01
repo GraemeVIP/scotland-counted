@@ -4,6 +4,7 @@ import { site } from "@/lib/site";
 /** What the root layout appends, and roughly what Google will display. */
 const BRAND_SUFFIX = ` — ${site.name}`;
 const TITLE_BUDGET = 60;
+const RSS_FEED_URL = `${site.url}/feed.xml`;
 
 /**
  * Builds page metadata consistently: canonical URL, Open Graph,
@@ -60,7 +61,10 @@ export function meta({
     title: title.length + BRAND_SUFFIX.length <= TITLE_BUDGET ? title : { absolute: title },
     description,
     ...(keywords ? { keywords } : {}),
-    alternates: { canonical: url },
+    alternates: {
+      canonical: url,
+      types: { "application/rss+xml": RSS_FEED_URL },
+    },
     openGraph: {
       title,
       description,
@@ -114,16 +118,17 @@ export function orgJsonLd() {
   };
 }
 
-/** JSON-LD for an analytical article page. */
+/** JSON-LD for an editorial page, or a blog article when the path calls for it. */
 export function articleJsonLd({
   headline,
   description,
   path,
-  published = site.dataCheckedISO,
-  modified = site.dataCheckedISO,
+  published,
+  modified,
   image,
   section,
   keywords,
+  schemaType,
 }: {
   headline: string;
   description: string;
@@ -133,19 +138,26 @@ export function articleJsonLd({
   image?: string;
   section?: string;
   keywords?: string[];
+  /** Blog posts are the only pages that should be article-like structured data. */
+  schemaType?: "WebPage" | "Article" | "NewsArticle" | "BlogPosting";
 }) {
+  const type = schemaType ?? (path.startsWith("/blog/") ? "BlogPosting" : "WebPage");
+  const isArticle = type === "Article" || type === "NewsArticle" || type === "BlogPosting";
+  const url = `${site.url}${path}`;
+
   return {
     "@context": "https://schema.org",
-    "@type": "AnalysisNewsArticle",
-    headline,
+    "@type": type,
+    ...(isArticle ? { headline } : { name: headline }),
     description,
-    datePublished: published,
-    dateModified: modified,
+    ...(published ? { datePublished: published } : {}),
+    ...(modified ? { dateModified: modified } : {}),
     inLanguage: "en-GB",
     isAccessibleForFree: true,
-    mainEntityOfPage: `${site.url}${path}`,
+    url,
+    mainEntityOfPage: url,
     ...(image ? { image: image.startsWith("http") ? image : `${site.url}${image}` } : {}),
-    ...(section ? { articleSection: section } : {}),
+    ...(isArticle && section ? { articleSection: section } : {}),
     ...(keywords ? { keywords: keywords.join(", ") } : {}),
     author: { "@id": `${site.url}/#author`, "@type": "Person", name: site.author.name, url: site.author.url },
     publisher: {
@@ -164,6 +176,8 @@ export function datasetJsonLd({
   keywords,
   temporalCoverage,
   spatialCoverage = "Scotland",
+  license,
+  dateModified = site.dataCheckedISO,
 }: {
   name: string;
   description: string;
@@ -171,6 +185,9 @@ export function datasetJsonLd({
   keywords: string[];
   temporalCoverage: string;
   spatialCoverage?: string;
+  /** Only include this when every item in the dataset has that licence. */
+  license?: string;
+  dateModified?: string;
 }) {
   return {
     "@context": "https://schema.org",
@@ -181,7 +198,8 @@ export function datasetJsonLd({
     keywords,
     temporalCoverage,
     spatialCoverage: { "@type": "Place", name: spatialCoverage },
-    license: "https://creativecommons.org/licenses/by/4.0/",
+    ...(license ? { license } : {}),
+    ...(dateModified ? { dateModified } : {}),
     isAccessibleForFree: true,
     creator: {
       "@type": "Organization",
@@ -246,12 +264,15 @@ export function imageJsonLd({
   title,
   width,
   height,
+  license,
 }: {
   src: string;
   alt: string;
   title: string;
   width: number;
   height: number;
+  /** Include only when the image's rights are known and uniform. */
+  license?: string;
 }) {
   return {
     "@context": "https://schema.org",
@@ -261,8 +282,12 @@ export function imageJsonLd({
     caption: alt,
     width,
     height,
-    license: "https://creativecommons.org/licenses/by/4.0/",
-    acquireLicensePage: `${site.url}/press`,
+    ...(license
+      ? {
+          license,
+          acquireLicensePage: `${site.url}/press`,
+        }
+      : {}),
     creditText: site.name,
     creator: { "@type": "Organization", name: site.organisation.name, url: site.organisation.url },
   };

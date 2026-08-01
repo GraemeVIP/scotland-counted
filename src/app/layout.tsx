@@ -58,7 +58,10 @@ export const metadata: Metadata = {
     "SIMD Glasgow",
     "Glasgow life expectancy",
   ],
-  alternates: { canonical: site.url },
+  alternates: {
+    canonical: site.url,
+    types: { "application/rss+xml": `${site.url}/feed.xml` },
+  },
   openGraph: {
     type: "website",
     siteName: site.name,

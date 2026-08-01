@@ -19,7 +19,7 @@ import { site } from "../site.config";
 
 const CANONICAL_HOST = new URL(site.url).host;
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const response = NextResponse.next();
   const host = request.headers.get("host");
 
@@ -37,6 +37,6 @@ export function middleware(request: NextRequest) {
   return response;
 }
 
-export const config = {
+export const proxyConfig = {
   matcher: ["/((?!_next/static|_next/image).*)"],
 };
