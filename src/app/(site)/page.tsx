@@ -12,7 +12,7 @@ import VideoEmbed from "@/components/VideoEmbed";
 import Quiz from "@/components/Quiz";
 import ShareGraphic from "@/components/ShareGraphic";
 import { infographic } from "@/lib/data/infographic";
-import { costOfLivingVideo as VIDEO } from "@/lib/data/video";
+import { explainerVideo } from "@/lib/data/video";
 
 export const metadata = meta({
   title: "Poverty in Scotland, explained clearly",
@@ -71,45 +71,54 @@ export default function Home() {
       <Hero />
 
       {/*
-        The video sits directly under the hero, on a dark band so it reads as a
-        thing in its own right rather than an illustration inside an article.
-        It is six minutes and it answers the question most people actually
-        arrive with, so it earns the position — but it loads nothing from
-        YouTube until somebody presses play.
+        The explainer leads, directly under the hero, on a dark band so it reads
+        as a thing in its own right rather than an illustration inside an
+        article. A stranger who has just landed needs to know what they are
+        looking at before they need an argument about energy profits, so this is
+        the one that gets the position.
+
+        The cost-of-living video is still here, but as one line rather than a
+        second player — two videos competing under the hero would mean neither
+        gets watched. It lives properly on the post it belongs to.
       */}
-      <JsonLd data={videoJsonLd(VIDEO)} />
+      <JsonLd data={videoJsonLd(explainerVideo)} />
       <FullBleed>
         <div className="bg-[var(--deep)] py-14 text-[var(--deep-ink)] sm:py-20">
           <Page>
             <div className="mx-auto grid max-w-[1120px] gap-x-14 gap-y-9 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:items-center">
               <div>
-                <p className="kicker mb-3 text-[var(--action)]">Start here · 6 minutes</p>
+                <p className="kicker mb-3 text-[var(--action)]">Start here · 4 minutes</p>
                 <h2
                   id="explainer-video"
                   className="display-stat text-[clamp(32px,4vw,50px)] max-w-[15ch]"
                 >
-                  Where did the money actually go?
+                  Nearly a million people, and most of them work
                 </h2>
                 <p className="mt-5 max-w-[46ch] text-[17.5px] leading-[1.6] opacity-85">
-                  Your bills went up and stayed up. You were told it was the war, or the pandemic,
-                  or just bad luck. Some of it was. This is what the rest of it was — energy
-                  profits, supermarket fuel margins, and what the ONS, the IMF and the competition
-                  watchdog found when they looked.
+                  Four minutes on what is actually happening here, and what you can do about it.
+                  Why one in six people are in poverty once the rent is paid, why three in four
+                  children in poverty have a working parent, how far it changes between one council
+                  and the next, and how to put a question to your MP and MSP in about a minute.
                 </p>
-                <Link
-                  href="/blog/why-is-the-cost-of-living-so-high"
-                  className="ui mt-6 inline-block text-[16px] font-[680] underline decoration-current/40 underline-offset-4 hover:decoration-current"
-                >
-                  Read the written version, with every source
-                  <span aria-hidden="true"> →</span>
-                </Link>
+
+                <p className="mt-7 border-t border-white/15 pt-5 max-w-[46ch] text-[15.5px] leading-[1.6] opacity-70">
+                  Rather have the argument about your bills?{" "}
+                  <Link
+                    href="/blog/why-is-the-cost-of-living-so-high"
+                    className="font-[680] underline decoration-current/40 underline-offset-4 hover:decoration-current"
+                  >
+                    Where the money actually went
+                  </Link>{" "}
+                  is six minutes on energy profits, supermarket fuel margins and what the ONS, the
+                  IMF and the competition watchdog found.
+                </p>
               </div>
 
               <VideoEmbed
                 onDark
-                id={VIDEO.youtubeId}
-                title={VIDEO.name}
-                poster={VIDEO.thumbnail}
+                id={explainerVideo.youtubeId}
+                title={explainerVideo.name}
+                poster={explainerVideo.thumbnail}
               />
             </div>
           </Page>
