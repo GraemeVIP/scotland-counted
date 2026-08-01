@@ -120,19 +120,26 @@ export default function TheNumbers() {
           ))}
         </div>
 
+        {/* This page is an index, not a charts page. The squiggle on each card
+            is a preview; the chart itself lives on the measure's own page. The
+            copy here used to read as instructions for charts that were not on
+            the screen. */}
         <section className="pt-20 sm:pt-24">
           <Col>
-            <h2 className="h2 mb-5">If you want to look at the charts</h2>
+            <h2 className="h2 mb-5">Each measure has its own chart</h2>
             <p>
-              Blue means Glasgow. Orange means Scotland. Any other line is named above the chart.
+              The small line on every card above is a preview. Open a card and you get the full
+              chart, ten years of figures and the source it came from.
             </p>
             <p>
-              If a figure may be unreliable, the line is dotted and the reason is stated. Tap
-              “See the numbers behind this chart” for every exact value. Journalists and
-              researchers can also <Link href="/data">download all the data</Link>.
+              On those charts, blue is Glasgow and orange is Scotland. Any other line is named
+              above it. If a figure may be unreliable the line is dotted and the reason is given,
+              and every chart has a “See the numbers behind this chart” button with the exact
+              values.
             </p>
             <p>
-              The simple version comes first, but nobody has to take our word for it.
+              The simple version comes first, but nobody has to take our word for it. Journalists
+              and researchers can <Link href="/data">download all the data</Link>.
             </p>
           </Col>
         </section>

@@ -181,39 +181,61 @@ export default function WhyGlasgow() {
               }
             >
               <p>
-                Glasgow is not short of jobs. In {jobsDensity.year} there were{" "}
-                <strong>
-                  {jobsDensity.glasgow} jobs inside the city for every working-age person living in
-                  it
-                </strong>{" "}
-                — against {jobsDensity.scotland} for Scotland as a whole.
+                Glasgow is not short of work. There are more jobs inside the city than there are
+                working-age people living in it. What the city is short of is jobs that pay enough
+                to live on.
               </p>
               <p>
-                More jobs does not automatically mean enough money. The legal minimum for someone
-                aged 21 or over is £12.71 an hour. At 37.5 paid hours a week for a full year, that
-                is <strong>£24,784.50 before tax</strong>. Many people get fewer hours, changing
-                shifts or unpaid gaps and receive less.
-              </p>
-              <p>
-                Minimum Income Standard research found that in 2025 a single adult working full
-                time at the legal minimum reached only 76% of what the public agreed was needed
-                for a basic, decent life. A lone parent with children aged 3 and 7 reached only
-                69%. That
-                helps explain why{" "}
-                <Link href="/indicators/work">the employment chart</Link> and{" "}
+                That is why <Link href="/indicators/work">the employment chart</Link> and{" "}
                 <Link href="/indicators/child-poverty">the child poverty chart</Link> point in
-                opposite directions.
-              </p>
-              <p>
-                The pay chart below is narrower. Its £796.50 figure is for a selected sample of
-                full-time PAYE employee jobs based in Glasgow in one April 2025 pay period. It is
-                not the average Glasgow wage, and it excludes part-time jobs, self-employment and
-                other workers. The two lines describe separate groups, so their £51 difference
-                does not prove that £51 of wages leaves the city.
+                opposite directions. More people in work, more children in poverty.
               </p>
             </Split>
 
-            <div className="mt-10">
+            {/* The numbers were buried inside sentences. Out here they are the
+                first thing the eye lands on, which is the whole argument. */}
+            <div className="mt-9 grid gap-4 sm:grid-cols-3">
+              {[
+                {
+                  value: `${jobsDensity.glasgow}`,
+                  label: "jobs in the city for every working-age resident",
+                  note: `${jobsDensity.scotland} across Scotland · ${jobsDensity.year}`,
+                },
+                {
+                  value: "£24,785",
+                  label: "a year on the legal minimum, before tax",
+                  note: "£12.71 an hour at 37.5 hours · fewer hours means less",
+                },
+                {
+                  value: "76%",
+                  label: "of a basic, decent life that covers",
+                  note: "69% for a lone parent with two children · JRF",
+                },
+              ].map((stat) => (
+                <div
+                  key={stat.label}
+                  className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5"
+                >
+                  <p className="display-stat text-[clamp(30px,3.4vw,40px)] text-[var(--brand)]">
+                    {stat.value}
+                  </p>
+                  <p className="mt-2.5 text-[16px] font-[640] leading-[1.4]">{stat.label}</p>
+                  <p className="mt-2 text-[14.5px] leading-[1.45] text-[var(--muted)]">
+                    {stat.note}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <p className="mt-8 max-w-[64ch] rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface-2)] px-5 py-4 text-[15.5px] leading-[1.55] text-[var(--ink-2)]">
+              <strong className="text-[var(--ink)]">Before you read the chart below:</strong> the
+              £796.50 on it is not the average Glasgow wage. It covers a selected sample of
+              full-time employee jobs and excludes every part-time job and all self-employment.{" "}
+              <Link href="/indicators/pay">We explain what it does and does not measure</Link>,
+              including the full spread of pay and what it means after tax.
+            </p>
+
+            <div className="mt-8">
               <Figure
                 n={2}
                 title={pay.chartTitle}
