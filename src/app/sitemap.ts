@@ -4,6 +4,7 @@ import { constituencies } from "@/lib/data/constituencies";
 import { indicators, lifeExpectancy, deprivation } from "@/lib/data/indicators";
 import { postCategories, posts } from "@/lib/data/posts";
 import { site } from "../../site.config";
+import { BAND_LETTERS } from "@/lib/data/councilTax";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -15,7 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${site.url}/blog`, changeFrequency: "weekly", priority: 0.9 },
     { url: `${site.url}/faq`, changeFrequency: "monthly", priority: 0.85 },
     { url: `${site.url}/your-power`, changeFrequency: "monthly", priority: 0.95 },
-    { url: `${site.url}/council-tax`, changeFrequency: "yearly", priority: 0.9 },
+    { url: `${site.url}/council-tax-bands-scotland`, changeFrequency: "yearly", priority: 0.9 },
     { url: `${site.url}/browse`, changeFrequency: "weekly", priority: 0.7 },
     { url: `${site.url}/constituencies`, changeFrequency: "yearly", priority: 0.9 },
     { url: `${site.url}/what-would-fix-it`, changeFrequency: "monthly", priority: 0.85 },
@@ -52,6 +53,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${site.url}/constituencies/${c.slug}`,
     changeFrequency: "yearly" as const,
     priority: 0.7,
+  }));
+
+  const bandPages: MetadataRoute.Sitemap = BAND_LETTERS.map((b) => ({
+    url: `${site.url}/council-tax-bands-scotland/${b.toLowerCase()}`,
+    changeFrequency: "yearly" as const,
+    priority: 0.8,
   }));
 
   const postPages: MetadataRoute.Sitemap = posts.map((p) => ({

@@ -7,10 +7,10 @@ import { councils } from "@/lib/data/councils";
 import { getSources } from "@/lib/data/sources";
 
 export const metadata = meta({
-  title: "Council tax bands and charges in Scotland",
+  title: "Council tax bands in Scotland: how much is my council tax?",
   description:
-    "What council tax actually costs in every Scottish council area, by band, with the water and waste water charges included. Enter your postcode and see the real annual bill.",
-  path: "/council-tax",
+    "How much council tax you pay in Scotland, by band and by council. Every band from A to H with water and waste water included, which most figures leave out. Enter your postcode for your own council.",
+  path: "/council-tax-bands-scotland",
   type: "website",
 });
 
@@ -31,6 +31,18 @@ const FAQ = [
     q: "Why is council tax different in each council area?",
     a: "Each of Scotland's 32 councils sets its own Band D rate, and every other band is a fixed proportion of it. Band A is two thirds of Band D; Band H is about two and a half times it. So the same size of home costs different amounts in different council areas.",
   },
+  {
+    q: "What months are free of council tax?",
+    a: "Most Scottish councils spread the bill over 10 instalments from April to January, so February and March have no payment. That is not a discount — the same total is collected in ten payments rather than twelve. You can usually ask your council to spread it over 12 months instead, which makes each payment smaller.",
+  },
+  {
+    q: "How is council tax calculated?",
+    a: "Two things decide it. Your property has a band from A to H, set by the Scottish Assessors from what it was worth in April 1991. Your council then sets a Band D rate each year, and every other band is a fixed fraction of that: Band A is 240/360 of Band D, Band C is 320/360, Band H is 882/360.",
+  },
+  {
+    q: "How much is council tax a month in Scotland?",
+    a: "It depends on your band and your council. At Band A, the most common band in Scotland, the bill including water is roughly £125 to £135 a month. At Band D it is roughly £180 to £195. The postcode lookup above gives your own council's exact figures.",
+  },
 ];
 
 export default function CouncilTaxPage() {
@@ -45,16 +57,16 @@ export default function CouncilTaxPage() {
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Home", path: "/" },
-          { name: "Council tax", path: "/council-tax" },
+          { name: "Council tax bands", path: "/council-tax-bands-scotland" },
         ])}
       />
       <JsonLd data={faqJsonLd(FAQ)} />
 
       <Page>
         <PageHeader
-          eyebrow="Every council area · every band"
-          title="What council tax actually costs in Scotland"
-          lede="Enter your postcode and see the real bill for every band, water charges included. Most figures online leave the water out, which understates it by hundreds of pounds a year."
+          eyebrow="Scotland · all 32 councils · bands A to H"
+          title="How much is my council tax?"
+          lede="Enter your postcode and see what every band costs where you live — with water and waste water included, which most figures leave out. Scotland only: the bands and rates here do not apply in England or Wales."
         />
 
         <div className="mt-2 mb-9">
