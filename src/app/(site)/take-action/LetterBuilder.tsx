@@ -19,6 +19,12 @@ import {
   type LetterArea,
   type RepresentativeRole,
 } from "@/lib/letter";
+import {
+  DEFAULT_TOPIC_ID,
+  rolesFor,
+  topicById,
+  topicsByKind,
+} from "@/lib/data/letterTopics";
 
 function StepLabel({ n, children }: { n: number; children: React.ReactNode }) {
   return (
@@ -56,6 +62,7 @@ export default function LetterBuilder() {
   const [name, setName] = useState("");
   const [postcode, setPostcode] = useState("");
   const [personal, setPersonal] = useState("");
+  const [topicId, setTopicId] = useState(DEFAULT_TOPIC_ID);
   const [lookup, setLookup] = useState<RepresentativeLookup | null>(null);
   const [lookupState, setLookupState] = useState<"idle" | "loading" | "error" | "success">(
     "idle"
@@ -85,22 +92,30 @@ export default function LetterBuilder() {
     };
   }, [council, first]);
 
+  const topic = useMemo(() => topicById(topicId), [topicId]);
+
   const drafts = useMemo(() => {
     if (!lookup) return [];
+    // Only write to the people who can actually act on this topic. Sending an
+    // NHS letter to an MP wastes the reader's time and the office's.
+    const wanted = rolesFor(topic);
 
-    return [lookup.mp, lookup.msp].filter((r): r is Representative => r !== null).map((representative) => ({
-      representative,
-      letter: buildLetter({
-        area,
-        role: representative.role,
+    return [lookup.mp, lookup.msp]
+      .filter((r): r is Representative => r !== null && wanted.includes(r.role))
+      .map((representative) => ({
         representative,
-        senderName: name,
-        personal,
-        postcode: lookup.postcode ?? postcode,
-        councilSlug: council.slug,
-      }),
-    }));
-  }, [lookup, area, council.slug, name, personal, postcode]);
+        letter: buildLetter({
+          area,
+          role: representative.role,
+          representative,
+          senderName: name,
+          personal,
+          postcode: lookup.postcode ?? postcode,
+          councilSlug: council.slug,
+          topic,
+        }),
+      }));
+  }, [lookup, area, council.slug, name, personal, postcode, topic]);
 
   const findRepresentativesFor = useCallback(async (value: string) => {
     setLookupState("loading");
@@ -168,7 +183,7 @@ export default function LetterBuilder() {
   }
 
   function mailtoFor(representative: Representative, letter: string) {
-    return `mailto:${representative.email}?subject=${encodeURIComponent(letterSubject(area))}&body=${encodeURIComponent(letter)}`;
+    return `mailto:${representative.email}?subject=${encodeURIComponent(letterSubject(area, topic))}&body=${encodeURIComponent(letter)}`;
   }
 
   return (
@@ -232,7 +247,44 @@ export default function LetterBuilder() {
         </div>
 
         <div className="mb-8">
-          <StepLabel n={2}>Add your name if you want</StepLabel>
+          <StepLabel n={2}>What is it about?</StepLabel>
+          <select
+            value={topicId}
+            onChange={(event) => setTopicId(event.target.value)}
+            aria-label="What the email is about"
+            className={inputCls}
+          >
+            <optgroup label="Campaign for a change">
+              {topicsByKind("campaign").map((t) => (
+                <option key={t.id} value={t.id}>
+                  {t.label}
+                </option>
+              ))}
+            </optgroup>
+            <optgroup label="Ask for help with something">
+              {topicsByKind("personal").map((t) => (
+                <option key={t.id} value={t.id}>
+                  {t.label}
+                </option>
+              ))}
+            </optgroup>
+          </select>
+
+          <p className="text-[15px] leading-[1.55] text-[var(--ink-2)] mt-2.5">{topic.blurb}</p>
+
+          {/* Who it goes to, and why. This is the part almost nobody knows. */}
+          <div className="mt-3 rounded-[var(--r-s)] border-l-[3px] border-[var(--brand)] bg-[var(--surface-2)] px-4 py-3">
+            <p className="ui text-[14px] font-[750] text-[var(--brand)] mb-1">
+              {topic.who === "both" ? "Goes to both" : `Goes to your ${topic.who}`}
+            </p>
+            <p className="text-[15px] leading-[1.55] text-[var(--ink-2)]">{topic.whyWho}</p>
+          </div>
+        </div>
+
+        <div className="mb-8">
+          <StepLabel n={3}>
+            {topic.needsDetail ? "Tell them what happened" : "Add your name if you want"}
+          </StepLabel>
           <div className="space-y-3">
             <input
               type="text"
@@ -246,19 +298,21 @@ export default function LetterBuilder() {
             <textarea
               value={personal}
               onChange={(event) => setPersonal(event.target.value)}
-              placeholder="Optional: add one sentence about your street, family, work or bills."
-              aria-label="A personal sentence for the email, optional"
-              rows={4}
+              placeholder={topic.prompt}
+              aria-label={topic.needsDetail ? "What you want to tell them" : "A personal sentence for the email, optional"}
+              rows={topic.needsDetail ? 7 : 4}
               className={`${inputCls} resize-y`}
             />
           </div>
           <p className="text-[15px] text-[var(--muted)] leading-[1.5] mt-3">
-            This is optional. Anything you add goes only into the draft opened by your email app.
+            {topic.needsDetail
+              ? "This is the part only you can write. It goes straight into the draft — nothing is sent to us, and nothing is saved."
+              : "This is optional. Anything you add goes only into the draft opened by your email app."}
           </p>
         </div>
 
         <div>
-          <StepLabel n={3}>Open and send</StepLabel>
+          <StepLabel n={4}>Open and send</StepLabel>
           {!lookup ? (
             <p className="rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--paper)] p-4 text-[15px] text-[var(--ink-2)] leading-[1.5]">
               Enter your postcode above. We will find both people and prepare both emails. You do
@@ -275,8 +329,8 @@ export default function LetterBuilder() {
                   </>
                 ) : (
                   <>
-                    <strong>Your email is ready.</strong> It goes to your MP, and only asks for
-                    things your MP can actually do.
+                    <strong>Your email is ready.</strong> It goes to your{" "}
+                    {drafts[0]?.representative.role ?? "MP"}, because that is who can act on this.
                   </>
                 )}
               </p>

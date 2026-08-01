@@ -5,10 +5,17 @@
  * council and both representatives) and the button on each constituency page
  * (which knows an MP area and its MP). They must say the same thing, so the
  * wording lives here rather than in either component.
+ *
+ * What a letter says now depends on the topic — see src/lib/data/letterTopics.ts.
+ * Campaign letters argue from the published local figures and make specific
+ * asks. Personal letters carry the reader's own words and ask the office to
+ * take the matter up. The child-poverty campaign remains the default, and its
+ * output is unchanged from before topics existed.
  */
 
 import type { Representative } from "@/lib/representatives";
 import { asOneIn } from "@/lib/plain-language";
+import { topicById, type LetterTopic } from "@/lib/data/letterTopics";
 
 export type RepresentativeRole = "MP" | "MSP";
 
@@ -35,38 +42,15 @@ export type LetterArea = {
   evidenceLine?: string;
 };
 
-export const ASKS: Array<{ line: string; who: RepresentativeRole; localOnly?: string }> = [
-  {
-    line: "Make sure help with private rent keeps up with real rents in this area.",
-    who: "MP",
-  },
-  {
-    line: "Increase the Scottish Child Payment for the families most likely to be poor.",
-    who: "MSP",
-  },
-  {
-    line: "Make sure every family entitled to the Scottish Child Payment actually gets it.",
-    who: "MSP",
-  },
-  {
-    line: "Fund enough affordable homes to meet the level experts say Scotland needs.",
-    who: "MSP",
-  },
-  {
-    line: "Close Glasgow's homelessness funding gap so families are not left in hotels and B&Bs.",
-    who: "MSP",
-    localOnly: "glasgow-city",
-  },
-];
-
-export function asksFor(role: RepresentativeRole, councilSlug?: string) {
-  return ASKS.filter(
+/** Asks this person can actually act on, for this topic and this area. */
+export function asksFor(topic: LetterTopic, role: RepresentativeRole, councilSlug?: string) {
+  return (topic.asks ?? []).filter(
     (ask) => ask.who === role && (!ask.localOnly || ask.localOnly === councilSlug)
   );
 }
 
-export function letterSubject(area: LetterArea) {
-  return `Poverty in ${area.name} — what will you do?`;
+export function letterSubject(area: LetterArea, topic: LetterTopic = topicById("child-poverty")) {
+  return topic.subject(area.name);
 }
 
 export function buildLetter({
@@ -77,6 +61,7 @@ export function buildLetter({
   personal = "",
   postcode = "",
   councilSlug,
+  topic = topicById("child-poverty"),
 }: {
   area: LetterArea;
   role: RepresentativeRole;
@@ -85,41 +70,90 @@ export function buildLetter({
   personal?: string;
   postcode?: string;
   councilSlug?: string;
+  topic?: LetterTopic;
 }) {
-  const asks = asksFor(role, councilSlug);
+  const greeting = `Dear ${representative?.name ?? `your ${role}`},`;
+  const signOff = `Yours sincerely,
+${senderName.trim() || "[your name]"}
+[your street address]
+${postcode.trim().toUpperCase() || "[your postcode]"}`;
+
+  /* ---------- Personal: their words, and a request to act ---------- */
+  if (topic.kind === "personal") {
+    const detail = personal.trim() || "[describe what has happened, and what you would like them to do]";
+    return `${greeting}
+
+I live in ${area.name} and I am one of your constituents.
+
+${topic.opening}
+
+${detail}
+
+I would be grateful if you could look into this and let me know what you are able to do. Please contact me at the address below.
+
+${signOff}`;
+  }
+
+  /* ---------- Campaign: the figures, the asks, the questions ---------- */
+  const asks = asksFor(topic, role, councilSlug);
   const direction = area.pct > area.firstPct ? "It has got worse." : "It has improved.";
   const personalPara = personal.trim() ? `\n${personal.trim()}\n` : "";
   const evidence = area.evidenceLine ? `${area.evidenceLine}\n\n` : "";
   const plainShare = asOneIn(area.pct);
   const shareSentence = plainShare.charAt(0).toUpperCase() + plainShare.slice(1);
 
-  return `Dear ${representative?.name ?? `your ${role}`},
-
-I live in ${area.name}, and I am writing about poverty in our area.
-
-${shareSentence} children here are growing up in poverty. The exact figure is ${area.pct}%, or ${area.count.toLocaleString("en-GB")} children. It was ${area.firstPct}% in ${area.firstYear}. ${direction}
+  const figures = topic.useLocalEvidence
+    ? `${shareSentence} children here are growing up in poverty. The exact figure is ${area.pct}%, or ${area.count.toLocaleString("en-GB")} children. It was ${area.firstPct}% in ${area.firstYear}. ${direction}
 
 ${evidence}The figures come from End Child Poverty and Loughborough University, using HMRC and DWP records. The Scottish figure for the same year was ${area.scotlandPct}%.
-${personalPara}
-As my ${role}, please tell me if you will support these steps:
+`
+    : "";
+
+  const questions = (topic.questions ?? []).map((q) => q.replace(/\{area\}/g, area.name));
+
+  const asksBlock = asks.length
+    ? `As my ${role}, please tell me if you will support these steps:
 
 ${asks.map((ask) => `- ${ask.line}`).join("\n")}
 
-Please also tell me:
+`
+    : `As my ${role}, I would like to know where you stand on this.
 
-1. What have you done on these issues so far?
-2. What do you expect the child-poverty figure in ${area.name} to be in five years?
+`;
 
-I would be grateful for a clear reply to both questions.
+  const questionsBlock = questions.length
+    ? `Please also tell me:
 
-Yours sincerely,
-${senderName.trim() || "[your name]"}
-[your street address]
-${postcode.trim().toUpperCase() || "[your postcode]"}`;
+${questions.map((q, i) => `${i + 1}. ${q}`).join("\n")}
+
+I would be grateful for a clear reply to ${questions.length === 2 ? "both" : "all"} questions.
+
+`
+    : "";
+
+  const body = `${greeting}
+
+I live in ${area.name}, and ${topic.opening}
+
+${figures}${personalPara}
+${asksBlock}${questionsBlock}${signOff}`;
+
+  /*
+   * A topic that quotes no figures and has no personal note leaves two empty
+   * blocks in a row, which prints as a double blank line. Collapsing any run of
+   * three or more newlines to two fixes it without special-casing each
+   * combination. The default letter contains no such run, so it is untouched.
+   */
+  return body.replace(/\n{3,}/g, "\n\n");
 }
 
-export function mailtoUrl(representative: Representative, area: LetterArea, letter: string) {
+export function mailtoUrl(
+  representative: Representative,
+  area: LetterArea,
+  letter: string,
+  topic: LetterTopic = topicById("child-poverty")
+) {
   return `mailto:${representative.email}?subject=${encodeURIComponent(
-    letterSubject(area)
+    letterSubject(area, topic)
   )}&body=${encodeURIComponent(letter)}`;
 }
