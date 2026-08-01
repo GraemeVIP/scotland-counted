@@ -35,6 +35,7 @@ export const SECTIONS: Array<{
       { href: "/areas", label: "All 32 council areas", blurb: "Child poverty, benefits and pay context where you live" },
       { href: "/constituencies", label: "All 57 MP areas", blurb: "The area each MP is responsible for" },
       { href: "/why-glasgow", label: "Glasgow", blurb: "Why the worst rate in Scotland is where it is" },
+      { href: "/council-tax", label: "Council tax by band", blurb: "What it really costs, water included" },
     ],
   },
   {
