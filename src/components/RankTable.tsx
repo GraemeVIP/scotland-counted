@@ -247,7 +247,17 @@ export default function RankTable({
                 {r.change > 0 ? "+" : ""}
                 {r.change} points
               </td>
-              <td className="py-2.5 border-b border-[var(--rule)] text-right tnum text-[var(--ink-2)]">
+              {/*
+                pr-4 like every other cell, and like this column's own header
+                button. Without it the last column was the one exception: its
+                numbers sat hard against the container edge with nothing to
+                breathe into, and — less obviously — sixteen pixels out of
+                line with the "Children" label directly above them.
+
+                The padding goes on the cell, not the row, so the shading on
+                Glasgow rows still runs the full width.
+              */}
+              <td className="pr-4 py-2.5 border-b border-[var(--rule)] text-right tnum text-[var(--ink-2)]">
                 {r.children.toLocaleString("en-GB")}
               </td>
             </tr>
