@@ -5,6 +5,7 @@ import { JsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
 import { getSources } from "@/lib/data/sources";
 import { TAX_DATA, calculate } from "@/lib/tax/engine";
 import { minimumWage, minimumWageTakeHome } from "@/lib/data/livingCosts";
+import ToolCTA from "@/components/ToolCTA";
 import Calculator from "./Calculator";
 
 export const metadata = meta({
@@ -153,6 +154,10 @@ export default function TakeHomePayCalculator() {
             — and why the average Glasgow pay figure you may have seen is not what a typical worker
             earns.
           </p>
+        </ContentFrame>
+
+        <ContentFrame className="pt-16">
+          <ToolCTA tool="council-tax" />
         </ContentFrame>
 
         {/* ---------- FAQ ---------- */}

@@ -209,6 +209,31 @@ export function Footer() {
           </nav>
         </div>
 
+        {/*
+          The two calculators, given their own row.
+          Both were reachable only through the "Everything" menu, which renders
+          on click and so contributes nothing a crawler can follow — between
+          them they had a single inbound link on the whole site. They are the
+          most useful things here for someone who arrived with a practical
+          question, so they get a permanent home instead.
+        */}
+        <div className="mt-6 pt-5 border-t border-current/15 flex flex-wrap items-center gap-x-4 gap-y-3">
+          <p className="kicker text-[var(--action)]">Free tools</p>
+          {[
+            { href: "/take-home-pay-calculator-scotland", label: "Take-home pay calculator" },
+            { href: "/council-tax-bands-scotland", label: "Council tax by band" },
+          ].map((t) => (
+            <Link
+              key={t.href}
+              href={t.href}
+              className="ui rounded-[var(--r-pill)] border border-current/30 px-4 py-2 text-[15px] font-[680] transition-colors hover:bg-white/10"
+            >
+              {t.label}
+              <span aria-hidden="true"> →</span>
+            </Link>
+          ))}
+        </div>
+
         <div className="mt-6 pt-4 border-t border-current/15 flex flex-wrap items-center justify-between gap-x-8 gap-y-2 text-[15px] leading-[1.5] opacity-68">
           <p>
             Data checked {site.dataUpdated} · ONS, DWP, Scottish Government and named research

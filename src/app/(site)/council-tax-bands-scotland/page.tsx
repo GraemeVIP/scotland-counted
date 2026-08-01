@@ -3,6 +3,7 @@ import { Page, PageHeader, InShort } from "@/components/Blocks";
 import { JsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
 import CouncilTaxLookup from "./CouncilTaxLookup";
 import WaterCharge from "@/components/WaterCharge";
+import ToolCTA from "@/components/ToolCTA";
 import { councilTaxByBand, chargesFor, COUNCIL_TAX_YEAR, WATER_YEAR } from "@/lib/data/councilTax";
 import { councils } from "@/lib/data/councils";
 import { getSources } from "@/lib/data/sources";
@@ -118,6 +119,8 @@ export default function CouncilTaxPage() {
             ))}
           </div>
         </section>
+
+        <ToolCTA tool="take-home" className="mt-14" />
 
         <section className="pt-14">
           <h2 className="h2 mb-6">Questions people ask</h2>

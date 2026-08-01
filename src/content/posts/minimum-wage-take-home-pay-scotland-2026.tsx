@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Prose, Lead, P, H2, UL, LI, BigStat, Aside, PostCTA } from "@/components/Prose";
+import ToolCTA from "@/components/ToolCTA";
 import { minimumWageTakeHome } from "@/lib/data/livingCosts";
 
 const money = new Intl.NumberFormat("en-GB", {
@@ -58,7 +59,14 @@ export default function Post() {
           pension contributions, student loans, tax codes or other deductions. The important part
           is that every input and step here is shown.
         </p>
+        <p>
+          To put your own hours, pension, student loan or tax code in, use the{" "}
+          <Link href="/take-home-pay-calculator-scotland">take-home pay calculator</Link>. It runs
+          the same sum as this page, from the same tested code.
+        </p>
       </Aside>
+
+      <ToolCTA tool="take-home" className="my-10" />
 
       <H2 id="hours">Why your pay may be lower</H2>
       <P>

@@ -262,6 +262,59 @@ export default function Home() {
 
         <WhyBother className="pb-10 sm:pb-12" />
 
+        {/*
+          Most people arrive with a practical question about their own money
+          long before they care about a poverty statistic. The two calculators
+          answer one immediately, and earn the right to the rest of the site.
+        */}
+        <section className="border-t border-[var(--rule)] py-12 sm:py-14" aria-labelledby="tools">
+          <div className="grid gap-x-14 gap-y-8 lg:grid-cols-[minmax(280px,0.62fr)_minmax(0,1.38fr)]">
+            <div>
+              <p className="kicker mb-3 text-[var(--action)]">Free, no sign-up</p>
+              <h2 id="tools" className="display-stat max-w-[12ch] text-[clamp(34px,4vw,52px)]">
+                Work out your own numbers
+              </h2>
+              <p className="mt-4 max-w-[34ch] text-[17px] leading-[1.55] text-[var(--ink-2)]">
+                Nothing you type is sent anywhere. Both sums happen in your browser.
+              </p>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {[
+                {
+                  href: "/take-home-pay-calculator-scotland",
+                  eyebrow: "Take-home pay",
+                  title: "What you actually keep",
+                  body: "Scotland's six tax bands, pensions and student loans. Or work backwards from the pay you need.",
+                },
+                {
+                  href: "/council-tax-bands-scotland",
+                  eyebrow: "Council tax",
+                  title: "What your band really costs",
+                  body: "All 32 councils, bands A to H, with the water charges most published figures leave out.",
+                },
+              ].map((t) => (
+                <Link
+                  key={t.href}
+                  href={t.href}
+                  className="group flex flex-col rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-6 no-underline transition-all duration-300 hover:-translate-y-1 hover:border-[var(--brand)] hover:shadow-[var(--shadow-2)]"
+                >
+                  <p className="label">{t.eyebrow}</p>
+                  <p className="mt-3 text-[21px] font-[770] leading-[1.2] transition-colors group-hover:text-[var(--brand)]">
+                    {t.title}
+                  </p>
+                  <p className="mt-2.5 text-[15.5px] leading-[1.55] text-[var(--ink-2)]">{t.body}</p>
+                  <span
+                    aria-hidden="true"
+                    className="mt-6 text-[18px] text-[var(--action)] transition-transform group-hover:translate-x-1.5"
+                  >
+                    →
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section className="border-t border-[var(--rule)] py-12 sm:py-14" aria-labelledby="questions">
           <div className="grid gap-x-14 gap-y-8 lg:grid-cols-[minmax(280px,0.62fr)_minmax(0,1.38fr)]">
             <div>
