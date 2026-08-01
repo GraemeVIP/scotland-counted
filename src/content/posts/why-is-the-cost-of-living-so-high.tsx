@@ -1,6 +1,10 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { Prose, Lead, P, H2, H3, UL, LI, BigStat, Aside, PostCTA } from "@/components/Prose";
+import VideoEmbed from "@/components/VideoEmbed";
+import { JsonLd, videoJsonLd } from "@/lib/seo";
+
+import { costOfLivingVideo as VIDEO } from "@/lib/data/video";
 
 function Decision({
   title,
@@ -37,6 +41,16 @@ export default function Post() {
         value="About 34%"
         label="rise in everyday household costs over five years for people on low incomes"
         exact="ONS Household Costs Index, five years to March 2026: 33.9%. These figures are official statistics in development."
+      />
+
+      <JsonLd data={videoJsonLd(VIDEO)} />
+
+      <VideoEmbed
+        id={VIDEO.youtubeId}
+        title={VIDEO.name}
+        poster="/images/video/cost-of-living-explained.webp"
+        className="my-10"
+        caption="Six minutes on where the money actually went — energy company profits, supermarket fuel margins and what the ONS, the IMF and the competition watchdog found. Nothing loads from YouTube until you press play."
       />
 
       <H2 id="what-is-happening">What is happening now</H2>

@@ -191,6 +191,49 @@ export function datasetJsonLd({
   };
 }
 
+/**
+ * JSON-LD for an embedded video.
+ *
+ * Google needs name, description, thumbnailUrl and uploadDate before a video
+ * can show as a rich result, so all four are required here rather than
+ * optional — a VideoObject missing one of them is just weight on the page.
+ * The thumbnail is a path on this site, not YouTube's, because the poster is
+ * self-hosted.
+ */
+export function videoJsonLd({
+  name,
+  description,
+  thumbnail,
+  uploadDate,
+  youtubeId,
+  /** ISO 8601, e.g. "PT6M7S". */
+  duration,
+}: {
+  name: string;
+  description: string;
+  thumbnail: string;
+  uploadDate: string;
+  youtubeId: string;
+  duration?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    name,
+    description,
+    thumbnailUrl: thumbnail.startsWith("http") ? thumbnail : `${site.url}${thumbnail}`,
+    uploadDate,
+    ...(duration ? { duration } : {}),
+    embedUrl: `https://www.youtube-nocookie.com/embed/${youtubeId}`,
+    contentUrl: `https://www.youtube.com/watch?v=${youtubeId}`,
+    publisher: {
+      "@type": "Organization",
+      name: site.organisation.name,
+      url: site.organisation.url,
+    },
+  };
+}
+
 export function faqJsonLd(items: { q: string; a: string }[]) {
   return {
     "@context": "https://schema.org",

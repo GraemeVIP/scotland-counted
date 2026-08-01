@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { Page, EvidenceDetails } from "@/components/Blocks";
-import { JsonLd, articleJsonLd, faqJsonLd, meta } from "@/lib/seo";
+import { Page, FullBleed, EvidenceDetails } from "@/components/Blocks";
+import { JsonLd, articleJsonLd, faqJsonLd, videoJsonLd, meta } from "@/lib/seo";
 import { councilsByLevel, SCOTLAND_PCTS } from "@/lib/data/councils";
 import { scotlandPoverty } from "@/lib/data/scotland";
 import { getSources } from "@/lib/data/sources";
@@ -9,6 +9,8 @@ import { PictoGrid } from "@/components/Motion";
 import AreaGrid from "@/components/AreaGrid";
 import WhyBother from "@/components/WhyBother";
 import Hero from "./Hero";
+import VideoEmbed from "@/components/VideoEmbed";
+import { costOfLivingVideo as VIDEO } from "@/lib/data/video";
 
 export const metadata = meta({
   title: "Poverty in Scotland, explained clearly",
@@ -65,6 +67,53 @@ export default function Home() {
       <JsonLd data={faqJsonLd(FAQ)} />
 
       <Hero />
+
+      {/*
+        The video sits directly under the hero, on a dark band so it reads as a
+        thing in its own right rather than an illustration inside an article.
+        It is six minutes and it answers the question most people actually
+        arrive with, so it earns the position — but it loads nothing from
+        YouTube until somebody presses play.
+      */}
+      <JsonLd data={videoJsonLd(VIDEO)} />
+      <FullBleed>
+        <div className="bg-[var(--deep)] py-14 text-[var(--deep-ink)] sm:py-20">
+          <Page>
+            <div className="mx-auto grid max-w-[1120px] gap-x-14 gap-y-9 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:items-center">
+              <div>
+                <p className="kicker mb-3 text-[var(--action)]">Start here · 6 minutes</p>
+                <h2
+                  id="explainer-video"
+                  className="display-stat text-[clamp(32px,4vw,50px)] max-w-[15ch]"
+                >
+                  Where did the money actually go?
+                </h2>
+                <p className="mt-5 max-w-[46ch] text-[17.5px] leading-[1.6] opacity-85">
+                  Your bills went up and stayed up. You were told it was the war, or the pandemic,
+                  or just bad luck. Some of it was. This is what the rest of it was — energy
+                  profits, supermarket fuel margins, and what the ONS, the IMF and the competition
+                  watchdog found when they looked.
+                </p>
+                <Link
+                  href="/blog/why-is-the-cost-of-living-so-high"
+                  className="ui mt-6 inline-block text-[16px] font-[680] underline decoration-current/40 underline-offset-4 hover:decoration-current"
+                >
+                  Read the written version, with every source
+                  <span aria-hidden="true"> →</span>
+                </Link>
+              </div>
+
+              <VideoEmbed
+                onDark
+                id={VIDEO.youtubeId}
+                title={VIDEO.name}
+                poster={VIDEO.thumbnail}
+                caption="Nothing loads from YouTube until you press play."
+              />
+            </div>
+          </Page>
+        </div>
+      </FullBleed>
 
       <Page>
         <AreaGrid className="py-16 sm:py-20" />

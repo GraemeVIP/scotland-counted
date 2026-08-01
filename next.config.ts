@@ -13,7 +13,15 @@ const securityHeaders = [
       "script-src 'self' 'unsafe-inline'",
       "style-src 'self' 'unsafe-inline'",
       "object-src 'none'",
-      "frame-src 'self'",
+      /*
+       * youtube-nocookie.com is the only third-party frame allowed, and only
+       * because a video is embedded. It is YouTube's privacy-enhanced host, and
+       * src/components/VideoEmbed.tsx does not create the iframe at all until
+       * somebody presses play — so on a normal page view nothing is requested
+       * from it. The poster is served from this origin, which is why img-src
+       * stays locked to 'self'.
+       */
+      "frame-src 'self' https://www.youtube-nocookie.com",
       "manifest-src 'self'",
       "worker-src 'self' blob:",
     ].join("; "),
