@@ -27,6 +27,13 @@ export function middleware(request: NextRequest) {
     response.headers.set("X-Robots-Tag", "noindex, follow");
   }
 
+  // The site has a public /embed route. Keep normal pages protected against
+  // clickjacking without blocking those intentionally embeddable charts.
+  const isEmbed = request.nextUrl.pathname === "/embed" || request.nextUrl.pathname.startsWith("/embed/");
+  if (!isEmbed) {
+    response.headers.set("X-Frame-Options", "SAMEORIGIN");
+  }
+
   return response;
 }
 
