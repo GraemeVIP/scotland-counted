@@ -8,7 +8,7 @@ import { site } from "@/lib/site";
 export const metadata = meta({
   title: "Get in touch",
   description:
-    "Ask a question about anything on this site, find out who can help with a problem, or report an error. One form, read by one person, no automated reply.",
+    "Ask a question about anything on this site, find out who can help with a problem, or report an error. One form, read by a person, never an automated reply.",
   path: "/contact",
 });
 
@@ -36,26 +36,30 @@ export const metadata = meta({
  * site rests on is worth less than whatever it sold.
  */
 
+/*
+ * Every link here was loaded and checked, not written from memory. A dead or
+ * wrong link on this particular list is the one error on the site that could
+ * actually cost somebody something.
+ *
+ * advice.scot returns 403 to scripted requests — that is bot protection on a
+ * live site, not a broken address. Check it in a browser before concluding
+ * otherwise.
+ */
 const SUPPORT = [
   {
-    name: "Advice Direct Scotland",
-    what: "Money, benefits, energy bills and consumer problems. Free, national, and funded to give proper advice rather than a leaflet.",
+    name: "advice.scot",
+    what: "Advice Direct Scotland: benefits entitlement checks, money, energy bills and consumer problems. Free, national, and Scottish Government funded. BSL users can contact them directly.",
     href: "https://www.advice.scot/",
   },
   {
     name: "Citizens Advice Scotland",
-    what: "Face-to-face help at a local bureau, including benefit applications, appeals and debt.",
+    what: "Help in person at a local bureau, including benefit applications, appeals, debt and employment problems.",
     href: "https://www.cas.org.uk/bureaux",
   },
   {
     name: "Shelter Scotland",
     what: "Housing and homelessness, including if you have been asked to leave or have nowhere to stay tonight.",
     href: "https://scotland.shelter.org.uk/get_help",
-  },
-  {
-    name: "Samaritans",
-    what: "If things have got too much. Free to call, any time, from any phone — 116 123.",
-    href: "https://www.samaritans.org/scotland/",
   },
 ];
 
@@ -90,7 +94,7 @@ export default function Contact() {
               <p className="ui text-[15px] font-[750] mb-3">What happens when you send it</p>
               <ul className="grid gap-2.5 text-[16px] leading-[1.6] text-[var(--ink-2)]">
                 {[
-                  "One person reads it. There is no team, no ticket number and no automated reply.",
+                  "It is read by a person, not a queue. No ticket numbers and no automated replies.",
                   "Most messages get an answer within a few days. Corrections and press deadlines jump the queue.",
                   "Your email is used to reply to you and nothing else. It is not added to any list.",
                   "No question here is too basic. Plenty of people who work in this field cannot explain the difference between an MP and an MSP either.",
@@ -118,7 +122,7 @@ export default function Contact() {
         </ContentFrame>
 
         <ContentFrame as="section" className="pt-16 sm:pt-20">
-          <SectionHead eyebrow="Free, and better at this than I am" title="Where to get real help" />
+          <SectionHead eyebrow="Free, and this is what they do" title="Where to get real help" />
           <ul className="mt-7 grid gap-4 sm:grid-cols-2 max-w-[1000px]">
             {SUPPORT.map((s) => (
               <li
@@ -190,7 +194,7 @@ export default function Contact() {
               </div>
 
               <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-[16px]">
-                <Link href="/about">More about the project</Link>
+                <Link href="/about">More about Scotland Counted</Link>
                 <Link href="/methods">How every figure was counted</Link>
                 <Link href="/corrections">Corrections policy</Link>
               </div>

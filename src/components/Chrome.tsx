@@ -244,7 +244,7 @@ export function Footer() {
             Data checked {site.dataUpdated} · ONS, DWP, Scottish Government and named research
           </p>
           <p className="sm:text-right">
-            A personal project by {site.author.name} ·{" "}
+            Published independently by {site.author.name} ·{" "}
             <a href={site.organisation.url} className="underline underline-offset-3 hover:opacity-100">
               {site.organisation.name}
             </a>

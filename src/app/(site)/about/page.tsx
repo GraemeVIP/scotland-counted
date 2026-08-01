@@ -23,7 +23,7 @@ export default function About() {
         <PageHeader
           eyebrow="What Scotland Counted is"
           title="About this project"
-          lede={`${site.name} is a free, independent guide to poverty, work and living costs in Scotland. It shows the local facts, explains who has the power to change them and helps people email the right MP and MSP. It is a personal project by ${site.author.name}, founder of ${site.organisation.name}. No political party, charity or campaign runs it.`}
+          lede={`${site.name} is a free, independent guide to poverty, work and living costs in Scotland. It shows the local facts, explains who has the power to change them and helps people email the right MP and MSP. It is written and published by ${site.author.name}, founder of ${site.organisation.name}. No political party, charity or campaign runs it.`}
         />
 
         <ContentFrame>
