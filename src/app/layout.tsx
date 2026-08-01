@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import Script from "next/script";
 import { Archivo, Newsreader, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { site } from "@/lib/site";
@@ -79,10 +78,6 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
   },
   formatDetection: { telephone: false },
-  /*
-   * Search Console verification. Next only emits the meta tag when the value
-   * is non-empty, so an unconfigured site ships no empty tag.
-   */
   ...(site.analytics.googleSiteVerification
     ? { verification: { google: site.analytics.googleSiteVerification } }
     : {}),
@@ -94,12 +89,6 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-/**
- * Runs before first paint: restores the chosen theme, and arms the
- * entrance animation only when it can actually play. The class is
- * removed once the sequence would have finished, so a suspended
- * animation can never leave content stuck invisible.
- */
 const BOOT_SCRIPT = `
 try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}
 try{
@@ -124,20 +113,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="min-h-full flex flex-col">
         {children}
-        {site.analytics.ga4 && (
-          <>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${site.analytics.ga4}`}
-              strategy="afterInteractive"
-            />
-            <Script id="ga4-init" strategy="afterInteractive">
-              {`window.dataLayer=window.dataLayer||[];
-function gtag(){dataLayer.push(arguments);}
-gtag('js',new Date());
-gtag('config','${site.analytics.ga4}');`}
-            </Script>
-          </>
-        )}
         <Analytics />
       </body>
     </html>
