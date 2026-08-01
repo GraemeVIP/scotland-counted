@@ -162,6 +162,33 @@ export default function Contact() {
                 members should say who is behind it and who pays for it, so you can weigh what you
                 are reading.
               </p>
+              {/*
+                Deliberately narrower than "this site has no opinions". It runs
+                a letter builder that asks MPs to back a higher minimum wage and
+                a page of costed options for change — that is a position, and
+                claiming otherwise hands anyone hostile an easy contradiction.
+                What is actually promised is the part that matters and can be
+                defended: the numbers are never bent, and it never tells anyone
+                how to vote.
+              */}
+              <div className="mt-6 rounded-[var(--r-m)] border-l-[3px] border-[var(--brand)] bg-[var(--surface-2)] px-6 py-5">
+                <p className="ui text-[15px] font-[750] mb-2">Figures, not spin</p>
+                <p className="text-[16px] leading-[1.6] text-[var(--ink-2)] max-w-[58ch]">
+                  Every number here is taken from the body that published it — the Scottish
+                  Government, the ONS, DWP records, or named academic work — and is never adjusted,
+                  reframed or cherry-picked to make a point land harder. Where the site sets out
+                  what would change things, the options are costed, attributed to whoever proposed
+                  them, and marked with who actually has the power to do them.
+                </p>
+                <p className="mt-3 text-[16px] leading-[1.6] text-[var(--ink-2)] max-w-[58ch]">
+                  <strong className="text-[var(--ink)]">
+                    It will never tell you who to vote for.
+                  </strong>{" "}
+                  Every party in Scotland comes off badly somewhere in this data, and the site
+                  publishes those figures the same way regardless of who is in charge.
+                </p>
+              </div>
+
               <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-[16px]">
                 <Link href="/about">More about the project</Link>
                 <Link href="/methods">How every figure was counted</Link>
@@ -172,12 +199,38 @@ export default function Contact() {
             <div className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] px-6 py-6">
               <p className="ui text-[15px] font-[750] mb-3">Who pays for this</p>
               <p className="text-[16px] leading-[1.6] text-[var(--ink-2)]">
-                Nobody. There is no funder, no sponsor, no party, no advertising and no paywall.
-                Nothing on the site is for sale and nobody has paid to appear on it.
+                Nobody, and that is on purpose. Having nothing to declare is simpler than
+                declaring it.
               </p>
-              <p className="mt-3 text-[15.5px] leading-[1.55] text-[var(--muted)]">
-                If that ever changes it will be written here first, before you have to find out
-                some other way.
+              <ul className="mt-4 grid gap-2.5">
+                {[
+                  {
+                    t: "No donations",
+                    b: "People do offer, and it is genuinely appreciated. The answer is still no.",
+                  },
+                  {
+                    t: "No advertising, ever",
+                    b: "Nothing is sponsored, no space is for sale, and nobody has paid to appear here.",
+                  },
+                  {
+                    t: "No party, no candidate",
+                    b: "Not affiliated with, funded by or working for any party or campaign group.",
+                  },
+                ].map((x) => (
+                  <li key={x.t} className="flex gap-3">
+                    <span
+                      aria-hidden="true"
+                      className="mt-[9px] h-[6px] w-[6px] shrink-0 rounded-full bg-[var(--good)]"
+                    />
+                    <span className="text-[15.5px] leading-[1.55] text-[var(--ink-2)]">
+                      <strong className="text-[var(--ink)]">{x.t}.</strong> {x.b}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-4 pt-4 border-t border-[var(--rule)] text-[15.5px] leading-[1.55] text-[var(--muted)]">
+                If any of that ever changes it will be written here first, before you have to find
+                out some other way.
               </p>
             </div>
           </div>
