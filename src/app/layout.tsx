@@ -120,6 +120,39 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: BOOT_SCRIPT }} />
+        {/*
+          Google's stock gtag snippet, written straight into <head> rather than
+          loaded through next/script.
+
+          next/script's afterInteractive strategy emits only a
+          <link rel="preload"> server-side and injects the real <script> tag
+          after hydration. A browser ends up running it either way, so tracking
+          worked — but anything reading the static HTML sees no tracking code
+          at all. That is why Search Console's Google Analytics verification
+          failed while Realtime showed live visits: both were true at once.
+          That method also requires the snippet to be in <head>, which it was
+          not, since <Analytics /> renders at the end of <body>.
+
+          send_page_view is off here on purpose. config would otherwise send a
+          page view of its own, and RouteTracker in Analytics.tsx sends one for
+          every route including the first — leaving the two to double up.
+        */}
+        {site.analytics.ga4 && (
+          <>
+            <script
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=${site.analytics.ga4}`}
+            />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments)}
+gtag('js',new Date());
+gtag('config','${site.analytics.ga4}',{send_page_view:false});`,
+              }}
+            />
+          </>
+        )}
       </head>
       <body className="min-h-full flex flex-col">
         {children}
