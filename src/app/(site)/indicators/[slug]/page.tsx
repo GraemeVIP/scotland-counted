@@ -5,6 +5,7 @@ import Figure, { DataTable } from "@/components/charts/Figure";
 import LineChart from "@/components/charts/LineChart";
 import MinimumWageReality from "@/components/MinimumWageReality";
 import PaySpread from "@/components/PaySpread";
+import WorkDoesNotPay from "@/components/WorkDoesNotPay";
 import {
   indicators,
   lifeExpectancy,
@@ -380,6 +381,8 @@ export default async function IndicatorPage(props: PageProps<"/indicators/[slug]
         {isPay && <MinimumWageReality className="mt-8" />}
 
         <div className="pt-9">
+          {slug === "pay" && <WorkDoesNotPay className="pb-16" />}
+
           {slug === "pay" && <PaySpread className="pb-14" />}
 
           <Figure

@@ -212,6 +212,31 @@ export const sources: Source[] = [
     used: "Median gross weekly pay for full-time employees in Scotland, £773.80 in April 2025, used to show that a Glasgow figure slightly above it is expected rather than anomalous.",
   },
   {
+    id: "rent-scotland-2025",
+    title: "Private Sector Rent Statistics, Scotland, 2010 to 2025",
+    publisher: "Scottish Government",
+    url: "https://www.gov.scot/publications/private-sector-rent-statistics-scotland-2010-to-2025/pages/1-bedroom-properties/",
+    used: "Average monthly rent for a one-bedroom property in the Greater Glasgow Broad Rental Market Area, £865 in 2025, against £738 across Scotland.",
+    derivation:
+      "These are predominantly advertised rents, recorded when a property comes to market. They describe what someone moving now would pay, not what every existing tenant pays.",
+  },
+  {
+    id: "uc-what-youll-get",
+    title: "Universal Credit: what you'll get",
+    publisher: "UK Government",
+    url: "https://www.gov.uk/universal-credit/what-youll-get",
+    used: "Universal Credit standard allowance of £424.90 a month for a single person aged 25 or over, and the health element of £429.80 a month for a severe condition.",
+  },
+  {
+    id: "uc-earnings",
+    title: "Universal Credit: how your wages affect your payments",
+    publisher: "UK Government",
+    url: "https://www.gov.uk/universal-credit/how-your-wages-affect-your-payments",
+    used: "The 55p taper — Universal Credit falls by 55p for every £1 earned — and the work allowances of £427 and £710 a month.",
+    derivation:
+      "Because the taper is 55p rather than a pound, earnings always raise total income. This is the fact that settles whether anyone is financially better off not working.",
+  },
+  {
     id: "hmrc-rti",
     title: "Earnings and employment from Pay As You Earn Real Time Information, UK: November 2025",
     publisher: "HM Revenue and Customs / Office for National Statistics",
