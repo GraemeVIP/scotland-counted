@@ -26,7 +26,14 @@ const ga4 = Boolean(site.analytics.ga4);
 const clarity = Boolean(site.analytics.clarity);
 
 const analyticsScript = [
-  ...(ga4 ? ["https://www.googletagmanager.com"] : []),
+  ...(ga4
+    ? [
+        "https://www.googletagmanager.com",
+        "https://*.googletagmanager.com",
+        "https://*.google-analytics.com",
+        "https://*.analytics.google.com",
+      ]
+    : []),
   ...(clarity ? ["https://www.clarity.ms", "https://*.clarity.ms"] : []),
 ];
 
