@@ -7,6 +7,7 @@ import ToolCTA from "@/components/ToolCTA";
 import { councilTaxByBand, chargesFor, COUNCIL_TAX_YEAR, WATER_YEAR } from "@/lib/data/councilTax";
 import { councils } from "@/lib/data/councils";
 import { getSources } from "@/lib/data/sources";
+import Faq from "@/components/Faq";
 
 export const metadata = meta({
   title: "Council tax bands in Scotland: how much is my council tax?",
@@ -122,17 +123,7 @@ export default function CouncilTaxPage() {
 
         <ToolCTA tool="take-home" className="mt-14" />
 
-        <section className="pt-14">
-          <h2 className="h2 mb-6">Questions people ask</h2>
-          <div className="grid max-w-[1000px] gap-4 lg:grid-cols-2">
-            {FAQ.map((f) => (
-              <div key={f.q} className="border-t-2 border-[var(--ink)] pt-4">
-                <h3 className="h3 mb-2">{f.q}</h3>
-                <p className="text-[15.5px] leading-[1.55] text-[var(--ink-2)]">{f.a}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+        <Faq items={FAQ} className="pt-14" />
 
         <section className="pt-12">
           <h2 className="label mb-4">Where these figures come from</h2>

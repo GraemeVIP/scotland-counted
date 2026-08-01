@@ -14,6 +14,7 @@ import {
 import { councils } from "@/lib/data/councils";
 import { getSources } from "@/lib/data/sources";
 import WaterCharge from "@/components/WaterCharge";
+import Faq from "@/components/Faq";
 
 /**
  * Two kinds of page behind one dynamic segment.
@@ -233,17 +234,7 @@ export default async function CouncilTaxSlugPage(props: { params: Promise<{ slug
             </p>
           </section>
 
-          <section className="pt-12">
-            <h2 className="h2 mb-6">Questions people ask</h2>
-            <div className="grid max-w-[1000px] gap-4 lg:grid-cols-2">
-              {faq.map((f) => (
-                <div key={f.q} className="border-t-2 border-[var(--ink)] pt-4">
-                  <h3 className="h3 mb-2">{f.q}</h3>
-                  <p className="text-[15.5px] leading-[1.55] text-[var(--ink-2)]">{f.a}</p>
-                </div>
-              ))}
-            </div>
-          </section>
+          <Faq items={faq} className="pt-12" />
 
           {sourceNote}
         </Page>
@@ -360,17 +351,7 @@ export default async function CouncilTaxSlugPage(props: { params: Promise<{ slug
           </p>
         </section>
 
-        <section className="pt-12">
-          <h2 className="h2 mb-6">Questions people ask</h2>
-          <div className="grid max-w-[1000px] gap-4 lg:grid-cols-2">
-            {faq.map((f) => (
-              <div key={f.q} className="border-t-2 border-[var(--ink)] pt-4">
-                <h3 className="h3 mb-2">{f.q}</h3>
-                <p className="text-[15.5px] leading-[1.55] text-[var(--ink-2)]">{f.a}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+        <Faq items={faq} className="pt-12" />
 
         {sourceNote}
       </Page>

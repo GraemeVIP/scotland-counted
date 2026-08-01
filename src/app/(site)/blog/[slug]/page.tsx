@@ -10,6 +10,7 @@ import { JsonLd, articleJsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/
 import { posts, getPost, getPostCategory, relatedPosts } from "@/lib/data/posts";
 import { sourcesById, type Source } from "@/lib/data/sources";
 import { postBodies } from "@/content/posts";
+import Faq from "@/components/Faq";
 
 export function generateStaticParams() {
   return posts.map((post) => ({ slug: post.slug }));
@@ -130,16 +131,7 @@ export default async function BlogPost(props: { params: Promise<{ slug: string }
 
         {post.faq.length > 0 && (
           <section className="pt-14 max-w-[1120px] mx-auto" aria-labelledby="article-questions">
-            <p className="label mb-2">Quick answers</p>
-            <h2 id="article-questions" className="h2 mb-6">Questions people ask</h2>
-            <div className="grid gap-4 lg:grid-cols-2">
-              {post.faq.map((item) => (
-                <div key={item.q} className="rounded-[var(--r-s)] bg-[var(--surface-2)] border border-[var(--rule)] p-5 sm:p-6">
-                  <h3 className="h3 mb-2">{item.q}</h3>
-                  <p className="text-[16px] text-[var(--ink-2)] leading-[1.6]">{item.a}</p>
-                </div>
-              ))}
-            </div>
+            <Faq items={post.faq} id="article-questions" kicker="Quick answers" />
           </section>
         )}
 

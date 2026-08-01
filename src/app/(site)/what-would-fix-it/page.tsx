@@ -14,6 +14,7 @@ import { G } from "@/components/Glossary";
 import { JsonLd, articleJsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
 import { fixes, type FixStatus } from "@/lib/data/policy";
 import { getSources } from "@/lib/data/sources";
+import Faq from "@/components/Faq";
 
 export const metadata = meta({
   title: "What would help cut poverty",
@@ -334,15 +335,7 @@ export default function WhatWouldFixIt() {
 
         {/* ---------- FAQ ---------- */}
         <ContentFrame as="section" className="pt-20 sm:pt-24">
-          <SectionHead eyebrow="Questions" title="What people ask about the changes" />
-          <div className="grid gap-x-14 gap-y-9 lg:grid-cols-2 mt-10">
-            {FAQ.map((f) => (
-              <div key={f.q} className="border-t-2 border-[var(--ink)] pt-5">
-                <h3 className="h3 mb-3 max-w-[32ch]">{f.q}</h3>
-                <p className="text-[16px] text-[var(--ink-2)] leading-[1.6] max-w-[56ch]">{f.a}</p>
-              </div>
-            ))}
-          </div>
+          <Faq items={FAQ} kicker="Questions" title="What people ask about the changes" />
         </ContentFrame>
 
         {/* ---------- Sources ---------- */}

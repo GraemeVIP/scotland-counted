@@ -7,6 +7,7 @@ import { TAX_DATA, calculate } from "@/lib/tax/engine";
 import { minimumWage, minimumWageTakeHome } from "@/lib/data/livingCosts";
 import ToolCTA from "@/components/ToolCTA";
 import Calculator from "./Calculator";
+import Faq from "@/components/Faq";
 
 export const metadata = meta({
   title: "Take-home pay calculator for Scotland",
@@ -162,15 +163,7 @@ export default function TakeHomePayCalculator() {
 
         {/* ---------- FAQ ---------- */}
         <ContentFrame as="section" className="pt-20 sm:pt-24">
-          <SectionHead eyebrow="Questions" title="What people ask about Scottish tax" />
-          <div className="mt-9 grid gap-x-14 gap-y-9 lg:grid-cols-2">
-            {FAQ.map((f) => (
-              <div key={f.q} className="border-t-2 border-[var(--ink)] pt-5">
-                <h3 className="h3 mb-3 max-w-[34ch]">{f.q}</h3>
-                <p className="text-[16px] leading-[1.6] text-[var(--ink-2)] max-w-[56ch]">{f.a}</p>
-              </div>
-            ))}
-          </div>
+          <Faq items={FAQ} kicker="Questions" title="What people ask about Scottish tax" />
         </ContentFrame>
 
         {/* ---------- Sources ---------- */}

@@ -11,6 +11,7 @@ import WhoDoesWhat from "@/components/WhoDoesWhat";
 import { JsonLd, articleJsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
 import { pay, whatHappens, paperTrail, friction } from "@/lib/data/power";
 import { getSources } from "@/lib/data/sources";
+import Faq from "@/components/Faq";
 
 export const metadata = meta({
   title: "What happens when you email your MP",
@@ -226,17 +227,7 @@ export default function YourPower() {
 
         <WhoDoesWhat className="pt-16" showDetail={false} />
 
-        <section className="pt-14">
-          <h2 className="h2 mb-6">Questions people ask</h2>
-          <div className="grid gap-4 lg:grid-cols-2">
-            {FAQ.map((f) => (
-              <div key={f.q} className="border-t-2 border-[var(--ink)] pt-4">
-                <h3 className="h3 mb-2">{f.q}</h3>
-                <p className="text-[15.5px] text-[var(--ink-2)] leading-[1.55]">{f.a}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+        <Faq items={FAQ} className="pt-14" />
 
         <EvidenceDetails className="mt-10" summary="Where these facts come from">
           <ul className="space-y-2.5">

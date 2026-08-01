@@ -23,6 +23,7 @@ import {
   PAY_YEARS,
 } from "@/lib/data/councilExtra";
 import { asOneIn, changeInWords } from "@/lib/plain-language";
+import Faq from "@/components/Faq";
 
 export function generateStaticParams() {
   return councils.map((c) => ({ slug: c.slug }));
@@ -364,17 +365,7 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
           </EvidenceDetails>
         </div>
 
-        <section className="pt-12">
-          <h2 className="h2 mb-6">Questions people ask</h2>
-          <div className="grid gap-4 lg:grid-cols-2 max-w-[1000px] mx-auto">
-            {faq.map((f) => (
-              <div key={f.q} className="border-t border-[var(--rule)] pt-4">
-                <h3 className="h3 mb-2">{f.q}</h3>
-                <p className="text-[15.5px] text-[var(--ink-2)] leading-[1.55]">{f.a}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+        <Faq items={faq} className="pt-12" />
 
         <section className="pt-12">
           <p className="label mb-4">Other council areas</p>
