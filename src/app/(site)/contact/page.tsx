@@ -95,7 +95,7 @@ export default function Contact() {
               <ul className="grid gap-2.5 text-[16px] leading-[1.6] text-[var(--ink-2)]">
                 {[
                   "It is read by a person, not a queue. No ticket numbers and no automated replies.",
-                  "Most messages get an answer within a few days. Corrections and press deadlines jump the queue.",
+                  "You will get an answer, usually within a few days. Corrections and press deadlines jump the queue.",
                   "Your email is used to reply to you and nothing else. It is not added to any list.",
                   "No question here is too basic. Plenty of people who work in this field cannot explain the difference between an MP and an MSP either.",
                 ].map((line) => (
@@ -153,18 +153,24 @@ export default function Contact() {
           <div className="mt-7 grid gap-5 lg:grid-cols-[1.25fr_1fr] items-start max-w-[1000px]">
             <div>
               <p className="text-[18px] leading-[1.65] text-[var(--ink-2)] max-w-[62ch]">
-                Scotland Counted is written and maintained by{" "}
+                Scotland Counted is written and published by{" "}
                 <strong className="text-[var(--ink)]">{site.author.name}</strong>, who runs{" "}
                 <a href={site.organisation.url} rel="noopener noreferrer" target="_blank">
                   {site.organisation.name}
-                </a>
-                . Turning messy public data into something a person can actually read is the day
-                job, which is the only reason a site like this exists at all.
+                </a>{" "}
+                in Edinburgh — independent AI and digital advisory for engineering, manufacturing
+                and specialist technical businesses, working internationally.
               </p>
               <p className="mt-4 text-[18px] leading-[1.65] text-[var(--ink-2)] max-w-[62ch]">
-                It matters that you know that. A site making claims about councils and elected
-                members should say who is behind it and who pays for it, so you can weigh what you
-                are reading.
+                That work runs on evidence before commitment, no vendor agenda, and decisions that
+                stay with the client rather than the adviser.{" "}
+                <strong className="text-[var(--ink)]">This site is built the same way</strong>, and
+                for the same reason: every source is named, every method is published, and every
+                correction is logged where you can see it.
+              </p>
+              <p className="mt-4 text-[18px] leading-[1.65] text-[var(--ink-2)] max-w-[62ch]">
+                A site making claims about councils and elected members should say who is behind it
+                and who pays for it, so you can weigh what you are reading.
               </p>
               {/*
                 Deliberately narrower than "this site has no opinions". It runs
@@ -210,7 +216,7 @@ export default function Contact() {
                 {[
                   {
                     t: "No donations",
-                    b: "People do offer, and it is genuinely appreciated. The answer is still no.",
+                    b: "If you were thinking of offering, thank you — and the answer is still no.",
                   },
                   {
                     t: "No advertising, ever",
