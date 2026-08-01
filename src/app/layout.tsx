@@ -120,49 +120,23 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: BOOT_SCRIPT }} />
-        {/*
-          Google's stock gtag snippet, written straight into <head> rather than
-          loaded through next/script.
-
-          next/script's afterInteractive strategy emits only a
-          <link rel="preload"> server-side and injects the real <script> tag
-          after hydration. A browser ends up running it either way, so tracking
-          worked — but anything reading the static HTML sees no tracking code
-          at all. That is why Search Console's Google Analytics verification
-          failed while Realtime showed live visits: both were true at once.
-          That method also requires the snippet to be in <head>, which it was
-          not, since <Analytics /> renders at the end of <body>.
-
-          Page views are left entirely to GA4. This config call reports the
-          landing page, and Enhanced Measurement's "page changes based on
-          browser history events" reports each client-side move after it —
-          App Router navigates by pushState, which is exactly what that setting
-          watches for. It is on by default, so nothing needs configuring.
-
-          That option is therefore load-bearing here, which is not obvious from
-          the dashboard. Switch it off and every navigation after the landing
-          page stops being counted. There is no code path that would notice or
-          make up the difference.
-        */}
-        {site.analytics.ga4 && (
-          <>
-            <script
-              async
-              src={`https://www.googletagmanager.com/gtag/js?id=${site.analytics.ga4}`}
-            />
-            <script
-              dangerouslySetInnerHTML={{
-                __html: `window.dataLayer=window.dataLayer||[];
-function gtag(){dataLayer.push(arguments)}
-gtag('js',new Date());
-gtag('config','${site.analytics.ga4}');`,
-              }}
-            />
-          </>
-        )}
       </head>
       <body className="min-h-full flex flex-col">
         {children}
+        {site.analytics.ga4 && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${site.analytics.ga4}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga4-init" strategy="afterInteractive">
+              {`window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','${site.analytics.ga4}');`}
+            </Script>
+          </>
+        )}
         <Analytics />
       </body>
     </html>
