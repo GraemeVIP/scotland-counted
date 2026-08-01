@@ -212,7 +212,7 @@ export const LETTER_TOPICS: LetterTopic[] = [
     kind: "personal",
     who: "MSP",
     whyWho:
-      "Your MSP. Housing and homelessness are run from Holyrood. If it is about a council house or a repair, your local councillors can also act — your council's website lists them.",
+      "Your MSP. Housing and homelessness are run from Holyrood. If it is a council house or a repair, your councillors can act too — you have three or four of them, and there is a guide to finding them further down this page.",
     subject: () => "Constituency matter — housing",
     opening: "I am writing to ask for your help with a housing problem.",
     useLocalEvidence: false,
