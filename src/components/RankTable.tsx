@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useId, useMemo, useState } from "react";
 
 /**
  * The ranked league table used for councils and constituencies.
@@ -36,14 +36,22 @@ export default function RankTable({
   nameLabel,
   latestLabel,
   firstLabel,
+  collapsedRows,
+  showAllLabel,
+  showLessLabel = "Show the top 10 only",
 }: {
   rows: RankRow[];
   nameLabel: string;
   latestLabel: string;
   firstLabel: string;
+  collapsedRows?: number;
+  showAllLabel?: string;
+  showLessLabel?: string;
 }) {
   const [key, setKey] = useState<SortKey>("rank");
   const [asc, setAsc] = useState(true);
+  const [expanded, setExpanded] = useState(false);
+  const rowsId = useId();
 
   const labels: Record<SortKey, string> = {
     rank: "#",
@@ -70,6 +78,8 @@ export default function RankTable({
     });
     return asc ? r : r.reverse();
   }, [rows, key, asc]);
+  const canCollapse = collapsedRows !== undefined && rows.length > collapsedRows;
+  const visibleRows = canCollapse && !expanded ? sorted.slice(0, collapsedRows) : sorted;
 
   function toggle(k: SortKey) {
     if (k === key) setAsc((a) => !a);
@@ -82,6 +92,7 @@ export default function RankTable({
 
   return (
     <div>
+      <div id={rowsId}>
       {/* ---------- Phone: a list you can actually read ---------- */}
       <div className="sm:hidden">
         <div className="flex flex-wrap gap-2 mb-5" role="group" aria-label="Sort the list">
@@ -106,7 +117,7 @@ export default function RankTable({
         </div>
 
         <ol className="border-t border-[var(--rule)]">
-          {sorted.map((r) => (
+          {visibleRows.map((r) => (
             <li
               key={r.href}
               className={r.highlight ? "bg-[var(--glasgow-wash)]" : undefined}
@@ -173,7 +184,7 @@ export default function RankTable({
           </tr>
         </thead>
         <tbody>
-          {sorted.map((r) => (
+          {visibleRows.map((r) => (
             <tr
               key={r.href}
               className={
@@ -215,6 +226,22 @@ export default function RankTable({
         </tbody>
       </table>
       </div>
+      </div>
+
+      {canCollapse && (
+        <div className="mt-6 flex justify-center">
+          <button
+            type="button"
+            onClick={() => setExpanded((open) => !open)}
+            aria-expanded={expanded}
+            aria-controls={rowsId}
+            className="btn btn-ghost justify-center"
+          >
+            {expanded ? showLessLabel : (showAllLabel ?? `See all ${rows.length} areas`)}
+            <span aria-hidden="true">{expanded ? "↑" : "↓"}</span>
+          </button>
+        </div>
+      )}
     </div>
   );
 }

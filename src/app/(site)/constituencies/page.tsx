@@ -60,12 +60,15 @@ export default function Constituencies() {
 
         <section className="pt-2">
           <p className="text-[15px] text-[var(--ink-2)] mb-6 mt-8">
-            Glasgow areas are shaded. Number 1 has the highest rate.
+            The ten highest rates are shown first. Glasgow areas are shaded. Number 1 has the
+            highest rate.
           </p>
           <RankTable
             nameLabel="Area represented by an MP"
             latestLabel="Now"
             firstLabel="10 years ago"
+            collapsedRows={10}
+            showAllLabel={`See all ${CONSTITUENCY_COUNT} MP areas`}
             rows={byLevel.map((c) => ({
               rank: c.rankLevel,
               name: c.name,
