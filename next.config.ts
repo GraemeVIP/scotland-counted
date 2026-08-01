@@ -1,5 +1,19 @@
 import type { NextConfig } from "next";
 
+/**
+ * Next's dev server compiles modules through eval(), so a script-src without
+ * 'unsafe-eval' stops React hydrating — silently. Every page still renders,
+ * because the HTML is server-produced, but nothing is interactive: no button
+ * has a handler, and the console says nothing. It looks like broken features
+ * rather than a blocked policy.
+ *
+ * Production never uses eval, so the deployed policy stays strict. This is the
+ * one difference between the two.
+ */
+const isDev = process.env.NODE_ENV === "development";
+
+const scriptSrc = ["'self'", "'unsafe-inline'", ...(isDev ? ["'unsafe-eval'"] : [])].join(" ");
+
 const securityHeaders = [
   {
     key: "Content-Security-Policy",
@@ -10,7 +24,7 @@ const securityHeaders = [
       "connect-src 'self' https://api.postcodes.io https://api.web3forms.com",
       "font-src 'self' data:",
       "img-src 'self' data: blob:",
-      "script-src 'self' 'unsafe-inline'",
+      `script-src ${scriptSrc}`,
       "style-src 'self' 'unsafe-inline'",
       "object-src 'none'",
       /*

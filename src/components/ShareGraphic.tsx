@@ -46,13 +46,15 @@ export default function ShareGraphic({ className = "" }: { className?: string })
       className={`grid gap-x-12 gap-y-8 lg:grid-cols-[minmax(0,420px)_minmax(0,1fr)] lg:items-center ${className}`}
       aria-labelledby="share-graphic"
     >
-      <a
-        href={infographic.src}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="group block overflow-hidden rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] no-underline"
+      {/*
+        Not a link. Tapping it used to open the raw file in a new tab, which
+        walks somebody off the site to look at a picture they can already see —
+        and leaves them on a bare image with no way back. Anyone who wants the
+        file can long-press it, or use the download button next to it.
+      */}
+      <div
+        className="overflow-hidden rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)]"
         style={{ boxShadow: "var(--shadow-2)" }}
-        aria-label={`${infographic.title} — open the full-size image`}
       >
         <Image
           src={infographic.src}
@@ -60,9 +62,9 @@ export default function ShareGraphic({ className = "" }: { className?: string })
           width={infographic.width}
           height={infographic.height}
           sizes="(max-width: 1024px) 100vw, 420px"
-          className="h-auto w-full transition-transform duration-500 group-hover:scale-[1.01]"
+          className="h-auto w-full"
         />
-      </a>
+      </div>
 
       <div>
         <p className="kicker mb-3 text-[var(--action)]">Pass it on</p>
