@@ -208,6 +208,11 @@
 
   html {
     scroll-behavior: smooth;
+    /* Samsung Internet and mobile Chrome can otherwise inflate text beyond
+       the CSS size on narrow screens, producing a very different first load
+       from the same-width desktop emulator. Browser zoom still works. */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
     /* Full-bleed bands are deliberately viewport-wide; hide the fractional
        scrollbar gutter they can otherwise expose as a desktop x-scrollbar. */
     overflow-x: clip;

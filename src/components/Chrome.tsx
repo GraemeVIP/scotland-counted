@@ -27,7 +27,7 @@ function SearchButton() {
       type="button"
       onClick={() => window.dispatchEvent(new CustomEvent("open-command"))}
       aria-label="Find your area, or search the site"
-      className="group min-h-11 shrink-0 flex items-center gap-2.5 rounded-[var(--r-s)] bg-[var(--surface)] border border-[var(--rule-strong)] hover:border-[var(--brand)] transition-colors px-3.5 py-2.5 xl:min-w-[150px] 2xl:min-w-[230px]"
+      className="group min-h-11 w-11 shrink-0 flex items-center justify-center gap-2.5 rounded-[var(--r-s)] bg-[var(--surface)] border border-[var(--rule-strong)] hover:border-[var(--brand)] transition-colors px-0 py-2.5 xl:w-auto xl:min-w-[150px] xl:justify-start xl:px-3.5 2xl:min-w-[230px]"
       style={{ boxShadow: "var(--shadow-1)" }}
     >
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" className="text-[var(--brand)]" aria-hidden="true">
@@ -65,7 +65,7 @@ function ThemeToggle() {
       type="button"
       onClick={toggle}
       aria-label="Switch between light and dark"
-      className="w-11 h-11 inline-flex items-center justify-center text-[var(--muted)] hover:text-[var(--ink)] transition-colors"
+      className="w-10 h-10 sm:w-11 sm:h-11 inline-flex items-center justify-center text-[var(--muted)] hover:text-[var(--ink)] transition-colors"
     >
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
         <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" />
@@ -130,16 +130,16 @@ export function Header() {
       className={`sticky top-0 z-50 no-print transition-colors ${
         scrolled
           ? "bg-[var(--paper)]/94 backdrop-blur-md border-b border-[var(--rule)] shadow-[var(--shadow-1)]"
-          : "bg-[var(--paper)] border-b border-transparent"
+          : "bg-[var(--surface)] border-b border-[var(--rule)] shadow-[var(--shadow-1)] lg:bg-[var(--paper)] lg:border-transparent lg:shadow-none"
       }`}
     >
-      <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 flex items-center gap-6 2xl:gap-8 h-[68px]">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-14 flex items-center gap-2 sm:gap-6 2xl:gap-8 h-[72px] sm:h-[68px]">
         <Link
           href="/"
           className="shrink-0"
           onClick={() => setMenuPath(null)}
         >
-          <Wordmark className="text-[19px]" />
+          <Wordmark className="text-[17px] min-[390px]:text-[19px]" />
         </Link>
 
         <nav aria-label="Main" className="hidden lg:flex items-center gap-3 xl:gap-4 2xl:gap-5 ml-2">
@@ -175,7 +175,7 @@ export function Header() {
           </button>
         </nav>
 
-        <div className="ml-auto flex items-center gap-2.5">
+        <div className="ml-auto flex items-center gap-1 sm:gap-2.5">
           <SearchButton />
           <ThemeToggle />
           <Link
@@ -186,13 +186,13 @@ export function Header() {
           </Link>
           <button
             type="button"
-            className="lg:hidden w-11 h-11 inline-flex items-center justify-center text-[var(--ink-2)]"
+            className="lg:hidden w-11 h-11 shrink-0 inline-flex items-center justify-center rounded-[var(--r-s)] border border-[var(--rule-strong)] bg-[var(--surface)] text-[var(--ink)] shadow-[var(--shadow-1)] transition-colors hover:border-[var(--brand)]"
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label="Menu"
             onClick={() => setMenuPath(open ? null : pathname)}
           >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.25" aria-hidden="true">
               {open ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M3 7h18M3 17h18" />}
             </svg>
           </button>

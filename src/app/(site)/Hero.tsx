@@ -21,31 +21,41 @@ const SCALE = [
 export default function Hero() {
   return (
     <section className="relative overflow-hidden lg:flex lg:min-h-[calc(100svh-69px)] lg:flex-col">
-      <div className="relative max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 py-10 sm:py-12 lg:flex lg:flex-1 lg:items-center">
+      <div className="relative max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 py-6 sm:py-12 lg:flex lg:flex-1 lg:items-center">
         <div className="grid w-full gap-x-12 gap-y-10 lg:grid-cols-[minmax(0,1.12fr)_minmax(420px,0.88fr)] lg:items-center">
           {/* ---- Statement ---- */}
           <div>
-            <p className="kicker text-[var(--brand)] mb-5">
-              A free, independent guide to poverty in Scotland
+            <p className="kicker text-[var(--brand)] mb-3 sm:mb-5">
+              <span className="sm:hidden">Free · independent · for Scotland</span>
+              <span className="hidden sm:inline">
+                A free, independent guide to poverty in Scotland
+              </span>
             </p>
 
-            <h1 className="display-stat text-[clamp(44px,5.7vw,78px)] max-w-[16ch] mb-6">
+            <h1 className="display-stat text-[clamp(36px,10.5vw,44px)] sm:text-[clamp(44px,5.7vw,78px)] max-w-[16ch] mb-4 sm:mb-6">
               Nearly a million people in Scotland{" "}
               <span className="mark">live in poverty.</span>
             </h1>
 
-            <p className="text-[clamp(18px,1.55vw,21px)] leading-[1.5] text-[var(--ink-2)] max-w-[49ch] mb-7">
-              Scotland Counted explains poverty, work and living costs in ordinary words. See what
-              is happening in your area, understand who can change what, use the free calculators
-              and read plain-English explainers. Then I find your MP and MSP and write both emails
-              for you. <strong className="text-[var(--ink)]">It takes about a minute.</strong>
+            <p className="text-[17px] sm:text-[clamp(18px,1.55vw,21px)] leading-[1.5] text-[var(--ink-2)] max-w-[49ch] mb-5 sm:mb-7">
+              <span className="sm:hidden">
+                Poverty, pay and living costs—explained for where you live. Use the free tools,
+                then send ready-written emails to your MP and MSP.{" "}
+              </span>
+              <span className="hidden sm:inline">
+                Scotland Counted explains poverty, work and living costs in ordinary words. See
+                what is happening in your area, understand who can change what, use the free
+                calculators and read plain-English explainers. Then I find your MP and MSP and
+                write both emails for you.{" "}
+              </span>
+              <strong className="text-[var(--ink)]">It takes about a minute.</strong>
             </p>
 
             <div>
               <PostcodeStart />
             </div>
 
-            <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-[16px]">
+            <div className="mt-5 sm:mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-[16px]">
               <Link href="/areas" className="font-[700]">
                 Or browse all 32 areas →
               </Link>

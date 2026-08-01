@@ -212,7 +212,7 @@ export function MobileMenu({ onNavigate }: { onNavigate: () => void }) {
     <nav
       id="mobile-nav"
       aria-label="Main"
-      className="lg:hidden fixed inset-x-0 top-[68px] bottom-0 z-40 overflow-y-auto overscroll-contain border-t border-[var(--rule)] bg-[var(--paper)]"
+      className="lg:hidden fixed inset-x-0 top-[72px] sm:top-[68px] bottom-0 z-40 overflow-y-auto overscroll-contain border-t border-[var(--rule)] bg-[var(--paper)]"
     >
       <div className="px-5 py-5 space-y-7">
         <FindYourPlace onNavigate={onNavigate} />
