@@ -212,6 +212,20 @@ export const sources: Source[] = [
     used: "Median gross weekly pay for full-time employees in Scotland, £773.80 in April 2025, used to show that a Glasgow figure slightly above it is expected rather than anomalous.",
   },
   {
+    id: "scottish-tax-2026",
+    title: "Scottish Income Tax: rates and bands, 2026 to 2027",
+    publisher: "Scottish Government",
+    url: "https://www.gov.scot/publications/scottish-income-tax-rates-and-bands/pages/2026-to-2027/",
+    used: "The bands used to work out take-home pay: a £12,570 personal allowance, then 19% to £16,537, 20% to £29,526 and 21% to £43,662.",
+  },
+  {
+    id: "ni-rates-2026",
+    title: "National Insurance rates and categories",
+    publisher: "UK Government",
+    url: "https://www.gov.uk/national-insurance-rates-letters",
+    used: "Class 1 employee National Insurance, category A: nothing below £242 a week, 8% between £242 and £967, and 2% above.",
+  },
+  {
     id: "rent-scotland-2025",
     title: "Private Sector Rent Statistics, Scotland, 2010 to 2025",
     publisher: "Scottish Government",

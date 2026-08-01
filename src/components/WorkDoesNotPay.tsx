@@ -1,8 +1,10 @@
 import Link from "next/link";
 import {
   minimumWage,
+  minimumWageTakeHome,
   glasgowRent,
-  rentShareOfGross,
+  rentShareOfTakeHome,
+  leftAfterRentMonthly,
   minimumIncomeStandard,
   benefitsComparison as bc,
 } from "@/lib/data/livingCosts";
@@ -28,8 +30,8 @@ const pounds = new Intl.NumberFormat("en-GB", {
 });
 
 export default function WorkDoesNotPay({ className = "" }: { className?: string }) {
-  const rentPct = Math.round(rentShareOfGross * 100);
-  const leftOver = minimumWage.monthlyGross - glasgowRent.monthly;
+  const rentPct = Math.round(rentShareOfTakeHome * 100);
+  const leftOver = leftAfterRentMonthly;
 
   return (
     <section className={className} aria-labelledby="work-does-not-pay">
@@ -46,9 +48,9 @@ export default function WorkDoesNotPay({ className = "" }: { className?: string 
       <div className="mt-8 grid gap-4 sm:grid-cols-3">
         {[
           {
-            label: "Full-time on the legal minimum",
-            value: pounds.format(minimumWage.monthlyGross),
-            note: `A month before tax · ${pounds.format(minimumWage.annualGross)} a year`,
+            label: "Full-time on the legal minimum, after tax",
+            value: pounds.format(minimumWageTakeHome.monthly),
+            note: `A month in the bank · ${pounds.format(minimumWage.monthlyGross)} before tax`,
             tone: "ink",
           },
           {
@@ -60,7 +62,7 @@ export default function WorkDoesNotPay({ className = "" }: { className?: string 
           {
             label: "Left for everything else",
             value: pounds.format(leftOver),
-            note: "Food, energy, travel, clothes — and tax still to come off",
+            note: "Food, energy, travel, clothes, everything",
             tone: "bad",
           },
         ].map((s) => (
@@ -84,20 +86,23 @@ export default function WorkDoesNotPay({ className = "" }: { className?: string 
       </div>
 
       <div className="mt-5 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] p-6">
-        <p className="text-[19px] leading-[1.5] font-[640] max-w-[54ch]">
-          Rent alone takes {rentPct}% of the wage — before income tax, National Insurance or a
-          single bill.
+        <p className="text-[19px] leading-[1.5] font-[640] max-w-[56ch]">
+          Rent alone takes {rentPct}% of what actually reaches the bank account, before a single
+          bill is paid.
         </p>
         <div
           className="mt-4 flex h-4 overflow-hidden rounded-full bg-[var(--paper-3)]"
           role="img"
-          aria-label={`Rent takes ${rentPct} per cent of gross pay. The remaining ${100 - rentPct} per cent covers everything else, before tax.`}
+          aria-label={`Rent takes ${rentPct} per cent of take-home pay. The remaining ${100 - rentPct} per cent covers everything else.`}
         >
           <span className="h-full bg-[var(--bad)]" style={{ width: `${rentPct}%` }} />
           <span className="h-full bg-[var(--rule-strong)]" style={{ width: `${100 - rentPct}%` }} />
         </div>
         <p className="mt-3 text-[15px] text-[var(--muted)]">
-          Rent · everything else. Housing is normally called affordable below 30%.
+          Rent · everything else. Housing is normally called affordable below 30%. Take-home is{" "}
+          {pounds.format(minimumWageTakeHome.annual)} a year: {pounds.format(minimumWage.annualGross)} gross,
+          less {pounds.format(minimumWageTakeHome.tax)} income tax and {pounds.format(minimumWageTakeHome.ni)} National
+          Insurance.
         </p>
       </div>
 
@@ -156,7 +161,8 @@ export default function WorkDoesNotPay({ className = "" }: { className?: string 
               {pounds.format(bc.outOfWorkMaxAnnual)}
             </p>
             <p className="mt-2 text-[14.5px] leading-[1.45] opacity-75">
-              A year, plus help with rent
+              A year, plus help with rent. Universal Credit is not taxed, so this compares
+              like with like.
             </p>
           </div>
           <div className="rounded-[var(--r-s)] border border-white/15 bg-white/[0.07] px-5 py-5">
@@ -164,10 +170,10 @@ export default function WorkDoesNotPay({ className = "" }: { className?: string 
               Working full time on the legal minimum
             </p>
             <p className="display-stat mt-2 text-[30px]">
-              {pounds.format(minimumWage.annualGross)}
+              {pounds.format(minimumWageTakeHome.annual)}
             </p>
             <p className="mt-2 text-[14.5px] leading-[1.45] opacity-75">
-              A year before tax, and Universal Credit can still be paid on top
+              A year after tax, and Universal Credit can still be paid on top
             </p>
           </div>
         </div>
