@@ -8,6 +8,8 @@
  * rather than asserted.
  */
 
+import { calculate } from "@/lib/tax/engine";
+
 const HOURLY = 12.71;
 const HOURS = 37.5;
 const WEEKS = 52;
@@ -22,55 +24,23 @@ export const minimumWage = {
   sourceId: "minimum-wage-2026",
 };
 
-/** Scottish income tax, 2026 to 2027. Bands are annual and inclusive. */
-export const scottishTaxBands = [
-  { name: "Personal Allowance", upTo: 12_570, rate: 0 },
-  { name: "Starter", upTo: 16_537, rate: 0.19 },
-  { name: "Basic", upTo: 29_526, rate: 0.2 },
-  { name: "Intermediate", upTo: 43_662, rate: 0.21 },
-  { name: "Higher", upTo: 75_000, rate: 0.42 },
-];
-
-/** Class 1 employee National Insurance, category A, 2026 to 2027. Weekly. */
-export const nationalInsurance = {
-  weeklyFreeUpTo: 242,
-  weeklyUpperLimit: 967,
-  mainRate: 0.08,
-  upperRate: 0.02,
-};
-
-/** Income tax on a gross annual salary, band by band. */
-export function incomeTaxOn(annual: number) {
-  let tax = 0;
-  let lower = 0;
-  for (const band of scottishTaxBands) {
-    if (annual <= lower) break;
-    const taxableHere = Math.min(annual, band.upTo) - lower;
-    tax += taxableHere * band.rate;
-    lower = band.upTo;
-  }
-  return tax;
-}
-
-/** Employee National Insurance on a gross weekly wage. */
-export function nationalInsuranceOn(weekly: number) {
-  const { weeklyFreeUpTo: free, weeklyUpperLimit: upper, mainRate, upperRate } = nationalInsurance;
-  const main = Math.max(0, Math.min(weekly, upper) - free) * mainRate;
-  const above = Math.max(0, weekly - upper) * upperRate;
-  return (main + above) * 52;
-}
-
+/**
+ * Take-home comes from the shared tax engine in src/lib/tax/engine.ts, which
+ * also powers the public calculator. It used to be worked out here from a
+ * second copy of the Scottish bands, with National Insurance taken on the
+ * weekly threshold (£242) rather than the annual one (£12,570). Those two
+ * bases do not reconcile — £242 × 52 is £12,584 — so the same wage came out
+ * £1.12 apart depending on which page you read. One engine, one answer.
+ */
 export const minimumWageTakeHome = (() => {
   const gross = minimumWage.annualGross;
-  const tax = incomeTaxOn(gross);
-  const ni = nationalInsuranceOn(minimumWage.weeklyGross);
-  const net = gross - tax - ni;
+  const r = calculate(gross, "scotland");
   return {
     gross,
-    tax,
-    ni,
-    annual: net,
-    monthly: net / 12,
+    tax: r.tax.total,
+    ni: r.ni.total,
+    annual: r.net,
+    monthly: r.net / 12,
     sourceIds: ["scottish-tax-2026", "ni-rates-2026"],
   };
 })();

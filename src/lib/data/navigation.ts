@@ -36,6 +36,7 @@ export const SECTIONS: Array<{
       { href: "/constituencies", label: "All 57 MP areas", blurb: "The area each MP is responsible for" },
       { href: "/why-glasgow", label: "Glasgow", blurb: "Why the worst rate in Scotland is where it is" },
       { href: "/council-tax-bands-scotland", label: "Council tax by band", blurb: "What it really costs, water included" },
+      { href: "/take-home-pay-calculator-scotland", label: "Take-home pay calculator", blurb: "What you keep on Scottish tax rates" },
     ],
   },
   {
