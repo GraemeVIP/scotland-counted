@@ -170,8 +170,8 @@ export default function WhyGlasgow() {
               aside={
                 <div className="grid gap-6">
                   <Note label="Adult legal minimum now" value="£12.71 an hour">
-                    At 37.5 paid hours every week, that is about £24,785 a year before tax — not
-                    £41,000. Fewer or changing hours mean less.
+                    At 37.5 paid hours every week, that is about £24,785 a year before tax. Fewer
+                    or changing hours mean less.
                   </Note>
                   <Note label="Single adult, full-time legal minimum" value="76%">
                     That was how much of a basic, decent living standard the pay covered in 2025.

@@ -205,6 +205,20 @@ export const sources: Source[] = [
     used: "In-work poverty, neighbourhood variation in child poverty, and workless household figures.",
   },
   {
+    id: "ashe-scotland-2025",
+    title: "Annual Survey of Hours and Earnings 2025: employee earnings",
+    publisher: "Scottish Government",
+    url: "https://www.gov.scot/publications/annual-survey-of-hours-and-earnings-2025/pages/employee-earnings/",
+    used: "Median gross weekly pay for full-time employees in Scotland, £773.80 in April 2025, used to show that a Glasgow figure slightly above it is expected rather than anomalous.",
+  },
+  {
+    id: "lpc-remit",
+    title: "Low Pay Commission Remit 2026: National Living Wage and National Minimum Wage",
+    publisher: "UK Government",
+    url: "https://www.gov.uk/government/publications/national-minimum-wage-and-national-living-wage-low-pay-commission-remit-2026/low-pay-commission-remit-2026-national-living-wage-and-national-minimum-wage",
+    used: "That the National Living Wage is set at two-thirds of median hourly earnings, which is why median full-time pay sits around one and a half times the minimum.",
+  },
+  {
     id: "ipsa-pay",
     title: "IPSA confirms decision on MPs' pay for 2026-27",
     publisher: "Independent Parliamentary Standards Authority",

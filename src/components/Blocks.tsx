@@ -30,8 +30,12 @@ export function Col({ children, className = "" }: { children: ReactNode; classNa
 }
 
 /**
- * Editorial two-column: argument on the left, supporting material in the
- * margin. Collapses to one column below lg.
+ * Two-column: argument on the left, supporting material on the right.
+ *
+ * The aside used to sit in a narrow margin as a print-style sidenote, which
+ * left it doing nothing on a phone — it simply dropped underneath. It now
+ * takes a real share of the width so it reads as a second element rather than
+ * a footnote, and the columns are closer in weight.
  */
 export function Split({
   children,
@@ -43,7 +47,7 @@ export function Split({
   className?: string;
 }) {
   return (
-    <div className={`grid gap-x-14 gap-y-8 lg:grid-cols-[minmax(0,640px)_minmax(0,1fr)] ${className}`}>
+    <div className={`grid gap-x-12 gap-y-7 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)] lg:items-start ${className}`}>
       <div className="prose">{children}</div>
       {aside && <div className="lg:pt-1.5">{aside}</div>}
     </div>
@@ -226,8 +230,14 @@ export function EvidenceDetails({
 }
 
 /**
- * A numbered section marker. The number is real information — these are
- * the report's figures, in order — not decoration.
+ * A section marker.
+ *
+ * This used to print a huge ghosted "01" in the margin beside every heading.
+ * That is report furniture: it tells the reader they are working through a
+ * numbered document rather than using a site. The number is kept in the markup
+ * for anyone who wants to cite a section, but it is now a small inline tag
+ * rather than the largest thing on the row, and the heading itself carries the
+ * weight.
  */
 export function SectionHead({
   n,
@@ -245,23 +255,23 @@ export function SectionHead({
   className?: string;
 }) {
   return (
-    <div className={`grid gap-x-8 sm:grid-cols-[auto_minmax(0,1fr)] items-start ${className}`}>
-      {n !== undefined && (
-        <div
-          className="figure-num text-[clamp(40px,5vw,64px)] text-[var(--action)] opacity-30 select-none hidden sm:block"
-          aria-hidden="true"
-        >
-          {String(n).padStart(2, "0")}
-        </div>
+    <div className={className}>
+      {(eyebrow || n !== undefined) && (
+        <p className="kicker mb-3 flex items-center gap-2.5 text-[var(--brand)]">
+          {n !== undefined && (
+            <span className="tnum text-[var(--muted)]">{String(n).padStart(2, "0")}</span>
+          )}
+          {eyebrow}
+        </p>
       )}
-      <div>
-        {eyebrow && <p className="label mb-3">{eyebrow}</p>}
-        <div className="flex flex-wrap items-baseline gap-x-4 gap-y-3">
-          <h2 id={id} className="h2 max-w-[22ch]">
-            {title}
-          </h2>
-          {direction && <DirectionChip direction={direction} />}
-        </div>
+      <div className="flex flex-wrap items-baseline gap-x-4 gap-y-3">
+        <h2
+          id={id}
+          className="display-stat text-[clamp(28px,3.4vw,44px)] max-w-[20ch]"
+        >
+          {title}
+        </h2>
+        {direction && <DirectionChip direction={direction} />}
       </div>
     </div>
   );

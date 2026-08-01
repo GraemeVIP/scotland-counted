@@ -29,18 +29,17 @@ export default function MinimumWageReality({ className = "" }: { className?: str
       style={{ boxShadow: "var(--shadow-1)" }}
     >
       <div className="p-6 sm:p-8 lg:p-9">
-        <p className="kicker mb-3 text-[var(--action)]">Start with a wage people actually recognise</p>
+        <p className="kicker mb-3 text-[var(--action)]">A wage people actually recognise</p>
         <h3
           id="minimum-wage-reality"
           className="display-stat max-w-[20ch] text-[clamp(29px,3.5vw,44px)]"
         >
-          Minimum wage is nowhere near £41,000 a year
+          What full-time minimum wage actually pays
         </h3>
         <p className="mt-4 max-w-[68ch] text-[17px] leading-[1.6] text-[var(--ink-2)]">
           Minimum wage is an hourly rate, so there is no single yearly salary. For someone aged 21
           or over, the legal minimum is <strong className="text-[var(--ink)]">£12.71 an hour</strong> from
-          1 April 2026. If they are paid for 37.5 hours every week of the year, this is what it adds
-          up to before tax:
+          1 April 2026. Paid for 37.5 hours every week of the year, that adds up to:
         </p>
 
         <div className="mt-7 grid gap-px overflow-hidden rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--rule)] sm:grid-cols-3">

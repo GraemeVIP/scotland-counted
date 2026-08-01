@@ -39,7 +39,7 @@ const IN_SHORT: Record<string, string[]> = {
     "The number jumped in the pandemic, then came back down.",
   ],
   pay: [
-    "An adult on today's legal minimum gets £12.71 an hour. At 37.5 paid hours every week, that is about £24,785 a year before tax — not £41,000.",
+    "An adult on today's legal minimum gets £12.71 an hour. At 37.5 paid hours every week, that is about £24,785 a year before tax.",
     "The £796.50 figure below is not the average Glasgow wage and it is not what people in poverty earn. It covers a restricted group of full-time PAYE employee jobs.",
     "It excludes all part-time jobs. For scale, 29% of Glasgow employee jobs were part-time in a separate 2024 count.",
   ],
