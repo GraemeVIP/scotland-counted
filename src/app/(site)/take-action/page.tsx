@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Page, Col, PageHeader } from "@/components/Blocks";
+import { Page, ContentFrame, Col, PageHeader } from "@/components/Blocks";
 import WhoDoesWhat from "@/components/WhoDoesWhat";
 import LetterBuilder from "./LetterBuilder";
 import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
@@ -47,7 +47,8 @@ export default function TakeAction() {
           lede="Enter your postcode. We find the right people, add the facts for your area, write both emails and open them in your own email app. You do not have to choose who gets which request."
         />
 
-        <LetterBuilder />
+        <ContentFrame>
+          <LetterBuilder />
 
         <WhoDoesWhat className="pt-16" />
 
@@ -87,6 +88,7 @@ export default function TakeAction() {
             <Link href="/methods">Read the methods</Link>
           </p>
         </section>
+        </ContentFrame>
       </Page>
     </>
   );

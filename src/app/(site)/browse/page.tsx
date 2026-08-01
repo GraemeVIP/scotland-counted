@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Page, PageHeader } from "@/components/Blocks";
+import { Page, ContentFrame, PageHeader } from "@/components/Blocks";
 import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
 import { SECTIONS } from "@/lib/data/navigation";
 import { councilsByLevel } from "@/lib/data/councils";
@@ -34,7 +34,8 @@ export default function Browse() {
           lede="There is a lot here, so this page lists all of it. If you only want one thing, it is almost certainly your own area — that is the first list below."
         />
 
-        <section className="pt-10">
+        <ContentFrame>
+          <section className="pt-10">
           <h2 className="h2 mb-2">Your council area</h2>
           <p className="text-[17px] text-[var(--ink-2)] leading-[1.6] max-w-[62ch] mb-5">
             All {councils.length} council areas in Scotland, worst rate first. Each page has ten
@@ -79,7 +80,7 @@ export default function Browse() {
             <p className="text-[17px] text-[var(--ink-2)] leading-[1.6] max-w-[62ch] mb-5">
               {sec.intro}
             </p>
-            <div className="grid gap-3 sm:grid-cols-2 max-w-[900px]">
+            <div className="grid gap-3 sm:grid-cols-2">
               {sec.items.map((n) => (
                 <Link
                   key={n.href}
@@ -137,6 +138,7 @@ export default function Browse() {
             ))}
           </div>
         </section>
+        </ContentFrame>
       </Page>
     </>
   );

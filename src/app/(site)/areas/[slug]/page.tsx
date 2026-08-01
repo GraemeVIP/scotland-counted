@@ -337,7 +337,7 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
           );
         })()}
 
-        <div className="pt-11 max-w-[780px]">
+        <div className="pt-11 max-w-[780px] mx-auto">
           <EvidenceDetails summary="How these local figures are counted">
             <p>
               Child poverty is counted <G t="ahc">after housing costs</G>. The exact rule is that a
@@ -365,7 +365,7 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
 
         <section className="pt-12">
           <h2 className="h2 mb-6">Questions people ask</h2>
-          <div className="grid gap-4 lg:grid-cols-2 max-w-[1000px]">
+          <div className="grid gap-4 lg:grid-cols-2 max-w-[1000px] mx-auto">
             {faq.map((f) => (
               <div key={f.q} className="border-t border-[var(--rule)] pt-4">
                 <h3 className="h3 mb-2">{f.q}</h3>

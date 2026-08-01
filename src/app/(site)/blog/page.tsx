@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Page, PageHeader } from "@/components/Blocks";
+import { Page, ContentFrame, PageHeader } from "@/components/Blocks";
 import NewsletterSignup from "@/components/NewsletterSignup";
 import AuthorBio from "@/components/AuthorBio";
 import BlogList from "./BlogList";
@@ -54,7 +54,8 @@ export default function Blog() {
           lede="Start with the answer in ordinary words. Then open the figures, dates and original sources if you want to check us. No political knowledge assumed."
         />
 
-        <BlogList posts={all} />
+        <ContentFrame>
+          <BlogList posts={all} />
 
         <AuthorBio className="mt-16" />
 
@@ -74,6 +75,7 @@ export default function Blog() {
             )}
           </div>
         </section>
+        </ContentFrame>
       </Page>
     </>
   );

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Page, Col, PageHeader } from "@/components/Blocks";
+import { Page, ContentFrame, Col, PageHeader } from "@/components/Blocks";
 import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
 import { site } from "@/lib/site";
 
@@ -37,7 +37,8 @@ export default function Corrections() {
           lede="The figures must be right. If we make a mistake, we fix it and list the change here instead of quietly hiding it."
         />
 
-        <Col className="pt-11">
+        <ContentFrame>
+          <Col className="pt-11">
           <h2 className="h2 mb-4">Report an error</h2>
           <p>
             <Link href="/contact?reason=error">Use the contact form</Link> with the page, the
@@ -53,7 +54,7 @@ export default function Corrections() {
         <section className="pt-12">
           <h2 className="h2 mb-5">Correction log</h2>
           {LOG.length === 0 ? (
-            <div className="rounded-[var(--r-s)] bg-[var(--surface)] border border-[var(--rule)] p-6 max-w-[640px]">
+            <div className="rounded-[var(--r-s)] bg-[var(--surface)] border border-[var(--rule)] p-6 max-w-[640px] mx-auto">
               <p className="text-[15.5px] text-[var(--ink-2)]">
                 No corrections yet. This site published in {site.dataUpdated}. When the first
                 correction is made it will appear here with the date, the page and what changed.
@@ -61,7 +62,7 @@ export default function Corrections() {
             </div>
           ) : (
             <div className="overflow-x-auto">
-              <table className="w-full max-w-[860px] border-collapse text-[15px]">
+              <table className="w-full border-collapse text-[15px]">
                 <thead>
                   <tr>
                     {["Date", "Page", "What changed"].map((h) => (
@@ -99,6 +100,7 @@ export default function Corrections() {
             listed on the <Link href="/methods">how we counted it page</Link>.
           </p>
         </Col>
+        </ContentFrame>
       </Page>
     </>
   );

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Page, Col, PageHeader, CTA } from "@/components/Blocks";
+import { Page, ContentFrame, Col, PageHeader, CTA } from "@/components/Blocks";
 import CopyLine from "./CopyLine";
 import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
 import { indicators } from "@/lib/data/indicators";
@@ -41,13 +41,14 @@ export default function Press() {
           lede="Every council and constituency has a permanent local evidence page. Charts and lines are free to reuse with attribution, derivations are documented, and corrections are logged in public."
         />
 
-        {/* ---------- Stat lines ---------- */}
-        <section className="pt-4">
+        <ContentFrame>
+          {/* ---------- Stat lines ---------- */}
+          <section className="pt-4">
           <h2 className="h2 mb-3">Lines you can lift</h2>
           <p className="text-[15.5px] text-[var(--ink-2)] mb-7 max-w-[62ch]">
             Pre-written, each with its source attached. Copy, paste, done.
           </p>
-          <div className="grid gap-3 max-w-[860px]">
+          <div className="grid gap-3">
             {STAT_LINES.map((t) => (
               <CopyLine key={t.slice(0, 40)} text={t} />
             ))}
@@ -60,7 +61,7 @@ export default function Press() {
             Link readers to the place in the story, not a generic homepage. Each local page carries
             its own share control, source trail and direct route to the representatives who can act.
           </p>
-          <div className="grid gap-4 sm:grid-cols-2 max-w-[860px]">
+          <div className="grid gap-4 sm:grid-cols-2">
             <Link
               href="/areas"
               className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-6 hover:border-[var(--brand)] transition-colors"
@@ -136,7 +137,7 @@ export default function Press() {
         {/* ---------- Boilerplate ---------- */}
         <section className="pt-16">
           <h2 className="h2 mb-3">About, in one paragraph</h2>
-          <div className="max-w-[860px]">
+          <div>
             <CopyLine
               text={`${site.name} (${site.url.replace("https://", "")}) is an independent evidence-to-action project covering poverty, work and living standards across all 32 Scottish council areas and all 57 Scottish Westminster constituencies, with Glasgow as its detailed historical case study. Built from ONS, DWP, Scottish Government and academic data, it finds a reader's MP and MSP and prepares addressed emails without storing the postcode. It is a personal project by ${site.author.name} of ${site.organisation.name}, with no party affiliation or funding.`}
             />
@@ -169,6 +170,7 @@ export default function Press() {
           secondaryHref="/methods"
           secondaryCta="Methods and sources"
         />
+        </ContentFrame>
       </Page>
     </>
   );

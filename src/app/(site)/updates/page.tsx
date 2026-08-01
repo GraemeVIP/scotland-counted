@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Page, Col, PageHeader } from "@/components/Blocks";
+import { Page, ContentFrame, Col, PageHeader } from "@/components/Blocks";
 import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
 import { changelog } from "@/lib/data/changelog";
 import NewsletterSignup from "@/components/NewsletterSignup";
@@ -60,7 +60,8 @@ export default function Updates() {
           </div>
         </PageHeader>
 
-        <div className="max-w-[820px]">
+        <ContentFrame>
+          <div className="max-w-[820px] mx-auto">
           {changelog.map((e, i) => (
             <article
               key={`${e.date}-${i}`}
@@ -92,12 +93,13 @@ export default function Updates() {
           ))}
         </div>
 
-        <Col className="pt-12">
+        <Col className="pt-12 mx-auto">
           <p className="text-[15px] text-[var(--ink-2)]">
             Corrections get their own permanent record on{" "}
             <Link href="/corrections">the corrections page</Link> as well as an entry here.
           </p>
         </Col>
+        </ContentFrame>
       </Page>
     </>
   );

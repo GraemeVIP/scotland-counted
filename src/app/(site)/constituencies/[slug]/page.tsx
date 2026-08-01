@@ -242,7 +242,7 @@ export default async function ConstituencyPage(props: { params: Promise<{ slug: 
           </p>
         </Col>
 
-        <EvidenceDetails className="mt-8 max-w-[780px]" summary="See the exact definition used here">
+        <EvidenceDetails className="mt-8 max-w-[780px] mx-auto" summary="See the exact definition used here">
           <p>
             A child is counted as living in relative poverty after housing costs when the family
             has less than 60% of the usual UK household income once rent or mortgage is paid.
@@ -251,7 +251,7 @@ export default async function ConstituencyPage(props: { params: Promise<{ slug: 
 
         <section className="pt-12">
           <h2 className="h2 mb-6">Questions people ask</h2>
-          <div className="grid gap-4 lg:grid-cols-2 max-w-[1000px]">
+          <div className="grid gap-4 lg:grid-cols-2 max-w-[1000px] mx-auto">
             {faq.map((f) => (
               <div key={f.q} className="border-t-2 border-[var(--ink)] pt-4">
                 <h3 className="h3 mb-2">{f.q}</h3>

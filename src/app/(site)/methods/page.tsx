@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Page, Col, PageHeader, CTA, InShort } from "@/components/Blocks";
+import { Page, ContentFrame, Col, PageHeader, CTA, InShort } from "@/components/Blocks";
 import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
 import { sources } from "@/lib/data/sources";
 
@@ -66,10 +66,11 @@ export default function Methods() {
           lede="You should not have to trust us. This page shows where every number came from, any maths we did and what the figures cannot prove."
         />
 
-        <InShort expert={false}>
-          <p><strong>The simple pages tell the story. This page lets you check the working.</strong></p>
-          <p>Every source is linked. Weak or missing data is labelled instead of hidden.</p>
-        </InShort>
+        <ContentFrame>
+          <InShort expert={false}>
+            <p><strong>The simple pages tell the story. This page lets you check the working.</strong></p>
+            <p>Every source is linked. Weak or missing data is labelled instead of hidden.</p>
+          </InShort>
 
         <section className="pt-11">
           <h2 className="h2 mb-6">Six rules we follow</h2>
@@ -151,6 +152,7 @@ export default function Methods() {
         <p className="mt-10 text-[15px] text-[var(--ink-2)] max-w-[66ch]">
           Terms are explained in the <Link href="/glossary">plain-English glossary</Link>.
         </p>
+        </ContentFrame>
       </Page>
     </>
   );

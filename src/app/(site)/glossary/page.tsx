@@ -1,4 +1,4 @@
-import { Page, Col, PageHeader, CTA } from "@/components/Blocks";
+import { Page, ContentFrame, Col, PageHeader, CTA } from "@/components/Blocks";
 import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
 import { terms } from "@/lib/data/glossary";
 import { site } from "@/lib/site";
@@ -43,7 +43,8 @@ export default function Glossary() {
           lede="If the site has to use a technical word, it is explained here in ordinary language. Open the extra detail only if you want the exact definition."
         />
 
-        <div className="mt-9 grid gap-5 sm:grid-cols-2 max-w-[1080px]">
+        <ContentFrame>
+          <div className="mt-9 grid gap-5 sm:grid-cols-2">
           {terms.map((t) => (
             <article
               key={t.id}
@@ -83,6 +84,7 @@ export default function Glossary() {
           secondaryHref="/methods"
           secondaryCta="Methods and sources"
         />
+        </ContentFrame>
       </Page>
     </>
   );

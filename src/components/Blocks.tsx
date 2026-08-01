@@ -13,6 +13,17 @@ export function Page({ children }: { children: ReactNode }) {
   return <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14">{children}</div>;
 }
 
+/** One shared desktop frame for editorial content, cards and supporting panels. */
+export function ContentFrame({
+  children,
+  className = "",
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
+  return <div className={`max-w-[1120px] mx-auto ${className}`}>{children}</div>;
+}
+
 /** A reading column. Prose stays narrow even when the page is wide. */
 export function Col({ children, className = "" }: { children: ReactNode; className?: string }) {
   return <div className={`max-w-[640px] prose ${className}`}>{children}</div>;
@@ -81,7 +92,13 @@ export function PageHeader({
 
   return (
     <header className="pt-10 sm:pt-14 pb-8 sm:pb-10">
-      <div className="grid gap-x-14 gap-y-10 lg:grid-cols-[minmax(0,1fr)_minmax(280px,340px)] items-end">
+      <div
+        className={
+          stat
+            ? "grid gap-x-14 gap-y-10 lg:grid-cols-[minmax(0,1fr)_minmax(280px,340px)] items-end"
+            : "max-w-[1120px] mx-auto"
+        }
+      >
         <div>
           {eyebrow && <p className="label mb-6">{eyebrow}</p>}
           <h1 className="h1 max-w-[17ch] mb-5">{title}</h1>
@@ -105,7 +122,9 @@ export function PageHeader({
           </div>
         )}
       </div>
-      <div className="mt-8 sm:mt-10 border-t-2 border-[var(--ink)]" />
+      <div
+        className={`mt-8 sm:mt-10 border-t-2 border-[var(--ink)] ${stat ? "" : "max-w-[1120px] mx-auto"}`}
+      />
     </header>
   );
 }
@@ -150,7 +169,7 @@ export function InShort({
 }) {
   return (
     <div
-      className={`rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] border-l-[5px] border-l-[var(--action)] px-6 sm:px-8 py-6 ${expert ? "max-w-[1120px]" : "max-w-[760px]"}`}
+      className={`mx-auto rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] border-l-[5px] border-l-[var(--action)] px-6 sm:px-8 py-6 ${expert ? "max-w-[1120px]" : "max-w-[760px]"}`}
       style={{ boxShadow: "var(--shadow-1)" }}
     >
       <div className={expert ? "grid gap-6 lg:grid-cols-[minmax(0,1fr)_250px] lg:gap-9" : ""}>

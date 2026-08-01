@@ -118,7 +118,7 @@ export default function Home() {
               </div>
             </div>
 
-            <EvidenceDetails className="mt-7 max-w-[820px]">
+            <EvidenceDetails className="mt-7 max-w-[820px] mx-auto">
               <p>
                 The official measure calls this <strong>relative poverty after housing costs</strong>.
                 It means a household has less than 60% of the usual UK income after rent or

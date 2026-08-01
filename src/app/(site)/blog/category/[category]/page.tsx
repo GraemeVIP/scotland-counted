@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import AuthorBio from "@/components/AuthorBio";
-import { Page, PageHeader } from "@/components/Blocks";
+import { Page, ContentFrame, PageHeader } from "@/components/Blocks";
 import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
 import {
   getPostCategory,
@@ -61,12 +61,14 @@ export default async function BlogCategory(props: { params: Promise<{ category: 
 
       <Page>
         <PageHeader eyebrow="Explained" title={category.name} lede={category.description} />
-        <BlogList
-          posts={categoryPosts}
-          activeCategory={category.slug as PostCategorySlug}
-          showFeatured={false}
-        />
-        <AuthorBio className="mt-16" />
+        <ContentFrame>
+          <BlogList
+            posts={categoryPosts}
+            activeCategory={category.slug as PostCategorySlug}
+            showFeatured={false}
+          />
+          <AuthorBio className="mt-16" />
+        </ContentFrame>
       </Page>
     </>
   );

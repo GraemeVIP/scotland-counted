@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Suspense } from "react";
-import { Page, PageHeader } from "@/components/Blocks";
+import { Page, ContentFrame, PageHeader } from "@/components/Blocks";
 import ContactForm from "./ContactForm";
 import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
 
@@ -49,7 +49,7 @@ export default function Contact() {
           lede="Report an error, ask a press question, request data, or suggest an improvement. Pick the reason and the message arrives pre-sorted."
         />
 
-        <div className="grid gap-x-14 gap-y-10 lg:grid-cols-[minmax(0,560px)_minmax(0,1fr)] items-start pt-2">
+        <ContentFrame className="grid gap-x-14 gap-y-10 lg:grid-cols-2 items-start pt-2">
           <Suspense
             fallback={
               <div className="rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] p-8 max-w-[560px] min-h-[420px]" />
@@ -58,7 +58,7 @@ export default function Contact() {
             <ContactForm />
           </Suspense>
 
-          <div className="grid gap-7 max-w-[420px]">
+          <div className="grid gap-7">
             {EXPECT.map((e) => (
               <div key={e.t} className="border-l-[3px] border-[var(--brand)] pl-6 py-1">
                 <p className="h4 mb-1.5">{e.t}</p>
@@ -72,7 +72,7 @@ export default function Contact() {
               </div>
             ))}
           </div>
-        </div>
+        </ContentFrame>
       </Page>
     </>
   );

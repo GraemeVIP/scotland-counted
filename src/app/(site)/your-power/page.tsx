@@ -1,5 +1,12 @@
 import Link from "next/link";
-import { Page, PageHeader, InShort, EvidenceDetails, CTA } from "@/components/Blocks";
+import {
+  Page,
+  ContentFrame,
+  PageHeader,
+  InShort,
+  EvidenceDetails,
+  CTA,
+} from "@/components/Blocks";
 import WhoDoesWhat from "@/components/WhoDoesWhat";
 import { JsonLd, articleJsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
 import { pay, whatHappens, paperTrail, friction } from "@/lib/data/power";
@@ -63,26 +70,27 @@ export default function YourPower() {
           lede="Almost nobody writes to the people who represent them. It is not apathy — it is that the whole thing feels like it is meant for somebody else. It is not. Here is exactly how it works."
         />
 
-        <div className="mt-2 mb-10">
-          <InShort>
-            <p>
-              You have two people whose job is to deal with you: an <strong>MP</strong> in London
-              and an <strong>MSP</strong> in Edinburgh. Between them they are paid over{" "}
-              <strong>£176,000 a year</strong>, by you.
-            </p>
-            <p>
-              You do not need to have voted for them. You do not need to know anything about
-              politics. You just need to ask them a question they have to answer.
-            </p>
-            <p>
-              We write the email. You read it and press send. It takes about a minute.
-            </p>
-          </InShort>
-        </div>
+        <ContentFrame>
+          <div className="mt-2 mb-10">
+            <InShort>
+              <p>
+                You have two people whose job is to deal with you: an <strong>MP</strong> in London
+                and an <strong>MSP</strong> in Edinburgh. Between them they are paid over{" "}
+                <strong>£176,000 a year</strong>, by you.
+              </p>
+              <p>
+                You do not need to have voted for them. You do not need to know anything about
+                politics. You just need to ask them a question they have to answer.
+              </p>
+              <p>
+                We write the email. You read it and press send. It takes about a minute.
+              </p>
+            </InShort>
+          </div>
 
         <section>
           <h2 className="h2 mb-5">What they are paid</h2>
-          <div className="grid gap-4 sm:grid-cols-2 max-w-[860px]">
+          <div className="grid gap-4 sm:grid-cols-2">
             {[pay.mp, pay.msp].map((p) => (
               <div
                 key={p.role}
@@ -112,7 +120,7 @@ export default function YourPower() {
             Four things. None of them depend on your MP liking you or agreeing with you.
           </p>
 
-          <ol className="grid gap-4 lg:grid-cols-2 max-w-[1000px]">
+          <ol className="grid gap-4 lg:grid-cols-2">
             {whatHappens.map((s) => (
               <li
                 key={s.step}
@@ -167,7 +175,7 @@ export default function YourPower() {
             Five separate jobs stood between a person being angry and a person being heard. That
             is why almost nobody did it. Every one of them is now done for you.
           </p>
-          <div className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] overflow-hidden max-w-[900px]">
+          <div className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] overflow-hidden">
             {friction.map((f, i) => (
               <div
                 key={f.before}
@@ -190,7 +198,7 @@ export default function YourPower() {
 
         <section className="pt-14">
           <h2 className="h2 mb-6">Questions people ask</h2>
-          <div className="grid gap-4 lg:grid-cols-2 max-w-[1000px]">
+          <div className="grid gap-4 lg:grid-cols-2">
             {FAQ.map((f) => (
               <div key={f.q} className="border-t-2 border-[var(--ink)] pt-4">
                 <h3 className="h3 mb-2">{f.q}</h3>
@@ -200,7 +208,7 @@ export default function YourPower() {
           </div>
         </section>
 
-        <EvidenceDetails className="mt-10 max-w-[780px]" summary="Where these facts come from">
+        <EvidenceDetails className="mt-10" summary="Where these facts come from">
           <ul className="space-y-2.5">
             {cited.map((s) => (
               <li key={s.id} className="text-[15.5px] leading-[1.55]">
@@ -226,6 +234,7 @@ export default function YourPower() {
           secondaryHref="/areas"
           secondaryCta="See my area's figures first"
         />
+        </ContentFrame>
       </Page>
     </>
   );

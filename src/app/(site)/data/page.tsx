@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Page, Col, PageHeader, CTA } from "@/components/Blocks";
+import { Page, ContentFrame, Col, PageHeader, CTA } from "@/components/Blocks";
 import { JsonLd, breadcrumbJsonLd, datasetJsonLd, meta } from "@/lib/seo";
 import { site } from "@/lib/site";
 
@@ -100,7 +100,8 @@ export default function Data() {
           lede="This is the proof behind the simple pages. Download the clean files we prepared or the original files exactly as the publisher supplied them."
         />
 
-        <div className="mt-9 grid gap-3 sm:grid-cols-2">
+        <ContentFrame>
+          <div className="mt-9 grid gap-3 sm:grid-cols-2">
           {FILES.map((f) => (
             <a
               key={f.file}
@@ -145,6 +146,7 @@ export default function Data() {
           secondaryHref="/methods"
           secondaryCta="See how it was counted"
         />
+        </ContentFrame>
       </Page>
     </>
   );

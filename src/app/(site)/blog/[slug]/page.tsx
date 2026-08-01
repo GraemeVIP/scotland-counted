@@ -76,14 +76,14 @@ export default async function BlogPost(props: { params: Promise<{ slug: string }
       {post.faq.length > 0 && <JsonLd data={faqJsonLd(post.faq)} />}
 
       <Page>
-        <article>
-          <div className="pt-7 sm:pt-10">
+        <article className="max-w-[1240px] mx-auto">
+          <div className="pt-7 sm:pt-10 max-w-[1120px] mx-auto">
             <Link href="/blog" className="ui text-[15px] font-[700]">
               <span aria-hidden="true">←</span> All explainers
             </Link>
           </div>
 
-          <header className="mt-7 max-w-[1120px]">
+          <header className="mt-7 max-w-[1120px] mx-auto">
             <Link
               href={`/blog/category/${post.category}`}
               className="ui text-[15px] font-[760] no-underline hover:underline"
@@ -116,11 +116,11 @@ export default async function BlogPost(props: { params: Promise<{ slug: string }
             caption={post.image.caption}
             aspect="wide"
             objectPosition={post.image.objectPosition}
-            className="mt-9 sm:mt-11 max-w-[1240px]"
+            className="mt-9 sm:mt-11 max-w-[1240px] mx-auto"
             sizes="(min-width: 1536px) 1240px, (min-width: 1024px) calc(100vw - 112px), calc(100vw - 40px)"
           />
 
-          <div className="grid gap-x-12 xl:gap-x-20 gap-y-8 lg:grid-cols-[minmax(0,760px)_minmax(240px,280px)] mt-10 sm:mt-12">
+          <div className="grid gap-x-12 xl:gap-x-20 gap-y-8 lg:grid-cols-[minmax(0,760px)_minmax(240px,280px)] mt-10 sm:mt-12 max-w-[1120px] mx-auto">
             <ArticleToc items={post.toc} />
             <div className="min-w-0 lg:col-start-1 lg:row-start-1">
               <Body />
@@ -129,10 +129,10 @@ export default async function BlogPost(props: { params: Promise<{ slug: string }
         </article>
 
         {post.faq.length > 0 && (
-          <section className="pt-14" aria-labelledby="article-questions">
+          <section className="pt-14 max-w-[1120px] mx-auto" aria-labelledby="article-questions">
             <p className="label mb-2">Quick answers</p>
             <h2 id="article-questions" className="h2 mb-6">Questions people ask</h2>
-            <div className="grid gap-4 lg:grid-cols-2 max-w-[1040px]">
+            <div className="grid gap-4 lg:grid-cols-2">
               {post.faq.map((item) => (
                 <div key={item.q} className="rounded-[var(--r-s)] bg-[var(--surface-2)] border border-[var(--rule)] p-5 sm:p-6">
                   <h3 className="h3 mb-2">{item.q}</h3>
@@ -144,7 +144,7 @@ export default async function BlogPost(props: { params: Promise<{ slug: string }
         )}
 
         {cited.length > 0 && (
-          <section className="pt-12 max-w-[940px]" aria-labelledby="article-sources">
+          <section className="pt-12 max-w-[940px] mx-auto" aria-labelledby="article-sources">
             <details className="group rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] overflow-hidden">
               <summary className="cursor-pointer list-none flex items-center justify-between gap-4 px-5 sm:px-6 py-5 hover:bg-[var(--surface-2)]">
                 <span>
@@ -175,13 +175,13 @@ export default async function BlogPost(props: { params: Promise<{ slug: string }
           </section>
         )}
 
-        <AuthorBio className="mt-14 max-w-[1040px]" />
+        <AuthorBio className="mt-14 max-w-[1040px] mx-auto" />
 
         {related.length > 0 && (
-          <section className="pt-14" aria-labelledby="read-next-heading">
+          <section className="pt-14 max-w-[1120px] mx-auto" aria-labelledby="read-next-heading">
             <p className="label mb-2">Keep going</p>
             <h2 id="read-next-heading" className="h2 mb-6">Read next</h2>
-            <div className="grid gap-5 sm:grid-cols-2 max-w-[940px]">
+            <div className="grid gap-5 sm:grid-cols-2">
               {related.map((item) => (
                 <ArticleCard key={item.slug} post={item} heading="h3" />
               ))}

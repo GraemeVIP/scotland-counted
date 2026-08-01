@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Page, Col, PageHeader, CTA } from "@/components/Blocks";
+import { Page, ContentFrame, Col, PageHeader, CTA } from "@/components/Blocks";
 import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
 import { site } from "@/lib/site";
 
@@ -26,7 +26,8 @@ export default function About() {
           lede={`${site.name} explains poverty in ordinary words, shows the proof and helps people email the right MP and MSP. It is a personal project by ${site.author.name}, founder of ${site.organisation.name}. No political party, charity or campaign runs it.`}
         />
 
-        <Col className="pt-11">
+        <ContentFrame>
+          <Col className="pt-11 mx-auto">
           <h2 className="h2 mb-4">Why it exists</h2>
           <p>
             Every figure on this site was already public. The problem was finding it. Some numbers
@@ -101,6 +102,7 @@ export default function About() {
           secondaryHref="/methods"
           secondaryCta="Read the methods"
         />
+        </ContentFrame>
       </Page>
     </>
   );

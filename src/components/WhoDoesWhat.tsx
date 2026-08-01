@@ -159,7 +159,7 @@ export default function WhoDoesWhat({
 
       {showDetail && (
         <EvidenceDetails
-          className="mt-6 max-w-[780px]"
+          className="mt-6 max-w-[780px] mx-auto"
           summary="The proper names for all this, if you want them"
         >
           <p>
