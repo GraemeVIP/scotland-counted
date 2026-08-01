@@ -130,10 +130,10 @@ export function Header() {
       className={`sticky top-0 z-50 no-print transition-colors ${
         scrolled
           ? "bg-[var(--paper)]/94 backdrop-blur-md border-b border-[var(--rule)] shadow-[var(--shadow-1)]"
-          : "bg-[var(--surface)] border-b border-[var(--rule)] shadow-[var(--shadow-1)] lg:bg-[var(--paper)] lg:border-transparent lg:shadow-none"
+          : "bg-[var(--surface)] border-b border-[var(--rule)] shadow-[var(--shadow-1)] xl:bg-[var(--paper)] xl:border-transparent xl:shadow-none"
       }`}
     >
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-14 flex items-center gap-2 sm:gap-6 2xl:gap-8 h-[72px] sm:h-[68px]">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-8 xl:px-14 flex items-center gap-2 sm:gap-6 2xl:gap-8 h-[72px] sm:h-[68px]">
         <Link
           href="/"
           className="shrink-0"
@@ -142,7 +142,7 @@ export function Header() {
           <Wordmark className="text-[17px] min-[390px]:text-[19px]" />
         </Link>
 
-        <nav aria-label="Main" className="hidden lg:flex items-center gap-3 xl:gap-4 2xl:gap-5 ml-2">
+        <nav aria-label="Main" className="hidden xl:flex items-center gap-3 xl:gap-4 2xl:gap-5 ml-2">
           {NAV.map((n) => {
             const active = pathname === n.href || pathname.startsWith(n.href + "/");
             return (
@@ -166,7 +166,7 @@ export function Header() {
             onClick={() => setBrowsePath(browse ? null : pathname)}
             aria-expanded={browse}
             aria-controls="browse-panel"
-            className="ui relative hidden lg:inline-flex whitespace-nowrap text-[15px] font-[620] tracking-[-0.005em] py-1 transition-colors text-[var(--ink-2)] hover:text-[var(--ink)] items-center gap-1.5"
+            className="ui relative hidden xl:inline-flex whitespace-nowrap text-[15px] font-[620] tracking-[-0.005em] py-1 transition-colors text-[var(--ink-2)] hover:text-[var(--ink)] items-center gap-1.5"
           >
             Everything
             <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" aria-hidden="true" className={`transition-transform ${browse ? "rotate-180" : ""}`}>
@@ -186,7 +186,7 @@ export function Header() {
           </Link>
           <button
             type="button"
-            className="lg:hidden w-11 h-11 shrink-0 inline-flex items-center justify-center rounded-[var(--r-s)] border border-[var(--rule-strong)] bg-[var(--surface)] text-[var(--ink)] shadow-[var(--shadow-1)] transition-colors hover:border-[var(--brand)]"
+            className="xl:hidden w-11 h-11 shrink-0 inline-flex items-center justify-center rounded-[var(--r-s)] border border-[var(--rule-strong)] bg-[var(--surface)] text-[var(--ink)] shadow-[var(--shadow-1)] transition-colors hover:border-[var(--brand)]"
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label="Menu"

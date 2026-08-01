@@ -20,11 +20,11 @@ const SCALE = [
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden lg:flex lg:min-h-[calc(100svh-69px)] lg:flex-col">
-      <div className="relative max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 py-6 sm:py-12 lg:flex lg:flex-1 lg:items-center">
-        <div className="grid w-full gap-x-12 gap-y-10 lg:grid-cols-[minmax(0,1.12fr)_minmax(420px,0.88fr)] lg:items-center">
+    <section className="relative overflow-hidden xl:flex xl:min-h-[calc(100svh-69px)] xl:flex-col">
+      <div className="relative max-w-[1440px] mx-auto px-5 sm:px-8 xl:px-14 py-6 sm:py-12 xl:flex xl:flex-1 xl:items-center">
+        <div className="grid w-full gap-x-12 gap-y-10 xl:grid-cols-[minmax(0,1.12fr)_minmax(420px,0.88fr)] xl:items-center">
           {/* ---- Statement ---- */}
-          <div>
+          <div className="md:max-xl:mx-auto md:max-xl:max-w-[680px] md:max-xl:text-center">
             <p className="kicker text-[var(--brand)] mb-3 sm:mb-5">
               <span className="sm:hidden">Free · independent · for Scotland</span>
               <span className="hidden sm:inline">
@@ -32,12 +32,12 @@ export default function Hero() {
               </span>
             </p>
 
-            <h1 className="display-stat text-[clamp(36px,10.5vw,44px)] sm:text-[clamp(44px,5.7vw,78px)] max-w-[16ch] mb-4 sm:mb-6">
+            <h1 className="display-stat text-[clamp(36px,10.5vw,44px)] sm:text-[clamp(44px,5.7vw,78px)] max-w-[16ch] mb-4 sm:mb-6 md:max-xl:mx-auto md:max-xl:max-w-[15ch]">
               Nearly a million people in Scotland{" "}
               <span className="mark">live in poverty.</span>
             </h1>
 
-            <p className="text-[17px] sm:text-[clamp(18px,1.55vw,21px)] leading-[1.5] text-[var(--ink-2)] max-w-[49ch] mb-5 sm:mb-7">
+            <p className="text-[17px] sm:text-[clamp(18px,1.55vw,21px)] leading-[1.5] text-[var(--ink-2)] max-w-[49ch] mb-5 sm:mb-7 md:max-xl:mx-auto">
               <span className="sm:hidden">
                 Poverty, pay and living costs—explained for where you live. Use the free tools,
                 then send ready-written emails to your MP and MSP.{" "}
@@ -51,11 +51,11 @@ export default function Hero() {
               <strong className="text-[var(--ink)]">It takes about a minute.</strong>
             </p>
 
-            <div>
+            <div className="md:max-xl:mx-auto md:max-xl:max-w-[620px] md:max-xl:text-left">
               <PostcodeStart />
             </div>
 
-            <div className="mt-5 sm:mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-[16px]">
+            <div className="mt-5 sm:mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-[16px] md:max-xl:justify-center">
               <Link href="/areas" className="font-[700]">
                 Or browse all 32 areas →
               </Link>
@@ -66,7 +66,7 @@ export default function Hero() {
           </div>
 
           {/* ---- The proportion, drawn ---- */}
-          <div className="w-full max-w-[520px] mx-auto lg:mx-0 lg:justify-self-end">
+          <div className="w-full max-w-[520px] mx-auto md:max-xl:max-w-[620px] xl:mx-0 xl:justify-self-end">
             <div
               className="rounded-[var(--r-l)] bg-[var(--surface)] border border-[var(--rule)] p-6 sm:p-7"
               style={{ boxShadow: "var(--shadow-3)" }}
@@ -110,10 +110,10 @@ export default function Hero() {
       </div>
 
       {/* ---- The scale of the thing ---- */}
-      <div className="slab-dark lg:shrink-0">
-        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14 py-7">
-          <div className="flex flex-wrap items-center gap-x-12 gap-y-6 justify-between">
-            <div className="flex flex-wrap gap-x-11 gap-y-5">
+      <div className="slab-dark xl:shrink-0">
+        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 xl:px-14 py-7">
+          <div className="flex flex-wrap items-center gap-x-12 gap-y-6 justify-between md:max-xl:justify-center md:max-xl:text-center">
+            <div className="flex flex-wrap gap-x-11 gap-y-5 md:max-xl:justify-center">
               {SCALE.map((s) => (
                 <div key={s.label}>
                   <div className="display-stat text-[30px] sm:text-[36px] text-[var(--deep-ink)]">

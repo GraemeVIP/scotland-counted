@@ -165,7 +165,7 @@ export function DesktopMenu({ onNavigate }: { onNavigate: () => void }) {
   return (
     <div
       id="browse-panel"
-      className="hidden lg:block border-t border-[var(--rule)] bg-[var(--surface)] shadow-[var(--shadow-3)]"
+      className="hidden xl:block border-t border-[var(--rule)] bg-[var(--surface)] shadow-[var(--shadow-3)]"
     >
       <div className="max-w-[1232px] mx-auto px-5 sm:px-8 lg:px-14 py-9 grid gap-8 xl:gap-12 lg:grid-cols-[minmax(250px,0.9fr)_minmax(0,2.1fr)]">
         <FindYourPlace onNavigate={onNavigate} />
@@ -212,7 +212,7 @@ export function MobileMenu({ onNavigate }: { onNavigate: () => void }) {
     <nav
       id="mobile-nav"
       aria-label="Main"
-      className="lg:hidden fixed inset-x-0 top-[72px] sm:top-[68px] bottom-0 z-40 overflow-y-auto overscroll-contain border-t border-[var(--rule)] bg-[var(--paper)]"
+      className="xl:hidden fixed inset-x-0 top-[72px] sm:top-[68px] bottom-0 z-40 overflow-y-auto overscroll-contain border-t border-[var(--rule)] bg-[var(--paper)]"
     >
       <div className="px-5 py-5 space-y-7">
         <FindYourPlace onNavigate={onNavigate} />

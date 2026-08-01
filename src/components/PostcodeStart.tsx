@@ -20,7 +20,7 @@ export default function PostcodeStart() {
   }
 
   return (
-    <div className="max-w-[620px]">
+    <div className="w-full max-w-[620px]">
       <form onSubmit={submit} className="grid gap-2.5 sm:grid-cols-[minmax(0,260px)_auto]">
         <label className="sr-only" htmlFor={inputId}>
           Your Scottish postcode
