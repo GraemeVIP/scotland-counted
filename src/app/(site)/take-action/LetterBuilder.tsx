@@ -16,14 +16,16 @@ import { asOneIn } from "@/lib/plain-language";
 import {
   buildLetter,
   letterSubject,
+  topicsForRole,
   type LetterArea,
   type RepresentativeRole,
 } from "@/lib/letter";
 import {
-  DEFAULT_TOPIC_ID,
-  rolesFor,
-  topicById,
-  topicsByKind,
+  DEFAULT_TOPIC_IDS,
+  joinPhrases,
+  LETTER_TOPICS,
+  rolesForTopics,
+  topicsByIds,
 } from "@/lib/data/letterTopics";
 
 function StepLabel({ n, children }: { n: number; children: React.ReactNode }) {
@@ -62,7 +64,7 @@ export default function LetterBuilder() {
   const [name, setName] = useState("");
   const [postcode, setPostcode] = useState("");
   const [personal, setPersonal] = useState("");
-  const [topicId, setTopicId] = useState(DEFAULT_TOPIC_ID);
+  const [topicIds, setTopicIds] = useState<string[]>(DEFAULT_TOPIC_IDS);
   const [lookup, setLookup] = useState<RepresentativeLookup | null>(null);
   const [lookupState, setLookupState] = useState<"idle" | "loading" | "error" | "success">(
     "idle"
@@ -92,13 +94,25 @@ export default function LetterBuilder() {
     };
   }, [council, first]);
 
-  const topic = useMemo(() => topicById(topicId), [topicId]);
+  const topics = useMemo(() => topicsByIds(topicIds), [topicIds]);
+
+  const promptText =
+    topics.length === 1
+      ? topics[0].prompt
+      : "Tell them what has happened to you, in your own words. If these things are connected, say so — that is usually the part that matters most.";
+
+  const toggleTopic = useCallback((id: string) => {
+    setTopicIds((current) =>
+      current.includes(id) ? current.filter((x) => x !== id) : [...current, id]
+    );
+  }, []);
 
   const drafts = useMemo(() => {
     if (!lookup) return [];
-    // Only write to the people who can actually act on this topic. Sending an
-    // NHS letter to an MP wastes the reader's time and the office's.
-    const wanted = rolesFor(topic);
+    // Only write to the people who can act on at least one thing ticked.
+    // Sending an NHS-only letter to an MP wastes the reader's time and the
+    // office's — but if anything else ticked is reserved, the MP still gets one.
+    const wanted = rolesForTopics(topics);
 
     return [lookup.mp, lookup.msp]
       .filter((r): r is Representative => r !== null && wanted.includes(r.role))
@@ -112,10 +126,10 @@ export default function LetterBuilder() {
           personal,
           postcode: lookup.postcode ?? postcode,
           councilSlug: council.slug,
-          topic,
+          topics,
         }),
       }));
-  }, [lookup, area, council.slug, name, personal, postcode, topic]);
+  }, [lookup, area, council.slug, name, personal, postcode, topics]);
 
   const findRepresentativesFor = useCallback(async (value: string) => {
     setLookupState("loading");
@@ -183,7 +197,11 @@ export default function LetterBuilder() {
   }
 
   function mailtoFor(representative: Representative, letter: string) {
-    return `mailto:${representative.email}?subject=${encodeURIComponent(letterSubject(area, topic))}&body=${encodeURIComponent(letter)}`;
+    // The subject has to describe this email, not the whole selection. Tick
+    // three things where only two are reserved and the MP's subject would
+    // otherwise announce a third that is not in the message.
+    const theirs = topicsForRole(topics, representative.role);
+    return `mailto:${representative.email}?subject=${encodeURIComponent(letterSubject(area, theirs))}&body=${encodeURIComponent(letter)}`;
   }
 
   return (
@@ -247,45 +265,80 @@ export default function LetterBuilder() {
           </p>
         </div>
 
-        <div className="mb-8">
-          <StepLabel n={2}>What is it about?</StepLabel>
-          <select
-            value={topicId}
-            onChange={(event) => setTopicId(event.target.value)}
-            aria-label="What the email is about"
-            className={inputCls}
-          >
-            <optgroup label="Campaign for a change">
-              {topicsByKind("campaign").map((t) => (
-                <option key={t.id} value={t.id}>
-                  {t.label}
-                </option>
-              ))}
-            </optgroup>
-            <optgroup label="Ask for help with something">
-              {topicsByKind("personal").map((t) => (
-                <option key={t.id} value={t.id}>
-                  {t.label}
-                </option>
-              ))}
-            </optgroup>
-          </select>
+        <fieldset className="mb-8">
+          <legend className="contents">
+            <StepLabel n={2}>What do you want them to act on?</StepLabel>
+          </legend>
+          <p className="text-[15px] leading-[1.55] text-[var(--ink-2)] -mt-1 mb-3">
+            Choose one or more. There is no wrong answer, and you can tick things that feel
+            unrelated — they often are not.
+          </p>
 
-          <p className="text-[15px] leading-[1.55] text-[var(--ink-2)] mt-2.5">{topic.blurb}</p>
-
-          {/* Who it goes to, and why. This is the part almost nobody knows. */}
-          <div className="mt-3 rounded-[var(--r-s)] border-l-[3px] border-[var(--brand)] bg-[var(--surface-2)] px-4 py-3">
-            <p className="ui text-[14px] font-[750] text-[var(--brand)] mb-1">
-              {topic.who === "both" ? "Goes to both" : `Goes to your ${topic.who}`}
-            </p>
-            <p className="text-[15px] leading-[1.55] text-[var(--ink-2)]">{topic.whyWho}</p>
+          <div className="grid gap-2 sm:grid-cols-2">
+            {LETTER_TOPICS.map((t) => {
+              const on = topicIds.includes(t.id);
+              return (
+                <label
+                  key={t.id}
+                  className={`group flex gap-3 cursor-pointer rounded-[var(--r-s)] border px-3.5 py-3 transition-colors ${
+                    on
+                      ? "border-[var(--brand)] bg-[var(--surface-2)]"
+                      : "border-[var(--rule-strong)] bg-[var(--paper)] hover:border-[var(--muted)]"
+                  }`}
+                >
+                  <input
+                    type="checkbox"
+                    checked={on}
+                    onChange={() => toggleTopic(t.id)}
+                    className="mt-[3px] h-[18px] w-[18px] shrink-0 accent-[var(--brand)]"
+                  />
+                  <span>
+                    <span className="ui block text-[15.5px] font-[680] leading-[1.35] text-[var(--ink)]">
+                      {t.label}
+                    </span>
+                    <span className="block text-[14.5px] leading-[1.45] text-[var(--ink-2)] mt-0.5">
+                      {t.blurb}
+                    </span>
+                  </span>
+                </label>
+              );
+            })}
           </div>
-        </div>
+
+          {topics.length === 0 ? (
+            <p className="mt-3 rounded-[var(--r-s)] border-l-[3px] border-[var(--warn)] bg-[var(--surface-2)] px-4 py-3 text-[15px] leading-[1.55] text-[var(--ink-2)]">
+              Tick at least one thing above and we will work out who can act on it.
+            </p>
+          ) : (
+            /*
+             * Who each email goes to, and why. This is the part almost nobody
+             * knows, and with several subjects ticked it is the part doing the
+             * real work — the reader never has to sort reserved from devolved.
+             */
+            <div className="mt-3 space-y-2">
+              {(["MP", "MSP"] as const).map((role) => {
+                const theirs = topicsForRole(topics, role);
+                if (!theirs.length) return null;
+                return (
+                  <div
+                    key={role}
+                    className="rounded-[var(--r-s)] border-l-[3px] border-[var(--brand)] bg-[var(--surface-2)] px-4 py-3"
+                  >
+                    <p className="ui text-[14px] font-[750] text-[var(--brand)] mb-1">
+                      Your {role} gets: {joinPhrases(theirs.map((t) => t.phrase))}
+                    </p>
+                    <p className="text-[15px] leading-[1.55] text-[var(--ink-2)]">
+                      {theirs[0].whyWho}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </fieldset>
 
         <div className="mb-8">
-          <StepLabel n={3}>
-            {topic.needsDetail ? "Tell them what happened" : "Add your name if you want"}
-          </StepLabel>
+          <StepLabel n={3}>Add your own words</StepLabel>
           <div className="space-y-3">
             <input
               type="text"
@@ -300,17 +353,16 @@ export default function LetterBuilder() {
             <textarea
               value={personal}
               onChange={(event) => setPersonal(event.target.value)}
-              placeholder={topic.prompt}
+              placeholder={promptText}
               data-clarity-mask="true"
-              aria-label={topic.needsDetail ? "What you want to tell them" : "A personal sentence for the email, optional"}
-              rows={topic.needsDetail ? 7 : 4}
+              aria-label="What you want to tell them, optional"
+              rows={6}
               className={`${inputCls} resize-y`}
             />
           </div>
           <p className="text-[15px] text-[var(--muted)] leading-[1.5] mt-3">
-            {topic.needsDetail
-              ? "This is the part only you can write. It goes straight into the draft — nothing is sent to us, and nothing is saved."
-              : "This is optional. Anything you add goes only into the draft opened by your email app."}
+            Optional, but it is the part only you can write, and it goes in first — before
+            any of the policy asks. Nothing is sent to us and nothing is saved.
           </p>
         </div>
 
