@@ -442,7 +442,16 @@ export function CTA({
     <FullBleed className="mt-20 -mb-24 sm:mt-28">
       <div className="bg-[var(--deep)] text-[var(--deep-ink)] py-16 sm:py-20">
         <div className="max-w-[1232px] mx-auto px-5 sm:px-8 lg:px-14">
-          <div className="grid gap-x-14 gap-y-8 lg:grid-cols-[minmax(0,1fr)_minmax(380px,0.72fr)] lg:items-center">
+          {/*
+            The card is a fixed 420px on desktop rather than a fraction of the
+            row. As a fraction it kept growing with the viewport, so on a wide
+            screen a panel holding two buttons and four words sprawled to twice
+            the width it needed and the buttons sat in a lake of its own
+            background. 420px fits the longest label on the site — "Find mine
+            and write the emails" — on one line, with the text column taking
+            whatever is left.
+          */}
+          <div className="grid gap-x-14 gap-y-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
             <div>
               <h2 className="h2 mb-4 max-w-[18ch]">{title}</h2>
               <p className="opacity-80 max-w-[54ch] text-[17.5px] leading-[1.55]">{body}</p>
@@ -456,7 +465,7 @@ export function CTA({
               it read as one deliberate choice and its alternative, and give
               the card a straight right edge to sit on.
             */}
-            <div className="rounded-[var(--r-m)] border border-white/15 bg-white/[0.055] p-5 sm:p-6">
+            <div className="w-full lg:w-[420px] rounded-[var(--r-m)] border border-white/15 bg-white/[0.055] p-5 sm:p-6">
               <p className="kicker mb-4 text-[var(--action)]">One simple next step</p>
               <div className="grid gap-3">
                 <Link href={href} className="btn btn-primary w-full justify-center">
