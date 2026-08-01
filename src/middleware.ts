@@ -17,19 +17,7 @@ import { site } from "../site.config";
 
 const CANONICAL_HOST = new URL(site.url).host;
 
-/** Slugs that moved. Old paths must keep working. */
-const REDIRECTS: Record<string, string> = {
-  "/council-tax": "/council-tax-bands-scotland",
-};
-
 export function middleware(request: NextRequest) {
-  const moved = REDIRECTS[request.nextUrl.pathname];
-  if (moved) {
-    const url = request.nextUrl.clone();
-    url.pathname = moved;
-    return NextResponse.redirect(url, 308);
-  }
-
   const response = NextResponse.next();
   const host = request.headers.get("host");
 

@@ -55,8 +55,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  const bandPages: MetadataRoute.Sitemap = BAND_LETTERS.map((b) => ({
-    url: `${site.url}/council-tax-bands-scotland/${b.toLowerCase()}`,
+  const councilTaxPages: MetadataRoute.Sitemap = [
+    ...BAND_LETTERS.map((b) => `band-${b.toLowerCase()}`),
+    ...councils.map((c) => c.slug),
+  ].map((slug) => ({
+    url: `${site.url}/council-tax-bands-scotland/${slug}`,
     changeFrequency: "yearly" as const,
     priority: 0.8,
   }));
