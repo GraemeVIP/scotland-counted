@@ -212,6 +212,13 @@ export const sources: Source[] = [
     used: "Median gross weekly pay for full-time employees in Scotland, £773.80 in April 2025, used to show that a Glasgow figure slightly above it is expected rather than anomalous.",
   },
   {
+    id: "ons-low-pay-2025",
+    title: "Low and high pay in the UK: 2025",
+    publisher: "Office for National Statistics",
+    url: "https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/bulletins/lowandhighpayuk/2025",
+    used: "That around 2.0 million workers — about 6.6% of the UK workforce — are paid at or below the minimum wage, which is why the middle of the distribution sits well above it.",
+  },
+  {
     id: "lpc-remit",
     title: "Low Pay Commission Remit 2026: National Living Wage and National Minimum Wage",
     publisher: "UK Government",
