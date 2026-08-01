@@ -161,7 +161,9 @@ export default function CouncilTaxLookup() {
                   ))}
                 </div>
 
-                <p className="mt-4 text-[14.5px] leading-[1.5] text-[var(--muted)]">
+                {/* The weakest text on the page was carrying the one link that
+                    tells someone how to find their own band. Both fixed. */}
+                <p className="mt-4 text-[15px] leading-[1.55] text-[var(--ink-2)]">
                   Share of homes in each band, {DWELLINGS_YEAR}. For the exact band of one
                   property, look it up free on the{" "}
                   <a href="https://www.saa.gov.uk/" target="_blank" rel="noopener noreferrer">

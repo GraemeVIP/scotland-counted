@@ -227,6 +227,34 @@
     color: inherit;
   }
 
+  /*
+   * A link nobody can see is not a link.
+   *
+   * Underlines were only ever applied inside .prose, so an anchor in a caption,
+   * a panel or a source list rendered identical to the words around it — same
+   * colour, no underline, nothing but the cursor to give it away. That is a
+   * WCAG 1.4.1 failure and it affected 95 distinct links, some on 57 pages.
+   *
+   * Anchors that have been given a class have been given a look — buttons,
+   * cards, nav items, all of which read as interactive from their shape. So the
+   * rule targets only the ones carrying no styling of their own, and matches
+   * what .prose already does, so the two are indistinguishable to a reader.
+   */
+  a:not([class]) {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-decoration-color: var(--rule-strong);
+    text-underline-offset: 3px;
+    transition:
+      text-decoration-color 0.15s,
+      color 0.15s;
+  }
+
+  a:not([class]):hover {
+    color: var(--brand);
+    text-decoration-color: var(--brand);
+  }
+
   :focus-visible {
     outline: 2px solid var(--brand);
     outline-offset: 3px;
