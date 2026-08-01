@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { chargesFor, COUNCIL_TAX_YEAR, WATER_YEAR, type BandCharge } from "@/lib/data/councilTax";
 import { councils } from "@/lib/data/councils";
+import { bandShares, DWELLINGS_YEAR } from "@/lib/data/dwellings";
 
 /**
  * Postcode to council tax charges.
@@ -27,6 +28,8 @@ const exact = new Intl.NumberFormat("en-GB", {
 });
 
 type Result = { councilName: string; slug: string; charges: BandCharge[] };
+
+const pct = (n: number) => `${Math.round(n)}%`;
 
 export default function CouncilTaxLookup() {
   const [postcode, setPostcode] = useState("");
@@ -124,6 +127,51 @@ export default function CouncilTaxLookup() {
             Every band, with water and waste water included — those are on the same bill and are
             usually missing from figures you find elsewhere.
           </p>
+
+          {(() => {
+            const shares = bandShares(result.slug);
+            if (!shares) return null;
+            const top = [...shares].sort((a, b) => b.share - a.share)[0];
+            const lowThree = shares.slice(0, 3).reduce((sum, s) => sum + s.share, 0);
+            return (
+              <div className="mt-6 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] p-5 sm:p-6">
+                <p className="ui text-[16px] font-[750] mb-1.5">Not sure which band you are?</p>
+                <p className="max-w-[62ch] text-[15.5px] leading-[1.55] text-[var(--ink-2)]">
+                  Most homes here are in the lower bands, so you can usually narrow it to two or
+                  three. In {result.councilName},{" "}
+                  <strong className="text-[var(--ink)]">{pct(lowThree)} of homes are Band A, B or C</strong>{" "}
+                  and the most common single band is <strong className="text-[var(--ink)]">Band {top.band}</strong>.
+                </p>
+
+                <div className="mt-5 space-y-2">
+                  {shares.map((s) => (
+                    <div key={s.band} className="grid grid-cols-[2.5rem_minmax(0,1fr)_3rem] items-center gap-3">
+                      <span className="ui text-[14.5px] font-[700] text-[var(--ink-2)]">Band {s.band}</span>
+                      <span className="h-2.5 overflow-hidden rounded-full bg-[var(--paper-3)]">
+                        <span
+                          className="block h-full rounded-full"
+                          style={{
+                            width: `${Math.max(1, (s.share / Math.max(...shares.map((x) => x.share))) * 100)}%`,
+                            background: s.band === top.band ? "var(--brand)" : "var(--rule-strong)",
+                          }}
+                        />
+                      </span>
+                      <span className="ui text-right text-[14px] tnum text-[var(--muted)]">{pct(s.share)}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <p className="mt-4 text-[14.5px] leading-[1.5] text-[var(--muted)]">
+                  Share of homes in each band, {DWELLINGS_YEAR}. For the exact band of one
+                  property, look it up free on the{" "}
+                  <a href="https://www.saa.gov.uk/" target="_blank" rel="noopener noreferrer">
+                    Scottish Assessors
+                  </a>{" "}
+                  site — they are the only people who hold it.
+                </p>
+              </div>
+            );
+          })()}
 
           <div className="mt-6 overflow-hidden rounded-[var(--r-m)] border border-[var(--rule)]">
             <div className="grid grid-cols-[auto_minmax(0,1fr)_auto] gap-x-4 border-b border-[var(--rule)] bg-[var(--surface-2)] px-5 py-3">

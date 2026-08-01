@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Page, PageHeader, InShort } from "@/components/Blocks";
 import { JsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
 import CouncilTaxLookup from "./CouncilTaxLookup";
+import WaterCharge from "@/components/WaterCharge";
 import { councilTaxByBand, chargesFor, COUNCIL_TAX_YEAR, WATER_YEAR } from "@/lib/data/councilTax";
 import { councils } from "@/lib/data/councils";
 import { getSources } from "@/lib/data/sources";
@@ -83,6 +84,8 @@ export default function CouncilTaxPage() {
             <p>On a low income you may pay a lot less. We explain how below.</p>
           </InShort>
         </div>
+
+        <WaterCharge className="mb-10" />
 
         <CouncilTaxLookup />
 

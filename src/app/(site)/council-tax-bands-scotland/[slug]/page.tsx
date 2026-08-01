@@ -13,6 +13,7 @@ import {
 } from "@/lib/data/councilTax";
 import { councils } from "@/lib/data/councils";
 import { getSources } from "@/lib/data/sources";
+import WaterCharge from "@/components/WaterCharge";
 
 /**
  * Two kinds of page behind one dynamic segment.
@@ -210,6 +211,8 @@ export default async function CouncilTaxSlugPage(props: { params: Promise<{ slug
               ))}
             </div>
           </section>
+
+          <WaterCharge className="mt-12" />
 
           <section className="pt-12">
             <h2 className="h2 mb-4">Compare with other councils</h2>
