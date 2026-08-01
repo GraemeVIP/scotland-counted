@@ -80,6 +80,13 @@ export function meta({
       card: "summary_large_image",
       title,
       description,
+      /*
+       * Without these a shared link renders a card with no byline and no way
+       * back to the account — a post can travel and leave nobody able to find
+       * who published it. Both are omitted entirely when no handle is set,
+       * rather than emitted empty.
+       */
+      ...(site.social.x ? { site: `@${site.social.x}`, creator: `@${site.social.x}` } : {}),
       ...(imageUrl ? { images: [imageUrl] } : {}),
     },
   };
@@ -105,7 +112,8 @@ export function orgJsonLd() {
         name: site.organisation.name,
         url: site.organisation.url,
         description:
-          "Independent research and analysis. Scotland Counted is a personal public-interest project.",
+          "Independent research and analysis. Scotland Counted is an independent record of poverty, work and living costs in Scotland.",
+        ...(site.social.x ? { sameAs: [`https://x.com/${site.social.x}`] } : {}),
       },
       {
         "@type": "Person",

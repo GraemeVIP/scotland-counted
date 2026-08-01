@@ -37,9 +37,19 @@ export const site = {
   /** CHANGE ME — shown on the about page and used for corrections. */
   contactEmail: "hello@strathmarkconsulting.com",
 
-  /** Optional. Leave blank to hide the link. */
+  /**
+   * Handles only, no @ and no URL — the code adds both.
+   *
+   * The X handle does more than add a footer link: it becomes twitter:site and
+   * twitter:creator, so a shared link renders a card attributed to the account
+   * with a follow path back to it. Without it a post can travel and leave no
+   * way to find who published the thing. It is also listed in sameAs, which is
+   * how a search engine ties the profile and the site to one publisher.
+   *
+   * Leave any of these blank and the link and its tags disappear.
+   */
   social: {
-    x: "",
+    x: "scotlandcounted",
     bluesky: "",
     linkedin: "",
   },

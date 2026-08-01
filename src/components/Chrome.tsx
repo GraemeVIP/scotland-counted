@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { site } from "@/lib/site";
 import { ScrollProgress } from "@/components/Motion";
 import { PRIMARY } from "@/lib/data/navigation";
@@ -83,6 +83,8 @@ export function Header() {
   /** Panel is only open for the path it was opened on, so navigating closes it. */
   const browse = browsePath === pathname;
 
+  const headerRef = useRef<HTMLElement>(null);
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
@@ -90,8 +92,41 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  /*
+   * Dismiss the desktop panel the way every other menu on the web does:
+   * click away from it, or press Escape. Requiring a second click on the
+   * button that opened it is a dead end — nothing on screen says that is the
+   * only way out, so the panel reads as stuck.
+   *
+   * The panel renders inside <header>, so containment on that one node covers
+   * the trigger too: clicking the button lands inside, this handler stays out
+   * of the way, and the button's own toggle closes it without the two fighting.
+   *
+   * pointerdown rather than click, so it closes on the press instead of the
+   * release, and a drag that starts inside the panel and ends outside does not
+   * count as clicking away.
+   */
+  useEffect(() => {
+    if (!browse) return;
+
+    const onPointerDown = (event: PointerEvent) => {
+      if (!headerRef.current?.contains(event.target as Node)) setBrowsePath(null);
+    };
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setBrowsePath(null);
+    };
+
+    document.addEventListener("pointerdown", onPointerDown);
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("pointerdown", onPointerDown);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [browse]);
+
   return (
     <header
+      ref={headerRef}
       className={`sticky top-0 z-50 no-print transition-colors ${
         scrolled
           ? "bg-[var(--paper)]/94 backdrop-blur-md border-b border-[var(--rule)] shadow-[var(--shadow-1)]"
@@ -237,6 +272,32 @@ export function Footer() {
               <span aria-hidden="true"> →</span>
             </Link>
           ))}
+
+          {/*
+            Pushed right so it reads as its own thing rather than a fourth
+            tool. The mark is inline SVG on currentColor: the footer is a dark
+            slab, and a hosted PNG would need a second file per theme and would
+            still be one more request for a 24px glyph.
+          */}
+          {site.social.x && (
+            <a
+              href={`https://x.com/${site.social.x}`}
+              rel="noopener noreferrer me"
+              target="_blank"
+              className="ui ml-auto inline-flex items-center gap-2 rounded-[var(--r-pill)] border border-current/30 px-4 py-2 text-[15px] font-[680] transition-colors hover:bg-white/10"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="15"
+                height="15"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+              Follow @{site.social.x}
+            </a>
+          )}
         </div>
 
         <div className="mt-6 pt-4 border-t border-current/15 flex flex-wrap items-center justify-between gap-x-8 gap-y-2 text-[15px] leading-[1.5] opacity-68">
