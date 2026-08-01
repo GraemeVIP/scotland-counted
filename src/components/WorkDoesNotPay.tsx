@@ -4,10 +4,11 @@ import {
   minimumWageTakeHome,
   glasgowRent,
   rentShareOfTakeHome,
-  leftAfterRentMonthly,
   minimumIncomeStandard,
   costsThenAndNow,
-  councilTaxNote,
+  councilTax,
+  energyMonthly,
+  universalCredit,
   benefitsComparison as bc,
 } from "@/lib/data/livingCosts";
 
@@ -33,7 +34,8 @@ const pounds = new Intl.NumberFormat("en-GB", {
 
 export default function WorkDoesNotPay({ className = "" }: { className?: string }) {
   const rentPct = Math.round(rentShareOfTakeHome * 100);
-  const leftOver = leftAfterRentMonthly;
+  const leftOver =
+    minimumWageTakeHome.monthly - glasgowRent.monthly - councilTax.monthly - energyMonthly;
 
   return (
     <section className={className} aria-labelledby="work-does-not-pay">
@@ -46,65 +48,46 @@ export default function WorkDoesNotPay({ className = "" }: { className?: string 
         adds up to against what it costs to live here.
       </p>
 
-      {/* ---- The squeeze ---- */}
-      <div className="mt-8 grid gap-4 sm:grid-cols-3">
-        {[
-          {
-            label: "Full-time on the legal minimum, after tax",
-            value: pounds.format(minimumWageTakeHome.monthly),
-            note: `A month in the bank · ${pounds.format(minimumWage.monthlyGross)} before tax`,
-            tone: "ink",
-          },
-          {
-            label: `Rent on a ${glasgowRent.size} in ${glasgowRent.area}`,
-            value: pounds.format(glasgowRent.monthly),
-            note: `A month · ${pounds.format(glasgowRent.scotlandMonthly)} across Scotland`,
-            tone: "bad",
-          },
-          {
-            label: "Left for everything else",
-            value: pounds.format(leftOver),
-            note: "Food, energy, travel, clothes, everything",
-            tone: "bad",
-          },
-        ].map((s) => (
-          <div
-            key={s.label}
-            className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-6"
-            style={{ boxShadow: "var(--shadow-1)" }}
-          >
-            <p className="ui text-[14.5px] font-[700] leading-[1.4] text-[var(--ink-2)] min-h-[2.8em]">
-              {s.label}
-            </p>
-            <p
-              className="display-stat mt-2 text-[clamp(30px,3.4vw,40px)]"
-              style={{ color: s.tone === "bad" ? "var(--bad)" : "var(--ink)" }}
-            >
-              {s.value}
-            </p>
-            <p className="mt-2.5 text-[14.5px] leading-[1.45] text-[var(--muted)]">{s.note}</p>
-          </div>
-        ))}
-      </div>
-
-      <div className="mt-5 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] p-6">
-        <p className="text-[19px] leading-[1.5] font-[640] max-w-[56ch]">
-          Rent alone takes {rentPct}% of what actually reaches the bank account, before a single
-          bill is paid.
-        </p>
-        <div
-          className="mt-4 flex h-4 overflow-hidden rounded-full bg-[var(--paper-3)]"
-          role="img"
-          aria-label={`Rent takes ${rentPct} per cent of take-home pay. The remaining ${100 - rentPct} per cent covers everything else.`}
-        >
-          <span className="h-full bg-[var(--bad)]" style={{ width: `${rentPct}%` }} />
-          <span className="h-full bg-[var(--rule-strong)]" style={{ width: `${100 - rentPct}%` }} />
+      {/* ---- The budget, line by line ---- */}
+      <div className="mt-8 overflow-hidden rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)]" style={{ boxShadow: "var(--shadow-2)" }}>
+        <div className="border-b border-[var(--rule)] bg-[var(--surface-2)] px-6 py-4">
+          <p className="ui text-[15px] font-[750]">
+            One adult, working 37.5 hours a week on the legal minimum, renting a one-bedroom flat
+            in Glasgow
+          </p>
         </div>
-        <p className="mt-3 text-[15px] text-[var(--muted)]">
-          Rent · everything else. Housing is normally called affordable below 30%. Take-home is{" "}
-          {pounds.format(minimumWageTakeHome.annual)} a year: {pounds.format(minimumWage.annualGross)} gross,
-          less {pounds.format(minimumWageTakeHome.tax)} income tax and {pounds.format(minimumWageTakeHome.ni)} National
-          Insurance.
+        <dl className="divide-y divide-[var(--rule)]">
+          {[
+            { label: "Take-home pay", sub: `${pounds.format(minimumWage.annualGross)} gross, less ${pounds.format(minimumWageTakeHome.tax)} tax and ${pounds.format(minimumWageTakeHome.ni)} National Insurance`, value: minimumWageTakeHome.monthly, kind: "in" },
+            { label: "Universal Credit", sub: "Nothing is payable. With no children and no health condition there is no work allowance, so the 55p taper wipes out the £425 allowance", value: 0, kind: "in" },
+            { label: "Rent", sub: `${glasgowRent.area} average, ${glasgowRent.size}`, value: -glasgowRent.monthly, kind: "out" },
+            { label: "Council tax and water", sub: `Band A · ${pounds.format(councilTax.councilTax2026)} council tax and ${pounds.format(councilTax.waterCombined)} water a year`, value: -councilTax.monthly, kind: "out" },
+            { label: "Gas and electricity", sub: "Ofgem cap for a typical home, from 1 July 2026", value: -energyMonthly, kind: "out" },
+          ].map((row) => (
+            <div key={row.label} className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-x-6 gap-y-1 px-6 py-4">
+              <div>
+                <dt className="ui text-[16.5px] font-[700] text-[var(--ink)]">{row.label}</dt>
+                <dd className="mt-1 text-[14.5px] leading-[1.45] text-[var(--muted)]">{row.sub}</dd>
+              </div>
+              <dd
+                className="display-stat text-[22px] tnum"
+                style={{ color: row.kind === "out" ? "var(--bad)" : "var(--ink)" }}
+              >
+                {row.value === 0 ? "£0" : (row.value < 0 ? "−" : "") + pounds.format(Math.abs(row.value))}
+              </dd>
+            </div>
+          ))}
+          <div className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-x-6 bg-[var(--brand-wash)] px-6 py-5">
+            <dt className="ui text-[18px] font-[790]">Left for everything else</dt>
+            <dd className="display-stat text-[clamp(28px,3vw,36px)] text-[var(--brand)] tnum">
+              {pounds.format(leftOver)}
+            </dd>
+          </div>
+        </dl>
+        <p className="border-t border-[var(--rule)] px-6 py-4 text-[15px] leading-[1.55] text-[var(--ink-2)]">
+          That {pounds.format(leftOver)} covers food, travel, phone, clothes, toiletries, haircuts,
+          school things, a birthday, and anything that breaks. Rent alone is {rentPct}% of
+          take-home, against the 30% usually called affordable.
         </p>
       </div>
 
@@ -131,9 +114,6 @@ export default function WorkDoesNotPay({ className = "" }: { className?: string 
             </div>
           ))}
         </div>
-        <p className="mt-5 max-w-[64ch] rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface-2)] px-5 py-4 text-[15px] leading-[1.55] text-[var(--ink-2)]">
-          <span className="font-[700] text-[var(--ink)]">One gap, stated.</span> {councilTaxNote}
-        </p>
       </div>
 
       {/* ---- The rigorous version ---- */}
@@ -206,6 +186,20 @@ export default function WorkDoesNotPay({ className = "" }: { className?: string 
               A year after tax, and Universal Credit can still be paid on top
             </p>
           </div>
+        </div>
+
+        <div className="mt-7 space-y-3">
+          {universalCredit.scenarios.map((sc) => (
+            <div key={sc.who} className="rounded-[var(--r-s)] border border-white/15 bg-white/[0.05] px-5 py-4">
+              <div className="flex flex-wrap items-baseline justify-between gap-x-5 gap-y-1">
+                <p className="ui text-[16px] font-[720]">{sc.who}</p>
+                <p className="display-stat text-[24px] tnum">
+                  {pounds.format(sc.award)}<span className="text-[15px] font-[600] opacity-70"> a month</span>
+                </p>
+              </div>
+              <p className="mt-2 text-[15px] leading-[1.5] opacity-80">{sc.note}</p>
+            </div>
+          ))}
         </div>
 
         <p className="mt-6 max-w-[62ch] text-[18px] leading-[1.6]">

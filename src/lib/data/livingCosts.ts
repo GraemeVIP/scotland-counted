@@ -165,12 +165,67 @@ export const costsThenAndNow = [
 ];
 
 /**
- * Council tax is a real line in any household budget and it is missing here
- * on purpose. Glasgow City Council blocks automated access to its charges,
- * and the figures circulating on commercial council-tax sites disagree with
- * each other — two of them give different Scottish Water charges for the same
- * band. We would rather leave a stated gap than publish a number we cannot
- * trace to the council. Anyone can read theirs off their own bill.
+ * Council tax and water, Glasgow Band A.
+ *
+ * Glasgow's own site blocks automated access, so these come from the national
+ * dataset instead: the Scottish Government publishes council tax by band for
+ * all 32 councils, and Scottish Water publishes the unmetered charges. Between
+ * them the whole bill is traceable to source without going near the council.
  */
-export const councilTaxNote =
-  "Council tax and water charges are not included here. Glasgow publishes them, but we could not retrieve them from the council directly, and we do not publish figures we cannot trace to the source. Yours is on your bill. Council Tax Reduction may also apply at this income.";
+export const councilTax = {
+  band: "A",
+  councilTax2025: 1074,
+  risePct: 5.9,
+  get councilTax2026() {
+    return this.councilTax2025 * (1 + this.risePct / 100);
+  },
+  water: 201.3,
+  wasteWater: 233.58,
+  get waterCombined() {
+    return this.water + this.wasteWater;
+  },
+  get annualTotal() {
+    return this.councilTax2026 + this.waterCombined;
+  },
+  get monthly() {
+    return this.annualTotal / 12;
+  },
+  sourceIds: ["council-tax-scotland", "scottish-water-2026"],
+};
+
+/** The Ofgem cap, as a monthly figure for the budget. */
+export const energyMonthly = 1854 / 12;
+
+/**
+ * Universal Credit actually payable on a full-time minimum wage.
+ *
+ * Worked from the published rules rather than a calculator. The single-adult
+ * result is the one that surprises people: with no children and no health
+ * condition there is no work allowance at all, so the taper bites from the
+ * first pound and the standard allowance is wiped out several times over.
+ */
+export const universalCredit = {
+  taper: 0.55,
+  standardAllowance: 424.9,
+  childElement: 303.94,
+  workAllowanceWithHousing: 427,
+  scenarios: [
+    {
+      who: "Single adult, no children",
+      workAllowance: 0,
+      maxUcBeforeHousing: 424.9,
+      taperCut: 1783.77 * 0.55,
+      award: 0,
+      note: "No work allowance applies, so 55p is taken from the first pound earned. The cut is £981 against a £425 allowance, so nothing is payable unless housing support of more than £556 a month is due.",
+    },
+    {
+      who: "Single parent, two children",
+      workAllowance: 427,
+      maxUcBeforeHousing: 424.9 + 303.94 * 2,
+      taperCut: (1783.77 - 427) * 0.55,
+      award: 424.9 + 303.94 * 2 - (1783.77 - 427) * 0.55,
+      note: "A work allowance and two child elements apply, so £287 a month is payable before any help with rent — around £3,439 a year.",
+    },
+  ],
+  sourceIds: ["uc-what-youll-get", "uc-earnings"],
+};

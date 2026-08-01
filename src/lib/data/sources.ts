@@ -212,6 +212,22 @@ export const sources: Source[] = [
     used: "Median gross weekly pay for full-time employees in Scotland, £773.80 in April 2025, used to show that a Glasgow figure slightly above it is expected rather than anomalous.",
   },
   {
+    id: "council-tax-scotland",
+    title: "Council Tax by band 2025-26, council tax datasets",
+    publisher: "Scottish Government",
+    url: "https://www.gov.scot/publications/council-tax-datasets/",
+    used: "Glasgow City council tax by band: £1,074 at Band A and £1,611 at Band D in 2025-26.",
+    derivation:
+      "Glasgow agreed a 5.9% rise for 2026-27, giving about £1,137 at Band A. The national dataset is used because the council's own pages block automated access; the figures are the council's own, published centrally.",
+  },
+  {
+    id: "scottish-water-2026",
+    title: "Your charges explained 2026-27",
+    publisher: "Scottish Water",
+    url: "https://www.scottishwater.co.uk/-/media/scottishwater/document-hub/your-home/charges/2026/your-charges-explained-2026-27.pdf",
+    used: "Unmetered water and waste water charges for 2026-27: £201.30 and £233.58 at Band A, £434.88 combined. These are collected with council tax.",
+  },
+  {
     id: "ofgem-cap-2026",
     title: "Changes to the energy price cap between 1 July and 30 September 2026",
     publisher: "Ofgem",
