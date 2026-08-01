@@ -108,7 +108,6 @@ export default function Home() {
                 id={VIDEO.youtubeId}
                 title={VIDEO.name}
                 poster={VIDEO.thumbnail}
-                caption="Nothing loads from YouTube until you press play."
               />
             </div>
           </Page>
