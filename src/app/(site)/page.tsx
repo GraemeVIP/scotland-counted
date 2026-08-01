@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Page, FullBleed, EvidenceDetails } from "@/components/Blocks";
-import { JsonLd, articleJsonLd, faqJsonLd, videoJsonLd, meta } from "@/lib/seo";
+import { JsonLd, articleJsonLd, faqJsonLd, videoJsonLd, imageJsonLd, meta } from "@/lib/seo";
 import { councilsByLevel, SCOTLAND_PCTS } from "@/lib/data/councils";
 import { scotlandPoverty } from "@/lib/data/scotland";
 import { getSources } from "@/lib/data/sources";
@@ -10,6 +10,8 @@ import WhyBother from "@/components/WhyBother";
 import Hero from "./Hero";
 import VideoEmbed from "@/components/VideoEmbed";
 import Quiz from "@/components/Quiz";
+import ShareGraphic from "@/components/ShareGraphic";
+import { infographic } from "@/lib/data/infographic";
 import { costOfLivingVideo as VIDEO } from "@/lib/data/video";
 
 export const metadata = meta({
@@ -143,6 +145,20 @@ export default function Home() {
           </div>
         </section>
       </Page>
+
+      {/*
+        Straight after the quiz, because somebody who has just scored 1 out of 6
+        and been told almost nobody gets these right is the most likely they
+        will ever be to pass it on. Not in the "Across Scotland" section, which
+        already shows the same four figures as cards — putting it there would be
+        the page saying one thing twice.
+      */}
+      <JsonLd data={imageJsonLd(infographic)} />
+      <div className="border-y border-[var(--rule)] bg-[var(--paper-2)]">
+        <Page>
+          <ShareGraphic className="mx-auto max-w-[1120px] py-16 sm:py-20" />
+        </Page>
+      </div>
 
       <Page>
         <AreaGrid className="py-16 sm:py-20" />

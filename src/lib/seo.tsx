@@ -234,6 +234,40 @@ export function videoJsonLd({
   };
 }
 
+/**
+ * JSON-LD for a standalone graphic, so it can surface in image search on its
+ * own terms. `alt` doubles as the caption because it already describes the
+ * whole thing in words — an image that needs two different descriptions is
+ * usually one where the alt text is not doing its job.
+ */
+export function imageJsonLd({
+  src,
+  alt,
+  title,
+  width,
+  height,
+}: {
+  src: string;
+  alt: string;
+  title: string;
+  width: number;
+  height: number;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ImageObject",
+    contentUrl: `${site.url}${src}`,
+    name: title,
+    caption: alt,
+    width,
+    height,
+    license: "https://creativecommons.org/licenses/by/4.0/",
+    acquireLicensePage: `${site.url}/press`,
+    creditText: site.name,
+    creator: { "@type": "Organization", name: site.organisation.name, url: site.organisation.url },
+  };
+}
+
 export function faqJsonLd(items: { q: string; a: string }[]) {
   return {
     "@context": "https://schema.org",

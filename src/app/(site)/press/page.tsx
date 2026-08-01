@@ -4,6 +4,8 @@ import CopyLine from "./CopyLine";
 import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
 import { indicators } from "@/lib/data/indicators";
 import { site } from "@/lib/site";
+import Image from "next/image";
+import { infographic } from "@/lib/data/infographic";
 
 export const metadata = meta({
   title: "Press and reuse",
@@ -83,6 +85,43 @@ export default function Press() {
               </span>
             </Link>
           </div>
+        </section>
+
+        {/* ---------- The summary graphic ---------- */}
+        <section className="pt-16">
+          <h2 className="h2 mb-3">The one-page summary</h2>
+          <p className="text-[15.5px] text-[var(--ink-2)] mb-7 max-w-[62ch]">
+            Portrait, made for a phone screen and for social posts. Free to reuse with credit.
+          </p>
+          <a
+            href={infographic.src}
+            download={infographic.downloadName}
+            className="group flex flex-wrap items-center gap-6 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-4 no-underline transition-colors hover:border-[var(--brand)] sm:flex-nowrap"
+          >
+            <Image
+              src={infographic.src}
+              alt={infographic.alt}
+              width={infographic.width}
+              height={infographic.height}
+              sizes="150px"
+              className="h-auto w-[110px] shrink-0 rounded-[var(--r-s)] border border-[var(--rule)] sm:w-[150px]"
+            />
+            <span className="min-w-0">
+              <span className="ui block text-[17px] font-[720] transition-colors group-hover:text-[var(--brand)]">
+                {infographic.title}
+              </span>
+              <span className="ui mt-1.5 block text-[15px] text-[var(--muted)] tnum">
+                WebP · {infographic.width}×{infographic.height} · 148 KB
+              </span>
+              <span className="mt-3 block max-w-[52ch] text-[15.5px] leading-[1.55] text-[var(--ink-2)]">
+                Poverty rates for all people, children, working-age adults and pensioners, the
+                working-poverty figure, and Glasgow&apos;s ten-year rise.
+              </span>
+              <span className="ui mt-3 block text-[15px] font-[650] text-[var(--brand)]">
+                ↓ Download
+              </span>
+            </span>
+          </a>
         </section>
 
         {/* ---------- Chart images ---------- */}
