@@ -16,12 +16,14 @@ function fixture(): ScottishParliamentData {
     members: [
       ...people.map((personId) => ({
         PersonID: personId,
+        PhotoURL: null,
         ParliamentaryName: `Person${personId}, Alex`,
         PreferredName: "Alex",
         IsCurrent: true,
       })),
       {
         PersonID: 99,
+        PhotoURL: null,
         ParliamentaryName: "Former, Frankie",
         PreferredName: "Frankie",
         IsCurrent: true,
@@ -73,6 +75,7 @@ function fixture(): ScottishParliamentData {
       },
     ],
     memberParties: people.map((personId) => ({
+      ID: personId,
       PersonID: personId,
       PartyID: 1,
       ValidFromDate: CURRENT_FROM,
@@ -106,6 +109,13 @@ function fixture(): ScottishParliamentData {
       Region: "",
       PostCode: personId === 1 ? "G1 1AA" : "EH99 1SP",
     })),
+    personCommitteeRoles: [],
+    committeeRoles: [],
+    committees: [],
+    memberGovernmentRoles: [],
+    governmentRoles: [],
+    memberPartyRoles: [],
+    partyRoles: [],
   };
 }
 
@@ -161,6 +171,7 @@ test("uses an exact official profile fallback for a current member missing a web
   const data = fixture();
   data.members[0] = {
     PersonID: 1,
+    PhotoURL: null,
     ParliamentaryName: "Nevens, Kate",
     PreferredName: "Kate",
     IsCurrent: true,

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useId, useState } from "react";
 import { trackEvent } from "@/lib/analytics";
@@ -28,8 +29,17 @@ function ContactCard({
 }) {
   return (
     <article className="rounded-[var(--r-m)] border border-[var(--rule)] border-t-[3px] border-t-[var(--brand)] bg-[var(--surface)] p-5 sm:p-6">
-      <p className="kicker mb-2 text-[var(--brand)]">{label}</p>
-      <h3 className="h3">{representative.name}</h3>
+      <div className="flex items-start gap-3">
+        {representative.photoUrl && (
+          <span className="relative h-16 w-16 shrink-0 overflow-hidden rounded-[var(--r-s)] bg-[var(--surface-2)]">
+            <Image src={representative.photoUrl} alt={`${representative.name}, ${representative.role}`} fill sizes="64px" className="object-cover object-top" />
+          </span>
+        )}
+        <div>
+          <p className="kicker mb-2 text-[var(--brand)]">{label}</p>
+          <h3 className="h3">{representative.name}</h3>
+        </div>
+      </div>
       <p className="ui mt-2 text-[15.5px] leading-[1.5] text-[var(--ink-2)]">
         {representative.party} · {representative.constituency}
       </p>
@@ -227,7 +237,19 @@ export default function RepresentativeLookup() {
                       key={`${msp.name}-${msp.constituency}`}
                       className="rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--paper)] p-4"
                     >
-                      <h3 className="ui text-[16px] font-[750] text-[var(--ink)]">{msp.name}</h3>
+                      <div className="flex items-start gap-3">
+                        {msp.photoUrl && (
+                          <span className="relative h-12 w-12 shrink-0 overflow-hidden rounded-[var(--r-s)] bg-[var(--surface-2)]">
+                            <Image src={msp.photoUrl} alt="" fill sizes="48px" className="object-cover object-top" />
+                          </span>
+                        )}
+                        <Link
+                          href={representativePagePath(msp)}
+                          className="ui text-[16px] font-[750] text-[var(--ink)] no-underline hover:text-[var(--brand)]"
+                        >
+                          {msp.name}
+                        </Link>
+                      </div>
                       <p className="mt-1 text-[15px] leading-[1.45] text-[var(--ink-2)]">{msp.party}</p>
                       <p className="mt-3 break-words text-[15px] leading-[1.45]">
                         <a href={`mailto:${msp.email}`}>{msp.email}</a>

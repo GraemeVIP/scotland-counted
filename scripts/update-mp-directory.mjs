@@ -9,12 +9,14 @@
  *   node scripts/update-mp-directory.mjs
  */
 
-import { readFile, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
 const API_ROOT = "https://members-api.parliament.uk/api";
+const VOTES_API_ROOT = "https://commonsvotes-api.parliament.uk/data/divisions.json/membervoting";
 const SOURCE_FILE = resolve("src/lib/data/constituencies.ts");
 const OUTPUT_FILE = resolve("src/lib/data/mps.json");
+const PHOTO_DIR = resolve("public/images/representatives/mps");
 const CHECKED_DATE = new Date().toISOString().slice(0, 10);
 
 function constituencyRecords(source) {
@@ -33,6 +35,46 @@ async function getJson(url) {
   });
   if (!response.ok) throw new Error(`${url} returned HTTP ${response.status}`);
   return response.json();
+}
+
+async function fetchRecentVotes(memberId) {
+  const url = new URL(VOTES_API_ROOT);
+  url.searchParams.set("memberId", memberId);
+  url.searchParams.set("startDate", "2024-07-05");
+  url.searchParams.set("endDate", new Date().toISOString().slice(0, 10));
+  url.searchParams.set("take", "12");
+  const rows = await getJson(url);
+  if (!Array.isArray(rows)) throw new Error(`Unexpected voting response for member ${memberId}`);
+
+  return rows
+    .map((row) => {
+      const division = row.PublishedDivision;
+      if (!division?.DivisionId || !division.Date || !division.Title) return null;
+      return {
+        date: division.Date,
+        title: String(division.FriendlyTitle || division.Title).trim(),
+        vote: row.MemberVotedAye ? "Aye" : row.MemberVotedNo ? "No" : "Did not vote",
+        result: `${division.AyeCount ?? 0} Aye, ${division.NoCount ?? 0} No`,
+        sourceUrl: `https://commonsvotes-api.parliament.uk/data/division/${division.DivisionId}.json`,
+      };
+    })
+    .filter(Boolean);
+}
+
+async function savePortrait(member, constituencySlug) {
+  const response = await fetch(`${API_ROOT}/Members/${member.id}/Thumbnail`, {
+    headers: { accept: "image/jpeg,image/*", "user-agent": "Scotland Counted data refresh" },
+    signal: AbortSignal.timeout(30_000),
+  });
+  if (!response.ok) throw new Error(`Portrait for ${member.nameDisplayAs} returned HTTP ${response.status}`);
+  const contentType = response.headers.get("content-type") ?? "";
+  if (!contentType.startsWith("image/")) throw new Error(`Portrait for ${member.nameDisplayAs} was not an image`);
+  const fileName = `${constituencySlug}.jpg`;
+  await writeFile(resolve(PHOTO_DIR, fileName), Buffer.from(await response.arrayBuffer()));
+  return {
+    photoUrl: `/images/representatives/mps/${fileName}`,
+    photoSourceUrl: `https://members.parliament.uk/member/${member.id}`,
+  };
 }
 
 function officeAddress(contact) {
@@ -80,6 +122,7 @@ async function fetchMp(constituency) {
   const website = values.find((contact) => contact.type === "Website")?.line1?.trim() ?? null;
 
   if (!emailContact?.email) throw new Error(`No public email for ${constituency.name}`);
+  const portrait = await savePortrait(member, constituency.slug);
 
   return {
     constituency: constituency.name.trim(),
@@ -93,22 +136,30 @@ async function fetchMp(constituency) {
     officeAddress: officeAddress(addressContact).trim() || null,
     website,
     profileUrl: `https://members.parliament.uk/member/${member.id}/contact`,
+    ...portrait,
+    votes: await fetchRecentVotes(member.id),
   };
 }
 
 const source = await readFile(SOURCE_FILE, "utf8");
+await mkdir(PHOTO_DIR, { recursive: true });
 const constituencies = constituencyRecords(source);
 if (constituencies.length !== 57) {
   throw new Error(`Expected 57 Scottish constituencies, found ${constituencies.length}`);
 }
 
 const records = [];
-for (const constituency of constituencies) {
-  process.stdout.write(`Fetching ${constituency.name}... `);
-  const record = await fetchMp(constituency);
-  records.push(record);
-  console.log(record.name);
+let cursor = 0;
+async function fetchNext() {
+  while (cursor < constituencies.length) {
+    const constituency = constituencies[cursor++];
+    process.stdout.write(`Fetching ${constituency.name}... `);
+    const record = await fetchMp(constituency);
+    records.push(record);
+    console.log(`${record.name} (${record.votes.length} votes)`);
+  }
 }
+await Promise.all(Array.from({ length: 6 }, fetchNext));
 
 records.sort((a, b) => a.constituency.localeCompare(b.constituency, "en-GB"));
 

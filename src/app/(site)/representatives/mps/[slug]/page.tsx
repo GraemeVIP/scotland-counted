@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import Faq from "@/components/Faq";
 import { CTA, ContentFrame, EvidenceDetails, InShort, Page, PageHeader } from "@/components/Blocks";
@@ -13,6 +14,7 @@ import {
 } from "@/lib/data/mps";
 import { JsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
 import { site } from "@/lib/site";
+import MemberVoteList from "@/components/MemberVoteList";
 
 export function generateStaticParams() {
   return mps.map((mp) => ({ slug: mp.constituencySlug }));
@@ -125,6 +127,7 @@ export default async function MpPage({ params }: { params: Promise<{ slug: strin
               "@id": `${pageUrl}#mp`,
               name: mp.name,
               url: pageUrl,
+              ...(mp.photoUrl ? { image: `${site.url}${mp.photoUrl}` } : {}),
               jobTitle: `Member of Parliament for ${mp.constituency}`,
               email: `mailto:${mp.email}`,
               ...(mp.phone && isDialablePhone(mp.phone) ? { telephone: mp.phone } : {}),
@@ -173,8 +176,17 @@ export default async function MpPage({ params }: { params: Promise<{ slug: strin
           <section className="pt-10">
             <div className="grid gap-5 lg:grid-cols-[minmax(0,1.15fr)_minmax(300px,0.85fr)]">
               <div className="rounded-[var(--r-m)] border border-[var(--rule)] border-t-[3px] border-t-[var(--action)] bg-[var(--surface)] p-6 sm:p-8">
-                <p className="kicker mb-3 text-[var(--action)]">Current MP</p>
-                <h2 className="h2 mb-2">{mp.name}</h2>
+                <div className="flex items-start gap-4">
+                  {mp.photoUrl && (
+                    <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-[var(--r-s)] bg-[var(--surface-2)]">
+                      <Image src={mp.photoUrl} alt={`${mp.name}, MP for ${mp.constituency}`} fill sizes="80px" className="object-cover object-top" />
+                    </div>
+                  )}
+                  <div>
+                    <p className="kicker mb-3 text-[var(--action)]">Current MP</p>
+                    <h2 className="h2 mb-2">{mp.name}</h2>
+                  </div>
+                </div>
                 <p className="ui text-[17px] leading-[1.5] text-[var(--ink-2)]">
                   {mp.party} · MP for {mp.constituency}
                 </p>
@@ -239,6 +251,10 @@ export default async function MpPage({ params }: { params: Promise<{ slug: strin
             </div>
           </section>
 
+          <section className="pt-10">
+            <MemberVoteList name={mp.name} votes={mp.votes ?? []} parliament="Commons" />
+          </section>
+
           <section className="pt-12 grid gap-5 md:grid-cols-2">
             <div className="rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] p-6">
               <h2 className="h3 mb-3">What can your MP deal with?</h2>
@@ -265,6 +281,10 @@ export default async function MpPage({ params }: { params: Promise<{ slug: strin
               <a href={mp.profileUrl}>UK Parliament&apos;s official record</a>. I checked them on {" "}
               <time dateTime={MP_DATA_CHECKED_ISO}>{checked}</time>. The page keeps a checked copy,
               so it still works if Parliament&apos;s website is temporarily unavailable.
+            </p>
+            <p className="mt-4 text-[15px] leading-[1.55] text-[var(--ink-2)]">
+              Portrait: <a href={mp.photoSourceUrl}>UK Parliament member record</a>. The local copy
+              is used so the page remains dependable when the official site is busy.
             </p>
             <p className="mt-4 text-[15px] leading-[1.55] text-[var(--ink-2)]">
               MPs can change after an election, resignation or by-election. If this record is out

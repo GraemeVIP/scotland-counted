@@ -22,6 +22,9 @@ test("every MP page has an official identity, source and usable contact route", 
     assert.ok(mp.party, `${mp.constituency} needs a party`);
     assert.match(mp.email, /^[^@\s]+@[^@\s]+\.[^@\s]+$/);
     assert.ok(mp.officeAddress, `${mp.constituency} needs a public postal address`);
+    assert.match(mp.photoUrl, /^\/images\/representatives\/mps\/[^/]+\.jpg$/);
+    assert.match(mp.photoSourceUrl, /^https:\/\/members\.parliament\.uk\/member\/\d+$/);
+    assert.equal(mp.votes?.length, 12);
     assert.equal(mp.profileUrl, `https://members.parliament.uk/member/${mp.memberId}/contact`);
     for (const value of [
       mp.constituency,

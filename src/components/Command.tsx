@@ -11,6 +11,8 @@ import { posts, postCategories } from "@/lib/data/posts";
 import { BAND_LETTERS } from "@/lib/data/councilTax";
 import { mps } from "@/lib/data/mps";
 import { holyroodConstituencies, holyroodRegions } from "@/lib/data/holyrood";
+import { representativeSlug } from "@/lib/representatives";
+import { councilAccountabilityRecords } from "@/lib/data/councilAccountability";
 
 /**
  * The command palette: every page on the site reachable in two
@@ -31,6 +33,7 @@ type Item = {
 const CORE: Item[] = [
   { label: "Home", href: "/", group: "Main pages" },
   { label: "Every Scottish council area", href: "/areas", group: "Main pages" },
+  { label: "Council budgets and performance", href: "/councils", group: "Main pages", keywords: "council budget targets promises audit performance scrutiny" },
   { label: "Find the area your MP represents", href: "/constituencies", group: "Main pages" },
   {
     label: "Every current Scottish MP",
@@ -129,6 +132,12 @@ function buildRegistry(): Item[] {
       meta: `${c.pcts[9]}%`,
       keywords: "council area child poverty",
     })),
+    ...councilAccountabilityRecords.map((record) => ({
+      label: `${record.councilName} budget and performance`,
+      href: `/councils/${record.councilSlug}`,
+      group: "Council performance",
+      keywords: `${record.summary} council budget audit targets promises`,
+    })),
     ...constituencies.map((c) => ({
       label: c.name,
       href: `/constituencies/${c.slug}`,
@@ -157,6 +166,13 @@ function buildRegistry(): Item[] {
       meta: "7 regional MSPs",
       keywords: `regional msps contact email representative holyrood ${record.region}`,
     })),
+    ...holyroodRegions.flatMap((record) => record.msps.map((msp) => ({
+      label: `${msp.name}, regional MSP for ${record.region}`,
+      href: `/representatives/msps/regions/${record.regionSlug}/${representativeSlug(msp.name)}`,
+      group: "Scottish MSPs",
+      meta: msp.party,
+      keywords: `who is msp contact email representative holyrood ${record.region} ${msp.party}`,
+    }))),
     ...faqItems.map((item) => ({
       label: item.q,
       href: `/faq#${item.id}`,
@@ -244,6 +260,7 @@ const GROUP_ORDER = [
   "Questions",
   "Explainers",
   "Council areas",
+  "Council performance",
   "Council tax",
   "Scottish MPs",
   "Scottish MSPs",

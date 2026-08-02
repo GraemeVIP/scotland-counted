@@ -211,6 +211,7 @@ export function Footer() {
   const compactLinks = [
     ...PRIMARY,
     { href: "/data", label: "Data" },
+    { href: "/councils", label: "Council budgets" },
     { href: "/methods", label: "Sources" },
     { href: "/faq", label: "Questions" },
     { href: "/about", label: "About" },

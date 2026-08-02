@@ -1,5 +1,6 @@
 import snapshot from "@/lib/data/mps.json";
 import type { Representative } from "@/lib/representatives";
+import type { VoteRecord } from "@/lib/voting";
 
 export type MpRecord = {
   constituency: string;
@@ -13,6 +14,9 @@ export type MpRecord = {
   officeAddress: string;
   website: string | null;
   profileUrl: string;
+  photoUrl: string;
+  photoSourceUrl: string;
+  votes?: VoteRecord[];
 };
 
 export const MP_DATA_CHECKED_ISO = snapshot.checkedDate;
@@ -43,9 +47,13 @@ export function mpRecordToRepresentative(mp: MpRecord): Representative {
     party: mp.party,
     constituency: mp.constituency,
     email: mp.email,
+    memberId: mp.memberId,
     phone: mp.phone ?? undefined,
     officeAddress: mp.officeAddress,
     profileUrl: mp.profileUrl,
+    photoUrl: mp.photoUrl,
+    photoSourceUrl: mp.photoSourceUrl,
+    votes: mp.votes,
   };
 }
 

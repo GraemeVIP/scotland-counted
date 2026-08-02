@@ -1,12 +1,26 @@
+import type { VoteRecord } from "./voting";
+
 export type Representative = {
   role: "MP" | "MSP";
   name: string;
   party: string;
   constituency: string;
   email: string;
+  memberId?: number;
   phone?: string;
   officeAddress?: string;
   profileUrl: string;
+  /** Local copy of the official parliamentary portrait, when published. */
+  photoUrl?: string;
+  /** Original official portrait URL, retained only for deliberate directory refreshes. */
+  photoSourceUrl?: string;
+  /** Start of the representative's current constituency or regional term. */
+  termStart?: string;
+  committeeRoles?: string[];
+  governmentRoles?: string[];
+  partyRoles?: string[];
+  /** Most recent recorded votes, when the relevant Parliament publishes them. */
+  votes?: VoteRecord[];
   /** How an MSP represents the reader. MPs do not use this field. */
   representationType?: "constituency" | "regional";
 };
@@ -49,7 +63,7 @@ export type ParsedRepresentativePostcode = {
   formatted: string;
 };
 
-function representativeAreaSlug(value: string) {
+export function representativeSlug(value: string) {
   return value
     .normalize("NFKD")
     .replace(/[\u0300-\u036f]/g, "")
@@ -61,10 +75,10 @@ function representativeAreaSlug(value: string) {
 
 /** The crawlable contact page for a representative returned by the postcode API. */
 export function representativePagePath(representative: Representative) {
-  const slug = representativeAreaSlug(representative.constituency);
+  const slug = representativeSlug(representative.constituency);
   if (representative.role === "MP") return `/representatives/mps/${slug}`;
   if (representative.representationType === "regional") {
-    return `/representatives/msps/regions/${slug}`;
+    return `/representatives/msps/regions/${slug}/${representativeSlug(representative.name)}`;
   }
   return `/representatives/msps/constituencies/${slug}`;
 }

@@ -12,7 +12,7 @@ import {
 } from "@/lib/data/holyrood";
 import { JsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
 import { site } from "@/lib/site";
-import { HolyroodSourceNote, MspContactCard, holyroodPersonJsonLd } from "../../_shared";
+import { HolyroodSourceNote, MspProfileCard, MspVotingRecord, holyroodPersonJsonLd } from "../../_shared";
 
 export function generateStaticParams() {
   return holyroodConstituencies.map((item) => ({ slug: item.constituencySlug }));
@@ -122,7 +122,7 @@ export default async function HolyroodConstituencyPage({
           </InShort>
 
           <section className="pt-10 grid gap-5 lg:grid-cols-[minmax(0,1.15fr)_minmax(300px,0.85fr)]">
-            <MspContactCard msp={record.msp} area={record.constituency} />
+            <MspProfileCard msp={record.msp} area={record.constituency} />
             <aside className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] p-6 sm:p-7">
               <p className="kicker mb-3 text-[var(--brand)]">Your other Holyrood voices</p>
               <h2 className="h3 mb-3">Seven regional MSPs also represent you</h2>
@@ -137,6 +137,10 @@ export default async function HolyroodConstituencyPage({
                 See all 7 regional MSPs
               </Link>
             </aside>
+          </section>
+
+          <section className="pt-10">
+            <MspVotingRecord msp={record.msp} />
           </section>
 
           <section className="pt-12 grid gap-5 md:grid-cols-2">
@@ -162,8 +166,9 @@ export default async function HolyroodConstituencyPage({
             <h2 className="h2 mb-4">Where this information comes from</h2>
             <HolyroodSourceNote />
             <p className="ui mt-4 text-[15px] leading-[1.55] text-[var(--ink-2)]">
-              Source: <a href={HOLYROOD_DATA_SOURCE}>{HOLYROOD_DATA_SOURCE_NAME}</a>. Last checked {" "}
-              <time dateTime={HOLYROOD_DATA_CHECKED_AT}>{checked}</time>.
+              Names, parties and contacts: <a href={HOLYROOD_DATA_SOURCE}>{HOLYROOD_DATA_SOURCE_NAME}</a>.
+              Portraits: <a href="https://www.parliament.scot/about/copyright">Scottish Parliament copyright licence</a>.
+              Last checked {" "}<time dateTime={HOLYROOD_DATA_CHECKED_AT}>{checked}</time>.
             </p>
           </section>
 

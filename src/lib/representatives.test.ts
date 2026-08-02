@@ -75,8 +75,9 @@ test("builds the matching public contact page for every representative type", ()
       ...common,
       role: "MSP",
       representationType: "regional",
+      name: "David Smith",
       constituency: "Central Scotland and Lothians West",
     } as Representative),
-    "/representatives/msps/regions/central-scotland-and-lothians-west"
+    "/representatives/msps/regions/central-scotland-and-lothians-west/david-smith"
   );
 });

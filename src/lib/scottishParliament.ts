@@ -8,7 +8,11 @@
  */
 
 import { REQUEST_TIMEOUT_MS } from "./parliament.ts";
-import type { Representative, RepresentativeSource } from "./representatives.ts";
+import {
+  representativeSlug,
+  type Representative,
+  type RepresentativeSource,
+} from "./representatives.ts";
 import {
   canonicalHolyroodGeographyName,
   publicHolyroodGeographyName,
@@ -38,6 +42,7 @@ type DatedRecord = {
 
 export type ScottishParliamentMember = {
   PersonID: number;
+  PhotoURL: string | null;
   ParliamentaryName: string;
   PreferredName: string;
   IsCurrent: boolean;
@@ -67,8 +72,45 @@ export type RegionStatus = DatedRecord & {
 };
 
 export type MemberParty = DatedRecord & {
+  ID: number;
   PersonID: number;
   PartyID: number;
+};
+
+export type PersonCommitteeRole = DatedRecord & {
+  PersonID: number;
+  CommitteeRoleID: number;
+  CommitteeID: number;
+};
+
+export type CommitteeRole = {
+  ID: number;
+  Name: string;
+};
+
+export type Committee = DatedRecord & {
+  ID: number;
+  Name: string;
+};
+
+export type MemberGovernmentRole = DatedRecord & {
+  PersonID: number;
+  GovernmentRoleID: number;
+};
+
+export type GovernmentRole = {
+  ID: number;
+  Name: string;
+};
+
+export type MemberPartyRole = DatedRecord & {
+  MemberPartyID: number;
+  PartyRoleTypeID: number;
+};
+
+export type PartyRole = {
+  ID: number;
+  Name: string;
 };
 
 export type Party = DatedRecord & {
@@ -111,6 +153,13 @@ export type ScottishParliamentData = {
   emailAddresses: EmailAddress[];
   websites: Website[];
   addresses: Address[];
+  personCommitteeRoles: PersonCommitteeRole[];
+  committeeRoles: CommitteeRole[];
+  committees: Committee[];
+  memberGovernmentRoles: MemberGovernmentRole[];
+  governmentRoles: GovernmentRole[];
+  memberPartyRoles: MemberPartyRole[];
+  partyRoles: PartyRole[];
 };
 
 export type HolyroodRepresentatives = {
@@ -155,6 +204,13 @@ async function fetchDataset<T>(path: string): Promise<T[]> {
 export async function fetchScottishParliamentData(): Promise<ScottishParliamentData> {
   const websitesPromise = fetchDataset<Website>("websites").catch(() => []);
   const addressesPromise = fetchDataset<Address>("addresses").catch(() => []);
+  const personCommitteeRolesPromise = fetchDataset<PersonCommitteeRole>("personcommitteeroles").catch(() => []);
+  const committeeRolesPromise = fetchDataset<CommitteeRole>("committeeroles").catch(() => []);
+  const committeesPromise = fetchDataset<Committee>("committees").catch(() => []);
+  const memberGovernmentRolesPromise = fetchDataset<MemberGovernmentRole>("membergovernmentroles").catch(() => []);
+  const governmentRolesPromise = fetchDataset<GovernmentRole>("governmentroles").catch(() => []);
+  const memberPartyRolesPromise = fetchDataset<MemberPartyRole>("memberpartyroles").catch(() => []);
+  const partyRolesPromise = fetchDataset<PartyRole>("partyroles").catch(() => []);
 
   const [
     members,
@@ -167,6 +223,13 @@ export async function fetchScottishParliamentData(): Promise<ScottishParliamentD
     emailAddresses,
     websites,
     addresses,
+    personCommitteeRoles,
+    committeeRoles,
+    committees,
+    memberGovernmentRoles,
+    governmentRoles,
+    memberPartyRoles,
+    partyRoles,
   ] = await Promise.all([
     fetchDataset<ScottishParliamentMember>("members"),
     fetchDataset<ScottishParliamentConstituency>("constituencies"),
@@ -178,6 +241,13 @@ export async function fetchScottishParliamentData(): Promise<ScottishParliamentD
     fetchDataset<EmailAddress>("emailaddresses"),
     websitesPromise,
     addressesPromise,
+    personCommitteeRolesPromise,
+    committeeRolesPromise,
+    committeesPromise,
+    memberGovernmentRolesPromise,
+    governmentRolesPromise,
+    memberPartyRolesPromise,
+    partyRolesPromise,
   ]);
 
   return {
@@ -191,6 +261,13 @@ export async function fetchScottishParliamentData(): Promise<ScottishParliamentD
     emailAddresses,
     websites,
     addresses,
+    personCommitteeRoles,
+    committeeRoles,
+    committees,
+    memberGovernmentRoles,
+    governmentRoles,
+    memberPartyRoles,
+    partyRoles,
   };
 }
 
@@ -244,12 +321,51 @@ function officeAddressFor(personId: number, data: ScottishParliamentData) {
   return formatted || undefined;
 }
 
+function uniqueRoleNames(items: Array<string | undefined>) {
+  return Array.from(new Set(items.filter((item): item is string => Boolean(item)))).sort((a, b) =>
+    a.localeCompare(b, "en-GB")
+  );
+}
+
+function currentCommitteeRoles(personId: number, data: ScottishParliamentData, at: Date) {
+  return uniqueRoleNames(
+    data.personCommitteeRoles
+      .filter((item) => item.PersonID === personId && isActive(item.ValidFromDate, item.ValidUntilDate, at))
+      .map((item) => {
+        const committee = data.committees.find((record) => record.ID === item.CommitteeID);
+        const role = data.committeeRoles.find((record) => record.ID === item.CommitteeRoleID);
+        if (!committee) return undefined;
+        const committeeName = committee.Name.trim();
+        const roleName = role?.Name.trim();
+        return roleName && roleName !== "Member" ? `${roleName}, ${committeeName}` : committeeName;
+      })
+  );
+}
+
+function currentGovernmentRoles(personId: number, data: ScottishParliamentData, at: Date) {
+  return uniqueRoleNames(
+    data.memberGovernmentRoles
+      .filter((item) => item.PersonID === personId && isActive(item.ValidFromDate, item.ValidUntilDate, at))
+      .map((item) => data.governmentRoles.find((role) => role.ID === item.GovernmentRoleID)?.Name.trim())
+  );
+}
+
+function currentPartyRoles(memberPartyId: number | undefined, data: ScottishParliamentData, at: Date) {
+  if (!memberPartyId) return [];
+  return uniqueRoleNames(
+    data.memberPartyRoles
+      .filter((item) => item.MemberPartyID === memberPartyId && isActive(item.ValidFromDate, item.ValidUntilDate, at))
+      .map((item) => data.partyRoles.find((role) => role.ID === item.PartyRoleTypeID)?.Name.trim())
+  );
+}
+
 function representativeFor(
   personId: number,
   representationType: "constituency" | "regional",
   areaName: string,
   data: ScottishParliamentData,
-  at: Date
+  at: Date,
+  termStart: string,
 ): Representative | null {
   const member = data.members.find((item) => item.PersonID === personId && item.IsCurrent);
   if (!member) return null;
@@ -275,6 +391,11 @@ function representativeFor(
       /^https:\/\/www\.parliament\.scot\/msps\/current-and-previous-msps\//i.test(item.WebURL)
   );
   const name = displayName(member);
+  const profileUrl =
+    officialProfile?.WebURL ??
+    CURRENT_MEMBER_PROFILE_FALLBACKS.get(name) ??
+    "https://www.parliament.scot/msps/current-and-previous-msps";
+  const photoSourceUrl = member.PhotoURL?.trim() || profileUrl;
 
   return {
     role: "MSP",
@@ -283,10 +404,18 @@ function representativeFor(
     constituency: areaName,
     email,
     officeAddress: officeAddressFor(personId, data),
-    profileUrl:
-      officialProfile?.WebURL ??
-      CURRENT_MEMBER_PROFILE_FALLBACKS.get(name) ??
-      "https://www.parliament.scot/msps/current-and-previous-msps",
+    memberId: personId,
+    profileUrl,
+    ...(photoSourceUrl
+      ? {
+          photoUrl: `/images/representatives/msps/${representativeSlug(name)}.jpg`,
+          photoSourceUrl,
+        }
+      : {}),
+    termStart,
+    committeeRoles: currentCommitteeRoles(personId, data, at),
+    governmentRoles: currentGovernmentRoles(personId, data, at),
+    partyRoles: currentPartyRoles(partyMembership?.ID, data, at),
     representationType,
   };
 }
@@ -317,7 +446,8 @@ function constituencyMspFor(
         "constituency",
         constituency.Name,
         data,
-        checkedAt
+        checkedAt,
+        status.ValidFromDate,
       )
     : null;
 }
@@ -340,9 +470,24 @@ function regionalMspsFor(
         .map((item) => item.PersonID)
     )
   )
-    .map((personId) =>
-      representativeFor(personId, "regional", publicRegionName, data, checkedAt)
-    )
+    .map((personId) => {
+      const status = latestActive(
+        data.regionStatuses.filter(
+          (item) => item.PersonID === personId && item.RegionID === region.ID
+        ),
+        checkedAt,
+      );
+      return status
+        ? representativeFor(
+            personId,
+            "regional",
+            publicRegionName,
+            data,
+            checkedAt,
+            status.ValidFromDate,
+          )
+        : null;
+    })
     .filter((representative): representative is Representative => representative !== null)
     .sort((a, b) => a.name.localeCompare(b.name, "en-GB"));
 }

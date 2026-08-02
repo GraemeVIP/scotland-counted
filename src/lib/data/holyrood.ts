@@ -1,14 +1,23 @@
 import snapshot from "./holyrood.json" with { type: "json" };
-import type { Representative } from "../representatives.ts";
+import { representativeSlug, type Representative } from "../representatives.ts";
 import type { HolyroodRepresentatives } from "../scottishParliament.ts";
 import { canonicalHolyroodGeographyName } from "../scottishParliamentGeography.ts";
+import type { VoteRecord } from "../voting.ts";
 
 export type HolyroodMspContact = {
+  memberId: number;
   name: string;
   party: string;
   email: string;
   officeAddress: string | null;
   profileUrl: string;
+  photoUrl: string;
+  photoSourceUrl: string;
+  termStart: string;
+  committeeRoles: string[];
+  governmentRoles: string[];
+  partyRoles: string[];
+  votes: VoteRecord[];
 };
 
 export type HolyroodConstituencyRecord = {
@@ -43,6 +52,14 @@ function toRepresentative(
     email: contact.email,
     officeAddress: contact.officeAddress ?? undefined,
     profileUrl: contact.profileUrl,
+    memberId: contact.memberId,
+    photoUrl: contact.photoUrl,
+    photoSourceUrl: contact.photoSourceUrl,
+    termStart: contact.termStart,
+    committeeRoles: contact.committeeRoles,
+    governmentRoles: contact.governmentRoles,
+    partyRoles: contact.partyRoles,
+    votes: contact.votes,
     constituency: area,
     representationType,
   };
@@ -54,6 +71,20 @@ export function getHolyroodConstituencyBySlug(slug: string) {
 
 export function getHolyroodRegionBySlug(slug: string) {
   return holyroodRegions.find((item) => item.regionSlug === slug);
+}
+
+export function getHolyroodRegionalMsp(regionSlug: string, personSlug: string) {
+  const region = getHolyroodRegionBySlug(regionSlug);
+  return region?.msps.find((msp) => representativeSlug(msp.name) === personSlug);
+}
+
+export function formatHolyroodTermDate(value: string, locale = "en-GB") {
+  return new Intl.DateTimeFormat(locale, {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    timeZone: "Europe/London",
+  }).format(new Date(value));
 }
 
 /**

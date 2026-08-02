@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { CTA, ContentFrame, InShort, Page, PageHeader } from "@/components/Blocks";
 import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
 import {
@@ -7,8 +8,11 @@ import {
   MP_DATA_SOURCE_NAME,
   mps,
 } from "@/lib/data/mps";
+import { holyroodConstituencies, holyroodRegions } from "@/lib/data/holyrood";
+import { representativeSlug } from "@/lib/representatives";
 import { site } from "@/lib/site";
 import RepresentativeLookup from "./RepresentativeLookup";
+import RepresentativeDirectorySearch, { type DirectoryEntry } from "./RepresentativeDirectorySearch";
 
 export const metadata = meta({
   title: "Scottish MPs and MSPs: Names and Contact Details",
@@ -19,6 +23,35 @@ export const metadata = meta({
 
 export default function RepresentativesPage() {
   const checked = formatMpCheckedDate();
+  const directoryEntries: DirectoryEntry[] = [
+    ...mps.map((mp) => ({
+      name: mp.name,
+      role: "MP" as const,
+      party: mp.party,
+      area: mp.constituency,
+      label: `MP for ${mp.constituency}`,
+      href: `/representatives/mps/${mp.constituencySlug}`,
+      photoUrl: mp.photoUrl,
+    })),
+    ...holyroodConstituencies.map((record) => ({
+      name: record.msp.name,
+      role: "MSP" as const,
+      party: record.msp.party,
+      area: record.constituency,
+      label: `MSP for ${record.constituency}`,
+      href: `/representatives/msps/constituencies/${record.constituencySlug}`,
+      photoUrl: record.msp.photoUrl,
+    })),
+    ...holyroodRegions.flatMap((record) => record.msps.map((msp) => ({
+      name: msp.name,
+      role: "MSP" as const,
+      party: msp.party,
+      area: record.region,
+      label: `Regional MSP for ${record.region}`,
+      href: `/representatives/msps/regions/${record.regionSlug}/${representativeSlug(msp.name)}`,
+      photoUrl: msp.photoUrl,
+    }))),
+  ];
 
   return (
     <>
@@ -72,6 +105,7 @@ export default function RepresentativesPage() {
         </PageHeader>
 
         <ContentFrame>
+          <RepresentativeDirectorySearch entries={directoryEntries} />
           <RepresentativeLookup />
 
           <InShort expert={false}>
@@ -127,15 +161,28 @@ export default function RepresentativesPage() {
                   href={`/representatives/mps/${mp.constituencySlug}`}
                   className="group block rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] px-5 py-5 no-underline transition-colors hover:border-[var(--rule-strong)]"
                 >
-                  <span className="ui block text-[17px] font-[750] leading-[1.3] text-[var(--ink)] group-hover:text-[var(--brand)]">
-                    {mp.name}
-                  </span>
-                  <span className="ui block text-[15px] leading-[1.45] text-[var(--ink-2)] mt-1.5">
-                    {mp.party}
-                  </span>
-                  <span className="ui block text-[15px] leading-[1.45] text-[var(--muted)] mt-3">
-                    MP for {mp.constituency}
-                  </span>
+                  <div className="flex items-start gap-3">
+                    <span className="relative h-14 w-14 shrink-0 overflow-hidden rounded-[var(--r-s)] bg-[var(--surface-2)]">
+                      <Image
+                        src={mp.photoUrl}
+                        alt=""
+                        fill
+                        sizes="56px"
+                        className="object-cover object-top"
+                      />
+                    </span>
+                    <span className="min-w-0">
+                      <span className="ui block text-[17px] font-[750] leading-[1.3] text-[var(--ink)] group-hover:text-[var(--brand)]">
+                        {mp.name}
+                      </span>
+                      <span className="ui block text-[15px] leading-[1.45] text-[var(--ink-2)] mt-1.5">
+                        {mp.party}
+                      </span>
+                      <span className="ui block text-[15px] leading-[1.45] text-[var(--muted)] mt-2">
+                        MP for {mp.constituency}
+                      </span>
+                    </span>
+                  </div>
                 </Link>
               ))}
             </div>

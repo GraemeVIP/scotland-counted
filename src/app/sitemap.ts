@@ -11,6 +11,8 @@ import {
   holyroodConstituencies,
   holyroodRegions,
 } from "@/lib/data/holyrood";
+import { representativeSlug } from "@/lib/representatives";
+import { councilAccountabilityRecords } from "@/lib/data/councilAccountability";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const dataChecked = new Date(`${site.dataCheckedISO}T00:00:00Z`);
@@ -22,6 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const core: MetadataRoute.Sitemap = [
     { url: site.url, changeFrequency: "monthly", priority: 1, lastModified: seoRelease },
     { url: `${site.url}/areas`, changeFrequency: "monthly", priority: 0.95, lastModified: seoRelease },
+    { url: `${site.url}/councils`, changeFrequency: "monthly", priority: 0.85, lastModified: seoRelease },
     { url: `${site.url}/find-my-mp-and-msp`, changeFrequency: "monthly", priority: 0.95, lastModified: seoRelease },
     { url: `${site.url}/blog`, changeFrequency: "weekly", priority: 0.9, lastModified: latestPostDate },
     { url: `${site.url}/faq`, changeFrequency: "monthly", priority: 0.85 },
@@ -76,6 +79,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: seoRelease,
   }));
 
+  const councilAccountabilityPages: MetadataRoute.Sitemap = councilAccountabilityRecords.map((record) => ({
+    url: `${site.url}/councils/${record.councilSlug}`,
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+    lastModified: new Date(`${record.lastReviewedOn}T00:00:00Z`),
+  }));
+
   const constituencyPages: MetadataRoute.Sitemap = constituencies.map((c) => ({
     url: `${site.url}/constituencies/${c.slug}`,
     changeFrequency: "yearly" as const,
@@ -94,6 +104,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       `/representatives/msps/constituencies/${record.constituencySlug}`
     ),
     ...holyroodRegions.map((record) => `/representatives/msps/regions/${record.regionSlug}`),
+    ...holyroodRegions.flatMap((record) =>
+      record.msps.map(
+        (msp) => `/representatives/msps/regions/${record.regionSlug}/${representativeSlug(msp.name)}`,
+      ),
+    ),
   ].map((path) => ({
     url: `${site.url}${path}`,
     changeFrequency: "monthly" as const,
@@ -145,6 +160,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...postPages,
     ...indicatorPages,
     ...areaPages,
+    ...councilAccountabilityPages,
     ...constituencyPages,
     ...representativePages,
     ...holyroodRepresentativePages,

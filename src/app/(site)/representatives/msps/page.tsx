@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { CTA, ContentFrame, InShort, Page, PageHeader } from "@/components/Blocks";
 import {
   formatHolyroodCheckedDate,
@@ -9,6 +10,7 @@ import {
 } from "@/lib/data/holyrood";
 import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
 import { site } from "@/lib/site";
+import { representativeSlug } from "@/lib/representatives";
 import { HolyroodSourceNote } from "./_shared";
 
 export const metadata = meta({
@@ -41,16 +43,16 @@ export default function MspsDirectoryPage() {
           dateModified: HOLYROOD_DATA_CHECKED_AT,
           mainEntity: {
             "@type": "ItemList",
-            numberOfItems: holyroodConstituencies.length + holyroodRegions.length,
+            numberOfItems: holyroodConstituencies.length + holyroodRegions.reduce((total, item) => total + item.msps.length, 0),
             itemListElement: [
               ...holyroodConstituencies.map((item) => ({
                 name: `${item.msp.name}, MSP for ${item.constituency}`,
                 url: `${site.url}/representatives/msps/constituencies/${item.constituencySlug}`,
               })),
-              ...holyroodRegions.map((item) => ({
-                name: `Regional MSPs for ${item.region}`,
-                url: `${site.url}/representatives/msps/regions/${item.regionSlug}`,
-              })),
+              ...holyroodRegions.flatMap((item) => item.msps.map((msp) => ({
+                name: `${msp.name}, regional MSP for ${item.region}`,
+                url: `${site.url}/representatives/msps/regions/${item.regionSlug}/${representativeSlug(msp.name)}`,
+              }))),
             ].map((item, index) => ({ "@type": "ListItem", position: index + 1, ...item })),
           },
         }}
@@ -127,11 +129,24 @@ export default function MspsDirectoryPage() {
                       href={`/representatives/msps/constituencies/${item.constituencySlug}`}
                       className="group block rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface-2)] px-5 py-4 no-underline hover:border-[var(--rule-strong)]"
                     >
-                      <span className="ui block text-[16px] font-[750] leading-[1.35] text-[var(--ink)] group-hover:text-[var(--brand)]">
-                        {item.constituency}
-                      </span>
-                      <span className="ui mt-1.5 block text-[15px] leading-[1.45] text-[var(--ink-2)]">
-                        {item.msp.name} · {item.msp.party}
+                      <span className="flex items-start gap-3">
+                        <span className="relative h-12 w-12 shrink-0 overflow-hidden rounded-[var(--r-s)] bg-[var(--surface)]">
+                          <Image
+                            src={item.msp.photoUrl}
+                            alt=""
+                            fill
+                            sizes="48px"
+                            className="object-cover object-top"
+                          />
+                        </span>
+                        <span className="min-w-0">
+                          <span className="ui block text-[16px] font-[750] leading-[1.35] text-[var(--ink)] group-hover:text-[var(--brand)]">
+                            {item.constituency}
+                          </span>
+                          <span className="ui mt-1.5 block text-[15px] leading-[1.45] text-[var(--ink-2)]">
+                            {item.msp.name} · {item.msp.party}
+                          </span>
+                        </span>
                       </span>
                     </Link>
                   ))}
@@ -144,7 +159,7 @@ export default function MspsDirectoryPage() {
             <h2 className="h2 mb-4">Where the names come from</h2>
             <HolyroodSourceNote />
             <p className="ui mt-4 text-[15px] leading-[1.55] text-[var(--ink-2)]">
-              Source: {HOLYROOD_DATA_SOURCE_NAME}. Last checked {checked}.
+              Names, parties and contacts: {HOLYROOD_DATA_SOURCE_NAME}. Portraits: <a href="https://www.parliament.scot/about/copyright">Scottish Parliament copyright licence</a>. Last checked {checked}.
             </p>
           </section>
 

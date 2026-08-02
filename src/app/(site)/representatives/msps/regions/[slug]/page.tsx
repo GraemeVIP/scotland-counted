@@ -13,6 +13,7 @@ import {
 } from "@/lib/data/holyrood";
 import { JsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
 import { site } from "@/lib/site";
+import { representativeSlug } from "@/lib/representatives";
 import { HolyroodSourceNote, MspContactCard, holyroodPersonJsonLd } from "../../_shared";
 
 export function generateStaticParams() {
@@ -87,16 +88,18 @@ export default async function HolyroodRegionPage({
               description: `The seven regional MSPs for ${record.region}, with public contact details from the Scottish Parliament.`,
               inLanguage: "en-GB",
               dateModified: HOLYROOD_DATA_CHECKED_AT,
-              mainEntity: record.msps.map((_, index) => ({ "@id": `${pageUrl}#msp-${index + 1}` })),
+              mainEntity: record.msps.map((msp) => ({
+                "@id": `${site.url}/representatives/msps/regions/${record.regionSlug}/${representativeSlug(msp.name)}#msp`,
+              })),
               isPartOf: { "@id": `${site.url}/#website` },
             },
-            ...record.msps.map((msp, index) =>
+            ...record.msps.map((msp) =>
               holyroodPersonJsonLd({
                 msp,
                 area: record.region,
-                pagePath,
+                pagePath: `${pagePath}/${representativeSlug(msp.name)}`,
                 regional: true,
-                idSuffix: `msp-${index + 1}`,
+                idSuffix: "msp",
               }),
             ),
           ],
@@ -142,6 +145,7 @@ export default async function HolyroodRegionPage({
                   area={record.region}
                   regional
                   headingLevel={3}
+                  detailsHref={`${pagePath}/${representativeSlug(msp.name)}`}
                 />
               ))}
             </div>
