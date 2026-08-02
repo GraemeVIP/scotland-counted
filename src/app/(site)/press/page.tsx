@@ -183,7 +183,7 @@ export default function Press() {
         </section>
 
         {/* ---------- Terms ---------- */}
-        <section className="pt-16">
+        <section id="reuse-terms" className="scroll-mt-24 pt-16">
           <h2 className="h2 mb-4">Reuse terms</h2>
           <Col>
             <p>

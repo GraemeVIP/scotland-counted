@@ -276,6 +276,7 @@ export function imageJsonLd({
   width,
   height,
   license,
+  copyrightNotice,
 }: {
   src: string;
   alt: string;
@@ -284,7 +285,14 @@ export function imageJsonLd({
   height: number;
   /** Include only when the image's rights are known and uniform. */
   license?: string;
+  copyrightNotice?: string;
 }) {
+  const licenseUrl = license
+    ? license.startsWith("http")
+      ? license
+      : `${site.url}${license}`
+    : undefined;
+
   return {
     "@context": "https://schema.org",
     "@type": "ImageObject",
@@ -293,12 +301,13 @@ export function imageJsonLd({
     caption: alt,
     width,
     height,
-    ...(license
+    ...(licenseUrl
       ? {
-          license,
-          acquireLicensePage: `${site.url}/press`,
+          license: licenseUrl,
+          acquireLicensePage: licenseUrl,
         }
       : {}),
+    ...(copyrightNotice ? { copyrightNotice } : {}),
     creditText: site.name,
     creator: { "@type": "Organization", name: site.organisation.name, url: site.organisation.url },
   };
