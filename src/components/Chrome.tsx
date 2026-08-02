@@ -125,6 +125,7 @@ export function Header() {
   }, [browse]);
 
   return (
+    <>
     <header
       ref={headerRef}
       className={`sticky top-0 z-50 no-print transition-colors ${
@@ -202,10 +203,34 @@ export function Header() {
       </div>
       <ScrollProgress />
 
+      {/*
+        The desktop panel is in normal flow directly under the header bar, so
+        it belongs inside the header and is unaffected by what follows.
+      */}
       {browse && <DesktopMenu onNavigate={() => setBrowsePath(null)} />}
-
-      {open && <MobileMenu onNavigate={() => setMenuPath(null)} />}
     </header>
+
+    {/*
+      The mobile sheet is a sibling of the header, not a child, and that is
+      load-bearing rather than tidiness.
+
+      Once scrolled, the header gains backdrop-blur-md. An element with a
+      backdrop-filter becomes the containing block for its position: fixed
+      descendants, so the sheet — inset from the top by the header's own height
+      — stopped resolving against the viewport and started resolving against a
+      73px-tall header. top: 72px against 73px of height leaves a sheet one
+      pixel tall. It opened, the button switched to a cross, and nothing
+      appeared, which read as the menu refusing to open at all.
+
+      At the very top of the page there is no blur, so it worked there and only
+      there. That is also why scrolling back up "fixed" it: the blur went away
+      and the sheet snapped back to full height.
+
+      Rendered outside the header, fixed resolves against the viewport again
+      whatever the header is doing.
+    */}
+    {open && <MobileMenu onNavigate={() => setMenuPath(null)} />}
+    </>
   );
 }
 
