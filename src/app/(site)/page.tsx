@@ -15,7 +15,7 @@ import { infographic } from "@/lib/data/infographic";
 import { explainerVideo } from "@/lib/data/video";
 
 export const metadata = meta({
-  title: "Poverty in Scotland statistics",
+  title: "Poverty in Scotland | Work, pay and power",
   description:
     "Poverty in Scotland explained with official statistics, local council and MP-area facts, cost-of-living tools and ready-written emails to representatives.",
   path: "/",
