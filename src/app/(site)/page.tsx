@@ -15,9 +15,9 @@ import { infographic } from "@/lib/data/infographic";
 import { explainerVideo } from "@/lib/data/video";
 
 export const metadata = meta({
-  title: "Poverty in Scotland | Work, pay and power",
+  title: "Scotland Counted | Local Data, Calculators & Contact Your MP",
   description:
-    "Poverty in Scotland explained with official statistics, local council and MP-area facts, cost-of-living tools and ready-written emails to representatives.",
+    "Get plain-English facts on Scottish living costs, child poverty, and local council performance. Use our pay calculators and find contact details for your MSP.",
   path: "/",
   type: "website",
 });
