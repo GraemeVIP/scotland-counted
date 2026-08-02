@@ -95,7 +95,7 @@ export default function CouncilDirectory({ councils, publishedSlugs }: CouncilDi
                 </h3>
                 <p className="mt-2 text-[15px] leading-[1.5] text-[var(--ink-2)]">
                   {hasRecord
-                    ? "Budgets, service targets, promises and audit findings."
+                    ? "Published budgets, audit findings and the evidence still missing."
                     : "Council accountability record coming soon. Local poverty facts are ready now."}
                 </p>
                 <Link

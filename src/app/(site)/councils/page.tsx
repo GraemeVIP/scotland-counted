@@ -52,9 +52,9 @@ export default function CouncilsPage() {
               performance claim here when the target, result and source can be checked together.
             </p>
             <p>
-              Glasgow is the first detailed accountability record. The other council areas already have their local
-              poverty figures, while their budget and performance records are being built from the
-              same official sources.
+              Every record is built from official council papers, Scottish Government figures,
+              auditors or regulators. If a number or promise cannot be checked, the page says so
+              instead of filling the gap with a guess.
             </p>
           </InShort>
 

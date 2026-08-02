@@ -30,7 +30,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 }
 
 function money(value: number, unit: "million" | "billion", qualifier?: "over" | "projected" | "expected") {
-  const figure = `£${value}${unit === "million" ? "m" : "bn"}`;
+  const formatted = value.toLocaleString("en-GB", { maximumFractionDigits: 1 });
+  const figure = `£${formatted}${unit === "million" ? "m" : "bn"}`;
   return qualifier === "over"
     ? `Over ${figure}`
     : qualifier === "projected"
@@ -105,19 +106,50 @@ export default async function CouncilAccountabilityPage({
 
   const pagePath = `/councils/${record.councilSlug}`;
   const missed = record.outcomes.filter((outcome) => outcome.status === "missed");
+  const reportedOutcomes = record.outcomes.filter((outcome) => outcome.status !== "not-verified");
   const sameMeasureMisses = missed.filter((outcome) => !outcome.comparisonNote).length;
   const countBasedMisses = missed.length - sameMeasureMisses;
-  const allocation = record.budgetContext.find((figure) => figure.id === "day-to-day-funding-2025-26");
+  const allocation =
+    record.budgetContext.find((figure) => figure.id === "day-to-day-funding-2025-26") ?? record.budgetContext[0];
   const allocationText = allocation ? money(allocation.value, allocation.unit, allocation.qualifier) : "the published allocation";
   const openFindings = record.auditFindings.filter((finding) => finding.status === "open");
+  const projectedGap = record.budgetContext.find(
+    (figure) => figure.qualifier === "projected" && /gap|shortfall/i.test(figure.label + " " + figure.plainEnglish),
+  );
+  const allocationFaq = allocation
+    ? record.councilName +
+      " has " +
+      allocationText +
+      " listed under " +
+      allocation.label +
+      " for " +
+      allocation.period +
+      ". It is a budget or allocation, not proof of the final amount spent, and the other figures on this page are kept separate."
+    : "This record does not yet include a separate day-to-day funding allocation. The figures that are available are labelled below and linked to their sources.";
+  const targetFaq =
+    sameMeasureMisses > 0
+      ? record.councilName +
+        " has " +
+        sameMeasureMisses +
+        " same-measure service target" +
+        (sameMeasureMisses === 1 ? "" : "s") +
+        " marked as missed in this record."
+      : reportedOutcomes.length > 0
+        ? "The published service results are shown below. None is marked as a missed same-measure target in this record."
+        : "No service-target result has been verified for this record yet.";
   const faq = [
     {
       q: `How much money does ${record.councilName} receive?`,
-      a: `${record.councilName} was reported to receive ${allocationText} for day-to-day services in 2025/26. That is a funding allocation, not the final outturn, and the other figures on this page are kept separate so they are not confused with it.`,
+      a: allocationFaq,
     },
     {
       q: `Has ${record.councilName} missed any targets?`,
-      a: `${record.councilName} missed ${sameMeasureMisses} same-measure service target${sameMeasureMisses === 1 ? "" : "s"} in this first record. ${countBasedMisses > 0 ? `A further ${countBasedMisses} entry records failures as a count rather than a percentage, because the source does not publish the matching denominator.` : "The source notes explain how each comparison was made."}`,
+      a: targetFaq +
+        (countBasedMisses > 0
+          ? " A further " +
+            countBasedMisses +
+            " entry records a failure as a count rather than a percentage, because the source does not publish the matching denominator."
+          : ""),
     },
     {
       q: "Does this page prove that a councillor is personally responsible?",
@@ -156,13 +188,22 @@ export default async function CouncilAccountabilityPage({
         <ContentFrame>
           <InShort expert={false}>
             <p>
-              <strong>The short version:</strong> {record.councilName} has money coming in, but it also faces a
-              large projected gap. Official figures show some service targets were missed, while
-              independent auditors and the housing regulator have raised wider concerns.
+              <strong>The short version:</strong> {record.councilName} has money coming in.{" "}
+              {projectedGap
+                ? "It also faces " + money(projectedGap.value, projectedGap.unit, projectedGap.qualifier) + " in the published forecast."
+                : "The published figures and their limits are set out below."}{" "}
+              {missed.length > 0
+                ? "This record includes " + missed.length + " service result" + (missed.length === 1 ? "" : "s") + " marked as missed."
+                : reportedOutcomes.length > 0
+                  ? "The service results below show what was measured and what was reported."
+                  : "No service-target result has been verified for this record yet."}{" "}
+              {record.auditFindings.length > 0
+                ? "Independent scrutiny is shown separately from the council's own figures."
+                : "No audit or regulator finding has been added to this record yet."}
             </p>
             <p>
-              This page keeps the bad news visible without turning a forecast, a target or a count
-              into something it does not mean. Open the source links when you want the full detail.
+              This page keeps difficult findings visible without turning a forecast, a target or a
+              count into something it does not mean. Open the source links when you want the full detail.
             </p>
           </InShort>
 
@@ -189,9 +230,12 @@ export default async function CouncilAccountabilityPage({
             <p className="max-w-[68ch] text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
               A funding allocation is not the same thing as money left to spend. A projected gap is
               not the same thing as a bill already unpaid. These cards keep those ideas separate.
+              When an official source says &quot;outturn&quot;, it means the final spending result after
+              the year has finished. &quot;Medium term&quot; means the next few years, and &quot;transformation&quot;
+              means changing how a service works.
             </p>
             <div className="mt-7 grid gap-4 md:grid-cols-3">
-              {record.budgetContext.map((figure) => (
+              {record.budgetContext.length > 0 ? record.budgetContext.map((figure) => (
                 <article
                   key={figure.id}
                   className="rounded-[var(--r-m)] border border-[var(--rule)] border-t-[3px] border-t-[var(--brand)] bg-[var(--surface)] p-6"
@@ -204,21 +248,29 @@ export default async function CouncilAccountabilityPage({
                   <p className="mt-4 text-[16px] leading-[1.55] text-[var(--ink-2)]">{figure.plainEnglish}</p>
                   <ClaimSource record={record} sourceIds={figure.sourceIds} />
                 </article>
-              ))}
+              )) : (
+                <p className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] p-6 text-[16px] leading-[1.6] text-[var(--ink-2)]">
+                  No budget figure has been added to this record yet. Check the source list for the
+                  latest published council papers.
+                </p>
+              )}
             </div>
           </section>
 
           <section id="performance" className="pt-14 scroll-mt-24">
-            <p className="kicker mb-2 text-[var(--action)]">Promises versus results</p>
-            <h2 className="h2 mb-3">Service targets: what was missed and what was met</h2>
+            <p className="kicker mb-2 text-[var(--action)]">
+              {reportedOutcomes.length > 0 ? "Promises versus results" : "The missing evidence"}
+            </p>
+            <h2 className="h2 mb-3">
+              {reportedOutcomes.length > 0 ? "Service targets: what was missed and what was met" : "What is still missing from the service results"}
+            </h2>
             <p className="max-w-[68ch] text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
-              Most cards compare the council&apos;s own target and reported result using the same
-              measure. The homelessness entry is different: the regulator publishes a count of
-              failures against a statutory duty, not a percentage, so it is labelled clearly
-              instead of being turned into a made-up rate.
+              The cards below keep the target and reported result separate. Some use percentages,
+              some use days and some use counts. The source note explains what each one means, so we
+              do not turn a count into a made-up rate.
             </p>
             <div className="mt-7 grid gap-4 md:grid-cols-2">
-              {record.outcomes.map((outcome) => (
+              {record.outcomes.length > 0 ? record.outcomes.map((outcome) => (
                 <article
                   key={outcome.id}
                   className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-6"
@@ -252,7 +304,12 @@ export default async function CouncilAccountabilityPage({
                   )}
                   <ClaimSource record={record} sourceIds={outcome.sourceIds} />
                 </article>
-              ))}
+              )) : (
+                <p className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] p-6 text-[16px] leading-[1.6] text-[var(--ink-2)]">
+                  No comparable service target has been verified for this council yet. That is a
+                  research gap, not proof that every target was met.
+                </p>
+              )}
             </div>
           </section>
 
@@ -262,9 +319,11 @@ export default async function CouncilAccountabilityPage({
             <p className="max-w-[68ch] text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
               These are findings from Audit Scotland, the Accounts Commission and the Scottish
               Housing Regulator. They are not anonymous complaints or political commentary.
+              &quot;Best Value&quot; is the official name for one of the checks used by the Accounts
+              Commission; it is not a claim that every service is good.
             </p>
             <div className="mt-7 grid gap-4">
-              {record.auditFindings.map((finding) => (
+              {record.auditFindings.length > 0 ? record.auditFindings.map((finding) => (
                 <article
                   key={finding.id}
                   className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-6 sm:p-7"
@@ -291,7 +350,12 @@ export default async function CouncilAccountabilityPage({
                   )}
                   <ClaimSource record={record} sourceIds={finding.sourceIds} />
                 </article>
-              ))}
+              )) : (
+                <p className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] p-6 text-[16px] leading-[1.6] text-[var(--ink-2)]">
+                  No audit or regulator finding has been added to this record yet. Check back after
+                  the next published review.
+                </p>
+              )}
             </div>
             {openFindings.length > 0 && (
               <p className="mt-5 text-[16px] leading-[1.6] text-[var(--ink-2)]">
@@ -304,7 +368,7 @@ export default async function CouncilAccountabilityPage({
             <p className="kicker mb-2 text-[var(--brand)]">What was promised</p>
             <h2 className="h2 mb-3">Commitments and deadlines</h2>
             <div className="mt-7 grid gap-4 md:grid-cols-2">
-              {record.commitments.map((commitment) => (
+              {record.commitments.length > 0 ? record.commitments.map((commitment) => (
                 <article key={commitment.id} className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-6">
                   <div className="flex flex-wrap items-start justify-between gap-3">
                     <h3 className="h3">{commitment.title}</h3>
@@ -320,7 +384,11 @@ export default async function CouncilAccountabilityPage({
                   <p className="mt-4 border-l-2 border-[var(--rule-strong)] pl-3 text-[15px] leading-[1.55] text-[var(--ink-2)]">{commitment.currentEvidence}</p>
                   <ClaimSource record={record} sourceIds={commitment.sourceIds} />
                 </article>
-              ))}
+              )) : (
+                <p className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] p-6 text-[16px] leading-[1.6] text-[var(--ink-2)]">
+                  No council commitment with a published deadline has been added to this record yet.
+                </p>
+              )}
             </div>
           </section>
 

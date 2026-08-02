@@ -8,6 +8,10 @@
  * preferable to an inference about performance.
  */
 
+import { additionalCouncilAccountabilityRecords as councilAccountabilityAHRecords } from "./councilAccountabilityAH.ts";
+import { additionalCouncilAccountabilityRecords as councilAccountabilityIRRecords } from "./councilAccountabilityIR.ts";
+import { southAndWestCouncilAccountabilityRecords } from "./councilAccountabilitySZ.ts";
+
 export type AccountabilitySourceKind = "council" | "government" | "regulator" | "audit";
 
 export type AccountabilitySource = {
@@ -366,6 +370,9 @@ export const glasgowCityAccountability: CouncilAccountabilityRecord = {
 
 export const councilAccountabilityRecords: CouncilAccountabilityRecord[] = [
   glasgowCityAccountability,
+  ...councilAccountabilityAHRecords,
+  ...councilAccountabilityIRRecords,
+  ...southAndWestCouncilAccountabilityRecords,
 ];
 
 export function getCouncilAccountability(slug: string) {

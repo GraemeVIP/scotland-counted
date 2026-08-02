@@ -5,9 +5,18 @@ import {
   getCouncilAccountability,
   glasgowCityAccountability,
 } from "./councilAccountability.ts";
+import { councils } from "./councils.ts";
 
-test("the Glasgow prototype has a complete accountability shape", () => {
-  assert.equal(councilAccountabilityRecords.length, 1);
+test("all 32 Scottish councils have an accountability record", () => {
+  assert.equal(councilAccountabilityRecords.length, councils.length);
+  assert.equal(new Set(councilAccountabilityRecords.map((record) => record.councilSlug)).size, councils.length);
+  assert.deepEqual(
+    new Set(councilAccountabilityRecords.map((record) => record.councilSlug)),
+    new Set(councils.map((council) => council.slug)),
+  );
+});
+
+test("the Glasgow record has a complete accountability shape", () => {
   assert.equal(getCouncilAccountability("glasgow-city"), glasgowCityAccountability);
   assert.equal(getCouncilAccountability("not-a-council"), undefined);
   assert.ok(glasgowCityAccountability.budgetContext.length >= 2);
@@ -18,22 +27,24 @@ test("the Glasgow prototype has a complete accountability shape", () => {
 });
 
 test("every published accountability claim points to an official source", () => {
-  const sourceIds = new Set(glasgowCityAccountability.sources.map((source) => source.id));
-  assert.ok(glasgowCityAccountability.sources.every((source) => /^https:\/\//.test(source.url)));
-  assert.ok(
-    glasgowCityAccountability.sources.every((source) =>
-      ["council", "government", "regulator", "audit"].includes(source.kind),
-    ),
-  );
+  for (const record of councilAccountabilityRecords) {
+    const sourceIds = new Set(record.sources.map((source) => source.id));
+    assert.ok(record.sources.length > 0, record.councilSlug);
+    assert.ok(record.sources.every((source) => /^https:\/\//.test(source.url)), record.councilSlug);
+    assert.ok(
+      record.sources.every((source) => ["council", "government", "regulator", "audit"].includes(source.kind)),
+      record.councilSlug,
+    );
 
-  const linkedIds = [
-    ...glasgowCityAccountability.budgetContext.flatMap((item) => item.sourceIds),
-    ...glasgowCityAccountability.outcomes.flatMap((item) => item.sourceIds),
-    ...glasgowCityAccountability.auditFindings.flatMap((item) => item.sourceIds),
-    ...glasgowCityAccountability.commitments.flatMap((item) => item.sourceIds),
-  ];
-  assert.ok(linkedIds.length > 0);
-  assert.ok(linkedIds.every((id) => sourceIds.has(id)));
+    const linkedIds = [
+      ...record.budgetContext.flatMap((item) => item.sourceIds),
+      ...record.outcomes.flatMap((item) => item.sourceIds),
+      ...record.auditFindings.flatMap((item) => item.sourceIds),
+      ...record.commitments.flatMap((item) => item.sourceIds),
+    ];
+    assert.ok(linkedIds.length > 0, record.councilSlug);
+    assert.ok(linkedIds.every((id) => sourceIds.has(id)), record.councilSlug);
+  }
 });
 
 test("missed performance records keep their target and actual separate", () => {
@@ -55,4 +66,3 @@ test("unknown commitment outcomes are explicitly labelled for later checking", (
   assert.ok(unverified.length >= 1);
   assert.ok(unverified.every((item) => /need|not|does not claim|whether/i.test(item.currentEvidence)));
 });
-
