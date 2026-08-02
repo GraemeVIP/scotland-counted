@@ -63,7 +63,7 @@ export default function VideoEmbed({
           >
             <Image
               src={poster}
-              alt=""
+              alt={`${title} video thumbnail`}
               fill
               sizes="(max-width: 900px) 100vw, 900px"
               className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"

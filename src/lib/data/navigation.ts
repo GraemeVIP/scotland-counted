@@ -17,6 +17,7 @@
  * nothing.
  */
 export type NavItem = { href: string; label: string; blurb?: string; featured?: boolean };
+export type NavTone = "local" | "tools" | "change" | "proof";
 
 /** The five items in the header. Deliberately short, deliberately task-shaped. */
 export const PRIMARY: NavItem[] = [
@@ -32,50 +33,53 @@ export const PRIMARY: NavItem[] = [
 export const SECTIONS: Array<{
   title: string;
   intro: string;
+  tone: NavTone;
   items: NavItem[];
 }> = [
   {
-    title: "Where you live",
-    intro: "The figures for your own council area and your own MP's area.",
+    title: "Find your local facts",
+    intro: "Council areas, MP areas and Glasgow's separate story.",
+    tone: "local",
     items: [
       { href: "/areas", label: "All 32 council areas", blurb: "Child poverty, benefits and pay context where you live", featured: true },
       { href: "/constituencies", label: "All 57 MP areas", blurb: "The area each MP is responsible for" },
       { href: "/why-glasgow", label: "Glasgow", blurb: "Why the worst rate in Scotland is where it is" },
+      { href: "/the-numbers", label: "The Glasgow record", blurb: "Every Glasgow indicator in one place" },
+    ],
+  },
+  {
+    title: "Tools and explainers",
+    intro: "Calculators and plain-English answers you can use straight away.",
+    tone: "tools",
+    items: [
       { href: "/council-tax-bands-scotland", label: "Council tax by band", blurb: "What it really costs, water included" },
       { href: "/take-home-pay-calculator-scotland", label: "Take-home pay calculator", blurb: "What you keep on Scottish tax rates" },
       { href: "/quiz", label: "Guess the figure", blurb: "Six questions. Most people get them wrong" },
-    ],
-  },
-  {
-    title: "Do something",
-    intro: "The part that actually changes anything.",
-    items: [
-      { href: "/take-action", label: "Email your MP and MSP", blurb: "I write both emails for you", featured: true },
-      { href: "/your-power", label: "Why it is worth the bother", blurb: "What happens after you press send" },
-      { href: "/what-would-fix-it", label: "What would fix it", blurb: "Costed options, and who can do them" },
-      { href: "/accountability", label: "Who decides what", blurb: "London, Edinburgh or the council" },
-    ],
-  },
-  {
-    title: "Understand it",
-    intro: "Plain-English explainers, no assumed knowledge.",
-    items: [
       { href: "/blog", label: "Explained in plain English", blurb: "Short answers to common questions", featured: true },
       { href: "/faq", label: "Questions and answers", blurb: "Search the things people actually ask" },
       { href: "/glossary", label: "Plain-English glossary", blurb: "Every term, in ordinary words" },
-      { href: "/the-numbers", label: "The Glasgow record", blurb: "Every indicator in one place" },
     ],
   },
   {
-    title: "Check the work",
-    intro: "Everything I publish can be verified. Nothing here is behind a login.",
+    title: "How change happens",
+    intro: "Who controls what, what could help and why your voice matters.",
+    tone: "change",
     items: [
-      { href: "/data", label: "Download the data", blurb: "The raw files, free to reuse" },
+      { href: "/accountability", label: "Who decides what", blurb: "London, Edinburgh or your council", featured: true },
+      { href: "/what-would-fix-it", label: "What would fix it", blurb: "Costed options, and who can do them" },
+      { href: "/your-power", label: "Why it is worth the bother", blurb: "What happens after you press send" },
+    ],
+  },
+  {
+    title: "Check the evidence",
+    intro: "The data, methods and corrections behind every claim.",
+    tone: "proof",
+    items: [
+      { href: "/data", label: "Download the data", blurb: "The source files and their reuse rules", featured: true },
       { href: "/methods", label: "Methods and sources", blurb: "Exactly how every figure was counted" },
       { href: "/press", label: "Press and reuse", blurb: "Charts, embeds and a press kit" },
       { href: "/updates", label: "What changed", blurb: "The public log, with RSS" },
       { href: "/corrections", label: "Corrections", blurb: "Errors, and what I did about them" },
-      { href: "/contact", label: "Ask a question", blurb: "A real person reads it. No question is too basic", featured: true },
     ],
   },
 ];
