@@ -113,32 +113,12 @@ function SectionList({ onNavigate }: { onNavigate: () => void }) {
             <ul className="divide-y divide-[var(--rule)] px-2 py-1">
               {sec.items.map((n) => (
                 <li key={n.href}>
-                  {/*
-                  A featured item is lit by its tint and its dot, never by
-                  colouring the label. --action on paper is about 3:1 and these
-                  labels are 15.5px, which needs 4.5:1 — so the text stays
-                  --ink and the colour lives in the parts that carry no
-                  meaning. The dot is aria-hidden for the same reason: a screen
-                  reader gets the link, not the decoration.
-                  */}
                   <Link
                     href={n.href}
                     onClick={onNavigate}
-                    className="group flex min-h-14 flex-col justify-center rounded-[var(--r-s)] px-2 py-2.5 no-underline transition-colors hover:bg-[var(--surface-2)]"
-                    style={n.featured ? { backgroundColor: tone.wash } : undefined}
+                    className="flex min-h-14 flex-col justify-center rounded-[var(--r-s)] px-2 py-2.5 no-underline transition-colors hover:bg-[var(--surface-2)]"
                   >
-                    <span
-                      className={`ui text-[15.5px] text-[var(--ink)] group-hover:text-[var(--brand)] transition-colors ${
-                        n.featured ? "font-[750]" : "font-[650]"
-                      }`}
-                    >
-                      {n.featured && (
-                        <span
-                          aria-hidden="true"
-                          className="mr-2 inline-block h-[7px] w-[7px] rounded-full align-middle"
-                          style={{ backgroundColor: tone.accent }}
-                        />
-                      )}
+                    <span className="ui text-[15.5px] font-[650] text-[var(--ink)]">
                       {n.label}
                     </span>
                     {n.blurb && (
