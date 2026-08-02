@@ -29,28 +29,28 @@ type Meta = { title: string; summary: string; sourceIds: string[] };
 
 /** The plain-English opening for each measure — short sentences, no jargon. */
 const IN_SHORT: Record<string, string[]> = {
-  "child-poverty": [
+  "glasgow-child-poverty": [
     "More than 1 in 3 children in Glasgow are growing up poor. That is 39,319 children.",
     "Ten years ago it was about 1 in 4. Things are getting worse, not better.",
   ],
-  work: [
+  "glasgow-employment-rate": [
     "Far more people in Glasgow have a job now than 20 years ago. That part is good news.",
     "But for many families, a job is no longer a way out of poverty.",
   ],
-  benefits: [
+  "glasgow-claimant-count": [
     "Fewer people claim out-of-work benefits than in 2000.",
     "The number jumped in the pandemic, then came back down.",
   ],
-  pay: [
+  "glasgow-full-time-pay": [
     "An adult on today's legal minimum gets £12.71 an hour. At 37.5 paid hours every week, that is about £24,785 a year before tax.",
     "The £796.50 figure below is not the average Glasgow wage and it is not what people in poverty earn. It covers a restricted group of full-time PAYE employee jobs.",
     "It excludes all part-time jobs. For scale, 29% of Glasgow employee jobs were part-time in a separate 2024 count.",
   ],
-  "life-expectancy": [
+  "glasgow-life-expectancy": [
     "People in Glasgow live shorter lives than anywhere else in Scotland.",
     "Lives were getting longer until about 2012. Then it stopped.",
   ],
-  neighbourhoods: [
+  "glasgow-deprivation": [
     "Fewer Glasgow neighbourhoods are among Scotland's poorest than in 2004. That is real progress.",
     "But nearly half the city still lives in Scotland's poorest fifth.",
   ],
@@ -61,32 +61,32 @@ const HEADER_STAT: Record<
   string,
   { value: string; label: string; tone: "bad" | "good" | "neutral" }
 > = {
-  "child-poverty": {
+  "glasgow-child-poverty": {
     value: "36.1%",
     label: "of Glasgow's children in poverty in 2023/24, after housing costs",
     tone: "bad",
   },
-  work: {
+  "glasgow-employment-rate": {
     value: "71.2%",
     label: "of working-age Glaswegians in work in 2023 — up from 62.7% in 2004",
     tone: "good",
   },
-  benefits: {
+  "glasgow-claimant-count": {
     value: "4.5%",
     label: "claiming out-of-work benefits in January 2026 — down from 6.0% in 2000",
     tone: "good",
   },
-  pay: {
+  "glasgow-full-time-pay": {
     value: "£24,785",
     label: "gross yearly pay at today's legal minimum, if aged 21+ and paid for 37.5 hours every week",
     tone: "bad",
   },
-  "life-expectancy": {
+  "glasgow-life-expectancy": {
     value: "73.6",
     label: "years — male life expectancy at birth, the lowest of Scotland's 32 council areas",
     tone: "bad",
   },
-  neighbourhoods: {
+  "glasgow-deprivation": {
     value: "29%",
     label: "of Glaswegians in Scotland's worst-off tenth of neighbourhoods — down from 46% in 2004",
     tone: "good",
@@ -109,26 +109,35 @@ function lookup(slug: string): Meta | null {
  * apart, the search version lives here and the page keeps its own words.
  */
 const SEO_OVERRIDE: Record<string, { title?: string; description?: string }> = {
-  pay: {
+  "glasgow-full-time-pay": {
+    title: "Average Full-Time Pay in Glasgow: What £796 Means",
     description:
       "£796.50 a week sounds far too high because it is not what a typical worker earns. It counts full-time employees only, and jobs in Glasgow, not Glaswegians.",
   },
-  "child-poverty": {
+  "glasgow-child-poverty": {
+    title: "Child Poverty in Glasgow: 36.1% and Rising",
     description:
       "More than one in three Glasgow children live in poverty after housing costs. Ten years ago it was 27.1%; it is now 36.1%, the biggest rise in Scotland.",
   },
-  benefits: {
+  "glasgow-claimant-count": {
+    title: "Glasgow Claimant Count: The Long-Term Change",
     description:
       "The share of working-age Glaswegians on out-of-work benefits fell from 6.0% in 2000 to 3.2% in 2016, jumped during the pandemic, and is about 4.5% now.",
   },
-  neighbourhoods: {
-    title: "Fewer Glaswegians live in Scotland's worst-off areas",
+  "glasgow-deprivation": {
+    title: "Glasgow Deprivation: What the SIMD Shows",
     description:
       "Almost half of Glaswegians lived in Scotland's worst-off tenth of neighbourhoods in 2004. By 2020 it was under a third, at 29%. Here is what changed.",
   },
-  work: {
+  "glasgow-employment-rate": {
+    title: "Glasgow Employment Rate: What Changed Since 2004",
     description:
-      "In 2004, 62.7% of working-age Glaswegians had a job. By 2022 it was 72.1%, much closer to Scotland as a whole — and child poverty rose over the same years.",
+      "In 2004, 62.7% of working-age Glaswegians had a job. By 2022 it was 72.1%, much closer to Scotland as a whole. Child poverty rose over the same years.",
+  },
+  "glasgow-life-expectancy": {
+    title: "Glasgow Life Expectancy: Lowest in Scotland",
+    description:
+      "Male life expectancy in Glasgow was 73.6 years in 2017–19, the lowest of Scotland's 32 council areas. See when progress stopped and the full source data.",
   },
 };
 
@@ -175,6 +184,36 @@ function SourceList({ ids }: { ids: string[] }) {
   );
 }
 
+const indicatorLinks = [
+  { slug: "glasgow-child-poverty", label: "Child poverty in Glasgow" },
+  { slug: "glasgow-employment-rate", label: "Glasgow employment rate" },
+  { slug: "glasgow-claimant-count", label: "Glasgow claimant count" },
+  { slug: "glasgow-full-time-pay", label: "Full-time pay in Glasgow" },
+  { slug: "glasgow-life-expectancy", label: "Glasgow life expectancy" },
+  { slug: "glasgow-deprivation", label: "Glasgow deprivation" },
+] as const;
+
+function OtherMeasures({ current }: { current: string }) {
+  return (
+    <nav className="mt-12 pt-7 border-t border-[var(--rule)]" aria-label="Other Glasgow measures">
+      <h2 className="h3 mb-4">See the other Glasgow figures</h2>
+      <div className="flex flex-wrap gap-2">
+        {indicatorLinks
+          .filter((item) => item.slug !== current)
+          .map((item) => (
+            <Link
+              key={item.slug}
+              href={`/indicators/${item.slug}`}
+              className="ui text-[15px] px-3 py-2 border border-[var(--rule)] bg-[var(--surface)] hover:border-[var(--brand)] transition-colors"
+            >
+              {item.label}
+            </Link>
+          ))}
+      </div>
+    </nav>
+  );
+}
+
 export default async function IndicatorPage(props: PageProps<"/indicators/[slug]">) {
   const { slug } = await props.params;
   const m = lookup(slug);
@@ -184,7 +223,7 @@ export default async function IndicatorPage(props: PageProps<"/indicators/[slug]
     <JsonLd
       data={breadcrumbJsonLd([
         { name: "Home", path: "/" },
-        { name: "The Glasgow record", path: "/the-numbers" },
+        { name: "The Glasgow record", path: "/glasgow-poverty-statistics" },
         { name: m.title, path: `/indicators/${slug}` },
       ])}
     />
@@ -296,12 +335,13 @@ export default async function IndicatorPage(props: PageProps<"/indicators/[slug]
           </Figure>
 
           <SourceList ids={le.sourceIds} />
+          <OtherMeasures current={slug} />
           <CTA
             title="This is what poverty costs, measured in years"
             body="Life expectancy is the slowest indicator to move and the hardest to argue with. It is also the one that shows the 2012 stall most clearly."
-            href="/what-would-fix-it"
+            href="/solutions-to-poverty-in-scotland"
             cta="What would change it"
-            secondaryHref="/the-numbers"
+            secondaryHref="/glasgow-poverty-statistics"
             secondaryCta="All six measures"
           />
         </Page>
@@ -378,12 +418,13 @@ export default async function IndicatorPage(props: PageProps<"/indicators/[slug]
           </Figure>
 
           <SourceList ids={d.sourceIds} />
+          <OtherMeasures current={slug} />
           <CTA
             title="Fewer bad neighbourhoods, more poor children"
             body="Glasgow's neighbourhoods improved on the national ranking at the same time as its child poverty rate rose faster than anywhere in Scotland. Both are true, and the reason matters."
-            href="/why-glasgow"
+            href="/why-poverty-is-worse-in-glasgow"
             cta="Why that happened"
-            secondaryHref="/the-numbers"
+            secondaryHref="/glasgow-poverty-statistics"
             secondaryCta="All six measures"
           />
         </Page>
@@ -393,8 +434,8 @@ export default async function IndicatorPage(props: PageProps<"/indicators/[slug]
 
   /* ---------- Standard line-chart indicator ---------- */
   const ind = getIndicator(slug)!;
-  const isChildPoverty = slug === "child-poverty";
-  const isPay = slug === "pay";
+  const isChildPoverty = slug === "glasgow-child-poverty";
+  const isPay = slug === "glasgow-full-time-pay";
 
   return (
     <>
@@ -415,15 +456,15 @@ export default async function IndicatorPage(props: PageProps<"/indicators/[slug]
           ))}
         </InShort>
 
-        {isPay && <MinimumWageReality className="mt-8" />}
+        {isPay && <MinimumWageReality className="mt-8" headingLevel="h2" />}
 
         {/* Offered right after the minimum-wage figures raise the question. */}
         {isPay && <ToolCTA tool="take-home" className="mt-8" />}
 
         <div className="pt-9">
-          {slug === "pay" && <WorkDoesNotPay className="pb-16" />}
+          {slug === "glasgow-full-time-pay" && <WorkDoesNotPay className="pb-16" />}
 
-          {slug === "pay" && <PaySpread className="pb-14" />}
+          {slug === "glasgow-full-time-pay" && <PaySpread className="pb-14" />}
 
           <Figure
             n={1}
@@ -491,12 +532,13 @@ export default async function IndicatorPage(props: PageProps<"/indicators/[slug]
               earns, what people in poverty earn, or that the £51 difference is money leaving the
               city. The direct poverty figures prove the scale of poverty; the minimum-wage figures
               above show why having a job does not always provide enough to live on.{" "}
-              <Link href="/why-glasgow">See Glasgow&apos;s wider evidence</Link>.
+              <Link href="/why-poverty-is-worse-in-glasgow">See Glasgow&apos;s wider evidence</Link>.
             </p>
           </Col>
         )}
 
         <SourceList ids={ind.sourceIds} />
+        <OtherMeasures current={slug} />
 
         <CTA
           title="Every number here is checkable"

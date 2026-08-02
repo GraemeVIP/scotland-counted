@@ -5,6 +5,7 @@ import WhatIsTheScottishChildPayment from "./what-is-the-scottish-child-payment"
 import HowToContactYourMpOrMsp from "./how-to-contact-your-mp-or-msp";
 import WhyIsTheCostOfLivingSoHigh from "./why-is-the-cost-of-living-so-high";
 import CouncilTaxInScotlandGuide from "./council-tax-in-scotland-guide";
+import CouncilTaxRisesScotland202627 from "./council-tax-rises-scotland-2026-27";
 import MinimumWageTakeHomePayScotland2026 from "./minimum-wage-take-home-pay-scotland-2026";
 import RealLivingWageVsMinimumWageScotland from "./real-living-wage-vs-minimum-wage-scotland";
 import UniversalCreditWhenYouWorkMoreHours from "./universal-credit-when-you-work-more-hours";
@@ -21,7 +22,8 @@ import FreeSchoolMealsClothingGrantScotland from "./free-school-meals-clothing-g
  * to src/lib/data/posts.ts.
  */
 export const postBodies: Record<string, ComponentType> = {
-  "council-tax-in-scotland-guide": CouncilTaxInScotlandGuide,
+  "how-council-tax-works-scotland": CouncilTaxInScotlandGuide,
+  "council-tax-rises-scotland-2026-27": CouncilTaxRisesScotland202627,
   "minimum-wage-take-home-pay-scotland-2026": MinimumWageTakeHomePayScotland2026,
   "real-living-wage-vs-minimum-wage-scotland": RealLivingWageVsMinimumWageScotland,
   "universal-credit-when-you-work-more-hours": UniversalCreditWhenYouWorkMoreHours,

@@ -51,7 +51,7 @@ function PostcodeJump({ onDone, autoFocus = false }: { onDone: () => void; autoF
     if (!value) return;
     sessionStorage.setItem(POSTCODE_SESSION_KEY, value);
     onDone();
-    router.push("/take-action#letter-builder");
+    router.push("/find-my-mp-and-msp#letter-builder");
   }
 
   return (
@@ -294,7 +294,7 @@ export function MobileMenu({ onNavigate }: { onNavigate: () => void }) {
       {/* The action stays reachable no matter how far down the sheet you are. */}
       <div className="sticky bottom-0 border-t border-[var(--rule)] bg-[var(--paper)]/95 backdrop-blur px-5 py-4">
         <Link
-          href="/take-action"
+          href="/find-my-mp-and-msp"
           onClick={onNavigate}
           className="btn btn-primary w-full justify-center"
         >

@@ -179,7 +179,7 @@ export function Header() {
           <SearchButton />
           <ThemeToggle />
           <Link
-            href="/take-action"
+            href="/find-my-mp-and-msp"
             className="btn btn-primary hidden sm:inline-flex whitespace-nowrap !px-5 !py-2.5 !text-[15px]"
           >
             Email your MP/MSP
@@ -261,7 +261,7 @@ export function Footer() {
           {[
             { href: "/take-home-pay-calculator-scotland", label: "Take-home pay calculator" },
             { href: "/council-tax-bands-scotland", label: "Council tax by band" },
-            { href: "/quiz", label: "Guess the figure" },
+            { href: "/poverty-in-scotland-quiz", label: "Guess the figure" },
           ].map((t) => (
             <Link
               key={t.href}

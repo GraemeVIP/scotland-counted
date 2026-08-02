@@ -4,9 +4,9 @@ import { terms } from "@/lib/data/glossary";
 import { site } from "@/lib/site";
 
 export const metadata = meta({
-  title: "Plain-English glossary",
+  title: "Poverty Terms in Scotland: Plain-English Glossary",
   description:
-    "Every technical term on this site in plain English: after housing costs, relative poverty, SIMD, percentage points — with the detail underneath.",
+    "Poverty terms used in Scotland explained in plain English, including after housing costs, relative poverty, SIMD and percentage points.",
   path: "/glossary",
 });
 
@@ -39,7 +39,7 @@ export default function Glossary() {
       <Page>
         <PageHeader
           eyebrow={`${terms.length} terms`}
-          title="Words explained"
+          title="Poverty terms in Scotland, explained"
           lede="If the site has to use a technical word, it is explained here in ordinary language. Open the extra detail only if you want the exact definition."
         />
 
@@ -79,7 +79,7 @@ export default function Glossary() {
         <CTA
           title="Now read the Glasgow record"
           body="Every technical term on the site is tappable in context, so you never have to leave the page you are reading to find out what something means."
-          href="/the-numbers"
+          href="/glasgow-poverty-statistics"
           cta="The Glasgow record"
           secondaryHref="/methods"
           secondaryCta="Methods and sources"

@@ -8,6 +8,7 @@ import {
   councilTaxByBand,
   waterCharges2026,
   COUNCIL_TAX_YEAR,
+  PREVIOUS_COUNCIL_TAX_YEAR,
   WATER_YEAR,
   type BandCharge,
 } from "@/lib/data/councilTax";
@@ -35,6 +36,18 @@ const RATIOS: Record<string, string> = {
 
 const pounds = new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP", maximumFractionDigits: 0 });
 const exact = new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP", minimumFractionDigits: 2 });
+const percent = new Intl.NumberFormat("en-GB", { maximumFractionDigits: 1 });
+
+const SEARCH_COUNCIL_NAMES: Record<string, string> = {
+  "aberdeen-city": "Aberdeen",
+  "dundee-city": "Dundee",
+  "city-of-edinburgh": "Edinburgh",
+  "glasgow-city": "Glasgow",
+};
+
+function councilSearchName(slug: string, officialName: string) {
+  return SEARCH_COUNCIL_NAMES[slug] ?? officialName;
+}
 
 export function generateStaticParams() {
   return [
@@ -87,18 +100,18 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
     const cheap = v.rows[v.rows.length - 1];
     const dear = v.rows[0];
     return meta({
-      title: `How much is Band ${v.letter} council tax in Scotland?`,
-      description: `Band ${v.letter} council tax in every Scottish council, from ${pounds.format(cheap.total)} in ${cheap.name} to ${pounds.format(dear.total)} in ${dear.name} a year, water included.`,
+      title: `Council Tax Band ${v.letter} Scotland 2026/27 | Monthly Cost`,
+      description: `Compare 2026/27 Band ${v.letter} council tax in all 32 Scottish councils, from ${pounds.format(cheap.total)} in ${cheap.name} to ${pounds.format(dear.total)} in ${dear.name}, water included.`,
       path: `/council-tax-bands-scotland/band-${v.letter.toLowerCase()}`,
       type: "website",
     });
   }
 
-  const a = v.charges[0];
   const d = v.charges[3];
+  const placeName = councilSearchName(v.slug, v.name);
   return meta({
-    title: `${v.name} council tax bands: how much you pay`,
-    description: `Council tax in ${v.name} by band, water charges included. Band A is ${pounds.format(a.total)} a year and Band D is ${pounds.format(d.total)}. Every band A to H, with monthly figures.`,
+    title: `${placeName} Council Tax Bands 2026/27 | A-H Prices`,
+    description: `2026/27 ${placeName} council tax by band. Band D rose ${percent.format(d.councilTaxRisePct)}% to ${pounds.format(d.councilTax)} before water. See A to H, last year's price and current totals.`,
     path: `/council-tax-bands-scotland/${v.slug}`,
     type: "website",
   });
@@ -121,8 +134,9 @@ export default async function CouncilTaxSlugPage(props: { params: Promise<{ slug
         ))}
       </ul>
       <p className="mt-4 max-w-[720px] text-[15px] leading-[1.55] text-[var(--muted)]">
-        Council tax {COUNCIL_TAX_YEAR}, water and waste water {WATER_YEAR}. Some councils have
-        announced rises for 2026-27 that are not in the national dataset yet.
+        Council tax figures for {PREVIOUS_COUNCIL_TAX_YEAR} and {COUNCIL_TAX_YEAR} are the
+        complete official sets for all 32 councils. Water and waste water are separate{" "}
+        {WATER_YEAR} charges published by Scottish Water.
       </p>
     </section>
   );
@@ -131,18 +145,23 @@ export default async function CouncilTaxSlugPage(props: { params: Promise<{ slug
   if (v.kind === "council") {
     const a = v.charges[0];
     const d = v.charges[3];
+    const placeName = councilSearchName(v.slug, v.name);
     const faq = [
       ...v.charges.slice(0, 5).map((c) => ({
-        q: `How much is Band ${c.band} council tax in ${v.name}?`,
-        a: `Band ${c.band} in ${v.name} is ${exact.format(c.total)} a year including water and waste water — about ${exact.format(c.total / 12)} a month. That is ${exact.format(c.councilTax)} of council tax plus ${exact.format(c.water + c.wasteWater)} of water charges.`,
+        q: `How much is Band ${c.band} council tax in ${placeName}?`,
+        a: `Band ${c.band} in ${placeName} is ${exact.format(c.total)} a year including water and waste water, or about ${exact.format(c.total / 12)} a month. The council-tax part rose from ${exact.format(c.previousCouncilTax)} in 2025/26 to ${exact.format(c.councilTax)} in 2026/27, an increase of ${exact.format(c.councilTaxRise)} or ${percent.format(c.councilTaxRisePct)}%. Scottish Water's separate charges add ${exact.format(c.water + c.wasteWater)}.`,
       })),
       {
-        q: `How do I find my council tax band in ${v.name}?`,
+        q: `How much did council tax rise in ${placeName} in 2026/27?`,
+        a: `At Band D, ${placeName} council tax rose from ${exact.format(d.previousCouncilTax)} in 2025/26 to ${exact.format(d.councilTax)} in 2026/27. That is ${exact.format(d.councilTaxRise)} more a year, or ${percent.format(d.councilTaxRisePct)}%. This compares council tax only and excludes Scottish Water charges.`,
+      },
+      {
+        q: `How do I find my council tax band in ${placeName}?`,
         a: `Your band is set by the Scottish Assessors, not the council, and it depends on what the property was worth in April 1991. Look it up free on the Scottish Assessors Association website, then find that band in the table on this page.`,
       },
       {
-        q: `Can I pay less council tax in ${v.name}?`,
-        a: `Possibly. Council Tax Reduction lowers the bill for people on a low income, and anyone getting it can have up to 35% off the water charges as well. An adult living alone gets 25% off. Both are applied for free through ${v.name} council.`,
+        q: `Can I pay less council tax in ${placeName}?`,
+        a: `Possibly. Council Tax Reduction lowers the bill for people on a low income, and anyone getting it can have up to 35% off the water charges as well. An adult living alone gets 25% off. Both are applied for free through ${placeName} council.`,
       },
     ];
 
@@ -151,22 +170,27 @@ export default async function CouncilTaxSlugPage(props: { params: Promise<{ slug
         <JsonLd data={breadcrumbJsonLd([
           { name: "Home", path: "/" },
           { name: "Council tax bands", path: "/council-tax-bands-scotland" },
-          { name: v.name, path: `/council-tax-bands-scotland/${v.slug}` },
+          { name: placeName, path: `/council-tax-bands-scotland/${v.slug}` },
         ])} />
         <JsonLd data={faqJsonLd(faq)} />
 
         <Page>
           <PageHeader
-            eyebrow={`${v.name} · bands A to H`}
-            title={`Council tax bands in ${v.name}`}
-            lede={`Band A is ${pounds.format(a.total)} a year and Band D is ${pounds.format(d.total)}, both including the water and waste water charges that come on the same bill. Every band is below, with monthly figures.`}
+            eyebrow={`${placeName} · 2026/27 · bands A to H`}
+            title={`${placeName} council tax bands 2026/27`}
+            lede={`Band D council tax rose by ${exact.format(d.councilTaxRise)} to ${exact.format(d.councilTax)} — ${percent.format(d.councilTaxRisePct)}%. The full Band D bill is ${pounds.format(d.total)} after Scottish Water's separate charges are added.`}
           />
 
           <div className="mt-2 mb-9">
             <InShort>
               <p>
-                Most homes in {v.name} are <strong>Band A to C</strong>. At Band A the bill is
+                Most homes in {placeName} are <strong>Band A to C</strong>. At Band A the bill is
                 about <strong>{exact.format(a.total / 12)} a month</strong>.
+              </p>
+              <p>
+                At Band D, council tax was <strong>{exact.format(d.previousCouncilTax)}</strong> in{" "}
+                {PREVIOUS_COUNCIL_TAX_YEAR}. It is now <strong>{exact.format(d.councilTax)}</strong>,
+                up <strong>{exact.format(d.councilTaxRise)} ({percent.format(d.councilTaxRisePct)}%)</strong>.
               </p>
               <p>
                 Your bill includes <strong>water and waste water</strong>. That is Scottish
@@ -181,7 +205,7 @@ export default async function CouncilTaxSlugPage(props: { params: Promise<{ slug
             <div className="mb-6 border-b-2 border-[var(--ink)] pb-4">
               <p className="kicker mb-2 text-[var(--brand)]">Every band</p>
               <h2 className="display-stat text-[clamp(26px,3.2vw,40px)] max-w-[20ch]">
-                What each band costs in {v.name}
+                What each band costs in {placeName}
               </h2>
             </div>
 
@@ -194,7 +218,7 @@ export default async function CouncilTaxSlugPage(props: { params: Promise<{ slug
                 >
                   <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
                     <h3 className="text-[19px] font-[750]">
-                      Band {c.band} council tax in {v.name}
+                      Band {c.band} council tax in {placeName}
                     </h3>
                     <p className="display-stat text-[26px] tnum text-[var(--brand)]">
                       {pounds.format(c.total)}
@@ -203,10 +227,14 @@ export default async function CouncilTaxSlugPage(props: { params: Promise<{ slug
                   </div>
                   <p className="mt-2.5 text-[15.5px] leading-[1.55] text-[var(--ink-2)]">
                     About <strong className="text-[var(--ink)]">{exact.format(c.total / 12)} a
-                    month</strong> or {exact.format(c.total / 52)} a week. That is{" "}
-                    {exact.format(c.councilTax)} council tax plus {exact.format(c.water)} water and{" "}
-                    {exact.format(c.wasteWater)} waste water. Band {c.band} is {RATIOS[c.band]} of
-                    the Band D rate.
+                    month</strong> or {exact.format(c.total / 52)} a week.
+                  </p>
+                  <p className="mt-2 text-[15.5px] leading-[1.55] text-[var(--ink-2)]">
+                    Council tax alone: <strong className="text-[var(--ink)]">{exact.format(c.councilTax)}</strong>,
+                    up {exact.format(c.councilTaxRise)} ({percent.format(c.councilTaxRisePct)}%) from{" "}
+                    {exact.format(c.previousCouncilTax)} last year. Scottish Water separately adds{" "}
+                    {exact.format(c.water)} for water and {exact.format(c.wasteWater)} for waste
+                    water. Band {c.band} is {RATIOS[c.band]} of the Band D rate.
                   </p>
                 </div>
               ))}
@@ -229,7 +257,7 @@ export default async function CouncilTaxSlugPage(props: { params: Promise<{ slug
               ))}
             </div>
             <p className="mt-5 text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
-              <Link href={`/areas/${v.slug}`}>See poverty and pay in {v.name}</Link>, or{" "}
+              <Link href={`/areas/${v.slug}`}>See poverty and pay in {placeName}</Link>, or{" "}
               <Link href="/council-tax-bands-scotland">check another postcode</Link>.
             </p>
           </section>
@@ -247,6 +275,9 @@ export default async function CouncilTaxSlugPage(props: { params: Promise<{ slug
   const cheapest = rows[rows.length - 1];
   const dearest = rows[0];
   const median = rows[Math.floor(rows.length / 2)];
+  const rises = [...rows].sort((a, b) => b.councilTaxRisePct - a.councilTaxRisePct);
+  const largestRise = rises[0];
+  const smallestRise = rises[rises.length - 1];
   const faq = [
     {
       q: `How much is Band ${letter} council tax?`,
@@ -259,6 +290,10 @@ export default async function CouncilTaxSlugPage(props: { params: Promise<{ slug
     {
       q: `Does Band ${letter} council tax include water?`,
       a: `Your bill does. At Band ${letter} Scottish Water charges ${exact.format(water.water)} for water and ${exact.format(water.wasteWater)} for waste water, ${exact.format(water.water + water.wasteWater)} in total, collected with the council tax.`,
+    },
+    {
+      q: `How much did Band ${letter} council tax rise in 2026/27?`,
+      a: `It depends on the council. The Band ${letter} council-tax increase runs from ${percent.format(smallestRise.councilTaxRisePct)}% in ${smallestRise.name} to ${percent.format(largestRise.councilTaxRisePct)}% in ${largestRise.name}. Those figures compare council tax only; Scottish Water charges are separate.`,
     },
   ];
 
@@ -273,8 +308,8 @@ export default async function CouncilTaxSlugPage(props: { params: Promise<{ slug
 
       <Page>
         <PageHeader
-          eyebrow={`Band ${letter} · all 32 Scottish councils`}
-          title={`How much is Band ${letter} council tax?`}
+          eyebrow={`Band ${letter} · 2026/27 · all 32 Scottish councils`}
+          title={`Council tax Band ${letter} in Scotland: monthly and yearly cost`}
           lede={`Band ${letter} costs between ${pounds.format(cheapest.total)} and ${pounds.format(dearest.total)} a year in Scotland depending on your council, water and waste water included.`}
         />
 
@@ -289,6 +324,11 @@ export default async function CouncilTaxSlugPage(props: { params: Promise<{ slug
               Band {letter} is <strong>{RATIOS[letter]}</strong> of your council&apos;s Band D
               rate. That fraction is fixed by law and identical in every council.
             </p>
+            <p>
+              Council tax rose by <strong>{percent.format(smallestRise.councilTaxRisePct)}% to{" "}
+              {percent.format(largestRise.councilTaxRisePct)}%</strong> depending on the council.
+              Scottish Water is separate from that rise.
+            </p>
             <p>Scotland only. Bands and rates work differently in England and Wales.</p>
           </InShort>
         </div>
@@ -302,7 +342,7 @@ export default async function CouncilTaxSlugPage(props: { params: Promise<{ slug
               </h2>
             </div>
             <p className="ui text-[14.5px] font-[650] tnum text-[var(--muted)]">
-              A year, water included
+              Current total and council-tax rise
             </p>
           </div>
           <div className="overflow-hidden rounded-[var(--r-m)] border border-[var(--rule)]">
@@ -310,12 +350,22 @@ export default async function CouncilTaxSlugPage(props: { params: Promise<{ slug
               <Link
                 key={r.slug}
                 href={`/council-tax-bands-scotland/${r.slug}#band-${letter.toLowerCase()}`}
-                className="grid grid-cols-[auto_minmax(0,1fr)_auto] items-baseline gap-x-4 border-b border-[var(--rule)] bg-[var(--surface)] px-5 py-3.5 no-underline transition-colors last:border-0 hover:bg-[var(--surface-2)]"
+                className="grid grid-cols-[auto_minmax(0,1fr)_auto] items-start gap-x-4 border-b border-[var(--rule)] bg-[var(--surface)] px-5 py-3.5 no-underline transition-colors last:border-0 hover:bg-[var(--surface-2)]"
               >
                 <span className="ui w-6 text-[14px] tnum text-[var(--muted)]">{i + 1}</span>
-                <span className="ui text-[15.5px] font-[640] text-[var(--ink)]">{r.name}</span>
-                <span className="display-stat text-[19px] tnum text-[var(--ink)]">
-                  {pounds.format(r.total)}
+                <span>
+                  <span className="ui block text-[15.5px] font-[640] text-[var(--ink)]">{r.name}</span>
+                  <span className="mt-1 block text-[15px] leading-[1.4] text-[var(--muted)]">
+                    Council tax {exact.format(r.previousCouncilTax)} → {exact.format(r.councilTax)}
+                  </span>
+                </span>
+                <span className="text-right">
+                  <span className="display-stat block text-[19px] tnum text-[var(--ink)]">
+                    {pounds.format(r.total)}
+                  </span>
+                  <span className="mt-1 block text-[15px] leading-[1.4] tnum text-[var(--action)]">
+                    +{exact.format(r.councilTaxRise)} · {percent.format(r.councilTaxRisePct)}%
+                  </span>
                 </span>
               </Link>
             ))}

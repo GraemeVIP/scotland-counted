@@ -8,9 +8,9 @@ import Image from "next/image";
 import { infographic } from "@/lib/data/infographic";
 
 export const metadata = meta({
-  title: "Press and reuse",
+  title: "Scotland Poverty Data for Journalists and Reuse",
   description:
-    "Local poverty pages for all of Scotland, downloadable charts, sourced stat lines, live embeds and reuse terms. Everything needed to cite this site.",
+    "Download sourced Scotland poverty figures, charts and press assets, with clear citation guidance, methodology and contact details for questions or corrections.",
   path: "/press",
 });
 
@@ -39,7 +39,7 @@ export default function Press() {
       <Page>
         <PageHeader
           eyebrow="For journalists, researchers and campaigners"
-          title="Cite Scotland in one minute"
+          title="Scotland poverty data for journalists"
           lede="Every council and constituency has a permanent local evidence page. Charts and lines are free to reuse with attribution, derivations are documented, and corrections are logged in public."
         />
 
@@ -162,13 +162,12 @@ export default function Press() {
           <h2 className="h2 mb-3">Live embeds</h2>
           <Col>
             <p>
-              Every indicator chart can be embedded with an iframe and stays current as the data
-              updates. The embed button sits under each chart on{" "}
-              <Link href="/the-numbers">the indicator pages</Link>, or point an iframe at{" "}
+              The four Glasgow time-series charts can be embedded with an iframe and stay current
+              as the data updates. The embed button sits under each supported chart on the{" "}
+              <Link href="/glasgow-poverty-statistics">indicator pages</Link>. For example, point an iframe at{" "}
               <code className="datum text-[15px] bg-[var(--paper-2)] px-1.5 py-0.5">
-                {site.url}/embed/child-poverty
-              </code>{" "}
-              and swap the final segment for any indicator.
+                {site.url}/embed/glasgow-child-poverty
+              </code>.
             </p>
           </Col>
         </section>

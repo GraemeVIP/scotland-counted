@@ -23,8 +23,8 @@ export type NavTone = "local" | "tools" | "change" | "proof";
 export const PRIMARY: NavItem[] = [
   { href: "/areas", label: "Your area" },
   { href: "/constituencies", label: "Your MP" },
-  { href: "/your-power", label: "Your power" },
-  { href: "/what-would-fix-it", label: "What would help" },
+  { href: "/what-happens-when-you-email-your-mp", label: "Your power" },
+  { href: "/solutions-to-poverty-in-scotland", label: "What would help" },
   { href: "/blog", label: "Explained" },
 ];
 
@@ -43,8 +43,8 @@ export const SECTIONS: Array<{
     items: [
       { href: "/areas", label: "All 32 council areas", blurb: "Child poverty, benefits and pay context where you live", featured: true },
       { href: "/constituencies", label: "All 57 MP areas", blurb: "The area each MP is responsible for" },
-      { href: "/why-glasgow", label: "Glasgow", blurb: "Why the worst rate in Scotland is where it is" },
-      { href: "/the-numbers", label: "The Glasgow record", blurb: "Every Glasgow indicator in one place" },
+      { href: "/why-poverty-is-worse-in-glasgow", label: "Glasgow", blurb: "Why the worst rate in Scotland is where it is" },
+      { href: "/glasgow-poverty-statistics", label: "The Glasgow record", blurb: "Every Glasgow indicator in one place" },
     ],
   },
   {
@@ -54,7 +54,7 @@ export const SECTIONS: Array<{
     items: [
       { href: "/council-tax-bands-scotland", label: "Council tax by band", blurb: "What it really costs, water included" },
       { href: "/take-home-pay-calculator-scotland", label: "Take-home pay calculator", blurb: "What you keep on Scottish tax rates" },
-      { href: "/quiz", label: "Guess the figure", blurb: "Six questions. Most people get them wrong" },
+      { href: "/poverty-in-scotland-quiz", label: "Guess the figure", blurb: "Six questions. Most people get them wrong" },
       { href: "/blog", label: "Explained in plain English", blurb: "Short answers to common questions", featured: true },
       { href: "/faq", label: "Questions and answers", blurb: "Search the things people actually ask" },
       { href: "/glossary", label: "Plain-English glossary", blurb: "Every term, in ordinary words" },
@@ -65,9 +65,9 @@ export const SECTIONS: Array<{
     intro: "Who controls what, what could help and why your voice matters.",
     tone: "change",
     items: [
-      { href: "/accountability", label: "Who decides what", blurb: "London, Edinburgh or your council", featured: true },
-      { href: "/what-would-fix-it", label: "What would fix it", blurb: "Costed options, and who can do them" },
-      { href: "/your-power", label: "Why it is worth the bother", blurb: "What happens after you press send" },
+      { href: "/who-is-responsible-for-poverty-in-scotland", label: "Who decides what", blurb: "London, Edinburgh or your council", featured: true },
+      { href: "/solutions-to-poverty-in-scotland", label: "What would fix it", blurb: "Costed options, and who can do them" },
+      { href: "/what-happens-when-you-email-your-mp", label: "Why it is worth the bother", blurb: "What happens after you press send" },
     ],
   },
   {
@@ -107,7 +107,7 @@ export const INVENTORY = [
   { count: "32", label: "council areas", href: "/areas" },
   { count: "57", label: "MP areas", href: "/constituencies" },
   { count: "46", label: "questions answered", href: "/faq" },
-  { count: "6", label: "measures tracked", href: "/the-numbers" },
+  { count: "6", label: "measures tracked", href: "/glasgow-poverty-statistics" },
 ];
 
 /** About and contact, which sit in the menu footer rather than a column. */

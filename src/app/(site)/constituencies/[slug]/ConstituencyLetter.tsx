@@ -70,7 +70,7 @@ export default function ConstituencyLetter({
     const value = postcode.trim().toUpperCase();
     if (!value) return;
     sessionStorage.setItem(POSTCODE_SESSION_KEY, value);
-    router.push("/take-action#letter-builder");
+    router.push("/find-my-mp-and-msp#letter-builder");
   }
 
   const inputCls =
@@ -112,7 +112,7 @@ export default function ConstituencyLetter({
         {state === "error" && (
           <p className="mt-4 text-[15px] text-[var(--bad-text)] leading-[1.5]">
             {message} You can still{" "}
-            <a href="/take-action">use the postcode finder</a>.
+            <a href="/find-my-mp-and-msp">use the postcode finder</a>.
           </p>
         )}
 

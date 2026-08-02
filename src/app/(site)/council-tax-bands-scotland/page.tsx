@@ -4,20 +4,26 @@ import { JsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
 import CouncilTaxLookup from "./CouncilTaxLookup";
 import WaterCharge from "@/components/WaterCharge";
 import ToolCTA from "@/components/ToolCTA";
-import { councilTaxByBand, chargesFor, COUNCIL_TAX_YEAR, WATER_YEAR } from "@/lib/data/councilTax";
+import {
+  councilTaxByBand,
+  chargesFor,
+  COUNCIL_TAX_YEAR,
+  PREVIOUS_COUNCIL_TAX_YEAR,
+  WATER_YEAR,
+} from "@/lib/data/councilTax";
 import { councils } from "@/lib/data/councils";
 import { getSources } from "@/lib/data/sources";
 import Faq from "@/components/Faq";
 
 export const metadata = meta({
-  title: "Council tax bands in Scotland: how much is my council tax?",
+  title: "Council Tax Bands Scotland 2026/27 | Prices A-H",
   description:
-    "How much council tax you pay in Scotland, by band and by council. Every band A to H with water charges included, which most figures leave out.",
+    "Check 2026/27 council tax bands in every Scottish council. Compare Band A to H yearly and monthly prices with water and waste-water charges included.",
   path: "/council-tax-bands-scotland",
   type: "website",
 });
 
-const FAQ = [
+const BASE_FAQ = [
   {
     q: "How do I find out my council tax band?",
     a: "Your band belongs to the property, not the postcode, and only the Scottish Assessors hold it. You can look it up free on the Scottish Assessors Association website. Most flats and smaller homes in Scotland are Band A to C.",
@@ -42,17 +48,36 @@ const FAQ = [
     q: "How is council tax calculated?",
     a: "Two things decide it. Your property has a band from A to H, set by the Scottish Assessors from what it was worth in April 1991. Your council then sets a Band D rate each year, and every other band is a fixed fraction of that: Band A is 240/360 of Band D, Band C is 320/360, Band H is 882/360.",
   },
-  {
-    q: "How much is council tax a month in Scotland?",
-    a: "It depends on your band and your council. At Band A, the most common band in Scotland, the bill including water is roughly £125 to £135 a month. At Band D it is roughly £180 to £195. The postcode lookup above gives your own council's exact figures.",
-  },
 ];
 
 export default function CouncilTaxPage() {
   const withData = councils.filter((c) => councilTaxByBand[c.slug]);
-  const bandD = withData
-    .map((c) => ({ name: c.name, slug: c.slug, total: chargesFor(c.slug)![3].total }))
-    .sort((a, b) => b.total - a.total);
+  const bandDRises = withData
+    .map((c) => ({ name: c.name, slug: c.slug, ...chargesFor(c.slug)![3] }))
+    .sort((a, b) => b.councilTaxRisePct - a.councilTaxRisePct);
+  const bandATotals = withData
+    .map((c) => chargesFor(c.slug)![0].total)
+    .sort((a, b) => a - b);
+  const bandDTotals = bandDRises.map((c) => c.total).sort((a, b) => a - b);
+  const largestRise = bandDRises[0];
+  const smallestRise = bandDRises[bandDRises.length - 1];
+  const percent = new Intl.NumberFormat("en-GB", { maximumFractionDigits: 1 });
+  const exact = new Intl.NumberFormat("en-GB", {
+    style: "currency",
+    currency: "GBP",
+    minimumFractionDigits: 2,
+  });
+  const faq = [
+    ...BASE_FAQ,
+    {
+      q: "How much is council tax a month in Scotland?",
+      a: `It depends on your band and council. Including water, Band A runs from ${exact.format(bandATotals[0] / 12)} to ${exact.format(bandATotals[bandATotals.length - 1] / 12)} a month across Scotland. Band D runs from ${exact.format(bandDTotals[0] / 12)} to ${exact.format(bandDTotals[bandDTotals.length - 1] / 12)}. The postcode lookup gives your council's exact figures.`,
+    },
+    {
+      q: "How much did council tax rise in Scotland in 2026/27?",
+      a: `There is no single Scottish rise because each council sets its own rate. Band D council tax rose in all 32 areas, from ${percent.format(smallestRise.councilTaxRisePct)}% in ${smallestRise.name} to ${percent.format(largestRise.councilTaxRisePct)}% in ${largestRise.name}. Those percentages exclude Scottish Water, which sets its own separate charges.`,
+    },
+  ];
   const cited = getSources(["council-tax-scotland", "scottish-water-2026"]);
 
   return (
@@ -63,12 +88,12 @@ export default function CouncilTaxPage() {
           { name: "Council tax bands", path: "/council-tax-bands-scotland" },
         ])}
       />
-      <JsonLd data={faqJsonLd(FAQ)} />
+      <JsonLd data={faqJsonLd(faq)} />
 
       <Page>
         <PageHeader
           eyebrow="Scotland · all 32 councils · bands A to H"
-          title="How much is my council tax?"
+          title="Council tax bands in Scotland: 2026/27 prices"
           lede="Enter your postcode and see what every band costs where you live — with water and waste water included, which most figures leave out. Scotland only: the bands and rates here do not apply in England or Wales."
         />
 
@@ -87,7 +112,7 @@ export default function CouncilTaxPage() {
           </InShort>
           <p className="mt-4 text-[16px] leading-[1.6] text-[var(--ink-2)]">
             Need the rules as well as the price? Read the{" "}
-            <Link href="/blog/council-tax-in-scotland-guide">
+            <Link href="/blog/how-council-tax-works-scotland">
               plain-English guide to bands, discounts, reductions, appeals and arrears
             </Link>.
           </p>
@@ -97,33 +122,57 @@ export default function CouncilTaxPage() {
 
         <CouncilTaxLookup />
 
-        <section className="pt-14">
-          <h2 className="h2 mb-3">Band D across Scotland, worst first</h2>
+        <section className="pt-14" id="council-tax-rises">
+          <p className="kicker mb-2 text-[var(--action)]">What changed this year</p>
+          <h2 className="h2 mb-3">Where Band D council tax rose most</h2>
           <p className="max-w-[62ch] text-[17px] leading-[1.6] text-[var(--ink-2)]">
-            Band D is the standard comparison. Every other band is a fixed proportion of it, so
-            this ranking holds for all bands. Water and waste water are included.
+            All 32 councils increased their council tax for 2026/27. At Band D, the rise runs from{" "}
+            <strong className="text-[var(--ink)]">
+              {percent.format(smallestRise.councilTaxRisePct)}% in {smallestRise.name}
+            </strong>{" "}
+            to{" "}
+            <strong className="text-[var(--ink)]">
+              {percent.format(largestRise.councilTaxRisePct)}% in {largestRise.name}
+            </strong>.
+          </p>
+          <p className="mt-3 max-w-[62ch] text-[16px] leading-[1.6] text-[var(--ink-2)]">
+            This comparison is <strong className="text-[var(--ink)]">council tax only</strong>:
+            it compares {PREVIOUS_COUNCIL_TAX_YEAR} with {COUNCIL_TAX_YEAR}. Scottish Water sets
+            its own charges, so water is not included in any council rise shown below. These are
+            the ten largest rises; the article underneath lists all 32.
           </p>
           <div className="mt-6 grid gap-2 [grid-template-columns:repeat(auto-fill,minmax(230px,1fr))]">
-            {bandD.map((c, i) => (
+            {bandDRises.slice(0, 10).map((c, i) => (
               <Link
                 key={c.slug}
-                href={`/council-tax-bands-scotland/${c.slug}`}
-                className="group flex items-baseline justify-between gap-3 rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] px-4 py-3 no-underline transition-colors hover:border-[var(--brand)]"
+                href={`/council-tax-bands-scotland/${c.slug}#band-d`}
+                className="group rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] px-4 py-3 no-underline transition-colors hover:border-[var(--brand)]"
               >
-                <span className="ui text-[14.5px] font-[640] leading-[1.25] text-[var(--ink-2)] group-hover:text-[var(--ink)]">
-                  <span className="tnum text-[var(--muted)]">{i + 1}.</span> {c.name}
+                <span className="flex items-baseline justify-between gap-3">
+                  <span className="ui text-[15px] font-[640] leading-[1.25] text-[var(--ink-2)] group-hover:text-[var(--ink)]">
+                    <span className="tnum text-[var(--muted)]">{i + 1}.</span> {c.name}
+                  </span>
+                  <span className="display-stat shrink-0 text-[17px] tnum text-[var(--action)]">
+                    +{exact.format(c.councilTaxRise)}
+                  </span>
                 </span>
-                <span className="display-stat shrink-0 text-[17px] tnum text-[var(--ink)]">
-                  £{Math.round(c.total).toLocaleString("en-GB")}
+                <span className="mt-1.5 block text-[15px] leading-[1.4] text-[var(--muted)]">
+                  {exact.format(c.previousCouncilTax)} → {exact.format(c.councilTax)} ·{" "}
+                  {percent.format(c.councilTaxRisePct)}%
                 </span>
               </Link>
             ))}
           </div>
+          <p className="mt-5 text-[16px] leading-[1.6] text-[var(--ink-2)]">
+            <Link href="/blog/council-tax-rises-scotland-2026-27">
+              Read the plain-English breakdown of Scotland&apos;s 2026/27 council tax rises
+            </Link>.
+          </p>
         </section>
 
         <ToolCTA tool="take-home" className="mt-14" />
 
-        <Faq items={FAQ} className="pt-14" />
+        <Faq items={faq} className="pt-14" />
 
         <section className="pt-12">
           <h2 className="label mb-4">Where these figures come from</h2>
@@ -138,9 +187,9 @@ export default function CouncilTaxPage() {
             ))}
           </ul>
           <p className="mt-4 max-w-[720px] text-[15px] leading-[1.55] text-[var(--muted)]">
-            Council tax is {COUNCIL_TAX_YEAR}, the latest complete set published for all 32
-            councils. Water is {WATER_YEAR}. Some councils have announced rises for 2026-27 that
-            are not in the national dataset yet, so your bill may be slightly higher than shown.
+            Council tax figures for {PREVIOUS_COUNCIL_TAX_YEAR} and {COUNCIL_TAX_YEAR} are the
+            complete official sets for all 32 councils. Water and waste water are separate{" "}
+            {WATER_YEAR} charges published by Scottish Water.
           </p>
         </section>
       </Page>

@@ -41,7 +41,7 @@ export const quiz: QuizQuestion[] = [
     headline: "36.1%",
     reveal:
       "More than one in three. It is the worst rate in Scotland, and ten years ago it was 27.1% — the biggest rise of any council area in the country.",
-    href: "/indicators/child-poverty",
+    href: "/indicators/glasgow-child-poverty",
     hrefLabel: "See the ten-year chart",
   },
   {
@@ -53,7 +53,7 @@ export const quiz: QuizQuestion[] = [
     headline: "3 in 4",
     reveal:
       "Three in four. Poverty is mostly not about worklessness — it is about what is left after rent, childcare and bills. This is why 'get a job' is not an answer.",
-    href: "/what-would-fix-it",
+    href: "/solutions-to-poverty-in-scotland",
     hrefLabel: "See what would actually help",
   },
   {
@@ -66,7 +66,7 @@ export const quiz: QuizQuestion[] = [
     headline: "0 of 4",
     reveal:
       "Every one was missed. The widest miss was persistent poverty: 23% against a target below 8%. Ministers have confirmed there is no penalty for missing them.",
-    href: "/accountability",
+    href: "/who-is-responsible-for-poverty-in-scotland",
     hrefLabel: "See the record",
   },
   {
@@ -105,7 +105,7 @@ export const quiz: QuizQuestion[] = [
     headline: "32.2% → 29.4% → 32.0%",
     reveal:
       "It fell for the first time in a decade, then went straight back up when the £20 was withdrawn. This is the closest thing to proof that the level of poverty is a choice, not weather.",
-    href: "/accountability",
+    href: "/who-is-responsible-for-poverty-in-scotland",
     hrefLabel: "See what changed it",
   },
 ];

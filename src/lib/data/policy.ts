@@ -198,7 +198,7 @@ export const statutoryTargets = [
   { measure: "Persistent poverty", target: "under 8%", actual: "23%", missed: true },
 ];
 
-/** The four reasons Glasgow specifically, used on /why-glasgow. */
+/** The four reasons Glasgow specifically, used on /why-poverty-is-worse-in-glasgow. */
 export const causes = [
   {
     id: "inheritance",

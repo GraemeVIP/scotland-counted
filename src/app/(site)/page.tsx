@@ -15,9 +15,9 @@ import { infographic } from "@/lib/data/infographic";
 import { explainerVideo } from "@/lib/data/video";
 
 export const metadata = meta({
-  title: "Poverty in Scotland, explained clearly",
+  title: "Poverty in Scotland: Statistics, Local Facts and Help",
   description:
-    "See what poverty means where you live, find your MP and MSP automatically, and open ready-written emails. Every figure is sourced.",
+    "Poverty in Scotland explained with official statistics, local council and MP-area facts, cost-of-living tools and ready-written emails to representatives.",
   path: "/",
   type: "website",
 });
@@ -351,10 +351,10 @@ export default function Home() {
                   government made which decisions.
                 </p>
                 <div className="mt-8 flex flex-wrap gap-3">
-                  <Link href="/the-numbers" className="btn btn-primary">
+                  <Link href="/glasgow-poverty-statistics" className="btn btn-primary">
                     See Glasgow&apos;s full story <span aria-hidden="true">→</span>
                   </Link>
-                  <Link href="/why-glasgow" className="btn border-current/35 text-current hover:bg-white/10">
+                  <Link href="/why-poverty-is-worse-in-glasgow" className="btn border-current/35 text-current hover:bg-white/10">
                     Why it is worse here
                   </Link>
                 </div>

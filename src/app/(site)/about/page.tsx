@@ -53,7 +53,7 @@ export default function About() {
             experts reach the same answer, the site says so in plain words.
           </p>
           <p>
-            The <Link href="/accountability">who decides page</Link> covers every main party that
+            The <Link href="/who-is-responsible-for-poverty-in-scotland">who decides page</Link> covers every main party that
             made relevant decisions. The point is what governments did and what happened next,
             not the colour of a party badge.
           </p>

@@ -15,7 +15,13 @@ import { quiz, scoreVerdict } from "@/lib/data/quiz";
  * these, and telling someone off for that is the fastest way to lose them.
  */
 
-export default function Quiz({ className = "" }: { className?: string }) {
+export default function Quiz({
+  className = "",
+  headingLevel = "h3",
+}: {
+  className?: string;
+  headingLevel?: "h2" | "h3";
+}) {
   const [step, setStep] = useState(0);
   const [picked, setPicked] = useState<number | null>(null);
   const [correct, setCorrect] = useState(0);
@@ -24,6 +30,7 @@ export default function Quiz({ className = "" }: { className?: string }) {
   const q = quiz[step];
   const answered = picked !== null;
   const isLast = step === quiz.length - 1;
+  const Heading = headingLevel;
 
   function choose(i: number) {
     if (answered) return;
@@ -60,7 +67,7 @@ export default function Quiz({ className = "" }: { className?: string }) {
           {correct}
           <span className="opacity-50"> / {quiz.length}</span>
         </p>
-        <h3 className="mt-4 text-[24px] font-[780] leading-[1.2] sm:text-[30px]">{v.title}</h3>
+        <Heading className="mt-4 text-[24px] font-[780] leading-[1.2] sm:text-[30px]">{v.title}</Heading>
         <p className="mt-4 max-w-[56ch] text-[17.5px] leading-[1.6] opacity-85">{v.body}</p>
 
         <p className="mt-7 max-w-[56ch] text-[19px] leading-[1.5] font-[660]">
@@ -69,7 +76,7 @@ export default function Quiz({ className = "" }: { className?: string }) {
         </p>
 
         <div className="mt-7 flex flex-wrap gap-3">
-          <Link href="/take-action" className="btn btn-primary">
+          <Link href="/find-my-mp-and-msp" className="btn btn-primary">
             Email my MP and MSP
             <span aria-hidden="true">→</span>
           </Link>
@@ -116,9 +123,9 @@ export default function Quiz({ className = "" }: { className?: string }) {
       </div>
 
       <div className="px-5 py-7 sm:px-7 sm:py-8">
-        <h3 className="text-[21px] font-[770] leading-[1.25] max-w-[30ch] sm:text-[26px]">
+        <Heading className="text-[21px] font-[770] leading-[1.25] max-w-[30ch] sm:text-[26px]">
           {q.question}
-        </h3>
+        </Heading>
 
         <div className="mt-6 grid gap-2.5">
           {q.options.map((opt, i) => {

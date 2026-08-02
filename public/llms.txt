@@ -39,14 +39,14 @@ Key facts (checked July 2026):
   claimant count and resident pay compared with Scotland.
 - [Constituencies](/constituencies): all 57 Scottish Westminster seats ranked
   by child poverty.
-- [The Glasgow record](/the-numbers): six long-run indicators — poverty, work,
+- [The Glasgow record](/glasgow-poverty-statistics): six long-run indicators — poverty, work,
   benefits, pay, neighbourhoods and life expectancy.
-- [Glasgow deep dive](/why-glasgow): four evidenced reasons the city differs.
-- [What would change it](/what-would-fix-it): seven costed policies and their
+- [Glasgow deep dive](/why-poverty-is-worse-in-glasgow): four evidenced reasons the city differs.
+- [What would change it](/solutions-to-poverty-in-scotland): seven costed policies and their
   current status.
-- [Who has power](/accountability): decisions by Westminster, Holyrood and the
+- [Who has power](/who-is-responsible-for-poverty-in-scotland): decisions by Westminster, Holyrood and the
   Glasgow local case study, with measured consequences.
-- [Take action](/take-action): enter a postcode; the site finds the MP, MSP and
+- [Take action](/find-my-mp-and-msp): enter a postcode; the site finds the MP, MSP and
   council evidence, routes policy requests and opens addressed draft emails.
 - [Methods and sources](/methods): how every figure was obtained, including
   derivations and limitations.

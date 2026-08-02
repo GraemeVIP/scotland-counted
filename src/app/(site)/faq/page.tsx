@@ -4,7 +4,7 @@ import { faqItems } from "@/lib/data/faqs";
 import FaqSearch from "./FaqSearch";
 
 export const metadata = meta({
-  title: "Questions about poverty, your area, MPs and the evidence",
+  title: "Poverty in Scotland FAQs: Clear Answers",
   description:
     "Straight answers about poverty in Scotland, your local figures, MPs and MSPs, the ready-written emails, privacy, and the proof behind every number.",
   path: "/faq",
@@ -24,7 +24,7 @@ export default function FaqPage() {
       <Page>
         <PageHeader
           eyebrow={`${faqItems.length} questions · Plain-English answers`}
-          title="Ask what you actually want to know"
+          title="Poverty in Scotland: your questions answered"
           lede="You do not need the political words or the right name for a statistic. Search in ordinary language, choose a topic, or open any question below."
         />
 

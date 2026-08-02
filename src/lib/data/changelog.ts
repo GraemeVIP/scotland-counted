@@ -20,7 +20,7 @@ export const changelog: ChangeEntry[] = [
     date: "2026-08-01",
     title: "Pay figures relabelled and minimum-wage reality added",
     body: "The ASHE values were correct but the words around them were not careful enough. The site no longer calls the restricted full-time PAYE estimate a typical wage or treats the workplace-residence difference as wages leaving Glasgow. Every council page now starts with the current legal minimum, its full-time annual equivalent and independent evidence on what a basic living standard costs. The restricted pay estimate is clearly separated from poverty figures and removed from campaign emails.",
-    href: "/indicators/pay",
+    href: "/indicators/glasgow-full-time-pay",
     kind: "correction",
   },
   {
@@ -34,7 +34,7 @@ export const changelog: ChangeEntry[] = [
     date: "2026-07-31",
     title: "Letters now find and address the right representatives",
     body: "Enter a postcode and the action tool now finds the reader's MP and constituency MSP, routes each policy request to the tier that controls it, and opens a fully addressed draft in the reader's own email app.",
-    href: "/take-action",
+    href: "/find-my-mp-and-msp",
     kind: "feature",
   },
   {

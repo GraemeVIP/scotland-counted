@@ -8,9 +8,9 @@ import { postsByDate } from "@/lib/data/posts";
 import { site } from "@/lib/site";
 
 export const metadata = meta({
-  title: "Money, bills and poverty explained in plain English",
+  title: "Scotland Counted Explained | Poverty Evidence Hub",
   description:
-    "Plain-English guides to Scotland's cost of living, poverty, work, benefits and political decisions. Short answers first, exact sources underneath.",
+    "Browse every Scotland Counted explainer on poverty, money, bills and political responsibility. Get the plain-English answer first, then check every source.",
   path: "/blog",
   type: "website",
 });
@@ -30,7 +30,7 @@ export default function Blog() {
         data={{
           "@context": "https://schema.org",
           "@type": "Blog",
-          name: `${site.name} — explained in plain English`,
+          name: `${site.name} | Explained in Plain English`,
           url: `${site.url}/blog`,
           blogPost: all.map((p) => ({
             "@type": "BlogPosting",
@@ -50,7 +50,7 @@ export default function Blog() {
       <Page>
         <PageHeader
           eyebrow="Explained · the evidence hub"
-          title="Money, bills and poverty — without the jargon"
+          title="Scotland Counted explained"
           lede="Start with the answer in ordinary words. Then open the figures, dates and original sources if you want to check the work. No political knowledge assumed."
         />
 

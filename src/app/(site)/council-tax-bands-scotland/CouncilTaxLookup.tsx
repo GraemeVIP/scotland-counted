@@ -2,7 +2,13 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { chargesFor, COUNCIL_TAX_YEAR, WATER_YEAR, type BandCharge } from "@/lib/data/councilTax";
+import {
+  chargesFor,
+  COUNCIL_TAX_YEAR,
+  PREVIOUS_COUNCIL_TAX_YEAR,
+  WATER_YEAR,
+  type BandCharge,
+} from "@/lib/data/councilTax";
 import { councils } from "@/lib/data/councils";
 import { bandShares, DWELLINGS_YEAR } from "@/lib/data/dwellings";
 
@@ -30,6 +36,7 @@ const exact = new Intl.NumberFormat("en-GB", {
 type Result = { councilName: string; slug: string; charges: BandCharge[] };
 
 const pct = (n: number) => `${Math.round(n)}%`;
+const risePct = new Intl.NumberFormat("en-GB", { maximumFractionDigits: 1 });
 
 export default function CouncilTaxLookup() {
   const [postcode, setPostcode] = useState("");
@@ -192,28 +199,37 @@ export default function CouncilTaxLookup() {
                     className="grid w-full grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-x-4 bg-[var(--surface)] px-5 py-4 text-left transition-colors hover:bg-[var(--surface-2)]"
                   >
                     <span className="display-stat w-8 text-[20px] text-[var(--brand)]">{c.band}</span>
-                    <span className="ui text-[15px] text-[var(--ink-2)]">
-                      {pounds.format(c.councilTax)} + {pounds.format(c.water + c.wasteWater)} water
+                    <span className="ui text-[15px] leading-[1.4] text-[var(--ink-2)]">
+                      <span className="block">
+                        {pounds.format(c.councilTax)} council tax +{" "}
+                        {pounds.format(c.water + c.wasteWater)} water
+                      </span>
+                      <span className="mt-0.5 block text-[15px] text-[var(--muted)]">
+                        Was {exact.format(c.previousCouncilTax)} · up {exact.format(c.councilTaxRise)}
+                        {" "}({risePct.format(c.councilTaxRisePct)}%)
+                      </span>
                     </span>
                     <span className="display-stat text-[22px] tnum text-[var(--ink)]">
                       {pounds.format(c.total)}
                     </span>
                   </button>
                   {open && (
-                    <dl className="grid gap-x-8 gap-y-2 border-t border-[var(--rule)] bg-[var(--paper-2)] px-5 py-4 sm:grid-cols-3">
+                    <dl className="grid gap-x-8 gap-y-4 border-t border-[var(--rule)] bg-[var(--paper-2)] px-5 py-4 sm:grid-cols-2 lg:grid-cols-5">
                       {[
+                        ["Council tax", c.previousCouncilTax, PREVIOUS_COUNCIL_TAX_YEAR],
                         ["Council tax", c.councilTax, COUNCIL_TAX_YEAR],
+                        ["Council-tax rise", c.councilTaxRise, `${risePct.format(c.councilTaxRisePct)}%`],
                         ["Water supply", c.water, WATER_YEAR],
                         ["Waste water", c.wasteWater, WATER_YEAR],
                       ].map(([label, value, year]) => (
-                        <div key={label as string}>
-                          <dt className="ui text-[13.5px] font-[700] text-[var(--muted)]">
+                        <div key={`${label}-${year}`}>
+                          <dt className="ui text-[15px] font-[700] text-[var(--muted)]">
                             {label as string} · {year as string}
                           </dt>
                           <dd className="text-[17px] font-[680] tnum">{exact.format(value as number)}</dd>
                         </div>
                       ))}
-                      <div className="sm:col-span-3">
+                      <div className="sm:col-span-2 lg:col-span-5">
                         <p className="text-[14.5px] leading-[1.5] text-[var(--ink-2)]">
                           About {exact.format(c.total / 12)} a month, or{" "}
                           {exact.format(c.total / 52)} a week.
@@ -245,9 +261,9 @@ export default function CouncilTaxLookup() {
           </div>
 
           <p className="mt-5 text-[15px] leading-[1.55] text-[var(--muted)]">
-            Council tax figures are {COUNCIL_TAX_YEAR}, the latest complete national set. Water is{" "}
-            {WATER_YEAR}. Some councils have since announced rises for 2026-27, so your bill may be
-            a little higher.{" "}
+            Council tax figures for {PREVIOUS_COUNCIL_TAX_YEAR} and {COUNCIL_TAX_YEAR} are the
+            complete official sets for all 32 councils. Water is a separate {WATER_YEAR} charge
+            published by Scottish Water.{" "}
             <Link href="/methods">How I source this</Link>.
           </p>
         </div>

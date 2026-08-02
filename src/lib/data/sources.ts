@@ -213,18 +213,18 @@ export const sources: Source[] = [
   },
   {
     id: "council-tax-scotland",
-    title: "Council Tax by band 2025-26, council tax datasets",
+    title: "Council Tax by band 2025-26 and 2026-27, council tax datasets",
     publisher: "Scottish Government",
     url: "https://www.gov.scot/publications/council-tax-datasets/",
-    used: "Glasgow City council tax by band: £1,074 at Band A and £1,611 at Band D in 2025-26.",
+    used: "Council tax by band for all 32 Scottish councils in 2025-26 and 2026-27, including the cash and percentage change between the two years.",
     derivation:
-      "Glasgow agreed a 5.9% rise for 2026-27, giving about £1,137 at Band A. The national dataset is used because the council's own pages block automated access; the figures are the council's own, published centrally.",
+      "The amounts are used as displayed to the nearest penny in the two national workbooks, which record the figures reported by each local authority. Cash and percentage changes are calculated from those two published amounts. Scottish Water charges are excluded from every council-tax comparison and added separately from Scottish Water's published table.",
   },
   {
     id: "scottish-water-2026",
-    title: "Your charges explained 2026-27",
+    title: "Unmetered charges 2026-27",
     publisher: "Scottish Water",
-    url: "https://www.scottishwater.co.uk/-/media/scottishwater/document-hub/your-home/charges/2026/your-charges-explained-2026-27.pdf",
+    url: "https://www.scottishwater.co.uk/your-home/your-charges/your-charges-2026-2027/unmetered-charges-2026-2027",
     used: "Unmetered water and waste water charges for 2026-27: £201.30 and £233.58 at Band A, £434.88 combined. These are collected with council tax.",
   },
   {

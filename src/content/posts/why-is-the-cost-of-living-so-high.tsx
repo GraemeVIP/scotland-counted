@@ -297,13 +297,13 @@ export default function Post() {
       <PostCTA
         title="Ask the right people what they will change"
         body="Enter your postcode. I find your MP and MSP automatically, use the right local facts, write both emails and open them in your email app. You do not need to know who represents you."
-        href="/take-action"
+        href="/find-my-mp-and-msp"
         cta="Find them and write my emails"
       />
 
       <P>
         Want to inspect the proof first? Every source used here is listed below. You can also see{" "}
-        <Link href="/what-would-fix-it">which changes would make the biggest difference</Link> and{" "}
+        <Link href="/solutions-to-poverty-in-scotland">which changes would make the biggest difference</Link> and{" "}
         <Link href="/methods">how this site checks a claim</Link>.
       </P>
     </Prose>

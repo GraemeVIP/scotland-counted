@@ -6,10 +6,10 @@ import LetterBuilder from "./LetterBuilder";
 import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
 
 export const metadata = meta({
-  title: "Who is my MP and MSP? Find both by postcode",
+  title: "Find My MSP and MP by Postcode in Scotland",
   description:
-    "Enter your postcode and I find your MP and MSP, add your local poverty figures, write both emails and open them in your email app.",
-  path: "/take-action",
+    "Enter your postcode to find your Scottish MSP and MP, add the facts for your area, and open ready-written emails in your own email app.",
+  path: "/find-my-mp-and-msp",
 });
 
 const OTHER = [
@@ -37,14 +37,14 @@ export default function TakeAction() {
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Home", path: "/" },
-          { name: "Take action", path: "/take-action" },
+          { name: "Take action", path: "/find-my-mp-and-msp" },
         ])}
       />
 
       <Page>
         <PageHeader
           eyebrow="No politics knowledge needed"
-          title="Email your MP and MSP"
+          title="Find your MP and MSP by postcode"
           lede="Enter your postcode. I find the right people, add the facts for your area, write both emails and open them in your own email app. You do not have to choose who gets which request."
         />
 

@@ -25,6 +25,31 @@ import {
 import { asOneIn, changeInWords } from "@/lib/plain-language";
 import Faq from "@/components/Faq";
 
+const SEARCH_PLACE_NAMES: Record<string, string> = {
+  "aberdeen-city": "Aberdeen",
+  "dundee-city": "Dundee",
+  "city-of-edinburgh": "Edinburgh",
+  "glasgow-city": "Glasgow",
+};
+
+function areaSeoCopy(slug: string, placeName: string) {
+  if (slug === "glasgow-city") {
+    return {
+      title: "Glasgow City Council Poverty Profile: Local Figures",
+      h1: "Glasgow City Council poverty profile",
+      description:
+        "See the latest Glasgow City Council area figures for child poverty, out-of-work benefits and pay, with ten-year comparisons and every source linked.",
+    };
+  }
+
+  const title = `Poverty in ${placeName}: Child Poverty, Work and Pay`;
+  return {
+    title: title.length <= 60 ? title : `Poverty in ${placeName}: Local Figures`,
+    h1: `Poverty in ${placeName}: work and pay`,
+    description: "",
+  };
+}
+
 export function generateStaticParams() {
   return councils.map((c) => ({ slug: c.slug }));
 }
@@ -33,9 +58,13 @@ export async function generateMetadata(props: PageProps<"/areas/[slug]">) {
   const { slug } = await props.params;
   const c = getCouncil(slug);
   if (!c) return {};
+  const placeName = SEARCH_PLACE_NAMES[c.slug] ?? c.name;
+  const seo = areaSeoCopy(c.slug, placeName);
   return meta({
-    title: `Poverty, work and pay in ${c.name}`,
-    description: `${asOneIn(c.pcts[9])} children in ${c.name} are living in poverty. See the exact local figures for poverty, out-of-work benefits and pay.`,
+    title: seo.title,
+    description:
+      seo.description ||
+      `${asOneIn(c.pcts[9])} children in ${placeName} are living in poverty. See the exact local figures for poverty, out-of-work benefits and pay.`,
     path: `/areas/${slug}`,
     ownImage: true,
   });
@@ -51,6 +80,8 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
   const { slug } = await props.params;
   const c = getCouncil(slug);
   if (!c) notFound();
+  const placeName = SEARCH_PLACE_NAMES[c.slug] ?? c.name;
+  const seo = areaSeoCopy(c.slug, placeName);
 
   const first = COUNCIL_YEARS[0];
   const last = COUNCIL_YEARS[9];
@@ -88,7 +119,7 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
       />
       <JsonLd
         data={articleJsonLd({
-          headline: `Poverty, work and pay in ${c.name}`,
+          headline: seo.h1,
           description: `${c.pcts[9]}% of children in ${c.name} live in poverty after housing costs, alongside local claimant-count and resident-pay evidence.`,
           path: `/areas/${c.slug}`,
         })}
@@ -98,7 +129,7 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
       <Page>
         <PageHeader
           eyebrow="Your area · Latest local figures"
-          title={`Poverty and pay in ${c.name}`}
+          title={seo.h1}
           lede={
             <>
               <strong>{plainShare} children</strong> here are growing up in poverty. That is{" "}
@@ -348,24 +379,39 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
           {isGlasgow ? (
             <p>
               Glasgow has the highest rate in Scotland and the biggest rise. It therefore has a
-              separate record showing <Link href="/why-glasgow">why it is worse here</Link> and{" "}
-              <Link href="/what-would-fix-it">what would help</Link>.
+              separate record showing <Link href="/why-poverty-is-worse-in-glasgow">why it is worse here</Link> and{" "}
+              <Link href="/solutions-to-poverty-in-scotland">what would help</Link>.
             </p>
           ) : (
             <p>
               {c.name} is {ordinal(c.rankLevel)} of {COUNCIL_COUNT}. Glasgow City is the highest at{" "}
-              {glasgow.pcts[9]}%. <Link href="/why-glasgow">Glasgow&apos;s separate story</Link> explains
+              {glasgow.pcts[9]}%. <Link href="/why-poverty-is-worse-in-glasgow">Glasgow&apos;s separate story</Link> explains
               why it has been hit so hard.
             </p>
           )}
           <p>
             Benefit rules and <G t="lha">help with private rent</G> affect every Scottish area.
-            <Link href="/what-would-fix-it"> See the changes experts say would help.</Link>
+            <Link href="/solutions-to-poverty-in-scotland"> See the changes experts say would help.</Link>
           </p>
           </EvidenceDetails>
         </div>
 
         <Faq items={faq} className="pt-12" />
+
+        <section className="mt-10 border border-[var(--rule)] bg-[var(--surface)] p-6 sm:p-7">
+          <p className="label mb-2">Your local bill</p>
+          <h2 className="h3 mb-3">Council tax in {placeName}</h2>
+          <p className="max-w-[68ch] text-[16px] text-[var(--ink-2)] leading-[1.65]">
+            See the 2026/27 price for every band, how much it rose from last year and the separate
+            Scottish Water charge collected on the same bill.
+          </p>
+          <Link
+            href={`/council-tax-bands-scotland/${c.slug}`}
+            className="ui inline-flex mt-4 font-[700] text-[var(--ink)] underline decoration-[var(--brand)] decoration-2 underline-offset-4"
+          >
+            See {placeName} council tax bands and increases →
+          </Link>
+        </section>
 
         <section className="pt-12">
           <p className="label mb-4">Other council areas</p>
@@ -389,7 +435,7 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
         <CTA
           title={`Email the people who represent ${c.name}`}
           body="Enter your postcode. I find your MP and MSP, add these local figures, write both emails and open them in your email app. You do not need to know who decides what."
-          href="/take-action"
+          href="/find-my-mp-and-msp"
           cta="Find my MP and MSP"
           secondaryHref="/areas"
           secondaryCta="See all 32 areas"

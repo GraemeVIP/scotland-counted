@@ -68,7 +68,10 @@ export default function Post() {
       <P>
         That is why two Band A homes in different council areas can have different bills. See the
         exact annual and monthly figures for <Link href="/council-tax-bands-scotland">all 32
-        councils and every band</Link>.
+        councils and every band</Link>, or compare the{" "}
+        <Link href="/blog/council-tax-rises-scotland-2026-27">
+          2026/27 council tax rise in every council
+        </Link>.
       </P>
 
       <H2 id="water">5. Why water is on the same bill</H2>

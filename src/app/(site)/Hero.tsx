@@ -59,7 +59,7 @@ export default function Hero() {
               <Link href="/areas" className="font-[700]">
                 Or browse all 32 areas →
               </Link>
-              <Link href="/your-power" className="text-[var(--ink-2)] font-[600]">
+              <Link href="/what-happens-when-you-email-your-mp" className="text-[var(--ink-2)] font-[600]">
                 Why it is worth doing
               </Link>
             </div>

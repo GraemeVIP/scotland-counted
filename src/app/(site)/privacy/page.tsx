@@ -29,7 +29,7 @@ const toolList = TOOL_NAMES.join(" and ");
 export const metadata = meta({
   title: "Privacy",
   description: ANALYTICS_ON
-    ? `What this site collects, what it does not, and how to have it deleted. ${toolList} measure how pages are used. Postcodes are never stored.`
+    ? `How Scotland Counted uses ${toolList}, what it collects, and how to have data deleted. Postcodes are never stored.`
     : "What this site collects, what it does not, and how to have it deleted. No tracking, no analytics, no advertising. Postcodes are never stored.",
   path: "/privacy",
 });

@@ -21,7 +21,16 @@ const exactPounds = new Intl.NumberFormat("en-GB", {
   maximumFractionDigits: 2,
 });
 
-export default function MinimumWageReality({ className = "" }: { className?: string }) {
+export default function MinimumWageReality({
+  className = "",
+  headingLevel = "h3",
+}: {
+  className?: string;
+  headingLevel?: "h2" | "h3";
+}) {
+  const Heading = headingLevel;
+  const Subheading = headingLevel === "h2" ? "h3" : "h4";
+
   return (
     <section
       aria-labelledby="minimum-wage-reality"
@@ -30,12 +39,12 @@ export default function MinimumWageReality({ className = "" }: { className?: str
     >
       <div className="p-6 sm:p-8 lg:p-9">
         <p className="kicker mb-3 text-[var(--action)]">A wage people actually recognise</p>
-        <h3
+        <Heading
           id="minimum-wage-reality"
           className="display-stat max-w-[20ch] text-[clamp(29px,3.5vw,44px)]"
         >
           What full-time minimum wage actually pays
-        </h3>
+        </Heading>
         <p className="mt-4 max-w-[68ch] text-[17px] leading-[1.6] text-[var(--ink-2)]">
           Minimum wage is an hourly rate, so there is no single yearly salary. For someone aged 21
           or over, the legal minimum is <strong className="text-[var(--ink)]">£12.71 an hour</strong> from
@@ -63,7 +72,7 @@ export default function MinimumWageReality({ className = "" }: { className?: str
       </div>
 
       <div className="border-t border-[var(--rule)] bg-[var(--paper)] p-6 sm:p-8 lg:p-9">
-        <h4 className="h3 mb-3">Full-time minimum wage can still leave people short</h4>
+        <Subheading className="h3 mb-3">Full-time minimum wage can still leave people short</Subheading>
         <div className="max-w-[76ch] space-y-3 text-[16px] leading-[1.6] text-[var(--ink-2)]">
           <p>
             Research on the cost of a basic, decent life found that in 2025 a single adult working

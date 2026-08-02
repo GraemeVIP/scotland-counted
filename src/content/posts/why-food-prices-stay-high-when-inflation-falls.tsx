@@ -77,7 +77,7 @@ export default function Post() {
       <PostCTA
         title="Inflation is not an excuse to ignore the price level"
         body="The site turns the official figures into a ready-written question for the people who control wages, benefits and food policy. I find your MP and MSP automatically."
-        href="/take-action"
+        href="/find-my-mp-and-msp"
         cta="Ask for an answer"
       />
     </Prose>

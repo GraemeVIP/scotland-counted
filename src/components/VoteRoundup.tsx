@@ -137,7 +137,7 @@ export default function VoteRoundup({ className = "" }: { className?: string }) 
             Find how my MP voted
             <span aria-hidden="true">→</span>
           </Link>
-          <Link href="/take-action" className="btn border-current/35 text-current hover:bg-white/10">
+          <Link href="/find-my-mp-and-msp" className="btn border-current/35 text-current hover:bg-white/10">
             Email them about it
           </Link>
         </div>

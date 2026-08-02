@@ -16,7 +16,7 @@ export default function PostcodeStart() {
     if (!value) return;
 
     sessionStorage.setItem(POSTCODE_SESSION_KEY, value);
-    router.push("/take-action#letter-builder");
+    router.push("/find-my-mp-and-msp#letter-builder");
   }
 
   return (

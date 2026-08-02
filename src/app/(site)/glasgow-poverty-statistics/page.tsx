@@ -5,10 +5,10 @@ import { JsonLd, breadcrumbJsonLd, datasetJsonLd, meta } from "@/lib/seo";
 import { indicators, lifeExpectancy, deprivation } from "@/lib/data/indicators";
 
 export const metadata = meta({
-  title: "Glasgow — what changed since 2000",
+  title: "Glasgow Poverty Statistics: Work, Pay and Health",
   description:
-    "See what changed in Glasgow since 2000: child poverty, work, out-of-work benefits, pay, neighbourhoods and how long people live.",
-  path: "/the-numbers",
+    "Glasgow poverty statistics alongside long-term evidence on employment, benefits, pay, deprivation and life expectancy, with every source linked.",
+  path: "/glasgow-poverty-statistics",
 });
 
 /** Card data, including the miniature series each card draws. */
@@ -48,7 +48,7 @@ export default function TheNumbers() {
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Home", path: "/" },
-          { name: "The Glasgow record", path: "/the-numbers" },
+          { name: "The Glasgow record", path: "/glasgow-poverty-statistics" },
         ])}
       />
       <JsonLd
@@ -56,7 +56,7 @@ export default function TheNumbers() {
           name: "Poverty indicators for Glasgow, 2000–2026",
           description:
             "Six time series covering child poverty after housing costs, employment, out-of-work benefit claims, restricted full-time employee-pay estimates, neighbourhood deprivation and life expectancy at birth.",
-          path: "/the-numbers",
+          path: "/glasgow-poverty-statistics",
           keywords: [
             "Glasgow",
             "poverty",
@@ -74,7 +74,7 @@ export default function TheNumbers() {
       <Page>
         <PageHeader
           eyebrow="Glasgow · Six parts of the story · 2000–2026"
-          title="What changed in Glasgow"
+          title="Glasgow poverty statistics since 2000"
           lede="Glasgow has Scotland's worst child-poverty rate and the biggest ten-year rise. These six pages show the wider story: children, work, benefits, wages, neighbourhoods and how long people live."
           stat={{
             value: "6",
@@ -97,7 +97,7 @@ export default function TheNumbers() {
               >
                 <div className="flex items-start justify-between gap-4 mb-5">
                   <p className="ui text-[15px] font-[700] text-[var(--muted)]">{c.label}</p>
-                  {c.slug !== "pay" && <DirectionChip direction={c.direction} />}
+                  {c.slug !== "glasgow-full-time-pay" && <DirectionChip direction={c.direction} />}
                 </div>
                 <h2 className="h3 mb-3 group-hover:text-[var(--brand)] transition-colors">
                   {c.title}

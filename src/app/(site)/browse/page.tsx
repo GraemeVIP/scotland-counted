@@ -10,7 +10,7 @@ import { indicators } from "@/lib/data/indicators";
 export const metadata = meta({
   title: "Every page on this site",
   description:
-    "The whole of Scotland Counted in one place — every council area, every MP area, every explainer and every source. Nothing is hidden behind a menu.",
+    "The whole of Scotland Counted in one place: every council area, every MP area, every explainer and every source. Nothing is hidden behind a menu.",
   path: "/browse",
 });
 
@@ -125,8 +125,8 @@ export default function Browse() {
           <div className="flex flex-wrap gap-2">
             {[
               ...indicators.map((i) => ({ slug: i.slug, name: i.label })),
-              { slug: "life-expectancy", name: "Life expectancy" },
-              { slug: "neighbourhoods", name: "Neighbourhoods" },
+              { slug: "glasgow-life-expectancy", name: "Life expectancy" },
+              { slug: "glasgow-deprivation", name: "Neighbourhoods" },
             ].map((i) => (
               <Link
                 key={i.slug}

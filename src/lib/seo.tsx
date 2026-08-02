@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { site } from "@/lib/site";
 
 /** What the root layout appends, and roughly what Google will display. */
-const BRAND_SUFFIX = ` — ${site.name}`;
+const BRAND_SUFFIX = ` | ${site.name}`;
 const TITLE_BUDGET = 60;
 const RSS_FEED_URL = `${site.url}/feed.xml`;
 
@@ -14,12 +14,11 @@ export function meta({
   title,
   description,
   path = "/",
-  type = "article",
+  type = "website",
   published,
   modified,
   image,
   ownImage = false,
-  keywords,
 }: {
   title: string;
   description: string;
@@ -35,8 +34,13 @@ export function meta({
    * way and let the file convention fill the field.
    */
   ownImage?: boolean;
-  keywords?: string[];
 }): Metadata {
+  if (title.includes("—") || description.includes("—")) {
+    throw new Error(
+      "Metadata titles and descriptions must not contain em dashes. Use a pipe in titles and normal sentence punctuation in descriptions.",
+    );
+  }
+
   const url = `${site.url}${path === "/" ? "" : path}`;
   /**
    * Every page gets a share card. The opengraph-image file convention only
@@ -52,7 +56,7 @@ export function meta({
     : undefined;
   return {
     /**
-     * The root layout appends " — Scotland Counted" to every title. That is 19
+     * The root layout appends " | Scotland Counted" to every title. That is 19
      * of the ~60 characters Google will show, and on a site nobody has heard of
      * yet the brand earns nothing while the words that describe the page earn
      * everything. So the suffix is kept where it fits and dropped where it
@@ -60,7 +64,6 @@ export function meta({
      */
     title: title.length + BRAND_SUFFIX.length <= TITLE_BUDGET ? title : { absolute: title },
     description,
-    ...(keywords ? { keywords } : {}),
     alternates: {
       canonical: url,
       types: { "application/rss+xml": RSS_FEED_URL },

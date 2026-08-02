@@ -62,9 +62,9 @@ export const GLASGOW_CHILD_COUNTS = [
 
 export const indicators: Indicator[] = [
   {
-    slug: "child-poverty",
+    slug: "glasgow-child-poverty",
     label: "Children",
-    title: "More than one in three Glasgow children is growing up poor",
+    title: "Child poverty in Glasgow is 36.1%",
     summary:
       "Ten years ago the figure was 27.1%. It is now 36.1% — the biggest rise of any Scottish council area.",
     direction: "worsening",
@@ -100,9 +100,9 @@ export const indicators: Indicator[] = [
   },
 
   {
-    slug: "work",
+    slug: "glasgow-employment-rate",
     label: "Work",
-    title: "Far more Glaswegians are in work than in 2004",
+    title: "Glasgow's employment rate since 2004",
     summary:
       "In 2004, 62.7% of working-age Glaswegians had a job. The figure reached 72.1% in 2022, much closer to Scotland as a whole.",
     direction: "improving",
@@ -149,9 +149,9 @@ export const indicators: Indicator[] = [
   },
 
   {
-    slug: "benefits",
+    slug: "glasgow-claimant-count",
     label: "Benefits",
-    title: "Fewer people need out-of-work benefits than in 2000",
+    title: "The claimant count in Glasgow since 2000",
     summary:
       "The figure fell from 6.0% in 2000 to 3.2% in 2016, jumped during the pandemic and is about 4.5% now.",
     direction: "improving",
@@ -196,9 +196,9 @@ export const indicators: Indicator[] = [
   },
 
   {
-    slug: "pay",
+    slug: "glasgow-full-time-pay",
     label: "Pay",
-    title: "What the Glasgow pay figures actually measure",
+    title: "What Glasgow's full-time pay figure really measures",
     summary:
       "£796.50 a week is about £41,400 a year, and it sounds far too high because it is not what a typical worker earns. It covers full-time employee jobs only — every part-time job is excluded — and it is gross pay including overtime and bonuses, before tax and National Insurance.",
     direction: "worsening",
@@ -259,9 +259,9 @@ export const indicators: Indicator[] = [
 
 /** Life expectancy is a four-series small-multiple, handled separately. */
 export const lifeExpectancy = {
-  slug: "life-expectancy",
+  slug: "glasgow-life-expectancy",
   label: "Life expectancy",
-  title: "Glasgow gained four years of life, then it stopped",
+  title: "Life expectancy in Glasgow stopped improving",
   summary:
     "People in Glasgow were living longer until about 2012. Then progress stopped. The latest male figure on this chart is 73.6 years, the lowest in Scotland.",
   direction: "stalled" as Direction,
@@ -279,9 +279,9 @@ export const lifeExpectancy = {
 
 /** Neighbourhood deprivation: a two-point comparison, not a series. */
 export const deprivation = {
-  slug: "neighbourhoods",
+  slug: "glasgow-deprivation",
   label: "Neighbourhoods",
-  title: "Far fewer Glaswegians live in Scotland's worst-off neighbourhoods",
+  title: "What the Scottish deprivation index shows about Glasgow",
   summary:
     "Almost half of Glaswegians lived in Scotland's worst-off tenth of neighbourhoods in 2004. By 2020 it was under a third — 29%.",
   direction: "improving" as Direction,
@@ -321,7 +321,7 @@ export const headlineStats = [
     to: "36.1%",
     period: "2014/15 → 2023/24",
     direction: "worsening" as Direction,
-    href: "/indicators/child-poverty",
+    href: "/indicators/glasgow-child-poverty",
   },
   {
     label: "Working-age employment rate",
@@ -330,7 +330,7 @@ export const headlineStats = [
     to: "71.2%",
     period: "2004 → 2023",
     direction: "improving" as Direction,
-    href: "/indicators/work",
+    href: "/indicators/glasgow-employment-rate",
   },
   {
     label: "Living in Scotland's worst-off 10% of neighbourhoods",
@@ -339,7 +339,7 @@ export const headlineStats = [
     to: "29%",
     period: "SIMD 2004 → 2020",
     direction: "improving" as Direction,
-    href: "/indicators/neighbourhoods",
+    href: "/indicators/glasgow-deprivation",
   },
   {
     label: "Male life expectancy behind the Scottish average",
@@ -348,7 +348,7 @@ export const headlineStats = [
     to: "3.6 yrs",
     period: "2001–03 → 2017–19",
     direction: "improving" as Direction,
-    href: "/indicators/life-expectancy",
+    href: "/indicators/glasgow-life-expectancy",
   },
 ];
 

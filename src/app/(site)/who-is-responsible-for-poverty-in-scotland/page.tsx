@@ -29,7 +29,7 @@ const TIER_STYLE: Record<string, { colorVar: string; writeTo: string }> = {
 
 /**
  * Glasgow child poverty either side of the pandemic, from the End Child Poverty
- * series on /indicators/child-poverty. The middle year is the whole argument:
+ * series on /indicators/glasgow-child-poverty. The middle year is the whole argument:
  * the figure moved when the money moved.
  */
 const PANDEMIC = [
@@ -57,10 +57,10 @@ const PANDEMIC = [
 ];
 
 export const metadata = meta({
-  title: "Who decides what",
+  title: "Who Is Responsible for Poverty Policy in Scotland?",
   description:
-    "A plain-English guide to what the UK Government, Scottish Government and councils can do about poverty, with the exact record and sources.",
-  path: "/accountability",
+    "See which poverty, benefit, housing, pay and council decisions belong to Westminster, the Scottish Parliament or your local council.",
+  path: "/who-is-responsible-for-poverty-in-scotland",
 });
 
 export default function Accountability() {
@@ -69,21 +69,21 @@ export default function Accountability() {
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Home", path: "/" },
-          { name: "Accountability", path: "/accountability" },
+          { name: "Accountability", path: "/who-is-responsible-for-poverty-in-scotland" },
         ])}
       />
       <JsonLd
         data={articleJsonLd({
-          headline: "Who decided this",
+          headline: "Who is responsible for poverty policy in Scotland?",
           description: metadata.description as string,
-          path: "/accountability",
+          path: "/who-is-responsible-for-poverty-in-scotland",
         })}
       />
 
       <Page>
         <PageHeader
           eyebrow="Politics explained simply"
-          title="Who decides what"
+          title="Who is responsible for poverty in Scotland?"
           lede="The UK Government, Scottish Government and councils each control different things. You should not need a politics degree to know who to ask. This page explains the split and shows the exact record."
           stat={{
             value: "4 / 4",
@@ -296,7 +296,7 @@ export default function Accountability() {
             Government choices moved the figure in both directions inside two years. Nobody has to
             argue about whether this works. <G t="reserved">The powers are split</G>, and no single
             government owns the whole result — but the lever itself is not in doubt.{" "}
-            <Link href="/indicators/child-poverty">See the full ten-year chart</Link>.
+            <Link href="/indicators/glasgow-child-poverty">See the full ten-year chart</Link>.
           </p>
         </ContentFrame>
 
@@ -327,9 +327,9 @@ export default function Accountability() {
       <CTA
         title="Ask the right people without working out the politics"
         body="Enter your postcode. I find your MP and MSP and put the right request into each email automatically."
-        href="/take-action"
+        href="/find-my-mp-and-msp"
         cta="Find my MP and MSP"
-        secondaryHref="/what-would-fix-it"
+        secondaryHref="/solutions-to-poverty-in-scotland"
         secondaryCta="See what would help"
       />
     </>

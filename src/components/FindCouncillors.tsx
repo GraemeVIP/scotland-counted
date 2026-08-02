@@ -115,7 +115,7 @@ export default function FindCouncillors({ className = "" }: { className?: string
         </ul>
         <p className="mt-4 max-w-[62ch] text-[15.5px] leading-[1.55] text-[var(--muted)]">
           Benefits, the NHS and the minimum wage are not council matters —{" "}
-          <Link href="/accountability">who decides what</Link> sets out the split. If you are not
+          <Link href="/who-is-responsible-for-poverty-in-scotland">who decides what</Link> sets out the split. If you are not
           sure, send it to your MP and MSP as well. Nobody minds.
         </p>
       </div>

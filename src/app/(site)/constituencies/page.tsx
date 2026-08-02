@@ -10,9 +10,9 @@ import {
 import { asOneIn } from "@/lib/plain-language";
 
 export const metadata = meta({
-  title: "Child poverty in every Scottish MP area",
+  title: "Child Poverty by Scottish Constituency and MP Area",
   description:
-    "See child poverty in all 57 areas represented by a Scottish MP. Glasgow East is highest. Enter your postcode and I find your MP for you.",
+    "Compare child poverty across all 57 Scottish Westminster constituencies. Enter a postcode to find the correct MP and open a ready-written email.",
   path: "/constituencies",
 });
 
@@ -44,7 +44,7 @@ export default function Constituencies() {
       <Page>
         <PageHeader
           eyebrow={`All ${CONSTITUENCY_COUNT} Scottish MP areas`}
-          title="See the facts for your MP's area"
+          title="Child poverty in every Scottish MP area"
           lede="One MP represents each area. You do not need to know the political name for your area or who your MP is — enter your postcode and I find them for you."
           stat={{
             value: worstShare.replace(/^(about|more than|almost)\s+/, ""),
@@ -90,7 +90,7 @@ export default function Constituencies() {
           </p>
           <p>
             Six of the seven worst MP areas in Scotland are in Glasgow.{" "}
-            <Link href="/why-glasgow">See why Glasgow is hit harder</Link>. Council-level figures
+            <Link href="/why-poverty-is-worse-in-glasgow">See why Glasgow is hit harder</Link>. Council-level figures
             are on <Link href="/areas">the local area pages</Link>.
           </p>
         </Col>
@@ -98,7 +98,7 @@ export default function Constituencies() {
         <CTA
           title="You do not need to work out who your MP is"
           body="Enter your postcode. I find your MP, add the exact local figure and open a ready-written email."
-          href="/take-action"
+          href="/find-my-mp-and-msp"
           cta="Find and email my MP"
           secondaryHref={`/constituencies/${worst.slug}`}
           secondaryCta={`See ${worst.name}`}

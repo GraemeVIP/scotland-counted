@@ -214,7 +214,7 @@ export default function WorkDoesNotPay({ className = "" }: { className?: string 
           decided by the DWP, and I have no data on anyone&apos;s honesty.
         </p>
         <Link
-          href="/take-action"
+          href="/find-my-mp-and-msp"
           className="btn btn-primary mt-6"
         >
           Ask your MP about the taper

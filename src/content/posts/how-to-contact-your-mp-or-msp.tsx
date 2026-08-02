@@ -116,7 +116,7 @@ export default function Post() {
       <PostCTA
         title="Write to your MP and MSP now"
         body="Enter your postcode. I find the right people and write both emails for you. Nothing is sent from this site and your postcode is not saved."
-        href="/take-action"
+        href="/find-my-mp-and-msp"
         cta="Write my emails for me"
       />
 

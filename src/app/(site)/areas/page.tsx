@@ -12,9 +12,9 @@ import {
 } from "@/lib/data/councils";
 
 export const metadata = meta({
-  title: "Poverty and pay in every Scottish area",
+  title: "Poverty in Scotland by Council Area: Local Statistics",
   description:
-    "Choose any Scottish council area for a plain summary: exact child poverty figures, out-of-work benefits, and pay evidence that is carefully labelled.",
+    "Compare child poverty, out-of-work benefits and pay across all 32 Scottish council areas, with plain-English summaries and sourced local figures.",
   path: "/areas",
 });
 
@@ -55,7 +55,7 @@ export default function Areas() {
       <Page>
         <PageHeader
           eyebrow="All 32 Scottish council areas"
-          title="See what is happening where you live"
+          title="Poverty statistics for every Scottish council area"
           lede={`Choose an area for a clear answer first, then open the exact figures and sources. Things got worse in ${rose} of 32 areas over the last ten years.`}
         />
 
@@ -123,7 +123,7 @@ export default function Areas() {
           </p>
           <p>
             That is not a coincidence.{" "}
-            <Link href="/why-glasgow">
+            <Link href="/why-poverty-is-worse-in-glasgow">
               Many better-paid jobs are in Glasgow, but the people doing them often live outside it
             </Link>{" "}
             to exactly these places.
@@ -133,7 +133,7 @@ export default function Areas() {
         <CTA
           title="Enter your postcode and I do the rest"
           body="I find your area, MP and MSP automatically, add the local facts and prepare two addressed emails."
-          href="/take-action"
+          href="/find-my-mp-and-msp"
           cta="Find my MP and MSP"
           secondaryHref={`/areas/${byLevel[0].slug}`}
           secondaryCta={`See ${byLevel[0].name}`}

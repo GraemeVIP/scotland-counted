@@ -78,7 +78,7 @@ export default function Post() {
       <PostCTA
         title="The cap is a political choice"
         body="Local Housing Allowance rates are decided at Westminster. I find your MP automatically, add the housing evidence and prepare the email in ordinary language."
-        href="/take-action"
+        href="/find-my-mp-and-msp"
         cta="Email my MP"
       />
     </Prose>

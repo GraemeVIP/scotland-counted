@@ -20,10 +20,10 @@ import { getIndicator, jobsDensity } from "@/lib/data/indicators";
 import { getSources } from "@/lib/data/sources";
 
 export const metadata = meta({
-  title: "Why poverty is worse in Glasgow",
+  title: "Why Is Poverty Worse in Glasgow?",
   description:
-    "Glasgow has Scotland's worst child-poverty rate. Four clear reasons why: old decisions, low-paid work, which families live here, and the rent.",
-  path: "/why-glasgow",
+    "Why Glasgow has Scotland's highest child poverty rate: low pay, insecure work, housing costs, ill health and decades of policy choices, explained with sources.",
+  path: "/why-poverty-is-worse-in-glasgow",
 });
 
 function SourceStrip({ ids }: { ids: string[] }) {
@@ -53,21 +53,21 @@ function SourceStrip({ ids }: { ids: string[] }) {
 }
 
 export default function WhyGlasgow() {
-  const pay = getIndicator("pay")!;
+  const pay = getIndicator("glasgow-full-time-pay")!;
 
   return (
     <>
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Home", path: "/" },
-          { name: "Glasgow deep dive", path: "/why-glasgow" },
+          { name: "Glasgow deep dive", path: "/why-poverty-is-worse-in-glasgow" },
         ])}
       />
       <JsonLd
         data={articleJsonLd({
-          headline: "Glasgow deep dive — why the city is different",
+          headline: "Why poverty is worse in Glasgow",
           description: metadata.description as string,
-          path: "/why-glasgow",
+          path: "/why-poverty-is-worse-in-glasgow",
         })}
       />
 
@@ -186,8 +186,8 @@ export default function WhyGlasgow() {
                 to live on.
               </p>
               <p>
-                That is why <Link href="/indicators/work">the employment chart</Link> and{" "}
-                <Link href="/indicators/child-poverty">the child poverty chart</Link> point in
+                That is why <Link href="/indicators/glasgow-employment-rate">the employment chart</Link> and{" "}
+                <Link href="/indicators/glasgow-child-poverty">the child poverty chart</Link> point in
                 opposite directions. More people in work, more children in poverty.
               </p>
             </Split>
@@ -231,7 +231,7 @@ export default function WhyGlasgow() {
               <strong className="text-[var(--ink)]">Before you read the chart below:</strong> the
               £796.50 on it is not the average Glasgow wage. It covers a selected sample of
               full-time employee jobs and excludes every part-time job and all self-employment.{" "}
-              <Link href="/indicators/pay">I explain what it does and does not measure</Link>,
+              <Link href="/indicators/glasgow-full-time-pay">I explain what it does and does not measure</Link>,
               including the full spread of pay and what it means after tax.
             </p>
 
@@ -352,9 +352,9 @@ export default function WhyGlasgow() {
       <CTA
         title="The reasons are clear. Now ask what will change."
         body="See the practical changes experts say would help, then enter your postcode and email the people who can make them happen."
-        href="/what-would-fix-it"
+        href="/solutions-to-poverty-in-scotland"
         cta="See what would help"
-        secondaryHref="/accountability"
+        secondaryHref="/who-is-responsible-for-poverty-in-scotland"
         secondaryCta="See who decides"
       />
 

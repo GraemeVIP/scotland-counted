@@ -22,7 +22,7 @@ const HELP = [
     body: "Poverty, work and pay figures for all 32 council areas in Scotland.",
   },
   {
-    href: "/take-action",
+    href: "/find-my-mp-and-msp",
     title: "Email your MP and MSP",
     body: "Enter a postcode and I find both, then write both emails for you.",
   },

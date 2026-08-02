@@ -17,10 +17,10 @@ import { getSources } from "@/lib/data/sources";
 import Faq from "@/components/Faq";
 
 export const metadata = meta({
-  title: "What would help cut poverty",
+  title: "Solutions to Poverty in Scotland: What Would Help",
   description:
-    "Seven practical changes that experts say would cut poverty in Scotland, with the exact cost, likely effect and the government that can act.",
-  path: "/what-would-fix-it",
+    "See practical, costed policies that could reduce poverty in Scotland, what each would change and whether Westminster, Holyrood or councils control it.",
+  path: "/solutions-to-poverty-in-scotland",
 });
 
 const TAG: Record<FixStatus, string> = {
@@ -128,14 +128,14 @@ export default function WhatWouldFixIt() {
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Home", path: "/" },
-          { name: "What would fix it", path: "/what-would-fix-it" },
+          { name: "What would fix it", path: "/solutions-to-poverty-in-scotland" },
         ])}
       />
       <JsonLd
         data={articleJsonLd({
-          headline: "What would actually fix it",
+          headline: "What would help cut poverty in Scotland",
           description: metadata.description as string,
-          path: "/what-would-fix-it",
+          path: "/solutions-to-poverty-in-scotland",
         })}
       />
       <JsonLd data={faqJsonLd(FAQ)} />
@@ -143,7 +143,7 @@ export default function WhatWouldFixIt() {
       <Page>
         <PageHeader
           eyebrow="Scotland · Seven practical changes"
-          title="What would help cut poverty"
+          title="What would help cut poverty in Scotland"
           lede="I do not have to guess. Independent experts have tested the main ideas. They agree that families need more money coming in, affordable housing and childcare that works around real jobs."
           stat={{
             value: `${done} of ${fixes.length}`,
@@ -328,7 +328,7 @@ export default function WhatWouldFixIt() {
 
           <p className="mt-8 text-[18px] leading-[1.6] text-[var(--ink-2)] max-w-[66ch]">
             Both figures are a year. Both are real choices made by the same government.{" "}
-            <Link href="/accountability">That choice is on the record</Link>, and it is a fair thing
+            <Link href="/who-is-responsible-for-poverty-in-scotland">That choice is on the record</Link>, and it is a fair thing
             to ask your MSP about.
           </p>
         </ContentFrame>
@@ -365,9 +365,9 @@ export default function WhatWouldFixIt() {
       <CTA
         title="Ask the people who can make these changes"
         body="Enter your postcode. I find your MP and MSP, add the local facts and put the right requests into each email automatically. You do not need to choose."
-        href="/take-action"
+        href="/find-my-mp-and-msp"
         cta="Find my MP and MSP"
-        secondaryHref="/accountability"
+        secondaryHref="/who-is-responsible-for-poverty-in-scotland"
         secondaryCta="See who decides"
       />
     </>

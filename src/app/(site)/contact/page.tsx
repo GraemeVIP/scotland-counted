@@ -143,7 +143,7 @@ export default function Contact() {
           </ul>
           <p className="mt-5 max-w-[68ch] text-[15.5px] leading-[1.55] text-[var(--muted)]">
             You can also{" "}
-            <Link href="/take-action">write to your MP and MSP</Link> about a problem of your own.
+            <Link href="/find-my-mp-and-msp">write to your MP and MSP</Link> about a problem of your own.
             Constituency casework is a real part of their job and it is free.
           </p>
         </ContentFrame>

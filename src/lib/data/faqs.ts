@@ -61,7 +61,7 @@ export const faqSections: FaqSection[] = [
         q: "Is this site only about child poverty?",
         a: "No. It also covers poverty among adults and pensioners, work, out-of-work benefits, minimum-wage reality, carefully labelled pay evidence, housing, neighbourhoods and health.",
         keywords: "adults pensioners unemployment benefits pay health housing",
-        href: "/the-numbers",
+        href: "/glasgow-poverty-statistics",
         linkLabel: "See the wider Glasgow record",
       },
       {
@@ -136,7 +136,7 @@ export const faqSections: FaqSection[] = [
         q: "Why does Glasgow get its own detailed section?",
         a: "Because Glasgow’s child-poverty figures are the worst in Scotland. In 2023/24, 36.1% of children — 39,319 children — were in relative poverty after housing costs. Glasgow also had the steepest ten-year rise of any Scottish council area.",
         keywords: "Glasgow 36.1 39319 worst highest rise special",
-        href: "/why-glasgow",
+        href: "/why-poverty-is-worse-in-glasgow",
         linkLabel: "See why Glasgow has been hit harder",
       },
       {
@@ -144,7 +144,7 @@ export const faqSections: FaqSection[] = [
         q: "Does covering all of Scotland water down Glasgow’s figures?",
         a: "No. Scotland-wide coverage makes comparison possible, while Glasgow keeps a separate record across poverty, work, benefits, pay, neighbourhoods and health. Its worst-in-Scotland figures stay clearly marked.",
         keywords: "Glasgow separate record Scotland dilute",
-        href: "/the-numbers",
+        href: "/glasgow-poverty-statistics",
         linkLabel: "Open Glasgow’s full record",
       },
       {
@@ -181,7 +181,7 @@ export const faqSections: FaqSection[] = [
         q: "What is the difference between an MP and an MSP?",
         a: "Your MP works in the UK Parliament at Westminster. Your MSP works in the Scottish Parliament at Holyrood. They make decisions about different things, and you have both.",
         keywords: "Westminster Holyrood London Edinburgh difference",
-        href: "/accountability",
+        href: "/who-is-responsible-for-poverty-in-scotland",
         linkLabel: "See who controls what",
       },
       {
@@ -189,7 +189,7 @@ export const faqSections: FaqSection[] = [
         q: "Do I really have both an MP and an MSP?",
         a: "Yes. Everyone in Scotland has one Westminster MP and one constituency MSP. You also have seven regional MSPs covering a wider region.",
         keywords: "representatives constituency regional both",
-        href: "/take-action",
+        href: "/find-my-mp-and-msp",
         linkLabel: "Find your MP and constituency MSP",
       },
       {
@@ -197,7 +197,7 @@ export const faqSections: FaqSection[] = [
         q: "Do I need to know who my MP or MSP is?",
         a: "No. Enter your postcode and the site finds the right people automatically from official sources. You do not have to understand constituencies or political boundaries.",
         keywords: "find name postcode representative automatic",
-        href: "/take-action",
+        href: "/find-my-mp-and-msp",
         linkLabel: "Find them automatically",
       },
       {
@@ -205,7 +205,7 @@ export const faqSections: FaqSection[] = [
         q: "Do I have to have voted for them?",
         a: "No. MPs and MSPs represent everyone who lives in their area: people who voted for them, voted against them or did not vote at all.",
         keywords: "vote party election contact representative",
-        href: "/your-power",
+        href: "/what-happens-when-you-email-your-mp",
         linkLabel: "See why contacting them is worth it",
       },
       {
@@ -213,7 +213,7 @@ export const faqSections: FaqSection[] = [
         q: "How much are an MP and MSP paid?",
         a: "From April 2026, an MP’s basic salary is £98,599 a year and an MSP’s is £77,711, before expenses or extra pay for other roles. Dealing with people in their area is part of the job.",
         keywords: "salary pay expenses 98599 77711",
-        href: "/your-power",
+        href: "/what-happens-when-you-email-your-mp",
         linkLabel: "See what happens when you write",
       },
       {
@@ -227,7 +227,7 @@ export const faqSections: FaqSection[] = [
         q: "Who controls Universal Credit and most benefits?",
         a: "The UK Government and Westminster Parliament control Universal Credit, most working-age benefits, the State Pension and help with private rent through Local Housing Allowance.",
         keywords: "Westminster UK government universal credit LHA pension benefits",
-        href: "/accountability",
+        href: "/who-is-responsible-for-poverty-in-scotland",
         linkLabel: "See the full split of powers",
       },
       {
@@ -235,7 +235,7 @@ export const faqSections: FaqSection[] = [
         q: "Who controls the Scottish Child Payment, housing and childcare?",
         a: "The Scottish Government and Scottish Parliament control the Scottish Child Payment, housing policy, childcare and the NHS in Scotland. Councils deliver important local services within those systems.",
         keywords: "Holyrood Scottish government child payment housing childcare NHS",
-        href: "/accountability",
+        href: "/who-is-responsible-for-poverty-in-scotland",
         linkLabel: "See who can change each part",
       },
       {
@@ -243,7 +243,7 @@ export const faqSections: FaqSection[] = [
         q: "What can my council actually do?",
         a: "Councils deal with homelessness, council housing, schools, local crisis support and many services people rely on. They do not set Universal Credit or the legal minimum wage.",
         keywords: "council local authority homelessness school housing crisis support",
-        href: "/accountability",
+        href: "/who-is-responsible-for-poverty-in-scotland",
         linkLabel: "See all three levels of government",
       },
     ],
@@ -258,7 +258,7 @@ export const faqSections: FaqSection[] = [
         q: "How does the email tool work?",
         a: "Enter your postcode. The site finds your area, MP and constituency MSP, adds the relevant local facts and prepares one email for each person. You read them before opening them in your own email app.",
         keywords: "letter builder how action automatic",
-        href: "/take-action",
+        href: "/find-my-mp-and-msp",
         linkLabel: "Prepare the two emails",
       },
       {
@@ -266,7 +266,7 @@ export const faqSections: FaqSection[] = [
         q: "Does the site send the email for me?",
         a: "No. Nothing is sent through this site. Your own email app opens with the address, subject and message filled in. You decide whether to edit it and press send.",
         keywords: "mailto send automatic permission email app",
-        href: "/take-action",
+        href: "/find-my-mp-and-msp",
         linkLabel: "See the email builder",
       },
       {
@@ -286,7 +286,7 @@ export const faqSections: FaqSection[] = [
         q: "Do I have to choose whether the MP or MSP should get the email?",
         a: "No. The site writes one request for each person and only asks them about things they can influence. You do not have to understand which parliament controls which rule.",
         keywords: "choose wrong answer recipient who send",
-        href: "/take-action",
+        href: "/find-my-mp-and-msp",
         linkLabel: "Let the site choose correctly",
       },
       {
@@ -294,7 +294,7 @@ export const faqSections: FaqSection[] = [
         q: "Will my MP or MSP reply?",
         a: "A reply cannot be guaranteed. Their office will normally log the message and many send a written response. That response creates a record you can keep, share and compare with what happens later.",
         keywords: "response answer office log reply guarantee",
-        href: "/your-power",
+        href: "/what-happens-when-you-email-your-mp",
         linkLabel: "See what happens after you press send",
       },
       {
@@ -308,7 +308,7 @@ export const faqSections: FaqSection[] = [
         q: "Can I add my own experience?",
         a: "Yes. There is an optional box for one sentence about your work, family, street or bills. A short real example can make the official number harder to brush aside.",
         keywords: "personalise story sentence work bills family",
-        href: "/take-action",
+        href: "/find-my-mp-and-msp",
         linkLabel: "Open the email builder",
       },
       {
@@ -385,7 +385,7 @@ export const faqSections: FaqSection[] = [
         q: "Would getting more people into work solve poverty?",
         a: "Not on its own. Most children in poverty already live with someone who works. Employment matters, but pay, hours, benefits, housing and childcare decide how much a family has left.",
         keywords: "employment unemployment work solution job schemes",
-        href: "/what-would-fix-it",
+        href: "/solutions-to-poverty-in-scotland",
         linkLabel: "See the changes experts recommend",
       },
       {
@@ -401,7 +401,7 @@ export const faqSections: FaqSection[] = [
         q: "What do experts say would cut poverty?",
         a: "The repeated answers are enough family income, affordable secure housing, childcare that fits real working hours, better take-up of support and work that pays enough. No single change fixes every part.",
         keywords: "solutions child payment housing childcare income policy",
-        href: "/what-would-fix-it",
+        href: "/solutions-to-poverty-in-scotland",
         linkLabel: "See the seven practical changes",
       },
     ],

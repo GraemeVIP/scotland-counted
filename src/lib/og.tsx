@@ -16,7 +16,7 @@ import { site } from "@/lib/site";
  */
 
 export const OG_ALT =
-  "Scotland Counted — poverty, work and living standards across Scotland";
+  "Scotland Counted | Poverty, work and living standards across Scotland";
 export const OG_SIZE = { width: 1200, height: 630 };
 export const OG_CONTENT_TYPE = "image/png";
 

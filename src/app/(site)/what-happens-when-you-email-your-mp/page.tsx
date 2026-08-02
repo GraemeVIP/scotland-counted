@@ -14,10 +14,10 @@ import { getSources } from "@/lib/data/sources";
 import Faq from "@/components/Faq";
 
 export const metadata = meta({
-  title: "What happens when you email your MP",
+  title: "What Happens When You Email Your MP or MSP?",
   description:
-    "Your MP is paid £98,599 and has to deal with people who live in their area. What actually happens after you press send, and why a written answer matters.",
-  path: "/your-power",
+    "See what an MP or MSP's office does with your email, how long replies can take, what they are paid and why a focused message is worth sending.",
+  path: "/what-happens-when-you-email-your-mp",
 });
 
 const FAQ = [
@@ -51,15 +51,15 @@ export default function YourPower() {
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Home", path: "/" },
-          { name: "Your power", path: "/your-power" },
+          { name: "Your power", path: "/what-happens-when-you-email-your-mp" },
         ])}
       />
       <JsonLd
         data={articleJsonLd({
-          headline: "What happens when you email your MP",
+          headline: "What happens when you email your MP or MSP",
           description:
             "What an MP and MSP are paid, what happens to your email after you send it, and why a written answer creates a record you can check.",
-          path: "/your-power",
+          path: "/what-happens-when-you-email-your-mp",
         })}
       />
       <JsonLd data={faqJsonLd(FAQ)} />
@@ -67,7 +67,7 @@ export default function YourPower() {
       <Page>
         <PageHeader
           eyebrow="Why it is worth the bother"
-          title="You have more power than you think"
+          title="What happens after you email your MP or MSP"
           lede="Almost nobody writes to the people who represent them. It is not apathy — it is that the whole thing feels like it is meant for somebody else. It is not. Here is exactly how it works."
         />
 
@@ -250,7 +250,7 @@ export default function YourPower() {
         <CTA
           title="Right — who represents you?"
           body="Put in your postcode. I find your MP and MSP, put your own area's figures into both emails and write them for you."
-          href="/take-action"
+          href="/find-my-mp-and-msp"
           cta="Find mine and write the emails"
           secondaryHref="/areas"
           secondaryCta="See my area's figures first"

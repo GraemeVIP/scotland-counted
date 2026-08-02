@@ -21,14 +21,13 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
   const post = getPost(slug);
   if (!post) return {};
   return meta({
-    title: post.title,
+    title: post.seoTitle ?? post.title,
     description: post.description,
     path: `/blog/${slug}`,
     type: "article",
     published: post.date,
     modified: post.updated ?? post.date,
     ownImage: true,
-    keywords: post.tags,
   });
 }
 

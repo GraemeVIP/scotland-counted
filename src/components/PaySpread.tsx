@@ -32,9 +32,9 @@ export default function PaySpread({ className = "" }: { className?: string }) {
   return (
     <section className={className} aria-labelledby="pay-spread">
       <p className="kicker mb-3 text-[var(--brand)]">The spread, not just the middle</p>
-      <h3 id="pay-spread" className="display-stat text-[clamp(26px,3.2vw,40px)] max-w-[22ch]">
+      <h2 id="pay-spread" className="display-stat text-[clamp(26px,3.2vw,40px)] max-w-[22ch]">
         Most full-time jobs here pay a lot less than the average
-      </h3>
+      </h2>
       <p className="mt-4 max-w-[64ch] text-[17px] leading-[1.6] text-[var(--ink-2)]">
         A single middle figure hides the shape of it. Here is the whole range for full-time
         employee jobs held by people living in Glasgow, before tax.
@@ -87,9 +87,9 @@ export default function PaySpread({ className = "" }: { className?: string }) {
       {/* ---- Why believe a sample survey ---- */}
       <div className="mt-8 rounded-[var(--r-m)] bg-[var(--deep)] p-6 text-[var(--deep-ink)] sm:p-8">
         <p className="kicker mb-3 text-[var(--action)]">How I know the survey is right</p>
-        <h4 className="text-[22px] font-[760] leading-[1.2] max-w-[26ch]">
+        <h3 className="text-[22px] font-[760] leading-[1.2] max-w-[26ch]">
           Checked against every payslip in the country
-        </h4>
+        </h3>
         <p className="mt-3.5 max-w-[60ch] text-[16.5px] leading-[1.6] opacity-85">
           The pay survey covers about 1% of jobs, so it is fair to ask why anyone should trust it.
           HMRC publishes a separate figure taken from actual payroll records — not a sample, every

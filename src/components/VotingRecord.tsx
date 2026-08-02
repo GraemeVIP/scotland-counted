@@ -193,7 +193,7 @@ export default function VotingRecord({
       <p className="text-[16px] leading-[1.6] text-[var(--ink-2)] mt-6 max-w-[62ch]">
         This is the whole point of writing to them. A vote is a matter of public record forever,
         and so is a reply.{" "}
-        <Link href="/your-power">See what happens when you email them</Link>.
+        <Link href="/what-happens-when-you-email-your-mp">See what happens when you email them</Link>.
       </p>
     </section>
   );

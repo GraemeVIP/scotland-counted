@@ -68,7 +68,7 @@ export default function Post() {
       </P>
       <P>
         A grant cannot solve an ongoing rent gap. For that, check <Link href="/blog/discretionary-housing-payment-scotland">Discretionary
-        Housing Payments</Link>. If council tax is part of the problem, the <Link href="/blog/council-tax-in-scotland-guide">council
+        Housing Payments</Link>. If council tax is part of the problem, the <Link href="/blog/how-council-tax-works-scotland">council
         tax guide</Link> explains reductions and what to do before arrears grow.
       </P>
 

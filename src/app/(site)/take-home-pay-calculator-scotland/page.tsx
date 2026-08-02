@@ -10,9 +10,9 @@ import Calculator from "./Calculator";
 import Faq from "@/components/Faq";
 
 export const metadata = meta({
-  title: "Take-home pay calculator for Scotland",
+  title: "Take-Home Pay Calculator Scotland 2026/27",
   description:
-    "Work out your take-home pay on Scotland's income tax bands for 2026/27. Enter a salary or an hourly rate, or work backwards from the pay you need.",
+    "Calculate monthly and yearly take-home pay using Scotland's 2026/27 income-tax bands. Enter a salary or hourly wage and include deductions that apply to you.",
   path: "/take-home-pay-calculator-scotland",
   type: "website",
 });
@@ -84,7 +84,7 @@ export default function TakeHomePayCalculator() {
       <Page>
         <PageHeader
           eyebrow={`Scotland · ${TAX_DATA.taxYear} rates`}
-          title="Take-home pay calculator"
+          title="Scotland take-home pay calculator"
           lede="Enter what you earn and see what actually reaches your bank account, on Scotland's six income tax bands. Or work backwards from the pay you need to live on."
         />
 
@@ -149,7 +149,7 @@ export default function TakeHomePayCalculator() {
 
           <p className="mt-7 text-[18px] leading-[1.6] text-[var(--ink-2)] max-w-[66ch]">
             The first of those is full-time work at the legal minimum.{" "}
-            <Link href="/indicators/pay">
+            <Link href="/indicators/glasgow-full-time-pay">
               See what is left of it after rent, council tax, energy and food
             </Link>{" "}
             — and why the average Glasgow pay figure you may have seen is not what a typical worker
@@ -196,9 +196,9 @@ export default function TakeHomePayCalculator() {
       <CTA
         title="Pay is a political choice, not weather"
         body="What is left after tax, rent and bills is decided by people you can write to. Enter your postcode and I find your MP and MSP, then write both emails for you."
-        href="/take-action"
+        href="/find-my-mp-and-msp"
         cta="Find my MP and MSP"
-        secondaryHref="/what-would-fix-it"
+        secondaryHref="/solutions-to-poverty-in-scotland"
         secondaryCta="See what would help"
       />
     </>

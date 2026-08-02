@@ -10,7 +10,7 @@ export const postCategories = [
   {
     slug: "money-and-bills",
     name: "Money and bills",
-    description: "Why food, rent, energy and wages no longer add up in Scotland — what each one actually costs now, and who controls the rules that set the price.",
+    description: "Why food, rent, energy and wages no longer add up in Scotland. See what each one costs now and who controls the rules that set the price.",
     color: "var(--action)",
   },
   {
@@ -22,7 +22,7 @@ export const postCategories = [
   {
     slug: "take-action",
     name: "Take action",
-    description: "Simple ways to make the people with power answer for what they decide — who to write to, what to ask, and what happens after you press send.",
+    description: "Simple ways to make the people with power answer for what they decide: who to write to, what to ask and what happens after you press send.",
     color: "var(--good)",
   },
 ] as const;
@@ -32,6 +32,8 @@ export type PostCategorySlug = (typeof postCategories)[number]["slug"];
 export type Post = {
   slug: string;
   title: string;
+  /** Optional search/social title when the natural on-page H1 should read differently. */
+  seoTitle?: string;
   /** Meta description and card text. Written for a search result, not a headline. */
   description: string;
   /** The opening line on the post itself. */
@@ -60,10 +62,11 @@ export type Post = {
 
 export const posts: Post[] = [
   {
-    slug: "council-tax-in-scotland-guide",
-    title: "Council tax in Scotland: the simple guide nobody gives you",
+    slug: "how-council-tax-works-scotland",
+    title: "How council tax works in Scotland: discounts, help and appeals",
+    seoTitle: "How Council Tax Works in Scotland | Help and Appeals",
     description:
-      "A plain-English guide to council tax in Scotland: bands, bills, water, discounts, reductions, appeals, moving home, arrears and empty homes.",
+      "How council tax works in Scotland, including who pays, water charges, discounts, Council Tax Reduction, band appeals, arrears and empty homes.",
     standfirst:
       "Your bill is a mix of a property band, your council's rate and Scottish Water charges. Here are the ten things that explain almost everything — followed by the exact sources.",
     date: "2026-08-01",
@@ -115,10 +118,39 @@ export const posts: Post[] = [
     ],
   },
   {
-    slug: "minimum-wage-take-home-pay-scotland-2026",
-    title: "What minimum wage actually pays in Scotland in 2026",
+    slug: "council-tax-rises-scotland-2026-27",
+    title: "Council tax rises in Scotland 2026/27: every council",
+    seoTitle: "Council Tax Rises Scotland 2026/27 | Every Council",
     description:
-      "Minimum wage in Scotland is £12.71 an hour. See the weekly, monthly and yearly pay, and what is left after Scottish tax and National Insurance.",
+      "Every Scottish council's 2026/27 council tax rise compared with 2025/26. See the Band D cash and percentage increase, then check every band.",
+    standfirst:
+      "Every council raised its rate, but not by the same amount. This compares last year's council tax with this year's — and keeps Scottish Water's separate charge out of the council figures.",
+    date: "2026-08-02",
+    category: "money-and-bills",
+    tags: ["Council tax rises", "Council tax 2026/27", "Council tax bands", "Scottish councils"],
+    readingMinutes: 6,
+    image: {
+      src: "/images/editorial/council-tax-scotland-guide.webp",
+      alt: "A Scottish resident comparing this year's council tax bill with last year's figures",
+      caption:
+        "The rise belongs to the council-tax part of the bill. Scottish Water sets its own separate charge, even though both arrive together.",
+      objectPosition: "center 42%",
+    },
+    toc: [
+      { id: "short-answer", label: "The short answer" },
+      { id: "all-councils", label: "Every council compared" },
+      { id: "what-it-means", label: "What the percentages mean" },
+      { id: "water", label: "Why water is separate" },
+      { id: "check-your-bill", label: "Check your own bill" },
+    ],
+    faq: [],
+    sourceIds: ["council-tax-scotland", "scottish-water-2026", "council-tax-how-it-works"],
+  },
+  {
+    slug: "minimum-wage-take-home-pay-scotland-2026",
+    title: "Minimum wage in Scotland: what you earn in 2026",
+    description:
+      "Minimum wage in Scotland is £12.71 an hour in 2026. See every age rate, gross weekly, monthly and yearly pay, plus take-home pay after tax and NI.",
     standfirst:
       "£12.71 an hour sounds clear. A payslip is not. I have done the tax and National Insurance working for a 37.5-hour week so you can see what reaches the bank.",
     date: "2026-08-01",
@@ -153,9 +185,9 @@ export const posts: Post[] = [
   },
   {
     slug: "real-living-wage-vs-minimum-wage-scotland",
-    title: "Minimum wage and the real Living Wage are not the same thing",
+    title: "Real Living Wage Scotland versus minimum wage",
     description:
-      "The legal minimum is £12.71 an hour in 2026. The real Living Wage is £13.45. See who sets each rate, who must pay it and what the difference is worth.",
+      "The 2026 legal minimum is £12.71 an hour and Scotland's real Living Wage is £13.45. See who sets each rate, who must pay it and what the gap is worth.",
     standfirst:
       "They sound almost identical. One is the legal floor an employer must pay. The other is a voluntary rate calculated from what ordinary life actually costs.",
     date: "2026-08-01",
@@ -227,7 +259,8 @@ export const posts: Post[] = [
   },
   {
     slug: "local-housing-allowance-rent-shortfall-scotland",
-    title: "Why rent help does not cover the rent in much of Scotland",
+    title: "Local Housing Allowance in Scotland: why rent help falls short",
+    seoTitle: "Local Housing Allowance Scotland | Rent Shortfalls",
     description:
       "Local Housing Allowance caps the Universal Credit help you get for private rent. Scotland's rates are frozen at 2024 levels while rents keep rising.",
     standfirst:
@@ -264,7 +297,7 @@ export const posts: Post[] = [
   },
   {
     slug: "energy-price-cap-scotland-2026-explained",
-    title: "The energy price cap does not cap your total bill",
+    title: "What the energy price cap means in Scotland in 2026",
     description:
       "Ofgem's energy price cap is £1,862 from July to September 2026 for a typical-use home. See what it really caps, why bills rose and how standing charges work.",
     standfirst:
@@ -301,7 +334,7 @@ export const posts: Post[] = [
   },
   {
     slug: "why-food-prices-stay-high-when-inflation-falls",
-    title: "Why food prices stay high when inflation falls",
+    title: "Why food prices are still high in Scotland",
     description:
       "Lower inflation does not mean cheaper food. It means prices are rising more slowly. UK food prices were 38.6% higher in November 2025 than five years earlier.",
     standfirst:
@@ -375,7 +408,7 @@ export const posts: Post[] = [
   },
   {
     slug: "discretionary-housing-payment-scotland",
-    title: "Discretionary Housing Payments in Scotland, explained",
+    title: "Discretionary Housing Payments in Scotland: how to apply",
     description:
       "A Discretionary Housing Payment can top up rent when Universal Credit or Housing Benefit falls short, including the bedroom tax. How to apply in Scotland.",
     standfirst:
@@ -412,7 +445,7 @@ export const posts: Post[] = [
   },
   {
     slug: "free-school-meals-clothing-grant-scotland",
-    title: "Free school meals and clothing grants: what families can get",
+    title: "Free school meals and clothing grants in Scotland",
     description:
       "Who gets free school meals in Scotland, how P1 to P5 works, the rules for older pupils, and how to claim £120 or £150 towards school clothing.",
     standfirst:
@@ -449,9 +482,9 @@ export const posts: Post[] = [
   },
   {
     slug: "why-is-the-cost-of-living-so-high",
-    title: "Why is the cost of living still so high in Scotland?",
+    title: "Why the cost of living is still so high in Scotland",
     description:
-      "The cost of living crisis in Scotland did not end when inflation fell. Why food, rent and energy stay expensive, and which decisions made it worse.",
+      "Scotland's cost-of-living crisis did not end when inflation fell. See why food, rent and energy remain expensive and which political choices worsened it.",
     standfirst:
       "War and the pandemic pushed prices up. That is true. It is also true that political choices left ordinary families with less protection — and added avoidable costs of their own.",
     date: "2026-08-01",
@@ -547,7 +580,7 @@ export const posts: Post[] = [
   },
   {
     slug: "what-does-poverty-mean",
-    title: "What does poverty actually mean in the UK?",
+    title: "What does poverty mean in the UK?",
     description:
       "Poverty has an official definition, and it is not what most people assume. What the poverty line is in pounds a week, and why 'after housing costs' matters.",
     standfirst:
@@ -583,7 +616,7 @@ export const posts: Post[] = [
   },
   {
     slug: "what-is-the-scottish-child-payment",
-    title: "What is the Scottish Child Payment, and who can get it?",
+    title: "Scottish Child Payment: how much it is and who can get it",
     description:
       "A weekly payment for every child in a low-income family in Scotland. What it is worth, who can get it, and why many eligible families never claim.",
     standfirst:
@@ -620,9 +653,9 @@ export const posts: Post[] = [
   },
   {
     slug: "how-to-contact-your-mp-or-msp",
-    title: "How to contact your MP or MSP (and what to actually say)",
+    title: "How to contact your MP or MSP in Scotland",
     description:
-      "You do not need to know anything about politics to write to the people who represent you. What to say, what happens next, and how to do it in about a minute.",
+      "Find out how to contact your MP or MSP in Scotland, what to say and what happens next. Or use the postcode tool to open both ready-written emails.",
     standfirst:
       "Most people never contact their representatives, and the main reason is not apathy. It is not knowing how it works.",
     date: "2026-07-31",
@@ -672,6 +705,11 @@ export function getPostCategory(slug: string) {
 
 export function postsInCategory(slug: string) {
   return postsByDate().filter((post) => post.category === slug);
+}
+
+/** Thin category pages stay out of search until they curate at least three articles. */
+export function isPostCategoryIndexable(slug: string) {
+  return postsInCategory(slug).length >= 3;
 }
 
 /** Newest first, which is how the index and the feed should read. */

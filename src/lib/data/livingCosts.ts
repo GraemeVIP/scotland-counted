@@ -9,6 +9,7 @@
  */
 
 import { calculate } from "@/lib/tax/engine";
+import { councilTaxByBand, waterCharges2026 } from "@/lib/data/councilTax";
 
 const HOURLY = 12.71;
 const HOURS = 37.5;
@@ -144,13 +145,9 @@ export const costsThenAndNow = [
  */
 export const councilTax = {
   band: "A",
-  councilTax2025: 1074,
-  risePct: 5.9,
-  get councilTax2026() {
-    return this.councilTax2025 * (1 + this.risePct / 100);
-  },
-  water: 201.3,
-  wasteWater: 233.58,
+  councilTax2026: councilTaxByBand["glasgow-city"].A,
+  water: waterCharges2026.A.water,
+  wasteWater: waterCharges2026.A.wasteWater,
   get waterCombined() {
     return this.water + this.wasteWater;
   },

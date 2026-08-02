@@ -2,29 +2,33 @@ import type { MetadataRoute } from "next";
 import { councils } from "@/lib/data/councils";
 import { constituencies } from "@/lib/data/constituencies";
 import { indicators, lifeExpectancy, deprivation } from "@/lib/data/indicators";
-import { postCategories, posts } from "@/lib/data/posts";
+import { isPostCategoryIndexable, postCategories, posts } from "@/lib/data/posts";
 import { site } from "../../site.config";
 import { BAND_LETTERS } from "@/lib/data/councilTax";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const dataChecked = new Date(`${site.dataCheckedISO}T00:00:00Z`);
+  const seoRelease = new Date("2026-08-02T00:00:00Z");
+  const latestPostDate = new Date(
+    Math.max(...posts.map((post) => new Date(post.updated ?? post.date).getTime())),
+  );
 
   const core: MetadataRoute.Sitemap = [
-    { url: site.url, changeFrequency: "monthly", priority: 1 },
-    { url: `${site.url}/areas`, changeFrequency: "monthly", priority: 0.95 },
-    { url: `${site.url}/take-action`, changeFrequency: "monthly", priority: 0.95 },
-    { url: `${site.url}/blog`, changeFrequency: "weekly", priority: 0.9 },
+    { url: site.url, changeFrequency: "monthly", priority: 1, lastModified: seoRelease },
+    { url: `${site.url}/areas`, changeFrequency: "monthly", priority: 0.95, lastModified: seoRelease },
+    { url: `${site.url}/find-my-mp-and-msp`, changeFrequency: "monthly", priority: 0.95, lastModified: seoRelease },
+    { url: `${site.url}/blog`, changeFrequency: "weekly", priority: 0.9, lastModified: latestPostDate },
     { url: `${site.url}/faq`, changeFrequency: "monthly", priority: 0.85 },
-    { url: `${site.url}/your-power`, changeFrequency: "monthly", priority: 0.95 },
-    { url: `${site.url}/council-tax-bands-scotland`, changeFrequency: "yearly", priority: 0.9 },
-    { url: `${site.url}/take-home-pay-calculator-scotland`, changeFrequency: "yearly", priority: 0.9 },
-    { url: `${site.url}/quiz`, changeFrequency: "monthly", priority: 0.85 },
+    { url: `${site.url}/what-happens-when-you-email-your-mp`, changeFrequency: "monthly", priority: 0.95, lastModified: seoRelease },
+    { url: `${site.url}/council-tax-bands-scotland`, changeFrequency: "yearly", priority: 0.9, lastModified: seoRelease },
+    { url: `${site.url}/take-home-pay-calculator-scotland`, changeFrequency: "yearly", priority: 0.9, lastModified: seoRelease },
+    { url: `${site.url}/poverty-in-scotland-quiz`, changeFrequency: "monthly", priority: 0.85, lastModified: seoRelease },
     { url: `${site.url}/browse`, changeFrequency: "weekly", priority: 0.7 },
     { url: `${site.url}/constituencies`, changeFrequency: "yearly", priority: 0.9 },
-    { url: `${site.url}/what-would-fix-it`, changeFrequency: "monthly", priority: 0.85 },
-    { url: `${site.url}/accountability`, changeFrequency: "monthly", priority: 0.85 },
-    { url: `${site.url}/the-numbers`, changeFrequency: "monthly", priority: 0.75 },
-    { url: `${site.url}/why-glasgow`, changeFrequency: "yearly", priority: 0.75 },
+    { url: `${site.url}/solutions-to-poverty-in-scotland`, changeFrequency: "monthly", priority: 0.85, lastModified: seoRelease },
+    { url: `${site.url}/who-is-responsible-for-poverty-in-scotland`, changeFrequency: "monthly", priority: 0.85, lastModified: seoRelease },
+    { url: `${site.url}/glasgow-poverty-statistics`, changeFrequency: "monthly", priority: 0.75, lastModified: seoRelease },
+    { url: `${site.url}/why-poverty-is-worse-in-glasgow`, changeFrequency: "yearly", priority: 0.75, lastModified: seoRelease },
     { url: `${site.url}/press`, changeFrequency: "monthly", priority: 0.6 },
     { url: `${site.url}/updates`, changeFrequency: "weekly", priority: 0.6 },
     { url: `${site.url}/methods`, changeFrequency: "yearly", priority: 0.6 },
@@ -44,12 +48,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${site.url}/indicators/${slug}`,
     changeFrequency: "yearly" as const,
     priority: 0.8,
+    lastModified: seoRelease,
   }));
 
   const areaPages: MetadataRoute.Sitemap = councils.map((c) => ({
     url: `${site.url}/areas/${c.slug}`,
     changeFrequency: "yearly" as const,
     priority: 0.75,
+    lastModified: seoRelease,
   }));
 
   const constituencyPages: MetadataRoute.Sitemap = constituencies.map((c) => ({
@@ -65,6 +71,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${site.url}/council-tax-bands-scotland/${slug}`,
     changeFrequency: "yearly" as const,
     priority: 0.8,
+    lastModified: seoRelease,
   }));
 
   /**
@@ -80,11 +87,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(p.updated ?? p.date),
   }));
 
-  const categoryPages: MetadataRoute.Sitemap = postCategories.map((category) => ({
-    url: `${site.url}/blog/category/${category.slug}`,
-    changeFrequency: "weekly" as const,
-    priority: 0.75,
-  }));
+  const categoryPages: MetadataRoute.Sitemap = postCategories
+    .filter((category) => isPostCategoryIndexable(category.slug))
+    .map((category) => ({
+      url: `${site.url}/blog/category/${category.slug}`,
+      changeFrequency: "weekly" as const,
+      priority: 0.75,
+      lastModified: new Date(
+        Math.max(
+          ...posts
+            .filter((post) => post.category === category.slug)
+            .map((post) => new Date(post.updated ?? post.date).getTime()),
+        ),
+      ),
+    }));
 
   return [
     ...core,

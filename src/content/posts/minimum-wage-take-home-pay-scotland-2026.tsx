@@ -96,7 +96,7 @@ export default function Post() {
       <PostCTA
         title="Put the pay beside real Glasgow bills"
         body="The site works the same wage against rent, council tax, water and energy so the argument is based on the whole household budget, not one impressive-looking salary figure."
-        href="/why-glasgow"
+        href="/why-poverty-is-worse-in-glasgow"
         cta="See the Glasgow evidence"
       />
     </Prose>

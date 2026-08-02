@@ -42,7 +42,7 @@ export default function WhyBother({ className = "" }: { className?: string }) {
                 A written question also leaves a dated reply you can keep and check later. That is
                 more useful than another promise made in passing. {" "}
                 <Link
-                  href="/your-power"
+                  href="/what-happens-when-you-email-your-mp"
                   className="underline decoration-[var(--action)] decoration-2 underline-offset-4"
                 >
                   See what happens after you send it

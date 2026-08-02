@@ -73,7 +73,7 @@ export default function Post() {
 
       <P>
         If poverty were mostly about worklessness, the fix would be jobs. Scotland does not have a
-        jobs problem of that kind — <Link href="/why-glasgow">Glasgow has more jobs than
+        jobs problem of that kind — <Link href="/why-poverty-is-worse-in-glasgow">Glasgow has more jobs than
         working-age residents</Link>, and it still has the worst child poverty rate in the country.
       </P>
 
@@ -86,7 +86,7 @@ export default function Post() {
       <PostCTA
         title="Find out what it looks like where you live"
         body="Enter your postcode and see the figure for your own area, then send a ready-written email to the people who decide. It takes about a minute and you do not need to know anything about politics."
-        href="/take-action"
+        href="/find-my-mp-and-msp"
         cta="See my area and email my MP"
       />
 

@@ -6,10 +6,10 @@ import { quiz } from "@/lib/data/quiz";
 import Quiz from "@/components/Quiz";
 
 export const metadata = meta({
-  title: "How much do you actually know about poverty in Scotland?",
+  title: "Poverty in Scotland Quiz: Guess the Real Figures",
   description:
-    "Six questions, about ninety seconds. Guess the real figures on child poverty, wages, council tax and what happened when payments rose. Most people are wrong.",
-  path: "/quiz",
+    "Take a six-question poverty quiz using real Scottish figures on child poverty, wages, council tax and living costs. Most people guess wrong.",
+  path: "/poverty-in-scotland-quiz",
   type: "website",
 });
 
@@ -19,19 +19,19 @@ export default function QuizPage() {
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Home", path: "/" },
-          { name: "Quiz", path: "/quiz" },
+          { name: "Quiz", path: "/poverty-in-scotland-quiz" },
         ])}
       />
 
       <Page>
         <PageHeader
           eyebrow={`${quiz.length} questions · about 90 seconds`}
-          title="Guess the figure"
+          title="How much do you know about poverty in Scotland?"
           lede="These are official, published figures about the country you live in. Almost nobody gets them right, and the gap between what people assume and what is true is the whole problem."
         />
 
         <ContentFrame className="pt-4">
-          <Quiz />
+          <Quiz headingLevel="h2" />
         </ContentFrame>
 
         {/* ---------- Why this exists ---------- */}
@@ -92,9 +92,9 @@ export default function QuizPage() {
       <CTA
         title="Now put one of those numbers to the person who decides it"
         body="Enter your postcode. I find your MP and MSP, add the figures for your own area and write both emails. You read them and press send."
-        href="/take-action"
+        href="/find-my-mp-and-msp"
         cta="Find my MP and MSP"
-        secondaryHref="/the-numbers"
+        secondaryHref="/glasgow-poverty-statistics"
         secondaryCta="See every figure"
       />
     </>

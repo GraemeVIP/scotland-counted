@@ -44,7 +44,7 @@ const CAPTIONS: { year: string; text: string }[] = [
 
 export default function DecadeScroll() {
   const outerRef = useRef<HTMLDivElement>(null);
-  const pcts = getIndicator("child-poverty")!.series[0].data;
+  const pcts = getIndicator("glasgow-child-poverty")!.series[0].data;
   const years = CHILD_POVERTY_YEARS;
   const last = years.length - 1;
 

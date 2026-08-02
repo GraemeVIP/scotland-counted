@@ -12,7 +12,7 @@ import { site } from "@/lib/site";
  *
  * Three kinds of slug, so a journalist can embed the chart for the place they
  * are actually writing about rather than only the national indicators:
- *   child-poverty                an indicator
+ *   glasgow-child-poverty        an indicator
  *   area-glasgow-city            a council area
  *   mp-kilmarnock-and-loudoun    an MP's area
  */
@@ -116,6 +116,7 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
   if (!chart) return {};
   return {
     title: chart.title,
+    alternates: { canonical: chart.href },
     robots: { index: false, follow: true },
   };
 }

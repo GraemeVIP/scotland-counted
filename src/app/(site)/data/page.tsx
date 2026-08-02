@@ -4,9 +4,9 @@ import { JsonLd, breadcrumbJsonLd, datasetJsonLd, meta } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 export const metadata = meta({
-  title: "Download the data",
+  title: "Download Scotland Poverty Data: CSV and Sources",
   description:
-    "Every dataset behind Scotland Counted, free to download: poverty rates for all 32 council areas, employment, claimant count, pay and life expectancy.",
+    "Download the Scotland Counted poverty, pay, benefit and local-area data as CSV files, with dates, definitions and links to every original source.",
   path: "/data",
 });
 
@@ -95,7 +95,7 @@ const FILES: DataFile[] = [
   },
   {
     file: "nomis-ashe-pay-workplace.csv",
-    title: "Restricted full-time pay — workplace basis",
+    title: "Restricted full-time pay | workplace basis",
     body: "ASHE median gross weekly pay for selected full-time PAYE employee jobs located in Glasgow and Scotland. This is not the average wage of everyone working there.",
     format: "CSV",
     size: "1 KB",
@@ -104,7 +104,7 @@ const FILES: DataFile[] = [
   },
   {
     file: "nomis-ashe-pay-residence.csv",
-    title: "Restricted full-time pay — residence basis",
+    title: "Restricted full-time pay | residence basis",
     body: "ASHE median gross weekly pay for selected full-time PAYE employee jobs held by Glasgow and Scottish residents. Part-time jobs and self-employment are excluded.",
     format: "CSV",
     size: "1 KB",
@@ -168,7 +168,7 @@ export default function Data() {
       <Page>
         <PageHeader
           eyebrow="Free to download and reuse"
-          title="Download the data"
+          title="Download Scotland poverty data"
           lede="This is the proof behind the simple pages. Nine CSVs and one Excel workbook, all free. Four I prepared and tidied so they open cleanly in a spreadsheet; the other six are the publishers' own files, served exactly as they came, so you can check my working against them."
         />
 
