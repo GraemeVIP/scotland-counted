@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { site } from "@/lib/site";
+import { ExplainText } from "@/components/Glossary";
 
 /**
  * Who wrote this, and why anyone should believe it.
@@ -23,16 +24,20 @@ export default function AuthorBio({ className = "" }: { className?: string }) {
       </div>
 
       <p className="text-[16.5px] leading-[1.6] text-[var(--ink-2)] mt-3 max-w-[60ch]">
+        <ExplainText>
         Scotland Counted is an independent record of poverty, work and living costs in Scotland. It is
         not a newspaper and not a campaign group. Every
         figure on it is taken from the original publisher — the Scottish Government, the ONS, DWP
         records or named academic work — never from someone else&apos;s write-up of them.
+        </ExplainText>
       </p>
 
       <p className="text-[16.5px] leading-[1.6] text-[var(--ink-2)] mt-3 max-w-[60ch]">
+        <ExplainText>
         <strong className="text-[var(--ink)]">No party, no funding, no paywall.</strong> Nothing
         here is sponsored and nobody pays to appear. If a figure is wrong I correct it in public
         and keep the old version on the record.
+        </ExplainText>
       </p>
 
       <div className="flex flex-wrap gap-x-5 gap-y-2 mt-4 pt-4 border-t border-[var(--rule)] text-[15px]">

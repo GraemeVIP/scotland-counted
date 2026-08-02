@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { pay } from "@/lib/data/power";
 import PostcodeStart from "@/components/PostcodeStart";
+import { ExplainText } from "@/components/Glossary";
 
 const HOW_IT_WORKS = [
   {
@@ -35,10 +36,13 @@ export default function WhyBother({ className = "" }: { className?: string }) {
                 Your MP and MSP work for you
               </h2>
               <p className="text-[19px] sm:text-[21px] leading-[1.5] font-[650] mt-6 max-w-[45ch]">
+                <ExplainText>
                 You do not need to have voted for them. You do not need to understand politics.
                 Answering people who live in their area is part of the job.
+                </ExplainText>
               </p>
               <p className="text-[17px] leading-[1.6] mt-5 max-w-[52ch] opacity-80">
+                <ExplainText>
                 A written question also leaves a dated reply you can keep and check later. That is
                 more useful than another promise made in passing. {" "}
                 <Link
@@ -48,6 +52,7 @@ export default function WhyBother({ className = "" }: { className?: string }) {
                   See what happens after you send it
                 </Link>
                 .
+                </ExplainText>
               </p>
             </div>
 
@@ -82,7 +87,7 @@ export default function WhyBother({ className = "" }: { className?: string }) {
                       0{index + 1}
                     </span>
                     <h4 className="mt-3 text-[18px] font-[720] leading-[1.25]">{item.title}</h4>
-                    <p className="mt-2 text-[15.5px] leading-[1.5] opacity-[0.78]">{item.body}</p>
+                    <p className="mt-2 text-[15.5px] leading-[1.5] opacity-[0.78]"><ExplainText>{item.body}</ExplainText></p>
                   </li>
                 ))}
               </ol>

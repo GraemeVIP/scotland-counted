@@ -163,7 +163,7 @@ export const glasgowCityAccountability: CouncilAccountabilityRecord = {
   councilCode: "S12000049",
   lastReviewedOn: "2026-08-02",
   summary:
-    "Glasgow has a clear public priority to reduce poverty, but current scrutiny records show serious pressure in homelessness, missed service targets and gaps in longer-term financial and performance planning. The record separates what was measured from what still needs checking.",
+    "Glasgow has a clear public priority to reduce poverty, but current independent checks show serious pressure in homelessness, missed service targets and gaps in longer-term financial and performance planning. The record separates what was measured from what still needs checking.",
   budgetContext: [
     {
       id: "funding-gap-2026-28",
@@ -250,9 +250,9 @@ export const glasgowCityAccountability: CouncilAccountabilityRecord = {
     {
       id: "temporary-accommodation-duty",
       service: "Homelessness services",
-      measure: "Provide temporary accommodation when the statutory duty applies",
+      measure: "Provide temporary accommodation when the law requires it",
       period: "2024/25",
-      target: "100% of cases where the duty applies",
+      target: "All cases where the law says temporary housing must be provided",
       actual: "12,800 instances where temporary accommodation was not provided when it should have been",
       status: "missed",
       comparisonNote:

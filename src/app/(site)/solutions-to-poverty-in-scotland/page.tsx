@@ -10,7 +10,7 @@ import {
   CTA,
   Reveal,
 } from "@/components/Blocks";
-import { G } from "@/components/Glossary";
+import { ExplainText, G } from "@/components/Glossary";
 import { JsonLd, articleJsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
 import { fixes, type FixStatus } from "@/lib/data/policy";
 import { getSources } from "@/lib/data/sources";
@@ -355,7 +355,7 @@ export default function WhatWouldFixIt() {
                 <p className="ui text-[15px] text-[var(--muted)] mt-1.5 mb-1.5">
                   {s.publisher}
                 </p>
-                {s.used}
+                <ExplainText>{s.used}</ExplainText>
               </div>
             ))}
           </div>

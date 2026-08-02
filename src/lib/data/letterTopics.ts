@@ -147,7 +147,7 @@ export const LETTER_TOPICS: LetterTopic[] = [
       },
       {
         key: "sick-pay",
-        line: "Support statutory sick pay that starts on day one and is worth living on.",
+        line: "Support sick pay from the first day that is enough to live on.",
         who: "MP",
       },
     ],

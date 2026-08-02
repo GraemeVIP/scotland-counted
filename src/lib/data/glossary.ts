@@ -3,8 +3,8 @@
  *
  * Each entry has a `def` written for someone with no background in
  * statistics or social policy, and an optional `tech` note for readers
- * who want the methodological detail. Both are shown in the popover;
- * the glossary page renders them as a searchable list.
+ * who want the methodological detail. The popover shows only `def`; the
+ * glossary page is where the exact detail belongs.
  */
 
 export type Term = {
@@ -66,7 +66,7 @@ export const terms: Term[] = [
   {
     id: "le",
     term: "Life expectancy at birth",
-    def: "How long a baby born now would live if today's death rates lasted its whole life. It is a summary of the population's health, not a forecast for any one person.",
+    def: "How long a baby born now would live if today's death rates lasted its whole life. It summarises the population's health, not what will happen to one person.",
     tech: "Figures are averaged over three years at a time to reduce year-to-year noise. A period life expectancy of 73.6 does not mean today's babies will die at 73.6 — it means death rates in those years were equivalent to that.",
   },
   {
@@ -74,6 +74,66 @@ export const terms: Term[] = [
     term: "Median",
     def: "The middle figure. Line everyone up by wage and the median is the person standing in the middle — half earn more, half earn less.",
     tech: "Preferred to the average for incomes, because a small number of very high earners drag an average upward and make it unrepresentative of a typical household.",
+  },
+  {
+    id: "mean",
+    term: "Mean",
+    def: "The average found by adding every number and dividing by how many numbers there are. A few very high wages can pull it up.",
+    tech: "The arithmetic mean is sensitive to unusually high or low values, which is why this site shows the median alongside it for pay.",
+  },
+  {
+    id: "constituency",
+    term: "Constituency",
+    def: "The local area an MP or constituency MSP represents.",
+    tech: "Westminster and Holyrood use different constituency boundaries. A council area and a constituency can cover different places.",
+  },
+  {
+    id: "ward",
+    term: "Ward",
+    def: "A small local area used to elect councillors.",
+    tech: "Wards sit inside council areas and normally elect more than one councillor under Scotland's voting system.",
+  },
+  {
+    id: "interim",
+    term: "Interim",
+    def: "An early result published before the final figures are ready.",
+    tech: "Interim figures can be revised when the full data or final checks arrive.",
+  },
+  {
+    id: "equivalised",
+    term: "Equivalised",
+    def: "Adjusted so households of different sizes can be compared fairly.",
+    tech: "The adjustment accounts for the number and ages of people in a household because the same income does not stretch equally far for every family size.",
+  },
+  {
+    id: "real-terms",
+    term: "Real terms",
+    def: "Adjusted for price rises, so it shows what the money can really buy.",
+    tech: "A real-terms change removes the effect of inflation using a stated price index and period.",
+  },
+  {
+    id: "work-allowance",
+    term: "Work allowance",
+    def: "The amount you can earn before Universal Credit starts to fall. Not everyone gets one.",
+    tech: "The allowance depends on the household and whether Universal Credit includes help with housing costs.",
+  },
+  {
+    id: "taper",
+    term: "Taper",
+    def: "The rate at which a benefit goes down as your earnings rise.",
+    tech: "For Universal Credit, the taper is applied to earnings above any work allowance after the relevant deductions.",
+  },
+  {
+    id: "health-element",
+    term: "Health element",
+    def: "Extra Universal Credit for someone whose health condition limits their ability to work.",
+    tech: "The amount and test depend on the claimant's assessment and the Universal Credit rules in force at the time.",
+  },
+  {
+    id: "absolute-poverty",
+    term: "Absolute poverty",
+    def: "Being below a poverty line fixed to a past year and then adjusted for price rises. It shows whether living standards are improving over time.",
+    tech: "The official measure uses a fixed reference year and uprates the line for inflation, unlike relative poverty which moves with typical household income.",
   },
   {
     id: "workres",
@@ -106,6 +166,18 @@ export const terms: Term[] = [
     tech: "Formally Local Housing Allowance. It was designed to cover the cheapest 30% of local rents. Freezes mean it now falls well short of that in much of Glasgow, so tenants make up the difference out of money meant for food and heating — which is precisely how the after-housing-costs poverty figure worsens.",
   },
   {
+    id: "lha-acronym",
+    term: "LHA",
+    def: "Short for Local Housing Allowance: the maximum help with private rent used in a benefit calculation.",
+    tech: "The amount depends on the local area, the home size allowed by the rules and the published rate for that period.",
+  },
+  {
+    id: "dhp",
+    term: "DHP",
+    def: "Extra housing help a council may give when your normal rent support does not cover the rent.",
+    tech: "It is a separate, limited council fund. Each council decides applications under the national rules, so it is not an automatic payment.",
+  },
+  {
     id: "persistent",
     term: "Persistent poverty",
     def: "Being poor in three or more of the last four years. It is far more damaging than a single bad year, because families have no savings left to fall back on.",
@@ -125,16 +197,316 @@ export const terms: Term[] = [
   },
   {
     id: "reserved",
-    term: "Reserved and devolved",
+    term: "Reserved",
     def: "Reserved means Westminster decides. Devolved means Holyrood decides. Most benefits are reserved; the Scottish Child Payment, housing and childcare are devolved.",
     tech: "The split is set out in the Scotland Acts. It matters here because the largest levers on child poverty — Universal Credit, the two-child limit and Local Housing Allowance — sit with Westminster, while the legal duty to cut child poverty sits with Holyrood. Responsibility and power are not held by the same body.",
+  },
+  {
+    id: "devolved",
+    term: "Devolved",
+    def: "Decided in Scotland by the Scottish Parliament or a Scottish public body, rather than at Westminster.",
+    tech: "The Scotland Acts list which powers are devolved and which remain reserved to the UK Parliament.",
+  },
+  {
+    id: "dwp",
+    term: "DWP",
+    def: "The UK Department for Work and Pensions. It runs Universal Credit and many other benefits.",
+    tech: "DWP decisions and records cover reserved benefits. They are separate from Scottish Government benefits such as Scottish Child Payment.",
+  },
+  {
+    id: "ons",
+    term: "ONS",
+    def: "The Office for National Statistics, which collects and publishes official UK figures.",
+    tech: "The ONS publishes statistics under the Code of Practice for Statistics and marks estimates that need extra care.",
+  },
+  {
+    id: "hmrc",
+    term: "HMRC",
+    def: "The UK tax and customs department. Its records are used for tax, pay and some benefit statistics.",
+    tech: "HMRC stands for His Majesty's Revenue and Customs. Administrative records can cover more people than a survey but still have their own definitions and gaps.",
+  },
+  {
+    id: "ofgem",
+    term: "Ofgem",
+    def: "The UK body that checks energy suppliers and sets the household energy price cap.",
+    tech: "Ofgem is the Office of Gas and Electricity Markets. Its cap limits unit rates and standing charges, not the total a household can use.",
+  },
+  {
+    id: "obr",
+    term: "OBR",
+    def: "The Office for Budget Responsibility, which checks the government's economic and budget plans.",
+    tech: "The OBR is independent of ministers and publishes forecasts used to test the government's budget plans.",
+  },
+  {
+    id: "nao",
+    term: "NAO",
+    def: "The National Audit Office, which checks how UK government departments spend public money.",
+    tech: "The NAO reports to Parliament and examines value for money. It is not a regulator or a criminal investigator.",
+  },
+  {
+    id: "minimum-income-standard",
+    term: "Minimum Income Standard",
+    def: "A researched estimate of what different households need for a basic, decent life.",
+    tech: "The standard is built from public discussion and priced using the goods and services people say are needed for an acceptable living standard.",
+  },
+  {
+    id: "living-wage",
+    term: "Real Living Wage",
+    def: "A voluntary hourly rate based on the cost of living, not the legal minimum employers must pay.",
+    tech: "The Living Wage Foundation calculates separate rates for outside London and London. Employers choose whether to sign up.",
   },
   {
     id: "in-work-poverty",
     term: "In-work poverty",
     def: "Being poor even though someone in the household has a job. It is now the most common kind of poverty in Scotland.",
-   tech: "Across Scotland, 75% of children in poverty live in a household where at least one adult works (Scottish Government, 2022–25). It is driven by low hourly pay, too few hours, insecure contracts and housing costs — which is why raising the employment rate alone does not reduce it.",
- },
+    tech: "Across Scotland, 75% of children in poverty live in a household where at least one adult works (Scottish Government, 2022–25). It is driven by low hourly pay, too few hours, insecure contracts and housing costs — which is why raising the employment rate alone does not reduce it.",
+  },
+  {
+    id: "inflation",
+    term: "Inflation",
+    def: "How quickly prices are going up. When inflation falls, prices usually keep rising, just more slowly.",
+    tech: "Inflation measures the rate of price change, not whether prices are already high. A lower rate does not take earlier price rises away.",
+  },
+  {
+    id: "eligible",
+    term: "Eligible",
+    def: "Allowed to get something under the rules.",
+    tech: "Eligibility depends on the scheme's rules and the information used to check them.",
+  },
+  {
+    id: "eligibility",
+    term: "Eligibility",
+    def: "The rules used to decide whether someone can get help or a payment.",
+    tech: "The exact test can include income, age, household details, residence or another condition set by the scheme.",
+  },
+  {
+    id: "entitlement",
+    term: "Entitlement",
+    def: "The help or payment the rules say you qualify for.",
+    tech: "An entitlement is based on the scheme's rules. It is different from help that is awarded only after a separate decision.",
+  },
+  {
+    id: "discretionary",
+    term: "Discretionary",
+    def: "Not automatic. The council or other body looks at your circumstances and decides.",
+    tech: "Discretionary schemes can have local rules, limited budgets and an appeals process.",
+  },
+  {
+    id: "gross-pay",
+    term: "Gross pay",
+    def: "Your pay before tax, National Insurance and other deductions.",
+    tech: "Gross pay is the starting amount used to work out many deductions. It is not the money that reaches your bank account.",
+  },
+  {
+    id: "net-pay",
+    term: "Net pay",
+    def: "The money that reaches your bank after tax, National Insurance and other deductions.",
+    tech: "Net pay changes with tax codes, pension contributions, student loans and other deductions as well as the headline wage.",
+  },
+  {
+    id: "national-insurance",
+    term: "National Insurance",
+    def: "A tax taken from pay that helps fund some benefits and public services.",
+    tech: "The amount depends on earnings and the relevant National Insurance rules. It is separate from income tax.",
+  },
+  {
+    id: "paye",
+    term: "PAYE",
+    def: "A system where your employer takes income tax and National Insurance from your pay before you receive it.",
+    tech: "PAYE means Pay As You Earn. It is used for most employee wages and does not cover every kind of income.",
+  },
+  {
+    id: "ashe",
+    term: "ASHE",
+    def: "An official survey of employee pay, used to compare wages across places and years.",
+    tech: "ASHE means the Annual Survey of Hours and Earnings. It uses PAYE records and covers employee jobs, not every worker or every kind of income.",
+  },
+  {
+    id: "material-deprivation",
+    term: "Material deprivation",
+    def: "Not being able to afford things most people need for everyday life.",
+    tech: "Official measures use a list of goods and activities and ask whether a household can afford them. It is different from an income-only measure.",
+  },
+  {
+    id: "fiscal-drag",
+    term: "Fiscal drag",
+    def: "When tax bands stay still while wages rise, so more of your pay is taxed.",
+    tech: "Frozen thresholds can move people into higher tax bands even when their wages have only kept pace with prices.",
+  },
+  {
+    id: "settlement",
+    term: "Settlement",
+    def: "The money the government says a council will receive for services. It is not the same as the amount the council finally spends.",
+    tech: "A settlement can be provisional and can include several funding streams. It should be kept separate from the council's signed budget and final outturn.",
+  },
+  {
+    id: "forecast",
+    term: "Forecast",
+    def: "The best estimate of what is likely to happen later, based on what is known now.",
+    tech: "A forecast depends on its date, assumptions and the action planned after it was made. It is not a final result or proof that money has already been lost.",
+  },
+  {
+    id: "allocation",
+    term: "Allocation",
+    def: "Money or another resource set aside for a particular job or service.",
+    tech: "An allocation can be provisional or part of a wider funding settlement. It should be kept separate from the amount finally spent.",
+  },
+  {
+    id: "underspend",
+    term: "Underspend",
+    def: "Spending less than the budget that was set aside. It does not by itself show that a service worked well.",
+    tech: "An underspend can come from delayed work, lower demand, a saving or a service not being delivered. The final outturn and service results are needed to explain it.",
+  },
+  {
+    id: "estimate",
+    term: "Estimate",
+    def: "A best figure based on the information available at the time. It can change when better information arrives.",
+    tech: "The source, date and assumptions behind an estimate matter. It is not the same as a final audited result.",
+  },
+  {
+    id: "outcome",
+    term: "Outcome",
+    def: "What happened for people after a plan, service or decision was put into practice.",
+    tech: "An outcome is different from an activity or a promise. A useful measure says who was affected, over what period and how the change was checked.",
+  },
+  {
+    id: "milestone",
+    term: "Milestone",
+    def: "A checkpoint or deadline used to see whether a piece of work is moving forward.",
+    tech: "A milestone should have a date, an owner and evidence of what was completed. It is not the same as the final result.",
+  },
+  {
+    id: "division",
+    term: "Division",
+    def: "A formal vote in Parliament where the names of members voting each way are recorded.",
+    tech: "The record shows the question, the result and which members voted or did not vote. It does not explain a member's reasons.",
+  },
+  {
+    id: "motion",
+    term: "Motion",
+    def: "A proposal put to Parliament for members to debate and vote on.",
+    tech: "A motion can be agreed, rejected or amended. A vote on a motion is not automatically a change to the law.",
+  },
+  {
+    id: "qualifying",
+    term: "Qualifying",
+    def: "Meeting the rules for a payment, discount or service.",
+    tech: "The rules can include income, age, household, residency or other conditions. The relevant scheme decides whether someone qualifies.",
+  },
+  {
+    id: "means-tested",
+    term: "Means-tested",
+    def: "Decided partly by looking at your income, savings or household circumstances.",
+    tech: "Different schemes count income and savings in different ways. A means test is not the same as a universal payment.",
+  },
+  {
+    id: "arrears",
+    term: "Arrears",
+    def: "Money that should have been paid but is still owed because a payment was missed or late.",
+    tech: "The amount and the date it became overdue matter. Rent, council tax and energy arrears can each have different repayment and enforcement rules.",
+  },
+  {
+    id: "tariff",
+    term: "Tariff",
+    def: "The price plan for a service, such as an energy deal with a unit price and standing charge.",
+    tech: "A tariff can be fixed, variable or a default deal. The contract, payment method and usage assumptions affect the final bill.",
+  },
+  {
+    id: "council-tax-reduction",
+    term: "Council Tax Reduction",
+    def: "Help that cuts a council tax bill for people on a low income or certain benefits.",
+    tech: "It is a means-tested Scottish scheme run through councils. The amount depends on household circumstances and the local decision.",
+  },
+  {
+    id: "water-charges-reduction",
+    term: "Water Charges Reduction Scheme",
+    def: "A reduction that can cut the water and waste-water part of a Scottish council tax bill.",
+    tech: "The reduction is linked to Council Tax Reduction and is applied through the council's billing system.",
+  },
+  {
+    id: "benchmark",
+    term: "Benchmark",
+    def: "A comparison point used to judge whether something is high, low or changing.",
+    tech: "A benchmark is only useful when the thing being compared is measured in the same way and over the same period.",
+  },
+  {
+    id: "claimant-count",
+    term: "Claimant Count",
+    def: "The number of people claiming certain out-of-work benefits or expected to look for work.",
+    tech: "It is not the same as the number of unemployed people. It counts people claiming, so it can miss people who are out of work but do not qualify.",
+  },
+  {
+    id: "housing-element",
+    term: "Housing element",
+    def: "The part of Universal Credit meant to help with rent and some other housing costs.",
+    tech: "The amount depends on the household, the type of home and the benefit rules. It may not cover the full rent.",
+  },
+  {
+    id: "benefit-cap",
+    term: "Benefit cap",
+    def: "A limit on the total amount of some benefits a household can receive.",
+    tech: "The cap has exceptions and different levels for different households. It can reduce the housing help included in Universal Credit.",
+  },
+  {
+    id: "bedroom-tax",
+    term: "Bedroom tax",
+    def: "A cut to housing help for some social tenants who are judged to have more bedrooms than the rules allow.",
+    tech: "The formal name is the under-occupancy charge. Exemptions and protections can apply, so the exact decision matters.",
+  },
+  {
+    id: "standing-charge",
+    term: "Standing charge",
+    def: "A daily energy charge for keeping a gas or electricity supply connected, even when you use very little.",
+    tech: "It is separate from the unit rate charged for each unit of energy used.",
+  },
+  {
+    id: "kilowatt-hour",
+    term: "Kilowatt-hour",
+    def: "A unit used to measure energy. Your electricity and gas bills charge for the number of units you use.",
+    tech: "It is usually shortened to kWh. The price per kWh is separate from the daily standing charge.",
+  },
+  {
+    id: "kwh",
+    term: "kWh",
+    def: "The short form of kilowatt-hour, the unit used on energy bills for the energy you use.",
+    tech: "The price per kWh is separate from the daily standing charge.",
+  },
+  {
+    id: "price-cap",
+    term: "Price cap",
+    def: "A limit on the unit rates and daily standing charge an energy supplier can set for a standard energy plan.",
+    tech: "It is not a limit on the total bill. A household using more energy can still pay more.",
+  },
+  {
+    id: "tax-code",
+    term: "Tax code",
+    def: "A code sent to your employer telling them how much income tax to take from your pay.",
+    tech: "It can change when your pay, pension, benefits or other taxable income changes.",
+  },
+  {
+    id: "salary-sacrifice",
+    term: "Salary sacrifice",
+    def: "Agreeing to give up part of your cash pay in return for a workplace pension or another benefit.",
+    tech: "Because the cash pay is lower, it can change income tax and National Insurance. The employer's scheme rules matter.",
+  },
+  {
+    id: "relief-at-source",
+    term: "Relief at source",
+    def: "A pension method where the provider adds basic-rate tax relief after money is taken from your pay.",
+    tech: "The provider claims the basic relief from HMRC. Higher-rate taxpayers may need to claim any extra relief themselves.",
+  },
+  {
+    id: "net-earnings",
+    term: "Net earnings",
+    def: "Money from work after the deductions counted by the benefit rules.",
+    tech: "Universal Credit uses its own definition of earnings, so the figure used for a benefit calculation may not be the same as take-home pay on a payslip.",
+  },
+  {
+    id: "gross-salary",
+    term: "Gross salary",
+    def: "Your salary before tax, National Insurance and other deductions.",
+    tech: "It is the headline salary used before deductions, not the amount paid into your bank.",
+  },
   {
     id: "budget-gap",
     term: "Budget gap",
@@ -150,7 +522,7 @@ export const terms: Term[] = [
   {
     id: "projected",
     term: "Projected",
-    def: "A forecast. It is what someone expects to happen, and it can change when new figures arrive.",
+    def: "An expected figure based on what is known now. It can change when new figures arrive.",
     tech: "A projection is not the same as a final result or audited figure. The date and assumptions behind it matter.",
   },
   {
@@ -175,7 +547,7 @@ export const terms: Term[] = [
     id: "best-value",
     term: "Best Value",
     def: "A formal check by Audit Scotland or the Accounts Commission on whether a council uses money well and improves services. It does not mean every service is good.",
-    tech: "Best Value is a statutory duty. A review can praise some work and still point to serious weaknesses or actions that remain unfinished.",
+    tech: "The law requires councils to carry out this kind of check. A review can praise some work and still point to serious weaknesses or unfinished actions.",
   },
   {
     id: "transformation",
@@ -228,8 +600,26 @@ export const terms: Term[] = [
   {
     id: "independent-scrutiny",
     term: "Independent scrutiny",
-    def: "A check by auditors or regulators who are separate from the council team being checked.",
+    def: "A check by an outside auditor or checking body, separate from the council team being checked.",
     tech: "Independent scrutiny is different from a council’s own performance report or a political opinion.",
+  },
+  {
+    id: "scrutiny",
+    term: "Scrutiny",
+    def: "Careful checking of a decision, service or set of figures.",
+    tech: "Scrutiny can be carried out by auditors, regulators, councillors or other independent bodies. The person doing the checking and the evidence used should be clear.",
+  },
+  {
+    id: "service-level",
+    term: "Service-level",
+    def: "About one particular service, rather than the council as a whole.",
+    tech: "A service-level measure should name the service, the people or cases counted, the time period and the result being checked.",
+  },
+  {
+    id: "accountability",
+    term: "Accountability",
+    def: "Being able to see what was promised, what happened and who must answer for it.",
+    tech: "Accountability needs a clear decision, a named responsibility, a time period and evidence of delivery or failure. It does not mean guessing at an individual's motive.",
   },
   {
     id: "commitment",
@@ -260,6 +650,12 @@ export const terms: Term[] = [
     term: "Statutory duty",
     def: "A job the law says a council or public body must do.",
     tech: "The exact duty depends on the law and the facts of the case. A target or plan is not automatically the same as a statutory duty.",
+  },
+  {
+    id: "statutory",
+    term: "Statutory",
+    def: "Required by law.",
+    tech: "The exact legal requirement depends on the Act or regulation named in the source.",
   },
   {
     id: "systemic-failure",

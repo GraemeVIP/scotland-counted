@@ -3,6 +3,7 @@ import type { HTMLAttributes, ReactNode } from "react";
 import type { Direction } from "@/lib/data/indicators";
 import Reveal from "@/components/Reveal";
 import { CountUp } from "@/components/Motion";
+import { ExplainText } from "@/components/Glossary";
 
 /* ============================================================
    Containers
@@ -13,7 +14,11 @@ export function Page({ children }: { children: ReactNode }) {
   // 1,232px includes the desktop gutters (56px each), leaving the same
   // 1,120px reading frame used by PageHeader and ContentFrame. Keeping the
   // outer and inner frames separate lets the mobile gutters stay fluid.
-  return <div className="max-w-[1232px] mx-auto px-5 sm:px-8 lg:px-14">{children}</div>;
+  return (
+    <div className="max-w-[1232px] mx-auto px-5 sm:px-8 lg:px-14">
+      <ExplainText>{children}</ExplainText>
+    </div>
+  );
 }
 
 /**
@@ -42,7 +47,7 @@ export function ContentFrame({
 
 /** A reading column. Prose stays narrow even when the page is wide. */
 export function Col({ children, className = "" }: { children: ReactNode; className?: string }) {
-  return <div className={`max-w-[640px] prose ${className}`}>{children}</div>;
+  return <div className={`max-w-[640px] prose ${className}`}><ExplainText>{children}</ExplainText></div>;
 }
 
 /**
@@ -120,9 +125,9 @@ export function PageHeader({
         }`}
       >
         <div>
-          {eyebrow && <p className="label mb-6">{eyebrow}</p>}
+          {eyebrow && <p className="label mb-6"><ExplainText>{eyebrow}</ExplainText></p>}
           <h1 className="h1 max-w-[17ch] mb-5">{title}</h1>
-          {lede && <div className="lede max-w-[54ch]">{lede}</div>}
+          {lede && <div className="lede max-w-[54ch]"><ExplainText>{lede}</ExplainText></div>}
           {children}
         </div>
 
@@ -138,7 +143,7 @@ export function PageHeader({
                 );
               })()}
             </div>
-            <p className="text-[15px] leading-[1.5] text-[var(--ink-2)] mt-5">{stat.label}</p>
+            <p className="text-[15px] leading-[1.5] text-[var(--ink-2)] mt-5"><ExplainText>{stat.label}</ExplainText></p>
           </div>
         )}
       </div>
@@ -194,7 +199,7 @@ export function InShort({
         <div>
           <p className="ui text-[15px] font-[750] text-[var(--action)] mb-3">What this means</p>
           <div className="ui text-[18px] sm:text-[19px] leading-[1.55] font-[480] space-y-2.5 [&_strong]:font-[750]">
-            {children}
+            <ExplainText>{children}</ExplainText>
           </div>
         </div>
         {expert && (
@@ -239,7 +244,7 @@ export function EvidenceDetails({
         {summary}
       </summary>
       <div className="border-t border-[var(--rule)] px-5 py-5 text-[16px] leading-[1.6] text-[var(--ink-2)]">
-        {children}
+        <ExplainText>{children}</ExplainText>
       </div>
     </details>
   );
@@ -381,7 +386,7 @@ export function Note({
       <p className="label mb-2">{label}</p>
       {value && <p className="figure-num text-[38px] text-[var(--ink)] mb-2">{value}</p>}
       {children && (
-        <div className="text-[15px] leading-[1.55] text-[var(--ink-2)]">{children}</div>
+        <div className="text-[15px] leading-[1.55] text-[var(--ink-2)]"><ExplainText>{children}</ExplainText></div>
       )}
     </aside>
   );
@@ -401,7 +406,7 @@ export function Slab({
         <div className="max-w-[1232px] mx-auto px-5 sm:px-8 lg:px-14">
           <Reveal>
             <p className="display text-[clamp(26px,3.6vw,46px)] max-w-[19ch] font-[750]">
-              {children}
+              <ExplainText>{children}</ExplainText>
             </p>
             {attribution && (
               <p className="ui text-[15px] opacity-70 mt-8">
@@ -454,7 +459,7 @@ export function CTA({
           <div className="grid gap-x-14 gap-y-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
             <div>
               <h2 className="h2 mb-4 max-w-[18ch]">{title}</h2>
-              <p className="opacity-80 max-w-[54ch] text-[17.5px] leading-[1.55]">{body}</p>
+              <p className="opacity-80 max-w-[54ch] text-[17.5px] leading-[1.55]"><ExplainText>{body}</ExplainText></p>
             </div>
             {/*
               The buttons stack and fill the card rather than sitting inline.

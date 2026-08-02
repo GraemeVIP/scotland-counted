@@ -190,7 +190,7 @@ export default function Dumbbell({
             <b className="ml-auto tnum text-[var(--ink)]">{rows[hover].to.toFixed(1)}%</b>
           </div>
           <div className="flex items-center gap-2 mt-1.5 pt-1.5 border-t border-[var(--rule)] text-[15px] text-[var(--muted)]">
-            Change
+            Change in percentage points
             <b className="ml-auto tnum">
               {rows[hover].to - rows[hover].from >= 0 ? "+" : ""}
               {(rows[hover].to - rows[hover].from).toFixed(1)} pp

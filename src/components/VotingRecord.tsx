@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { votesForConstituency, scottishTally, type Side } from "@/lib/data/votes";
 import Reveal from "@/components/Reveal";
+import { ExplainText } from "@/components/Glossary";
 
 /**
  * How this constituency's MP actually voted.
@@ -72,6 +73,7 @@ export default function VotingRecord({
 
   return (
     <section className={className} aria-labelledby="voting-record">
+      <ExplainText>
       <p className="label mb-3">The record</p>
       <h2 id="voting-record" className="h2 mb-3">
         How your MP actually voted
@@ -195,6 +197,7 @@ export default function VotingRecord({
         and so is a reply.{" "}
         <Link href="/what-happens-when-you-email-your-mp">See what happens when you email them</Link>.
       </p>
+      </ExplainText>
     </section>
   );
 }

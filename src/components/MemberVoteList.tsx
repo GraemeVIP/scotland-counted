@@ -1,5 +1,6 @@
 import type { VoteRecord } from "@/lib/voting";
 import { formatVoteDate } from "@/lib/voting";
+import { ExplainText } from "@/components/Glossary";
 
 export default function MemberVoteList({
   name,
@@ -15,7 +16,10 @@ export default function MemberVoteList({
       <p className="kicker mb-3 text-[var(--brand)]">Recorded votes</p>
       <h2 id="member-votes" className="h2 mb-3">How {name} has voted</h2>
       <p className="text-[16px] leading-[1.6] text-[var(--ink-2)]">
-        These are the latest recorded divisions published by {parliament}. A vote shows what happened in that division; it does not explain why a member voted that way.
+        <ExplainText>
+          These are the latest recorded votes published by {parliament}. A vote shows what happened
+          in that vote; it does not explain why a member voted that way.
+        </ExplainText>
       </p>
       {votes.length > 0 ? (
         <div className="mt-6 grid gap-3">
@@ -36,7 +40,7 @@ export default function MemberVoteList({
           })}
         </div>
       ) : (
-        <p className="mt-6 text-[16px] leading-[1.6] text-[var(--ink-2)]">No recorded votes were available in the current snapshot.</p>
+        <p className="mt-6 text-[16px] leading-[1.6] text-[var(--ink-2)]"><ExplainText>No recorded votes were available in the current snapshot.</ExplainText></p>
       )}
     </section>
   );

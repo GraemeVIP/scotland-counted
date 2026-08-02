@@ -1,4 +1,5 @@
 import { EvidenceDetails } from "@/components/Blocks";
+import { ExplainText } from "@/components/Glossary";
 
 /**
  * Plain-English explainer of MP vs MSP.
@@ -73,6 +74,7 @@ export default function WhoDoesWhat({
 }) {
   return (
     <section className={className} aria-labelledby="who-does-what">
+      <ExplainText>
       <p className="label mb-3">The bit nobody explains</p>
       <h2 id="who-does-what" className="h2 mb-3">
         What is the difference between an MP and an MSP?
@@ -183,6 +185,7 @@ export default function WhoDoesWhat({
           </p>
         </EvidenceDetails>
       )}
+      </ExplainText>
     </section>
   );
 }

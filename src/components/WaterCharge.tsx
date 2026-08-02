@@ -1,4 +1,5 @@
 import { waterCharges2026, WATER_YEAR } from "@/lib/data/councilTax";
+import { ExplainText } from "@/components/Glossary";
 
 /**
  * The water charge, made impossible to miss.
@@ -41,9 +42,11 @@ export default function WaterCharge({ className = "" }: { className?: string }) 
       </h2>
 
       <p className="mt-5 max-w-[58ch] text-[18px] leading-[1.6] opacity-90">
+        <ExplainText>
         In Scotland you do not get a separate water bill. Scottish Water charges you for water and
         for taking waste water away, and your council collects it{" "}
         <strong className="opacity-100">on the same bill as your council tax</strong>.
+        </ExplainText>
       </p>
 
       <div className="mt-7 grid gap-4 sm:grid-cols-2">
@@ -66,14 +69,18 @@ export default function WaterCharge({ className = "" }: { className?: string }) 
       </div>
 
       <p className="mt-7 max-w-[60ch] text-[19px] leading-[1.55] font-[640]">
+        <ExplainText>
         This is why other websites give you a lower number. They quote the council tax and leave
         the water out. Every figure on this site includes it.
+        </ExplainText>
       </p>
 
       <p className="mt-4 max-w-[60ch] text-[16px] leading-[1.6] opacity-80">
+        <ExplainText>
         If you get Council Tax Reduction you can also get up to 35% off the water charges. That is
         the Water Charges Reduction Scheme, and your council applies it for you. Charges shown are{" "}
         {WATER_YEAR}.
+        </ExplainText>
       </p>
     </section>
   );

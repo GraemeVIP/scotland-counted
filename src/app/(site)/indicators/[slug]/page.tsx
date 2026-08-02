@@ -7,6 +7,7 @@ import MinimumWageReality from "@/components/MinimumWageReality";
 import PaySpread from "@/components/PaySpread";
 import WorkDoesNotPay from "@/components/WorkDoesNotPay";
 import ToolCTA from "@/components/ToolCTA";
+import { ExplainText } from "@/components/Glossary";
 import {
   indicators,
   lifeExpectancy,
@@ -170,7 +171,7 @@ function SourceList({ ids }: { ids: string[] }) {
             </a>
             <span className="text-[var(--muted)]"> — {s.publisher}</span>
             <br />
-            {s.used}
+                <ExplainText>{s.used}</ExplainText>
             {s.derivation && (
               <>
                 {" "}

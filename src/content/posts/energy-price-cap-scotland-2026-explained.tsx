@@ -5,7 +5,7 @@ export default function Post() {
   return (
     <Prose>
       <Lead>
-        From 1 July to 30 September 2026, Ofgem’s headline price-cap figure is £1,862 a year for a
+        From 1 July to 30 September 2026, Ofgem, the energy regulator, puts the headline price-cap figure at £1,862 a year for a
         typical dual-fuel household paying by Direct Debit. A home can still pay much more or much
         less.
       </Lead>

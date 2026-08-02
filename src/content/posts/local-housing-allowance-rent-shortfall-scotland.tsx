@@ -17,8 +17,8 @@ export default function Post() {
       </P>
       <P>
         If the actual eligible rent is lower than the cap, help cannot be higher than the rent. If
-        the rent is higher, the cap can leave a shortfall that must come from the rest of the
-        household income.
+        the rent is higher, the cap can leave a gap that must come from the rest of the household
+        income.
       </P>
 
       <H2 id="frozen">Why the 2026 rates are already behind</H2>
@@ -63,15 +63,15 @@ export default function Post() {
       <H2 id="help">What to do about a shortfall</H2>
       <H3>Check the calculation first</H3>
       <UL>
-        <LI>Confirm the correct rental market area and bedroom entitlement.</LI>
-        <LI>Check that the eligible rent and all household details are right.</LI>
+        <LI>Confirm the correct rental market area and the number of bedrooms the rules allow.</LI>
+        <LI>Check that the rent and all household details are right.</LI>
         <LI>Challenge a decision if the wrong rate or household size was used.</LI>
       </UL>
       <H3>Ask the council for extra help</H3>
       <P>
         A <Link href="/blog/discretionary-housing-payment-scotland">Discretionary Housing
         Payment</Link> can sometimes cover some or all of a rent gap. It can also help with a
-        deposit, rent in advance or moving costs in some cases. The fund is discretionary, so give
+        deposit, rent in advance or moving costs in some cases. The fund is not automatic, so give
         the council a clear budget and explain what will happen without the payment.
       </P>
 

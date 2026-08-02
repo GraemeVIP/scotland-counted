@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ExplainText } from "@/components/Glossary";
 
 /**
  * The third tier, which the site cannot look up for you.
@@ -27,6 +28,7 @@ const COUNCIL_JOBS = [
 export default function FindCouncillors({ className = "" }: { className?: string }) {
   return (
     <section className={className} aria-labelledby="find-councillors">
+      <ExplainText>
       <p className="kicker mb-3 text-[var(--brand)]">The third one nobody mentions</p>
       <h2 id="find-councillors" className="display-stat text-[clamp(28px,3.4vw,44px)] max-w-[20ch]">
         You also have councillors
@@ -119,6 +121,7 @@ export default function FindCouncillors({ className = "" }: { className?: string
           sure, send it to your MP and MSP as well. Nobody minds.
         </p>
       </div>
+      </ExplainText>
     </section>
   );
 }

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ExplainText } from "@/components/Glossary";
 
 /**
  * An in-page pointer to one of the calculators.
@@ -51,7 +52,7 @@ export default function ToolCTA({
           <p className="text-[22px] font-[760] leading-[1.2] max-w-[26ch] sm:text-[26px]">
             {t.title}
           </p>
-          <p className="mt-3 max-w-[58ch] text-[16.5px] leading-[1.55] opacity-85">{t.body}</p>
+          <p className="mt-3 max-w-[58ch] text-[16.5px] leading-[1.55] opacity-85"><ExplainText>{t.body}</ExplainText></p>
         </div>
         <Link href={t.href} className="btn btn-primary whitespace-nowrap lg:shrink-0">
           {t.cta}

@@ -23,7 +23,7 @@ export default function Post() {
         <LI>Age 21 and over: £12.71 an hour.</LI>
         <LI>Age 18 to 20: £10.85 an hour.</LI>
         <LI>Under 18: £8 an hour.</LI>
-        <LI>Eligible apprentices: £8 an hour.</LI>
+        <LI>Apprentices covered by the apprentice rate: £8 an hour.</LI>
       </UL>
       <P>
         The apprentice rate applies when someone is under 19, or is 19 or over and still in the
@@ -38,8 +38,8 @@ export default function Post() {
       </P>
       <BigStat
         value="£24,784.50"
-        label="gross pay for a full year at £12.71 × 37.5 hours × 52 weeks"
-        exact="That is £476.63 gross a week or £2,065.38 gross a month on average."
+        label="pay before tax for a full year at £12.71 × 37.5 hours × 52 weeks"
+        exact="That is £476.63 a week or £2,065.38 a month before tax, on average."
       />
 
       <H2 id="take-home">What reaches the bank</H2>

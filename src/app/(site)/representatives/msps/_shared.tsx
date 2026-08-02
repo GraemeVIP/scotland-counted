@@ -3,6 +3,7 @@ import type { HolyroodMspContact } from "@/lib/data/holyrood";
 import { site } from "@/lib/site";
 import { formatVoteDate } from "@/lib/voting";
 import PortraitLightbox from "@/components/PortraitLightbox";
+import { ExplainText } from "@/components/Glossary";
 
 export function preparedMspEmailHref({
   msp,
@@ -193,7 +194,11 @@ export function MspVotingRecord({ msp }: { msp: HolyroodMspContact }) {
       <p className="kicker mb-3 text-[var(--brand)]">Recorded votes</p>
       <h2 className="h2 mb-3">How {msp.name} has voted</h2>
       <p className="text-[16px] leading-[1.6] text-[var(--ink-2)]">
-        These are the latest votes published for this MSP in the Scottish Parliament&apos;s 2026 motion dataset. A vote shows what happened in that division; it does not explain why a member voted that way.
+        <ExplainText>
+          These are the latest votes published for this MSP in the Scottish Parliament&apos;s 2026
+          motion data. A vote shows what happened in that vote; it does not explain why a member
+          voted that way.
+        </ExplainText>
       </p>
       {msp.votes.length > 0 ? (
         <div className="mt-6 grid gap-3">
@@ -215,7 +220,7 @@ export function MspVotingRecord({ msp }: { msp: HolyroodMspContact }) {
         <p className="mt-6 text-[16px] leading-[1.6] text-[var(--ink-2)]">No recorded votes were available for this member in the current snapshot.</p>
       )}
       <p className="ui mt-5 text-[14px] leading-[1.5] text-[var(--muted)]">
-        Source: <a href="https://data.parliament.scot/api/votesmotion?year=2026">Scottish Parliament Open Data, votes on motions 2026</a>. This page shows recorded divisions only; it is not a score or a judgement.
+        Source: <a href="https://data.parliament.scot/api/votesmotion?year=2026">Scottish Parliament Open Data, votes on motions 2026</a>. This page shows recorded votes only; it is not a score or a judgement.
       </p>
     </section>
   );

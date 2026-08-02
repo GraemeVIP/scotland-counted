@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { divisions, scottishTally } from "@/lib/data/votes";
 import Reveal from "@/components/Reveal";
+import { ExplainText } from "@/components/Glossary";
 
 /**
  * How Scotland's 57 MPs voted, division by division.
@@ -30,6 +31,7 @@ function fmtDate(iso: string) {
 export default function VoteRoundup({ className = "" }: { className?: string }) {
   return (
     <section className={className} aria-labelledby="vote-roundup">
+      <ExplainText>
       <p className="kicker mb-3 text-[var(--brand)]">The record, not the promise</p>
       <h2 id="vote-roundup" className="display-stat text-[clamp(28px,3.4vw,44px)] max-w-[20ch]">
         How Scotland&apos;s MPs actually voted
@@ -142,6 +144,7 @@ export default function VoteRoundup({ className = "" }: { className?: string }) 
           </Link>
         </div>
       </div>
+      </ExplainText>
     </section>
   );
 }

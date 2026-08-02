@@ -157,7 +157,7 @@ export default async function CouncilAccountabilityPage({
         ? "The service results below show what was measured and what was reported."
         : "No service target result has been checked for this record yet.",
     record.auditFindings.length > 0
-      ? "Independent scrutiny is shown separately from the council’s own figures."
+      ? "Independent checks are shown separately from the council’s own figures."
       : "No audit or regulator finding has been added to this record yet.",
   ].join(" ");
   const allocationFaq = allocation
@@ -192,7 +192,7 @@ export default async function CouncilAccountabilityPage({
         (countBasedMisses > 0
           ? " A further " +
             countBasedMisses +
-            " entry records a failure as a count rather than a percentage, because the source does not publish the matching denominator."
+            " entry records a failure as a count rather than a percentage, because the source does not publish the matching total."
           : ""),
     },
     {
@@ -224,7 +224,7 @@ export default async function CouncilAccountabilityPage({
 
       <Page>
         <PageHeader
-          eyebrow={`Council accountability · Checked ${record.lastReviewedOn}`}
+          eyebrow={`Holding the council to account · Checked ${record.lastReviewedOn}`}
           title={`${record.councilName}: what was promised and what happened`}
           lede={<PlainText text={record.summary} />}
         />

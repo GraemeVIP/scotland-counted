@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { Prose, Lead, P, H2, H3, UL, LI, BigStat, Aside, PostCTA } from "@/components/Prose";
+import { ExplainText } from "@/components/Glossary";
 import VideoEmbed from "@/components/VideoEmbed";
 import { JsonLd, videoJsonLd } from "@/lib/seo";
 
@@ -21,9 +22,9 @@ function Decision({
     <section className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5 sm:p-6">
       <p className="ui text-[15px] font-[750] text-[var(--action)]">{who}</p>
       <h3 className="text-[21px] font-[760] leading-[1.25] text-[var(--ink)] mt-2">{title}</h3>
-      <div className="text-[17px] leading-[1.62] text-[var(--ink-2)] mt-3 space-y-3">{children}</div>
+      <div className="text-[17px] leading-[1.62] text-[var(--ink-2)] mt-3 space-y-3"><ExplainText>{children}</ExplainText></div>
       <p className="text-[15px] leading-[1.5] text-[var(--muted)] mt-4 pt-4 border-t border-[var(--rule)]">
-        <strong className="text-[var(--ink-2)]">The record:</strong> {proof}
+        <strong className="text-[var(--ink-2)]">The record:</strong> <ExplainText>{proof}</ExplainText>
       </p>
     </section>
   );
