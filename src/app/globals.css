@@ -263,6 +263,20 @@
     -webkit-line-clamp: 2;
   }
 
+  /*
+   * Two lines, hard stop. A long headline over a photograph is only legible
+   * where the scrim is dark, and the scrim can only be so tall before it
+   * swallows the picture. Clamping the title is what keeps it inside the part
+   * of the image that is actually dark enough to read against — the four-line
+   * titles were climbing onto bare photograph.
+   */
+  .blog-carousel-title {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
   .blog-carousel-viewport {
     overflow: hidden;
   }
