@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { G, PlainText } from "@/components/Glossary";
 import Faq from "@/components/Faq";
 import { CTA, ContentFrame, EvidenceDetails, InShort, Page, PageHeader } from "@/components/Blocks";
 import {
@@ -45,8 +46,8 @@ function statusLabel(status: PerformanceOutcome["status"] | CommitmentStatus | A
   return {
     met: "Target met",
     missed: "Target missed",
-    "not-comparable": "Not directly comparable",
-    "not-verified": "Needs a fresh check",
+    "not-comparable": "Cannot compare fairly",
+    "not-verified": "Needs new evidence",
     planned: "Planned",
     "in-progress": "In progress",
     complete: "Marked complete",
@@ -116,6 +117,49 @@ export default async function CouncilAccountabilityPage({
   const projectedGap = record.budgetContext.find(
     (figure) => figure.qualifier === "projected" && /gap|shortfall/i.test(figure.label + " " + figure.plainEnglish),
   );
+  const quickReadCards = [
+    {
+      label: projectedGap ? "Money is tight" : "Money in the record",
+      value: projectedGap ? money(projectedGap.value, projectedGap.unit) : "—",
+      sub: projectedGap ? "published forecast" : "no gap published yet",
+      body: projectedGap
+        ? "The council says it still needs to find this much. It is not money already missing from the bank."
+        : "No future money gap has been added to this record yet.",
+      accent: "var(--brand)",
+    },
+    {
+      label: "Targets missed",
+      value: missed.length > 0 ? String(missed.length) : reportedOutcomes.length > 0 ? "0" : "—",
+      sub: missed.length > 0 ? "in this record" : reportedOutcomes.length > 0 ? "checked targets" : "not checked yet",
+      body: missed.length > 0
+        ? "These are the service results where the published target was not reached."
+        : reportedOutcomes.length > 0
+          ? "The results checked here are not marked as missed."
+          : "There is no checked service target in this record yet.",
+      accent: "var(--action)",
+    },
+    {
+      label: "Still unanswered",
+      value: String(record.knownGaps.length),
+      sub: record.knownGaps.length === 1 ? "thing to check" : "things to check",
+      body: "We show what the public evidence does not answer yet, instead of guessing.",
+      accent: "var(--good)",
+    },
+  ];
+  const shortVersion = [
+    record.councilName + " has money coming in.",
+    projectedGap
+      ? "It also faces " + money(projectedGap.value, projectedGap.unit, projectedGap.qualifier) + " in the published forecast."
+      : "The published figures and their limits are set out below.",
+    missed.length > 0
+      ? "This record includes " + missed.length + " service result" + (missed.length === 1 ? "" : "s") + " marked as missed."
+      : reportedOutcomes.length > 0
+        ? "The service results below show what was measured and what was reported."
+        : "No service target result has been checked for this record yet.",
+    record.auditFindings.length > 0
+      ? "Independent scrutiny is shown separately from the council’s own figures."
+      : "No audit or regulator finding has been added to this record yet.",
+  ].join(" ");
   const allocationFaq = allocation
     ? record.councilName +
       " has " +
@@ -181,45 +225,75 @@ export default async function CouncilAccountabilityPage({
       <Page>
         <PageHeader
           eyebrow={`Council accountability · Checked ${record.lastReviewedOn}`}
-          title={`${record.councilName}: budgets, performance and promises`}
-          lede={record.summary}
+          title={`${record.councilName}: what was promised and what happened`}
+          lede={<PlainText text={record.summary} />}
         />
 
         <ContentFrame>
           <InShort expert={false}>
+            <p><PlainText text={shortVersion} /></p>
             <p>
-              <strong>The short version:</strong> {record.councilName} has money coming in.{" "}
-              {projectedGap
-                ? "It also faces " + money(projectedGap.value, projectedGap.unit, projectedGap.qualifier) + " in the published forecast."
-                : "The published figures and their limits are set out below."}{" "}
-              {missed.length > 0
-                ? "This record includes " + missed.length + " service result" + (missed.length === 1 ? "" : "s") + " marked as missed."
-                : reportedOutcomes.length > 0
-                  ? "The service results below show what was measured and what was reported."
-                  : "No service-target result has been verified for this record yet."}{" "}
-              {record.auditFindings.length > 0
-                ? "Independent scrutiny is shown separately from the council's own figures."
-                : "No audit or regulator finding has been added to this record yet."}
+              <PlainText text="This page keeps difficult findings visible without turning a forecast, a target or a count into something it does not mean. Open the source links when you want the full detail." />
             </p>
-            <p>
-              This page keeps difficult findings visible without turning a forecast, a target or a
-              count into something it does not mean. Open the source links when you want the full detail.
+            <p className="ui mt-4 text-[14px] leading-[1.5] text-[var(--muted)]">
+              Words with a dotted underline have a quick explanation. Hover or tap them.
             </p>
           </InShort>
 
+        <section
+          aria-labelledby="quick-read-title"
+          className="mt-8 rounded-[var(--r-l)] bg-[var(--deep)] p-5 text-[var(--deep-ink)] sm:p-7"
+        >
+          <div className="flex flex-wrap items-end justify-between gap-5">
+            <div>
+              <p className="kicker text-[var(--action)]">The headline</p>
+              <h2 id="quick-read-title" className="mt-2 text-[clamp(28px,4vw,46px)] font-[800] leading-[1] tracking-[-0.035em]">
+                Three things to know
+              </h2>
+              <p className="mt-3 max-w-[58ch] text-[16px] leading-[1.55] opacity-85">
+                If you only read one part, read this. The detailed figures and official source links come after it.
+              </p>
+            </div>
+            <a href="#money" className="btn btn-on-deep !px-5 !py-2.5 !text-[15px]">
+              See the evidence <span aria-hidden="true">↓</span>
+            </a>
+          </div>
+
+          <div className="mt-6 grid gap-3 md:grid-cols-3">
+            {quickReadCards.map((card) => (
+              <article
+                key={card.label}
+                className="rounded-[var(--r-m)] border border-[var(--rule)] border-t-4 bg-[var(--surface)] p-5 text-[var(--ink)]"
+                style={{ borderTopColor: card.accent }}
+              >
+                <p className="ui text-[15px] font-[760] text-[var(--ink-2)]">{card.label}</p>
+                <p className="mt-3 text-[clamp(30px,4vw,48px)] font-[800] leading-none tracking-[-0.04em]" style={{ color: card.accent }}>
+                  {card.value}
+                </p>
+                <p className="ui mt-2 text-[14px] font-[700] text-[var(--ink-2)]">{card.sub}</p>
+                <p className="mt-4 text-[15px] leading-[1.5] text-[var(--ink-2)]">{card.body}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
           <nav
-            aria-label="On this council page"
-            className="mt-8 flex flex-wrap gap-2 border-y border-[var(--rule)] py-4"
-          >
-            {["money", "performance", "audit-trail", "promises", "sources"].map((anchor) => (
+          aria-label="On this council page"
+          className="mt-8 flex flex-wrap gap-2 border-y border-[var(--rule)] py-4"
+        >
+            {[
+              { id: "money", label: "Money" },
+              { id: "performance", label: "Targets" },
+              { id: "audit-trail", label: "What auditors found" },
+              { id: "promises", label: "Promises" },
+              { id: "sources", label: "Sources" },
+            ].map((anchor) => (
               <a
-                key={anchor}
-                href={`#${anchor}`}
+                key={anchor.id}
+                href={`#${anchor.id}`}
                 className="ui rounded-[var(--r-pill)] border border-[var(--rule)] px-3.5 py-2 text-[15px] font-[650] text-[var(--ink-2)] hover:border-[var(--brand)] hover:text-[var(--brand)]"
               >
-                {anchor === "audit-trail"
-                  ? "Audit findings"
-                  : anchor.charAt(0).toUpperCase() + anchor.slice(1)}
+                {anchor.label}
               </a>
             ))}
           </nav>
@@ -228,11 +302,12 @@ export default async function CouncilAccountabilityPage({
             <p className="kicker mb-2 text-[var(--brand)]">Follow the money</p>
             <h2 className="h2 mb-3">What the published figures say</h2>
             <p className="max-w-[68ch] text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
-              A funding allocation is not the same thing as money left to spend. A projected gap is
-              not the same thing as a bill already unpaid. These cards keep those ideas separate.
-              When an official source says &quot;outturn&quot;, it means the final spending result after
-              the year has finished. &quot;Medium term&quot; means the next few years, and &quot;transformation&quot;
-              means changing how a service works.
+              A <G t="funding-allocation">funding allocation</G> is not the same thing as money left
+              to spend. A <G t="budget-gap">budget gap</G> is money the council says it still needs
+              to find, not a bill already unpaid. A <G t="projected">projected</G> number is a
+              forecast. An <G t="outturn">outturn</G> is what really happened after the year ended.
+              <G t="revenue-budget">Revenue budget</G> pays for everyday services. A
+              <G t="capital-programme">capital programme</G> pays for big, long-term things.
             </p>
             <div className="mt-7 grid gap-4 md:grid-cols-3">
               {record.budgetContext.length > 0 ? record.budgetContext.map((figure) => (
@@ -240,12 +315,12 @@ export default async function CouncilAccountabilityPage({
                   key={figure.id}
                   className="rounded-[var(--r-m)] border border-[var(--rule)] border-t-[3px] border-t-[var(--brand)] bg-[var(--surface)] p-6"
                 >
-                  <p className="ui text-[15px] font-[750] leading-[1.4] text-[var(--muted)]">{figure.label}</p>
+                  <p className="ui text-[15px] font-[750] leading-[1.4] text-[var(--muted)]"><PlainText text={figure.label} /></p>
                   <p className="figure-num mt-4 text-[42px] leading-none text-[var(--brand)]">
                     {money(figure.value, figure.unit, figure.qualifier)}
                   </p>
                   <p className="ui mt-3 text-[15px] font-[650] text-[var(--ink-2)]">{figure.period}</p>
-                  <p className="mt-4 text-[16px] leading-[1.55] text-[var(--ink-2)]">{figure.plainEnglish}</p>
+                  <p className="mt-4 text-[16px] leading-[1.55] text-[var(--ink-2)]"><PlainText text={figure.plainEnglish} /></p>
                   <ClaimSource record={record} sourceIds={figure.sourceIds} />
                 </article>
               )) : (
@@ -262,13 +337,18 @@ export default async function CouncilAccountabilityPage({
               {reportedOutcomes.length > 0 ? "Promises versus results" : "The missing evidence"}
             </p>
             <h2 className="h2 mb-3">
-              {reportedOutcomes.length > 0 ? "Service targets: what was missed and what was met" : "What is still missing from the service results"}
+              {reportedOutcomes.length > 0 ? "Did services do what they promised?" : "What we still do not know about services"}
             </h2>
             <p className="max-w-[68ch] text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
-              The cards below keep the target and reported result separate. Some use percentages,
-              some use days and some use counts. The source note explains what each one means, so we
-              do not turn a count into a made-up rate.
+              A <G t="service-target">service target</G> is what the council promised. The reported
+              result is what happened. We keep them side by side and flag it when the two figures
+              cannot be compared fairly.
             </p>
+            <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-[14px] leading-[1.5] text-[var(--ink-2)]" aria-label="How to read the status labels">
+              <span className="inline-flex items-center gap-2"><span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-[var(--bad-text)]" /> Red means the source says a target was missed or a matter is still open.</span>
+              <span className="inline-flex items-center gap-2"><span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-[var(--good-text)]" /> Green means the target was met or the action is marked complete.</span>
+              <span className="inline-flex items-center gap-2"><span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-[var(--muted)]" /> Grey means there is not enough evidence for a firm result.</span>
+            </div>
             <div className="mt-7 grid gap-4 md:grid-cols-2">
               {record.outcomes.length > 0 ? record.outcomes.map((outcome) => (
                 <article
@@ -277,8 +357,8 @@ export default async function CouncilAccountabilityPage({
                 >
                   <div className="flex flex-wrap items-start justify-between gap-3">
                     <div>
-                      <p className="ui text-[15px] font-[750] text-[var(--muted)]">{outcome.service}</p>
-                      <h3 className="h3 mt-2">{outcome.measure}</h3>
+                      <p className="ui text-[15px] font-[750] text-[var(--muted)]"><PlainText text={outcome.service} /></p>
+                      <h3 className="h3 mt-2"><PlainText text={outcome.measure} /></h3>
                     </div>
                     <span className={`ui shrink-0 rounded-[var(--r-pill)] border px-3 py-1.5 text-[14px] font-[750] ${statusClass(outcome.status)}`}>
                       {statusLabel(outcome.status)}
@@ -299,7 +379,7 @@ export default async function CouncilAccountabilityPage({
                   </p>
                   {outcome.comparisonNote && (
                     <p className="mt-3 border-l-2 border-[var(--brand)] pl-3 text-[15px] leading-[1.55] text-[var(--ink-2)]">
-                      {outcome.comparisonNote}
+                      <PlainText text={outcome.comparisonNote} />
                     </p>
                   )}
                   <ClaimSource record={record} sourceIds={outcome.sourceIds} />
@@ -314,13 +394,14 @@ export default async function CouncilAccountabilityPage({
           </section>
 
           <section id="audit-trail" className="pt-14 scroll-mt-24">
-            <p className="kicker mb-2 text-[var(--bad-text)]">Independent scrutiny</p>
-            <h2 className="h2 mb-3">What auditors and regulators found</h2>
+            <p className="kicker mb-2 text-[var(--bad-text)]">Outside checks</p>
+            <h2 className="h2 mb-3">What the auditors found</h2>
             <p className="max-w-[68ch] text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
-              These are findings from Audit Scotland, the Accounts Commission and the Scottish
-              Housing Regulator. They are not anonymous complaints or political commentary.
-              &quot;Best Value&quot; is the official name for one of the checks used by the Accounts
-              Commission; it is not a claim that every service is good.
+              These are checks by people outside the council: Audit Scotland, the Accounts
+              Commission and the Scottish Housing Regulator. An <G t="audit-finding">audit finding</G>
+              is a point they recorded after checking the books or how a service works.{" "}
+              <G t="best-value">Best Value</G> is the formal name for one of those checks. It is not
+              a gold star for every service.
             </p>
             <div className="mt-7 grid gap-4">
               {record.auditFindings.length > 0 ? record.auditFindings.map((finding) => (
@@ -330,22 +411,22 @@ export default async function CouncilAccountabilityPage({
                 >
                   <div className="flex flex-wrap items-start justify-between gap-3">
                     <div>
-                      <p className="ui text-[15px] font-[750] text-[var(--muted)]">{finding.publisher} · {finding.reportDate}</p>
-                      <h3 className="h3 mt-2">{finding.title}</h3>
+                      <p className="ui text-[15px] font-[750] text-[var(--muted)]"><PlainText text={finding.publisher} /> · {finding.reportDate}</p>
+                      <h3 className="h3 mt-2"><PlainText text={finding.title} /></h3>
                     </div>
                     <span className={`ui shrink-0 rounded-[var(--r-pill)] border px-3 py-1.5 text-[14px] font-[750] ${statusClass(finding.status)}`}>
                       {statusLabel(finding.status)}
                     </span>
                   </div>
-                  <p className="mt-4 max-w-[78ch] text-[16px] leading-[1.6] text-[var(--ink-2)]">{finding.finding}</p>
+                  <p className="mt-4 max-w-[78ch] text-[16px] leading-[1.6] text-[var(--ink-2)]"><PlainText text={finding.finding} /></p>
                   {finding.recommendation && (
                     <p className="mt-4 max-w-[78ch] border-l-2 border-[var(--brand)] pl-3 text-[15px] leading-[1.55] text-[var(--ink-2)]">
-                      <strong>What was recommended:</strong> {finding.recommendation}
+                      <strong>What was recommended:</strong> <PlainText text={finding.recommendation} />
                     </p>
                   )}
                   {finding.managementResponse && (
                     <p className="mt-3 max-w-[78ch] text-[15px] leading-[1.55] text-[var(--ink-2)]">
-                      <strong>The recorded response:</strong> {finding.managementResponse}
+                      <strong>The recorded response:</strong> <PlainText text={finding.managementResponse} />
                     </p>
                   )}
                   <ClaimSource record={record} sourceIds={finding.sourceIds} />
@@ -365,23 +446,27 @@ export default async function CouncilAccountabilityPage({
           </section>
 
           <section id="promises" className="pt-14 scroll-mt-24">
-            <p className="kicker mb-2 text-[var(--brand)]">What was promised</p>
-            <h2 className="h2 mb-3">Commitments and deadlines</h2>
+            <p className="kicker mb-2 text-[var(--brand)]">What your council said it would do</p>
+            <h2 className="h2 mb-3">Promises and deadlines</h2>
+            <p className="max-w-[68ch] text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
+              A <G t="commitment">commitment</G> is something the council said it would do. We look
+              for a date, an owner and later proof. Saying it in a plan is not the same as finishing it.
+            </p>
             <div className="mt-7 grid gap-4 md:grid-cols-2">
               {record.commitments.length > 0 ? record.commitments.map((commitment) => (
                 <article key={commitment.id} className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-6">
                   <div className="flex flex-wrap items-start justify-between gap-3">
-                    <h3 className="h3">{commitment.title}</h3>
+                    <h3 className="h3"><PlainText text={commitment.title} /></h3>
                     <span className={`ui shrink-0 rounded-[var(--r-pill)] border px-3 py-1.5 text-[14px] font-[750] ${statusClass(commitment.status)}`}>
                       {statusLabel(commitment.status)}
                     </span>
                   </div>
-                  <p className="mt-4 text-[16px] leading-[1.6] text-[var(--ink-2)]">{commitment.commitment}</p>
+                  <p className="mt-4 text-[16px] leading-[1.6] text-[var(--ink-2)]"><PlainText text={commitment.commitment} /></p>
                   <dl className="mt-5 grid gap-2 text-[15px] leading-[1.5] text-[var(--ink-2)]">
                     <div><dt className="inline font-[700]">Owner:</dt> <dd className="inline">{commitment.owner}</dd></div>
                     <div><dt className="inline font-[700]">Due:</dt> <dd className="inline">{commitment.dueBy ?? "No date published"}</dd></div>
                   </dl>
-                  <p className="mt-4 border-l-2 border-[var(--rule-strong)] pl-3 text-[15px] leading-[1.55] text-[var(--ink-2)]">{commitment.currentEvidence}</p>
+                  <p className="mt-4 border-l-2 border-[var(--rule-strong)] pl-3 text-[15px] leading-[1.55] text-[var(--ink-2)]"><PlainText text={commitment.currentEvidence} /></p>
                   <ClaimSource record={record} sourceIds={commitment.sourceIds} />
                 </article>
               )) : (
@@ -393,14 +478,14 @@ export default async function CouncilAccountabilityPage({
           </section>
 
           <section id="sources" className="pt-14 scroll-mt-24 max-w-[820px]">
-            <h2 className="h2 mb-3">What is still missing</h2>
+            <h2 className="h2 mb-3">What we still do not know</h2>
             <p className="text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
               This is a first, source-complete record, not a claim that every council decision is
               covered. These gaps stay visible so the page cannot pretend to know more than the
               evidence supports.
             </p>
             <ul className="mt-5 list-disc space-y-2 pl-5 text-[16px] leading-[1.6] text-[var(--ink-2)]">
-              {record.knownGaps.map((gap) => <li key={gap}>{gap}</li>)}
+              {record.knownGaps.map((gap) => <li key={gap}><PlainText text={gap} /></li>)}
             </ul>
 
             <EvidenceDetails className="mt-8" summary={`Show the ${record.sources.length} official sources`}>
@@ -413,7 +498,7 @@ export default async function CouncilAccountabilityPage({
                         {source.title}
                       </a>
                       <p className="ui mt-1 text-[14px] text-[var(--muted)]">{source.publisher}{source.publishedOn ? ` · ${source.publishedOn}` : ""}</p>
-                      <p className="mt-2 text-[15px] leading-[1.55] text-[var(--ink-2)]">{source.usedFor}</p>
+                      <p className="mt-2 text-[15px] leading-[1.55] text-[var(--ink-2)]"><PlainText text={source.usedFor} /></p>
                     </div>
                   </li>
                 ))}

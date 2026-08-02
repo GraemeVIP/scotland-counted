@@ -532,6 +532,23 @@
     background: #fff;
   }
 
+  /* The full site map should read as a destination, not a seventh quiet link. */
+  .everything-trigger {
+    min-height: 40px;
+    padding: 8px 12px;
+    border: 1px solid var(--brand);
+    border-radius: var(--r-pill);
+    background: var(--brand-wash);
+    color: var(--ink);
+    box-shadow: var(--shadow-1);
+  }
+  .everything-trigger:hover,
+  .everything-trigger[aria-expanded="true"] {
+    border-color: var(--brand-deep);
+    background: var(--surface);
+    box-shadow: 0 0 0 3px var(--brand-wash), var(--shadow-1);
+  }
+
   /* ============================================================
      Glossary
      ============================================================ */
@@ -556,6 +573,7 @@
 
   .glossbox {
     position: absolute;
+    display: block;
     z-index: 60;
     max-width: 350px;
     border-radius: var(--r-m);

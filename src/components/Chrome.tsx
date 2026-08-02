@@ -166,8 +166,10 @@ export function Header() {
             onClick={() => setBrowsePath(browse ? null : pathname)}
             aria-expanded={browse}
             aria-controls="browse-panel"
-            className="ui relative hidden xl:inline-flex whitespace-nowrap text-[15px] font-[620] tracking-[-0.005em] py-1 transition-colors text-[var(--ink-2)] hover:text-[var(--ink)] items-center gap-1.5"
+            aria-label="Everything on this site"
+            className="everything-trigger ui relative hidden xl:inline-flex whitespace-nowrap text-[15px] font-[720] tracking-[-0.005em] transition-colors items-center gap-2"
           >
+            <span aria-hidden="true" className="h-2 w-2 shrink-0 rounded-full bg-[var(--brand)]" />
             Everything
             <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" aria-hidden="true" className={`transition-transform ${browse ? "rotate-180" : ""}`}>
               <path d="m5 8 7 7 7-7" />

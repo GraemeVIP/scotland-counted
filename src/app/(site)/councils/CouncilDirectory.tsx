@@ -76,6 +76,15 @@ export default function CouncilDirectory({ councils, publishedSlugs }: CouncilDi
         </p>
       </div>
 
+      <div className="mt-5 flex items-start gap-3 rounded-[var(--r-s)] border border-[var(--brand)] bg-[var(--brand-wash)] p-4 sm:p-5">
+        <span aria-hidden="true" className="mt-1.5 h-3 w-3 shrink-0 rounded-full bg-[var(--brand)]" />
+        <p className="text-[15px] leading-[1.5] text-[var(--ink-2)]">
+          <strong className="text-[var(--ink)]">Blue border = a detailed council record is published. </strong>
+          It does not mean the council has passed or failed. A red status inside a record is used
+          only when an official source says a target was missed or something still needs attention.
+        </p>
+      </div>
+
       {visibleCouncils.length > 0 ? (
         <div id="council-results" className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {visibleCouncils.map((council) => {
@@ -84,25 +93,25 @@ export default function CouncilDirectory({ councils, publishedSlugs }: CouncilDi
               <article
                 key={council.slug}
                 className={`rounded-[var(--r-s)] border bg-[var(--surface)] p-5 ${
-                  hasRecord ? "border-[var(--action)] border-t-[3px]" : "border-[var(--rule)]"
+                  hasRecord ? "border-[var(--brand)] border-t-[3px]" : "border-[var(--rule)]"
                 }`}
               >
                 <p className="ui text-[15px] font-[750] text-[var(--muted)]">
-                  {hasRecord ? "Accountability record" : "Local facts available"}
+                  {hasRecord ? "Detailed council record" : "Local facts available"}
                 </p>
                 <h3 className="ui mt-2 text-[18px] font-[750] leading-[1.3] text-[var(--ink)]">
                   {council.name}
                 </h3>
                 <p className="mt-2 text-[15px] leading-[1.5] text-[var(--ink-2)]">
                   {hasRecord
-                    ? "Published budgets, audit findings and the evidence still missing."
+                    ? "Budgets, targets, audit findings and promises, with sources."
                     : "Council accountability record coming soon. Local poverty facts are ready now."}
                 </p>
                 <Link
                   href={hasRecord ? `/councils/${council.slug}` : `/areas/${council.slug}`}
                   className="ui mt-4 inline-block text-[15px] font-[700] text-[var(--brand)]"
                 >
-                  {hasRecord ? "Open the council record →" : "See the area figures →"}
+                  {hasRecord ? "Read the council record →" : "See the area figures →"}
                 </Link>
               </article>
             );
