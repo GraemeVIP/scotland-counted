@@ -8,6 +8,7 @@ type EditorialImageProps = {
   aspect?: "landscape" | "wide";
   objectPosition?: string;
   sizes?: string;
+  loading?: "eager" | "lazy";
 };
 
 export default function EditorialImage({
@@ -18,6 +19,7 @@ export default function EditorialImage({
   aspect = "landscape",
   objectPosition = "center",
   sizes = "(min-width: 1024px) 1120px, calc(100vw - 40px)",
+  loading,
 }: EditorialImageProps) {
   return (
     <figure
@@ -29,6 +31,7 @@ export default function EditorialImage({
           alt={alt}
           fill
           sizes={sizes}
+          loading={loading}
           className="object-cover"
           style={{ objectPosition }}
         />

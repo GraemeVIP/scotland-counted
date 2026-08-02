@@ -27,7 +27,12 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
     type: "article",
     published: post.date,
     modified: post.updated ?? post.date,
-    ownImage: true,
+    image: post.shareImage?.src,
+    imageAlt: post.shareImage ? post.image.alt : undefined,
+    imageWidth: post.shareImage?.width,
+    imageHeight: post.shareImage?.height,
+    imageType: post.shareImage?.type,
+    ownImage: !post.shareImage,
   });
 }
 
@@ -116,6 +121,7 @@ export default async function BlogPost(props: { params: Promise<{ slug: string }
             caption={post.image.caption}
             aspect="wide"
             objectPosition={post.image.objectPosition}
+            loading="eager"
             className="mt-9 sm:mt-11 max-w-[1240px] mx-auto"
             sizes="(min-width: 1536px) 1240px, (min-width: 1024px) calc(100vw - 112px), calc(100vw - 40px)"
           />
