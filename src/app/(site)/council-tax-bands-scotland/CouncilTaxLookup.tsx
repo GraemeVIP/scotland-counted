@@ -64,10 +64,12 @@ export default function CouncilTaxLookup() {
     setMessage("");
     setResult(null);
     try {
-      const response = await fetch(
-        `/api/representatives?postcode=${encodeURIComponent(value)}`,
-        { cache: "no-store" }
-      );
+      const response = await fetch("/api/postcode-area", {
+        method: "POST",
+        cache: "no-store",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ postcode: value }),
+      });
       const data = (await response.json()) as
         | { council: { name: string; slug: string } }
         | { error?: string };
@@ -95,6 +97,7 @@ export default function CouncilTaxLookup() {
             value={postcode}
             onChange={(event) => setPostcode(event.target.value.toUpperCase())}
             placeholder="Your postcode, e.g. G12 8QQ"
+            data-clarity-mask="true"
             autoComplete="postal-code"
             className="ui min-h-12 w-full rounded-[var(--r-s)] border border-[var(--rule-strong)] bg-[var(--paper)] px-4 text-[16px] text-[var(--ink)] outline-none transition-colors placeholder:text-[var(--muted)] focus:border-[var(--brand)]"
           />

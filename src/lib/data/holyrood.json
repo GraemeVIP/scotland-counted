@@ -1,0 +1,1398 @@
+{
+  "checkedAt": "2026-08-02T06:09:22.546Z",
+  "source": "https://data.parliament.scot/",
+  "sourceName": "Scottish Parliament Open Data",
+  "constituencies": [
+    {
+      "constituency": "Aberdeen Central",
+      "constituencySlug": "aberdeen-central",
+      "region": "North East Scotland",
+      "regionSlug": "north-east-scotland",
+      "msp": {
+        "name": "Jack Middleton",
+        "party": "Scottish National Party",
+        "email": "jack.middleton.msp@parliament.scot",
+        "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/jack-middleton"
+      }
+    },
+    {
+      "constituency": "Aberdeen Deeside and North Kincardine",
+      "constituencySlug": "aberdeen-deeside-and-north-kincardine",
+      "region": "North East Scotland",
+      "regionSlug": "north-east-scotland",
+      "msp": {
+        "name": "Stephen Flynn",
+        "party": "Scottish National Party",
+        "email": "Stephen.Flynn.msp@parliament.scot",
+        "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/stephen-flynn"
+      }
+    },
+    {
+      "constituency": "Aberdeen Donside",
+      "constituencySlug": "aberdeen-donside",
+      "region": "North East Scotland",
+      "regionSlug": "north-east-scotland",
+      "msp": {
+        "name": "Jackie Dunbar",
+        "party": "Scottish National Party",
+        "email": "Jackie.Dunbar.msp@parliament.scot",
+        "officeAddress": null,
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/jackie-dunbar"
+      }
+    },
+    {
+      "constituency": "Aberdeenshire East",
+      "constituencySlug": "aberdeenshire-east",
+      "region": "North East Scotland",
+      "regionSlug": "north-east-scotland",
+      "msp": {
+        "name": "Gillian Martin",
+        "party": "Scottish National Party",
+        "email": "Gillian.Martin.msp@parliament.scot",
+        "officeAddress": "Suite A, Unit 6, Colpy Business Park, Oldmeldrum, Aberdeenshire, AB51 0FU",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/gillian-martin"
+      }
+    },
+    {
+      "constituency": "Aberdeenshire West",
+      "constituencySlug": "aberdeenshire-west",
+      "region": "North East Scotland",
+      "regionSlug": "north-east-scotland",
+      "msp": {
+        "name": "Alexander Burnett",
+        "party": "Scottish Conservative and Unionist Party",
+        "email": "Alexander.Burnett.msp@parliament.scot",
+        "officeAddress": "8 Castle Street, Huntly, Aberdeenshire, AB54 8BP",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/alexander-burnett"
+      }
+    },
+    {
+      "constituency": "Airdrie",
+      "constituencySlug": "airdrie",
+      "region": "Central Scotland and Lothians West",
+      "regionSlug": "central-scotland-and-lothians-west",
+      "msp": {
+        "name": "Neil Gray",
+        "party": "Scottish National Party",
+        "email": "Neil.Gray.msp@parliament.scot",
+        "officeAddress": "Office 9, Airdrie Business Centre, Chapel Lane, Airdrie, ML6 6GX",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/neil-gray"
+      }
+    },
+    {
+      "constituency": "Almond Valley",
+      "constituencySlug": "almond-valley",
+      "region": "Central Scotland and Lothians West",
+      "regionSlug": "central-scotland-and-lothians-west",
+      "msp": {
+        "name": "Angela Constance",
+        "party": "Scottish National Party",
+        "email": "Angela.Constance.msp@parliament.scot",
+        "officeAddress": "Unit 4, Ochil House, Beveridge Square, Livingston, West Lothian, EH54 6QF",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/angela-constance"
+      }
+    },
+    {
+      "constituency": "Angus North and Mearns",
+      "constituencySlug": "angus-north-and-mearns",
+      "region": "North East Scotland",
+      "regionSlug": "north-east-scotland",
+      "msp": {
+        "name": "Dawn Black",
+        "party": "Scottish National Party",
+        "email": "Dawn.Black.msp@parliament.scot",
+        "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/dawn-black"
+      }
+    },
+    {
+      "constituency": "Angus South",
+      "constituencySlug": "angus-south",
+      "region": "North East Scotland",
+      "regionSlug": "north-east-scotland",
+      "msp": {
+        "name": "Lloyd Melville",
+        "party": "Scottish National Party",
+        "email": "Lloyd.Melville.msp@parliament.scot",
+        "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/lloyd-melville"
+      }
+    },
+    {
+      "constituency": "Argyll and Bute",
+      "constituencySlug": "argyll-and-bute",
+      "region": "Highlands and Islands",
+      "regionSlug": "highlands-and-islands",
+      "msp": {
+        "name": "Jenni Minto",
+        "party": "Scottish National Party",
+        "email": "Jenni.Minto.msp@parliament.scot",
+        "officeAddress": "60-62 Hillfoot Street, Dunoon, PA23 7DT",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/jenni-minto"
+      }
+    },
+    {
+      "constituency": "Ayr",
+      "constituencySlug": "ayr",
+      "region": "South Scotland",
+      "regionSlug": "south-scotland",
+      "msp": {
+        "name": "Siobhian Brown",
+        "party": "Scottish National Party",
+        "email": "Siobhian.Brown.msp@parliament.scot",
+        "officeAddress": "9 Beresford Terrace, Ayr, KA7 2ER",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/siobhian-brown"
+      }
+    },
+    {
+      "constituency": "Banffshire and Buchan Coast",
+      "constituencySlug": "banffshire-and-buchan-coast",
+      "region": "North East Scotland",
+      "regionSlug": "north-east-scotland",
+      "msp": {
+        "name": "Karen Adam",
+        "party": "Scottish National Party",
+        "email": "Karen.Adam.msp@parliament.scot",
+        "officeAddress": "20 Chapel Street, Peterhead, AB42 1TL",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/karen-adam"
+      }
+    },
+    {
+      "constituency": "Bathgate",
+      "constituencySlug": "bathgate",
+      "region": "Central Scotland and Lothians West",
+      "regionSlug": "central-scotland-and-lothians-west",
+      "msp": {
+        "name": "Pauline Stafford",
+        "party": "Scottish National Party",
+        "email": "Pauline.Stafford.msp@parliament.scot",
+        "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/pauline-stafford"
+      }
+    },
+    {
+      "constituency": "Caithness, Sutherland and Ross",
+      "constituencySlug": "caithness-sutherland-and-ross",
+      "region": "Highlands and Islands",
+      "regionSlug": "highlands-and-islands",
+      "msp": {
+        "name": "David Green",
+        "party": "Scottish Liberal Democrats",
+        "email": "David.Green.msp@parliament.scot",
+        "officeAddress": null,
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/david-green"
+      }
+    },
+    {
+      "constituency": "Carrick, Cumnock and Doon Valley",
+      "constituencySlug": "carrick-cumnock-and-doon-valley",
+      "region": "South Scotland",
+      "regionSlug": "south-scotland",
+      "msp": {
+        "name": "Katie Hagmann",
+        "party": "Scottish National Party",
+        "email": "Katie.Hagmann.msp@parliament.scot",
+        "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/katie-hagmann"
+      }
+    },
+    {
+      "constituency": "Clackmannanshire and Dunblane",
+      "constituencySlug": "clackmannanshire-and-dunblane",
+      "region": "Mid Scotland and Fife",
+      "regionSlug": "mid-scotland-and-fife",
+      "msp": {
+        "name": "Keith Brown",
+        "party": "Scottish National Party",
+        "email": "Keith.Brown.msp@parliament.scot",
+        "officeAddress": "Office 2.5, The E-Centre, Cooperage Way, Alloa, FK10 3LP",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/keith-brown"
+      }
+    },
+    {
+      "constituency": "Clydebank and Milngavie",
+      "constituencySlug": "clydebank-and-milngavie",
+      "region": "West Scotland",
+      "regionSlug": "west-scotland",
+      "msp": {
+        "name": "Marie McNair",
+        "party": "Scottish National Party",
+        "email": "Marie.McNair.msp@parliament.scot",
+        "officeAddress": "Titan Enterprise Business Centre, 1 Aurora Avenue, Queens Quay, Clydebank, G81 1BF",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/marie-mcnair"
+      }
+    },
+    {
+      "constituency": "Clydesdale",
+      "constituencySlug": "clydesdale",
+      "region": "South Scotland",
+      "regionSlug": "south-scotland",
+      "msp": {
+        "name": "Màiri McAllan",
+        "party": "Scottish National Party",
+        "email": "Mairi.McAllan.msp@parliament.scot",
+        "officeAddress": "12 St Vincent Place, Lanark, South Lanarkshire, ML11 7LA",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/mairi-mcallan"
+      }
+    },
+    {
+      "constituency": "Coatbridge and Chryston",
+      "constituencySlug": "coatbridge-and-chryston",
+      "region": "Central Scotland and Lothians West",
+      "regionSlug": "central-scotland-and-lothians-west",
+      "msp": {
+        "name": "Fulton MacGregor",
+        "party": "Scottish National Party",
+        "email": "Fulton.MacGregor.msp@parliament.scot",
+        "officeAddress": "Atrium Business Centre, North Caldeen Road, Coatbridge, ML5 4EF",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/fulton-macgregor"
+      }
+    },
+    {
+      "constituency": "Cowdenbeath",
+      "constituencySlug": "cowdenbeath",
+      "region": "Mid Scotland and Fife",
+      "regionSlug": "mid-scotland-and-fife",
+      "msp": {
+        "name": "David Barratt",
+        "party": "Scottish National Party",
+        "email": "David.Barratt.msp@parliament.scot",
+        "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/david-barratt"
+      }
+    },
+    {
+      "constituency": "Cumbernauld and Kilsyth",
+      "constituencySlug": "cumbernauld-and-kilsyth",
+      "region": "Central Scotland and Lothians West",
+      "regionSlug": "central-scotland-and-lothians-west",
+      "msp": {
+        "name": "Jamie Hepburn",
+        "party": "Scottish National Party",
+        "email": "Jamie.Hepburn.msp@parliament.scot",
+        "officeAddress": "Suite 9, Dunnswood House, Dunnswood Road, Cumbernauld, G67 3EN",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/jamie-hepburn"
+      }
+    },
+    {
+      "constituency": "Cunninghame North",
+      "constituencySlug": "cunninghame-north",
+      "region": "West Scotland",
+      "regionSlug": "west-scotland",
+      "msp": {
+        "name": "Kenneth Gibson",
+        "party": "No Party Affiliation",
+        "email": "Kenneth.Gibson.msp@parliament.scot",
+        "officeAddress": "15 Main Street, Dalry, KA24 5DL",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/kenneth-gibson"
+      }
+    },
+    {
+      "constituency": "Cunninghame South",
+      "constituencySlug": "cunninghame-south",
+      "region": "West Scotland",
+      "regionSlug": "west-scotland",
+      "msp": {
+        "name": "Patricia Gibson",
+        "party": "Scottish National Party",
+        "email": "Patricia.Gibson.msp@parliament.scot",
+        "officeAddress": "Suite 4, Caledonian House, 100 High Street, Irvine, KA12 0AX",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/patricia-gibson"
+      }
+    },
+    {
+      "constituency": "Dumbarton",
+      "constituencySlug": "dumbarton",
+      "region": "West Scotland",
+      "regionSlug": "west-scotland",
+      "msp": {
+        "name": "Jackie Baillie",
+        "party": "Scottish Labour",
+        "email": "Jackie.Baillie.msp@parliament.scot",
+        "officeAddress": "11 Castle Street, Dumbarton, G82 1QS",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/jackie-baillie"
+      }
+    },
+    {
+      "constituency": "Dumfriesshire",
+      "constituencySlug": "dumfriesshire",
+      "region": "South Scotland",
+      "regionSlug": "south-scotland",
+      "msp": {
+        "name": "Craig Hoy",
+        "party": "Scottish Conservative and Unionist Party",
+        "email": "Craig.Hoy.msp@parliament.scot",
+        "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/craig-hoy"
+      }
+    },
+    {
+      "constituency": "Dundee City East",
+      "constituencySlug": "dundee-city-east",
+      "region": "North East Scotland",
+      "regionSlug": "north-east-scotland",
+      "msp": {
+        "name": "Stephen Gethins",
+        "party": "Scottish National Party",
+        "email": "stephen.gethins.msp@parliament.scot",
+        "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/stephen-gethins"
+      }
+    },
+    {
+      "constituency": "Dundee City West",
+      "constituencySlug": "dundee-city-west",
+      "region": "North East Scotland",
+      "regionSlug": "north-east-scotland",
+      "msp": {
+        "name": "Heather Anderson",
+        "party": "Scottish National Party",
+        "email": "Heather.Anderson.msp@parliament.scot",
+        "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/heather-anderson"
+      }
+    },
+    {
+      "constituency": "Dunfermline",
+      "constituencySlug": "dunfermline",
+      "region": "Mid Scotland and Fife",
+      "regionSlug": "mid-scotland-and-fife",
+      "msp": {
+        "name": "Shirley-Anne Somerville",
+        "party": "Scottish National Party",
+        "email": "Shirley-Anne.Somerville.msp@parliament.scot",
+        "officeAddress": "Unit 2, 15 Pitreavie Court, Dunfermline, Fife, KY11 8UU",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/shirleyanne-somerville"
+      }
+    },
+    {
+      "constituency": "East Kilbride",
+      "constituencySlug": "east-kilbride",
+      "region": "South Scotland",
+      "regionSlug": "south-scotland",
+      "msp": {
+        "name": "Collette Stevenson",
+        "party": "Scottish National Party",
+        "email": "Collette.Stevenson.msp@parliament.scot",
+        "officeAddress": "1/3 Strathmore House, East Kilbride, Glasgow, G74 1LF",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/collette-stevenson"
+      }
+    },
+    {
+      "constituency": "East Lothian Coast and Lammermuirs",
+      "constituencySlug": "east-lothian-coast-and-lammermuirs",
+      "region": "Edinburgh and Lothians East",
+      "regionSlug": "edinburgh-and-lothians-east",
+      "msp": {
+        "name": "Paul McLennan",
+        "party": "Scottish National Party",
+        "email": "Paul.McLennan.msp@parliament.scot",
+        "officeAddress": "5a Mitchell's Close, Haddington, EH41 3NB",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/paul-mclennan"
+      }
+    },
+    {
+      "constituency": "Eastwood",
+      "constituencySlug": "eastwood",
+      "region": "West Scotland",
+      "regionSlug": "west-scotland",
+      "msp": {
+        "name": "Kirsten Oswald",
+        "party": "Scottish National Party",
+        "email": "Kirsten.Oswald.msp@parliament.scot",
+        "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/kirsten-oswald"
+      }
+    },
+    {
+      "constituency": "Edinburgh Central",
+      "constituencySlug": "edinburgh-central",
+      "region": "Edinburgh and Lothians East",
+      "regionSlug": "edinburgh-and-lothians-east",
+      "msp": {
+        "name": "Lorna Slater",
+        "party": "Scottish Green Party",
+        "email": "Lorna.Slater.msp@parliament.scot",
+        "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/lorna.slater"
+      }
+    },
+    {
+      "constituency": "Edinburgh Eastern, Musselburgh and Tranent",
+      "constituencySlug": "edinburgh-eastern-musselburgh-and-tranent",
+      "region": "Edinburgh and Lothians East",
+      "regionSlug": "edinburgh-and-lothians-east",
+      "msp": {
+        "name": "Kate Campbell",
+        "party": "Scottish National Party",
+        "email": "Kate.Campbell.msp@parliament.scot",
+        "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/kate-campbell"
+      }
+    },
+    {
+      "constituency": "Edinburgh North Eastern and Leith",
+      "constituencySlug": "edinburgh-north-eastern-and-leith",
+      "region": "Edinburgh and Lothians East",
+      "regionSlug": "edinburgh-and-lothians-east",
+      "msp": {
+        "name": "Ben Macpherson",
+        "party": "Scottish National Party",
+        "email": "Ben.Macpherson.msp@parliament.scot",
+        "officeAddress": "34 Constitution Street, Leith, Edinburgh, EH6 6RS",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/ben-macpherson"
+      }
+    },
+    {
+      "constituency": "Edinburgh North Western",
+      "constituencySlug": "edinburgh-north-western",
+      "region": "Edinburgh and Lothians East",
+      "regionSlug": "edinburgh-and-lothians-east",
+      "msp": {
+        "name": "Alex Cole-Hamilton",
+        "party": "Scottish Liberal Democrats",
+        "email": "Alex.Cole-Hamilton.msp@parliament.scot",
+        "officeAddress": "151 St John's Road, Corstorphine, Edinburgh, EH12 7SD",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/alex-colehamilton"
+      }
+    },
+    {
+      "constituency": "Edinburgh Northern",
+      "constituencySlug": "edinburgh-northern",
+      "region": "Edinburgh and Lothians East",
+      "regionSlug": "edinburgh-and-lothians-east",
+      "msp": {
+        "name": "Sanne Dijkstra-Downie",
+        "party": "Scottish Liberal Democrats",
+        "email": "Sanne.Dijkstra-Downie.msp@parliament.scot",
+        "officeAddress": null,
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/sanna-dijkstra-downie"
+      }
+    },
+    {
+      "constituency": "Edinburgh South Western",
+      "constituencySlug": "edinburgh-south-western",
+      "region": "Edinburgh and Lothians East",
+      "regionSlug": "edinburgh-and-lothians-east",
+      "msp": {
+        "name": "Simita Kumar",
+        "party": "Scottish National Party",
+        "email": "Simita.Kumar.msp@parliament.scot",
+        "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/simita-kumar"
+      }
+    },
+    {
+      "constituency": "Edinburgh Southern",
+      "constituencySlug": "edinburgh-southern",
+      "region": "Edinburgh and Lothians East",
+      "regionSlug": "edinburgh-and-lothians-east",
+      "msp": {
+        "name": "Daniel Johnson",
+        "party": "Scottish Labour",
+        "email": "Daniel.Johnson.msp@parliament.scot",
+        "officeAddress": "134 Comiston Road, Edinburgh, EH10 5QN",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/daniel-johnson"
+      }
+    },
+    {
+      "constituency": "Ettrick, Roxburgh and Berwickshire",
+      "constituencySlug": "ettrick-roxburgh-and-berwickshire",
+      "region": "South Scotland",
+      "regionSlug": "south-scotland",
+      "msp": {
+        "name": "Rachael Hamilton",
+        "party": "Scottish Conservative and Unionist Party",
+        "email": "Rachael.Hamilton.msp@parliament.scot",
+        "officeAddress": "7 Abbey Court, Kelso, TD5 7JA",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/rachael-hamilton"
+      }
+    },
+    {
+      "constituency": "Falkirk East and Linlithgow",
+      "constituencySlug": "falkirk-east-and-linlithgow",
+      "region": "Central Scotland and Lothians West",
+      "regionSlug": "central-scotland-and-lothians-west",
+      "msp": {
+        "name": "Martyn Day",
+        "party": "Scottish National Party",
+        "email": "Martyn.Day.msp@parliament.scot",
+        "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/martyn-day"
+      }
+    },
+    {
+      "constituency": "Falkirk West",
+      "constituencySlug": "falkirk-west",
+      "region": "Central Scotland and Lothians West",
+      "regionSlug": "central-scotland-and-lothians-west",
+      "msp": {
+        "name": "Gary Bouse",
+        "party": "Scottish National Party",
+        "email": "Gary.Bouse.msp@parliament.scot",
+        "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/gary-bouse"
+      }
+    },
+    {
+      "constituency": "Fife North East",
+      "constituencySlug": "fife-north-east",
+      "region": "Mid Scotland and Fife",
+      "regionSlug": "mid-scotland-and-fife",
+      "msp": {
+        "name": "Willie Rennie",
+        "party": "Scottish Liberal Democrats",
+        "email": "Willie.Rennie.msp@parliament.scot",
+        "officeAddress": "Unit G1, Granary Business Centre, Coal Road, Cupar, KY15 5YQ",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/willie-rennie"
+      }
+    },
+    {
+      "constituency": "Galloway and West Dumfries",
+      "constituencySlug": "galloway-and-west-dumfries",
+      "region": "South Scotland",
+      "regionSlug": "south-scotland",
+      "msp": {
+        "name": "Finlay Carson",
+        "party": "Scottish Conservative and Unionist Party",
+        "email": "Finlay.Carson.msp@parliament.scot",
+        "officeAddress": "107 King Street, Castle Douglas, DG7 1LZ",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/finlay-carson"
+      }
+    },
+    {
+      "constituency": "Glasgow Anniesland",
+      "constituencySlug": "glasgow-anniesland",
+      "region": "Glasgow",
+      "regionSlug": "glasgow",
+      "msp": {
+        "name": "Colm Merrick",
+        "party": "Scottish National Party",
+        "email": "Colm.Merrick.msp@parliament.scot",
+        "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/colm-merrick"
+      }
+    },
+    {
+      "constituency": "Glasgow Baillieston and Shettleston",
+      "constituencySlug": "glasgow-baillieston-and-shettleston",
+      "region": "Glasgow",
+      "regionSlug": "glasgow",
+      "msp": {
+        "name": "David Linden",
+        "party": "Scottish National Party",
+        "email": "David.Linden.msp@parliament.scot",
+        "officeAddress": "Academy House, 1346 Shettleston Road, Glasgow, G32 9AT",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/david-linden"
+      }
+    },
+    {
+      "constituency": "Glasgow Cathcart and Pollok",
+      "constituencySlug": "glasgow-cathcart-and-pollok",
+      "region": "Glasgow",
+      "regionSlug": "glasgow",
+      "msp": {
+        "name": "Zen Ghani",
+        "party": "Scottish National Party",
+        "email": "Zen.Ghani.msp@parliament.scot",
+        "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/zen.ghani"
+      }
+    },
+    {
+      "constituency": "Glasgow Central",
+      "constituencySlug": "glasgow-central",
+      "region": "Glasgow",
+      "regionSlug": "glasgow",
+      "msp": {
+        "name": "Alison Thewliss",
+        "party": "Scottish National Party",
+        "email": "Alison.Thewliss.msp@parliament.scot",
+        "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/alison-thewliss"
+      }
+    },
+    {
+      "constituency": "Glasgow Easterhouse and Springburn",
+      "constituencySlug": "glasgow-easterhouse-and-springburn",
+      "region": "Glasgow",
+      "regionSlug": "glasgow",
+      "msp": {
+        "name": "Ivan McKee",
+        "party": "Scottish National Party",
+        "email": "Ivan.McKee.msp@parliament.scot",
+        "officeAddress": "12 Hillfoot Street, Dennistoun, Glasgow, G31 2LF",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/ivan-mckee"
+      }
+    },
+    {
+      "constituency": "Glasgow Kelvin and Maryhill",
+      "constituencySlug": "glasgow-kelvin-and-maryhill",
+      "region": "Glasgow",
+      "regionSlug": "glasgow",
+      "msp": {
+        "name": "Bob Doris",
+        "party": "Scottish National Party",
+        "email": "Bob.Doris.msp@parliament.scot",
+        "officeAddress": "Maryhill Burgh Halls, 10-24 Gairbraid Avenue, Glasgow, G20 8YE",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/bob-doris"
+      }
+    },
+    {
+      "constituency": "Glasgow Southside",
+      "constituencySlug": "glasgow-southside",
+      "region": "Glasgow",
+      "regionSlug": "glasgow",
+      "msp": {
+        "name": "Holly Bruce",
+        "party": "Scottish Green Party",
+        "email": "Holly.Bruce.msp@parliament.scot",
+        "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/holly-bruce"
+      }
+    },
+    {
+      "constituency": "Hamilton, Larkhall and Stonehouse",
+      "constituencySlug": "hamilton-larkhall-and-stonehouse",
+      "region": "South Scotland",
+      "regionSlug": "south-scotland",
+      "msp": {
+        "name": "Alex Kerr",
+        "party": "Scottish National Party",
+        "email": "Alex.Kerr.msp@parliament.scot",
+        "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/alex-kerr"
+      }
+    },
+    {
+      "constituency": "Inverclyde",
+      "constituencySlug": "inverclyde",
+      "region": "West Scotland",
+      "regionSlug": "west-scotland",
+      "msp": {
+        "name": "Stuart McMillan",
+        "party": "Scottish National Party",
+        "email": "Stuart.McMillan.msp@parliament.scot",
+        "officeAddress": "26 Grey Place, Greenock, Inverclyde, PA15 1YF",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/stuart-mcmillan"
+      }
+    },
+    {
+      "constituency": "Inverness and Nairn",
+      "constituencySlug": "inverness-and-nairn",
+      "region": "Highlands and Islands",
+      "regionSlug": "highlands-and-islands",
+      "msp": {
+        "name": "Emma Roddick",
+        "party": "Scottish National Party",
+        "email": "Emma.Roddick.msp@parliament.scot",
+        "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/emma-roddick"
+      }
+    },
+    {
+      "constituency": "Kilmarnock and Irvine Valley",
+      "constituencySlug": "kilmarnock-and-irvine-valley",
+      "region": "South Scotland",
+      "regionSlug": "south-scotland",
+      "msp": {
+        "name": "Alan Brown",
+        "party": "Scottish National Party",
+        "email": "Alan.Brown.msp@parliament.scot",
+        "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/alan-brown"
+      }
+    },
+    {
+      "constituency": "Kirkcaldy",
+      "constituencySlug": "kirkcaldy",
+      "region": "Mid Scotland and Fife",
+      "regionSlug": "mid-scotland-and-fife",
+      "msp": {
+        "name": "David Torrance",
+        "party": "Scottish National Party",
+        "email": "David.Torrance.msp@parliament.scot",
+        "officeAddress": "Unit 1, 206 - 210 High Street, Kirkcaldy, KY1 1JT",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/david-torrance"
+      }
+    },
+    {
+      "constituency": "Mid Fife and Glenrothes",
+      "constituencySlug": "mid-fife-and-glenrothes",
+      "region": "Mid Scotland and Fife",
+      "regionSlug": "mid-scotland-and-fife",
+      "msp": {
+        "name": "Jenny Gilruth",
+        "party": "Scottish National Party",
+        "email": "Jenny.Gilruth.msp@parliament.scot",
+        "officeAddress": "12 Commercial Street, Markinch, KY7 6DE",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/jenny-gilruth"
+      }
+    },
+    {
+      "constituency": "Midlothian North",
+      "constituencySlug": "midlothian-north",
+      "region": "Edinburgh and Lothians East",
+      "regionSlug": "edinburgh-and-lothians-east",
+      "msp": {
+        "name": "Colin Beattie",
+        "party": "Scottish National Party",
+        "email": "Colin.Beattie.msp@parliament.scot",
+        "officeAddress": "164 High Street, Dalkeith, EH22 1AY",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/colin-beattie"
+      }
+    },
+    {
+      "constituency": "Midlothian South, Tweeddale and Lauderdale",
+      "constituencySlug": "midlothian-south-tweeddale-and-lauderdale",
+      "region": "South Scotland",
+      "regionSlug": "south-scotland",
+      "msp": {
+        "name": "Calum Kerr",
+        "party": "Scottish National Party",
+        "email": "Calum.Kerr.msp@parliament.scot",
+        "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/calum-kerr"
+      }
+    },
+    {
+      "constituency": "Moray",
+      "constituencySlug": "moray",
+      "region": "Highlands and Islands",
+      "regionSlug": "highlands-and-islands",
+      "msp": {
+        "name": "Laura Mitchell",
+        "party": "Scottish National Party",
+        "email": "Laura.Mitchell.msp@parliament.scot",
+        "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/laura-mitchell"
+      }
+    },
+    {
+      "constituency": "Motherwell and Wishaw",
+      "constituencySlug": "motherwell-and-wishaw",
+      "region": "Central Scotland and Lothians West",
+      "regionSlug": "central-scotland-and-lothians-west",
+      "msp": {
+        "name": "Clare Adamson",
+        "party": "Scottish National Party",
+        "email": "Clare.Adamson.msp@parliament.scot",
+        "officeAddress": "Suite G2, The Dalziel Building, 7 Scott Street, Motherwell, ML1 1PN",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/clare-adamson"
+      }
+    },
+    {
+      "constituency": "Na h-Eileanan an Iar",
+      "constituencySlug": "na-h-eileanan-an-iar",
+      "region": "Highlands and Islands",
+      "regionSlug": "highlands-and-islands",
+      "msp": {
+        "name": "Donald MacKinnon",
+        "party": "Scottish Labour",
+        "email": "Donald.MacKinnon.msp@parliament.scot",
+        "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/donald-mackinnon"
+      }
+    },
+    {
+      "constituency": "Orkney Islands",
+      "constituencySlug": "orkney-islands",
+      "region": "Highlands and Islands",
+      "regionSlug": "highlands-and-islands",
+      "msp": {
+        "name": "Liam McArthur",
+        "party": "Scottish Liberal Democrats",
+        "email": "Liam.McArthur.msp@parliament.scot",
+        "officeAddress": "14 Palace Road, Kirkwall, Orkney Islands, KW15 1PA",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/liam-mcarthur"
+      }
+    },
+    {
+      "constituency": "Paisley",
+      "constituencySlug": "paisley",
+      "region": "West Scotland",
+      "regionSlug": "west-scotland",
+      "msp": {
+        "name": "George Adam",
+        "party": "Scottish National Party",
+        "email": "George.Adam.msp@parliament.scot",
+        "officeAddress": "Anchor One, Unit 14, 7 Thread Street, Paisley, PA1 1JR",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/george-adam"
+      }
+    },
+    {
+      "constituency": "Perthshire North",
+      "constituencySlug": "perthshire-north",
+      "region": "Mid Scotland and Fife",
+      "regionSlug": "mid-scotland-and-fife",
+      "msp": {
+        "name": "John Swinney",
+        "party": "Scottish National Party",
+        "email": "John.Swinney.msp@parliament.scot",
+        "officeAddress": "17-19 Leslie Street, Blairgowrie, PH10 6AH",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/john-swinney"
+      }
+    },
+    {
+      "constituency": "Perthshire South and Kinross-shire",
+      "constituencySlug": "perthshire-south-and-kinross-shire",
+      "region": "Mid Scotland and Fife",
+      "regionSlug": "mid-scotland-and-fife",
+      "msp": {
+        "name": "Jim Fairlie",
+        "party": "Scottish National Party",
+        "email": "Jim.Fairlie.msp@parliament.scot",
+        "officeAddress": "63 Glasgow Rd, Perth, PH2 0PE",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/jim-fairlie"
+      }
+    },
+    {
+      "constituency": "Renfrewshire North and Cardonald",
+      "constituencySlug": "renfrewshire-north-and-cardonald",
+      "region": "West Scotland",
+      "regionSlug": "west-scotland",
+      "msp": {
+        "name": "Michelle Campbell",
+        "party": "Scottish National Party",
+        "email": "Michelle.Campbell.msp@parliament.scot",
+        "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/michelle-campbell"
+      }
+    },
+    {
+      "constituency": "Renfrewshire West and Levern Valley",
+      "constituencySlug": "renfrewshire-west-and-levern-valley",
+      "region": "West Scotland",
+      "regionSlug": "west-scotland",
+      "msp": {
+        "name": "Tom Arthur",
+        "party": "Scottish National Party",
+        "email": "Tom.Arthur.msp@parliament.scot",
+        "officeAddress": "49 High Street, Johnstone, PA5 8AJ",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/tom-arthur"
+      }
+    },
+    {
+      "constituency": "Rutherglen and Cambuslang",
+      "constituencySlug": "rutherglen-and-cambuslang",
+      "region": "Glasgow",
+      "regionSlug": "glasgow",
+      "msp": {
+        "name": "Clare Haughey",
+        "party": "Scottish National Party",
+        "email": "Clare.Haughey.msp@parliament.scot",
+        "officeAddress": "85 Main Street, Rutherglen, Glasgow, G73 2JQ",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/clare-haughey"
+      }
+    },
+    {
+      "constituency": "Shetland Islands",
+      "constituencySlug": "shetland-islands",
+      "region": "Highlands and Islands",
+      "regionSlug": "highlands-and-islands",
+      "msp": {
+        "name": "Hannah Mary Goodlad",
+        "party": "Scottish National Party",
+        "email": "HannahMary.Goodlad.msp@parliament.scot",
+        "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/hannahmary-goodlad"
+      }
+    },
+    {
+      "constituency": "Skye, Lochaber and Badenoch",
+      "constituencySlug": "skye-lochaber-and-badenoch",
+      "region": "Highlands and Islands",
+      "regionSlug": "highlands-and-islands",
+      "msp": {
+        "name": "Andrew Baxter",
+        "party": "Scottish Liberal Democrats",
+        "email": "Andrew.Baxter.msp@parliament.scot",
+        "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/andrew-baxter"
+      }
+    },
+    {
+      "constituency": "Stirling",
+      "constituencySlug": "stirling",
+      "region": "Mid Scotland and Fife",
+      "regionSlug": "mid-scotland-and-fife",
+      "msp": {
+        "name": "Alyn Smith",
+        "party": "Scottish National Party",
+        "email": "Alyn.Smith.msp@parliament.scot",
+        "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/alyn-smith"
+      }
+    },
+    {
+      "constituency": "Strathkelvin and Bearsden",
+      "constituencySlug": "strathkelvin-and-bearsden",
+      "region": "West Scotland",
+      "regionSlug": "west-scotland",
+      "msp": {
+        "name": "Adam Harley",
+        "party": "Scottish Liberal Democrats",
+        "email": "Adam.Harley.msp@parliament.scot",
+        "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/adam-harley"
+      }
+    },
+    {
+      "constituency": "Uddingston and Bellshill",
+      "constituencySlug": "uddingston-and-bellshill",
+      "region": "Central Scotland and Lothians West",
+      "regionSlug": "central-scotland-and-lothians-west",
+      "msp": {
+        "name": "Steven Bonnar",
+        "party": "Scottish National Party",
+        "email": "Steven.Bonnar.msp@parliament.scot",
+        "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+        "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/steven-bonnar"
+      }
+    }
+  ],
+  "regions": [
+    {
+      "region": "Central Scotland and Lothians West",
+      "regionSlug": "central-scotland-and-lothians-west",
+      "msps": [
+        {
+          "name": "Amanda Bland",
+          "party": "Reform UK",
+          "email": "Amanda.Bland.msp@parliament.scot",
+          "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/amanda-bland"
+        },
+        {
+          "name": "Amanda Lindsay",
+          "party": "Reform UK",
+          "email": "Amanda.Lindsay.msp@parliament.scot",
+          "officeAddress": null,
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/mandy-lindsay"
+        },
+        {
+          "name": "Gillian Mackay",
+          "party": "Scottish Green Party",
+          "email": "Gillian.Mackay.msp@parliament.scot",
+          "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/gillian-mackay"
+        },
+        {
+          "name": "Graham Simpson",
+          "party": "Reform UK",
+          "email": "Graham.Simpson.msp@parliament.scot",
+          "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/graham-simpson"
+        },
+        {
+          "name": "Jenny Young",
+          "party": "Scottish Labour",
+          "email": "Jenny.Young.msp@parliament.scot",
+          "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/jenny-young"
+        },
+        {
+          "name": "Mark Griffin",
+          "party": "Scottish Labour",
+          "email": "Mark.Griffin.msp@parliament.scot",
+          "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/mark-griffin"
+        },
+        {
+          "name": "Meghan Gallacher",
+          "party": "Scottish Conservative and Unionist Party",
+          "email": "Meghan.Gallacher.msp@parliament.scot",
+          "officeAddress": "M1.11, The Scottish Parliament, Edinburgh, EH99 1SP",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/meghan-gallacher"
+        }
+      ]
+    },
+    {
+      "region": "Edinburgh and Lothians East",
+      "regionSlug": "edinburgh-and-lothians-east",
+      "msps": [
+        {
+          "name": "Angela Ross",
+          "party": "Reform UK",
+          "email": "Angela.Ross.msp@parliament.scot",
+          "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/angela-ross"
+        },
+        {
+          "name": "Irshad Ahmed",
+          "party": "Scottish Labour",
+          "email": "Irshad.Ahmed.msp@parliament.scot",
+          "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/irshad-ahmed"
+        },
+        {
+          "name": "Kate Nevens",
+          "party": "Scottish Green Party",
+          "email": "Kate.Nevens.msp@parliament.scot",
+          "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/kate-nevens"
+        },
+        {
+          "name": "Katherine Sangster",
+          "party": "Scottish Labour",
+          "email": "Katherine.Sangster.msp@parliament.scot",
+          "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/katherine-sangster"
+        },
+        {
+          "name": "Kayleigh Kinross-O'Neill",
+          "party": "Scottish Green Party",
+          "email": "Kayleigh.Kinross-ONeill.msp@parliament.scot",
+          "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/kayleigh-kinross-o'neill"
+        },
+        {
+          "name": "Miles Briggs",
+          "party": "Scottish Conservative and Unionist Party",
+          "email": "Miles.Briggs.msp@parliament.scot",
+          "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/miles-briggs"
+        },
+        {
+          "name": "Q Manivannan",
+          "party": "Scottish Green Party",
+          "email": "Q.Manivannan.msp@parliament.scot",
+          "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/q-manivannan"
+        }
+      ]
+    },
+    {
+      "region": "Glasgow",
+      "regionSlug": "glasgow",
+      "msps": [
+        {
+          "name": "Iris Duane",
+          "party": "Scottish Green Party",
+          "email": "Iris.Duane.msp@parliament.scot",
+          "officeAddress": "Glasgow Collective, 15 East Campbell Street, Glasgow, G1 5DT",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/iris-duane"
+        },
+        {
+          "name": "Kim Schmulian",
+          "party": "Reform UK",
+          "email": "Kim.Schmulian.msp@parliament.scot",
+          "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/kim-schmulian"
+        },
+        {
+          "name": "Monica Lennon",
+          "party": "Scottish Labour",
+          "email": "Monica.Lennon.msp@parliament.scot",
+          "officeAddress": null,
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/monica-lennon"
+        },
+        {
+          "name": "Patrick Harvie",
+          "party": "Scottish Green Party",
+          "email": "Patrick.Harvie.msp@parliament.scot",
+          "officeAddress": "Glasgow Collective, 15 East Campbell Street, Glasgow, G1 5DT",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/patrick-harvie"
+        },
+        {
+          "name": "Paul Sweeney",
+          "party": "Scottish Labour",
+          "email": "Paul.Sweeney.msp@parliament.scot",
+          "officeAddress": "Brunswick House, 51 Wilson Street, Glasgow, G1 1UZ",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/paul-sweeney"
+        },
+        {
+          "name": "Pauline McNeill",
+          "party": "Scottish Labour",
+          "email": "Pauline.McNeill.MSP@parliament.scot",
+          "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/pauline-mcneill"
+        },
+        {
+          "name": "Thomas Kerr",
+          "party": "Reform UK",
+          "email": "Thomas.Kerr.msp@parliament.scot",
+          "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/thomas-kerr"
+        }
+      ]
+    },
+    {
+      "region": "Highlands and Islands",
+      "regionSlug": "highlands-and-islands",
+      "msps": [
+        {
+          "name": "Ariane Burgess",
+          "party": "Scottish Green Party",
+          "email": "Ariane.Burgess.msp@parliament.scot",
+          "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/ariane-burgess"
+        },
+        {
+          "name": "Kristopher Leask",
+          "party": "Scottish Green Party",
+          "email": "Kristopher.Leask.msp@parliament.scot",
+          "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/kristopher-leask"
+        },
+        {
+          "name": "Maree Todd",
+          "party": "Scottish National Party",
+          "email": "Maree.Todd.msp@parliament.scot",
+          "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/maree-todd"
+        },
+        {
+          "name": "Max Bannerman",
+          "party": "Reform UK",
+          "email": "Max.Bannerman.msp@parliament.scot",
+          "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/max-bannerman"
+        },
+        {
+          "name": "Morven-May MacCallum",
+          "party": "Scottish Liberal Democrats",
+          "email": "Morven-May.MacCallum.msp@parliament.scot",
+          "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/morven-may-maccallum"
+        },
+        {
+          "name": "Tim Eagle",
+          "party": "Scottish Conservative and Unionist Party",
+          "email": "Tim.Eagle.msp@parliament.scot",
+          "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/tim-eagle"
+        },
+        {
+          "name": "Victor Currie",
+          "party": "Reform UK",
+          "email": "Victor.Currie.msp@parliament.scot",
+          "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/victor-currie"
+        }
+      ]
+    },
+    {
+      "region": "Mid Scotland and Fife",
+      "regionSlug": "mid-scotland-and-fife",
+      "msps": [
+        {
+          "name": "Claire Baker",
+          "party": "Scottish Labour",
+          "email": "Claire.Baker.msp@parliament.scot",
+          "officeAddress": "Ore Valley Business Centre, 93 Main St, Lochgelly, Fife, KY5 9AF",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/claire-baker"
+        },
+        {
+          "name": "Helen McDade",
+          "party": "Reform UK",
+          "email": "Helen.McDade.msp@parliament.scot",
+          "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/helen-mcdade"
+        },
+        {
+          "name": "Joe Long",
+          "party": "Scottish Labour",
+          "email": "Joe.Long.msp@parliament.scot",
+          "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/joe-long"
+        },
+        {
+          "name": "Julie MacDougall",
+          "party": "Reform UK",
+          "email": "Julie.MacDougall.msp@parliament.scot",
+          "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/julie-macdougall"
+        },
+        {
+          "name": "Mark Ruskell",
+          "party": "Scottish Green Party",
+          "email": "Mark.Ruskell.msp@parliament.scot",
+          "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/mark-ruskell"
+        },
+        {
+          "name": "Murdo Fraser",
+          "party": "Scottish Conservative and Unionist Party",
+          "email": "Murdo.Fraser.msp@parliament.scot",
+          "officeAddress": "The Control Tower, Perth Airport, Scone, PH2 6PL",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/murdo-fraser"
+        },
+        {
+          "name": "Stephen Kerr",
+          "party": "Scottish Conservative and Unionist Party",
+          "email": "Stephen.Kerr.msp@parliament.scot",
+          "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/stephen-kerr"
+        }
+      ]
+    },
+    {
+      "region": "North East Scotland",
+      "regionSlug": "north-east-scotland",
+      "msps": [
+        {
+          "name": "Duncan Massey",
+          "party": "Reform UK",
+          "email": "Duncan.Massey.msp@parliament.scot",
+          "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/duncan-massey"
+        },
+        {
+          "name": "James Adams",
+          "party": "Scottish Conservative and Unionist Party",
+          "email": "james.adams.msp@parliament.scot",
+          "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/james-adams"
+        },
+        {
+          "name": "Liam Kerr",
+          "party": "Scottish Conservative and Unionist Party",
+          "email": "Liam.Kerr.msp@parliament.scot",
+          "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/liam-kerr"
+        },
+        {
+          "name": "Maggie Chapman",
+          "party": "Scottish Green Party",
+          "email": "Maggie.Chapman.msp@parliament.scot",
+          "officeAddress": "10 Panmure Street, Dundee, DD1 2BW",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/maggie-chapman"
+        },
+        {
+          "name": "Mark Simpson",
+          "party": "Reform UK",
+          "email": "Mark.Simpson.msp@parliament.scot",
+          "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/mark-simpson"
+        },
+        {
+          "name": "Michael Marra",
+          "party": "Scottish Labour",
+          "email": "Michael.Marra.msp@parliament.scot",
+          "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/michael-marra"
+        },
+        {
+          "name": "Yi-pei Chou Turvey",
+          "party": "Scottish Liberal Democrats",
+          "email": "Yipei.ChouTurvey.msp@parliament.scot",
+          "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/yi-pei-chouturvey"
+        }
+      ]
+    },
+    {
+      "region": "South Scotland",
+      "regionSlug": "south-scotland",
+      "msps": [
+        {
+          "name": "Carol Mochan",
+          "party": "Scottish Labour",
+          "email": "Carol.Mochan.msp@parliament.scot",
+          "officeAddress": "Currently working from home, use:, PO Box 8526, Prestwick, KA9 9BA",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/carol-mochan"
+        },
+        {
+          "name": "David Kirkwood",
+          "party": "Reform UK",
+          "email": "David.Kirkwood.msp@parliament.scot",
+          "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/david-kirkwood"
+        },
+        {
+          "name": "Duncan Dunlop",
+          "party": "Scottish Liberal Democrats",
+          "email": "Duncan.Dunlop.msp@parliament.scot",
+          "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/duncan-dunlop"
+        },
+        {
+          "name": "Jamie Langan",
+          "party": "Reform UK",
+          "email": "Jamie.Langan.msp@parliament.scot",
+          "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/jamie-langan"
+        },
+        {
+          "name": "Joe Fagan",
+          "party": "Scottish Labour",
+          "email": "Joe.Fagan.msp@parliament.scot",
+          "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/joe-fagan"
+        },
+        {
+          "name": "Laura Moodie",
+          "party": "Scottish Green Party",
+          "email": "Laura.Moodie.msp@parliament.scot",
+          "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/laura-moodie"
+        },
+        {
+          "name": "Senga Beresford",
+          "party": "Reform UK",
+          "email": "Senga.Beresford.msp@parliament.scot",
+          "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/senga-beresford"
+        }
+      ]
+    },
+    {
+      "region": "West Scotland",
+      "regionSlug": "west-scotland",
+      "msps": [
+        {
+          "name": "Cara McKee",
+          "party": "Scottish Green Party",
+          "email": "Cara.McKee.msp@parliament.scot",
+          "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/cara-mckee"
+        },
+        {
+          "name": "David Smith",
+          "party": "Reform UK",
+          "email": "David.Smith.msp@parliament.scot",
+          "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/david-smith"
+        },
+        {
+          "name": "Katy Clark",
+          "party": "Scottish Labour",
+          "email": "Katy.Clark.msp@parliament.scot",
+          "officeAddress": "29B Harbour Street, Ardrossan, KA22 8BU",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/katy-clark"
+        },
+        {
+          "name": "Malcolm Offord",
+          "party": "Reform UK",
+          "email": "Malcolm.Offord.msp@parliament.scot",
+          "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/malcolm-offord"
+        },
+        {
+          "name": "Neil Bibby",
+          "party": "Scottish Labour",
+          "email": "Neil.Bibby.msp@parliament.scot",
+          "officeAddress": "Suite 1002, Mile End Mill, 12 Seedhill Road, Paisley, PA1 1JS",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/neil-bibby"
+        },
+        {
+          "name": "Ross Greer",
+          "party": "Scottish Green Party",
+          "email": "Ross.Greer.msp@parliament.scot",
+          "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/ross-greer"
+        },
+        {
+          "name": "Russell Findlay",
+          "party": "Scottish Conservative and Unionist Party",
+          "email": "Russell.Findlay.msp@parliament.scot",
+          "officeAddress": "The Scottish Parliament, Edinburgh, EH99 1SP",
+          "profileUrl": "https://www.parliament.scot/msps/current-and-previous-msps/russell-findlay"
+        }
+      ]
+    }
+  ]
+}

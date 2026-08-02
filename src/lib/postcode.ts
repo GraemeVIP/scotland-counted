@@ -14,7 +14,7 @@
  * for all of them.
  */
 
-import { REQUEST_TIMEOUT_MS } from "@/lib/parliament";
+import { REQUEST_TIMEOUT_MS } from "./parliament.ts";
 
 export type PostcodeArea = {
   postcode: string;
@@ -22,6 +22,10 @@ export type PostcodeArea = {
   councilCode: string;
   /** UK Parliament constituency name on 2024 boundaries. */
   constituency: string;
+  /** Scottish Parliament constituency, when the Scottish directory supplied it. */
+  scottishParliamentConstituency: string | null;
+  /** Scottish Parliament region, when the Scottish directory supplied it. */
+  scottishParliamentRegion: string | null;
 };
 
 export type PostcodeFailure =
@@ -42,6 +46,8 @@ type ScottishResponse = {
   result?: {
     postcode: string;
     uk_parliamentary_constituency: string | null;
+    scottish_parliamentary_constituency: string | null;
+    scottish_parliamentary_region: string | null;
     codes: { council_area: string | null };
   };
 };
@@ -56,12 +62,68 @@ type OnsResponse = {
   };
 };
 
+type HolyroodAreas = {
+  constituency: string;
+  region: string;
+};
+
 async function fetchJson(url: string) {
   return fetch(url, {
     cache: "no-store",
     headers: { Accept: "application/json" },
     signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
   });
+}
+
+function decodeHtmlText(value: string) {
+  return value
+    .replace(/&amp;/gi, "&")
+    .replace(/&(?:apos|#39);/gi, "'")
+    .replace(/&quot;/gi, '"')
+    .replace(/&nbsp;/gi, " ")
+    .replace(/&#(\d+);/g, (_, code: string) => String.fromCodePoint(Number(code)))
+    .replace(/&#x([0-9a-f]+);/gi, (_, code: string) => String.fromCodePoint(Number.parseInt(code, 16)));
+}
+
+/**
+ * The official Parliament postcode finder covers a few valid Scottish
+ * postcodes omitted from the Scottish Postcode Directory. We use it only to
+ * recover the two Holyrood geography names; member details still come from
+ * the reviewed open-data snapshot. Ambiguous or changed markup fails closed.
+ */
+async function lookupHolyroodAreasFromOfficialFinder(
+  compact: string,
+): Promise<HolyroodAreas | null> {
+  try {
+    const response = await fetch(
+      `https://www.parliament.scot/msps/current-and-previous-msps/find-your-msp?PostCode=${encodeURIComponent(compact)}`,
+      {
+        cache: "no-store",
+        headers: { Accept: "text/html" },
+        signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
+      },
+    );
+    if (!response.ok) return null;
+
+    const text = decodeHtmlText(
+      (await response.text()).replace(/<[^>]*>/g, " ").replace(/\s+/g, " "),
+    );
+    const matches = [...text.matchAll(/MSP for\s+(.+?)\s+\((Constituency|Region)\)/gi)];
+    const constituencies = new Set(
+      matches.filter((match) => match[2].toLowerCase() === "constituency").map((match) => match[1].trim()),
+    );
+    const regions = new Set(
+      matches.filter((match) => match[2].toLowerCase() === "region").map((match) => match[1].trim()),
+    );
+
+    if (constituencies.size !== 1 || regions.size !== 1) return null;
+    return {
+      constituency: [...constituencies][0],
+      region: [...regions][0],
+    };
+  } catch {
+    return null;
+  }
 }
 
 /** The plain-English message for each way a lookup can fail. */
@@ -87,6 +149,9 @@ export async function lookupPostcodeArea(compact: string): Promise<PostcodeResul
             postcode: area.postcode,
             councilCode: area.codes.council_area,
             constituency: area.uk_parliamentary_constituency,
+            scottishParliamentConstituency:
+              area.scottish_parliamentary_constituency ?? null,
+            scottishParliamentRegion: area.scottish_parliamentary_region ?? null,
           },
         };
       }
@@ -113,12 +178,16 @@ export async function lookupPostcodeArea(compact: string): Promise<PostcodeResul
       return { ok: false, reason: "incomplete" };
     }
 
+    const holyroodAreas = await lookupHolyroodAreasFromOfficialFinder(compact);
+
     return {
       ok: true,
       area: {
         postcode: area.postcode,
         councilCode: area.codes.admin_district,
         constituency,
+        scottishParliamentConstituency: holyroodAreas?.constituency ?? null,
+        scottishParliamentRegion: holyroodAreas?.region ?? null,
       },
     };
   } catch {

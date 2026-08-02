@@ -10,7 +10,7 @@ import { EvidenceDetails } from "@/components/Blocks";
  *
  * It is built to be understood before it is read: two buildings, two cities,
  * two colours, two lists. Someone who only looks at it should still come away
- * knowing they have two people and that both work for them. Precision that
+ * knowing they have both kinds of representative and that both work for them. Precision that
  * would slow that down moves into the panel at the foot.
  */
 
@@ -79,8 +79,8 @@ export default function WhoDoesWhat({
       </h2>
       <p className="text-[18px] leading-[1.6] text-[var(--ink-2)] max-w-[62ch]">
         Lots of people are not sure, and nobody ever explains it. Here it is in plain words.
-        <strong className="text-[var(--ink)]"> You have both of them.</strong> Two different
-        people, in two different cities, deciding two different sets of things.
+        <strong className="text-[var(--ink)]"> You have both kinds.</strong> They work in two
+        different cities and decide two different sets of things.
       </p>
 
       <div className="mt-8 grid gap-5 md:grid-cols-2">
@@ -147,13 +147,13 @@ export default function WhoDoesWhat({
         style={{ boxShadow: "var(--shadow-1)" }}
       >
         <p className="text-[19px] sm:text-[21px] leading-[1.5] font-[620] max-w-[64ch]">
-          Both of them work for you. You do not need to know which one is in charge of what, and
-          you do not need to pick.
+          Both kinds work for you. You do not need to know which one is in charge of what, and you
+          do not need to pick.
         </p>
         <p className="text-[17px] leading-[1.6] mt-3 max-w-[64ch] opacity-85">
-          That is why I write one email to each, and why each email only asks for things that
-          person can actually do. You do not need to have voted for them — they still have to
-          answer you.
+          I automatically write to your MP and your constituency MSP. Each email only asks for
+          things that person can actually do. You do not need to have voted for them. They still
+          represent you.
         </p>
       </div>
 
@@ -173,8 +173,9 @@ export default function WhoDoesWhat({
           <p className="mt-3">
             You actually have more than one MSP. Everyone has one constituency MSP for their local
             area, plus seven regional MSPs covering a wider region. Any of them can be contacted.
-            This site finds your constituency MSP, because that is the one whose area matches
-            where you live most closely.
+            This site shows all eight. It uses your constituency MSP for the ready-written email
+            because that is the one whose area matches where you live most closely. You do not
+            have to choose.
           </p>
           <p className="mt-3">
             MP areas and MSP areas are drawn differently and do not sit on top of each other. That

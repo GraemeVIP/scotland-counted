@@ -22,7 +22,7 @@ export type NavTone = "local" | "tools" | "change" | "proof";
 /** The five items in the header. Deliberately short, deliberately task-shaped. */
 export const PRIMARY: NavItem[] = [
   { href: "/areas", label: "Your area" },
-  { href: "/constituencies", label: "Your MP" },
+  { href: "/representatives", label: "Your MP & MSPs" },
   { href: "/what-happens-when-you-email-your-mp", label: "Your power" },
   { href: "/solutions-to-poverty-in-scotland", label: "What would help" },
   { href: "/blog", label: "Explained" },
@@ -42,6 +42,7 @@ export const SECTIONS: Array<{
     tone: "local",
     items: [
       { href: "/areas", label: "All 32 council areas", blurb: "Child poverty, benefits and pay context where you live", featured: true },
+      { href: "/representatives", label: "Find your MP and MSPs", blurb: "Current names, parties and public contact details" },
       { href: "/constituencies", label: "All 57 MP areas", blurb: "The area each MP is responsible for" },
       { href: "/why-poverty-is-worse-in-glasgow", label: "Glasgow", blurb: "Why the worst rate in Scotland is where it is" },
       { href: "/glasgow-poverty-statistics", label: "The Glasgow record", blurb: "Every Glasgow indicator in one place" },
@@ -104,15 +105,15 @@ export const QUICK_AREAS: NavItem[] = [
 
 /** What the site actually holds, for the menu footer. */
 export const INVENTORY = [
-  { count: "32", label: "council areas", href: "/areas" },
-  { count: "57", label: "MP areas", href: "/constituencies" },
-  { count: "46", label: "questions answered", href: "/faq" },
-  { count: "6", label: "measures tracked", href: "/glasgow-poverty-statistics" },
+  { count: "32", label: "council areas covered", href: "/areas" },
+  { count: "57", label: "current MPs listed", href: "/representatives" },
+  { count: "129", label: "current MSPs listed", href: "/representatives/msps" },
+  { count: "46", label: "plain-English answers", href: "/faq" },
 ];
 
 /** About and contact, which sit in the menu footer rather than a column. */
 export const MENU_FOOTER_LINKS: NavItem[] = [
-  { href: "/about", label: "Who makes this" },
-  { href: "/contact", label: "Get in touch" },
+  { href: "/about", label: "About the project" },
+  { href: "/contact", label: "Contact" },
   { href: "/privacy", label: "Privacy" },
 ];

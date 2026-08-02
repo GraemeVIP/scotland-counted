@@ -32,6 +32,7 @@ export default function PostcodeStart() {
           value={postcode}
           onChange={(event) => setPostcode(event.target.value.toUpperCase())}
           placeholder="Your postcode, e.g. G12 8QQ"
+          data-clarity-mask="true"
           autoComplete="postal-code"
           inputMode="text"
           required

@@ -5,6 +5,12 @@ import { indicators, lifeExpectancy, deprivation } from "@/lib/data/indicators";
 import { isPostCategoryIndexable, postCategories, posts } from "@/lib/data/posts";
 import { site } from "../../site.config";
 import { BAND_LETTERS } from "@/lib/data/councilTax";
+import { MP_DATA_CHECKED_ISO, mps } from "@/lib/data/mps";
+import {
+  HOLYROOD_DATA_CHECKED_AT,
+  holyroodConstituencies,
+  holyroodRegions,
+} from "@/lib/data/holyrood";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const dataChecked = new Date(`${site.dataCheckedISO}T00:00:00Z`);
@@ -25,6 +31,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${site.url}/poverty-in-scotland-quiz`, changeFrequency: "monthly", priority: 0.85, lastModified: seoRelease },
     { url: `${site.url}/browse`, changeFrequency: "weekly", priority: 0.7 },
     { url: `${site.url}/constituencies`, changeFrequency: "yearly", priority: 0.9 },
+    {
+      url: `${site.url}/representatives`,
+      changeFrequency: "monthly",
+      priority: 0.9,
+      lastModified: new Date(`${MP_DATA_CHECKED_ISO}T00:00:00Z`),
+    },
+    {
+      url: `${site.url}/representatives/msps`,
+      changeFrequency: "monthly",
+      priority: 0.9,
+      lastModified: new Date(HOLYROOD_DATA_CHECKED_AT),
+    },
     { url: `${site.url}/solutions-to-poverty-in-scotland`, changeFrequency: "monthly", priority: 0.85, lastModified: seoRelease },
     { url: `${site.url}/who-is-responsible-for-poverty-in-scotland`, changeFrequency: "monthly", priority: 0.85, lastModified: seoRelease },
     { url: `${site.url}/glasgow-poverty-statistics`, changeFrequency: "monthly", priority: 0.75, lastModified: seoRelease },
@@ -62,6 +80,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${site.url}/constituencies/${c.slug}`,
     changeFrequency: "yearly" as const,
     priority: 0.7,
+  }));
+
+  const representativePages: MetadataRoute.Sitemap = mps.map((mp) => ({
+    url: `${site.url}/representatives/mps/${mp.constituencySlug}`,
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+    lastModified: new Date(`${MP_DATA_CHECKED_ISO}T00:00:00Z`),
+  }));
+
+  const holyroodRepresentativePages: MetadataRoute.Sitemap = [
+    ...holyroodConstituencies.map((record) =>
+      `/representatives/msps/constituencies/${record.constituencySlug}`
+    ),
+    ...holyroodRegions.map((record) => `/representatives/msps/regions/${record.regionSlug}`),
+  ].map((path) => ({
+    url: `${site.url}${path}`,
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+    lastModified: new Date(HOLYROOD_DATA_CHECKED_AT),
   }));
 
   const councilTaxPages: MetadataRoute.Sitemap = [
@@ -109,6 +146,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...indicatorPages,
     ...areaPages,
     ...constituencyPages,
+    ...representativePages,
+    ...holyroodRepresentativePages,
     ...councilTaxPages,
   ].map((e) => ({ lastModified: dataChecked, ...e }));
 }

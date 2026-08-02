@@ -43,7 +43,8 @@ npx vercel --prod
 
 Or connect the GitHub repo in the Vercel dashboard. There are no required environment variables or
 database. Content pages are statically generated; the representative lookup is a dynamic,
-no-storage route that calls official postcode and parliamentary sources.
+no-storage route. It uses Postcodes.io for the submitted postcode and checked-in snapshots of
+official UK and Scottish Parliament data, with official APIs as a fallback.
 
 Once the permanent domain is attached, update `site.config.ts` with it and redeploy — otherwise
 canonical tags and the sitemap will continue to point at the temporary Vercel address.
@@ -51,7 +52,8 @@ canonical tags and the sitemap will continue to point at the temporary Vercel ad
 ## After it is live
 
 1. **Google Search Console** — verify the domain and submit `/sitemap.xml`.
-2. **Bing Webmaster Tools** — same, it feeds several other engines.
+2. **Bing Webmaster Tools** — verify the canonical domain, submit the sitemap and
+   follow the [Bing and IndexNow checklist](docs/bing-indexnow.md).
 3. Check the Open Graph card renders by pasting the URL into any social composer.
    The card is generated at `/opengraph-image`, and every council area has its own.
 
@@ -61,14 +63,15 @@ canonical tags and the sitemap will continue to point at the temporary Vercel ad
 site.config.ts              identity, URL, contact — the only file most changes need
 src/app/                    routes (App Router)
   page.tsx                    home
-  the-numbers/                six-measure Glasgow record
+  glasgow-poverty-statistics/ six-measure Glasgow record
   indicators/[slug]/          six indicator pages
   areas/                      poverty, claimant count and pay for all 32 councils
   constituencies/             child poverty for all 57 Scottish Westminster seats
-  why-glasgow/                the founding deep dive and causal argument
-  what-would-fix-it/          costed policy options
-  accountability/             the record, by tier of government
-  take-action/                postcode lookup and automatically addressed letter builder
+  why-poverty-is-worse-in-glasgow/  founding deep dive and causal argument
+  solutions-to-poverty-in-scotland/ costed policy options
+  who-is-responsible-for-poverty-in-scotland/ decisions by tier of government
+  find-my-mp-and-msp/         postcode lookup and automatically addressed letter builder
+  representatives/            crawlable current MP and MSP contact directories
   api/representatives/        no-storage MP/MSP lookup from parliamentary sources
   methods/  glossary/  data/  about/  corrections/
   sitemap.ts  robots.ts  opengraph-image.tsx
@@ -93,6 +96,8 @@ public/data/                the CSVs offered for download
 - **Made a correction?** Add an entry to the `LOG` array in
   `src/app/corrections/page.tsx`. The page is built to show the log publicly, which
   is the point.
+- **Representatives changed?** Run `npm run data:update:mps` and
+  `npm run data:update:msps`, review the official-data diff, then run the tests before publishing.
 
 ## Editorial rules the site holds itself to
 
@@ -115,8 +120,8 @@ accusations, and the site's whole value is that it cannot easily be waved away.
 
 Next.js 16 (App Router, Turbopack) · React 19 · Tailwind 4 · TypeScript.
 No database or CMS. The representative lookup uses one no-storage server route backed by
-Postcodes.io, the UK Parliament Members API and the Scottish Parliament website. Charts are
-hand-built SVG with no charting dependency.
+Postcodes.io and checked-in official parliamentary snapshots, with the official APIs as a
+fallback. Charts are hand-built SVG with no charting dependency.
 
 ## Licence
 

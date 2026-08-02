@@ -39,6 +39,12 @@ Key facts (checked July 2026):
   claimant count and resident pay compared with Scotland.
 - [Constituencies](/constituencies): all 57 Scottish Westminster seats ranked
   by child poverty.
+- [Scottish MPs and MSPs](/representatives): the current 57 Scottish MPs, plus
+  the route to every Holyrood representative, with public contact details and
+  ready-written emails.
+- [Scottish MSPs](/representatives/msps): all 73 Holyrood constituencies and
+  eight regions, covering one constituency MSP and seven regional MSPs for
+  every Scottish postcode.
 - [The Glasgow record](/glasgow-poverty-statistics): six long-run indicators — poverty, work,
   benefits, pay, neighbourhoods and life expectancy.
 - [Glasgow deep dive](/why-poverty-is-worse-in-glasgow): four evidenced reasons the city differs.
@@ -46,8 +52,11 @@ Key facts (checked July 2026):
   current status.
 - [Who has power](/who-is-responsible-for-poverty-in-scotland): decisions by Westminster, Holyrood and the
   Glasgow local case study, with measured consequences.
-- [Take action](/find-my-mp-and-msp): enter a postcode; the site finds the MP, MSP and
-  council evidence, routes policy requests and opens addressed draft emails.
+- [Take action](/find-my-mp-and-msp): enter a postcode; the lookup can return one
+  Westminster MP, one constituency MSP and seven regional MSPs, alongside local
+  council evidence. The workflow automatically prepares focused emails to the
+  MP and constituency MSP, while showing all seven regional MSPs as additional
+  valid contacts. It routes each request to the person who can act on it.
 - [Methods and sources](/methods): how every figure was obtained, including
   derivations and limitations.
 - [Download the data](/data): CSVs and original source extracts.

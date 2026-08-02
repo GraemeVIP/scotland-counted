@@ -8,7 +8,7 @@ import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
 export const metadata = meta({
   title: "Find My MSP and MP by Postcode in Scotland",
   description:
-    "Enter your postcode to find your Scottish MSP and MP, add the facts for your area, and open ready-written emails in your own email app.",
+    "Enter your postcode to find your MP and all 8 MSPs. Scotland Counted writes focused emails to your MP and constituency MSP automatically.",
   path: "/find-my-mp-and-msp",
 });
 
@@ -45,7 +45,7 @@ export default function TakeAction() {
         <PageHeader
           eyebrow="No politics knowledge needed"
           title="Find your MP and MSP by postcode"
-          lede="Enter your postcode. I find the right people, add the facts for your area, write both emails and open them in your own email app. You do not have to choose who gets which request."
+          lede="Enter your postcode. I find your MP and every MSP, then automatically write to the two closest matches: your MP and constituency MSP. You do not have to know who they are or choose who gets what."
         />
 
         <ContentFrame>
@@ -66,9 +66,10 @@ export default function TakeAction() {
             they expect the figure to be in five years, so their answer can be checked later.
           </p>
           <p className="text-[15px] text-[var(--ink-2)]">
-            No email is sent through this site and nothing you type is stored. Your postcode is
-            used only to find your area and representatives from official services. Your name and
-            personal message stay in your browser. The finished email opens in your own email app.
+            No email is sent through this site and nothing you type is stored. Your postcode finds
+            your area and representatives, then appears in your local draft so their office can
+            confirm you live there. Your name and personal message stay in your browser. The
+            finished email opens in your own email app.
           </p>
         </Col>
 

@@ -116,6 +116,11 @@ export default async function ConstituencyPage(props: { params: Promise<{ slug: 
               send them an email from this page without entering anything.
             </p>
             <p>
+              <Link href={`/representatives/mps/${c.slug}`}>
+                See the current MP&apos;s name and public contact details →
+              </Link>
+            </p>
+            <p>
               {changeInWords(c.pcts[0], c.pcts[9])} {rose ? "It has got worse." : "It has improved."}
             </p>
           </InShort>

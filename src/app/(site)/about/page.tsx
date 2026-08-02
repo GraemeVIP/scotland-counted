@@ -59,8 +59,8 @@ export default function About() {
           </p>
           <p>
             The site does not guess why a politician made a choice or claim that someone is
-            dishonest. It names your current MP and MSP only after you ask the postcode tool to
-            find them from official sources.
+            dishonest. Representative pages use official public records, and the postcode tool
+            only matches those records to your area when you ask it to.
           </p>
 
           <h2 className="h2 mb-4 mt-11">How it is funded</h2>

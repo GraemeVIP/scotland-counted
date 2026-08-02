@@ -1,6 +1,10 @@
 import { NextResponse } from "next/server";
 import { getConstituency } from "@/lib/data/constituencies";
 import { fetchMpForConstituency } from "@/lib/parliament";
+import {
+  getMpByConstituencyName,
+  mpRecordToRepresentative,
+} from "@/lib/data/mps";
 
 export const dynamic = "force-dynamic";
 
@@ -23,7 +27,10 @@ export async function GET(request: Request) {
   if (!constituency) return error("I do not have a page for that area.", 404);
 
   try {
-    const mp = await fetchMpForConstituency(constituency.name);
+    const snapshot = getMpByConstituencyName(constituency.name);
+    const mp = snapshot
+      ? mpRecordToRepresentative(snapshot)
+      : await fetchMpForConstituency(constituency.name);
     if (!mp) {
       return error(
         "Parliament's records could not be reached just now. Try again shortly.",

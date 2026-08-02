@@ -190,7 +190,7 @@ export const faqSections: FaqSection[] = [
         a: "Yes. Everyone in Scotland has one Westminster MP and one constituency MSP. You also have seven regional MSPs covering a wider region.",
         keywords: "representatives constituency regional both",
         href: "/find-my-mp-and-msp",
-        linkLabel: "Find your MP and constituency MSP",
+        linkLabel: "Find your MP and all eight MSPs",
       },
       {
         id: "know-representative",
@@ -218,9 +218,11 @@ export const faqSections: FaqSection[] = [
       },
       {
         id: "regional-msps",
-        q: "Why does the site find my constituency MSP rather than all eight MSPs?",
-        a: "Your constituency MSP covers the closest matching local area. Regional MSPs cover a much wider region and can also be contacted, but showing all eight people at once would make the simple action harder to follow.",
+        q: "Why does the site write to my constituency MSP automatically?",
+        a: "The site shows all eight MSPs who represent you: one constituency MSP and seven regional MSPs. Your constituency MSP covers the closest matching local area, so the ready-written email uses them automatically. You can also open the same ready-written email to any regional MSP. There is no wrong choice.",
         keywords: "regional MSP list eight constituency",
+        href: "/find-my-mp-and-msp",
+        linkLabel: "Find every MSP who represents you",
       },
       {
         id: "who-controls-benefits",
@@ -272,7 +274,7 @@ export const faqSections: FaqSection[] = [
       {
         id: "postcode-storage",
         q: "Is my postcode saved?",
-        a: "No. It is used to find your area and representatives, then it is discarded. The site does not keep a list of the postcodes people enter.",
+        a: "No. It is used to find your area and representatives, then placed in your local email draft so the office can confirm you live there. Scotland Counted does not keep a list of the postcodes people enter or send the email.",
         keywords: "privacy save store postcode data",
       },
       {

@@ -57,7 +57,13 @@ export default function Privacy() {
 
         <InShort expert={false}>
           <p>
-            <strong>Nothing is collected unless you type it and press send.</strong>
+            <strong>
+              {ANALYTICS_ON
+                ? `${toolList} ${TOOL_NAMES.length === 1 ? "collects" : "collect"} basic visit data when a page opens.`
+                : "No visit analytics are running."}
+            </strong>{" "}
+            Numbers typed into calculators and the words you add to an email draft stay in your
+            browser unless you choose to send them.
           </p>
           <p>
             Postcodes are used to find your area and never stored. The calculators work entirely
@@ -84,7 +90,7 @@ export default function Privacy() {
               },
               {
                 t: "Entering a postcode",
-                b: "It is sent to a public lookup service to work out your council area, MP and MSP, and it is used for that and nothing else. It is not stored by this site and it is not written to your emails.",
+                b: "It is sent to a public lookup service to work out your council area, MP and MSPs. It is then placed in the email draft so the office can confirm you live in the area. The site code does not save it or send the email.",
               },
               {
                 t: "Using the calculators",
@@ -196,7 +202,7 @@ export default function Privacy() {
               "No advertising, no ad networks and nothing sold or shared with anyone.",
               "No profiling, no automated decisions and no attempt to work out who you are.",
               "No account, no password and no sign-up needed to use anything here.",
-              "Your postcode is never stored, never logged against you and never added to a list.",
+              "The site code does not save your postcode or add it to a list. It is sent only when you ask for a postcode lookup.",
             ].map((item) => (
               <li
                 key={item}
@@ -239,7 +245,8 @@ export default function Privacy() {
                   ["Web3Forms", "Delivers the contact form and sign-ups to a real inbox", "Only what you typed into the form"],
                   ["Mailchimp", "Stores the mailing list", "Your email address"],
                   ["postcodes.io", "Turns a postcode into a council area", "The postcode you entered"],
-                  ["UK Parliament and the Scottish Parliament", "Provide the public record of who your MP and MSP are", "Nothing about you — the site asks them about an area, not a person"],
+                  ["UK Parliament", "Provides the public record of who your MP is", "The constituency found from your postcode. Your postcode is not sent to UK Parliament"],
+                  ["Scottish Parliament", "Provides the public record of who your MSPs are", "Usually only an area name. If postcodes.io cannot identify your Scottish Parliament areas, the postcode you entered is sent to the Scottish Parliament postcode finder"],
                   ["YouTube", "Plays the video, but only after you press play", "Nothing until you click. Nothing loads from YouTube on a normal page view"],
                 ].map(([a, b, c]) => (
                   <tr key={a} className="transition-colors hover:bg-[var(--surface-2)]">

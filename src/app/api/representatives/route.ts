@@ -1,8 +1,20 @@
 import { NextResponse } from "next/server";
 import { councils } from "@/lib/data/councils";
-import type { Representative, RepresentativeLookup } from "@/lib/representatives";
-import { findMemberForConstituency, getText, toRepresentative } from "@/lib/parliament";
+import {
+  representativePostcodeFromRequest,
+  type RepresentativeLookup,
+} from "@/lib/representatives";
+import { findMemberForConstituency, toRepresentative } from "@/lib/parliament";
 import { POSTCODE_MESSAGES, lookupPostcodeArea } from "@/lib/postcode";
+import {
+  fetchHolyroodRepresentatives,
+  SCOTTISH_PARLIAMENT_SOURCE_URL,
+} from "@/lib/scottishParliament";
+import { getSnapshotHolyroodRepresentatives } from "@/lib/data/holyrood";
+import {
+  getMpByConstituencyName,
+  mpRecordToRepresentative,
+} from "@/lib/data/mps";
 
 export const dynamic = "force-dynamic";
 
@@ -12,74 +24,19 @@ function error(message: string, status: number) {
   return NextResponse.json({ error: message }, { status, headers: NO_STORE_HEADERS });
 }
 
-function compactPostcode(value: string) {
-  return value.toUpperCase().replace(/\s+/g, "");
+async function fetchLiveMp(constituency: string) {
+  const member = await findMemberForConstituency(constituency);
+  return member ? toRepresentative(member) : null;
 }
 
-function formatPostcode(value: string) {
-  const compact = compactPostcode(value);
-  return `${compact.slice(0, -3)} ${compact.slice(-3)}`;
-}
-
-function isPossiblePostcode(value: string) {
-  return /^[A-Z]{1,2}\d[A-Z\d]?\d[A-Z]{2}$/.test(compactPostcode(value));
-}
-
-function decodeHtml(value: string) {
-  return value
-    .replace(/&amp;/g, "&")
-    .replace(/&#39;|&apos;/g, "'")
-    .replace(/&quot;/g, '"')
-    .replace(/&nbsp;/g, " ")
-    .trim();
-}
-
-function decodeCloudflareEmail(encoded: string) {
-  const key = Number.parseInt(encoded.slice(0, 2), 16);
-  if (!Number.isFinite(key)) return "";
-
-  let decoded = "";
-  for (let index = 2; index < encoded.length; index += 2) {
-    decoded += String.fromCharCode(Number.parseInt(encoded.slice(index, index + 2), 16) ^ key);
-  }
-  return decoded;
-}
-
-function parseConstituencyMsp(html: string): Representative | null {
-  const sectionStart = html.search(/<h3 class="h4">Constituency MSP<\/h3>/i);
-  const sectionEnd = html.search(/<h3 class="h4">Regional MSPs<\/h3>/i);
-  if (sectionStart < 0 || sectionEnd <= sectionStart) return null;
-
-  const section = html.slice(sectionStart, sectionEnd);
-  const person = section.match(/<h3 class="h5"><a href="([^"]+)">([^<]+)<\/a><\/h3>/i);
-  const party = section.match(/<div class="content-block__body">\s*<p>([^<]+)<\/p>/i);
-  const constituency = section.match(/data-rc="([^"]+)"/i);
-  const protectedEmail = section.match(/email-protection#([a-f\d]+)/i);
-
-  if (!person || !party || !constituency || !protectedEmail) return null;
-  const email = decodeCloudflareEmail(protectedEmail[1]);
-  if (!email.includes("@")) return null;
-
-  return {
-    role: "MSP",
-    name: decodeHtml(person[2]),
-    party: decodeHtml(party[1]),
-    constituency: decodeHtml(constituency[1]),
-    email,
-    profileUrl: `https://www.parliament.scot${decodeHtml(person[1])}`,
-  };
-}
-
-export async function GET(request: Request) {
-  const postcodeInput = new URL(request.url).searchParams.get("postcode")?.trim() ?? "";
-  if (!isPossiblePostcode(postcodeInput)) {
+async function lookupRepresentatives(request: Request) {
+  const parsedPostcode = await representativePostcodeFromRequest(request);
+  if (!parsedPostcode) {
     return error("Enter a full UK postcode, for example G12 8QQ.", 400);
   }
 
-  const postcode = formatPostcode(postcodeInput);
-
   try {
-    const geography = await lookupPostcodeArea(compactPostcode(postcode));
+    const geography = await lookupPostcodeArea(parsedPostcode.compact);
     if (!geography.ok) {
       const status = geography.reason === "unavailable" ? 502 : 400;
       return error(POSTCODE_MESSAGES[geography.reason], status);
@@ -91,49 +48,82 @@ export async function GET(request: Request) {
       return error("I found the postcode but could not match its council data.", 404);
     }
 
-    const holyroodUrl = new URL(
-      "https://www.parliament.scot/msps/current-and-previous-msps/find-your-msp"
-    );
-    holyroodUrl.searchParams.set("postcode", postcode);
-
-    /**
-     * The MP comes from Parliament's official API; the MSP has to be scraped
-     * from parliament.scot, which has no API. They are settled independently so
-     * a change to that page's markup cannot take the MP down with it.
-     */
-    const [memberResult, holyroodResult] = await Promise.allSettled([
-      findMemberForConstituency(area.constituency),
-      getText(holyroodUrl.toString()),
-    ]);
-
-    const member = memberResult.status === "fulfilled" ? memberResult.value : null;
-    const msp =
-      holyroodResult.status === "fulfilled"
-        ? parseConstituencyMsp(holyroodResult.value)
+    const snapshotMp = getMpByConstituencyName(area.constituency);
+    const snapshotHolyrood =
+      area.scottishParliamentConstituency && area.scottishParliamentRegion
+        ? getSnapshotHolyroodRepresentatives(
+            area.scottishParliamentConstituency,
+            area.scottishParliamentRegion
+          )
         : null;
 
-    if (!member) {
+    /**
+     * Checked official snapshots make the normal path fast and resilient. Live
+     * APIs are only a fallback for a new geography that is not in the latest
+     * reviewed snapshot. Westminster and Holyrood still fail independently.
+     */
+    const mpPromise = snapshotMp
+      ? Promise.resolve(mpRecordToRepresentative(snapshotMp))
+      : fetchLiveMp(area.constituency);
+    const holyroodPromise = snapshotHolyrood
+      ? Promise.resolve(snapshotHolyrood)
+      : area.scottishParliamentConstituency && area.scottishParliamentRegion
+        ? fetchHolyroodRepresentatives(
+            area.scottishParliamentConstituency,
+            area.scottishParliamentRegion
+          )
+        : Promise.resolve(null);
+
+    const [mpResult, holyroodResult] = await Promise.allSettled([
+      mpPromise,
+      holyroodPromise,
+    ]);
+
+    const mp = mpResult.status === "fulfilled" ? mpResult.value : null;
+    const holyrood =
+      holyroodResult.status === "fulfilled"
+        ? holyroodResult.value
+        : null;
+
+    if (!mp) {
       return error("I could not find your MP just now. Please try again shortly.", 502);
     }
 
-    const mp = await toRepresentative(member);
-    if (!mp) {
-      return error("Your MP was found, but Parliament did not return a public email address.", 502);
-    }
-
     const result: RepresentativeLookup = {
-      postcode: area.postcode || postcode,
+      postcode: area.postcode || parsedPostcode.formatted,
       council: { name: council.name, slug: council.slug },
       mp,
-      msp,
-      /** Set when Holyrood could not be reached, so the page can say so plainly. */
-      mspUnavailable: msp
+      msp: holyrood?.constituencyMsp ?? null,
+      constituencyMsp: holyrood?.constituencyMsp ?? null,
+      regionalMsps: holyrood?.regionalMsps ?? [],
+      holyrood: {
+        constituency: area.scottishParliamentConstituency,
+        region: area.scottishParliamentRegion,
+        source:
+          holyrood?.source ?? {
+            name: "Scottish Parliament Open Data",
+            url: SCOTTISH_PARLIAMENT_SOURCE_URL,
+          },
+      },
+      mspUnavailable: holyrood?.constituencyMsp
         ? undefined
-        : "The Scottish Parliament's website could not be reached just now, so your MSP could not be found. Your MP email is ready below.",
+        : area.scottishParliamentConstituency && area.scottishParliamentRegion
+          ? "The Scottish Parliament's official data could not be read just now, so your MSPs could not be found. Your MP email is ready below."
+          : "The postcode directory could not match this address to its Scottish Parliament areas. Your MP email is ready below.",
     };
 
     return NextResponse.json(result, { headers: NO_STORE_HEADERS });
   } catch {
     return error("The representative lookup is temporarily unavailable. Please try again shortly.", 502);
   }
+}
+
+/** Temporary GET support for bookmarked diagnostic URLs. */
+export async function GET(request: Request) {
+  return lookupRepresentatives(request);
+}
+
+/** Normal browser flow: keeps the exact postcode out of the URL. */
+export async function POST(request: Request) {
+  return lookupRepresentatives(request);
 }

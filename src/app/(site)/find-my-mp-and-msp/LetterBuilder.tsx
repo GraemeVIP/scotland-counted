@@ -47,11 +47,21 @@ function normalisePostcode(value: string) {
   return value.toUpperCase().replace(/\s+/g, "");
 }
 
+function representativeLabel(representative: Representative) {
+  if (representative.role === "MSP" && representative.representationType === "constituency") {
+    return "constituency MSP";
+  }
+  if (representative.role === "MSP" && representative.representationType === "regional") {
+    return "regional MSP";
+  }
+  return representative.role;
+}
+
 function RepresentativeSummary({ representative }: { representative: Representative }) {
   return (
     <div className="border-t border-[var(--rule)] pt-3 first:border-t-0 first:pt-0">
       <p className="ui text-[15px] font-[720] text-[var(--ink)]">
-        Your {representative.role}: {representative.name}
+        Your {representativeLabel(representative)}: {representative.name}
       </p>
       <p className="text-[15px] text-[var(--ink-2)] leading-[1.5] mt-1">
         {representative.party} · {representative.constituency}
@@ -132,14 +142,38 @@ export default function LetterBuilder() {
       }));
   }, [lookup, area, council.slug, name, personal, postcode, topics]);
 
+  const regionalDrafts = useMemo(() => {
+    if (!lookup) return [];
+    const canAct = rolesForTopics(topics).includes("MSP");
+
+    return lookup.regionalMsps.map((representative) => ({
+      representative,
+      letter: canAct
+        ? buildLetter({
+            area,
+            role: "MSP",
+            representative,
+            senderName: name,
+            personal,
+            postcode: lookup.postcode ?? postcode,
+            councilSlug: council.slug,
+            topics,
+          })
+        : null,
+    }));
+  }, [lookup, area, council.slug, name, personal, postcode, topics]);
+
   const findRepresentativesFor = useCallback(async (value: string) => {
     setLookupState("loading");
     setLookupError("");
     setLookup(null);
 
     try {
-      const response = await fetch(`/api/representatives?postcode=${encodeURIComponent(value)}`, {
+      const response = await fetch("/api/representatives", {
+        method: "POST",
         cache: "no-store",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ postcode: value }),
       });
       const result = (await response.json()) as RepresentativeLookup | { error?: string };
       if (!response.ok || !("mp" in result)) {
@@ -208,6 +242,18 @@ export default function LetterBuilder() {
     return `mailto:${representative.email}?subject=${encodeURIComponent(letterSubject(area, theirs))}&body=${encodeURIComponent(letter)}`;
   }
 
+  function openDraft(
+    representative: Representative,
+    letter: string,
+    trackingRole: RepresentativeRole | "regional_msp" = representative.role,
+  ) {
+    trackEvent("mailto_opened", {
+      role: trackingRole,
+      topic_count: topics.length,
+    });
+    window.location.assign(mailtoFor(representative, letter));
+  }
+
   return (
     <div id="letter-builder" className="mt-10 grid gap-7 lg:grid-cols-[420px_1fr] items-start scroll-mt-24">
       <div
@@ -244,7 +290,10 @@ export default function LetterBuilder() {
               <p className="text-[15px] text-[var(--bad-text)] leading-[1.5]">{lookupError}</p>
             )}
             {lookup && (
-              <div className="rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--paper)] p-4 space-y-3">
+              <div
+                data-clarity-mask="true"
+                className="rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--paper)] p-4 space-y-3"
+              >
                 <p className="ui text-[15px] font-[720] text-[var(--good-text)]">
                   Found automatically for {lookup.postcode}
                 </p>
@@ -256,6 +305,61 @@ export default function LetterBuilder() {
                     {lookup.mspUnavailable ?? "I could not find your MSP just now."}
                   </p>
                 )}
+                {lookup.regionalMsps.length > 0 && (
+                  <details className="group border-t border-[var(--rule)] pt-3">
+                    <summary className="ui flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 text-[15px] font-[720] text-[var(--ink)] marker:content-none">
+                      <span>
+                        See your {lookup.regionalMsps.length} regional MSP
+                        {lookup.regionalMsps.length === 1 ? "" : "s"}
+                      </span>
+                      <span
+                        aria-hidden="true"
+                        className="text-[20px] leading-none text-[var(--brand)] transition-transform group-open:rotate-45"
+                      >
+                        +
+                      </span>
+                    </summary>
+                    <div className="pb-1 pt-2">
+                      <p className="text-[15px] leading-[1.55] text-[var(--ink-2)]">
+                        They also represent you across the wider{" "}
+                        {lookup.holyrood.region ?? "Scottish Parliament"} region. You can contact
+                        any of them. I use your constituency MSP for the ready-written email
+                        automatically, so you do not have to choose or email all seven.
+                      </p>
+                      <ul className="mt-3 divide-y divide-[var(--rule)] border-y border-[var(--rule)]">
+                        {regionalDrafts.map(({ representative, letter }) => (
+                          <li key={`${representative.name}-${representative.email}`} className="py-3">
+                            <p className="ui text-[15px] font-[700] text-[var(--ink)]">
+                              {representative.name}
+                            </p>
+                            <p className="mt-0.5 text-[15px] leading-[1.45] text-[var(--ink-2)]">
+                              {representative.party}
+                            </p>
+                            <div className="mt-1.5 flex flex-wrap gap-x-4 gap-y-1">
+                              {letter && (
+                                <button
+                                  type="button"
+                                  onClick={() => openDraft(representative, letter, "regional_msp")}
+                                  className="text-[15px] font-[650] text-[var(--action)] underline underline-offset-[3px]"
+                                >
+                                  Open ready-written email
+                                </button>
+                              )}
+                              <a
+                                href={representative.profileUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-[15px]"
+                              >
+                                Official profile
+                              </a>
+                            </div>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </details>
+                )}
                 <p className="text-[15px] text-[var(--ink-2)] leading-[1.5] border-t border-[var(--rule)] pt-3">
                   Using the official figures for {lookup.council.name}: {asOneIn(council.pcts[9])}{" "}
                   children, exactly {council.pcts[9]}% or {council.counts[9].toLocaleString("en-GB")} children.
@@ -265,7 +369,8 @@ export default function LetterBuilder() {
           </div>
 
           <p className="text-[15px] text-[var(--muted)] leading-[1.5] mt-3">
-            I use your postcode only to find your area, MP and MSP. I do not save it.
+            I use your postcode to find your area and representatives, then add it to your draft
+            so their office knows you live there. I do not save it or send the email.
           </p>
         </div>
 
@@ -374,25 +479,46 @@ export default function LetterBuilder() {
           <StepLabel n={4}>Open and send</StepLabel>
           {!lookup ? (
             <p className="rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--paper)] p-4 text-[15px] text-[var(--ink-2)] leading-[1.5]">
-              Enter your postcode above. I will find both people and prepare both emails. You do
-              not need to choose who should receive which request.
+              Enter your postcode above. I will find everyone who represents you, then prepare
+              focused emails to your MP and constituency MSP. You do not need to choose who gets
+              which request.
             </p>
           ) : (
-            <div className="space-y-4">
-              <p className="text-[15px] text-[var(--ink-2)] leading-[1.55]">
-                {drafts.length === 2 ? (
+            <div data-clarity-mask="true" className="space-y-4">
+              {drafts.length === 0 ? (
+                <div className="rounded-[var(--r-s)] border-l-[3px] border-[var(--warn)] bg-[var(--surface-2)] px-4 py-3">
+                  <p className="text-[15px] text-[var(--ink-2)] leading-[1.55]">
+                    {topics.length === 0 ? (
+                      <>
+                        <strong>No email is ready yet.</strong> Tick at least one subject above and
+                        I will work out who can act on it.
+                      </>
+                    ) : (
+                      <>
+                        <strong>I could not prepare this email just now.</strong> Your representative
+                        details are incomplete. Try the postcode lookup again in a moment, or use
+                        the official profile links above to contact them directly.
+                      </>
+                    )}
+                  </p>
+                </div>
+              ) : (
+                <p className="text-[15px] text-[var(--ink-2)] leading-[1.55]">
+                  {drafts.length === 2 ? (
                   <>
                     <strong>Two emails are ready.</strong> One goes to your MP in London and one
-                    to your MSP in Edinburgh. Each one only asks for things that person can
-                    actually do.
+                    to your constituency MSP in Edinburgh. Each one only asks for things that
+                    person can actually do.
                   </>
                 ) : (
                   <>
                     <strong>Your email is ready.</strong> It goes to your{" "}
-                    {drafts[0]?.representative.role ?? "MP"}, because that is who can act on this.
+                    {drafts[0] ? representativeLabel(drafts[0].representative) : "MP"}, because
+                    that is who can act on this.
                   </>
-                )}
-              </p>
+                  )}
+                </p>
+              )}
               {drafts.map(({ representative, letter }, index) => (
                 <div
                   key={representative.role}
@@ -400,7 +526,7 @@ export default function LetterBuilder() {
                 >
                   <p className="ui text-[15px] font-[720] text-[var(--action)]">
                     {drafts.length === 2 ? `Email ${index + 1} of 2 · ` : "Email · "}
-                    your {representative.role}
+                    your {representativeLabel(representative)}
                   </p>
                   <p className="text-[18px] font-[680] mt-1">{representative.name}</p>
                   <p className="text-[15px] text-[var(--ink-2)] leading-[1.45] mt-1">
@@ -417,20 +543,20 @@ export default function LetterBuilder() {
                       {representative.phone}
                     </p>
                   )}
+                  {representative.officeAddress && (
+                    <p className="text-[15px] text-[var(--ink-2)] leading-[1.5] mt-1">
+                      {representative.officeAddress}
+                    </p>
+                  )}
                   <div className="grid gap-2.5 mt-4">
-                    <a
-                      href={mailtoFor(representative, letter)}
-                      onClick={() =>
-                        trackEvent("mailto_opened", {
-                          role: representative.role,
-                          topic_count: topics.length,
-                        })
-                      }
+                    <button
+                      type="button"
+                      onClick={() => openDraft(representative, letter)}
                       className="btn btn-primary w-full justify-center text-center"
-                      aria-label={`Open ready-to-send email to ${representative.name}, your ${representative.role}`}
+                      aria-label={`Open ready-to-send email to ${representative.name}, your ${representativeLabel(representative)}`}
                     >
                       Open email to {representative.name}
-                    </a>
+                    </button>
                     <button
                       type="button"
                       onClick={() => copyDraft(representative.role, letter)}
@@ -459,7 +585,7 @@ export default function LetterBuilder() {
         </div>
       </div>
 
-      <div>
+      <div data-clarity-mask="true">
         <div className="flex items-baseline justify-between gap-4 mb-3">
           <p className="label">Your email{drafts.length === 2 ? "s" : ""}</p>
           {drafts.length > 0 && (
@@ -474,10 +600,10 @@ export default function LetterBuilder() {
             className="rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] border-t-[3px] border-t-[var(--brand)] p-7 sm:p-10"
             style={{ boxShadow: "var(--shadow-2)" }}
           >
-            <p className="text-[20px] font-[720]">Your two addressed emails will appear here</p>
+            <p className="text-[20px] font-[720]">Your addressed emails will appear here</p>
             <p className="text-[16px] text-[var(--ink-2)] leading-[1.6] mt-3 max-w-[58ch]">
-              Enter your postcode. I find your MP and MSP, use your area&apos;s official figures and
-              write one email for each person automatically.
+              Enter your postcode. I find your MP and every MSP, use your area&apos;s official figures
+              and write to your MP and constituency MSP automatically.
             </p>
           </div>
         ) : (
@@ -491,7 +617,7 @@ export default function LetterBuilder() {
                 <div className="flex flex-wrap items-baseline justify-between gap-3 border-b border-[var(--rule)] pb-4 mb-5">
                   <div>
                     <p className="ui text-[15px] font-[720] text-[var(--action)]">
-                      To your {representative.role}
+                      To your {representativeLabel(representative)}
                     </p>
                     <h2 className="text-[22px] font-[700] mt-1">{representative.name}</h2>
                   </div>

@@ -67,6 +67,7 @@ function PostcodeJump({ onDone, autoFocus = false }: { onDone: () => void; autoF
         value={postcode}
         onChange={(event) => setPostcode(event.target.value.toUpperCase())}
         placeholder="Your postcode"
+        data-clarity-mask="true"
         autoComplete="postal-code"
         className="ui w-full min-h-12 rounded-[var(--r-s)] bg-[var(--paper)] border border-[var(--rule-strong)] px-4 text-[16px] text-[var(--ink)] placeholder:text-[var(--muted)] focus:border-[var(--brand)] outline-none transition-colors"
       />
@@ -187,7 +188,7 @@ function FindYourPlace({ onNavigate, autoFocus }: { onNavigate: () => void; auto
 /** The counts, which double as links to each index. */
 function Inventory({ onNavigate }: { onNavigate: () => void }) {
   return (
-    <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
+    <div className="grid grid-cols-2 gap-x-6 gap-y-4 sm:grid-cols-4 sm:gap-x-8">
       {INVENTORY.map((i) => (
         <Link
           key={i.href}
@@ -267,7 +268,11 @@ export function MobileMenu({ onNavigate }: { onNavigate: () => void }) {
         </div>
 
         <div className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5">
-          <p className="ui mb-4 text-[17px] font-[800] text-[var(--ink)]">What is in here</p>
+          <p className="ui text-[18px] font-[800] text-[var(--ink)]">What Scotland Counted does</p>
+          <p className="mt-2 mb-5 max-w-[42rem] text-[15px] leading-6 text-[var(--ink-2)]">
+            See what poverty, pay and living costs look like where you live. Find the people who
+            can change things, then send them a ready-written email.
+          </p>
           <Inventory onNavigate={onNavigate} />
           <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2">
             {MENU_FOOTER_LINKS.map((l) => (
@@ -286,7 +291,7 @@ export function MobileMenu({ onNavigate }: { onNavigate: () => void }) {
             onClick={onNavigate}
             className="ui mt-4 block text-[15.5px] font-[700]"
           >
-            See every page on this site →
+            Browse every page →
           </Link>
         </div>
       </div>

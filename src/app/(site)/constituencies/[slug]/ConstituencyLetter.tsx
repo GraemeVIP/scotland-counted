@@ -65,6 +65,11 @@ export default function ConstituencyLetter({
     }
   }
 
+  function openEmail() {
+    if (!mp) return;
+    window.location.assign(mailtoUrl(mp, area, letter));
+  }
+
   function goToFullFlow(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const value = postcode.trim().toUpperCase();
@@ -134,7 +139,7 @@ export default function ConstituencyLetter({
               </a>
             </div>
 
-            <div className="mt-5 grid gap-3 sm:grid-cols-2">
+            <div data-clarity-mask="true" className="mt-5 grid gap-3 sm:grid-cols-2">
               <div>
                 <label className="ui text-[15px] font-[700] block mb-1.5" htmlFor="letter-name">
                   Your name (optional)
@@ -164,21 +169,22 @@ export default function ConstituencyLetter({
               </div>
             </div>
 
-            <div className="mt-5 rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--paper)] p-5">
+            <div data-clarity-mask="true" className="mt-5 rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--paper)] p-5">
               <p className="label mb-3">Your email</p>
               <pre className="text-[16px] leading-[1.65] whitespace-pre-wrap font-sans text-[var(--ink-2)] m-0 overflow-x-auto">
                 {letter}
               </pre>
             </div>
 
-            <div className="mt-5 grid gap-2.5 sm:grid-cols-[auto_auto] sm:justify-start">
-              <a
-                href={mailtoUrl(mp, area, letter)}
+            <div data-clarity-mask="true" className="mt-5 grid gap-2.5 sm:grid-cols-[auto_auto] sm:justify-start">
+              <button
+                type="button"
+                onClick={openEmail}
                 className="btn btn-primary justify-center text-center"
                 aria-label={`Open a ready-to-send email to ${mp.name}, the MP for ${area.name}`}
               >
                 Open this email in my email app
-              </a>
+              </button>
               <button type="button" onClick={copyLetter} className="btn btn-ghost justify-center">
                 {copied ? "Copied" : "Copy the email instead"}
               </button>
@@ -209,6 +215,7 @@ export default function ConstituencyLetter({
             value={postcode}
             onChange={(event) => setPostcode(event.target.value.toUpperCase())}
             placeholder="Postcode, e.g. G12 8QQ"
+            data-clarity-mask="true"
             autoComplete="postal-code"
             inputMode="text"
             required
@@ -220,7 +227,8 @@ export default function ConstituencyLetter({
           </button>
         </form>
         <p className="mt-3 text-[15px] text-[var(--muted)] leading-[1.5]">
-          I use your postcode only to find your representatives. I do not save it.
+          I use your postcode to find your representatives and add it to your local draft. I do
+          not save it or send the email.
         </p>
       </div>
     </section>

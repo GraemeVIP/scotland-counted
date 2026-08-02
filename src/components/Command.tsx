@@ -9,6 +9,8 @@ import { terms } from "@/lib/data/glossary";
 import { faqItems } from "@/lib/data/faqs";
 import { posts, postCategories } from "@/lib/data/posts";
 import { BAND_LETTERS } from "@/lib/data/councilTax";
+import { mps } from "@/lib/data/mps";
+import { holyroodConstituencies, holyroodRegions } from "@/lib/data/holyrood";
 
 /**
  * The command palette: every page on the site reachable in two
@@ -30,6 +32,18 @@ const CORE: Item[] = [
   { label: "Home", href: "/", group: "Main pages" },
   { label: "Every Scottish council area", href: "/areas", group: "Main pages" },
   { label: "Find the area your MP represents", href: "/constituencies", group: "Main pages" },
+  {
+    label: "Every current Scottish MP",
+    href: "/representatives",
+    group: "Main pages",
+    keywords: "who is my mp names contact email phone westminster representatives",
+  },
+  {
+    label: "Every current Scottish MSP",
+    href: "/representatives/msps",
+    group: "Main pages",
+    keywords: "who is my msp names contact email holyrood representatives regional constituency",
+  },
   {
     label: "Glasgow poverty statistics",
     href: "/glasgow-poverty-statistics",
@@ -122,6 +136,27 @@ function buildRegistry(): Item[] {
       meta: `${c.pcts[9]}%`,
       keywords: "constituency mp seat westminster",
     })),
+    ...mps.map((mp) => ({
+      label: `${mp.name}, MP for ${mp.constituency}`,
+      href: `/representatives/mps/${mp.constituencySlug}`,
+      group: "Scottish MPs",
+      meta: mp.party,
+      keywords: `who is mp contact email phone representative westminster ${mp.constituency} ${mp.party}`,
+    })),
+    ...holyroodConstituencies.map((record) => ({
+      label: `${record.msp.name}, MSP for ${record.constituency}`,
+      href: `/representatives/msps/constituencies/${record.constituencySlug}`,
+      group: "Scottish MSPs",
+      meta: record.msp.party,
+      keywords: `who is msp contact email representative holyrood ${record.constituency} ${record.region} ${record.msp.party}`,
+    })),
+    ...holyroodRegions.map((record) => ({
+      label: `Regional MSPs for ${record.region}`,
+      href: `/representatives/msps/regions/${record.regionSlug}`,
+      group: "Scottish MSPs",
+      meta: "7 regional MSPs",
+      keywords: `regional msps contact email representative holyrood ${record.region}`,
+    })),
     ...faqItems.map((item) => ({
       label: item.q,
       href: `/faq#${item.id}`,
@@ -210,6 +245,8 @@ const GROUP_ORDER = [
   "Explainers",
   "Council areas",
   "Council tax",
+  "Scottish MPs",
+  "Scottish MSPs",
   "Areas represented by an MP",
   "Glasgow facts",
   "Glossary",
@@ -235,7 +272,7 @@ export default function CommandPalette() {
       const pin = [
         "/areas/glasgow-city",
         "/areas",
-        "/constituencies",
+        "/representatives",
         "/find-my-mp-and-msp",
         "/glasgow-poverty-statistics",
         "/glossary",

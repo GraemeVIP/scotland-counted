@@ -6,11 +6,13 @@ import { councilsByLevel } from "@/lib/data/councils";
 import { constituencies } from "@/lib/data/constituencies";
 import { posts } from "@/lib/data/posts";
 import { indicators } from "@/lib/data/indicators";
+import { mps } from "@/lib/data/mps";
+import { holyroodConstituencies, holyroodRegions } from "@/lib/data/holyrood";
 
 export const metadata = meta({
   title: "Every page on this site",
   description:
-    "The whole of Scotland Counted in one place: every council area, every MP area, every explainer and every source. Nothing is hidden behind a menu.",
+    "The whole of Scotland Counted in one place: every council area, MP, MSP area, explainer and source. Nothing is hidden behind a menu.",
   path: "/browse",
 });
 
@@ -31,29 +33,129 @@ export default function Browse() {
         <PageHeader
           eyebrow="The whole site"
           title="Everything on this site"
-          lede="There is a lot here, so this page lists all of it. If you only want one thing, it is almost certainly your own area — that is the first list below."
+          lede="There is a lot here, so this page puts it into clear groups. Start with the people who represent you or your local area, then open the longer lists only when you need them."
         />
 
         <ContentFrame>
           <section className="pt-10">
-          <h2 className="h2 mb-2">Your council area</h2>
-          <p className="text-[17px] text-[var(--ink-2)] leading-[1.6] max-w-[62ch] mb-5">
-            All {councils.length} council areas in Scotland, worst rate first. Each page has ten
-            years of figures for child poverty and out-of-work benefits, plus minimum-wage context
-            and a clearly restricted ONS pay estimate.
-          </p>
-          <div className="flex flex-wrap gap-2">
-            {councils.map((c) => (
+            <h2 className="h2 mb-2">The people who represent you</h2>
+            <p className="text-[17px] text-[var(--ink-2)] leading-[1.6] max-w-[62ch] mb-5">
+              Your postcode finds the right people automatically. You have one MP at Westminster,
+              one constituency MSP and seven regional MSPs at Holyrood.
+            </p>
+            <div className="grid gap-3 sm:grid-cols-2">
               <Link
-                key={c.slug}
-                href={`/areas/${c.slug}`}
-                className="ui text-[15px] px-3 py-2 rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] hover:border-[var(--brand)] transition-colors no-underline"
+                href="/find-my-mp-and-msp"
+                className="group block rounded-[var(--r-s)] border border-[var(--rule)] border-t-[3px] border-t-[var(--action)] bg-[var(--surface)] px-5 py-5 no-underline hover:border-[var(--action)] transition-colors"
               >
-                {c.name} <span className="text-[var(--muted)] tnum">{c.pcts[9]}%</span>
+                <span className="ui block text-[15px] font-[750] uppercase tracking-[0.06em] text-[var(--action)]">
+                  Fastest route
+                </span>
+                <span className="ui mt-2 block text-[19px] font-[750] text-[var(--ink)]">
+                  Find everyone by postcode →
+                </span>
+                <span className="mt-2 block text-[15px] leading-[1.5] text-[var(--ink-2)]">
+                  I find your MP and all eight MSPs, then write the focused emails for you.
+                </span>
               </Link>
-            ))}
-          </div>
-        </section>
+              <div className="grid gap-3">
+                <Link
+                  href="/representatives"
+                  className="group block rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] px-5 py-4 no-underline hover:border-[var(--rule-strong)] transition-colors"
+                >
+                  <span className="ui text-[17px] font-[720] text-[var(--ink)] group-hover:text-[var(--action)]">
+                    Browse all 57 MPs →
+                  </span>
+                  <span className="mt-1 block text-[15px] text-[var(--ink-2)]">
+                    Names, parties, contacts and ready-written emails.
+                  </span>
+                </Link>
+                <Link
+                  href="/representatives/msps"
+                  className="group block rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] px-5 py-4 no-underline hover:border-[var(--rule-strong)] transition-colors"
+                >
+                  <span className="ui text-[17px] font-[720] text-[var(--ink)] group-hover:text-[var(--action)]">
+                    Browse all 129 MSPs →
+                  </span>
+                  <span className="mt-1 block text-[15px] text-[var(--ink-2)]">
+                    Every constituency and every regional list.
+                  </span>
+                </Link>
+              </div>
+            </div>
+
+            <div className="mt-5 grid gap-3">
+              <details className="rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)]">
+                <summary className="ui cursor-pointer px-5 py-4 text-[16px] font-[720] text-[var(--ink)]">
+                  Show all 57 current MPs
+                </summary>
+                <div className="flex flex-wrap gap-2 border-t border-[var(--rule)] px-5 py-5">
+                  {mps.map((mp) => (
+                    <Link
+                      key={mp.constituencySlug}
+                      href={`/representatives/mps/${mp.constituencySlug}`}
+                      className="ui text-[15px] px-3 py-2 rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--paper)] hover:border-[var(--brand)] transition-colors no-underline"
+                    >
+                      {mp.name}{" "}
+                      <span className="text-[var(--muted)]">· {mp.constituency}</span>
+                    </Link>
+                  ))}
+                </div>
+              </details>
+
+              <details className="rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)]">
+                <summary className="ui cursor-pointer px-5 py-4 text-[16px] font-[720] text-[var(--ink)]">
+                  Show every MSP area
+                </summary>
+                <div className="border-t border-[var(--rule)] px-5 py-5">
+                  <h3 className="ui text-[16px] font-[750] text-[var(--ink)]">73 constituencies</h3>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {holyroodConstituencies.map((item) => (
+                      <Link
+                        key={item.constituencySlug}
+                        href={`/representatives/msps/constituencies/${item.constituencySlug}`}
+                        className="ui text-[15px] px-3 py-2 rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--paper)] hover:border-[var(--brand)] transition-colors no-underline"
+                      >
+                        {item.constituency}
+                      </Link>
+                    ))}
+                  </div>
+                  <h3 className="ui mt-6 text-[16px] font-[750] text-[var(--ink)]">8 regions</h3>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {holyroodRegions.map((item) => (
+                      <Link
+                        key={item.regionSlug}
+                        href={`/representatives/msps/regions/${item.regionSlug}`}
+                        className="ui text-[15px] px-3 py-2 rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--paper)] hover:border-[var(--brand)] transition-colors no-underline"
+                      >
+                        {item.region}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </details>
+            </div>
+          </section>
+
+          <section className="pt-10">
+            <h2 className="h2 mb-2">Your council area</h2>
+            <p className="text-[17px] text-[var(--ink-2)] leading-[1.6] max-w-[62ch] mb-5">
+              All {councils.length} council areas in Scotland, worst rate first. Each page has ten
+              years of figures for child poverty and out-of-work benefits, plus minimum-wage context
+              and a clearly restricted ONS pay estimate.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {councils.map((c) => (
+                <Link
+                  key={c.slug}
+                  href={`/areas/${c.slug}`}
+                  className="ui text-[15px] px-3 py-2 rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] hover:border-[var(--brand)] transition-colors no-underline"
+                >
+                  {c.name} <span className="text-[var(--muted)] tnum">{c.pcts[9]}%</span>
+                </Link>
+              ))}
+            </div>
+          </section>
 
         <section className="pt-12">
           <h2 className="h2 mb-2">Your MP&apos;s area</h2>
