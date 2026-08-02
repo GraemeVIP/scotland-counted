@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useId, useMemo, useState } from "react";
+import { ExplainText } from "@/components/Glossary";
 
 /**
  * The ranked league table used for councils and constituencies.
@@ -112,12 +113,12 @@ export default function RankTable({
             <h2 className="display-stat text-[clamp(26px,3.2vw,40px)] max-w-[20ch]">{title}</h2>
             {standfirst && (
               <p className="mt-3 max-w-[62ch] text-[16.5px] leading-[1.55] text-[var(--ink-2)]">
-                {standfirst}
+                <ExplainText>{standfirst}</ExplainText>
               </p>
             )}
           </div>
           {measure && (
-            <p className="ui text-[14.5px] font-[650] text-[var(--muted)] tnum">{measure}</p>
+            <p className="ui text-[14.5px] font-[650] text-[var(--muted)] tnum"><ExplainText>{measure}</ExplainText></p>
           )}
         </div>
       )}

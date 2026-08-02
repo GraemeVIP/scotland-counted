@@ -31,7 +31,7 @@ export default function CouncilsPage() {
           "@type": "CollectionPage",
           name: "Scottish council budgets and performance",
           description:
-            "An evidence-led directory of council budgets, targets, promises and official scrutiny in Scotland.",
+            "An evidence-led directory of council budgets, targets, promises and official checks in Scotland.",
           url: `${site.url}/councils`,
           numberOfItems: publishedSlugs.size,
           isPartOf: { "@id": `${site.url}/#website` },
@@ -63,7 +63,7 @@ export default function CouncilsPage() {
               {[
                 ["Money", "Budgets, funding gaps and reserves"],
                 ["Results", "Targets, actual performance and missed deadlines"],
-                ["Scrutiny", "Audit findings, regulator warnings and responses"],
+                ["Independent checks", "Audit findings, regulator warnings and responses"],
               ].map(([title, body]) => (
                 <div
                   key={title}
@@ -84,7 +84,7 @@ export default function CouncilsPage() {
               </div>
               <div className="text-right">
                 <p className="ui text-[15px] text-[var(--muted)]">
-                  {publishedSlugs.size} of {areas.length} detailed accountability records published
+                  {publishedSlugs.size} of {areas.length} detailed council records published
                 </p>
                 <Link href="/areas" className="ui text-[16px] font-[700]">
                   See all local poverty figures →

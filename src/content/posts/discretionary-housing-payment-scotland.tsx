@@ -12,9 +12,9 @@ export default function Post() {
 
       <H2 id="what-it-is">What the payment is</H2>
       <P>
-        DHP is a separate council payment on top of housing benefit support. “Discretionary” means
-        there is no automatic entitlement just because a shortfall exists. The council looks at
-        the household, the cause of the gap, the available fund and what the payment would achieve.
+        DHP is a separate council payment on top of housing benefit support. It is not automatic
+        just because there is a rent gap. The council looks at the household, the cause of the
+        gap, the money available and what the payment would achieve.
       </P>
       <Aside title="It is different from Local Housing Allowance">
         <p>

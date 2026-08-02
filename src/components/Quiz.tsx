@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { quiz, scoreVerdict } from "@/lib/data/quiz";
+import { ExplainText } from "@/components/Glossary";
 
 /**
  * Guess the figure, then see the real one.
@@ -68,7 +69,7 @@ export default function Quiz({
           <span className="opacity-50"> / {quiz.length}</span>
         </p>
         <Heading className="mt-4 text-[24px] font-[780] leading-[1.2] sm:text-[30px]">{v.title}</Heading>
-        <p className="mt-4 max-w-[56ch] text-[17.5px] leading-[1.6] opacity-85">{v.body}</p>
+        <p className="mt-4 max-w-[56ch] text-[17.5px] leading-[1.6] opacity-85"><ExplainText>{v.body}</ExplainText></p>
 
         <p className="mt-7 max-w-[56ch] text-[19px] leading-[1.5] font-[660]">
           Every one of those figures was decided by someone. You can write to them in about a
@@ -124,7 +125,7 @@ export default function Quiz({
 
       <div className="px-5 py-7 sm:px-7 sm:py-8">
         <Heading className="text-[21px] font-[770] leading-[1.25] max-w-[30ch] sm:text-[26px]">
-          {q.question}
+          <ExplainText>{q.question}</ExplainText>
         </Heading>
 
         <div className="mt-6 grid gap-2.5">
@@ -182,7 +183,7 @@ export default function Quiz({
               {q.headline}
             </p>
             <p className="mt-3 max-w-[58ch] text-[17px] leading-[1.6] text-[var(--ink-2)]">
-              {q.reveal}
+                <ExplainText>{q.reveal}</ExplainText>
             </p>
 
             <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">

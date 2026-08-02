@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ExplainText } from "@/components/Glossary";
 import {
   minimumWage,
   minimumWageTakeHome,
@@ -39,6 +40,7 @@ export default function WorkDoesNotPay({ className = "" }: { className?: string 
 
   return (
     <section className={className} aria-labelledby="work-does-not-pay">
+      <ExplainText>
       <p className="kicker mb-3 text-[var(--action)]">The maths people actually live</p>
       <h2 id="work-does-not-pay" className="display-stat text-[clamp(30px,3.6vw,46px)] max-w-[18ch]">
         Full-time work at the minimum does not cover Glasgow
@@ -221,6 +223,7 @@ export default function WorkDoesNotPay({ className = "" }: { className?: string 
           <span aria-hidden="true">→</span>
         </Link>
       </div>
+      </ExplainText>
     </section>
   );
 }

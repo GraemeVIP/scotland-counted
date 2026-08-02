@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { ExplainText } from "@/components/Glossary";
 
 /**
  * The questions block, in one place.
@@ -60,7 +61,7 @@ export default function Faq({
             <div className="min-w-0">
               <h3 className="text-[18px] font-[740] leading-[1.3] sm:text-[19px]">{item.q}</h3>
               <div className="mt-2.5 max-w-[62ch] text-[16px] leading-[1.6] text-[var(--ink-2)]">
-                {item.a}
+                <ExplainText>{item.a}</ExplainText>
               </div>
             </div>
           </div>

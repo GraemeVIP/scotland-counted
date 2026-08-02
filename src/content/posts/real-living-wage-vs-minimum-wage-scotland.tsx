@@ -38,8 +38,8 @@ export default function Post() {
       <Aside title="The word “real” does not make it law">
         <p>
           It distinguishes the cost-based Living Wage from the government’s legal rate with a
-          similar name. An accredited employer promises to pay it, but the statutory wage floor
-          remains the minimum wage.
+          similar name. An accredited employer promises to pay it, but the legal minimum wage
+          remains the floor that every employer must meet.
         </p>
       </Aside>
 
@@ -47,7 +47,7 @@ export default function Post() {
       <BigStat
         value="74p an hour"
         label="the difference between £13.45 and £12.71"
-        exact="At 37.5 paid hours a week for 52 weeks, that is £1,443 gross a year."
+        exact="At 37.5 paid hours a week for 52 weeks, that is £1,443 before tax over a year."
       />
       <P>
         That does not solve every household budget. Rent, children, disability, travel and benefit
@@ -57,7 +57,7 @@ export default function Post() {
 
       <H2 id="check">How to check your employer</H2>
       <P>
-        First check the legal rate for your age and apprenticeship year. Then divide gross pay by
+        First check the legal rate for your age and apprenticeship year. Then divide pay before tax by
         the paid hours in the pay period. Do not count unpaid breaks as paid work, but do include
         time the law treats as working time.
       </P>

@@ -157,7 +157,7 @@ export default async function CouncilAccountabilityPage({
         ? "The service results below show what was measured and what was reported."
         : "No service target result has been checked for this record yet.",
     record.auditFindings.length > 0
-      ? "Independent scrutiny is shown separately from the council’s own figures."
+      ? "Independent checks are shown separately from the council’s own figures."
       : "No audit or regulator finding has been added to this record yet.",
   ].join(" ");
   const allocationFaq = allocation
@@ -192,7 +192,7 @@ export default async function CouncilAccountabilityPage({
         (countBasedMisses > 0
           ? " A further " +
             countBasedMisses +
-            " entry records a failure as a count rather than a percentage, because the source does not publish the matching denominator."
+            " entry records a failure as a count rather than a percentage, because the source does not publish the matching total."
           : ""),
     },
     {
@@ -224,7 +224,7 @@ export default async function CouncilAccountabilityPage({
 
       <Page>
         <PageHeader
-          eyebrow={`Council accountability · Checked ${record.lastReviewedOn}`}
+          eyebrow={`Holding the council to account · Checked ${record.lastReviewedOn}`}
           title={`${record.councilName}: what was promised and what happened`}
           lede={<PlainText text={record.summary} />}
         />
@@ -349,7 +349,7 @@ export default async function CouncilAccountabilityPage({
               <span className="inline-flex items-center gap-2"><span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-[var(--good-text)]" /> Green means the target was met or the action is marked complete.</span>
               <span className="inline-flex items-center gap-2"><span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-[var(--muted)]" /> Grey means there is not enough evidence for a firm result.</span>
             </div>
-            <div className="mt-7 grid gap-4 md:grid-cols-2">
+            <div className={`mt-7 grid gap-4 ${record.outcomes.length > 1 ? "md:grid-cols-2" : ""}`}>
               {record.outcomes.length > 0 ? record.outcomes.map((outcome) => (
                 <article
                   key={outcome.id}

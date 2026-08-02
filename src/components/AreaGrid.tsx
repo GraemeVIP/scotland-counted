@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { councilsByLevel, COUNCIL_YEARS } from "@/lib/data/councils";
+import { ExplainText } from "@/components/Glossary";
 
 /** "1 of 32" read as a count. "1st of 32" reads as the rank it actually is. */
 function ordinal(n: number) {
@@ -35,16 +36,20 @@ export default function AreaGrid({ className = "" }: { className?: string }) {
           </h2>
         </div>
         <p className="text-[16px] leading-[1.55] text-[var(--ink-2)] max-w-[44ch] lg:justify-self-end">
+          <ExplainText>
           Every council area in Scotland. Pick yours and you get the short answer first, then the
           full figures, the source, and a ready-written email for the people who represent you.
+          </ExplainText>
         </p>
       </div>
 
       <div className="mb-5 flex flex-wrap items-center gap-x-6 gap-y-2 border-y border-[var(--rule)] py-3">
         <p className="text-[15.5px] leading-[1.5] text-[var(--ink-2)]">
+          <ExplainText>
           Each figure is the share of children living in poverty{" "}
           <strong className="text-[var(--ink)]">after rent or mortgage is paid</strong>, in{" "}
           {COUNCIL_YEARS[9]}. Highest first.
+          </ExplainText>
         </p>
         <p className="ui flex items-center gap-2.5 text-[15px] text-[var(--muted)]">
           <span

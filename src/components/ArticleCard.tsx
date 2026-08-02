@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getPostCategory, type Post } from "@/lib/data/posts";
+import { ExplainText } from "@/components/Glossary";
 
 function fmtDate(iso: string) {
   return new Date(`${iso}T12:00:00Z`).toLocaleDateString("en-GB", {
@@ -45,7 +46,7 @@ export default function ArticleCard({
           </p>
           {title}
           <p className="text-[16px] leading-[1.55] text-[var(--ink-2)] mt-3">
-            {post.standfirst}
+            <ExplainText>{post.standfirst}</ExplainText>
           </p>
           <p className="text-[15px] text-[var(--muted)] mt-4">
             {fmtDate(post.updated ?? post.date)} · {post.readingMinutes} min read

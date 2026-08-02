@@ -55,7 +55,7 @@ export default function Areas() {
       <Page>
         <PageHeader
           eyebrow="All 32 Scottish council areas"
-          title="Poverty statistics for every Scottish council area"
+          title="Child poverty, work and pay across Scotland's 32 council areas"
           lede={`Choose an area for a clear answer first, then open the exact figures and sources. Things got worse in ${rose} of 32 areas over the last ten years.`}
         />
 

@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import Reveal from "@/components/Reveal";
 import EmbedButton from "@/components/charts/EmbedButton";
+import { ExplainText } from "@/components/Glossary";
 
 /** The card every chart sits in: title, source line, legend, chart, caption. */
 export default function Figure({
@@ -35,7 +36,7 @@ export default function Figure({
         style={{ boxShadow: "var(--shadow-1)" }}
       >
         <div className="flex items-start justify-between gap-6 mb-1">
-          <p className="h4 max-w-[46ch]">{title}</p>
+          <p className="h4 max-w-[46ch]"><ExplainText>{title}</ExplainText></p>
           {n !== undefined && (
             <span className="ui text-[15px] text-[var(--muted)] shrink-0 pt-1" aria-hidden="true">
               Figure {n}
@@ -43,7 +44,7 @@ export default function Figure({
           )}
         </div>
         <p className="ui text-[15px] text-[var(--muted)] leading-[1.55] max-w-[80ch]">
-          {sub}
+          <ExplainText>{sub}</ExplainText>
         </p>
 
         {legend && legend.length > 0 && (
@@ -57,7 +58,7 @@ export default function Figure({
                   className="w-[16px] h-[3px] shrink-0"
                   style={{ background: `var(${l.colorVar})` }}
                 />
-                {l.name}
+                <ExplainText>{l.name}</ExplainText>
               </span>
             ))}
           </div>
@@ -79,7 +80,7 @@ export default function Figure({
 
         {caption && (
           <figcaption className="text-[15px] leading-[1.6] text-[var(--ink-2)] mt-5 pt-4 border-t border-[var(--rule)] max-w-[74ch]">
-            {caption}
+            <ExplainText>{caption}</ExplainText>
           </figcaption>
         )}
 
@@ -100,7 +101,7 @@ export default function Figure({
             <div className="text-[15px] text-[var(--ink-2)] pb-3 space-y-3.5">
               {technical.map((t, i) => (
                 <p key={i} className="max-w-[72ch] leading-[1.6]">
-                  {t}
+                  <ExplainText>{t}</ExplainText>
                 </p>
               ))}
             </div>

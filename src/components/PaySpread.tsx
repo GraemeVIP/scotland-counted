@@ -4,6 +4,7 @@ import {
   rtiCrossCheck,
   asheFullTimeUk,
 } from "@/lib/data/payDistribution";
+import { ExplainText, G } from "@/components/Glossary";
 
 /**
  * The spread of pay, and an independent check on it.
@@ -31,6 +32,7 @@ export default function PaySpread({ className = "" }: { className?: string }) {
 
   return (
     <section className={className} aria-labelledby="pay-spread">
+      <ExplainText>
       <p className="kicker mb-3 text-[var(--brand)]">The spread, not just the middle</p>
       <h2 id="pay-spread" className="display-stat text-[clamp(26px,3.2vw,40px)] max-w-[22ch]">
         Most full-time jobs here pay a lot less than the average
@@ -78,8 +80,8 @@ export default function PaySpread({ className = "" }: { className?: string }) {
       </div>
 
       <p className="mt-4 max-w-[64ch] text-[15.5px] leading-[1.55] text-[var(--muted)]">
-        The mean is {pounds.format(glasgowPayMean.annual)}, well above the middle, because high
-        earners pull it up. When people say &ldquo;average&rdquo; they usually mean the mean, which
+        The <G t="mean">mean</G> is {pounds.format(glasgowPayMean.annual)}, well above the middle, because high
+        earners pull it up. When people say &ldquo;average&rdquo; they usually mean the <G t="mean">mean</G>, which
         is why it rarely matches what they see around them. None of these figures include
         part-time work.
       </p>
@@ -118,6 +120,7 @@ export default function PaySpread({ className = "" }: { className?: string }) {
           year. That lower figure is much closer to what most people mean by an average wage.
         </p>
       </div>
+      </ExplainText>
     </section>
   );
 }

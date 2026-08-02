@@ -1,3 +1,5 @@
+import { ExplainText } from "@/components/Glossary";
+
 const legalHourly = 12.71;
 const realLivingHourly = 13.45;
 const fullTimeHours = 37.5;
@@ -37,6 +39,7 @@ export default function MinimumWageReality({
       className={`overflow-hidden rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] ${className}`}
       style={{ boxShadow: "var(--shadow-1)" }}
     >
+      <ExplainText>
       <div className="p-6 sm:p-8 lg:p-9">
         <p className="kicker mb-3 text-[var(--action)]">A wage people actually recognise</p>
         <Heading
@@ -116,6 +119,7 @@ export default function MinimumWageReality({
           </a>
         </div>
       </div>
+      </ExplainText>
     </section>
   );
 }

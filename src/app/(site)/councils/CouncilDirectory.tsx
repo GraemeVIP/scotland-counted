@@ -105,7 +105,7 @@ export default function CouncilDirectory({ councils, publishedSlugs }: CouncilDi
                 <p className="mt-2 text-[15px] leading-[1.5] text-[var(--ink-2)]">
                   {hasRecord
                     ? "Budgets, targets, audit findings and promises, with sources."
-                    : "Council accountability record coming soon. Local poverty facts are ready now."}
+                    : "Council record coming soon. Local poverty facts are ready now."}
                 </p>
                 <Link
                   href={hasRecord ? `/councils/${council.slug}` : `/areas/${council.slug}`}

@@ -24,8 +24,8 @@ export default function Post() {
       <H2 id="older">The rules after primary 5</H2>
       <P>
         In primary 6 and 7, a child can qualify when the family gets Scottish Child Payment or
-        another listed benefit. In secondary school, entitlement is normally based on qualifying
-        benefits or a low Universal Credit earned-income figure.
+        another listed benefit. In secondary school, the family usually qualifies through a listed
+        benefit or a low Universal Credit earned-income figure.
       </P>
       <Aside title="Register even when a younger child's lunch is already free">
         <p>
@@ -37,12 +37,12 @@ export default function Post() {
       <H2 id="clothing">School clothing grants</H2>
       <BigStat
         value="at least £120 or £150"
-        label="for each eligible child, once a year"
+        label="for each child who qualifies, once a year"
         exact="At least £120 for a primary-age child and £150 for a secondary-age child. Councils can pay more."
       />
       <P>
         The grant is normally cash paid into a bank account for uniforms, clothing and shoes. You
-        apply to the council. Eligibility and application dates vary locally, so a family refused
+        apply to the council. The rules and application dates vary locally, so a family refused
         in one year should check again if income or the council rules change.
       </P>
       <P>

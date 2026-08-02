@@ -9,7 +9,7 @@ import {
   CTA,
   Reveal,
 } from "@/components/Blocks";
-import { G } from "@/components/Glossary";
+import { ExplainText, G } from "@/components/Glossary";
 import VoteRoundup from "@/components/VoteRoundup";
 import { JsonLd, articleJsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
 import { tiers, statutoryTargets } from "@/lib/data/policy";
@@ -317,7 +317,7 @@ export default function Accountability() {
                 <p className="ui text-[15px] text-[var(--muted)] mt-1.5 mb-1.5">
                   {s.publisher}
                 </p>
-                {s.used}
+                <ExplainText>{s.used}</ExplainText>
               </div>
             ))}
           </div>

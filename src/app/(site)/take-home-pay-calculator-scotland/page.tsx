@@ -8,6 +8,7 @@ import { minimumWage, minimumWageTakeHome } from "@/lib/data/livingCosts";
 import ToolCTA from "@/components/ToolCTA";
 import Calculator from "./Calculator";
 import Faq from "@/components/Faq";
+import { ExplainText } from "@/components/Glossary";
 
 export const metadata = meta({
   title: "Take-Home Pay Calculator Scotland 2026/27",
@@ -181,7 +182,7 @@ export default function TakeHomePayCalculator() {
                   {s.title}
                 </a>
                 <p className="ui mt-1.5 mb-1.5 text-[15px] text-[var(--muted)]">{s.publisher}</p>
-                {s.used}
+                <ExplainText>{s.used}</ExplainText>
               </div>
             ))}
           </div>

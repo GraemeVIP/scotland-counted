@@ -13,7 +13,7 @@ import {
 } from "@/components/Blocks";
 import Figure, { DataTable } from "@/components/charts/Figure";
 import LineChart from "@/components/charts/LineChart";
-import { G } from "@/components/Glossary";
+import { ExplainText, G } from "@/components/Glossary";
 import DecadeScroll from "../DecadeScroll";
 import { JsonLd, articleJsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
 import { getIndicator, jobsDensity } from "@/lib/data/indicators";
@@ -44,7 +44,7 @@ function SourceStrip({ ids }: { ids: string[] }) {
             <p className="ui text-[15px] text-[var(--muted)] mt-1.5 mb-1.5">
               {s.publisher}
             </p>
-            {s.used}
+            <ExplainText>{s.used}</ExplainText>
           </div>
         ))}
       </div>
