@@ -349,7 +349,7 @@ export default async function CouncilAccountabilityPage({
               <span className="inline-flex items-center gap-2"><span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-[var(--good-text)]" /> Green means the target was met or the action is marked complete.</span>
               <span className="inline-flex items-center gap-2"><span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-[var(--muted)]" /> Grey means there is not enough evidence for a firm result.</span>
             </div>
-            <div className="mt-7 grid gap-4 md:grid-cols-2">
+            <div className={`mt-7 grid gap-4 ${record.outcomes.length > 1 ? "md:grid-cols-2" : ""}`}>
               {record.outcomes.length > 0 ? record.outcomes.map((outcome) => (
                 <article
                   key={outcome.id}
