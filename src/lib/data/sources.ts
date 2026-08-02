@@ -1,9 +1,11 @@
+import { snpMoneyTimelineSources } from "@/lib/data/snpMoneyTimeline";
+
 /**
  * Every source used on the site, in one place.
  *
- * Nothing on this site is cited from secondary reporting. Each figure
- * was taken from the publisher named here, and where a number was
- * derived rather than published, the derivation is stated.
+ * Primary records are preferred. Where a public event can only be dated
+ * from contemporary reporting, the publisher and the limits of that
+ * evidence are stated. Derived numbers always explain their working.
  */
 
 export type Source = {
@@ -523,6 +525,7 @@ export const sources: Source[] = [
     used: "The April 2026 payment rate and the estimate that the payment keeps 40,000 children out of relative poverty in 2025–26.",
     derivation: "The poverty effect is a Scottish Government estimate and is labelled as such.",
   },
+  ...snpMoneyTimelineSources,
 ];
 
 export const sourcesById: Record<string, Source> = Object.fromEntries(

@@ -31,6 +31,12 @@ const CATEGORY_SEO = {
     description:
       "Plain-English guides and free tools for finding your MP and MSP, writing a focused email and understanding what happens after you press send.",
   },
+  "politics-explained": {
+    title: "Scottish Politics Explained: Timelines and Primary Sources",
+    h1: "Scottish politics explained",
+    description:
+      "Long-form, plain-English timelines of Scottish political stories, with allegations, official records and court findings clearly separated.",
+  },
 } as const;
 
 export function generateStaticParams() {

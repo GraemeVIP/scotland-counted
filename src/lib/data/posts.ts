@@ -1,3 +1,5 @@
+import { snpMoneyTimelineSources } from "@/lib/data/snpMoneyTimeline";
+
 /**
  * Plain-English articles and their search/wayfinding metadata.
  *
@@ -24,6 +26,12 @@ export const postCategories = [
     name: "Take action",
     description: "Simple ways to make the people with power answer for what they decide: who to write to, what to ask and what happens after you press send.",
     color: "var(--good)",
+  },
+  {
+    slug: "politics-explained",
+    name: "Politics explained",
+    description: "The facts, dates and primary records behind Scottish political stories — with allegations, investigations and court findings kept clearly separate.",
+    color: "var(--warn-text)",
   },
 ] as const;
 
@@ -52,6 +60,13 @@ export type Post = {
     caption: string;
     objectPosition?: string;
   };
+  /** Optional direct Open Graph and X image. Falls back to the generated post card. */
+  shareImage?: {
+    src: string;
+    width: number;
+    height: number;
+    type: string;
+  };
   /** Explicit headings keep the contents list honest and stable. */
   toc: { id: string; label: string }[];
   /** Feeds FAQPage structured data and the questions block at the foot. */
@@ -61,6 +76,74 @@ export type Post = {
 };
 
 export const posts: Post[] = [
+  {
+    slug: "operation-branchform-snp-money-timeline",
+    title: "Operation Branchform timeline: the full SNP money story",
+    seoTitle: "Operation Branchform Timeline: SNP Money Case Explained",
+    description:
+      "Operation Branchform timeline covering SNP referendum donations, Peter Murrell's £400,310.65 embezzlement, Nicola Sturgeon's status and ongoing inquiries.",
+    standfirst:
+      "Use this Operation Branchform timeline to follow every major event from the SNP fundraisers to Peter Murrell's conviction. Nicola Sturgeon and Colin Beattie were not charged.",
+    date: "2026-08-02",
+    updated: "2026-08-02",
+    category: "politics-explained",
+    tags: [
+      "Operation Branchform",
+      "Operation Branchform timeline",
+      "Nicola Sturgeon",
+      "Peter Murrell",
+      "SNP finances",
+      "Scottish politics",
+      "Indyref2 fundraiser",
+    ],
+    readingMinutes: 26,
+    featured: true,
+    image: {
+      src: "/images/editorial/snp-money-timeline-hero.webp",
+      alt: "An editorial collage of a long paper trail leading through folders and receipts towards a courthouse and an unbranded white motorhome",
+      caption:
+        "The story began with questions about referendum donations. The court case ultimately proved a different, 12-year course of embezzlement from the SNP's main account.",
+      objectPosition: "center 48%",
+    },
+    shareImage: {
+      src: "/images/editorial/snp-money-timeline-hero.webp",
+      width: 1774,
+      height: 887,
+      type: "image/webp",
+    },
+    toc: [
+      { id: "short-answer", label: "The whole story in one minute" },
+      { id: "money", label: "Three money figures" },
+      { id: "timeline", label: "The full timeline" },
+      { id: "court-proved", label: "What the court proved" },
+      { id: "investigation", label: "How the case worked" },
+      { id: "what-is-live", label: "What is still live" },
+      { id: "updates", label: "Bookmark and follow updates" },
+    ],
+    faq: [
+      {
+        q: "Was Nicola Sturgeon charged over the SNP finances?",
+        a: "No. Police arrested Sturgeon in June 2023 but did not charge her. On 20 March 2025, Police Scotland said she was no longer under investigation in Operation Branchform. Prosecutors later said two separate senior-counsel reviews agreed that no charge or further inquiry was required.",
+      },
+      {
+        q: "How much did Peter Murrell steal from the SNP?",
+        a: "The final amount established by his guilty plea and the agreed court narrative was £400,310.65, embezzled between August 2010 and October 2022. Earlier figures above £459,000 were allegations at earlier stages, not the final proved total.",
+      },
+      {
+        q: "Was the £600,000 referendum fund the money Murrell stole?",
+        a: "The court did not make that finding. Questions about referendum appeals prompted the wider police inquiry, which uncovered embezzlement from the SNP's principal account. Prosecutors said that account mainly contained membership fees, donations and legacies, but the agreed narrative did not allocate each stolen pound to the referendum appeal.",
+      },
+      {
+        q: "Is Operation Branchform finished?",
+        a: "Murrell's criminal prosecution and sentence are complete. However, court action to recover money gained through the crime and decide what happens to seized property remained, and the Electoral Commission was reviewing earlier filings at its latest update. It is therefore too broad to say every part is closed.",
+      },
+      {
+        q: "Is Nicola Sturgeon under investigation again over Yes Scotland?",
+        a: "Police confirmed in July 2026 that they were making inquiries after a separate complaint about Yes Scotland's finances. As at 2 August, police had not publicly named Sturgeon or anyone else as a suspect. Yes Scotland denied money was missing and provided its accounts.",
+      },
+    ],
+    sourceIds: snpMoneyTimelineSources.map((source) => source.id),
+  },
   {
     slug: "how-council-tax-works-scotland",
     title: "How council tax works in Scotland: discounts, help and appeals",
@@ -492,7 +575,6 @@ export const posts: Post[] = [
     category: "money-and-bills",
     tags: ["Cost of living", "Food", "Energy", "Rent", "Universal Credit"],
     readingMinutes: 10,
-    featured: true,
     image: {
       src: "/images/editorial/glasgow-cost-of-living.webp",
       alt: "A supermarket worker at a Glasgow kitchen table checking household bills beside a bag of groceries",

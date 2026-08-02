@@ -18,6 +18,10 @@ export function meta({
   published,
   modified,
   image,
+  imageAlt,
+  imageWidth,
+  imageHeight,
+  imageType,
   ownImage = false,
 }: {
   title: string;
@@ -27,6 +31,10 @@ export function meta({
   published?: string;
   modified?: string;
   image?: string;
+  imageAlt?: string;
+  imageWidth?: number;
+  imageHeight?: number;
+  imageType?: string;
   /**
    * Set by routes that generate their own card through an adjacent
    * opengraph-image file (areas, constituencies). Those cards are served from a
@@ -54,6 +62,23 @@ export function meta({
       ? resolved
       : `${site.url}${resolved}`
     : undefined;
+  const openGraphImage = imageUrl
+    ? {
+        url: imageUrl,
+        alt: imageAlt ?? title,
+        ...(imageWidth ? { width: imageWidth } : {}),
+        ...(imageHeight ? { height: imageHeight } : {}),
+        ...(imageType ? { type: imageType } : {}),
+      }
+    : undefined;
+  const twitterImage = imageUrl
+    ? {
+        url: imageUrl,
+        alt: imageAlt ?? title,
+        ...(imageWidth ? { width: imageWidth } : {}),
+        ...(imageHeight ? { height: imageHeight } : {}),
+      }
+    : undefined;
   return {
     /**
      * The root layout appends " | Scotland Counted" to every title. That is 19
@@ -75,7 +100,7 @@ export function meta({
       siteName: site.name,
       locale: site.locale,
       type,
-      ...(imageUrl ? { images: [{ url: imageUrl, alt: title }] } : {}),
+      ...(openGraphImage ? { images: [openGraphImage] } : {}),
       ...(published ? { publishedTime: published } : {}),
       ...(modified ? { modifiedTime: modified } : {}),
     },
@@ -90,7 +115,7 @@ export function meta({
        * rather than emitted empty.
        */
       ...(site.social.x ? { site: `@${site.social.x}`, creator: `@${site.social.x}` } : {}),
-      ...(imageUrl ? { images: [imageUrl] } : {}),
+      ...(twitterImage ? { images: [twitterImage] } : {}),
     },
   };
 }
