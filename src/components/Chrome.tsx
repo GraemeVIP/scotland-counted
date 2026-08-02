@@ -107,6 +107,15 @@ export function Header() {
    * count as clicking away.
    */
   useEffect(() => {
+    const mq = window.matchMedia("(min-width: 1280px)");
+    const onChange = () => {
+      if (mq.matches) setMenuPath(null);
+    };
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+
+  useEffect(() => {
     if (!browse) return;
 
     const onPointerDown = (event: PointerEvent) => {
@@ -212,7 +221,8 @@ export function Header() {
 
     {/*
       The mobile sheet is a sibling of the header, not a child, and that is
-      load-bearing rather than tidiness.
+      load-bearing rather than tidiness. (It now covers the header entirely
+      and carries its own close button — see the note in SiteMenu.tsx.)
 
       Once scrolled, the header gains backdrop-blur-md. An element with a
       backdrop-filter becomes the containing block for its position: fixed
@@ -229,7 +239,9 @@ export function Header() {
       Rendered outside the header, fixed resolves against the viewport again
       whatever the header is doing.
     */}
-    {open && <MobileMenu onNavigate={() => setMenuPath(null)} />}
+    {open && (
+      <MobileMenu onNavigate={() => setMenuPath(null)} onClose={() => setMenuPath(null)} />
+    )}
     </>
   );
 }

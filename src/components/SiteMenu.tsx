@@ -224,23 +224,88 @@ export function DesktopMenu({ onNavigate }: { onNavigate: () => void }) {
 }
 
 /** Mobile: a full-height sheet, not a dropdown list. */
-export function MobileMenu({ onNavigate }: { onNavigate: () => void }) {
-  // The sheet owns the screen while it is open, so the page behind must not scroll.
+export function MobileMenu({
+  onNavigate,
+  onClose,
+}: {
+  onNavigate: () => void;
+  onClose: () => void;
+}) {
+  /*
+   * Lock scroll on both roots, not just body. Per spec, overflow on <body>
+   * propagates to the viewport, and Chromium honours that. iOS WebKit is
+   * exactly where that propagation has historically misbehaved — locking
+   * body alone is the classic scroll-lock that fails on iPhones. Setting it
+   * on <html> as well is the form that holds everywhere.
+   */
   useEffect(() => {
-    const previous = document.body.style.overflow;
+    const prevBody = document.body.style.overflow;
+    const prevRoot = document.documentElement.style.overflow;
     document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
     return () => {
-      document.body.style.overflow = previous;
+      document.body.style.overflow = prevBody;
+      document.documentElement.style.overflow = prevRoot;
     };
   }, []);
 
+  // Escape closes, matching the desktop panel.
+  useEffect(() => {
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [onClose]);
+
   return (
+    /*
+     * The sheet owns the whole screen — inset-0, above the header — and
+     * carries its own close button.
+     *
+     * It used to start below the page header and rely on that header for the
+     * X. That chain held only if the header stayed pinned and tappable while
+     * the page behind was scroll-locked: position: sticky is exactly what iOS
+     * does not guarantee under a locked body, and on iPads the header left
+     * the viewport with the sheet open — a menu with no way to close it. The
+     * close control now lives inside the thing it closes, and no behaviour of
+     * the page header can take it away.
+     *
+     * z-[60]: over the header (50); under the search palette (80).
+     */
     <nav
       id="mobile-nav"
       aria-label="Main"
-      className="xl:hidden fixed inset-x-0 top-[72px] sm:top-[68px] bottom-0 z-40 overflow-y-auto overscroll-contain border-t border-[var(--rule)] bg-[var(--paper)]"
+      className="xl:hidden fixed inset-0 z-[60] overflow-y-auto overscroll-contain bg-[var(--paper)]"
     >
-      <div className="space-y-5 px-5 py-5">
+      {/*
+        The sheet's own top bar, sticky so the X survives scrolling the menu
+        itself. Metrics mirror the page header underneath — same height, same
+        gutters — so the X lands exactly where the burger was tapped.
+      */}
+      <div className="sticky top-0 z-10 border-b border-[var(--rule)] bg-[var(--paper)]">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-8 h-[72px] sm:h-[68px] flex items-center justify-between">
+          {/* Inline rather than Chrome's Wordmark: importing it back out of
+              Chrome.tsx would make the two files import each other. */}
+          <span
+            className="ui font-[800] tracking-[-0.04em] leading-none text-[17px] min-[390px]:text-[19px]"
+            style={{ fontFamily: "var(--font-sans)" }}
+          >
+            Scotland<span className="text-[var(--action)]">Counted</span>
+          </span>
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label="Close the menu"
+            className="w-11 h-11 -mr-2 inline-flex items-center justify-center text-[var(--ink)]"
+          >
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.25" aria-hidden="true">
+              <path d="M6 6l12 12M18 6L6 18" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div className="space-y-5 px-5 py-5 pb-[calc(1.25rem+env(safe-area-inset-bottom))]">
         <FindYourPlace onNavigate={onNavigate} />
 
         <div className="space-y-4">
