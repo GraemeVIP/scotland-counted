@@ -41,7 +41,7 @@ export default async function Image(props: { params: Promise<{ slug: string }> }
             fontWeight: 700,
             letterSpacing: 3,
             textTransform: "uppercase",
-            color: category?.color === "var(--brand)" ? "#8fa8ff" : "#ff8b75",
+            color: category?.colorOnDark ?? "#ff8b75",
           }}
         >
           {category?.name ?? "Explained in plain English"}

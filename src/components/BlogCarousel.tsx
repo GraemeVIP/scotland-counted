@@ -243,19 +243,12 @@ export default function BlogCarousel({ posts }: { posts: Post[] }) {
                       */}
                       <div className="absolute inset-0 bg-gradient-to-t from-[rgba(12,18,34,0.94)] via-[rgba(12,18,34,0.62)] to-[rgba(12,18,34,0.12)]" />
                       <div className="absolute inset-x-5 bottom-5 sm:inset-x-6 sm:bottom-6">
-                        {/*
-                          White, not the category colour.
-
-                          Those colours are chosen to sit on the light blog
-                          index, and two of the four cannot survive being moved
-                          onto a dark photograph: --brand manages 3.33:1 here
-                          and --warn-text 2.95:1, against the 4.5:1 this size of
-                          text needs. So "Politics explained" was close to
-                          unreadable on its own card. The colour coding still
-                          does its job on the index, where the background it was
-                          designed for actually is.
-                        */}
-                        <p className="ui text-[15px] font-[760] text-white/85">
+                        {/* The dark-background variant: these sit on a scrimmed
+                            photograph, where the light-index colours fail. */}
+                        <p
+                          className="ui text-[15px] font-[760]"
+                          style={{ color: category?.colorOnDark ?? "#ff8b75" }}
+                        >
                           {category?.name ?? "Explained"}
                         </p>
                         <h3 className="blog-carousel-title mt-2 text-[23px] font-[820] leading-[1.12] tracking-[-0.025em] text-white sm:text-[27px]">

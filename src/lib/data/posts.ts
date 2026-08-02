@@ -8,30 +8,47 @@ import { snpMoneyTimelineSources } from "@/lib/data/snpMoneyTimeline";
  * representative may need to check it.
  */
 
+/*
+ * Each category carries two colours, because one cannot serve both backgrounds.
+ *
+ * `color` is tuned for the light index. Moved onto a dark slab it stops being
+ * legible: --brand manages 3.14:1 on --deep and --warn-text 2.77:1, against the
+ * 4.5:1 this size of text needs. "Politics explained" was close to unreadable
+ * on the featured card and on the homepage rail.
+ *
+ * `colorOnDark` is the same idea in a light key, and every value is measured at
+ * 7:1 or better on --deep. Two of them were already in use in
+ * blog/[slug]/opengraph-image.tsx, which had run into this first and fixed it
+ * locally with a ternary; that now reads from here instead.
+ */
 export const postCategories = [
   {
     slug: "money-and-bills",
     name: "Money and bills",
     description: "Why food, rent, energy and wages no longer add up in Scotland. See what each one costs now and who controls the rules that set the price.",
     color: "var(--action)",
+    colorOnDark: "#ff8b75",
   },
   {
     slug: "poverty-explained",
     name: "Poverty explained",
     description: "The words and the numbers stripped of jargon: what poverty officially means, how it is measured in Scotland, and the proof under every figure.",
     color: "var(--brand)",
+    colorOnDark: "#8fa8ff",
   },
   {
     slug: "take-action",
     name: "Take action",
     description: "Simple ways to make the people with power answer for what they decide: who to write to, what to ask and what happens after you press send.",
     color: "var(--good)",
+    colorOnDark: "#3ddc9a",
   },
   {
     slug: "politics-explained",
     name: "Politics explained",
     description: "The facts, dates and primary records behind Scottish political stories — with allegations, investigations and court findings kept clearly separate.",
     color: "var(--warn-text)",
+    colorOnDark: "#f5b53d",
   },
 ] as const;
 

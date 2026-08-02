@@ -86,9 +86,11 @@ export default function BlogList({
                 />
               </div>
               <div className="p-6 sm:p-9 lg:p-11 flex flex-col justify-center">
+                {/* This card sits on --deep, so it needs the dark-background
+                    variant. The light one drops to 2.77:1 here for politics. */}
                 <p
                   className="ui text-[15px] font-[760]"
-                  style={{ color: featuredCategory?.color ?? "var(--action)" }}
+                  style={{ color: featuredCategory?.colorOnDark ?? "#ff8b75" }}
                 >
                   {featuredCategory?.name}
                 </p>
