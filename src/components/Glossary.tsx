@@ -3,12 +3,15 @@
 import {
   cloneElement,
   isValidElement,
+  useCallback,
   useEffect,
+  useId,
   useRef,
   useState,
   type ReactElement,
   type ReactNode,
 } from "react";
+import { createPortal } from "react-dom";
 import { getTerm } from "@/lib/data/glossary";
 
 /**
@@ -19,12 +22,14 @@ import { getTerm } from "@/lib/data/glossary";
 export function G({ t, children }: { t: string; children: ReactNode }) {
   const [open, setOpen] = useState(false);
   const [pos, setPos] = useState<{ top: number; left: number } | null>(null);
+  const instanceId = useId();
   const btnRef = useRef<HTMLButtonElement>(null);
   const boxRef = useRef<HTMLSpanElement>(null);
-  const closeRef = useRef<HTMLButtonElement>(null);
   const closeDelayRef = useRef<number | null>(null);
-  const openedByClickRef = useRef(false);
+  const interactionRef = useRef<"hover" | "click" | null>(null);
+  const suppressFocusOpenRef = useRef(false);
   const term = getTerm(t);
+  const tooltipId = `glossary-${term?.id ?? "term"}-${instanceId.replace(/:/g, "")}`;
 
   function cancelClose() {
     if (closeDelayRef.current !== null) {
@@ -34,14 +39,38 @@ export function G({ t, children }: { t: string; children: ReactNode }) {
   }
 
   function scheduleClose() {
+    if (interactionRef.current === "click") return;
     cancelClose();
-    closeDelayRef.current = window.setTimeout(() => setOpen(false), 220);
+    closeDelayRef.current = window.setTimeout(() => {
+      interactionRef.current = null;
+      setOpen(false);
+    }, 220);
   }
 
   function openFromHover() {
-    openedByClickRef.current = false;
+    if (interactionRef.current === "click") return;
+    interactionRef.current = "hover";
     cancelClose();
     setOpen(true);
+  }
+
+  const closeTooltip = useCallback((restoreFocus = false) => {
+    if (closeDelayRef.current !== null) {
+      window.clearTimeout(closeDelayRef.current);
+      closeDelayRef.current = null;
+    }
+    if (restoreFocus) suppressFocusOpenRef.current = true;
+    interactionRef.current = null;
+    setPos(null);
+    setOpen(false);
+  }, []);
+
+  function openFromFocus() {
+    if (suppressFocusOpenRef.current) {
+      suppressFocusOpenRef.current = false;
+      return;
+    }
+    openFromHover();
   }
 
   useEffect(() => {
@@ -53,49 +82,43 @@ export function G({ t, children }: { t: string; children: ReactNode }) {
       const r = btn.getBoundingClientRect();
       const bw = box.offsetWidth;
       const bh = box.offsetHeight;
-      let left = r.left + window.scrollX;
-      const maxLeft = window.scrollX + document.documentElement.clientWidth - bw - 12;
+      let left = r.left;
+      const maxLeft = window.innerWidth - bw - 12;
       if (left > maxLeft) left = maxLeft;
-      if (left < window.scrollX + 12) left = window.scrollX + 12;
-      let top = r.bottom + window.scrollY + 8;
+      if (left < 12) left = 12;
+      let top = r.bottom + 8;
       if (r.bottom + bh + 16 > window.innerHeight && r.top > bh + 16) {
-        top = r.top + window.scrollY - bh - 8;
+        top = r.top - bh - 8;
       }
       setPos({ top, left });
     }
     place();
-    const focusTimer = openedByClickRef.current
-      ? window.setTimeout(() => closeRef.current?.focus(), 0)
-      : null;
-    openedByClickRef.current = false;
     const close = () => {
-      cancelClose();
-      setOpen(false);
+      closeTooltip();
     };
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
-        setOpen(false);
+        closeTooltip(true);
         btnRef.current?.focus();
       }
     };
     const onClick = (e: MouseEvent) => {
       if (!boxRef.current?.contains(e.target as Node) && !btnRef.current?.contains(e.target as Node)) {
-        setOpen(false);
+        closeTooltip();
       }
     };
     document.addEventListener("keydown", onKey);
-    document.addEventListener("click", onClick);
+    document.addEventListener("click", onClick, true);
     window.addEventListener("resize", close);
     window.addEventListener("scroll", close, { passive: true });
     return () => {
-      if (focusTimer !== null) window.clearTimeout(focusTimer);
       cancelClose();
       document.removeEventListener("keydown", onKey);
-      document.removeEventListener("click", onClick);
+      document.removeEventListener("click", onClick, true);
       window.removeEventListener("resize", close);
       window.removeEventListener("scroll", close);
     };
-  }, [open]);
+  }, [closeTooltip, open]);
 
   if (!term) return <>{children}</>;
 
@@ -106,50 +129,58 @@ export function G({ t, children }: { t: string; children: ReactNode }) {
         type="button"
         className="gl"
         aria-expanded={open}
-        aria-controls={open ? `glossary-${term.id}` : undefined}
+        aria-controls={open ? tooltipId : undefined}
         aria-haspopup="dialog"
         onMouseEnter={openFromHover}
         onMouseLeave={scheduleClose}
+        onFocus={openFromFocus}
+        onBlur={scheduleClose}
         aria-label={`${typeof children === "string" ? children : term.term} — what this means`}
         onClick={(e) => {
           e.stopPropagation();
-          openedByClickRef.current = true;
           cancelClose();
-          setOpen((o) => !o);
+          if (interactionRef.current === "click") {
+            closeTooltip();
+            return;
+          }
+          interactionRef.current = "click";
+          setOpen(true);
         }}
       >
         {children}
       </button>
-      {open && (
-        <span
-          ref={boxRef}
-          id={`glossary-${term.id}`}
-          role="dialog"
-          aria-labelledby={`glossary-${term.id}-title`}
-          aria-describedby={`glossary-${term.id}-description`}
-          className="glossbox"
-          style={{ top: pos?.top ?? -9999, left: pos?.left ?? -9999 }}
-          onMouseEnter={cancelClose}
-          onMouseLeave={scheduleClose}
-        >
-          <button
-            ref={closeRef}
-            type="button"
-            aria-label="Close"
-            className="absolute top-1.5 right-2 text-[var(--muted)] hover:text-[var(--ink)] text-[17px] leading-none p-1"
-            onClick={() => {
-              setOpen(false);
-              btnRef.current?.focus();
-            }}
-          >
-            &times;
-          </button>
-          <span id={`glossary-${term.id}-title`} className="ui block text-[15px] font-[680] text-[var(--brand)] mb-1.5">
-            {term.term}
-          </span>
-          <span id={`glossary-${term.id}-description`} className="block text-[var(--ink)]">{term.def}</span>
-        </span>
-      )}
+      {open && typeof document !== "undefined"
+        ? createPortal(
+            <span
+              ref={boxRef}
+              id={tooltipId}
+              role="dialog"
+              aria-labelledby={`${tooltipId}-title`}
+              aria-describedby={`${tooltipId}-description`}
+              className="glossbox"
+              style={{ top: pos?.top ?? -9999, left: pos?.left ?? -9999 }}
+              onMouseEnter={cancelClose}
+              onMouseLeave={scheduleClose}
+            >
+              <button
+                type="button"
+                aria-label="Close"
+                className="absolute top-1.5 right-2 text-[var(--muted)] hover:text-[var(--ink)] text-[17px] leading-none p-1"
+                onClick={() => {
+                  closeTooltip(true);
+                  btnRef.current?.focus();
+                }}
+              >
+                &times;
+              </button>
+              <span id={`${tooltipId}-title`} className="ui block text-[15px] font-[680] text-[var(--brand)] mb-1.5">
+                {term.term}
+              </span>
+              <span id={`${tooltipId}-description`} className="block text-[var(--ink)]">{term.def}</span>
+            </span>,
+            document.body,
+          )
+        : null}
     </>
   );
 }

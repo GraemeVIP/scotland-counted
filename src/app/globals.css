@@ -241,6 +241,32 @@
     text-rendering: optimizeLegibility;
   }
 
+  .blog-carousel-track {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-x pan-y;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+  }
+
+  .blog-carousel-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .blog-carousel-excerpt {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .blog-carousel-viewport {
+    overflow: hidden;
+  }
+
   .grain {
     position: fixed;
     inset: 0;
@@ -572,10 +598,12 @@
   }
 
   .glossbox {
-    position: absolute;
+    position: fixed;
     display: block;
     z-index: 60;
+    width: min(350px, calc(100vw - 24px));
     max-width: 350px;
+    box-sizing: border-box;
     border-radius: var(--r-m);
     background: var(--surface);
     border: 1px solid var(--rule-strong);

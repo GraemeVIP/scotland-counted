@@ -213,8 +213,8 @@ export const posts: Post[] = [
     tags: ["Council tax rises", "Council tax 2026/27", "Council tax bands", "Scottish councils"],
     readingMinutes: 6,
     image: {
-      src: "/images/editorial/council-tax-scotland-guide.webp",
-      alt: "A Scottish resident comparing this year's council tax bill with last year's figures",
+      src: "/images/editorial/council-tax-rises-scotland.webp",
+      alt: "Council tax bills and a calculator on a kitchen table overlooking a Scottish residential street",
       caption:
         "The rise belongs to the council-tax part of the bill. Scottish Water sets its own separate charge, even though both arrive together.",
       objectPosition: "center 42%",

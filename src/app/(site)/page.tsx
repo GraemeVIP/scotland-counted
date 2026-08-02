@@ -4,15 +4,21 @@ import { JsonLd, articleJsonLd, faqJsonLd, videoJsonLd, imageJsonLd, meta } from
 import { councilsByLevel, SCOTLAND_PCTS } from "@/lib/data/councils";
 import { scotlandPoverty } from "@/lib/data/scotland";
 import { getSources } from "@/lib/data/sources";
+import { postsByDate, type Post } from "@/lib/data/posts";
 import { PictoGrid } from "@/components/Motion";
 import AreaGrid from "@/components/AreaGrid";
 import WhyBother from "@/components/WhyBother";
 import Hero from "./Hero";
 import VideoEmbed from "@/components/VideoEmbed";
 import Quiz from "@/components/Quiz";
+import BlogCarousel from "@/components/BlogCarousel";
 import ShareGraphic from "@/components/ShareGraphic";
 import { infographic } from "@/lib/data/infographic";
 import { explainerVideo } from "@/lib/data/video";
+
+// Keep the rail fresh as new explainers are published. The homepage promotes
+// the full library, while the carousel keeps the first card prominent.
+const homeReads = postsByDate().filter((post): post is Post => Boolean(post));
 
 export const metadata = meta({
   title: "Scotland Counted | Local Data, Calculators & Contact Your MP",
@@ -124,6 +130,8 @@ export default function Home() {
           </Page>
         </div>
       </FullBleed>
+
+      <BlogCarousel posts={homeReads} />
 
       {/*
         The quiz runs inline rather than behind a link, because a link to a quiz

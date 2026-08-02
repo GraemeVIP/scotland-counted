@@ -133,7 +133,7 @@ export default function Post() {
           <p className="display-stat text-[25px] text-[var(--action-text)]">£400,310.65</p>
           <div>
             <p className="text-[18px] font-[740]">
-              <G t="embezzlement">Embezzled</G> by Murrell
+              <G t="embezzled">Embezzled</G> by Murrell
             </p>
             <p className="mt-2 text-[16px] leading-[1.55] text-[var(--ink-2)]">
               This is the final court-proved amount taken from the party&apos;s principal account

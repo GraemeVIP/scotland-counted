@@ -3,6 +3,7 @@ import { Archivo, Newsreader, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { site } from "@/lib/site";
 import Analytics from "@/components/Analytics";
+import Script from "next/script";
 
 /**
  * Root layout: document shell, fonts and theme only. Site chrome
@@ -93,7 +94,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${archivo.variable} ${newsreader.variable} ${plexMono.variable}`}
     >
       <head>
-        <script dangerouslySetInnerHTML={{ __html: BOOT_SCRIPT }} />
+        <Script id="theme-boot" strategy="beforeInteractive">
+          {BOOT_SCRIPT}
+        </Script>
       </head>
       <body className="min-h-full flex flex-col">
         {children}
