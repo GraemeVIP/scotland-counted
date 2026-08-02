@@ -2,7 +2,9 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import {
   parseRepresentativePostcode,
+  representativePagePath,
   representativePostcodeFromRequest,
+  type Representative,
 } from "./representatives.ts";
 
 test("normalises a valid postcode without retaining the raw input", () => {
@@ -41,4 +43,40 @@ test("keeps GET query support and rejects malformed POST JSON", async () => {
     body: "not-json",
   });
   assert.equal(await representativePostcodeFromRequest(badPost), null);
+});
+
+test("builds the matching public contact page for every representative type", () => {
+  const common = {
+    name: "Example Person",
+    party: "Example Party",
+    email: "example@parliament.test",
+    profileUrl: "https://example.test/profile",
+  };
+
+  assert.equal(
+    representativePagePath({
+      ...common,
+      role: "MP",
+      constituency: "Inverness, Skye and West Ross-shire",
+    } as Representative),
+    "/representatives/mps/inverness-skye-and-west-ross-shire"
+  );
+  assert.equal(
+    representativePagePath({
+      ...common,
+      role: "MSP",
+      representationType: "constituency",
+      constituency: "Na h-Eileanan an Iar",
+    } as Representative),
+    "/representatives/msps/constituencies/na-h-eileanan-an-iar"
+  );
+  assert.equal(
+    representativePagePath({
+      ...common,
+      role: "MSP",
+      representationType: "regional",
+      constituency: "Central Scotland and Lothians West",
+    } as Representative),
+    "/representatives/msps/regions/central-scotland-and-lothians-west"
+  );
 });

@@ -8,6 +8,7 @@ import {
   mps,
 } from "@/lib/data/mps";
 import { site } from "@/lib/site";
+import RepresentativeLookup from "./RepresentativeLookup";
 
 export const metadata = meta({
   title: "Scottish MPs and MSPs: Names and Contact Details",
@@ -58,11 +59,11 @@ export default function RepresentativesPage() {
         <PageHeader
           eyebrow="Everyone who represents you"
           title="Find your MP and MSPs"
-          lede="You have one MP at Westminster and eight MSPs at Holyrood. Use your postcode and I find them automatically, or browse every current name and public contact below."
+          lede="You have one MP at Westminster and eight MSPs at Holyrood. Enter your postcode to see their names and contact details. Nothing opens or sends unless you choose it."
         >
           <div className="mt-7 flex flex-wrap gap-3">
-            <Link href="/find-my-mp-and-msp" className="btn btn-primary">
-              Use my postcode
+            <Link href="#postcode-lookup" className="btn btn-primary">
+              Look up my representatives
             </Link>
             <Link href="/representatives/msps" className="btn btn-ghost">
               Browse all 129 MSPs
@@ -71,6 +72,8 @@ export default function RepresentativesPage() {
         </PageHeader>
 
         <ContentFrame>
+          <RepresentativeLookup />
+
           <InShort expert={false}>
             <p>
               <strong>Most people do not know their political boundaries.</strong> That is normal.
@@ -144,10 +147,10 @@ export default function RepresentativesPage() {
           </section>
 
           <CTA
-            title="Not sure which area or person is yours?"
-            body="Enter your postcode. I find your MP and all eight MSPs, then prepare focused emails to your MP and constituency MSP automatically."
+            title="Ready to ask them to act?"
+            body="The email tool finds the same representatives, adds your local facts and prepares focused drafts. You stay in control and nothing is sent automatically."
             href="/find-my-mp-and-msp"
-            cta="Find my MP and MSP"
+            cta="Write the emails for me"
             secondaryHref="/representatives/msps"
             secondaryCta="Browse every Scottish MSP"
           />

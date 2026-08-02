@@ -49,6 +49,26 @@ export type ParsedRepresentativePostcode = {
   formatted: string;
 };
 
+function representativeAreaSlug(value: string) {
+  return value
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+/** The crawlable contact page for a representative returned by the postcode API. */
+export function representativePagePath(representative: Representative) {
+  const slug = representativeAreaSlug(representative.constituency);
+  if (representative.role === "MP") return `/representatives/mps/${slug}`;
+  if (representative.representationType === "regional") {
+    return `/representatives/msps/regions/${slug}`;
+  }
+  return `/representatives/msps/constituencies/${slug}`;
+}
+
 /** Validate and consistently format a postcode without retaining the raw input. */
 export function parseRepresentativePostcode(value: unknown): ParsedRepresentativePostcode | null {
   if (typeof value !== "string") return null;
