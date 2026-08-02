@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import Faq from "@/components/Faq";
 import { CTA, ContentFrame, EvidenceDetails, InShort, Page, PageHeader } from "@/components/Blocks";
@@ -15,6 +14,7 @@ import {
 import { JsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
 import { site } from "@/lib/site";
 import MemberVoteList from "@/components/MemberVoteList";
+import PortraitLightbox from "@/components/PortraitLightbox";
 
 export function generateStaticParams() {
   return mps.map((mp) => ({ slug: mp.constituencySlug }));
@@ -178,9 +178,12 @@ export default async function MpPage({ params }: { params: Promise<{ slug: strin
               <div className="rounded-[var(--r-m)] border border-[var(--rule)] border-t-[3px] border-t-[var(--action)] bg-[var(--surface)] p-6 sm:p-8">
                 <div className="flex items-start gap-4">
                   {mp.photoUrl && (
-                    <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-[var(--r-s)] bg-[var(--surface-2)]">
-                      <Image src={mp.photoUrl} alt={`${mp.name}, MP for ${mp.constituency}`} fill sizes="80px" className="object-cover object-top" />
-                    </div>
+                    <PortraitLightbox
+                      src={mp.photoUrl}
+                      alt={`${mp.name}, MP for ${mp.constituency}`}
+                      sizes="80px"
+                      className="relative h-20 w-20 shrink-0 overflow-hidden rounded-[var(--r-s)] bg-[var(--surface-2)]"
+                    />
                   )}
                   <div>
                     <p className="kicker mb-3 text-[var(--action)]">Current MP</p>

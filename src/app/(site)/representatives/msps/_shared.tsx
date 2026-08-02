@@ -1,8 +1,8 @@
 import Link from "next/link";
-import Image from "next/image";
 import type { HolyroodMspContact } from "@/lib/data/holyrood";
 import { site } from "@/lib/site";
 import { formatVoteDate } from "@/lib/voting";
+import PortraitLightbox from "@/components/PortraitLightbox";
 
 export function preparedMspEmailHref({
   msp,
@@ -40,15 +40,12 @@ export function MspContactCard({
     <article className="rounded-[var(--r-m)] border border-[var(--rule)] border-t-[3px] border-t-[var(--action)] bg-[var(--surface)] p-6 sm:p-7">
       <div className="flex items-start gap-4">
         {msp.photoUrl && (
-          <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-[var(--r-s)] bg-[var(--surface-2)]">
-            <Image
-              src={msp.photoUrl}
-              alt={`${msp.name}, ${msp.party} MSP`}
-              fill
-              sizes="80px"
-              className="object-cover object-top"
-            />
-          </div>
+          <PortraitLightbox
+            src={msp.photoUrl}
+            alt={`${msp.name}, ${msp.party} MSP`}
+            sizes="80px"
+            className="relative h-20 w-20 shrink-0 overflow-hidden rounded-[var(--r-s)] bg-[var(--surface-2)]"
+          />
         )}
         <div>
           <p className="kicker mb-3 text-[var(--action)]">
@@ -125,16 +122,13 @@ export function MspProfileCard({
     <article className="rounded-[var(--r-m)] border border-[var(--rule)] border-t-[3px] border-t-[var(--action)] bg-[var(--surface)] p-6 sm:p-8">
       <div className="grid gap-6 sm:grid-cols-[minmax(190px,0.7fr)_minmax(0,1.3fr)] sm:items-start">
         <div>
-          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[var(--r-s)] bg-[var(--surface-2)]">
-            <Image
-              src={msp.photoUrl}
-              alt={`${msp.name}, ${msp.party} MSP`}
-              fill
-              sizes="(max-width: 640px) 100vw, 280px"
-              className="object-cover object-top"
-              priority
-            />
-          </div>
+          <PortraitLightbox
+            src={msp.photoUrl}
+            alt={`${msp.name}, ${msp.party} MSP`}
+            sizes="(max-width: 640px) 100vw, 280px"
+            className="relative aspect-[4/3] w-full overflow-hidden rounded-[var(--r-s)] bg-[var(--surface-2)]"
+            priority
+          />
           <p className="ui mt-2 text-[14px] leading-[1.45] text-[var(--muted)]">
             Official Scottish Parliament portrait
           </p>

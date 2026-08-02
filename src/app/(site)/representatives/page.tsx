@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Image from "next/image";
 import { CTA, ContentFrame, InShort, Page, PageHeader } from "@/components/Blocks";
+import PortraitLightbox from "@/components/PortraitLightbox";
 import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
 import {
   formatMpCheckedDate,
@@ -156,25 +156,24 @@ export default function RepresentativesPage() {
 
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {mps.map((mp) => (
-                <Link
+                <article
                   key={mp.constituencySlug}
-                  href={`/representatives/mps/${mp.constituencySlug}`}
-                  className="group block rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] px-5 py-5 no-underline transition-colors hover:border-[var(--rule-strong)]"
+                  className="rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] px-5 py-5 transition-colors hover:border-[var(--rule-strong)]"
                 >
                   <div className="flex items-start gap-3">
-                    <span className="relative h-14 w-14 shrink-0 overflow-hidden rounded-[var(--r-s)] bg-[var(--surface-2)]">
-                      <Image
-                        src={mp.photoUrl}
-                        alt=""
-                        fill
-                        sizes="56px"
-                        className="object-cover object-top"
-                      />
-                    </span>
+                    <PortraitLightbox
+                      src={mp.photoUrl}
+                      alt={`${mp.name}, MP for ${mp.constituency}`}
+                      sizes="56px"
+                      className="relative h-14 w-14 shrink-0 overflow-hidden rounded-[var(--r-s)] bg-[var(--surface-2)]"
+                    />
                     <span className="min-w-0">
-                      <span className="ui block text-[17px] font-[750] leading-[1.3] text-[var(--ink)] group-hover:text-[var(--brand)]">
+                      <Link
+                        href={`/representatives/mps/${mp.constituencySlug}`}
+                        className="ui block text-[17px] font-[750] leading-[1.3] text-[var(--ink)] no-underline hover:text-[var(--brand)]"
+                      >
                         {mp.name}
-                      </span>
+                      </Link>
                       <span className="ui block text-[15px] leading-[1.45] text-[var(--ink-2)] mt-1.5">
                         {mp.party}
                       </span>
@@ -183,7 +182,7 @@ export default function RepresentativesPage() {
                       </span>
                     </span>
                   </div>
-                </Link>
+                </article>
               ))}
             </div>
 

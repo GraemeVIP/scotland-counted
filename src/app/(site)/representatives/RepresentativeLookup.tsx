@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useId, useState } from "react";
 import { trackEvent } from "@/lib/analytics";
+import PortraitLightbox from "@/components/PortraitLightbox";
 import {
   POSTCODE_SESSION_KEY,
   representativePagePath,
@@ -31,9 +31,12 @@ function ContactCard({
     <article className="rounded-[var(--r-m)] border border-[var(--rule)] border-t-[3px] border-t-[var(--brand)] bg-[var(--surface)] p-5 sm:p-6">
       <div className="flex items-start gap-3">
         {representative.photoUrl && (
-          <span className="relative h-16 w-16 shrink-0 overflow-hidden rounded-[var(--r-s)] bg-[var(--surface-2)]">
-            <Image src={representative.photoUrl} alt={`${representative.name}, ${representative.role}`} fill sizes="64px" className="object-cover object-top" />
-          </span>
+          <PortraitLightbox
+            src={representative.photoUrl}
+            alt={`${representative.name}, ${representative.role}`}
+            sizes="64px"
+            className="relative h-16 w-16 shrink-0 overflow-hidden rounded-[var(--r-s)] bg-[var(--surface-2)]"
+          />
         )}
         <div>
           <p className="kicker mb-2 text-[var(--brand)]">{label}</p>
@@ -239,9 +242,12 @@ export default function RepresentativeLookup() {
                     >
                       <div className="flex items-start gap-3">
                         {msp.photoUrl && (
-                          <span className="relative h-12 w-12 shrink-0 overflow-hidden rounded-[var(--r-s)] bg-[var(--surface-2)]">
-                            <Image src={msp.photoUrl} alt="" fill sizes="48px" className="object-cover object-top" />
-                          </span>
+                          <PortraitLightbox
+                            src={msp.photoUrl}
+                            alt={`${msp.name}, ${msp.party} regional MSP`}
+                            sizes="48px"
+                            className="relative h-12 w-12 shrink-0 overflow-hidden rounded-[var(--r-s)] bg-[var(--surface-2)]"
+                          />
                         )}
                         <Link
                           href={representativePagePath(msp)}

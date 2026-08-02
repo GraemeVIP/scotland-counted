@@ -4,6 +4,7 @@ import { councilsByLevel } from "@/lib/data/councils";
 import { councilAccountabilityRecords } from "@/lib/data/councilAccountability";
 import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
 import { site } from "@/lib/site";
+import CouncilDirectory from "./CouncilDirectory";
 
 export const metadata = meta({
   title: "Scottish council budgets and performance | Scotland Counted",
@@ -13,7 +14,7 @@ export const metadata = meta({
 });
 
 export default function CouncilsPage() {
-  const areas = councilsByLevel();
+  const areas = [...councilsByLevel()].sort((a, b) => a.name.localeCompare(b.name, "en-GB"));
   const publishedSlugs = new Set(councilAccountabilityRecords.map((record) => record.councilSlug));
 
   return (
@@ -91,39 +92,7 @@ export default function CouncilsPage() {
               </div>
             </div>
 
-            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              {areas.map((council) => {
-                const hasRecord = publishedSlugs.has(council.slug);
-                return (
-                  <article
-                    key={council.slug}
-                    className={`rounded-[var(--r-s)] border bg-[var(--surface)] p-5 ${
-                      hasRecord
-                        ? "border-[var(--action)] border-t-[3px]"
-                        : "border-[var(--rule)]"
-                    }`}
-                  >
-                    <p className="ui text-[15px] font-[750] text-[var(--muted)]">
-                      {hasRecord ? "Accountability record" : "Local facts available"}
-                    </p>
-                    <h3 className="ui mt-2 text-[18px] font-[750] leading-[1.3] text-[var(--ink)]">
-                      {council.name}
-                    </h3>
-                    <p className="mt-2 text-[15px] leading-[1.5] text-[var(--ink-2)]">
-                      {hasRecord
-                        ? "Budgets, service targets, promises and audit findings."
-                        : "Council accountability record coming soon. Local poverty facts are ready now."}
-                    </p>
-                    <Link
-                      href={hasRecord ? `/councils/${council.slug}` : `/areas/${council.slug}`}
-                      className="ui mt-4 inline-block text-[15px] font-[700] text-[var(--brand)]"
-                    >
-                      {hasRecord ? "Open the council record →" : "See the area figures →"}
-                    </Link>
-                  </article>
-                );
-              })}
-            </div>
+            <CouncilDirectory councils={areas} publishedSlugs={[...publishedSlugs]} />
           </section>
 
           <CTA

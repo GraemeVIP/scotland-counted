@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Image from "next/image";
 import { CTA, ContentFrame, InShort, Page, PageHeader } from "@/components/Blocks";
+import PortraitLightbox from "@/components/PortraitLightbox";
 import {
   formatHolyroodCheckedDate,
   HOLYROOD_DATA_CHECKED_AT,
@@ -124,31 +124,30 @@ export default function MspsDirectoryPage() {
               <div className="border-t border-[var(--rule)] p-5 sm:p-8">
                 <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                   {holyroodConstituencies.map((item) => (
-                    <Link
+                    <article
                       key={item.constituencySlug}
-                      href={`/representatives/msps/constituencies/${item.constituencySlug}`}
-                      className="group block rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface-2)] px-5 py-4 no-underline hover:border-[var(--rule-strong)]"
+                      className="group rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface-2)] px-5 py-4 hover:border-[var(--rule-strong)]"
                     >
                       <span className="flex items-start gap-3">
-                        <span className="relative h-12 w-12 shrink-0 overflow-hidden rounded-[var(--r-s)] bg-[var(--surface)]">
-                          <Image
-                            src={item.msp.photoUrl}
-                            alt=""
-                            fill
-                            sizes="48px"
-                            className="object-cover object-top"
-                          />
-                        </span>
+                        <PortraitLightbox
+                          src={item.msp.photoUrl}
+                          alt={`${item.msp.name}, MSP for ${item.constituency}`}
+                          sizes="48px"
+                          className="relative h-12 w-12 shrink-0 overflow-hidden rounded-[var(--r-s)] bg-[var(--surface)]"
+                        />
                         <span className="min-w-0">
-                          <span className="ui block text-[16px] font-[750] leading-[1.35] text-[var(--ink)] group-hover:text-[var(--brand)]">
+                          <Link
+                            href={`/representatives/msps/constituencies/${item.constituencySlug}`}
+                            className="ui block text-[16px] font-[750] leading-[1.35] text-[var(--ink)] no-underline hover:text-[var(--brand)]"
+                          >
                             {item.constituency}
-                          </span>
+                          </Link>
                           <span className="ui mt-1.5 block text-[15px] leading-[1.45] text-[var(--ink-2)]">
                             {item.msp.name} · {item.msp.party}
                           </span>
                         </span>
                       </span>
-                    </Link>
+                    </article>
                   ))}
                 </div>
               </div>

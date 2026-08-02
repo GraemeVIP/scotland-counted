@@ -1,8 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import PortraitLightbox from "@/components/PortraitLightbox";
 
 export type DirectoryEntry = {
   name: string;
@@ -64,18 +64,21 @@ export default function RepresentativeDirectorySearch({ entries }: { entries: Di
         {results.length > 0 && (
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {results.map((entry) => (
-              <Link key={entry.href} href={entry.href} className="group flex items-start gap-3 rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] p-4 no-underline transition-colors hover:border-[var(--rule-strong)]">
+              <article key={entry.href} className="group flex items-start gap-3 rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] p-4 transition-colors hover:border-[var(--rule-strong)]">
                 {entry.photoUrl && (
-                  <span className="relative h-14 w-14 shrink-0 overflow-hidden rounded-[var(--r-s)] bg-[var(--surface-2)]">
-                    <Image src={entry.photoUrl} alt="" fill sizes="56px" className="object-cover object-top" />
-                  </span>
+                  <PortraitLightbox
+                    src={entry.photoUrl}
+                    alt={`${entry.name}, ${entry.role} for ${entry.area}`}
+                    sizes="56px"
+                    className="relative h-14 w-14 shrink-0 overflow-hidden rounded-[var(--r-s)] bg-[var(--surface-2)]"
+                  />
                 )}
                 <span className="min-w-0">
-                  <span className="ui block text-[16px] font-[750] leading-[1.35] text-[var(--ink)] group-hover:text-[var(--brand)]">{entry.name}</span>
+                  <Link href={entry.href} className="ui block text-[16px] font-[750] leading-[1.35] text-[var(--ink)] no-underline hover:text-[var(--brand)]">{entry.name}</Link>
                   <span className="ui mt-1 block text-[15px] leading-[1.4] text-[var(--ink-2)]">{entry.label} · {entry.party}</span>
-                  <span className="ui mt-2 block text-[15px] font-[700] text-[var(--brand)]">View details →</span>
+                  <Link href={entry.href} className="ui mt-2 block text-[15px] font-[700] text-[var(--brand)] no-underline">View details →</Link>
                 </span>
-              </Link>
+              </article>
             ))}
           </div>
         )}
