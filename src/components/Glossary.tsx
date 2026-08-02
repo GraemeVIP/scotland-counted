@@ -307,7 +307,15 @@ function annotateString(value: string, keyPrefix: string): ReactNode {
 function annotateNode(node: ReactNode, keyPrefix: string): ReactNode {
   if (typeof node === "string") return annotateString(node, keyPrefix);
   if (Array.isArray(node)) {
-    return node.map((child, index) => annotateNode(child, `${keyPrefix}-${index}`));
+    return node.map((child, index) => {
+      const annotated = annotateNode(child, `${keyPrefix}-${index}`);
+      // ExplainText often receives several JSX children as an array. Keep
+      // those children keyed after annotation so React does not warn (or
+      // discard useful identity during client updates).
+      return isValidElement(annotated)
+        ? cloneElement(annotated, { key: annotated.key ?? `${keyPrefix}-${index}` })
+        : annotated;
+    });
   }
   if (!isValidElement(node)) return node;
 
