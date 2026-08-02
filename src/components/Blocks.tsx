@@ -192,10 +192,10 @@ export function InShort({
 }) {
   return (
     <div
-      className={`mx-auto rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] border-l-[5px] border-l-[var(--action)] px-6 sm:px-8 py-6 ${expert ? "max-w-[1120px]" : "max-w-[760px]"}`}
+      className="mx-auto w-full max-w-[1120px] rounded-[var(--r-m)] border border-[var(--rule)] border-t-[4px] border-t-[var(--action)] bg-[var(--action-tint)] px-6 py-6 sm:px-8 sm:py-7"
       style={{ boxShadow: "var(--shadow-1)" }}
     >
-      <div className={expert ? "grid gap-6 lg:grid-cols-[minmax(0,1fr)_250px] lg:gap-9" : ""}>
+      <div className={expert ? "grid gap-6 lg:grid-cols-[minmax(0,1fr)_250px] lg:gap-9" : "max-w-[760px]"}>
         <div>
           <p className="ui text-[15px] font-[750] text-[var(--action)] mb-3">What this means</p>
           <div className="ui text-[18px] sm:text-[19px] leading-[1.55] font-[480] space-y-2.5 [&_strong]:font-[750]">
