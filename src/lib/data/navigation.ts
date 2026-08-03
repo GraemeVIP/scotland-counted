@@ -43,7 +43,7 @@ export const SECTIONS: Array<{
     items: [
       { href: "/areas", label: "All 32 council areas", blurb: "Child poverty, benefits and pay context where you live", featured: true },
       { href: "/councils", label: "Council budgets and performance", blurb: "Budgets, targets, promises and official checks" },
-      { href: "/representatives", label: "Find your MP and MSPs", blurb: "Current names, parties and public contact details" },
+      { href: "/representatives", label: "Find your MP and MSPs", blurb: "Who they are, how to reach them, and how they voted" },
       { href: "/constituencies", label: "All 57 MP areas", blurb: "The area each MP is responsible for" },
       { href: "/why-poverty-is-worse-in-glasgow", label: "Glasgow", blurb: "Why the worst rate in Scotland is where it is" },
       { href: "/glasgow-poverty-statistics", label: "The Glasgow record", blurb: "Every Glasgow indicator in one place" },

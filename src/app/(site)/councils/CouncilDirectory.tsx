@@ -79,9 +79,9 @@ export default function CouncilDirectory({ councils, publishedSlugs }: CouncilDi
       <div className="mt-5 flex items-start gap-3 rounded-[var(--r-s)] border border-[var(--brand)] bg-[var(--brand-wash)] p-4 sm:p-5">
         <span aria-hidden="true" className="mt-1.5 h-3 w-3 shrink-0 rounded-full bg-[var(--brand)]" />
         <p className="text-[15px] leading-[1.5] text-[var(--ink-2)]">
-          <strong className="text-[var(--ink)]">Blue border = a detailed council record is published. </strong>
-          It does not mean the council has passed or failed. A red status inside a record is used
-          only when an official source says a target was missed or something still needs attention.
+          <strong className="text-[var(--ink)]">Blue border = this council has a full record. </strong>
+          It does not mean the council passed or failed. Red only appears when an official
+          source says a target was missed. Nothing is marked red on our say-so.
         </p>
       </div>
 
@@ -104,7 +104,7 @@ export default function CouncilDirectory({ councils, publishedSlugs }: CouncilDi
                 </h3>
                 <p className="mt-2 text-[15px] leading-[1.5] text-[var(--ink-2)]">
                   {hasRecord
-                    ? "Budgets, targets, audit findings and promises, with sources."
+                    ? "What they promised, what happened, and what the watchdogs found."
                     : "Council record coming soon. Local poverty facts are ready now."}
                 </p>
                 <Link

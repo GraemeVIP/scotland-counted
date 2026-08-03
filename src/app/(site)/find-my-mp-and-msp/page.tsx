@@ -46,7 +46,18 @@ export default function TakeAction() {
           eyebrow="No politics knowledge needed"
           title="Find your MP and MSP by postcode"
           lede="Enter your postcode. I find your MP and every MSP, then automatically write to the two closest matches: your MP and constituency MSP. You do not have to know who they are or choose who gets what."
-        />
+        >
+          {/*
+            The other door, named at the door. This page is for getting
+            something done; the directory is for looking people up and seeing
+            how they voted. Two different errands — a person on the wrong page
+            should find out in the first screen, not after scrolling.
+          */}
+          <p className="mt-5 text-[16px] leading-[1.6] text-[var(--ink-2)]">
+            Just want to see who they are and how they voted?{" "}
+            <Link href="/representatives">Browse every MP and MSP →</Link>
+          </p>
+        </PageHeader>
 
         <ContentFrame>
           <LetterBuilder />

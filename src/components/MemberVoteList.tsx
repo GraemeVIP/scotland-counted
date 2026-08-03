@@ -1,6 +1,7 @@
 import type { VoteRecord } from "@/lib/voting";
 import { formatVoteDate } from "@/lib/voting";
 import { ExplainText } from "@/components/Glossary";
+import { explainVote, voteSubstance, plainResult, plainVoteLabel } from "@/lib/voteExplainers";
 
 export default function MemberVoteList({
   name,
@@ -25,14 +26,36 @@ export default function MemberVoteList({
         <div className="mt-6 grid gap-3">
           {votes.map((vote) => {
             const positive = /^(aye|yes|for)$/i.test(vote.vote);
+            const explainer = explainVote(vote.title);
+            const substance = voteSubstance(vote.title);
             return (
               <article key={`${vote.sourceUrl}-${vote.date}-${vote.title}-${vote.vote}`} className="rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] p-4 sm:p-5">
                 <div className="flex flex-wrap items-start justify-between gap-3">
                   <h3 className="ui max-w-[70ch] text-[16px] font-[750] leading-[1.4] text-[var(--ink)]">{vote.title}</h3>
-                  <span className={`ui shrink-0 rounded-full border px-3 py-1 text-[15px] font-[750] ${positive ? "border-[var(--good-text)] text-[var(--good-text)]" : "border-[var(--brand)] text-[var(--brand)]"}`}>{vote.vote}</span>
+                  {/* The official term stays in the record line below; the chip
+                      answers the only question a visitor actually has. */}
+                  <span className={`ui shrink-0 rounded-full border px-3 py-1 text-[15px] font-[750] ${positive ? "border-[var(--good-text)] text-[var(--good-text)]" : "border-[var(--brand)] text-[var(--brand)]"}`}>{plainVoteLabel(vote.vote)}</span>
                 </div>
+                {(explainer || substance) && (
+                  <div className="mt-3 rounded-[var(--r-s)] border-l-[3px] border-[var(--brand)] bg-[var(--surface-2)] px-3.5 py-2.5">
+                    {explainer && (
+                      <p className="text-[15px] leading-[1.5] text-[var(--ink-2)]">
+                        <strong className="text-[var(--ink)]">{explainer.kind}.</strong>{" "}
+                        {explainer.plain}
+                      </p>
+                    )}
+                    {substance && (
+                      <p className={`text-[15px] leading-[1.5] text-[var(--ink-2)] ${explainer ? "mt-1.5" : ""}`}>
+                        {substance}
+                      </p>
+                    )}
+                  </div>
+                )}
                 <p className="ui mt-2 text-[15px] leading-[1.5] text-[var(--ink-2)]">
-                  <time dateTime={vote.date}>{formatVoteDate(vote.date)}</time>{vote.result ? ` · Result: ${vote.result}` : ""}{vote.reference ? ` · ${vote.reference}` : ""}
+                  <time dateTime={vote.date}>{formatVoteDate(vote.date)}</time>
+                  {vote.result ? ` · ${plainResult(vote.result)}` : ""}
+                  {` · They voted ${vote.vote}`}
+                  {vote.reference ? ` · ${vote.reference}` : ""}
                 </p>
                 <a href={vote.sourceUrl} className="ui mt-3 inline-block text-[15px] font-[650]">Check the official record →</a>
               </article>

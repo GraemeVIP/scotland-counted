@@ -102,6 +102,10 @@ export default function RepresentativesPage() {
               Browse all 129 MSPs
             </Link>
           </div>
+          <p className="mt-5 text-[16px] leading-[1.6] text-[var(--ink-2)]">
+            Need something fixed, or something changed?{" "}
+            <Link href="/find-my-mp-and-msp">I will write the email for you →</Link>
+          </p>
         </PageHeader>
 
         <ContentFrame>

@@ -16,6 +16,15 @@ export const metadata = meta({
 export default function CouncilsPage() {
   const areas = [...councilsByLevel()].sort((a, b) => a.name.localeCompare(b.name, "en-GB"));
   const publishedSlugs = new Set(councilAccountabilityRecords.map((record) => record.councilSlug));
+  const missedTargets = councilAccountabilityRecords.reduce(
+    (n, record) => n + record.outcomes.filter((o) => o.status === "missed").length,
+    0
+  );
+  const openFindings = councilAccountabilityRecords.reduce(
+    (n, record) =>
+      n + record.auditFindings.filter((f) => f.status === "open" || f.status === "in-progress").length,
+    0
+  );
 
   return (
     <>
@@ -40,30 +49,55 @@ export default function CouncilsPage() {
 
       <Page>
         <PageHeader
-          eyebrow="The people who run local services"
+          eyebrow="Your money. Their choices."
           title="What is your council doing with the money?"
-          lede="Council tax and government grants pay for services near you. This section follows the money, the targets councils set and the results that have actually been published."
+          lede="You pay for your council. This section shows what they promised and what really happened. The watchdogs checked. Every fact links to the paper it came from."
         />
 
         <ContentFrame>
           <InShort expert={false}>
             <p>
-              <strong>This is not a league table made from guesses.</strong> A council only gets a
-              performance claim here when the target, result and source can be checked together.
+              <strong>Nothing here is a guess.</strong> Every number comes from an official
+              paper. Each one is linked, so you can check it yourself.
             </p>
             <p>
-              Every record is built from official council papers, Scottish Government figures,
-              auditors or regulators. If a number or promise cannot be checked, the page says so
-              instead of filling the gap with a guess.
+              Where something cannot be checked, the page says so. A gap is better than a made-up
+              number.
             </p>
           </InShort>
+
+          {/*
+            The receipts, before any prose. Counted from the records themselves
+            so the figures can never drift from the pages they summarise — and
+            a card only renders when there is something to count.
+          */}
+          <section className="pt-12" aria-label="What the records show so far">
+            <p className="kicker mb-4 text-[var(--action)]">Counted so far, across every published record</p>
+            <div className="grid gap-4 sm:grid-cols-3">
+              {[
+                [missedTargets, missedTargets === 1 ? "target they set themselves, missed" : "targets they set themselves, missed"],
+                [openFindings, openFindings === 1 ? "watchdog warning still open" : "watchdog warnings still open"],
+                [publishedSlugs.size, publishedSlugs.size === 1 ? "council checked in full so far" : "councils checked in full so far"],
+              ].map(([n, label]) =>
+                Number(n) > 0 ? (
+                  <div
+                    key={String(label)}
+                    className="rounded-[var(--r-m)] border border-[var(--rule)] border-t-[3px] border-t-[var(--action)] bg-[var(--surface)] p-6"
+                  >
+                    <p className="figure-num text-[clamp(40px,5vw,56px)] leading-none text-[var(--ink)]">{n}</p>
+                    <p className="mt-2 text-[16px] leading-[1.5] text-[var(--ink-2)]">{label}</p>
+                  </div>
+                ) : null
+              )}
+            </div>
+          </section>
 
           <section className="pt-12">
             <div className="grid gap-4 md:grid-cols-3">
               {[
-                ["Money", "Budgets, funding gaps and reserves"],
-                ["Results", "Targets, actual performance and missed deadlines"],
-                ["Independent checks", "Audit findings, regulator warnings and responses"],
+                ["The money", "What they got. What they spent. The gaps they have not closed."],
+                ["The results", "The targets they set for themselves. Met or missed, in their own figures."],
+                ["The watchdogs", "What the auditors found when they looked."],
               ].map(([title, body]) => (
                 <div
                   key={title}
@@ -96,12 +130,12 @@ export default function CouncilsPage() {
           </section>
 
           <CTA
-            title="Start with the facts for your street"
-            body="Enter your postcode and I will find your council area, MP and MSPs without making you work out the boundaries first."
+            title="Seen something that makes you angry?"
+            body="Do not shout at the telly. Your MSP decides how councils are funded, and your councillors answer to you. Put in your postcode and I will write the email for you."
             href="/find-my-mp-and-msp"
-            cta="Find my area and representatives"
+            cta="Write to the people in charge"
             secondaryHref="/areas"
-            secondaryCta="Browse all 32 areas"
+            secondaryCta="See the poverty figures first"
           />
         </ContentFrame>
       </Page>
