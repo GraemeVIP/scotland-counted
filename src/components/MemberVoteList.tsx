@@ -45,9 +45,16 @@ export default function MemberVoteList({
                       </p>
                     )}
                     {substance && (
-                      <p className={`text-[15px] leading-[1.5] text-[var(--ink-2)] ${explainer ? "mt-1.5" : ""}`}>
-                        {substance}
-                      </p>
+                      <>
+                        <p className={`text-[15px] leading-[1.5] text-[var(--ink-2)] ${explainer ? "mt-1.5" : ""}`}>
+                          {substance.what}
+                        </p>
+                        {substance.example && (
+                          <p className="mt-1.5 text-[15px] leading-[1.5] text-[var(--ink-2)]">
+                            {substance.example}
+                          </p>
+                        )}
+                      </>
                     )}
                   </div>
                 )}
