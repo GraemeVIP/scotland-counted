@@ -11,6 +11,7 @@ import {
   COUNCIL_DATA_FILE,
   COUNCIL_SOURCES,
   nationalCouncilLines,
+  supersededNotes,
   worstInScotlandLines,
 } from "@/lib/pressLines";
 
@@ -80,6 +81,23 @@ export default function Press() {
               <CopyLine key={t.slice(0, 40)} text={t} />
             ))}
           </div>
+
+          {/* Say what is deliberately absent. A journalist who spots the gap
+              should find the reason here rather than assume it was missed. */}
+          {supersededNotes().length > 0 && (
+            <div className="mt-6 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] p-5">
+              <p className="ui text-[15px] font-[680] mb-2">Held back on purpose</p>
+              <ul className="grid gap-2">
+                {supersededNotes().map((note) => (
+                  <li key={note.measure} className="text-[15.5px] leading-[1.6] text-[var(--ink-2)]">
+                    <strong className="text-[var(--ink)]">{note.measure}</strong> is on the council
+                    pages but not in the lines above. A newer official series has overtaken it:{" "}
+                    {note.newer}. Use that for anything you publish.
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           <h3 className="h3 mt-12 mb-3">Councils: the national picture</h3>
           <p className="text-[15.5px] text-[var(--ink-2)] mb-7 max-w-[65ch]">
