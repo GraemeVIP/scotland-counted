@@ -20,10 +20,24 @@
  *   npm run build && npm start &
  *   node scripts/check-spacing.mjs [baseUrl]
  *
+ * Run it against a local build, never production. Four hundred requests in a
+ * few seconds looks exactly like an attack: pointing it at the live domain
+ * once tripped Vercel's Security Checkpoint, which then served a challenge
+ * page to that IP instead of the site. Real browsers solve the challenge and
+ * pass through, so visitors were unaffected, but the crawl itself then reads
+ * 403 on every page and tells you nothing.
+ *
  * Exits 0 when no page glues a word to an inline element, 1 otherwise.
  */
 
 const BASE = (process.argv[2] || process.env.CHECK_BASE_URL || "http://localhost:3000").replace(/\/$/, "");
+
+if (!/^https?:\/\/(localhost|127\.0\.0\.1|\[::1\])(:|\/|$)/.test(BASE) && !process.env.ALLOW_REMOTE) {
+  console.error(`Refusing to crawl ${BASE}.`);
+  console.error("This makes ~400 requests in seconds and will trip bot protection on a live site.");
+  console.error("Run it against a local build, or set ALLOW_REMOTE=1 if you really mean it.");
+  process.exit(2);
+}
 
 /** Inline elements whose text runs on with the sentence around them. */
 const OPENING = /(.)<(?:button class="gl"|a |strong|em|abbr|code)[^>]*>([^<\s])/g;
