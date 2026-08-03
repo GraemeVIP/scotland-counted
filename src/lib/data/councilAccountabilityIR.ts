@@ -381,7 +381,7 @@ const records: CouncilAccountabilityRecord[] = [
     councilCode: "S12000021",
     lastReviewedOn: "2026-08-03",
     summary:
-      "North Ayrshire’s 2026/27 budget is £486.1m. The plan needed an extra £17.8m to pay for planned services. The 2024/25 accounts passed their final check, but £82.374m of corrections were needed before they were signed off. Seven checked goals were missed. The council also reports a fall in child poverty. The council’s plan says it needs to find £46.7m more by 2027/28, £38.5m of road repairs are waiting, and council-funded adult care is now limited to people at critical risk.",
+      "North Ayrshire’s 2026/27 budget is £486.1m. The plan needed an extra £17.8m to pay for planned services. The 2024/25 accounts passed their final check, but £82.374m of corrections were needed before they were signed off. Seven checked goals were missed. The council also reports a fall in child poverty. The council says it must find £46.7m more by 2027/28. There is £38.5m of road repairs waiting to be done. And council-funded adult care is now only for people at critical risk.",
     budgetContext: [
       ...budgetFigures({
         slug: "north-ayrshire",
@@ -807,8 +807,13 @@ const records: CouncilAccountabilityRecord[] = [
     councilSlug: "north-lanarkshire",
     councilCode: "S12000050",
     lastReviewedOn: "2026-08-02",
+    // Leads with what went wrong, because that is what the audit actually
+    // found. Every figure here is on the page below it: the 28 measures and
+    // the untracked project benefits come from the 2024/25 annual audit, the
+    // per-pupil spend from the national benchmarking file, the £19.3m from
+    // the Audit Scotland budget bulletin.
     summary:
-      "North Lanarkshire planned to spend £1,182.6m on everyday services in 2026/27 and needed another £19.3m in its plan. The council has a programme to change services and was judged well run, but people cannot easily see all 28 progress measures or what each project achieved.",
+      "Half of North Lanarkshire's own 28 progress measures did not improve. The auditors also said the council could not show what its change projects actually achieved. It spends about £670 less on each primary school pupil than the Scottish average. And it said it needed another £19.3m to pay for services this year.",
     budgetContext: budgetFigures({
       slug: "north-lanarkshire",
       councilName: "North Lanarkshire Council",

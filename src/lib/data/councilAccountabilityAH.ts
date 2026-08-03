@@ -615,7 +615,7 @@ export const additionalCouncilAccountabilityRecords: CouncilAccountabilityRecord
     councilCode: "S12000017",
     settlementMillion: 621.0,
     summary:
-      "Highland stayed broadly in control of its finances in 2024/25, but the audit recorded a £3.4m overspend after adjustments and said adult social care missed part of its savings goal. The current budget and later results still need to be checked.",
+      "Highland mostly kept control of its money in 2024/25. But the audit found a £3.4m overspend once adjustments were counted. It also said adult social care missed part of its savings goal. The current budget and later results still need to be checked.",
     audit: {
       id: "audit-highland-2024-25",
       title: "Highland Council annual audit 2024/25",

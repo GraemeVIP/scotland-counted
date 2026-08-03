@@ -493,7 +493,7 @@ export const stirlingAccountability: CouncilAccountabilityRecord = {
   councilCode: "S12000030",
   lastReviewedOn: reviewedOn,
   summary:
-    "Stirling approved a balanced 2026/27 budget, but says it may need to find £37.2m over the next five years. The review also found that its new finance and HR system used more time and money than planned, and that the council had not shown whether working from home changed sickness absence.",
+    "Stirling approved a balanced 2026/27 budget, but says it may need to find £37.2m over the next five years. The review also found its new finance and staff system cost more time and money than planned. And the council had not shown whether working from home changed sickness absence.",
   budgetContext: budgetContext("Stirling Council", {
     budget: 323.0,
     gap: 11.4,

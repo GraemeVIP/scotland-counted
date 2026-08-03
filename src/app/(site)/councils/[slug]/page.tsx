@@ -11,7 +11,9 @@ import {
   type PerformanceOutcome,
 } from "@/lib/data/councilAccountability";
 import { getCouncil } from "@/lib/data/councils";
+import { headlineCards, shortVersion } from "@/lib/councilSignals";
 import CouncilCompare from "@/components/CouncilCompare";
+import BudgetGapExplainer from "@/components/BudgetGapExplainer";
 import AccountabilityMethodNote from "@/components/AccountabilityMethodNote";
 import { JsonLd, articleJsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
 
@@ -120,52 +122,10 @@ export default async function CouncilAccountabilityPage({
   const budgetSourceIds = Array.from(new Set(record.budgetContext.flatMap((figure) => figure.sourceIds)));
   const budgetCardSpan = (index: number) =>
     record.budgetContext.length === 5 && index === record.budgetContext.length - 1 ? "md:col-span-2" : "";
-  const budgetNeed = record.budgetContext.find(
-    (figure) => /budget-gap/i.test(figure.id) || (figure.qualifier === "projected" && /gap|shortfall/i.test(figure.label + " " + figure.plainEnglish)),
-  );
-  const quickReadCards = [
-    {
-      label: budgetNeed ? "Extra money needed for services" : "Money in the record",
-      value: budgetNeed ? money(budgetNeed.value, budgetNeed.unit) : "—",
-      sub: budgetNeed ? "for planned services" : "no extra need published yet",
-      body: budgetNeed
-        ? "The council said it needed to find this extra money through savings, extra income, money already set aside or other changes. It is not money already missing from the bank."
-        : "No extra money need has been added to this record yet.",
-      accent: "var(--brand)",
-    },
-    {
-      label: "Goals missed",
-      value: missed.length > 0 ? String(missed.length) : reportedOutcomes.length > 0 ? "0" : "—",
-      sub: missed.length > 0 ? "in this record" : reportedOutcomes.length > 0 ? "checked goals" : "not checked yet",
-      body: missed.length > 0
-        ? "These are the service results where the published goal was not reached."
-        : reportedOutcomes.length > 0
-          ? "The results checked here are not marked as missed."
-          : "There is no checked service goal in this record yet.",
-      accent: "var(--action)",
-    },
-    {
-      label: "Still unanswered",
-      value: String(record.knownGaps.length),
-      sub: record.knownGaps.length === 1 ? "thing to check" : "things to check",
-      body: "We show what the public evidence does not answer yet, instead of guessing.",
-      accent: "var(--good)",
-    },
-  ];
-  const shortVersion = [
-    record.councilName + " has money coming in.",
-    budgetNeed
-      ? "It also needed " + money(budgetNeed.value, budgetNeed.unit) + " more to pay for its planned services."
-      : "The published figures and their limits are set out below.",
-    missed.length > 0
-      ? "This record includes " + missed.length + " service goal" + (missed.length === 1 ? "" : "s") + " marked as missed."
-      : reportedOutcomes.length > 0
-        ? "The service results below show what was measured and what was reported."
-        : "No service goal result has been checked for this record yet.",
-    record.auditFindings.length > 0
-      ? "Independent checks are shown separately from the council’s own figures."
-      : "No audit or regulator finding has been added to this record yet.",
-  ].join(" ");
+  // Derived from data every council has, so the most prominent slot on the
+  // page never falls back to an em dash for the councils with thinner records.
+  const quickReadCards = headlineCards(record);
+  const shortVersionText = shortVersion(record);
   const allocationFaq = allocation
     ? record.councilName +
       " has " +
@@ -232,10 +192,7 @@ export default async function CouncilAccountabilityPage({
 
         <ContentFrame>
           <InShort expert={false}>
-            <p><PlainText text={shortVersion} /></p>
-            <p>
-              <PlainText text="This page keeps plans, goals and counts separate from what really happened. Open the source links when you want the full detail." />
-            </p>
+            <p><PlainText text={shortVersionText} /></p>
             <p className="ui mt-4 text-[14px] leading-[1.5] text-[var(--muted)]">
               Words with a dotted underline have a quick explanation. Hover or tap them.
             </p>
@@ -286,6 +243,7 @@ export default async function CouncilAccountabilityPage({
         >
             {[
               { id: "money", label: "Money" },
+              { id: "why-more-money", label: "Why they need more" },
               { id: "performance", label: "Goals" },
               { id: "compare", label: "Compare councils" },
               { id: "audit-trail", label: "What auditors found" },
@@ -335,6 +293,13 @@ export default async function CouncilAccountabilityPage({
             {record.budgetContext.length > 0 && <ClaimSource record={record} sourceIds={budgetSourceIds} />}
           </section>
 
+          {/*
+            Straight after the money, because this is where a reader has just
+            been told the council "needed" another £19m and is entitled to ask
+            why that happens every single year.
+          */}
+          <BudgetGapExplainer slug={record.councilSlug} councilName={record.councilName} />
+
           <section id="performance" className="pt-14 scroll-mt-24">
             <p className="kicker mb-2 text-[var(--action)]">
               {reportedOutcomes.length > 0 ? "Promises versus results" : "The missing evidence"}
@@ -343,8 +308,9 @@ export default async function CouncilAccountabilityPage({
               {reportedOutcomes.length > 0 ? "Did services do what they promised?" : "What we still do not know about services"}
             </h2>
             <p className="max-w-[68ch] text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
-              A goal is what the council said it wanted to achieve. The result is what happened. We
-              keep them side by side and flag it when the two figures cannot be compared fairly.
+              A goal is what the council said it wanted to achieve. The result is what happened.
+              They sit side by side here, and it is flagged when the two numbers cannot be
+              compared fairly.
             </p>
             <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-[14px] leading-[1.5] text-[var(--ink-2)]" aria-label="How to read the status labels">
               <span className="inline-flex items-center gap-2"><span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-[var(--bad-text)]" /> Red means a goal was missed or a matter is still open.</span>

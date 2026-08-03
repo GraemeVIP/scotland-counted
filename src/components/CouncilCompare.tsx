@@ -1,4 +1,4 @@
-import { councilBenchmarks, LGBF_SOURCE } from "@/lib/data/councilBenchmarks";
+import { councilBenchmarks, LGBF_SOURCE, type CouncilBenchmark } from "@/lib/data/councilBenchmarks";
 
 /**
  * "How your council compares" — the like-for-like layer on every council
@@ -12,7 +12,33 @@ import { councilBenchmarks, LGBF_SOURCE } from "@/lib/data/councilBenchmarks";
  * Tone thresholds are terciles of 32. Middle third stays neutral on purpose —
  * painting 11th of 32 as either triumph or scandal would be spin, and spin is
  * the one thing this site must never do.
+ *
+ * Some indicators are not scored at all. Cost per primary pupil is the case
+ * that forced the rule: ranking it lowest-first painted a council that spends
+ * less on each child bright green, as though it were a win. Those rows carry
+ * direction "depends" — no tone, and a note saying what low actually means.
  */
+
+/**
+ * The distance from the Scotland figure, in the row's own units, said in
+ * words. Gives a reader something concrete to repeat: "£670 less on each
+ * child than the Scottish average" lands where "6th lowest" does not.
+ */
+function distanceFromScotland(row: CouncilBenchmark): string | null {
+  const diff = row.value - row.scotland;
+  if (!Number.isFinite(diff) || Math.abs(diff) < 0.05) return null;
+  const higher = diff > 0;
+  const size = Math.abs(diff);
+  const amount = row.display.trim().startsWith("£")
+    ? `£${Math.round(size).toLocaleString("en-GB")}`
+    : row.display.includes("%")
+      ? `${size.toFixed(1)} percentage points`
+      : row.display.includes("day")
+        ? `${size.toFixed(1)} days`
+        : size.toLocaleString("en-GB", { maximumFractionDigits: 1 });
+  return `${amount} ${higher ? "more" : "less"} than the Scotland figure`;
+}
+
 export default function CouncilCompare({ slug }: { slug: string }) {
   const rows = councilBenchmarks[slug];
   if (!rows || rows.length === 0) return null;
@@ -28,13 +54,15 @@ export default function CouncilCompare({ slug }: { slug: string }) {
 
       <div className="mt-6 grid gap-3">
         {rows.map((row) => {
-          const goodTercile = row.rank <= Math.ceil(row.of / 3);
-          const badTercile = row.rank > row.of - Math.ceil(row.of / 3);
+          const scored = row.direction !== "depends";
+          const goodTercile = scored && row.rank <= Math.ceil(row.of / 3);
+          const badTercile = scored && row.rank > row.of - Math.ceil(row.of / 3);
           const tone = goodTercile
             ? "border-[var(--good-text)] text-[var(--good-text)]"
             : badTercile
               ? "border-[var(--bad-text)] text-[var(--bad-text)]"
               : "border-[var(--rule-strong)] text-[var(--ink-2)]";
+          const distance = distanceFromScotland(row);
           return (
             <div
               key={row.code}
@@ -57,7 +85,19 @@ export default function CouncilCompare({ slug }: { slug: string }) {
                 Here: <strong className="text-[var(--ink)]">{row.display}</strong>
                 {" · "}Scotland: {row.scotlandDisplay}
                 {" · "}{row.year}
+                {distance ? (
+                  <>
+                    {" · "}
+                    <strong className="text-[var(--ink)]">{distance}</strong>
+                  </>
+                ) : null}
               </p>
+
+              {row.note ? (
+                <p className="mt-3 border-l-2 border-[var(--rule-strong)] pl-3 text-[15px] leading-[1.55] text-[var(--ink-2)]">
+                  {row.note}
+                </p>
+              ) : null}
             </div>
           );
         })}

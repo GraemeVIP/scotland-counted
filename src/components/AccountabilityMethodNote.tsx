@@ -2,25 +2,36 @@ type AccountabilityMethodNoteProps = {
   councilName?: string;
 };
 
+/**
+ * How these pages are made, said in the site's own voice.
+ *
+ * Two rules this note has to keep. It is written as "I", because the site is
+ * run by one person and saying "we" would be a small lie. And it claims only
+ * what can be shown: no counts of pages read, and no sources that are not
+ * actually cited on the pages themselves.
+ */
 export default function AccountabilityMethodNote({ councilName }: AccountabilityMethodNoteProps) {
+  const shortName = councilName?.replace(/ Council$/, "");
+
   return (
     <aside
       aria-label="How these council pages are made"
       className="mt-8 rounded-[var(--r-m)] border border-[var(--brand)] bg-[var(--brand-wash)] p-5 sm:p-6"
     >
-      <p className="kicker mb-2 text-[var(--brand)]">Why this page is written this way</p>
+      <p className="kicker mb-2 text-[var(--brand)]">How this page is made</p>
       <p className="text-[17px] font-[750] leading-[1.45] text-[var(--ink)]">
-        We have worked through thousands of pages of council papers, audit reports and official data so you do not have to.
+        You should not need a degree to find out how your council is doing.
       </p>
-      <p className="mt-2 max-w-[72ch] text-[16px] leading-[1.6] text-[var(--ink-2)]">
-        We use each council&apos;s own budgets, accounts and performance reports alongside independent
-        Audit Scotland and Accounts Commission audits, Scottish Government funding figures,
-        regulator reports and national comparison data where they help explain the picture. We
-        remove the official language, translate the key points into plain English and pull out the
-        figures that matter.
-        {councilName ? ` That includes the papers behind ${councilName}. ` : " "}The original sources
-        stay on the page so you can check our work. Everyone pays for council services, and everyone
-        deserves to understand what is going on.
+      <p className="mt-2 max-w-[68ch] text-[16px] leading-[1.6] text-[var(--ink-2)]">
+        So I read the papers and write down what they say in plain words. Councils mark their
+        own homework. The auditors at Audit Scotland do not work for the council, so where the
+        two disagree, I show both.
+      </p>
+      <p className="mt-2 max-w-[68ch] text-[16px] leading-[1.6] text-[var(--ink-2)]">
+        Every figure links to the paper it came from
+        {shortName ? `, including the ones about ${shortName}` : ""}. You can check any of it
+        yourself. If I cannot back something up, it does not go on the page. And I say what is
+        still missing.
       </p>
     </aside>
   );

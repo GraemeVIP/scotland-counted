@@ -5,6 +5,7 @@ import { councilAccountabilityRecords } from "@/lib/data/councilAccountability";
 import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
 import { site } from "@/lib/site";
 import AccountabilityMethodNote from "@/components/AccountabilityMethodNote";
+import { COUNCIL_TAX, NATIONAL } from "@/lib/data/councilBudgetMechanics";
 import CouncilDirectory from "./CouncilDirectory";
 
 export const metadata = meta({
@@ -92,6 +93,36 @@ export default function CouncilsPage() {
                   </div>
                 ) : null
               )}
+            </div>
+          </section>
+
+          {/*
+            The pattern people already half-notice, said out loud and sourced.
+            The full working — what a gap is, who paid, and how the grant is
+            actually decided — sits on every individual council page.
+          */}
+          <section className="pt-12" aria-label="Why councils say they need more money">
+            <div className="rounded-[var(--r-m)] border border-[var(--action)] bg-[var(--action-tint)] p-6 sm:p-7">
+              <p className="kicker mb-3 text-[var(--action)]">The bit nobody explains</p>
+              <p className="text-[26px] font-[800] leading-[1.2] text-[var(--ink)] sm:text-[32px]">
+                {NATIONAL.councilsWithGap} of Scotland&rsquo;s {NATIONAL.councilsTotal} councils
+                said they needed more money this year.
+              </p>
+              <p className="mt-4 max-w-[64ch] text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
+                Only {NATIONAL.surplusCouncil} said it had money left over. Their funding from the
+                Scottish Government went {NATIONAL.revenueChange} after inflation, not down. And
+                the shortfall has stayed about the same size, {NATIONAL.gapShare} of their budgets,
+                for {NATIONAL.gapYears} years running.
+              </p>
+              <p className="mt-3 max-w-[64ch] text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
+                The law says a council budget must balance, so the shortfall always gets closed.
+                The biggest single way they closed it was{" "}
+                <strong className="text-[var(--ink)]">your council tax</strong>, up{" "}
+                {COUNCIL_TAX.averageIncrease} on average, for the second year in a row.
+              </p>
+              <p className="mt-4 text-[16px] font-[700] leading-[1.5] text-[var(--ink)]">
+                Open any council below to see how it works, and what yours did.
+              </p>
             </div>
           </section>
 
