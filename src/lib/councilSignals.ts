@@ -137,7 +137,7 @@ export function headlineCards(record: CouncilAccountabilityRecord): HeadlineCard
         ? `${shortName} was the only council in Scotland that did not ask for more. It set its budget with money to spare.`
         : gap === undefined
           ? "No budget gap has been published for this council yet."
-          : `Nearly every council says this every year. It is a plan, not money missing from the bank. The law says the budget must balance, so it always gets closed — usually partly by your council tax.`,
+          : `Nearly every council says this every year. It is a plan, not money missing from the bank. The law says they cannot plan to spend more than they get, so the gap always gets closed — usually partly by your council tax.`,
       accent: surplus ? "var(--good)" : "var(--action)",
     },
     {

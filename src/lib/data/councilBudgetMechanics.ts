@@ -40,7 +40,7 @@ export const FORMULA_SOURCE = {
 export const FUNDING_MIX = [
   { source: "A grant from the Scottish Government", pence: 60, exact: 59.7 },
   { source: "Council tax", pence: 20, exact: 20.1 },
-  { source: "Business rates", pence: 18, exact: 18.4 },
+  { source: "Business rates, paid by shops and offices", pence: 18, exact: 18.4 },
   { source: "Money set aside, and other income", pence: 2, exact: 1.8 },
 ] as const;
 
@@ -58,7 +58,7 @@ export const FUNDING_MIX = [
 export const FORMULA_COUNTS = [
   "How many people live in the area",
   "How many children are at school",
-  "How deprived the area is",
+  "How poor the area is",
   "How far apart people live, and how many miles of road there are",
 ] as const;
 
@@ -75,6 +75,12 @@ export const NATIONAL = {
   /** Combined gap councils identified when setting budgets. Paragraph 31. */
   gapTotal: "£528.6m",
   gapShare: "about 3%",
+  /**
+   * The same 3% said as money. A percentage is a hard idea for the reader this
+   * site is written for; pence in the pound is not, and it matches the "where
+   * every £1 comes from" block on the same page.
+   */
+  gapSharePence: "about 3p in every pound they spend",
   /**
    * Paragraph 31, verbatim: "broadly consistent over the last seven years".
    * Spelled as a word because it reads inside a sentence, not as a statistic.

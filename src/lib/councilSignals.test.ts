@@ -1,5 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import { councilAccountabilityRecords } from "./data/councilAccountability.ts";
 import { councilBenchmarks } from "./data/councilBenchmarks.ts";
 import { BUDGET_GAP_2026_27, BRIDGING_ACTIONS, NATIONAL } from "./data/councilBudgetMechanics.ts";
@@ -89,6 +90,126 @@ test("the surplus council is not described as needing more money", () => {
   const text = shortVersion(record) + " " + headlineCards(record)[0].body;
   assert.match(text, /to spare|did not ask for more/i);
   assert.doesNotMatch(headlineCards(record)[0].label, /needed/i);
+});
+
+/**
+ * Words a tabloid reader should not have to decode. The site is written for
+ * someone who reads at around age 8 to 10 — "shortfall" shipped in the budget
+ * explainer and had to be pulled, so the list is enforced rather than
+ * remembered. Code identifiers are stripped before the check, so `hasSurplus`
+ * and `items-baseline` are fine; only words a reader would see count.
+ */
+const BANNED_WORDS = [
+  "shortfall", "outlier", "deprivation", "deprived", "inflation", "allocation",
+  "expenditure", "procurement", "mitigat", "statutory", "sustainab", "cumulative",
+  "aggregate", "methodolog", "governance", "scrutiny", "utilis", "fiscal",
+  "recurring", "per capita", "revenue budget",
+];
+
+function assertPlain(where: string, text: string) {
+  for (const word of BANNED_WORDS) {
+    const found = new RegExp(word, "i").exec(text);
+    assert.equal(
+      found,
+      null,
+      `${where}: "${found?.[0]}" is too hard for this site's reader — ${text
+        .slice(Math.max(0, (found?.index ?? 0) - 40), (found?.index ?? 0) + 60)
+        .replace(/\s+/g, " ")}`,
+    );
+  }
+}
+
+test("the site's own council prose avoids words a tabloid reader would trip on", () => {
+  for (const record of councilAccountabilityRecords) {
+    assertPlain(`${record.councilSlug} summary`, record.summary);
+    assertPlain(`${record.councilSlug} shortVersion`, shortVersion(record));
+    for (const card of headlineCards(record)) {
+      assertPlain(`${record.councilSlug} card`, `${card.label} ${card.sub} ${card.body}`);
+    }
+  }
+  for (const [slug, rows] of Object.entries(councilBenchmarks)) {
+    for (const row of rows) {
+      assertPlain(`${slug} ${row.code}`, `${row.label} ${row.plain} ${row.phrase} ${row.note ?? ""}`);
+    }
+  }
+});
+
+test("the council components avoid the same words in their visible copy", () => {
+  const files = [
+    "src/components/BudgetGapExplainer.tsx",
+    "src/components/AccountabilityMethodNote.tsx",
+    "src/components/CouncilCompare.tsx",
+    "src/app/(site)/councils/page.tsx",
+  ];
+  // Only what a reader actually sees: JSX text nodes, plus the prose held in
+  // string and template literals for the conditional copy. Anything that looks
+  // like a Tailwind class or a design token is not prose.
+  const isProse = (s: string) =>
+    s.split(/\s+/).filter(Boolean).length >= 4 && !/-\[|var\(--|https?:|^[a-z-]+:/.test(s);
+
+  for (const file of files) {
+    const source = readFileSync(new URL(`../../${file}`, import.meta.url), "utf8");
+    const literals: string[] = [];
+    let stripped = "";
+
+    // A regex cannot do this: className={`... ${x} ...`} nests backticks inside
+    // template holes, and naive pairing silently swallows the real copy. Walk
+    // the source instead, collecting literals and blanking them as we go so the
+    // JSX text pass afterwards sees only markup.
+    for (let i = 0; i < source.length; ) {
+      const c = source[i];
+      if (c === "/" && source[i + 1] === "/") {
+        while (i < source.length && source[i] !== "\n") i++;
+        continue;
+      }
+      if (c === "/" && source[i + 1] === "*") {
+        i = source.indexOf("*/", i) + 2;
+        continue;
+      }
+      if (c === '"' || c === "'") {
+        let j = i + 1;
+        let buf = "";
+        while (j < source.length && source[j] !== c) {
+          if (source[j] === "\\") { buf += source[j + 1]; j += 2; } else buf += source[j++];
+        }
+        literals.push(buf);
+        stripped += " ";
+        i = j + 1;
+        continue;
+      }
+      if (c === "`") {
+        let j = i + 1;
+        let buf = "";
+        while (j < source.length && source[j] !== "`") {
+          if (source[j] === "\\") { buf += source[j + 1]; j += 2; continue; }
+          if (source[j] === "$" && source[j + 1] === "{") {
+            let depth = 1;
+            j += 2;
+            while (j < source.length && depth > 0) {
+              if (source[j] === "{") depth++;
+              else if (source[j] === "}") depth--;
+              j++;
+            }
+            continue;
+          }
+          buf += source[j++];
+        }
+        literals.push(buf);
+        stripped += " ";
+        i = j + 1;
+        continue;
+      }
+      stripped += c;
+      i++;
+    }
+
+    const visible = literals.filter(isProse);
+    for (const [, node] of stripped.matchAll(/>([^<>{}]+)</g)) {
+      if (isProse(node)) visible.push(node);
+    }
+    assert.ok(visible.length > 3, `${file}: extracted ${visible.length} strings — the matcher is broken`);
+    assertPlain(file, visible.join(" • "));
+  }
 });
 
 test("plain English: no sentence in the summaries runs long", () => {

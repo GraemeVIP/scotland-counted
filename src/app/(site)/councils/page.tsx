@@ -109,14 +109,14 @@ export default function CouncilsPage() {
                 said they needed more money this year.
               </p>
               <p className="mt-4 max-w-[64ch] text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
-                Only {NATIONAL.surplusCouncil} said it had money left over. Their funding from the
-                Scottish Government went {NATIONAL.revenueChange} after inflation, not down. And
-                the shortfall has stayed about the same size, {NATIONAL.gapShare} of their budgets,
-                for {NATIONAL.gapYears} years running.
+                Only {NATIONAL.surplusCouncil} said it had money left over. Their money from the
+                Scottish Government went {NATIONAL.revenueChange} that year, not down, even after
+                prices rose. And the amount they say they are short has stayed about the same for{" "}
+                {NATIONAL.gapYears} years running. It works out at {NATIONAL.gapSharePence}.
               </p>
               <p className="mt-3 max-w-[64ch] text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
-                The law says a council budget must balance, so the shortfall always gets closed.
-                The biggest single way they closed it was{" "}
+                The law says a council cannot plan to spend more than it gets, so the gap always
+                gets closed. The biggest single way they closed it was{" "}
                 <strong className="text-[var(--ink)]">your council tax</strong>, up{" "}
                 {COUNCIL_TAX.averageIncrease} on average, for the second year in a row.
               </p>

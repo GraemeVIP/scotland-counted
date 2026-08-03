@@ -46,8 +46,8 @@ export default function BudgetGapExplainer({
       <p className="kicker mb-2 text-[var(--action)]">The bit nobody explains</p>
       <h2 className="h2 mb-3">Why your council says it needs more money</h2>
       <p className="max-w-[68ch] text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
-        Councils announce a shortfall nearly every year, whatever they are given. Here is
-        what that actually means, and who ends up paying for it.
+        Councils say they need more money nearly every year, whatever they are given. Here is
+        what that really means, and who ends up paying for it.
       </p>
 
       {/* The pattern, stated first. This is the part a reader can repeat. */}
@@ -74,9 +74,10 @@ export default function BudgetGapExplainer({
         </p>
         <p className="mt-3 max-w-[62ch] text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
           The money from the Scottish Government went <strong className="text-[var(--ink)]">up</strong>{" "}
-          that year, not down. Councils got {NATIONAL.totalFunding}. After inflation, that is{" "}
-          {NATIONAL.revenueChange} on the year before. And the shortfall has stayed at about the
-          same size, {NATIONAL.gapShare} of their budgets, for {NATIONAL.gapYears} years running.
+          that year, not down. Councils got {NATIONAL.totalFunding}. That is{" "}
+          {NATIONAL.revenueChange} on the year before, even after prices rose. And the amount they
+          say they are short has stayed about the same for {NATIONAL.gapYears} years running. It
+          works out at {NATIONAL.gapSharePence}.
         </p>
       </div>
 
@@ -95,7 +96,7 @@ export default function BudgetGapExplainer({
           account.</strong>
         </p>
         <p className="mt-3 max-w-[66ch] text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
-          The law says a council must set a budget that balances. So the gap always gets
+          The law says a council cannot plan to spend more than it gets. So the gap always gets
           closed. It has to be. The real question is who pays to close it.
         </p>
       </div>
@@ -220,7 +221,7 @@ export default function BudgetGapExplainer({
 
       <p className="mt-4 max-w-[68ch] text-[15.5px] leading-[1.55] text-[var(--muted)]">
         {outlier
-          ? `${shortName} is left out of Audit Scotland's comparison chart, because its harbour reserves make it an outlier against the others. `
+          ? `${shortName} is left out of Audit Scotland's comparison chart. It has a large pot of harbour money set aside, which makes it very different from the rest. `
           : ""}
         {COMPARISON_CAVEAT} Figures from{" "}
         <a href={BUDGET_SOURCE.url} rel="noopener noreferrer" target="_blank">
