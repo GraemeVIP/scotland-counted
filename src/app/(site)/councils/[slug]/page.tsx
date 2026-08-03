@@ -11,6 +11,7 @@ import {
   type PerformanceOutcome,
 } from "@/lib/data/councilAccountability";
 import { getCouncil } from "@/lib/data/councils";
+import CouncilCompare from "@/components/CouncilCompare";
 import { JsonLd, articleJsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
 
 export function generateStaticParams() {
@@ -392,6 +393,8 @@ export default async function CouncilAccountabilityPage({
               )}
             </div>
           </section>
+
+          <CouncilCompare slug={record.councilSlug} />
 
           <section id="audit-trail" className="pt-14 scroll-mt-24">
             <p className="kicker mb-2 text-[var(--bad-text)]">Outside checks</p>
