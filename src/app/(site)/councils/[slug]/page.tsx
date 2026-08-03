@@ -14,6 +14,7 @@ import { getCouncil } from "@/lib/data/councils";
 import { headlineCards, shortVersion } from "@/lib/councilSignals";
 import CouncilCompare from "@/components/CouncilCompare";
 import BudgetGapExplainer from "@/components/BudgetGapExplainer";
+import CouncilWatch from "@/components/CouncilWatch";
 import AccountabilityMethodNote from "@/components/AccountabilityMethodNote";
 import { JsonLd, articleJsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
 
@@ -499,6 +500,8 @@ export default async function CouncilAccountabilityPage({
             secondaryHref="/representatives"
             secondaryCta="Find the people who represent you"
           />
+
+          <CouncilWatch councilName={record.councilName} />
         </ContentFrame>
       </Page>
     </>

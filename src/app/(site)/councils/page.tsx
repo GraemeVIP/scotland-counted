@@ -6,6 +6,7 @@ import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
 import { site } from "@/lib/site";
 import AccountabilityMethodNote from "@/components/AccountabilityMethodNote";
 import { COUNCIL_TAX, NATIONAL } from "@/lib/data/councilBudgetMechanics";
+import CouncilWatch from "@/components/CouncilWatch";
 import CouncilDirectory from "./CouncilDirectory";
 
 export const metadata = meta({
@@ -171,6 +172,8 @@ export default function CouncilsPage() {
             secondaryHref="/areas"
             secondaryCta="See the poverty figures first"
           />
+
+          <CouncilWatch />
         </ContentFrame>
       </Page>
     </>

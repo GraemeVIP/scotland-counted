@@ -66,6 +66,17 @@ const FILES: DataFile[] = [
     kind: "prepared",
   },
   {
+    file: "scottish-councils-benchmarks.csv",
+    title: "Council performance and budgets, all 32 councils",
+    body: "Every council on the seven measures they all report the same way, plus the extra money each said it needed for 2026/27. A Scotland row sits at the bottom to compare against. Regenerate with npm run data:build:councils.",
+    format: "CSV",
+    size: "4 KB",
+    rows: "32 councils plus a Scotland row",
+    columns:
+      "council, council_code, budget_gap_2026_27_gbp_m, then a value and a rank for each measure. Years are in the column names because the road figures are a year fresher than the rest.",
+    kind: "prepared",
+  },
+  {
     file: "ons-life-expectancy-glasgow-scotland.csv",
     title: "Life expectancy",
     body: "Life expectancy at birth by sex for Glasgow and Scotland, 2001–03 to 2017–19, pulled out of the 22 MB ONS release so you do not have to open it.",
