@@ -22,7 +22,7 @@ const settlementSource: AccountabilitySource = {
   url: "https://www.gov.scot/news/15-billion-for-councils/",
   publishedOn: "2024-12-12",
   usedFor:
-    "The provisional 2025/26 local government settlement table, including each council's allocation and year-on-year change.",
+    "The early 2025/26 national council-funding table, including each council's share and the change from the year before.",
 };
 
 const financeSource: AccountabilitySource = {
@@ -33,7 +33,7 @@ const financeSource: AccountabilitySource = {
   url: "https://www.gov.scot/publications/local-government-2025-26-provisional-outturn-and-2026-27-budget-estimates/",
   publishedOn: "2026-07-24",
   usedFor:
-    "The publication that contains the council finance outturn and budget-estimate data. Service-level comparisons have not yet been extracted into these starter records.",
+    "The publication containing the council finance results and 2026/27 budget estimates. Service-by-service comparisons have not yet been extracted into these records.",
 };
 
 const budgetBulletinSource: AccountabilitySource = {
@@ -44,12 +44,13 @@ const budgetBulletinSource: AccountabilitySource = {
   url: "https://audit.scot/uploads/2026-06/nr_260611_lg_council_budgets.pdf",
   publishedOn: "2026-06-11",
   usedFor:
-    "The General Fund revenue budget, budget gap, approved savings and other budget measures reported by each council for 2026/27.",
+    "The money set aside for everyday services, the extra money councils said they needed, planned savings and other budget entries for 2026/27.",
 };
 
 type StarterAudit = {
   id: string;
   title: string;
+  plainTitle?: string;
   url: string;
   reportDate: string;
   severity: AuditFinding["severity"];
@@ -124,7 +125,7 @@ const createRecord = ({
 
   const auditFinding: AuditFinding = {
     id: audit.id,
-    title: audit.title,
+    title: audit.plainTitle ?? "What the independent check found",
     reportDate: audit.reportDate,
     publisher: "Audit Scotland / Accounts Commission",
     severity: audit.severity,
@@ -145,54 +146,52 @@ const createRecord = ({
         // The route uses this stable id to show the main day-to-day budget in
         // its short answer. The period is kept current at 2026/27.
         id: "day-to-day-funding-2025-26",
-        label: "Money planned for everyday council services",
+        label: "Money for everyday council services",
         value: currentBudget.budget,
         unit: "million",
         currency: "GBP",
         period: "2026/27",
-        plainEnglish: `Audit Scotland lists a planned budget of ${money(currentBudget.budget)} for ${councilName}'s everyday services in 2026/27. This is a plan, not the final amount spent.`,
+        plainEnglish: `${councilName} planned to spend ${money(currentBudget.budget)} on everyday services in 2026/27. This is a plan, not the final amount spent.`,
         sourceIds: [budgetBulletinSource.id],
       },
       {
         id: "budget-gap-before-measures",
-        label: "Projected shortfall in the 2026/27 budget",
+        label: "Extra money needed for services",
         value: currentBudget.gap,
         unit: "million",
         currency: "GBP",
-        period: "2026/27 budget setting",
-        qualifier: "projected",
-        plainEnglish: `At the time of setting its budget, ${councilName} reported a projected gap of ${money(currentBudget.gap)}. A gap is a shortfall the council planned to cover with measures; it is not money already missing from a bank account.`,
+        period: "2026/27",
+        plainEnglish: `When the budget was set, ${councilName} needed ${money(currentBudget.gap)} more to pay for planned services. The council planned to find it through savings, extra income, money already set aside or other changes. It is not money already missing from a bank account.`,
         sourceIds: [budgetBulletinSource.id],
       },
       {
         id: "approved-savings-2026-27",
-        label: "Savings written into the budget",
+        label: "Savings the council planned to make",
         value: currentBudget.savings,
         unit: "million",
         currency: "GBP",
         period: "2026/27",
-        plainEnglish: `The budget lists ${money(currentBudget.savings)} of approved savings. This record does not assume that every saving has been delivered; the final outturn needs a later check.`,
+        plainEnglish: `The 2026/27 plan says the council will save ${money(currentBudget.savings)}. That money has not necessarily been saved yet. The final accounts will show whether it happened.`,
         sourceIds: [budgetBulletinSource.id],
       },
       {
         id: "other-budget-measures-2026-27",
-        label: "Other ways the budget is being balanced",
+        label: "Money the budget does not explain",
         value: currentBudget.otherMeasures,
         unit: "million",
         currency: "GBP",
         period: "2026/27",
-        plainEnglish: `The budget lists another ${money(currentBudget.otherMeasures)} of measures. Audit Scotland says this can include council tax, extra income, reserves and other actions, so it is not all a cut to services.`,
+        plainEnglish: `The budget puts ${money(currentBudget.otherMeasures)} into a box called ‘other measures’. This can include council tax, extra income, money already set aside or other actions. The published table does not show how much comes from each one.`,
         sourceIds: [budgetBulletinSource.id],
       },
       {
         id: "sg-settlement-2025-26",
-        label: "Scottish Government funding allocation",
+        label: "Scottish Government money listed for the council",
         value: settlementMillion,
         unit: "million",
         currency: "GBP",
         period: "2025/26",
-        qualifier: "projected",
-        plainEnglish: `For context, the Scottish Government's provisional 2025/26 table lists ${money(settlementMillion)} for ${councilName}. This is a funding allocation, not proof of what the council finally spent.`,
+        plainEnglish: `For context, the Scottish Government lists ${money(settlementMillion)} as ${councilName}'s share of national council funding for 2025/26. It is not proof of what the council finally spent.`,
         sourceIds: [settlementSource.id],
       },
     ],
@@ -200,14 +199,13 @@ const createRecord = ({
       {
         id: "finance-source-check",
         service: "Council finance",
-        measure: "A council budget can be compared with its final outturn",
-        period: "2025/26 outturn and 2026/27 estimate",
-        target: "A like-for-like council service result",
-        actual:
-          "The Scottish Government has published the underlying finance publication, but this starter record has not yet extracted this council's service rows.",
+        measure: "Can we check what the council actually spent?",
+        period: "2025/26 final spending and 2026/27 plan",
+        target: "A like-for-like result for each service",
+        actual: "The final spending figures for each service have not been added yet.",
         status: "not-verified",
         comparisonNote:
-          "This is a clear data gap, not a claim that the council met or missed a service target. The next update should compare the approved budget with the outturn for each service.",
+          "This is a missing check, not proof that the council met or missed a goal. The next update should compare the plan with what was actually spent in each service.",
         sourceIds: [financeSource.id],
       },
     ],
@@ -225,15 +223,16 @@ export const additionalCouncilAccountabilityRecords: CouncilAccountabilityRecord
     councilCode: "S12000033",
     settlementMillion: 494.9,
     summary:
-      "Audit Scotland found that weak checks allowed council-tax refunds worth £1.109m to be paid fraudulently over 17 years. The council was expected to recover the money and continue improvement work; this record does not assume that every action is complete.",
+      "The independent audit found that weak checks allowed £1.109m of council-tax refunds to be paid fraudulently over 17 years. The council was expected to recover the money and improve its checks; this page does not assume every action is complete.",
     audit: {
       id: "audit-aberdeen-fraud-2023-24",
       title: "The 2023/24 audit of Aberdeen City Council",
+      plainTitle: "Weak checks let £1.109m of council-tax refunds go out fraudulently",
       url: "https://audit.scot/news/%C2%A31-million-fraud-at-aberdeen-city-council-sends-a-warning-across-local-government",
       reportDate: "2025-01-09",
       severity: "grade-1",
       finding:
-        "Audit Scotland reported 655 fraudulent council-tax refund payments totalling £1.109m between 2006 and 2023. It said controls existed but were not followed or checked closely enough.",
+        "The audit counted 655 fraudulent council-tax refund payments worth £1.109m between 2006 and 2023. Checks were supposed to stop this, but staff did not always follow them or check them closely enough.",
       recommendation:
         "The council was expected to recover the money and keep working through outstanding improvement actions. The latest completion position needs a fresh check.",
       status: "in-progress",
@@ -241,7 +240,7 @@ export const additionalCouncilAccountabilityRecords: CouncilAccountabilityRecord
         "The number and value of fraudulent council-tax refund payments, the period covered, and the audit's explanation of control failures.",
     },
     knownGaps: [
-      "The final 2025/26 spending outturn has not yet been matched to the provisional settlement.",
+      "The final 2025/26 spending figures have not yet been matched to the early funding figure.",
       "A current list of savings promises, owners and due dates still needs to be added.",
       "The latest status of the outstanding fraud-related improvement actions needs checking.",
     ],
@@ -252,24 +251,25 @@ export const additionalCouncilAccountabilityRecords: CouncilAccountabilityRecord
     councilCode: "S12000034",
     settlementMillion: 615.3,
     summary:
-      "The Accounts Commission describes Aberdeenshire as well run, with services improving, but says the council faces an £81m budget gap over the coming years and has savings that have not yet been delivered.",
+      "The review found Aberdeenshire well run, with services improving. But the council still needs to find £81m over the coming years, and some planned savings had not happened when the review was published.",
     audit: {
       id: "audit-bv-aberdeenshire-2026",
       title: "Best Value: Aberdeenshire Council",
+      plainTitle: "Aberdeenshire needs to find £81m more",
       url: "https://audit.scot/publications/best-value-aberdeenshire-council",
       reportDate: "2026-03-25",
       severity: "grade-1",
       finding:
-        "The Accounts Commission said Aberdeenshire faces an £81m budget gap over the coming years and that some planned savings had not been delivered. The gap is a forecast, not money already missing.",
+        "The review says Aberdeenshire needs to find £81m over the coming years and that some planned savings had not happened. This is a warning about future budgets, not money already missing.",
       recommendation:
         "The council needs to turn its savings plans into delivered changes and keep showing residents what changed and what it cost.",
       status: "in-progress",
       usedFor:
-        "The projected budget gap, undelivered savings and the report's description of the council as well run with improving services.",
+        "The future money needed, the savings not yet delivered and the report's description of the council as well run with improving services.",
     },
     knownGaps: [
-      "The £81m figure is a forecast and needs to be updated when the council publishes a new medium-term position.",
-      "Service-by-service targets and results are not yet mapped here.",
+      "The £81m figure is an estimate about future years and needs updating when the council publishes a new multi-year budget.",
+      "Service-by-service goals and results are not yet mapped here.",
       "The council's response and due dates for each Best Value action need to be added.",
     ],
   }),
@@ -279,24 +279,25 @@ export const additionalCouncilAccountabilityRecords: CouncilAccountabilityRecord
     councilCode: "S12000041",
     settlementMillion: 287.8,
     summary:
-      "Audit Scotland says Angus is well run and works well with partners, but its performance is mixed. It also says the council's plans to balance the budget are not sustainable over the longer term.",
+      "The review found Angus well run and good at working with partners, but its results were mixed. It also found that the council had not yet shown a lasting way to pay for services over the longer term.",
     audit: {
       id: "audit-bv-angus-2026",
       title: "Best Value: Angus Council",
+      plainTitle: "Angus needs a lasting plan for a £24.5m gap",
       url: "https://audit.scot/news/angus-council-is-focused-on-the-future",
       reportDate: "2026-06",
       severity: "grade-1",
       finding:
-        "Audit Scotland reported a projected £24.5m budget gap. It said planned savings and using reserves cannot be the whole long-term answer, and that the council needs more ambitious service redesign.",
+        "The report says Angus may need to find £24.5m. Planned savings and money already set aside cannot be the whole long-term answer, so the council needs a clearer plan for changing services.",
       recommendation:
-        "The council should publish a clear route from the projected gap to sustainable services, including which changes will happen and when.",
+        "The council should publish a clear route from the £24.5m it may need to find to sustainable services, including which changes will happen and when.",
       status: "in-progress",
       usedFor:
-        "The projected £24.5m budget gap, the warning about one-off measures and reserves, and the report's comments on service redesign.",
+        "The £24.5m estimate, the warning about one-off fixes and money already set aside, and the report's comments on service redesign.",
     },
     knownGaps: [
-      "The budget-gap figure is projected and needs a date-stamped update after the next budget review.",
-      "A full list of Angus service targets and actual results is not yet extracted.",
+      "The £24.5m figure is an estimate and needs a date-stamped update after the next budget review.",
+      "A full list of Angus service goals and actual results is not yet extracted.",
       "The council's response to the Best Value recommendations needs to be linked.",
     ],
   }),
@@ -306,24 +307,25 @@ export const additionalCouncilAccountabilityRecords: CouncilAccountabilityRecord
     councilCode: "S12000035",
     settlementMillion: 259.5,
     summary:
-      "The Accounts Commission says Argyll and Bute has an opportunity to close a funding gap of nearly £29m and rethink services. The same review found no significant areas of concern, but said performance reporting needs to be clearer.",
+      "The review found that Argyll and Bute may need to find nearly £29m and rethink how services work. It found no serious problems at the time, but said the council must make its performance information easier to understand.",
     audit: {
       id: "audit-bv-argyll-bute-2025",
       title: "Best Value: Argyll and Bute Council",
+      plainTitle: "Argyll and Bute must rethink services to close the gap",
       url: "https://audit.scot/publications/best-value-argyll-and-bute-council",
       reportDate: "2025-04-03",
       severity: "grade-2",
       finding:
-        "The review identified a projected funding gap of nearly £29m and said the council must rethink how services are delivered. It also found no significant areas of concern at that review, while asking for clearer corporate planning and performance reporting.",
+        "The review says Argyll and Bute may need to find nearly £29m and must rethink how services are delivered. It found no serious problems at that time, but asked for clearer plans and performance information.",
       recommendation:
         "The council should show residents how its service changes close the gap and publish results in a form people can follow.",
       status: "in-progress",
       usedFor:
-        "The projected funding gap, the need for service redesign and clearer performance reporting, and the review's statement that it found no significant areas of concern.",
+      "The possible £29m funding gap, the need for service redesign and clearer performance reporting, and the review's statement that it found no serious areas of concern.",
     },
     knownGaps: [
-      "The nearly £29m figure is a forecast and needs to be refreshed against the latest budget.",
-      "Current performance measures and missed targets are not yet listed service by service.",
+      "The nearly £29m figure is an estimate about future years and needs to be refreshed against the latest budget.",
+      "Current performance measures and missed goals are not yet listed service by service.",
       "A public tracker of the council's Best Value actions still needs to be added.",
     ],
   }),
@@ -333,15 +335,16 @@ export const additionalCouncilAccountabilityRecords: CouncilAccountabilityRecord
     councilCode: "S12000036",
     settlementMillion: 1059.0,
     summary:
-      "Audit Scotland says Edinburgh must make significant savings while keeping residents involved in difficult choices. This page separates the council's large allocation from the savings and service decisions that still need to be tracked.",
+      "The review found that Edinburgh must make big savings while involving residents in difficult choices. This page keeps the council's funding separate from the savings and service decisions that still need to be checked.",
     audit: {
       id: "audit-bv-edinburgh-2024",
       title: "Best Value: City of Edinburgh Council",
+      plainTitle: "Edinburgh must make big savings with residents involved",
       url: "https://audit.scot/publications/best-value-city-of-edinburgh-council",
       reportDate: "2024-10-24",
       severity: "grade-2",
       finding:
-        "The Accounts Commission said Edinburgh needs to make significant savings and should keep residents involved as it decides how services change.",
+        "The review says Edinburgh needs to make big savings and should keep residents involved as it decides how services change.",
       recommendation:
         "The council should publish the savings it has chosen, the effect on services and how residents can see whether the changes worked.",
       status: "in-progress",
@@ -349,8 +352,8 @@ export const additionalCouncilAccountabilityRecords: CouncilAccountabilityRecord
         "The report's warning about significant savings and its requirement for continued resident involvement in the choices.",
     },
     knownGaps: [
-      "The settlement is provisional and is not Edinburgh's final spending outturn.",
-      "The current savings programme and service-level outcomes are not yet extracted.",
+      "The settlement is an early funding figure and is not Edinburgh's final spending result.",
+      "The current savings programme and service-by-service results are not yet extracted.",
       "A current tracker of resident engagement and resulting decisions needs to be added.",
     ],
   }),
@@ -360,15 +363,16 @@ export const additionalCouncilAccountabilityRecords: CouncilAccountabilityRecord
     councilCode: "S12000005",
     settlementMillion: 134.5,
     summary:
-      "Audit Scotland reported serious delays in Clackmannanshire's accounts. It said leaders were making budget and council-tax decisions without up-to-date financial information, and that the delay had happened for five years.",
+      "The audit found serious delays in Clackmannanshire's accounts. Leaders were making budget and council-tax decisions without up-to-date financial information, and the delay had happened for five years.",
     audit: {
       id: "audit-clackmannanshire-delays-2026",
       title: "Collective leadership needed to tackle significant audit delays at Clackmannanshire Council",
+      plainTitle: "Clackmannanshire accounts were almost two years late",
       url: "https://audit.scot/news/collective-leadership-needed-to-tackle-significant-audit-delays-at-clackmannanshire-council",
       reportDate: "2026-07-01",
       severity: "grade-1",
       finding:
-        "The 2023/24 accounts were not signed until nearly two years after the legal deadline. Audit Scotland said unaudited accounts had been late for five years and warned that 2024/25 and 2025/26 could also be delayed without action.",
+        "The 2023/24 accounts were not signed until nearly two years after the legal deadline. The audit says accounts had been late for five years and warned that the next two years could also be delayed without action.",
       recommendation:
         "The council needs a shared recovery plan so its financial decisions are based on current, audited information.",
       status: "open",
@@ -378,7 +382,7 @@ export const additionalCouncilAccountabilityRecords: CouncilAccountabilityRecord
     knownGaps: [
       "The next signed accounts need to be checked before the delay can be marked closed.",
       "The council's recovery plan, owner and milestones are not yet linked.",
-      "Service targets and results are not yet mapped to the financial record.",
+      "Service goals and results are not yet mapped to the financial record.",
     ],
   }),
   createRecord({
@@ -387,17 +391,18 @@ export const additionalCouncilAccountabilityRecords: CouncilAccountabilityRecord
     councilCode: "S12000006",
     settlementMillion: 397.2,
     summary:
-      "Audit work found a large budget pressure before savings were applied and said the council needs to deliver service reform and explain performance better to residents. The council did approve a balanced budget after its savings measures.",
+      "The audit found that Dumfries and Galloway had to find a lot more money before its savings were counted. It said the council needed to change services and explain results better. The council then approved a balanced budget after its planned changes.",
     audit: {
       id: "audit-dumfries-galloway-2023-24",
       title: "Dumfries and Galloway Council annual audit 2023/24",
+      plainTitle: "The council had to find £30.075m more by 2026/27",
       url: "https://audit.scot/uploads/2024-12/aar_2324_dumfries_galloway.pdf",
       reportDate: "2024-12",
       severity: "grade-2",
       finding:
-        "The audit reported a £10.4m budget gap for 2024/25 before extra savings, and a cumulative £30.075m gap by 2026/27 before measures. The approved budget was balanced after targeted savings and use of balances; the earlier Best Value work also called for service reform and clearer public performance information.",
+        "The audit says Dumfries and Galloway needed to find £10.4m for 2024/25 before extra savings, rising to £30.075m by 2026/27 before other changes. The approved budget was then balanced using planned savings and money already held. Earlier review work also called for simpler public performance information.",
       recommendation:
-        "The council should show which savings were delivered, what services changed and whether the projected gap is closing.",
+        "The council should show which savings were delivered, what services changed and whether the future money problem is getting smaller.",
       status: "in-progress",
       usedFor:
         "The pre-savings budget-gap figures, the balanced-budget qualification and the Best Value recommendation to improve service reform and performance communication.",
@@ -414,15 +419,16 @@ export const additionalCouncilAccountabilityRecords: CouncilAccountabilityRecord
     councilCode: "S12000042",
     settlementMillion: 398.9,
     summary:
-      "Dundee's audit reported an £18m overspend in general-fund services, capital-plan slippage and a further budget gap. This page keeps those dated figures separate from the council's provisional Scottish Government allocation.",
+      "Dundee's audit found that services spent £18m more than planned, 36% of its building programme was delayed and more money was needed for future budgets. This page keeps those dated figures separate from the Scottish Government money listed for the council.",
     audit: {
       id: "audit-dundee-2023-24",
       title: "Dundee City Council annual audit 2023/24",
+      plainTitle: "Dundee overspent by £18m and delayed 36% of its building plan",
       url: "https://audit.scot/uploads/2024-12/aar_2324_dundee.pdf",
       reportDate: "2024-12",
       severity: "grade-1",
       finding:
-        "The audit reported an £18m overspend in 2023/24 general-fund services, £5.2m overspend in City Development, £4.1m overspend in the housing account and 36% slippage in the capital plan. It also reported a £13.1m 2024/25 budget gap and a £24m cumulative gap for 2024 to 2027.",
+        "The audit says services spent £18m more than planned in 2023/24. City Development was £5.2m over, housing was £4.1m over and 36% of the building programme was delayed. It also recorded £13.1m more needed for 2024/25 and £24m more needed across 2024 to 2027.",
       recommendation:
         "The council needs to show how overspends are being brought under control and whether the capital work that slipped has been rescheduled and delivered.",
       status: "in-progress",
@@ -430,7 +436,7 @@ export const additionalCouncilAccountabilityRecords: CouncilAccountabilityRecord
         "The audit's dated overspends, capital-plan slippage and budget-gap figures, including the separate housing-account result.",
     },
     knownGaps: [
-      "The 2023/24 figures are not a current 2025/26 outturn and need updating.",
+      "The 2023/24 figures are not the current 2025/26 final spending result and need updating.",
       "The reasons for each current service overspend and the council's action plan are not yet listed.",
       "Current delivery of the delayed capital projects needs a fresh check.",
     ],
@@ -445,6 +451,7 @@ export const additionalCouncilAccountabilityRecords: CouncilAccountabilityRecord
     audit: {
       id: "audit-bv-east-ayrshire-2018",
       title: "Best Value Assurance Report: East Ayrshire Council",
+      plainTitle: "The last review found improving services — but it is from 2018",
       url: "https://audit.scot/publications/best-value-assurance-report-east-ayrshire-council",
       reportDate: "2018-05-29",
       severity: "observation",
@@ -458,7 +465,7 @@ export const additionalCouncilAccountabilityRecords: CouncilAccountabilityRecord
     },
     knownGaps: [
       "The linked Best Value evidence is from 2018 and needs a current update.",
-      "The current council budget, savings plan and service targets are not yet extracted.",
+      "The current council budget, savings plan and service goals are not yet extracted.",
       "No current negative claim is made until a fresh primary-source check is complete.",
     ],
   }),
@@ -468,24 +475,25 @@ export const additionalCouncilAccountabilityRecords: CouncilAccountabilityRecord
     councilCode: "S12000045",
     settlementMillion: 274.9,
     summary:
-      "A public annual-audit plan is linked for East Dunbartonshire, but a specific current failure or missed target has not been extracted yet. This starter record says that plainly instead of guessing.",
+      "A public annual-audit plan is linked for East Dunbartonshire, but it does not give us a dated service failure to report. This page says that plainly instead of guessing.",
     audit: {
       id: "audit-east-dunbartonshire-plan-2024-25",
       title: "East Dunbartonshire Council annual audit plan 2024/25",
+      plainTitle: "There is an audit plan, but no current result has been checked",
       url: "https://audit.scot/publications/east-dunbartonshire-council-annual-audit-plan-202425",
       reportDate: "2024",
       severity: "observation",
       finding:
-        "Audit Scotland publishes an annual-audit plan for East Dunbartonshire. This starter record has not yet extracted a dated performance failure from that plan, so it makes no negative claim about the council.",
+        "The document is an audit plan, not a report of a missed service goal. It gives us no dated failure to report, so this page makes no negative claim about the council.",
       recommendation:
         "Add the latest signed accounts, Best Value findings and service measures after a fresh source check.",
       status: "not-verified",
       usedFor:
-        "The existence of a public audit plan and the boundary that it is not, by itself, evidence of a missed service target.",
+        "The existence of a public audit plan and the boundary that it is not, by itself, evidence of a missed service goal.",
     },
     knownGaps: [
       "A current audit report or Best Value finding still needs to be added.",
-      "The council's budget, savings decisions and service targets are not yet extracted.",
+      "The council's budget, savings decisions and service goals are not yet extracted.",
       "No negative claim is made until dated evidence is available.",
     ],
   }),
@@ -495,17 +503,18 @@ export const additionalCouncilAccountabilityRecords: CouncilAccountabilityRecord
     councilCode: "S12000010",
     settlementMillion: 258.2,
     summary:
-      "Audit Scotland reported a £12.3m overspend in 2023/24 and said East Lothian did not fully deliver its savings plan. It also identified a £17.7m budget gap for 2025/26 and said major service changes are needed as the population changes.",
+      "The review found that East Lothian spent £12.3m more than planned in 2023/24 and did not deliver all its savings. It also said the council needed £17.7m more for 2025/26 and must make big service changes as the population changes.",
     audit: {
       id: "audit-bv-east-lothian-2025",
       title: "Best Value: East Lothian Council",
+      plainTitle: "East Lothian overspent by £12.3m and still needed £17.7m",
       url: "https://audit.scot/uploads/2025-06/bv_250626_east_lothian_council.pdf",
       reportDate: "2025-06-26",
       severity: "grade-1",
       finding:
-        "The review reported a £12.3m 2023/24 overspend. £9.2m was met from council reserves and £3.1m from Integration Joint Board reserves. It also reported a £17.7m 2025/26 budget gap and savings that were not fully delivered.",
+        "The review reported that East Lothian spent £12.3m more than planned in 2023/24. £9.2m was covered with money the council had set aside and £3.1m with money held by its health-and-care partnership. It also reported £17.7m more needed for 2025/26 and savings that were not fully delivered.",
       recommendation:
-        "The council should show which savings were delivered, how reserves were used and what service changes are planned to close the gap.",
+        "The council should show which savings were delivered, how the money it had set aside was used and what service changes will solve the problem.",
       status: "in-progress",
       usedFor:
         "The dated overspend, reserve-use, budget-gap and savings-delivery figures in the Best Value report.",
@@ -513,7 +522,7 @@ export const additionalCouncilAccountabilityRecords: CouncilAccountabilityRecord
     knownGaps: [
       "The £17.7m gap is a dated forecast and needs to be refreshed against the latest budget.",
       "The council's current savings tracker and service results are not yet listed.",
-      "The projected longer-term gap and finance-system control issues need a separate current source check.",
+      "The longer-term money problem and finance-system control issues need a separate current source check.",
     ],
   }),
   createRecord({
@@ -522,15 +531,16 @@ export const additionalCouncilAccountabilityRecords: CouncilAccountabilityRecord
     councilCode: "S12000011",
     settlementMillion: 261.4,
     summary:
-      "East Renfrewshire's services score highly in the Accounts Commission review, but the council faces a budget gap of about £32m by 2027. A strong service rating does not remove the need to show how that gap will be closed.",
+      "East Renfrewshire's services scored highly in the review, but the council may need to find about £32m by 2027. Good services do not remove the need to show how that money problem will be solved.",
     audit: {
       id: "audit-bv-east-renfrewshire-2025",
       title: "Best Value: East Renfrewshire Council",
+      plainTitle: "Strong services still face a £32m money problem",
       url: "https://audit.scot/publications/best-value-east-renfrewshire-council",
       reportDate: "2025-02-06",
       severity: "grade-2",
       finding:
-        "The review described high-performing services and excellent engagement, while Audit Scotland reported a budget gap of around £32m by 2027 that needs detailed income and savings plans.",
+        "The review described strong services and excellent work with residents, but said East Renfrewshire may need to find about £32m by 2027. It needs a detailed plan showing the savings and extra income that would cover it.",
       recommendation:
         "The council should publish the detailed savings and income choices, then report whether they closed the forecast gap without reducing the quality of services.",
       status: "in-progress",
@@ -539,7 +549,7 @@ export const additionalCouncilAccountabilityRecords: CouncilAccountabilityRecord
     },
     knownGaps: [
       "The £32m figure is a forecast and needs a current budget update.",
-      "Service-by-service targets and the effect of savings are not yet extracted.",
+      "Service-by-service goals and the effect of savings are not yet extracted.",
       "The council's detailed income and savings plan needs to be linked.",
     ],
   }),
@@ -549,20 +559,21 @@ export const additionalCouncilAccountabilityRecords: CouncilAccountabilityRecord
     councilCode: "S12000014",
     settlementMillion: 381.0,
     summary:
-      "Audit Scotland found significant improvement in Falkirk but warned of a £62m budget gap. It said one-off savings are not a sustainable answer and that services could be at risk without deeper change.",
+      "The review found that Falkirk had improved a lot, but may still need to find £62m. It warned that one-off fixes will not last and that services could suffer without deeper change.",
     audit: {
       id: "audit-bv-falkirk-2024",
       title: "Best Value: Falkirk Council",
+      plainTitle: "Falkirk faces a £62m gap despite improvement",
       url: "https://audit.scot/news/falkirk-council-improving-but-faces-significant-financial-challenge",
       reportDate: "2024-05-02",
       severity: "grade-1",
       finding:
-        "Audit Scotland reported a £62m budget gap and warned that one-off savings are not sustainable. It said the council must act urgently to transform services, while noting that performance reporting was strong but some areas underperformed.",
+        "The review says Falkirk may need to find £62m and warned that one-off savings will not last. It called for urgent service changes, while noting that performance reporting was strong but some services were falling behind.",
       recommendation:
-        "The council should show a sustainable route to close the gap and publish action for services that are below target.",
+        "The council should show a lasting way to solve the money problem and publish action for services that are below their goals.",
       status: "in-progress",
       usedFor:
-        "The projected budget gap, warning about one-off savings, and comments about performance reporting and underperforming areas.",
+        "The estimated money problem, warning about one-off savings, and comments about performance reporting and underperforming areas.",
     },
     knownGaps: [
       "The £62m figure is a forecast from the 2024 review and needs a fresh budget update.",
@@ -576,15 +587,16 @@ export const additionalCouncilAccountabilityRecords: CouncilAccountabilityRecord
     councilCode: "S12000047",
     settlementMillion: 927.5,
     summary:
-      "Audit Scotland says Fife is at a turning point. It found mixed performance, deepening inequalities, deteriorating social care and a need to save more than £46m by 2027/28. This is a forecast and a warning, not a claim that all services have failed.",
+      "The review says Fife is at a turning point. It found mixed results, growing inequality, pressure in social care and a need to save more than £46m by 2027/28. This is a warning about money and services, not a claim that everything has failed.",
     audit: {
       id: "audit-bv-fife-2025",
       title: "Best Value: Fife Council",
+      plainTitle: "Fife needs more than £46m of savings",
       url: "https://audit.scot/news/fife-council-faces-a-turning-point",
       reportDate: "2025-02-25",
       severity: "grade-1",
       finding:
-        "The review found mixed performance, deepening inequalities and deteriorating social care. It said Fife must save more than £46m by 2027/28 and noted that contingency reserves had fallen below their target.",
+        "The review found mixed results, growing inequality and worsening pressure in social care. It said Fife must save more than £46m by 2027/28 and noted that its emergency money set aside had fallen below its own safety goal.",
       recommendation:
         "The council should publish the savings and service-reform choices, then report their effect on inequalities and social care.",
       status: "in-progress",
@@ -592,9 +604,9 @@ export const additionalCouncilAccountabilityRecords: CouncilAccountabilityRecord
         "The review's descriptions of mixed performance, inequality and social-care pressure, the £46m savings requirement and reserve position.",
     },
     knownGaps: [
-      "The more-than-£46m figure is a forecast and needs a current budget update.",
-      "Service-level targets, savings delivered and outcomes are not yet mapped here.",
-      "The current reserves position needs to be checked against the latest signed accounts.",
+      "The more-than-£46m figure is an estimate about future years and needs a current budget update.",
+      "Service-by-service goals, savings delivered and results are not yet mapped here.",
+      "The current amount of emergency money set aside needs to be checked against the latest signed accounts.",
     ],
   }),
   createRecord({
@@ -603,25 +615,26 @@ export const additionalCouncilAccountabilityRecords: CouncilAccountabilityRecord
     councilCode: "S12000017",
     settlementMillion: 621.0,
     summary:
-      "A current annual-audit publication is linked for Highland. This starter record does not turn the existence of an audit into a negative claim; its detailed findings and service results still need to be extracted and checked.",
+      "Highland stayed broadly in control of its finances in 2024/25, but the audit recorded a £3.4m overspend after adjustments and said adult social care missed part of its savings goal. The current budget and later results still need to be checked.",
     audit: {
       id: "audit-highland-2024-25",
       title: "Highland Council annual audit 2024/25",
+      plainTitle: "Highland spent £3.4m more than its updated budget",
       url: "https://audit.scot/publications/highland-council-annual-audit-202425",
       reportDate: "2025-12-10",
       severity: "observation",
       finding:
-        "Audit Scotland has published the annual-audit report for Highland Council. The detailed findings have not yet been extracted into this starter record, so no missed target or failure is claimed here.",
+        "The audit says Highland ended 2024/25 £3.4m over its updated budget after adjustments. It also says adult social care fell £4.5m short of its savings goal and that another £2.4m of planned savings had not happened.",
       recommendation:
-        "Add the report's dated financial, performance and Best Value findings after a fresh review of the primary document.",
+        "Show how the missed adult social care savings will be dealt with and report what later changes mean for services and the budget.",
       status: "not-verified",
       usedFor:
-        "The existence and date of the current annual-audit publication, with an explicit boundary against inventing a finding from its title alone.",
+        "The 2024/25 overspend, the adult social care savings missed and the need for a clear follow-up.",
     },
     knownGaps: [
-      "The detailed 2024/25 audit findings need to be read and added.",
-      "The council's current budget, savings plan and service targets are not yet extracted.",
-      "No negative claim is made until dated primary-source evidence is added.",
+      "The current 2026/27 savings plan and final spending results are not yet added.",
+      "A full list of Highland service goals and results is not yet extracted.",
+      "The latest progress on the adult social care changes still needs a dated update.",
     ],
   }),
 ];

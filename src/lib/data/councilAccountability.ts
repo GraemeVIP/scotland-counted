@@ -50,6 +50,8 @@ export type PerformanceOutcome = {
   status: PerformanceStatus;
   /** Difference from target when both numbers use the same unit. */
   variance?: string;
+  /** One short explanation of what a technical measure means. */
+  explanation?: string;
   /** Explains any unit or denominator limitation in the comparison. */
   comparisonNote?: string;
   sourceIds: string[];
@@ -109,7 +111,7 @@ const sources: AccountabilitySource[] = [
     url: "https://audit.scot/uploads/2026-03/bv_2425_glasgow.pdf",
     publishedOn: "2026-03",
     usedFor:
-      "The projected £109.7m funding gap, the £105.4m budget support fund, the lack of a medium-term financial plan, the unfinished performance framework, and the Council's stated poverty priority and commitments.",
+      "The £109.7m Glasgow says it may need over two years, the £105.4m set aside to help change the budget, the lack of a long-term money plan, the unfinished results framework and the council's stated poverty priority.",
   },
   {
     id: "audit-2023-24",
@@ -119,7 +121,7 @@ const sources: AccountabilitySource[] = [
     url: "https://audit.scot/publications/the-202324-audit-of-glasgow-city-council",
     publishedOn: "2025-09-04",
     usedFor:
-      "The Accounts Commission's dated finding about the processes that enabled five senior officers to receive significant early-retirement and redundancy payouts.",
+      "The dated finding about the process that allowed five senior officers to receive large early-retirement and redundancy payouts.",
   },
   {
     id: "gcc-operational-kpis-2024-25",
@@ -129,7 +131,7 @@ const sources: AccountabilitySource[] = [
     url: "https://onlineservices.glasgow.gov.uk/councillorsandcommittees/viewSelectedDocument.asp?c=P62AFQDNNTDXDN2U81",
     publishedOn: "2025-05-07",
     usedFor:
-      "The Council's own targets and actual results for Scottish Welfare Fund grants and Housing Benefit claim processing in 2024/25.",
+      "The council's own goals and actual results for Scottish Welfare Fund grants and Housing Benefit claim processing in 2024/25.",
   },
   {
     id: "shr-glasgow-engagement-2026-27",
@@ -139,7 +141,7 @@ const sources: AccountabilitySource[] = [
     url: "https://www.housingregulator.gov.scot/landlord-performance/landlords/glasgow-city-council/engagement-plan-from-1-april-2026-to-31-march-2027/",
     publishedOn: "2026-04-02",
     usedFor:
-      "The regulator's statement that Glasgow is affected by systemic failure in homelessness services, 12,800 instances without temporary accommodation in 2024/25, and the Council's stated plans for a temporary accommodation strategy.",
+      "The regulator's statement that Glasgow has a serious homelessness-service problem, 12,800 cases without temporary accommodation in 2024/25, and the council's plan for temporary housing.",
   },
   {
     id: "sp-glasgow-funding-2025-26",
@@ -149,7 +151,7 @@ const sources: AccountabilitySource[] = [
     url: "https://www.parliament.scot/chamber-and-committees/questions-and-answers?msp=16198&page=25",
     publishedOn: "2025-08-15",
     usedFor:
-      "The Scottish Government's stated 2025/26 day-to-day funding for Glasgow City Council and the reported year-on-year increase.",
+      "The Scottish Government's listed 2025/26 money for Glasgow's everyday council services and the change from the year before.",
   },
 ];
 
@@ -163,42 +165,41 @@ export const glasgowCityAccountability: CouncilAccountabilityRecord = {
   councilCode: "S12000049",
   lastReviewedOn: "2026-08-02",
   summary:
-    "Glasgow has a clear public priority to reduce poverty, but current independent checks show serious pressure in homelessness, missed service targets and gaps in longer-term financial and performance planning. The record separates what was measured from what still needs checking.",
+    "Glasgow says reducing poverty is a top priority. Independent checks still show serious pressure in homelessness, several service goals missed and no clear long-term money and results plan. This page separates what was measured from what still needs checking.",
   budgetContext: [
     {
       id: "funding-gap-2026-28",
-      label: "Projected funding gap over the next two financial years",
+      label: "Money Glasgow may need over the next two years",
       value: 109.7,
       unit: "million",
       currency: "GBP",
       period: "2026/27 to 2027/28",
-      qualifier: "projected",
       plainEnglish:
-        "Audit Scotland says Glasgow expects a £109.7m gap across the next two years. That is a forecast, not money already missing from a bank account.",
+        "Glasgow's plan says it may need another £109.7m across the next two years to keep paying for services. This is a plan about future money, not money already missing from a bank account.",
       sourceIds: ["audit-bv-2024-25"],
     },
     {
       id: "budget-support-fund",
-      label: "Budget Support Fund",
+      label: "Money set aside to change the budget",
       value: 105.4,
       unit: "million",
       currency: "GBP",
       period: "At 31 March 2023; expected to be fully used by 31 March 2026",
       qualifier: "expected",
       plainEnglish:
-        "The fund was intended to help implement budget options. Audit Scotland says much of it was used for emerging pressures and that it was expected to be fully used by March 2026.",
+        "Glasgow set aside £105.4m to help put its budget changes in place. The audit says much of it was used for new pressures and was expected to be gone by March 2026.",
       sourceIds: ["audit-bv-2024-25"],
     },
     {
       id: "day-to-day-funding-2025-26",
-      label: "Day-to-day funding reported for Glasgow",
+      label: "Money listed for Glasgow's everyday services",
       value: 1.7,
       unit: "billion",
       currency: "GBP",
       period: "2025/26",
       qualifier: "over",
       plainEnglish:
-        "A Scottish Government answer says Glasgow received over £1.7bn for day-to-day services in 2025/26, £86.5m more than the year before. The figure is a funding allocation, not the Council's final outturn.",
+        "The Scottish Government lists over £1.7bn for Glasgow's everyday services in 2025/26, £86.5m more than the year before. This is money listed for the council, not its final spending result.",
       sourceIds: ["sp-glasgow-funding-2025-26"],
     },
   ],
@@ -211,7 +212,7 @@ export const glasgowCityAccountability: CouncilAccountabilityRecord = {
       target: "95%",
       actual: "91%",
       status: "missed",
-      variance: "4 percentage points below target",
+      variance: "4 percentage points below goal",
       sourceIds: ["gcc-operational-kpis-2024-25"],
     },
     {
@@ -222,7 +223,7 @@ export const glasgowCityAccountability: CouncilAccountabilityRecord = {
       target: "95%",
       actual: "87%",
       status: "missed",
-      variance: "8 percentage points below target",
+      variance: "8 percentage points below goal",
       sourceIds: ["gcc-operational-kpis-2024-25"],
     },
     {
@@ -233,7 +234,7 @@ export const glasgowCityAccountability: CouncilAccountabilityRecord = {
       target: "21 days or fewer",
       actual: "25 days",
       status: "missed",
-      variance: "4 days slower than target",
+      variance: "4 days slower than goal",
       sourceIds: ["gcc-operational-kpis-2024-25"],
     },
     {
@@ -244,7 +245,7 @@ export const glasgowCityAccountability: CouncilAccountabilityRecord = {
       target: "11 days or fewer",
       actual: "7 days",
       status: "met",
-      variance: "4 days faster than target",
+      variance: "4 days faster than goal",
       sourceIds: ["gcc-operational-kpis-2024-25"],
     },
     {
@@ -263,14 +264,14 @@ export const glasgowCityAccountability: CouncilAccountabilityRecord = {
   auditFindings: [
     {
       id: "no-medium-term-financial-plan",
-      title: "Long-term financial planning was not yet in place",
+      title: "There was no clear long-term money plan",
       reportDate: "2026-03",
       publisher: "Audit Scotland / Accounts Commission",
       severity: "grade-1",
       finding:
-        "The Council did not have a medium-term financial plan. Audit Scotland said this could lead to short-term decisions, and that the financial benefits of public service reform had not been clearly articulated or quantified.",
+        "The council did not have a clear plan for the next few years. The audit warned that this could lead to short-term decisions, and that the money saved by changing services had not been clearly shown or counted.",
       recommendation:
-        "Align financial planning with public service reform and clearly quantify the financial benefits and savings from transformation projects.",
+        "Join the money plan to the service-change plan and show exactly how much each major change should save.",
       managementResponse:
         "A Financial Outlook for 2026–2028 was presented in August 2025; a 10-year forecast was under development.",
       implementationDate: "2026-09",
@@ -279,14 +280,14 @@ export const glasgowCityAccountability: CouncilAccountabilityRecord = {
     },
     {
       id: "performance-framework-not-finalised",
-      title: "Community performance framework was not finalised on schedule",
+      title: "The council did not finish its results-checking system on time",
       reportDate: "2026-03",
       publisher: "Audit Scotland / Accounts Commission",
       severity: "grade-1",
       finding:
-        "The new Glasgow Community Plan performance framework had not been finalised for testing in 2025, so outcomes could not yet be fully assessed.",
+        "The new Glasgow Community Plan results system was not ready to test in 2025, so it was not yet possible to check all the results.",
       recommendation:
-        "Set a clear timeline for finalising and implementing the framework so progress against outcomes can be measured.",
+        "Set a clear date for finishing and using the system so progress can be measured.",
       managementResponse:
         "The Council and partners said a first draft and testing work were ongoing across the Child Poverty Programme.",
       implementationDate: "2026-05",
@@ -295,12 +296,12 @@ export const glasgowCityAccountability: CouncilAccountabilityRecord = {
     },
     {
       id: "senior-officer-payout-processes",
-      title: "Senior officer payout processes fell below expected standards",
+      title: "Five senior officers received big leaving payments — the process fell short",
       reportDate: "2025-09-04",
       publisher: "Audit Scotland / Accounts Commission",
       severity: "observation",
       finding:
-        "The Accounts Commission said the processes, decisions and actions that enabled five senior officers to receive significant early-retirement and redundancy payouts fell short of the behaviour and standards expected of public servants.",
+        "The review found that the process and decisions that allowed five senior officers to receive large early-retirement and redundancy payouts fell short of the standards expected of public servants.",
       status: "not-verified",
       sourceIds: ["audit-2023-24"],
     },
@@ -316,7 +317,7 @@ export const glasgowCityAccountability: CouncilAccountabilityRecord = {
       owner: "Glasgow City Council",
       status: "not-verified",
       currentEvidence:
-        "Audit Scotland records poverty as the Council and partnership's main public-service-reform focus, but says stronger outcome and financial evidence is still needed.",
+        "The review records poverty as the council and partnership's main service-change focus, but says stronger results and money evidence are still needed.",
       sourceIds: ["audit-bv-2024-25"],
     },
     {
@@ -328,7 +329,7 @@ export const glasgowCityAccountability: CouncilAccountabilityRecord = {
       dueBy: "2026-09",
       owner: "Glasgow City Council Executive Director of Financial Services",
       status: "in-progress",
-      currentEvidence: "Audit Scotland recorded the forecast as under development and gave September 2026 as the implementation date.",
+      currentEvidence: "The review recorded the forecast as under development and gave September 2026 as the date for putting it in place.",
       sourceIds: ["audit-bv-2024-25"],
     },
     {
@@ -360,9 +361,9 @@ export const glasgowCityAccountability: CouncilAccountabilityRecord = {
   ],
   sources,
   knownGaps: [
-    "The 12,800 homelessness failures are a count of instances, not a denominator-based rate; do not turn them into a percentage without the matching Scottish Government dataset.",
-    "The Budget Support Fund was expected to be fully used by 31 March 2026. A later outturn or council paper is still needed to say what was actually spent.",
-    "This sample does not include audited 2025/26 outturns for every service, the full council capital programme, procurement data, or all 244 Strategic Plan commitments.",
+    "The 12,800 homelessness failures are a count of cases, not a percentage. The total number of cases needed to calculate a rate is not included.",
+    "The money set aside for budget changes was expected to be fully used by 31 March 2026. Later final spending figures or a council paper are needed to say what was actually spent.",
+    "This page does not include final 2025/26 spending results for every service, the full council building programme, procurement data, or all 244 Strategic Plan promises.",
     "Commitment statuses marked not-verified need a later council, regulator or auditor publication before they can be called complete or missed.",
     "No individual councillor is attributed with a service result here. Council decisions, officer accountability and national funding responsibilities need separate evidence.",
   ],

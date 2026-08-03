@@ -12,6 +12,7 @@ import {
 } from "@/lib/data/councilAccountability";
 import { getCouncil } from "@/lib/data/councils";
 import CouncilCompare from "@/components/CouncilCompare";
+import AccountabilityMethodNote from "@/components/AccountabilityMethodNote";
 import { JsonLd, articleJsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
 
 export function generateStaticParams() {
@@ -26,7 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return meta({
     title: `${record.councilName}: budget and performance | Scotland Counted`,
     description:
-      `See ${record.councilName}'s published funding pressure, service targets, audit findings and promises, with every claim linked to an official source.`,
+      `See ${record.councilName}'s published funding pressure, service goals, audit findings and promises, with every claim linked to an official source.`,
     path: `/councils/${record.councilSlug}`,
   });
 }
@@ -34,20 +35,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 function money(value: number, unit: "million" | "billion", qualifier?: "over" | "projected" | "expected") {
   const formatted = value.toLocaleString("en-GB", { maximumFractionDigits: 1 });
   const figure = `£${formatted}${unit === "million" ? "m" : "bn"}`;
-  return qualifier === "over"
-    ? `Over ${figure}`
-    : qualifier === "projected"
-      ? `Projected ${figure}`
-      : qualifier === "expected"
-        ? `Expected ${figure}`
-        : figure;
+  return qualifier === "over" ? `Over ${figure}` : qualifier === "expected" ? `Expected ${figure}` : figure;
 }
 
 function statusLabel(status: PerformanceOutcome["status"] | CommitmentStatus | AuditFinding["status"]) {
   return {
-    met: "Target met",
-    missed: "Target missed",
-    "not-comparable": "Cannot compare fairly",
+    met: "Goal met",
+    missed: "Goal missed",
+    "not-comparable": "Not a fair comparison",
     "not-verified": "Needs new evidence",
     planned: "Planned",
     "in-progress": "In progress",
@@ -115,28 +110,38 @@ export default async function CouncilAccountabilityPage({
     record.budgetContext.find((figure) => figure.id === "day-to-day-funding-2025-26") ?? record.budgetContext[0];
   const allocationText = allocation ? money(allocation.value, allocation.unit, allocation.qualifier) : "the published allocation";
   const openFindings = record.auditFindings.filter((finding) => finding.status === "open");
-  const projectedGap = record.budgetContext.find(
-    (figure) => figure.qualifier === "projected" && /gap|shortfall/i.test(figure.label + " " + figure.plainEnglish),
+  const budgetGridClass = record.budgetContext.length === 3 ? "md:grid-cols-3" : "md:grid-cols-2";
+  const budgetAccentClasses = [
+    "border-t-[var(--brand)]",
+    "border-t-[var(--action)]",
+    "border-t-[var(--good)]",
+    "border-t-[var(--brand-deep)]",
+  ];
+  const budgetSourceIds = Array.from(new Set(record.budgetContext.flatMap((figure) => figure.sourceIds)));
+  const budgetCardSpan = (index: number) =>
+    record.budgetContext.length === 5 && index === record.budgetContext.length - 1 ? "md:col-span-2" : "";
+  const budgetNeed = record.budgetContext.find(
+    (figure) => /budget-gap/i.test(figure.id) || (figure.qualifier === "projected" && /gap|shortfall/i.test(figure.label + " " + figure.plainEnglish)),
   );
   const quickReadCards = [
     {
-      label: projectedGap ? "Money is tight" : "Money in the record",
-      value: projectedGap ? money(projectedGap.value, projectedGap.unit) : "—",
-      sub: projectedGap ? "published forecast" : "no gap published yet",
-      body: projectedGap
-        ? "The council says it still needs to find this much. It is not money already missing from the bank."
-        : "No future money gap has been added to this record yet.",
+      label: budgetNeed ? "Extra money needed for services" : "Money in the record",
+      value: budgetNeed ? money(budgetNeed.value, budgetNeed.unit) : "—",
+      sub: budgetNeed ? "for planned services" : "no extra need published yet",
+      body: budgetNeed
+        ? "The council said it needed to find this extra money through savings, extra income, money already set aside or other changes. It is not money already missing from the bank."
+        : "No extra money need has been added to this record yet.",
       accent: "var(--brand)",
     },
     {
-      label: "Targets missed",
+      label: "Goals missed",
       value: missed.length > 0 ? String(missed.length) : reportedOutcomes.length > 0 ? "0" : "—",
-      sub: missed.length > 0 ? "in this record" : reportedOutcomes.length > 0 ? "checked targets" : "not checked yet",
+      sub: missed.length > 0 ? "in this record" : reportedOutcomes.length > 0 ? "checked goals" : "not checked yet",
       body: missed.length > 0
-        ? "These are the service results where the published target was not reached."
+        ? "These are the service results where the published goal was not reached."
         : reportedOutcomes.length > 0
           ? "The results checked here are not marked as missed."
-          : "There is no checked service target in this record yet.",
+          : "There is no checked service goal in this record yet.",
       accent: "var(--action)",
     },
     {
@@ -149,14 +154,14 @@ export default async function CouncilAccountabilityPage({
   ];
   const shortVersion = [
     record.councilName + " has money coming in.",
-    projectedGap
-      ? "It also faces " + money(projectedGap.value, projectedGap.unit, projectedGap.qualifier) + " in the published forecast."
+    budgetNeed
+      ? "It also needed " + money(budgetNeed.value, budgetNeed.unit) + " more to pay for its planned services."
       : "The published figures and their limits are set out below.",
     missed.length > 0
-      ? "This record includes " + missed.length + " service result" + (missed.length === 1 ? "" : "s") + " marked as missed."
+      ? "This record includes " + missed.length + " service goal" + (missed.length === 1 ? "" : "s") + " marked as missed."
       : reportedOutcomes.length > 0
         ? "The service results below show what was measured and what was reported."
-        : "No service target result has been checked for this record yet.",
+        : "No service goal result has been checked for this record yet.",
     record.auditFindings.length > 0
       ? "Independent checks are shown separately from the council’s own figures."
       : "No audit or regulator finding has been added to this record yet.",
@@ -173,27 +178,22 @@ export default async function CouncilAccountabilityPage({
     : "This record does not yet include a separate day-to-day funding allocation. The figures that are available are labelled below and linked to their sources.";
   const targetFaq =
     sameMeasureMisses > 0
-      ? record.councilName +
-        " has " +
-        sameMeasureMisses +
-        " same-measure service target" +
-        (sameMeasureMisses === 1 ? "" : "s") +
-        " marked as missed in this record."
+      ? `${record.councilName} has ${sameMeasureMisses} goal${sameMeasureMisses === 1 ? "" : "s"} marked as missed where the numbers can be compared directly.`
       : reportedOutcomes.length > 0
-        ? "The published service results are shown below. None is marked as a missed same-measure target in this record."
-        : "No service-target result has been verified for this record yet.";
+        ? "The published results are shown below. None is marked as a missed goal where the numbers can be compared directly."
+        : "No service-goal result has been checked for this record yet.";
   const faq = [
     {
       q: `How much money does ${record.councilName} receive?`,
       a: allocationFaq,
     },
     {
-      q: `Has ${record.councilName} missed any targets?`,
+      q: `Has ${record.councilName} missed any goals?`,
       a: targetFaq +
         (countBasedMisses > 0
           ? " A further " +
             countBasedMisses +
-            " entry records a failure as a count rather than a percentage, because the source does not publish the matching total."
+            " result is marked as missed, but its source does not give the matching total needed for a direct comparison."
           : ""),
     },
     {
@@ -234,12 +234,14 @@ export default async function CouncilAccountabilityPage({
           <InShort expert={false}>
             <p><PlainText text={shortVersion} /></p>
             <p>
-              <PlainText text="This page keeps difficult findings visible without turning a forecast, a target or a count into something it does not mean. Open the source links when you want the full detail." />
+              <PlainText text="This page keeps plans, goals and counts separate from what really happened. Open the source links when you want the full detail." />
             </p>
             <p className="ui mt-4 text-[14px] leading-[1.5] text-[var(--muted)]">
               Words with a dotted underline have a quick explanation. Hover or tap them.
             </p>
           </InShort>
+
+          <AccountabilityMethodNote councilName={record.councilName} />
 
         <section
           aria-labelledby="quick-read-title"
@@ -284,7 +286,8 @@ export default async function CouncilAccountabilityPage({
         >
             {[
               { id: "money", label: "Money" },
-              { id: "performance", label: "Targets" },
+              { id: "performance", label: "Goals" },
+              { id: "compare", label: "Compare councils" },
               { id: "audit-trail", label: "What auditors found" },
               { id: "promises", label: "Promises" },
               { id: "sources", label: "Sources" },
@@ -303,26 +306,24 @@ export default async function CouncilAccountabilityPage({
             <p className="kicker mb-2 text-[var(--brand)]">Follow the money</p>
             <h2 className="h2 mb-3">What the published figures say</h2>
             <p className="max-w-[68ch] text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
-              A <G t="funding-allocation">funding allocation</G> is not the same thing as money left
-              to spend. A <G t="budget-gap">budget gap</G> is money the council says it still needs
-              to find, not a bill already unpaid. A <G t="projected">projected</G> number is a
-              forecast. An <G t="outturn">outturn</G> is what really happened after the year ended.
-              <G t="revenue-budget">Revenue budget</G> pays for everyday services. A
+              These figures show what the council planned to spend on everyday services and what it
+              still needed to find. That second number is not money already missing. The final
+              accounts show what really happened after the year ended. A
+              <G t="revenue-budget">revenue budget</G> pays for everyday services. A
               <G t="capital-programme">capital programme</G> pays for big, long-term things.
             </p>
-            <div className="mt-7 grid gap-4 md:grid-cols-3">
-              {record.budgetContext.length > 0 ? record.budgetContext.map((figure) => (
+            <div className={`mt-7 grid gap-5 ${budgetGridClass}`}>
+              {record.budgetContext.length > 0 ? record.budgetContext.map((figure, index) => (
                 <article
                   key={figure.id}
-                  className="rounded-[var(--r-m)] border border-[var(--rule)] border-t-[3px] border-t-[var(--brand)] bg-[var(--surface)] p-6"
+                  className={`flex h-full flex-col rounded-[var(--r-m)] border border-[var(--rule)] border-t-[3px] bg-[var(--surface)] p-6 ${budgetAccentClasses[index % budgetAccentClasses.length]} ${budgetCardSpan(index)}`}
                 >
-                  <p className="ui text-[15px] font-[750] leading-[1.4] text-[var(--muted)]"><PlainText text={figure.label} /></p>
+                  <p className="ui min-h-[42px] text-[15px] font-[750] leading-[1.4] text-[var(--muted)]"><PlainText text={figure.label} /></p>
                   <p className="figure-num mt-4 text-[42px] leading-none text-[var(--brand)]">
                     {money(figure.value, figure.unit, figure.qualifier)}
                   </p>
                   <p className="ui mt-3 text-[15px] font-[650] text-[var(--ink-2)]">{figure.period}</p>
-                  <p className="mt-4 text-[16px] leading-[1.55] text-[var(--ink-2)]"><PlainText text={figure.plainEnglish} /></p>
-                  <ClaimSource record={record} sourceIds={figure.sourceIds} />
+                  <p className="mt-4 flex-1 text-[16px] leading-[1.55] text-[var(--ink-2)]"><PlainText text={figure.plainEnglish} /></p>
                 </article>
               )) : (
                 <p className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] p-6 text-[16px] leading-[1.6] text-[var(--ink-2)]">
@@ -331,6 +332,7 @@ export default async function CouncilAccountabilityPage({
                 </p>
               )}
             </div>
+            {record.budgetContext.length > 0 && <ClaimSource record={record} sourceIds={budgetSourceIds} />}
           </section>
 
           <section id="performance" className="pt-14 scroll-mt-24">
@@ -341,13 +343,12 @@ export default async function CouncilAccountabilityPage({
               {reportedOutcomes.length > 0 ? "Did services do what they promised?" : "What we still do not know about services"}
             </h2>
             <p className="max-w-[68ch] text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
-              A <G t="service-target">service target</G> is what the council promised. The reported
-              result is what happened. We keep them side by side and flag it when the two figures
-              cannot be compared fairly.
+              A goal is what the council said it wanted to achieve. The result is what happened. We
+              keep them side by side and flag it when the two figures cannot be compared fairly.
             </p>
             <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-[14px] leading-[1.5] text-[var(--ink-2)]" aria-label="How to read the status labels">
-              <span className="inline-flex items-center gap-2"><span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-[var(--bad-text)]" /> Red means the source says a target was missed or a matter is still open.</span>
-              <span className="inline-flex items-center gap-2"><span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-[var(--good-text)]" /> Green means the target was met or the action is marked complete.</span>
+              <span className="inline-flex items-center gap-2"><span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-[var(--bad-text)]" /> Red means a goal was missed or a matter is still open.</span>
+              <span className="inline-flex items-center gap-2"><span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-[var(--good-text)]" /> Green means a goal was met or the action is marked complete.</span>
               <span className="inline-flex items-center gap-2"><span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-[var(--muted)]" /> Grey means there is not enough evidence for a firm result.</span>
             </div>
             <div className={`mt-7 grid gap-4 ${record.outcomes.length > 1 ? "md:grid-cols-2" : ""}`}>
@@ -367,17 +368,22 @@ export default async function CouncilAccountabilityPage({
                   </div>
                   <div className="mt-6 grid grid-cols-2 gap-3">
                     <div className="rounded-[var(--r-s)] bg-[var(--surface-2)] p-4">
-                      <p className="ui text-[14px] font-[700] text-[var(--muted)]">Target</p>
+                      <p className="ui text-[14px] font-[700] text-[var(--muted)]">Goal</p>
                       <p className="mt-1 text-[23px] font-[700] tnum">{outcome.target}</p>
                     </div>
                     <div className="rounded-[var(--r-s)] bg-[var(--surface-2)] p-4">
-                      <p className="ui text-[14px] font-[700] text-[var(--muted)]">Reported result</p>
+                      <p className="ui text-[14px] font-[700] text-[var(--muted)]">What happened</p>
                       <p className="mt-1 text-[23px] font-[700] tnum">{outcome.actual}</p>
                     </div>
                   </div>
                   <p className="ui mt-4 text-[15px] leading-[1.5] text-[var(--ink-2)]">
                     Period: {outcome.period}{outcome.variance ? ` · ${outcome.variance}` : ""}
                   </p>
+                  {outcome.explanation && (
+                    <p className="mt-3 border-l-2 border-[var(--brand)] pl-3 text-[15px] leading-[1.55] text-[var(--ink-2)]">
+                      <strong>In plain English:</strong> <PlainText text={outcome.explanation} />
+                    </p>
+                  )}
                   {outcome.comparisonNote && (
                     <p className="mt-3 border-l-2 border-[var(--brand)] pl-3 text-[15px] leading-[1.55] text-[var(--ink-2)]">
                       <PlainText text={outcome.comparisonNote} />
@@ -387,8 +393,8 @@ export default async function CouncilAccountabilityPage({
                 </article>
               )) : (
                 <p className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] p-6 text-[16px] leading-[1.6] text-[var(--ink-2)]">
-                  No comparable service target has been verified for this council yet. That is a
-                  research gap, not proof that every target was met.
+                  No service goal has been independently checked for this council yet. That is a
+                  research gap, not proof that every goal was met.
                 </p>
               )}
             </div>

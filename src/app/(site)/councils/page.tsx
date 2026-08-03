@@ -4,6 +4,7 @@ import { councilsByLevel } from "@/lib/data/councils";
 import { councilAccountabilityRecords } from "@/lib/data/councilAccountability";
 import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
 import { site } from "@/lib/site";
+import AccountabilityMethodNote from "@/components/AccountabilityMethodNote";
 import CouncilDirectory from "./CouncilDirectory";
 
 export const metadata = meta({
@@ -66,6 +67,8 @@ export default function CouncilsPage() {
             </p>
           </InShort>
 
+          <AccountabilityMethodNote />
+
           {/*
             The receipts, before any prose. Counted from the records themselves
             so the figures can never drift from the pages they summarise — and
@@ -75,7 +78,7 @@ export default function CouncilsPage() {
             <p className="kicker mb-4 text-[var(--action)]">Counted so far, across every published record</p>
             <div className="grid gap-4 sm:grid-cols-3">
               {[
-                [missedTargets, missedTargets === 1 ? "target they set themselves, missed" : "targets they set themselves, missed"],
+                [missedTargets, missedTargets === 1 ? "goal they set themselves, missed" : "goals they set themselves, missed"],
                 [openFindings, openFindings === 1 ? "watchdog warning still open" : "watchdog warnings still open"],
                 [publishedSlugs.size, publishedSlugs.size === 1 ? "council checked in full so far" : "councils checked in full so far"],
               ].map(([n, label]) =>
@@ -96,7 +99,7 @@ export default function CouncilsPage() {
             <div className="grid gap-4 md:grid-cols-3">
               {[
                 ["The money", "What they got. What they spent. The gaps they have not closed."],
-                ["The results", "The targets they set for themselves. Met or missed, in their own figures."],
+                ["The results", "The goals they set for themselves. Met or missed, in their own figures."],
                 ["The watchdogs", "What the auditors found when they looked."],
               ].map(([title, body]) => (
                 <div

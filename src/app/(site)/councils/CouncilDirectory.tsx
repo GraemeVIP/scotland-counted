@@ -81,7 +81,7 @@ export default function CouncilDirectory({ councils, publishedSlugs }: CouncilDi
         <p className="text-[15px] leading-[1.5] text-[var(--ink-2)]">
           <strong className="text-[var(--ink)]">Blue border = this council has a full record. </strong>
           It does not mean the council passed or failed. Red only appears when an official
-          source says a target was missed. Nothing is marked red on our say-so.
+          source says a goal was missed. Nothing is marked red on our say-so.
         </p>
       </div>
 
