@@ -113,7 +113,7 @@ const records: CouncilAccountabilityRecord[] = [
     councilCode: "S12000018",
     lastReviewedOn: "2026-08-02",
   summary:
-      "Inverclyde planned to spend £276.6m on everyday services in 2026/27 and needed another £4m in its plan. The council said it would use savings and other changes to find it. The 2024/25 audit found that nearly all planned savings happened, but £70,000 was still outstanding.",
+      "Inverclyde agreed £3.4m of savings and delivered all but £70,000 of them. The audit also found pressure in its building programme and high borrowing costs. It said it needed another £4m to pay for services this year, one of the smaller gaps in Scotland.",
     budgetContext: budgetFigures({
       slug: "inverclyde",
       councilName: "Inverclyde Council",
@@ -180,7 +180,7 @@ const records: CouncilAccountabilityRecord[] = [
     councilCode: "S12000019",
     lastReviewedOn: "2026-08-02",
     summary:
-      "Midlothian plans to spend £340.7m on everyday services in 2026/27 and needed another £13.3m in its plan. Its 2024/25 audit recorded an unplanned £3m overspend, paid for with money set aside. The audit also says some change projects need to move faster.",
+      "Midlothian went £3m over budget in 2024/25 without planning to, and covered it with money set aside. The audit says its remaining service changes need to speed up. It collects 94% of its council tax on time, against 95.5% across Scotland.",
     budgetContext: budgetFigures({
       slug: "midlothian",
       councilName: "Midlothian Council",
@@ -247,7 +247,7 @@ const records: CouncilAccountabilityRecord[] = [
     councilCode: "S12000020",
     lastReviewedOn: "2026-08-02",
     summary:
-      "Moray planned to spend £311.7m on everyday services in 2026/27 and needed another £10.6m in its plan. A review found that service changes had been too slow and that relying on savings not yet identified or money set aside could not continue. Those findings are dated, so current progress needs checking.",
+      "A review found that Moray's service changes had moved too slowly. It warned that leaning on savings not yet found, and on money set aside, is not a lasting answer. Its staff lose 15.7 days a year to sickness, against 14.5 across Scotland. Those findings are dated, so current progress needs checking.",
     budgetContext: budgetFigures({
       slug: "moray",
       councilName: "Moray Council",
@@ -314,7 +314,7 @@ const records: CouncilAccountabilityRecord[] = [
     councilCode: "S12000013",
     lastReviewedOn: "2026-08-02",
     summary:
-      "Na h-Eileanan Siar plans £140.8m for everyday services in 2026/27 and needed another £5m in its plan. The council said it balanced the budget with council tax, money set aside and savings. An audit found that a 2023 cyber attack caused long disruption and that some recovery work was still under way.",
+      "Na h-Eileanan Siar collects less of its council tax on time than any other council in Scotland: 89.5%, against 95.5%. A cyber attack in 2023 wiped nearly all its server data and caused severe disruption. Two years on, some services were still recovering or clearing backlogs.",
     budgetContext: budgetFigures({
       slug: "na-h-eileanan-siar",
       councilName: "Comhairle nan Eilean Siar",
@@ -381,7 +381,7 @@ const records: CouncilAccountabilityRecord[] = [
     councilCode: "S12000021",
     lastReviewedOn: "2026-08-03",
     summary:
-      "North Ayrshire’s 2026/27 budget is £486.1m. The plan needed an extra £17.8m to pay for planned services. The 2024/25 accounts passed their final check, but £82.374m of corrections were needed before they were signed off. Seven checked goals were missed. The council also reports a fall in child poverty. The council says it must find £46.7m more by 2027/28. There is £38.5m of road repairs waiting to be done. And council-funded adult care is now only for people at critical risk.",
+      "Young people who have been in care left North Ayrshire's schools with 355 exam points, against a goal of 465. Seven of its checked goals were missed. Council-funded adult care is now only for people at very serious risk. It has a £38.5m road repair bill waiting, and says it must find £46.7m more by 2027/28.",
     budgetContext: [
       ...budgetFigures({
         slug: "north-ayrshire",
@@ -813,7 +813,7 @@ const records: CouncilAccountabilityRecord[] = [
     // per-pupil spend from the national benchmarking file, the £19.3m from
     // the Audit Scotland budget bulletin.
     summary:
-      "Half of North Lanarkshire's own 28 progress measures did not improve. The auditors also said the council could not show what its change projects actually achieved. It spends about £670 less on each primary school pupil than the Scottish average. And it said it needed another £19.3m to pay for services this year.",
+      "Half of North Lanarkshire's own 28 progress measures did not improve. The auditors also said the council could not show what its change projects actually achieved. It spends £669 less on each primary school pupil than the Scottish average. And it said it needed another £19.3m to pay for services this year.",
     budgetContext: budgetFigures({
       slug: "north-lanarkshire",
       councilName: "North Lanarkshire Council",
@@ -880,7 +880,7 @@ const records: CouncilAccountabilityRecord[] = [
     councilCode: "S12000023",
     lastReviewedOn: "2026-08-02",
     summary:
-      "Orkney planned to spend £153.3m on everyday services in 2026/27 and needed another £21.3m in its plan. The council says about 78% of its funding is early Scottish Government support and that up to £20m may come from money set aside. The review called for a clearer long-term plan.",
+      "Orkney recycles 21.1% of household rubbish, against 44.3% across Scotland. Only one council recycles less. More than a third of its main roads need repair. The review found high-quality services, but a large gap between what they cost and the money available, and called for urgent action.",
     budgetContext: budgetFigures({
       slug: "orkney-islands",
       councilName: "Orkney Islands Council",
@@ -947,7 +947,7 @@ const records: CouncilAccountabilityRecord[] = [
     councilCode: "S12000048",
     lastReviewedOn: "2026-08-02",
     summary:
-      "Perth and Kinross planned to spend £533.8m on everyday services in 2026/27 and needed another £20.7m in its plan. Its audit says a plan covering 2024/25 to 2030/31 showed £80.4m still needed, with money set aside used to balance budgets. This page needs more service results before judging what residents received for the money.",
+      "More of Perth and Kinross's main roads need repair than any other council's in Scotland: 40.5%, against 30.3%. Its own six-year plan shows £80.4m still to find by 2030/31. The council planned to use money set aside, and said changing services alone will not solve it.",
     budgetContext: budgetFigures({
       slug: "perth-and-kinross",
       councilName: "Perth and Kinross Council",
@@ -1014,7 +1014,7 @@ const records: CouncilAccountabilityRecord[] = [
     councilCode: "S12000038",
     lastReviewedOn: "2026-08-02",
     summary:
-      "Renfrewshire planned to spend £630.9m on everyday services in 2026/27 and needed another £5m in its plan. The council's own page gives a £622.794m budget figure and a £337m five-year housing plan, so the different totals need explaining rather than silently merged. The audit warns that the money problem over the next few years could put services at risk.",
+      "Fewer than half the people in Renfrewshire are happy with how clean the streets are: 48.7%, against 57% across Scotland. The audit says a growing, repeating money problem could put services at risk. It says the council may need to use money set aside over the next few years.",
     budgetContext: budgetFigures({
       slug: "renfrewshire",
       councilName: "Renfrewshire Council",

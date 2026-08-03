@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { councilAccountabilityRecords } from "./data/councilAccountability.ts";
 import { councilBenchmarks } from "./data/councilBenchmarks.ts";
-import { BUDGET_GAP_2026_27, BRIDGING_ACTIONS, NATIONAL } from "./data/councilBudgetMechanics.ts";
+import { BUDGET_GAP_2026_27, BRIDGING_ACTIONS, NATIONAL, gapFor } from "./data/councilBudgetMechanics.ts";
 import { benchmarkTally, headlineCards, shortVersion } from "./councilSignals.ts";
 
 test("spending less on each primary pupil is never scored as a win", () => {
@@ -209,6 +209,55 @@ test("the council components avoid the same words in their visible copy", () => 
     }
     assert.ok(visible.length > 3, `${file}: extracted ${visible.length} strings — the matcher is broken`);
     assertPlain(file, visible.join(" • "));
+  }
+});
+
+test("every number in a council summary traces to sourced material", () => {
+  // The summaries lead with the strongest finding, which means they carry the
+  // numbers a reader is most likely to repeat. Each one must already appear in
+  // the record's own sourced fields or in the national benchmarking file —
+  // a lede is a place to put the evidence first, not to introduce new claims.
+  const asNumbers = /£?\d[\d,]*(?:\.\d+)?%?/g;
+  const strip = (s: string) => s.replace(/[£,%]/g, "");
+
+  for (const record of councilAccountabilityRecords) {
+    const rows = councilBenchmarks[record.councilSlug] ?? [];
+    const sourced = [
+      ...record.auditFindings.flatMap((f) => [f.title, f.finding, f.recommendation ?? ""]),
+      ...record.outcomes.flatMap((o) => [o.measure, o.target, o.actual, o.variance ?? ""]),
+      ...record.commitments.flatMap((c) => [c.commitment, c.currentEvidence]),
+      ...record.budgetContext.flatMap((b) => [b.plainEnglish, String(b.value)]),
+      ...record.knownGaps,
+      ...rows.flatMap((x) => [x.display, x.scotlandDisplay, String(x.value), String(x.scotland), String(x.of)]),
+      String(gapFor(record.councilSlug) ?? ""),
+    ].join(" ");
+
+    const known = new Set((sourced.match(asNumbers) ?? []).map(strip));
+    for (const n of [...known]) {
+      const value = Number(n);
+      if (Number.isFinite(value)) {
+        known.add(String(Math.round(value)));
+        known.add(value.toFixed(1));
+      }
+    }
+    // The distance from the Scotland figure is a derivation the compare card
+    // already renders ("£669 less than the Scotland figure"), so a summary may
+    // use it too. Scoped to the two numbers of a single row on purpose: allowing
+    // differences between any two sourced figures would back almost anything.
+    for (const row of rows) {
+      const diff = Math.abs(row.value - row.scotland);
+      known.add(String(Math.round(diff)));
+      known.add(diff.toFixed(1));
+    }
+
+    for (const raw of record.summary.match(asNumbers) ?? []) {
+      const n = strip(raw);
+      if (/^(19|20)\d\d$/.test(n)) continue; // a year is not a claim
+      assert.ok(
+        known.has(n) || known.has(String(Math.round(Number(n)))),
+        `${record.councilSlug}: "${raw}" in the summary is not in any sourced field`,
+      );
+    }
   }
 });
 

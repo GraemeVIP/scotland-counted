@@ -168,7 +168,7 @@ export const scottishBordersAccountability: CouncilAccountabilityRecord = {
   councilCode: "S12000026",
   lastReviewedOn: reviewedOn,
   summary:
-    "Scottish Borders kept its yearly spending under control, but still needs large savings over the next few years. The audit also found delays in the papers needed to check the accounts and said the council must show whether its change plans actually save money.",
+    "Two in five of Scottish Borders' main roads need repair: 40.3%, against 30.3% across Scotland. The audit found that its finance papers arrived late, and linked this to staff shortages. It also said the council must show whether its change plans actually save money.",
   budgetContext: budgetContext("Scottish Borders Council", {
     budget: 418.0,
     gap: 16.3,
@@ -405,7 +405,7 @@ export const southLanarkshireAccountability: CouncilAccountabilityRecord = {
   councilCode: "S12000029",
   lastReviewedOn: reviewedOn,
   summary:
-    "South Lanarkshire stayed within its yearly budget and kept its money set aside for future use in line with its long-term plan. But a money problem over the next few years remains, and the council does not routinely show whether service changes affect the quality of services people receive.",
+    "South Lanarkshire was the only council in Scotland that did not ask for more money this year. It set its budget with £1.5m to spare. But the audit says more money is still needed in the years ahead. It also says the council does not routinely show whether its service changes affect the quality people receive.",
   budgetContext: budgetContext("South Lanarkshire Council", {
     budget: 1086.7,
     gap: -1.5,
@@ -493,7 +493,7 @@ export const stirlingAccountability: CouncilAccountabilityRecord = {
   councilCode: "S12000030",
   lastReviewedOn: reviewedOn,
   summary:
-    "Stirling approved a balanced 2026/27 budget, but says it may need to find £37.2m over the next five years. The review also found its new finance and staff system cost more time and money than planned. And the council had not shown whether working from home changed sickness absence.",
+    "It costs £156 to collect the bins from each home in Stirling. That is twice the £77 Scotland pays, and the highest of all 32 councils. Its staff lose 18.6 days a year to sickness, the worst rate in Scotland. Stirling says it may need to find £37.2m over five years.",
   budgetContext: budgetContext("Stirling Council", {
     budget: 323.0,
     gap: 11.4,

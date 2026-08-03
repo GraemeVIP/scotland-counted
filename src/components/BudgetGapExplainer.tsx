@@ -148,8 +148,8 @@ export default function BudgetGapExplainer({
 
         <p className="mt-5 max-w-[66ch] text-[16.5px] leading-[1.6] text-[var(--ink)]">
           <strong>The biggest single way the gap was closed was your council tax.</strong>{" "}
-          {biggest.amount} of it. Every council in Scotland put its rate up, by{" "}
-          {COUNCIL_TAX.averageIncrease} on average — from {COUNCIL_TAX.lowestIncrease.value} in{" "}
+          {biggest.amount} of it. Every council in Scotland put its rate up. The average rise was{" "}
+          {COUNCIL_TAX.averageIncrease}. It ran from {COUNCIL_TAX.lowestIncrease.value} in{" "}
           {COUNCIL_TAX.lowestIncrease.council} to {COUNCIL_TAX.highestIncrease.value} in{" "}
           {COUNCIL_TAX.highestIncrease.council}. That was the second year in a row. Over the two
           years together, bills went up {COUNCIL_TAX.twoYearAverage} on average.
@@ -209,9 +209,8 @@ export default function BudgetGapExplainer({
           ))}
         </ul>
         <p className="mt-4 max-w-[66ch] text-[16px] leading-[1.6] text-[var(--ink-2)]">
-          Council tax is only about a fifth of the money. So when a council puts it up, the
-          extra it raises is small next to the whole budget — but it comes straight out of
-          your pocket.
+          Council tax is only about a fifth of the money. So putting it up does not raise much
+          next to the whole budget. But it comes straight out of your pocket.
         </p>
       </div>
 

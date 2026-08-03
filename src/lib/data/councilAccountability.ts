@@ -111,7 +111,7 @@ const sources: AccountabilitySource[] = [
     url: "https://audit.scot/uploads/2026-03/bv_2425_glasgow.pdf",
     publishedOn: "2026-03",
     usedFor:
-      "The £109.7m Glasgow says it may need over two years, the £105.4m set aside to help change the budget, the lack of a long-term money plan, the unfinished results framework and the council's stated poverty priority.",
+      "The £109.7m Glasgow says it may need over two years. Also the £105.4m set aside to help change the budget, the missing long-term money plan, the unfinished results system and the council's stated poverty priority.",
   },
   {
     id: "audit-2023-24",
@@ -165,7 +165,7 @@ export const glasgowCityAccountability: CouncilAccountabilityRecord = {
   councilCode: "S12000049",
   lastReviewedOn: "2026-08-02",
   summary:
-    "Glasgow says reducing poverty is a top priority. Independent checks still show serious pressure in homelessness, several service goals missed and no clear long-term money and results plan. This page separates what was measured from what still needs checking.",
+    "On 12,800 occasions Glasgow did not give someone temporary housing when the law said it must. Only 37.3% of people are happy with how clean the streets are, against 57% across Scotland. It recycles 30.6% of household rubbish, against 44.3%. Auditors also found no clear long-term money plan.",
   budgetContext: [
     {
       id: "funding-gap-2026-28",
@@ -301,7 +301,7 @@ export const glasgowCityAccountability: CouncilAccountabilityRecord = {
       publisher: "Audit Scotland / Accounts Commission",
       severity: "observation",
       finding:
-        "The review found that the process and decisions that allowed five senior officers to receive large early-retirement and redundancy payouts fell short of the standards expected of public servants.",
+        "Five senior officers were given large early-retirement and redundancy payouts. The review found that the process and the decisions behind them fell short of the standards expected of public servants.",
       status: "not-verified",
       sourceIds: ["audit-2023-24"],
     },

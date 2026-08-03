@@ -223,7 +223,7 @@ export const additionalCouncilAccountabilityRecords: CouncilAccountabilityRecord
     councilCode: "S12000033",
     settlementMillion: 494.9,
     summary:
-      "The independent audit found that weak checks allowed £1.109m of council-tax refunds to be paid fraudulently over 17 years. The council was expected to recover the money and improve its checks; this page does not assume every action is complete.",
+      "Weak checks at Aberdeen City let 655 council-tax refunds be paid out fraudulently between 2006 and 2023, worth £1.109m. The audit says staff did not always follow the checks meant to stop it. The council was expected to get the money back and tighten up. This page does not assume that is finished.",
     audit: {
       id: "audit-aberdeen-fraud-2023-24",
       title: "The 2023/24 audit of Aberdeen City Council",
@@ -251,7 +251,7 @@ export const additionalCouncilAccountabilityRecords: CouncilAccountabilityRecord
     councilCode: "S12000034",
     settlementMillion: 615.3,
     summary:
-      "The review found Aberdeenshire well run, with services improving. But the council still needs to find £81m over the coming years, and some planned savings had not happened when the review was published.",
+      "Aberdeenshire needs to find £81m in the coming years. The review found that some savings it had planned had not happened. It costs £86 to collect the bins from each home here, against £77 across Scotland. The review did judge the council well run, with services improving.",
     audit: {
       id: "audit-bv-aberdeenshire-2026",
       title: "Best Value: Aberdeenshire Council",
@@ -279,7 +279,7 @@ export const additionalCouncilAccountabilityRecords: CouncilAccountabilityRecord
     councilCode: "S12000041",
     settlementMillion: 287.8,
     summary:
-      "The review found Angus well run and good at working with partners, but its results were mixed. It also found that the council had not yet shown a lasting way to pay for services over the longer term.",
+      "Angus may need to find £24.5m. The report says savings and money set aside cannot be the whole answer, and asks for a clearer plan for changing services. The review did find the council well run and good at working with others, but its results were mixed.",
     audit: {
       id: "audit-bv-angus-2026",
       title: "Best Value: Angus Council",
@@ -335,7 +335,7 @@ export const additionalCouncilAccountabilityRecords: CouncilAccountabilityRecord
     councilCode: "S12000036",
     settlementMillion: 1059.0,
     summary:
-      "The review found that Edinburgh must make big savings while involving residents in difficult choices. This page keeps the council's funding separate from the savings and service decisions that still need to be checked.",
+      "Edinburgh recycles less household rubbish than almost anywhere in Scotland: 37.5%, against 44.3%. Its staff lose 16 days a year to sickness, against 14.5 across Scotland. The review says the council must make big savings, and should keep residents involved in the choices.",
     audit: {
       id: "audit-bv-edinburgh-2024",
       title: "Best Value: City of Edinburgh Council",
@@ -447,7 +447,7 @@ export const additionalCouncilAccountabilityRecords: CouncilAccountabilityRecord
     councilCode: "S12000008",
     settlementMillion: 322.3,
     summary:
-      "The most clearly linked Best Value review says East Ayrshire was performing well, with improving services and strong partnerships. That review is older, so the current page marks the latest service and finance position as needing a fresh check.",
+      "Fewer than half the people in East Ayrshire are happy with how clean the streets are. That is 47.3%, against 57% across Scotland. Its staff lose 16.4 days a year to sickness, against 14.5. The last full review said services were improving, but that was 2018 and does not show how things are now.",
     audit: {
       id: "audit-bv-east-ayrshire-2018",
       title: "Best Value Assurance Report: East Ayrshire Council",
@@ -475,7 +475,7 @@ export const additionalCouncilAccountabilityRecords: CouncilAccountabilityRecord
     councilCode: "S12000045",
     settlementMillion: 274.9,
     summary:
-      "A public annual-audit plan is linked for East Dunbartonshire, but it does not give us a dated service failure to report. This page says that plainly instead of guessing.",
+      "Nearly a third of East Dunbartonshire's main roads need repair: 32.7%, against 30.3% across Scotland. Only 52.7% of people are happy with how clean the streets are. The council said it needed another £23.7m this year. No dated service failure has been checked here yet, and this page says so rather than guessing.",
     audit: {
       id: "audit-east-dunbartonshire-plan-2024-25",
       title: "East Dunbartonshire Council annual audit plan 2024/25",
@@ -531,7 +531,7 @@ export const additionalCouncilAccountabilityRecords: CouncilAccountabilityRecord
     councilCode: "S12000011",
     settlementMillion: 261.4,
     summary:
-      "East Renfrewshire's services scored highly in the review, but the council may need to find about £32m by 2027. Good services do not remove the need to show how that money problem will be solved.",
+      "East Renfrewshire may need to find about £32m by 2027. The review says it needs a detailed plan showing where that money would come from. Its services scored highly. Good services do not remove the need to show how the money problem gets solved.",
     audit: {
       id: "audit-bv-east-renfrewshire-2025",
       title: "Best Value: East Renfrewshire Council",
@@ -559,7 +559,7 @@ export const additionalCouncilAccountabilityRecords: CouncilAccountabilityRecord
     councilCode: "S12000014",
     settlementMillion: 381.0,
     summary:
-      "The review found that Falkirk had improved a lot, but may still need to find £62m. It warned that one-off fixes will not last and that services could suffer without deeper change.",
+      "Falkirk may need to find £62m. The review warned that one-off savings will not last, and that services could suffer without deeper change. Just over half of people are happy with how clean the streets are. Nearly a third of its main roads need repair.",
     audit: {
       id: "audit-bv-falkirk-2024",
       title: "Best Value: Falkirk Council",
@@ -587,7 +587,7 @@ export const additionalCouncilAccountabilityRecords: CouncilAccountabilityRecord
     councilCode: "S12000047",
     settlementMillion: 927.5,
     summary:
-      "The review says Fife is at a turning point. It found mixed results, growing inequality, pressure in social care and a need to save more than £46m by 2027/28. This is a warning about money and services, not a claim that everything has failed.",
+      "Fife must save more than £46m by 2027/28. Its emergency money has fallen below the level the council itself calls safe. The review found growing inequality and worsening pressure in social care. Its staff lose 16.7 days a year to sickness, against 14.5 across Scotland.",
     audit: {
       id: "audit-bv-fife-2025",
       title: "Best Value: Fife Council",
@@ -615,7 +615,7 @@ export const additionalCouncilAccountabilityRecords: CouncilAccountabilityRecord
     councilCode: "S12000017",
     settlementMillion: 621.0,
     summary:
-      "Highland mostly kept control of its money in 2024/25. But the audit found a £3.4m overspend once adjustments were counted. It also said adult social care missed part of its savings goal. The current budget and later results still need to be checked.",
+      "Highland spent £3.4m more than its updated budget in 2024/25. Adult social care fell £4.5m short of its savings goal, and another £2.4m of planned savings did not happen. It costs £101 to collect the bins from each home here, against £77 across Scotland.",
     audit: {
       id: "audit-highland-2024-25",
       title: "Highland Council annual audit 2024/25",
