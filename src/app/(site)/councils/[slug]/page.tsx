@@ -266,9 +266,11 @@ export default async function CouncilAccountabilityPage({
             <p className="max-w-[68ch] text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
               These figures show what the council planned to spend on everyday services and what it
               still needed to find. That second number is not money already missing. The final
-              accounts show what really happened after the year ended. A
-              <G t="revenue-budget">revenue budget</G> pays for everyday services. A
-              <G t="capital-programme">capital programme</G> pays for big, long-term things.
+              accounts show what really happened after the year ended.{" "}
+              {/* The article stays on the same line as the term: JSX drops a line
+                  break between text and an element, which rendered "Arevenue". */}
+              A <G t="revenue-budget">revenue budget</G> pays for everyday services.{" "}
+              A <G t="capital-programme">capital programme</G> pays for big, long-term things.
             </p>
             <div className={`mt-7 grid gap-5 ${budgetGridClass}`}>
               {record.budgetContext.length > 0 ? record.budgetContext.map((figure, index) => (
@@ -373,7 +375,7 @@ export default async function CouncilAccountabilityPage({
             <h2 className="h2 mb-3">What the auditors found</h2>
             <p className="max-w-[68ch] text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
               These are checks by people outside the council: Audit Scotland, the Accounts
-              Commission and the Scottish Housing Regulator. An <G t="audit-finding">audit finding</G>
+              Commission and the Scottish Housing Regulator. An <G t="audit-finding">audit finding</G>{" "}
               is a point they recorded after checking the books or how a service works.{" "}
               <G t="best-value">Best Value</G> is the formal name for one of those checks. It is not
               a gold star for every service.

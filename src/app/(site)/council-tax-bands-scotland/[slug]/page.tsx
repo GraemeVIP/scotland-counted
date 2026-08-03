@@ -321,8 +321,9 @@ export default async function CouncilTaxSlugPage(props: { params: Promise<{ slug
               council area.
             </p>
             <p>
-              Band {letter} is <strong>{RATIOS[letter]}</strong> of your council&apos;s Band D
-              rate. That fraction is fixed by law and identical in every council.
+              Band {letter} is <strong>{RATIOS[letter]}</strong>{" "}
+              of your council&apos;s Band D rate. That fraction is fixed by law and identical in
+              every council.
             </p>
             <p>
               Council tax rose by <strong>{percent.format(smallestRise.councilTaxRisePct)}% to{" "}

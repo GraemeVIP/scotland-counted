@@ -10,6 +10,7 @@
     "dev:turbo": "next dev --turbopack",
     "test": "node --test 'src/**/*.test.ts'",
     "check:reps": "node scripts/check-representatives.mjs",
+    "check:spacing": "node scripts/check-spacing.mjs",
     "data:update:mps": "node scripts/update-mp-directory.mjs",
     "data:update:msps": "node scripts/update-holyrood-directory.mjs",
     "indexnow:plan": "node scripts/indexnow.mjs",

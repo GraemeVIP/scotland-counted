@@ -280,8 +280,8 @@ export default function Privacy() {
             </div>
             <div className="space-y-4 text-[17px] leading-[1.6] text-[var(--ink-2)]">
               <p>
-                To ask for anything, use <Link href="/contact">the contact form</Link> and pick
-                &ldquo;Something else&rdquo;, or write to the address on that page.
+                To ask for anything, use <Link href="/contact">the contact form</Link>{" "}
+                and pick &ldquo;Something else&rdquo;, or write to the address on that page.
               </p>
               <p>
                 If you are not happy with how a request is handled you can complain to the
