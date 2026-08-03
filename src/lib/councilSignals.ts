@@ -14,9 +14,32 @@
 
 // Relative, not aliased: this module is covered by `node --test`, which does
 // not resolve the "@/" path alias.
-import { councilBenchmarks } from "./data/councilBenchmarks.ts";
-import { gapFor } from "./data/councilBudgetMechanics.ts";
-import type { CouncilAccountabilityRecord } from "./data/councilAccountability.ts";
+import { councilBenchmarks, LGBF_SOURCE } from "./data/councilBenchmarks.ts";
+import { BUDGET_SOURCE, FORMULA_SOURCE, gapFor } from "./data/councilBudgetMechanics.ts";
+import {
+  councilAccountabilityRecords,
+  type CouncilAccountabilityRecord,
+} from "./data/councilAccountability.ts";
+
+/**
+ * How many official documents sit behind the council section, counted from
+ * the records rather than typed in.
+ *
+ * This exists so the method note can make a claim about the work that a
+ * reader can actually check, instead of an unverifiable boast about pages
+ * read. Counted by URL, so citing the same audit from four councils counts
+ * once.
+ */
+export function sourceDocumentCount(): number {
+  const urls = new Set<string>();
+  for (const record of councilAccountabilityRecords) {
+    for (const source of record.sources) urls.add(source.url);
+  }
+  urls.add(LGBF_SOURCE.url);
+  urls.add(BUDGET_SOURCE.url);
+  urls.add(FORMULA_SOURCE.url);
+  return urls.size;
+}
 
 export type BenchmarkTally = {
   /** Measures where this council is worse than the Scotland figure. */
