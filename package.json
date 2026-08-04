@@ -22,7 +22,9 @@
     "test:e2e": "playwright test",
     "test:e2e:a11y": "playwright test e2e/a11y.spec.ts --project=chromium",
     "check:budgets": "node scripts/check-budgets.mjs",
-    "check:reps:fresh": "node scripts/check-representative-freshness.mjs"
+    "check:reps:fresh": "node scripts/check-representative-freshness.mjs",
+    "check:social": "node scripts/check-social-cards.mjs",
+    "data:build:familygroups": "node scripts/build-family-groups.mjs"
   },
   "dependencies": {
     "next": "16.2.12",
