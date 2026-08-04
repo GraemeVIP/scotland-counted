@@ -203,15 +203,19 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ---------- The reading rail ----------
-            A carousel, not one card. Replacing it with a single featured
-            article was a judgement about what a first-time visitor should
-            look at, and it quietly cut the library down to whatever happened
-            to be newest. The rail shows the range, which is the point: this
-            is an explainer library that contains some investigations, not an
-            investigations section. */}
-        <BlogCarousel posts={homeReads} />
+      </Page>
 
+      {/* ---------- The reading rail ----------
+          A carousel, not one card, and outside the page container, not in it.
+          When it came back it was restored inside <Page>, which double-framed
+          it: the cards clipped against an inner box edge with dead margin
+          outside, so the cut-off card read as a mistake instead of as "there
+          is more this way". The band runs edge to edge, the heading stays on
+          the content grid, and the track bleeds to the right-hand edge of the
+          screen, where a peeking card actually means what it implies. */}
+      <BlogCarousel posts={homeReads} />
+
+      <Page>
         {/* ---------- Trust ---------- */}
         <section className="border-t border-[var(--rule)] py-12 sm:py-14" aria-labelledby="trust">
           <div className="grid gap-x-14 gap-y-8 lg:grid-cols-[minmax(280px,0.62fr)_minmax(0,1.38fr)]">

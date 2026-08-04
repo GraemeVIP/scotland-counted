@@ -261,11 +261,38 @@
     width: 100%;
     max-width: 100%;
     min-width: 0;
+    /*
+     * The rail bleeds to the right of the screen, so its left edge has to
+     * find the content grid by itself: the page gutter when the viewport is
+     * narrower than the 1,232px frame, the centring formula once it is wider.
+     * max() picks whichever is in force. Written here because Tailwind's
+     * compiler would not emit the calc under a min-[1232px] variant.
+     */
+    padding-left: max(1.25rem, calc((100% - 1120px) / 2));
+    /*
+     * Snap aligns to scroll-padding, not to visual padding: without this the
+     * mandatory snap scrolls straight past the gutter on load and parks the
+     * first card hard against the screen edge, 160px left of the heading.
+     */
+    scroll-padding-left: max(1.25rem, calc((100% - 1120px) / 2));
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
     touch-action: pan-x pan-y;
     scroll-snap-type: x mandatory;
     overscroll-behavior-x: contain;
+  }
+
+  @media (min-width: 640px) {
+    .blog-carousel-track {
+      padding-left: max(2rem, calc((100% - 1120px) / 2));
+      scroll-padding-left: max(2rem, calc((100% - 1120px) / 2));
+    }
+  }
+  @media (min-width: 1024px) {
+    .blog-carousel-track {
+      padding-left: max(3.5rem, calc((100% - 1120px) / 2));
+      scroll-padding-left: max(3.5rem, calc((100% - 1120px) / 2));
+    }
   }
 
   .blog-carousel-track::-webkit-scrollbar {
