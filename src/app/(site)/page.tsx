@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Page } from "@/components/Blocks";
+import { FullBleed, Page } from "@/components/Blocks";
 import { JsonLd, articleJsonLd, faqJsonLd, meta } from "@/lib/seo";
 import BlogCarousel from "@/components/BlogCarousel";
 import { postsByDate, type Post } from "@/lib/data/posts";
@@ -250,30 +250,46 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ---------- Keep in touch ---------- */}
-        <section className="border-t border-[var(--rule)] py-12 sm:py-14" aria-labelledby="updates">
-          <div className="grid gap-x-14 gap-y-8 lg:grid-cols-[minmax(280px,0.62fr)_minmax(0,1.38fr)]">
-            <div>
-              <p className="kicker mb-3 text-[var(--brand)]">When the numbers move</p>
-              <h2 id="updates" className="display-stat max-w-[13ch] text-[clamp(34px,4vw,52px)]">
-                Councils publish. Nobody tells you
-              </h2>
-              <p className="mt-4 max-w-[36ch] text-[17px] leading-[1.55] text-[var(--ink-2)]">
-                Audits, budgets and benchmarking land quietly through the year. I read them and
-                send one email when something changes.
-              </p>
-            </div>
-            <div>
-              <NewsletterSignup />
-              <p className="mt-6 max-w-[54ch] text-[15.5px] leading-[1.55] text-[var(--muted)]">
-                Alerts for one council area in particular are planned but not built yet. For now
-                every update covers all 32. You can also{" "}
-                <Link href="/updates">follow the public log</Link>, which has an RSS feed.
-              </p>
-            </div>
-          </div>
-        </section>
+      </Page>
 
+      {/* ---------- Keep in touch ----------
+          The one ask on the page, so it gets the one treatment nothing else
+          has: a near-black slab, the register this site reserves for
+          dramatic pauses (the footer, the film). Every other section is a
+          white card on the grid; the eye reads them as one deck and skims.
+          Breaking the rhythm exactly once, at the ask, is the difference
+          between a section and a moment. */}
+      <FullBleed className="bg-[var(--deep)] text-[var(--deep-ink)]">
+        <Page>
+          <section className="py-14 sm:py-16" aria-labelledby="updates">
+            <div className="grid gap-x-14 gap-y-8 lg:grid-cols-[minmax(280px,0.62fr)_minmax(0,1.38fr)] lg:items-center">
+              <div>
+                <p className="kicker mb-3 text-[var(--action)]">When the numbers move</p>
+                <h2 id="updates" className="display-stat max-w-[13ch] text-[clamp(34px,4vw,52px)] text-white">
+                  Councils publish. Nobody tells you
+                </h2>
+                <p className="mt-4 max-w-[36ch] text-[17px] leading-[1.55] opacity-85">
+                  Audits, budgets and benchmarking land quietly through the year. I read them and
+                  send one email when something changes.
+                </p>
+              </div>
+              <div>
+                <NewsletterSignup variant="footer" />
+                <p className="mt-6 max-w-[54ch] text-[15.5px] leading-[1.55] opacity-70">
+                  Alerts for one council area in particular are planned but not built yet. For now
+                  every update covers all 32. You can also{" "}
+                  <Link href="/updates" className="text-[var(--deep-ink)] underline underline-offset-4">
+                    follow the public log
+                  </Link>
+                  , which has an RSS feed.
+                </p>
+              </div>
+            </div>
+          </section>
+        </Page>
+      </FullBleed>
+
+      <Page>
         {/* ---------- Questions ---------- */}
         <section className="border-t border-[var(--rule)] py-12 sm:py-14" aria-labelledby="questions">
           <div className="grid gap-x-14 gap-y-8 lg:grid-cols-[minmax(280px,0.62fr)_minmax(0,1.38fr)]">
