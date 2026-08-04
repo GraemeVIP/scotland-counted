@@ -259,13 +259,19 @@ export default function Home() {
           white card on the grid; the eye reads them as one deck and skims.
           Breaking the rhythm exactly once, at the ask, is the difference
           between a section and a moment. */}
-      <FullBleed className="bg-[var(--deep)] text-[var(--deep-ink)]">
+      {/*
+          Coral, not the near-black slab. The deep band made the ask read as
+          the footer arriving early, and then the real footer repeated it.
+          The site's action colour belongs to the one action on the page, and
+          the deep ink on it measures 6.86:1, comfortably past AA.
+      */}
+      <FullBleed className="bg-[var(--action)] text-[var(--deep)]">
         <Page>
           <section className="py-14 sm:py-16" aria-labelledby="updates">
             <div className="grid gap-x-14 gap-y-8 lg:grid-cols-[minmax(280px,0.62fr)_minmax(0,1.38fr)] lg:items-center">
               <div>
-                <p className="kicker mb-3 text-[var(--action)]">When the numbers move</p>
-                <h2 id="updates" className="display-stat max-w-[13ch] text-[clamp(34px,4vw,52px)] text-white">
+                <p className="kicker mb-3 text-[var(--deep)] opacity-80">When the numbers move</p>
+                <h2 id="updates" className="display-stat max-w-[13ch] text-[clamp(34px,4vw,52px)]">
                   Councils publish. Nobody tells you
                 </h2>
                 <p className="mt-4 max-w-[36ch] text-[17px] leading-[1.55] opacity-85">
@@ -274,11 +280,11 @@ export default function Home() {
                 </p>
               </div>
               <div>
-                <NewsletterSignup variant="footer" />
+                <NewsletterSignup />
                 <p className="mt-6 max-w-[54ch] text-[15.5px] leading-[1.55] opacity-70">
                   Alerts for one council area in particular are planned but not built yet. For now
                   every update covers all 32. You can also{" "}
-                  <Link href="/updates" className="text-[var(--deep-ink)] underline underline-offset-4">
+                  <Link href="/updates" className="text-[var(--deep)] underline underline-offset-4">
                     follow the public log
                   </Link>
                   , which has an RSS feed.
