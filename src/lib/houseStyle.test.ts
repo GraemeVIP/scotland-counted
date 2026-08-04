@@ -22,15 +22,40 @@ import { fileURLToPath } from "node:url";
 const EM_DASH = "\u2014";
 const ROOT = fileURLToPath(new URL("../../", import.meta.url));
 
-const SKIP_DIRS = new Set(["node_modules", ".next", ".git", "generated"]);
+/*
+ * .claude holds git worktrees, which are whole second copies of this
+ * repository living inside it. Scanning them makes the suite report every
+ * offence twice, and worse, the exempt paths below are absolute and only ever
+ * match the checkout the test is running from, so a worktree's own privacy
+ * page is scanned as if it were not exempt.
+ *
+ * Found by merging to main and running the tests there: the same 126 tests
+ * that passed inside the worktree failed in the checkout containing it.
+ */
+const SKIP_DIRS = new Set([
+  "node_modules",
+  ".next",
+  ".git",
+  "generated",
+  ".claude",
+  "test-results",
+  "playwright-report",
+]);
 const EXTENSIONS = [".ts", ".tsx", ".md", ".mjs", ".css"];
 
 function sourceFiles(dir: string, found: string[] = []): string[] {
   for (const entry of readdirSync(dir)) {
     if (SKIP_DIRS.has(entry)) continue;
     const full = join(dir, entry);
-    if (statSync(full).isDirectory()) sourceFiles(full, found);
-    else if (EXTENSIONS.some((ext) => entry.endsWith(ext))) found.push(full);
+    /*
+     * A nested checkout carries its own .git. Skipping those covers worktrees
+     * placed anywhere, not just the .claude directory this repository happens
+     * to use today.
+     */
+    if (statSync(full).isDirectory()) {
+      if (existsSync(join(full, ".git"))) continue;
+      sourceFiles(full, found);
+    } else if (EXTENSIONS.some((ext) => entry.endsWith(ext))) found.push(full);
   }
   return found;
 }
