@@ -262,19 +262,24 @@
     max-width: 100%;
     min-width: 0;
     /*
-     * The rail bleeds to the right of the screen, so its left edge has to
-     * find the content grid by itself: the page gutter when the viewport is
-     * narrower than the 1,232px frame, the centring formula once it is wider.
-     * max() picks whichever is in force. Written here because Tailwind's
-     * compiler would not emit the calc under a min-[1232px] variant.
+     * The rail is anchored to the screen, not to the content grid.
+     *
+     * The first version aligned the first card under the heading with a
+     * centring formula. On an ultrawide screen that put a 400px slab of
+     * empty band left of the rail, which read as a mistake, and scrolling
+     * to fill it cut off the first card. A gallery rail earns its full
+     * bleed by using the width: cards start one page gutter from the left
+     * edge and run to the right edge, and the heading above stays on the
+     * grid. Written here because Tailwind would not emit the earlier calc
+     * variant anyway.
      */
-    padding-left: max(1.25rem, calc((100% - 1120px) / 2));
+    padding-left: 1.25rem;
     /*
-     * Snap aligns to scroll-padding, not to visual padding: without this the
-     * mandatory snap scrolls straight past the gutter on load and parks the
-     * first card hard against the screen edge, 160px left of the heading.
+     * Snap aligns to scroll-padding, not to visual padding: without this
+     * the mandatory snap scrolls straight past the gutter on load and
+     * parks the first card hard against the screen edge.
      */
-    scroll-padding-left: max(1.25rem, calc((100% - 1120px) / 2));
+    scroll-padding-left: 1.25rem;
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
     touch-action: pan-x pan-y;
@@ -284,14 +289,14 @@
 
   @media (min-width: 640px) {
     .blog-carousel-track {
-      padding-left: max(2rem, calc((100% - 1120px) / 2));
-      scroll-padding-left: max(2rem, calc((100% - 1120px) / 2));
+      padding-left: 2rem;
+      scroll-padding-left: 2rem;
     }
   }
   @media (min-width: 1024px) {
     .blog-carousel-track {
-      padding-left: max(3.5rem, calc((100% - 1120px) / 2));
-      scroll-padding-left: max(3.5rem, calc((100% - 1120px) / 2));
+      padding-left: 3.5rem;
+      scroll-padding-left: 3.5rem;
     }
   }
 
