@@ -17,7 +17,8 @@
     "indexnow:plan": "node scripts/indexnow.mjs",
     "indexnow:submit": "node scripts/indexnow.mjs --submit",
     "test:indexnow": "node --test scripts/indexnow.test.mjs",
-    "check:proxy": "node scripts/check-proxy.mjs"
+    "check:proxy": "node scripts/check-proxy.mjs",
+    "check:indexability": "node scripts/check-indexability.mjs"
   },
   "dependencies": {
     "mermaid": "^11.16.0",

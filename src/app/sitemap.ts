@@ -17,6 +17,7 @@ import { councilAccountabilityRecords } from "@/lib/data/councilAccountability";
 export default function sitemap(): MetadataRoute.Sitemap {
   const dataChecked = new Date(`${site.dataCheckedISO}T00:00:00Z`);
   const seoRelease = new Date("2026-08-02T00:00:00Z");
+  const repositioning = new Date("2026-08-03T00:00:00Z");
   const latestPostDate = new Date(
     Math.max(...posts.map((post) => new Date(post.updated ?? post.date).getTime())),
   );
@@ -24,7 +25,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const core: MetadataRoute.Sitemap = [
     { url: site.url, changeFrequency: "monthly", priority: 1, lastModified: seoRelease },
     { url: `${site.url}/areas`, changeFrequency: "monthly", priority: 0.95, lastModified: seoRelease },
+    { url: `${site.url}/money`, changeFrequency: "monthly", priority: 0.95, lastModified: repositioning },
     { url: `${site.url}/councils`, changeFrequency: "monthly", priority: 0.85, lastModified: seoRelease },
+    { url: `${site.url}/who-decides`, changeFrequency: "monthly", priority: 0.9, lastModified: repositioning },
+    { url: `${site.url}/poverty`, changeFrequency: "monthly", priority: 0.9, lastModified: repositioning },
     { url: `${site.url}/find-my-mp-and-msp`, changeFrequency: "monthly", priority: 0.95, lastModified: seoRelease },
     { url: `${site.url}/blog`, changeFrequency: "weekly", priority: 0.9, lastModified: latestPostDate },
     { url: `${site.url}/faq`, changeFrequency: "monthly", priority: 0.85 },
@@ -57,6 +61,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${site.url}/data`, changeFrequency: "yearly", priority: 0.6 },
     { url: `${site.url}/about`, changeFrequency: "yearly", priority: 0.5 },
     { url: `${site.url}/corrections`, changeFrequency: "monthly", priority: 0.3 },
+    { url: `${site.url}/accessibility`, changeFrequency: "yearly", priority: 0.3, lastModified: repositioning },
     { url: `${site.url}/contact`, changeFrequency: "yearly", priority: 0.4 },
     { url: `${site.url}/privacy`, changeFrequency: "yearly", priority: 0.3 },
   ];
