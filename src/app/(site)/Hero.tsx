@@ -66,12 +66,12 @@ export default function Hero({
             <p className="text-[17px] sm:text-[clamp(18px,1.55vw,21px)] leading-[1.5] text-[var(--ink-2)] max-w-[49ch] mb-5 sm:mb-7 md:max-xl:mx-auto">
               <span className="sm:hidden">
                 Your area, your council, your pay and your bills, in ordinary words. Then I find
-                your MP and MSPs and write the emails for you.{" "}
+                your MP and MSPs and help you email the right person about what you find.{" "}
               </span>
               <span className="hidden sm:inline">
                 Enter your postcode to see the figures for your area, what your council spends
                 and delivers, what you keep from your pay, and who controls each of it. Then I
-                find your MP and MSPs and write both emails for you.{" "}
+                find your MP and MSPs and help you email the right person about what you find.{" "}
               </span>
               <strong className="text-[var(--ink)]">It takes about a minute.</strong>
             </p>
