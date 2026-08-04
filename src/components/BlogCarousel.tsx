@@ -178,11 +178,22 @@ export default function BlogCarousel({ posts }: { posts: Post[] }) {
           </div>
         </div>
 
-        <div className="blog-carousel-viewport relative mt-7 min-w-0 max-w-full">
+      </div>
+
+      {/*
+        The track escapes the content container. Its left padding mirrors the
+        grid exactly, the responsive gutters below 1,232px and the centring
+        formula above it, so the first card sits flush under the heading. The
+        right-hand side is unconstrained: the next card is cut by the edge of
+        the screen, which is the one boundary a reader trusts to mean "keep
+        going". Padding on a scroll container also clips scrolled cards at the
+        content edge on the left, which keeps the rail on the grid mid-scroll.
+      */}
+      <div className="blog-carousel-viewport relative mt-7 min-w-0 max-w-full">
           <div
             ref={trackRef}
             onKeyDown={onKeyDown}
-            className="blog-carousel-track flex min-w-0 max-w-full snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain pb-2 pr-1 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--brand)]"
+            className="blog-carousel-track flex min-w-0 max-w-full snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain pb-2 pr-5 sm:pr-8 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--brand)]"
             tabIndex={0}
             role="region"
             aria-roledescription="carousel"
@@ -288,7 +299,7 @@ export default function BlogCarousel({ posts }: { posts: Post[] }) {
           */}
         </div>
 
-        <p className="ui mt-2 flex items-center gap-2 text-[14px] font-[650] text-[var(--muted)] sm:hidden">
+        <p className="ui mt-2 flex items-center gap-2 px-5 text-[14px] font-[650] text-[var(--muted)] sm:hidden">
           Swipe to browse <span aria-hidden="true" className="text-[var(--brand)]">→</span>
         </p>
 
@@ -297,13 +308,14 @@ export default function BlogCarousel({ posts }: { posts: Post[] }) {
           on screen the old sum reported a reader who could already see a fifth
           of the rail as 6% through it.
         */}
-        <div className="mt-4 h-1 overflow-hidden rounded-full bg-[var(--rule)]" aria-hidden="true">
-          <div
-            className="h-full rounded-full bg-[var(--brand)] transition-[width] duration-200 ease-[var(--ease)] motion-reduce:transition-none"
-            style={{ width: `${Math.max(6, progress * 100)}%` }}
-          />
+        <div className="mx-auto max-w-[1232px] px-5 sm:px-8 lg:px-14">
+          <div className="mt-4 h-1 overflow-hidden rounded-full bg-[var(--rule)]" aria-hidden="true">
+            <div
+              className="h-full rounded-full bg-[var(--brand)] transition-[width] duration-200 ease-[var(--ease)] motion-reduce:transition-none"
+              style={{ width: `${Math.max(6, progress * 100)}%` }}
+            />
+          </div>
         </div>
-      </div>
     </section>
   );
 }
