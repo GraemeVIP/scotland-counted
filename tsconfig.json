@@ -31,5 +31,14 @@
     ".next/dev/types/**/*.ts",
     "**/*.mts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules",
+    /* Playwright specs are not part of the app. Type-checking them here
+       would make a production build depend on the test runner being
+       installed, which is how `next build` started failing on main:
+       "Cannot find module '@playwright/test'". Playwright type-checks
+       them itself when the suite runs. */
+    "e2e",
+    ".claude"
+  ]
 }
