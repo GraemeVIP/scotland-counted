@@ -6,7 +6,7 @@
  * cannot drift apart.
  *
  * Portrait on purpose: it was made for a phone screen and for the feeds people
- * share things in. It is deliberately NOT the Open Graph card, those are
+ * share things in. It is deliberately NOT the Open Graph card. Those are
  * 1200x630 and a portrait image gets centre-cropped to a slice of its middle,
  * losing the title and the Glasgow panel. /opengraph-image still does that job.
  */

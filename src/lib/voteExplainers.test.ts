@@ -33,9 +33,9 @@ test("unknown shapes return null rather than a guess", () => {
 });
 
 test("results become plain and unparseable strings pass through", () => {
-  assert.equal(plainResult("330 Ayes, 199 Noes"), "Passed, 330 votes to 199");
-  assert.equal(plainResult("330 Aye, 199 No"), "Passed, 330 votes to 199");
-  assert.equal(plainResult("97 Ayes, 358 Noes"), "Did not pass, 97 votes to 358");
+  assert.equal(plainResult("330 Ayes, 199 Noes"), "Passed: 330 votes to 199");
+  assert.equal(plainResult("330 Aye, 199 No"), "Passed: 330 votes to 199");
+  assert.equal(plainResult("97 Ayes, 358 Noes"), "Did not pass: 97 votes to 358");
   assert.equal(plainResult("Agreed on division"), "Agreed on division");
 });
 

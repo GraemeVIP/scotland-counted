@@ -8,7 +8,7 @@ import { ExplainText } from "@/components/Glossary";
  *
  * The site asks people to write to their MP about specific things. Showing the
  * record of how that MP already voted on those things is what turns a request
- * into accountability, it is the difference between correspondence and a
+ * into accountability. It is the difference between correspondence and a
  * ledger.
  *
  * Two rules hold this together. We say what each vote was on and what each

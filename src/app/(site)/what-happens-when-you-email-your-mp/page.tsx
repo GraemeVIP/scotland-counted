@@ -23,7 +23,7 @@ export const metadata = meta({
 const FAQ = [
   {
     q: "Is emailing my MP a waste of time?",
-    a: "No. Your email is logged, and offices sort what comes in by subject, that is how they know what their area cares about. You will usually get a reply, and the reply is a record you can check later.",
+    a: "No. Your email is logged, and offices sort what comes in by subject. That is how they know what their area cares about. You will usually get a reply, and the reply is a record you can check later.",
   },
   {
     q: "How much is an MP paid?",
@@ -68,7 +68,7 @@ export default function YourPower() {
         <PageHeader
           eyebrow="Why it is worth the bother"
           title="What happens after you email your MP or MSP"
-          lede="Almost nobody writes to the people who represent them. It is not apathy, it is that the whole thing feels like it is meant for somebody else. It is not. Here is exactly how it works."
+          lede="Almost nobody writes to the people who represent them. It is not apathy. It is that the whole thing feels like it is meant for somebody else. It is not. Here is exactly how it works."
         />
 
         <ContentFrame>
@@ -180,7 +180,7 @@ export default function YourPower() {
             Two columns of plain text left the pairs drifting apart on a wide
             screen, with the old job in faint struck-through grey that read as
             broken rather than as beaten. Each row is now a single line you read
-            left to right, the job, a tick, the thing that replaced it, on a
+            left to right (the job, a tick, the thing that replaced it) on a
             measure narrow enough that the pair stays together.
           */}
           <div

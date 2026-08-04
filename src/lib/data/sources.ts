@@ -77,7 +77,7 @@ export const sources: Source[] = [
     url: "https://www.nomisweb.co.uk/reports/lmp/lad/1778385245/report.aspx",
     used: "The 2025 Glasgow workplace and residence pay estimates and the 2024 split between full-time and part-time employee jobs.",
     derivation:
-      "The employee-jobs count shows 128,000 of 442,000 Glasgow employee jobs were part-time in 2024–29%. Those jobs are excluded from the full-time pay series.",
+      "The employee-jobs count shows 128,000 of 442,000 Glasgow employee jobs were part-time in 2024, which is 29%. Those jobs are excluded from the full-time pay series.",
   },
   {
     id: "minimum-wage-2026",
@@ -132,7 +132,7 @@ export const sources: Source[] = [
     title:
       "History, politics and vulnerability: explaining excess mortality",
     publisher:
-      "Walsh, McCartney, Collins, Taulbut and Batty, GCPH, NHS Health Scotland, UWS and UCL, 2016",
+      "Walsh, McCartney, Collins, Taulbut and Batty (GCPH, NHS Health Scotland, UWS and UCL), 2016",
     url: "https://www.gcph.co.uk/latest/publications/310-history-politics-and-vulnerability-explaining-excess-mortality",
     used: "The explanation for Glasgow's excess mortality relative to Liverpool and Manchester, and the historical policy causes.",
   },
@@ -320,7 +320,7 @@ export const sources: Source[] = [
     title: "Universal Credit: how your wages affect your payments",
     publisher: "UK Government",
     url: "https://www.gov.uk/universal-credit/how-your-wages-affect-your-payments",
-    used: "The 55p taper, Universal Credit falls by 55p for every £1 earned, and the work allowances of £427 and £710 a month.",
+    used: "The 55p taper (Universal Credit falls by 55p for every £1 earned) and the work allowances of £427 and £710 a month.",
     derivation:
       "Because the taper is 55p rather than a pound, earnings always raise total income. This is the fact that settles whether anyone is financially better off not working.",
   },

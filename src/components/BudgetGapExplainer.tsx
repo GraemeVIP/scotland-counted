@@ -67,7 +67,7 @@ export default function BudgetGapExplainer({
           ) : hasSurplus ? (
             <>
               <strong className="text-[var(--ink)]">
-                {shortName} was the one that did not, it had {gapText} left over.
+                {shortName} was the one that did not. It had {gapText} left over.
               </strong>
             </>
           ) : null}

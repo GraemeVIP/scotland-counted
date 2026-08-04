@@ -110,7 +110,7 @@ export default function LetterBuilder() {
   const promptText =
     topics.length === 1
       ? topics[0].prompt
-      : "Tell them what has happened to you, in your own words. If these things are connected, say so, that is usually the part that matters most.";
+      : "Tell them what has happened to you, in your own words. If these things are connected, say so. That is usually the part that matters most.";
 
   const toggleTopic = useCallback((id: string) => {
     setTopicIds((current) =>

@@ -18,14 +18,14 @@
 :root {
   color-scheme: light;
 
-  /* Grounds, cool, bright, app-like */
+  /* Grounds: cool, bright, app-like */
   --paper: #ffffff;
   --paper-2: #f4f6fb;
   --paper-3: #e8ecf5;
   --surface: #ffffff;
   --surface-2: #f8faff;
 
-  /* Near-black slabs, full-bleed bands, the footer, dramatic pauses */
+  /* Near-black slabs: full-bleed bands, the footer, dramatic pauses */
   --deep: #16203a;
   --deep-2: #1e2b4a;
   --deep-ink: #ffffff;
@@ -111,7 +111,7 @@
 
 /* Light is the default, deliberately: the warm paper ground is the
    identity. Dark is available, but only when the reader asks for it
-   with the toggle, we do not follow the OS setting, because flipping
+   with the toggle. We do not follow the OS setting, because flipping
    a civic publication to near-black changes what it looks like it is. */
 
 :root[data-theme="dark"] {
@@ -218,7 +218,7 @@
     overflow-x: clip;
     /*
      * The header is sticky and 68px tall, so anything scrolled to lands
-     * underneath it, an anchor link, a jump to a question, a browser restoring
+     * underneath it: an anchor link, a jump to a question, a browser restoring
      * where you were. A handful of elements carried scroll-mt-24 as a per-case
      * patch, but most did not: on the home page, none of the ten id targets had
      * any offset at all.
@@ -672,7 +672,7 @@
   }
 
   /* ============================================================
-     Entrance choreography, the hero is above the fold, so it can
+     Entrance choreography: the hero is above the fold, so it can
      never rely on scroll to animate. It plays on load instead.
      ============================================================ */
 

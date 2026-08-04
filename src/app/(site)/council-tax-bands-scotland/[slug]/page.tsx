@@ -24,7 +24,7 @@ import Faq from "@/components/Faq";
  *   glasgow-city …    one council across all eight bands
  *
  * The council pages are the ones that matter. Searches pair a council with a
- * band, "council tax band a glasgow", "band e council tax glasgow", far more
+ * band: "council tax band a glasgow", "band e council tax glasgow". Far more
  * often than they ask about a band in the abstract, and each council page
  * carries its own eight figures, so none of it is a thin split of the parent.
  */

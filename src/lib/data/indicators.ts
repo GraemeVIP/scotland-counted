@@ -79,7 +79,7 @@ export const indicators: Indicator[] = [
     chartSub:
       "Share of children aged 0–15 · 2014/15 – 2023/24 · End Child Poverty / Loughborough University",
     caption:
-      "The dip in 2020/21 is the pandemic. Benefits went up, the extra £20 a week on Universal Credit, plus furlough, and child poverty fell. The support was withdrawn, and it went straight back up.",
+      "The dip in 2020/21 is the pandemic. Benefits went up by the extra £20 a week on Universal Credit, plus furlough, and child poverty fell. The support was withdrawn, and it went straight back up.",
     series: [
       {
         name: "Glasgow",
@@ -200,7 +200,7 @@ export const indicators: Indicator[] = [
     label: "Pay",
     title: "What Glasgow's full-time pay figure really measures",
     summary:
-      "£796.50 a week is about £41,400 a year, and it sounds far too high because it is not what a typical worker earns. It covers full-time employee jobs only, every part-time job is excluded, and it is gross pay including overtime and bonuses, before tax and National Insurance.",
+      "£796.50 a week is about £41,400 a year, and it sounds far too high because it is not what a typical worker earns. It covers full-time employee jobs only, so every part-time job is excluded, and it is gross pay including overtime and bonuses, before tax and National Insurance.",
     direction: "worsening",
     unit: "£",
     x: [
@@ -249,9 +249,9 @@ export const indicators: Indicator[] = [
       "Minimum-wage work is also a smaller share of employment than most people assume. The ONS puts around 2.0 million UK workers at or below the minimum wage in 2025, about 6.6% of the workforce, roughly one in fifteen, so most jobs sit somewhere between the legal minimum and the middle of the range rather than clustered at the floor.",
       "The gap from the minimum wage is also smaller than it looks, and it is deliberate. The National Living Wage is set by law at two-thirds of median hourly earnings, that is the Low Pay Commission's remit from government. So the middle of full-time pay sitting around one and a half times the minimum is not an odd result; it is the arithmetic of how the minimum wage is defined. Full-time minimum wage is about £24,800 a year against a Glasgow full-time median near £41,400: roughly 1.7 times, not double.",
       "ASHE samples employee jobs from PAYE records. This displayed series is then restricted to jobs classed as full-time, paid at adult rates and unaffected by absence. It excludes every part-time job, self-employment, employees outside PAYE, junior rates and pay affected by sickness or other absence. A person with more than one job can be counted more than once.",
-      "For scale, a separate ONS count found 128,000 of Glasgow's 442,000 employee jobs were part-time in 2024–29%. None of those part-time jobs is represented in this full-time series.",
+      "For scale, a separate ONS count found 128,000 of Glasgow's 442,000 employee jobs were part-time in 2024, which is 29%. None of those part-time jobs is represented in this full-time series.",
       "Gross weekly pay can include overtime, bonuses, shift premiums and allowances. ONS normally defines full-time as more than 30 paid hours a week, with a separate rule for teaching jobs.",
-      "Figures are in cash, not adjusted for inflation. Compare the lines against each other within a year, that comparison is valid. Do not read the upward slope as people getting better off; most of it is price rises.",
+      "Figures are in cash, not adjusted for inflation. Compare the lines against each other within a year. That comparison is valid. Do not read the upward slope as people getting better off; most of it is price rises.",
     ],
     sourceIds: ["ashe", "ashe-guide", "glasgow-labour-profile", "minimum-wage-2026", "mis-2025", "real-living-wage", "ashe-scotland-2025", "lpc-remit", "ons-low-pay-2025"],
   },

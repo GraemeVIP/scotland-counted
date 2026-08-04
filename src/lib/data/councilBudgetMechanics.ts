@@ -49,8 +49,8 @@ export const FUNDING_MIX = [
  * "client group approach", and the secondary indicators are "demand and cost
  * factors that are outside of the control of Local Authorities".
  *
- * The briefing is explicit that past spending is not the basis for allocation
- *, it is used only as a last resort where no client group can be identified,
+ * The briefing is explicit that past spending is not the basis for allocation.
+ * It is used only as a last resort where no client group can be identified,
  * for small services such as coast protection. That matters, because it is
  * the answer to the obvious suspicion: a council that comes in on budget does
  * not have its grant cut the next year for having done so.

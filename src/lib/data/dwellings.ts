@@ -1,7 +1,7 @@
 /**
  * How many homes sit in each council tax band, by council.
  *
- * Nobody can tell you your band from a postcode, it belongs to the property
+ * Nobody can tell you your band from a postcode. It belongs to the property
  * and only the Scottish Assessors hold it. What this data can do is tell you
  * how likely each band is where you live, which narrows eight options down to
  * two or three and is usually enough for someone to recognise their own bill.

@@ -1,7 +1,7 @@
 /**
  * The public record of what changed on the site and in its data.
  * Newest first. Every data refresh, correction and new section gets an
- * entry, this feeds /updates and the RSS feed, and it is the honest
+ * entry. This feeds /updates and the RSS feed, and it is the honest
  * version of a "blog": the site's news is the data's news.
  */
 

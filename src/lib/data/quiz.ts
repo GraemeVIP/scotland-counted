@@ -52,7 +52,7 @@ export const quiz: QuizQuestion[] = [
     answer: 2,
     headline: "3 in 4",
     reveal:
-      "Three in four. Poverty is mostly not about worklessness, it is about what is left after rent, childcare and bills. This is why 'get a job' is not an answer.",
+      "Three in four. Poverty is mostly not about worklessness. It is about what is left after rent, childcare and bills. This is why 'get a job' is not an answer.",
     href: "/solutions-to-poverty-in-scotland",
     hrefLabel: "See what would actually help",
   },

@@ -123,7 +123,7 @@ export default function WorkDoesNotPay({ className = "" }: { className?: string 
         <h3 className="h3 mb-3">Someone has already done this properly</h3>
         <p className="max-w-[62ch] text-[17px] leading-[1.6] text-[var(--ink-2)]">
           Loughborough University prices up what the public agrees a household needs for a decent
-          life, rent, food, energy, travel, a birthday present. Against that benchmark, full-time
+          life: rent, food, energy, travel, a birthday present. Against that benchmark, full-time
           work at the legal minimum falls short:
         </p>
         <div className="mt-6 space-y-3">

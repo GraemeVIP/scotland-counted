@@ -69,14 +69,14 @@ export const COUNCIL_SOURCES: CouncilSource[] = [
     publisher: "Improvement Service, on behalf of SOLACE and COSLA",
     independent: true,
     independenceNote:
-      "A single national methodology across every council, a council cannot quietly redefine its own measure. Over 100 indicators covering cost, performance and satisfaction.",
+      "A single national methodology across every council, so a council cannot quietly redefine its own measure. Over 100 indicators covering cost, performance and satisfaction.",
     cadence: "Annual; the 2024/25 data arrived in the 14th National Benchmarking Overview (2026)",
     coverage: "all-32",
     startUrl:
       "https://www.improvementservice.org.uk/products-and-services/data-intelligence-and-benchmarking/local-government-benchmarking-framework",
     feeds: ["outcomes"],
     whatToExtract:
-      "The like-for-like numbers people actually argue about: cost per bin collection, share of roads needing repair, cost per pupil, satisfaction scores, every council on the same ruler, so \"worst in Scotland\" is a fact rather than a feeling.",
+      "The like-for-like numbers people actually argue about: cost per bin collection, share of roads needing repair, cost per pupil, satisfaction scores. Every council on the same ruler, so \"worst in Scotland\" is a fact rather than a feeling.",
   },
   {
     id: "shr-engagement",

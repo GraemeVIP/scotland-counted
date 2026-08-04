@@ -55,7 +55,7 @@ export function meta({
   const url = `${site.url}${path === "/" ? "" : path}`;
   /**
    * Every page gets a share card. The opengraph-image file convention only
-   * covers the segment it sits in, it does not reach nested routes whose own
+   * covers the segment it sits in. It does not reach nested routes whose own
    * metadata defines openGraph, which left most of the site sharing as a bare
    * link. Defaulting here covers every page from one place.
    */
@@ -113,7 +113,7 @@ export function meta({
       description,
       /*
        * Without these a shared link renders a card with no byline and no way
-       * back to the account, a post can travel and leave nobody able to find
+       * back to the account. A post can travel and leave nobody able to find
        * who published it. Both are omitted entirely when no handle is set,
        * rather than emitted empty.
        */

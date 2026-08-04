@@ -152,7 +152,7 @@ const RULES: Rule[] = [
  * fragment of the division title, matched case-insensitively.
  *
  * Every entry was researched against a primary or official source before it
- * shipped, the source is named in the comment above each one. An entry here
+ * shipped. The source is named in the comment above each one. An entry here
  * is the site asserting what a law does, in its own voice, to people who will
  * not check, so nothing goes in from memory or inference.
  *
@@ -237,7 +237,7 @@ export const SUBSTANCE: Array<{ match: RegExp; what: string; example?: string }>
   // Source: Hansard 30 Jun 2026; SI ukdsi/2026/9780348283624.
   {
     match: /supply of machinery/i,
-    what: "Keeps the safety rules for machines, cranes, diggers, even lawnmowers, in line with the EU\u2019s new rules, so the same machines can keep being sold here and in Europe. Northern Ireland follows the EU rules directly under the Brexit deal.",
+    what: "Keeps the safety rules for machines (cranes, diggers, even lawnmowers) in line with the EU\u2019s new rules, so the same machines can keep being sold here and in Europe. Northern Ireland follows the EU rules directly under the Brexit deal.",
     example: "A digger that passes the new EU safety checks can still be sold in Scotland.",
   },
   // Source: legislation.gov.uk ukpga/2026/21; gov.uk education hub explainer.
@@ -285,8 +285,8 @@ export function plainResult(result: string): string {
   const noes = parseInt(m[2], 10);
   if (Number.isNaN(ayes) || Number.isNaN(noes)) return result;
   return ayes > noes
-    ? `Passed, ${ayes} votes to ${noes}`
-    : `Did not pass, ${ayes} votes to ${noes}`;
+    ? `Passed: ${ayes} votes to ${noes}`
+    : `Did not pass: ${ayes} votes to ${noes}`;
 }
 
 /** "Aye"/"For" → "Voted yes"; "No"/"Against" → "Voted no"; otherwise as-is. */

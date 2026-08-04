@@ -32,7 +32,7 @@ export const metadata = meta({
  * behind this and who pays for it. Answering it plainly is a trust signal
  * first. That it also tells people what the author does for a living is a
  * consequence of the answer being honest, and it only works while it stays
- * that way, the moment this page sells something, the impartiality the whole
+ * that way. The moment this page sells something, the impartiality the whole
  * site rests on is worth less than whatever it sold.
  */
 
@@ -41,7 +41,7 @@ export const metadata = meta({
  * wrong link on this particular list is the one error on the site that could
  * actually cost somebody something.
  *
- * advice.scot returns 403 to scripted requests, that is bot protection on a
+ * advice.scot returns 403 to scripted requests. That is bot protection on a
  * live site, not a broken address. Check it in a browser before concluding
  * otherwise.
  */
@@ -113,7 +113,7 @@ export default function Contact() {
             <div className="rounded-[var(--r-m)] border-l-[3px] border-[var(--warn)] bg-[var(--surface)] px-6 py-6">
               <p className="ui text-[15px] font-[750] mb-2">If you need help this week</p>
               <p className="text-[16px] leading-[1.6] text-[var(--ink-2)]">
-                Please do not wait for me. This site explains the figures, it cannot give
+                Please do not wait for me. This site explains the figures. It cannot give
                 benefits, debt or legal advice, and a reply in a few days is no use if something
                 is happening on Friday. The services below do this properly and they are free.
               </p>
@@ -175,7 +175,7 @@ export default function Contact() {
               {/*
                 Deliberately narrower than "this site has no opinions". It runs
                 a letter builder that asks MPs to back a higher minimum wage and
-                a page of costed options for change, that is a position, and
+                a page of costed options for change. That is a position, and
                 claiming otherwise hands anyone hostile an easy contradiction.
                 What is actually promised is the part that matters and can be
                 defended: the numbers are never bent, and it never tells anyone

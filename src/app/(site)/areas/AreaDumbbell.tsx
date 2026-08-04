@@ -18,7 +18,7 @@ export default function AreaDumbbell({
     <>
       <div className="md:hidden rounded-[var(--r-s)] bg-[var(--surface-2)] border border-[var(--rule)] p-5 text-[16px] leading-[1.55] text-[var(--ink-2)]">
         The full 32-area chart needs more room than a phone screen. Use the clear, tappable list
-        directly below instead, it contains the same figures.
+        directly below instead. It contains the same figures.
       </div>
       <div className="hidden md:block">
         <Dumbbell

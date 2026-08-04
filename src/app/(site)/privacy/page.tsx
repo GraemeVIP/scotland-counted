@@ -6,7 +6,7 @@ import { site } from "@/lib/site";
 /**
  * Written to describe what the code actually does, not what would be
  * convenient. If a form or a third-party call changes, this page changes with
- * it, a privacy policy that has drifted from the software is worse than none,
+ * it — a privacy policy that has drifted from the software is worse than none,
  * because it is a written statement that is no longer true.
  *
  * Which is why the analytics wording is derived rather than typed. This page
@@ -86,7 +86,7 @@ export default function Privacy() {
               },
               {
                 t: "Using the contact form",
-                b: "Your email address so a reply can reach you, your message, and the subject you picked. There is also a name box, which is optional, leave it blank and nothing is collected from it.",
+                b: "Your email address so a reply can reach you, your message, and the subject you picked. There is also a name box, which is optional — leave it blank and nothing is collected from it.",
               },
               {
                 t: "Entering a postcode",
@@ -130,7 +130,7 @@ export default function Privacy() {
                     "Your device, browser and screen size.",
                     ...(CLARITY_ON
                       ? [
-                          "Clarity also records how the page is used, scrolling, clicks and mouse movement, so layout problems can be spotted. Text you type is masked and is not part of that recording.",
+                          "Clarity also records how the page is used — scrolling, clicks and mouse movement — so layout problems can be spotted. Text you type is masked and is not part of that recording.",
                         ]
                       : []),
                   ].map((line) => (
@@ -171,7 +171,7 @@ export default function Privacy() {
                   )}
                   <li>
                     Use any content blocker. Nothing on this site breaks when these are
-                    blocked, every page, the letter builder and the postcode lookup all work
+                    blocked — every page, the letter builder and the postcode lookup all work
                     exactly the same.
                   </li>
                 </ul>

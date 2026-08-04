@@ -67,12 +67,12 @@ export const terms: Term[] = [
     id: "le",
     term: "Life expectancy at birth",
     def: "How long a baby born now would live if today's death rates lasted its whole life. It summarises the population's health, not what will happen to one person.",
-    tech: "Figures are averaged over three years at a time to reduce year-to-year noise. A period life expectancy of 73.6 does not mean today's babies will die at 73.6, it means death rates in those years were equivalent to that.",
+    tech: "Figures are averaged over three years at a time to reduce year-to-year noise. A period life expectancy of 73.6 does not mean today's babies will die at 73.6. It means death rates in those years were equivalent to that.",
   },
   {
     id: "median",
     term: "Median",
-    def: "The middle figure. Line everyone up by wage and the median is the person standing in the middle, half earn more, half earn less.",
+    def: "The middle figure. Line everyone up by wage and the median is the person standing in the middle: half earn more, half earn less.",
     tech: "Preferred to the average for incomes, because a small number of very high earners drag an average upward and make it unrepresentative of a typical household.",
   },
   {
@@ -199,7 +199,7 @@ export const terms: Term[] = [
     id: "reserved",
     term: "Reserved",
     def: "Reserved means Westminster decides. Devolved means Holyrood decides. Most benefits are reserved; the Scottish Child Payment, housing and childcare are devolved.",
-    tech: "The split is set out in the Scotland Acts. It matters here because the largest levers on child poverty, Universal Credit, the two-child limit and Local Housing Allowance, sit with Westminster, while the legal duty to cut child poverty sits with Holyrood. Responsibility and power are not held by the same body.",
+    tech: "The split is set out in the Scotland Acts. It matters here because the largest levers on child poverty (Universal Credit, the two-child limit and Local Housing Allowance) sit with Westminster, while the legal duty to cut child poverty sits with Holyrood. Responsibility and power are not held by the same body.",
   },
   {
     id: "devolved",
@@ -751,7 +751,7 @@ export const terms: Term[] = [
     id: "arrested",
     term: "Arrested",
     def: "Detained by police as a suspect for investigation or questioning. It does not mean the person was charged or found guilty.",
-    tech: "The later outcome, release, charge, prosecution or no further action, must always be stated.",
+    tech: "The later outcome (release, charge, prosecution or no further action) must always be stated.",
   },
   {
     id: "charged",

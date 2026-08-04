@@ -337,7 +337,7 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
                     technical={[
                       "The series excludes every part-time job, self-employment, employees outside PAYE, junior rates and people whose pay was affected by absence. It counts employee jobs rather than necessarily counting unique people.",
                       "Gross weekly pay can include overtime, bonuses, shift premiums and allowances. The estimate relates to one April pay period in each year.",
-                      "Cash terms, not adjusted for inflation, compare the two lines within a year, not along them. Residence basis means selected jobs held by people living in the area, wherever those jobs are based.",
+                      "Cash terms, not adjusted for inflation. Compare the two lines within a year, not along them. Residence basis means selected jobs held by people living in the area, wherever those jobs are based.",
                     ]}
                   >
                     <LineChart

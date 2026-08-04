@@ -87,7 +87,7 @@ export default function Post() {
 
       <P>
         You will usually get a reply, though it can take a few weeks. It might be a standard letter
-        rather than a personal one, that is normal and it does not mean it was ignored.
+        rather than a personal one. That is normal and it does not mean it was ignored.
       </P>
 
       <P>

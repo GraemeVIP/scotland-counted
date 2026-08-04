@@ -33,7 +33,7 @@ export type RepresentativeRole = "MP" | "MSP";
 /**
  * The area a letter argues from. Council pages and MP-area pages publish
  * different geographies, so a letter quotes whichever one the reader is
- * looking at, that is the figure they can check on the page in front of them.
+ * looking at. That is the figure they can check on the page in front of them.
  */
 export type LetterArea = {
   name: string;

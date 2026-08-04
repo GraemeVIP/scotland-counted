@@ -6,7 +6,7 @@ import { site } from "@/lib/site";
 
 /**
  * The contact form. One form, a reason selector instead of a published
- * email address, the reason shapes the subject line so messages arrive
+ * email address: the reason shapes the subject line so messages arrive
  * pre-sorted. Submissions go to Web3Forms, which forwards them to the
  * site owner's inbox; nothing is stored on the site.
  */
@@ -38,7 +38,7 @@ const REASONS = [
     id: "using",
     label: "I want to use this in my work",
     subject: "Using the site",
-    hint: "Charity, school, union, community group, council team, say what you are doing and what would make it easier.",
+    hint: "Charity, school, union, community group, council team. Say what you are doing and what would make it easier.",
   },
   {
     id: "error",
@@ -62,7 +62,7 @@ const REASONS = [
     id: "idea",
     label: "Suggest an improvement",
     subject: "Suggestion",
-    hint: "Missing measure, confusing chart, broken link, all of it useful.",
+    hint: "Missing measure, confusing chart, broken link. All of it useful.",
   },
   {
     id: "other",

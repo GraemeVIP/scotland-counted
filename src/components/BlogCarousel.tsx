@@ -200,7 +200,7 @@ export default function BlogCarousel({ posts }: { posts: Post[] }) {
                   /*
                    * No per-card scale or dimming. Both were tied to the single
                    * "active" index, which is meaningless when two or three
-                   * cards are on screen, it dimmed cards the reader was
+                   * cards are on screen: it dimmed cards the reader was
                    * plainly looking at, and re-animated every card on every
                    * scroll. The hover lift carries the life instead.
                    */

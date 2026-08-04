@@ -30,7 +30,7 @@ export const minimumWage = {
  * also powers the public calculator. It used to be worked out here from a
  * second copy of the Scottish bands, with National Insurance taken on the
  * weekly threshold (£242) rather than the annual one (£12,570). Those two
- * bases do not reconcile, £242 × 52 is £12,584, so the same wage came out
+ * bases do not reconcile (£242 × 52 is £12,584), so the same wage came out
  * £1.12 apart depending on which page you read. One engine, one answer.
  */
 export const minimumWageTakeHome = (() => {

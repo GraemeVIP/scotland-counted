@@ -42,7 +42,7 @@ const BASE_FAQ = [
   },
   {
     q: "What months are free of council tax?",
-    a: "Most Scottish councils spread the bill over 10 instalments from April to January, so February and March have no payment. That is not a discount, the same total is collected in ten payments rather than twelve. You can usually ask your council to spread it over 12 months instead, which makes each payment smaller.",
+    a: "Most Scottish councils spread the bill over 10 instalments from April to January, so February and March have no payment. That is not a discount. The same total is collected in ten payments rather than twelve. You can usually ask your council to spread it over 12 months instead, which makes each payment smaller.",
   },
   {
     q: "How is council tax calculated?",

@@ -112,7 +112,7 @@ export default async function ConstituencyPage(props: { params: Promise<{ slug: 
             </p>
             <p>
               One MP speaks for this area in the UK Parliament, in London. They help decide
-              benefits and help with rent. <strong>I already know who they are</strong>, you can
+              benefits and help with rent. <strong>I already know who they are</strong>. You can
               send them an email from this page without entering anything.
             </p>
             <p>

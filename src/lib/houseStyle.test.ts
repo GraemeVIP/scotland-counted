@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { readdirSync, readFileSync, statSync } from "node:fs";
+import { readdirSync, readFileSync, statSync, existsSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -36,12 +36,29 @@ function sourceFiles(dir: string, found: string[] = []): string[] {
 }
 
 /**
- * This file is excluded from its own scan. It has to name the character it
- * bans in order to search for it, and a test that fails on itself teaches
- * everyone to ignore it.
+ * Files exempt from the rule, each for a stated reason.
+ *
+ * This file, because it has to name the character it bans in order to search
+ * for it, and a test that fails on itself teaches everyone to ignore it.
+ *
+ * The privacy page, because it is out of scope by instruction. A repository
+ * wide sweep changed four dashes in its body copy and those changes were
+ * reverted: a privacy policy is a written statement about what software does,
+ * and an unrelated task has no business editing one, even its punctuation.
+ * Two of the four replacements were comma splices as well.
  */
-const SELF = fileURLToPath(import.meta.url);
-const FILES = sourceFiles(ROOT).filter((file) => file !== SELF);
+const EXEMPT = [
+  fileURLToPath(import.meta.url),
+  join(ROOT, "src", "app", "(site)", "privacy", "page.tsx"),
+];
+
+// Every exempt path must exist. A typo would silently exempt nothing, and the
+// first version of this list did exactly that by omitting the src segment.
+for (const path of EXEMPT) {
+  if (!existsSync(path)) throw new Error(`exempt path does not exist: ${path}`);
+}
+
+const FILES = sourceFiles(ROOT).filter((file) => !EXEMPT.includes(file));
 
 /**
  * The character, and every way of writing it that a browser renders as one.

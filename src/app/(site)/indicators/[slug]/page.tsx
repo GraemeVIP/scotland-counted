@@ -326,7 +326,7 @@ export default async function IndicatorPage(props: PageProps<"/indicators/[slug]
               />
             }
             technical={[
-              "This is life expectancy at birth, averaged over three years at a time to smooth out random variation. It is not a prediction about any individual, it describes death rates in the population over those years, applied to a hypothetical newborn.",
+              "This is life expectancy at birth, averaged over three years at a time to smooth out random variation. It is not a prediction about any individual. It describes death rates in the population over those years, applied to a hypothetical newborn.",
               "More recent ONS releases put Glasgow male life expectancy at 74.3 years for 2022–24, still the lowest or second-lowest in Great Britain. That release uses a different vintage of population estimates, so it is quoted here rather than spliced onto the chart.",
             ]}
           >
@@ -379,7 +379,7 @@ export default async function IndicatorPage(props: PageProps<"/indicators/[slug]
             <p>
               But read it carefully. This is a <em>league table</em>, not a headcount. Glasgow can
               move up it because Glasgow got better, or because other places got worse, or both.
-              And even after the improvement, {d.stillIn20pct.pct}% of the city, {" "}
+              And even after the improvement, {d.stillIn20pct.pct}% of the city,{" "}
               {d.stillIn20pct.people.toLocaleString("en-GB")} people, still live in
               Scotland&apos;s worst-off fifth.
             </p>

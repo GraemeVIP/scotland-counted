@@ -78,7 +78,7 @@ test("every council gets three headline numbers, none of them blank", () => {
     const cards = headlineCards(record);
     assert.equal(cards.length, 3, record.councilSlug);
     for (const card of cards) {
-      assert.notEqual(card.value, ", ", `${record.councilSlug}: ${card.label} is an em dash`);
+      assert.notEqual(card.value, "\u2014", `${record.councilSlug}: ${card.label} is an em dash`);
       assert.ok(card.body.length > 20, `${record.councilSlug}: ${card.label} has no body`);
     }
   }

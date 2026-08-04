@@ -5,7 +5,7 @@ import { ExplainText } from "@/components/Glossary";
  * The third tier, which the site cannot look up for you.
  *
  * MPs and MSPs resolve from a postcode through official APIs. Councillors do
- * not, there is no national register with a lookup, so every one of the 32
+ * not. There is no national register with a lookup, so every one of the 32
  * councils publishes its own list its own way. Rather than pretend, this
  * explains how to find them and what they are actually for.
  *

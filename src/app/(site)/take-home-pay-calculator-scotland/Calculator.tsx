@@ -514,7 +514,7 @@ export default function Calculator() {
             </p>
           ) : unreachable ? (
             <p className="mt-4 text-[19px] leading-[1.5] opacity-90 max-w-[42ch]">
-              That take-home is not reachable with these pension settings, the pension swallows the
+              That take-home is not reachable with these pension settings. The pension swallows the
               extra pay.
             </p>
           ) : (
