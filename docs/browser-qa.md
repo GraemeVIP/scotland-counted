@@ -12,7 +12,7 @@ npm run test:e2e
 That builds the site, starts a production server on port 3311 and drives it in
 Chromium and WebKit. `npm run test:e2e:a11y` runs the axe sweep alone.
 
-Everything else in this repository is checked without a browser: types, 112
+Everything else in this repository is checked without a browser: types, 126
 unit tests, a proxy check over real sockets, an indexability crawl of all 410
 sitemap URLs. None of that can tell you whether the mobile menu moves focus,
 whether a calculator can be filled in from the keyboard, or whether a page
