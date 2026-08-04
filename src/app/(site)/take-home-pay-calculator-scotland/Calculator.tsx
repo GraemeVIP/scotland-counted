@@ -17,7 +17,7 @@ import {
 /**
  * The take-home pay calculator.
  *
- * The maths is entirely in @/lib/tax/engine — the same module the site's own
+ * The maths is entirely in @/lib/tax/engine, the same module the site's own
  * minimum-wage figures come from, and the one covered by `npm test`. This file
  * only collects input and shows the answer.
  *
@@ -87,7 +87,7 @@ export default function Calculator() {
    * A shared link carries the whole calculation. Reading it through
    * useSearchParams rather than in an effect means the values are available on
    * the first render, so a shared link shows its answer immediately instead of
-   * flashing an empty form — and there is no server/client mismatch to hydrate
+   * flashing an empty form, and there is no server/client mismatch to hydrate
    * around. It is why this component sits inside a Suspense boundary.
    */
   const q = useSearchParams();
@@ -181,7 +181,7 @@ export default function Calculator() {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {
-      /* Clipboard blocked — the URL bar still holds the same link. */
+      /* Clipboard blocked, the URL bar still holds the same link. */
     }
   }
 
@@ -509,12 +509,12 @@ export default function Calculator() {
 
           {!hasInput ? (
             <p className="mt-4 text-[19px] leading-[1.5] opacity-80 max-w-[38ch]">
-              Put your pay in on the left and this fills in — before tax or after, whichever you
+              Put your pay in on the left and this fills in, before tax or after, whichever you
               know.
             </p>
           ) : unreachable ? (
             <p className="mt-4 text-[19px] leading-[1.5] opacity-90 max-w-[42ch]">
-              That take-home is not reachable with these pension settings — the pension swallows the
+              That take-home is not reachable with these pension settings, the pension swallows the
               extra pay.
             </p>
           ) : (
@@ -642,7 +642,7 @@ export default function Calculator() {
               </summary>
               <div className="border-t border-[var(--rule)] px-6 py-5">
                 <p className="ui text-[15px] font-[700] mb-3">
-                  Income tax — {scotland ? "Scottish" : "UK"} rates, {TAX_DATA.taxYear}
+                  Income tax, {scotland ? "Scottish" : "UK"} rates, {TAX_DATA.taxYear}
                 </p>
                 {calc.tax.allowance > 0 && (
                   <p className="text-[15px] leading-[1.55] text-[var(--ink-2)] mb-3">
@@ -657,7 +657,7 @@ export default function Calculator() {
                       className="ui flex flex-wrap items-baseline justify-between gap-x-4 border-b border-[var(--rule)] pb-2 text-[15px] last:border-0"
                     >
                       <span className="text-[var(--ink-2)]">
-                        {b.name} — {gbp(b.amount)} at {(b.rate * 100).toFixed(0)}%
+                        {b.name}, {gbp(b.amount)} at {(b.rate * 100).toFixed(0)}%
                       </span>
                       <span className="tnum font-[700]">{gbp(b.tax, 2)}</span>
                     </li>
@@ -689,7 +689,7 @@ export default function Calculator() {
                           className="ui flex justify-between text-[15px] text-[var(--ink-2)]"
                         >
                           <span>
-                            {r.name} — {(r.rate * 100).toFixed(0)}% over {gbp(r.threshold)}
+                            {r.name}, {(r.rate * 100).toFixed(0)}% over {gbp(r.threshold)}
                           </span>
                           <span className="tnum font-[700]">{gbp(r.amount, 2)}</span>
                         </li>

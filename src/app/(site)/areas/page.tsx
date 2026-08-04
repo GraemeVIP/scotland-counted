@@ -118,8 +118,8 @@ export default function Areas() {
           </p>
           <h2 className="h2 mb-4">Why nearby places can look very different</h2>
           <p>
-            The three areas with the lowest child poverty — {byLevel[31].name},{" "}
-            {byLevel[30].name} and {byLevel[29].name} — are places where many people travel to
+            The three areas with the lowest child poverty, {byLevel[31].name},{" "}
+            {byLevel[30].name} and {byLevel[29].name}, are places where many people travel to
             better-paid jobs elsewhere. Two border Glasgow.
           </p>
           <p>

@@ -78,7 +78,7 @@ test("every council gets three headline numbers, none of them blank", () => {
     const cards = headlineCards(record);
     assert.equal(cards.length, 3, record.councilSlug);
     for (const card of cards) {
-      assert.notEqual(card.value, "—", `${record.councilSlug}: ${card.label} is an em dash`);
+      assert.notEqual(card.value, ", ", `${record.councilSlug}: ${card.label} is an em dash`);
       assert.ok(card.body.length > 20, `${record.councilSlug}: ${card.label} has no body`);
     }
   }
@@ -94,7 +94,7 @@ test("the surplus council is not described as needing more money", () => {
 
 /**
  * Words a tabloid reader should not have to decode. The site is written for
- * someone who reads at around age 8 to 10 — "shortfall" shipped in the budget
+ * someone who reads at around age 8 to 10, "shortfall" shipped in the budget
  * explainer and had to be pulled, so the list is enforced rather than
  * remembered. Code identifiers are stripped before the check, so `hasSurplus`
  * and `items-baseline` are fine; only words a reader would see count.
@@ -112,7 +112,7 @@ function assertPlain(where: string, text: string) {
     assert.equal(
       found,
       null,
-      `${where}: "${found?.[0]}" is too hard for this site's reader — ${text
+      `${where}: "${found?.[0]}" is too hard for this site's reader, ${text
         .slice(Math.max(0, (found?.index ?? 0) - 40), (found?.index ?? 0) + 60)
         .replace(/\s+/g, " ")}`,
     );
@@ -207,7 +207,7 @@ test("the council components avoid the same words in their visible copy", () => 
     for (const [, node] of stripped.matchAll(/>([^<>{}]+)</g)) {
       if (isProse(node)) visible.push(node);
     }
-    assert.ok(visible.length > 3, `${file}: extracted ${visible.length} strings — the matcher is broken`);
+    assert.ok(visible.length > 3, `${file}: extracted ${visible.length} strings, the matcher is broken`);
     assertPlain(file, visible.join(" • "));
   }
 });
@@ -215,7 +215,7 @@ test("the council components avoid the same words in their visible copy", () => 
 test("every number in a council summary traces to sourced material", () => {
   // The summaries lead with the strongest finding, which means they carry the
   // numbers a reader is most likely to repeat. Each one must already appear in
-  // the record's own sourced fields or in the national benchmarking file —
+  // the record's own sourced fields or in the national benchmarking file, 
   // a lede is a place to put the evidence first, not to introduce new claims.
   const asNumbers = /£?\d[\d,]*(?:\.\d+)?%?/g;
   const strip = (s: string) => s.replace(/[£,%]/g, "");

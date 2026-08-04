@@ -2,13 +2,13 @@
  * GENERATED from the Local Government Benchmarking Framework data file.
  *
  * Source zip: improvementservice.org.uk __data/assets/file/0019/75052/LGBF_data_31-07-2026-1.zip
- * Publisher: Improvement Service (for SOLACE and COSLA) — one national
+ * Publisher: Improvement Service (for SOLACE and COSLA), one national
  * methodology across all 32 councils, so every comparison here is
  * like-for-like. Table: LGBF_Data_Table_Real.csv (real terms).
  * Retrieved 3 August 2026.
  *
  * Every value is copied from that file and every rank is computed from the
- * same file — nothing typed in by hand. Share-type indicators arrive as
+ * same file, nothing typed in by hand. Share-type indicators arrive as
  * fractions and are converted to percentages on generation; the generator
  * asserts each result lands inside a plausible real-world range, so a units
  * mistake fails the build of the data rather than shipping. Roads use

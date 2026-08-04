@@ -9,7 +9,7 @@ import { ExplainText } from "@/components/Glossary";
  * Guess the figure, then see the real one.
  *
  * The shock is the gap between the guess and the truth, so the answer is only
- * revealed after a commitment — showing the number first would waste it. One
+ * revealed after a commitment, showing the number first would waste it. One
  * question at a time, three big tap targets, and the real figure lands large.
  *
  * Wrong answers are never scolded. The whole point is that almost nobody knows

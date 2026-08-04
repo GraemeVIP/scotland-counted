@@ -18,7 +18,7 @@ import { councilAccountabilityRecords } from "@/lib/data/councilAccountability";
  * The command palette: every page on the site reachable in two
  * keystrokes. Cmd/Ctrl-K or the header search button opens it; typing
  * filters councils, constituencies, indicators, glossary terms and the
- * core pages. Everything is local data — no request leaves the page.
+ * core pages. Everything is local data, no request leaves the page.
  */
 
 type Item = {
@@ -189,7 +189,7 @@ function buildRegistry(): Item[] {
     /*
      * Everything below was missing, which meant search could not find most of
      * the site's writing. The blog alone is 23 pages, and the council tax
-     * cluster is 40 — between them the largest body of content here, and none
+     * cluster is 40, between them the largest body of content here, and none
      * of it was reachable from the search box.
      */
     ...posts.map((p) => ({
@@ -234,7 +234,7 @@ function normalise(s: string) {
   return s
     .toLowerCase()
     // Apostrophes close up rather than splitting, so "Scotland's" becomes
-    // "scotlands" — which is what people type. Turning it into "scotland s"
+    // "scotlands", which is what people type. Turning it into "scotland s"
     // would match neither spelling.
     .replace(/['’]/g, "")
     .replace(/[^a-z0-9]+/g, " ")
@@ -248,7 +248,7 @@ function score(item: Item, q: string): number {
   if (label.split(" ").some((w) => w.startsWith(q))) return 3;
   if (label.includes(q)) return 2;
   if (hay.includes(q)) return 1;
-  // Every word typed appears somewhere — "glasgow tax", "band c edinburgh".
+  // Every word typed appears somewhere, "glasgow tax", "band c edinburgh".
   const words = q.split(" ").filter(Boolean);
   if (words.length > 1 && words.every((w) => hay.includes(w))) return 1;
   return 0;

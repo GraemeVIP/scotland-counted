@@ -2,7 +2,7 @@
  * The three numbers that head every council page.
  *
  * These have to work for all 32 councils, not just the ones with a rich
- * record. The old headline read "Goals missed: —" for any council whose
+ * record. The old headline read "Goals missed:, " for any council whose
  * record has no service outcomes yet, which wasted the most prominent slot on
  * the page and told the reader nothing.
  *
@@ -46,7 +46,7 @@ export type BenchmarkTally = {
   worse: number;
   /** Measures where it is better. */
   better: number;
-  /** Measures that carry a score at all — excludes "depends" indicators. */
+  /** Measures that carry a score at all, excludes "depends" indicators. */
   scored: number;
 };
 
@@ -149,7 +149,7 @@ export function headlineCards(record: CouncilAccountabilityRecord): HeadlineCard
   const shortName = record.councilName.replace(/ Council$/, "");
 
   const surplus = gap !== undefined && gap < 0;
-  const moneyValue = gap === undefined ? "—" : `£${Math.abs(gap).toLocaleString("en-GB")}m`;
+  const moneyValue = gap === undefined ? ", " : `£${Math.abs(gap).toLocaleString("en-GB")}m`;
 
   return [
     {
@@ -165,7 +165,7 @@ export function headlineCards(record: CouncilAccountabilityRecord): HeadlineCard
     },
     {
       label: "Worse than the Scotland average",
-      value: tally.scored > 0 ? `${tally.worse} of ${tally.scored}` : "—",
+      value: tally.scored > 0 ? `${tally.worse} of ${tally.scored}` : ", ",
       sub: tally.scored > 0 ? "measures compared" : "no measures compared yet",
       body:
         tally.scored > 0

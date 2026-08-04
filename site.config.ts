@@ -25,7 +25,7 @@ export const site = {
   author: {
     name: "Graeme",
     role: "Founder, Strathmark Consulting",
-    /** CHANGE ME — used in the byline and structured data. */
+    /** CHANGE ME, used in the byline and structured data. */
     url: "https://strathmarkconsulting.com",
   },
 
@@ -34,11 +34,11 @@ export const site = {
     url: "https://strathmarkconsulting.com",
   },
 
-  /** CHANGE ME — shown on the about page and used for corrections. */
+  /** CHANGE ME, shown on the about page and used for corrections. */
   contactEmail: "hello@strathmarkconsulting.com",
 
   /**
-   * Handles only, no @ and no URL — the code adds both.
+   * Handles only, no @ and no URL, the code adds both.
    *
    * The X handle does more than add a footer link: it becomes twitter:site and
    * twitter:creator, so a shared link renders a card attributed to the account
@@ -55,7 +55,7 @@ export const site = {
   },
 
   /**
-   * The Count — the email list. Create a free access key at
+   * The Count, the email list. Create a free access key at
    * web3forms.com (submissions arrive in your inbox), paste it here
    * and redeploy: every sign-up form on the site goes live. While it
    * is empty the forms stay hidden, so nothing broken ever ships.
@@ -64,7 +64,7 @@ export const site = {
 
   /**
    * Analytics. Every field is off until you paste an ID in, and each one is
-   * independent — filling in one does not switch on the others.
+   * independent, filling in one does not switch on the others.
    *
    * Two things happen automatically when you do fill them in. The
    * Content-Security-Policy in next.config.ts opens up only the hosts that
@@ -74,7 +74,7 @@ export const site = {
    *
    * These load without a consent banner, which is a decision taken with the
    * PECR position understood. If that changes, gate <Analytics /> rather than
-   * blanking these — blanking them also removes the disclosure.
+   * blanking these, blanking them also removes the disclosure.
    */
   analytics: {
     /** GA4 measurement ID, looks like G-XXXXXXXXXX. */
@@ -83,7 +83,7 @@ export const site = {
     clarity: "xvpsd85ara",
     /**
      * Search Console: the content="…" value from the HTML-tag method, not the
-     * whole tag. Verification only — it sets no cookie and collects nothing.
+     * whole tag. Verification only, it sets no cookie and collects nothing.
      */
     googleSiteVerification: "",
   },
@@ -93,7 +93,7 @@ export const site = {
 
   /**
    * The same refresh as an ISO date. This is the one source of truth for every
-   * machine-readable date on the site — sitemap lastmod and the dateModified in
+   * machine-readable date on the site, sitemap lastmod and the dateModified in
    * article structured data both read it, so they can never drift apart or fall
    * back to "whenever this happened to build". Update it with dataUpdated.
    */

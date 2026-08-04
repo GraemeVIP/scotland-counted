@@ -50,7 +50,7 @@ const councilName = (slug: string) =>
 /**
  * Measures where a newer official series has overtaken the benchmarking file.
  *
- * The council pages can still show these — every figure there carries its year
+ * The council pages can still show these, every figure there carries its year
  * and sits in a table of the same vintage. A press line cannot. "Collects less
  * than any other council" is a present-tense claim, and if a reporter lifts it
  * and the council answers with a fresher official number, the damage lands on
@@ -90,11 +90,11 @@ export function worstInScotlandLines(): string[] {
 export function nationalCouncilLines(): string[] {
   const councilTax = BRIDGING_ACTIONS[0];
   return [
-    `${NATIONAL.councilsWithGap} of Scotland's ${NATIONAL.councilsTotal} councils identified a budget gap when setting their 2026/27 budgets, totalling ${NATIONAL.gapTotal} — ${NATIONAL.gapShare} of their combined General Fund revenue budgets. Only ${NATIONAL.surplusCouncil} reported a surplus (${AUDIT}).`,
+    `${NATIONAL.councilsWithGap} of Scotland's ${NATIONAL.councilsTotal} councils identified a budget gap when setting their 2026/27 budgets, totalling ${NATIONAL.gapTotal}, ${NATIONAL.gapShare} of their combined General Fund revenue budgets. Only ${NATIONAL.surplusCouncil} reported a surplus (${AUDIT}).`,
     `Councils identified that gap despite Scottish Government revenue funding for 2026/27 being ${NATIONAL.revenueChange} in real terms, and the gap has stayed at around the same share of budgets for ${NATIONAL.gapYears} years (${AUDIT}).`,
-    `Increasing council tax was the single largest measure councils used to close their 2026/27 budget gaps, raising ${councilTax.amount} — more than the ${BRIDGING_ACTIONS[1].amount} they expected from savings that recur each year (${AUDIT}).`,
+    `Increasing council tax was the single largest measure councils used to close their 2026/27 budget gaps, raising ${councilTax.amount}, more than the ${BRIDGING_ACTIONS[1].amount} they expected from savings that recur each year (${AUDIT}).`,
     `Every Scottish council raised council tax for 2026/27, by an average of ${COUNCIL_TAX.averageIncrease} and ranging from ${COUNCIL_TAX.lowestIncrease.value} in ${COUNCIL_TAX.lowestIncrease.council} to ${COUNCIL_TAX.highestIncrease.value} in ${COUNCIL_TAX.highestIncrease.council}. It was the second consecutive year of increases, ${COUNCIL_TAX.twoYearAverage} cumulatively (${AUDIT}).`,
-    `The local government grant is distributed on need — population, pupil numbers, deprivation and road length — using indicators the Scottish Parliament's own research service describes as "outside of the control of Local Authorities". Past spending is not the basis for allocation, so a council that underspends does not receive less the following year (SPICe briefing SB-1860).`,
+    `The local government grant is distributed on need, population, pupil numbers, deprivation and road length, using indicators the Scottish Parliament's own research service describes as "outside of the control of Local Authorities". Past spending is not the basis for allocation, so a council that underspends does not receive less the following year (SPICe briefing SB-1860).`,
   ];
 }
 

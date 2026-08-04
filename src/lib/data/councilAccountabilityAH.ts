@@ -451,7 +451,7 @@ export const additionalCouncilAccountabilityRecords: CouncilAccountabilityRecord
     audit: {
       id: "audit-bv-east-ayrshire-2018",
       title: "Best Value Assurance Report: East Ayrshire Council",
-      plainTitle: "The last review found improving services — but it is from 2018",
+      plainTitle: "The last review found improving services, but it is from 2018",
       url: "https://audit.scot/publications/best-value-assurance-report-east-ayrshire-council",
       reportDate: "2018-05-29",
       severity: "observation",

@@ -51,7 +51,7 @@ const FAQ = [
   },
   {
     q: "Can I work out the salary I need for a certain take-home?",
-    a: "Yes. Choose 'Know your take-home? Work backwards', enter the amount you need per month or per year, and the calculator solves for the gross salary that produces it — including any pension and student loan you have set.",
+    a: "Yes. Choose 'Know your take-home? Work backwards', enter the amount you need per month or per year, and the calculator solves for the gross salary that produces it, including any pension and student loan you have set.",
   },
   {
     q: "Does it handle student loans and pensions?",
@@ -153,7 +153,7 @@ export default function TakeHomePayCalculator() {
             <Link href="/indicators/glasgow-full-time-pay">
               See what is left of it after rent, council tax, energy and food
             </Link>{" "}
-            — and why the average Glasgow pay figure you may have seen is not what a typical worker
+, and why the average Glasgow pay figure you may have seen is not what a typical worker
             earns.
           </p>
         </ContentFrame>
@@ -188,7 +188,7 @@ export default function TakeHomePayCalculator() {
           </div>
           <p className="mt-6 max-w-[70ch] text-[15px] leading-[1.6] text-[var(--muted)]">
             The tax maths behind this page is a single tested module, and it is the same one that
-            produces the take-home figures quoted elsewhere on this site — so the calculator and the
+            produces the take-home figures quoted elsewhere on this site, so the calculator and the
             written pages can never disagree.
           </p>
         </ContentFrame>

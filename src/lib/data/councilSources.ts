@@ -3,14 +3,14 @@
  *
  * The rule this registry enforces: evidence about a council comes from bodies
  * OUTSIDE the council. Councils publish their own performance reports, and
- * the site's owner does not trust self-marking — reasonably, since a council
+ * the site's owner does not trust self-marking, reasonably, since a council
  * report card written by the council is the exact pattern this site exists to
  * replace. Self-published papers are used only for what a council PROMISED
  * (budgets it set, targets it adopted), never as proof of how things went.
  * The going-badly evidence must come from the independent tier below.
  *
- * Every source here was verified live on 3 August 2026 — named documents
- * fetched or found for named councils — before being written down. Nothing in
+ * Every source here was verified live on 3 August 2026, named documents
+ * fetched or found for named councils, before being written down. Nothing in
  * this file is aspirational.
  */
 
@@ -69,14 +69,14 @@ export const COUNCIL_SOURCES: CouncilSource[] = [
     publisher: "Improvement Service, on behalf of SOLACE and COSLA",
     independent: true,
     independenceNote:
-      "A single national methodology across every council — a council cannot quietly redefine its own measure. Over 100 indicators covering cost, performance and satisfaction.",
+      "A single national methodology across every council, a council cannot quietly redefine its own measure. Over 100 indicators covering cost, performance and satisfaction.",
     cadence: "Annual; the 2024/25 data arrived in the 14th National Benchmarking Overview (2026)",
     coverage: "all-32",
     startUrl:
       "https://www.improvementservice.org.uk/products-and-services/data-intelligence-and-benchmarking/local-government-benchmarking-framework",
     feeds: ["outcomes"],
     whatToExtract:
-      "The like-for-like numbers people actually argue about: cost per bin collection, share of roads needing repair, cost per pupil, satisfaction scores — every council on the same ruler, so \"worst in Scotland\" is a fact rather than a feeling.",
+      "The like-for-like numbers people actually argue about: cost per bin collection, share of roads needing repair, cost per pupil, satisfaction scores, every council on the same ruler, so \"worst in Scotland\" is a fact rather than a feeling.",
   },
   {
     id: "shr-engagement",
@@ -102,8 +102,8 @@ export const COUNCIL_SOURCES: CouncilSource[] = [
  *   1. Pull the latest annual audit report; lift funding gap, savings
  *      delivered vs promised, reserves movement and open recommendations into
  *      budgetFigures / auditFindings, each with the report as its source.
- *   2. Add the council's own budget papers ONLY for commitments — what they
- *      said they would do — never as evidence of how it went.
+ *   2. Add the council's own budget papers ONLY for commitments, what they
+ *      said they would do, never as evidence of how it went.
  *   3. Take the comparable LGBF indicators for outcomes, so every record can
  *      say where the council sits against the other 31.
  *   4. Check the housing regulator page for engagement findings.

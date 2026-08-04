@@ -2,13 +2,13 @@
  * Plain-English explainers for parliamentary votes.
  *
  * Division titles arrive from the official record reading like legal
- * paperwork — "Draft Supply of Machinery (Safety) (Amendment etc.) and the EU
+ * paperwork, "Draft Supply of Machinery (Safety) (Amendment etc.) and the EU
  * Machinery Regulation (Enforcement etc. in Northern Ireland) Regulations
  * 2026". Nobody this site is written for can tell from that whether their MP
  * did something that matters. The site's founder could not either, which is
  * the whole problem in one sentence.
  *
- * What CAN be explained safely, forever, is the kind of vote — what a second
+ * What CAN be explained safely, forever, is the kind of vote, what a second
  * reading is, what an amendment vote decides, what voting yes meant in that
  * kind of division. That is parliamentary procedure: it does not change from
  * bill to bill, so a pattern match on the title cannot go stale and cannot
@@ -90,7 +90,7 @@ const RULES: Rule[] = [
     explain: {
       kind: "An opposition debate",
       plain:
-        "A debate day picked by the opposition parties. This vote does not change any law by itself — but it puts every MP on the record about the issue.",
+        "A debate day picked by the opposition parties. This vote does not change any law by itself, but it puts every MP on the record about the issue.",
     },
   },
   {
@@ -98,7 +98,7 @@ const RULES: Rule[] = [
     explain: {
       kind: "A vote about debate time",
       plain:
-        "A vote about how much time MPs get to debate a law — not about the law itself.",
+        "A vote about how much time MPs get to debate a law, not about the law itself.",
     },
   },
   {
@@ -111,7 +111,7 @@ const RULES: Rule[] = [
   {
     /*
      * Statutory instruments: "Draft … Regulations / Order / Rules / Code of
-     * Practice". Detailed rules made under a law Parliament already passed —
+     * Practice". Detailed rules made under a law Parliament already passed, 
      * the single most common and least understood kind of division.
      */
     pattern: /^draft .*(regulations|order|rules|code of practice)/i,
@@ -152,12 +152,12 @@ const RULES: Rule[] = [
  * fragment of the division title, matched case-insensitively.
  *
  * Every entry was researched against a primary or official source before it
- * shipped — the source is named in the comment above each one. An entry here
+ * shipped, the source is named in the comment above each one. An entry here
  * is the site asserting what a law does, in its own voice, to people who will
  * not check, so nothing goes in from memory or inference.
  *
  * `example` is the picture-it line: where a person would actually feel this,
- * or — just as useful — a plain note that it only applies in England while
+ * or, just as useful, a plain note that it only applies in England while
  * their Scottish MP voted on it anyway.
  *
  * Maintenance: the vote feed refreshes over time, so new divisions will
@@ -184,7 +184,7 @@ export const SUBSTANCE: Array<{ match: RegExp; what: string; example?: string }>
     match: /public office \(accountability\) bill/i,
     what: "Known as the Hillsborough Law. It makes public officials legally bound to tell the truth and help investigations after disasters and scandals, with real penalties for cover-ups. Bereaved families get their legal costs covered, like the authorities they face.",
     example:
-      "After a disaster like Hillsborough or Grenfell, officials could not lawfully close ranks — and families would not face the state\u2019s lawyers alone.",
+      "After a disaster like Hillsborough or Grenfell, officials could not lawfully close ranks, and families would not face the state\u2019s lawyers alone.",
   },
   // Source: Commons Library CBP-10896; Lords Library LLN-2026-0030.
   {
@@ -205,12 +205,12 @@ export const SUBSTANCE: Array<{ match: RegExp; what: string; example?: string }>
     match: /early release of prisoners/i,
     what: "The Conservatives asked MPs to demand that people convicted of sexual offences be kept out of the new early-release rules for prisoners, brought in because prisons are full.",
     example:
-      "Those rules cover England and Wales — Scottish prisons follow separate Scottish rules. Your MP voted on it anyway.",
+      "Those rules cover England and Wales, Scottish prisons follow separate Scottish rules. Your MP voted on it anyway.",
   },
   // Source: legislation.gov.uk ukdsi/2026/9780348284584; gov.uk draft Code of Practice.
   {
     match: /permissible means of voting|electronic and workplace ballots/i,
-    what: "Lets union members vote online, at their workplace, or by post in union ballots — including strike votes, which used to be post-only.",
+    what: "Lets union members vote online, at their workplace, or by post in union ballots, including strike votes, which used to be post-only.",
     example:
       "A nurse voting on strike action could do it on her phone instead of waiting for a form in the post.",
   },
@@ -219,7 +219,7 @@ export const SUBSTANCE: Array<{ match: RegExp; what: string; example?: string }>
     match: /employment tribunal/i,
     what: "Part of a package giving workers six months instead of three to start an employment tribunal claim.",
     example:
-      "If you are sacked unfairly, you get twice as long to bring a case — which matters when you are still reeling or hunting for a new job first.",
+      "If you are sacked unfairly, you get twice as long to bring a case, which matters when you are still reeling or hunting for a new job first.",
   },
   // Source: legislation.gov.uk ukdsi/2026/9780348282269 explanatory memorandum.
   {
@@ -232,12 +232,12 @@ export const SUBSTANCE: Array<{ match: RegExp; what: string; example?: string }>
     match: /discharge of local planning authority functions/i,
     what: "Makes councils in England hand more planning decisions to their staff instead of elected councillors, to speed up building.",
     example:
-      "This one is about England — planning in Scotland runs under Scottish law. Your MP still voted on it.",
+      "This one is about England, planning in Scotland runs under Scottish law. Your MP still voted on it.",
   },
   // Source: Hansard 30 Jun 2026; SI ukdsi/2026/9780348283624.
   {
     match: /supply of machinery/i,
-    what: "Keeps the safety rules for machines — cranes, diggers, even lawnmowers — in line with the EU\u2019s new rules, so the same machines can keep being sold here and in Europe. Northern Ireland follows the EU rules directly under the Brexit deal.",
+    what: "Keeps the safety rules for machines, cranes, diggers, even lawnmowers, in line with the EU\u2019s new rules, so the same machines can keep being sold here and in Europe. Northern Ireland follows the EU rules directly under the Brexit deal.",
     example: "A digger that passes the new EU safety checks can still be sold in Scotland.",
   },
   // Source: legislation.gov.uk ukpga/2026/21; gov.uk education hub explainer.
@@ -245,7 +245,7 @@ export const SUBSTANCE: Array<{ match: RegExp; what: string; example?: string }>
     match: /children.?s wellbeing and schools act/i,
     what: "Tidy-up rules for a new schools law in England. New schools there no longer have to be academies, and councils get more say over them.",
     example:
-      "Schools in Scotland are not affected — education is run from Holyrood. Your MP still voted on it.",
+      "Schools in Scotland are not affected, education is run from Holyrood. Your MP still voted on it.",
   },
   // Source: votes.parliament.uk division 2355; Commons Library CBP-10818.
   {
@@ -275,7 +275,7 @@ export function voteSubstance(title: string): { what: string; example?: string }
  * "330 Ayes, 199 Noes" (and similar) → "Passed, 330 votes to 199".
  *
  * The official phrasing tells a reader nothing unless they already know an
- * Aye is a yes. When the string does not parse, it is returned unchanged —
+ * Aye is a yes. When the string does not parse, it is returned unchanged, 
  * a raw official record beats a wrong translation.
  */
 export function plainResult(result: string): string {
@@ -286,7 +286,7 @@ export function plainResult(result: string): string {
   if (Number.isNaN(ayes) || Number.isNaN(noes)) return result;
   return ayes > noes
     ? `Passed, ${ayes} votes to ${noes}`
-    : `Did not pass — ${ayes} votes to ${noes}`;
+    : `Did not pass, ${ayes} votes to ${noes}`;
 }
 
 /** "Aye"/"For" → "Voted yes"; "No"/"Against" → "Voted no"; otherwise as-is. */

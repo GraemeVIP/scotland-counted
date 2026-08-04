@@ -8,7 +8,7 @@ import { ExplainText } from "@/components/Glossary";
  *
  * The site asks people to write to their MP about specific things. Showing the
  * record of how that MP already voted on those things is what turns a request
- * into accountability — it is the difference between correspondence and a
+ * into accountability, it is the difference between correspondence and a
  * ledger.
  *
  * Two rules hold this together. We say what each vote was on and what each
@@ -132,7 +132,7 @@ export default function VotingRecord({
                   {side === "Absent" && (
                     <p className="text-[15.5px] leading-[1.55] text-[var(--muted)] mt-3 max-w-[58ch]">
                       Their vote was not recorded. MPs miss votes for all sorts of ordinary
-                      reasons, so this is not the same as voting against — it only means they were
+                      reasons, so this is not the same as voting against, it only means they were
                       not counted that day.
                     </p>
                   )}
@@ -165,7 +165,7 @@ export default function VotingRecord({
                       <span className="font-[740] text-[var(--ink)]">
                         {division.ayes} to {division.noes}
                       </span>{" "}
-                      across the whole Commons — it {carried ? "passed" : "did not pass"}
+                      across the whole Commons, it {carried ? "passed" : "did not pass"}
                     </p>
                     <p className="ui text-[15px] text-[var(--ink-2)] tnum">
                       Scotland&apos;s 57 MPs:{" "}

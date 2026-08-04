@@ -1,7 +1,7 @@
 /**
  * The public record of what changed on the site and in its data.
  * Newest first. Every data refresh, correction and new section gets an
- * entry — this feeds /updates and the RSS feed, and it is the honest
+ * entry, this feeds /updates and the RSS feed, and it is the honest
  * version of a "blog": the site's news is the data's news.
  */
 
@@ -40,7 +40,7 @@ export const changelog: ChangeEntry[] = [
   {
     date: "2026-07-31",
     title: "The Count opens, and a contact form",
-    body: "The email list is live — one email when the data changes, nothing else. And a contact form replaces the published email address: report an error, make a press enquiry, request data, or suggest an improvement, pre-sorted by reason.",
+    body: "The email list is live, one email when the data changes, nothing else. And a contact form replaces the published email address: report an error, make a press enquiry, request data, or suggest an improvement, pre-sorted by reason.",
     href: "/contact",
     kind: "feature",
   },

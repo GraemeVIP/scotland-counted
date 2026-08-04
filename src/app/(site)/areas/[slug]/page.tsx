@@ -289,7 +289,7 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
                       head={["January", `${c.name} %`, "Scotland %"]}
                       rows={CC_YEARS.map((y, i) => [
                         y,
-                        cc[i]?.toFixed(1) ?? "—",
+                        cc[i]?.toFixed(1) ?? ", ",
                         (SCOTLAND_EXTRA.cc[i] as number).toFixed(1),
                       ])}
                     />
@@ -337,7 +337,7 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
                     technical={[
                       "The series excludes every part-time job, self-employment, employees outside PAYE, junior rates and people whose pay was affected by absence. It counts employee jobs rather than necessarily counting unique people.",
                       "Gross weekly pay can include overtime, bonuses, shift premiums and allowances. The estimate relates to one April pay period in each year.",
-                      "Cash terms, not adjusted for inflation — compare the two lines within a year, not along them. Residence basis means selected jobs held by people living in the area, wherever those jobs are based.",
+                      "Cash terms, not adjusted for inflation, compare the two lines within a year, not along them. Residence basis means selected jobs held by people living in the area, wherever those jobs are based.",
                     ]}
                   >
                     <LineChart
@@ -361,7 +361,7 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
                     <p className="text-[15px] text-[var(--ink-2)] leading-[1.6] max-w-[46ch]">
                       The ONS suppresses median pay for {c.name} in at least one year because the
                       survey sample is too small to publish safely. I show nothing rather than
-                      estimate — see <Link href="/methods">how I handle missing data</Link>.
+                      estimate, see <Link href="/methods">how I handle missing data</Link>.
                     </p>
                   </div>
                 )}

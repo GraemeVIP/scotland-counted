@@ -18,7 +18,7 @@ import {
  * single year, whatever it was given. People notice that and assume a fiddle.
  * This section does not tell them whether they are right. It shows them the
  * pattern, explains what a budget gap actually is, names who paid to close it,
- * and says plainly how the grant is worked out — including the part that
+ * and says plainly how the grant is worked out, including the part that
  * answers the obvious suspicion, which is that coming in on budget does not
  * cost a council its funding the next year.
  *
@@ -67,7 +67,7 @@ export default function BudgetGapExplainer({
           ) : hasSurplus ? (
             <>
               <strong className="text-[var(--ink)]">
-                {shortName} was the one that did not — it had {gapText} left over.
+                {shortName} was the one that did not, it had {gapText} left over.
               </strong>
             </>
           ) : null}

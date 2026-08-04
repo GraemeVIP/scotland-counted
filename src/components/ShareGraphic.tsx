@@ -13,7 +13,7 @@ import { infographic } from "@/lib/data/infographic";
  * layout, so on desktop it sits in one column beside the words rather than
  * being stretched to fill the row.
  *
- * The share button uses the native sheet where the browser has one — on a
+ * The share button uses the native sheet where the browser has one, on a
  * phone that is the whole path, straight into WhatsApp or Instagram. Where
  * there is no share sheet it falls back to copying the link, and the download
  * is always there regardless.
@@ -29,7 +29,7 @@ export default function ShareGraphic({ className = "" }: { className?: string })
         await navigator.share({ title: infographic.title, text: infographic.shareText, url });
         return;
       } catch {
-        /* Dismissed the sheet — fall through to copying. */
+        /* Dismissed the sheet, fall through to copying. */
       }
     }
     try {
@@ -48,7 +48,7 @@ export default function ShareGraphic({ className = "" }: { className?: string })
     >
       {/*
         Not a link. Tapping it used to open the raw file in a new tab, which
-        walks somebody off the site to look at a picture they can already see —
+        walks somebody off the site to look at a picture they can already see, 
         and leaves them on a bare image with no way back. Anyone who wants the
         file can long-press it, or use the download button next to it.
       */}
@@ -73,7 +73,7 @@ export default function ShareGraphic({ className = "" }: { className?: string })
         </h2>
         <p className="mt-5 max-w-[46ch] text-[17.5px] leading-[1.6] text-[var(--ink-2)]">
           Every figure on it is on this site with the organisation that published it. Three in four
-          children in poverty live with someone who works — that one fact changes the argument, and
+          children in poverty live with someone who works, that one fact changes the argument, and
           almost nobody knows it.
         </p>
 

@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
  * Fades content up as it scrolls into view.
  *
  * Anything already on screen at mount is shown immediately and never
- * animates — so the hero can never be caught mid-fade, and the page is
+ * animates, so the hero can never be caught mid-fade, and the page is
  * fully readable with JavaScript disabled.
  */
 export default function Reveal({

@@ -71,7 +71,7 @@ export default function Post() {
 
       <Aside title="One thing worth knowing">
         <p>
-          Because the line moves with what is normal, relative poverty can fall in a bad year — if
+          Because the line moves with what is normal, relative poverty can fall in a bad year, if
           everyone&apos;s income drops together, the line drops too. That is why serious reporting
           reads it alongside other measures, and why I show ten years rather than one.
         </p>
@@ -83,15 +83,15 @@ export default function Post() {
 
       <UL>
         <LI>
-          <strong><G t="relative-poverty">Relative poverty</G></strong> — falling a long way behind
+          <strong><G t="relative-poverty">Relative poverty</G></strong>, falling a long way behind
           what is normal today. This is the main headline measure.
         </LI>
         <LI>
-          <strong>Absolute poverty</strong> — measured against a line fixed at a past year and
+          <strong>Absolute poverty</strong>, measured against a line fixed at a past year and
           uprated for prices. It asks whether living standards themselves are improving.
         </LI>
         <LI>
-          <strong><G t="persistent">Persistent poverty</G></strong> — being in poverty for several
+          <strong><G t="persistent">Persistent poverty</G></strong>, being in poverty for several
           of the last few years. This is the one that does the most damage, because short spells
           can be recovered from and long ones cannot.
         </LI>
@@ -100,8 +100,8 @@ export default function Post() {
       <H2 id="where-scotland-stands">Where Scotland stands</H2>
 
       <P>
-        On the main measure, {scotlandPoverty.all.pct}% of people in Scotland —{" "}
-        {scotlandPoverty.all.count.toLocaleString("en-GB")} of them — were below that line in{" "}
+        On the main measure, {scotlandPoverty.all.pct}% of people in Scotland, {" "}
+        {scotlandPoverty.all.count.toLocaleString("en-GB")} of them, were below that line in{" "}
         {scotlandPoverty.period}. For children it is {scotlandPoverty.children.pct}%.
       </P>
 

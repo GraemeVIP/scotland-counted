@@ -28,7 +28,7 @@ export function generateStaticParams() {
 
 type Meta = { title: string; summary: string; sourceIds: string[] };
 
-/** The plain-English opening for each measure — short sentences, no jargon. */
+/** The plain-English opening for each measure, short sentences, no jargon. */
 const IN_SHORT: Record<string, string[]> = {
   "glasgow-child-poverty": [
     "More than 1 in 3 children in Glasgow are growing up poor. That is 39,319 children.",
@@ -69,12 +69,12 @@ const HEADER_STAT: Record<
   },
   "glasgow-employment-rate": {
     value: "71.2%",
-    label: "of working-age Glaswegians in work in 2023 — up from 62.7% in 2004",
+    label: "of working-age Glaswegians in work in 2023, up from 62.7% in 2004",
     tone: "good",
   },
   "glasgow-claimant-count": {
     value: "4.5%",
-    label: "claiming out-of-work benefits in January 2026 — down from 6.0% in 2000",
+    label: "claiming out-of-work benefits in January 2026, down from 6.0% in 2000",
     tone: "good",
   },
   "glasgow-full-time-pay": {
@@ -84,12 +84,12 @@ const HEADER_STAT: Record<
   },
   "glasgow-life-expectancy": {
     value: "73.6",
-    label: "years — male life expectancy at birth, the lowest of Scotland's 32 council areas",
+    label: "years, male life expectancy at birth, the lowest of Scotland's 32 council areas",
     tone: "bad",
   },
   "glasgow-deprivation": {
     value: "29%",
-    label: "of Glaswegians in Scotland's worst-off tenth of neighbourhoods — down from 46% in 2004",
+    label: "of Glaswegians in Scotland's worst-off tenth of neighbourhoods, down from 46% in 2004",
     tone: "good",
   },
 };
@@ -105,7 +105,7 @@ function lookup(slug: string): Meta | null {
 /**
  * An indicator's title and summary are written to work as the page's headline
  * and opening line. A search result wants different things from the same two
- * fields — a title that survives truncation, and a description of about 150
+ * fields, a title that survives truncation, and a description of about 150
  * characters that reads as a standalone answer. Where the two genuinely pull
  * apart, the search version lives here and the page keeps its own words.
  */
@@ -169,7 +169,7 @@ function SourceList({ ids }: { ids: string[] }) {
             >
               {s.title}
             </a>
-            <span className="text-[var(--muted)]"> — {s.publisher}</span>
+            <span className="text-[var(--muted)]">, {s.publisher}</span>
             <br />
                 <ExplainText>{s.used}</ExplainText>
             {s.derivation && (
@@ -263,7 +263,7 @@ export default async function IndicatorPage(props: PageProps<"/indicators/[slug]
           <Col className="pt-9">
             <p>
               Between 2001 and 2012, Glasgow men gained more than four years of life. Then it
-              stopped. Since 2012 the line is flat for men and slightly falling for women — the
+              stopped. Since 2012 the line is flat for men and slightly falling for women, the
               same stall seen across Scotland, arriving alongside a decade of cuts to working-age
               benefits.
             </p>
@@ -283,7 +283,7 @@ export default async function IndicatorPage(props: PageProps<"/indicators/[slug]
               <Figure
                 key={p.title}
                 n={p.title === "Men" ? 1 : 2}
-                title={`${p.title} — life expectancy at birth`}
+                title={`${p.title}, life expectancy at birth`}
                 sub="Years · 2001–03 to 2017–19 · ONS"
                 legend={[
                   { name: "Glasgow", colorVar: "--glasgow" },
@@ -326,7 +326,7 @@ export default async function IndicatorPage(props: PageProps<"/indicators/[slug]
               />
             }
             technical={[
-              "This is life expectancy at birth, averaged over three years at a time to smooth out random variation. It is not a prediction about any individual — it describes death rates in the population over those years, applied to a hypothetical newborn.",
+              "This is life expectancy at birth, averaged over three years at a time to smooth out random variation. It is not a prediction about any individual, it describes death rates in the population over those years, applied to a hypothetical newborn.",
               "More recent ONS releases put Glasgow male life expectancy at 74.3 years for 2022–24, still the lowest or second-lowest in Great Britain. That release uses a different vintage of population estimates, so it is quoted here rather than spliced onto the chart.",
             ]}
           >
@@ -374,13 +374,13 @@ export default async function IndicatorPage(props: PageProps<"/indicators/[slug]
             <p>
               Scotland ranks every small neighbourhood in the country from worst-off to best-off.
               In 2004, 46% of Glaswegians lived in the worst-off tenth. By 2020 that was down to
-              29% — about 185,000 people. That is a genuine improvement, and a big one.
+              29%, about 185,000 people. That is a genuine improvement, and a big one.
             </p>
             <p>
               But read it carefully. This is a <em>league table</em>, not a headcount. Glasgow can
               move up it because Glasgow got better, or because other places got worse, or both.
-              And even after the improvement, {d.stillIn20pct.pct}% of the city —{" "}
-              {d.stillIn20pct.people.toLocaleString("en-GB")} people — still live in
+              And even after the improvement, {d.stillIn20pct.pct}% of the city, {" "}
+              {d.stillIn20pct.people.toLocaleString("en-GB")} people, still live in
               Scotland&apos;s worst-off fifth.
             </p>
           </Col>
@@ -518,7 +518,7 @@ export default async function IndicatorPage(props: PageProps<"/indicators/[slug]
             <h2 className="h2 mb-4">Where Glasgow sits</h2>
             <p>
               Glasgow&apos;s 9.0 percentage point rise is the largest of Scotland&apos;s 32 council
-              areas — more than double the next steepest. It also has the highest rate.{" "}
+              areas, more than double the next steepest. It also has the highest rate.{" "}
               <Link href="/areas">See every council area ranked</Link>.
             </p>
           </Col>
@@ -526,7 +526,7 @@ export default async function IndicatorPage(props: PageProps<"/indicators/[slug]
 
         {isPay && (
           <Col className="pt-10">
-            <h2 className="h2 mb-4">What this chart can — and cannot — tell us</h2>
+            <h2 className="h2 mb-4">What this chart can, and cannot, tell us</h2>
             <p>
               It compares ONS pay estimates for selected full-time employee jobs by workplace and
               by where the job holder lives. It cannot tell us what the average Glasgow worker

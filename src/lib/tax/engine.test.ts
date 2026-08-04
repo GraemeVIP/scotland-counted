@@ -3,7 +3,7 @@
  *
  * Ported unchanged from the standalone calculator so the port can be proved not
  * to have altered the maths, plus a block at the end pinning the figures this
- * site publishes editorially — if a rate change moves the minimum-wage
+ * site publishes editorially, if a rate change moves the minimum-wage
  * take-home, these fail before the pages go out with a stale number.
  */
 
@@ -242,7 +242,7 @@ test("band amounts sum to income tax total", () => {
 /* ── The figures this site publishes ─────────────────────── */
 
 test("minimum wage take-home matches what the site states", () => {
-  // £12.71 × 37.5 hours × 52 weeks — the basis used across the site.
+  // £12.71 × 37.5 hours × 52 weeks, the basis used across the site.
   const gross = 12.71 * 37.5 * 52;
   near(gross, 24784.5);
   const r = calculate(gross, "scotland");

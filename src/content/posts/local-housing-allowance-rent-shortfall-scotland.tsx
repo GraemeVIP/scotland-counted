@@ -25,7 +25,7 @@ export default function Post() {
       <P>
         The 2026–27 Scottish rates are frozen at the cash levels set in January 2024. They were
         based on the cheaper end of the market at that time. Rent Service Scotland also publishes
-        newer 2025 evidence showing what the lower part of today’s market looks like — but that
+        newer 2025 evidence showing what the lower part of today’s market looks like, but that
         newer evidence was not used to raise the benefit caps.
       </P>
       <Aside title="The policy split matters">

@@ -6,7 +6,7 @@ import { CHILD_POVERTY_YEARS, GLASGOW_CHILD_COUNTS, getIndicator } from "@/lib/d
 
 /**
  * The decade, scrolled. A sticky panel: as the reader scrolls, the year
- * advances through the real series and the hundred figures light — and
+ * advances through the real series and the hundred figures light, and
  * dim, in 2020/21, because the data genuinely falls in the year benefits
  * were raised. The reader's own scrolling performs the argument.
  *
@@ -26,7 +26,7 @@ const CAPTIONS: { year: string; text: string }[] = [
   },
   {
     year: "2019/20",
-    text: "Five years of rising — and this is before the pandemic has even arrived.",
+    text: "Five years of rising, and this is before the pandemic has even arrived.",
   },
   {
     year: "2020/21",
@@ -48,7 +48,7 @@ export default function DecadeScroll() {
   const years = CHILD_POVERTY_YEARS;
   const last = years.length - 1;
 
-  /** SSR and no-JS render the end of the story — the current truth. */
+  /** SSR and no-JS render the end of the story, the current truth. */
   const [progress, setProgress] = useState(1);
 
   useEffect(() => {
@@ -101,7 +101,7 @@ export default function DecadeScroll() {
       </div>
 
       <div className="sticky top-0 h-screen bg-[var(--deep)] text-[var(--deep-ink)] overflow-hidden">
-        {/* A soft light behind the figures — warmth, not graph paper. */}
+        {/* A soft light behind the figures, warmth, not graph paper. */}
         <div
           aria-hidden="true"
           className="absolute inset-0 pointer-events-none"
@@ -116,7 +116,7 @@ export default function DecadeScroll() {
             {/* ---- Narration ---- */}
             <div className="order-2 lg:order-1">
               <p className="ui text-[15px] font-[600] opacity-65 mb-6">
-                The decade, in your hands — keep scrolling
+                The decade, in your hands, keep scrolling
               </p>
 
               <div className="flex items-baseline gap-5 mb-7">

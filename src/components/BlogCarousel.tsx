@@ -19,7 +19,7 @@ function fmtDate(iso: string) {
  *
  * The scroll position is the only source of truth. An earlier version kept a
  * React "active card" index, moved it on a button press, and also let an
- * IntersectionObserver write to it — so one press advanced the readout by two,
+ * IntersectionObserver write to it, so one press advanced the readout by two,
  * and three quick presses moved two cards instead of three, because each press
  * read an index the observer was still mutating mid-animation. Here the buttons
  * only ever scroll, and everything on screen is derived from where the track
@@ -200,7 +200,7 @@ export default function BlogCarousel({ posts }: { posts: Post[] }) {
                   /*
                    * No per-card scale or dimming. Both were tied to the single
                    * "active" index, which is meaningless when two or three
-                   * cards are on screen — it dimmed cards the reader was
+                   * cards are on screen, it dimmed cards the reader was
                    * plainly looking at, and re-animated every card on every
                    * scroll. The hover lift carries the life instead.
                    */
@@ -213,7 +213,7 @@ export default function BlogCarousel({ posts }: { posts: Post[] }) {
                    *
                    * The rail used to sit at 78vw everywhere, so a phone always
                    * showed a sliver of the next card down the right-hand edge.
-                   * A slice that thin does not read as "there is more" — it
+                   * A slice that thin does not read as "there is more", it
                    * reads as a card that has been cut off, and it pulled the
                    * one you were meant to be reading off centre. 100% here is
                    * the width of the track, so the card fills the screen on a
@@ -235,7 +235,7 @@ export default function BlogCarousel({ posts }: { posts: Post[] }) {
                       />
                       {/*
                         The scrim was 0.12 opaque at the halfway mark and clear
-                        above it — fine behind a two-line title, useless behind
+                        above it, fine behind a two-line title, useless behind
                         a four-line one, where the top lines sat on bare
                         photograph. It now holds opacity most of the way up, and
                         the title is capped at two lines so it cannot climb into
@@ -279,9 +279,9 @@ export default function BlogCarousel({ posts }: { posts: Post[] }) {
             There is deliberately no edge treatment here.
 
             This corner held a round, shadowed → glyph on a gradient wash. The
-            glyph was the worse half — pointer-events:none meant a click passed
+            glyph was the worse half, pointer-events:none meant a click passed
             through it to the headline underneath and opened whichever article
-            happened to be there — but the wash was not pulling its weight
+            happened to be there, but the wash was not pulling its weight
             either. A card cut off by the edge of the rail already says the rail
             continues; painting the page colour over that card only makes it
             look faded or broken, and costs a card its right-hand third.

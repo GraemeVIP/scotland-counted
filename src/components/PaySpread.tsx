@@ -12,7 +12,7 @@ import { ExplainText, G } from "@/components/Glossary";
  * A lone median invites a fair objection: that it looks nothing like what
  * people around you earn. It usually does not, because half of everyone is
  * below it and a median says nothing about the shape either side. Showing the
- * distribution answers that directly — a quarter of full-time Glasgow
+ * distribution answers that directly, a quarter of full-time Glasgow
  * residents earn under £30,000, which is exactly the band people recognise
  * from job adverts.
  *
@@ -94,7 +94,7 @@ export default function PaySpread({ className = "" }: { className?: string }) {
         </h3>
         <p className="mt-3.5 max-w-[60ch] text-[16.5px] leading-[1.6] opacity-85">
           The pay survey covers about 1% of jobs, so it is fair to ask why anyone should trust it.
-          HMRC publishes a separate figure taken from actual payroll records — not a sample, every
+          HMRC publishes a separate figure taken from actual payroll records, not a sample, every
           employee. The two agree once you account for the fact that they count different people.
         </p>
 

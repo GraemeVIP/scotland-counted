@@ -164,7 +164,7 @@ export default async function EmbedPage(props: { params: Promise<{ slug: string 
           rel="noopener"
           className="ui text-[15px] font-[640] text-[var(--brand)] hover:underline underline-offset-2"
         >
-          Scotland<span className="text-[var(--action)]">Counted</span> — the data behind this chart
+          Scotland<span className="text-[var(--action)]">Counted</span>, the data behind this chart
         </a>
         <span className="ui text-[15px] text-[var(--muted)]">Free to embed with this link</span>
       </p>

@@ -24,7 +24,7 @@ import Faq from "@/components/Faq";
  *   glasgow-city …    one council across all eight bands
  *
  * The council pages are the ones that matter. Searches pair a council with a
- * band — "council tax band a glasgow", "band e council tax glasgow" — far more
+ * band, "council tax band a glasgow", "band e council tax glasgow", far more
  * often than they ask about a band in the abstract, and each council page
  * carries its own eight figures, so none of it is a thin split of the parent.
  */
@@ -129,7 +129,7 @@ export default async function CouncilTaxSlugPage(props: { params: Promise<{ slug
       <ul className="max-w-[760px] space-y-2.5">
         {cited.map((s) => (
           <li key={s.id} className="text-[15.5px] leading-[1.55] text-[var(--ink-2)]">
-            <a href={s.url} target="_blank" rel="noopener noreferrer">{s.title}</a> — {s.publisher}
+            <a href={s.url} target="_blank" rel="noopener noreferrer">{s.title}</a>, {s.publisher}
           </li>
         ))}
       </ul>
@@ -178,7 +178,7 @@ export default async function CouncilTaxSlugPage(props: { params: Promise<{ slug
           <PageHeader
             eyebrow={`${placeName} · 2026/27 · bands A to H`}
             title={`${placeName} council tax bands 2026/27`}
-            lede={`Band D council tax rose by ${exact.format(d.councilTaxRise)} to ${exact.format(d.councilTax)} — ${percent.format(d.councilTaxRisePct)}%. The full Band D bill is ${pounds.format(d.total)} after Scottish Water's separate charges are added.`}
+            lede={`Band D council tax rose by ${exact.format(d.councilTaxRise)} to ${exact.format(d.councilTax)}, ${percent.format(d.councilTaxRisePct)}%. The full Band D bill is ${pounds.format(d.total)} after Scottish Water's separate charges are added.`}
           />
 
           <div className="mt-2 mb-9">
@@ -281,7 +281,7 @@ export default async function CouncilTaxSlugPage(props: { params: Promise<{ slug
   const faq = [
     {
       q: `How much is Band ${letter} council tax?`,
-      a: `It depends on the council. Across Scotland, Band ${letter} runs from ${pounds.format(cheapest.total)} a year in ${cheapest.name} to ${pounds.format(dearest.total)} in ${dearest.name}, water included — about ${exact.format(median.total / 12)} a month in a typical area.`,
+      a: `It depends on the council. Across Scotland, Band ${letter} runs from ${pounds.format(cheapest.total)} a year in ${cheapest.name} to ${pounds.format(dearest.total)} in ${dearest.name}, water included, about ${exact.format(median.total / 12)} a month in a typical area.`,
     },
     {
       q: `How much is Band ${letter} council tax a month?`,

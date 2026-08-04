@@ -159,7 +159,7 @@ export default async function BlogPost(props: { params: Promise<{ slug: string }
                     <a href={source.url} target="_blank" rel="noopener noreferrer" className="font-[700] text-[var(--ink)]">
                       {source.title}
                     </a>{" "}
-                    — {source.publisher}. {source.used}
+, {source.publisher}. {source.used}
                     {source.derivation && (
                       <span className="block mt-1 text-[15px] text-[var(--muted)]">
                         How I used it: {source.derivation}

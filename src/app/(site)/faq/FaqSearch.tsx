@@ -56,7 +56,7 @@ export default function FaqSearch() {
             What do you want to know?
           </label>
           <p className="mt-1 text-[15.5px] leading-[1.5] text-[var(--ink-2)]">
-            Use ordinary words — try “minimum wage”, “postcode”, “Glasgow” or “who controls benefits”.
+            Use ordinary words, try “minimum wage”, “postcode”, “Glasgow” or “who controls benefits”.
           </p>
 
           <div className="mt-5 flex min-h-14 items-center gap-3 rounded-[var(--r-s)] border-2 border-[var(--ink)] bg-[var(--paper)] px-4 focus-within:border-[var(--brand)]">

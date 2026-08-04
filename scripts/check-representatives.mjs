@@ -71,8 +71,8 @@ for (const { postcode, where } of POSTCODES) {
 console.log(`Checked ${BASE}\n`);
 for (const r of results) {
   const mark = r.ok ? "PASS" : "FAIL";
-  console.log(`  ${mark}  ${r.where.padEnd(10)} ${r.postcode.padEnd(9)} MP: ${r.mp ?? "—"}`);
-  console.log(`        ${" ".repeat(20)} Constituency MSP: ${r.msp ?? "—"}`);
+  console.log(`  ${mark}  ${r.where.padEnd(10)} ${r.postcode.padEnd(9)} MP: ${r.mp ?? ", "}`);
+  console.log(`        ${" ".repeat(20)} Constituency MSP: ${r.msp ?? ", "}`);
   console.log(
     `        ${" ".repeat(20)} Regional MSPs: ${r.regionalCount ?? 0}${r.region ? ` (${r.region})` : ""}${r.why ? `  (${r.why})` : ""}`
   );

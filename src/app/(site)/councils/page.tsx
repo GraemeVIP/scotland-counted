@@ -73,7 +73,7 @@ export default function CouncilsPage() {
 
           {/*
             The receipts, before any prose. Counted from the records themselves
-            so the figures can never drift from the pages they summarise — and
+            so the figures can never drift from the pages they summarise, and
             a card only renders when there is something to count.
           */}
           <section className="pt-12" aria-label="What the records show so far">
@@ -99,8 +99,8 @@ export default function CouncilsPage() {
 
           {/*
             The pattern people already half-notice, said out loud and sourced.
-            The full working — what a gap is, who paid, and how the grant is
-            actually decided — sits on every individual council page.
+            The full working, what a gap is, who paid, and how the grant is
+            actually decided, sits on every individual council page.
           */}
           <section className="pt-12" aria-label="Why councils say they need more money">
             <div className="rounded-[var(--r-m)] border border-[var(--action)] bg-[var(--action-tint)] p-6 sm:p-7">

@@ -85,13 +85,17 @@ test("each section highlights exactly one item", () => {
 });
 
 test("no navigation label or blurb uses an em dash", () => {
+  // Matched as \u2014 rather than the character. A sweep that stripped em
+  // dashes from prose rewrote this very assertion into a check for
+  // comma-space, which would have failed on any label containing a comma.
+  const EM_DASH = /\u2014/;
   for (const item of [...PRIMARY, ...SECTIONS.flatMap((s) => s.items), ...MENU_FOOTER_LINKS]) {
-    assert.doesNotMatch(item.label, /—/, `${item.href} label`);
-    if (item.blurb) assert.doesNotMatch(item.blurb, /—/, `${item.href} blurb`);
+    assert.doesNotMatch(item.label, EM_DASH, `${item.href} label`);
+    if (item.blurb) assert.doesNotMatch(item.blurb, EM_DASH, `${item.href} blurb`);
   }
   for (const section of SECTIONS) {
-    assert.doesNotMatch(section.title, /—/);
-    assert.doesNotMatch(section.intro, /—/);
+    assert.doesNotMatch(section.title, EM_DASH);
+    assert.doesNotMatch(section.intro, EM_DASH);
   }
 });
 

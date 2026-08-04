@@ -58,7 +58,7 @@ export function ScrollProgress() {
 }
 
 /**
- * The bare grid of figures — pure and controlled, no animation of its
+ * The bare grid of figures, pure and controlled, no animation of its
  * own. `lit` figures take litColor; the rest take dimColor.
  */
 export function PictoGrid({
@@ -100,7 +100,7 @@ export function PictoGrid({
           >
             {/* Head */}
             <circle cx={x} cy={y + 3} r={2.55} />
-            {/* Body: domed shoulders, softly squared base — reads cleanly at 10px */}
+            {/* Body: domed shoulders, softly squared base, reads cleanly at 10px */}
             <path
               d={`M${x - 3.15} ${y + 15.4}
                   V${y + 10.6}

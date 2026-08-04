@@ -46,7 +46,7 @@ export default function NotFound() {
         <h1 className="h1 max-w-[16ch] mb-5">This page does not exist</h1>
         <p className="lede max-w-[54ch]">
           The link was probably wrong, or the page has moved since it was shared. Nothing is broken
-          — here is where most people are trying to get to.
+, here is where most people are trying to get to.
         </p>
 
         <div className="mt-12 grid gap-4 sm:grid-cols-2">

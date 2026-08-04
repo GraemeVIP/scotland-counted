@@ -296,7 +296,7 @@ export const glasgowCityAccountability: CouncilAccountabilityRecord = {
     },
     {
       id: "senior-officer-payout-processes",
-      title: "Five senior officers received big leaving payments — the process fell short",
+      title: "Five senior officers received big leaving payments, the process fell short",
       reportDate: "2025-09-04",
       publisher: "Audit Scotland / Accounts Commission",
       severity: "observation",

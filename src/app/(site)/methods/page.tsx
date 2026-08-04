@@ -13,7 +13,7 @@ export const metadata = meta({
 const PRINCIPLES = [
   {
     title: "Go to the original source",
-    body: "Every figure comes from the organisation that published it — not a newspaper story repeating the number.",
+    body: "Every figure comes from the organisation that published it, not a newspaper story repeating the number.",
   },
   {
     title: "Say when I did the maths",

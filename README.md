@@ -20,8 +20,8 @@ Open `site.config.ts` and change these four things:
 
 | Field | Why |
 |---|---|
-| `url` | Canonical URLs, sitemap, Open Graph tags and JSON-LD all derive from it, and `src/proxy.ts` serves `noindex` on any host that is not this one. It must match the domain Vercel serves production from, exactly — a mismatch silently noindexes the whole site. Currently `scotlandcounted.org.uk`; `scotlandcounted.co.uk` redirects to it. |
-| `author.name` | Currently just "Graeme" — add your surname if you want the byline to carry it. |
+| `url` | Canonical URLs, sitemap, Open Graph tags and JSON-LD all derive from it, and `src/proxy.ts` serves `noindex` on any host that is not this one. It must match the domain Vercel serves production from, exactly, a mismatch silently noindexes the whole site. Currently `scotlandcounted.org.uk`; `scotlandcounted.co.uk` redirects to it. |
+| `author.name` | Currently just "Graeme", add your surname if you want the byline to carry it. |
 | `contactEmail` | Used on the about and corrections pages. |
 | `web3formsKey` | Optional. A free web3forms.com access key; pasting it turns on the email sign-up forms site-wide. |
 
@@ -46,13 +46,13 @@ database. Content pages are statically generated; the representative lookup is a
 no-storage route. It uses Postcodes.io for the submitted postcode and checked-in snapshots of
 official UK and Scottish Parliament data, with official APIs as a fallback.
 
-Once the permanent domain is attached, update `site.config.ts` with it and redeploy — otherwise
+Once the permanent domain is attached, update `site.config.ts` with it and redeploy, otherwise
 canonical tags and the sitemap will continue to point at the temporary Vercel address.
 
 ## After it is live
 
-1. **Google Search Console** — verify the domain and submit `/sitemap.xml`.
-2. **Bing Webmaster Tools** — verify the canonical domain, submit the sitemap and
+1. **Google Search Console**: verify the domain and submit `/sitemap.xml`.
+2. **Bing Webmaster Tools**: verify the canonical domain, submit the sitemap and
    follow the [Bing and IndexNow checklist](docs/bing-indexnow.md).
 3. Check the Open Graph card renders by pasting the URL into any social composer.
    The card is generated at `/opengraph-image`, and every council area has its own.
@@ -60,7 +60,7 @@ canonical tags and the sitemap will continue to point at the temporary Vercel ad
 ## How it is organised
 
 ```
-site.config.ts              identity, URL, contact — the only file most changes need
+site.config.ts              identity, URL, contact, the only file most changes need
 src/app/                    routes (App Router)
   page.tsx                    home
   glasgow-poverty-statistics/ six-measure Glasgow record
@@ -103,7 +103,7 @@ public/data/                the CSVs offered for download
 
 These are stated publicly on `/methods` and are worth keeping:
 
-1. Primary sources only — nothing cited from reporting of a statistic.
+1. Primary sources only, nothing cited from reporting of a statistic.
 2. Derived figures are labelled as derived, and validated against a published number
    where one exists.
 3. Unreliable data is shown dotted and shaded with the reason, not quietly dropped.

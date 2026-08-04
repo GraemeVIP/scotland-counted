@@ -55,7 +55,7 @@ export const snpMoneyTimelineSources: SnpTimelineSource[] = [
   },
   {
     id: "murrell-sentencing-judiciary",
-    title: "HMA v Peter Murrell — sentencing statement",
+    title: "HMA v Peter Murrell, sentencing statement",
     publisher: "Judiciary of Scotland",
     url: "https://www.judiciary.scot/home/sentences-judgments/sentences-and-opinions/2026/06/23/hma-v-peter-murrell",
     used:
@@ -63,21 +63,21 @@ export const snpMoneyTimelineSources: SnpTimelineSource[] = [
   },
   {
     id: "police-murrell-arrest-2023",
-    title: "SNP funding and finances — man arrested",
+    title: "SNP funding and finances, man arrested",
     publisher: "Police Scotland",
     url: "https://www.scotland.police.uk/what-s-happening/news/2023/april/investigation-into-scottish-national-party-funding-and-finances-man-arrested/",
     used: "The 5 April 2023 arrest and searches of addresses in Glasgow and Edinburgh.",
   },
   {
     id: "police-beattie-arrest-2023",
-    title: "SNP funding and finances — second man arrested",
+    title: "SNP funding and finances, second man arrested",
     publisher: "Police Scotland",
     url: "https://www.scotland.police.uk/what-s-happening/news/2023/april/investigation-into-scottish-national-party-funding-and-finances-man-arrested-1/",
     used: "Colin Beattie's 18 April 2023 arrest and release without charge pending further investigation.",
   },
   {
     id: "police-murrell-charge-2024",
-    title: "SNP finances — man charged",
+    title: "SNP finances, man charged",
     publisher: "Police Scotland",
     url: "https://www.scotland.police.uk/what-s-happening/news/2024/april/investigation-into-scottish-national-party-finances-man-charged/",
     used: "Murrell's 18 April 2024 rearrest and charge in connection with embezzlement of SNP funds.",
@@ -139,7 +139,7 @@ export const snpMoneyTimelineSources: SnpTimelineSource[] = [
   },
   {
     id: "ec-murrell-loan-foi",
-    title: "FOI 002-23 — report of SNP loan",
+    title: "FOI 002-23, report of SNP loan",
     publisher: "Electoral Commission",
     url: "https://www.electoralcommission.org.uk/sites/default/files/2023-02/FOI%20002-23%20-%20Response%20%28redacted%29.pdf",
     used:
@@ -245,7 +245,7 @@ export const snpMoneyTimelineSources: SnpTimelineSource[] = [
   },
   {
     id: "scotgov-branchform-case-updates",
-    title: "Lord Advocate case updates — released correspondence",
+    title: "Lord Advocate case updates, released correspondence",
     publisher: "Scottish Government",
     url: "https://www.gov.scot/binaries/content/documents/govscot/publications/foi-eir-release/2026/04-e/foi-202600507614/documents/foi-202600507614---information-released---documents-1---4/foi-202600507614---information-released---documents-1---4/govscot%3Adocument/FOI%2B202600507614%2B-%2BInformation%2BReleased%2B-%2BDocuments%2B1%2B-%2B4.pdf",
     used:
@@ -267,7 +267,7 @@ export const snpMoneyTimelineSources: SnpTimelineSource[] = [
   },
   {
     id: "scottish-parliament-review-motion-2026",
-    title: "Motion S7M-00294 — Peter Murrell prosecution",
+    title: "Motion S7M-00294, Peter Murrell prosecution",
     publisher: "Scottish Parliament",
     url: "https://www.parliament.scot/chamber-and-committees/votes-and-motions/S7M-00294",
     used:
@@ -290,7 +290,7 @@ export const snpMoneyTimelineSources: SnpTimelineSource[] = [
   },
   {
     id: "police-foi-court-orders-2026",
-    title: "FOI 26-1508 — Branchform court orders to the SNP",
+    title: "FOI 26-1508, Branchform court orders to the SNP",
     publisher: "Police Scotland",
     url: "https://www.scotland.police.uk/access-to-information/freedom-of-information/disclosure-log/disclosure-log-2026/july/26-1508-branchform-snp-court-orders-to-snp-re-financial-documents/",
     used:
@@ -298,7 +298,7 @@ export const snpMoneyTimelineSources: SnpTimelineSource[] = [
   },
   {
     id: "police-foi-advice-request-2026",
-    title: "FOI 26-1903 — Branchform advice and guidance submission",
+    title: "FOI 26-1903, Branchform advice and guidance submission",
     publisher: "Police Scotland",
     url: "https://www.scotland.police.uk/access-to-information/freedom-of-information/disclosure-log/disclosure-log-2026/july/26-1903-branchform-snp-timeline-advice-guidance-submission-reviews-copfs-report-communications-briefings/",
     used:
@@ -344,7 +344,7 @@ export const snpMoneyTimelineSources: SnpTimelineSource[] = [
   },
   {
     id: "parliament-indyref2-vote-2017",
-    title: "Meeting of the Parliament — 28 March 2017",
+    title: "Meeting of the Parliament, 28 March 2017",
     publisher: "Scottish Parliament",
     url: "https://www.parliament.scot/api/sitecore/CustomMedia/OfficialReport?meetingId=10869",
     used: "The 69–59 vote authorising the First Minister to seek a Section 30 order.",
@@ -434,14 +434,14 @@ export const snpMoneyTimelineSources: SnpTimelineSource[] = [
   },
   {
     id: "police-murrell-release-2023",
-    title: "SNP funding and finances — arrest update",
+    title: "SNP funding and finances, arrest update",
     publisher: "Police Scotland",
     url: "https://www.scotland.police.uk/what-s-happening/news/2023/april/investigation-into-scottish-national-party-funding-and-finances-update/",
     used: "Murrell's release without charge pending further investigation on 5 April 2023.",
   },
   {
     id: "police-sturgeon-arrest-2023",
-    title: "SNP funding and finances — 11 June update",
+    title: "SNP funding and finances, 11 June update",
     publisher: "Police Scotland",
     url: "https://www.scotland.police.uk/what-s-happening/news/2023/june/investigation-into-scottish-national-party-funding-and-finances-update/",
     used:
@@ -480,7 +480,7 @@ export const snpMoneyTimelineSources: SnpTimelineSource[] = [
   },
   {
     id: "parliament-snp-recovery-2026",
-    title: "Meeting of the Parliament — 11 June 2026",
+    title: "Meeting of the Parliament, 11 June 2026",
     publisher: "Scottish Parliament",
     url: "https://www.parliament.scot/chamber-and-committees/official-report/search-what-was-said-in-parliament/meeting-of-parliament-11-06-2026?iob=223793&meeting=20169",
     used:
@@ -1405,7 +1405,7 @@ export const snpMoneyTimelineEvents: SnpTimelineEvent[] = [
     summary:
       "At the High Court in Edinburgh, Murrell admitted embezzling £400,310.65 from the SNP between August 2010 and October 2022. He was remanded in custody for sentence.",
     explainer:
-      "This is the definitive criminal finding. Police never reported anyone for fraud, so describe the conviction as embezzlement—not fraud.",
+      "This is the definitive criminal finding. Police never reported anyone for fraud, so describe the conviction as embezzlement, not fraud.",
     sourceIds: ["police-murrell-conviction-2026", "branchform-copfs-briefing"],
   },
   {
@@ -1534,7 +1534,7 @@ export const snpMoneyTimelineEvents: SnpTimelineEvent[] = [
     summary:
       "Police confirmed that they had received a complaint alleging that just over £1.5 million in Yes Scotland income was unaccounted for. Yes Scotland denied money was missing and later provided its accounts to police.",
     explainer:
-      "This is separate from Operation Branchform. As at 2 August, police had not publicly named Sturgeon—or anyone else—as a suspect, and no wrongdoing had been established.",
+      "This is separate from Operation Branchform. As at 2 August, police had not publicly named Sturgeon, or anyone else, as a suspect, and no wrongdoing had been established.",
     sourceIds: [
       "stv-yes-scotland-complaint-2026",
       "independent-yes-scotland-accounts-2026",
@@ -1568,7 +1568,7 @@ export const snpMoneyTimelineEvents: SnpTimelineEvent[] = [
     summary:
       "Murrell is serving a five-year-three-month sentence. Sturgeon and Beattie were not charged and are no longer under investigation in Operation Branchform. Asset recovery, the Electoral Commission review and police inquiries into the separate Yes Scotland complaint remain unfinished.",
     explainer:
-      "This page will change when an official source changes that position—not simply when a new allegation or anonymous claim appears.",
+      "This page will change when an official source changes that position, not simply when a new allegation or anonymous claim appears.",
     sourceIds: [
       "murrell-sentencing-judiciary",
       "police-branchform-update-2025",

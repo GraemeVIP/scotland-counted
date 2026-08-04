@@ -6,7 +6,7 @@ import { ExplainText } from "@/components/Glossary";
  * Typographic primitives for blog posts.
  *
  * Posts are TSX rather than markdown so they can drop in the site's own
- * charts, glossary terms and callouts inline — the thing that makes an
+ * charts, glossary terms and callouts inline, the thing that makes an
  * explainer here different from an explainer anywhere else. These components
  * keep the prose consistent without needing an MDX toolchain.
  */

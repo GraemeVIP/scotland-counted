@@ -54,7 +54,7 @@ export function Col({ children, className = "" }: { children: ReactNode; classNa
  * Two-column: argument on the left, supporting material on the right.
  *
  * The aside used to sit in a narrow margin as a print-style sidenote, which
- * left it doing nothing on a phone — it simply dropped underneath. It now
+ * left it doing nothing on a phone, it simply dropped underneath. It now
  * takes a real share of the width so it reads as a second element rather than
  * a footnote, and the columns are closer in weight.
  */
@@ -179,7 +179,7 @@ export function DirectionChip({ direction }: { direction: Direction }) {
 
 /**
  * The plain-English opening every heavy page leads with. Short
- * sentences, no jargon, sans type — written for a reader who does not
+ * sentences, no jargon, sans type, written for a reader who does not
  * do charts. The footer of the same panel is the clearly-marked door
  * for the other audience, so both know where they are.
  */
@@ -371,7 +371,7 @@ export function StatStrip({
   );
 }
 
-/** A margin note beside the argument — a fact that supports the paragraph. */
+/** A margin note beside the argument, a fact that supports the paragraph. */
 export function Note({
   label,
   value,
@@ -452,8 +452,8 @@ export function CTA({
             row. As a fraction it kept growing with the viewport, so on a wide
             screen a panel holding two buttons and four words sprawled to twice
             the width it needed and the buttons sat in a lake of its own
-            background. 420px fits the longest label on the site — "Find mine
-            and write the emails" — on one line, with the text column taking
+            background. 420px fits the longest label on the site, "Find mine
+            and write the emails", on one line, with the text column taking
             whatever is left.
           */}
           <div className="grid gap-x-14 gap-y-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
@@ -465,7 +465,7 @@ export function CTA({
               The buttons stack and fill the card rather than sitting inline.
               Inline with flex-wrap, two labels of different lengths could not
               fit side by side in this column, so they wrapped to separate rows
-              at their own widths — a wide primary above a narrow secondary,
+              at their own widths, a wide primary above a narrow secondary,
               both ragged against a stripe of dead space. Matching widths make
               it read as one deliberate choice and its alternative, and give
               the card a straight right edge to sit on.

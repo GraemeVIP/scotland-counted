@@ -22,7 +22,7 @@ export default function AreaGrid({ className = "" }: { className?: string }) {
         The heading has to say what the number is. "Every council area in
         Scotland" told you what the list was but not what the percentage
         measured, and the shaded bar behind each tile was never explained at
-        all — the first thought was "ranked for what?". Both are now said
+        all, the first thought was "ranked for what?". Both are now said
         outright, above the grid, before anyone has to guess.
       */}
       <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.62fr)] lg:items-end mb-6">

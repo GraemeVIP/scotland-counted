@@ -4,7 +4,7 @@ import { useState } from "react";
 import { site } from "@/lib/site";
 
 /**
- * Sign-up for The Count — one email when the data changes.
+ * Sign-up for The Count, one email when the data changes.
  *
  * Wired for Web3Forms: the address is POSTed to api.web3forms.com,
  * which forwards it to the site owner's inbox. No key configured means
@@ -33,7 +33,7 @@ export default function NewsletterSignup({
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
           access_key: site.web3formsKey,
-          subject: "New subscriber — The Count",
+          subject: "New subscriber, The Count",
           from_name: site.name,
           email: email.trim(),
           botcheck: bot,
@@ -59,7 +59,7 @@ export default function NewsletterSignup({
         role="status"
       >
         <strong className={compact ? "" : "text-[var(--ink)]"}>You&apos;re on the list.</strong>{" "}
-        Expect one email when the data changes — a few times a year — and nothing else. Reply
+        Expect one email when the data changes, a few times a year, and nothing else. Reply
         &ldquo;stop&rdquo; to any of them to leave.
       </p>
     );
@@ -115,7 +115,7 @@ export default function NewsletterSignup({
         }
       >
         {state === "error"
-          ? "That didn't send — try again in a moment, or use the RSS feed instead."
+          ? "That didn't send, try again in a moment, or use the RSS feed instead."
           : "A few emails a year, when the figures update. Your address is forwarded to me by Web3Forms, used for nothing else, and never shared."}
       </p>
     </form>

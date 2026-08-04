@@ -1,7 +1,7 @@
 /**
  * Child poverty after housing costs for all 57 Scottish UK Parliament
  * constituencies (2024 boundaries), from the End Child Poverty /
- * Loughborough University dataset. These are Westminster seats — the
+ * Loughborough University dataset. These are Westminster seats, the
  * representative is an MP. rankLevel 1 = highest rate in Scotland.
  */
 

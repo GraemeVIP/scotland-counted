@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 /* ============================================================
-   SCOTLAND COUNTED — design system
+   SCOTLAND COUNTED, design system
 
    Direction: a modern civic product, not a printed report. Pure white
    and cool light greys as the ground, near-black slabs for drama,
    electric blue as the voice and hot coral for anything that asks the
    reader to act. A high-visibility signal yellow is reserved for
-   highlight bars — the marker-pen emphasis that makes a claim land.
+   highlight bars, the marker-pen emphasis that makes a claim land.
 
    Built for people in their twenties and thirties who do not follow
    politics, on a phone, at speed. High contrast, big shapes, heavy
@@ -18,25 +18,25 @@
 :root {
   color-scheme: light;
 
-  /* Grounds — cool, bright, app-like */
+  /* Grounds, cool, bright, app-like */
   --paper: #ffffff;
   --paper-2: #f4f6fb;
   --paper-3: #e8ecf5;
   --surface: #ffffff;
   --surface-2: #f8faff;
 
-  /* Near-black slabs — full-bleed bands, the footer, dramatic pauses */
+  /* Near-black slabs, full-bleed bands, the footer, dramatic pauses */
   --deep: #16203a;
   --deep-2: #1e2b4a;
   --deep-ink: #ffffff;
 
-  /* Ink — proper contrast, no brown */
+  /* Ink, proper contrast, no brown */
   --ink: #131926;
   --ink-2: #4d5666;
   --ink-3: #667085;
   /*
    * Was #667085, the same as --ink-3, at 4.97:1 on white. That scrapes past AA
-   * and still reads as thin — and it is doing real work in 111 places: chart
+   * and still reads as thin, and it is doing real work in 111 places: chart
    * captions, source notes, table headers, the line telling people where to
    * find their council tax band. Darkened to 6.33:1. Still a clear step below
    * --ink-2 (7.40:1) so the hierarchy holds, but no longer something you have
@@ -54,23 +54,23 @@
   --brand-wash: rgba(44, 92, 255, 0.08);
   --action: #ff5a3c;
   --action-hover: #e63e20;
-  /* Menu highlight. A wash, not a fill — the label on top of it must stay
+  /* Menu highlight. A wash, not a fill, the label on top of it must stay
      --ink, because --action on white is about 3:1 and these labels are
      15.5px, which needs 4.5:1. The colour comes from the tint and the dot,
      never from the text. */
   --action-tint: #fff1ed;
 
-  /* Emphasis wash — the marker-pen bar, in the brand blue. */
+  /* Emphasis wash, the marker-pen bar, in the brand blue. */
   --signal: rgba(44, 92, 255, 0.16);
   --signal-ink: #131926;
 
-  /* Data series — validated for colour-vision deficiency */
+  /* Data series, validated for colour-vision deficiency */
   --glasgow: #2c5cff;
   --scotland: #ff5a3c;
   --workplace: #00c48c;
   --glasgow-wash: rgba(44, 92, 255, 0.08);
 
-  /* Signal — restrained, never the brand */
+  /* Signal, restrained, never the brand */
   --good: #00a870;
   --warn: #f5a300;
   --bad: #e5484d;
@@ -81,7 +81,7 @@
    *
    * The colours above are tuned for bars, borders and big numbers, where they
    * only ever need the 3:1 that large text and graphics require. Used as small
-   * text they all fail WCAG AA on white — the amber worst of all, at 2.07:1,
+   * text they all fail WCAG AA on white, the amber worst of all, at 2.07:1,
    * which fails even the large-text threshold. Status pills, direction chips
    * and any other signal-coloured text below about 19px use these instead.
    */
@@ -101,7 +101,7 @@
 
   --ease: cubic-bezier(0.22, 0.68, 0.28, 1);
 
-  /* Radius scale. Bigger and softer than print — this should feel like
+  /* Radius scale. Bigger and softer than print, this should feel like
      something you tap, not something you read. */
   --r-s: 14px;
   --r-m: 20px;
@@ -111,7 +111,7 @@
 
 /* Light is the default, deliberately: the warm paper ground is the
    identity. Dark is available, but only when the reader asks for it
-   with the toggle — we do not follow the OS setting, because flipping
+   with the toggle, we do not follow the OS setting, because flipping
    a civic publication to near-black changes what it looks like it is. */
 
 :root[data-theme="dark"] {
@@ -218,7 +218,7 @@
     overflow-x: clip;
     /*
      * The header is sticky and 68px tall, so anything scrolled to lands
-     * underneath it — an anchor link, a jump to a question, a browser restoring
+     * underneath it, an anchor link, a jump to a question, a browser restoring
      * where you were. A handful of elements carried scroll-mt-24 as a per-case
      * patch, but most did not: on the home page, none of the ten id targets had
      * any offset at all.
@@ -267,7 +267,7 @@
    * Two lines, hard stop. A long headline over a photograph is only legible
    * where the scrim is dark, and the scrim can only be so tall before it
    * swallows the picture. Clamping the title is what keeps it inside the part
-   * of the image that is actually dark enough to read against — the four-line
+   * of the image that is actually dark enough to read against, the four-line
    * titles were climbing onto bare photograph.
    */
   .blog-carousel-title {
@@ -307,11 +307,11 @@
    * A link nobody can see is not a link.
    *
    * Underlines were only ever applied inside .prose, so an anchor in a caption,
-   * a panel or a source list rendered identical to the words around it — same
+   * a panel or a source list rendered identical to the words around it, same
    * colour, no underline, nothing but the cursor to give it away. That is a
    * WCAG 1.4.1 failure and it affected 95 distinct links, some on 57 pages.
    *
-   * Anchors that have been given a class have been given a look — buttons,
+   * Anchors that have been given a class have been given a look, buttons,
    * cards, nav items, all of which read as interactive from their shape. So the
    * rule targets only the ones carrying no styling of their own, and matches
    * what .prose already does, so the two are indistinguishable to a reader.
@@ -362,7 +362,7 @@
      Typography
      ============================================================ */
 
-  /* Small label. Sans, not mono — mono everywhere reads as a terminal. */
+  /* Small label. Sans, not mono, mono everywhere reads as a terminal. */
   .label {
     font-family: var(--font-sans);
     font-size: 15px;
@@ -672,7 +672,7 @@
   }
 
   /* ============================================================
-     Entrance choreography — the hero is above the fold, so it can
+     Entrance choreography, the hero is above the fold, so it can
      never rely on scroll to animate. It plays on load instead.
      ============================================================ */
 
@@ -688,8 +688,8 @@
   }
   /* Scoped to .anim on <html>, which the boot script adds only when
      motion is allowed and the page is actually visible, then removes
-     once the sequence is over. If the class never lands — reduced
-     motion, a background tab, a JS failure — the content is simply
+     once the sequence is over. If the class never lands, reduced
+     motion, a background tab, a JS failure, the content is simply
      visible. An entrance animation must never be able to hide a page. */
   .anim .rise {
     animation: riseIn 0.75s var(--ease) both;

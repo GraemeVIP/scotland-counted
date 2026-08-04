@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 /**
  * A sparkline for index cards: the whole series in miniature, drawing
  * itself in as the card scrolls into view. Decorative reinforcement of
- * the card text, so it is hidden from assistive tech — the real chart
+ * the card text, so it is hidden from assistive tech, the real chart
  * with a data table lives one click away.
  */
 export default function Spark({

@@ -1,5 +1,5 @@
 /**
- * How council budgets actually work — the national picture, one place.
+ * How council budgets actually work, the national picture, one place.
  *
  * This exists because of a pattern anyone can see but almost nobody has had
  * explained to them: no matter how much money a council gets, it announces
@@ -50,7 +50,7 @@ export const FUNDING_MIX = [
  * factors that are outside of the control of Local Authorities".
  *
  * The briefing is explicit that past spending is not the basis for allocation
- * — it is used only as a last resort where no client group can be identified,
+ *, it is used only as a last resort where no client group can be identified,
  * for small services such as coast protection. That matters, because it is
  * the answer to the obvious suspicion: a council that comes in on budget does
  * not have its grant cut the next year for having done so.
@@ -148,7 +148,7 @@ export const RESERVE_OUTLIERS = ["shetland-islands", "orkney-islands"] as const;
  * This is the one authoritative table for cross-council comparison. The
  * per-record budget figures in councilAccountability*.ts use three different
  * id schemes and store the gap as a magnitude, so they cannot be compared
- * safely — read the sign from here.
+ * safely, read the sign from here.
  */
 export const BUDGET_GAP_2026_27: Record<string, number> = {
   "east-dunbartonshire": 23.7,

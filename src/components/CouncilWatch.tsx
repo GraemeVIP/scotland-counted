@@ -9,7 +9,7 @@ import { site } from "@/lib/site";
  * is for, so it gets asked first and gets the loud block; this is the quieter
  * fallback for the much larger number of people who read, get annoyed, and
  * leave. Those readers arrive from a local news story about one council, so
- * the copy is about that council's next set of figures — not "subscribe to the
+ * the copy is about that council's next set of figures, not "subscribe to the
  * newsletter", which asks a stranger for a favour.
  *
  * Renders nothing when the form is unwired, same as the signup itself.

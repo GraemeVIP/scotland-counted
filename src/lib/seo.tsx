@@ -43,7 +43,10 @@ export function meta({
    */
   ownImage?: boolean;
 }): Metadata {
-  if (title.includes("—") || description.includes("—")) {
+  // Written as \u2014, not the character itself. A repository-wide sweep
+  // that removed em dashes from prose rewrote this guard into a comma check,
+  // which silently turned it into a rule against commas in titles.
+  if (title.includes("\u2014") || description.includes("\u2014")) {
     throw new Error(
       "Metadata titles and descriptions must not contain em dashes. Use a pipe in titles and normal sentence punctuation in descriptions.",
     );
@@ -52,8 +55,8 @@ export function meta({
   const url = `${site.url}${path === "/" ? "" : path}`;
   /**
    * Every page gets a share card. The opengraph-image file convention only
-   * covers the segment it sits in — it does not reach nested routes whose own
-   * metadata defines openGraph — which left most of the site sharing as a bare
+   * covers the segment it sits in, it does not reach nested routes whose own
+   * metadata defines openGraph, which left most of the site sharing as a bare
    * link. Defaulting here covers every page from one place.
    */
   const resolved = image ?? (ownImage ? undefined : "/opengraph-image");
@@ -110,7 +113,7 @@ export function meta({
       description,
       /*
        * Without these a shared link renders a card with no byline and no way
-       * back to the account — a post can travel and leave nobody able to find
+       * back to the account, a post can travel and leave nobody able to find
        * who published it. Both are omitted entirely when no handle is set,
        * rather than emitted empty.
        */
@@ -250,7 +253,7 @@ export function datasetJsonLd({
  *
  * Google needs name, description, thumbnailUrl and uploadDate before a video
  * can show as a rich result, so all four are required here rather than
- * optional — a VideoObject missing one of them is just weight on the page.
+ * optional, a VideoObject missing one of them is just weight on the page.
  * The thumbnail is a path on this site, not YouTube's, because the poster is
  * self-hosted.
  */
@@ -291,7 +294,7 @@ export function videoJsonLd({
 /**
  * JSON-LD for a standalone graphic, so it can surface in image search on its
  * own terms. `alt` doubles as the caption because it already describes the
- * whole thing in words — an image that needs two different descriptions is
+ * whole thing in words, an image that needs two different descriptions is
  * usually one where the alt text is not doing its job.
  */
 export function imageJsonLd({

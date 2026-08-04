@@ -67,12 +67,12 @@ export const terms: Term[] = [
     id: "le",
     term: "Life expectancy at birth",
     def: "How long a baby born now would live if today's death rates lasted its whole life. It summarises the population's health, not what will happen to one person.",
-    tech: "Figures are averaged over three years at a time to reduce year-to-year noise. A period life expectancy of 73.6 does not mean today's babies will die at 73.6 — it means death rates in those years were equivalent to that.",
+    tech: "Figures are averaged over three years at a time to reduce year-to-year noise. A period life expectancy of 73.6 does not mean today's babies will die at 73.6, it means death rates in those years were equivalent to that.",
   },
   {
     id: "median",
     term: "Median",
-    def: "The middle figure. Line everyone up by wage and the median is the person standing in the middle — half earn more, half earn less.",
+    def: "The middle figure. Line everyone up by wage and the median is the person standing in the middle, half earn more, half earn less.",
     tech: "Preferred to the average for incomes, because a small number of very high earners drag an average upward and make it unrepresentative of a typical household.",
   },
   {
@@ -157,13 +157,13 @@ export const terms: Term[] = [
     id: "tcl",
     term: "The two-child limit",
     def: "A rule that stopped families getting benefit support for a third or any later child. It ran from April 2017 until it was scrapped in April 2026.",
-    tech: "It applied to children born after April 2017, so its effect compounded each year as more families came within scope. Because it targeted larger families, its impact fell disproportionately on places with bigger average family sizes — Glasgow among them.",
+    tech: "It applied to children born after April 2017, so its effect compounded each year as more families came within scope. Because it targeted larger families, its impact fell disproportionately on places with bigger average family sizes, Glasgow among them.",
   },
   {
     id: "lha",
     term: "Housing benefit for private renters",
     def: "The maximum help with rent a private tenant can get. It is meant to track local rents, but has been frozen for most of the past decade while rents rose.",
-    tech: "Formally Local Housing Allowance. It was designed to cover the cheapest 30% of local rents. Freezes mean it now falls well short of that in much of Glasgow, so tenants make up the difference out of money meant for food and heating — which is precisely how the after-housing-costs poverty figure worsens.",
+    tech: "Formally Local Housing Allowance. It was designed to cover the cheapest 30% of local rents. Freezes mean it now falls well short of that in much of Glasgow, so tenants make up the difference out of money meant for food and heating, which is precisely how the after-housing-costs poverty figure worsens.",
   },
   {
     id: "lha-acronym",
@@ -193,13 +193,13 @@ export const terms: Term[] = [
     id: "saleleaseback",
     term: "Sale and leaseback",
     def: "Selling a building you own for a lump sum, then renting it back from the new owner. You get the cash now and pay rent forever.",
-    tech: "Glasgow used it on the City Chambers, Kelvingrove and other buildings to fund the equal pay settlement. The council now pays £32.1m a year plus inflation, on leases running up to 30 years. It converted a one-off liability into a permanent charge on the revenue budget — money that would otherwise fund services.",
+    tech: "Glasgow used it on the City Chambers, Kelvingrove and other buildings to fund the equal pay settlement. The council now pays £32.1m a year plus inflation, on leases running up to 30 years. It converted a one-off liability into a permanent charge on the revenue budget, money that would otherwise fund services.",
   },
   {
     id: "reserved",
     term: "Reserved",
     def: "Reserved means Westminster decides. Devolved means Holyrood decides. Most benefits are reserved; the Scottish Child Payment, housing and childcare are devolved.",
-    tech: "The split is set out in the Scotland Acts. It matters here because the largest levers on child poverty — Universal Credit, the two-child limit and Local Housing Allowance — sit with Westminster, while the legal duty to cut child poverty sits with Holyrood. Responsibility and power are not held by the same body.",
+    tech: "The split is set out in the Scotland Acts. It matters here because the largest levers on child poverty, Universal Credit, the two-child limit and Local Housing Allowance, sit with Westminster, while the legal duty to cut child poverty sits with Holyrood. Responsibility and power are not held by the same body.",
   },
   {
     id: "devolved",
@@ -259,7 +259,7 @@ export const terms: Term[] = [
     id: "in-work-poverty",
     term: "In-work poverty",
     def: "Being poor even though someone in the household has a job. It is now the most common kind of poverty in Scotland.",
-    tech: "Across Scotland, 75% of children in poverty live in a household where at least one adult works (Scottish Government, 2022–25). It is driven by low hourly pay, too few hours, insecure contracts and housing costs — which is why raising the employment rate alone does not reduce it.",
+    tech: "Across Scotland, 75% of children in poverty live in a household where at least one adult works (Scottish Government, 2022–25). It is driven by low hourly pay, too few hours, insecure contracts and housing costs, which is why raising the employment rate alone does not reduce it.",
   },
   {
     id: "inflation",
@@ -751,7 +751,7 @@ export const terms: Term[] = [
     id: "arrested",
     term: "Arrested",
     def: "Detained by police as a suspect for investigation or questioning. It does not mean the person was charged or found guilty.",
-    tech: "The later outcome—release, charge, prosecution or no further action—must always be stated.",
+    tech: "The later outcome, release, charge, prosecution or no further action, must always be stated.",
   },
   {
     id: "charged",

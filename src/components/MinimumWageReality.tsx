@@ -86,7 +86,7 @@ export default function MinimumWageReality({
           <p>
             The independently calculated <strong className="text-[var(--ink)]">real Living Wage is £13.45 an hour</strong>{" "}
             outside London. It is based on living costs and is voluntary. On the same 37.5-hour
-            week it is {exactPounds.format(realLivingAnnual)} a year —{" "}
+            week it is {exactPounds.format(realLivingAnnual)} a year, {" "}
             <strong className="text-[var(--ink)]">{pounds.format(realLivingAnnual - legalAnnual)} more</strong>{" "}
             than today&apos;s legal minimum.
           </p>

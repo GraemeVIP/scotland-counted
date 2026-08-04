@@ -51,7 +51,7 @@ export default function Post() {
         title={VIDEO.name}
         poster="/images/video/cost-of-living-explained.webp"
         className="my-10"
-        caption="Six minutes on where the money actually went — energy company profits, supermarket fuel margins and what the ONS, the IMF and the competition watchdog found."
+        caption="Six minutes on where the money actually went, energy company profits, supermarket fuel margins and what the ONS, the IMF and the competition watchdog found."
       />
 
       <H2 id="what-is-happening">What is happening now</H2>

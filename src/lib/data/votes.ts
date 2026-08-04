@@ -7,7 +7,7 @@
  * https://commonsvotes-api.parliament.uk/data/division/<id>.json
  *
  * We describe what a vote was on and what each side meant. We do not say which
- * side was right, and we do not treat an absence as neglect — MPs miss votes
+ * side was right, and we do not treat an absence as neglect, MPs miss votes
  * for many legitimate reasons, and the honest record simply says they were not
  * recorded.
  */

@@ -2,8 +2,8 @@
  * What people can write to their MP and MSP about.
  *
  * The organising rule is one email per representative, not one per subject.
- * Somebody in trouble is usually in several kinds of trouble at once — a
- * sanction becomes arrears becomes damp becomes a homelessness application —
+ * Somebody in trouble is usually in several kinds of trouble at once, a
+ * sanction becomes arrears becomes damp becomes a homelessness application, 
  * and making them send three emails to the same person to describe one
  * situation fragments the story and adds exactly the friction this site
  * exists to remove.
@@ -31,8 +31,8 @@ import type { RepresentativeRole } from "@/lib/letter";
 export type Ask = {
   /**
    * Stable identity for the demand itself, not its wording. Two subjects can
-   * want the same thing in different words — child poverty and housing both
-   * want local housing allowance unfrozen — and someone who ticks both should
+   * want the same thing in different words, child poverty and housing both
+   * want local housing allowance unfrozen, and someone who ticks both should
    * not send an email that asks for it twice. Deduplication is by key.
    */
   key: string;
@@ -50,7 +50,7 @@ export type LetterTopic = {
   blurb: string;
   /** Who can act. Drives which emails get written. */
   who: RepresentativeRole | "both";
-  /** Why it goes to that person. Shown to the reader — this is the teaching bit. */
+  /** Why it goes to that person. Shown to the reader, this is the teaching bit. */
   whyWho: string;
   /**
    * How this subject reads mid-sentence, for "I am writing about X, Y and Z."
@@ -101,7 +101,7 @@ export const LETTER_TOPICS: LetterTopic[] = [
     blurb: "Rent, repairs, damp, temporary accommodation or a homelessness application.",
     who: "both",
     whyWho:
-      "Both. Help with private rent is set at Westminster. Building affordable homes, homelessness services and tenants' rights are run from Holyrood. If it is a council house or a repair, your councillors can act too — you have three or four of them, and there is a guide to finding them further down this page.",
+      "Both. Help with private rent is set at Westminster. Building affordable homes, homelessness services and tenants' rights are run from Holyrood. If it is a council house or a repair, your councillors can act too, you have three or four of them, and there is a guide to finding them further down this page.",
     phrase: "housing",
     heading: "Rent, housing and homelessness",
     prompt:
@@ -279,7 +279,7 @@ export const LETTER_TOPICS: LetterTopic[] = [
     blurb: "Anything at all. You write it, I handle the rest.",
     who: "both",
     whyWho:
-      "Both, so it reaches whoever is responsible. One of them will be able to act, and the other can pass it on — you do not need to know which is which.",
+      "Both, so it reaches whoever is responsible. One of them will be able to act, and the other can pass it on, you do not need to know which is which.",
     phrase: "another matter",
     heading: "Something else",
     prompt: "Write it in your own words. There is no wrong way to say it.",
@@ -317,7 +317,7 @@ export function topicAppliesTo(topic: LetterTopic, role: RepresentativeRole) {
   return topic.who === "both" || topic.who === role;
 }
 
-/** "A", "A and B", "A, B and C" — for the opening sentence and the subject line. */
+/** "A", "A and B", "A, B and C", for the opening sentence and the subject line. */
 export function joinPhrases(parts: string[]) {
   if (parts.length <= 1) return parts[0] ?? "";
   return `${parts.slice(0, -1).join(", ")} and ${parts[parts.length - 1]}`;

@@ -2,7 +2,7 @@
  * The guess-the-number quiz.
  *
  * Every question here is a figure already published elsewhere on this site with
- * a link to the publisher — nothing is invented for effect, and nothing appears
+ * a link to the publisher, nothing is invented for effect, and nothing appears
  * here that is not defensible on the page it comes from. The shock is meant to
  * come from the gap between what people assume and what is true, not from
  * dressing a number up.
@@ -40,7 +40,7 @@ export const quiz: QuizQuestion[] = [
     answer: 2,
     headline: "36.1%",
     reveal:
-      "More than one in three. It is the worst rate in Scotland, and ten years ago it was 27.1% — the biggest rise of any council area in the country.",
+      "More than one in three. It is the worst rate in Scotland, and ten years ago it was 27.1%, the biggest rise of any council area in the country.",
     href: "/indicators/glasgow-child-poverty",
     hrefLabel: "See the ten-year chart",
   },
@@ -52,7 +52,7 @@ export const quiz: QuizQuestion[] = [
     answer: 2,
     headline: "3 in 4",
     reveal:
-      "Three in four. Poverty is mostly not about worklessness — it is about what is left after rent, childcare and bills. This is why 'get a job' is not an answer.",
+      "Three in four. Poverty is mostly not about worklessness, it is about what is left after rent, childcare and bills. This is why 'get a job' is not an answer.",
     href: "/solutions-to-poverty-in-scotland",
     hrefLabel: "See what would actually help",
   },
@@ -122,7 +122,7 @@ export function scoreVerdict(correct: number, total: number) {
   if (share >= 0.4) {
     return {
       title: "Roughly where most people are",
-      body: "Most people underestimate these figures, and almost nobody is told them plainly. That is not your fault — but it is the reason so little pressure ever reaches the people who decide.",
+      body: "Most people underestimate these figures, and almost nobody is told them plainly. That is not your fault, but it is the reason so little pressure ever reaches the people who decide.",
     };
   }
   return {

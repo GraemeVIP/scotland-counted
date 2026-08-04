@@ -110,7 +110,7 @@ export default function LetterBuilder() {
   const promptText =
     topics.length === 1
       ? topics[0].prompt
-      : "Tell them what has happened to you, in your own words. If these things are connected, say so — that is usually the part that matters most.";
+      : "Tell them what has happened to you, in your own words. If these things are connected, say so, that is usually the part that matters most.";
 
   const toggleTopic = useCallback((id: string) => {
     setTopicIds((current) =>
@@ -122,7 +122,7 @@ export default function LetterBuilder() {
     if (!lookup) return [];
     // Only write to the people who can act on at least one thing ticked.
     // Sending an NHS-only letter to an MP wastes the reader's time and the
-    // office's — but if anything else ticked is reserved, the MP still gets one.
+    // office's, but if anything else ticked is reserved, the MP still gets one.
     const wanted = rolesForTopics(topics);
 
     return [lookup.mp, lookup.msp]
@@ -380,7 +380,7 @@ export default function LetterBuilder() {
           </legend>
           <p className="text-[15px] leading-[1.55] text-[var(--ink-2)] -mt-1 mb-3">
             Choose one or more. There is no wrong answer, and you can tick things that feel
-            unrelated — they often are not.
+            unrelated, they often are not.
           </p>
 
           <div className="grid gap-2 sm:grid-cols-2">
@@ -422,7 +422,7 @@ export default function LetterBuilder() {
             /*
              * Who each email goes to, and why. This is the part almost nobody
              * knows, and with several subjects ticked it is the part doing the
-             * real work — the reader never has to sort reserved from devolved.
+             * real work, the reader never has to sort reserved from devolved.
              */
             <div className="mt-3 space-y-2">
               {(["MP", "MSP"] as const).map((role) => {
@@ -470,7 +470,7 @@ export default function LetterBuilder() {
             />
           </div>
           <p className="text-[15px] text-[var(--muted)] leading-[1.5] mt-3">
-            Optional, but it is the part only you can write, and it goes in first — before
+            Optional, but it is the part only you can write, and it goes in first, before
             any of the policy asks. Nothing is sent to me and nothing is saved.
           </p>
         </div>

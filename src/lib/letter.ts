@@ -8,7 +8,7 @@
  *
  * A reader ticks subjects; this turns them into at most two emails. Each one
  * carries every ticked subject that its recipient can actually act on, in one
- * organised message, under headings — because a person in trouble is usually
+ * organised message, under headings, because a person in trouble is usually
  * in several kinds of trouble at once, and three emails describing one
  * situation is worse for them and worse for the office reading it.
  *
@@ -33,7 +33,7 @@ export type RepresentativeRole = "MP" | "MSP";
 /**
  * The area a letter argues from. Council pages and MP-area pages publish
  * different geographies, so a letter quotes whichever one the reader is
- * looking at — that is the figure they can check on the page in front of them.
+ * looking at, that is the figure they can check on the page in front of them.
  */
 export type LetterArea = {
   name: string;
@@ -76,7 +76,7 @@ function asksForTopic(topic: LetterTopic, role: RepresentativeRole, councilSlug?
  *
  * Child poverty and housing both want local housing allowance unfrozen. Tick
  * both and, without this, the same demand arrives twice in one email under two
- * headings — which makes the sender look like they are not reading their own
+ * headings, which makes the sender look like they are not reading their own
  * letter. First occurrence wins, so the earlier subject keeps it.
  */
 export function askGroups(
@@ -111,7 +111,7 @@ export function letterSubject(area: LetterArea, topics: LetterTopic[]) {
   const relevant = topics.length ? topics : [topicById("child-poverty")];
 
   if (relevant.length === 1) {
-    return `${relevant[0].heading} — ${area.name}`;
+    return `${relevant[0].heading}, ${area.name}`;
   }
 
   // Phrases, not headings: headings read well as titles above a list but
@@ -123,7 +123,7 @@ export function letterSubject(area: LetterArea, topics: LetterTopic[]) {
   // Mail clients truncate long subjects, and a subject that ends mid-word
   // looks like a broken mail-merge rather than a person writing.
   return subject.length > 78
-    ? `${relevant.length} things I need you to act on — ${area.name}`
+    ? `${relevant.length} things I need you to act on, ${area.name}`
     : subject;
 }
 

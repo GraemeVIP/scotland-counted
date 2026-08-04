@@ -37,8 +37,8 @@ const SECTION_TONES = {
  * The full menu, shared by the desktop panel and the mobile sheet.
  *
  * The site has 316 pages and the menu used to expose about twenty of them, so
- * the 32 council areas and 57 MP areas — the bulk of what anyone actually
- * wants — could only be reached by landing on a hub page first. The postcode
+ * the 32 council areas and 57 MP areas, the bulk of what anyone actually
+ * wants, could only be reached by landing on a hub page first. The postcode
  * field is therefore in the menu itself: for most people it is the shortest
  * path to the page they came for, and it works without them knowing the name
  * of their council or their MP.
@@ -242,7 +242,7 @@ export function MobileMenu({
   /*
    * Lock scroll on both roots, not just body. Per spec, overflow on <body>
    * propagates to the viewport, and Chromium honours that. iOS WebKit is
-   * exactly where that propagation has historically misbehaved — locking
+   * exactly where that propagation has historically misbehaved, locking
    * body alone is the classic scroll-lock that fails on iPhones. Setting it
    * on <html> as well is the form that holds everywhere.
    */
@@ -268,14 +268,14 @@ export function MobileMenu({
 
   return (
     /*
-     * The sheet owns the whole screen — inset-0, above the header — and
+     * The sheet owns the whole screen, inset-0, above the header, and
      * carries its own close button.
      *
      * It used to start below the page header and rely on that header for the
      * X. That chain held only if the header stayed pinned and tappable while
      * the page behind was scroll-locked: position: sticky is exactly what iOS
      * does not guarantee under a locked body, and on iPads the header left
-     * the viewport with the sheet open — a menu with no way to close it. The
+     * the viewport with the sheet open, a menu with no way to close it. The
      * close control now lives inside the thing it closes, and no behaviour of
      * the page header can take it away.
      *
@@ -288,8 +288,8 @@ export function MobileMenu({
     >
       {/*
         The sheet's own top bar, sticky so the X survives scrolling the menu
-        itself. Metrics mirror the page header underneath — same height, same
-        gutters — so the X lands exactly where the burger was tapped.
+        itself. Metrics mirror the page header underneath, same height, same
+        gutters, so the X lands exactly where the burger was tapped.
       */}
       <div className="sticky top-0 z-10 border-b border-[var(--rule)] bg-[var(--paper)]">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-8 h-[72px] sm:h-[68px] flex items-center justify-between">
