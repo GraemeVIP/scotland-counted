@@ -3,6 +3,7 @@ import { Page, Col, PageHeader, CTA, InShort } from "@/components/Blocks";
 import Figure from "@/components/charts/Figure";
 import AreaDumbbell from "./AreaDumbbell";
 import RankTable from "@/components/RankTable";
+import AreaGrid from "@/components/AreaGrid";
 import { JsonLd, breadcrumbJsonLd, datasetJsonLd, meta } from "@/lib/seo";
 import {
   councilsByLevel,
@@ -129,6 +130,10 @@ export default function Areas() {
             to exactly these places.
           </p>
         </Col>
+
+        {/* Moved off the homepage. The tables above are for comparing; this is
+            for finding your own place by name, which is a different job. */}
+        <AreaGrid className="py-14 sm:py-16" />
 
         <CTA
           title="Enter your postcode and I do the rest"

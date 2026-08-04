@@ -3,6 +3,9 @@ import { Page, ContentFrame, PageHeader, InShort, CTA, Card } from "@/components
 import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
 import { scotlandPoverty } from "@/lib/data/scotland";
 import { getSources } from "@/lib/data/sources";
+import VideoEmbed from "@/components/VideoEmbed";
+import ShareGraphic from "@/components/ShareGraphic";
+import { explainerVideo } from "@/lib/data/video";
 
 /**
  * The poverty hub.
@@ -131,6 +134,22 @@ export default function PovertyHub() {
               />
             </div>
           </section>
+
+          {/* Moved off the homepage rather than dropped. The explainer and the
+              share graphic are poverty material and belong with the subject. */}
+          <section className="pt-14">
+            <h2 className="h2 mb-3">Four minutes, if you would rather watch it</h2>
+            <p className="mb-6 max-w-[66ch] text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
+              The whole picture, explained once, with the figures on screen.
+            </p>
+            <VideoEmbed
+              id={explainerVideo.youtubeId}
+              title={explainerVideo.name}
+              poster={explainerVideo.thumbnail}
+            />
+          </section>
+
+          <ShareGraphic className="mx-auto max-w-[1120px] pt-14" />
 
           <section className="pt-14">
             <h2 className="h2 mb-3">The Glasgow record</h2>
