@@ -15,9 +15,17 @@ const SECTION_TONES = {
     accent: "var(--warn)",
     wash: "color-mix(in srgb, var(--warn) 10%, var(--surface))",
   },
+  councils: {
+    accent: "var(--brand-deep)",
+    wash: "color-mix(in srgb, var(--brand-deep) 10%, var(--surface))",
+  },
   change: {
     accent: "var(--action)",
     wash: "var(--action-tint)",
+  },
+  topics: {
+    accent: "var(--glasgow)",
+    wash: "var(--glasgow-wash)",
   },
   proof: {
     accent: "var(--good)",
