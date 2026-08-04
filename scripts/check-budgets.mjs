@@ -37,6 +37,7 @@ const BUDGETS = {
   "/take-home-pay-calculator-scotland": { js: 1220, total: 2100 },
   "/find-my-mp-and-msp": { js: 1160, total: 2000 },
   "/blog": { js: 1160, total: 2550 },
+  "/press": { js: 1150, total: 1950 },
 };
 
 const browser = await chromium.launch();

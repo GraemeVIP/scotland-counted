@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { Page, ContentFrame, Col, PageHeader, CTA } from "@/components/Blocks";
 import CopyLine from "./CopyLine";
+import PressPackPicker from "./PressPackPicker";
+import { pressPackFor, pressPackCouncils } from "@/lib/pressPack";
 import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
 import { indicators } from "@/lib/data/indicators";
 import { site } from "@/lib/site";
@@ -35,6 +37,14 @@ const STAT_LINES = [
 ];
 
 export default function Press() {
+  /*
+   * Built here, on the server, so the client gets 32 short packs of text
+   * instead of the datasets needed to write them.
+   */
+  const packs = pressPackCouncils()
+    .map((c) => pressPackFor(c.slug))
+    .filter((p): p is NonNullable<typeof p> => p !== null);
+
   return (
     <>
       <JsonLd
@@ -108,6 +118,21 @@ export default function Press() {
             {nationalCouncilLines().map((t) => (
               <CopyLine key={t.slice(0, 40)} text={t} />
             ))}
+          </div>
+
+          {/*
+            A finished package for any of the 32, built from the same data the
+            council pages render. Every claim carries its source, every ranking
+            claim is one the data supports, and the caveats travel with the
+            figures rather than sitting somewhere a busy reporter will not look.
+          */}
+          <div className="mt-14">
+            <h3 className="h3 mb-2">Or take a whole pack for one council</h3>
+            <p className="mb-5 max-w-[68ch] text-[16px] leading-[1.6] text-[var(--ink-2)]">
+              Headline, figures, sources, notes to editors and the citation. Generated from the
+              data, so it is never out of step with the record it points at.
+            </p>
+            <PressPackPicker packs={packs} />
           </div>
 
           <div className="mt-12 grid gap-4 sm:grid-cols-2">
