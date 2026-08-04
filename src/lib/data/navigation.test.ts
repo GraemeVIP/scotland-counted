@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { readdirSync, existsSync } from "node:fs";
+import { readdirSync, existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
@@ -106,4 +106,61 @@ test("the evidence section still carries the accountability pages", () => {
   for (const required of ["/data", "/methods", "/corrections", "/press", "/accessibility"]) {
     assert.ok(hrefs.has(required), `${required} has dropped out of the menu`);
   }
+});
+
+test("the editorial hub is labelled for what is mostly in it", () => {
+  /*
+   * /blog is fourteen explainers and guides plus one investigation. Calling
+   * the primary nav item "Investigations" told every visitor that a minimum
+   * wage explainer was investigative journalism, and the page they landed on
+   * said "Scotland Counted explained" at the top of it.
+   *
+   * This is not a style preference. A site that overstates what its own
+   * articles are has a harder time being believed about anything else.
+   */
+  const blog = PRIMARY.find((item) => item.href === "/blog");
+  assert.ok(blog, "the editorial hub left the primary navigation");
+  assert.equal(blog.label, "Explainers");
+
+  const everywhere = JSON.stringify({ PRIMARY, SECTIONS });
+  assert.ok(
+    !/"label":\s*"Investigations"/.test(everywhere),
+    "something is still labelled Investigations as though the whole hub were one",
+  );
+});
+
+test("Branchform is still classified as an investigation", () => {
+  /*
+   * The other half of the same rule. Relabelling the section must not
+   * quietly demote the one piece that genuinely is an investigation.
+   *
+   * Read as source rather than imported: posts.ts resolves through the @/
+   * alias, which the test runner cannot follow.
+   */
+  const source = readFileSync(fileURLToPath(new URL("./posts.ts", import.meta.url)), "utf8");
+
+  const labels = source.match(/name: "Investigations"/g) ?? [];
+  assert.equal(labels.length, 1, "expected exactly one Investigations category");
+
+  const at = source.indexOf("operation-branchform-snp-money-timeline");
+  assert.ok(at > 0, "the Branchform timeline is gone");
+  const record = source.slice(at, at + 3000);
+  const category = record.match(/category: "([a-z-]+)"/);
+  assert.ok(category, "Branchform has no category");
+  assert.equal(
+    category[1],
+    "politics-explained",
+    "Branchform changed category without the Investigations label following it",
+  );
+});
+
+test("only Branchform is filed under the investigations category", () => {
+  /*
+   * A guide is not an investigation. If this count ever rises, either a real
+   * investigation was published, in which case update it deliberately, or an
+   * explainer was misfiled, which is the thing this whole change was about.
+   */
+  const source = readFileSync(fileURLToPath(new URL("./posts.ts", import.meta.url)), "utf8");
+  const filed = source.match(/category: "politics-explained"/g) ?? [];
+  assert.equal(filed.length, 1, `${filed.length} posts are filed as investigations`);
 });

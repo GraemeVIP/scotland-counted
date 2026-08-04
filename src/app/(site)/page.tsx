@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Page } from "@/components/Blocks";
 import { JsonLd, articleJsonLd, faqJsonLd, meta } from "@/lib/seo";
+import BlogCarousel from "@/components/BlogCarousel";
 import { postsByDate, type Post } from "@/lib/data/posts";
 import { current as flagship } from "@/lib/data/flagship";
 import Hero from "./Hero";
@@ -23,7 +24,7 @@ import { site } from "@/lib/site";
  * quietly lost.
  */
 
-const featured = postsByDate().find((post): post is Post => Boolean(post));
+const homeReads = postsByDate().filter((post): post is Post => Boolean(post));
 
 export const metadata = meta({
   title: "Scotland Counted | Independent Public Data for Scotland",
@@ -61,7 +62,7 @@ const DOORS = [
   },
   {
     href: "/blog",
-    eyebrow: "Investigations",
+    eyebrow: "Explainers",
     title: "The longer pieces, with the working shown",
     body: "Evidence-led explainers on poverty, money, politics and what to do about any of it.",
   },
@@ -202,42 +203,14 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ---------- One featured investigation ----------
-            One, not a carousel. The full library is a click away and the
-            carousel did not survive the question of what it was for. */}
-        {featured ? (
-          <section className="border-t border-[var(--rule)] py-12 sm:py-14" aria-labelledby="featured">
-            <div className="grid gap-x-14 gap-y-8 lg:grid-cols-[minmax(280px,0.62fr)_minmax(0,1.38fr)]">
-              <div>
-                <p className="kicker mb-3 text-[var(--brand)]">Latest</p>
-                <h2 id="featured" className="display-stat max-w-[12ch] text-[clamp(34px,4vw,52px)]">
-                  Read this one
-                </h2>
-                <Link href="/blog" className="btn btn-ghost mt-6">
-                  All investigations <span aria-hidden="true">→</span>
-                </Link>
-              </div>
-              <Link
-                href={`/blog/${featured.slug}`}
-                className="group flex flex-col rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-7 no-underline transition-all duration-300 hover:border-[var(--brand)] hover:shadow-[var(--shadow-2)]"
-              >
-                <p className="label">{featured.readingMinutes} min read</p>
-                <p className="mt-3 text-[clamp(22px,2.4vw,30px)] font-[780] leading-[1.15] transition-colors group-hover:text-[var(--brand)]">
-                  {featured.title}
-                </p>
-                <p className="mt-4 text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
-                  {featured.description}
-                </p>
-                <span
-                  aria-hidden="true"
-                  className="mt-6 text-[18px] text-[var(--action)] transition-transform group-hover:translate-x-1.5"
-                >
-                  →
-                </span>
-              </Link>
-            </div>
-          </section>
-        ) : null}
+        {/* ---------- The reading rail ----------
+            A carousel, not one card. Replacing it with a single featured
+            article was a judgement about what a first-time visitor should
+            look at, and it quietly cut the library down to whatever happened
+            to be newest. The rail shows the range, which is the point: this
+            is an explainer library that contains some investigations, not an
+            investigations section. */}
+        <BlogCarousel posts={homeReads} />
 
         {/* ---------- Trust ---------- */}
         <section className="border-t border-[var(--rule)] py-12 sm:py-14" aria-labelledby="trust">

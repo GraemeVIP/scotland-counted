@@ -44,8 +44,15 @@ export const postCategories = [
     colorOnDark: "#3ddc9a",
   },
   {
+    /*
+     * The slug stays "politics-explained" while the label reads
+     * "Investigations". A slug change would move a live category URL for the
+     * sake of tidiness, and this one has a real page behind it. If this
+     * section ever holds more than the Branchform timeline, migrate the slug
+     * properly with a redirect rather than quietly breaking the old one.
+     */
     slug: "politics-explained",
-    name: "Politics explained",
+    name: "Investigations",
     description: "The facts, dates and primary records behind Scottish political stories, with allegations, investigations and court findings kept clearly separate.",
     color: "var(--warn-text)",
     colorOnDark: "#f5b53d",

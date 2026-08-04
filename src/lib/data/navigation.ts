@@ -30,7 +30,18 @@ export const PRIMARY: NavItem[] = [
   { href: "/money", label: "Your money" },
   { href: "/councils", label: "Councils" },
   { href: "/who-decides", label: "Who decides" },
-  { href: "/blog", label: "Investigations" },
+  /*
+   * "Explainers", not "Investigations".
+   *
+   * /blog is the whole editorial library: money explainers, practical
+   * guides, poverty and housing pieces, council articles, and one genuine
+   * investigation. Labelling the lot "Investigations" told every visitor
+   * that a minimum wage explainer was investigative journalism, which the
+   * page itself contradicted the moment they arrived on it. The label
+   * followed a recommendation for an investigations section without the
+   * section ever being built.
+   */
+  { href: "/blog", label: "Explainers" },
 ];
 
 /** Everything, grouped the way a person would ask for it. Feeds the browse
@@ -92,7 +103,7 @@ export const SECTIONS: Array<{
     tone: "topics",
     items: [
       { href: "/poverty", label: "Poverty in Scotland", blurb: "The figures, the causes and who can fix it", featured: true },
-      { href: "/blog", label: "Investigations and explainers", blurb: "Evidence-led pieces, filed by subject" },
+      { href: "/blog", label: "Explainers and investigations", blurb: "Evidence-led pieces, filed by subject" },
       { href: "/glasgow-poverty-statistics", label: "The Glasgow record", blurb: "Every Glasgow indicator in one place" },
       { href: "/poverty-in-scotland-quiz", label: "Guess the figure", blurb: "Six questions. Most people get them wrong" },
       { href: "/faq", label: "Questions and answers", blurb: "Search the things people actually ask" },
