@@ -266,6 +266,26 @@ export function MobileMenu({
     return () => document.removeEventListener("keydown", onKey);
   }, [onClose]);
 
+  /*
+   * Move focus into the sheet, and put it back when the sheet goes.
+   *
+   * Without this the sheet covers the whole screen while focus stays on the
+   * burger underneath it. Someone using a keyboard or a screen reader opens
+   * the menu and is told nothing has happened, then has to tab forward
+   * blindly to reach a menu that is already in front of them. On the way out
+   * focus would land back at the top of the document rather than where they
+   * were, which is the other half of the same problem.
+   *
+   * The close button is the target because it is the first thing in the
+   * sheet and the way out of it.
+   */
+  const closeRef = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    const returnTo = document.activeElement as HTMLElement | null;
+    closeRef.current?.focus();
+    return () => returnTo?.focus?.();
+  }, []);
+
   return (
     /*
      * The sheet owns the whole screen, inset-0, above the header, and
@@ -302,6 +322,7 @@ export function MobileMenu({
             Scotland<span className="text-[var(--action)]">Counted</span>
           </span>
           <button
+            ref={closeRef}
             type="button"
             onClick={onClose}
             aria-label="Close the menu"

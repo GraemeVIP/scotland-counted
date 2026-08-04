@@ -42,11 +42,24 @@ export default function NotFound() {
   return (
     <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-14">
       <div className="max-w-[1120px] mx-auto py-16 sm:py-24">
+        {/*
+          not-found.tsx sits outside the (site) group, so it does not get the
+          header. That left the one page people reach by accident with no
+          wordmark to say where they had landed and no link to the homepage
+          at all: every route out of here went sideways, never home.
+        */}
+        <Link
+          href="/"
+          className="ui inline-block mb-10 text-[19px] font-[800] tracking-[-0.02em] no-underline text-[var(--ink)]"
+        >
+          Scotland<span className="text-[var(--action)]">Counted</span>
+        </Link>
+
         <p className="kicker mb-4 text-[var(--action)]">404</p>
         <h1 className="h1 max-w-[16ch] mb-5">This page does not exist</h1>
         <p className="lede max-w-[54ch]">
-          The link was probably wrong, or the page has moved since it was shared. Nothing is broken
-, here is where most people are trying to get to.
+          The link was probably wrong, or the page has moved since it was shared. Nothing is
+          broken. Here is where most people are trying to get to.
         </p>
 
         <div className="mt-12 grid gap-4 sm:grid-cols-2">
