@@ -4,6 +4,7 @@ import { JsonLd, articleJsonLd, faqJsonLd, meta } from "@/lib/seo";
 import { postsByDate, type Post } from "@/lib/data/posts";
 import { current as flagship } from "@/lib/data/flagship";
 import Hero from "./Hero";
+import { buildLocalFacts, responsibilitySplit } from "@/lib/localFacts";
 import NewsletterSignup from "@/components/NewsletterSignup";
 import { site } from "@/lib/site";
 
@@ -129,7 +130,7 @@ export default function Home() {
       />
       <JsonLd data={faqJsonLd(FAQ)} />
 
-      <Hero />
+      <Hero facts={buildLocalFacts()} split={responsibilitySplit()} />
 
       <Page>
         {/* ---------- Five doors ---------- */}

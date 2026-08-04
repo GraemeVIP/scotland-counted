@@ -21,7 +21,8 @@
     "check:indexability": "node scripts/check-indexability.mjs",
     "test:e2e": "playwright test",
     "test:e2e:a11y": "playwright test e2e/a11y.spec.ts --project=chromium",
-    "check:budgets": "node scripts/check-budgets.mjs"
+    "check:budgets": "node scripts/check-budgets.mjs",
+    "check:reps:fresh": "node scripts/check-representative-freshness.mjs"
   },
   "dependencies": {
     "next": "16.2.12",
