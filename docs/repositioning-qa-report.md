@@ -19,13 +19,15 @@ Every command run against a local production build.
 | --- | --- | --- |
 | Lint | `npm run lint` | Clean |
 | Types | `npx tsc --noEmit` | Clean |
-| Unit tests | `npm test` | 126 passing, 0 failing (82 at the start) |
-| Browser tests | `npm run test:e2e` | 67 passing in Chromium and WebKit |
+| Unit tests | `npm test` | 147 passing, 0 failing (82 at the start) |
+| Browser tests | `npm run test:e2e` | 98 passing in Chromium and WebKit |
 | Build | `npm run build` | Compiles, 624 static pages |
 | Proxy behaviour | `npm run check:proxy` | 10/10 |
 | Indexability | `npm run check:indexability` | 410/410 URLs clean |
 | Rendered spacing | `npm run check:spacing` | 410 pages, no glued words |
 | Representative lookups | `npm run check:reps` | 5/5, against the live APIs |
+| Representative freshness | `npm run check:reps:fresh` | 57 MPs and 129 MSPs match the official APIs |
+| Social cards | `npm run check:social` | 410/410 pages, 107 distinct images all fetchable |
 | Performance budgets | `npm run check:budgets` | 9/9 pages within budget |
 | Em dashes | repository-wide test | Zero outside the exempt privacy page |
 
@@ -228,10 +230,29 @@ it described was broken.
 
 ## Still not done
 
-**Phase 5, partially.** Multi-year trends, similar-council comparison and
-population or deprivation context were not added to council pages. A defensible
-peer grouping is the blocker: an arbitrary similarity rule would breach the
-no-invented-comparisons rule.
+**Phase 5 is now done, and the earlier refusal was half right.** The refusal
+to invent a peer grouping was correct. The mistake was assuming nobody had
+already made one: the Improvement Service sorts all 32 councils into official
+family groups, eight per group, two sets, one by rurality and one by
+deprivation, and publishes the grouping and each group's average inside the
+LGBF dataset itself. Every council page now carries "How this council compares
+with similar councils": the two official peer lists, named and linked, and for
+each of the site's seven measures the council figure, the publisher's family
+group average, the Scotland figure and the first published year for trend,
+adjusted for inflation by the publisher. Which set applies to which measure is
+read from the data, not the prose, which matters because the prose is wrong
+about CHN01. The grouping was verified against a member council's own
+committee papers, and a pinned test keeps it official.
+
+**The three npm audit advisories, reviewed.** All high severity, all inside
+Next 16.2.12's own dependency tree: postcss at or below 8.5.22 (XSS via
+unescaped style output, sourceMappingURL file disclosure) and sharp below
+0.35.0 (inherited libvips CVEs). Practical exposure here is low: postcss runs
+at build time on this repository's own CSS, not on user input, and sharp
+processes this repository's own images, not uploads. The only offered fix is
+Next 16.3.0, outside the stated dependency range, so it is a deliberate
+framework upgrade to schedule, not a patch to apply in passing. Nothing on
+this branch introduced or worsened any of the three.
 
 **Phase 14, partially.** Regression coverage exists for navigation, sitemap
 completeness, house style, proxy behaviour, structured data, the postcode

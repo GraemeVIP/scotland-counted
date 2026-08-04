@@ -189,11 +189,17 @@ for (const r of rows) {
   const family = Number(r.FG_Data_FG_Avg_Indicator_Real);
   const scotland = Number(r.Scotland_Data_Scotland_Indicator_Real);
   if (!Number.isFinite(council)) continue;
+  /*
+   * Six decimals, not four. Fractions rounded to 4dp shift across a display
+   * rounding boundary: 0.95249 becomes 0.9525, which shows as 95.3% where
+   * the page built from the raw value shows 95.2%. One measure, two numbers,
+   * same page. The cross-check test in familyGroupDisplay.test.ts caught it.
+   */
   ((series[slug] ??= {})[code] ??= []).push({
     year: r.LA_Data_LGBF_Year,
-    council: Number(council.toFixed(4)),
-    family: Number.isFinite(family) ? Number(family.toFixed(4)) : null,
-    scotland: Number.isFinite(scotland) ? Number(scotland.toFixed(4)) : null,
+    council: Number(council.toFixed(6)),
+    family: Number.isFinite(family) ? Number(family.toFixed(6)) : null,
+    scotland: Number.isFinite(scotland) ? Number(scotland.toFixed(6)) : null,
   });
 }
 for (const byCode of Object.values(series)) {
