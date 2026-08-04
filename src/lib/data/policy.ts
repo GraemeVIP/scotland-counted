@@ -3,7 +3,7 @@
  *
  * Every claim here is a documented decision or a published figure.
  * Where a modelled effect is quoted, the modeller is named. We do not
- * attribute motives, and we do not name individual politicians —
+ * attribute motives, and we do not name individual politicians, 
  * the record is about decisions and their measured consequences.
  */
 
@@ -149,7 +149,7 @@ export const tiers: Tier[] = [
       },
       {
         emphasis: "Housing has £4.1bn planned, against £8–9.2bn experts say is needed",
-        text: "— about half of the higher estimate.",
+        text: ", about half of the higher estimate.",
       },
       {
         emphasis: "Council tax was frozen several times,",

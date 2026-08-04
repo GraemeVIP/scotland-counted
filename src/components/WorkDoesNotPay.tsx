@@ -18,7 +18,7 @@ import {
  * "better off on benefits" question answered with the rules.
  *
  * The second half is the delicate one. The honest finding is that Universal
- * Credit tapers at 55p in the pound, so working always raises total income —
+ * Credit tapers at 55p in the pound, so working always raises total income, 
  * there is no threshold at which someone is better off refusing a job. We say
  * that plainly, and we do not speculate about anyone's motives or suggest that
  * people claiming for a health condition are doing so dishonestly. The serious
@@ -123,7 +123,7 @@ export default function WorkDoesNotPay({ className = "" }: { className?: string 
         <h3 className="h3 mb-3">Someone has already done this properly</h3>
         <p className="max-w-[62ch] text-[17px] leading-[1.6] text-[var(--ink-2)]">
           Loughborough University prices up what the public agrees a household needs for a decent
-          life — rent, food, energy, travel, a birthday present. Against that benchmark, full-time
+          life: rent, food, energy, travel, a birthday present. Against that benchmark, full-time
           work at the legal minimum falls short:
         </p>
         <div className="mt-6 space-y-3">
@@ -158,7 +158,7 @@ export default function WorkDoesNotPay({ className = "" }: { className?: string 
           Are people better off on benefits than working?
         </h3>
         <p className="mt-4 max-w-[62ch] text-[18px] leading-[1.6] opacity-90">
-          No — and the reason is in the rules rather than in anyone&apos;s opinion. Universal
+          No, and the reason is in the rules rather than in anyone&apos;s opinion. Universal
           Credit does not stop when you start working. It goes down by{" "}
           <strong>{bc.taperPence}p for every £1 you earn</strong>, so you keep {bc.keptPence}p of
           every pound. Earning more always leaves you with more.
@@ -208,7 +208,7 @@ export default function WorkDoesNotPay({ className = "" }: { className?: string 
           <strong>The real problem is not that work pays less. It is that it pays so little
           more.</strong>{" "}
           Above the work allowance you keep {bc.keptPence}p in the pound. Do a full extra day and
-          most of it goes back. That is why the effort so often does not feel worth it — and it is
+          most of it goes back. That is why the effort so often does not feel worth it, and it is
           a decision someone made, not a law of nature.
         </p>
         <p className="mt-4 max-w-[62ch] text-[16px] leading-[1.6] opacity-75">

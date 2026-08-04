@@ -398,7 +398,7 @@ const records: CouncilAccountabilityRecord[] = [
         currency: "GBP",
         period: "2026/27",
         plainEnglish:
-          "The budget lists £17.5m as ‘other measures’. It does not say exactly what this money will pay for or where it will come from. In real life, this is an unexplained part of the plan — not proof that the money has already been found.",
+          "The budget lists £17.5m as ‘other measures’. It does not say exactly what this money will pay for or where it will come from. In real life, this is an unexplained part of the plan, not proof that the money has already been found.",
         sourceIds: [auditBudgetBulletin.id],
       },
     ],
@@ -519,7 +519,7 @@ const records: CouncilAccountabilityRecord[] = [
     auditFindings: [
       {
         id: "north-ayrshire-accounts-adjustments-2024-25",
-        title: "The books passed the final check — but £82.374m had to be fixed",
+        title: "The books passed the final check, but £82.374m had to be fixed",
         reportDate: "2025-09-26",
         publisher: "Audit Scotland / Accounts Commission",
         severity: "grade-1",
@@ -567,7 +567,7 @@ const records: CouncilAccountabilityRecord[] = [
         publisher: "Audit Scotland / Accounts Commission",
         severity: "grade-1",
         finding:
-          "North Ayrshire has a £38.5m bill for road repairs waiting to be done. In 2025, 30.6% of its roads were marked for possible treatment — almost 1 in 3. Keeping roads at about the same standard needs about £5.5m each year. The 2025/26 budget was £5.3m before clearing the backlog.",
+          "North Ayrshire has a £38.5m bill for road repairs waiting to be done. In 2025, 30.6% of its roads were marked for possible treatment, almost 1 in 3. Keeping roads at about the same standard needs about £5.5m each year. The 2025/26 budget was £5.3m before clearing the backlog.",
         status: "in-progress",
         sourceIds: sourceIdList("north-ayrshire-audit-2024-25"),
       },
@@ -584,7 +584,7 @@ const records: CouncilAccountabilityRecord[] = [
       },
       {
         id: "north-ayrshire-performance-criteria",
-        title: "The council said 45 of 46 promises were on track — but the rules were unclear",
+        title: "The council said 45 of 46 promises were on track, but the rules were unclear",
         reportDate: "2025-09-26",
         publisher: "Audit Scotland / Accounts Commission",
         severity: "grade-1",

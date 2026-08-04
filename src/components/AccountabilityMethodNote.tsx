@@ -7,7 +7,7 @@ type AccountabilityMethodNoteProps = {
 /**
  * The trust box, and the hook that earns the rest of the page.
  *
- * The heading it replaced — "How this page is made" — told a reader nothing
+ * The heading it replaced, "How this page is made", told a reader nothing
  * and sounded like a colophon. The point is not the process, it is that all
  * of this is already public and effectively unreachable: hundreds of pages of
  * audit reports and budget papers, in PDFs you would have to know existed to
@@ -21,7 +21,7 @@ type AccountabilityMethodNoteProps = {
 export default function AccountabilityMethodNote({ councilName }: AccountabilityMethodNoteProps) {
   const shortName = councilName?.replace(/ Council$/, "");
   const documents = sourceDocumentCount();
-  // Pulled out of the JSX purely for readability — the clause is long enough
+  // Pulled out of the JSX purely for readability, the clause is long enough
   // that inlining it buries the sentence it belongs to.
   const including = shortName ? `, including the ones on ${shortName},` : "";
 
@@ -46,7 +46,7 @@ export default function AccountabilityMethodNote({ councilName }: Accountability
         council, so where the two disagree, I show you both.
       </p>
       <p className="mt-3 max-w-[68ch] text-[16px] leading-[1.6] text-[var(--ink-2)]">
-        Every figure links straight back to the document it came from &mdash;{" "}
+        Every figure links straight back to the document it came from,{" "}
         <strong className="text-[var(--ink)]">{documents} of them so far</strong>. Check any of
         it yourself. If I cannot back something up it does not go on the page, and I tell you
         what is still missing.

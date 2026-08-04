@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { Page, ContentFrame, Col, PageHeader, CTA } from "@/components/Blocks";
 import CopyLine from "./CopyLine";
+import PressPackPicker from "./PressPackPicker";
+import { pressPackFor, pressPackCouncils } from "@/lib/pressPack";
 import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
 import { indicators } from "@/lib/data/indicators";
 import { site } from "@/lib/site";
@@ -24,17 +26,25 @@ export const metadata = meta({
 
 /** Pre-written lines a journalist can lift, each carrying its source. */
 const STAT_LINES = [
-  "Around 940,000 people — 17% of Scotland's population — were living in relative poverty after housing costs in 2022–25 (Scottish Government).",
+  "Around 940,000 people, 17% of Scotland's population, were living in relative poverty after housing costs in 2022–25 (Scottish Government).",
   "Three quarters of children in relative poverty in Scotland live in a household where at least one person is in paid work (Scottish Government, 2022–25).",
-  "36.1% of Glasgow's children — 39,319 children — were living in relative poverty after housing costs in 2023/24, the highest rate of any Scottish council area (End Child Poverty / Loughborough University).",
-  "Child poverty in Glasgow rose 9.0 percentage points between 2014/15 and 2023/24 — the steepest rise of Scotland's 32 council areas, more than double the next steepest (End Child Poverty / Loughborough University).",
+  "36.1% of Glasgow's children, 39,319 children, were living in relative poverty after housing costs in 2023/24, the highest rate of any Scottish council area (End Child Poverty / Loughborough University).",
+  "Child poverty in Glasgow rose 9.0 percentage points between 2014/15 and 2023/24, the steepest rise of Scotland's 32 council areas, more than double the next steepest (End Child Poverty / Loughborough University).",
   "A single adult working full time at the legal minimum reached only 76% of the UK's Minimum Income Standard in 2025; a lone parent with children aged 3 and 7 reached 69% (Joseph Rowntree Foundation / Loughborough University).",
   "All four of Scotland's legally binding interim child poverty targets for 2023/24 were missed, including persistent poverty at 23% against a target of 8% (Scottish Government progress report, 2024–25).",
   "Glasgow East has the highest constituency child poverty rate in Scotland at 34.9%; six of the seven worst Scottish seats are in Glasgow (End Child Poverty / Loughborough University, 2023/24).",
-  "In 2020/21 — the one year benefits were raised — child poverty in Glasgow fell, from 32.2% to 29.4%. When the £20 uplift was withdrawn it rose straight back (End Child Poverty / Loughborough University).",
+  "In 2020/21, the one year benefits were raised, child poverty in Glasgow fell from 32.2% to 29.4%. When the £20 uplift was withdrawn it rose straight back (End Child Poverty / Loughborough University).",
 ];
 
 export default function Press() {
+  /*
+   * Built here, on the server, so the client gets 32 short packs of text
+   * instead of the datasets needed to write them.
+   */
+  const packs = pressPackCouncils()
+    .map((c) => pressPackFor(c.slug))
+    .filter((p): p is NonNullable<typeof p> => p !== null);
+
   return (
     <>
       <JsonLd
@@ -110,6 +120,21 @@ export default function Press() {
             ))}
           </div>
 
+          {/*
+            A finished package for any of the 32, built from the same data the
+            council pages render. Every claim carries its source, every ranking
+            claim is one the data supports, and the caveats travel with the
+            figures rather than sitting somewhere a busy reporter will not look.
+          */}
+          <div className="mt-14">
+            <h3 className="h3 mb-2">Or take a whole pack for one council</h3>
+            <p className="mb-5 max-w-[68ch] text-[16px] leading-[1.6] text-[var(--ink-2)]">
+              Headline, figures, sources, notes to editors and the citation. Generated from the
+              data, so it is never out of step with the record it points at.
+            </p>
+            <PressPackPicker packs={packs} />
+          </div>
+
           <div className="mt-12 grid gap-4 sm:grid-cols-2">
             <a
               href={COUNCIL_DATA_FILE}
@@ -153,7 +178,7 @@ export default function Press() {
               <a href={COUNCIL_SOURCES[1]} target="_blank" rel="noopener noreferrer">
                 Audit Scotland
               </a>
-              , and citing them directly is welcome too — every council page links to the exact
+              , and citing them directly is welcome too, every council page links to the exact
               document behind each number.
             </p>
           </div>
@@ -244,7 +269,7 @@ export default function Press() {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={`/press-img/${i.slug}`}
-                  alt={`${i.chartTitle} — downloadable chart`}
+                  alt={`${i.chartTitle}, downloadable chart`}
                   width={1200}
                   height={630}
                   className="w-full h-auto"
@@ -291,13 +316,13 @@ export default function Press() {
             <p>
               Charts, stat lines and analysis: free for any use with attribution to {site.name}.
               The underlying data belongs to its original publishers, almost all under
-              the Open Government Licence — <Link href="/methods">sources here</Link>,{" "}
+              the Open Government Licence, <Link href="/methods">sources here</Link>,{" "}
               <Link href="/data">raw files here</Link>.
             </p>
             <p>
               Interviews, data requests or a series in a different shape:{" "}
               <Link href="/contact?reason=press">the contact form</Link>. If you are on a deadline,
-              say so in the first line — those get read first.
+              say so in the first line, those get read first.
             </p>
           </Col>
         </section>

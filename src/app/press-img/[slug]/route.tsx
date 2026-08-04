@@ -80,7 +80,7 @@ export async function GET(_req: Request, ctx: { params: Promise<{ slug: string }
           </div>
         </div>
 
-        {/* Geometry only — Satori supports paths, not SVG text */}
+        {/* Geometry only, Satori supports paths, not SVG text */}
         <svg
           width={W}
           height={H}

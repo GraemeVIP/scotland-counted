@@ -42,7 +42,7 @@ export default function Post() {
       <Aside title="You do not need to have voted for them">
         <p>
           This is the one that stops people most often. An MP or MSP represents{" "}
-          <strong>everyone</strong> who lives in their area — people who voted for them, people who
+          <strong>everyone</strong> who lives in their area, people who voted for them, people who
           voted against them, and people who did not vote at all. They still have to deal with you.
         </p>
       </Aside>
@@ -87,7 +87,7 @@ export default function Post() {
 
       <P>
         You will usually get a reply, though it can take a few weeks. It might be a standard letter
-        rather than a personal one — that is normal and it does not mean it was ignored.
+        rather than a personal one. That is normal and it does not mean it was ignored.
       </P>
 
       <P>

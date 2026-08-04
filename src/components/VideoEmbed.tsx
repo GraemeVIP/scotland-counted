@@ -13,7 +13,7 @@ import Image from "next/image";
  *
  * So this is a facade: a self-hosted poster and a play button, and the iframe
  * is only created on the click. That also keeps the Content-Security-Policy
- * tight — the poster is served from this origin, so img-src stays 'self', and
+ * tight: the poster is served from this origin, so img-src stays 'self', and
  * the only concession is youtube-nocookie.com in frame-src.
  *
  * youtube-nocookie.com is YouTube's privacy-enhanced host: no cookie is set

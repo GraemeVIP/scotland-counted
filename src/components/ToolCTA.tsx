@@ -4,8 +4,8 @@ import { ExplainText } from "@/components/Glossary";
 /**
  * An in-page pointer to one of the calculators.
  *
- * The tools answer a practical question — "what do I actually take home", "what
- * is my council tax really" — and the best moment to offer one is while
+ * The tools answer a practical question, "what do I actually take home", "what
+ * is my council tax really", and the best moment to offer one is while
  * somebody is reading the paragraph that raised the question. This is the block
  * for that, so every placement looks the same and none of them read like an
  * advert bolted on to the page.
@@ -21,7 +21,7 @@ const TOOLS: Record<
     href: "/take-home-pay-calculator-scotland",
     kicker: "Free tool",
     title: "What do you actually take home?",
-    body: "Put in a salary or an hourly rate and see what reaches your account on Scotland's tax bands — or work backwards from the pay you need to live on.",
+    body: "Put in a salary or an hourly rate and see what reaches your account on Scotland's tax bands, or work backwards from the pay you need to live on.",
     cta: "Open the take-home calculator",
   },
   "council-tax": {

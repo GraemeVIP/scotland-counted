@@ -1,4 +1,4 @@
-# Source document — "What Scotland Counted is"
+# Source document: "What Scotland Counted is"
 
 Feed this file to NotebookLM as a source, then use the customisation prompt at
 the foot to generate a Video Overview of about two minutes.
@@ -87,7 +87,7 @@ adds the poverty figures for your own area, writes both emails, and opens them
 in your own email app. You read them and press send.
 
 You have both an MP and an MSP. You do not need to have voted for them. Between
-them they are paid over £176,000 a year — an MP £98,599, an MSP £77,711 — and
+them they are paid over £176,000 a year (an MP £98,599, an MSP £77,711) and
 answering people who live in their area is the job, not a favour.
 
 ## Why a wage is not the same as enough
@@ -102,7 +102,7 @@ household budget rather than asserting the conclusion.
 
 ## Why you can trust the numbers
 
-- Every figure links to the organisation that published it — ONS, DWP, the
+- Every figure links to the organisation that published it: ONS, DWP, the
   Scottish Government, End Child Poverty, named research.
 - Where a figure has been worked out rather than published, the working is
   shown so anyone can check it.
@@ -130,14 +130,14 @@ Paste this into the "Customise" box when generating the Video Overview:
 > Make a two-minute explainer introducing a website called Scotland Counted, for
 > an audience in Scotland who have never followed politics and would not know
 > what an MSP does. Warm, direct, no jargon, no hype and no sales language.
-> Short sentences. Second person — "you", not "users".
+> Short sentences. Second person, "you", not "users".
 >
 > Structure it as: the problem (the figures exist but never reach the people
 > they describe, and nobody knows who to ask), what the site is, the four things
 > you can do on it, why the numbers can be trusted, and finish on the single
-> action — enter your postcode, read the email, press send, it takes about a
+> action: enter your postcode, read the email, press send. It takes about a
 > minute.
 >
 > Do not read out long lists of statistics. Use at most four numbers in the
 > whole video and let them land. Never imply the site is run by a charity,
-> a campaign or a political party — it is a personal, independent project.
+> a campaign or a political party. It is a personal, independent project.

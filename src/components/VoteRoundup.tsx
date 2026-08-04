@@ -7,8 +7,8 @@ import { ExplainText } from "@/components/Glossary";
  * How Scotland's 57 MPs voted, division by division.
  *
  * The constituency pages show one MP's record to one reader. This is the same
- * ledger read the other way round — the whole Scottish delegation on a single
- * vote — so the accountability page carries an actual record rather than only
+ * ledger read the other way round, the whole Scottish delegation on a single
+ * vote, so the accountability page carries an actual record rather than only
  * an explanation of who holds which power.
  *
  * Two rules from the constituency version carry over. We say what the vote was
@@ -109,7 +109,7 @@ export default function VoteRoundup({ className = "" }: { className?: string }) 
                     <span className="font-[740] text-[var(--ink)]">
                       {d.ayes} to {d.noes}
                     </span>{" "}
-                    across the whole Commons — it {carried ? "passed" : "did not pass"}
+                    across the whole Commons, it {carried ? "passed" : "did not pass"}
                   </p>
                   <a
                     href={`https://votes.parliament.uk/Votes/Commons/Division/${d.id}`}

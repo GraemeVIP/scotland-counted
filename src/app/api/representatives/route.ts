@@ -118,12 +118,16 @@ async function lookupRepresentatives(request: Request) {
   }
 }
 
-/** Temporary GET support for bookmarked diagnostic URLs. */
-export async function GET(request: Request) {
-  return lookupRepresentatives(request);
-}
-
-/** Normal browser flow: keeps the exact postcode out of the URL. */
+/**
+ * POST only, and that is the point: it keeps the exact postcode out of the
+ * URL, and so out of access logs, Referer headers and anything anyone shares.
+ *
+ * There was a GET here for bookmarked diagnostic URLs. Nothing on the site
+ * called it, both the app and the check script POST, and every request it
+ * served wrote a reader's postcode into a log line. The result pages the site
+ * wants people to share are the resolved area URLs, which name a council, not
+ * a house.
+ */
 export async function POST(request: Request) {
   return lookupRepresentatives(request);
 }

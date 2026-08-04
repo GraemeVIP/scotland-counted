@@ -295,7 +295,7 @@ export default function WhatWouldFixIt() {
           />
           <p className="mt-6 text-[18px] leading-[1.6] text-[var(--ink-2)] max-w-[62ch]">
             Helping people find work costs less than putting money in their hands every week. So
-            that is what gets funded — even though the government&apos;s own research says the
+            that is what gets funded, even though the government&apos;s own research says the
             expensive option is the one that moves the poverty figure.
           </p>
 

@@ -17,7 +17,7 @@ import {
 /**
  * The take-home pay calculator.
  *
- * The maths is entirely in @/lib/tax/engine — the same module the site's own
+ * The maths is entirely in @/lib/tax/engine, the same module the site's own
  * minimum-wage figures come from, and the one covered by `npm test`. This file
  * only collects input and shows the answer.
  *
@@ -87,7 +87,7 @@ export default function Calculator() {
    * A shared link carries the whole calculation. Reading it through
    * useSearchParams rather than in an effect means the values are available on
    * the first render, so a shared link shows its answer immediately instead of
-   * flashing an empty form — and there is no server/client mismatch to hydrate
+   * flashing an empty form, and there is no server/client mismatch to hydrate
    * around. It is why this component sits inside a Suspense boundary.
    */
   const q = useSearchParams();
@@ -149,26 +149,29 @@ export default function Calculator() {
     return { calc: calculate(target, region, optsFor(target)) };
   }, [hasInput, entered, period, hours, reverse, region, optsFor]);
 
+  /*
+   * Clear the query string, and never write one.
+   *
+   * This effect used to do the opposite: it mirrored every field into the URL
+   * as you typed. That put a person's salary, pension contributions, student
+   * loan plan and tax code into window.location, and the analytics tag reports
+   * the page URL, so the whole lot went to Google on this page. Google's
+   * enhanced measurement treats "s" as a site-search parameter, so a salary
+   * also arrived as an explicit search_term event.
+   *
+   * The page promises, in these words, "Nothing you type is sent anywhere.
+   * The sum happens in your browser." It does now.
+   *
+   * Params are still read once on mount above, so a link somebody saved
+   * earlier still restores their figures. The URL is then cleaned, which stops
+   * an old link leaking on every page it goes on to touch. The cost is that
+   * new links are no longer shareable, and a salary is not a thing to make
+   * shareable by accident.
+   */
   useEffect(() => {
-    if (typeof window === "undefined") return;
-    const q = new URLSearchParams();
-    if (hasInput) {
-      q.set("s", amount.replace(/[^0-9.]/g, ""));
-      if (period !== "year") q.set("p", period);
-      if (!scotland) q.set("scot", "0");
-      if (hours !== 37.5) q.set("h", String(hours));
-      if (num(pension) > 0) {
-        q.set("pen", pension);
-        if (pensionUnit === "gbp") q.set("pu", "gbp");
-        if (pensionType !== "net") q.set("pt", pensionType);
-      }
-      if (studentPlan) q.set("sl", studentPlan);
-      if (pgl) q.set("pgl", "1");
-      if (taxCode.trim()) q.set("code", taxCode.trim());
-    }
-    const url = q.toString() ? `${window.location.pathname}?${q}` : window.location.pathname;
-    window.history.replaceState(null, "", url);
-  }, [amount, hasInput, period, scotland, hours, pension, pensionUnit, pensionType, studentPlan, pgl, taxCode]);
+    if (typeof window === "undefined" || !window.location.search) return;
+    window.history.replaceState(null, "", window.location.pathname);
+  }, []);
 
   const calc = result && "calc" in result ? result.calc : null;
   const unreachable = result && "unreachable" in result;
@@ -181,7 +184,7 @@ export default function Calculator() {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {
-      /* Clipboard blocked — the URL bar still holds the same link. */
+      /* Clipboard blocked, the URL bar still holds the same link. */
     }
   }
 
@@ -509,12 +512,12 @@ export default function Calculator() {
 
           {!hasInput ? (
             <p className="mt-4 text-[19px] leading-[1.5] opacity-80 max-w-[38ch]">
-              Put your pay in on the left and this fills in — before tax or after, whichever you
+              Put your pay in on the left and this fills in, before tax or after, whichever you
               know.
             </p>
           ) : unreachable ? (
             <p className="mt-4 text-[19px] leading-[1.5] opacity-90 max-w-[42ch]">
-              That take-home is not reachable with these pension settings — the pension swallows the
+              That take-home is not reachable with these pension settings. The pension swallows the
               extra pay.
             </p>
           ) : (
@@ -642,7 +645,7 @@ export default function Calculator() {
               </summary>
               <div className="border-t border-[var(--rule)] px-6 py-5">
                 <p className="ui text-[15px] font-[700] mb-3">
-                  Income tax — {scotland ? "Scottish" : "UK"} rates, {TAX_DATA.taxYear}
+                  Income tax, {scotland ? "Scottish" : "UK"} rates, {TAX_DATA.taxYear}
                 </p>
                 {calc.tax.allowance > 0 && (
                   <p className="text-[15px] leading-[1.55] text-[var(--ink-2)] mb-3">
@@ -657,7 +660,7 @@ export default function Calculator() {
                       className="ui flex flex-wrap items-baseline justify-between gap-x-4 border-b border-[var(--rule)] pb-2 text-[15px] last:border-0"
                     >
                       <span className="text-[var(--ink-2)]">
-                        {b.name} — {gbp(b.amount)} at {(b.rate * 100).toFixed(0)}%
+                        {b.name}, {gbp(b.amount)} at {(b.rate * 100).toFixed(0)}%
                       </span>
                       <span className="tnum font-[700]">{gbp(b.tax, 2)}</span>
                     </li>
@@ -689,7 +692,7 @@ export default function Calculator() {
                           className="ui flex justify-between text-[15px] text-[var(--ink-2)]"
                         >
                           <span>
-                            {r.name} — {(r.rate * 100).toFixed(0)}% over {gbp(r.threshold)}
+                            {r.name}, {(r.rate * 100).toFixed(0)}% over {gbp(r.threshold)}
                           </span>
                           <span className="tnum font-[700]">{gbp(r.amount, 2)}</span>
                         </li>

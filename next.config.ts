@@ -3,7 +3,7 @@ import { site } from "./site.config";
 
 /**
  * Next's dev server compiles modules through eval(), so a script-src without
- * 'unsafe-eval' stops React hydrating — silently. Every page still renders,
+ * 'unsafe-eval' stops React hydrating, silently. Every page still renders,
  * because the HTML is server-produced, but nothing is interactive: no button
  * has a handler, and the console says nothing. It looks like broken features
  * rather than a blocked policy.
@@ -81,7 +81,7 @@ const securityHeaders = [
        * youtube-nocookie.com is the only third-party frame allowed, and only
        * because a video is embedded. It is YouTube's privacy-enhanced host, and
        * src/components/VideoEmbed.tsx does not create the iframe at all until
-       * somebody presses play — so on a normal page view nothing is requested
+       * somebody presses play, so on a normal page view nothing is requested
        * from it. The poster is served from this origin, which is why img-src
        * stays locked to 'self'.
        */

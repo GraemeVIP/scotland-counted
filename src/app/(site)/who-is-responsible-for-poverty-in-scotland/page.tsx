@@ -116,8 +116,8 @@ export default function Accountability() {
           <div className="mt-6">
             <p className="text-[18px] leading-[1.6] text-[var(--ink-2)] max-w-[62ch]">
               These were not aims or ambitions. Parliament wrote four numbers into law and gave
-              itself until 2023/24 to hit them. The widest miss was persistent poverty — children
-              poor in at least three of the last four years — which came in at{" "}
+              itself until 2023/24 to hit them. The widest miss was persistent poverty, children
+              poor in at least three of the last four years, which came in at{" "}
               <strong className="text-[var(--ink)]">23% against a target below 8%</strong>.
             </p>
 
@@ -199,7 +199,7 @@ export default function Accountability() {
           <SectionHead eyebrow="Government by government" title="Who can do what" />
           <p className="mt-6 text-[18px] leading-[1.6] text-[var(--ink-2)] max-w-[62ch]">
             Three different governments hold three different sets of powers over the same families.
-            Each can point at another and be partly right. That is exactly why nothing gets fixed —
+            Each can point at another and be partly right. That is exactly why nothing gets fixed, 
             and why it matters that you write to the one who can actually act.
           </p>
           <div className="grid gap-5 mt-9">
@@ -295,7 +295,7 @@ export default function Accountability() {
           <p className="mt-7 text-[18px] leading-[1.6] text-[var(--ink-2)] max-w-[68ch]">
             Government choices moved the figure in both directions inside two years. Nobody has to
             argue about whether this works. <G t="reserved">The powers are split</G>, and no single
-            government owns the whole result — but the lever itself is not in doubt.{" "}
+            government owns the whole result, but the lever itself is not in doubt.{" "}
             <Link href="/indicators/glasgow-child-poverty">See the full ten-year chart</Link>.
           </p>
         </ContentFrame>

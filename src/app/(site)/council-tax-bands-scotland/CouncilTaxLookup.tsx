@@ -15,8 +15,8 @@ import { bandShares, DWELLINGS_YEAR } from "@/lib/data/dwellings";
 /**
  * Postcode to council tax charges.
  *
- * The band itself belongs to the property, not the postcode — only the
- * Scottish Assessors hold that — so this does the half that is actually hard:
+ * The band itself belongs to the property, not the postcode, only the
+ * Scottish Assessors hold that, so this does the half that is actually hard:
  * it finds the council and shows every band's real bill, including the water
  * and waste water charges that appear on the same bill and that almost every
  * online figure leaves out.
@@ -134,7 +134,7 @@ export default function CouncilTaxLookup() {
         <div className="mt-8">
           <h2 className="h2 mb-2">{result.councilName}</h2>
           <p className="max-w-[62ch] text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
-            Every band, with water and waste water included — those are on the same bill and are
+            Every band, with water and waste water included. Those are on the same bill and are
             usually missing from figures you find elsewhere.
           </p>
 
@@ -179,7 +179,7 @@ export default function CouncilTaxLookup() {
                   <a href="https://www.saa.gov.uk/" target="_blank" rel="noopener noreferrer">
                     Scottish Assessors
                   </a>{" "}
-                  site — they are the only people who hold it.
+                  site. They are the only people who hold it.
                 </p>
               </div>
             );
@@ -259,7 +259,7 @@ export default function CouncilTaxLookup() {
               On a low income you may pay less.{" "}
               <strong className="text-[var(--ink)]">Council Tax Reduction</strong> can cut the bill,
               and people who get it can have up to 35% off the water charges too. Single adults
-              living alone get 25% off. Apply through your council — it is free.
+              living alone get 25% off. Apply through your council. It is free.
             </p>
           </div>
 

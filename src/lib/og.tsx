@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
  * The share card, in one place.
  *
  * Next's opengraph-image file convention only covers the segment it sits in and
- * that segment's children, and a route group does not carry it across — so the
+ * that segment's children, and a route group does not carry it across, so the
  * root file left every page under (site) with no card at all, including the
  * home page. Both segments now render this, so there is one card and one place
  * to change it.

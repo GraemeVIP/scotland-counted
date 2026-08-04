@@ -72,7 +72,7 @@ export default function Post() {
       </UL>
       <P>
         A school office or council welfare team can help when the online form is difficult. If the
-        family has no money for food today, do not wait for a school application — check the
+        family has no money for food today, do not wait for a school application, check the
         <Link href="/blog/crisis-grant-scotland-how-to-apply"> Crisis Grant</Link> as well.
       </P>
 

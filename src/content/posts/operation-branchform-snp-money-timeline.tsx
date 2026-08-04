@@ -50,7 +50,7 @@ export default function Post() {
         Peter Murrell stole £400,310.65 from the Scottish National Party. Nicola Sturgeon and
         Colin Beattie were investigated but not charged. This Operation Branchform timeline is
         the complete, source-linked story of how questions about referendum donations became a
-        court case — and what remains unfinished.
+        court case, and what remains unfinished.
       </Lead>
 
       <div className="not-prose rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--deep)] p-6 text-[var(--deep-ink)] sm:p-8">
@@ -106,7 +106,7 @@ export default function Post() {
           Senior Scottish prosecutors decided that no charge or further inquiry was required; a
           second, independent senior lawyer reached the same conclusion. Her name belongs in the story
           because she led the party, was married to Murrell at the time, made public statements
-          about the finances and was arrested before being cleared — not because guilt can be
+          about the finances and was arrested before being cleared, not because guilt can be
           transferred from one person to another.
         </p>
       </Aside>

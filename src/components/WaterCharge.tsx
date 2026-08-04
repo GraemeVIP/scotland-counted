@@ -7,7 +7,7 @@ import { ExplainText } from "@/components/Glossary";
  * In Scotland water and waste water are billed with council tax, so almost
  * every council tax figure published online is hundreds of pounds short. That
  * is the one thing this site has that the others do not, and most people have
- * never been told it — so it gets stated once, loudly, in plain words.
+ * never been told it, so it gets stated once, loudly, in plain words.
  */
 
 const exact = new Intl.NumberFormat("en-GB", {
@@ -58,10 +58,10 @@ export default function WaterCharge({ className = "" }: { className?: string }) 
             key={r.band}
             className="rounded-[var(--r-s)] border border-white/15 bg-white/[0.07] px-5 py-5"
           >
-            <p className="ui text-[14.5px] font-[700] opacity-75">Band {r.band} — {r.note}</p>
+            <p className="ui text-[14.5px] font-[700] opacity-75">Band {r.band}, {r.note}</p>
             <p className="display-stat mt-2 text-[clamp(28px,3vw,38px)]">{pounds.format(r.total)}</p>
             <p className="mt-2.5 text-[14.5px] leading-[1.5] opacity-75">
-              a year of water charges — {exact.format(r.water)} for water and{" "}
+              a year of water charges, {exact.format(r.water)} for water and{" "}
               {exact.format(r.waste)} for waste water
             </p>
           </div>

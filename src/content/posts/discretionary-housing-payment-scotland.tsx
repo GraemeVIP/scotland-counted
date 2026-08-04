@@ -6,7 +6,7 @@ export default function Post() {
     <Prose>
       <Lead>
         If Housing Benefit or the housing part of Universal Credit does not cover your rent, a
-        Discretionary Housing Payment — usually shortened to DHP — may give extra help through the
+        Discretionary Housing Payment, usually shortened to DHP, may give extra help through the
         council.
       </Lead>
 

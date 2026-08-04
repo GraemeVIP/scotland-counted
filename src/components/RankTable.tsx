@@ -252,7 +252,7 @@ export default function RankTable({
                 pr-4 like every other cell, and like this column's own header
                 button. Without it the last column was the one exception: its
                 numbers sat hard against the container edge with nothing to
-                breathe into, and — less obviously — sixteen pixels out of
+                breathe into, and, less obviously, sixteen pixels out of
                 line with the "Children" label directly above them.
 
                 The padding goes on the cell, not the row, so the shading on

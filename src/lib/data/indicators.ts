@@ -66,7 +66,7 @@ export const indicators: Indicator[] = [
     label: "Children",
     title: "Child poverty in Glasgow is 36.1%",
     summary:
-      "Ten years ago the figure was 27.1%. It is now 36.1% — the biggest rise of any Scottish council area.",
+      "Ten years ago the figure was 27.1%. It is now 36.1%, the biggest rise of any Scottish council area.",
     direction: "worsening",
     unit: "%",
     x: CHILD_POVERTY_YEARS,
@@ -79,7 +79,7 @@ export const indicators: Indicator[] = [
     chartSub:
       "Share of children aged 0–15 · 2014/15 – 2023/24 · End Child Poverty / Loughborough University",
     caption:
-      "The dip in 2020/21 is the pandemic. Benefits went up — the extra £20 a week on Universal Credit, plus furlough — and child poverty fell. The support was withdrawn, and it went straight back up.",
+      "The dip in 2020/21 is the pandemic. Benefits went up by the extra £20 a week on Universal Credit, plus furlough, and child poverty fell. The support was withdrawn, and it went straight back up.",
     series: [
       {
         name: "Glasgow",
@@ -200,7 +200,7 @@ export const indicators: Indicator[] = [
     label: "Pay",
     title: "What Glasgow's full-time pay figure really measures",
     summary:
-      "£796.50 a week is about £41,400 a year, and it sounds far too high because it is not what a typical worker earns. It covers full-time employee jobs only — every part-time job is excluded — and it is gross pay including overtime and bonuses, before tax and National Insurance.",
+      "£796.50 a week is about £41,400 a year, and it sounds far too high because it is not what a typical worker earns. It covers full-time employee jobs only, so every part-time job is excluded, and it is gross pay including overtime and bonuses, before tax and National Insurance.",
     direction: "worsening",
     unit: "£",
     x: [
@@ -244,14 +244,14 @@ export const indicators: Indicator[] = [
     ],
     technical: [
       "Why the figure looks too high. It is gross pay, before income tax and National Insurance are taken off. It is the middle of full-time employee jobs only, so every part-time job and every self-employed person is excluded. And it counts overtime, bonuses and shift premiums, not basic salary. A single profession's advertised salary is not the same statistic as the median across all full-time jobs.",
-      "For scale, the Scottish Government's own ASHE 2025 release puts median gross weekly pay for full-time employees in Scotland at £773.80 — about £40,200 a year. A city figure slightly above that is expected, because cities concentrate higher-paying employment.",
-      "The figure only covers full-time jobs, and that is the biggest reason it feels wrong. Part-time work is paid far less: in Scotland in 2025 the median part-time employee earned £304.30 a week if a woman and £267.10 if a man — roughly £14,000 to £16,000 a year. Around 29% of Glasgow's employee jobs are part-time and none of them appear in the line on this chart, so the chart is not a picture of what a typical worker earns.",
-      "Minimum-wage work is also a smaller share of employment than most people assume. The ONS puts around 2.0 million UK workers at or below the minimum wage in 2025 — about 6.6% of the workforce, roughly one in fifteen — so most jobs sit somewhere between the legal minimum and the middle of the range rather than clustered at the floor.",
-      "The gap from the minimum wage is also smaller than it looks, and it is deliberate. The National Living Wage is set by law at two-thirds of median hourly earnings — that is the Low Pay Commission's remit from government. So the middle of full-time pay sitting around one and a half times the minimum is not an odd result; it is the arithmetic of how the minimum wage is defined. Full-time minimum wage is about £24,800 a year against a Glasgow full-time median near £41,400: roughly 1.7 times, not double.",
+      "For scale, the Scottish Government's own ASHE 2025 release puts median gross weekly pay for full-time employees in Scotland at £773.80, about £40,200 a year. A city figure slightly above that is expected, because cities concentrate higher-paying employment.",
+      "The figure only covers full-time jobs, and that is the biggest reason it feels wrong. Part-time work is paid far less: in Scotland in 2025 the median part-time employee earned £304.30 a week if a woman and £267.10 if a man, roughly £14,000 to £16,000 a year. Around 29% of Glasgow's employee jobs are part-time and none of them appear in the line on this chart, so the chart is not a picture of what a typical worker earns.",
+      "Minimum-wage work is also a smaller share of employment than most people assume. The ONS puts around 2.0 million UK workers at or below the minimum wage in 2025, about 6.6% of the workforce, roughly one in fifteen, so most jobs sit somewhere between the legal minimum and the middle of the range rather than clustered at the floor.",
+      "The gap from the minimum wage is also smaller than it looks, and it is deliberate. The National Living Wage is set by law at two-thirds of median hourly earnings, that is the Low Pay Commission's remit from government. So the middle of full-time pay sitting around one and a half times the minimum is not an odd result; it is the arithmetic of how the minimum wage is defined. Full-time minimum wage is about £24,800 a year against a Glasgow full-time median near £41,400: roughly 1.7 times, not double.",
       "ASHE samples employee jobs from PAYE records. This displayed series is then restricted to jobs classed as full-time, paid at adult rates and unaffected by absence. It excludes every part-time job, self-employment, employees outside PAYE, junior rates and pay affected by sickness or other absence. A person with more than one job can be counted more than once.",
-      "For scale, a separate ONS count found 128,000 of Glasgow's 442,000 employee jobs were part-time in 2024 — 29%. None of those part-time jobs is represented in this full-time series.",
+      "For scale, a separate ONS count found 128,000 of Glasgow's 442,000 employee jobs were part-time in 2024, which is 29%. None of those part-time jobs is represented in this full-time series.",
       "Gross weekly pay can include overtime, bonuses, shift premiums and allowances. ONS normally defines full-time as more than 30 paid hours a week, with a separate rule for teaching jobs.",
-      "Figures are in cash, not adjusted for inflation. Compare the lines against each other within a year — that comparison is valid. Do not read the upward slope as people getting better off; most of it is price rises.",
+      "Figures are in cash, not adjusted for inflation. Compare the lines against each other within a year. That comparison is valid. Do not read the upward slope as people getting better off; most of it is price rises.",
     ],
     sourceIds: ["ashe", "ashe-guide", "glasgow-labour-profile", "minimum-wage-2026", "mis-2025", "real-living-wage", "ashe-scotland-2025", "lpc-remit", "ons-low-pay-2025"],
   },
@@ -283,7 +283,7 @@ export const deprivation = {
   label: "Neighbourhoods",
   title: "What the Scottish deprivation index shows about Glasgow",
   summary:
-    "Almost half of Glaswegians lived in Scotland's worst-off tenth of neighbourhoods in 2004. By 2020 it was under a third — 29%.",
+    "Almost half of Glaswegians lived in Scotland's worst-off tenth of neighbourhoods in 2004. By 2020 it was under a third, 29%.",
   direction: "improving" as Direction,
   rows: [
     { year: "SIMD 2004", pct: 46, note: "nearly half the city" },

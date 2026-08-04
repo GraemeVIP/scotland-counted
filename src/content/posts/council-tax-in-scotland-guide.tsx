@@ -44,7 +44,7 @@ export default function Post() {
       <H2 id="band">3. What your band means</H2>
       <P>
         Every home sits in a band from A to H. Band A is the lowest and H is the highest. In
-        Scotland the band is based on what the property could have sold for on 1 April 1991 — not
+        Scotland the band is based on what the property could have sold for on 1 April 1991, not
         what it is worth today and not what you paid for it.
       </P>
       <UL>
@@ -144,7 +144,7 @@ export default function Post() {
       <H2 id="empty-homes">10. Empty homes and second homes</H2>
       <P>
         Councils have discretion over many empty and second-home charges. A home empty for long
-        enough can face an increase of up to 100%, but important exemptions remain — including
+        enough can face an increase of up to 100%, but important exemptions remain, including
         some homes being sold or let, properties under structural repair, and homes left empty
         because the owner is in long-term care, hospital or prison.
       </P>

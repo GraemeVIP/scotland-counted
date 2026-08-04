@@ -1,5 +1,5 @@
 /**
- * UK tax engine — 2026/27.
+ * UK tax engine, 2026/27.
  *
  * Ported from the standalone calculator. Pure maths, no DOM and no React, so
  * the same code runs in the browser, in the server render and under
@@ -8,8 +8,8 @@
  * indicator and cost-of-living pages come from here too, so the calculator and
  * the editorial can never drift apart.
  *
- * Income tax bands are defined over TAXABLE income — income above the Personal
- * Allowance — which is how the statutory limits are written.
+ * Income tax bands are defined over TAXABLE income, income above the Personal
+ * Allowance, which is how the statutory limits are written.
  *
  * Rates live in TAX_DATA. One object to update each April.
  */
@@ -200,9 +200,9 @@ export type CalcOptions = {
   /** £ per year contributed. */
   pension?: number;
   /**
-   * 'net' — net pay: taken before tax, but not before NI (the default)
-   * 'sac' — salary sacrifice: taken before both tax and NI
-   * 'ras' — relief at source: taken from after-tax pay, provider adds 25%
+   * 'net', net pay: taken before tax, but not before NI (the default)
+   * 'sac', salary sacrifice: taken before both tax and NI
+   * 'ras', relief at source: taken from after-tax pay, provider adds 25%
    */
   pensionType?: PensionType;
   taxCode?: TaxCode;

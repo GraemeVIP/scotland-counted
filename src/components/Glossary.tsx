@@ -135,7 +135,7 @@ export function G({ t, children }: { t: string; children: ReactNode }) {
         onMouseLeave={scheduleClose}
         onFocus={openFromFocus}
         onBlur={scheduleClose}
-        aria-label={`${typeof children === "string" ? children : term.term} — what this means`}
+        aria-label={`${typeof children === "string" ? children : term.term}, what this means`}
         onClick={(e) => {
           e.stopPropagation();
           cancelClose();

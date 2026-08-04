@@ -3,6 +3,7 @@ import { Page, Col, PageHeader, CTA, InShort } from "@/components/Blocks";
 import Figure from "@/components/charts/Figure";
 import AreaDumbbell from "./AreaDumbbell";
 import RankTable from "@/components/RankTable";
+import AreaGrid from "@/components/AreaGrid";
 import { JsonLd, breadcrumbJsonLd, datasetJsonLd, meta } from "@/lib/seo";
 import {
   councilsByLevel,
@@ -117,8 +118,8 @@ export default function Areas() {
           </p>
           <h2 className="h2 mb-4">Why nearby places can look very different</h2>
           <p>
-            The three areas with the lowest child poverty — {byLevel[31].name},{" "}
-            {byLevel[30].name} and {byLevel[29].name} — are places where many people travel to
+            The three areas with the lowest child poverty, {byLevel[31].name},{" "}
+            {byLevel[30].name} and {byLevel[29].name}, are places where many people travel to
             better-paid jobs elsewhere. Two border Glasgow.
           </p>
           <p>
@@ -129,6 +130,10 @@ export default function Areas() {
             to exactly these places.
           </p>
         </Col>
+
+        {/* Moved off the homepage. The tables above are for comparing; this is
+            for finding your own place by name, which is a different job. */}
+        <AreaGrid className="py-14 sm:py-16" />
 
         <CTA
           title="Enter your postcode and I do the rest"

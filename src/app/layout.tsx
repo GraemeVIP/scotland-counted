@@ -43,7 +43,8 @@ export const metadata: Metadata = {
   applicationName: site.name,
   authors: [{ name: site.author.name, url: site.author.url }],
   creator: site.author.name,
-  publisher: site.organisation.name,
+  /* The site publishes itself. The consultancy is the author's employer. */
+  publisher: site.name,
   alternates: {
     canonical: site.url,
     types: { "application/rss+xml": `${site.url}/feed.xml` },

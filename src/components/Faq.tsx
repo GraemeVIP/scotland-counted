@@ -4,7 +4,7 @@ import { ExplainText } from "@/components/Glossary";
 /**
  * The questions block, in one place.
  *
- * There were four different treatments of the same thing across the site — a
+ * There were four different treatments of the same thing across the site, a
  * hairline rule on the area pages, a heavy rule on the constituency and policy
  * pages, tinted cards inside blog posts, and accordions on the home page. The
  * lightest of them read as unfinished: bare text under a faint line, with a

@@ -72,12 +72,12 @@ export const sources: Source[] = [
   },
   {
     id: "glasgow-labour-profile",
-    title: "Labour Market Profile — Glasgow City",
+    title: "Labour Market Profile, Glasgow City",
     publisher: "Office for National Statistics, via NOMIS",
     url: "https://www.nomisweb.co.uk/reports/lmp/lad/1778385245/report.aspx",
     used: "The 2025 Glasgow workplace and residence pay estimates and the 2024 split between full-time and part-time employee jobs.",
     derivation:
-      "The employee-jobs count shows 128,000 of 442,000 Glasgow employee jobs were part-time in 2024 — 29%. Those jobs are excluded from the full-time pay series.",
+      "The employee-jobs count shows 128,000 of 442,000 Glasgow employee jobs were part-time in 2024, which is 29%. Those jobs are excluded from the full-time pay series.",
   },
   {
     id: "minimum-wage-2026",
@@ -132,7 +132,7 @@ export const sources: Source[] = [
     title:
       "History, politics and vulnerability: explaining excess mortality",
     publisher:
-      "Walsh, McCartney, Collins, Taulbut and Batty — GCPH, NHS Health Scotland, UWS and UCL, 2016",
+      "Walsh, McCartney, Collins, Taulbut and Batty (GCPH, NHS Health Scotland, UWS and UCL), 2016",
     url: "https://www.gcph.co.uk/latest/publications/310-history-politics-and-vulnerability-explaining-excess-mortality",
     used: "The explanation for Glasgow's excess mortality relative to Liverpool and Manchester, and the historical policy causes.",
   },
@@ -320,7 +320,7 @@ export const sources: Source[] = [
     title: "Universal Credit: how your wages affect your payments",
     publisher: "UK Government",
     url: "https://www.gov.uk/universal-credit/how-your-wages-affect-your-payments",
-    used: "The 55p taper — Universal Credit falls by 55p for every £1 earned — and the work allowances of £427 and £710 a month.",
+    used: "The 55p taper (Universal Credit falls by 55p for every £1 earned) and the work allowances of £427 and £710 a month.",
     derivation:
       "Because the taper is 55p rather than a pound, earnings always raise total income. This is the fact that settles whether anyone is financially better off not working.",
   },
@@ -345,7 +345,7 @@ export const sources: Source[] = [
     title: "Low and high pay in the UK: 2025",
     publisher: "Office for National Statistics",
     url: "https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/bulletins/lowandhighpayuk/2025",
-    used: "That around 2.0 million workers — about 6.6% of the UK workforce — are paid at or below the minimum wage, which is why the middle of the distribution sits well above it.",
+    used: "That around 2.0 million workers, about 6.6% of the UK workforce, are paid at or below the minimum wage, which is why the middle of the distribution sits well above it.",
   },
   {
     id: "lpc-remit",
@@ -425,7 +425,7 @@ export const sources: Source[] = [
   },
   {
     id: "welfare-freeze-vote",
-    title: "Welfare Reform and Work Bill — Commons Division 203",
+    title: "Welfare Reform and Work Bill, Commons Division 203",
     publisher: "UK Parliament (Hansard)",
     url: "https://hansard.parliament.uk/Commons/2016-03-02/division/16030293001906/WelfareReformAndWorkBill?outputType=Names",
     used: "The final Commons division on 2 March 2016: 309 MPs voted Aye and 274 voted No.",
@@ -454,7 +454,7 @@ export const sources: Source[] = [
   },
   {
     id: "scottish-welfare-fund",
-    title: "Scottish Welfare Fund — help with living costs",
+    title: "Scottish Welfare Fund, help with living costs",
     publisher: "mygov.scot",
     url: "https://www.mygov.scot/scottish-welfare-fund",
     used: "Crisis Grants are non-repayable council grants for low-income people facing an unexpected emergency; Community Care Grants serve a different purpose.",
@@ -505,7 +505,7 @@ export const sources: Source[] = [
   },
   {
     id: "obr-tax-thresholds-2025",
-    title: "Economic and fiscal outlook — November 2025",
+    title: "Economic and fiscal outlook, November 2025",
     publisher: "Office for Budget Responsibility",
     url: "https://obr.uk/efo/economic-and-fiscal-outlook-november-2025/",
     used: "The extension of frozen personal tax thresholds to 2030–31 and the explanation of fiscal drag.",

@@ -30,7 +30,7 @@ const BASE_FAQ = [
   },
   {
     q: "Does council tax include water charges in Scotland?",
-    a: "Yes. Water and waste water charges are set by Scottish Water but collected on your council tax bill. They are a large part of it — £434.88 a year at Band A — and most figures published online leave them out.",
+    a: "Yes. Water and waste water charges are set by Scottish Water but collected on your council tax bill. They are a large part of it, £434.88 a year at Band A, and most figures published online leave them out.",
   },
   {
     q: "Can I pay less council tax?",
@@ -42,7 +42,7 @@ const BASE_FAQ = [
   },
   {
     q: "What months are free of council tax?",
-    a: "Most Scottish councils spread the bill over 10 instalments from April to January, so February and March have no payment. That is not a discount — the same total is collected in ten payments rather than twelve. You can usually ask your council to spread it over 12 months instead, which makes each payment smaller.",
+    a: "Most Scottish councils spread the bill over 10 instalments from April to January, so February and March have no payment. That is not a discount. The same total is collected in ten payments rather than twelve. You can usually ask your council to spread it over 12 months instead, which makes each payment smaller.",
   },
   {
     q: "How is council tax calculated?",
@@ -94,7 +94,7 @@ export default function CouncilTaxPage() {
         <PageHeader
           eyebrow="Scotland · all 32 councils · bands A to H"
           title="Council tax bands in Scotland: 2026/27 prices"
-          lede="Enter your postcode and see what every band costs where you live — with water and waste water included, which most figures leave out. Scotland only: the bands and rates here do not apply in England or Wales."
+          lede="Enter your postcode and see what every band costs where you live, with water and waste water included, which most figures leave out. Scotland only: the bands and rates here do not apply in England or Wales."
         />
 
         <div className="mt-2 mb-9">
@@ -105,7 +105,7 @@ export default function CouncilTaxPage() {
             </p>
             <p>
               Your bill also includes <strong>water and waste water</strong>. That is Scottish
-              Water&apos;s charge, not the council&apos;s, but it arrives on the same bill — and at
+              Water&apos;s charge, not the council&apos;s, but it arrives on the same bill, and at
               Band A it is £434.88 a year on its own.
             </p>
             <p>On a low income you may pay a lot less. I explain how below.</p>
@@ -182,7 +182,7 @@ export default function CouncilTaxPage() {
                 <a href={s.url} target="_blank" rel="noopener noreferrer">
                   {s.title}
                 </a>{" "}
-                — {s.publisher}
+, {s.publisher}
               </li>
             ))}
           </ul>

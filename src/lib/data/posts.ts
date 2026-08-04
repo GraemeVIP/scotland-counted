@@ -46,7 +46,7 @@ export const postCategories = [
   {
     slug: "politics-explained",
     name: "Politics explained",
-    description: "The facts, dates and primary records behind Scottish political stories — with allegations, investigations and court findings kept clearly separate.",
+    description: "The facts, dates and primary records behind Scottish political stories, with allegations, investigations and court findings kept clearly separate.",
     color: "var(--warn-text)",
     colorOnDark: "#f5b53d",
   },
@@ -168,7 +168,7 @@ export const posts: Post[] = [
     description:
       "How council tax works in Scotland, including who pays, water charges, discounts, Council Tax Reduction, band appeals, arrears and empty homes.",
     standfirst:
-      "Your bill is a mix of a property band, your council's rate and Scottish Water charges. Here are the ten things that explain almost everything — followed by the exact sources.",
+      "Your bill is a mix of a property band, your council's rate and Scottish Water charges. Here are the ten things that explain almost everything, followed by the exact sources.",
     date: "2026-08-01",
     category: "money-and-bills",
     tags: ["Council tax", "Council tax bands", "Council Tax Reduction", "Scottish Water"],
@@ -224,7 +224,7 @@ export const posts: Post[] = [
     description:
       "Every Scottish council's 2026/27 council tax rise compared with 2025/26. See the Band D cash and percentage increase, then check every band.",
     standfirst:
-      "Every council raised its rate, but not by the same amount. This compares last year's council tax with this year's — and keeps Scottish Water's separate charge out of the council figures.",
+      "Every council raised its rate, but not by the same amount. This compares last year's council tax with this year's, and keeps Scottish Water's separate charge out of the council figures.",
     date: "2026-08-02",
     category: "money-and-bills",
     tags: ["Council tax rises", "Council tax 2026/27", "Council tax bands", "Scottish councils"],
@@ -586,7 +586,7 @@ export const posts: Post[] = [
     description:
       "Scotland's cost-of-living crisis did not end when inflation fell. See why food, rent and energy remain expensive and which political choices worsened it.",
     standfirst:
-      "War and the pandemic pushed prices up. That is true. It is also true that political choices left ordinary families with less protection — and added avoidable costs of their own.",
+      "War and the pandemic pushed prices up. That is true. It is also true that political choices left ordinary families with less protection, and added avoidable costs of their own.",
     date: "2026-08-01",
     updated: "2026-08-01",
     category: "money-and-bills",

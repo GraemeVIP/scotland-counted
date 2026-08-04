@@ -44,7 +44,7 @@ export default function Post() {
       <P>
         Brexit added a UK-specific cost. Research from the London School of Economics estimated
         that new non-tariff barriers added about eight percentage points to food-price growth from
-        late 2019 to March 2023 — roughly £250 for the average household over that period. It is an
+        late 2019 to March 2023, roughly £250 for the average household over that period. It is an
         academic estimate, not a receipt count, and I label it that way.
       </P>
 

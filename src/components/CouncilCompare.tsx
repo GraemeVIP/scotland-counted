@@ -1,7 +1,7 @@
 import { councilBenchmarks, LGBF_SOURCE, type CouncilBenchmark } from "@/lib/data/councilBenchmarks";
 
 /**
- * "How your council compares" — the like-for-like layer on every council
+ * "How your council compares", the like-for-like layer on every council
  * record, generated from the national benchmarking data (LGBF).
  *
  * The point of this block is the ruler, not the numbers alone: every council
@@ -9,14 +9,14 @@ import { councilBenchmarks, LGBF_SOURCE, type CouncilBenchmark } from "@/lib/dat
  * repeat in an argument without caveats. The rank phrase does the emotional
  * work; the value and the Scotland figure sit beside it as the receipt.
  *
- * Tone thresholds are terciles of 32. Middle third stays neutral on purpose —
+ * Tone thresholds are terciles of 32. Middle third stays neutral on purpose, 
  * painting 11th of 32 as either triumph or scandal would be spin, and spin is
  * the one thing this site must never do.
  *
  * Some indicators are not scored at all. Cost per primary pupil is the case
  * that forced the rule: ranking it lowest-first painted a council that spends
  * less on each child bright green, as though it were a win. Those rows carry
- * direction "depends" — no tone, and a note saying what low actually means.
+ * direction "depends", no tone, and a note saying what low actually means.
  */
 
 /**
@@ -104,7 +104,7 @@ export default function CouncilCompare({ slug }: { slug: string }) {
       </div>
 
       <p className="mt-4 max-w-[68ch] text-[15.5px] leading-[1.55] text-[var(--muted)]">
-        Figures from the {LGBF_SOURCE.name}, published by the {LGBF_SOURCE.publisher} — the
+        Figures from the {LGBF_SOURCE.name}, published by the {LGBF_SOURCE.publisher}, the
         national comparison every council takes part in. Data file retrieved{" "}
         {LGBF_SOURCE.retrieved}.{" "}
         <a href={LGBF_SOURCE.url} rel="noopener noreferrer" target="_blank">

@@ -3,6 +3,7 @@ import { Page, ContentFrame, PageHeader } from "@/components/Blocks";
 import NewsletterSignup from "@/components/NewsletterSignup";
 import AuthorBio from "@/components/AuthorBio";
 import BlogList from "./BlogList";
+import BlogCarousel from "@/components/BlogCarousel";
 import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
 import { postsByDate } from "@/lib/data/posts";
 import { site } from "@/lib/site";
@@ -53,6 +54,11 @@ export default function Blog() {
           title="Scotland Counted explained"
           lede="Start with the answer in ordinary words. Then open the figures, dates and original sources if you want to check the work. No political knowledge assumed."
         />
+
+        {/* Moved off the homepage, where it was doing primary discovery for a
+            first-time visitor. Here it is a featured rail above the full
+            library, which is what a carousel is actually good at. */}
+        <BlogCarousel posts={all} />
 
         <ContentFrame>
           <BlogList posts={all} />

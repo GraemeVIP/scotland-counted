@@ -11,7 +11,7 @@ import { buildLetter, mailtoUrl, type LetterArea } from "@/lib/letter";
  * Most visitors arrive here from a search for their own town, so the email has
  * to be reachable from this page rather than from the start of the postcode
  * flow. A Westminster seat already names the MP, so the letter needs nothing
- * typed. The postcode is only asked for afterwards, to add the MSP — which a
+ * typed. The postcode is only asked for afterwards, to add the MSP, which a
  * Westminster boundary genuinely cannot tell us.
  */
 export default function ConstituencyLetter({
@@ -196,7 +196,7 @@ export default function ConstituencyLetter({
       <div className="mt-7 pt-6 border-t border-[var(--rule)]">
         <h3 className="h3 mb-2">You also have an MSP. Email them too.</h3>
         <p className="text-[16px] text-[var(--ink-2)] leading-[1.6] max-w-[62ch]">
-          Your MP works in London. Your MSP works in Edinburgh, and decides different things —
+          Your MP works in London. Your MSP works in Edinburgh, and decides different things, 
           like the Scottish Child Payment, council houses and childcare. Asking both is stronger
           than asking one.
         </p>

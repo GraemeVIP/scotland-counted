@@ -50,7 +50,7 @@ export default function TakeAction() {
           {/*
             The other door, named at the door. This page is for getting
             something done; the directory is for looking people up and seeing
-            how they voted. Two different errands — a person on the wrong page
+            how they voted. Two different errands, a person on the wrong page
             should find out in the first screen, not after scrolling.
           */}
           <p className="mt-5 text-[16px] leading-[1.6] text-[var(--ink-2)]">

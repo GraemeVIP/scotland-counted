@@ -30,7 +30,7 @@ export const minimumWage = {
  * also powers the public calculator. It used to be worked out here from a
  * second copy of the Scottish bands, with National Insurance taken on the
  * weekly threshold (£242) rather than the annual one (£12,570). Those two
- * bases do not reconcile — £242 × 52 is £12,584 — so the same wage came out
+ * bases do not reconcile (£242 × 52 is £12,584), so the same wage came out
  * £1.12 apart depending on which page you read. One engine, one answer.
  */
 export const minimumWageTakeHome = (() => {
@@ -90,7 +90,7 @@ export const minimumIncomeStandard = [
  * pound, so earnings never reduce total income. There is no point at which
  * someone is financially better off not working. What is true, and is the
  * serious version of the complaint, is that the reward for working can be
- * thin — 45p of every pound above the work allowance.
+ * thin, 45p of every pound above the work allowance.
  */
 export const benefitsComparison = {
   taperPence: 55,
@@ -191,7 +191,7 @@ export const universalCredit = {
       maxUcBeforeHousing: 424.9 + 303.94 * 2,
       taperCut: (1783.77 - 427) * 0.55,
       award: 424.9 + 303.94 * 2 - (1783.77 - 427) * 0.55,
-      note: "A work allowance and two child elements apply, so £287 a month is payable before any help with rent — around £3,439 a year.",
+      note: "A work allowance and two child elements apply, so £287 a month is payable before any help with rent, around £3,439 a year.",
     },
   ],
   sourceIds: ["uc-what-youll-get", "uc-earnings"],

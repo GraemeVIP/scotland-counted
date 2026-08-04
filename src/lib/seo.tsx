@@ -43,7 +43,10 @@ export function meta({
    */
   ownImage?: boolean;
 }): Metadata {
-  if (title.includes("—") || description.includes("—")) {
+  // Written as \u2014, not the character itself. A repository-wide sweep
+  // that removed em dashes from prose rewrote this guard into a comma check,
+  // which silently turned it into a rule against commas in titles.
+  if (title.includes("\u2014") || description.includes("\u2014")) {
     throw new Error(
       "Metadata titles and descriptions must not contain em dashes. Use a pipe in titles and normal sentence punctuation in descriptions.",
     );
@@ -52,8 +55,8 @@ export function meta({
   const url = `${site.url}${path === "/" ? "" : path}`;
   /**
    * Every page gets a share card. The opengraph-image file convention only
-   * covers the segment it sits in — it does not reach nested routes whose own
-   * metadata defines openGraph — which left most of the site sharing as a bare
+   * covers the segment it sits in. It does not reach nested routes whose own
+   * metadata defines openGraph, which left most of the site sharing as a bare
    * link. Defaulting here covers every page from one place.
    */
   const resolved = image ?? (ownImage ? undefined : "/opengraph-image");
@@ -110,7 +113,7 @@ export function meta({
       description,
       /*
        * Without these a shared link renders a card with no byline and no way
-       * back to the account — a post can travel and leave nobody able to find
+       * back to the account. A post can travel and leave nobody able to find
        * who published it. Both are omitted entirely when no handle is set,
        * rather than emitted empty.
        */
@@ -120,248 +123,21 @@ export function meta({
   };
 }
 
-/** JSON-LD for the organisation and site, emitted once in the root layout. */
-export function orgJsonLd() {
-  return {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebSite",
-        "@id": `${site.url}/#website`,
-        url: site.url,
-        name: site.name,
-        description: site.description,
-        inLanguage: "en-GB",
-        publisher: { "@id": `${site.url}/#org` },
-      },
-      {
-        "@type": "Organization",
-        "@id": `${site.url}/#org`,
-        name: site.organisation.name,
-        url: site.organisation.url,
-        description:
-          "Independent research and analysis. Scotland Counted is an independent record of poverty, work and living costs in Scotland.",
-        ...(site.social.x ? { sameAs: [`https://x.com/${site.social.x}`] } : {}),
-      },
-      {
-        "@type": "Person",
-        "@id": `${site.url}/#author`,
-        name: site.author.name,
-        affiliation: { "@id": `${site.url}/#org` },
-        url: site.author.url,
-      },
-    ],
-  };
-}
-
-/** JSON-LD for an editorial page, or a blog article when the path calls for it. */
-export function articleJsonLd({
-  headline,
-  description,
-  path,
-  published,
-  modified,
-  image,
-  section,
-  keywords,
-  schemaType,
-}: {
-  headline: string;
-  description: string;
-  path: string;
-  published?: string;
-  modified?: string;
-  image?: string;
-  section?: string;
-  keywords?: string[];
-  /** Blog posts are the only pages that should be article-like structured data. */
-  schemaType?: "WebPage" | "Article" | "NewsArticle" | "BlogPosting";
-}) {
-  const type = schemaType ?? (path.startsWith("/blog/") ? "BlogPosting" : "WebPage");
-  const isArticle = type === "Article" || type === "NewsArticle" || type === "BlogPosting";
-  const url = `${site.url}${path}`;
-
-  return {
-    "@context": "https://schema.org",
-    "@type": type,
-    ...(isArticle ? { headline } : { name: headline }),
-    description,
-    ...(published ? { datePublished: published } : {}),
-    ...(modified ? { dateModified: modified } : {}),
-    inLanguage: "en-GB",
-    isAccessibleForFree: true,
-    url,
-    mainEntityOfPage: url,
-    ...(image ? { image: image.startsWith("http") ? image : `${site.url}${image}` } : {}),
-    ...(isArticle && section ? { articleSection: section } : {}),
-    ...(keywords ? { keywords: keywords.join(", ") } : {}),
-    author: { "@id": `${site.url}/#author`, "@type": "Person", name: site.author.name, url: site.author.url },
-    publisher: {
-      "@type": "Organization",
-      name: site.organisation.name,
-      url: site.organisation.url,
-    },
-  };
-}
-
-/** JSON-LD describing a dataset, so the figures are machine-discoverable. */
-export function datasetJsonLd({
-  name,
-  description,
-  path,
-  keywords,
-  temporalCoverage,
-  spatialCoverage = "Scotland",
-  license,
-  dateModified = site.dataCheckedISO,
-}: {
-  name: string;
-  description: string;
-  path: string;
-  keywords: string[];
-  temporalCoverage: string;
-  spatialCoverage?: string;
-  /** Only include this when every item in the dataset has that licence. */
-  license?: string;
-  dateModified?: string;
-}) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "Dataset",
-    name,
-    description,
-    url: `${site.url}${path}`,
-    keywords,
-    temporalCoverage,
-    spatialCoverage: { "@type": "Place", name: spatialCoverage },
-    ...(license ? { license } : {}),
-    ...(dateModified ? { dateModified } : {}),
-    isAccessibleForFree: true,
-    creator: {
-      "@type": "Organization",
-      name: site.organisation.name,
-      url: site.organisation.url,
-    },
-  };
-}
-
-/**
- * JSON-LD for an embedded video.
- *
- * Google needs name, description, thumbnailUrl and uploadDate before a video
- * can show as a rich result, so all four are required here rather than
- * optional — a VideoObject missing one of them is just weight on the page.
- * The thumbnail is a path on this site, not YouTube's, because the poster is
- * self-hosted.
+/*
+ * The JSON-LD builders live in structuredData.ts so the test runner can load
+ * them without a JSX transform. Re-exported here because the whole site
+ * imports them from "@/lib/seo".
  */
-export function videoJsonLd({
-  name,
-  description,
-  thumbnail,
-  uploadDate,
-  youtubeId,
-  /** ISO 8601, e.g. "PT6M7S". */
-  duration,
-}: {
-  name: string;
-  description: string;
-  thumbnail: string;
-  uploadDate: string;
-  youtubeId: string;
-  duration?: string;
-}) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "VideoObject",
-    name,
-    description,
-    thumbnailUrl: thumbnail.startsWith("http") ? thumbnail : `${site.url}${thumbnail}`,
-    uploadDate,
-    ...(duration ? { duration } : {}),
-    embedUrl: `https://www.youtube-nocookie.com/embed/${youtubeId}`,
-    contentUrl: `https://www.youtube.com/watch?v=${youtubeId}`,
-    publisher: {
-      "@type": "Organization",
-      name: site.organisation.name,
-      url: site.organisation.url,
-    },
-  };
-}
-
-/**
- * JSON-LD for a standalone graphic, so it can surface in image search on its
- * own terms. `alt` doubles as the caption because it already describes the
- * whole thing in words — an image that needs two different descriptions is
- * usually one where the alt text is not doing its job.
- */
-export function imageJsonLd({
-  src,
-  alt,
-  title,
-  width,
-  height,
-  license,
-  copyrightNotice,
-}: {
-  src: string;
-  alt: string;
-  title: string;
-  width: number;
-  height: number;
-  /** Include only when the image's rights are known and uniform. */
-  license?: string;
-  copyrightNotice?: string;
-}) {
-  const licenseUrl = license
-    ? license.startsWith("http")
-      ? license
-      : `${site.url}${license}`
-    : undefined;
-
-  return {
-    "@context": "https://schema.org",
-    "@type": "ImageObject",
-    contentUrl: `${site.url}${src}`,
-    name: title,
-    caption: alt,
-    width,
-    height,
-    ...(licenseUrl
-      ? {
-          license: licenseUrl,
-          acquireLicensePage: licenseUrl,
-        }
-      : {}),
-    ...(copyrightNotice ? { copyrightNotice } : {}),
-    creditText: site.name,
-    creator: { "@type": "Organization", name: site.organisation.name, url: site.organisation.url },
-  };
-}
-
-export function faqJsonLd(items: { q: string; a: string }[]) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: items.map((i) => ({
-      "@type": "Question",
-      name: i.q,
-      acceptedAnswer: { "@type": "Answer", text: i.a },
-    })),
-  };
-}
-
-export function breadcrumbJsonLd(crumbs: { name: string; path: string }[]) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: crumbs.map((c, i) => ({
-      "@type": "ListItem",
-      position: i + 1,
-      name: c.name,
-      item: `${site.url}${c.path}`,
-    })),
-  };
-}
+export {
+  ENTITY,
+  orgJsonLd,
+  articleJsonLd,
+  datasetJsonLd,
+  videoJsonLd,
+  imageJsonLd,
+  faqJsonLd,
+  breadcrumbJsonLd,
+} from "@/lib/structuredData";
 
 /** Renders a JSON-LD block. */
 export function JsonLd({ data }: { data: object }) {

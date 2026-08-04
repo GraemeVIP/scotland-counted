@@ -32,7 +32,7 @@ export default function Post() {
 
       <P>
         The rules have changed several times since it started in 2021, and they can change again.
-        This post is an explainer, not an eligibility check — the only place to find out for
+        This post is an explainer, not an eligibility check, the only place to find out for
         certain whether you qualify is Social Security Scotland, who administer it.
       </P>
 
@@ -57,7 +57,7 @@ export default function Post() {
       </P>
 
       <P>
-        That cuts both ways. It shows the figures are not fixed and not inevitable — they respond
+        That cuts both ways. It shows the figures are not fixed and not inevitable, they respond
         to decisions. It also means decisions in the other direction show up just as fast.
       </P>
 
@@ -65,7 +65,7 @@ export default function Post() {
 
       <P>
         The Scottish Parliament in Edinburgh. It is <G t="reserved">devolved</G>, which means your{" "}
-        <strong>MSP</strong> is the person to ask about it — how much it is worth, and whether
+        <strong>MSP</strong> is the person to ask about it, how much it is worth, and whether
         every family entitled to it is actually getting it.
       </P>
 
@@ -80,7 +80,7 @@ export default function Post() {
       <P>
         A payment only lifts a family out of poverty if the family receives it. Money that goes
         unclaimed does nothing at all, and unclaimed support is one of the quiet failures in the
-        system — it never makes the news, because nothing visibly happens.
+        system, it never makes the news, because nothing visibly happens.
       </P>
 
       <P>

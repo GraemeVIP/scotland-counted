@@ -25,7 +25,7 @@ export default function Post() {
       </P>
 
       <P>
-        It means the common explanation for poverty — that it is caused by people not working —
+        It means the common explanation for poverty, that it is caused by people not working, 
         does not fit the facts. Something else is going on.
       </P>
 
@@ -73,7 +73,7 @@ export default function Post() {
 
       <P>
         If poverty were mostly about worklessness, the fix would be jobs. Scotland does not have a
-        jobs problem of that kind — <Link href="/why-poverty-is-worse-in-glasgow">Glasgow has more jobs than
+        jobs problem of that kind, <Link href="/why-poverty-is-worse-in-glasgow">Glasgow has more jobs than
         working-age residents</Link>, and it still has the worst child poverty rate in the country.
       </P>
 

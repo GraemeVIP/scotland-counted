@@ -8,7 +8,7 @@ import { ExplainText } from "@/components/Glossary";
  * Search engines and readers both ask the same question of a site that makes
  * claims about public figures: who is behind it, and what are they accountable
  * to. A named person, a stated method, a corrections policy and no funding to
- * hide is the honest answer — so it is stated on every article rather than
+ * hide is the honest answer, so it is stated on every article rather than
  * buried on an About page nobody opens.
  */
 export default function AuthorBio({ className = "" }: { className?: string }) {
@@ -27,8 +27,8 @@ export default function AuthorBio({ className = "" }: { className?: string }) {
         <ExplainText>
         Scotland Counted is an independent record of poverty, work and living costs in Scotland. It is
         not a newspaper and not a campaign group. Every
-        figure on it is taken from the original publisher — the Scottish Government, the ONS, DWP
-        records or named academic work — never from someone else&apos;s write-up of them.
+        figure on it is taken from the original publisher, the Scottish Government, the ONS, DWP
+        records or named academic work, never from someone else&apos;s write-up of them.
         </ExplainText>
       </p>
 

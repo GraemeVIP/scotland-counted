@@ -54,7 +54,7 @@ const statusStyles: Record<
     dot: "bg-[var(--warn)]",
   },
   context: {
-    label: "Context — not evidence of guilt",
+    label: "Context, not evidence of guilt",
     className:
       "border-[var(--rule-strong)] text-[var(--muted)] bg-[var(--surface-2)]",
     dot: "bg-[var(--muted)]",
@@ -194,7 +194,7 @@ export default function SnpMoneyTimeline({
                                   >
                                     {source.title}
                                   </a>{" "}
-                                  <span className="text-[var(--muted)]">— {source.publisher}</span>
+                                  <span className="text-[var(--muted)]">, {source.publisher}</span>
                                 </li>
                               );
                             })}

@@ -83,7 +83,7 @@ export default function QuizPage() {
           </div>
           <p className="mt-6 max-w-[70ch] text-[15px] leading-[1.6] text-[var(--muted)]">
             Nothing in the quiz is written for effect. Every figure appears elsewhere on this site
-            with its working shown — if you think one is wrong,{" "}
+            with its working shown, if you think one is wrong,{" "}
             <Link href="/corrections">tell me and I will correct it publicly</Link>.
           </p>
         </ContentFrame>

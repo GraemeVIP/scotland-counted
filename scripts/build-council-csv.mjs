@@ -5,7 +5,7 @@
  * One row per council, one column per compared measure, plus the 2026/27
  * budget gap and a Scotland row to compare against. Generated from the same
  * modules the site renders from, so the spreadsheet and the pages can never
- * disagree — regenerate it whenever the benchmarking file is refreshed.
+ * disagree, regenerate it whenever the benchmarking file is refreshed.
  *
  *   node scripts/build-council-csv.mjs
  *
@@ -13,7 +13,7 @@
  * the road figures are a year fresher than the rest and a stray comparison
  * across years is the easiest mistake to make with a file like this. And the
  * cost-per-pupil rank is named "lowest_spend_first" rather than plain "rank",
- * because spending less on each child is not a league position — naming it
+ * because spending less on each child is not a league position, naming it
  * "rank" would invite exactly the chart the site refuses to draw.
  */
 
@@ -51,7 +51,7 @@ const yearSuffix = (year) => "_" + year.replace("/", "_").replace(/^(\d{4})_(\d{
 const sample = councilBenchmarks[Object.keys(councilBenchmarks)[0]];
 for (const m of MEASURES) {
   const row = sample.find((r) => r.code === m.code);
-  if (!row) throw new Error(`No benchmark row for ${m.code} — has the data file changed?`);
+  if (!row) throw new Error(`No benchmark row for ${m.code}, has the data file changed?`);
   m.year = row.year;
   m.column = m.stem + yearSuffix(row.year);
   const base = m.stem.replace(/_(pct|gbp|per_employee)$/, "");

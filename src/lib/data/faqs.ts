@@ -35,7 +35,7 @@ export const faqSections: FaqSection[] = [
       {
         id: "how-many-people-scotland",
         q: "How many people in Scotland live in poverty?",
-        a: "Around 940,000 people — about 1 in every 6 people in Scotland. The exact official figure is 17% after housing costs, measured across 2022–25.",
+        a: "Around 940,000 people, about 1 in every 6 people in Scotland. The exact official figure is 17% after housing costs, measured across 2022–25.",
         keywords: "940000 940,000 17% one in six national",
         href: "/",
         linkLabel: "See the Scotland-wide picture",
@@ -134,7 +134,7 @@ export const faqSections: FaqSection[] = [
       {
         id: "why-glasgow-special",
         q: "Why does Glasgow get its own detailed section?",
-        a: "Because Glasgow’s child-poverty figures are the worst in Scotland. In 2023/24, 36.1% of children — 39,319 children — were in relative poverty after housing costs. Glasgow also had the steepest ten-year rise of any Scottish council area.",
+        a: "Because Glasgow’s child-poverty figures are the worst in Scotland. In 2023/24, 36.1% of children, 39,319 children, were in relative poverty after housing costs. Glasgow also had the steepest ten-year rise of any Scottish council area.",
         keywords: "Glasgow 36.1 39319 worst highest rise special",
         href: "/why-poverty-is-worse-in-glasgow",
         linkLabel: "See why Glasgow has been hit harder",

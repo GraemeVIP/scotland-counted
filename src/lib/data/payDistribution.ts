@@ -1,14 +1,14 @@
 /**
  * The spread of full-time pay in Glasgow, not just the middle of it.
  *
- * A single median invites the obvious objection — that £40,000-odd is nothing
- * like what people around you earn — and the objection is fair, because a
+ * A single median invites the obvious objection, that £40,000-odd is nothing
+ * like what people around you earn, and the objection is fair, because a
  * median says nothing about the shape either side of it. A quarter of
  * full-time Glasgow residents earn under £30,000. That is true at the same
  * time as the median being what it is, and the page should say both.
  *
  * Residence basis: jobs held by people who live in Glasgow, which is the one
- * that answers "what do people here earn". Full-time employee jobs only —
+ * that answers "what do people here earn". Full-time employee jobs only, 
  * part-time work, which is 29% of the city's employee jobs, is not in here at
  * all and is paid far less.
  *
@@ -78,7 +78,7 @@ export const glasgowFullTimeJobs = 199_000;
  * question. HMRC's PAYE Real Time Information is not a survey at all: it is
  * every payroll submission in the country. The two are collected differently,
  * cover different populations, and agree once that difference is accounted
- * for — the gap between them is what including part-time work does.
+ * for, the gap between them is what including part-time work does.
  */
 export const rtiCrossCheck = {
   monthly: 2538,

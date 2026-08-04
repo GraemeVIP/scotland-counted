@@ -39,7 +39,7 @@ function SearchButton() {
       </span>
       {/*
         No ⌘K badge. It is Mac-only notation, and on Windows, Linux, Android and
-        iOS it is either wrong or meaningless — a keyboard hint that most
+        iOS it is either wrong or meaningless, a keyboard hint that most
         visitors cannot act on. The shortcut still works, and still accepts
         Ctrl+K as well as ⌘K for anyone who tries it.
       */}
@@ -95,7 +95,7 @@ export function Header() {
   /*
    * Dismiss the desktop panel the way every other menu on the web does:
    * click away from it, or press Escape. Requiring a second click on the
-   * button that opened it is a dead end — nothing on screen says that is the
+   * button that opened it is a dead end, nothing on screen says that is the
    * only way out, so the panel reads as stuck.
    *
    * The panel renders inside <header>, so containment on that one node covers
@@ -222,12 +222,12 @@ export function Header() {
     {/*
       The mobile sheet is a sibling of the header, not a child, and that is
       load-bearing rather than tidiness. (It now covers the header entirely
-      and carries its own close button — see the note in SiteMenu.tsx.)
+      and carries its own close button, see the note in SiteMenu.tsx.)
 
       Once scrolled, the header gains backdrop-blur-md. An element with a
       backdrop-filter becomes the containing block for its position: fixed
-      descendants, so the sheet — inset from the top by the header's own height
-      — stopped resolving against the viewport and started resolving against a
+      descendants, so the sheet, inset from the top by the header's own height
+, stopped resolving against the viewport and started resolving against a
       73px-tall header. top: 72px against 73px of height leaves a sheet one
       pixel tall. It opened, the button switched to a cross, and nothing
       appeared, which read as the menu refusing to open at all.
@@ -265,7 +265,7 @@ export function Footer() {
           <div>
             <Wordmark className="text-[22px]" />
             <p className="text-[15px] leading-[1.5] opacity-72 max-w-[42ch] mt-2.5">
-              A free, independent guide to poverty, work and living costs in Scotland — with local
+              A free, independent guide to poverty, work and living costs in Scotland, with local
               facts, plain-English explanations and a way to contact the people who decide.
             </p>
           </div>
@@ -291,7 +291,7 @@ export function Footer() {
         {/*
           The two calculators, given their own row.
           Both were reachable only through the "Everything" menu, which renders
-          on click and so contributes nothing a crawler can follow — between
+          on click and so contributes nothing a crawler can follow, between
           them they had a single inbound link on the whole site. They are the
           most useful things here for someone who arrived with a practical
           question, so they get a permanent home instead.

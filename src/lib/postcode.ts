@@ -7,7 +7,7 @@
  * detail but omits some live Scottish postcodes; the ONS directory
  * (postcodes.io /postcodes) has full coverage. PA75 6NU in Argyll and Bute is a
  * real example: introduced in 1980, absent from the SPD, and previously told
- * "not found in Scotland" — a false rejection aimed at the resident.
+ * "not found in Scotland", a false rejection aimed at the resident.
  *
  * So we ask the Scottish directory first and fall back to the ONS one, which
  * also lets us tell three different failures apart instead of blaming the user

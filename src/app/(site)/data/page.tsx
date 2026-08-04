@@ -14,7 +14,7 @@ export const metadata = meta({
  * Every file, with the two things the page never used to say: what format it is
  * and whether we touched it.
  *
- * "prepared" means we built the file — tidied into one row per observation,
+ * "prepared" means we built the file, tidied into one row per observation,
  * given column names a person can read, with the source attached. "original"
  * means it is the publisher's own output, saved and served unaltered, down to
  * the shouted NOMIS column names.
@@ -152,7 +152,7 @@ const GROUPS = [
     kind: "original" as const,
     title: "Original files, exactly as published",
     blurb:
-      "Saved and served unaltered, down to the publisher's own column names — NOMIS uses DATE_NAME, GEOGRAPHY_NAME and OBS_VALUE. Nothing has been renamed, reordered, rounded or filtered. Use these to check my working.",
+      "Saved and served unaltered, down to the publisher's own column names, NOMIS uses DATE_NAME, GEOGRAPHY_NAME and OBS_VALUE. Nothing has been renamed, reordered, rounded or filtered. Use these to check my working.",
   },
 ];
 
@@ -167,7 +167,7 @@ export default function Data() {
       />
       <JsonLd
         data={datasetJsonLd({
-          name: "Scotland Counted — full dataset",
+          name: "Scotland Counted, full dataset",
           description:
             "National poverty rates, council child poverty, employment, benefit claims, pay, jobs density and life expectancy data for Scotland, including the Glasgow deep series, 2000–2026.",
           path: "/data",
