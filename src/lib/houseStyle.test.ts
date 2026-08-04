@@ -43,13 +43,25 @@ function sourceFiles(dir: string, found: string[] = []): string[] {
 const SELF = fileURLToPath(import.meta.url);
 const FILES = sourceFiles(ROOT).filter((file) => file !== SELF);
 
-test("the repository contains no em dashes", () => {
+/**
+ * The character, and every way of writing it that a browser renders as one.
+ *
+ * A sweep that only looked for the character left `&mdash;` untouched in JSX,
+ * where it is invisible to a source scan and renders as an em dash on the
+ * page. It survived on all 32 council records that way.
+ */
+const EM_DASH_FORMS = [EM_DASH, "&mdash;", "&#8212;", "&#x2014;"];
+
+test("the repository contains no em dashes, written any way", () => {
   const offenders: string[] = [];
   for (const file of FILES) {
     const text = readFileSync(file, "utf8");
-    if (!text.includes(EM_DASH)) continue;
-    const line = text.split("\n").findIndex((l) => l.includes(EM_DASH)) + 1;
-    offenders.push(`${file.replace(ROOT, "")}:${line}`);
+    const lines = text.split("\n");
+    for (const form of EM_DASH_FORMS) {
+      if (!text.includes(form)) continue;
+      const line = lines.findIndex((l) => l.includes(form)) + 1;
+      offenders.push(`${file.replace(ROOT, "")}:${line} (${form === EM_DASH ? "character" : form})`);
+    }
   }
   assert.deepEqual(
     offenders,

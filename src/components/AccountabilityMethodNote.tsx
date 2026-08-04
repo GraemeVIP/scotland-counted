@@ -46,7 +46,7 @@ export default function AccountabilityMethodNote({ councilName }: Accountability
         council, so where the two disagree, I show you both.
       </p>
       <p className="mt-3 max-w-[68ch] text-[16px] leading-[1.6] text-[var(--ink-2)]">
-        Every figure links straight back to the document it came from &mdash;{" "}
+        Every figure links straight back to the document it came from,{" "}
         <strong className="text-[var(--ink)]">{documents} of them so far</strong>. Check any of
         it yourself. If I cannot back something up it does not go on the page, and I tell you
         what is still missing.
