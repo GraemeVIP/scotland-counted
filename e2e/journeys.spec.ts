@@ -157,8 +157,22 @@ test.describe("the calculators", () => {
     await page.goto("/take-home-pay-calculator-scotland");
     await page.locator("#salary").fill(SALARY);
     await expect(page.getByText("You take home")).toBeVisible();
-    await page.waitForTimeout(1200);
+    await page.waitForTimeout(1500);
     expect(leaks, leaks.join("\n")).toEqual([]);
+
+    // The salary must not reach the URL either, which is how it reached
+    // Google in the first place: the analytics tag reports the page URL.
+    expect(page.url()).not.toContain(SALARY);
+  });
+
+  test("an old shared link restores the figures, then cleans itself up", async ({ page }) => {
+    /*
+     * Links saved before the query string was removed should still work, and
+     * should stop leaking the moment they are opened.
+     */
+    await page.goto("/take-home-pay-calculator-scotland?s=31000");
+    await expect(page.locator("#salary")).toHaveValue(/31,?000/);
+    await expect.poll(async () => page.url()).not.toContain("31000");
   });
 
   test("council tax lookup accepts a postcode and stays private", async ({ page }) => {

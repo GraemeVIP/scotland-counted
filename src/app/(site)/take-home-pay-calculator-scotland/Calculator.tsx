@@ -149,26 +149,29 @@ export default function Calculator() {
     return { calc: calculate(target, region, optsFor(target)) };
   }, [hasInput, entered, period, hours, reverse, region, optsFor]);
 
+  /*
+   * Clear the query string, and never write one.
+   *
+   * This effect used to do the opposite: it mirrored every field into the URL
+   * as you typed. That put a person's salary, pension contributions, student
+   * loan plan and tax code into window.location, and the analytics tag reports
+   * the page URL, so the whole lot went to Google on this page. Google's
+   * enhanced measurement treats "s" as a site-search parameter, so a salary
+   * also arrived as an explicit search_term event.
+   *
+   * The page promises, in these words, "Nothing you type is sent anywhere.
+   * The sum happens in your browser." It does now.
+   *
+   * Params are still read once on mount above, so a link somebody saved
+   * earlier still restores their figures. The URL is then cleaned, which stops
+   * an old link leaking on every page it goes on to touch. The cost is that
+   * new links are no longer shareable, and a salary is not a thing to make
+   * shareable by accident.
+   */
   useEffect(() => {
-    if (typeof window === "undefined") return;
-    const q = new URLSearchParams();
-    if (hasInput) {
-      q.set("s", amount.replace(/[^0-9.]/g, ""));
-      if (period !== "year") q.set("p", period);
-      if (!scotland) q.set("scot", "0");
-      if (hours !== 37.5) q.set("h", String(hours));
-      if (num(pension) > 0) {
-        q.set("pen", pension);
-        if (pensionUnit === "gbp") q.set("pu", "gbp");
-        if (pensionType !== "net") q.set("pt", pensionType);
-      }
-      if (studentPlan) q.set("sl", studentPlan);
-      if (pgl) q.set("pgl", "1");
-      if (taxCode.trim()) q.set("code", taxCode.trim());
-    }
-    const url = q.toString() ? `${window.location.pathname}?${q}` : window.location.pathname;
-    window.history.replaceState(null, "", url);
-  }, [amount, hasInput, period, scotland, hours, pension, pensionUnit, pensionType, studentPlan, pgl, taxCode]);
+    if (typeof window === "undefined" || !window.location.search) return;
+    window.history.replaceState(null, "", window.location.pathname);
+  }, []);
 
   const calc = result && "calc" in result ? result.calc : null;
   const unreachable = result && "unreachable" in result;

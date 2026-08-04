@@ -130,3 +130,62 @@ following is covered by anything in this repository:
 
 The accessibility statement lists real-device iOS testing under known
 limitations. Nothing here changes that.
+
+## Performance
+
+Measured with `npm run check:budgets` against a production build, in
+kilobytes of uncompressed response body. `--measure` prints the table without
+enforcing.
+
+The command palette is mounted in the root layout, and it was importing its
+whole index there: every council record, every constituency, every MP, the
+glossary, the FAQ and the post list. Everyone downloaded all of it on every
+page, whether or not they ever opened search. Most people never do. The index
+now lives in `src/lib/commandRegistry.ts` and is fetched on first open.
+
+| Page | JS before | JS after | Saved |
+| --- | --- | --- | --- |
+| `/` | 1456 | 1062 | 394 (27%) |
+| `/areas` | 1456 | 1057 | 399 (27%) |
+| `/areas/glasgow-city` | 1523 | 1115 | 408 (27%) |
+| `/councils/glasgow-city` | 1486 | 1044 | 442 (30%) |
+| `/money` | 1456 | 993 | 463 (32%) |
+| `/take-home-pay-calculator-scotland` | 1534 | 1126 | 408 (27%) |
+| `/find-my-mp-and-msp` | 1513 | 1071 | 442 (29%) |
+| `/blog` | 1509 | 1068 | 441 (29%) |
+
+Request counts went up, roughly 50 to 65 on the homepage, because the work is
+split across more chunks. That is the trade, and it is worth it over HTTP/2.
+
+`mermaid` was removed. It was a runtime dependency in `package.json`, 83MB
+installed, imported by nothing and present in no built chunk. Removing it does
+not change what a reader downloads and it is not counted as a saving above.
+
+Budgets in `scripts/check-budgets.mjs` are set from the numbers after, with
+about 8% headroom. They are not round numbers somebody liked.
+
+## The salary was going to Google
+
+Found while checking that the calculators keep their promise.
+
+`/take-home-pay-calculator-scotland` mirrored every field into the URL as you
+typed: salary as `?s=`, plus pension contributions, pension type, student loan
+plan, weekly hours and tax code. The analytics tag reports the page URL, so all
+of it was sent to `region1.google-analytics.com`. Google's enhanced measurement
+treats `s` as a site-search parameter, so a salary also arrived as an explicit
+`search_term` event.
+
+The page says, in these words: **"Nothing you type is sent anywhere. The sum
+happens in your browser."**
+
+The write was removed. Params are still read once on mount, so a link somebody
+saved earlier still restores their figures, and the URL is then cleaned so an
+old link stops leaking on every page it goes on to touch. New links are no
+longer shareable. A salary is not a thing to make shareable by accident.
+
+No analytics, consent or tracking code was touched. The leak was the
+calculator putting the data where analytics could see it.
+
+Two tests in `e2e/journeys.spec.ts` hold this: one fails if the salary appears
+in any request URL, body or the address bar, the other opens an old-style link
+and checks it both restores and cleans up.
