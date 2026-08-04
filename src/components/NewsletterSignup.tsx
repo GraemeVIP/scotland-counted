@@ -15,7 +15,7 @@ import { site } from "@/lib/site";
 export default function NewsletterSignup({
   variant = "panel",
 }: {
-  variant?: "panel" | "footer";
+  variant?: "panel" | "footer" | "feature";
 }) {
   const [email, setEmail] = useState("");
   const [bot, setBot] = useState("");
@@ -47,6 +47,7 @@ export default function NewsletterSignup({
   }
 
   const compact = variant === "footer";
+  const feature = variant === "feature";
 
   if (state === "done") {
     return (
@@ -54,11 +55,13 @@ export default function NewsletterSignup({
         className={
           compact
             ? "text-[15px] leading-[1.55] opacity-80 max-w-[34ch]"
+            : feature
+              ? "max-w-[46ch] text-[16px] leading-[1.6] text-white"
             : "text-[16px] leading-[1.6] text-[var(--ink-2)] max-w-[46ch]"
         }
         role="status"
       >
-        <strong className={compact ? "" : "text-[var(--ink)]"}>You&apos;re on the list.</strong>{" "}
+        <strong className={compact || feature ? "" : "text-[var(--ink)]"}>You&apos;re on the list.</strong>{" "}
         Expect one email when the data changes, a few times a year, and nothing else. Reply
         &ldquo;stop&rdquo; to any of them to leave.
       </p>
@@ -66,11 +69,22 @@ export default function NewsletterSignup({
   }
 
   return (
-    <form onSubmit={submit} className={compact ? "max-w-[340px]" : "max-w-[480px]"}>
+    <form
+      onSubmit={submit}
+      className={compact ? "max-w-[340px]" : feature ? "w-full" : "max-w-[480px]"}
+    >
       {!compact && (
-        <p className="ui text-[15px] font-[680] mb-3">One email when the data changes</p>
+        <p className={feature ? "ui mb-4 text-[17px] font-[720]" : "ui mb-3 text-[15px] font-[680]"}>
+          One email when the data changes
+        </p>
       )}
-      <div className="flex items-stretch gap-2">
+      <div
+        className={
+          feature
+            ? "grid gap-3 sm:grid-cols-[minmax(0,1fr)_auto]"
+            : "flex items-stretch gap-2"
+        }
+      >
         {/* Honeypot: hidden from people, tempting to bots. */}
         <input
           type="text"
@@ -92,6 +106,8 @@ export default function NewsletterSignup({
           className={
             compact
               ? "ui flex-1 min-w-0 bg-transparent border border-current/30 focus:border-current px-3.5 py-2.5 text-[15px] outline-none placeholder:opacity-50 transition-colors"
+              : feature
+                ? "ui min-h-[54px] min-w-0 w-full border border-white/20 bg-white px-4 py-3 text-[16px] text-[var(--deep)] outline-none transition-colors placeholder:text-[var(--muted)] focus:border-white focus:ring-4 focus:ring-white/15"
               : "ui flex-1 min-w-0 bg-[var(--paper)] border border-[var(--rule-strong)] focus:border-[var(--brand)] px-3.5 py-3 text-[15px] outline-none transition-colors"
           }
         />
@@ -101,6 +117,8 @@ export default function NewsletterSignup({
           className={
             compact
               ? "btn btn-on-deep !px-4 !py-2.5 !text-[15px] shrink-0 disabled:opacity-60"
+              : feature
+                ? "btn btn-on-deep min-w-[116px] justify-center !px-6 disabled:opacity-60"
               : "btn btn-primary shrink-0 disabled:opacity-60"
           }
         >
@@ -111,6 +129,8 @@ export default function NewsletterSignup({
         className={
           compact
             ? "text-[15px] leading-[1.5] opacity-55 mt-2.5"
+            : feature
+              ? "mt-3 max-w-[54ch] text-[15px] leading-[1.55] text-[#cbd3e2]"
             : "text-[15px] leading-[1.55] text-[var(--muted)] mt-2.5 max-w-[52ch]"
         }
       >

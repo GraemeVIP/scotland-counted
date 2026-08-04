@@ -116,7 +116,7 @@ export default function BlogCarousel({ posts }: { posts: Post[] }) {
 
   return (
     <section
-      className="border-y border-[var(--rule)] bg-[var(--paper-2)] py-10 sm:py-12"
+      className="border-y border-[var(--rule)] bg-[var(--paper-2)] py-12 sm:py-16"
       aria-labelledby="more-to-explore"
     >
       <div className="max-w-[1232px] mx-auto px-5 sm:px-8 lg:px-14">
@@ -134,12 +134,12 @@ export default function BlogCarousel({ posts }: { posts: Post[] }) {
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center justify-end gap-4">
+          <div className="flex flex-wrap items-center justify-end gap-3 sm:rounded-full sm:border sm:border-[var(--rule)] sm:bg-[var(--surface)] sm:p-1.5 sm:pl-4 sm:shadow-[var(--shadow-1)]">
             <Link
               href="/blog"
-              className="ui text-[15px] font-[760] text-[var(--brand)] no-underline transition-colors hover:text-[var(--action)]"
+              className="ui inline-flex min-h-11 items-center rounded-full border border-[var(--rule-strong)] bg-[var(--surface)] px-4 text-[15px] font-[760] text-[var(--brand)] no-underline transition-colors hover:border-[var(--brand)] hover:text-[var(--brand-deep)] sm:min-h-0 sm:border-0 sm:bg-transparent sm:px-0"
             >
-              See all {posts.length} explainers <span aria-hidden="true">→</span>
+              Browse all {posts.length} <span aria-hidden="true" className="ml-1.5">→</span>
             </Link>
 
             {/*
@@ -148,17 +148,17 @@ export default function BlogCarousel({ posts }: { posts: Post[] }) {
               way to do the one thing swiping already does.
             */}
             <div
-              className="hidden items-center gap-3 sm:flex"
+              className="hidden items-center gap-2 border-l border-[var(--rule)] pl-3 sm:flex"
               aria-label="Article carousel controls"
             >
-              <span className="ui mr-1 text-[14px] font-[700] text-[var(--muted)] tnum">
+              <span className="ui mr-1 text-[15px] font-[700] text-[var(--ink-3)] tnum">
                 {range.first === range.last
                   ? `${range.first} of ${posts.length}`
                   : `${range.first}–${range.last} of ${posts.length}`}
               </span>
               <button
                 type="button"
-                className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-[var(--rule-strong)] bg-[var(--surface)] text-[22px] leading-none text-[var(--ink)] transition-colors hover:border-[var(--brand)] disabled:cursor-not-allowed disabled:opacity-35"
+                className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-[var(--rule-strong)] bg-[var(--paper-2)] text-[22px] leading-none text-[var(--ink)] transition-colors hover:border-[var(--brand)] hover:bg-[var(--brand-wash)] disabled:cursor-not-allowed disabled:opacity-35"
                 onClick={() => move(-1)}
                 disabled={!canPrevious}
                 aria-label="Scroll to previous articles"
@@ -268,14 +268,14 @@ export default function BlogCarousel({ posts }: { posts: Post[] }) {
                       </div>
                     </div>
                     <div className="p-4 sm:p-5">
-                      <p className="blog-carousel-excerpt text-[15px] leading-[1.45] text-[var(--ink-2)]">
+                      <p className="blog-carousel-excerpt text-[15.5px] leading-[1.5] text-[var(--ink-2)]">
                         {post.standfirst}
                       </p>
                       <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
-                        <p className="ui text-[14px] font-[650] text-[var(--muted)]">
+                        <p className="ui text-[15px] font-[650] text-[var(--ink-3)]">
                           {fmtDate(post.updated ?? post.date)} · {post.readingMinutes} min read
                         </p>
-                        <span className="ui text-[14px] font-[760] text-[var(--brand)] transition-colors group-hover:text-[var(--action)]">
+                        <span className="ui text-[15px] font-[760] text-[var(--brand)] transition-colors group-hover:text-[var(--action-hover)]">
                           Read it <span aria-hidden="true">→</span>
                         </span>
                       </div>
@@ -299,7 +299,7 @@ export default function BlogCarousel({ posts }: { posts: Post[] }) {
           */}
         </div>
 
-        <p className="ui mt-2 flex items-center gap-2 px-5 text-[14px] font-[650] text-[var(--muted)] sm:hidden">
+        <p className="ui mt-3 flex items-center gap-2 px-5 text-[15px] font-[650] text-[var(--ink-3)] sm:hidden">
           Swipe to browse <span aria-hidden="true" className="text-[var(--brand)]">→</span>
         </p>
 

@@ -93,7 +93,7 @@ export default function Hero({
               {TRUST.map((item) => (
                 <li
                   key={item}
-                  className="ui flex items-center gap-1.5 text-[14.5px] font-[620] text-[var(--muted)]"
+                  className="ui flex items-center gap-1.5 text-[15px] font-[620] text-[var(--ink-3)]"
                 >
                   <span aria-hidden="true" className="text-[var(--good-text)]">
                     ✓
@@ -105,10 +105,9 @@ export default function Hero({
           </div>
 
           {/* ---- One current finding ---- */}
-          <div className="w-full max-w-[520px] mx-auto md:max-xl:max-w-[620px] xl:mx-0 xl:justify-self-end">
+          <div className="mx-auto w-full max-w-[520px] md:max-xl:max-w-[620px] xl:mx-0 xl:max-w-[500px] xl:justify-self-end">
             <div
-              className="rounded-[var(--r-l)] bg-[var(--surface)] border border-[var(--rule)] p-6 sm:p-7"
-              style={{ boxShadow: "var(--shadow-3)" }}
+              className="rounded-[var(--r-l)] border border-[var(--rule-strong)] bg-[var(--surface)] p-6 shadow-[var(--shadow-2)] sm:p-7"
             >
               <p className="kicker text-[var(--action)] mb-3">{flagship.kicker}</p>
 
@@ -131,7 +130,7 @@ export default function Hero({
                   href={flagship.source.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="ui text-[14.5px] text-[var(--muted)]"
+                  className="ui text-[15px] text-[var(--ink-3)]"
                 >
                   {flagship.source.publisher}
                 </a>

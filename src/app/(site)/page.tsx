@@ -135,17 +135,23 @@ export default function Home() {
 
       <Page>
         {/* ---------- Five doors ---------- */}
-        <section className="py-14 sm:py-18" aria-labelledby="doors">
+        <section className="py-12 sm:py-16" aria-labelledby="doors">
           <p className="kicker mb-3 text-[var(--brand)]">Pick a starting point</p>
           <h2 id="doors" className="display-stat max-w-[16ch] text-[clamp(32px,4vw,50px)]">
             What do you want to find out?
           </h2>
-          <div className="mt-9 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {DOORS.map((door) => (
+          <div className="mt-9 grid gap-4 md:grid-cols-2 lg:grid-cols-6">
+            {DOORS.map((door, index) => (
               <Link
                 key={door.href}
                 href={door.href}
-                className="group flex flex-col rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-6 no-underline transition-all duration-300 hover:-translate-y-1 hover:border-[var(--brand)] hover:shadow-[var(--shadow-2)]"
+                className={`group flex flex-col rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-6 no-underline transition-all duration-300 hover:-translate-y-1 hover:border-[var(--brand)] hover:shadow-[var(--shadow-2)] lg:col-span-2 ${
+                  index === 3 ? "lg:col-start-2" : ""
+                } ${
+                  index === 4
+                    ? "md:col-span-2 md:mx-auto md:w-[calc(50%-0.5rem)] lg:col-start-4 lg:mx-0 lg:w-auto"
+                    : ""
+                }`}
               >
                 <p className="label">{door.eyebrow}</p>
                 <p className="mt-3 text-[21px] font-[770] leading-[1.2] transition-colors group-hover:text-[var(--brand)]">
@@ -166,7 +172,7 @@ export default function Home() {
         </section>
 
         {/* ---------- Tools ---------- */}
-        <section className="border-t border-[var(--rule)] py-12 sm:py-14" aria-labelledby="tools">
+        <section className="border-t border-[var(--rule)] py-12 sm:py-16" aria-labelledby="tools">
           <div className="grid gap-x-14 gap-y-8 lg:grid-cols-[minmax(280px,0.62fr)_minmax(0,1.38fr)]">
             <div>
               <p className="kicker mb-3 text-[var(--action)]">Free, no sign-up</p>
@@ -217,7 +223,7 @@ export default function Home() {
 
       <Page>
         {/* ---------- Trust ---------- */}
-        <section className="border-t border-[var(--rule)] py-12 sm:py-14" aria-labelledby="trust">
+        <section className="border-t border-[var(--rule)] py-12 sm:py-16" aria-labelledby="trust">
           <div className="grid gap-x-14 gap-y-8 lg:grid-cols-[minmax(280px,0.62fr)_minmax(0,1.38fr)]">
             <div>
               <p className="kicker mb-3 text-[var(--good-text)]">Check the work</p>
@@ -242,7 +248,7 @@ export default function Home() {
                   </span>
                 </Link>
               ))}
-              <p className="ui sm:col-span-2 mt-1 text-[14.5px] leading-[1.5] text-[var(--muted)]">
+              <p className="ui mt-2 border-t border-[var(--rule)] pt-4 text-[15px] leading-[1.55] text-[var(--ink-2)] sm:col-span-2">
                 Latest finding from {flagship.source.publisher}. Published by {site.author.name},{" "}
                 {site.organisation.name}. No funding, no advertising, no party.
               </p>
@@ -252,43 +258,34 @@ export default function Home() {
 
       </Page>
 
-      {/* ---------- Keep in touch ----------
-          The one ask on the page, so it gets the one treatment nothing else
-          has: a near-black slab, the register this site reserves for
-          dramatic pauses (the footer, the film). Every other section is a
-          white card on the grid; the eye reads them as one deck and skims.
-          Breaking the rhythm exactly once, at the ask, is the difference
-          between a section and a moment. */}
-      {/*
-          Coral, not the near-black slab. The deep band made the ask read as
-          the footer arriving early, and then the real footer repeated it.
-          The site's action colour belongs to the one action on the page, and
-          the deep ink on it measures 6.86:1, comfortably past AA.
-      */}
-      <FullBleed className="bg-[var(--action)] text-[var(--deep)]">
+      {/* ---------- Keep in touch ---------- */}
+      <FullBleed className="border-y border-[var(--rule)] bg-[var(--paper-2)]">
         <Page>
-          <section className="py-14 sm:py-16" aria-labelledby="updates">
-            <div className="grid gap-x-14 gap-y-8 lg:grid-cols-[minmax(280px,0.62fr)_minmax(0,1.38fr)] lg:items-center">
-              <div>
-                <p className="kicker mb-3 text-[var(--deep)] opacity-80">When the numbers move</p>
-                <h2 id="updates" className="display-stat max-w-[13ch] text-[clamp(34px,4vw,52px)]">
-                  Councils publish. Nobody tells you
-                </h2>
-                <p className="mt-4 max-w-[36ch] text-[17px] leading-[1.55] opacity-85">
-                  Audits, budgets and benchmarking land quietly through the year. I read them and
-                  send one email when something changes.
-                </p>
-              </div>
-              <div>
-                <NewsletterSignup />
-                <p className="mt-6 max-w-[54ch] text-[15.5px] leading-[1.55] opacity-70">
-                  Alerts for one council area in particular are planned but not built yet. For now
-                  every update covers all 32. You can also{" "}
-                  <Link href="/updates" className="text-[var(--deep)] underline underline-offset-4">
-                    follow the public log
-                  </Link>
-                  , which has an RSS feed.
-                </p>
+          <section className="py-12 sm:py-16" aria-labelledby="updates">
+            <div className="relative overflow-hidden rounded-[var(--r-l)] border border-[var(--rule)] bg-[var(--surface)] shadow-[var(--shadow-1)]">
+              <div aria-hidden="true" className="absolute inset-y-0 left-0 w-2 bg-[var(--action)]" />
+              <div className="grid gap-8 p-7 sm:p-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(420px,1.1fr)] lg:items-center lg:gap-12 lg:p-12">
+                <div>
+                  <p className="kicker mb-3 text-[var(--action-hover)]">When the numbers move</p>
+                  <h2 id="updates" className="display-stat max-w-[18ch] text-[clamp(36px,4vw,54px)]">
+                    Councils publish. Nobody tells you
+                  </h2>
+                  <p className="mt-4 max-w-[40ch] text-[17px] leading-[1.55] text-[var(--ink-2)]">
+                    Audits, budgets and benchmarking land quietly through the year. I read them and
+                    send one email when something changes.
+                  </p>
+                </div>
+                <div className="rounded-[var(--r-m)] bg-[var(--deep)] p-6 text-white shadow-[var(--shadow-2)] sm:p-8">
+                  <NewsletterSignup variant="feature" />
+                  <p className="mt-6 max-w-[54ch] border-t border-white/15 pt-5 text-[15px] leading-[1.6] text-[#cbd3e2]">
+                    Alerts for one council area in particular are planned but not built yet. For now
+                    every update covers all 32. You can also{" "}
+                    <Link href="/updates" className="text-white underline decoration-white/50 underline-offset-4 hover:decoration-white">
+                      follow the public log
+                    </Link>
+                    , which has an RSS feed.
+                  </p>
+                </div>
               </div>
             </div>
           </section>
@@ -297,7 +294,7 @@ export default function Home() {
 
       <Page>
         {/* ---------- Questions ---------- */}
-        <section className="border-t border-[var(--rule)] py-12 sm:py-14" aria-labelledby="questions">
+        <section className="border-t border-[var(--rule)] py-12 sm:py-16" aria-labelledby="questions">
           <div className="grid gap-x-14 gap-y-8 lg:grid-cols-[minmax(280px,0.62fr)_minmax(0,1.38fr)]">
             <div>
               <p className="kicker mb-3 text-[var(--brand)]">Straight answers</p>
