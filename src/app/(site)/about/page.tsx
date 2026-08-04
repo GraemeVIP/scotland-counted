@@ -66,7 +66,7 @@ export default function About() {
           <h2 className="h2 mb-4 mt-11">How it is funded</h2>
           <p>
             It is not. There are no ads, no trackers, no paywall, no email harvesting and no
-            sponsor. It costs very little to run and {site.author.name} pays for it.
+            sponsor. It costs very little to run and I pay for it myself.
           </p>
 
           <h2 className="h2 mb-4 mt-11">Reuse</h2>

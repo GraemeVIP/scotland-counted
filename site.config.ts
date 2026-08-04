@@ -22,16 +22,58 @@ export const site = {
   locale: "en_GB",
   themeColor: "#2a78d6",
 
+  /**
+   * Three separate things live below, and keeping them separate is the whole
+   * point of this block.
+   *
+   *   author        the person who writes it. Named in full, because "a named
+   *                 person is accountable" is a claim the site makes on every
+   *                 article, and a first name on its own does not name anyone.
+   *   organisation  that person's consultancy. Where he works. It does not
+   *                 publish this site and nothing here is sold through it.
+   *   publisher     the site itself. What every page, article and dataset
+   *                 names as its publisher.
+   */
   author: {
-    name: "Graeme",
+    name: "Graeme Tudhope",
     role: "Founder, Strathmark Consulting",
     /** CHANGE ME, used in the byline and structured data. */
     url: "https://strathmarkconsulting.com",
   },
 
+  /**
+   * The author's employer, and deliberately not the publisher.
+   *
+   * The visible copy always had this right: "a personal, independent project
+   * by Graeme Tudhope at Strathmark Consulting". The structured data did not.
+   * It named the consultancy as the publisher of every article and every
+   * dataset, so anything reading the machine-readable version of this site saw
+   * a consultancy publishing public-interest data about councils it could sell
+   * to. That contradicted the one claim everything else rests on.
+   */
   organisation: {
     name: "Strathmark Consulting",
     url: "https://strathmarkconsulting.com",
+  },
+
+  /**
+   * The site publishes itself. Name comes from site.name, so there is nothing
+   * here to fall out of step with it.
+   *
+   * Nothing in this block asserts a legal form, a qualification, an award or a
+   * reviewer, because the site has none of those and structured data is not
+   * the place to imply otherwise. The two policy paths are real pages, and a
+   * test fails if either stops being one.
+   */
+  publisher: {
+    /** 180x180 square mark from the app/apple-icon.png file convention. */
+    logo: "/apple-icon.png",
+    logoWidth: 180,
+    logoHeight: 180,
+    publishingPrinciples: "/methods",
+    correctionsPolicy: "/corrections",
+    description:
+      "Independent public data for Scotland. Scotland Counted publishes what the official record shows about poverty, work, pay and living costs in every Scottish council area, with the source and the working set out beside each figure.",
   },
 
   /** CHANGE ME, shown on the about page and used for corrections. */
