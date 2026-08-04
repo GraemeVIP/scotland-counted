@@ -27,17 +27,28 @@ if (!/^https?:\/\/(localhost|127\.0\.0\.1|\[::1\])(:|\/|$)/.test(BASE) && !proce
   process.exit(2);
 }
 
-/** Kilobytes of uncompressed response body, per page. */
+/**
+ * Kilobytes of uncompressed response body, per page.
+ *
+ * Re-baselined 4 August 2026, deliberately, not to silence a red run. The
+ * first baselines predate three shipped features: the homepage local-results
+ * journey (about 29kB of shared JS on every page, plus result markup on the
+ * pages that embed the postcode box), the reading rail returning to the
+ * homepage, and the family-group comparison on council pages (about 36kB of
+ * server-rendered HTML, no client JS). Measured after those, budgets are the
+ * measurements plus about 5%. If a number here has to rise again, the commit
+ * message must say which feature paid for it.
+ */
 const BUDGETS = {
-  "/": { js: 1150, total: 2000 },
-  "/areas": { js: 1150, total: 2150 },
-  "/areas/glasgow-city": { js: 1200, total: 2200 },
-  "/councils/glasgow-city": { js: 1150, total: 1950 },
-  "/money": { js: 1100, total: 1800 },
-  "/take-home-pay-calculator-scotland": { js: 1220, total: 2100 },
-  "/find-my-mp-and-msp": { js: 1160, total: 2000 },
-  "/blog": { js: 1160, total: 2550 },
-  "/press": { js: 1150, total: 1950 },
+  "/": { js: 1150, total: 2200 },
+  "/areas": { js: 1150, total: 2270 },
+  "/areas/glasgow-city": { js: 1220, total: 2350 },
+  "/councils/glasgow-city": { js: 1130, total: 2020 },
+  "/money": { js: 1080, total: 1810 },
+  "/take-home-pay-calculator-scotland": { js: 1220, total: 2240 },
+  "/find-my-mp-and-msp": { js: 1160, total: 2040 },
+  "/blog": { js: 1160, total: 2610 },
+  "/press": { js: 1150, total: 1980 },
 };
 
 const browser = await chromium.launch();

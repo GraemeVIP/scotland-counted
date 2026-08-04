@@ -13,6 +13,7 @@ import {
 import { getCouncil } from "@/lib/data/councils";
 import { headlineCards, shortVersion } from "@/lib/councilSignals";
 import CouncilCompare from "@/components/CouncilCompare";
+import FamilyGroupComparison from "@/components/FamilyGroupComparison";
 import BudgetGapExplainer from "@/components/BudgetGapExplainer";
 import CouncilWatch from "@/components/CouncilWatch";
 import AccountabilityMethodNote from "@/components/AccountabilityMethodNote";
@@ -370,6 +371,8 @@ export default async function CouncilAccountabilityPage({
           </section>
 
           <CouncilCompare slug={record.councilSlug} />
+
+          <FamilyGroupComparison slug={record.councilSlug} councilName={record.councilName} />
 
           <section id="audit-trail" className="pt-14 scroll-mt-24">
             <p className="kicker mb-2 text-[var(--bad-text)]">Outside checks</p>
