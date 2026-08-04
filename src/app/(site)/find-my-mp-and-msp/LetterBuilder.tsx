@@ -9,6 +9,7 @@ import {
 } from "@/lib/data/councilExtra";
 import {
   POSTCODE_SESSION_KEY,
+  localAreaLinks,
   type Representative,
   type RepresentativeLookup,
 } from "@/lib/representatives";
@@ -635,8 +636,53 @@ export default function LetterBuilder() {
 
         <p className="text-[15px] text-[var(--ink-2)] leading-[1.55] mt-4 max-w-[64ch]">
           Every figure in the email is published on this site. You and your representative can
-          check it on <Link href="/areas">your area&apos;s page</Link>, alongside the source.
+          check it on{" "}
+          {/*
+            Resolved, not the hub. The reader has already told us where they
+            live, so sending them to a list of 32 areas to find it again is
+            asking them to do work we have already done.
+          */}
+          <Link href={lookup ? `/areas/${lookup.council.slug}` : "/areas"}>
+            your area&apos;s page
+          </Link>
+          , alongside the source.
         </p>
+
+        {/*
+          The rest of the local record, once the postcode has resolved.
+          Every href names a council or a constituency, so all of them are
+          safe to bookmark or send on. None of them carries the postcode.
+        */}
+        {lookup && (
+          <div className="mt-6 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5 sm:p-6">
+            <h2 className="text-[20px] font-[720]">While you are here</h2>
+            <p className="mt-2 max-w-[62ch] text-[15.5px] leading-[1.55] text-[var(--ink-2)]">
+              The figures behind your email, and the rest of what is on the record for your area.
+              These pages are public and safe to share.
+            </p>
+            <ul className="mt-4 grid gap-2.5 sm:grid-cols-2">
+              {localAreaLinks(lookup).map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="block h-full rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--paper)] p-4 no-underline transition-colors hover:border-[var(--brand)]"
+                  >
+                    <span className="ui block text-[16px] font-[750] leading-[1.35] text-[var(--ink)]">
+                      {link.label}
+                      <span aria-hidden="true" className="text-[var(--brand)]">
+                        {" "}
+                        →
+                      </span>
+                    </span>
+                    <span className="mt-1 block text-[15px] leading-[1.45] text-[var(--ink-2)]">
+                      {link.blurb}
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </div>
   );

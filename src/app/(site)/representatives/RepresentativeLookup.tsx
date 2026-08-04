@@ -7,6 +7,7 @@ import { trackEvent } from "@/lib/analytics";
 import PortraitLightbox from "@/components/PortraitLightbox";
 import {
   POSTCODE_SESSION_KEY,
+  localAreaLinks,
   representativePagePath,
   type Representative,
   type RepresentativeLookup as LookupResult,
@@ -284,6 +285,43 @@ export default function RepresentativeLookup() {
               >
                 Write the emails for me
               </button>
+            </div>
+
+            {/*
+              The rest of the local record.
+              A postcode used to buy four names and an email button. It is the
+              best key this site has into its own data, so it now opens the
+              area, the council, the tax bands and the constituency too.
+              Every link names a place, never the postcode, so all of them can
+              be shared. Outside the clarity-masked block on purpose: these are
+              public URLs and there is nothing here to hide.
+            */}
+            <div className="mt-5 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5 sm:p-6">
+              <h3 className="h3">Everything else about your area</h3>
+              <p className="mt-2 max-w-[62ch] text-[15.5px] leading-[1.55] text-[var(--ink-2)]">
+                These pages are public and safe to share. None of them has your postcode in it.
+              </p>
+              <ul className="mt-4 grid gap-2.5 sm:grid-cols-2">
+                {localAreaLinks(lookup).map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="block h-full rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--paper)] p-4 no-underline transition-colors hover:border-[var(--brand)]"
+                    >
+                      <span className="ui block text-[16px] font-[750] leading-[1.35] text-[var(--ink)]">
+                        {link.label}
+                        <span aria-hidden="true" className="text-[var(--brand)]">
+                          {" "}
+                          →
+                        </span>
+                      </span>
+                      <span className="mt-1 block text-[15px] leading-[1.45] text-[var(--ink-2)]">
+                        {link.blurb}
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         )}
