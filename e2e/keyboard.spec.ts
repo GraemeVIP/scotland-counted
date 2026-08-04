@@ -55,22 +55,55 @@ test("every focused element in the header is visible when focused", async ({ pag
   const problems: string[] = [];
   for (let i = 0; i < 14; i++) {
     await page.keyboard.press("Tab");
-    const state = await page.evaluate(() => {
-      const el = document.activeElement as HTMLElement | null;
-      if (!el || el === document.body) return null;
-      const r = el.getBoundingClientRect();
-      const s = getComputedStyle(el);
-      return {
-        label: (el.getAttribute("aria-label") || el.textContent || el.tagName).trim().slice(0, 40),
-        onScreen: r.width > 0 && r.height > 0 && r.bottom > 0 && r.top < innerHeight,
-        ring:
-          s.outlineStyle !== "none" && parseFloat(s.outlineWidth) > 0
-            ? true
-            : s.boxShadow !== "none",
-      };
-    });
-    if (!state) break;
-    if (!state.onScreen) problems.push(`${state.label}: focused off screen`);
+
+    /*
+     * Poll rather than measure once. Bringing a focused element into view is
+     * the browser's job and it does it asynchronously, so reading the rect
+     * straight after the keypress catches elements mid-scroll and calls them
+     * off screen. This surfaced when a paragraph in the hero grew by one line
+     * and pushed a link eleven pixels below the fold: the browser scrolled to
+     * it correctly and the assertion had already run.
+     */
+    const state = await page
+      .waitForFunction(
+        () => {
+          const el = document.activeElement as HTMLElement | null;
+          if (!el || el === document.body) return { done: true, state: null };
+          const r = el.getBoundingClientRect();
+          const onScreen = r.width > 0 && r.height > 0 && r.bottom > 0 && r.top < innerHeight;
+          if (!onScreen) return false; // keep waiting for the scroll to land
+          const s = getComputedStyle(el);
+          return {
+            done: true,
+            state: {
+              label: (el.getAttribute("aria-label") || el.textContent || el.tagName)
+                .trim()
+                .slice(0, 40),
+              onScreen,
+              ring:
+                s.outlineStyle !== "none" && parseFloat(s.outlineWidth) > 0
+                  ? true
+                  : s.boxShadow !== "none",
+            },
+          };
+        },
+        undefined,
+        { timeout: 2000 },
+      )
+      .then((handle) => handle.jsonValue())
+      .catch(async () => {
+        // Never settled on screen. Report what it was.
+        const label = await page.evaluate(() => {
+          const el = document.activeElement as HTMLElement | null;
+          return (el?.getAttribute("aria-label") || el?.textContent || el?.tagName || "?")
+            .trim()
+            .slice(0, 40);
+        });
+        return { done: true, state: { label, onScreen: false, ring: false } };
+      });
+
+    if (!state.state) break;
+    if (!state.state.onScreen) problems.push(`${state.state.label}: focused off screen`);
   }
   expect(problems, problems.join("\n")).toEqual([]);
 });

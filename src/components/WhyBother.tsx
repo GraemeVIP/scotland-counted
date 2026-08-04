@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { pay } from "@/lib/data/power";
 import PostcodeStart from "@/components/PostcodeStart";
+import { buildLocalFacts, responsibilitySplit } from "@/lib/localFacts";
 import { ExplainText } from "@/components/Glossary";
 
 const HOW_IT_WORKS = [
@@ -103,7 +104,7 @@ export default function WhyBother({ className = "" }: { className?: string }) {
                 Put in your postcode. I do the rest.
               </h3>
             </div>
-            <PostcodeStart />
+            <PostcodeStart facts={buildLocalFacts()} split={responsibilitySplit()} />
           </div>
         </div>
       </div>

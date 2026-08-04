@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import PostcodeStart from "@/components/PostcodeStart";
+import type { LocalFacts, ResponsibilitySplit } from "@/lib/localFacts";
 import { current as flagship } from "@/lib/data/flagship";
 
 /**
@@ -33,7 +34,19 @@ const SCALE = [
   { value: "100%", label: "sourced" },
 ];
 
-export default function Hero() {
+/*
+ * facts and split arrive as props rather than being built here. This file is
+ * a client component, so calling the builders inside it would pull the
+ * council datasets into the browser bundle on every page that renders a hero.
+ * The server page builds them once; the type import is erased at compile time.
+ */
+export default function Hero({
+  facts,
+  split,
+}: {
+  facts: Record<string, LocalFacts>;
+  split: ResponsibilitySplit;
+}) {
   return (
     <section className="relative overflow-hidden xl:flex xl:min-h-[calc(100svh-69px)] xl:flex-col">
       <div className="relative max-w-[1440px] mx-auto px-5 sm:px-8 xl:px-14 py-6 sm:py-12 xl:flex xl:flex-1 xl:items-center">
@@ -64,7 +77,7 @@ export default function Hero() {
             </p>
 
             <div className="md:max-xl:mx-auto md:max-xl:max-w-[620px] md:max-xl:text-left">
-              <PostcodeStart />
+              <PostcodeStart facts={facts} split={split} />
             </div>
 
             <div className="mt-5 sm:mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-[16px] md:max-xl:justify-center">
