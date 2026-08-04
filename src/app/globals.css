@@ -18,6 +18,16 @@
 :root {
   color-scheme: light;
 
+  /*
+   * The height of the header bar itself, not the header element.
+   *
+   * Three things need this number and all three used to hardcode it: the bar,
+   * the mobile sheet's own bar that has to line up with it, and the desktop
+   * browse panel, which has to stop at the bottom of the viewport rather than
+   * run off it. Three copies of a magic number is two too many.
+   */
+  --header-h: 72px;
+
   /* Grounds: cool, bright, app-like */
   --paper: #ffffff;
   --paper-2: #f4f6fb;
@@ -107,6 +117,12 @@
   --r-m: 20px;
   --r-l: 28px;
   --r-pill: 999px;
+}
+
+@media (min-width: 640px) {
+  :root {
+    --header-h: 68px;
+  }
 }
 
 /* Light is the default, deliberately: the warm paper ground is the

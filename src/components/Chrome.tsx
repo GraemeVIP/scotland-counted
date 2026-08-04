@@ -143,7 +143,7 @@ export function Header() {
           : "bg-[var(--surface)] border-b border-[var(--rule)] shadow-[var(--shadow-1)] xl:bg-[var(--paper)] xl:border-transparent xl:shadow-none"
       }`}
     >
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-8 xl:px-14 flex items-center gap-2 sm:gap-6 2xl:gap-8 h-[72px] sm:h-[68px]">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-8 xl:px-14 flex items-center gap-2 sm:gap-6 2xl:gap-8 h-[var(--header-h)]">
         <Link
           href="/"
           className="shrink-0"

@@ -194,20 +194,45 @@ function Inventory({ onNavigate }: { onNavigate: () => void }) {
   );
 }
 
-/** Desktop: a full-width panel under the header. */
+/**
+ * Desktop: a full-width panel under the header.
+ *
+ * It is bounded and it scrolls, because it has to be.
+ *
+ * The panel renders inside the sticky header, so it travels with it. When the
+ * content was taller than the space left below the bar there was nothing to
+ * scroll: the page moved and the panel moved with it, and the bottom simply
+ * sat off the screen. Measured at 1440x900, a common laptop, the panel was
+ * 1495px tall against 832px of room, so 663px of it, two whole sections and
+ * every link in them, could not be reached by any means.
+ *
+ * Three parts to the fix, and none of them changes how it looks when it fits:
+ *
+ *   The panel stops at the bottom of the viewport, via --header-h so the
+ *   number cannot drift away from the bar it is subtracting.
+ *   The columns scroll inside it, with overscroll-contain so reaching the end
+ *   does not start scrolling the page behind.
+ *   The footer strip is pinned below the scroll area rather than inside it,
+ *   so "See every page on this site" is reachable at any height. That link is
+ *   the escape hatch for exactly this problem and it was the first thing to
+ *   disappear.
+ */
 export function DesktopMenu({ onNavigate }: { onNavigate: () => void }) {
   return (
     <div
       id="browse-panel"
-      className="hidden xl:block border-t border-[var(--rule)] bg-[var(--surface)] shadow-[var(--shadow-3)]"
+      className="hidden xl:flex xl:flex-col max-h-[calc(100dvh-var(--header-h))] border-t border-[var(--rule)] bg-[var(--surface)] shadow-[var(--shadow-3)]"
     >
-      <div className="mx-auto grid max-w-[1440px] gap-8 px-5 py-9 sm:px-8 lg:grid-cols-[minmax(280px,0.8fr)_minmax(0,3.2fr)] lg:px-14 xl:gap-10">
-        <FindYourPlace onNavigate={onNavigate} />
-        <div className="grid grid-cols-2 gap-5 xl:grid-cols-4">
-          <SectionList onNavigate={onNavigate} />
+      {/* min-h-0 so this flex child may shrink below its content height. */}
+      <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain">
+        <div className="mx-auto grid max-w-[1440px] gap-8 px-5 py-9 sm:px-8 lg:grid-cols-[minmax(280px,0.8fr)_minmax(0,3.2fr)] lg:px-14 xl:gap-10">
+          <FindYourPlace onNavigate={onNavigate} />
+          <div className="grid grid-cols-2 gap-5 xl:grid-cols-4">
+            <SectionList onNavigate={onNavigate} />
+          </div>
         </div>
       </div>
-      <div className="border-t border-[var(--rule)] bg-[var(--surface-2)]">
+      <div className="shrink-0 border-t border-[var(--rule)] bg-[var(--surface-2)]">
         <div className="max-w-[1232px] mx-auto px-5 sm:px-8 lg:px-14 py-5 flex flex-wrap items-center justify-between gap-6">
           <Inventory onNavigate={onNavigate} />
           <div className="flex flex-wrap items-center gap-x-7 gap-y-2">
@@ -312,7 +337,7 @@ export function MobileMenu({
         gutters, so the X lands exactly where the burger was tapped.
       */}
       <div className="sticky top-0 z-10 border-b border-[var(--rule)] bg-[var(--paper)]">
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-8 h-[72px] sm:h-[68px] flex items-center justify-between">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-8 h-[var(--header-h)] flex items-center justify-between">
           {/* Inline rather than Chrome's Wordmark: importing it back out of
               Chrome.tsx would make the two files import each other. */}
           <span
