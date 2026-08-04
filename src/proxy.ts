@@ -37,6 +37,19 @@ export function proxy(request: NextRequest) {
   return response;
 }
 
-export const proxyConfig = {
-  matcher: ["/((?!_next/static|_next/image).*)"],
+/**
+ * The export has to be named `config`. Next.js does not recognise any other
+ * name, and an unrecognised one is not an error: the proxy simply runs with no
+ * matcher at all, which the docs spell out as running "on every request,
+ * including static files". This shipped as `proxyConfig`, so every stylesheet,
+ * font and image went through the proxy to be told it was noindex.
+ */
+export const config = {
+  // Written out in full on purpose. Next.js static-analyses this at build time
+  // and rejects a variable: "Entry `matcher[0]` need to be static strings".
+  // src/proxyMatcher.ts mirrors it so the tests can exercise the pattern
+  // without pulling in next/server, and a test fails if the two ever diverge.
+  matcher: [
+    "/((?!_next/static|_next/image|favicon\\.ico|.*\\.(?:csv|png|jpe?g|svg|webp|ico|pdf|woff2?)$).*)",
+  ],
 };

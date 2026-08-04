@@ -16,7 +16,8 @@
     "data:update:msps": "node scripts/update-holyrood-directory.mjs",
     "indexnow:plan": "node scripts/indexnow.mjs",
     "indexnow:submit": "node scripts/indexnow.mjs --submit",
-    "test:indexnow": "node --test scripts/indexnow.test.mjs"
+    "test:indexnow": "node --test scripts/indexnow.test.mjs",
+    "check:proxy": "node scripts/check-proxy.mjs"
   },
   "dependencies": {
     "mermaid": "^11.16.0",
