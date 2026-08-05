@@ -1,6 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { site } from "../site.config";
-import { isUkVisitor, VERCEL_COUNTRY_HEADER } from "./ukAccess";
 
 /**
  * Keeps every host except the real one out of search results.
@@ -21,19 +20,7 @@ import { isUkVisitor, VERCEL_COUNTRY_HEADER } from "./ukAccess";
 const CANONICAL_HOST = new URL(site.url).host;
 
 export function proxy(request: NextRequest) {
-  if (!isUkVisitor(request.headers.get(VERCEL_COUNTRY_HEADER), process.env.VERCEL === "1")) {
-    return new NextResponse("This site is available only to visitors in the United Kingdom.\n", {
-      status: 403,
-      headers: {
-        "Cache-Control": "private, no-store",
-        "Content-Type": "text/plain; charset=utf-8",
-        Vary: VERCEL_COUNTRY_HEADER,
-      },
-    });
-  }
-
   const response = NextResponse.next();
-  response.headers.set("Vary", VERCEL_COUNTRY_HEADER);
   const host = request.headers.get("host");
 
   if (host !== CANONICAL_HOST) {

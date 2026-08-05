@@ -32,12 +32,6 @@ test("the proxy function is exported under the name the file convention expects"
   assert.match(source, /export (?:default )?(?:async )?function proxy\b/);
 });
 
-test("the proxy blocks non-UK Vercel requests before rendering", () => {
-  assert.match(source, /VERCEL_COUNTRY_HEADER/);
-  assert.match(source, /isUkVisitor/);
-  assert.match(source, /status:\s*403/);
-});
-
 test("static assets are excluded from proxy processing", () => {
   for (const path of [
     "/_next/static/chunks/main.css",
