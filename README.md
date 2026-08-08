@@ -21,7 +21,7 @@ Open `site.config.ts` and change these four things:
 | Field | Why |
 |---|---|
 | `url` | Canonical URLs, sitemap, Open Graph tags and JSON-LD all derive from it, and `src/proxy.ts` serves `noindex` on any host that is not this one. It must match the domain Vercel serves production from, exactly, a mismatch silently noindexes the whole site. Currently `scotlandcounted.org.uk`; `scotlandcounted.co.uk` redirects to it. |
-| `author.name` | Currently just "Graeme", add your surname if you want the byline to carry it. |
+| `author.name` | Public byline, intentionally set to "Graeme" rather than a full personal name. |
 | `contactEmail` | Used on the about and corrections pages. |
 | `web3formsKey` | Optional. A free web3forms.com access key; pasting it turns on the email sign-up forms site-wide. |
 
