@@ -14,7 +14,7 @@ import { snpMoneyTimelineSources } from "@/lib/data/snpMoneyTimeline";
  * `color` is tuned for the light index. Moved onto a dark slab it stops being
  * legible: --brand manages 3.14:1 on --deep and --warn-text 2.77:1, against the
  * 4.5:1 this size of text needs. "Politics explained" was close to unreadable
- * on the featured card and on the homepage rail.
+ * on the blog hero and on the homepage rail.
  *
  * `colorOnDark` is the same idea in a light key, and every value is measured at
  * 7:1 or better on --deep. Two of them were already in use in
@@ -77,7 +77,6 @@ export type Post = {
   category: PostCategorySlug;
   tags: string[];
   readingMinutes: number;
-  featured?: boolean;
   image: {
     src: string;
     alt: string;
@@ -121,7 +120,6 @@ export const posts: Post[] = [
       "Indyref2 fundraiser",
     ],
     readingMinutes: 26,
-    featured: true,
     image: {
       src: "/images/editorial/snp-money-timeline-hero.webp",
       alt: "An editorial collage of a long paper trail leading through folders and receipts towards a courthouse and an unbranded white motorhome",
@@ -167,6 +165,65 @@ export const posts: Post[] = [
       },
     ],
     sourceIds: snpMoneyTimelineSources.map((source) => source.id),
+  },
+  {
+    slug: "drug-deaths-scotland-deprivation",
+    title: "Drug deaths in Scotland: the deprivation divide",
+    seoTitle: "Drug Deaths in Scotland and Deprivation | 2024 Data",
+    description:
+      "Scotland's drug-death rate was 12 times higher in the most deprived areas in 2024. See why Glasgow's local rate was highest and what the data proves.",
+    standfirst:
+      "People in Scotland's most deprived areas had about 12 times the drug-death rate of those in the least deprived areas in 2024. Glasgow had the highest council-area rate over 2020–2024. The link is stark, but it needs to be read carefully.",
+    date: "2026-08-08",
+    category: "poverty-explained",
+    tags: [
+      "Drug deaths Scotland",
+      "Deprivation",
+      "Glasgow drug deaths",
+      "Health inequality",
+      "SIMD",
+      "Poverty in Scotland",
+    ],
+    readingMinutes: 8,
+    image: {
+      src: "/images/editorial/drug-deaths-scotland-deprivation.webp",
+      alt: "Abstract cut-paper illustration contrasting a dense Glasgow-style urban landscape with open areas through uneven data-like bands",
+      caption:
+        "A symbolic view of unequal places. It does not depict a real neighbourhood and the forms are not a chart of the published rates.",
+      objectPosition: "center 50%",
+    },
+    toc: [
+      { id: "short-answer", label: "The answer in three numbers" },
+      { id: "deprivation", label: "The deprivation divide" },
+      { id: "glasgow", label: "Where Glasgow sits" },
+      { id: "fall", label: "Why a fall is not the end" },
+      { id: "substances", label: "What the substance figures mean" },
+      { id: "uk", label: "A safe UK comparison" },
+      { id: "limits", label: "What the data cannot prove" },
+    ],
+    faq: [
+      {
+        q: "Are drug deaths linked to deprivation in Scotland?",
+        a: "Yes, there is a very strong area-level association. In 2024 the age-standardised rate in Scotland's most deprived fifth was 47.3 deaths per 100,000, compared with 4.1 in the least deprived fifth. That does not prove every person who died was poor or that deprivation alone caused an individual death.",
+      },
+      {
+        q: "Which Scottish council area has the highest drug-death rate?",
+        a: "Glasgow City had the highest age-standardised drug-misuse death rate in the National Records of Scotland comparison for 2020–2024: 41.1 deaths per 100,000. NRS combines five years because single-year council rates can be unstable.",
+      },
+      {
+        q: "Did drug deaths in Scotland fall in 2024?",
+        a: "Yes. National Records of Scotland registered 1,017 drug-misuse deaths, 155 fewer than in 2023 and the lowest annual count since 2017. The 2024 age-standardised rate was still 3.6 times the rate in 2000.",
+      },
+      {
+        q: "Can the substance figures be added together?",
+        a: "No. More than one drug was implicated in 80% of Scotland's drug-misuse deaths in 2024, and broad classes contain individual substances. The opioid, benzodiazepine, cocaine and other rows overlap.",
+      },
+    ],
+    sourceIds: [
+      "nrs-drug-deaths-2024",
+      "sg-drugs-monitoring-2024-25",
+      "sg-population-health-evidence",
+    ],
   },
   {
     slug: "how-council-tax-works-scotland",

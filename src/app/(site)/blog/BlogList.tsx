@@ -26,7 +26,10 @@ export default function BlogList({
   activeCategory?: PostCategorySlug;
   showFeatured?: boolean;
 }) {
-  const featured = showFeatured ? posts.find((post) => post.featured) ?? posts[0] : undefined;
+  // The index passes postsByDate(), so the first post is always the newest.
+  // There is deliberately no manual featured flag that can leave an older
+  // article pinned above a newer one.
+  const featured = showFeatured ? posts[0] : undefined;
   const remaining = featured ? posts.filter((post) => post.slug !== featured.slug) : posts;
   const featuredCategory = featured ? getPostCategory(featured.category) : undefined;
 
@@ -68,7 +71,7 @@ export default function BlogList({
 
       {featured && (
         <section className="pt-9" aria-labelledby="featured-story">
-          <p className="label mb-4">Start here</p>
+          <p className="label mb-4">Latest</p>
           <article className="group overflow-hidden rounded-[var(--r-l)] border border-[var(--rule)] bg-[var(--deep)] text-[var(--deep-ink)]">
             <Link
               href={`/blog/${featured.slug}`}

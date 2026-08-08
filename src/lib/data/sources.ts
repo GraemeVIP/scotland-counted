@@ -144,6 +144,29 @@ export const sources: Source[] = [
     used: "The size of Glasgow's excess mortality after adjusting for deprivation.",
   },
   {
+    id: "nrs-drug-deaths-2024",
+    title: "Drug-related deaths in Scotland, 2024",
+    publisher: "National Records of Scotland",
+    url: "https://www.nrscotland.gov.uk/publications/drug-related-deaths-in-scotland-2024/",
+    used: "The national total and trend, deprivation gradient, council-area rates, age profile, substances implicated and the definitions needed to compare the figures safely.",
+    derivation:
+      "The council comparison uses NRS Table C4's age-standardised rates for 2020–2024. The deprivation chart uses Table 9's 2024 age-standardised rates by SIMD quintile. No rates were recalculated.",
+  },
+  {
+    id: "sg-drugs-monitoring-2024-25",
+    title: "National Mission on Drugs: Annual Monitoring Report 2024–2025",
+    publisher: "Scottish Government",
+    url: "https://www.gov.scot/publications/national-mission-drugs-annual-monitoring-report-2024-2025/pages/8/",
+    used: "Independent policy-monitoring context for the deprivation gap, drug-related hospital stays and the wider disadvantages surrounding drug harm.",
+  },
+  {
+    id: "sg-population-health-evidence",
+    title: "Population Health Framework: evidence paper",
+    publisher: "Scottish Government",
+    url: "https://www.gov.scot/publications/population-health-framework-evidence-paper/pages/5/",
+    used: "Evidence that drug deaths affect Scottish life-expectancy trends and that poverty and disadvantage interact with trauma, mental health and other risks.",
+  },
+  {
     id: "targets",
     title: "Tackling Child Poverty Delivery Plan progress report 2024–25",
     publisher: "Scottish Government",
