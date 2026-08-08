@@ -14,7 +14,7 @@ import { snpMoneyTimelineSources } from "@/lib/data/snpMoneyTimeline";
  * `color` is tuned for the light index. Moved onto a dark slab it stops being
  * legible: --brand manages 3.14:1 on --deep and --warn-text 2.77:1, against the
  * 4.5:1 this size of text needs. "Politics explained" was close to unreadable
- * on the featured card and on the homepage rail.
+ * on the blog hero and on the homepage rail.
  *
  * `colorOnDark` is the same idea in a light key, and every value is measured at
  * 7:1 or better on --deep. Two of them were already in use in
@@ -77,7 +77,6 @@ export type Post = {
   category: PostCategorySlug;
   tags: string[];
   readingMinutes: number;
-  featured?: boolean;
   image: {
     src: string;
     alt: string;
@@ -121,7 +120,6 @@ export const posts: Post[] = [
       "Indyref2 fundraiser",
     ],
     readingMinutes: 26,
-    featured: true,
     image: {
       src: "/images/editorial/snp-money-timeline-hero.webp",
       alt: "An editorial collage of a long paper trail leading through folders and receipts towards a courthouse and an unbranded white motorhome",
