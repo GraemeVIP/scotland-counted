@@ -16,6 +16,7 @@ import CrisisGrantScotlandHowToApply from "./crisis-grant-scotland-how-to-apply"
 import DiscretionaryHousingPaymentScotland from "./discretionary-housing-payment-scotland";
 import FreeSchoolMealsClothingGrantScotland from "./free-school-meals-clothing-grant-scotland";
 import OperationBranchformSnpMoneyTimeline from "./operation-branchform-snp-money-timeline";
+import DrugDeathsScotlandDeprivation from "./drug-deaths-scotland-deprivation";
 
 /**
  * Slug to post body. Statically imported so every post is prerendered and no
@@ -24,6 +25,7 @@ import OperationBranchformSnpMoneyTimeline from "./operation-branchform-snp-mone
  */
 export const postBodies: Record<string, ComponentType> = {
   "operation-branchform-snp-money-timeline": OperationBranchformSnpMoneyTimeline,
+  "drug-deaths-scotland-deprivation": DrugDeathsScotlandDeprivation,
   "how-council-tax-works-scotland": CouncilTaxInScotlandGuide,
   "council-tax-rises-scotland-2026-27": CouncilTaxRisesScotland202627,
   "minimum-wage-take-home-pay-scotland-2026": MinimumWageTakeHomePayScotland2026,

@@ -7,7 +7,7 @@
 > Glasgow retained as the founding deep dive. A personal public-interest
 > project by Graeme at Strathmark Consulting; no party affiliation or funding.
 
-Key facts (checked July 2026):
+Key facts (checked August 2026):
 
 - Around 940,000 people — 17% of Scotland's population — lived in relative
   poverty after housing costs in 2022–25. The rates were 21% for children,
@@ -27,6 +27,9 @@ Key facts (checked July 2026):
 - Glasgow has more jobs than working-age adults (jobs density 1.08 in 2021),
   but the median full-time resident earned less than the median job located in
   the city paid (£745.50 versus £796.50 per week in 2025).
+- In 2024, Scotland's age-standardised drug-misuse death rate was 47.3 per
+  100,000 in the most deprived fifth of areas and 4.1 in the least deprived
+  fifth. Glasgow City had the highest council-area rate for 2020–2024.
 - All four statutory interim child-poverty targets under the Child Poverty
   (Scotland) Act 2017 were missed for 2023/24, including persistent poverty at
   23% against a target of 8%.
@@ -48,6 +51,8 @@ Key facts (checked July 2026):
 - [The Glasgow record](/glasgow-poverty-statistics): six long-run indicators — poverty, work,
   benefits, pay, neighbourhoods and life expectancy.
 - [Glasgow deep dive](/why-poverty-is-worse-in-glasgow): four evidenced reasons the city differs.
+- [Drug deaths and deprivation](/blog/drug-deaths-scotland-deprivation): the 2024
+  deprivation gradient, every council-area rate and the limits of the evidence.
 - [What would change it](/solutions-to-poverty-in-scotland): seven costed policies and their
   current status.
 - [Who has power](/who-is-responsible-for-poverty-in-scotland): decisions by Westminster, Holyrood and the

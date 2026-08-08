@@ -6,7 +6,7 @@ import { site } from "@/lib/site";
 export const metadata = meta({
   title: "Download Scotland Poverty Data: CSV and Sources",
   description:
-    "Download the Scotland Counted poverty, pay, benefit and local-area data as CSV files, with dates, definitions and links to every original source.",
+    "Download the Scotland Counted poverty, pay, benefit, health and local-area data, with dates, definitions and links to every original source.",
   path: "/data",
 });
 
@@ -139,6 +139,14 @@ const FILES: DataFile[] = [
     size: "272 KB",
     kind: "original",
   },
+  {
+    file: "nrs-drug-related-deaths-scotland-2024.xlsx",
+    title: "NRS drug-related deaths source workbook",
+    body: "The publisher's complete workbook for Scotland in 2024, including deprivation quintiles, every council area, trends, definitions and substances implicated.",
+    format: "XLSX",
+    size: "226 KB",
+    kind: "original",
+  },
 ];
 
 const GROUPS = [
@@ -169,9 +177,9 @@ export default function Data() {
         data={datasetJsonLd({
           name: "Scotland Counted, full dataset",
           description:
-            "National poverty rates, council child poverty, employment, benefit claims, pay, jobs density and life expectancy data for Scotland, including the Glasgow deep series, 2000–2026.",
+            "National poverty rates, council child poverty, employment, benefit claims, pay, jobs density, life expectancy and drug-death inequality data for Scotland, including the Glasgow deep series, 2000–2026.",
           path: "/data",
-          keywords: ["poverty", "open data", "Scotland", "CSV", "child poverty", "Glasgow"],
+          keywords: ["poverty", "open data", "Scotland", "CSV", "child poverty", "Glasgow", "health inequality"],
           temporalCoverage: "2000/2026",
         })}
       />
@@ -180,7 +188,7 @@ export default function Data() {
         <PageHeader
           eyebrow="Free to download and reuse"
           title="Download Scotland poverty data"
-          lede="This is the proof behind the simple pages. Nine CSVs and one Excel workbook, all free. Four I prepared and tidied so they open cleanly in a spreadsheet; the other six are the publishers' own files, served exactly as they came, so you can check my working against them."
+          lede="This is the proof behind the simple pages. Ten CSVs and two Excel workbooks, all free. Five I prepared and tidied so they open cleanly in a spreadsheet; the other seven are the publishers' own files, served exactly as they came, so you can check my working against them."
         />
 
         <ContentFrame>

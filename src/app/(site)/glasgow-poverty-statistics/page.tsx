@@ -120,6 +120,24 @@ export default function TheNumbers() {
           ))}
         </div>
 
+        <aside
+          className="mt-8 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] p-6 sm:p-7"
+          aria-labelledby="drug-deaths-evidence"
+        >
+          <p className="ui text-[15px] font-[760] text-[var(--brand)]">Latest health evidence</p>
+          <h2 id="drug-deaths-evidence" className="mt-2 text-[25px] font-[760] leading-[1.25]">
+            Glasgow has Scotland&apos;s highest recent drug-death rate
+          </h2>
+          <p className="mt-3 max-w-[68ch] text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
+            The National Records of Scotland comparison for 2020–2024 puts Glasgow City first on
+            the age-standardised council-area rate. The Scotland-wide figures also show a sharp
+            deprivation gradient.
+          </p>
+          <Link href="/blog/drug-deaths-scotland-deprivation" className="ui mt-4 inline-flex min-h-11 items-center font-[720]">
+            Read the deprivation and council evidence <span aria-hidden="true">→</span>
+          </Link>
+        </aside>
+
         {/* This page is an index, not a charts page. The squiggle on each card
             is a preview; the chart itself lives on the measure's own page. The
             copy here used to read as instructions for charts that were not on

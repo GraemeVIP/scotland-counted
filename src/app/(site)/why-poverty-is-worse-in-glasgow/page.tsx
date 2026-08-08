@@ -149,6 +149,21 @@ export default function WhyGlasgow() {
                 same cut can hurt Glasgow more than another place.
               </p>
             </Split>
+
+            <aside className="mt-9 max-w-[900px] rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] p-6 sm:p-7">
+              <p className="ui text-[15px] font-[760] text-[var(--brand)]">New health evidence</p>
+              <h3 className="mt-2 text-[24px] font-[760] leading-[1.25]">
+                Drug deaths show how wide the deprivation divide remains
+              </h3>
+              <p className="mt-3 max-w-[66ch] text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
+                Glasgow City had Scotland&apos;s highest age-standardised drug-misuse death rate in
+                2020–2024. Across Scotland in 2024, the rate in the most deprived fifth of areas was
+                about 12 times the rate in the least deprived fifth.
+              </p>
+              <Link href="/blog/drug-deaths-scotland-deprivation" className="ui mt-4 inline-flex min-h-11 items-center font-[720]">
+                See the full council comparison and what it proves <span aria-hidden="true">→</span>
+              </Link>
+            </aside>
           </div>
         </section>
       </Page>
@@ -346,7 +361,7 @@ export default function WhyGlasgow() {
           </div>
         </section>
 
-        <SourceStrip ids={["gcph", "scotpho", "minimum-wage-2026", "mis-2025", "ashe", "ashe-guide", "jobs-density", "housing", "migration", "ug"]} />
+        <SourceStrip ids={["gcph", "scotpho", "nrs-drug-deaths-2024", "minimum-wage-2026", "mis-2025", "ashe", "ashe-guide", "jobs-density", "housing", "migration", "ug"]} />
       </Page>
 
       <CTA
