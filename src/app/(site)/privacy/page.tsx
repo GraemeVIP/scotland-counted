@@ -90,7 +90,7 @@ export default function Privacy() {
               },
               {
                 t: "Submitting an MSP review",
-                b: "Your review, rating, chosen display name, relationship to the experience and approximate interaction date are stored in a private Supabase moderation queue. Gmail emails the moderator a short alert and private moderation link; the full account and any optional contact address stay out of that alert. Email is optional and collected only if you ask to be considered for a follow-up about a fuller public-interest article. Nothing is published automatically, rejected submissions are deleted, and any email is never copied to the public review table.",
+                b: "Your review, rating, chosen display name, relationship to the experience and approximate interaction date are stored in a private Supabase moderation queue. Gmail emails the moderator a short alert and private moderation link; Resend may be tried as a fallback if Gmail cannot send. The full account and any optional contact address stay out of either alert. Email is optional and collected only if you ask to be considered for a follow-up about a fuller public-interest article. Nothing is published automatically, rejected submissions are deleted, and any email is never copied to the public review table.",
               },
               {
                 t: "Entering a postcode",
@@ -248,6 +248,7 @@ export default function Privacy() {
                   ["Vercel", "Hosts the site", "Standard server logs, which include IP addresses, for security and to keep the site running"],
                   ["Web3Forms", "Delivers contact forms and sign-ups to a real inbox", "What you typed into the relevant contact or sign-up form"],
                   ["Google Gmail", "Sends a new-review alert and private moderation link to the moderator", "The MSP, rating, chosen display name and whether follow-up permission was given. The full account and optional reviewer email are not included"],
+                  ["Resend", "May send the same limited new-review alert if Gmail cannot send it", "The MSP, rating, chosen display name and whether follow-up permission was given. The full account and optional reviewer email are not included"],
                   ["Supabase", "Stores MSP reviews while they are moderated and publishes approved reviews", "The review fields you submit. If you opt into a possible follow-up, your email remains in the private moderation queue and is excluded from the public review table"],
                   ["Mailchimp", "Stores the mailing list", "Your email address"],
                   ["postcodes.io", "Turns a postcode into a council area", "The postcode you entered"],
