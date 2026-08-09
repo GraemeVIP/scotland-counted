@@ -7,6 +7,8 @@ test("every current MSP gets one review profile with a unique route", () => {
   assert.equal(mspReviewProfiles.length, 129);
   assert.equal(new Set(mspReviewProfiles.map((profile) => profile.slug)).size, 129);
   assert.equal(new Set(mspReviewProfiles.map((profile) => profile.msp.memberId)).size, 129);
+  assert.equal(new Set(mspReviewProfiles.map((profile) => profile.profilePath)).size, 129);
+  assert.ok(mspReviewProfiles.every((profile) => profile.profilePath.startsWith("/representatives/msps/")));
 });
 
 test("empty MSP pages do not invent aggregate-rating markup", () => {

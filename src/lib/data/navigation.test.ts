@@ -65,8 +65,8 @@ test("inventory counts link somewhere real", () => {
   }
 });
 
-test("the header has five items and each one is reachable from the menu too", () => {
-  assert.equal(PRIMARY.length, 5, "the header is deliberately five items");
+test("the header has six items and each one is reachable from the menu too", () => {
+  assert.equal(PRIMARY.length, 6, "the header includes the MSP review hub");
   const inSections = new Set(SECTIONS.flatMap((s) => s.items.map((i) => i.href)));
   for (const item of PRIMARY) {
     assert.ok(
@@ -74,6 +74,11 @@ test("the header has five items and each one is reachable from the menu too", ()
       `${item.href} is in the header but not in any menu section, so it is unreachable from /browse`,
     );
   }
+});
+
+test("the MSP review hub is prominent and remains in the full menu", () => {
+  assert.ok(PRIMARY.some((item) => item.href === "/msp-reviews"));
+  assert.ok(SECTIONS.some((section) => section.items.some((item) => item.href === "/msp-reviews")));
 });
 
 test("each section highlights exactly one item", () => {

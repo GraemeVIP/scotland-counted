@@ -27,14 +27,14 @@ function SearchButton() {
       type="button"
       onClick={() => window.dispatchEvent(new CustomEvent("open-command"))}
       aria-label="Find your area, or search the site"
-      className="group min-h-11 w-11 shrink-0 flex items-center justify-center gap-2.5 rounded-[var(--r-s)] bg-[var(--surface)] border border-[var(--rule-strong)] hover:border-[var(--brand)] transition-colors px-0 py-2.5 xl:w-auto xl:min-w-[150px] xl:justify-start xl:px-3.5 2xl:min-w-[230px]"
+      className="group min-h-11 w-11 shrink-0 flex items-center justify-center gap-2.5 rounded-[var(--r-s)] bg-[var(--surface)] border border-[var(--rule-strong)] hover:border-[var(--brand)] transition-colors px-0 py-2.5 2xl:w-auto 2xl:min-w-[210px] 2xl:justify-start 2xl:px-3.5"
       style={{ boxShadow: "var(--shadow-1)" }}
     >
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" className="text-[var(--brand)]" aria-hidden="true">
         <circle cx="11" cy="11" r="7" />
         <path d="m20 20-3.8-3.8" />
       </svg>
-      <span className="ui hidden xl:block whitespace-nowrap text-[15px] font-[560] text-[var(--muted)] group-hover:text-[var(--ink)] transition-colors">
+      <span className="ui hidden 2xl:block whitespace-nowrap text-[15px] font-[560] text-[var(--muted)] group-hover:text-[var(--ink)] transition-colors">
         Search site or area
       </span>
       {/*

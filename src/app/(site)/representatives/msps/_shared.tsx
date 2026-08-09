@@ -178,12 +178,12 @@ export function MspProfileCard({
         <a href={preparedMspEmailHref({ msp, area, regional })} className="btn btn-primary justify-center text-center">
           Open a ready-written email
         </a>
+        <Link href={`/msp-reviews/${representativeSlug(msp.name)}`} className="btn btn-ghost justify-center text-center">
+          Read or leave a review
+        </Link>
         <a href={msp.profileUrl} className="btn btn-ghost justify-center text-center">
           Official Parliament profile
         </a>
-        <Link href={`/msp-reviews/${representativeSlug(msp.name)}`} className="btn btn-ghost justify-center text-center">
-          Reviews and experiences
-        </Link>
       </div>
       <p className="ui mt-4 text-[15px] leading-[1.5] text-[var(--ink-2)]">
         The draft opens in your own email app. Read it and change anything you want before sending.

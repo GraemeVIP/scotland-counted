@@ -396,14 +396,12 @@ export function MobileMenu({
       </div>
 
       {/* The action stays reachable no matter how far down the sheet you are. */}
-      <div className="sticky bottom-0 border-t border-[var(--rule)] bg-[var(--paper)]/95 backdrop-blur px-5 py-4">
-        <Link
-          href="/find-my-mp-and-msp"
-          onClick={onNavigate}
-          className="btn btn-primary w-full justify-center"
-        >
-          Email your MP and MSP
-          <span aria-hidden="true">→</span>
+      <div className="sticky bottom-0 grid grid-cols-2 gap-2 border-t border-[var(--rule)] bg-[var(--paper)]/95 px-5 py-4 backdrop-blur">
+        <Link href="/msp-reviews" onClick={onNavigate} className="btn btn-primary justify-center text-center">
+          Review an MSP
+        </Link>
+        <Link href="/find-my-mp-and-msp" onClick={onNavigate} className="btn btn-ghost justify-center text-center">
+          Email an MSP
         </Link>
       </div>
     </nav>

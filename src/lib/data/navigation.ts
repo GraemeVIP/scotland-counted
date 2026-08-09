@@ -24,12 +24,13 @@
 export type NavItem = { href: string; label: string; blurb?: string; featured?: boolean };
 export type NavTone = "local" | "tools" | "councils" | "change" | "topics" | "proof";
 
-/** The five items in the header. Deliberately short, deliberately task-shaped. */
+/** The six items in the header. Deliberately short, deliberately task-shaped. */
 export const PRIMARY: NavItem[] = [
   { href: "/areas", label: "Your area" },
   { href: "/money", label: "Your money" },
   { href: "/councils", label: "Councils" },
   { href: "/who-decides", label: "Who decides" },
+  { href: "/msp-reviews", label: "MSP reviews" },
   /*
    * "Explainers", not "Investigations".
    *

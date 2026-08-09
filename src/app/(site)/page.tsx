@@ -134,6 +134,27 @@ export default function Home() {
       <Hero facts={buildLocalFacts()} split={responsibilitySplit()} />
 
       <Page>
+        <section className="pt-8 sm:pt-10" aria-labelledby="msp-reviews-home-title">
+          <Link
+            href="/msp-reviews"
+            className="group grid items-center gap-5 rounded-[var(--r-m)] border border-[var(--action)] bg-[var(--action-tint)] p-6 no-underline transition-all hover:-translate-y-0.5 hover:shadow-[var(--shadow-2)] sm:p-8 md:grid-cols-[minmax(0,1fr)_auto]"
+          >
+            <span className="block">
+              <span className="kicker block text-[var(--action)]">Scottish MSP reviews</span>
+              <h2 id="msp-reviews-home-title" className="h2 mt-2 text-[var(--ink)]">
+                Rate or review your MSP
+              </h2>
+              <span className="mt-2 block max-w-[62ch] text-[16px] leading-[1.6] text-[var(--ink-2)]">
+                Read moderated firsthand experiences or describe what happened when you dealt with an MSP or their office. No account is needed.
+              </span>
+            </span>
+            <span className="btn btn-primary justify-center text-center">
+              Find an MSP&apos;s reviews
+              <span aria-hidden="true">→</span>
+            </span>
+          </Link>
+        </section>
+
         {/* ---------- Five doors ---------- */}
         <section className="py-12 sm:py-16" aria-labelledby="doors">
           <p className="kicker mb-3 text-[var(--brand)]">Pick a starting point</p>
