@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { site } from "@/lib/site";
+import { serialiseJsonLd } from "@/lib/structuredData";
 
 /** What the root layout appends, and roughly what Google will display. */
 const BRAND_SUFFIX = ` | ${site.name}`;
@@ -137,6 +138,8 @@ export {
   imageJsonLd,
   faqJsonLd,
   breadcrumbJsonLd,
+  mspReviewsJsonLd,
+  serialiseJsonLd,
 } from "@/lib/structuredData";
 
 /** Renders a JSON-LD block. */
@@ -144,7 +147,7 @@ export function JsonLd({ data }: { data: object }) {
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+      dangerouslySetInnerHTML={{ __html: serialiseJsonLd(data) }}
     />
   );
 }

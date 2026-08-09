@@ -13,8 +13,12 @@ import {
 } from "@/lib/data/holyrood";
 import { representativeSlug } from "@/lib/representatives";
 import { councilAccountabilityRecords } from "@/lib/data/councilAccountability";
+import { mspReviewProfiles } from "@/lib/data/mspReviews";
+import { listApprovedMspReviews } from "@/lib/mspReviewsDb";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export const revalidate = 3600;
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const dataChecked = new Date(`${site.dataCheckedISO}T00:00:00Z`);
   const seoRelease = new Date("2026-08-02T00:00:00Z");
   const repositioning = new Date("2026-08-03T00:00:00Z");
@@ -50,6 +54,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
       lastModified: new Date(HOLYROOD_DATA_CHECKED_AT),
     },
+    { url: `${site.url}/msp-reviews`, changeFrequency: "weekly", priority: 0.9 },
     { url: `${site.url}/solutions-to-poverty-in-scotland`, changeFrequency: "monthly", priority: 0.85, lastModified: seoRelease },
     { url: `${site.url}/who-is-responsible-for-poverty-in-scotland`, changeFrequency: "monthly", priority: 0.85, lastModified: seoRelease },
     { url: `${site.url}/glasgow-poverty-statistics`, changeFrequency: "monthly", priority: 0.75, lastModified: seoRelease },
@@ -131,6 +136,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: seoRelease,
   }));
 
+  const approvedMspReviews = await listApprovedMspReviews();
+  const reviewedMemberIds = new Set(approvedMspReviews.map((review) => review.memberId));
+  const mspReviewPages: MetadataRoute.Sitemap = mspReviewProfiles
+    .filter((profile) => reviewedMemberIds.has(profile.msp.memberId))
+    .map((profile) => ({
+    url: `${site.url}/msp-reviews/${profile.slug}`,
+    changeFrequency: "weekly" as const,
+    priority: 0.75,
+  }));
+
   /**
    * Posts carry a real date, so they get a real lastModified. Everything else
    * gets the date the underlying data was last checked. Stamping every URL with
@@ -169,6 +184,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...constituencyPages,
     ...representativePages,
     ...holyroodRepresentativePages,
+    ...mspReviewPages,
     ...councilTaxPages,
   ].map((e) => ({ lastModified: dataChecked, ...e }));
 }

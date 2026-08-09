@@ -17,6 +17,7 @@ export default function Analytics() {
 
   const bootstrap = `(function(){
 var nav=window.navigator;
+if(window.location.pathname.indexOf('/review-moderation/')===0)return;
 var ua=nav.userAgent||'';
 var automated=new RegExp(${JSON.stringify(ANALYTICS_BOT_PATTERN.source)},${JSON.stringify(ANALYTICS_BOT_PATTERN.flags)});
 if(nav.webdriver===true||automated.test(ua))return;

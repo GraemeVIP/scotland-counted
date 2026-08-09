@@ -89,6 +89,10 @@ export default function Privacy() {
                 b: "Your email address so a reply can reach you, your message, and the subject you picked. There is also a name box, which is optional — leave it blank and nothing is collected from it.",
               },
               {
+                t: "Submitting an MSP review",
+                b: "Your review, rating, chosen display name, relationship to the experience and approximate interaction date are stored in a private Supabase moderation queue. Gmail emails the moderator a short alert and private moderation link; the full account and any optional contact address stay out of that alert. Email is optional and collected only if you ask to be considered for a follow-up about a fuller public-interest article. Nothing is published automatically, rejected submissions are deleted, and any email is never copied to the public review table.",
+              },
+              {
                 t: "Entering a postcode",
                 b: "It is sent to a public lookup service to work out your council area, MP and MSPs. It is then placed in the email draft so the office can confirm you live in the area. The site code does not save it or send the email.",
               },
@@ -242,7 +246,9 @@ export default function Privacy() {
               <tbody>
                 {[
                   ["Vercel", "Hosts the site", "Standard server logs, which include IP addresses, for security and to keep the site running"],
-                  ["Web3Forms", "Delivers the contact form and sign-ups to a real inbox", "Only what you typed into the form"],
+                  ["Web3Forms", "Delivers contact forms and sign-ups to a real inbox", "What you typed into the relevant contact or sign-up form"],
+                  ["Google Gmail", "Sends a new-review alert and private moderation link to the moderator", "The MSP, rating, chosen display name and whether follow-up permission was given. The full account and optional reviewer email are not included"],
+                  ["Supabase", "Stores MSP reviews while they are moderated and publishes approved reviews", "The review fields you submit. If you opt into a possible follow-up, your email remains in the private moderation queue and is excluded from the public review table"],
                   ["Mailchimp", "Stores the mailing list", "Your email address"],
                   ["postcodes.io", "Turns a postcode into a council area", "The postcode you entered"],
                   ["UK Parliament", "Provides the public record of who your MP is", "The constituency found from your postcode. Your postcode is not sent to UK Parliament"],
@@ -270,8 +276,10 @@ export default function Privacy() {
             <div className="space-y-4 text-[17px] leading-[1.6] text-[var(--ink-2)]">
               <p>
                 Under UK data protection law you can ask what is held about you, ask for it to be
-                corrected, and ask for it to be deleted. Because the only thing kept is an email
-                address, that is usually a one-line request and it is done the same day.
+                corrected, and ask for it to be deleted. Depending on what you used, that may be a
+                mailing-list address, a contact message or an MSP review. If a review has no contact
+                email, say which MSP it concerned and the display name or headline you used so it can
+                be found without collecting anything new.
               </p>
               <p>
                 Every mailing list email has an unsubscribe link, which removes you immediately. You

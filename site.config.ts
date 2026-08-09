@@ -77,7 +77,7 @@ export const site = {
   },
 
   /** CHANGE ME, shown on the about page and used for corrections. */
-  contactEmail: "hello@strathmarkconsulting.com",
+  contactEmail: "graeme@strathmarkconsulting.com",
 
   /**
    * Handles only, no @ and no URL, the code adds both.

@@ -60,6 +60,7 @@ export const SECTIONS: Array<{
       { href: "/areas", label: "All 32 council areas", blurb: "Child poverty, benefits and pay context where you live", featured: true },
       { href: "/find-my-mp-and-msp", label: "Find my MP and MSPs", blurb: "Enter a postcode. It is not stored" },
       { href: "/representatives", label: "Every MP and MSP", blurb: "Who they are, how to reach them, and how they voted" },
+      { href: "/msp-reviews", label: "Review your MSP", blurb: "Moderated accounts from people who dealt with an MSP" },
       { href: "/constituencies", label: "All 57 MP areas", blurb: "The area each MP is responsible for" },
       { href: "/why-poverty-is-worse-in-glasgow", label: "Glasgow", blurb: "Why the worst rate in Scotland is where it is" },
     ],

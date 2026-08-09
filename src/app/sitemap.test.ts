@@ -37,6 +37,7 @@ function staticRoutes(dir = APP, prefix = ""): string[] {
  */
 const DELIBERATELY_ABSENT: Record<string, string> = {
   "/privacy": "linked from the footer, no search value",
+  "/msp-reviews/submitted": "private submission outcome page, explicitly noindex",
 };
 
 test("every static page is listed in the sitemap", () => {

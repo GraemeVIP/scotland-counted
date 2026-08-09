@@ -5,6 +5,16 @@
  */
 import { site } from "../../site.config.ts";
 
+/** Keep approved reader text from ever terminating its JSON-LD script element. */
+export function serialiseJsonLd(data: object) {
+  return JSON.stringify(data)
+    .replace(/&/g, "\\u0026")
+    .replace(/</g, "\\u003c")
+    .replace(/>/g, "\\u003e")
+    .replace(/\u2028/g, "\\u2028")
+    .replace(/\u2029/g, "\\u2029");
+}
+
 /*
  * Every JSON-LD builder on the site.
  *
@@ -154,6 +164,95 @@ export function articleJsonLd({
     ...(keywords ? { keywords: keywords.join(", ") } : {}),
     author: { "@id": ENTITY.author, "@type": "Person", name: site.author.name, url: site.author.url },
     publisher: publisherRef(),
+  };
+}
+
+/**
+ * Schema.org description of a public official and the approved reviews visible
+ * on that official's page. Person reviews are valid Schema.org, but Google does
+ * not currently list Person as eligible for review-star rich results.
+ */
+export function mspReviewsJsonLd({
+  name,
+  pagePath,
+  officialProfileUrl,
+  image,
+  jobTitle,
+  party,
+  reviews,
+}: {
+  name: string;
+  pagePath: string;
+  officialProfileUrl: string;
+  image: string;
+  jobTitle: string;
+  party: string;
+  reviews: Array<{
+    rating: number;
+    title: string;
+    body: string;
+    authorName: string;
+    publishedDate: string;
+  }>;
+}) {
+  const pageUrl = `${site.url}${pagePath}`;
+  const ratingValue = reviews.length
+    ? reviews.reduce((total, review) => total + review.rating, 0) / reviews.length
+    : null;
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${pageUrl}#webpage`,
+        url: pageUrl,
+        name: `${name} MSP reviews`,
+        inLanguage: "en-GB",
+        isPartOf: { "@id": ENTITY.website },
+        mainEntity: { "@id": `${pageUrl}#msp` },
+      },
+      {
+        "@type": "Person",
+        "@id": `${pageUrl}#msp`,
+        name,
+        url: pageUrl,
+        image: image.startsWith("http") ? image : `${site.url}${image}`,
+        jobTitle,
+        affiliation: { "@type": "Organization", name: party },
+        memberOf: {
+          "@type": "GovernmentOrganization",
+          name: "Scottish Parliament",
+          url: "https://www.parliament.scot/",
+        },
+        sameAs: [officialProfileUrl],
+        ...(ratingValue === null
+          ? {}
+          : {
+              aggregateRating: {
+                "@type": "AggregateRating",
+                ratingValue: Number(ratingValue.toFixed(2)),
+                reviewCount: reviews.length,
+                bestRating: 5,
+                worstRating: 1,
+              },
+              review: reviews.map((review) => ({
+                "@type": "Review",
+                name: review.title,
+                reviewBody: review.body,
+                datePublished: review.publishedDate,
+                itemReviewed: { "@id": `${pageUrl}#msp` },
+                author: { "@type": "Person", name: review.authorName },
+                reviewRating: {
+                  "@type": "Rating",
+                  ratingValue: review.rating,
+                  bestRating: 5,
+                  worstRating: 1,
+                },
+              })),
+            }),
+      },
+    ],
   };
 }
 

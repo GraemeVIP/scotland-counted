@@ -22,9 +22,16 @@ const CANONICAL_HOST = new URL(site.url).host;
 export function proxy(request: NextRequest) {
   const response = NextResponse.next();
   const host = request.headers.get("host");
+  const isReviewModeration = request.nextUrl.pathname.startsWith("/review-moderation/");
 
   if (host !== CANONICAL_HOST) {
     response.headers.set("X-Robots-Tag", "noindex, follow");
+  }
+
+  if (isReviewModeration) {
+    response.headers.set("X-Robots-Tag", "noindex, nofollow, noarchive, nosnippet");
+    response.headers.set("Referrer-Policy", "no-referrer");
+    response.headers.set("Cache-Control", "private, no-store, max-age=0");
   }
 
   // The site has a public /embed route. Keep normal pages protected against
