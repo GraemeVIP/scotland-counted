@@ -39,6 +39,7 @@
        "Cannot find module '@playwright/test'". Playwright type-checks
        them itself when the suite runs. */
     "e2e",
+    "supabase/functions",
     ".claude"
   ]
 }
