@@ -12,7 +12,10 @@ import {
 } from "@/lib/data/holyrood";
 import { JsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
 import { site } from "@/lib/site";
-import { HolyroodSourceNote, MspProfileCard, MspVotingRecord, holyroodPersonJsonLd } from "../../_shared";
+import { listApprovedMspReviews } from "@/lib/mspReviewsDb";
+import { HolyroodSourceNote, MspProfileCard, MspProfileReviews, MspVotingRecord, holyroodPersonJsonLd } from "../../_shared";
+
+export const revalidate = 60;
 
 export function generateStaticParams() {
   return holyroodConstituencies.map((item) => ({ slug: item.constituencySlug }));
@@ -38,6 +41,7 @@ export default async function HolyroodConstituencyPage({
   const { slug } = await params;
   const record = getHolyroodConstituencyBySlug(slug);
   if (!record) notFound();
+  const reviews = await listApprovedMspReviews(record.msp.memberId);
 
   const checked = formatHolyroodCheckedDate();
   const pagePath = `/representatives/msps/constituencies/${record.constituencySlug}`;
@@ -138,6 +142,8 @@ export default async function HolyroodConstituencyPage({
               </Link>
             </aside>
           </section>
+
+          <MspProfileReviews msp={record.msp} reviews={reviews} />
 
           <section className="pt-10">
             <MspVotingRecord msp={record.msp} />

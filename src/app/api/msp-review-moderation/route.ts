@@ -1,4 +1,6 @@
 import { NextResponse } from "next/server";
+import { revalidatePath, revalidateTag } from "next/cache";
+import { mspReviewProfiles } from "@/lib/data/mspReviews";
 import { decideReview, getReviewForModeration } from "@/lib/mspReviewsDb";
 
 export const dynamic = "force-dynamic";
@@ -35,6 +37,8 @@ export async function POST(request: Request) {
     }
 
     if (body.action !== "approve" && body.action !== "reject") return fail("Choose approve or reject.");
+    const submission = await getReviewForModeration(body.id, body.token);
+    if (!submission) return fail("This link has expired or the review has already been decided.", 410);
     const title = typeof body.title === "string" ? body.title.trim() : "";
     const story = typeof body.story === "string" ? body.story.trim() : "";
     const displayName = typeof body.displayName === "string" ? body.displayName.trim() : "";
@@ -52,6 +56,15 @@ export async function POST(request: Request) {
       body: story,
       displayName,
     });
+    if (decision && body.action === "approve") {
+      const profile = mspReviewProfiles.find((item) => item.msp.name === submission.msp_name);
+      revalidateTag("msp-reviews", { expire: 0 });
+      revalidatePath("/msp-reviews");
+      if (profile) {
+        revalidatePath(`/msp-reviews/${profile.slug}`);
+        revalidatePath(profile.profilePath);
+      }
+    }
     return decision
       ? NextResponse.json({ success: true, decision }, { headers: NO_STORE })
       : fail("This link has expired or the review has already been decided.", 410);

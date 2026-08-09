@@ -5,6 +5,14 @@ import { formatVoteDate } from "@/lib/voting";
 import PortraitLightbox from "@/components/PortraitLightbox";
 import { ExplainText } from "@/components/Glossary";
 import { representativeSlug } from "@/lib/representatives";
+import { getMspRating, type ApprovedMspReview } from "@/lib/data/mspReviews";
+
+const reviewPublishedDate = new Intl.DateTimeFormat("en-GB", { dateStyle: "medium" });
+const reviewInteractionMonth = new Intl.DateTimeFormat("en-GB", {
+  month: "long",
+  year: "numeric",
+  timeZone: "UTC",
+});
 
 export function preparedMspEmailHref({
   msp,
@@ -178,8 +186,8 @@ export function MspProfileCard({
         <a href={preparedMspEmailHref({ msp, area, regional })} className="btn btn-primary justify-center text-center">
           Open a ready-written email
         </a>
-        <Link href={`/msp-reviews/${representativeSlug(msp.name)}`} className="btn btn-ghost justify-center text-center">
-          Read or leave a review
+        <Link href="#reviews" className="btn btn-ghost justify-center text-center">
+          Read reviews
         </Link>
         <a href={msp.profileUrl} className="btn btn-ghost justify-center text-center">
           Official Parliament profile
@@ -189,6 +197,95 @@ export function MspProfileCard({
         The draft opens in your own email app. Read it and change anything you want before sending.
       </p>
     </article>
+  );
+}
+
+export function MspProfileReviews({
+  msp,
+  reviews,
+}: {
+  msp: HolyroodMspContact;
+  reviews: ApprovedMspReview[];
+}) {
+  const aggregate = getMspRating(reviews);
+  const reviewPath = `/msp-reviews/${representativeSlug(msp.name)}`;
+
+  return (
+    <section id="reviews" className="scroll-mt-28 pt-10" aria-labelledby="profile-reviews-heading">
+      <div className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-6 sm:p-8">
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <p className="kicker mb-2 text-[var(--brand)]">Published experiences</p>
+            <h2 id="profile-reviews-heading" className="h2">
+              Reviews of {msp.name}
+            </h2>
+          </div>
+          {aggregate && (
+            <p
+              className="ui rounded-full bg-[var(--action-tint)] px-4 py-2 text-[15px] font-[800] text-[var(--action)]"
+              aria-label={`${aggregate.ratingValue.toFixed(1)} out of 5 from ${aggregate.reviewCount} approved ${aggregate.reviewCount === 1 ? "review" : "reviews"}`}
+            >
+              {aggregate.ratingValue.toFixed(1)} out of 5 · {aggregate.reviewCount} {aggregate.reviewCount === 1 ? "review" : "reviews"}
+            </p>
+          )}
+        </div>
+
+        {reviews.length > 0 ? (
+          <div className="mt-6 grid gap-5">
+            {reviews.map((review) => (
+              <article
+                key={review.id}
+                className="rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface-2)] p-5 sm:p-6"
+              >
+                <div className="flex flex-wrap items-start justify-between gap-3">
+                  <div>
+                    <h3 className="ui text-[18px] font-[800] text-[var(--ink)]">{review.title}</h3>
+                    <p className="ui mt-2 text-[15px] leading-[1.55] text-[var(--muted)]">
+                      {review.authorName} · {review.relationship}
+                      {review.interactionDate ? (
+                        <>
+                          {" "}· interaction {" "}
+                          <time dateTime={review.interactionDate}>
+                            {reviewInteractionMonth.format(new Date(`${review.interactionDate}T00:00:00Z`))}
+                          </time>
+                        </>
+                      ) : null}
+                      {" "}· {" "}
+                      <time dateTime={review.publishedDate}>
+                        published {reviewPublishedDate.format(new Date(review.publishedDate))}
+                      </time>
+                    </p>
+                  </div>
+                  <p
+                    className="ui rounded-full bg-[var(--action-tint)] px-4 py-2 text-[15px] font-[800] text-[var(--action)]"
+                    aria-label={`${review.rating} out of 5 stars`}
+                  >
+                    {"★".repeat(review.rating)}{"☆".repeat(5 - review.rating)}
+                  </p>
+                </div>
+                <p className="mt-5 whitespace-pre-line text-[17px] leading-[1.7] text-[var(--ink-2)]">
+                  {review.body}
+                </p>
+              </article>
+            ))}
+          </div>
+        ) : (
+          <p className="mt-6 text-[16px] leading-[1.6] text-[var(--ink-2)]">
+            No reviews have passed moderation for {msp.name} yet. That is not a positive or
+            negative score.
+          </p>
+        )}
+
+        <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+          <Link href={`${reviewPath}#leave-review`} className="btn btn-primary justify-center text-center">
+            Review this MSP
+          </Link>
+          <Link href={reviewPath} className="btn btn-ghost justify-center text-center">
+            Open the full review page
+          </Link>
+        </div>
+      </div>
+    </section>
   );
 }
 

@@ -15,11 +15,15 @@ import {
 import { representativeSlug } from "@/lib/representatives";
 import { JsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
 import { site } from "@/lib/site";
+import { listApprovedMspReviews } from "@/lib/mspReviewsDb";
 import {
   HolyroodSourceNote,
   MspProfileCard,
+  MspProfileReviews,
   MspVotingRecord,
 } from "../../../_shared";
+
+export const revalidate = 60;
 
 export function generateStaticParams() {
   return holyroodRegions.flatMap((region) =>
@@ -56,6 +60,7 @@ export default async function RegionalMspPage({
   const region = getHolyroodRegionBySlug(slug);
   const msp = getHolyroodRegionalMsp(slug, person);
   if (!region || !msp) notFound();
+  const reviews = await listApprovedMspReviews(msp.memberId);
 
   const checked = formatHolyroodCheckedDate();
   const pagePath = `/representatives/msps/regions/${region.regionSlug}/${representativeSlug(msp.name)}`;
@@ -146,6 +151,8 @@ export default async function RegionalMspPage({
           <section className="pt-10">
             <MspProfileCard msp={msp} area={region.region} regional />
           </section>
+
+          <MspProfileReviews msp={msp} reviews={reviews} />
 
           <section className="pt-10">
             <MspVotingRecord msp={msp} />
