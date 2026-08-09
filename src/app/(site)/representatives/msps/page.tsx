@@ -71,6 +71,9 @@ export default function MspsDirectoryPage() {
             <Link href="#holyrood-regions" className="btn btn-ghost">
               Browse the 8 regions
             </Link>
+            <Link href="/msp-reviews" className="btn btn-ghost">
+              Read or leave MSP reviews
+            </Link>
           </div>
         </PageHeader>
 

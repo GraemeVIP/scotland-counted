@@ -101,6 +101,9 @@ export default function RepresentativesPage() {
             <Link href="/representatives/msps" className="btn btn-ghost">
               Browse all 129 MSPs
             </Link>
+            <Link href="/msp-reviews" className="btn btn-ghost">
+              Read or leave MSP reviews
+            </Link>
           </div>
           <p className="mt-5 text-[16px] leading-[1.6] text-[var(--ink-2)]">
             Need something fixed, or something changed?{" "}

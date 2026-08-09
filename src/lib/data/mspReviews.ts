@@ -19,6 +19,7 @@ export type ApprovedMspReview = {
  */
 export type MspReviewProfile = {
   slug: string;
+  profilePath: string;
   msp: HolyroodMspContact;
   areas: string[];
   representation: "constituency" | "regional";
@@ -29,6 +30,7 @@ const profilesById = new Map<number, MspReviewProfile>();
 for (const record of holyroodConstituencies) {
   profilesById.set(record.msp.memberId, {
     slug: representativeSlug(record.msp.name),
+    profilePath: `/representatives/msps/constituencies/${record.constituencySlug}`,
     msp: record.msp,
     areas: [record.constituency],
     representation: "constituency",
@@ -40,6 +42,7 @@ for (const region of holyroodRegions) {
     if (!profilesById.has(msp.memberId)) {
       profilesById.set(msp.memberId, {
         slug: representativeSlug(msp.name),
+        profilePath: `/representatives/msps/regions/${region.regionSlug}/${representativeSlug(msp.name)}`,
         msp,
         areas: [region.region],
         representation: "regional",

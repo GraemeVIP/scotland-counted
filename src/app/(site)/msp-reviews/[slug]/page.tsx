@@ -23,6 +23,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: `${profile.msp.name} MSP Reviews`,
     description: `Read moderated, firsthand reviews of ${profile.msp.name}, ${profile.msp.party} MSP for ${profile.areas.join(", ")}, or submit your own experience.`,
     path: `/msp-reviews/${profile.slug}`,
+    image: "/images/social/msp-reviews-share.jpg",
+    imageAlt: "Rate My MSP: moderated Scottish MSP reviews on Scotland Counted",
+    imageWidth: 1200,
+    imageHeight: 630,
+    imageType: "image/jpeg",
   });
   return reviews.length
     ? metadata
@@ -59,6 +64,7 @@ export default async function MspReviewPage({ params }: { params: Promise<{ slug
         >
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <a href="#leave-review" className="btn btn-primary justify-center text-center">Review this MSP</a>
+            <Link href={profile.profilePath} className="btn btn-ghost justify-center text-center">View full MSP profile</Link>
             <a href={profile.msp.profileUrl} target="_blank" rel="noopener noreferrer" className="btn btn-ghost justify-center text-center">Official MSP profile ↗</a>
           </div>
           <p className="ui mt-4 text-[15px] font-[650] text-[var(--ink-2)]">No account needed · Email optional · Every review moderated</p>
