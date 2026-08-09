@@ -67,7 +67,7 @@ export default async function MspReviewsPage() {
         <ContentFrame>
           <InShort expert={false}>
             <p><strong>This is an experience log, not a political popularity poll.</strong> Reviews must describe contact with an MSP or their office that directly affected the reviewer, someone they support or a community they represented.</p>
-            <p>Nothing appears automatically. Private details are removed, claims may be checked, and an MSP can ask for a factual correction or response.</p>
+            <p>Nothing appears automatically. Private details are removed.</p>
           </InShort>
 
           <section aria-labelledby="choose-route-title" className="pt-12 sm:pt-16">
