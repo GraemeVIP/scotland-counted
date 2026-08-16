@@ -77,6 +77,17 @@ const FILES: DataFile[] = [
     kind: "prepared",
   },
   {
+    file: "scottish-crisis-grants-by-council-2025-26.csv",
+    title: "Crisis Grants, all 32 councils",
+    body: "Five years of council award rates, plus 2025/26 applications, decisions, awards, rejections, spending, average awards and the latest processing performance. Ranked by the published award rate with the Scotland comparison beside every row.",
+    format: "CSV",
+    size: "12 KB",
+    rows: "32 rows",
+    columns:
+      "council, applications, decisions, awards, rejections, five annual award rates, rank, difference from Scotland, spend, average award, latest-quarter processing, source and notes",
+    kind: "prepared",
+  },
+  {
     file: "ons-life-expectancy-glasgow-scotland.csv",
     title: "Life expectancy",
     body: "Life expectancy at birth by sex for Glasgow and Scotland, 2001–03 to 2017–19, pulled out of the 22 MB ONS release so you do not have to open it.",
@@ -177,9 +188,9 @@ export default function Data() {
         data={datasetJsonLd({
           name: "Scotland Counted, full dataset",
           description:
-            "National poverty rates, council child poverty, employment, benefit claims, pay, jobs density, life expectancy and drug-death inequality data for Scotland, including the Glasgow deep series, 2000–2026.",
+            "National poverty rates, council child poverty, Crisis Grant outcomes, employment, benefit claims, pay, jobs density, life expectancy and drug-death inequality data for Scotland, including the Glasgow deep series, 2000–2026.",
           path: "/data",
-          keywords: ["poverty", "open data", "Scotland", "CSV", "child poverty", "Glasgow", "health inequality"],
+          keywords: ["poverty", "open data", "Scotland", "CSV", "child poverty", "Crisis Grants", "Glasgow", "health inequality"],
           temporalCoverage: "2000/2026",
         })}
       />
@@ -188,7 +199,7 @@ export default function Data() {
         <PageHeader
           eyebrow="Free to download and reuse"
           title="Download Scotland poverty data"
-          lede="This is the proof behind the simple pages. Ten CSVs and two Excel workbooks, all free. Five I prepared and tidied so they open cleanly in a spreadsheet; the other seven are the publishers' own files, served exactly as they came, so you can check my working against them."
+          lede="This is the proof behind the simple pages. Eleven CSVs and two Excel workbooks, all free. Six I prepared and tidied so they open cleanly in a spreadsheet; the other seven are the publishers' own files, served exactly as they came, so you can check my working against them."
         />
 
         <ContentFrame>

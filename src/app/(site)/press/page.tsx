@@ -8,6 +8,7 @@ import { indicators } from "@/lib/data/indicators";
 import { site } from "@/lib/site";
 import Image from "next/image";
 import { infographic } from "@/lib/data/infographic";
+import { CRISIS_GRANT_CSV_URL, CRISIS_GRANT_SOURCE_URL } from "@/lib/data/crisisGrants";
 import {
   CITATION,
   COUNCIL_DATA_FILE,
@@ -34,6 +35,8 @@ const STAT_LINES = [
   "All four of Scotland's legally binding interim child poverty targets for 2023/24 were missed, including persistent poverty at 23% against a target of 8% (Scottish Government progress report, 2024–25).",
   "Glasgow East has the highest constituency child poverty rate in Scotland at 34.9%; six of the seven worst Scottish seats are in Glasgow (End Child Poverty / Loughborough University, 2023/24).",
   "In 2020/21, the one year benefits were raised, child poverty in Glasgow fell from 32.2% to 29.4%. When the £20 uplift was withdrawn it rose straight back (End Child Poverty / Loughborough University).",
+  "In 2025/26, 89% of decided Crisis Grant applications in Inverclyde resulted in an award, compared with 52% in Midlothian: a 37-percentage-point gap within the same national scheme (Scottish Government).",
+  "The Crisis Grant gap between Inverclyde and Midlothian persisted across all five years from 2021/22 to 2025/26: Inverclyde's published rate stayed between 77% and 89%, while Midlothian's stayed between 49% and 57% (Scottish Government).",
 ];
 
 export default function Press() {
@@ -118,6 +121,27 @@ export default function Press() {
             {nationalCouncilLines().map((t) => (
               <CopyLine key={t.slice(0, 40)} text={t} />
             ))}
+          </div>
+
+          <div className="mt-12 rounded-[var(--r-m)] border border-[var(--rule)] border-l-4 border-l-[var(--action)] bg-[var(--surface-2)] p-6 sm:p-7">
+            <p className="label mb-2">New investigation · 2025/26</p>
+            <h3 className="h3">The 37-point Crisis Grant postcode gap</h3>
+            <p className="mt-3 max-w-[68ch] text-[16px] leading-[1.6] text-[var(--ink-2)]">
+              The disparity involves thousands of decisions and persists across five years. The
+              figures show different outcomes, not their cause, so the reporting pack includes the
+              questions councils need to answer and every methodological caveat.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link href="/blog/crisis-grant-acceptance-rates-scotland-councils" className="btn btn-primary">
+                Read and share the investigation <span aria-hidden="true">→</span>
+              </Link>
+              <a href={CRISIS_GRANT_CSV_URL} download className="btn btn-secondary">
+                Download all 32 councils <span aria-hidden="true">↓</span>
+              </a>
+            </div>
+            <p className="ui mt-4 text-[15px] leading-[1.55] text-[var(--muted)]">
+              Primary source: <a href={CRISIS_GRANT_SOURCE_URL}>Scottish Government, Scottish Welfare Fund statistics to 31 March 2026</a>.
+            </p>
           </div>
 
           {/*
