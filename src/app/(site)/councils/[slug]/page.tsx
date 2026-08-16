@@ -13,11 +13,13 @@ import {
 import { getCouncil } from "@/lib/data/councils";
 import { headlineCards, shortVersion } from "@/lib/councilSignals";
 import CouncilCompare from "@/components/CouncilCompare";
+import CrisisGrantAccountability from "@/components/CrisisGrantAccountability";
 import FamilyGroupComparison from "@/components/FamilyGroupComparison";
 import BudgetGapExplainer from "@/components/BudgetGapExplainer";
 import CouncilWatch from "@/components/CouncilWatch";
 import AccountabilityMethodNote from "@/components/AccountabilityMethodNote";
 import { JsonLd, articleJsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
+import { crisisGrantScotland, getCrisisGrantCouncil } from "@/lib/data/crisisGrants";
 
 export function generateStaticParams() {
   return councilAccountabilityRecords.map((record) => ({ slug: record.councilSlug }));
@@ -106,6 +108,7 @@ export default async function CouncilAccountabilityPage({
   if (!record || !council) notFound();
 
   const pagePath = `/councils/${record.councilSlug}`;
+  const crisisGrant = getCrisisGrantCouncil(record.councilSlug);
   const missed = record.outcomes.filter((outcome) => outcome.status === "missed");
   const reportedOutcomes = record.outcomes.filter((outcome) => outcome.status !== "not-verified");
   const sameMeasureMisses = missed.filter((outcome) => !outcome.comparisonNote).length;
@@ -158,6 +161,12 @@ export default async function CouncilAccountabilityPage({
             " result is marked as missed, but its source does not give the matching total needed for a direct comparison."
           : ""),
     },
+    ...(crisisGrant
+      ? [{
+          q: `What percentage of Crisis Grant applications does ${record.councilName} award?`,
+          a: `In 2025/26, ${crisisGrant.acceptanceRate}% of decided Crisis Grant applications in ${record.councilName} resulted in an award, compared with ${crisisGrantScotland.acceptanceRate}% across Scotland. This is an outcome rate for applications, not unique people, and it does not by itself explain why councils differ.`,
+        }]
+      : []),
     {
       q: "Does this page prove that a councillor is personally responsible?",
       a: "No. It records what the council, its officers, auditors and regulators published. It does not assign an individual motive or blame without a separate documented decision trail.",
@@ -180,7 +189,7 @@ export default async function CouncilAccountabilityPage({
           path: pagePath,
           modified: record.lastReviewedOn,
           schemaType: "WebPage",
-          keywords: [record.councilName, "council budget", "council performance", "audit findings"],
+          keywords: [record.councilName, "council budget", "council performance", "Crisis Grant acceptance rate", "audit findings"],
         })}
       />
       <JsonLd data={faqJsonLd(faq)} />
@@ -247,6 +256,7 @@ export default async function CouncilAccountabilityPage({
               { id: "money", label: "Money" },
               { id: "why-more-money", label: "Why they need more" },
               { id: "performance", label: "Goals" },
+              { id: "crisis-grants", label: "Crisis Grants" },
               { id: "compare", label: "Compare councils" },
               { id: "audit-trail", label: "What auditors found" },
               { id: "promises", label: "Promises" },
@@ -369,6 +379,8 @@ export default async function CouncilAccountabilityPage({
               )}
             </div>
           </section>
+
+          <CrisisGrantAccountability slug={record.councilSlug} councilName={record.councilName} />
 
           <CouncilCompare slug={record.councilSlug} />
 

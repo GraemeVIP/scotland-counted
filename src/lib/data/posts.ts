@@ -226,6 +226,67 @@ export const posts: Post[] = [
     ],
   },
   {
+    slug: "crisis-grant-acceptance-rates-scotland-councils",
+    title: "Crisis Grant postcode gap: why councils award 52% to 89%",
+    seoTitle: "Crisis Grant Acceptance Rates by Scottish Council | 2025/26",
+    description:
+      "Inverclyde awarded 89% of decided Crisis Grant applications in 2025/26. Midlothian awarded 52%. Compare all 32 councils and see what the gap proves.",
+    standfirst:
+      "Inverclyde awarded 89% of decided Crisis Grant applications in 2025/26. Midlothian awarded 52%. The same national scheme produced a persistent 37-point postcode gap that councils need to explain.",
+    date: "2026-08-16",
+    category: "politics-explained",
+    tags: [
+      "Crisis Grant acceptance rates",
+      "Scottish Welfare Fund",
+      "Scottish councils",
+      "Emergency grants",
+      "Council accountability",
+      "Poverty in Scotland",
+    ],
+    readingMinutes: 10,
+    image: {
+      src: "/images/editorial/scottish-welfare-fund-crisis-grant.webp",
+      alt: "A community adviser helping a resident complete an emergency grant application at a public computer",
+      caption:
+        "The application is local, but the scheme is national. In 2025/26 the published council award rates stretched from 52% to 89%.",
+      objectPosition: "center 42%",
+    },
+    toc: [
+      { id: "short-answer", label: "The story in three numbers" },
+      { id: "every-council", label: "Every council compared" },
+      { id: "persistent", label: "Why one year is not enough" },
+      { id: "explanations", label: "What might explain the gap" },
+      { id: "limits", label: "What the figures cannot prove" },
+      { id: "questions", label: "Questions for every council" },
+      { id: "refused", label: "If your application was refused" },
+      { id: "data", label: "Data and method" },
+    ],
+    faq: [
+      {
+        q: "Which Scottish council has the highest Crisis Grant award rate?",
+        a: "Inverclyde had the highest published rate in 2025/26: 89% of decided Crisis Grant applications resulted in an award. Angus was next at 79% and Dundee City at 78%.",
+      },
+      {
+        q: "Which Scottish council has the lowest Crisis Grant award rate?",
+        a: "Midlothian had the lowest published rate in 2025/26 at 52%, followed by Highland at 53%. The Scotland rate was 65%.",
+      },
+      {
+        q: "Does a lower award rate prove a council is refusing valid applications?",
+        a: "No. The rate proves different outcomes, not whether the underlying applications were comparable or the decisions correct. Explaining the gap requires evidence about case mix, local administration, evidence demands, budget pressure, repeat applications and reviews.",
+      },
+      {
+        q: "Can a refused Crisis Grant decision be reviewed?",
+        a: "Yes. The statutory guidance says a first-tier review is requested from the council, normally within 20 working days of the decision. A Crisis Grant review should be decided within two working days. A review cannot reduce or remove an award already made.",
+      },
+    ],
+    sourceIds: [
+      "swf-statistics-2025-26",
+      "swf-tables-2025-26",
+      "swf-statutory-guidance-2026",
+      "scottish-welfare-fund",
+    ],
+  },
+  {
     slug: "how-council-tax-works-scotland",
     title: "How council tax works in Scotland: discounts, help and appeals",
     seoTitle: "How Council Tax Works in Scotland | Help and Appeals",
