@@ -250,7 +250,7 @@ export default function YourPower() {
         <CTA
           title="Right, who represents you?"
           body="Put in your postcode. I find your MP and MSP, put your own area's figures into both emails and write them for you."
-          href="/find-my-mp-and-msp"
+          href="/email-your-mp-and-msp"
           cta="Find mine and write the emails"
           secondaryHref="/areas"
           secondaryCta="See my area's figures first"

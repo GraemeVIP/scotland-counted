@@ -197,7 +197,7 @@ export default function TakeHomePayCalculator() {
       <CTA
         title="Pay is a political choice, not weather"
         body="What is left after tax, rent and bills is decided by people you can write to. Enter your postcode and I find your MP and MSP, then write both emails for you."
-        href="/find-my-mp-and-msp"
+        href="/email-your-mp-and-msp"
         cta="Find my MP and MSP"
         secondaryHref="/solutions-to-poverty-in-scotland"
         secondaryCta="See what would help"

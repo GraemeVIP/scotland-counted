@@ -72,7 +72,7 @@ export default function Post() {
       <P>
         Your <strong>MP</strong> in London decides different things: Universal Credit, most other
         benefits, and help with private rent. Both matter. They are different people, and{" "}
-        <Link href="/find-my-mp-and-msp">you have both of them</Link>.
+        <Link href="/email-your-mp-and-msp">you have both of them</Link>.
       </P>
 
       <H2 id="take-up">The bit that gets missed: take-up</H2>
@@ -92,7 +92,7 @@ export default function Post() {
       <PostCTA
         title="Ask your MSP what they are doing about it"
         body="I will find your MSP, put your area's own child-poverty figure into the email and write it for you. You just read it and press send."
-        href="/find-my-mp-and-msp"
+        href="/email-your-mp-and-msp"
         cta="Email my MSP"
       />
 

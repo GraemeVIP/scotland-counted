@@ -65,7 +65,7 @@ export default function MspsDirectoryPage() {
           lede="Everyone in Scotland has eight MSPs: one for their constituency and seven for their larger region. You do not need to know either area. The postcode tool finds all eight for you."
         >
           <div className="mt-7 flex flex-wrap gap-3">
-            <Link href="/find-my-mp-and-msp" className="btn btn-primary">
+            <Link href="/email-your-mp-and-msp" className="btn btn-primary">
               Use my postcode
             </Link>
             <Link href="#holyrood-regions" className="btn btn-ghost">
@@ -168,7 +168,7 @@ export default function MspsDirectoryPage() {
           <CTA
             title="Let the site find the right people"
             body="Enter your postcode. I find your MP, constituency MSP and seven regional MSPs. The ready-written emails go to the closest match automatically."
-            href="/find-my-mp-and-msp"
+            href="/email-your-mp-and-msp"
             cta="Find everyone who represents me"
             secondaryHref="/representatives"
             secondaryCta="See every Scottish MP"

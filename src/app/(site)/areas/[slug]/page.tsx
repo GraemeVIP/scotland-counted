@@ -435,7 +435,7 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
         <CTA
           title={`Email the people who represent ${c.name}`}
           body="Enter your postcode. I find your MP and MSP, add these local figures, write both emails and open them in your email app. You do not need to know who decides what."
-          href="/find-my-mp-and-msp"
+          href="/email-your-mp-and-msp"
           cta="Find my MP and MSP"
           secondaryHref="/areas"
           secondaryCta="See all 32 areas"

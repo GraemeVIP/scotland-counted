@@ -134,7 +134,7 @@ export default function WhoDecides() {
             <h2 className="h2 mb-3">Find the people who represent you</h2>
             <div className="grid gap-4 sm:grid-cols-2">
               <Link
-                href="/find-my-mp-and-msp"
+                href="/email-your-mp-and-msp"
                 className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-6 transition-colors hover:border-[var(--brand)]"
               >
                 <span className="label">Enter a postcode</span>
@@ -179,7 +179,7 @@ export default function WhoDecides() {
           <CTA
             title="Now you know who to write to"
             body="Find your MP, your constituency MSP and your seven regional MSPs, and send them something they have to answer."
-            href="/find-my-mp-and-msp"
+            href="/email-your-mp-and-msp"
             cta="Find my representatives"
             secondaryHref="/councils"
             secondaryCta="See my council's record first"

@@ -107,7 +107,7 @@ export default function RepresentativesPage() {
           </div>
           <p className="mt-5 text-[16px] leading-[1.6] text-[var(--ink-2)]">
             Need something fixed, or something changed?{" "}
-            <Link href="/find-my-mp-and-msp">I will write the email for you →</Link>
+            <Link href="/email-your-mp-and-msp">I will write the email for you →</Link>
           </p>
         </PageHeader>
 
@@ -202,7 +202,7 @@ export default function RepresentativesPage() {
           <CTA
             title="Ready to ask them to act?"
             body="The email tool finds the same representatives, adds your local facts and prepares focused drafts. You stay in control and nothing is sent automatically."
-            href="/find-my-mp-and-msp"
+            href="/email-your-mp-and-msp"
             cta="Write the emails for me"
             secondaryHref="/representatives/msps"
             secondaryCta="Browse every Scottish MSP"

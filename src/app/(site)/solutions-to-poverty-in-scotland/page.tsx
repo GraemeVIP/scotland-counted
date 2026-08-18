@@ -365,7 +365,7 @@ export default function WhatWouldFixIt() {
       <CTA
         title="Ask the people who can make these changes"
         body="Enter your postcode. I find your MP and MSP, add the local facts and put the right requests into each email automatically. You do not need to choose."
-        href="/find-my-mp-and-msp"
+        href="/email-your-mp-and-msp"
         cta="Find my MP and MSP"
         secondaryHref="/who-is-responsible-for-poverty-in-scotland"
         secondaryCta="See who decides"

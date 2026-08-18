@@ -82,7 +82,7 @@ const TOOLS = [
     body: "All 32 councils, bands A to H, with the water charges most published figures leave out.",
   },
   {
-    href: "/find-my-mp-and-msp",
+    href: "/representatives",
     eyebrow: "Representatives",
     title: "Who represents you",
     body: "Your MP, your constituency MSP and your seven regional MSPs. The postcode is not stored.",

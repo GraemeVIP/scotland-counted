@@ -57,9 +57,15 @@ function PostcodeJump({ onDone, autoFocus = false }: { onDone: () => void; autoF
     event.preventDefault();
     const value = postcode.trim().toUpperCase();
     if (!value) return;
+    /*
+     * The finder, not the letter builder. This box sits under "Go straight
+     * to your area", and for years it dropped people into an email composer
+     * instead: the same promise-toolmismatch the old page URL had. The
+     * lookup consumes the carried postcode and runs it on arrival.
+     */
     sessionStorage.setItem(POSTCODE_SESSION_KEY, value);
     onDone();
-    router.push("/find-my-mp-and-msp#letter-builder");
+    router.push("/representatives#postcode-lookup");
   }
 
   return (
@@ -400,7 +406,7 @@ export function MobileMenu({
         <Link href="/msp-reviews" onClick={onNavigate} className="btn btn-primary justify-center text-center">
           Review an MSP
         </Link>
-        <Link href="/find-my-mp-and-msp" onClick={onNavigate} className="btn btn-ghost justify-center text-center">
+        <Link href="/email-your-mp-and-msp" onClick={onNavigate} className="btn btn-ghost justify-center text-center">
           Email an MSP
         </Link>
       </div>

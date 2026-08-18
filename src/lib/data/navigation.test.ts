@@ -165,7 +165,35 @@ test("only Branchform is filed under the investigations category", () => {
    * investigation was published, in which case update it deliberately, or an
    * explainer was misfiled, which is the thing this whole change was about.
    */
+  /*
+   * An allowlist, not a head-count. The original assertion pinned the count
+   * at one, which broke the moment a second genuine investigation, the
+   * Crisis Grant piece, was published. The invariant worth keeping is that
+   * nothing gets filed here casually: every slug in the category must be
+   * named below, so adding an investigation is a deliberate two-line change
+   * and misfiling an explainer still fails.
+   */
+  const INVESTIGATIONS = [
+    "operation-branchform-snp-money-timeline",
+    "crisis-grant-acceptance-rates-scotland-councils",
+  ];
   const source = readFileSync(fileURLToPath(new URL("./posts.ts", import.meta.url)), "utf8");
-  const filed = source.match(/category: "politics-explained"/g) ?? [];
-  assert.equal(filed.length, 1, `${filed.length} posts are filed as investigations`);
+  /*
+   * For each category marker, the record's slug is the nearest one BEFORE
+   * it. A forward-looking span regex matched the category definition block
+   * and skipped records longer than its window, which reported the wrong
+   * slugs with complete confidence.
+   */
+  const slugs = [...source.matchAll(/category: "politics-explained"/g)].map((hit) => {
+    const before = source.slice(0, hit.index);
+    const last = [...before.matchAll(/slug: "([a-z0-9-]+)"/g)].at(-1);
+    return last ? last[1] : "(no slug found)";
+  });
+  assert.ok(slugs.length >= 1, "the investigations category is empty");
+  for (const slug of slugs) {
+    assert.ok(
+      INVESTIGATIONS.includes(slug),
+      `${slug} is filed as an investigation but not named in the allowlist`,
+    );
+  }
 });

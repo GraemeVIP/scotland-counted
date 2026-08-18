@@ -105,7 +105,7 @@ test("the visitor is not taken to the email composer automatically", async ({ pa
 
   // Give any stray navigation a chance to happen before asserting it did not.
   await page.waitForTimeout(1200);
-  await expect(page).not.toHaveURL(/find-my-mp-and-msp/);
+  await expect(page).not.toHaveURL(/email-your-mp-and-msp/);
   await expect(page.getByTestId("write-email")).toBeVisible();
 });
 
@@ -168,7 +168,7 @@ test("the email action is still there, and only runs when asked", async ({ page 
   await expect(page.getByTestId("local-result")).toBeVisible();
 
   await page.getByTestId("write-email").click();
-  await expect(page).toHaveURL(/find-my-mp-and-msp/);
+  await expect(page).toHaveURL(/email-your-mp-and-msp/);
   expect(page.url(), "the postcode was carried in the URL").not.toMatch(/G12|8QQ/i);
 });
 
@@ -227,6 +227,6 @@ test("the result works at phone width", async ({ page }) => {
 
 test("the header keeps a direct route to the email tool", async ({ page }) => {
   await page.goto("/");
-  const direct = page.locator('header a[href="/find-my-mp-and-msp"]');
+  const direct = page.locator('header a[href="/email-your-mp-and-msp"]');
   await expect(direct.first()).toHaveText(/email your mp/i);
 });

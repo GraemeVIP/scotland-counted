@@ -98,7 +98,7 @@ export default function Constituencies() {
         <CTA
           title="You do not need to work out who your MP is"
           body="Enter your postcode. I find your MP, add the exact local figure and open a ready-written email."
-          href="/find-my-mp-and-msp"
+          href="/email-your-mp-and-msp"
           cta="Find and email my MP"
           secondaryHref={`/constituencies/${worst.slug}`}
           secondaryCta={`See ${worst.name}`}

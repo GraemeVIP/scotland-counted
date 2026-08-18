@@ -215,9 +215,9 @@ export default async function HolyroodRegionPage({
           <Faq items={faq} className="pt-12" />
 
           <CTA
-            title="Find your constituency MSP as well"
+            title="Get the emails written as well"
             body="Enter your postcode. I find all eight MSPs and your Westminster MP, then choose the closest local match for the ready-written email."
-            href="/find-my-mp-and-msp"
+            href="/email-your-mp-and-msp"
             cta="Use my postcode"
             secondaryHref="/representatives/msps"
             secondaryCta="Browse every Scottish MSP area"

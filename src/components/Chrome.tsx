@@ -191,7 +191,7 @@ export function Header() {
           <SearchButton />
           <ThemeToggle />
           <Link
-            href="/find-my-mp-and-msp"
+            href="/email-your-mp-and-msp"
             className="btn btn-primary hidden sm:inline-flex whitespace-nowrap !px-5 !py-2.5 !text-[15px]"
           >
             Email your MP/MSP

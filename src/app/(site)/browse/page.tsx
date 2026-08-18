@@ -45,7 +45,7 @@ export default function Browse() {
             </p>
             <div className="grid gap-3 sm:grid-cols-2">
               <Link
-                href="/find-my-mp-and-msp"
+                href="/email-your-mp-and-msp"
                 className="group block rounded-[var(--r-s)] border border-[var(--rule)] border-t-[3px] border-t-[var(--action)] bg-[var(--surface)] px-5 py-5 no-underline hover:border-[var(--action)] transition-colors"
               >
                 <span className="ui block text-[15px] font-[750] uppercase tracking-[0.06em] text-[var(--action)]">

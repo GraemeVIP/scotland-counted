@@ -19,7 +19,7 @@ const PAGES = [
   "/who-decides",
   "/take-home-pay-calculator-scotland",
   "/council-tax-bands-scotland",
-  "/find-my-mp-and-msp",
+  "/email-your-mp-and-msp",
   "/data",
   "/blog",
 ];

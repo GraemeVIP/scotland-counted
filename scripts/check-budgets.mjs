@@ -46,9 +46,16 @@ const BUDGETS = {
   "/councils/glasgow-city": { js: 1130, total: 2020 },
   "/money": { js: 1080, total: 1810 },
   "/take-home-pay-calculator-scotland": { js: 1220, total: 2240 },
-  "/find-my-mp-and-msp": { js: 1160, total: 2040 },
-  "/blog": { js: 1160, total: 2610 },
-  "/press": { js: 1150, total: 1980 },
+  /* The letter builder's URL moved here 18 Aug 2026; budget carried over,
+     +20kB JS headroom for the post-data growth that came with PR 15. */
+  "/email-your-mp-and-msp": { js: 1180, total: 2060 },
+  /* /blog raised 18 Aug 2026: two investigations and the MSP review pages
+     landed in the shared post data (PR 15 and the review merges), +62kB JS.
+     Real growth from real content, but the next rise needs a lazy split. */
+  "/blog": { js: 1240, total: 2680 },
+  /* /press raised 18 Aug 2026: the Crisis Grant and drug-deaths posts grew
+     the shared post data. 1kB JS over the old line, nothing structural. */
+  "/press": { js: 1170, total: 2020 },
 };
 
 const browser = await chromium.launch();

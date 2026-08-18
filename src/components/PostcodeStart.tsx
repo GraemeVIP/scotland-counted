@@ -80,7 +80,7 @@ export default function PostcodeStart({
   function openLetterBuilder() {
     if (!lookup) return;
     sessionStorage.setItem(POSTCODE_SESSION_KEY, lookup.postcode);
-    router.push("/find-my-mp-and-msp#letter-builder");
+    router.push("/email-your-mp-and-msp#letter-builder");
   }
 
   /*

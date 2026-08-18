@@ -374,11 +374,11 @@ export default function Post() {
           that Glasgow has the highest recent council-area rate.
         </LI>
         <LI>
-          They <strong>cannot</strong> tell us an individual&apos;s income from the deprivation score of
+          They <strong>cannot</strong>{" "}tell us an individual&apos;s income from the deprivation score of
           the neighbourhood where they lived.
         </LI>
         <LI>
-          They <strong>cannot</strong> prove that deprivation alone caused a death. Trauma, mental
+          They <strong>cannot</strong>{" "}prove that deprivation alone caused a death. Trauma, mental
           and physical health, the drug supply, treatment, housing and social isolation can interact.
         </LI>
         <LI>

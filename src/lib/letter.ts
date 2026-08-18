@@ -1,7 +1,7 @@
 /**
  * One source of truth for the emails this site writes.
  *
- * Two places build letters: the postcode flow on /find-my-mp-and-msp (which knows a
+ * Two places build letters: the postcode flow on /email-your-mp-and-msp (which knows a
  * council and both representatives) and the button on each constituency page
  * (which knows an MP area and its MP). They must say the same thing, so the
  * wording lives here rather than in either component.

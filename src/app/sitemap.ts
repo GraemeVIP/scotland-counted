@@ -33,7 +33,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${site.url}/councils`, changeFrequency: "monthly", priority: 0.85, lastModified: seoRelease },
     { url: `${site.url}/who-decides`, changeFrequency: "monthly", priority: 0.9, lastModified: repositioning },
     { url: `${site.url}/poverty`, changeFrequency: "monthly", priority: 0.9, lastModified: repositioning },
-    { url: `${site.url}/find-my-mp-and-msp`, changeFrequency: "monthly", priority: 0.95, lastModified: seoRelease },
+    { url: `${site.url}/email-your-mp-and-msp`, changeFrequency: "monthly", priority: 0.95, lastModified: seoRelease },
     { url: `${site.url}/blog`, changeFrequency: "weekly", priority: 0.9, lastModified: latestPostDate },
     { url: `${site.url}/faq`, changeFrequency: "monthly", priority: 0.85 },
     { url: `${site.url}/what-happens-when-you-email-your-mp`, changeFrequency: "monthly", priority: 0.95, lastModified: seoRelease },

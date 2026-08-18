@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useId, useState } from "react";
+import { useCallback, useEffect, useId, useState } from "react";
 import { trackEvent } from "@/lib/analytics";
 import PortraitLightbox from "@/components/PortraitLightbox";
 import {
@@ -99,10 +99,8 @@ export default function RepresentativeLookup() {
   const [state, setState] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [error, setError] = useState("");
 
-  async function submit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const field = event.currentTarget.elements.namedItem("postcode") as HTMLInputElement | null;
-    const value = (field?.value ?? postcode).trim().toUpperCase();
+  const lookUp = useCallback(async (raw: string) => {
+    const value = raw.trim().toUpperCase();
     if (!value) return;
 
     setState("loading");
@@ -130,7 +128,36 @@ export default function RepresentativeLookup() {
       setError(reason instanceof Error ? reason.message : "The lookup is unavailable just now.");
       trackEvent("representative_lookup_error");
     }
+  }, []);
+
+  function submit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const field = event.currentTarget.elements.namedItem("postcode") as HTMLInputElement | null;
+    void lookUp(field?.value ?? postcode);
   }
+
+  /*
+   * A postcode carried from the menu or another page runs on arrival, the
+   * same contract the letter builder has always honoured. Consumed once and
+   * removed, so it cannot replay on a later visit.
+   */
+  useEffect(() => {
+    const carried = sessionStorage.getItem(POSTCODE_SESSION_KEY);
+    if (!carried) return;
+    sessionStorage.removeItem(POSTCODE_SESSION_KEY);
+    /*
+     * A zero timeout, and both rejected alternatives are worth recording.
+     * Calling lookUp directly trips the no-sync-setState rule, because its
+     * first statement flips the loading state before any await. Scheduling
+     * through requestAnimationFrame passes the rule but never fires in a
+     * hidden tab, so a reader opening this in the background would have
+     * their postcode consumed and see nothing at all. Timers are throttled
+     * in hidden tabs, but they do fire. The result header names the
+     * postcode, so the untouched input costs nothing.
+     */
+    const timer = setTimeout(() => void lookUp(carried), 0);
+    return () => clearTimeout(timer);
+  }, [lookUp]);
 
   function changePostcode(value: string) {
     setPostcode(value.toUpperCase());
@@ -144,7 +171,7 @@ export default function RepresentativeLookup() {
     if (!lookup) return;
     sessionStorage.setItem(POSTCODE_SESSION_KEY, lookup.postcode);
     trackEvent("representative_letter_help_selected");
-    router.push("/find-my-mp-and-msp#letter-builder");
+    router.push("/email-your-mp-and-msp#letter-builder");
   }
 
   return (

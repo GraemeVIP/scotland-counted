@@ -215,7 +215,7 @@ export default function PovertyHub() {
           <CTA
             title="One email is worth more than one share"
             body="The people who set benefit levels, tax bands and council budgets are required to answer their constituents. Find yours and write to them."
-            href="/find-my-mp-and-msp"
+            href="/email-your-mp-and-msp"
             cta="Find my MP and MSPs"
             secondaryHref="/who-decides"
             secondaryCta="Check who controls what first"

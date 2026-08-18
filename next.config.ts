@@ -105,6 +105,21 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      {
+        /*
+         * This URL promised a finder and served a letter writer for months.
+         * The letter writer now lives at /email-your-mp-and-msp, and this
+         * address does what it always said: people searching "find my MP"
+         * land on the page that finds their MP.
+         */
+        source: "/find-my-mp-and-msp",
+        destination: "/representatives",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

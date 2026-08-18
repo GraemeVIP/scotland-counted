@@ -167,7 +167,7 @@ export default function CouncilsPage() {
           <CTA
             title="Seen something that makes you angry?"
             body="Do not shout at the telly. Your MSP decides how councils are funded, and your councillors answer to you. Put in your postcode and I will write the email for you."
-            href="/find-my-mp-and-msp"
+            href="/email-your-mp-and-msp"
             cta="Write to the people in charge"
             secondaryHref="/areas"
             secondaryCta="See the poverty figures first"

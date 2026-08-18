@@ -62,7 +62,7 @@ const CORE: Item[] = [
     group: "Main pages",
     keywords: "who decides what Westminster Scottish Government council poverty policy responsibility",
   },
-  { label: "Email your MP and MSP", href: "/find-my-mp-and-msp", group: "Main pages", keywords: "letter mp msp email write postcode who is my mp find" },
+  { label: "Email your MP and MSP", href: "/email-your-mp-and-msp", group: "Main pages", keywords: "letter mp msp email write postcode who is my mp find" },
   {
     label: "What happens when you email your MP",
     href: "/what-happens-when-you-email-your-mp",

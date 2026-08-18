@@ -92,7 +92,7 @@ export default function QuizPage() {
       <CTA
         title="Now put one of those numbers to the person who decides it"
         body="Enter your postcode. I find your MP and MSP, add the figures for your own area and write both emails. You read them and press send."
-        href="/find-my-mp-and-msp"
+        href="/email-your-mp-and-msp"
         cta="Find my MP and MSP"
         secondaryHref="/glasgow-poverty-statistics"
         secondaryCta="See every figure"

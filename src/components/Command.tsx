@@ -104,7 +104,7 @@ export default function CommandPalette() {
         "/areas/glasgow-city",
         "/areas",
         "/representatives",
-        "/find-my-mp-and-msp",
+        "/email-your-mp-and-msp",
         "/glasgow-poverty-statistics",
         "/glossary",
       ];

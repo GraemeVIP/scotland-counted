@@ -6,10 +6,10 @@ import LetterBuilder from "./LetterBuilder";
 import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
 
 export const metadata = meta({
-  title: "Find My MSP and MP by Postcode in Scotland",
+  title: "Email Your MP and MSP: Letters Written For You",
   description:
-    "Enter your postcode to find your MP and all 8 MSPs. Scotland Counted writes focused emails to your MP and constituency MSP automatically.",
-  path: "/find-my-mp-and-msp",
+    "Scotland Counted writes ready-to-send emails to your MP and constituency MSP, with your area's real figures already in them. You read them and press send.",
+  path: "/email-your-mp-and-msp",
 });
 
 const OTHER = [
@@ -37,15 +37,15 @@ export default function TakeAction() {
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Home", path: "/" },
-          { name: "Take action", path: "/find-my-mp-and-msp" },
+          { name: "Take action", path: "/email-your-mp-and-msp" },
         ])}
       />
 
       <Page>
         <PageHeader
           eyebrow="No politics knowledge needed"
-          title="Find your MP and MSP by postcode"
-          lede="Enter your postcode. I find your MP and every MSP, then automatically write to the two closest matches: your MP and constituency MSP. You do not have to know who they are or choose who gets what."
+          title="I write the emails to your MP and MSP"
+          lede="Enter your postcode. I find the right two people, put your area's real figures into an email to each, and open both in your email app. You read them, change anything you like, and press send."
         >
           {/*
             The other door, named at the door. This page is for getting
@@ -54,8 +54,8 @@ export default function TakeAction() {
             should find out in the first screen, not after scrolling.
           */}
           <p className="mt-5 text-[16px] leading-[1.6] text-[var(--ink-2)]">
-            Just want to see who they are and how they voted?{" "}
-            <Link href="/representatives">Browse every MP and MSP →</Link>
+            Just want to see who represents you, with no email involved?{" "}
+            <Link href="/representatives">Find your MP and MSPs →</Link>
           </p>
         </PageHeader>
 

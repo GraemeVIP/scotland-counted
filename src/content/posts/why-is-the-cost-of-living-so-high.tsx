@@ -298,7 +298,7 @@ export default function Post() {
       <PostCTA
         title="Ask the right people what they will change"
         body="Enter your postcode. I find your MP and MSP automatically, use the right local facts, write both emails and open them in your email app. You do not need to know who represents you."
-        href="/find-my-mp-and-msp"
+        href="/email-your-mp-and-msp"
         cta="Find them and write my emails"
       />
 

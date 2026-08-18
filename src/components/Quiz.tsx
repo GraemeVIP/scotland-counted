@@ -77,7 +77,7 @@ export default function Quiz({
         </p>
 
         <div className="mt-7 flex flex-wrap gap-3">
-          <Link href="/find-my-mp-and-msp" className="btn btn-primary">
+          <Link href="/email-your-mp-and-msp" className="btn btn-primary">
             Email my MP and MSP
             <span aria-hidden="true">→</span>
           </Link>

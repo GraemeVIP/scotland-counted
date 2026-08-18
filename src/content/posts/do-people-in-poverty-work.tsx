@@ -86,7 +86,7 @@ export default function Post() {
       <PostCTA
         title="Find out what it looks like where you live"
         body="Enter your postcode and see the figure for your own area, then send a ready-written email to the people who decide. It takes about a minute and you do not need to know anything about politics."
-        href="/find-my-mp-and-msp"
+        href="/email-your-mp-and-msp"
         cta="See my area and email my MP"
       />
 

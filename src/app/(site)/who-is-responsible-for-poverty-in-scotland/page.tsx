@@ -327,7 +327,7 @@ export default function Accountability() {
       <CTA
         title="Ask the right people without working out the politics"
         body="Enter your postcode. I find your MP and MSP and put the right request into each email automatically."
-        href="/find-my-mp-and-msp"
+        href="/email-your-mp-and-msp"
         cta="Find my MP and MSP"
         secondaryHref="/solutions-to-poverty-in-scotland"
         secondaryCta="See what would help"

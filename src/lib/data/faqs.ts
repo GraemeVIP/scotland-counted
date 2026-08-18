@@ -189,7 +189,7 @@ export const faqSections: FaqSection[] = [
         q: "Do I really have both an MP and an MSP?",
         a: "Yes. Everyone in Scotland has one Westminster MP and one constituency MSP. You also have seven regional MSPs covering a wider region.",
         keywords: "representatives constituency regional both",
-        href: "/find-my-mp-and-msp",
+        href: "/email-your-mp-and-msp",
         linkLabel: "Find your MP and all eight MSPs",
       },
       {
@@ -197,7 +197,7 @@ export const faqSections: FaqSection[] = [
         q: "Do I need to know who my MP or MSP is?",
         a: "No. Enter your postcode and the site finds the right people automatically from official sources. You do not have to understand constituencies or political boundaries.",
         keywords: "find name postcode representative automatic",
-        href: "/find-my-mp-and-msp",
+        href: "/email-your-mp-and-msp",
         linkLabel: "Find them automatically",
       },
       {
@@ -221,7 +221,7 @@ export const faqSections: FaqSection[] = [
         q: "Why does the site write to my constituency MSP automatically?",
         a: "The site shows all eight MSPs who represent you: one constituency MSP and seven regional MSPs. Your constituency MSP covers the closest matching local area, so the ready-written email uses them automatically. You can also open the same ready-written email to any regional MSP. There is no wrong choice.",
         keywords: "regional MSP list eight constituency",
-        href: "/find-my-mp-and-msp",
+        href: "/email-your-mp-and-msp",
         linkLabel: "Find every MSP who represents you",
       },
       {
@@ -260,7 +260,7 @@ export const faqSections: FaqSection[] = [
         q: "How does the email tool work?",
         a: "Enter your postcode. The site finds your area, MP and constituency MSP, adds the relevant local facts and prepares one email for each person. You read them before opening them in your own email app.",
         keywords: "letter builder how action automatic",
-        href: "/find-my-mp-and-msp",
+        href: "/email-your-mp-and-msp",
         linkLabel: "Prepare the two emails",
       },
       {
@@ -268,7 +268,7 @@ export const faqSections: FaqSection[] = [
         q: "Does the site send the email for me?",
         a: "No. Nothing is sent through this site. Your own email app opens with the address, subject and message filled in. You decide whether to edit it and press send.",
         keywords: "mailto send automatic permission email app",
-        href: "/find-my-mp-and-msp",
+        href: "/email-your-mp-and-msp",
         linkLabel: "See the email builder",
       },
       {
@@ -288,7 +288,7 @@ export const faqSections: FaqSection[] = [
         q: "Do I have to choose whether the MP or MSP should get the email?",
         a: "No. The site writes one request for each person and only asks them about things they can influence. You do not have to understand which parliament controls which rule.",
         keywords: "choose wrong answer recipient who send",
-        href: "/find-my-mp-and-msp",
+        href: "/email-your-mp-and-msp",
         linkLabel: "Let the site choose correctly",
       },
       {
@@ -310,7 +310,7 @@ export const faqSections: FaqSection[] = [
         q: "Can I add my own experience?",
         a: "Yes. There is an optional box for one sentence about your work, family, street or bills. A short real example can make the official number harder to brush aside.",
         keywords: "personalise story sentence work bills family",
-        href: "/find-my-mp-and-msp",
+        href: "/email-your-mp-and-msp",
         linkLabel: "Open the email builder",
       },
       {

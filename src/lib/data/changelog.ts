@@ -34,7 +34,7 @@ export const changelog: ChangeEntry[] = [
     date: "2026-07-31",
     title: "Letters now find and address the right representatives",
     body: "Enter a postcode and the action tool now finds the reader's MP and constituency MSP, routes each policy request to the tier that controls it, and opens a fully addressed draft in the reader's own email app.",
-    href: "/find-my-mp-and-msp",
+    href: "/email-your-mp-and-msp",
     kind: "feature",
   },
   {
