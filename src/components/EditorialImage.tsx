@@ -9,6 +9,7 @@ type EditorialImageProps = {
   objectPosition?: string;
   sizes?: string;
   loading?: "eager" | "lazy";
+  creditLabel?: string;
 };
 
 export default function EditorialImage({
@@ -20,6 +21,7 @@ export default function EditorialImage({
   objectPosition = "center",
   sizes = "(min-width: 1024px) 1120px, calc(100vw - 40px)",
   loading,
+  creditLabel = "AI-generated illustration.",
 }: EditorialImageProps) {
   return (
     <figure
@@ -37,7 +39,7 @@ export default function EditorialImage({
         />
       </div>
       <figcaption className="border-t border-[var(--rule)] px-5 py-4 text-[15px] leading-[1.55] text-[var(--ink-2)]">
-        <span className="ui font-[700] text-[var(--ink)]">AI-generated illustration.</span>{" "}
+        <span className="ui font-[700] text-[var(--ink)]">{creditLabel}</span>{" "}
         {caption}
       </figcaption>
     </figure>
