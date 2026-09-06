@@ -32,7 +32,7 @@ export const sources: Source[] = [
     title: "Glasgow City Local Policing Plan 2025/26, Quarter 2 appendices",
     publisher: "Police Scotland, Safe Glasgow Partnership",
     url: "https://onlineservices.glasgow.gov.uk/councillorsandcommittees/viewSelectedDocument.asp?c=P62AFQDNNTNTNT0G0G",
-    used: "Page 3: rape 117 to 137 and the detection rate falling from 48.7% to 30.7% for April to September 2025, and the statement attributing the domestic-abuse increase to the Lord Advocate guideline change of April 2024 that applies to all incidents.",
+    used: "Page 3: rape 117 to 137 and the detection rate falling from 48.7% to 30.7%. The table is labelled year-to-date but the counts match the July to September quarter alone, compared with the same quarter of 2024. Also the statement attributing the domestic-abuse increase to the Lord Advocate guideline change of April 2024, which it says applies to all incidents.",
   },
   {
     id: "ps-management-information-2025-26",
@@ -184,9 +184,9 @@ export const sources: Source[] = [
     title: "Police recorded crime Community Safety Partnership open data, year ending March 2021 to year ending March 2026",
     publisher: "Home Office",
     url: "https://www.gov.uk/government/statistical-data-sets/police-recorded-crime-and-outcomes-open-data-tables",
-    used: "Sexual offences recorded in every Community Safety Partnership area in England and Wales, by quarter, matched by name to 331 local authorities.",
+    used: "Sexual offences recorded in every Community Safety Partnership area in England and Wales, by quarter, matched by name to 276 local authorities, one row each.",
     derivation:
-      "Councils are grouped into four equal groups by asylum seekers per 1,000 residents in December 2023 and the change in sexual offences from 2023/24 to 2024/25 is compared. The panel test is a Poisson regression of quarterly offences on asylum seekers per 1,000 with council and quarter fixed effects, a population offset and council-clustered standard errors, over 276 councils and 14 quarters.",
+      "Home Office support rows are summed per council and quarter before joining, because the support file spells some regions two ways and uses old and new codes for Barnsley and Sheffield; a first build that joined on region and code double-counted 55 councils and was corrected on 6 September 2026. Councils are grouped into four equal groups by asylum seekers per 1,000 residents in December 2023 and the change in sexual offences from 2023/24 to 2024/25 is compared. The panel test is a Poisson regression of quarterly offences on asylum seekers per 1,000 with council and quarter fixed effects, a population offset and council-clustered standard errors, over 276 councils and 14 quarters.",
   },
   {
     id: "mygov-when-arrested",

@@ -8,6 +8,7 @@ import {
   arrivalsLatest,
   census2022,
   detected2023to2024,
+  englandCrossSection,
   englandQuartiles,
   financialYears,
   fullYear,
@@ -43,7 +44,7 @@ const downloads = [
   {
     href: "/data/england-wales-councils-asylum-sexual-offences-2026.csv",
     title: "The England test",
-    note: "331 English and Welsh councils: population, asylum seekers housed, and sexual offences recorded in 2023/24 and 2024/25",
+    note: "276 English and Welsh councils, one row each: population, asylum seekers housed, and sexual offences recorded in 2023/24 and 2024/25",
   },
   {
     href: "/data/glasgow-sexual-crime-review-results-2026.json",
@@ -260,7 +261,8 @@ export default function Post() {
       <P>
         From April 2024, if a person tells someone soon after an attack and is clearly upset, that
         can now count as proof. Police Scotland told Glasgow councillors this &ldquo;came into effect
-        in April 2024&rdquo; and applies to &ldquo;not only domestics but all incidents&rdquo;.
+        in April 2024&rdquo; and applies to &ldquo;not only domestics but all incidents&rdquo;. It
+        gave this as the reason domestic abuse cases rose.
       </P>
       <Receipt>
         <a href="https://onlineservices.glasgow.gov.uk/councillorsandcommittees/viewSelectedDocument.asp?c=P62AFQDNNTNTNT0G0G">
@@ -287,8 +289,9 @@ export default function Post() {
       </Receipt>
 
       <P>
-        Police Scotland&apos;s own explanation for the rise is more reporting and these changes. No
-        police document says migrants.
+        Police Scotland has explained the domestic abuse rise by the new evidence rule, and says the
+        rape rise reflects more reporting. It has given no explanation for the sexual assault rise.
+        No police document mentions migrants.
       </P>
 
       <H2 id="kind">What kind of crimes went up</H2>
@@ -321,13 +324,15 @@ export default function Post() {
       </Receipt>
 
       <P>
-        Solved rapes doubled. That is what you see when more rapes by partners and ex-partners get
-        reported and proven, because the suspect is known. It is not what you see with strangers at
-        night. Across Scotland, more than half of recorded rapes involve a current or former partner.
+        Solved rapes doubled. A solved crime is one where police have named a suspect with enough
+        evidence to consider charges. Crimes by someone the victim knows are solved far more often
+        than attacks by strangers, and across Scotland more than half of recorded rapes involve a
+        current or former partner. The figures do not say who the Glasgow suspects were, and a crime
+        can be solved in a later year than it was recorded.
       </P>
       <P>
-        The extra sexual assaults were mostly not solved. So for most of those we do not know who
-        did it. Nobody does.
+        For most of the extra sexual assaults, no suspect had been named by the time of the report.
+        So the records do not say who committed them.
       </P>
       <Receipt>
         <a href="https://www.spa.police.uk/publication-library/deep-dive-analysis-of-rape-sexual-crime-19-march-2025/key-insights-sexual-crime/">
@@ -394,8 +399,10 @@ export default function Post() {
       </div>
 
       <P>
-        Migrants are younger than average, and most sex crime is by young men. So 22% non-British is
-        about what you would expect if migrants offended at the same rate as everyone else.
+        Nationality and place of birth are different things, and half the forms are blank. If every
+        blank form were a foreign national, the non-British share would be 63%. If every blank form
+        were British, it would be 10%. So this table cannot settle whether migrants are over- or
+        under-represented. It does show that most named suspects were British.
       </P>
       <P>
         A second table gives ethnicity for all Greater Glasgow rape accused in 2024. 92 of the 125
@@ -404,7 +411,8 @@ export default function Post() {
       <P>
         Scotland-wide, for all sexual crime since January 2024, 19% of accused with a known
         nationality were non-British, against 10% of the population. That is higher than their
-        share, before allowing for age.
+        share. It is before allowing for age (migrants are younger, and most sex crime is by young
+        men) and before the 54% of forms left blank.
       </P>
       <Receipt>
         <a href="https://www.scotland.police.uk/access-to-information/freedom-of-information/disclosure-log/disclosure-log-2025/april/25-0272-crime-stats-rape-ethnicity-suspects-inc-glasgow-2024/">
@@ -463,8 +471,8 @@ export default function Post() {
       </Receipt>
 
       <P>
-        Now the sums. Glasgow recorded {arithmetic.extraCrimes} more rapes and sexual assaults in
-        2024/25 than the year before. Glasgow has about{" "}
+        Now the sums. Glasgow recorded {arithmetic.extraCrimes} more rapes, attempted rapes and
+        sexual assaults in 2024/25 than the year before. Glasgow has about{" "}
         {Math.round(arithmetic.menOver16 / 1000).toLocaleString("en-GB")},000 men aged 16 and over.
         The city&apos;s rate is {arithmetic.cityRatePer1000Men} of these crimes per 1,000 men a year.
       </P>
@@ -494,8 +502,10 @@ export default function Post() {
         ; National Records of Scotland, mid-2025 population estimates.
       </Receipt>
       <P>
-        No group anywhere has ever been found to offend at 20 or 70 times the local rate. Even at
-        five times the rate, they could not explain a fifth of the rise.
+        These are scenarios, not measurements. The group sizes are assumptions, the city rate counts
+        records rather than offenders, and one person can be behind several records. Even so, at
+        five times the city rate the men in the new households would account for about 7% of the
+        rise, and every man among the asylum seekers about 18%.
       </P>
 
       <H2 id="last-year">The last 12 months: a second test</H2>
@@ -607,9 +617,10 @@ export default function Post() {
       <H2 id="england">The England test</H2>
 
       <P>
-        Here is a fair test. England and Wales have one crime recording system. Some councils have
-        no asylum seekers. Some have 8 per 1,000 people, more than Glasgow&apos;s 6 per 1,000. If
-        asylum seekers drive sex crime, the councils with more of them should show bigger rises.
+        Here is a test with far more places in it. England and Wales count crime under one set of
+        rules. Some councils have no asylum seekers on Home Office support. Some have 8 per 1,000
+        people, more than Glasgow&apos;s 6 per 1,000. If asylum seekers drive sex crime, the councils
+        with more of them should show bigger rises.
       </P>
 
       <figure className="not-prose my-8 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5 sm:p-7">
@@ -620,7 +631,7 @@ export default function Post() {
               Rise in recorded sexual offences, 2023/24 to 2024/25
             </h3>
           </div>
-          <p className="ui text-[15px] text-[var(--muted)]">331 English and Welsh councils in four equal groups</p>
+          <p className="ui text-[15px] text-[var(--muted)]">276 English and Welsh councils in four equal groups of 69</p>
         </div>
         <div
           className="mt-6 space-y-5"
@@ -640,15 +651,20 @@ export default function Post() {
           ))}
         </div>
         <figcaption className="mt-6 border-t border-[var(--rule)] pt-4 text-[15px] leading-[1.6] text-[var(--ink-2)]">
-          The councils with the most asylum seekers rose 10.4%. The councils with none also rose
-          10.4%. Sources: Home Office police recorded crime open data by council; Home Office asylum
-          support by council, December 2023.
+          There is no ladder. The third group rose most, and the councils with the most asylum
+          seekers rose about the same as those with none. Sources: Home Office police recorded crime
+          open data by council; Home Office asylum support by council, December 2023. Corrected on
+          6 September 2026: the first version of this chart double-counted 55 councils.
         </figcaption>
       </figure>
 
       <P>
-        A stricter test that tracks {ew.councils} councils quarter by quarter gives the same answer:
-        no link. The sums are explained in the next section.
+        The result is mixed. A straight-line comparison across the councils finds a small link:
+        councils with more asylum seekers at the end of 2023 had slightly bigger rises on average.
+        That comes mostly from a few high-asylum councils with big rises. But councils whose asylum
+        numbers went up during 2024 did not see bigger rises than councils whose numbers went down.
+        And the strictest test, which follows each of the {ew.councils} councils quarter by quarter,
+        finds no link. The sums are in the next section.
       </P>
       <Receipt>
         <a href="https://www.gov.uk/government/statistical-data-sets/police-recorded-crime-and-outcomes-open-data-tables">
@@ -682,9 +698,14 @@ export default function Post() {
       <H3>2. Do more asylum seekers mean more sex crime?</H3>
       <P>
         A correlation is a number from &minus;1 to +1. Zero means two things do not move together
-        at all. Across the 331 English and Welsh councils, the correlation between how many asylum
-        seekers a council houses and how much its sexual offences rose was 0.11. Between the change
-        in asylum seekers and the change in offences it was 0.03. Both are close to zero.
+        at all. Across the {englandCrossSection.councils} English and Welsh councils, the correlation
+        between how many asylum seekers a council houses and how much its sexual offences rose was{" "}
+        {englandCrossSection.corrLevel.toFixed(2)}. Between the change in asylum seekers and the
+        change in offences it was {englandCrossSection.corrChange.toFixed(2)}. Both are small, but the
+        first is not zero. A straight line through the councils slopes slightly upwards, and that
+        slope passes the usual test for chance (p = {englandCrossSection.levelPWeighted.toFixed(3)}).
+        It stays when London is left out and when councils are compared only with others in the
+        same police force. It is a comparison between places, and places differ in many ways.
       </P>
       <P>
         Then the stricter version. We lined up {ew.councils} councils, 14 quarters each. We let every
@@ -697,7 +718,7 @@ export default function Post() {
         The answer was +{ew.pctPerAsylumSeekerPer1000.toFixed(1)}% in offences for each extra asylum
         seeker per 1,000 residents, and the honest range around that answer runs from{" "}
         {ew.low.toFixed(1)}% to +{ew.high.toFixed(1)}%. That range includes zero. In plain terms: no
-        link. The same test on Scotland&apos;s 32 councils gives{" "}
+        link within councils over time. The same test on Scotland&apos;s 32 councils gives{" "}
         {panelResults.scotlandAll.pctPerAsylumSeekerPer1000.toFixed(1)}% with Glasgow included and{" "}
         {panelResults.scotlandWithoutGlasgow.pctPerAsylumSeekerPer1000.toFixed(1)}% without. Both
         ranges include zero too.
@@ -708,7 +729,13 @@ export default function Post() {
           Standard errors are clustered by council. England and Wales: {ew.rows} council-quarters,
           December 2022 to March 2026, coefficient {ew.pctPerAsylumSeekerPer1000.toFixed(2)}% per
           asylum seeker per 1,000 (95% interval {ew.low.toFixed(2)}% to {ew.high.toFixed(2)}%, p ={" "}
-          {ew.p.toFixed(2)}). The divergence test is a two-sided Fisher exact test on the 2×2 table of
+          {ew.p.toFixed(2)}). Between councils, a population-weighted regression of the log change in
+          offences on December 2023 support density gives {englandCrossSection.levelCoefWeighted.toFixed(3)} per
+          asylum seeker per 1,000 (p = {englandCrossSection.levelPWeighted.toFixed(3)}), and{" "}
+          {englandCrossSection.levelCoefForceFixedEffects.toFixed(3)} with police-force fixed effects (p ={" "}
+          {englandCrossSection.levelPForceFixedEffects.toFixed(3)}); the change in density is not
+          associated with the change in offences (p = {englandCrossSection.changePWeighted.toFixed(2)}).
+          The divergence test is a two-sided Fisher exact test on the 2×2 table of
           Glasgow and rest-of-Scotland counts (p = 0.000012); the historical check is a Student-t
           prediction interval from seven earlier April-to-December relative changes (p = 0.0053).
           The script and every result are in the downloads.
@@ -717,10 +744,10 @@ export default function Post() {
 
       <H3>3. Could the new arrivals have done it?</H3>
       <P>
-        This one is division. Take the 266 extra rapes and sexual assaults. Divide by the number of
-        men in the group being blamed. Compare with the city&apos;s own rate of 3.8 per 1,000 men.
-        The group would need to offend at 20 to 70 times the city rate. No study anywhere has found
-        anything close.
+        This one is division. Take the 266 extra rapes, attempted rapes and sexual assaults. Divide
+        by the number of men in the group being blamed. Compare with the city&apos;s own rate of 3.8
+        per 1,000 men. The group would need to offend at 28 to 70 times the city rate. The group
+        sizes are assumptions, so treat this as a scale check, not a measurement.
       </P>
 
       <H2 id="unknown">What we still do not know</H2>
@@ -741,9 +768,9 @@ export default function Post() {
       </UL>
 
       <BigStat
-        value="Unknown"
-        label="who committed most of the extra sexual assaults"
-        exact="Only 18 of the 139 extra sexual assaults recorded in April to December 2024 had a named suspect by the time of the report"
+        value="139 vs 18"
+        label="extra sexual assaults recorded in Glasgow in April to December 2024, against extra ones solved"
+        exact="Solved crimes are counted by the date they are solved, so the two figures do not line up case by case. Either way, the records name suspects for only a small part of the rise."
       />
 
       <P>
@@ -782,7 +809,7 @@ export default function Post() {
           number of detected crimes in each category and the share of accused with nationality
           recorded.
         </p>
-        <p>Police Scotland has already produced this for 2025 (FOI 26-0040), so it cannot be refused on cost.</p>
+        <p>Police Scotland produced this breakdown for 2025 (FOI 26-0040) from the same system, so the 2024 figures should be available in the same way.</p>
       </Aside>
 
       <PostCTA

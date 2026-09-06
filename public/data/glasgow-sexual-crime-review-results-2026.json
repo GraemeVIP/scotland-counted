@@ -516,53 +516,124 @@
  "england_quartiles": [
   {
    "asy_q": "Fewest",
-   "councils": 83.0,
-   "asylum_per_1000_mean": 0.0,
-   "offences_2023_24": 35595.0,
-   "offences_2024_25": 39291.0,
-   "pct_change": 10.38
+   "councils": 69.0,
+   "asylum_per_1000_mean": 0.02,
+   "asylum_per_1000_min": 0.0,
+   "asylum_per_1000_max": 0.09,
+   "offences_2023_24": 21290.0,
+   "offences_2024_25": 23016.0,
+   "pct_change": 8.11,
+   "median_council_pct_change": 8.96
   },
   {
    "asy_q": "Q2",
-   "councils": 83.0,
-   "asylum_per_1000_mean": 0.15,
-   "offences_2023_24": 44303.0,
-   "offences_2024_25": 47708.0,
-   "pct_change": 7.69
+   "councils": 69.0,
+   "asylum_per_1000_mean": 0.48,
+   "asylum_per_1000_min": 0.1,
+   "asylum_per_1000_max": 1.0,
+   "offences_2023_24": 36052.0,
+   "offences_2024_25": 38110.0,
+   "pct_change": 5.71,
+   "median_council_pct_change": 6.14
   },
   {
    "asy_q": "Q3",
-   "councils": 82.0,
-   "asylum_per_1000_mean": 1.26,
-   "offences_2023_24": 46959.0,
-   "offences_2024_25": 51219.0,
-   "pct_change": 9.07
+   "councils": 69.0,
+   "asylum_per_1000_mean": 1.63,
+   "asylum_per_1000_min": 1.02,
+   "asylum_per_1000_max": 2.41,
+   "offences_2023_24": 46119.0,
+   "offences_2024_25": 51717.0,
+   "pct_change": 12.14,
+   "median_council_pct_change": 10.66
   },
   {
    "asy_q": "Most",
-   "councils": 83.0,
-   "asylum_per_1000_mean": 3.36,
-   "offences_2023_24": 72226.0,
-   "offences_2024_25": 79730.0,
-   "pct_change": 10.39
+   "councils": 69.0,
+   "asylum_per_1000_mean": 3.6,
+   "asylum_per_1000_min": 2.45,
+   "asylum_per_1000_max": 7.96,
+   "offences_2023_24": 60409.0,
+   "offences_2024_25": 65747.0,
+   "pct_change": 8.84,
+   "median_council_pct_change": 10.7
   }
  ],
  "england_cross_section": {
-  "n": 331,
-  "coef_per_asylum_seeker_per_1000": 0.0114,
-  "p": 0.087,
-  "corr_level": 0.112,
-  "corr_change": 0.029
+  "n": 276,
+  "matched_offences_2023_24": 163870,
+  "matched_offences_2024_25": 178590,
+  "corr_level": 0.148,
+  "spearman_level": 0.061,
+  "corr_change": 0.03,
+  "regressions": {
+   "all|weighted": {
+    "n": 276,
+    "level_coef": 0.0194,
+    "level_p": 0.025,
+    "change_coef": 0.0055,
+    "change_p": 0.774
+   },
+   "all|unweighted": {
+    "n": 276,
+    "level_coef": 0.0226,
+    "level_p": 0.007,
+    "change_coef": 0.0138,
+    "change_p": 0.411
+   },
+   "excluding_metropolitan_police|weighted": {
+    "n": 244,
+    "level_coef": 0.0224,
+    "level_p": 0.031,
+    "change_coef": -0.0184,
+    "change_p": 0.451
+   },
+   "excluding_metropolitan_police|unweighted": {
+    "n": 244,
+    "level_coef": 0.0257,
+    "level_p": 0.007,
+    "change_coef": 0.0024,
+    "change_p": 0.911
+   },
+   "police_force_fixed_effects|weighted": {
+    "n": 276,
+    "level_coef": 0.014,
+    "level_p": 0.036
+   }
+  },
+  "note": "Level = asylum seekers per 1,000 residents at December 2023; change = December 2023 to December 2024; outcome = log change in recorded sexual offences 2023/24 to 2024/25."
  },
  "england_panel": {
-  "rows": 4262,
+  "rows": 3539,
   "councils": 276,
-  "pct_per_asylum_seeker_per_1000": 0.53,
+  "pct_per_asylum_seeker_per_1000": 0.72,
   "ci95": [
-   -0.96,
-   2.04
+   -0.83,
+   2.3
   ],
-  "p": 0.491
+  "p": 0.365,
+  "variants": {
+   "available_support_rows": {
+    "rows": 3539,
+    "councils": 276,
+    "pct_per_asylum_seeker_per_1000": 0.72,
+    "ci95": [
+     -0.83,
+     2.3
+    ],
+    "p": 0.365
+   },
+   "missing_support_as_zero": {
+    "rows": 3864,
+    "councils": 276,
+    "pct_per_asylum_seeker_per_1000": 0.72,
+    "ci95": [
+     -0.82,
+     2.29
+    ],
+    "p": 0.359
+   }
+  }
  },
  "scotland_panel": {
   "all_32": {
