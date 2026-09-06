@@ -32,7 +32,7 @@ export const sources: Source[] = [
     title: "Glasgow City Local Policing Plan 2025/26, Quarter 2 appendices",
     publisher: "Police Scotland, Safe Glasgow Partnership",
     url: "https://onlineservices.glasgow.gov.uk/councillorsandcommittees/viewSelectedDocument.asp?c=P62AFQDNNTNTNT0G0G",
-    used: "Page 3: rape 117 to 137 and the detection rate falling from 48.7% to 30.7%. The table is labelled year-to-date but the counts match the July to September quarter alone, compared with the same quarter of 2024. Also the statement attributing the domestic-abuse increase to the Lord Advocate guideline change of April 2024, which it says applies to all incidents.",
+    used: "Page 3 attributes the domestic-abuse increase to April 2024 Lord Advocate guidance. The report covers July to September 2025, but its rape 117 to 137 table is labelled year-to-date. The counts resemble quarter-only figures in another publication; the period labelling is inconsistent and is not treated here as a verified April-to-September total.",
   },
   {
     id: "ps-management-information-2025-26",
@@ -77,7 +77,7 @@ export const sources: Source[] = [
     publisher: "Police Scotland",
     url: "https://www.scotland.police.uk/access-to-information/freedom-of-information/disclosure-log/disclosure-log-2026/march/26-0040-crime-stats-sexual-rape-inc-accused-nationality-glasgow-2025/",
     used: "Table 2: the nationality of 117 accused entries linked to detected rapes in Greater Glasgow division in 2025, 62 of them not recorded.",
-    derivation: "The British share (78%) is 43 of the 55 entries with a nationality recorded. Entries are not unique people.",
+    derivation: "The British share (78%) is 43 of the 55 entries with a nationality recorded, not 78% of all 117 entries. The response does not establish a unique-person count.",
   },
   {
     id: "ps-foi-25-0272",

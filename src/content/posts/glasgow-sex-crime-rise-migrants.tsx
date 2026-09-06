@@ -151,8 +151,9 @@ export default function Post() {
 
       <P>
         So the post has the size about right. It missed something bigger. Rape went up more than
-        sexual assault. And it was not only Glasgow. Across Scotland, rape went up 15% that year. In
-        England and Wales, all recorded sexual offences went up 11%.
+        sexual assault. And it was not only Glasgow. Across Scotland, rape and attempted rape went
+        up 15% in the full 2024/25 financial year. In England and Wales, all recorded sexual offences
+        went up 11% over that financial year.
       </P>
 
       <P>
@@ -222,7 +223,7 @@ export default function Post() {
 
       <H2 id="changed">Two things changed in April 2024</H2>
 
-      <P>The jump starts in April 2024, in three crime types at once. Two things happened right then.</P>
+      <P>The rise is visible in the April to June 2024 quarter. Two changes need to be considered when comparing these records.</P>
 
       <Figure
         n={3}
@@ -253,14 +254,14 @@ export default function Post() {
           yMax={250}
           yTicks={[0, 50, 100, 150, 200, 250]}
           decimals={0}
-          ariaLabel="Rapes and sexual assaults recorded per quarter in Glasgow City from October 2020 to June 2026. Rapes run between 70 and 96 a quarter until March 2024, then 108 to 136 a quarter from April 2024. Sexual assaults run between 152 and 220, peak at 227 in April to June 2024, and return to 157 to 203."
+          ariaLabel="Rapes and sexual assaults recorded per quarter in Glasgow City from October 2020 to June 2026. Rapes run between 70 and 96 a quarter until March 2024, then 90 to 136 from April 2024. Sexual assaults run between 115 and 220 before April 2024, peak at 227 in April to June 2024, and range from 157 to 210 thereafter."
         />
       </Figure>
 
       <H3>1. The rule for what counts as evidence changed</H3>
       <P>
-        From April 2024, if a person tells someone soon after an attack and is clearly upset, that
-        can now count as proof. Police Scotland told Glasgow councillors this &ldquo;came into effect
+        A recent account of an attack, together with distress observed by another person, can help
+        corroborate the account. Police Scotland told Glasgow councillors the guidance &ldquo;came into effect
         in April 2024&rdquo; and applies to &ldquo;not only domestics but all incidents&rdquo;. It
         gave this as the reason domestic abuse cases rose.
       </P>
@@ -290,13 +291,14 @@ export default function Post() {
 
       <P>
         Police Scotland has explained the domestic abuse rise by the new evidence rule, and says the
-        rape rise reflects more reporting. It has given no explanation for the sexual assault rise.
-        No police document mentions migrants.
+        rape rise reflects more reporting. The reports checked here give no explanation for the
+        sexual assault rise and do not attribute it to migration. They do not measure how much of
+        that rise came from the evidence rule or the recording-system change.
       </P>
 
       <H2 id="kind">What kind of crimes went up</H2>
 
-      <P>Look at solved cases. A &ldquo;detected&rdquo; crime is one where police have named a suspect.</P>
+      <P>A &ldquo;detected&rdquo; crime has an identified accused and enough evidence to justify consideration of proceedings. It is not a conviction.</P>
 
       <Table label="Recorded and detected rapes and sexual assaults, Glasgow City, April to December 2023 and 2024">
         <thead>
@@ -324,32 +326,33 @@ export default function Post() {
       </Receipt>
 
       <P>
-        Solved rapes doubled. A solved crime is one where police have named a suspect with enough
-        evidence to consider charges. Crimes by someone the victim knows are solved far more often
-        than attacks by strangers, and across Scotland more than half of recorded rapes involve a
-        current or former partner. The figures do not say who the Glasgow suspects were, and a crime
-        can be solved in a later year than it was recorded.
+        Rape detections doubled. Recorded crimes are counted when the report is raised; detections
+        are counted when the crime is detected. A detection in 2024 can therefore concern a crime
+        recorded earlier. These totals do not show how many of the newly recorded crimes were
+        detected, or whether the accused were partners, strangers or recent arrivals.
       </P>
       <P>
-        For most of the extra sexual assaults, no suspect had been named by the time of the report.
-        So the records do not say who committed them.
+        The smaller increase in sexual-assault detections does not tell us how many of the extra
+        recorded assaults had a known suspect. An undetected crime can also have a suspect without
+        enough evidence to meet the detection threshold.
       </P>
       <Receipt>
-        <a href="https://www.spa.police.uk/publication-library/deep-dive-analysis-of-rape-sexual-crime-19-march-2025/key-insights-sexual-crime/">
-          Scottish Police Authority, Deep Dive on Rape and Sexual Crime, March 2025
+        <a href="https://www.scotland.police.uk/about-us/how-we-do-it/crime-data/">
+          Police Scotland, recorded and detected date definitions
         </a>
         .
       </Receipt>
 
-      <H2 id="caught">Who the police caught</H2>
+      <H2 id="caught">What the accused records show</H2>
 
       <P>
-        Police Scotland only started recording nationality on crime reports in January 2024. The box
-        is not compulsory. Officers leave it blank about half the time.
+        UNIFI provides a searchable nationality field for recent crime reports. The box is not
+        compulsory. In the published tables, nationality is unknown or unrecorded for about half
+        the accused entries.
       </P>
-      <P>Greater Glasgow, rapes solved in 2025, {allEntries} accused entries:</P>
+      <P>Greater Glasgow, 2025: {allEntries} accused entries linked to the detected rape-related crimes listed in the disclosure.</P>
 
-      <Table label="Nationality of accused linked to detected rapes, Greater Glasgow division, 2025">
+      <Table label="Nationality of accused linked to the disclosed detected rape-related crimes, Greater Glasgow division, 2025">
         <thead>
           <tr>
             <th className={head}>Nationality</th>
@@ -369,14 +372,14 @@ export default function Post() {
         <a href="https://www.scotland.police.uk/access-to-information/freedom-of-information/disclosure-log/disclosure-log-2026/march/26-0040-crime-stats-sexual-rape-inc-accused-nationality-glasgow-2025/">
           Police Scotland FOI 26-0040
         </a>
-        . Entries are not unique people: one accused can be counted against several crimes.
+        . The response does not establish a count of unique people.
       </Receipt>
 
       <div className="not-prose my-8 grid gap-4 sm:grid-cols-3">
         {[
           {
             value: `${Math.round((british / knownTotal) * 100)}%`,
-            label: "of solved Glasgow rapes in 2025 had a British accused",
+            label: "of accused entries with a known nationality were British",
             note: `${british} of ${knownTotal} where nationality was written down`,
           },
           {
@@ -386,7 +389,7 @@ export default function Post() {
           },
           {
             value: `${Math.round((notRecorded / allEntries) * 100)}%`,
-            label: "of the forms had no nationality at all",
+            label: "of accused entries had unknown or unrecorded nationality",
             note: `${notRecorded} of ${allEntries} entries`,
           },
         ].map((stat) => (
@@ -402,17 +405,20 @@ export default function Post() {
         Nationality and place of birth are different things, and half the forms are blank. If every
         blank form were a foreign national, the non-British share would be 63%. If every blank form
         were British, it would be 10%. So this table cannot settle whether migrants are over- or
-        under-represented. It does show that most named suspects were British.
+        under-represented. Most entries with a known nationality were British; that does not tell
+        us the nationality of the missing entries.
       </P>
       <P>
-        A second table gives ethnicity for all Greater Glasgow rape accused in 2024. 92 of the 125
-        with a record were White Scottish or White British.
+        A second table gives 153 accused–crime entries for Greater Glasgow rapes recorded in 2024,
+        excluding restricted records. Ethnicity is recorded for 125 entries; 92 were White Scottish
+        or White British. These are not unique people.
       </P>
       <P>
-        Scotland-wide, for all sexual crime since January 2024, 19% of accused with a known
-        nationality were non-British, against 10% of the population. That is higher than their
-        share. It is before allowing for age (migrants are younger, and most sex crime is by young
-        men) and before the 54% of forms left blank.
+        Scotland-wide, for sexual crimes recorded from January 2024 to May 2025, 19% of accused
+        entries with a known nationality were non-British. The census says 10% of residents were
+        born outside the UK. Those measure different things and cannot establish an offending-rate
+        comparison. Nationality was unknown or unrecorded for 54% of entries, and no age or sex
+        adjustment has been made.
       </P>
       <Receipt>
         <a href="https://www.scotland.police.uk/access-to-information/freedom-of-information/disclosure-log/disclosure-log-2025/april/25-0272-crime-stats-rape-ethnicity-suspects-inc-glasgow-2024/">
@@ -426,10 +432,10 @@ export default function Post() {
         .
       </Receipt>
       <P>
-        What these tables cannot show is whether anything changed between 2023 and 2024. There is
-        no 2023 data. Police Scotland refused two requests for it because the old systems never
-        recorded it. They also cannot say whether any accused was an asylum seeker. There is no box
-        for it.
+        These tables do not provide a comparable nationality breakdown for 2023 and 2024. Police
+        Scotland refused requests for 2023 because producing the figures would require a manual
+        review of legacy records beyond the FOI cost limit. That does not mean the information was
+        never recorded. Asylum status is not a readily searchable field either.
       </P>
       <Receipt>
         <a href="https://www.scotland.police.uk/access-to-information/freedom-of-information/disclosure-log/disclosure-log-2024/july/24-1614-crime-stats-rape-accused-nationality-2023/">
@@ -518,12 +524,12 @@ export default function Post() {
         after being granted status somewhere else. By March 2026, refugee households were 44% of new
         homeless cases and half of the live caseload.
       </P>
-      <P>Every other measure of people arriving is flat or falling.</P>
+      <P>These measures cover different dates and populations. Support counts and homelessness applications are not direct counts of new arrivals; the small-boat figures cover the whole UK.</P>
 
-      <Table label="People arriving in Glasgow, a year earlier against the latest figure">
+      <Table label="Migration and support measures, with their different reporting periods">
         <thead>
           <tr>
-            <th className={head}>People arriving in Glasgow</th>
+            <th className={head}>Migration or support measure</th>
             <th className={headRight}>A year earlier</th>
             <th className={headRight}>Latest</th>
             <th className={headRight}>Change</th>
@@ -568,9 +574,9 @@ export default function Post() {
       </Receipt>
 
       <P>
-        So the last year is a fair second test. More refugee households than ever came through the
-        council&apos;s door. If they were driving sex crime, rape and sexual assault should have gone
-        up again. Here is what happened in the year to June 2026.
+        The later figures provide another comparison, but they cannot identify who caused the
+        earlier rise. More homelessness applications do not necessarily mean more people newly
+        arriving in Glasgow. Here is what happened to recorded crime in the year to June 2026.
       </P>
 
       <Table label="Recorded sexual crimes in Glasgow City, year to June 2025 and year to June 2026, with the Scotland change">
@@ -652,7 +658,7 @@ export default function Post() {
         </div>
         <figcaption className="mt-6 border-t border-[var(--rule)] pt-4 text-[15px] leading-[1.6] text-[var(--ink-2)]">
           There is no ladder. The third group rose most, and the councils with the most asylum
-          seekers rose about the same as those with none. Sources: Home Office police recorded crime
+          seekers rose about the same as the group with the fewest. Sources: Home Office police recorded crime
           open data by council; Home Office asylum support by council, December 2023. Corrected on
           6 September 2026: the first version of this chart double-counted 55 councils.
         </figcaption>
@@ -663,8 +669,8 @@ export default function Post() {
         councils with more asylum seekers at the end of 2023 had slightly bigger rises on average.
         That comes mostly from a few high-asylum councils with big rises. But councils whose asylum
         numbers went up during 2024 did not see bigger rises than councils whose numbers went down.
-        And the strictest test, which follows each of the {`${ew.councils} councils`} quarter by quarter,
-        finds no link. The sums are in the next section.
+        And the test that follows the {`${ew.councils} councils`} quarter by quarter
+        does not establish a clear association. The sums are in the next section.
       </P>
       <Receipt>
         <a href="https://www.gov.uk/government/statistical-data-sets/police-recorded-crime-and-outcomes-open-data-tables">
@@ -686,19 +692,23 @@ export default function Post() {
         marble. Glasgow had 495 then 634. The rest of Scotland had 3,402 then 3,280. If Glasgow were
         really following the same trend as everywhere else, how often would you get a split that
         lopsided by chance? The test is called Fisher&apos;s exact test. Answer: about one time in
-        84,000. So it was not luck. Glasgow really did move differently. The test cannot say why.
+        84,000 under that simple model. Glasgow&apos;s recorded counts did move differently, but this
+        is not the real-world odds that luck or a particular cause explains the change. The test
+        assumes independent records and does not account for local effects of recording changes.
       </P>
       <P>
         We also asked how unusual it was for Glasgow. We had seven earlier years where the same
         April-to-December comparison could be made. In none of them did Glasgow pull away from the
         rest of Scotland by anything like this much. Under the old pattern, a gap this size would
-        happen about once in 190 tries.
+        happen about once in 190 tries under the model&apos;s assumptions. With only seven earlier
+        comparisons, archive gaps and recording changes, that is an illustrative check rather than
+        reliable odds about underlying offending or migrant responsibility.
       </P>
 
       <H3>2. Do more asylum seekers mean more sex crime?</H3>
       <P>
-        A correlation is a number from &minus;1 to +1. Zero means two things do not move together
-        at all. Across the {`${englandCrossSection.councils} English and Welsh councils`}, the correlation
+        A correlation is a number from &minus;1 to +1. Zero means no straight-line relationship;
+        other patterns can still exist. Across the {`${englandCrossSection.councils} English and Welsh councils`}, the correlation
         between how many asylum seekers a council houses and how much its sexual offences rose was{" "}
         {englandCrossSection.corrLevel.toFixed(2)}. Between the change in asylum seekers and the
         change in offences it was {englandCrossSection.corrChange.toFixed(2)}. Both are small, but the
@@ -708,17 +718,17 @@ export default function Post() {
         same police force. It is a comparison between places, and places differ in many ways.
       </P>
       <P>
-        Then the stricter version. We lined up {`${ew.councils} councils`}, 14 quarters each. We let every
+        Then the within-council version. We used the available observations from {`${ew.councils} councils`} across 14 quarters. We let every
         council have its own normal level, so a big city is not compared with a village. We let
-        every quarter have its own national mood, so a change in the law that hits everywhere at
-        once cannot fool the test. Then we asked one question: when a council&apos;s asylum numbers
+        every quarter have its own shared effect. That accounts for common changes, but a law or
+        recording change can still affect places differently. Then we asked: when a council&apos;s asylum numbers
         go up, do its sexual offences go up more than everyone else&apos;s that quarter?
       </P>
       <P>
         The answer was +{ew.pctPerAsylumSeekerPer1000.toFixed(1)}% in offences for each extra asylum
         seeker per 1,000 residents, and the honest range around that answer runs from{" "}
         {ew.low.toFixed(1)}% to +{ew.high.toFixed(1)}%. That range includes zero. In plain terms: no
-        link within councils over time. The same test on Scotland&apos;s 32 councils gives{" "}
+        clear evidence of an association within councils over time, not proof of no effect. The same test on Scotland&apos;s 32 councils gives{" "}
         {panelResults.scotlandAll.pctPerAsylumSeekerPer1000.toFixed(1)}% with Glasgow included and{" "}
         {panelResults.scotlandWithoutGlasgow.pctPerAsylumSeekerPer1000.toFixed(1)}% without. Both
         ranges include zero too.
@@ -770,7 +780,7 @@ export default function Post() {
       <BigStat
         value="139 vs 18"
         label="extra sexual assaults recorded in Glasgow in April to December 2024, against extra ones solved"
-        exact="Solved crimes are counted by the date they are solved, so the two figures do not line up case by case. Either way, the records name suspects for only a small part of the rise."
+        exact="Recorded crimes and detections are counted on different dates and can concern different cases. These increases cannot tell us what share of the additional recorded assaults had an identified accused."
       />
 
       <P>
@@ -823,7 +833,7 @@ export default function Post() {
         See also our figures on{" "}
         <Link href="/why-poverty-is-worse-in-glasgow">why poverty is worse in Glasgow</Link> and
         the <Link href="/blog/drug-deaths-scotland-deprivation">drug-deaths report</Link>, built the
-        same way: official records, nothing modelled.
+        from official records with linked sources.
       </P>
     </Prose>
   );

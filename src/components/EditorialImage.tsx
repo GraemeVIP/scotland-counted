@@ -5,7 +5,7 @@ type EditorialImageProps = {
   alt: string;
   caption: string;
   className?: string;
-  aspect?: "landscape" | "wide";
+  aspect?: "landscape" | "wide" | "video";
   objectPosition?: string;
   sizes?: string;
   loading?: "eager" | "lazy";
@@ -27,7 +27,7 @@ export default function EditorialImage({
     <figure
       className={`overflow-hidden rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] ${className}`}
     >
-      <div className={`relative ${aspect === "wide" ? "aspect-[2/1]" : "aspect-[3/2]"}`}>
+      <div className={`relative ${aspect === "video" ? "aspect-video" : aspect === "wide" ? "aspect-[2/1]" : "aspect-[3/2]"}`}>
         <Image
           src={src}
           alt={alt}

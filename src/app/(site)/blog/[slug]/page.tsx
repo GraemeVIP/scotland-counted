@@ -119,7 +119,7 @@ export default async function BlogPost(props: { params: Promise<{ slug: string }
             src={post.image.src}
             alt={post.image.alt}
             caption={post.image.caption}
-            aspect="wide"
+            aspect={post.image.aspect ?? "wide"}
             objectPosition={post.image.objectPosition}
             creditLabel={post.image.creditLabel}
             loading="eager"
