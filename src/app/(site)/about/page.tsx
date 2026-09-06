@@ -69,6 +69,14 @@ export default function About() {
             sponsor. It costs very little to run and I pay for it myself.
           </p>
 
+          <h2 className="h2 mb-4 mt-11">Practical help in Ayrshire</h2>
+          <p>
+            I also run <a href="https://www.ayrshiretechhelp.co.uk/who-we-help" target="_blank" rel="noopener noreferrer">Ayrshire Tech Help</a>, my local computer repair business. I keep a small number of free home visits and essential repairs for people who cannot afford help and would otherwise be cut off from family or essential online services.
+          </p>
+          <p>
+            This help is available in Ayrshire only. No proof of income or financial paperwork is needed. It works on trust, with each request considered individually and any free work agreed before booking. Family, neighbours and support workers can ask on someone&apos;s behalf with their permission.
+          </p>
+
           <h2 className="h2 mb-4 mt-11">Reuse</h2>
           <p>
             The words and charts are free to reuse if you credit {site.name}. The original data
