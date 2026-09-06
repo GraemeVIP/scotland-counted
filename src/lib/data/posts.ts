@@ -81,6 +81,7 @@ export type Post = {
     src: string;
     alt: string;
     caption: string;
+    aspect?: "landscape" | "wide" | "video";
     objectPosition?: string;
     /** Replaces the default "AI-generated illustration." credit, e.g. for a data graphic. */
     creditLabel?: string;
@@ -122,24 +123,25 @@ export const posts: Post[] = [
     ],
     readingMinutes: 13,
     image: {
-      src: "/images/editorial/glasgow-sexual-crime-rise-2026.png",
-      alt: "Line chart of rapes and sexual assaults recorded per quarter in Glasgow City from October 2020 to June 2026, with a marked jump from April 2024",
+      src: "/images/editorial/glasgow-sexual-assault-rise-migration-investigation-2026.webp",
+      alt: "Scotland Counted investigation graphic with Glasgow's skyline, a map, and illustrated police and Home Office documents, asking whether migration explains the 28% rise in recorded sexual assaults",
       caption:
-        "Rapes stepped up in April 2024 and have stayed up. Sexual assaults rose for nine months and fell back. Both lines are recorded crimes, not victims.",
-      creditLabel: "Scotland Counted data graphic.",
+        "The 28.1% figure is for recorded sexual assaults in Glasgow City: 499 in April–December 2023 and 639 in the same months of 2024. The pictured chart and documents are illustrative.",
+      creditLabel: "Scotland Counted editorial illustration.",
+      aspect: "video",
       objectPosition: "center",
     },
     shareImage: {
-      src: "/images/editorial/glasgow-sexual-crime-rise-2026.png",
-      width: 1800,
-      height: 900,
-      type: "image/png",
+      src: "/images/editorial/glasgow-sexual-assault-rise-migration-investigation-2026.webp",
+      width: 1672,
+      height: 941,
+      type: "image/webp",
     },
     toc: [
       { id: "number", label: "The number is real" },
       { id: "changed", label: "Two things changed in April 2024" },
       { id: "kind", label: "What kind of crimes went up" },
-      { id: "caught", label: "Who the police caught" },
+      { id: "caught", label: "What the accused records show" },
       { id: "arrivals", label: "Could new arrivals have done it?" },
       { id: "last-year", label: "The last 12 months" },
       { id: "england", label: "The England test" },
@@ -155,11 +157,11 @@ export const posts: Post[] = [
       },
       {
         q: "Were migrants behind Glasgow's rise in sexual assaults?",
-        a: "No public record shows that. Police Scotland has explained the domestic abuse rise by a change in evidence rules from April 2024 and the rape rise by more reporting; it has not explained the sexual assault rise. Where nationality was recorded, 43 of 55 accused in solved Glasgow rapes in 2025 were British. The number of asylum seekers in Glasgow stayed at about 4,000. Across 276 English and Welsh councils the result is mixed: a small link between places, and no link within councils over time.",
+        a: "The public data checked here do not establish who caused the increase. The police reports discuss an evidence-rule change for domestic abuse and reporting for rape, but do not explain the sexual-assault rise. Of 117 accused entries in a Greater Glasgow disclosure for 2025, 43 were British, 12 had named non-British nationalities and 62 had unknown nationality. Across 276 English and Welsh councils, the comparisons are mixed: a small positive association between places and an uncertain result within councils over time. Neither identifies a Glasgow cause.",
       },
       {
         q: "What changed in April 2024?",
-        a: "Two things. New Lord Advocate guidance meant that a person's distress soon after an attack, seen by a third party, can count as corroborating evidence. And Police Scotland moved all crime recording onto a new national system, UNIFI, rolled out fully by December 2023.",
+        a: "Police Scotland links a domestic-abuse increase to corroboration guidance introduced in April 2024. UNIFI was fully rolled out by 5 December 2023, and the Scottish Police Authority says all crime data came from the common system from April 2024. Those changes are relevant context, but their contribution to Glasgow's sexual-assault increase has not been measured.",
       },
       {
         q: "How many asylum seekers live in Glasgow?",

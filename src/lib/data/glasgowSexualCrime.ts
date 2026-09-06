@@ -38,7 +38,7 @@ export const q3Table2024 = [
 /** Police Scotland Q3 2025/26 management information workbook, Glasgow City, April to December. */
 export const detected2023to2024 = [
   { label: "Rapes recorded", y2023: 253, y2024: 357 },
-  { label: "Rapes detected (suspect named)", y2023: 90, y2024: 181 },
+  { label: "Rapes detected", y2023: 90, y2024: 181 },
   { label: "Sexual assaults recorded", y2023: 495, y2024: 634 },
   { label: "Sexual assaults detected", y2023: 294, y2024: 312 },
 ] as const;
