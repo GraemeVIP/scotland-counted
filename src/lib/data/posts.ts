@@ -152,7 +152,7 @@ export const posts: Post[] = [
       },
       {
         q: "Were migrants behind Glasgow's rise in sexual assaults?",
-        a: "No public record shows that. Police Scotland's own explanation is more reporting and a change in evidence rules from April 2024. Where nationality was recorded, 43 of 55 accused in solved Glasgow rapes in 2025 were British. The number of asylum seekers in Glasgow stayed at about 4,000. Across 331 English and Welsh councils, areas with more asylum seekers did not see bigger rises.",
+        a: "No public record shows that. Police Scotland's own explanation is more reporting and a change in evidence rules from April 2024. Where nationality was recorded, 43 of 55 accused in solved Glasgow rapes in 2025 were British. The number of asylum seekers in Glasgow stayed at about 4,000. Across 276 English and Welsh councils the result is mixed: a small link between places, and no link within councils over time.",
       },
       {
         q: "What changed in April 2024?",

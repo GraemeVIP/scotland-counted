@@ -101,17 +101,30 @@ export const arithmetic = {
   ],
 } as const;
 
-/** Home Office CSP open data and asylum support by council, 331 English and Welsh councils in four equal groups by asylum seekers per 1,000 residents (Dec 2023). */
+/** Home Office CSP open data and asylum support by council: 276 English and Welsh councils (one row each) in four equal groups by asylum seekers per 1,000 residents (Dec 2023). Corrected 6 Sept 2026: an earlier build double-counted 55 councils. */
 export const englandQuartiles = [
-  { group: "Fewest asylum seekers", councils: 83, asylumPer1000: 0.0, offences2023: 35595, offences2024: 39291, changePct: 10.4 },
-  { group: "Second group", councils: 83, asylumPer1000: 0.1, offences2023: 44303, offences2024: 47708, changePct: 7.7 },
-  { group: "Third group", councils: 82, asylumPer1000: 1.3, offences2023: 46959, offences2024: 51219, changePct: 9.1 },
-  { group: "Most asylum seekers", councils: 83, asylumPer1000: 3.4, offences2023: 72226, offences2024: 79730, changePct: 10.4 },
+  { group: "Fewest asylum seekers", councils: 69, asylumPer1000: 0.02, offences2023: 21290, offences2024: 23016, changePct: 8.1 },
+  { group: "Second group", councils: 69, asylumPer1000: 0.48, offences2023: 36052, offences2024: 38110, changePct: 5.7 },
+  { group: "Third group", councils: 69, asylumPer1000: 1.63, offences2023: 46119, offences2024: 51717, changePct: 12.1 },
+  { group: "Most asylum seekers", councils: 69, asylumPer1000: 3.60, offences2023: 60409, offences2024: 65747, changePct: 8.8 },
 ] as const;
 
-/** Fixed-effects Poisson panel results (see the article's "How we did the sums"). */
+/** Fixed-effects Poisson panel results and the between-council comparison (see "How we did the sums"). */
 export const panelResults = {
-  englandWales: { councils: 276, rows: 4262, pctPerAsylumSeekerPer1000: 0.53, low: -0.96, high: 2.04, p: 0.491 },
+  englandWales: { councils: 276, rows: 3539, pctPerAsylumSeekerPer1000: 0.72, low: -0.83, high: 2.3, p: 0.365 },
   scotlandAll: { pctPerAsylumSeekerPer1000: -3.8, low: -7.8, high: 0.4, p: 0.076 },
   scotlandWithoutGlasgow: { pctPerAsylumSeekerPer1000: -1.0, low: -7.0, high: 5.3, p: 0.743 },
+} as const;
+
+/** Between-council comparison, 276 councils: log change in sexual offences 2023/24 to 2024/25 against asylum seekers per 1,000 (Dec 2023). */
+export const englandCrossSection = {
+  councils: 276,
+  corrLevel: 0.148,
+  corrChange: 0.03,
+  levelCoefWeighted: 0.0194,
+  levelPWeighted: 0.025,
+  levelCoefForceFixedEffects: 0.014,
+  levelPForceFixedEffects: 0.036,
+  changeCoefWeighted: 0.0055,
+  changePWeighted: 0.774,
 } as const;
