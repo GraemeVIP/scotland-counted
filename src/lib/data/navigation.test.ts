@@ -176,6 +176,7 @@ test("only Branchform is filed under the investigations category", () => {
   const INVESTIGATIONS = [
     "operation-branchform-snp-money-timeline",
     "crisis-grant-acceptance-rates-scotland-councils",
+    "glasgow-sex-crime-rise-migrants",
   ];
   const source = readFileSync(fileURLToPath(new URL("./posts.ts", import.meta.url)), "utf8");
   /*
