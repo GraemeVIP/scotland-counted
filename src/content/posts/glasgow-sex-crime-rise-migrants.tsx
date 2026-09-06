@@ -663,7 +663,7 @@ export default function Post() {
         councils with more asylum seekers at the end of 2023 had slightly bigger rises on average.
         That comes mostly from a few high-asylum councils with big rises. But councils whose asylum
         numbers went up during 2024 did not see bigger rises than councils whose numbers went down.
-        And the strictest test, which follows each of the {ew.councils} councils quarter by quarter,
+        And the strictest test, which follows each of the {`${ew.councils} councils`} quarter by quarter,
         finds no link. The sums are in the next section.
       </P>
       <Receipt>
@@ -698,7 +698,7 @@ export default function Post() {
       <H3>2. Do more asylum seekers mean more sex crime?</H3>
       <P>
         A correlation is a number from &minus;1 to +1. Zero means two things do not move together
-        at all. Across the {englandCrossSection.councils} English and Welsh councils, the correlation
+        at all. Across the {`${englandCrossSection.councils} English and Welsh councils`}, the correlation
         between how many asylum seekers a council houses and how much its sexual offences rose was{" "}
         {englandCrossSection.corrLevel.toFixed(2)}. Between the change in asylum seekers and the
         change in offences it was {englandCrossSection.corrChange.toFixed(2)}. Both are small, but the
@@ -708,7 +708,7 @@ export default function Post() {
         same police force. It is a comparison between places, and places differ in many ways.
       </P>
       <P>
-        Then the stricter version. We lined up {ew.councils} councils, 14 quarters each. We let every
+        Then the stricter version. We lined up {`${ew.councils} councils`}, 14 quarters each. We let every
         council have its own normal level, so a big city is not compared with a village. We let
         every quarter have its own national mood, so a change in the law that hits everywhere at
         once cannot fool the test. Then we asked one question: when a council&apos;s asylum numbers
@@ -726,7 +726,7 @@ export default function Post() {
       <Aside title="For the statisticians">
         <p>
           Poisson regression with council and quarter fixed effects and a log population offset.
-          Standard errors are clustered by council. England and Wales: {ew.rows} council-quarters,
+          Standard errors are clustered by council. England and Wales: {ew.rows.toLocaleString("en-GB")} council-quarters,
           December 2022 to March 2026, coefficient {ew.pctPerAsylumSeekerPer1000.toFixed(2)}% per
           asylum seeker per 1,000 (95% interval {ew.low.toFixed(2)}% to {ew.high.toFixed(2)}%, p ={" "}
           {ew.p.toFixed(2)}). Between councils, a population-weighted regression of the log change in

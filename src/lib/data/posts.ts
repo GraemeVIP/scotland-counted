@@ -82,6 +82,8 @@ export type Post = {
     alt: string;
     caption: string;
     objectPosition?: string;
+    /** Replaces the default "AI-generated illustration." credit, e.g. for a data graphic. */
+    creditLabel?: string;
   };
   /** Optional direct Open Graph and X image. Falls back to the generated post card. */
   shareImage?: {
@@ -124,6 +126,7 @@ export const posts: Post[] = [
       alt: "Line chart of rapes and sexual assaults recorded per quarter in Glasgow City from October 2020 to June 2026, with a marked jump from April 2024",
       caption:
         "Rapes stepped up in April 2024 and have stayed up. Sexual assaults rose for nine months and fell back. Both lines are recorded crimes, not victims.",
+      creditLabel: "Scotland Counted data graphic.",
       objectPosition: "center",
     },
     shareImage: {
@@ -152,7 +155,7 @@ export const posts: Post[] = [
       },
       {
         q: "Were migrants behind Glasgow's rise in sexual assaults?",
-        a: "No public record shows that. Police Scotland's own explanation is more reporting and a change in evidence rules from April 2024. Where nationality was recorded, 43 of 55 accused in solved Glasgow rapes in 2025 were British. The number of asylum seekers in Glasgow stayed at about 4,000. Across 276 English and Welsh councils the result is mixed: a small link between places, and no link within councils over time.",
+        a: "No public record shows that. Police Scotland has explained the domestic abuse rise by a change in evidence rules from April 2024 and the rape rise by more reporting; it has not explained the sexual assault rise. Where nationality was recorded, 43 of 55 accused in solved Glasgow rapes in 2025 were British. The number of asylum seekers in Glasgow stayed at about 4,000. Across 276 English and Welsh councils the result is mixed: a small link between places, and no link within councils over time.",
       },
       {
         q: "What changed in April 2024?",
