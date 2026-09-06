@@ -1,0 +1,1596 @@
+Local_Authority,Sub_Category,financial_year,ytd_q,Count
+Aberdeen City,Rape,2021/22,Q1,23
+Aberdeen City,Rape,2022/23,Q1,26
+Aberdeen City,Rape,2023/24,Q1,23
+Aberdeen City,Rape,2024/25,Q1,27
+Aberdeen City,Rape,2025/26,Q1,33
+Aberdeen City,Rape,2026/27,Q1,42
+Aberdeenshire,Rape,2021/22,Q1,18
+Aberdeenshire,Rape,2022/23,Q1,15
+Aberdeenshire,Rape,2023/24,Q1,16
+Aberdeenshire,Rape,2024/25,Q1,15
+Aberdeenshire,Rape,2025/26,Q1,14
+Aberdeenshire,Rape,2026/27,Q1,26
+Moray,Rape,2021/22,Q1,12
+Moray,Rape,2022/23,Q1,11
+Moray,Rape,2023/24,Q1,11
+Moray,Rape,2024/25,Q1,15
+Moray,Rape,2025/26,Q1,12
+Moray,Rape,2026/27,Q1,8
+Perth & Kinross,Rape,2021/22,Q1,21
+Perth & Kinross,Rape,2022/23,Q1,18
+Perth & Kinross,Rape,2023/24,Q1,16
+Perth & Kinross,Rape,2024/25,Q1,18
+Perth & Kinross,Rape,2025/26,Q1,16
+Perth & Kinross,Rape,2026/27,Q1,21
+Angus,Rape,2021/22,Q1,11
+Angus,Rape,2022/23,Q1,22
+Angus,Rape,2023/24,Q1,5
+Angus,Rape,2024/25,Q1,10
+Angus,Rape,2025/26,Q1,19
+Angus,Rape,2026/27,Q1,18
+Dundee City,Rape,2021/22,Q1,19
+Dundee City,Rape,2022/23,Q1,16
+Dundee City,Rape,2023/24,Q1,28
+Dundee City,Rape,2024/25,Q1,20
+Dundee City,Rape,2025/26,Q1,37
+Dundee City,Rape,2026/27,Q1,27
+Highland,Rape,2021/22,Q1,20
+Highland,Rape,2022/23,Q1,37
+Highland,Rape,2023/24,Q1,26
+Highland,Rape,2024/25,Q1,32
+Highland,Rape,2025/26,Q1,40
+Highland,Rape,2026/27,Q1,36
+Orkney Islands,Rape,2021/22,Q1,3
+Orkney Islands,Rape,2022/23,Q1,3
+Orkney Islands,Rape,2023/24,Q1,3
+Orkney Islands,Rape,2024/25,Q1,1
+Orkney Islands,Rape,2025/26,Q1,3
+Orkney Islands,Rape,2026/27,Q1,4
+Shetland Islands,Rape,2021/22,Q1,3
+Shetland Islands,Rape,2022/23,Q1,1
+Shetland Islands,Rape,2023/24,Q1,1
+Shetland Islands,Rape,2025/26,Q1,1
+Shetland Islands,Rape,2026/27,Q1,3
+Eilean Siar,Rape,2021/22,Q1,2
+Eilean Siar,Rape,2022/23,Q1,5
+Eilean Siar,Rape,2025/26,Q1,5
+Stirling,Rape,2021/22,Q1,9
+Stirling,Rape,2022/23,Q1,4
+Stirling,Rape,2023/24,Q1,11
+Stirling,Rape,2024/25,Q1,9
+Stirling,Rape,2025/26,Q1,8
+Stirling,Rape,2026/27,Q1,13
+Falkirk,Rape,2021/22,Q1,20
+Falkirk,Rape,2022/23,Q1,21
+Falkirk,Rape,2023/24,Q1,23
+Falkirk,Rape,2024/25,Q1,28
+Falkirk,Rape,2025/26,Q1,27
+Falkirk,Rape,2026/27,Q1,32
+Clackmannanshire,Rape,2021/22,Q1,7
+Clackmannanshire,Rape,2022/23,Q1,11
+Clackmannanshire,Rape,2023/24,Q1,4
+Clackmannanshire,Rape,2024/25,Q1,5
+Clackmannanshire,Rape,2025/26,Q1,9
+Clackmannanshire,Rape,2026/27,Q1,4
+City of Edinburgh,Rape,2021/22,Q1,64
+City of Edinburgh,Rape,2022/23,Q1,50
+City of Edinburgh,Rape,2023/24,Q1,48
+City of Edinburgh,Rape,2024/25,Q1,59
+City of Edinburgh,Rape,2025/26,Q1,61
+City of Edinburgh,Rape,2026/27,Q1,58
+West Lothian,Rape,2021/22,Q1,33
+West Lothian,Rape,2022/23,Q1,14
+West Lothian,Rape,2023/24,Q1,19
+West Lothian,Rape,2024/25,Q1,35
+West Lothian,Rape,2025/26,Q1,26
+West Lothian,Rape,2026/27,Q1,31
+East Lothian,Rape,2021/22,Q1,23
+East Lothian,Rape,2022/23,Q1,9
+East Lothian,Rape,2023/24,Q1,9
+East Lothian,Rape,2024/25,Q1,19
+East Lothian,Rape,2025/26,Q1,8
+East Lothian,Rape,2026/27,Q1,17
+Midlothian,Rape,2021/22,Q1,8
+Midlothian,Rape,2022/23,Q1,7
+Midlothian,Rape,2023/24,Q1,3
+Midlothian,Rape,2024/25,Q1,23
+Midlothian,Rape,2025/26,Q1,21
+Midlothian,Rape,2026/27,Q1,10
+Scottish Borders,Rape,2021/22,Q1,18
+Scottish Borders,Rape,2022/23,Q1,18
+Scottish Borders,Rape,2023/24,Q1,18
+Scottish Borders,Rape,2024/25,Q1,20
+Scottish Borders,Rape,2025/26,Q1,15
+Scottish Borders,Rape,2026/27,Q1,24
+Fife,Rape,2021/22,Q1,77
+Fife,Rape,2022/23,Q1,65
+Fife,Rape,2023/24,Q1,63
+Fife,Rape,2024/25,Q1,50
+Fife,Rape,2025/26,Q1,90
+Fife,Rape,2026/27,Q1,77
+Glasgow City,Rape,2021/22,Q1,80
+Glasgow City,Rape,2022/23,Q1,72
+Glasgow City,Rape,2023/24,Q1,80
+Glasgow City,Rape,2024/25,Q1,118
+Glasgow City,Rape,2025/26,Q1,117
+Glasgow City,Rape,2026/27,Q1,108
+East Renfrewshire,Rape,2021/22,Q1,1
+East Renfrewshire,Rape,2022/23,Q1,4
+East Renfrewshire,Rape,2023/24,Q1,1
+East Renfrewshire,Rape,2024/25,Q1,8
+East Renfrewshire,Rape,2025/26,Q1,6
+East Renfrewshire,Rape,2026/27,Q1,6
+East Dunbartonshire,Rape,2021/22,Q1,5
+East Dunbartonshire,Rape,2022/23,Q1,5
+East Dunbartonshire,Rape,2023/24,Q1,1
+East Dunbartonshire,Rape,2024/25,Q1,8
+East Dunbartonshire,Rape,2025/26,Q1,13
+East Dunbartonshire,Rape,2026/27,Q1,5
+East Ayrshire,Rape,2021/22,Q1,9
+East Ayrshire,Rape,2022/23,Q1,10
+East Ayrshire,Rape,2023/24,Q1,16
+East Ayrshire,Rape,2024/25,Q1,10
+East Ayrshire,Rape,2025/26,Q1,12
+East Ayrshire,Rape,2026/27,Q1,9
+North Ayrshire,Rape,2021/22,Q1,11
+North Ayrshire,Rape,2022/23,Q1,16
+North Ayrshire,Rape,2023/24,Q1,9
+North Ayrshire,Rape,2024/25,Q1,20
+North Ayrshire,Rape,2025/26,Q1,18
+North Ayrshire,Rape,2026/27,Q1,15
+South Ayrshire,Rape,2021/22,Q1,5
+South Ayrshire,Rape,2022/23,Q1,4
+South Ayrshire,Rape,2023/24,Q1,17
+South Ayrshire,Rape,2024/25,Q1,9
+South Ayrshire,Rape,2025/26,Q1,5
+South Ayrshire,Rape,2026/27,Q1,12
+North Lanarkshire,Rape,2021/22,Q1,39
+North Lanarkshire,Rape,2022/23,Q1,41
+North Lanarkshire,Rape,2023/24,Q1,36
+North Lanarkshire,Rape,2024/25,Q1,26
+North Lanarkshire,Rape,2025/26,Q1,35
+North Lanarkshire,Rape,2026/27,Q1,69
+South Lanarkshire,Rape,2021/22,Q1,24
+South Lanarkshire,Rape,2022/23,Q1,30
+South Lanarkshire,Rape,2023/24,Q1,31
+South Lanarkshire,Rape,2024/25,Q1,41
+South Lanarkshire,Rape,2025/26,Q1,28
+South Lanarkshire,Rape,2026/27,Q1,38
+Argyll & Bute,Rape,2021/22,Q1,13
+Argyll & Bute,Rape,2022/23,Q1,11
+Argyll & Bute,Rape,2023/24,Q1,16
+Argyll & Bute,Rape,2024/25,Q1,13
+Argyll & Bute,Rape,2025/26,Q1,16
+Argyll & Bute,Rape,2026/27,Q1,9
+West Dunbartonshire,Rape,2021/22,Q1,13
+West Dunbartonshire,Rape,2022/23,Q1,8
+West Dunbartonshire,Rape,2023/24,Q1,11
+West Dunbartonshire,Rape,2024/25,Q1,13
+West Dunbartonshire,Rape,2025/26,Q1,19
+West Dunbartonshire,Rape,2026/27,Q1,20
+Inverclyde,Rape,2021/22,Q1,2
+Inverclyde,Rape,2022/23,Q1,7
+Inverclyde,Rape,2023/24,Q1,8
+Inverclyde,Rape,2024/25,Q1,3
+Inverclyde,Rape,2025/26,Q1,3
+Inverclyde,Rape,2026/27,Q1,4
+Renfrewshire,Rape,2021/22,Q1,31
+Renfrewshire,Rape,2022/23,Q1,21
+Renfrewshire,Rape,2023/24,Q1,38
+Renfrewshire,Rape,2024/25,Q1,25
+Renfrewshire,Rape,2025/26,Q1,22
+Renfrewshire,Rape,2026/27,Q1,35
+Dumfries & Galloway,Rape,2021/22,Q1,13
+Dumfries & Galloway,Rape,2022/23,Q1,20
+Dumfries & Galloway,Rape,2023/24,Q1,15
+Dumfries & Galloway,Rape,2024/25,Q1,15
+Dumfries & Galloway,Rape,2025/26,Q1,30
+Dumfries & Galloway,Rape,2026/27,Q1,21
+Aberdeen City,Sexual assault,2021/22,Q1,58
+Aberdeen City,Sexual assault,2022/23,Q1,78
+Aberdeen City,Sexual assault,2023/24,Q1,77
+Aberdeen City,Sexual assault,2024/25,Q1,78
+Aberdeen City,Sexual assault,2025/26,Q1,63
+Aberdeen City,Sexual assault,2026/27,Q1,68
+Aberdeenshire,Sexual assault,2021/22,Q1,40
+Aberdeenshire,Sexual assault,2022/23,Q1,61
+Aberdeenshire,Sexual assault,2023/24,Q1,54
+Aberdeenshire,Sexual assault,2024/25,Q1,25
+Aberdeenshire,Sexual assault,2025/26,Q1,43
+Aberdeenshire,Sexual assault,2026/27,Q1,50
+Moray,Sexual assault,2021/22,Q1,27
+Moray,Sexual assault,2022/23,Q1,42
+Moray,Sexual assault,2023/24,Q1,34
+Moray,Sexual assault,2024/25,Q1,43
+Moray,Sexual assault,2025/26,Q1,24
+Moray,Sexual assault,2026/27,Q1,29
+Perth & Kinross,Sexual assault,2021/22,Q1,17
+Perth & Kinross,Sexual assault,2022/23,Q1,39
+Perth & Kinross,Sexual assault,2023/24,Q1,38
+Perth & Kinross,Sexual assault,2024/25,Q1,31
+Perth & Kinross,Sexual assault,2025/26,Q1,34
+Perth & Kinross,Sexual assault,2026/27,Q1,46
+Angus,Sexual assault,2021/22,Q1,29
+Angus,Sexual assault,2022/23,Q1,47
+Angus,Sexual assault,2023/24,Q1,29
+Angus,Sexual assault,2024/25,Q1,30
+Angus,Sexual assault,2025/26,Q1,35
+Angus,Sexual assault,2026/27,Q1,30
+Dundee City,Sexual assault,2021/22,Q1,46
+Dundee City,Sexual assault,2022/23,Q1,35
+Dundee City,Sexual assault,2023/24,Q1,49
+Dundee City,Sexual assault,2024/25,Q1,55
+Dundee City,Sexual assault,2025/26,Q1,63
+Dundee City,Sexual assault,2026/27,Q1,45
+Highland,Sexual assault,2021/22,Q1,43
+Highland,Sexual assault,2022/23,Q1,63
+Highland,Sexual assault,2023/24,Q1,77
+Highland,Sexual assault,2024/25,Q1,54
+Highland,Sexual assault,2025/26,Q1,60
+Highland,Sexual assault,2026/27,Q1,69
+Orkney Islands,Sexual assault,2021/22,Q1,10
+Orkney Islands,Sexual assault,2022/23,Q1,15
+Orkney Islands,Sexual assault,2023/24,Q1,7
+Orkney Islands,Sexual assault,2024/25,Q1,3
+Orkney Islands,Sexual assault,2025/26,Q1,4
+Orkney Islands,Sexual assault,2026/27,Q1,5
+Shetland Islands,Sexual assault,2021/22,Q1,6
+Shetland Islands,Sexual assault,2022/23,Q1,6
+Shetland Islands,Sexual assault,2023/24,Q1,6
+Shetland Islands,Sexual assault,2024/25,Q1,6
+Shetland Islands,Sexual assault,2025/26,Q1,8
+Shetland Islands,Sexual assault,2026/27,Q1,9
+Eilean Siar,Sexual assault,2021/22,Q1,6
+Eilean Siar,Sexual assault,2022/23,Q1,1
+Eilean Siar,Sexual assault,2023/24,Q1,6
+Eilean Siar,Sexual assault,2024/25,Q1,2
+Eilean Siar,Sexual assault,2025/26,Q1,3
+Eilean Siar,Sexual assault,2026/27,Q1,1
+Stirling,Sexual assault,2021/22,Q1,16
+Stirling,Sexual assault,2022/23,Q1,19
+Stirling,Sexual assault,2023/24,Q1,19
+Stirling,Sexual assault,2024/25,Q1,21
+Stirling,Sexual assault,2025/26,Q1,31
+Stirling,Sexual assault,2026/27,Q1,14
+Falkirk,Sexual assault,2021/22,Q1,39
+Falkirk,Sexual assault,2022/23,Q1,28
+Falkirk,Sexual assault,2023/24,Q1,41
+Falkirk,Sexual assault,2024/25,Q1,40
+Falkirk,Sexual assault,2025/26,Q1,38
+Falkirk,Sexual assault,2026/27,Q1,40
+Clackmannanshire,Sexual assault,2021/22,Q1,20
+Clackmannanshire,Sexual assault,2022/23,Q1,19
+Clackmannanshire,Sexual assault,2023/24,Q1,9
+Clackmannanshire,Sexual assault,2024/25,Q1,14
+Clackmannanshire,Sexual assault,2025/26,Q1,16
+Clackmannanshire,Sexual assault,2026/27,Q1,12
+City of Edinburgh,Sexual assault,2021/22,Q1,145
+City of Edinburgh,Sexual assault,2022/23,Q1,148
+City of Edinburgh,Sexual assault,2023/24,Q1,126
+City of Edinburgh,Sexual assault,2024/25,Q1,143
+City of Edinburgh,Sexual assault,2025/26,Q1,90
+City of Edinburgh,Sexual assault,2026/27,Q1,126
+West Lothian,Sexual assault,2021/22,Q1,41
+West Lothian,Sexual assault,2022/23,Q1,43
+West Lothian,Sexual assault,2023/24,Q1,42
+West Lothian,Sexual assault,2024/25,Q1,59
+West Lothian,Sexual assault,2025/26,Q1,32
+West Lothian,Sexual assault,2026/27,Q1,47
+East Lothian,Sexual assault,2021/22,Q1,30
+East Lothian,Sexual assault,2022/23,Q1,17
+East Lothian,Sexual assault,2023/24,Q1,18
+East Lothian,Sexual assault,2024/25,Q1,18
+East Lothian,Sexual assault,2025/26,Q1,25
+East Lothian,Sexual assault,2026/27,Q1,28
+Midlothian,Sexual assault,2021/22,Q1,18
+Midlothian,Sexual assault,2022/23,Q1,16
+Midlothian,Sexual assault,2023/24,Q1,20
+Midlothian,Sexual assault,2024/25,Q1,18
+Midlothian,Sexual assault,2025/26,Q1,21
+Midlothian,Sexual assault,2026/27,Q1,18
+Scottish Borders,Sexual assault,2021/22,Q1,38
+Scottish Borders,Sexual assault,2022/23,Q1,25
+Scottish Borders,Sexual assault,2023/24,Q1,30
+Scottish Borders,Sexual assault,2024/25,Q1,31
+Scottish Borders,Sexual assault,2025/26,Q1,34
+Scottish Borders,Sexual assault,2026/27,Q1,42
+Fife,Sexual assault,2021/22,Q1,177
+Fife,Sexual assault,2022/23,Q1,153
+Fife,Sexual assault,2023/24,Q1,114
+Fife,Sexual assault,2024/25,Q1,114
+Fife,Sexual assault,2025/26,Q1,139
+Fife,Sexual assault,2026/27,Q1,124
+Glasgow City,Sexual assault,2021/22,Q1,138
+Glasgow City,Sexual assault,2022/23,Q1,191
+Glasgow City,Sexual assault,2023/24,Q1,185
+Glasgow City,Sexual assault,2024/25,Q1,227
+Glasgow City,Sexual assault,2025/26,Q1,179
+Glasgow City,Sexual assault,2026/27,Q1,192
+East Renfrewshire,Sexual assault,2021/22,Q1,4
+East Renfrewshire,Sexual assault,2022/23,Q1,14
+East Renfrewshire,Sexual assault,2023/24,Q1,15
+East Renfrewshire,Sexual assault,2024/25,Q1,19
+East Renfrewshire,Sexual assault,2025/26,Q1,9
+East Renfrewshire,Sexual assault,2026/27,Q1,7
+East Dunbartonshire,Sexual assault,2021/22,Q1,12
+East Dunbartonshire,Sexual assault,2022/23,Q1,14
+East Dunbartonshire,Sexual assault,2023/24,Q1,10
+East Dunbartonshire,Sexual assault,2024/25,Q1,15
+East Dunbartonshire,Sexual assault,2025/26,Q1,9
+East Dunbartonshire,Sexual assault,2026/27,Q1,11
+East Ayrshire,Sexual assault,2021/22,Q1,34
+East Ayrshire,Sexual assault,2022/23,Q1,23
+East Ayrshire,Sexual assault,2023/24,Q1,20
+East Ayrshire,Sexual assault,2024/25,Q1,25
+East Ayrshire,Sexual assault,2025/26,Q1,19
+East Ayrshire,Sexual assault,2026/27,Q1,23
+North Ayrshire,Sexual assault,2021/22,Q1,36
+North Ayrshire,Sexual assault,2022/23,Q1,12
+North Ayrshire,Sexual assault,2023/24,Q1,38
+North Ayrshire,Sexual assault,2024/25,Q1,43
+North Ayrshire,Sexual assault,2025/26,Q1,32
+North Ayrshire,Sexual assault,2026/27,Q1,28
+South Ayrshire,Sexual assault,2021/22,Q1,21
+South Ayrshire,Sexual assault,2022/23,Q1,15
+South Ayrshire,Sexual assault,2023/24,Q1,33
+South Ayrshire,Sexual assault,2024/25,Q1,14
+South Ayrshire,Sexual assault,2025/26,Q1,26
+South Ayrshire,Sexual assault,2026/27,Q1,14
+North Lanarkshire,Sexual assault,2021/22,Q1,73
+North Lanarkshire,Sexual assault,2022/23,Q1,83
+North Lanarkshire,Sexual assault,2023/24,Q1,80
+North Lanarkshire,Sexual assault,2024/25,Q1,74
+North Lanarkshire,Sexual assault,2025/26,Q1,69
+North Lanarkshire,Sexual assault,2026/27,Q1,87
+South Lanarkshire,Sexual assault,2021/22,Q1,59
+South Lanarkshire,Sexual assault,2022/23,Q1,73
+South Lanarkshire,Sexual assault,2023/24,Q1,71
+South Lanarkshire,Sexual assault,2024/25,Q1,42
+South Lanarkshire,Sexual assault,2025/26,Q1,65
+South Lanarkshire,Sexual assault,2026/27,Q1,55
+Argyll & Bute,Sexual assault,2021/22,Q1,18
+Argyll & Bute,Sexual assault,2022/23,Q1,25
+Argyll & Bute,Sexual assault,2023/24,Q1,26
+Argyll & Bute,Sexual assault,2024/25,Q1,19
+Argyll & Bute,Sexual assault,2025/26,Q1,35
+Argyll & Bute,Sexual assault,2026/27,Q1,31
+West Dunbartonshire,Sexual assault,2021/22,Q1,19
+West Dunbartonshire,Sexual assault,2022/23,Q1,19
+West Dunbartonshire,Sexual assault,2023/24,Q1,22
+West Dunbartonshire,Sexual assault,2024/25,Q1,17
+West Dunbartonshire,Sexual assault,2025/26,Q1,20
+West Dunbartonshire,Sexual assault,2026/27,Q1,44
+Inverclyde,Sexual assault,2021/22,Q1,8
+Inverclyde,Sexual assault,2022/23,Q1,20
+Inverclyde,Sexual assault,2023/24,Q1,13
+Inverclyde,Sexual assault,2024/25,Q1,6
+Inverclyde,Sexual assault,2025/26,Q1,12
+Inverclyde,Sexual assault,2026/27,Q1,12
+Renfrewshire,Sexual assault,2021/22,Q1,31
+Renfrewshire,Sexual assault,2022/23,Q1,55
+Renfrewshire,Sexual assault,2023/24,Q1,48
+Renfrewshire,Sexual assault,2024/25,Q1,37
+Renfrewshire,Sexual assault,2025/26,Q1,29
+Renfrewshire,Sexual assault,2026/27,Q1,36
+Dumfries & Galloway,Sexual assault,2021/22,Q1,58
+Dumfries & Galloway,Sexual assault,2022/23,Q1,52
+Dumfries & Galloway,Sexual assault,2023/24,Q1,30
+Dumfries & Galloway,Sexual assault,2024/25,Q1,33
+Dumfries & Galloway,Sexual assault,2025/26,Q1,58
+Dumfries & Galloway,Sexual assault,2026/27,Q1,46
+Aberdeen City,Rape,2020/21,Q2,53
+Aberdeen City,Rape,2021/22,Q2,36
+Aberdeen City,Rape,2022/23,Q2,50
+Aberdeen City,Rape,2023/24,Q2,46
+Aberdeen City,Rape,2024/25,Q2,68
+Aberdeen City,Rape,2025/26,Q2,53
+Aberdeen City,Sexual assault,2020/21,Q2,91
+Aberdeen City,Sexual assault,2021/22,Q2,116
+Aberdeen City,Sexual assault,2022/23,Q2,146
+Aberdeen City,Sexual assault,2023/24,Q2,131
+Aberdeen City,Sexual assault,2024/25,Q2,143
+Aberdeen City,Sexual assault,2025/26,Q2,121
+Aberdeenshire,Rape,2020/21,Q2,16
+Aberdeenshire,Rape,2021/22,Q2,31
+Aberdeenshire,Rape,2022/23,Q2,49
+Aberdeenshire,Rape,2023/24,Q2,28
+Aberdeenshire,Rape,2024/25,Q2,37
+Aberdeenshire,Rape,2025/26,Q2,35
+Aberdeenshire,Sexual assault,2020/21,Q2,64
+Aberdeenshire,Sexual assault,2021/22,Q2,92
+Aberdeenshire,Sexual assault,2022/23,Q2,103
+Aberdeenshire,Sexual assault,2023/24,Q2,103
+Aberdeenshire,Sexual assault,2024/25,Q2,54
+Aberdeenshire,Sexual assault,2025/26,Q2,103
+Moray,Rape,2020/21,Q2,20
+Moray,Rape,2021/22,Q2,25
+Moray,Rape,2022/23,Q2,33
+Moray,Rape,2023/24,Q2,25
+Moray,Rape,2024/25,Q2,30
+Moray,Rape,2025/26,Q2,25
+Moray,Sexual assault,2020/21,Q2,20
+Moray,Sexual assault,2021/22,Q2,60
+Moray,Sexual assault,2022/23,Q2,74
+Moray,Sexual assault,2023/24,Q2,82
+Moray,Sexual assault,2024/25,Q2,76
+Moray,Sexual assault,2025/26,Q2,70
+Perth & Kinross,Rape,2020/21,Q2,31
+Perth & Kinross,Rape,2021/22,Q2,44
+Perth & Kinross,Rape,2022/23,Q2,31
+Perth & Kinross,Rape,2023/24,Q2,26
+Perth & Kinross,Rape,2024/25,Q2,39
+Perth & Kinross,Rape,2025/26,Q2,44
+Perth & Kinross,Sexual assault,2020/21,Q2,56
+Perth & Kinross,Sexual assault,2021/22,Q2,64
+Perth & Kinross,Sexual assault,2022/23,Q2,87
+Perth & Kinross,Sexual assault,2023/24,Q2,65
+Perth & Kinross,Sexual assault,2024/25,Q2,49
+Perth & Kinross,Sexual assault,2025/26,Q2,76
+Angus,Rape,2020/21,Q2,20
+Angus,Rape,2021/22,Q2,21
+Angus,Rape,2022/23,Q2,43
+Angus,Rape,2023/24,Q2,16
+Angus,Rape,2024/25,Q2,27
+Angus,Rape,2025/26,Q2,44
+Angus,Sexual assault,2020/21,Q2,50
+Angus,Sexual assault,2021/22,Q2,55
+Angus,Sexual assault,2022/23,Q2,84
+Angus,Sexual assault,2023/24,Q2,61
+Angus,Sexual assault,2024/25,Q2,92
+Angus,Sexual assault,2025/26,Q2,58
+Dundee City,Rape,2020/21,Q2,83
+Dundee City,Rape,2021/22,Q2,36
+Dundee City,Rape,2022/23,Q2,34
+Dundee City,Rape,2023/24,Q2,59
+Dundee City,Rape,2024/25,Q2,47
+Dundee City,Rape,2025/26,Q2,65
+Dundee City,Sexual assault,2020/21,Q2,123
+Dundee City,Sexual assault,2021/22,Q2,95
+Dundee City,Sexual assault,2022/23,Q2,90
+Dundee City,Sexual assault,2023/24,Q2,90
+Dundee City,Sexual assault,2024/25,Q2,107
+Dundee City,Sexual assault,2025/26,Q2,121
+Highland,Rape,2020/21,Q2,72
+Highland,Rape,2021/22,Q2,53
+Highland,Rape,2022/23,Q2,67
+Highland,Rape,2023/24,Q2,55
+Highland,Rape,2024/25,Q2,83
+Highland,Rape,2025/26,Q2,69
+Highland,Sexual assault,2020/21,Q2,65
+Highland,Sexual assault,2021/22,Q2,82
+Highland,Sexual assault,2022/23,Q2,113
+Highland,Sexual assault,2023/24,Q2,121
+Highland,Sexual assault,2024/25,Q2,112
+Highland,Sexual assault,2025/26,Q2,123
+Orkney Islands,Rape,2020/21,Q2,2
+Orkney Islands,Rape,2021/22,Q2,4
+Orkney Islands,Rape,2022/23,Q2,10
+Orkney Islands,Rape,2023/24,Q2,7
+Orkney Islands,Rape,2024/25,Q2,6
+Orkney Islands,Rape,2025/26,Q2,6
+Orkney Islands,Sexual assault,2021/22,Q2,13
+Orkney Islands,Sexual assault,2022/23,Q2,22
+Orkney Islands,Sexual assault,2023/24,Q2,11
+Orkney Islands,Sexual assault,2024/25,Q2,8
+Orkney Islands,Sexual assault,2025/26,Q2,12
+Shetland Islands,Rape,2020/21,Q2,4
+Shetland Islands,Rape,2021/22,Q2,9
+Shetland Islands,Rape,2022/23,Q2,2
+Shetland Islands,Rape,2023/24,Q2,4
+Shetland Islands,Rape,2024/25,Q2,8
+Shetland Islands,Rape,2025/26,Q2,4
+Shetland Islands,Sexual assault,2020/21,Q2,4
+Shetland Islands,Sexual assault,2021/22,Q2,15
+Shetland Islands,Sexual assault,2022/23,Q2,12
+Shetland Islands,Sexual assault,2023/24,Q2,11
+Shetland Islands,Sexual assault,2024/25,Q2,14
+Shetland Islands,Sexual assault,2025/26,Q2,11
+Eilean Siar,Rape,2020/21,Q2,2
+Eilean Siar,Rape,2021/22,Q2,2
+Eilean Siar,Rape,2022/23,Q2,5
+Eilean Siar,Rape,2023/24,Q2,4
+Eilean Siar,Rape,2024/25,Q2,5
+Eilean Siar,Rape,2025/26,Q2,8
+Eilean Siar,Sexual assault,2020/21,Q2,7
+Eilean Siar,Sexual assault,2021/22,Q2,16
+Eilean Siar,Sexual assault,2022/23,Q2,6
+Eilean Siar,Sexual assault,2023/24,Q2,9
+Eilean Siar,Sexual assault,2024/25,Q2,10
+Eilean Siar,Sexual assault,2025/26,Q2,7
+Stirling,Rape,2020/21,Q2,26
+Stirling,Rape,2021/22,Q2,19
+Stirling,Rape,2022/23,Q2,17
+Stirling,Rape,2023/24,Q2,17
+Stirling,Rape,2024/25,Q2,22
+Stirling,Rape,2025/26,Q2,25
+Stirling,Sexual assault,2020/21,Q2,40
+Stirling,Sexual assault,2021/22,Q2,38
+Stirling,Sexual assault,2022/23,Q2,34
+Stirling,Sexual assault,2023/24,Q2,40
+Stirling,Sexual assault,2024/25,Q2,47
+Stirling,Sexual assault,2025/26,Q2,61
+Falkirk,Rape,2020/21,Q2,28
+Falkirk,Rape,2021/22,Q2,43
+Falkirk,Rape,2022/23,Q2,42
+Falkirk,Rape,2023/24,Q2,41
+Falkirk,Rape,2024/25,Q2,51
+Falkirk,Rape,2025/26,Q2,50
+Falkirk,Sexual assault,2020/21,Q2,45
+Falkirk,Sexual assault,2021/22,Q2,66
+Falkirk,Sexual assault,2022/23,Q2,56
+Falkirk,Sexual assault,2023/24,Q2,85
+Falkirk,Sexual assault,2024/25,Q2,77
+Falkirk,Sexual assault,2025/26,Q2,79
+Clackmannanshire,Rape,2020/21,Q2,4
+Clackmannanshire,Rape,2021/22,Q2,11
+Clackmannanshire,Rape,2022/23,Q2,16
+Clackmannanshire,Rape,2023/24,Q2,6
+Clackmannanshire,Rape,2024/25,Q2,9
+Clackmannanshire,Rape,2025/26,Q2,21
+Clackmannanshire,Sexual assault,2020/21,Q2,15
+Clackmannanshire,Sexual assault,2021/22,Q2,37
+Clackmannanshire,Sexual assault,2022/23,Q2,27
+Clackmannanshire,Sexual assault,2023/24,Q2,23
+Clackmannanshire,Sexual assault,2024/25,Q2,25
+Clackmannanshire,Sexual assault,2025/26,Q2,28
+City of Edinburgh,Rape,2020/21,Q2,107
+City of Edinburgh,Rape,2021/22,Q2,117
+City of Edinburgh,Rape,2022/23,Q2,106
+City of Edinburgh,Rape,2023/24,Q2,91
+City of Edinburgh,Rape,2024/25,Q2,107
+City of Edinburgh,Rape,2025/26,Q2,125
+City of Edinburgh,Sexual assault,2020/21,Q2,189
+City of Edinburgh,Sexual assault,2021/22,Q2,278
+City of Edinburgh,Sexual assault,2022/23,Q2,284
+City of Edinburgh,Sexual assault,2023/24,Q2,241
+City of Edinburgh,Sexual assault,2024/25,Q2,250
+City of Edinburgh,Sexual assault,2025/26,Q2,201
+West Lothian,Rape,2020/21,Q2,26
+West Lothian,Rape,2021/22,Q2,54
+West Lothian,Rape,2022/23,Q2,30
+West Lothian,Rape,2023/24,Q2,42
+West Lothian,Rape,2024/25,Q2,51
+West Lothian,Rape,2025/26,Q2,54
+West Lothian,Sexual assault,2020/21,Q2,88
+West Lothian,Sexual assault,2021/22,Q2,84
+West Lothian,Sexual assault,2022/23,Q2,76
+West Lothian,Sexual assault,2023/24,Q2,94
+West Lothian,Sexual assault,2024/25,Q2,94
+West Lothian,Sexual assault,2025/26,Q2,78
+East Lothian,Rape,2020/21,Q2,20
+East Lothian,Rape,2021/22,Q2,31
+East Lothian,Rape,2022/23,Q2,16
+East Lothian,Rape,2023/24,Q2,17
+East Lothian,Rape,2024/25,Q2,36
+East Lothian,Rape,2025/26,Q2,19
+East Lothian,Sexual assault,2020/21,Q2,47
+East Lothian,Sexual assault,2021/22,Q2,63
+East Lothian,Sexual assault,2022/23,Q2,36
+East Lothian,Sexual assault,2023/24,Q2,36
+East Lothian,Sexual assault,2024/25,Q2,32
+East Lothian,Sexual assault,2025/26,Q2,53
+Midlothian,Rape,2020/21,Q2,19
+Midlothian,Rape,2021/22,Q2,24
+Midlothian,Rape,2022/23,Q2,17
+Midlothian,Rape,2023/24,Q2,12
+Midlothian,Rape,2024/25,Q2,46
+Midlothian,Rape,2025/26,Q2,38
+Midlothian,Sexual assault,2020/21,Q2,34
+Midlothian,Sexual assault,2021/22,Q2,46
+Midlothian,Sexual assault,2022/23,Q2,34
+Midlothian,Sexual assault,2023/24,Q2,34
+Midlothian,Sexual assault,2024/25,Q2,37
+Midlothian,Sexual assault,2025/26,Q2,45
+Scottish Borders,Rape,2020/21,Q2,18
+Scottish Borders,Rape,2021/22,Q2,30
+Scottish Borders,Rape,2022/23,Q2,30
+Scottish Borders,Rape,2023/24,Q2,26
+Scottish Borders,Rape,2024/25,Q2,42
+Scottish Borders,Rape,2025/26,Q2,38
+Scottish Borders,Sexual assault,2020/21,Q2,41
+Scottish Borders,Sexual assault,2021/22,Q2,61
+Scottish Borders,Sexual assault,2022/23,Q2,42
+Scottish Borders,Sexual assault,2023/24,Q2,52
+Scottish Borders,Sexual assault,2024/25,Q2,48
+Scottish Borders,Sexual assault,2025/26,Q2,59
+Fife,Rape,2020/21,Q2,103
+Fife,Rape,2021/22,Q2,144
+Fife,Rape,2022/23,Q2,140
+Fife,Rape,2023/24,Q2,119
+Fife,Rape,2024/25,Q2,103
+Fife,Rape,2025/26,Q2,156
+Fife,Sexual assault,2020/21,Q2,196
+Fife,Sexual assault,2021/22,Q2,317
+Fife,Sexual assault,2022/23,Q2,291
+Fife,Sexual assault,2023/24,Q2,208
+Fife,Sexual assault,2024/25,Q2,210
+Fife,Sexual assault,2025/26,Q2,248
+Glasgow City,Rape,2020/21,Q2,164
+Glasgow City,Rape,2021/22,Q2,167
+Glasgow City,Rape,2022/23,Q2,144
+Glasgow City,Rape,2023/24,Q2,159
+Glasgow City,Rape,2024/25,Q2,236
+Glasgow City,Rape,2025/26,Q2,253
+Glasgow City,Sexual assault,2020/21,Q2,326
+Glasgow City,Sexual assault,2021/22,Q2,358
+Glasgow City,Sexual assault,2022/23,Q2,367
+Glasgow City,Sexual assault,2023/24,Q2,343
+Glasgow City,Sexual assault,2024/25,Q2,424
+Glasgow City,Sexual assault,2025/26,Q2,377
+East Renfrewshire,Rape,2020/21,Q2,10
+East Renfrewshire,Rape,2021/22,Q2,3
+East Renfrewshire,Rape,2022/23,Q2,5
+East Renfrewshire,Rape,2023/24,Q2,4
+East Renfrewshire,Rape,2024/25,Q2,12
+East Renfrewshire,Rape,2025/26,Q2,15
+East Renfrewshire,Sexual assault,2020/21,Q2,14
+East Renfrewshire,Sexual assault,2021/22,Q2,11
+East Renfrewshire,Sexual assault,2022/23,Q2,25
+East Renfrewshire,Sexual assault,2023/24,Q2,18
+East Renfrewshire,Sexual assault,2024/25,Q2,33
+East Renfrewshire,Sexual assault,2025/26,Q2,10
+East Dunbartonshire,Rape,2020/21,Q2,8
+East Dunbartonshire,Rape,2021/22,Q2,9
+East Dunbartonshire,Rape,2022/23,Q2,11
+East Dunbartonshire,Rape,2023/24,Q2,4
+East Dunbartonshire,Rape,2024/25,Q2,14
+East Dunbartonshire,Rape,2025/26,Q2,21
+East Dunbartonshire,Sexual assault,2020/21,Q2,17
+East Dunbartonshire,Sexual assault,2021/22,Q2,23
+East Dunbartonshire,Sexual assault,2022/23,Q2,22
+East Dunbartonshire,Sexual assault,2023/24,Q2,17
+East Dunbartonshire,Sexual assault,2024/25,Q2,31
+East Dunbartonshire,Sexual assault,2025/26,Q2,16
+East Ayrshire,Rape,2020/21,Q2,19
+East Ayrshire,Rape,2021/22,Q2,18
+East Ayrshire,Rape,2022/23,Q2,28
+East Ayrshire,Rape,2023/24,Q2,31
+East Ayrshire,Rape,2024/25,Q2,18
+East Ayrshire,Rape,2025/26,Q2,18
+East Ayrshire,Sexual assault,2020/21,Q2,54
+East Ayrshire,Sexual assault,2021/22,Q2,53
+East Ayrshire,Sexual assault,2022/23,Q2,44
+East Ayrshire,Sexual assault,2023/24,Q2,52
+East Ayrshire,Sexual assault,2024/25,Q2,53
+East Ayrshire,Sexual assault,2025/26,Q2,42
+North Ayrshire,Rape,2020/21,Q2,15
+North Ayrshire,Rape,2021/22,Q2,30
+North Ayrshire,Rape,2022/23,Q2,32
+North Ayrshire,Rape,2023/24,Q2,29
+North Ayrshire,Rape,2024/25,Q2,35
+North Ayrshire,Rape,2025/26,Q2,30
+North Ayrshire,Sexual assault,2020/21,Q2,54
+North Ayrshire,Sexual assault,2021/22,Q2,66
+North Ayrshire,Sexual assault,2022/23,Q2,47
+North Ayrshire,Sexual assault,2023/24,Q2,64
+North Ayrshire,Sexual assault,2024/25,Q2,74
+North Ayrshire,Sexual assault,2025/26,Q2,76
+South Ayrshire,Rape,2020/21,Q2,11
+South Ayrshire,Rape,2021/22,Q2,17
+South Ayrshire,Rape,2022/23,Q2,12
+South Ayrshire,Rape,2023/24,Q2,23
+South Ayrshire,Rape,2024/25,Q2,14
+South Ayrshire,Rape,2025/26,Q2,12
+South Ayrshire,Sexual assault,2020/21,Q2,36
+South Ayrshire,Sexual assault,2021/22,Q2,43
+South Ayrshire,Sexual assault,2022/23,Q2,35
+South Ayrshire,Sexual assault,2023/24,Q2,58
+South Ayrshire,Sexual assault,2024/25,Q2,37
+South Ayrshire,Sexual assault,2025/26,Q2,37
+North Lanarkshire,Rape,2020/21,Q2,63
+North Lanarkshire,Rape,2021/22,Q2,64
+North Lanarkshire,Rape,2022/23,Q2,70
+North Lanarkshire,Rape,2023/24,Q2,78
+North Lanarkshire,Rape,2024/25,Q2,63
+North Lanarkshire,Rape,2025/26,Q2,73
+North Lanarkshire,Sexual assault,2020/21,Q2,113
+North Lanarkshire,Sexual assault,2021/22,Q2,138
+North Lanarkshire,Sexual assault,2022/23,Q2,169
+North Lanarkshire,Sexual assault,2023/24,Q2,163
+North Lanarkshire,Sexual assault,2024/25,Q2,139
+North Lanarkshire,Sexual assault,2025/26,Q2,128
+South Lanarkshire,Rape,2020/21,Q2,48
+South Lanarkshire,Rape,2021/22,Q2,52
+South Lanarkshire,Rape,2022/23,Q2,61
+South Lanarkshire,Rape,2023/24,Q2,54
+South Lanarkshire,Rape,2024/25,Q2,70
+South Lanarkshire,Rape,2025/26,Q2,76
+South Lanarkshire,Sexual assault,2020/21,Q2,99
+South Lanarkshire,Sexual assault,2021/22,Q2,111
+South Lanarkshire,Sexual assault,2022/23,Q2,119
+South Lanarkshire,Sexual assault,2023/24,Q2,125
+South Lanarkshire,Sexual assault,2024/25,Q2,104
+South Lanarkshire,Sexual assault,2025/26,Q2,134
+Argyll & Bute,Rape,2020/21,Q2,12
+Argyll & Bute,Rape,2021/22,Q2,23
+Argyll & Bute,Rape,2022/23,Q2,22
+Argyll & Bute,Rape,2023/24,Q2,26
+Argyll & Bute,Rape,2024/25,Q2,19
+Argyll & Bute,Rape,2025/26,Q2,27
+Argyll & Bute,Sexual assault,2020/21,Q2,47
+Argyll & Bute,Sexual assault,2021/22,Q2,40
+Argyll & Bute,Sexual assault,2022/23,Q2,54
+Argyll & Bute,Sexual assault,2023/24,Q2,47
+Argyll & Bute,Sexual assault,2024/25,Q2,42
+Argyll & Bute,Sexual assault,2025/26,Q2,64
+West Dunbartonshire,Rape,2020/21,Q2,25
+West Dunbartonshire,Rape,2021/22,Q2,24
+West Dunbartonshire,Rape,2022/23,Q2,20
+West Dunbartonshire,Rape,2023/24,Q2,16
+West Dunbartonshire,Rape,2024/25,Q2,31
+West Dunbartonshire,Rape,2025/26,Q2,23
+West Dunbartonshire,Sexual assault,2020/21,Q2,31
+West Dunbartonshire,Sexual assault,2021/22,Q2,45
+West Dunbartonshire,Sexual assault,2022/23,Q2,34
+West Dunbartonshire,Sexual assault,2023/24,Q2,35
+West Dunbartonshire,Sexual assault,2024/25,Q2,32
+West Dunbartonshire,Sexual assault,2025/26,Q2,37
+Inverclyde,Rape,2020/21,Q2,17
+Inverclyde,Rape,2021/22,Q2,7
+Inverclyde,Rape,2022/23,Q2,14
+Inverclyde,Rape,2023/24,Q2,8
+Inverclyde,Rape,2024/25,Q2,11
+Inverclyde,Rape,2025/26,Q2,8
+Inverclyde,Sexual assault,2020/21,Q2,22
+Inverclyde,Sexual assault,2021/22,Q2,26
+Inverclyde,Sexual assault,2022/23,Q2,38
+Inverclyde,Sexual assault,2023/24,Q2,37
+Inverclyde,Sexual assault,2024/25,Q2,9
+Inverclyde,Sexual assault,2025/26,Q2,19
+Renfrewshire,Rape,2020/21,Q2,42
+Renfrewshire,Rape,2021/22,Q2,46
+Renfrewshire,Rape,2022/23,Q2,34
+Renfrewshire,Rape,2023/24,Q2,58
+Renfrewshire,Rape,2024/25,Q2,42
+Renfrewshire,Rape,2025/26,Q2,51
+Renfrewshire,Sexual assault,2020/21,Q2,96
+Renfrewshire,Sexual assault,2021/22,Q2,60
+Renfrewshire,Sexual assault,2022/23,Q2,97
+Renfrewshire,Sexual assault,2023/24,Q2,91
+Renfrewshire,Sexual assault,2024/25,Q2,75
+Renfrewshire,Sexual assault,2025/26,Q2,67
+Dumfries & Galloway,Rape,2020/21,Q2,32
+Dumfries & Galloway,Rape,2021/22,Q2,34
+Dumfries & Galloway,Rape,2022/23,Q2,46
+Dumfries & Galloway,Rape,2023/24,Q2,30
+Dumfries & Galloway,Rape,2024/25,Q2,34
+Dumfries & Galloway,Rape,2025/26,Q2,45
+Dumfries & Galloway,Sexual assault,2020/21,Q2,71
+Dumfries & Galloway,Sexual assault,2021/22,Q2,107
+Dumfries & Galloway,Sexual assault,2022/23,Q2,106
+Dumfries & Galloway,Sexual assault,2023/24,Q2,74
+Dumfries & Galloway,Sexual assault,2024/25,Q2,90
+Dumfries & Galloway,Sexual assault,2025/26,Q2,104
+Aberdeen City,Rape,2020/21,Q3,81
+Aberdeen City,Rape,2021/22,Q3,71
+Aberdeen City,Rape,2022/23,Q3,80
+Aberdeen City,Rape,2023/24,Q3,58
+Aberdeen City,Rape,2024/25,Q3,83
+Aberdeen City,Rape,2025/26,Q3,97
+Aberdeenshire,Rape,2020/21,Q3,34
+Aberdeenshire,Rape,2021/22,Q3,40
+Aberdeenshire,Rape,2022/23,Q3,73
+Aberdeenshire,Rape,2023/24,Q3,45
+Aberdeenshire,Rape,2024/25,Q3,58
+Aberdeenshire,Rape,2025/26,Q3,58
+Moray,Rape,2020/21,Q3,24
+Moray,Rape,2021/22,Q3,37
+Moray,Rape,2022/23,Q3,41
+Moray,Rape,2023/24,Q3,38
+Moray,Rape,2024/25,Q3,46
+Moray,Rape,2025/26,Q3,41
+Perth & Kinross,Rape,2020/21,Q3,46
+Perth & Kinross,Rape,2021/22,Q3,64
+Perth & Kinross,Rape,2022/23,Q3,46
+Perth & Kinross,Rape,2023/24,Q3,36
+Perth & Kinross,Rape,2024/25,Q3,59
+Perth & Kinross,Rape,2025/26,Q3,69
+Angus,Rape,2020/21,Q3,26
+Angus,Rape,2021/22,Q3,36
+Angus,Rape,2022/23,Q3,54
+Angus,Rape,2023/24,Q3,24
+Angus,Rape,2024/25,Q3,39
+Angus,Rape,2025/26,Q3,64
+Dundee City,Rape,2020/21,Q3,109
+Dundee City,Rape,2021/22,Q3,72
+Dundee City,Rape,2022/23,Q3,61
+Dundee City,Rape,2023/24,Q3,83
+Dundee City,Rape,2024/25,Q3,66
+Dundee City,Rape,2025/26,Q3,97
+Highland,Rape,2020/21,Q3,100
+Highland,Rape,2021/22,Q3,78
+Highland,Rape,2022/23,Q3,96
+Highland,Rape,2023/24,Q3,92
+Highland,Rape,2024/25,Q3,116
+Highland,Rape,2025/26,Q3,104
+Orkney Islands,Rape,2020/21,Q3,6
+Orkney Islands,Rape,2021/22,Q3,5
+Orkney Islands,Rape,2022/23,Q3,11
+Orkney Islands,Rape,2023/24,Q3,8
+Orkney Islands,Rape,2024/25,Q3,11
+Orkney Islands,Rape,2025/26,Q3,9
+Shetland Islands,Rape,2020/21,Q3,8
+Shetland Islands,Rape,2021/22,Q3,10
+Shetland Islands,Rape,2022/23,Q3,2
+Shetland Islands,Rape,2023/24,Q3,7
+Shetland Islands,Rape,2024/25,Q3,11
+Shetland Islands,Rape,2025/26,Q3,12
+Eilean Siar,Rape,2020/21,Q3,3
+Eilean Siar,Rape,2021/22,Q3,6
+Eilean Siar,Rape,2022/23,Q3,8
+Eilean Siar,Rape,2023/24,Q3,7
+Eilean Siar,Rape,2024/25,Q3,12
+Eilean Siar,Rape,2025/26,Q3,10
+Stirling,Rape,2020/21,Q3,36
+Stirling,Rape,2021/22,Q3,27
+Stirling,Rape,2022/23,Q3,24
+Stirling,Rape,2023/24,Q3,36
+Stirling,Rape,2024/25,Q3,34
+Stirling,Rape,2025/26,Q3,40
+Falkirk,Rape,2020/21,Q3,45
+Falkirk,Rape,2021/22,Q3,49
+Falkirk,Rape,2022/23,Q3,54
+Falkirk,Rape,2023/24,Q3,63
+Falkirk,Rape,2024/25,Q3,65
+Falkirk,Rape,2025/26,Q3,82
+Clackmannanshire,Rape,2020/21,Q3,10
+Clackmannanshire,Rape,2021/22,Q3,16
+Clackmannanshire,Rape,2022/23,Q3,21
+Clackmannanshire,Rape,2023/24,Q3,11
+Clackmannanshire,Rape,2024/25,Q3,22
+Clackmannanshire,Rape,2025/26,Q3,34
+City of Edinburgh,Rape,2020/21,Q3,180
+City of Edinburgh,Rape,2021/22,Q3,170
+City of Edinburgh,Rape,2022/23,Q3,163
+City of Edinburgh,Rape,2023/24,Q3,132
+City of Edinburgh,Rape,2024/25,Q3,173
+City of Edinburgh,Rape,2025/26,Q3,175
+West Lothian,Rape,2020/21,Q3,49
+West Lothian,Rape,2021/22,Q3,78
+West Lothian,Rape,2022/23,Q3,62
+West Lothian,Rape,2023/24,Q3,63
+West Lothian,Rape,2024/25,Q3,71
+West Lothian,Rape,2025/26,Q3,82
+East Lothian,Rape,2020/21,Q3,32
+East Lothian,Rape,2021/22,Q3,40
+East Lothian,Rape,2022/23,Q3,25
+East Lothian,Rape,2023/24,Q3,34
+East Lothian,Rape,2024/25,Q3,43
+East Lothian,Rape,2025/26,Q3,36
+Midlothian,Rape,2020/21,Q3,27
+Midlothian,Rape,2021/22,Q3,32
+Midlothian,Rape,2022/23,Q3,23
+Midlothian,Rape,2023/24,Q3,25
+Midlothian,Rape,2024/25,Q3,64
+Midlothian,Rape,2025/26,Q3,47
+Scottish Borders,Rape,2020/21,Q3,35
+Scottish Borders,Rape,2021/22,Q3,42
+Scottish Borders,Rape,2022/23,Q3,43
+Scottish Borders,Rape,2023/24,Q3,40
+Scottish Borders,Rape,2024/25,Q3,60
+Scottish Borders,Rape,2025/26,Q3,54
+Fife,Rape,2020/21,Q3,155
+Fife,Rape,2021/22,Q3,203
+Fife,Rape,2022/23,Q3,199
+Fife,Rape,2023/24,Q3,177
+Fife,Rape,2024/25,Q3,150
+Fife,Rape,2025/26,Q3,205
+Glasgow City,Rape,2020/21,Q3,236
+Glasgow City,Rape,2021/22,Q3,245
+Glasgow City,Rape,2022/23,Q3,222
+Glasgow City,Rape,2023/24,Q3,253
+Glasgow City,Rape,2024/25,Q3,357
+Glasgow City,Rape,2025/26,Q3,343
+East Renfrewshire,Rape,2020/21,Q3,12
+East Renfrewshire,Rape,2021/22,Q3,9
+East Renfrewshire,Rape,2022/23,Q3,11
+East Renfrewshire,Rape,2023/24,Q3,13
+East Renfrewshire,Rape,2024/25,Q3,22
+East Renfrewshire,Rape,2025/26,Q3,21
+East Dunbartonshire,Rape,2020/21,Q3,13
+East Dunbartonshire,Rape,2021/22,Q3,12
+East Dunbartonshire,Rape,2022/23,Q3,15
+East Dunbartonshire,Rape,2023/24,Q3,15
+East Dunbartonshire,Rape,2024/25,Q3,19
+East Dunbartonshire,Rape,2025/26,Q3,30
+East Ayrshire,Rape,2020/21,Q3,29
+East Ayrshire,Rape,2021/22,Q3,33
+East Ayrshire,Rape,2022/23,Q3,37
+East Ayrshire,Rape,2023/24,Q3,37
+East Ayrshire,Rape,2024/25,Q3,33
+East Ayrshire,Rape,2025/26,Q3,35
+North Ayrshire,Rape,2020/21,Q3,20
+North Ayrshire,Rape,2021/22,Q3,41
+North Ayrshire,Rape,2022/23,Q3,47
+North Ayrshire,Rape,2023/24,Q3,41
+North Ayrshire,Rape,2024/25,Q3,43
+North Ayrshire,Rape,2025/26,Q3,42
+South Ayrshire,Rape,2020/21,Q3,15
+South Ayrshire,Rape,2021/22,Q3,25
+South Ayrshire,Rape,2022/23,Q3,18
+South Ayrshire,Rape,2023/24,Q3,36
+South Ayrshire,Rape,2024/25,Q3,21
+South Ayrshire,Rape,2025/26,Q3,22
+North Lanarkshire,Rape,2020/21,Q3,98
+North Lanarkshire,Rape,2021/22,Q3,95
+North Lanarkshire,Rape,2022/23,Q3,109
+North Lanarkshire,Rape,2023/24,Q3,112
+North Lanarkshire,Rape,2024/25,Q3,87
+North Lanarkshire,Rape,2025/26,Q3,109
+South Lanarkshire,Rape,2020/21,Q3,70
+South Lanarkshire,Rape,2021/22,Q3,72
+South Lanarkshire,Rape,2022/23,Q3,86
+South Lanarkshire,Rape,2023/24,Q3,77
+South Lanarkshire,Rape,2024/25,Q3,100
+South Lanarkshire,Rape,2025/26,Q3,115
+Argyll & Bute,Rape,2020/21,Q3,18
+Argyll & Bute,Rape,2021/22,Q3,37
+Argyll & Bute,Rape,2022/23,Q3,30
+Argyll & Bute,Rape,2023/24,Q3,34
+Argyll & Bute,Rape,2024/25,Q3,37
+Argyll & Bute,Rape,2025/26,Q3,29
+West Dunbartonshire,Rape,2020/21,Q3,30
+West Dunbartonshire,Rape,2021/22,Q3,31
+West Dunbartonshire,Rape,2022/23,Q3,23
+West Dunbartonshire,Rape,2023/24,Q3,27
+West Dunbartonshire,Rape,2024/25,Q3,45
+West Dunbartonshire,Rape,2025/26,Q3,40
+Inverclyde,Rape,2020/21,Q3,19
+Inverclyde,Rape,2021/22,Q3,12
+Inverclyde,Rape,2022/23,Q3,21
+Inverclyde,Rape,2023/24,Q3,13
+Inverclyde,Rape,2024/25,Q3,14
+Inverclyde,Rape,2025/26,Q3,13
+Renfrewshire,Rape,2020/21,Q3,50
+Renfrewshire,Rape,2021/22,Q3,64
+Renfrewshire,Rape,2022/23,Q3,49
+Renfrewshire,Rape,2023/24,Q3,75
+Renfrewshire,Rape,2024/25,Q3,55
+Renfrewshire,Rape,2025/26,Q3,73
+Dumfries & Galloway,Rape,2020/21,Q3,50
+Dumfries & Galloway,Rape,2021/22,Q3,48
+Dumfries & Galloway,Rape,2022/23,Q3,58
+Dumfries & Galloway,Rape,2023/24,Q3,49
+Dumfries & Galloway,Rape,2024/25,Q3,56
+Dumfries & Galloway,Rape,2025/26,Q3,53
+Aberdeen City,Sexual assault,2020/21,Q3,166
+Aberdeen City,Sexual assault,2021/22,Q3,193
+Aberdeen City,Sexual assault,2022/23,Q3,191
+Aberdeen City,Sexual assault,2023/24,Q3,200
+Aberdeen City,Sexual assault,2024/25,Q3,218
+Aberdeen City,Sexual assault,2025/26,Q3,186
+Aberdeenshire,Sexual assault,2020/21,Q3,104
+Aberdeenshire,Sexual assault,2021/22,Q3,146
+Aberdeenshire,Sexual assault,2022/23,Q3,144
+Aberdeenshire,Sexual assault,2023/24,Q3,155
+Aberdeenshire,Sexual assault,2024/25,Q3,97
+Aberdeenshire,Sexual assault,2025/26,Q3,154
+Moray,Sexual assault,2020/21,Q3,44
+Moray,Sexual assault,2021/22,Q3,91
+Moray,Sexual assault,2022/23,Q3,100
+Moray,Sexual assault,2023/24,Q3,105
+Moray,Sexual assault,2024/25,Q3,107
+Moray,Sexual assault,2025/26,Q3,91
+Perth & Kinross,Sexual assault,2020/21,Q3,89
+Perth & Kinross,Sexual assault,2021/22,Q3,93
+Perth & Kinross,Sexual assault,2022/23,Q3,131
+Perth & Kinross,Sexual assault,2023/24,Q3,95
+Perth & Kinross,Sexual assault,2024/25,Q3,80
+Perth & Kinross,Sexual assault,2025/26,Q3,102
+Angus,Sexual assault,2020/21,Q3,69
+Angus,Sexual assault,2021/22,Q3,95
+Angus,Sexual assault,2022/23,Q3,109
+Angus,Sexual assault,2023/24,Q3,95
+Angus,Sexual assault,2024/25,Q3,115
+Angus,Sexual assault,2025/26,Q3,101
+Dundee City,Sexual assault,2020/21,Q3,171
+Dundee City,Sexual assault,2021/22,Q3,162
+Dundee City,Sexual assault,2022/23,Q3,139
+Dundee City,Sexual assault,2023/24,Q3,143
+Dundee City,Sexual assault,2024/25,Q3,152
+Dundee City,Sexual assault,2025/26,Q3,171
+Highland,Sexual assault,2020/21,Q3,102
+Highland,Sexual assault,2021/22,Q3,129
+Highland,Sexual assault,2022/23,Q3,168
+Highland,Sexual assault,2023/24,Q3,181
+Highland,Sexual assault,2024/25,Q3,195
+Highland,Sexual assault,2025/26,Q3,182
+Orkney Islands,Sexual assault,2020/21,Q3,6
+Orkney Islands,Sexual assault,2021/22,Q3,17
+Orkney Islands,Sexual assault,2022/23,Q3,23
+Orkney Islands,Sexual assault,2023/24,Q3,16
+Orkney Islands,Sexual assault,2024/25,Q3,15
+Orkney Islands,Sexual assault,2025/26,Q3,13
+Shetland Islands,Sexual assault,2020/21,Q3,8
+Shetland Islands,Sexual assault,2021/22,Q3,23
+Shetland Islands,Sexual assault,2022/23,Q3,15
+Shetland Islands,Sexual assault,2023/24,Q3,14
+Shetland Islands,Sexual assault,2024/25,Q3,18
+Shetland Islands,Sexual assault,2025/26,Q3,15
+Eilean Siar,Sexual assault,2020/21,Q3,12
+Eilean Siar,Sexual assault,2021/22,Q3,18
+Eilean Siar,Sexual assault,2022/23,Q3,9
+Eilean Siar,Sexual assault,2023/24,Q3,12
+Eilean Siar,Sexual assault,2024/25,Q3,13
+Eilean Siar,Sexual assault,2025/26,Q3,10
+Stirling,Sexual assault,2020/21,Q3,60
+Stirling,Sexual assault,2021/22,Q3,51
+Stirling,Sexual assault,2022/23,Q3,59
+Stirling,Sexual assault,2023/24,Q3,63
+Stirling,Sexual assault,2024/25,Q3,68
+Stirling,Sexual assault,2025/26,Q3,82
+Falkirk,Sexual assault,2020/21,Q3,61
+Falkirk,Sexual assault,2021/22,Q3,104
+Falkirk,Sexual assault,2022/23,Q3,86
+Falkirk,Sexual assault,2023/24,Q3,113
+Falkirk,Sexual assault,2024/25,Q3,113
+Falkirk,Sexual assault,2025/26,Q3,115
+Clackmannanshire,Sexual assault,2020/21,Q3,30
+Clackmannanshire,Sexual assault,2021/22,Q3,46
+Clackmannanshire,Sexual assault,2022/23,Q3,38
+Clackmannanshire,Sexual assault,2023/24,Q3,33
+Clackmannanshire,Sexual assault,2024/25,Q3,28
+Clackmannanshire,Sexual assault,2025/26,Q3,34
+City of Edinburgh,Sexual assault,2020/21,Q3,304
+City of Edinburgh,Sexual assault,2021/22,Q3,436
+City of Edinburgh,Sexual assault,2022/23,Q3,413
+City of Edinburgh,Sexual assault,2023/24,Q3,361
+City of Edinburgh,Sexual assault,2024/25,Q3,386
+City of Edinburgh,Sexual assault,2025/26,Q3,331
+West Lothian,Sexual assault,2020/21,Q3,115
+West Lothian,Sexual assault,2021/22,Q3,137
+West Lothian,Sexual assault,2022/23,Q3,127
+West Lothian,Sexual assault,2023/24,Q3,169
+West Lothian,Sexual assault,2024/25,Q3,131
+West Lothian,Sexual assault,2025/26,Q3,103
+East Lothian,Sexual assault,2020/21,Q3,77
+East Lothian,Sexual assault,2021/22,Q3,89
+East Lothian,Sexual assault,2022/23,Q3,56
+East Lothian,Sexual assault,2023/24,Q3,49
+East Lothian,Sexual assault,2024/25,Q3,47
+East Lothian,Sexual assault,2025/26,Q3,68
+Midlothian,Sexual assault,2020/21,Q3,51
+Midlothian,Sexual assault,2021/22,Q3,68
+Midlothian,Sexual assault,2022/23,Q3,55
+Midlothian,Sexual assault,2023/24,Q3,71
+Midlothian,Sexual assault,2024/25,Q3,54
+Midlothian,Sexual assault,2025/26,Q3,59
+Scottish Borders,Sexual assault,2020/21,Q3,75
+Scottish Borders,Sexual assault,2021/22,Q3,105
+Scottish Borders,Sexual assault,2022/23,Q3,66
+Scottish Borders,Sexual assault,2023/24,Q3,78
+Scottish Borders,Sexual assault,2024/25,Q3,76
+Scottish Borders,Sexual assault,2025/26,Q3,82
+Fife,Sexual assault,2020/21,Q3,319
+Fife,Sexual assault,2021/22,Q3,450
+Fife,Sexual assault,2022/23,Q3,384
+Fife,Sexual assault,2023/24,Q3,317
+Fife,Sexual assault,2024/25,Q3,314
+Fife,Sexual assault,2025/26,Q3,346
+Glasgow City,Sexual assault,2020/21,Q3,441
+Glasgow City,Sexual assault,2021/22,Q3,556
+Glasgow City,Sexual assault,2022/23,Q3,541
+Glasgow City,Sexual assault,2023/24,Q3,495
+Glasgow City,Sexual assault,2024/25,Q3,634
+Glasgow City,Sexual assault,2025/26,Q3,566
+East Renfrewshire,Sexual assault,2020/21,Q3,27
+East Renfrewshire,Sexual assault,2021/22,Q3,21
+East Renfrewshire,Sexual assault,2022/23,Q3,34
+East Renfrewshire,Sexual assault,2023/24,Q3,28
+East Renfrewshire,Sexual assault,2024/25,Q3,43
+East Renfrewshire,Sexual assault,2025/26,Q3,17
+East Dunbartonshire,Sexual assault,2020/21,Q3,24
+East Dunbartonshire,Sexual assault,2021/22,Q3,42
+East Dunbartonshire,Sexual assault,2022/23,Q3,31
+East Dunbartonshire,Sexual assault,2023/24,Q3,27
+East Dunbartonshire,Sexual assault,2024/25,Q3,40
+East Dunbartonshire,Sexual assault,2025/26,Q3,28
+East Ayrshire,Sexual assault,2020/21,Q3,74
+East Ayrshire,Sexual assault,2021/22,Q3,85
+East Ayrshire,Sexual assault,2022/23,Q3,67
+East Ayrshire,Sexual assault,2023/24,Q3,87
+East Ayrshire,Sexual assault,2024/25,Q3,73
+East Ayrshire,Sexual assault,2025/26,Q3,71
+North Ayrshire,Sexual assault,2020/21,Q3,73
+North Ayrshire,Sexual assault,2021/22,Q3,104
+North Ayrshire,Sexual assault,2022/23,Q3,71
+North Ayrshire,Sexual assault,2023/24,Q3,101
+North Ayrshire,Sexual assault,2024/25,Q3,104
+North Ayrshire,Sexual assault,2025/26,Q3,119
+South Ayrshire,Sexual assault,2020/21,Q3,50
+South Ayrshire,Sexual assault,2021/22,Q3,68
+South Ayrshire,Sexual assault,2022/23,Q3,52
+South Ayrshire,Sexual assault,2023/24,Q3,74
+South Ayrshire,Sexual assault,2024/25,Q3,59
+South Ayrshire,Sexual assault,2025/26,Q3,59
+North Lanarkshire,Sexual assault,2020/21,Q3,187
+North Lanarkshire,Sexual assault,2021/22,Q3,211
+North Lanarkshire,Sexual assault,2022/23,Q3,249
+North Lanarkshire,Sexual assault,2023/24,Q3,218
+North Lanarkshire,Sexual assault,2024/25,Q3,195
+North Lanarkshire,Sexual assault,2025/26,Q3,192
+South Lanarkshire,Sexual assault,2020/21,Q3,130
+South Lanarkshire,Sexual assault,2021/22,Q3,151
+South Lanarkshire,Sexual assault,2022/23,Q3,173
+South Lanarkshire,Sexual assault,2023/24,Q3,177
+South Lanarkshire,Sexual assault,2024/25,Q3,159
+South Lanarkshire,Sexual assault,2025/26,Q3,200
+Argyll & Bute,Sexual assault,2020/21,Q3,65
+Argyll & Bute,Sexual assault,2021/22,Q3,76
+Argyll & Bute,Sexual assault,2022/23,Q3,66
+Argyll & Bute,Sexual assault,2023/24,Q3,63
+Argyll & Bute,Sexual assault,2024/25,Q3,64
+Argyll & Bute,Sexual assault,2025/26,Q3,88
+West Dunbartonshire,Sexual assault,2020/21,Q3,52
+West Dunbartonshire,Sexual assault,2021/22,Q3,66
+West Dunbartonshire,Sexual assault,2022/23,Q3,43
+West Dunbartonshire,Sexual assault,2023/24,Q3,50
+West Dunbartonshire,Sexual assault,2024/25,Q3,57
+West Dunbartonshire,Sexual assault,2025/26,Q3,54
+Inverclyde,Sexual assault,2020/21,Q3,29
+Inverclyde,Sexual assault,2021/22,Q3,37
+Inverclyde,Sexual assault,2022/23,Q3,44
+Inverclyde,Sexual assault,2023/24,Q3,45
+Inverclyde,Sexual assault,2024/25,Q3,17
+Inverclyde,Sexual assault,2025/26,Q3,31
+Renfrewshire,Sexual assault,2020/21,Q3,122
+Renfrewshire,Sexual assault,2021/22,Q3,98
+Renfrewshire,Sexual assault,2022/23,Q3,127
+Renfrewshire,Sexual assault,2023/24,Q3,120
+Renfrewshire,Sexual assault,2024/25,Q3,104
+Renfrewshire,Sexual assault,2025/26,Q3,100
+Dumfries & Galloway,Sexual assault,2020/21,Q3,117
+Dumfries & Galloway,Sexual assault,2021/22,Q3,146
+Dumfries & Galloway,Sexual assault,2022/23,Q3,147
+Dumfries & Galloway,Sexual assault,2023/24,Q3,142
+Dumfries & Galloway,Sexual assault,2024/25,Q3,138
+Dumfries & Galloway,Sexual assault,2025/26,Q3,147
+Aberdeen City,Rape,,Q4,15
+Aberdeen City,Rape,2020/21,Q4,105
+Aberdeen City,Rape,2021/22,Q4,94
+Aberdeen City,Rape,2022/23,Q4,98
+Aberdeen City,Rape,2023/24,Q4,83
+Aberdeen City,Rape,2024/25,Q4,99
+Aberdeen City,Rape,2025/26,Q4,136
+Aberdeenshire,Rape,,Q4,15
+Aberdeenshire,Rape,2020/21,Q4,44
+Aberdeenshire,Rape,2021/22,Q4,76
+Aberdeenshire,Rape,2022/23,Q4,91
+Aberdeenshire,Rape,2023/24,Q4,54
+Aberdeenshire,Rape,2024/25,Q4,73
+Aberdeenshire,Rape,2025/26,Q4,79
+Moray,Rape,,Q4,6
+Moray,Rape,2020/21,Q4,35
+Moray,Rape,2021/22,Q4,41
+Moray,Rape,2022/23,Q4,52
+Moray,Rape,2023/24,Q4,46
+Moray,Rape,2024/25,Q4,59
+Moray,Rape,2025/26,Q4,52
+Perth & Kinross,Rape,,Q4,15
+Perth & Kinross,Rape,2020/21,Q4,66
+Perth & Kinross,Rape,2021/22,Q4,81
+Perth & Kinross,Rape,2022/23,Q4,57
+Perth & Kinross,Rape,2023/24,Q4,48
+Perth & Kinross,Rape,2024/25,Q4,79
+Perth & Kinross,Rape,2025/26,Q4,100
+Angus,Rape,,Q4,12
+Angus,Rape,2020/21,Q4,41
+Angus,Rape,2021/22,Q4,51
+Angus,Rape,2022/23,Q4,61
+Angus,Rape,2023/24,Q4,38
+Angus,Rape,2024/25,Q4,54
+Angus,Rape,2025/26,Q4,77
+Dundee City,Rape,,Q4,21
+Dundee City,Rape,2020/21,Q4,142
+Dundee City,Rape,2021/22,Q4,95
+Dundee City,Rape,2022/23,Q4,101
+Dundee City,Rape,2023/24,Q4,103
+Dundee City,Rape,2024/25,Q4,99
+Dundee City,Rape,2025/26,Q4,128
+Highland,Rape,,Q4,14
+Highland,Rape,2020/21,Q4,142
+Highland,Rape,2021/22,Q4,117
+Highland,Rape,2022/23,Q4,140
+Highland,Rape,2023/24,Q4,126
+Highland,Rape,2024/25,Q4,153
+Highland,Rape,2025/26,Q4,134
+Orkney Islands,Rape,,Q4,1
+Orkney Islands,Rape,2020/21,Q4,9
+Orkney Islands,Rape,2021/22,Q4,8
+Orkney Islands,Rape,2022/23,Q4,14
+Orkney Islands,Rape,2023/24,Q4,12
+Orkney Islands,Rape,2024/25,Q4,18
+Orkney Islands,Rape,2025/26,Q4,13
+Shetland Islands,Rape,,Q4,3
+Shetland Islands,Rape,2020/21,Q4,15
+Shetland Islands,Rape,2021/22,Q4,10
+Shetland Islands,Rape,2022/23,Q4,5
+Shetland Islands,Rape,2023/24,Q4,10
+Shetland Islands,Rape,2024/25,Q4,11
+Shetland Islands,Rape,2025/26,Q4,26
+Eilean Siar,Rape,,Q4,2
+Eilean Siar,Rape,2020/21,Q4,4
+Eilean Siar,Rape,2021/22,Q4,6
+Eilean Siar,Rape,2022/23,Q4,15
+Eilean Siar,Rape,2023/24,Q4,7
+Eilean Siar,Rape,2024/25,Q4,15
+Eilean Siar,Rape,2025/26,Q4,12
+Stirling,Rape,,Q4,10
+Stirling,Rape,2020/21,Q4,46
+Stirling,Rape,2021/22,Q4,31
+Stirling,Rape,2022/23,Q4,31
+Stirling,Rape,2023/24,Q4,48
+Stirling,Rape,2024/25,Q4,49
+Stirling,Rape,2025/26,Q4,52
+Falkirk,Rape,,Q4,14
+Falkirk,Rape,2020/21,Q4,55
+Falkirk,Rape,2021/22,Q4,71
+Falkirk,Rape,2022/23,Q4,66
+Falkirk,Rape,2023/24,Q4,76
+Falkirk,Rape,2024/25,Q4,82
+Falkirk,Rape,2025/26,Q4,102
+Clackmannanshire,Rape,,Q4,3
+Clackmannanshire,Rape,2020/21,Q4,14
+Clackmannanshire,Rape,2021/22,Q4,17
+Clackmannanshire,Rape,2022/23,Q4,27
+Clackmannanshire,Rape,2023/24,Q4,25
+Clackmannanshire,Rape,2024/25,Q4,26
+Clackmannanshire,Rape,2025/26,Q4,40
+City of Edinburgh,Rape,,Q4,41
+City of Edinburgh,Rape,2020/21,Q4,246
+City of Edinburgh,Rape,2021/22,Q4,234
+City of Edinburgh,Rape,2022/23,Q4,223
+City of Edinburgh,Rape,2023/24,Q4,195
+City of Edinburgh,Rape,2024/25,Q4,252
+City of Edinburgh,Rape,2025/26,Q4,235
+West Lothian,Rape,,Q4,21
+West Lothian,Rape,2020/21,Q4,59
+West Lothian,Rape,2021/22,Q4,95
+West Lothian,Rape,2022/23,Q4,90
+West Lothian,Rape,2023/24,Q4,87
+West Lothian,Rape,2024/25,Q4,89
+West Lothian,Rape,2025/26,Q4,108
+East Lothian,Rape,,Q4,5
+East Lothian,Rape,2020/21,Q4,39
+East Lothian,Rape,2021/22,Q4,45
+East Lothian,Rape,2022/23,Q4,36
+East Lothian,Rape,2023/24,Q4,44
+East Lothian,Rape,2024/25,Q4,54
+East Lothian,Rape,2025/26,Q4,50
+Midlothian,Rape,,Q4,4
+Midlothian,Rape,2020/21,Q4,33
+Midlothian,Rape,2021/22,Q4,35
+Midlothian,Rape,2022/23,Q4,37
+Midlothian,Rape,2023/24,Q4,39
+Midlothian,Rape,2024/25,Q4,77
+Midlothian,Rape,2025/26,Q4,62
+Scottish Borders,Rape,,Q4,8
+Scottish Borders,Rape,2020/21,Q4,46
+Scottish Borders,Rape,2021/22,Q4,51
+Scottish Borders,Rape,2022/23,Q4,51
+Scottish Borders,Rape,2023/24,Q4,44
+Scottish Borders,Rape,2024/25,Q4,86
+Scottish Borders,Rape,2025/26,Q4,74
+Fife,Rape,,Q4,53
+Fife,Rape,2020/21,Q4,193
+Fife,Rape,2021/22,Q4,278
+Fife,Rape,2022/23,Q4,237
+Fife,Rape,2023/24,Q4,224
+Fife,Rape,2024/25,Q4,199
+Fife,Rape,2025/26,Q4,284
+Glasgow City,Rape,,Q4,76
+Glasgow City,Rape,2020/21,Q4,322
+Glasgow City,Rape,2021/22,Q4,333
+Glasgow City,Rape,2022/23,Q4,292
+Glasgow City,Rape,2023/24,Q4,349
+Glasgow City,Rape,2024/25,Q4,468
+Glasgow City,Rape,2025/26,Q4,473
+East Renfrewshire,Rape,,Q4,6
+East Renfrewshire,Rape,2020/21,Q4,16
+East Renfrewshire,Rape,2021/22,Q4,12
+East Renfrewshire,Rape,2022/23,Q4,17
+East Renfrewshire,Rape,2023/24,Q4,17
+East Renfrewshire,Rape,2024/25,Q4,30
+East Renfrewshire,Rape,2025/26,Q4,23
+East Dunbartonshire,Rape,,Q4,7
+East Dunbartonshire,Rape,2020/21,Q4,17
+East Dunbartonshire,Rape,2021/22,Q4,13
+East Dunbartonshire,Rape,2022/23,Q4,18
+East Dunbartonshire,Rape,2023/24,Q4,24
+East Dunbartonshire,Rape,2024/25,Q4,25
+East Dunbartonshire,Rape,2025/26,Q4,39
+East Ayrshire,Rape,,Q4,3
+East Ayrshire,Rape,2020/21,Q4,37
+East Ayrshire,Rape,2021/22,Q4,43
+East Ayrshire,Rape,2022/23,Q4,48
+East Ayrshire,Rape,2023/24,Q4,48
+East Ayrshire,Rape,2024/25,Q4,41
+East Ayrshire,Rape,2025/26,Q4,46
+North Ayrshire,Rape,,Q4,8
+North Ayrshire,Rape,2020/21,Q4,36
+North Ayrshire,Rape,2021/22,Q4,55
+North Ayrshire,Rape,2022/23,Q4,67
+North Ayrshire,Rape,2023/24,Q4,61
+North Ayrshire,Rape,2024/25,Q4,62
+North Ayrshire,Rape,2025/26,Q4,58
+South Ayrshire,Rape,,Q4,5
+South Ayrshire,Rape,2020/21,Q4,22
+South Ayrshire,Rape,2021/22,Q4,35
+South Ayrshire,Rape,2022/23,Q4,31
+South Ayrshire,Rape,2023/24,Q4,46
+South Ayrshire,Rape,2024/25,Q4,33
+South Ayrshire,Rape,2025/26,Q4,43
+North Lanarkshire,Rape,,Q4,22
+North Lanarkshire,Rape,2020/21,Q4,120
+North Lanarkshire,Rape,2021/22,Q4,121
+North Lanarkshire,Rape,2022/23,Q4,140
+North Lanarkshire,Rape,2023/24,Q4,147
+North Lanarkshire,Rape,2024/25,Q4,129
+North Lanarkshire,Rape,2025/26,Q4,147
+South Lanarkshire,Rape,,Q4,26
+South Lanarkshire,Rape,2020/21,Q4,87
+South Lanarkshire,Rape,2021/22,Q4,95
+South Lanarkshire,Rape,2022/23,Q4,110
+South Lanarkshire,Rape,2023/24,Q4,101
+South Lanarkshire,Rape,2024/25,Q4,137
+South Lanarkshire,Rape,2025/26,Q4,164
+Argyll & Bute,Rape,,Q4,10
+Argyll & Bute,Rape,2020/21,Q4,27
+Argyll & Bute,Rape,2021/22,Q4,45
+Argyll & Bute,Rape,2022/23,Q4,43
+Argyll & Bute,Rape,2023/24,Q4,43
+Argyll & Bute,Rape,2024/25,Q4,45
+Argyll & Bute,Rape,2025/26,Q4,34
+West Dunbartonshire,Rape,,Q4,14
+West Dunbartonshire,Rape,2020/21,Q4,39
+West Dunbartonshire,Rape,2021/22,Q4,43
+West Dunbartonshire,Rape,2022/23,Q4,38
+West Dunbartonshire,Rape,2023/24,Q4,46
+West Dunbartonshire,Rape,2024/25,Q4,62
+West Dunbartonshire,Rape,2025/26,Q4,55
+Inverclyde,Rape,,Q4,6
+Inverclyde,Rape,2020/21,Q4,21
+Inverclyde,Rape,2021/22,Q4,19
+Inverclyde,Rape,2022/23,Q4,25
+Inverclyde,Rape,2023/24,Q4,19
+Inverclyde,Rape,2024/25,Q4,23
+Inverclyde,Rape,2025/26,Q4,20
+Renfrewshire,Rape,,Q4,21
+Renfrewshire,Rape,2020/21,Q4,62
+Renfrewshire,Rape,2021/22,Q4,89
+Renfrewshire,Rape,2022/23,Q4,64
+Renfrewshire,Rape,2023/24,Q4,96
+Renfrewshire,Rape,2024/25,Q4,65
+Renfrewshire,Rape,2025/26,Q4,113
+Dumfries & Galloway,Rape,,Q4,13
+Dumfries & Galloway,Rape,2020/21,Q4,80
+Dumfries & Galloway,Rape,2021/22,Q4,67
+Dumfries & Galloway,Rape,2022/23,Q4,85
+Dumfries & Galloway,Rape,2023/24,Q4,55
+Dumfries & Galloway,Rape,2024/25,Q4,71
+Dumfries & Galloway,Rape,2025/26,Q4,84
+Aberdeen City,Sexual assault,,Q4,65
+Aberdeen City,Sexual assault,2020/21,Q4,205
+Aberdeen City,Sexual assault,2021/22,Q4,250
+Aberdeen City,Sexual assault,2022/23,Q4,255
+Aberdeen City,Sexual assault,2023/24,Q4,259
+Aberdeen City,Sexual assault,2024/25,Q4,267
+Aberdeen City,Sexual assault,2025/26,Q4,253
+Aberdeenshire,Sexual assault,,Q4,29
+Aberdeenshire,Sexual assault,2020/21,Q4,138
+Aberdeenshire,Sexual assault,2021/22,Q4,194
+Aberdeenshire,Sexual assault,2022/23,Q4,196
+Aberdeenshire,Sexual assault,2023/24,Q4,192
+Aberdeenshire,Sexual assault,2024/25,Q4,153
+Aberdeenshire,Sexual assault,2025/26,Q4,230
+Moray,Sexual assault,,Q4,14
+Moray,Sexual assault,2020/21,Q4,62
+Moray,Sexual assault,2021/22,Q4,110
+Moray,Sexual assault,2022/23,Q4,136
+Moray,Sexual assault,2023/24,Q4,126
+Moray,Sexual assault,2024/25,Q4,125
+Moray,Sexual assault,2025/26,Q4,121
+Perth & Kinross,Sexual assault,,Q4,27
+Perth & Kinross,Sexual assault,2020/21,Q4,123
+Perth & Kinross,Sexual assault,2021/22,Q4,143
+Perth & Kinross,Sexual assault,2022/23,Q4,156
+Perth & Kinross,Sexual assault,2023/24,Q4,120
+Perth & Kinross,Sexual assault,2024/25,Q4,116
+Perth & Kinross,Sexual assault,2025/26,Q4,125
+Angus,Sexual assault,,Q4,42
+Angus,Sexual assault,2020/21,Q4,106
+Angus,Sexual assault,2021/22,Q4,130
+Angus,Sexual assault,2022/23,Q4,136
+Angus,Sexual assault,2023/24,Q4,125
+Angus,Sexual assault,2024/25,Q4,137
+Angus,Sexual assault,2025/26,Q4,113
+Dundee City,Sexual assault,,Q4,50
+Dundee City,Sexual assault,2020/21,Q4,215
+Dundee City,Sexual assault,2021/22,Q4,218
+Dundee City,Sexual assault,2022/23,Q4,188
+Dundee City,Sexual assault,2023/24,Q4,179
+Dundee City,Sexual assault,2024/25,Q4,202
+Dundee City,Sexual assault,2025/26,Q4,211
+Highland,Sexual assault,,Q4,57
+Highland,Sexual assault,2020/21,Q4,144
+Highland,Sexual assault,2021/22,Q4,170
+Highland,Sexual assault,2022/23,Q4,247
+Highland,Sexual assault,2023/24,Q4,229
+Highland,Sexual assault,2024/25,Q4,235
+Highland,Sexual assault,2025/26,Q4,232
+Orkney Islands,Sexual assault,,Q4,5
+Orkney Islands,Sexual assault,2020/21,Q4,10
+Orkney Islands,Sexual assault,2021/22,Q4,21
+Orkney Islands,Sexual assault,2022/23,Q4,29
+Orkney Islands,Sexual assault,2023/24,Q4,28
+Orkney Islands,Sexual assault,2024/25,Q4,19
+Orkney Islands,Sexual assault,2025/26,Q4,17
+Shetland Islands,Sexual assault,,Q4,6
+Shetland Islands,Sexual assault,2020/21,Q4,17
+Shetland Islands,Sexual assault,2021/22,Q4,24
+Shetland Islands,Sexual assault,2022/23,Q4,26
+Shetland Islands,Sexual assault,2023/24,Q4,19
+Shetland Islands,Sexual assault,2024/25,Q4,20
+Shetland Islands,Sexual assault,2025/26,Q4,23
+Eilean Siar,Sexual assault,,Q4,1
+Eilean Siar,Sexual assault,2020/21,Q4,19
+Eilean Siar,Sexual assault,2021/22,Q4,19
+Eilean Siar,Sexual assault,2022/23,Q4,16
+Eilean Siar,Sexual assault,2023/24,Q4,16
+Eilean Siar,Sexual assault,2024/25,Q4,21
+Eilean Siar,Sexual assault,2025/26,Q4,17
+Stirling,Sexual assault,,Q4,31
+Stirling,Sexual assault,2020/21,Q4,79
+Stirling,Sexual assault,2021/22,Q4,74
+Stirling,Sexual assault,2022/23,Q4,86
+Stirling,Sexual assault,2023/24,Q4,88
+Stirling,Sexual assault,2024/25,Q4,94
+Stirling,Sexual assault,2025/26,Q4,108
+Falkirk,Sexual assault,,Q4,59
+Falkirk,Sexual assault,2020/21,Q4,81
+Falkirk,Sexual assault,2021/22,Q4,145
+Falkirk,Sexual assault,2022/23,Q4,124
+Falkirk,Sexual assault,2023/24,Q4,148
+Falkirk,Sexual assault,2024/25,Q4,142
+Falkirk,Sexual assault,2025/26,Q4,144
+Clackmannanshire,Sexual assault,,Q4,9
+Clackmannanshire,Sexual assault,2020/21,Q4,42
+Clackmannanshire,Sexual assault,2021/22,Q4,53
+Clackmannanshire,Sexual assault,2022/23,Q4,45
+Clackmannanshire,Sexual assault,2023/24,Q4,47
+Clackmannanshire,Sexual assault,2024/25,Q4,37
+Clackmannanshire,Sexual assault,2025/26,Q4,52
+City of Edinburgh,Sexual assault,,Q4,108
+City of Edinburgh,Sexual assault,2020/21,Q4,423
+City of Edinburgh,Sexual assault,2021/22,Q4,564
+City of Edinburgh,Sexual assault,2022/23,Q4,541
+City of Edinburgh,Sexual assault,2023/24,Q4,470
+City of Edinburgh,Sexual assault,2024/25,Q4,504
+City of Edinburgh,Sexual assault,2025/26,Q4,425
+West Lothian,Sexual assault,,Q4,41
+West Lothian,Sexual assault,2020/21,Q4,144
+West Lothian,Sexual assault,2021/22,Q4,181
+West Lothian,Sexual assault,2022/23,Q4,157
+West Lothian,Sexual assault,2023/24,Q4,208
+West Lothian,Sexual assault,2024/25,Q4,164
+West Lothian,Sexual assault,2025/26,Q4,158
+East Lothian,Sexual assault,,Q4,15
+East Lothian,Sexual assault,2020/21,Q4,92
+East Lothian,Sexual assault,2021/22,Q4,108
+East Lothian,Sexual assault,2022/23,Q4,81
+East Lothian,Sexual assault,2023/24,Q4,80
+East Lothian,Sexual assault,2024/25,Q4,66
+East Lothian,Sexual assault,2025/26,Q4,89
+Midlothian,Sexual assault,,Q4,22
+Midlothian,Sexual assault,2020/21,Q4,57
+Midlothian,Sexual assault,2021/22,Q4,79
+Midlothian,Sexual assault,2022/23,Q4,77
+Midlothian,Sexual assault,2023/24,Q4,89
+Midlothian,Sexual assault,2024/25,Q4,95
+Midlothian,Sexual assault,2025/26,Q4,75
+Scottish Borders,Sexual assault,,Q4,17
+Scottish Borders,Sexual assault,2020/21,Q4,90
+Scottish Borders,Sexual assault,2021/22,Q4,133
+Scottish Borders,Sexual assault,2022/23,Q4,93
+Scottish Borders,Sexual assault,2023/24,Q4,97
+Scottish Borders,Sexual assault,2024/25,Q4,118
+Scottish Borders,Sexual assault,2025/26,Q4,107
+Fife,Sexual assault,,Q4,108
+Fife,Sexual assault,2020/21,Q4,392
+Fife,Sexual assault,2021/22,Q4,594
+Fife,Sexual assault,2022/23,Q4,484
+Fife,Sexual assault,2023/24,Q4,384
+Fife,Sexual assault,2024/25,Q4,432
+Fife,Sexual assault,2025/26,Q4,447
+Glasgow City,Sexual assault,,Q4,172
+Glasgow City,Sexual assault,2020/21,Q4,573
+Glasgow City,Sexual assault,2021/22,Q4,759
+Glasgow City,Sexual assault,2022/23,Q4,735
+Glasgow City,Sexual assault,2023/24,Q4,649
+Glasgow City,Sexual assault,2024/25,Q4,791
+Glasgow City,Sexual assault,2025/26,Q4,749
+East Renfrewshire,Sexual assault,,Q4,6
+East Renfrewshire,Sexual assault,2020/21,Q4,33
+East Renfrewshire,Sexual assault,2021/22,Q4,29
+East Renfrewshire,Sexual assault,2022/23,Q4,42
+East Renfrewshire,Sexual assault,2023/24,Q4,33
+East Renfrewshire,Sexual assault,2024/25,Q4,54
+East Renfrewshire,Sexual assault,2025/26,Q4,26
+East Dunbartonshire,Sexual assault,,Q4,15
+East Dunbartonshire,Sexual assault,2020/21,Q4,34
+East Dunbartonshire,Sexual assault,2021/22,Q4,54
+East Dunbartonshire,Sexual assault,2022/23,Q4,39
+East Dunbartonshire,Sexual assault,2023/24,Q4,47
+East Dunbartonshire,Sexual assault,2024/25,Q4,53
+East Dunbartonshire,Sexual assault,2025/26,Q4,42
+East Ayrshire,Sexual assault,,Q4,29
+East Ayrshire,Sexual assault,2020/21,Q4,109
+East Ayrshire,Sexual assault,2021/22,Q4,111
+East Ayrshire,Sexual assault,2022/23,Q4,91
+East Ayrshire,Sexual assault,2023/24,Q4,101
+East Ayrshire,Sexual assault,2024/25,Q4,100
+East Ayrshire,Sexual assault,2025/26,Q4,92
+North Ayrshire,Sexual assault,,Q4,30
+North Ayrshire,Sexual assault,2020/21,Q4,100
+North Ayrshire,Sexual assault,2021/22,Q4,128
+North Ayrshire,Sexual assault,2022/23,Q4,98
+North Ayrshire,Sexual assault,2023/24,Q4,124
+North Ayrshire,Sexual assault,2024/25,Q4,134
+North Ayrshire,Sexual assault,2025/26,Q4,154
+South Ayrshire,Sexual assault,,Q4,21
+South Ayrshire,Sexual assault,2020/21,Q4,70
+South Ayrshire,Sexual assault,2021/22,Q4,82
+South Ayrshire,Sexual assault,2022/23,Q4,81
+South Ayrshire,Sexual assault,2023/24,Q4,84
+South Ayrshire,Sexual assault,2024/25,Q4,79
+South Ayrshire,Sexual assault,2025/26,Q4,88
+North Lanarkshire,Sexual assault,,Q4,43
+North Lanarkshire,Sexual assault,2020/21,Q4,236
+North Lanarkshire,Sexual assault,2021/22,Q4,290
+North Lanarkshire,Sexual assault,2022/23,Q4,315
+North Lanarkshire,Sexual assault,2023/24,Q4,303
+North Lanarkshire,Sexual assault,2024/25,Q4,281
+North Lanarkshire,Sexual assault,2025/26,Q4,286
+South Lanarkshire,Sexual assault,,Q4,45
+South Lanarkshire,Sexual assault,2020/21,Q4,192
+South Lanarkshire,Sexual assault,2021/22,Q4,225
+South Lanarkshire,Sexual assault,2022/23,Q4,224
+South Lanarkshire,Sexual assault,2023/24,Q4,222
+South Lanarkshire,Sexual assault,2024/25,Q4,212
+South Lanarkshire,Sexual assault,2025/26,Q4,273
+Argyll & Bute,Sexual assault,,Q4,22
+Argyll & Bute,Sexual assault,2020/21,Q4,81
+Argyll & Bute,Sexual assault,2021/22,Q4,97
+Argyll & Bute,Sexual assault,2022/23,Q4,89
+Argyll & Bute,Sexual assault,2023/24,Q4,75
+Argyll & Bute,Sexual assault,2024/25,Q4,80
+Argyll & Bute,Sexual assault,2025/26,Q4,113
+West Dunbartonshire,Sexual assault,,Q4,33
+West Dunbartonshire,Sexual assault,2020/21,Q4,64
+West Dunbartonshire,Sexual assault,2021/22,Q4,96
+West Dunbartonshire,Sexual assault,2022/23,Q4,77
+West Dunbartonshire,Sexual assault,2023/24,Q4,77
+West Dunbartonshire,Sexual assault,2024/25,Q4,93
+West Dunbartonshire,Sexual assault,2025/26,Q4,80
+Inverclyde,Sexual assault,,Q4,11
+Inverclyde,Sexual assault,2020/21,Q4,34
+Inverclyde,Sexual assault,2021/22,Q4,53
+Inverclyde,Sexual assault,2022/23,Q4,53
+Inverclyde,Sexual assault,2023/24,Q4,55
+Inverclyde,Sexual assault,2024/25,Q4,32
+Inverclyde,Sexual assault,2025/26,Q4,39
+Renfrewshire,Sexual assault,,Q4,37
+Renfrewshire,Sexual assault,2020/21,Q4,144
+Renfrewshire,Sexual assault,2021/22,Q4,165
+Renfrewshire,Sexual assault,2022/23,Q4,174
+Renfrewshire,Sexual assault,2023/24,Q4,149
+Renfrewshire,Sexual assault,2024/25,Q4,152
+Renfrewshire,Sexual assault,2025/26,Q4,142
+Dumfries & Galloway,Sexual assault,,Q4,59
+Dumfries & Galloway,Sexual assault,2020/21,Q4,165
+Dumfries & Galloway,Sexual assault,2021/22,Q4,171
+Dumfries & Galloway,Sexual assault,2022/23,Q4,194
+Dumfries & Galloway,Sexual assault,2023/24,Q4,169
+Dumfries & Galloway,Sexual assault,2024/25,Q4,180
+Dumfries & Galloway,Sexual assault,2025/26,Q4,200

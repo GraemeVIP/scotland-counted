@@ -1,0 +1,651 @@
+{
+ "glasgow_quarterly": [
+  {
+   "crime": "Rape",
+   "fy": "2020/21",
+   "quarter": "Oct-Dec",
+   "year": 2020,
+   "order": 8082,
+   "count": 72
+  },
+  {
+   "crime": "Rape",
+   "fy": "2020/21",
+   "quarter": "Jan-Mar",
+   "year": 2021,
+   "order": 8083,
+   "count": 86
+  },
+  {
+   "crime": "Rape",
+   "fy": "2021/22",
+   "quarter": "Apr-Jun",
+   "year": 2021,
+   "order": 8084,
+   "count": 80
+  },
+  {
+   "crime": "Rape",
+   "fy": "2021/22",
+   "quarter": "Jul-Sep",
+   "year": 2021,
+   "order": 8085,
+   "count": 87
+  },
+  {
+   "crime": "Rape",
+   "fy": "2021/22",
+   "quarter": "Oct-Dec",
+   "year": 2021,
+   "order": 8086,
+   "count": 78
+  },
+  {
+   "crime": "Rape",
+   "fy": "2021/22",
+   "quarter": "Jan-Mar",
+   "year": 2022,
+   "order": 8087,
+   "count": 88
+  },
+  {
+   "crime": "Rape",
+   "fy": "2022/23",
+   "quarter": "Apr-Jun",
+   "year": 2022,
+   "order": 8088,
+   "count": 72
+  },
+  {
+   "crime": "Rape",
+   "fy": "2022/23",
+   "quarter": "Jul-Sep",
+   "year": 2022,
+   "order": 8089,
+   "count": 72
+  },
+  {
+   "crime": "Rape",
+   "fy": "2022/23",
+   "quarter": "Oct-Dec",
+   "year": 2022,
+   "order": 8090,
+   "count": 78
+  },
+  {
+   "crime": "Rape",
+   "fy": "2022/23",
+   "quarter": "Jan-Mar",
+   "year": 2023,
+   "order": 8091,
+   "count": 70
+  },
+  {
+   "crime": "Rape",
+   "fy": "2023/24",
+   "quarter": "Apr-Jun",
+   "year": 2023,
+   "order": 8092,
+   "count": 80
+  },
+  {
+   "crime": "Rape",
+   "fy": "2023/24",
+   "quarter": "Jul-Sep",
+   "year": 2023,
+   "order": 8093,
+   "count": 79
+  },
+  {
+   "crime": "Rape",
+   "fy": "2023/24",
+   "quarter": "Oct-Dec",
+   "year": 2023,
+   "order": 8094,
+   "count": 94
+  },
+  {
+   "crime": "Rape",
+   "fy": "2023/24",
+   "quarter": "Jan-Mar",
+   "year": 2024,
+   "order": 8095,
+   "count": 96
+  },
+  {
+   "crime": "Rape",
+   "fy": "2024/25",
+   "quarter": "Apr-Jun",
+   "year": 2024,
+   "order": 8096,
+   "count": 118
+  },
+  {
+   "crime": "Rape",
+   "fy": "2024/25",
+   "quarter": "Jul-Sep",
+   "year": 2024,
+   "order": 8097,
+   "count": 118
+  },
+  {
+   "crime": "Rape",
+   "fy": "2024/25",
+   "quarter": "Oct-Dec",
+   "year": 2024,
+   "order": 8098,
+   "count": 121
+  },
+  {
+   "crime": "Rape",
+   "fy": "2024/25",
+   "quarter": "Jan-Mar",
+   "year": 2025,
+   "order": 8099,
+   "count": 111
+  },
+  {
+   "crime": "Rape",
+   "fy": "2025/26",
+   "quarter": "Apr-Jun",
+   "year": 2025,
+   "order": 8100,
+   "count": 117
+  },
+  {
+   "crime": "Rape",
+   "fy": "2025/26",
+   "quarter": "Jul-Sep",
+   "year": 2025,
+   "order": 8101,
+   "count": 136
+  },
+  {
+   "crime": "Rape",
+   "fy": "2025/26",
+   "quarter": "Oct-Dec",
+   "year": 2025,
+   "order": 8102,
+   "count": 90
+  },
+  {
+   "crime": "Rape",
+   "fy": "2025/26",
+   "quarter": "Jan-Mar",
+   "year": 2026,
+   "order": 8103,
+   "count": 130
+  },
+  {
+   "crime": "Rape",
+   "fy": "2026/27",
+   "quarter": "Apr-Jun",
+   "year": 2026,
+   "order": 8104,
+   "count": 108
+  },
+  {
+   "crime": "Sexual assault",
+   "fy": "2020/21",
+   "quarter": "Oct-Dec",
+   "year": 2020,
+   "order": 8082,
+   "count": 115
+  },
+  {
+   "crime": "Sexual assault",
+   "fy": "2020/21",
+   "quarter": "Jan-Mar",
+   "year": 2021,
+   "order": 8083,
+   "count": 132
+  },
+  {
+   "crime": "Sexual assault",
+   "fy": "2021/22",
+   "quarter": "Apr-Jun",
+   "year": 2021,
+   "order": 8084,
+   "count": 138
+  },
+  {
+   "crime": "Sexual assault",
+   "fy": "2021/22",
+   "quarter": "Jul-Sep",
+   "year": 2021,
+   "order": 8085,
+   "count": 220
+  },
+  {
+   "crime": "Sexual assault",
+   "fy": "2021/22",
+   "quarter": "Oct-Dec",
+   "year": 2021,
+   "order": 8086,
+   "count": 198
+  },
+  {
+   "crime": "Sexual assault",
+   "fy": "2021/22",
+   "quarter": "Jan-Mar",
+   "year": 2022,
+   "order": 8087,
+   "count": 203
+  },
+  {
+   "crime": "Sexual assault",
+   "fy": "2022/23",
+   "quarter": "Apr-Jun",
+   "year": 2022,
+   "order": 8088,
+   "count": 191
+  },
+  {
+   "crime": "Sexual assault",
+   "fy": "2022/23",
+   "quarter": "Jul-Sep",
+   "year": 2022,
+   "order": 8089,
+   "count": 176
+  },
+  {
+   "crime": "Sexual assault",
+   "fy": "2022/23",
+   "quarter": "Oct-Dec",
+   "year": 2022,
+   "order": 8090,
+   "count": 174
+  },
+  {
+   "crime": "Sexual assault",
+   "fy": "2022/23",
+   "quarter": "Jan-Mar",
+   "year": 2023,
+   "order": 8091,
+   "count": 194
+  },
+  {
+   "crime": "Sexual assault",
+   "fy": "2023/24",
+   "quarter": "Apr-Jun",
+   "year": 2023,
+   "order": 8092,
+   "count": 185
+  },
+  {
+   "crime": "Sexual assault",
+   "fy": "2023/24",
+   "quarter": "Jul-Sep",
+   "year": 2023,
+   "order": 8093,
+   "count": 158
+  },
+  {
+   "crime": "Sexual assault",
+   "fy": "2023/24",
+   "quarter": "Oct-Dec",
+   "year": 2023,
+   "order": 8094,
+   "count": 152
+  },
+  {
+   "crime": "Sexual assault",
+   "fy": "2023/24",
+   "quarter": "Jan-Mar",
+   "year": 2024,
+   "order": 8095,
+   "count": 154
+  },
+  {
+   "crime": "Sexual assault",
+   "fy": "2024/25",
+   "quarter": "Apr-Jun",
+   "year": 2024,
+   "order": 8096,
+   "count": 227
+  },
+  {
+   "crime": "Sexual assault",
+   "fy": "2024/25",
+   "quarter": "Jul-Sep",
+   "year": 2024,
+   "order": 8097,
+   "count": 197
+  },
+  {
+   "crime": "Sexual assault",
+   "fy": "2024/25",
+   "quarter": "Oct-Dec",
+   "year": 2024,
+   "order": 8098,
+   "count": 210
+  },
+  {
+   "crime": "Sexual assault",
+   "fy": "2024/25",
+   "quarter": "Jan-Mar",
+   "year": 2025,
+   "order": 8099,
+   "count": 157
+  },
+  {
+   "crime": "Sexual assault",
+   "fy": "2025/26",
+   "quarter": "Apr-Jun",
+   "year": 2025,
+   "order": 8100,
+   "count": 179
+  },
+  {
+   "crime": "Sexual assault",
+   "fy": "2025/26",
+   "quarter": "Jul-Sep",
+   "year": 2025,
+   "order": 8101,
+   "count": 198
+  },
+  {
+   "crime": "Sexual assault",
+   "fy": "2025/26",
+   "quarter": "Oct-Dec",
+   "year": 2025,
+   "order": 8102,
+   "count": 189
+  },
+  {
+   "crime": "Sexual assault",
+   "fy": "2025/26",
+   "quarter": "Jan-Mar",
+   "year": 2026,
+   "order": 8103,
+   "count": 183
+  },
+  {
+   "crime": "Sexual assault",
+   "fy": "2026/27",
+   "quarter": "Apr-Jun",
+   "year": 2026,
+   "order": 8104,
+   "count": 192
+  }
+ ],
+ "glasgow_vs_rest_full_year": [
+  {
+   "Sub_Category": "Rape",
+   "financial_year": "2020/21",
+   "Glasgow City": 322,
+   "Rest of Scotland": 1898
+  },
+  {
+   "Sub_Category": "Rape",
+   "financial_year": "2021/22",
+   "Glasgow City": 333,
+   "Rest of Scotland": 2073
+  },
+  {
+   "Sub_Category": "Rape",
+   "financial_year": "2022/23",
+   "Glasgow City": 292,
+   "Rest of Scotland": 2118
+  },
+  {
+   "Sub_Category": "Rape",
+   "financial_year": "2023/24",
+   "Glasgow City": 349,
+   "Rest of Scotland": 2012
+  },
+  {
+   "Sub_Category": "Rape",
+   "financial_year": "2024/25",
+   "Glasgow City": 468,
+   "Rest of Scotland": 2297
+  },
+  {
+   "Sub_Category": "Rape",
+   "financial_year": "2025/26",
+   "Glasgow City": 473,
+   "Rest of Scotland": 2590
+  },
+  {
+   "Sub_Category": "Sexual assault",
+   "financial_year": "2020/21",
+   "Glasgow City": 573,
+   "Rest of Scotland": 3701
+  },
+  {
+   "Sub_Category": "Sexual assault",
+   "financial_year": "2021/22",
+   "Glasgow City": 759,
+   "Rest of Scotland": 4711
+  },
+  {
+   "Sub_Category": "Sexual assault",
+   "financial_year": "2022/23",
+   "Glasgow City": 735,
+   "Rest of Scotland": 4550
+  },
+  {
+   "Sub_Category": "Sexual assault",
+   "financial_year": "2023/24",
+   "Glasgow City": 649,
+   "Rest of Scotland": 4343
+  },
+  {
+   "Sub_Category": "Sexual assault",
+   "financial_year": "2024/25",
+   "Glasgow City": 791,
+   "Rest of Scotland": 4397
+  },
+  {
+   "Sub_Category": "Sexual assault",
+   "financial_year": "2025/26",
+   "Glasgow City": 749,
+   "Rest of Scotland": 4482
+  }
+ ],
+ "census_2022": {
+  "Glasgow City": {
+   "population": 620756,
+   "non_uk_born": 118819,
+   "non_uk_born_pct": 19.1,
+   "non_uk_passport": 81786,
+   "non_uk_passport_pct_of_passport_holders": 15.5
+  },
+  "Greater Glasgow division (Glasgow City + East Dunbartonshire + East Renfrewshire)": {
+   "population": 826510,
+   "non_uk_born": 133363,
+   "non_uk_born_pct": 16.1,
+   "non_uk_passport": 88620,
+   "non_uk_passport_pct_of_passport_holders": 12.5
+  },
+  "Scotland": {
+   "population": 5439843,
+   "non_uk_born": 554875,
+   "non_uk_born_pct": 10.2,
+   "non_uk_passport": 383200,
+   "non_uk_passport_pct_of_passport_holders": 8.6
+  }
+ },
+ "foi_accused": {
+  "26-0040 Greater Glasgow rape accused 2025": {
+   "accused_entries": 117,
+   "unknown": 62,
+   "known": 55,
+   "british": 43,
+   "non_british": 12,
+   "non_british_pct_of_known": 21.8,
+   "if_all_unknown_were_foreign_pct": 63.2,
+   "if_all_unknown_were_british_pct": 10.3
+  },
+  "25-0272 Greater Glasgow rape accused 2024 ethnicity": {
+   "accused_entries": 153,
+   "not_recorded": 28,
+   "known": 125,
+   "white_scottish_or_british_pct": 73.6,
+   "non_white_pct": 21.6
+  },
+  "25-1795 Scotland all sexual crime accused Jan2024-May2025 nationality": {
+   "accused_entries": 10011,
+   "not_recorded": 5440,
+   "known": 4571,
+   "british": 3722,
+   "non_british": 849,
+   "non_british_pct_of_known": 18.6
+  }
+ },
+ "arithmetic": {
+  "extra_recorded_rape_and_sexual_assault_2024_25": 266,
+  "glasgow_men_16_plus": 270541,
+  "baseline_crimes_per_1000_men_2023_24": 3.8,
+  "1,048 refugee households from outwith Glasgow in 2024/25, assume ~1,000 men": {
+   "men": 1000,
+   "needed_crimes_per_1000_men": 266.0,
+   "multiple_of_city_rate": 70.0
+  },
+  "all Home Office-supported asylum seekers in Glasgow (~4,100), assume ~2,500 men": {
+   "men": 2500,
+   "needed_crimes_per_1000_men": 106.4,
+   "multiple_of_city_rate": 28.0
+  },
+  "supported asylum seekers plus 2024/25 refugee arrivals, assume ~3,500 men": {
+   "men": 3500,
+   "needed_crimes_per_1000_men": 76.0,
+   "multiple_of_city_rate": 20.0
+  }
+ },
+ "england_quartiles": [
+  {
+   "asy_q": "Fewest",
+   "councils": 83.0,
+   "asylum_per_1000_mean": 0.0,
+   "offences_2023_24": 35595.0,
+   "offences_2024_25": 39291.0,
+   "pct_change": 10.38
+  },
+  {
+   "asy_q": "Q2",
+   "councils": 83.0,
+   "asylum_per_1000_mean": 0.15,
+   "offences_2023_24": 44303.0,
+   "offences_2024_25": 47708.0,
+   "pct_change": 7.69
+  },
+  {
+   "asy_q": "Q3",
+   "councils": 82.0,
+   "asylum_per_1000_mean": 1.26,
+   "offences_2023_24": 46959.0,
+   "offences_2024_25": 51219.0,
+   "pct_change": 9.07
+  },
+  {
+   "asy_q": "Most",
+   "councils": 83.0,
+   "asylum_per_1000_mean": 3.36,
+   "offences_2023_24": 72226.0,
+   "offences_2024_25": 79730.0,
+   "pct_change": 10.39
+  }
+ ],
+ "england_cross_section": {
+  "n": 331,
+  "coef_per_asylum_seeker_per_1000": 0.0114,
+  "p": 0.087,
+  "corr_level": 0.112,
+  "corr_change": 0.029
+ },
+ "england_panel": {
+  "rows": 4262,
+  "councils": 276,
+  "pct_per_asylum_seeker_per_1000": 0.53,
+  "ci95": [
+   -0.96,
+   2.04
+  ],
+  "p": 0.491
+ },
+ "scotland_panel": {
+  "all_32": {
+   "pct_per_asylum_seeker_per_1000": -3.8,
+   "ci95": [
+    -7.8,
+    0.4
+   ],
+   "p": 0.076
+  },
+  "excluding_glasgow": {
+   "pct_per_asylum_seeker_per_1000": -1.0,
+   "ci95": [
+    -7.0,
+    5.3
+   ],
+   "p": 0.743
+  }
+ },
+ "glasgow_wards_top": [
+  {
+   "ward": "Anderston/City/Yorkhill",
+   "fy_2022_23": 430,
+   "fy_2023_24": 354,
+   "fy_2024_25": 458,
+   "fy_2025_26": 349,
+   "change_23_24_to_24_25": 104
+  },
+  {
+   "ward": "Southside Central",
+   "fy_2022_23": 81,
+   "fy_2023_24": 99,
+   "fy_2024_25": 141,
+   "fy_2025_26": 109,
+   "change_23_24_to_24_25": 42
+  },
+  {
+   "ward": "Calton",
+   "fy_2022_23": 142,
+   "fy_2023_24": 127,
+   "fy_2024_25": 166,
+   "fy_2025_26": 112,
+   "change_23_24_to_24_25": 39
+  },
+  {
+   "ward": "Drumchapel/Anniesland",
+   "fy_2022_23": 74,
+   "fy_2023_24": 66,
+   "fy_2024_25": 96,
+   "fy_2025_26": 65,
+   "change_23_24_to_24_25": 30
+  },
+  {
+   "ward": "Maryhill",
+   "fy_2022_23": 60,
+   "fy_2023_24": 50,
+   "fy_2024_25": 73,
+   "fy_2025_26": 45,
+   "change_23_24_to_24_25": 23
+  },
+  {
+   "ward": "East Centre",
+   "fy_2022_23": 63,
+   "fy_2023_24": 75,
+   "fy_2024_25": 97,
+   "fy_2025_26": 85,
+   "change_23_24_to_24_25": 22
+  },
+  {
+   "ward": "Linn",
+   "fy_2022_23": 70,
+   "fy_2023_24": 57,
+   "fy_2024_25": 73,
+   "fy_2025_26": 49,
+   "change_23_24_to_24_25": 16
+  },
+  {
+   "ward": "Dennistoun",
+   "fy_2022_23": 53,
+   "fy_2023_24": 63,
+   "fy_2024_25": 79,
+   "fy_2025_26": 53,
+   "change_23_24_to_24_25": 16
+  }
+ ]
+}
