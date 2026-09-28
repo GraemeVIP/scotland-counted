@@ -177,6 +177,7 @@ test("only Branchform is filed under the investigations category", () => {
     "operation-branchform-snp-money-timeline",
     "crisis-grant-acceptance-rates-scotland-councils",
     "glasgow-sex-crime-rise-migrants",
+    "shoplifting-scotland-record-high",
   ];
   const source = readFileSync(fileURLToPath(new URL("./posts.ts", import.meta.url)), "utf8");
   /*
