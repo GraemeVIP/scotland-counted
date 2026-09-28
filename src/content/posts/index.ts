@@ -19,6 +19,7 @@ import OperationBranchformSnpMoneyTimeline from "./operation-branchform-snp-mone
 import DrugDeathsScotlandDeprivation from "./drug-deaths-scotland-deprivation";
 import CrisisGrantAcceptanceRatesScotlandCouncils from "./crisis-grant-acceptance-rates-scotland-councils";
 import GlasgowSexCrimeRiseMigrants from "./glasgow-sex-crime-rise-migrants";
+import ShopliftingScotlandRecordHigh from "./shoplifting-scotland-record-high";
 
 /**
  * Slug to post body. Statically imported so every post is prerendered and no
@@ -26,6 +27,7 @@ import GlasgowSexCrimeRiseMigrants from "./glasgow-sex-crime-rise-migrants";
  * to src/lib/data/posts.ts.
  */
 export const postBodies: Record<string, ComponentType> = {
+  "shoplifting-scotland-record-high": ShopliftingScotlandRecordHigh,
   "glasgow-sex-crime-rise-migrants": GlasgowSexCrimeRiseMigrants,
   "operation-branchform-snp-money-timeline": OperationBranchformSnpMoneyTimeline,
   "drug-deaths-scotland-deprivation": DrugDeathsScotlandDeprivation,
