@@ -136,13 +136,38 @@ export default function LineChart({
   const pf = provisionalFrom !== undefined && provisionalFrom < n - 1 ? provisionalFrom : -1;
   const labelAt = pf >= 0 ? pf : n - 1;
 
-  const step = narrow ? Math.ceil(n / 4) : Math.ceil(n / 9);
-  const xTickIdx: number[] = [];
-  for (let i = 0; i < n; i++) {
-    if (i % step !== 0 && i !== n - 1) continue;
-    if (i !== n - 1 && n - 1 - i < step * 0.6) continue;
-    xTickIdx.push(i);
+  /** Horizontal space a tick label takes, estimated from its length at 15px. */
+  function tickSpan(i: number): [number, number] {
+    const lw = String(x[i]).length * 15 * 0.56;
+    if (i === 0) return [X(i), X(i) + lw];
+    if (i === n - 1) return [X(i) - lw, X(i)];
+    return [X(i) - lw / 2, X(i) + lw / 2];
   }
+  /*
+   * Index spacing alone let "2020-21" and "2025-26" collide on a phone. The
+   * final label always shows, so it pushes out a crowded neighbour; any other
+   * clash means the step is too tight, so widen it rather than leave a gap.
+   */
+  function pickTicks(step: number) {
+    const picked: number[] = [];
+    let skipped = false;
+    for (let i = 0; i < n; i++) {
+      if (i % step !== 0 && i !== n - 1) continue;
+      if (i !== n - 1 && n - 1 - i < step * 0.6) continue;
+      const clashes = () => picked.length > 0 && tickSpan(i)[0] < tickSpan(picked.at(-1)!)[1] + 12;
+      while (i === n - 1 && picked.length > 1 && clashes()) picked.pop();
+      if (clashes()) {
+        skipped = true;
+        continue;
+      }
+      picked.push(i);
+    }
+    return { picked, skipped };
+  }
+  let step = narrow ? Math.ceil(n / 4) : Math.ceil(n / 9);
+  let ticks = pickTicks(step);
+  while (ticks.skipped && step < n) ticks = pickTicks(++step);
+  const xTickIdx = ticks.picked;
 
   /** Length of a path segment, so the draw-in animation has a dash to run. */
   function pathLength(s: LineSeries, from: number, to: number) {
