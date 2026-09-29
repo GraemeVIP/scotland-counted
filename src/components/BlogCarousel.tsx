@@ -236,7 +236,7 @@ export default function BlogCarousel({ posts }: { posts: Post[] }) {
                   <Link href={`/blog/${post.slug}`} className="block no-underline">
                     <div className="relative aspect-[1.9/1] overflow-hidden bg-[var(--deep)]">
                       <Image
-                        src={post.image.src}
+                        src={post.image.cardSrc ?? post.image.src}
                         alt={post.image.alt}
                         fill
                         loading={index === 0 ? "eager" : "lazy"}

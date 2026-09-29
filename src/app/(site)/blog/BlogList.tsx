@@ -79,7 +79,7 @@ export default function BlogList({
             >
               <div className="relative min-h-[300px] sm:min-h-[410px] lg:min-h-[500px] overflow-hidden">
                 <Image
-                  src={featured.image.src}
+                  src={featured.image.cardSrc ?? featured.image.src}
                   alt={featured.image.alt}
                   fill
                   priority
