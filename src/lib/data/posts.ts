@@ -85,6 +85,12 @@ export type Post = {
     objectPosition?: string;
     /** Replaces the default "AI-generated illustration." credit, e.g. for a data graphic. */
     creditLabel?: string;
+    /**
+     * Optional version for listing cards, which crop to anything from square
+     * to about 2:1. A wide data graphic loses its title and labels in that
+     * crop, so it can supply one composed to survive it. Falls back to src.
+     */
+    cardSrc?: string;
   };
   /** Optional direct Open Graph and X image. Falls back to the generated post card. */
   shareImage?: {
@@ -124,6 +130,7 @@ export const posts: Post[] = [
     readingMinutes: 13,
     image: {
       src: "/images/editorial/shoplifting-scotland-record-high.png",
+      cardSrc: "/images/editorial/shoplifting-scotland-record-high-card.png",
       alt: "Data graphic showing recorded shoplifting per 1,000 people in Scotland rising above England and Wales in 2025-26, at 9.6 against 8.2",
       caption:
         "Scotland had less shoplifting per person than England and Wales before Covid. In 2025-26 it had 17% more.",

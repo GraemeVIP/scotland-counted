@@ -32,7 +32,7 @@ export default function ArticleCard({
       <Link href={`/blog/${post.slug}`} className="block no-underline">
         <div className="relative aspect-[3/2] overflow-hidden bg-[var(--paper-3)]">
           <Image
-            src={post.image.src}
+            src={post.image.cardSrc ?? post.image.src}
             alt={post.image.alt}
             fill
             sizes="(min-width: 1024px) 430px, (min-width: 640px) 50vw, calc(100vw - 40px)"
