@@ -361,6 +361,9 @@ export default function LineChart({
         <div
           className="glossbox pointer-events-none"
           style={{
+            // .glossbox is position: fixed for the glossary. Here the box is
+            // placed in chart coordinates, so it must sit inside the chart.
+            position: "absolute",
             top: `${(m.t / h) * 100}%`,
             left: flip ? undefined : `calc(${pct}% + 14px)`,
             right: flip ? `calc(${100 - pct}% + 14px)` : undefined,

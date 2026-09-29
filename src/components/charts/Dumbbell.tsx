@@ -170,6 +170,9 @@ export default function Dumbbell({
         <div
           className="glossbox pointer-events-none"
           style={{
+            // .glossbox is position: fixed for the glossary. Here the box is
+            // placed in chart coordinates, so it must sit inside the chart.
+            position: "absolute",
             top: Math.max(2, m.t + hover * rowH - 46),
             left: Math.min(w - 190, X(Math.max(rows[hover].from, rows[hover].to)) + 16),
             minWidth: 168,
