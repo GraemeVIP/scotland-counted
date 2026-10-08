@@ -115,6 +115,25 @@ export default function RepresentativesPage() {
           <RepresentativeDirectorySearch entries={directoryEntries} />
           <RepresentativeLookup />
 
+          <section aria-labelledby="feedback-heading" className="my-8 rounded-[var(--r-m)] border border-[var(--rule)] border-l-4 border-l-[var(--brand)] bg-[var(--surface-2)] p-6 sm:p-8">
+            <p className="ui text-[15px] font-[750] text-[var(--brand)] mb-2">A note from Graeme</p>
+            <h2 id="feedback-heading" className="h3">Did this help? I’d love to hear.</h2>
+            <p className="mt-3 max-w-[70ch] text-[17px] leading-[1.65] text-[var(--ink-2)]">
+              I’m Graeme, the person behind Scotland Counted. I build this as a free,
+              independent resource. Tell me what worked, what was confusing, or what
+              would make it more useful. Even a quick thank-you is lovely to receive.
+            </p>
+            <p className="mt-3 max-w-[70ch] text-[17px] leading-[1.65] text-[var(--ink-2)]">
+              Using it with a class? I’d especially like to hear how you used it and
+              what would help your learners.
+            </p>
+            <div className="mt-5 flex flex-wrap items-center gap-4">
+              <Link href="/contact?reason=feedback" className="btn bg-[var(--ink)] text-[var(--paper)] hover:opacity-90">Send Graeme a message</Link>
+              <Link href="/contact?reason=teaching" className="ui text-[16px] font-[650] underline underline-offset-4">Used this in teaching?</Link>
+            </div>
+            <p className="mt-3 text-[15px] leading-[1.5] text-[var(--ink-2)]">A sentence or two is plenty. Leave an email only if you’d like a reply.</p>
+          </section>
+
           <InShort expert={false}>
             <p>
               <strong>Most people do not know their political boundaries.</strong> That is normal.

@@ -366,6 +366,9 @@ export function MobileMenu({
         </div>
       </div>
       <div className="space-y-5 px-5 py-5 pb-[calc(1.25rem+env(safe-area-inset-bottom))]">
+        <Link href="/contact" onClick={onNavigate} className="btn btn-ghost w-full justify-between">
+          Feedback for Graeme <span aria-hidden="true">→</span>
+        </Link>
         <FindYourPlace onNavigate={onNavigate} />
 
         <div className="space-y-4">

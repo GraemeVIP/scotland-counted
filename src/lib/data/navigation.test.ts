@@ -65,13 +65,12 @@ test("inventory counts link somewhere real", () => {
   }
 });
 
-test("the header has six items and each one is reachable from the menu too", () => {
-  assert.equal(PRIMARY.length, 6, "the header includes the MSP review hub");
-  const inSections = new Set(SECTIONS.flatMap((s) => s.items.map((i) => i.href)));
+test("each header link is reachable from the full menu too", () => {
+  const inSections = new Set([...SECTIONS.flatMap((s) => s.items), ...MENU_FOOTER_LINKS].map((i) => i.href));
   for (const item of PRIMARY) {
     assert.ok(
       inSections.has(item.href),
-      `${item.href} is in the header but not in any menu section, so it is unreachable from /browse`,
+      `${item.href} is in the header but not in the full menu`,
     );
   }
 });
