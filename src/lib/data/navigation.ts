@@ -24,7 +24,7 @@
 export type NavItem = { href: string; label: string; blurb?: string; featured?: boolean };
 export type NavTone = "local" | "tools" | "councils" | "change" | "topics" | "proof";
 
-/** The six items in the header. Deliberately short, deliberately task-shaped. */
+/** The header links. Deliberately short, deliberately task-shaped. */
 export const PRIMARY: NavItem[] = [
   { href: "/areas", label: "Your area" },
   { href: "/money", label: "Your money" },
@@ -43,6 +43,7 @@ export const PRIMARY: NavItem[] = [
    * section ever being built.
    */
   { href: "/blog", label: "Explainers" },
+  { href: "/contact", label: "Feedback" },
 ];
 
 /** Everything, grouped the way a person would ask for it. Feeds the browse
@@ -155,7 +156,7 @@ export const INVENTORY = [
 /** About and contact, which sit in the menu footer rather than a column. */
 export const MENU_FOOTER_LINKS: NavItem[] = [
   { href: "/about", label: "About the project" },
-  { href: "/contact", label: "Contact" },
+  { href: "/contact", label: "Feedback and contact" },
   { href: "/accessibility", label: "Accessibility" },
   { href: "/privacy", label: "Privacy" },
 ];

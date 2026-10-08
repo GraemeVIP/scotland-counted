@@ -27,7 +27,7 @@ function SearchButton() {
       type="button"
       onClick={() => window.dispatchEvent(new CustomEvent("open-command"))}
       aria-label="Find your area, or search the site"
-      className="group min-h-11 w-11 shrink-0 flex items-center justify-center gap-2.5 rounded-[var(--r-s)] bg-[var(--surface)] border border-[var(--rule-strong)] hover:border-[var(--brand)] transition-colors px-0 py-2.5 2xl:w-auto 2xl:min-w-[210px] 2xl:justify-start 2xl:px-3.5"
+      className="group min-h-11 w-11 shrink-0 flex items-center justify-center gap-2.5 rounded-[var(--r-s)] bg-[var(--surface)] border border-[var(--rule-strong)] hover:border-[var(--brand)] transition-colors px-0 py-2.5 2xl:w-auto 2xl:min-w-[180px] 2xl:justify-start 2xl:px-3.5"
       style={{ boxShadow: "var(--shadow-1)" }}
     >
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" className="text-[var(--brand)]" aria-hidden="true">
@@ -143,7 +143,7 @@ export function Header() {
           : "bg-[var(--surface)] border-b border-[var(--rule)] shadow-[var(--shadow-1)] xl:bg-[var(--paper)] xl:border-transparent xl:shadow-none"
       }`}
     >
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-8 xl:px-14 flex items-center gap-2 sm:gap-6 2xl:gap-8 h-[var(--header-h)]">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-8 flex items-center gap-2 sm:gap-3 h-[var(--header-h)]">
         <Link
           href="/"
           className="shrink-0"
@@ -152,7 +152,7 @@ export function Header() {
           <Wordmark className="text-[17px] min-[390px]:text-[19px]" />
         </Link>
 
-        <nav aria-label="Main" className="hidden xl:flex items-center gap-3 xl:gap-4 2xl:gap-5 ml-2">
+        <nav aria-label="Main" className="hidden xl:flex items-center gap-2 ml-2">
           {NAV.map((n) => {
             const active = pathname === n.href || pathname.startsWith(n.href + "/");
             return (
@@ -254,7 +254,6 @@ export function Footer() {
     { href: "/methods", label: "Sources" },
     { href: "/faq", label: "Questions" },
     { href: "/about", label: "About" },
-    { href: "/contact", label: "Contact" },
     { href: "/privacy", label: "Privacy" },
   ];
 

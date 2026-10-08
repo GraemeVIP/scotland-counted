@@ -11,17 +11,25 @@ import { site } from "@/lib/site";
  * site owner's inbox; nothing is stored on the site.
  */
 
-/*
- * Ordered by who is most likely to be writing, which is not the same as who
- * used to be catered for. Every reason here was once about the site, an
- * error, a press deadline, a data cut. Somebody who had simply read the thing
- * and had a question found nothing that fitted and had to pick "Something
- * else", which reads like being told they are an edge case.
- *
- * So the ordinary human reasons come first now. "question" is deliberately the
- * default when no reason is passed in the URL.
- */
 const REASONS = [
+  {
+    id: "feedback",
+    label: "Share feedback",
+    subject: "Reader feedback",
+    hint: "What worked, what was confusing, or what would make this more useful? A sentence or two is plenty.",
+  },
+  {
+    id: "teaching",
+    label: "Used this in teaching",
+    subject: "Used in teaching",
+    hint: "Which page or tool did you use, and how did it help your class? Tell me what would help your learners. No pupil names or personal details needed.",
+  },
+  {
+    id: "thanks",
+    label: "Just say thanks",
+    subject: "A thank-you",
+    hint: "Even a quick thank-you is lovely to receive. If you like, tell me which bit helped.",
+  },
   {
     id: "question",
     label: "I have a question about something on the site",
@@ -76,11 +84,9 @@ type ReasonId = (typeof REASONS)[number]["id"];
 
 export default function ContactForm() {
   const params = useSearchParams();
-  // Defaults to a plain question rather than "other", arriving on a form
-  // already set to the catch-all tells a reader their reason is unusual.
-  const initial = (params.get("reason") as ReasonId) || "question";
+  const initial = (params.get("reason") as ReasonId) || "feedback";
   const [reason, setReason] = useState<ReasonId>(
-    REASONS.some((r) => r.id === initial) ? initial : "question"
+    REASONS.some((r) => r.id === initial) ? initial : "feedback"
   );
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -92,7 +98,7 @@ export default function ContactForm() {
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
-    if (state === "sending") return;
+    if (state === "sending" || !message.trim()) return;
     setState("sending");
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
@@ -102,14 +108,14 @@ export default function ContactForm() {
           access_key: site.web3formsKey,
           subject: `${active.subject}, ${site.name}`,
           from_name: name.trim() || `${site.name} contact form`,
-          email: email.trim(),
+          ...(email.trim() ? { email: email.trim() } : {}),
           reason: active.label,
           message: message.trim(),
           botcheck: bot,
         }),
       });
       const data = await res.json();
-      setState(data.success ? "done" : "error");
+      setState(res.ok && data.success ? "done" : "error");
     } catch {
       setState("error");
     }
@@ -122,13 +128,14 @@ export default function ContactForm() {
         style={{ boxShadow: "var(--shadow-2)" }}
         role="status"
       >
-        <p className="h3 mb-3">Sent.</p>
+        <p className="h3 mb-3">Thanks for getting in touch.</p>
         <p className="text-[16px] text-[var(--ink-2)] leading-[1.6] max-w-[46ch]">
           {reason === "error"
-            ? "Thank you, corrections outrank everything else here. If the figure is wrong it will be fixed and logged publicly, and you will get a reply either way."
+            ? "Thank you, corrections outrank everything else here. If the figure is wrong it will be fixed and logged publicly."
             : reason === "press"
               ? "Thanks, deadline enquiries get read first. The press kit at /press has charts and sourced lines in the meantime."
-              : "Thanks for writing. Replies come from a real inbox, usually within a few days."}
+              : "Your message has been sent to me. Thank you for taking the time to write. Graeme."}
+          {email.trim() && " If a reply is needed, I usually get back to you within a few days."}
         </p>
       </div>
     );
@@ -151,6 +158,27 @@ export default function ContactForm() {
         aria-hidden="true"
         className="hidden"
       />
+
+      <fieldset className="mb-6">
+        <legend className="ui text-[16px] font-[700] mb-3">A quick note is welcome</legend>
+        <div className="flex flex-wrap gap-2">
+          {REASONS.slice(0, 3).map((r) => (
+            <button
+              key={r.id}
+              type="button"
+              aria-pressed={reason === r.id}
+              onClick={() => setReason(r.id)}
+              className={`ui min-h-11 rounded-[var(--r-s)] border px-3 py-2 text-[15px] font-[650] transition-colors ${
+                reason === r.id
+                  ? "border-[var(--ink)] bg-[var(--ink)] text-[var(--paper)]"
+                  : "border-[var(--rule-strong)] text-[var(--ink)] hover:border-[var(--brand)]"
+              }`}
+            >
+              {r.label}
+            </button>
+          ))}
+        </div>
+      </fieldset>
 
       <label className="block mb-5">
         <span className="ui block text-[15px] font-[660] mb-2">What is this about?</span>
@@ -184,13 +212,12 @@ export default function ContactForm() {
           />
         </label>
         <label className="block">
-          <span className="ui block text-[15px] font-[660] mb-2">Your email</span>
+          <span className="ui block text-[15px] font-[660] mb-2">Your email (optional)</span>
           <input
             type="email"
-            required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="So a reply can reach you"
+            placeholder="Only if you’d like a reply"
             className="ui w-full bg-[var(--paper)] border border-[var(--rule-strong)] px-3.5 py-3 text-[15px] focus:border-[var(--brand)] outline-none transition-colors"
           />
         </label>
@@ -206,7 +233,13 @@ export default function ContactForm() {
           placeholder={
             reason === "error"
               ? "Page, figure, and what it should be…"
-              : "What can I help with?"
+              : reason === "feedback"
+                ? "I tried… What I liked / would change is…"
+                : reason === "teaching"
+                  ? "We used… It helped us… Next time it would be useful to…"
+                  : reason === "thanks"
+                    ? "Thank you for…"
+                    : "What can I help with?"
           }
           className="w-full bg-[var(--paper)] border border-[var(--rule-strong)] px-3.5 py-3 text-[15.5px] font-sans focus:border-[var(--brand)] outline-none transition-colors resize-y"
         />
@@ -214,16 +247,16 @@ export default function ContactForm() {
 
       <button
         type="submit"
-        disabled={state === "sending"}
-        className="btn btn-primary w-full justify-center disabled:opacity-60"
+        disabled={state === "sending" || !message.trim()}
+        className="btn bg-[var(--ink)] text-[var(--paper)] hover:opacity-90 w-full justify-center disabled:opacity-60"
       >
-        {state === "sending" ? "Sending…" : "Send it"}
+        {state === "sending" ? "Sending…" : "Send Graeme a message"}
       </button>
 
-      <p className="text-[15px] text-[var(--muted)] leading-[1.55] mt-3.5">
+      <p aria-live="polite" className="text-[15px] text-[var(--ink-2)] leading-[1.55] mt-3.5">
         {state === "error"
           ? "That didn't send, try again in a moment."
-          : "Delivered by Web3Forms straight to a real inbox. Your details are used to reply and for nothing else."}
+          : "Straight to my inbox. No account needed. Leave your name and email blank if you prefer. Your email is only used to reply."}
       </p>
     </form>
   );

@@ -6,9 +6,9 @@ import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 export const metadata = meta({
-  title: "Get in touch",
+  title: "Feedback and contact",
   description:
-    "Ask a question about anything on this site, find out who can help with a problem, or report an error. One form, read by a person, never an automated reply.",
+    "Send Graeme feedback, share how you used Scotland Counted in teaching, say thanks, ask a question or report an error. A short message is welcome; email is optional.",
   path: "/contact",
 });
 
@@ -76,8 +76,8 @@ export default function Contact() {
       <Page>
         <PageHeader
           eyebrow="A real person reads these"
-          title="Ask me anything"
-          lede="A question about a figure, a problem you are trying to find the right door for, an error you have spotted, or an idea. You do not need a reason that sounds official."
+          title="Send Graeme a message"
+          lede="I’m Graeme, the person behind Scotland Counted. I build this as a free, independent resource. Tell me what you liked, what you didn’t, or what would make it more useful. Questions and a quick thank-you are welcome too."
         />
 
         <ContentFrame className="grid gap-x-14 gap-y-10 lg:grid-cols-2 items-start pt-2">
@@ -94,9 +94,10 @@ export default function Contact() {
               <p className="ui text-[15px] font-[750] mb-3">What happens when you send it</p>
               <ul className="grid gap-2.5 text-[16px] leading-[1.6] text-[var(--ink-2)]">
                 {[
-                  "It is read by a person, not a queue. No ticket numbers and no automated replies.",
-                  "You will get an answer, usually within a few days. Corrections and press deadlines jump the queue.",
-                  "Your email is used to reply to you and nothing else. It is not added to any list.",
+                  "I read the messages myself. A sentence or two is plenty, and honest criticism is useful too.",
+                  "If you want a reply, leave your email. I usually answer within a few days. Corrections and press deadlines jump the queue.",
+                  "Your name and email are optional. Your email is only used to reply, never added to a mailing list.",
+                  "Used this with a class? I would love to hear how you used it and what would help your learners.",
                   "No question here is too basic. Plenty of people who work in this field cannot explain the difference between an MP and an MSP either.",
                 ].map((line) => (
                   <li key={line} className="flex gap-3">

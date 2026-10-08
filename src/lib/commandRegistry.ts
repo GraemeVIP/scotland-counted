@@ -102,7 +102,7 @@ const CORE: Item[] = [
   { label: "Questions and straight answers", href: "/faq", group: "Main pages", keywords: "faq help search question answer" },
   { label: "About this project", href: "/about", group: "More" },
   { label: "Report or see corrections", href: "/corrections", group: "More" },
-  { label: "Get in touch", href: "/contact", group: "More", keywords: "email press error report message" },
+  { label: "Feedback and contact", href: "/contact", group: "More", keywords: "feedback thanks thank you teaching classroom graeme email press error report message" },
   { label: "Privacy", href: "/privacy", group: "More", keywords: "data cookies tracking gdpr postcode stored" },
 ];
 
