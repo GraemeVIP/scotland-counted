@@ -169,7 +169,7 @@ export default function ContactForm() {
       <fieldset className="mb-6">
         <legend className="ui text-[16px] font-[700] mb-3">A quick note is welcome</legend>
         <div className="flex flex-wrap gap-2">
-          {REASONS.slice(0, 3).map((r) => (
+          {REASONS.filter((r) => r.id === "feedback" || r.id === "teaching" || r.id === "thanks").map((r) => (
             <button
               key={r.id}
               type="button"
