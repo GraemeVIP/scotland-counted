@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { trackEvent } from "@/lib/analytics";
 import { site } from "@/lib/site";
 
 /**
@@ -120,9 +119,7 @@ export default function ContactForm() {
       const data = await res.json();
       const success = res.ok && data.success;
       setState(success ? "done" : "error");
-      trackEvent(success ? "contact_submitted" : "contact_error", { reason });
     } catch {
-      trackEvent("contact_error", { reason });
       setState("error");
     }
   }
@@ -149,7 +146,6 @@ export default function ContactForm() {
 
   return (
     <form
-      data-clarity-mask="true"
       onSubmit={submit}
       className="rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] p-6 sm:p-8 max-w-[560px]"
       style={{ boxShadow: "var(--shadow-2)" }}
@@ -169,7 +165,7 @@ export default function ContactForm() {
       <fieldset className="mb-6">
         <legend className="ui text-[16px] font-[700] mb-3">A quick note is welcome</legend>
         <div className="flex flex-wrap gap-2">
-          {REASONS.slice(0, 3).map((r) => (
+          {REASONS.filter((r) => r.id === "feedback" || r.id === "teaching" || r.id === "thanks").map((r) => (
             <button
               key={r.id}
               type="button"

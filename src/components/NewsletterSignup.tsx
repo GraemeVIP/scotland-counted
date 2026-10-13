@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { trackEvent } from "@/lib/analytics";
 import { site } from "@/lib/site";
 
 /**
@@ -44,9 +43,7 @@ export default function NewsletterSignup({
       const data = await res.json();
       const success = res.ok && data.success;
       setState(success ? "done" : "error");
-      trackEvent(success ? "newsletter_subscribed" : "newsletter_error");
     } catch {
-      trackEvent("newsletter_error");
       setState("error");
     }
   }
@@ -75,7 +72,6 @@ export default function NewsletterSignup({
 
   return (
     <form
-      data-clarity-mask="true"
       onSubmit={submit}
       className={compact ? "max-w-[340px]" : feature ? "w-full" : "max-w-[480px]"}
     >

@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { trackEvent } from "@/lib/analytics";
 import {
   chargesFor,
   COUNCIL_TAX_YEAR,
@@ -47,7 +46,7 @@ export default function CouncilTaxLookup() {
     if (result) resultHeading.current?.focus({ preventScroll: true });
   }, [result]);
 
-  function show(slug: string, councilName: string, method = "council") {
+  function show(slug: string, councilName: string) {
     const charges = chargesFor(slug);
     if (!charges) {
       setState("error");
@@ -58,7 +57,6 @@ export default function CouncilTaxLookup() {
     setOpenBand(null);
     setMessage("");
     setState("idle");
-    trackEvent("council_tax_result_viewed", { council: slug, method });
   }
 
   async function lookup(event: React.FormEvent<HTMLFormElement>) {
@@ -81,9 +79,8 @@ export default function CouncilTaxLookup() {
       if (!response.ok || !("council" in data)) {
         throw new Error("error" in data && data.error ? data.error : "That lookup failed.");
       }
-      show(data.council.slug, data.council.name, "postcode");
+      show(data.council.slug, data.council.name);
     } catch (caught) {
-      trackEvent("council_tax_lookup_error");
       setState("error");
       setMessage(caught instanceof Error ? caught.message : "That lookup failed.");
     }
@@ -164,7 +161,7 @@ export default function CouncilTaxLookup() {
                 <div key={c.band} className="border-b border-[var(--rule)] last:border-0">
                   <button
                     type="button"
-                    onClick={() => { setOpenBand(open ? null : c.band); if (!open) trackEvent("council_tax_band_opened", { council: result.slug, band: c.band }); }}
+                    onClick={() => setOpenBand(open ? null : c.band)}
                     aria-expanded={open}
                     className="grid w-full grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-x-4 bg-[var(--surface)] px-5 py-4 text-left transition-colors hover:bg-[var(--surface-2)]"
                   >

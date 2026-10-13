@@ -66,7 +66,7 @@ export default function About() {
           <h2 className="h2 mb-4 mt-11">How it is funded</h2>
           <p>
             The public site is free to use, with no ads or paywall. I also offer <Link href="/for-organisations">commissioned local evidence briefs</Link>, with scope and price agreed in advance. Paid work does not buy editorial coverage or influence the published figures.
-            Optional analytics help me understand what people find useful, and email updates
+            Visit analytics help me understand what people find useful, and email updates
             are opt-in. <Link href="/privacy">Read how your information is handled</Link>.
           </p>
 
