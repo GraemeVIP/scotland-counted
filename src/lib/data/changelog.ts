@@ -18,8 +18,8 @@ export type ChangeEntry = {
 export const changelog: ChangeEntry[] = [
   {
     date: "2026-10-13",
-    title: "Clearer tools, dated evidence and privacy choices",
-    body: "Council tax and representative lookups now come first. Council tax shows exact totals and estimated instalments; seven previous-year amounts were corrected by one penny. The pay calculator now flags unsupported relief-at-source pensions, emergency codes and conflicting tax regions instead of showing a misleading estimate. Local poverty labels and email drafts name the reporting year. Optional analytics now require permission, and commissioned local evidence briefs have their own enquiry route.",
+    title: "Clearer tools and dated evidence",
+    body: "Council tax and representative lookups now come first. Council tax shows exact totals and estimated instalments; seven previous-year amounts were corrected by one penny. The pay calculator now flags unsupported relief-at-source pensions, emergency codes and conflicting tax regions instead of showing a misleading estimate. Local poverty labels and email drafts name the reporting year. Commissioned local evidence briefs have their own enquiry route.",
     href: "/council-tax-bands-scotland",
     kind: "correction",
   },

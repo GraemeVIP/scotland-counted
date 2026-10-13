@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { trackEvent } from "@/lib/analytics";
 import { site } from "@/lib/site";
 
 /**
@@ -120,9 +119,7 @@ export default function ContactForm() {
       const data = await res.json();
       const success = res.ok && data.success;
       setState(success ? "done" : "error");
-      trackEvent(success ? "contact_submitted" : "contact_error", { reason });
     } catch {
-      trackEvent("contact_error", { reason });
       setState("error");
     }
   }
@@ -149,7 +146,6 @@ export default function ContactForm() {
 
   return (
     <form
-      data-clarity-mask="true"
       onSubmit={submit}
       className="rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] p-6 sm:p-8 max-w-[560px]"
       style={{ boxShadow: "var(--shadow-2)" }}

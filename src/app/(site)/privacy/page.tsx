@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Page, ContentFrame, PageHeader, InShort, SectionHead } from "@/components/Blocks";
 import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
-import { AnalyticsSettingsButton } from "@/components/AnalyticsPreferences";
 import { site } from "@/lib/site";
 
 /**
@@ -60,7 +59,7 @@ export default function Privacy() {
           <p>
             <strong>
               {ANALYTICS_ON
-                ? `${toolList} ${TOOL_NAMES.length === 1 ? "collects" : "collect"} visit data only after you allow optional analytics.`
+                ? `${toolList} ${TOOL_NAMES.length === 1 ? "collects" : "collect"} basic visit data after interaction or ten visible seconds.`
                 : "No visit analytics are running."}
             </strong>{" "}
             Numbers typed into calculators and the words you add to an email draft stay in your
@@ -100,7 +99,7 @@ export default function Privacy() {
               },
               {
                 t: "Using the calculators",
-                b: "The sums run in your browser. Wages and pension amounts are not included in custom analytics events. A council-tax postcode is sent for the lookup; if analytics is allowed, successful tool use may record the public council area, band or type of action, without your postcode.",
+                b: "The sums run in your browser. Wages and pension amounts are not included in custom analytics events. A council-tax postcode is sent to the lookup service to find your council.",
               },
             ].map((row) => (
               <div
@@ -124,9 +123,8 @@ export default function Privacy() {
             <div className="mt-7 grid gap-4 max-w-[1000px]">
               <p className="text-[17px] leading-[1.65] text-[var(--ink-2)] max-w-[68ch]">
                 This site uses {toolList} to understand which pages people find useful and
-                where they get stuck. They stay off until you choose “Allow analytics”.
-                Rejecting them leaves every public tool available. Your choice is stored in
-                this browser for 90 days and can be changed below or from any page’s footer.
+                where they get stuck. These set cookies and load after interaction or ten visible seconds. If you
+                would rather they did not run, the controls below all work.
               </p>
 
               <div className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] px-6 py-6">
@@ -157,13 +155,37 @@ export default function Privacy() {
 
               <div className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] px-6 py-6">
                 <p className="ui text-[15px] font-[750] mb-3">How to turn it off</p>
-                <p className="text-[16px] leading-relaxed mb-4">Choose “Reject analytics” to withdraw permission. This clears this site’s analytics cookies and reloads the page to stop the running tools. Previously collected provider data is not deleted by changing this setting.</p>
-                <AnalyticsSettingsButton />
+                <ul className="grid gap-2.5 text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
+                  <li>
+                    Switch on <strong className="text-[var(--ink)]">Do Not Track</strong> or
+                    tracking protection in your browser. Firefox, Brave and Safari block these
+                    tools by default.
+                  </li>
+                  {GA4_ON && (
+                    <li>
+                      Install Google&apos;s official{" "}
+                      <a
+                        href="https://tools.google.com/dlpage/gaoptout"
+                        rel="noopener noreferrer nofollow"
+                        target="_blank"
+                      >
+                        Analytics opt-out add-on
+                      </a>
+                      , which stops it on every site, not just this one.
+                    </li>
+                  )}
+                  <li>
+                    Use any content blocker. Nothing on this site breaks when these are
+                    blocked — every page, the letter builder and the postcode lookup all work
+                    exactly the same.
+                  </li>
+                </ul>
               </div>
 
               <p className="text-[15.5px] leading-[1.55] text-[var(--muted)] max-w-[68ch]">
                 This is measurement, not identification. There is no attempt to work out who
-                you are, nothing is combined with the mailing list, and none of it is sold. The providers below process data to deliver their services. If you would like your data removed, email{" "}
+                you are, nothing is combined with the mailing list, and none of it is sold or
+                shared. If you would like your data removed, email{" "}
                 <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>.
               </p>
             </div>
@@ -229,8 +251,8 @@ export default function Privacy() {
                   ["Google Gmail", "Sends a new-review alert and private moderation link to the moderator", "The MSP, rating, chosen display name and whether follow-up permission was given. The full account and optional reviewer email are not included"],
                   ["Resend", "May send the same limited new-review alert if Gmail cannot send it", "The MSP, rating, chosen display name and whether follow-up permission was given. The full account and optional reviewer email are not included"],
                   ["Supabase", "Stores MSP reviews while they are moderated and publishes approved reviews", "The review fields you submit. If you opt into a possible follow-up, your email remains in the private moderation queue and is excluded from the public review table"],
-                  ...(GA4_ON ? [["Google Analytics", "Measures visits and useful tool actions after permission", "Page paths, device details, approximate location, referral information and limited action events"]] : []),
-                  ...(CLARITY_ON ? [["Microsoft Clarity", "Helps find usability problems after permission", "Page interaction and session recordings with private form fields masked"]] : []),
+                  ...(GA4_ON ? [["Google Analytics", "Measures visits and existing tool actions", "Page paths, device details, approximate location, referral information and limited action events"]] : []),
+                  ...(CLARITY_ON ? [["Microsoft Clarity", "Helps find usability problems", "Page interaction and session recordings with private form fields masked"]] : []),
                   ["postcodes.io", "Turns a postcode into a council area", "The postcode you entered"],
                   ["UK Parliament", "Provides the public record of who your MP is", "The constituency found from your postcode. Your postcode is not sent to UK Parliament"],
                   ["Scottish Parliament", "Provides the public record of who your MSPs are", "Usually only an area name. If postcodes.io cannot identify your Scottish Parliament areas, the postcode you entered is sent to the Scottish Parliament postcode finder"],

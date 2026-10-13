@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { site } from "@/lib/site";
 import { ScrollProgress } from "@/components/Motion";
-import { AnalyticsSettingsButton } from "./AnalyticsPreferences";
 import { PRIMARY } from "@/lib/data/navigation";
 import { DesktopMenu, MobileMenu } from "@/components/SiteMenu";
 
@@ -280,7 +279,6 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
-              <li><AnalyticsSettingsButton /></li>
               <li>
                 <Link href="/browse" className="text-[var(--deep-ink)] underline underline-offset-4">
                   Every page →

@@ -114,8 +114,9 @@ export const site = {
    * anything you leave blank. And the privacy page reads these values, so
    * what it tells people is always what is really running.
    *
-   * Analytics loads only on the canonical host after explicit consent.
-   * Keep provider disclosures in the privacy page aligned with these IDs.
+   * These load without a consent banner, which is a decision taken with the
+   * PECR position understood. If that changes, gate <Analytics /> rather than
+   * blanking these, blanking them also removes the disclosure.
    */
   analytics: {
     /** GA4 measurement ID, looks like G-XXXXXXXXXX. */
