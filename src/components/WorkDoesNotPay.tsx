@@ -41,7 +41,7 @@ export default function WorkDoesNotPay({ className = "" }: { className?: string 
   return (
     <section className={className} aria-labelledby="work-does-not-pay">
       <ExplainText>
-      <p className="kicker mb-3 text-[var(--action)]">The maths people actually live</p>
+      <p className="kicker mb-3 text-[var(--action-text)]">The maths people actually live</p>
       <h2 id="work-does-not-pay" className="display-stat text-[clamp(30px,3.6vw,46px)] max-w-[18ch]">
         Full-time work at the minimum does not cover Glasgow
       </h2>
@@ -153,7 +153,7 @@ export default function WorkDoesNotPay({ className = "" }: { className?: string 
         className="mt-10 rounded-[var(--r-m)] bg-[var(--deep)] p-6 text-[var(--deep-ink)] sm:p-9"
         style={{ boxShadow: "var(--shadow-2)" }}
       >
-        <p className="kicker mb-3 text-[var(--action)]">The question everyone asks</p>
+        <p className="kicker mb-3 text-[var(--action-text)]">The question everyone asks</p>
         <h3 className="text-[clamp(24px,2.8vw,34px)] font-[780] leading-[1.18] max-w-[24ch]">
           Are people better off on benefits than working?
         </h3>

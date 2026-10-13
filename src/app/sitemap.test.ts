@@ -36,7 +36,6 @@ function staticRoutes(dir = APP, prefix = ""): string[] {
  * leaving something out stays a decision rather than an oversight.
  */
 const DELIBERATELY_ABSENT: Record<string, string> = {
-  "/privacy": "linked from the footer, no search value",
   "/msp-reviews/submitted": "private submission outcome page, explicitly noindex",
 };
 

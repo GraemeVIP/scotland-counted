@@ -99,7 +99,7 @@ export default function YourPower() {
                 style={{ boxShadow: "var(--shadow-1)" }}
               >
                 <p className="ui text-[15px] font-[720] text-[var(--ink-2)]">{p.role}</p>
-                <p className="figure-num text-[42px] sm:text-[50px] leading-[1] text-[var(--action)] mt-1.5">
+                <p className="figure-num text-[42px] sm:text-[50px] leading-[1] text-[var(--action-text)] mt-1.5">
                   {p.amount}
                 </p>
                 <p className="text-[16px] leading-[1.5] text-[var(--ink-2)] mt-3">{p.note}</p>
@@ -129,7 +129,7 @@ export default function YourPower() {
               >
                 <div className="flex items-baseline gap-3">
                   <span
-                    className="figure-num text-[26px] text-[var(--action)] shrink-0"
+                    className="figure-num text-[26px] text-[var(--action-text)] shrink-0"
                     aria-hidden="true"
                   >
                     {s.step}
@@ -152,7 +152,7 @@ export default function YourPower() {
             className="rounded-[var(--r-m)] bg-[var(--deep)] text-[var(--deep-ink)] p-6 sm:p-9"
             style={{ boxShadow: "var(--shadow-2)" }}
           >
-            <p className="ui text-[15px] font-[750] text-[var(--action)] mb-3">
+            <p className="ui text-[15px] font-[750] text-[var(--action-text)] mb-3">
               The bit almost nobody knows
             </p>
             <h2 className="text-[26px] sm:text-[34px] font-[780] leading-[1.15] max-w-[20ch]">

@@ -29,7 +29,7 @@ export default function WhyBother({ className = "" }: { className?: string }) {
         <div className="p-7 sm:p-10 lg:p-12">
           <div className="grid gap-x-14 gap-y-9 lg:grid-cols-[minmax(0,1.05fr)_minmax(420px,0.95fr)] lg:items-center">
             <div>
-              <p className="kicker text-[var(--action)] mb-3">Your voice counts</p>
+              <p className="kicker text-[var(--action-text)] mb-3">Your voice counts</p>
               <h2
                 id="why-bother"
                 className="display-stat text-[clamp(34px,4vw,54px)] max-w-[16ch]"
@@ -76,7 +76,7 @@ export default function WhyBother({ className = "" }: { className?: string }) {
           <div className="mt-10 border-t border-white/15 pt-8">
             <div className="grid gap-5 lg:grid-cols-[0.55fr_1.45fr]">
               <div>
-                <p className="kicker text-[var(--action)] mb-2">No faff</p>
+                <p className="kicker text-[var(--action-text)] mb-2">No faff</p>
                 <h3 className="text-[25px] font-[760] leading-[1.15] max-w-[12ch]">
                   From postcode to two ready emails
                 </h3>
@@ -84,7 +84,7 @@ export default function WhyBother({ className = "" }: { className?: string }) {
               <ol className="grid gap-4 sm:grid-cols-3">
                 {HOW_IT_WORKS.map((item, index) => (
                   <li key={item.title} className="rounded-[var(--r-s)] bg-white/[0.055] p-5">
-                    <span className="ui text-[15px] font-[800] text-[var(--action)]" aria-hidden="true">
+                    <span className="ui text-[15px] font-[800] text-[var(--action-text)]" aria-hidden="true">
                       0{index + 1}
                     </span>
                     <h4 className="mt-3 text-[18px] font-[720] leading-[1.25]">{item.title}</h4>
@@ -99,7 +99,7 @@ export default function WhyBother({ className = "" }: { className?: string }) {
         <div className="border-t border-[var(--rule)] bg-[var(--surface)] px-7 py-7 text-[var(--ink)] sm:px-10 lg:px-12">
           <div className="grid gap-6 lg:grid-cols-[minmax(260px,0.65fr)_minmax(0,1fr)] lg:items-center">
             <div>
-              <p className="kicker text-[var(--action)] mb-2">Ready when you are</p>
+              <p className="kicker text-[var(--action-text)] mb-2">Ready when you are</p>
               <h3 className="text-[26px] font-[780] leading-[1.12] max-w-[18ch]">
                 Put in your postcode. I do the rest.
               </h3>

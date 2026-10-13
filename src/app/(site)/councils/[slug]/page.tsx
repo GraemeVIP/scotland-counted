@@ -31,9 +31,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!record) return { robots: { index: false, follow: true } };
 
   return meta({
-    title: `${record.councilName}: budget and performance | Scotland Counted`,
+    title: `${record.councilName}: budget and audit record`,
     description:
-      `See ${record.councilName}'s published funding pressure, service goals, audit findings and promises, with every claim linked to an official source.`,
+      `Read ${record.councilName}'s budget and audit record, with official sources and clear labels showing which service outcomes have and have not been verified.`,
     path: `/councils/${record.councilSlug}`,
   });
 }
@@ -217,7 +217,7 @@ export default async function CouncilAccountabilityPage({
         >
           <div className="flex flex-wrap items-end justify-between gap-5">
             <div>
-              <p className="kicker text-[var(--action)]">The headline</p>
+              <p className="kicker text-[var(--action-text)]">The headline</p>
               <h2 id="quick-read-title" className="mt-2 text-[clamp(28px,4vw,46px)] font-[800] leading-[1] tracking-[-0.035em]">
                 Three things to know
               </h2>
@@ -315,7 +315,7 @@ export default async function CouncilAccountabilityPage({
           <BudgetGapExplainer slug={record.councilSlug} councilName={record.councilName} />
 
           <section id="performance" className="pt-14 scroll-mt-24">
-            <p className="kicker mb-2 text-[var(--action)]">
+            <p className="kicker mb-2 text-[var(--action-text)]">
               {reportedOutcomes.length > 0 ? "Promises versus results" : "The missing evidence"}
             </p>
             <h2 className="h2 mb-3">

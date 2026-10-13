@@ -17,6 +17,18 @@ function esc(s: string) {
     .replace(/"/g, "&quot;");
 }
 
+function imageMimeAttribute(src: string) {
+  const extension = src.split("?")[0].split(".").pop()?.toLowerCase();
+  const mime = {
+    png: "image/png",
+    jpg: "image/jpeg",
+    jpeg: "image/jpeg",
+    webp: "image/webp",
+  }[extension ?? ""];
+
+  return mime ? ` type="${mime}"` : "";
+}
+
 type FeedEntry = {
   date: string;
   title: string;
@@ -53,7 +65,7 @@ export async function GET() {
       <pubDate>${new Date(e.date + "T12:00:00Z").toUTCString()}</pubDate>
       <description>${esc(e.body)}</description>
 ${e.category ? `      <category>${esc(e.category)}</category>` : ""}
-${e.image ? `      <media:content url="${esc(e.image)}" type="image/webp" medium="image" />` : ""}
+${e.image ? `      <media:content url="${esc(e.image)}"${imageMimeAttribute(e.image)} medium="image" />` : ""}
     </item>`
     )
     .join("\n");

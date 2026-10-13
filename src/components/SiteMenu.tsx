@@ -350,7 +350,7 @@ export function MobileMenu({
             className="ui font-[800] tracking-[-0.04em] leading-none text-[17px] min-[390px]:text-[19px]"
             style={{ fontFamily: "var(--font-sans)" }}
           >
-            Scotland<span className="text-[var(--action)]">Counted</span>
+            Scotland<span className="text-[var(--action-text)]">Counted</span>
           </span>
           <button
             ref={closeRef}

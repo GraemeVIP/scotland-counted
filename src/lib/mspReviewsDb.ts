@@ -176,7 +176,7 @@ export async function listApprovedMspReviews(memberId?: number) {
   const filter = memberId ? `&member_id=eq.${memberId}` : "";
   const response = await fetch(
     `${SUPABASE_URL}/rest/v1/msp_reviews?select=id,member_id,rating,title,body,display_name,relationship,interaction_month,published_at${filter}&order=published_at.desc`,
-    { headers: headers(), next: { revalidate: 60, tags: ["msp-reviews"] } },
+    { headers: headers(), signal: AbortSignal.timeout(5000), next: { revalidate: 60, tags: ["msp-reviews"] } },
   );
   if (!response.ok) throw new Error(`Could not load approved MSP reviews (${response.status})`);
   return ((await response.json()) as ReviewRow[]).map(toReview);

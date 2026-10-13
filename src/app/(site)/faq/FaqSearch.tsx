@@ -165,7 +165,7 @@ export default function FaqSearch() {
                         <span>{item.q}</span>
                         <span
                           aria-hidden="true"
-                          className="shrink-0 text-[25px] font-[450] leading-none text-[var(--action)] transition-transform group-open:rotate-45"
+                          className="shrink-0 text-[25px] font-[450] leading-none text-[var(--action-text)] transition-transform group-open:rotate-45"
                         >
                           +
                         </span>

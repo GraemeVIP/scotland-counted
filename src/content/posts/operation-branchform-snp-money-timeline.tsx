@@ -54,7 +54,7 @@ export default function Post() {
       </Lead>
 
       <div className="not-prose rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--deep)] p-6 text-[var(--deep-ink)] sm:p-8">
-        <p className="ui text-[15px] font-[760] text-[var(--action)]">Living timeline</p>
+        <p className="ui text-[15px] font-[760] text-[var(--action-text)]">Living timeline</p>
         <p className="mt-2 text-[22px] font-[760] leading-[1.3]">Last independently checked: 2 August 2026</p>
         <p className="mt-3 max-w-[58ch] text-[16px] leading-[1.6] opacity-80">
           The event date and the date a fact became known are not always the same. Purchases from

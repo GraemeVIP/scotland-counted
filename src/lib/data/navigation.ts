@@ -27,10 +27,9 @@ export type NavTone = "local" | "tools" | "councils" | "change" | "topics" | "pr
 /** The header links. Deliberately short, deliberately task-shaped. */
 export const PRIMARY: NavItem[] = [
   { href: "/areas", label: "Your area" },
-  { href: "/money", label: "Your money" },
+  { href: "/council-tax-bands-scotland", label: "Council tax" },
   { href: "/councils", label: "Councils" },
-  { href: "/who-decides", label: "Who decides" },
-  { href: "/msp-reviews", label: "MSP reviews" },
+  { href: "/representatives", label: "Find MP/MSPs" },
   /*
    * "Explainers", not "Investigations".
    *
@@ -85,6 +84,7 @@ export const SECTIONS: Array<{
     items: [
       { href: "/councils", label: "All 32 council records", blurb: "Budgets, results, audits and promises", featured: true },
       { href: "/data", label: "Download the council data", blurb: "Every council on the same seven measures" },
+      { href: "/for-organisations", label: "For organisations", blurb: "Free resources and commissioned local evidence briefs." },
       { href: "/press", label: "Figures for reuse", blurb: "Lift-ready lines, charts and citation" },
     ],
   },

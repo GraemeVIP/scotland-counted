@@ -22,7 +22,7 @@ import { current as flagship } from "@/lib/data/flagship";
  */
 
 const TRUST = [
-  "No postcode stored",
+  "No account needed",
   "Every figure sourced",
   "Corrections published",
 ];
@@ -76,13 +76,17 @@ export default function Hero({
               <strong className="text-[var(--ink)]">It takes about a minute.</strong>
             </p>
 
+            <div className="mb-5 flex flex-wrap gap-3 md:max-xl:justify-center">
+              <Link href="/council-tax-bands-scotland" className="btn btn-primary">Check council tax →</Link>
+              <Link href="/representatives" className="btn btn-ghost">Find my MP and MSPs →</Link>
+            </div>
             <div className="md:max-xl:mx-auto md:max-xl:max-w-[620px] md:max-xl:text-left">
               <PostcodeStart facts={facts} split={split} />
             </div>
 
             <div className="mt-5 sm:mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-[16px] md:max-xl:justify-center">
               <Link href="/take-home-pay-calculator-scotland" className="font-[700]">
-                Or calculate my pay →
+                Calculate my pay →
               </Link>
               <Link href="/areas" className="text-[var(--ink-2)] font-[600]">
                 Browse all 32 areas
@@ -109,7 +113,7 @@ export default function Hero({
             <div
               className="rounded-[var(--r-l)] border border-[var(--rule-strong)] bg-[var(--surface)] p-6 shadow-[var(--shadow-2)] sm:p-7"
             >
-              <p className="kicker text-[var(--action)] mb-3">{flagship.kicker}</p>
+              <p className="kicker text-[var(--action-text)] mb-3">{flagship.kicker}</p>
 
               <div className="display-stat text-[clamp(44px,5.2vw,68px)] leading-[0.95] text-[var(--ink)]">
                 {flagship.value}

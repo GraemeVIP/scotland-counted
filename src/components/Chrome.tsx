@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { site } from "@/lib/site";
 import { ScrollProgress } from "@/components/Motion";
+import { AnalyticsSettingsButton } from "./AnalyticsPreferences";
 import { PRIMARY } from "@/lib/data/navigation";
 import { DesktopMenu, MobileMenu } from "@/components/SiteMenu";
 
@@ -16,7 +17,7 @@ function Wordmark({ className = "" }: { className?: string }) {
       className={`ui font-[800] tracking-[-0.04em] leading-none ${className}`}
       style={{ fontFamily: "var(--font-sans)" }}
     >
-      Scotland<span className="text-[var(--action)]">Counted</span>
+      Scotland<span className="text-[var(--action-text)]">Counted</span>
     </span>
   );
 }
@@ -250,10 +251,11 @@ export function Footer() {
   const compactLinks = [
     ...PRIMARY,
     { href: "/data", label: "Data" },
-    { href: "/councils", label: "Council budgets" },
+    { href: "/money", label: "Your money" },
     { href: "/methods", label: "Sources" },
     { href: "/faq", label: "Questions" },
     { href: "/about", label: "About" },
+    { href: "/for-organisations", label: "For organisations" },
     { href: "/privacy", label: "Privacy" },
   ];
 
@@ -278,6 +280,7 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
+              <li><AnalyticsSettingsButton /></li>
               <li>
                 <Link href="/browse" className="text-[var(--deep-ink)] underline underline-offset-4">
                   Every page →
@@ -341,7 +344,7 @@ export function Footer() {
 
         <div className="mt-6 pt-4 border-t border-current/15 flex flex-wrap items-center justify-between gap-x-8 gap-y-2 text-[15px] leading-[1.5] opacity-68">
           <p>
-            Data checked {site.dataUpdated} · ONS, DWP, Scottish Government and named research
+            Dates and sources on each page · ONS, DWP, Scottish Government and named research
           </p>
           <p className="sm:text-right">
             Published independently by {site.author.name} ·{" "}

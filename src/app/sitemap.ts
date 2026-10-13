@@ -67,6 +67,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${site.url}/about`, changeFrequency: "yearly", priority: 0.5 },
     { url: `${site.url}/corrections`, changeFrequency: "monthly", priority: 0.3 },
     { url: `${site.url}/accessibility`, changeFrequency: "yearly", priority: 0.3, lastModified: repositioning },
+    { url: `${site.url}/for-organisations`, changeFrequency: "monthly", priority: 0.6, lastModified: new Date("2026-10-13T00:00:00Z") },
     { url: `${site.url}/contact`, changeFrequency: "yearly", priority: 0.4 },
     { url: `${site.url}/privacy`, changeFrequency: "yearly", priority: 0.3 },
   ];
@@ -136,7 +137,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: seoRelease,
   }));
 
-  const approvedMspReviews = await listApprovedMspReviews();
+  const approvedMspReviews = await listApprovedMspReviews().catch(() => {
+    console.warn("Sitemap: optional review lookup unavailable; keeping core URLs.");
+    return [];
+  });
   const reviewedMemberIds = new Set(approvedMspReviews.map((review) => review.memberId));
   const mspReviewPages: MetadataRoute.Sitemap = mspReviewProfiles
     .filter((profile) => reviewedMemberIds.has(profile.msp.memberId))

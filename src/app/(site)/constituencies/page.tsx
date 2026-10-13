@@ -18,6 +18,7 @@ export const metadata = meta({
 
 export default function Constituencies() {
   const byLevel = constituenciesByLevel();
+  const first = CONSTITUENCY_YEARS[0];
   const last = CONSTITUENCY_YEARS[9];
   const worst = byLevel[0];
   const worstShare = asOneIn(worst.pcts[9]);
@@ -65,8 +66,8 @@ export default function Constituencies() {
             standfirst="The ten highest are shown to begin with. Glasgow areas are shaded. Tap any column to sort, or any row to open that area."
             measure={`Children in poverty · ${last}`}
             nameLabel="Area represented by an MP"
-            latestLabel="Now"
-            firstLabel="10 years ago"
+            latestLabel={last}
+            firstLabel={first}
             collapsedRows={10}
             showAllLabel={`See all ${CONSTITUENCY_COUNT} MP areas`}
             rows={byLevel.map((c) => ({

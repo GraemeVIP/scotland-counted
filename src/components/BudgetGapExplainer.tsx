@@ -43,7 +43,7 @@ export default function BudgetGapExplainer({
 
   return (
     <section id="why-more-money" className="pt-14 scroll-mt-24">
-      <p className="kicker mb-2 text-[var(--action)]">The bit nobody explains</p>
+      <p className="kicker mb-2 text-[var(--action-text)]">The bit nobody explains</p>
       <h2 className="h2 mb-3">Why your council says it needs more money</h2>
       <p className="max-w-[68ch] text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
         Councils say they need more money nearly every year, whatever they are given. Here is

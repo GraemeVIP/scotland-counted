@@ -41,7 +41,7 @@ export default function MinimumWageReality({
     >
       <ExplainText>
       <div className="p-6 sm:p-8 lg:p-9">
-        <p className="kicker mb-3 text-[var(--action)]">A wage people actually recognise</p>
+        <p className="kicker mb-3 text-[var(--action-text)]">A wage people actually recognise</p>
         <Heading
           id="minimum-wage-reality"
           className="display-stat max-w-[20ch] text-[clamp(29px,3.5vw,44px)]"

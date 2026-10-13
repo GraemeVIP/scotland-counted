@@ -123,7 +123,7 @@ export default function DecadeScroll() {
                 <span className="figure-num text-[clamp(38px,4.4vw,58px)]" aria-hidden="true">
                   {years[yearIdx]}
                 </span>
-                <span className="figure-num text-[clamp(26px,3vw,40px)] text-[var(--action)]">
+                <span className="figure-num text-[clamp(26px,3vw,40px)] text-[var(--action-text)]">
                   {pct.toFixed(1)}%
                 </span>
               </div>
@@ -167,7 +167,7 @@ export default function DecadeScroll() {
                 dimOpacity={0.17}
               />
               <p className="ui text-[15px] font-[560] opacity-80 mt-6 text-center lg:text-left">
-                <span className="text-[var(--action)] font-[750]">{lit}</span> in every 100 Glasgow
+                <span className="text-[var(--action-text)] font-[750]">{lit}</span> in every 100 Glasgow
                 children · {GLASGOW_CHILD_COUNTS[yearIdx].toLocaleString("en-GB")} children
               </p>
             </div>

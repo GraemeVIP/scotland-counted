@@ -63,7 +63,8 @@
   --brand-deep: #1b3ec7;
   --brand-wash: rgba(44, 92, 255, 0.08);
   --action: #ff5a3c;
-  --action-hover: #e63e20;
+  --action-hover: #ed5033;
+  --action-text: #b72d18;
   /* Menu highlight. A wash, not a fill, the label on top of it must stay
      --ink, because --action on white is about 3:1 and these labels are
      15.5px, which needs 4.5:1. The colour comes from the tint and the dot,
@@ -154,6 +155,7 @@
   --brand-wash: rgba(91, 132, 255, 0.14);
   --action: #ff7a5c;
   --action-hover: #ff9a80;
+  --action-text: #ff9a80;
   --action-tint: #2a1c19;
   --signal: rgba(91, 132, 255, 0.26);
   --signal-ink: #f2f4f8;
@@ -596,13 +598,13 @@
   }
   .btn-primary {
     background: var(--action);
-    color: #fff;
+    color: #131926;
   }
   .btn-primary:hover {
     background: var(--action-hover);
   }
   :root[data-theme="dark"] .btn-primary {
-    color: var(--deep);
+    color: #131926;
   }
   .btn-ghost {
     border-color: var(--rule-strong);
@@ -806,3 +808,6 @@
     display: none !important;
   }
 }
+
+/* Accent text remains legible inside surfaces that stay dark in either theme. */
+.slab-dark, [class*="bg-[var(--deep)]"] { --action-text: #ff9a80; }

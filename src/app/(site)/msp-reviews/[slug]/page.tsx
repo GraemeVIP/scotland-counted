@@ -89,7 +89,7 @@ export default async function MspReviewPage({ params }: { params: Promise<{ slug
                   <article key={review.id} className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-6 sm:p-8">
                     <div className="flex flex-wrap items-start justify-between gap-3">
                       <div><p className="ui text-[18px] font-[800] text-[var(--ink)]">{review.title}</p><p className="ui mt-2 text-[15px] text-[var(--muted)]">{review.authorName} · {review.relationship}{review.interactionDate ? <> · interaction <time dateTime={review.interactionDate}>{interactionMonth.format(new Date(`${review.interactionDate}T00:00:00Z`))}</time></> : null} · <time dateTime={review.publishedDate}>published {publishedDate.format(new Date(review.publishedDate))}</time></p></div>
-                      <p className="ui rounded-full bg-[var(--action-tint)] px-4 py-2 text-[15px] font-[800] text-[var(--action)]" aria-label={`${review.rating} out of 5 stars`}>{"★".repeat(review.rating)}{"☆".repeat(5 - review.rating)}</p>
+                      <p className="ui rounded-full bg-[var(--action-tint)] px-4 py-2 text-[15px] font-[800] text-[var(--action-text)]" aria-label={`${review.rating} out of 5 stars`}>{"★".repeat(review.rating)}{"☆".repeat(5 - review.rating)}</p>
                     </div>
                     <p className="mt-5 whitespace-pre-line text-[17px] leading-[1.7] text-[var(--ink-2)]">{review.body}</p>
                   </article>
@@ -102,7 +102,7 @@ export default async function MspReviewPage({ params }: { params: Promise<{ slug
 
           <section id="leave-review" className="pt-16 sm:pt-20 scroll-mt-28">
             <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-start">
-              <div><p className="kicker mb-3 text-[var(--action)]">Add your experience</p><h2 className="h2 mb-3">Review {profile.msp.name}</h2><p className="ui mb-6 text-[15px] font-[700] text-[var(--ink)]">No account needed. Email is optional. Nothing goes live without review.</p><MspReviewForm msps={options} initialSlug={profile.slug} latestInteractionMonth={latestInteractionMonth} /></div>
+              <div><p className="kicker mb-3 text-[var(--action-text)]">Add your experience</p><h2 className="h2 mb-3">Review {profile.msp.name}</h2><p className="ui mb-6 text-[15px] font-[700] text-[var(--ink)]">No account needed. Email is optional. Nothing goes live without review.</p><MspReviewForm msps={options} initialSlug={profile.slug} latestInteractionMonth={latestInteractionMonth} /></div>
               <aside className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] p-6"><h2 className="h3 mb-3">Before you submit</h2><p className="text-[15.5px] leading-[1.6] text-[var(--ink-2)]">Keep documents and identifying case details private. Email is requested only if you opt into a possible follow-up. Nothing appears automatically.</p><p className="mt-5 border-t border-[var(--rule)] pt-5 text-[15px] leading-[1.55] text-[var(--ink-2)]">Need an official misconduct decision? <a href="https://www.parliament.scot/msps/complain-about-an-msp" target="_blank" rel="noopener noreferrer" className="font-[700] text-[var(--brand)]">Use the Scottish Parliament&apos;s complaint process ↗</a></p></aside>
             </div>
           </section>

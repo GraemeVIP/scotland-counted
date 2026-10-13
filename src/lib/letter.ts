@@ -44,6 +44,7 @@ export type LetterArea = {
   /** The same rate ten years earlier, and the year it refers to. */
   firstPct: number;
   firstYear: string;
+  latestYear: string;
   /** The national rate for the latest year, for comparison. */
   scotlandPct: number;
   /**
@@ -186,7 +187,7 @@ ${detail}
   const figuresBlock = wantsEvidence
     ? `The figures where I live
 
-${shareSentence} children here are growing up in poverty. The exact figure is ${area.pct}%, or ${area.count.toLocaleString("en-GB")} children. It was ${area.firstPct}% in ${area.firstYear}. ${direction}
+In ${area.latestYear}, ${shareSentence.toLowerCase()} children here were living in poverty after housing costs. The exact figure was ${area.pct}%, or ${area.count.toLocaleString("en-GB")} children. It was ${area.firstPct}% in ${area.firstYear}. ${direction}
 
 ${evidence}The figures come from End Child Poverty and Loughborough University, using HMRC and DWP records. The Scottish figure for the same year was ${area.scotlandPct}%.
 

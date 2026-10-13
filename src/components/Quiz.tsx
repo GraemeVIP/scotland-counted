@@ -63,7 +63,7 @@ export default function Quiz({
         style={{ boxShadow: "var(--shadow-2)" }}
         aria-live="polite"
       >
-        <p className="kicker mb-3 text-[var(--action)]">Your score</p>
+        <p className="kicker mb-3 text-[var(--action-text)]">Your score</p>
         <p className="display-stat text-[clamp(52px,8vw,88px)]">
           {correct}
           <span className="opacity-50"> / {quiz.length}</span>

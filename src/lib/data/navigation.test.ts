@@ -75,8 +75,9 @@ test("each header link is reachable from the full menu too", () => {
   }
 });
 
-test("the MSP review hub is prominent and remains in the full menu", () => {
-  assert.ok(PRIMARY.some((item) => item.href === "/msp-reviews"));
+test("popular tools are prominent and MSP reviews remain in the full menu", () => {
+  assert.ok(PRIMARY.some((item) => item.href === "/council-tax-bands-scotland"));
+  assert.ok(PRIMARY.some((item) => item.href === "/representatives"));
   assert.ok(SECTIONS.some((section) => section.items.some((item) => item.href === "/msp-reviews")));
 });
 

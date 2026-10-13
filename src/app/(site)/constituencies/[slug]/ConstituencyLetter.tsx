@@ -129,7 +129,7 @@ export default function ConstituencyLetter({
             </p>
 
             <div className="mt-5 rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--paper)] p-4">
-              <p className="ui text-[15px] font-[720] text-[var(--action)]">Your MP</p>
+              <p className="ui text-[15px] font-[720] text-[var(--action-text)]">Your MP</p>
               <p className="text-[20px] font-[700] mt-1">{mp.name}</p>
               <p className="text-[15px] text-[var(--ink-2)] leading-[1.45] mt-1">
                 {mp.party} · {mp.constituency}

@@ -210,8 +210,7 @@ export default function Contact() {
             <div className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] px-6 py-6">
               <p className="ui text-[15px] font-[750] mb-3">Who pays for this</p>
               <p className="text-[16px] leading-[1.6] text-[var(--ink-2)]">
-                Nobody, and that is on purpose. Having nothing to declare is simpler than
-                declaring it.
+                The public site is free to use. You can also <Link href="/for-organisations">commission a local evidence brief</Link>. Paid research is agreed separately and does not buy editorial influence.
               </p>
               <ul className="mt-4 grid gap-2.5">
                 {[

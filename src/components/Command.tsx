@@ -241,7 +241,7 @@ export default function CommandPalette() {
             fill="none"
             stroke="currentColor"
             strokeWidth="2.4"
-            className="text-[var(--action)] shrink-0"
+            className="text-[var(--action-text)] shrink-0"
             aria-hidden="true"
           >
             <circle cx="11" cy="11" r="7" />
@@ -309,7 +309,7 @@ export default function CommandPalette() {
                 >
                   <span className="truncate">
                     {i === active && (
-                      <span className="text-[var(--action)] mr-2" aria-hidden="true">
+                      <span className="text-[var(--action-text)] mr-2" aria-hidden="true">
                         →
                       </span>
                     )}

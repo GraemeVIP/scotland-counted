@@ -16,7 +16,7 @@ const KIND: Record<string, { label: string; cls: string }> = {
   data: { label: "Data refresh", cls: "text-[var(--brand)]" },
   feature: { label: "New on the site", cls: "text-[var(--good-text)]" },
   correction: { label: "Correction", cls: "text-[var(--bad-text)]" },
-  analysis: { label: "Analysis", cls: "text-[var(--action)]" },
+  analysis: { label: "Analysis", cls: "text-[var(--action-text)]" },
 };
 
 function fmtDate(iso: string) {

@@ -20,7 +20,7 @@ export default function ArticleCard({
 }) {
   const category = getPostCategory(post.category);
   const titleClass =
-    "text-[22px] font-[760] leading-[1.22] mt-3 text-[var(--ink)] group-hover:text-[var(--action)] transition-colors";
+    "text-[22px] font-[760] leading-[1.22] mt-3 text-[var(--ink)] group-hover:text-[var(--action-text)] transition-colors";
   const title = heading === "h3" ? (
     <h3 className={titleClass}>{post.title}</h3>
   ) : (

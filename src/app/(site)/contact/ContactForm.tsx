@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
+import { trackEvent } from "@/lib/analytics";
 import { site } from "@/lib/site";
 
 /**
@@ -12,6 +13,7 @@ import { site } from "@/lib/site";
  */
 
 const REASONS = [
+  { id: "commission", label: "Commission a local evidence brief", subject: "Commission enquiry", hint: "Tell me the place, question, audience and any deadline. Scope, price and timing are agreed before paid work starts. No personal case details needed." },
   {
     id: "feedback",
     label: "Share feedback",
@@ -99,6 +101,7 @@ export default function ContactForm() {
   async function submit(e: React.FormEvent) {
     e.preventDefault();
     if (state === "sending" || !message.trim()) return;
+    if (window.location.hostname !== new URL(site.url).hostname) { setState("error"); return; }
     setState("sending");
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
@@ -115,8 +118,11 @@ export default function ContactForm() {
         }),
       });
       const data = await res.json();
-      setState(res.ok && data.success ? "done" : "error");
+      const success = res.ok && data.success;
+      setState(success ? "done" : "error");
+      trackEvent(success ? "contact_submitted" : "contact_error", { reason });
     } catch {
+      trackEvent("contact_error", { reason });
       setState("error");
     }
   }
@@ -143,6 +149,7 @@ export default function ContactForm() {
 
   return (
     <form
+      data-clarity-mask="true"
       onSubmit={submit}
       className="rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] p-6 sm:p-8 max-w-[560px]"
       style={{ boxShadow: "var(--shadow-2)" }}
@@ -255,7 +262,7 @@ export default function ContactForm() {
 
       <p aria-live="polite" className="text-[15px] text-[var(--ink-2)] leading-[1.55] mt-3.5">
         {state === "error"
-          ? "That didn't send, try again in a moment."
+          ? (window.location.hostname !== new URL(site.url).hostname ? "Sending is disabled in this preview. Use the form at scotlandcounted.org.uk." : "That didn't send, try again in a moment.")
           : "Straight to my inbox. No account needed. Leave your name and email blank if you prefer. Your email is only used to reply."}
       </p>
     </form>

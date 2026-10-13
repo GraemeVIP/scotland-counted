@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Page, ContentFrame, PageHeader, InShort, SectionHead } from "@/components/Blocks";
 import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
+import { AnalyticsSettingsButton } from "@/components/AnalyticsPreferences";
 import { site } from "@/lib/site";
 
 /**
@@ -29,8 +30,8 @@ const toolList = TOOL_NAMES.join(" and ");
 export const metadata = meta({
   title: "Privacy",
   description: ANALYTICS_ON
-    ? `How Scotland Counted uses ${toolList}, what it collects, and how to have data deleted. Postcodes are never stored.`
-    : "What this site collects, what it does not, and how to have it deleted. No tracking, no analytics, no advertising. Postcodes are never stored.",
+    ? `How Scotland Counted uses ${toolList}, what it collects, and how to have data deleted. Postcode lookups and temporary browser storage explained.`
+    : "What this site collects, what it does not, and how to have it deleted. No tracking, no analytics, no advertising. Postcode lookups and temporary browser storage explained.",
   path: "/privacy",
 });
 
@@ -59,15 +60,16 @@ export default function Privacy() {
           <p>
             <strong>
               {ANALYTICS_ON
-                ? `${toolList} ${TOOL_NAMES.length === 1 ? "collects" : "collect"} basic visit data when a page opens.`
+                ? `${toolList} ${TOOL_NAMES.length === 1 ? "collects" : "collect"} visit data only after you allow optional analytics.`
                 : "No visit analytics are running."}
             </strong>{" "}
             Numbers typed into calculators and the words you add to an email draft stay in your
             browser unless you choose to send them.
           </p>
           <p>
-            Postcodes are used to find your area and never stored. The calculators work entirely
-            inside your browser.
+            Postcodes are sent to lookup services when you ask for a local result. A postcode can
+            be held temporarily in this browser tab when you move to the email builder.
+            Calculator sums run in your browser.
           </p>
           <p>
             If you join the mailing list I keep your email address, and nothing else. You can have
@@ -82,11 +84,11 @@ export default function Privacy() {
             {[
               {
                 t: "Joining the mailing list",
-                b: "Your email address, and nothing else. There is no name field. It is stored in Mailchimp and used to send occasional updates about this site.",
+                b: "Your email address is submitted through Web3Forms to my inbox and used for occasional site updates. There is no name field. Reply “stop” to an update or contact me to leave the list.",
               },
               {
                 t: "Using the contact form",
-                b: "Your email address so a reply can reach you, your message, and the subject you picked. There is also a name box, which is optional — leave it blank and nothing is collected from it.",
+                b: "Your message and the reason you picked are sent through Web3Forms to my inbox. Name and email are optional. Add an email address only if you want me to be able to reply.",
               },
               {
                 t: "Submitting an MSP review",
@@ -94,11 +96,11 @@ export default function Privacy() {
               },
               {
                 t: "Entering a postcode",
-                b: "It is sent to a public lookup service to work out your council area, MP and MSPs. It is then placed in the email draft so the office can confirm you live in the area. The site code does not save it or send the email.",
+                b: "It is sent to a public lookup service to work out your council area, MP and MSPs. It is then placed in the email draft so the office can confirm you live in the area. For that handoff it may be held temporarily in this tab’s session storage, then removed when the email builder reads it. Closing the tab clears it. It is not added to a server-side postcode list, and the site does not send the email.",
               },
               {
                 t: "Using the calculators",
-                b: "Nothing at all. The take-home pay and council tax sums run entirely in your browser. No wage, band or figure you enter ever leaves your device.",
+                b: "The sums run in your browser. Wages and pension amounts are not included in custom analytics events. A council-tax postcode is sent for the lookup; if analytics is allowed, successful tool use may record the public council area, band or type of action, without your postcode.",
               },
             ].map((row) => (
               <div
@@ -122,8 +124,9 @@ export default function Privacy() {
             <div className="mt-7 grid gap-4 max-w-[1000px]">
               <p className="text-[17px] leading-[1.65] text-[var(--ink-2)] max-w-[68ch]">
                 This site uses {toolList} to understand which pages people find useful and
-                where they get stuck. These set cookies and load when the page does. If you
-                would rather they did not run, the controls below all work.
+                where they get stuck. They stay off until you choose “Allow analytics”.
+                Rejecting them leaves every public tool available. Your choice is stored in
+                this browser for 90 days and can be changed below or from any page’s footer.
               </p>
 
               <div className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] px-6 py-6">
@@ -154,37 +157,13 @@ export default function Privacy() {
 
               <div className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] px-6 py-6">
                 <p className="ui text-[15px] font-[750] mb-3">How to turn it off</p>
-                <ul className="grid gap-2.5 text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
-                  <li>
-                    Switch on <strong className="text-[var(--ink)]">Do Not Track</strong> or
-                    tracking protection in your browser. Firefox, Brave and Safari block these
-                    tools by default.
-                  </li>
-                  {GA4_ON && (
-                    <li>
-                      Install Google&apos;s official{" "}
-                      <a
-                        href="https://tools.google.com/dlpage/gaoptout"
-                        rel="noopener noreferrer nofollow"
-                        target="_blank"
-                      >
-                        Analytics opt-out add-on
-                      </a>
-                      , which stops it on every site, not just this one.
-                    </li>
-                  )}
-                  <li>
-                    Use any content blocker. Nothing on this site breaks when these are
-                    blocked — every page, the letter builder and the postcode lookup all work
-                    exactly the same.
-                  </li>
-                </ul>
+                <p className="text-[16px] leading-relaxed mb-4">Choose “Reject analytics” to withdraw permission. This clears this site’s analytics cookies and reloads the page to stop the running tools. Previously collected provider data is not deleted by changing this setting.</p>
+                <AnalyticsSettingsButton />
               </div>
 
               <p className="text-[15.5px] leading-[1.55] text-[var(--muted)] max-w-[68ch]">
                 This is measurement, not identification. There is no attempt to work out who
-                you are, nothing is combined with the mailing list, and none of it is sold or
-                shared. If you would like your data removed, email{" "}
+                you are, nothing is combined with the mailing list, and none of it is sold. The providers below process data to deliver their services. If you would like your data removed, email{" "}
                 <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>.
               </p>
             </div>
@@ -197,16 +176,16 @@ export default function Privacy() {
             {[
               ...(ANALYTICS_ON
                 ? [
-                    "Nothing you type is ever sent to the analytics tools. The letter box, your name and your postcode are masked before anything is recorded.",
+                    "Private form fields are marked for masking in Clarity. Custom analytics events exclude postcodes, names, email addresses, salaries and message contents.",
                   ]
                 : [
                     "No analytics. There is no Google Analytics, no Plausible, no pixel and no heatmap.",
                     "No tracking cookies. The only thing stored in your browser is whether you chose light or dark mode, and that stays on your device.",
                   ]),
-              "No advertising, no ad networks and nothing sold or shared with anyone.",
+              "No advertising networks and no sale of personal information. Service providers are listed below.",
               "No profiling, no automated decisions and no attempt to work out who you are.",
               "No account, no password and no sign-up needed to use anything here.",
-              "The site code does not save your postcode or add it to a list. It is sent only when you ask for a postcode lookup.",
+              "Postcodes are not added to a server-side list. A postcode may be kept temporarily in this browser tab to pass your chosen area to the email builder.",
             ].map((item) => (
               <li
                 key={item}
@@ -236,7 +215,7 @@ export default function Privacy() {
                   {["Service", "What it does", "What it sees"].map((h) => (
                     <th
                       key={h}
-                      className="ui border-b-2 border-[var(--ink)] bg-[var(--surface-2)] px-5 py-3.5 text-left text-[14.5px] font-[750] text-[var(--muted)]"
+                      className="ui border-b-2 border-[var(--ink)] bg-[var(--surface-2)] px-5 py-3.5 text-left text-[15px] font-[750] text-[var(--muted)]"
                     >
                       {h}
                     </th>
@@ -250,7 +229,8 @@ export default function Privacy() {
                   ["Google Gmail", "Sends a new-review alert and private moderation link to the moderator", "The MSP, rating, chosen display name and whether follow-up permission was given. The full account and optional reviewer email are not included"],
                   ["Resend", "May send the same limited new-review alert if Gmail cannot send it", "The MSP, rating, chosen display name and whether follow-up permission was given. The full account and optional reviewer email are not included"],
                   ["Supabase", "Stores MSP reviews while they are moderated and publishes approved reviews", "The review fields you submit. If you opt into a possible follow-up, your email remains in the private moderation queue and is excluded from the public review table"],
-                  ["Mailchimp", "Stores the mailing list", "Your email address"],
+                  ...(GA4_ON ? [["Google Analytics", "Measures visits and useful tool actions after permission", "Page paths, device details, approximate location, referral information and limited action events"]] : []),
+                  ...(CLARITY_ON ? [["Microsoft Clarity", "Helps find usability problems after permission", "Page interaction and session recordings with private form fields masked"]] : []),
                   ["postcodes.io", "Turns a postcode into a council area", "The postcode you entered"],
                   ["UK Parliament", "Provides the public record of who your MP is", "The constituency found from your postcode. Your postcode is not sent to UK Parliament"],
                   ["Scottish Parliament", "Provides the public record of who your MSPs are", "Usually only an area name. If postcodes.io cannot identify your Scottish Parliament areas, the postcode you entered is sent to the Scottish Parliament postcode finder"],
@@ -283,8 +263,9 @@ export default function Privacy() {
                 be found without collecting anything new.
               </p>
               <p>
-                Every mailing list email has an unsubscribe link, which removes you immediately. You
-                do not have to give a reason and nothing is kept afterwards.
+                To stop updates, reply “stop” to an email or contact me. You can also ask for
+                a contact message, subscriber address or review to be deleted. You do not
+                have to give a reason.
               </p>
             </div>
             <div className="space-y-4 text-[17px] leading-[1.6] text-[var(--ink-2)]">
@@ -307,8 +288,7 @@ export default function Privacy() {
         <ContentFrame as="section" className="mt-16 border-t-2 border-[var(--ink)] pt-8">
           <p className="max-w-[70ch] text-[15.5px] leading-[1.6] text-[var(--ink-2)]">
             {site.name} is a personal, independent project by {site.author.name} at{" "}
-            {site.organisation.name}. It has no funding, no advertising and nothing to sell, which
-            is the main reason there is so little to say on this page. If anything here does not
+            {site.organisation.name}. There is no advertising on the public site. If anything here does not
             match what the site actually does,{" "}
             <Link href="/contact">tell me and it will be corrected</Link>.
           </p>

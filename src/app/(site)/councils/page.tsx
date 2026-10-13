@@ -77,7 +77,7 @@ export default function CouncilsPage() {
             a card only renders when there is something to count.
           */}
           <section className="pt-12" aria-label="What the records show so far">
-            <p className="kicker mb-4 text-[var(--action)]">Counted so far, across every published record</p>
+            <p className="kicker mb-4 text-[var(--action-text)]">Counted so far, across every published record</p>
             <div className="grid gap-4 sm:grid-cols-3">
               {[
                 [missedTargets, missedTargets === 1 ? "goal they set themselves, missed" : "goals they set themselves, missed"],
@@ -104,7 +104,7 @@ export default function CouncilsPage() {
           */}
           <section className="pt-12" aria-label="Why councils say they need more money">
             <div className="rounded-[var(--r-m)] border border-[var(--action)] bg-[var(--action-tint)] p-6 sm:p-7">
-              <p className="kicker mb-3 text-[var(--action)]">The bit nobody explains</p>
+              <p className="kicker mb-3 text-[var(--action-text)]">The bit nobody explains</p>
               <p className="text-[26px] font-[800] leading-[1.2] text-[var(--ink)] sm:text-[32px]">
                 {NATIONAL.councilsWithGap} of Scotland&rsquo;s {NATIONAL.councilsTotal} councils
                 said they needed more money this year.

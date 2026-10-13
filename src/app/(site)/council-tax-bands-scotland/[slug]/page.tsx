@@ -364,7 +364,7 @@ export default async function CouncilTaxSlugPage(props: { params: Promise<{ slug
                   <span className="display-stat block text-[19px] tnum text-[var(--ink)]">
                     {pounds.format(r.total)}
                   </span>
-                  <span className="mt-1 block text-[15px] leading-[1.4] tnum text-[var(--action)]">
+                  <span className="mt-1 block text-[15px] leading-[1.4] tnum text-[var(--action-text)]">
                     +{exact.format(r.councilTaxRise)} · {percent.format(r.councilTaxRisePct)}%
                   </span>
                 </span>

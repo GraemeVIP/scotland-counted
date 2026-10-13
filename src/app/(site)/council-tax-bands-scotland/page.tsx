@@ -94,10 +94,12 @@ export default function CouncilTaxPage() {
         <PageHeader
           eyebrow="Scotland · all 32 councils · bands A to H"
           title="Council tax bands in Scotland: 2026/27 prices"
-          lede="Enter your postcode and see what every band costs where you live, with water and waste water included, which most figures leave out. Scotland only: the bands and rates here do not apply in England or Wales."
+          lede="Find your council’s 2026/27 charges, including Scottish Water. Enter a Scottish postcode or choose your council."
         />
 
-        <div className="mt-2 mb-9">
+        <CouncilTaxLookup />
+
+        <div className="mt-10 mb-9">
           <InShort>
             <p>
               Council tax is worked out from a <strong>band</strong>, which depends on your
@@ -120,10 +122,8 @@ export default function CouncilTaxPage() {
 
         <WaterCharge className="mb-10" />
 
-        <CouncilTaxLookup />
-
         <section className="pt-14" id="council-tax-rises">
-          <p className="kicker mb-2 text-[var(--action)]">What changed this year</p>
+          <p className="kicker mb-2 text-[var(--action-text)]">What changed this year</p>
           <h2 className="h2 mb-3">Where Band D council tax rose most</h2>
           <p className="max-w-[62ch] text-[17px] leading-[1.6] text-[var(--ink-2)]">
             All 32 councils increased their council tax for 2026/27. At Band D, the rise runs from{" "}
@@ -152,7 +152,7 @@ export default function CouncilTaxPage() {
                   <span className="ui text-[15px] font-[640] leading-[1.25] text-[var(--ink-2)] group-hover:text-[var(--ink)]">
                     <span className="tnum text-[var(--muted)]">{i + 1}.</span> {c.name}
                   </span>
-                  <span className="display-stat shrink-0 text-[17px] tnum text-[var(--action)]">
+                  <span className="display-stat shrink-0 text-[17px] tnum text-[var(--action-text)]">
                     +{exact.format(c.councilTaxRise)}
                   </span>
                 </span>
