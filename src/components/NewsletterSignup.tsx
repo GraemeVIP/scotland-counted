@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { trackEvent } from "@/lib/analytics";
 import { site } from "@/lib/site";
 
 /**
@@ -26,6 +27,7 @@ export default function NewsletterSignup({
   async function submit(e: React.FormEvent) {
     e.preventDefault();
     if (!email.trim() || state === "sending") return;
+    if (window.location.hostname !== new URL(site.url).hostname) { setState("error"); return; }
     setState("sending");
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
@@ -40,8 +42,11 @@ export default function NewsletterSignup({
         }),
       });
       const data = await res.json();
-      setState(data.success ? "done" : "error");
+      const success = res.ok && data.success;
+      setState(success ? "done" : "error");
+      trackEvent(success ? "newsletter_subscribed" : "newsletter_error");
     } catch {
+      trackEvent("newsletter_error");
       setState("error");
     }
   }
@@ -70,6 +75,7 @@ export default function NewsletterSignup({
 
   return (
     <form
+      data-clarity-mask="true"
       onSubmit={submit}
       className={compact ? "max-w-[340px]" : feature ? "w-full" : "max-w-[480px]"}
     >
@@ -98,6 +104,7 @@ export default function NewsletterSignup({
         />
         <input
           type="email"
+          maxLength={254}
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -135,8 +142,8 @@ export default function NewsletterSignup({
         }
       >
         {state === "error"
-          ? "That didn't send, try again in a moment, or use the RSS feed instead."
-          : "A few emails a year, when the figures update. Your address is forwarded to me by Web3Forms, used for nothing else, and never shared."}
+          ? (window.location.hostname !== new URL(site.url).hostname ? "Sending is disabled in this preview. Use the live site at scotlandcounted.org.uk." : "That didn't send, try again in a moment, or use the RSS feed instead.")
+          : "A few emails a year, when the figures update. Your address is forwarded to me by Web3Forms, used only for these updates, and never sold."}
       </p>
     </form>
   );

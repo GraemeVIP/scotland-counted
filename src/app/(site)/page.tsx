@@ -140,7 +140,7 @@ export default function Home() {
             className="group grid items-center gap-5 rounded-[var(--r-m)] border border-[var(--action)] bg-[var(--action-tint)] p-6 no-underline transition-all hover:-translate-y-0.5 hover:shadow-[var(--shadow-2)] sm:p-8 md:grid-cols-[minmax(0,1fr)_auto]"
           >
             <span className="block">
-              <span className="kicker block text-[var(--action)]">Scottish MSP reviews</span>
+              <span className="kicker block text-[var(--action-text)]">Scottish MSP reviews</span>
               <h2 id="msp-reviews-home-title" className="h2 mt-2 text-[var(--ink)]">
                 Rate or review your MSP
               </h2>
@@ -183,7 +183,7 @@ export default function Home() {
                 </p>
                 <span
                   aria-hidden="true"
-                  className="mt-6 text-[18px] text-[var(--action)] transition-transform group-hover:translate-x-1.5"
+                  className="mt-6 text-[18px] text-[var(--action-text)] transition-transform group-hover:translate-x-1.5"
                 >
                   →
                 </span>
@@ -196,12 +196,12 @@ export default function Home() {
         <section className="border-t border-[var(--rule)] py-12 sm:py-16" aria-labelledby="tools">
           <div className="grid gap-x-14 gap-y-8 lg:grid-cols-[minmax(280px,0.62fr)_minmax(0,1.38fr)]">
             <div>
-              <p className="kicker mb-3 text-[var(--action)]">Free, no sign-up</p>
+              <p className="kicker mb-3 text-[var(--action-text)]">Free, no sign-up</p>
               <h2 id="tools" className="display-stat max-w-[12ch] text-[clamp(34px,4vw,52px)]">
                 Work out your own numbers
               </h2>
               <p className="mt-4 max-w-[34ch] text-[17px] leading-[1.55] text-[var(--ink-2)]">
-                Nothing you type is sent anywhere. Every sum happens in your browser.
+                Calculator sums stay in your browser. Postcodes are sent only when you request a local lookup.
               </p>
             </div>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -220,7 +220,7 @@ export default function Home() {
                   </p>
                   <span
                     aria-hidden="true"
-                    className="mt-6 text-[18px] text-[var(--action)] transition-transform group-hover:translate-x-1.5"
+                    className="mt-6 text-[18px] text-[var(--action-text)] transition-transform group-hover:translate-x-1.5"
                   >
                     →
                   </span>
@@ -287,7 +287,7 @@ export default function Home() {
               <div aria-hidden="true" className="absolute inset-y-0 left-0 w-2 bg-[var(--action)]" />
               <div className="grid gap-8 p-7 sm:p-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(420px,1.1fr)] lg:items-center lg:gap-12 lg:p-12">
                 <div>
-                  <p className="kicker mb-3 text-[var(--action-hover)]">When the numbers move</p>
+                  <p className="kicker mb-3 text-[var(--action-text)]">When the numbers move</p>
                   <h2 id="updates" className="display-stat max-w-[18ch] text-[clamp(36px,4vw,54px)]">
                     Councils publish. Nobody tells you
                   </h2>
@@ -334,7 +334,7 @@ export default function Home() {
                       {item.q}
                       <span
                         aria-hidden="true"
-                        className="text-[22px] leading-none text-[var(--action)] transition-transform group-open:rotate-45"
+                        className="text-[22px] leading-none text-[var(--action-text)] transition-transform group-open:rotate-45"
                       >
                         +
                       </span>

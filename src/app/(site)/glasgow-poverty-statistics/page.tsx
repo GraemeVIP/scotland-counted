@@ -109,7 +109,7 @@ export default function TheNumbers() {
                     <span className="ui text-[15px] text-[var(--muted)]">{c.sparkNote}</span>
                     <span
                       aria-hidden="true"
-                      className="text-[var(--action)] text-[17px] group-hover:translate-x-1.5 transition-transform"
+                      className="text-[var(--action-text)] text-[17px] group-hover:translate-x-1.5 transition-transform"
                     >
                       →
                     </span>

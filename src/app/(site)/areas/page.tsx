@@ -93,8 +93,8 @@ export default function Areas() {
             standfirst="The ten highest are shown to begin with. Glasgow is shaded. Tap any column to sort, or any row to open that area."
             measure={`Children in poverty · ${last}`}
             nameLabel="Council area"
-            latestLabel="Now"
-            firstLabel="10 years ago"
+            latestLabel={last}
+            firstLabel={first}
             rows={byLevel.map((c) => ({
               rank: c.rankLevel,
               name: c.name,

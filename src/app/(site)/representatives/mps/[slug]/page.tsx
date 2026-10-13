@@ -186,7 +186,7 @@ export default async function MpPage({ params }: { params: Promise<{ slug: strin
                     />
                   )}
                   <div>
-                    <p className="kicker mb-3 text-[var(--action)]">Current MP</p>
+                    <p className="kicker mb-3 text-[var(--action-text)]">Current MP</p>
                     <h2 className="h2 mb-2">{mp.name}</h2>
                   </div>
                 </div>

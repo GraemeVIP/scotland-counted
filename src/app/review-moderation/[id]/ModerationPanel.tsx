@@ -79,7 +79,7 @@ export default function ModerationPanel({ id }: { id: string }) {
   const field = "w-full rounded-[var(--r-s)] border border-[var(--rule-strong)] bg-[var(--paper)] px-3.5 py-3 text-[16px] outline-none focus:border-[var(--brand)]";
   return (
     <div>
-      <p className="kicker mb-3 text-[var(--action)]">Private moderation</p>
+      <p className="kicker mb-3 text-[var(--action-text)]">Private moderation</p>
       <h1 className="h1 mb-5">Review the submission</h1>
       <div className="mb-7 rounded-[var(--r-s)] bg-[var(--surface-2)] p-5 text-[15.5px] leading-[1.6] text-[var(--ink-2)]">
         <p><strong className="text-[var(--ink)]">{submission.msp_name}</strong> · {submission.rating} out of 5 · {submission.relationship}</p>

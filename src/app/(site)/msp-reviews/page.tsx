@@ -81,10 +81,10 @@ export default async function MspReviewsPage() {
             <p className="mt-4 max-w-[72ch] text-[17px] leading-[1.65] text-[var(--ink-2)]">They do different jobs. A Scotland Counted review creates a moderated public record of your experience. A formal complaint asks the Scottish Parliament to consider whether an MSP broke its Code of Conduct.</p>
             <div className="mt-7 grid gap-4 md:grid-cols-2">
               <article className="rounded-[var(--r-m)] border border-[var(--action)] bg-[var(--action-tint)] p-6 sm:p-7">
-                <p className="ui text-[15px] font-[750] uppercase tracking-[0.06em] text-[var(--action)]">Public experience review</p>
+                <p className="ui text-[15px] font-[750] uppercase tracking-[0.06em] text-[var(--action-text)]">Public experience review</p>
                 <h3 className="h3 mt-3">Tell people what happened</h3>
                 <p className="mt-3 text-[16px] leading-[1.6] text-[var(--ink-2)]">Use this when you dealt directly with an MSP or their office and want an eligible account and rating to be considered for publication.</p>
-                <a href="#leave-an-msp-review" className="ui mt-5 inline-block text-[16px] font-[750] text-[var(--action)]">Leave a moderated review →</a>
+                <a href="#leave-an-msp-review" className="ui mt-5 inline-block text-[16px] font-[750] text-[var(--action-text)]">Leave a moderated review →</a>
               </article>
               <article className="rounded-[var(--r-m)] border border-[var(--rule-strong)] bg-[var(--surface)] p-6 sm:p-7">
                 <p className="ui text-[15px] font-[750] uppercase tracking-[0.06em] text-[var(--brand)]">Official complaint</p>
@@ -98,7 +98,7 @@ export default async function MspReviewsPage() {
           <section id="leave-an-msp-review" className="scroll-mt-28 pt-14 sm:pt-18">
             <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_340px] lg:items-start">
               <div>
-                <p className="kicker mb-3 text-[var(--action)]">Submit an experience</p>
+                <p className="kicker mb-3 text-[var(--action-text)]">Submit an experience</p>
                 <h2 className="h2 mb-4">Leave an MSP review</h2>
                 <p className="mb-3 max-w-[62ch] text-[17px] leading-[1.65] text-[var(--ink-2)]">Specific accounts are useful: what you asked, how long replies took, what action the office took and what happened next. A one-line insult or a rating with no story will not be published.</p>
                 <p className="ui mb-7 text-[15px] font-[700] text-[var(--ink)]">No account needed. Email is optional. Nothing goes live without review.</p>

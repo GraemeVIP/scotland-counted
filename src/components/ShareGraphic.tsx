@@ -67,7 +67,7 @@ export default function ShareGraphic({ className = "" }: { className?: string })
       </div>
 
       <div>
-        <p className="kicker mb-3 text-[var(--action)]">Pass it on</p>
+        <p className="kicker mb-3 text-[var(--action-text)]">Pass it on</p>
         <h2 id="share-graphic" className="display-stat text-[clamp(30px,3.8vw,46px)] max-w-[16ch]">
           Send this to someone who thinks poverty means not working
         </h2>

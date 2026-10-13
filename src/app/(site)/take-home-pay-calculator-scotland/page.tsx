@@ -55,7 +55,7 @@ const FAQ = [
   },
   {
     q: "Does it handle student loans and pensions?",
-    a: "Yes. Student loan Plans 1, 2, 4 and 5, postgraduate loans, and a postgraduate loan running alongside a numbered plan. Pensions can be a percentage or a fixed amount, taken as net pay, salary sacrifice or relief at source. All are under More options.",
+    a: "Yes. Student loan Plans 1, 2, 4 and 5, postgraduate loans, and a postgraduate loan running alongside a numbered plan. Net-pay and salary-sacrifice pensions can be a percentage or a fixed amount under More options. Relief-at-source pensions and emergency W1/M1/X tax codes are not supported, because their extra relief or pay-period rules need a different calculation.",
   },
 ];
 

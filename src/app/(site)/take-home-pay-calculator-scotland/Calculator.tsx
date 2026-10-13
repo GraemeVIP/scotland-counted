@@ -50,7 +50,7 @@ const PERIODS: { id: Period; label: string }[] = [
 const PENSION_TYPES: { id: PensionType; label: string; hint: string }[] = [
   { id: "net", label: "Net pay", hint: "Taken before tax, but not before National Insurance. The most common." },
   { id: "sac", label: "Salary sacrifice", hint: "Taken before both tax and National Insurance, so it also cuts your NI." },
-  { id: "ras", label: "Relief at source", hint: "Taken from pay after tax. Your provider adds 25% back into the pot." },
+  { id: "ras", label: "Relief at source (not supported)", hint: "This needs additional tax-relief calculations. No estimate is shown for this pension type." },
 ];
 
 const LOAN_PLANS: { id: StudentPlan; label: string }[] = [
@@ -122,7 +122,14 @@ export default function Calculator() {
 
   const region: Region = scotland ? "scotland" : "ruk";
   const codeInfo = useMemo(() => parseTaxCode(taxCode), [taxCode]);
-  const codeInvalid = taxCode.trim() !== "" && codeInfo === null;
+  const regionMismatch = Boolean(codeInfo && ((codeInfo.code.startsWith("S") && !scotland) || (codeInfo.code.startsWith("C") && scotland)));
+  const codeInvalid = taxCode.trim() !== "" && (codeInfo === null || regionMismatch);
+  const unsupportedPension = pensionType === "ras";
+  const inputProblem = unsupportedPension
+    ? "Relief-at-source pensions are not supported by this estimator: extra relief and the Personal Allowance taper need a different calculation. Check your scheme type; only select net pay or salary sacrifice if that is how your scheme actually works."
+    : regionMismatch ? "Your tax-code prefix and taxpayer region disagree. S means Scottish rates; C means Welsh rates. Check the region above."
+    : codeInvalid ? "This annual estimator cannot use that code. Emergency W1, M1 and X codes need your pay-period details. Check the code or leave it blank only if the standard allowance applies."
+    : "";
 
   const optsFor = useMemo(() => {
     const pensionValue = num(pension);
@@ -139,7 +146,7 @@ export default function Calculator() {
   const hasInput = amount.trim() !== "" && entered > 0;
 
   const result = useMemo(() => {
-    if (!hasInput) return null;
+    if (!hasInput || inputProblem) return null;
     const target = toAnnual(entered, period, hours);
     if (reverse) {
       const gross = solveGross(target, region, optsFor);
@@ -147,7 +154,7 @@ export default function Calculator() {
       return { calc: calculate(gross, region, optsFor(gross)), solvedGross: gross };
     }
     return { calc: calculate(target, region, optsFor(target)) };
-  }, [hasInput, entered, period, hours, reverse, region, optsFor]);
+  }, [hasInput, entered, period, hours, reverse, region, optsFor, inputProblem]);
 
   /*
    * Clear the query string, and never write one.
@@ -176,7 +183,7 @@ export default function Calculator() {
   const calc = result && "calc" in result ? result.calc : null;
   const unreachable = result && "unreachable" in result;
 
-  /** The URL already carries the whole calculation, so sharing is just a copy. */
+  /** Share only the public tool; personal financial inputs are never copied into a URL. */
   const [copied, setCopied] = useState(false);
   async function copyLink() {
     try {
@@ -198,7 +205,7 @@ export default function Calculator() {
 
   const insight = useMemo(() => {
     if (!calc) return null;
-    const adjusted = calc.pensionType === "ras" ? calc.gross : calc.gross - calc.pension;
+    const adjusted = calc.gross - calc.pension;
     if (
       calc.tax.codeInfo.type === "standard" &&
       adjusted > TAX_DATA.taperThreshold &&
@@ -308,7 +315,7 @@ export default function Calculator() {
         <div className="mt-6 flex items-center justify-between gap-4 border-t border-[var(--rule)] pt-5">
           <div>
             <p className="ui text-[15.5px] font-[720]">Scottish taxpayer</p>
-            <p className="text-[14.5px] leading-[1.45] text-[var(--muted)] mt-0.5">
+            <p className="text-[15px] leading-[1.45] text-[var(--muted)] mt-0.5">
               Scotland&apos;s six bands, not the UK&apos;s three
             </p>
           </div>
@@ -334,7 +341,7 @@ export default function Calculator() {
         <div className="mt-5 flex items-center justify-between gap-4 border-t border-[var(--rule)] pt-5">
           <div>
             <p className="ui text-[15.5px] font-[720]">Hours a week</p>
-            <p className="text-[14.5px] leading-[1.45] text-[var(--muted)] mt-0.5">
+            <p className="text-[15px] leading-[1.45] text-[var(--muted)] mt-0.5">
               Used for the hourly figures
             </p>
           </div>
@@ -357,7 +364,7 @@ export default function Calculator() {
         >
           <span>
             <span className="block text-[15.5px] font-[720]">More options</span>
-            <span className="mt-0.5 block text-[14.5px] text-[var(--muted)]">
+            <span className="mt-0.5 block text-[15px] text-[var(--muted)]">
               Pension, student loan, tax code
             </span>
           </span>
@@ -392,7 +399,7 @@ export default function Calculator() {
                       type="button"
                       onClick={() => setPensionUnit(u)}
                       aria-pressed={pensionUnit === u}
-                      className={`ui rounded-[8px] px-3 text-[14.5px] font-[700] ${
+                      className={`ui rounded-[8px] px-3 text-[15px] font-[700] ${
                         pensionUnit === u
                           ? "bg-[var(--brand)] text-white"
                           : "text-[var(--muted)]"
@@ -417,7 +424,7 @@ export default function Calculator() {
                       </option>
                     ))}
                   </select>
-                  <p className="mt-2 text-[14.5px] leading-[1.5] text-[var(--muted)]">
+                  <p className="mt-2 text-[15px] leading-[1.5] text-[var(--muted)]">
                     {PENSION_TYPES.find((t) => t.id === pensionType)?.hint}
                   </p>
                 </>
@@ -471,13 +478,13 @@ export default function Calculator() {
                 }`}
               />
               <p
-                className={`mt-2 text-[14.5px] leading-[1.5] ${
+                className={`mt-2 text-[15px] leading-[1.5] ${
                   codeInvalid ? "text-[var(--bad-text)]" : "text-[var(--muted)]"
                 }`}
               >
                 {codeInvalid
-                  ? "That is not a tax code I recognise. Leave it blank for the standard 1257L."
-                  : "Leave blank for the standard 1257L. Accepts K codes, BR, D0 to D3, 0T and NT."}
+                  ? inputProblem
+                  : "Leave blank for the standard 1257L. Supports K codes, BR, D0/D1, Scottish SD2/SD3, 0T and NT. Emergency W1/M1/X codes are not supported."}
               </p>
             </div>
           </div>
@@ -491,26 +498,26 @@ export default function Calculator() {
           style={{ boxShadow: "var(--shadow-2)" }}
         >
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <p className="kicker text-[var(--action)]">
+            <p className="kicker text-[var(--action-text)]">
               {reverse ? "You would need to earn" : "You take home"}
             </p>
             <div className="flex items-center gap-2.5">
-              <span className="ui rounded-[var(--r-pill)] border border-white/25 px-3 py-1 text-[14px] font-[700]">
+              <span className="ui rounded-[var(--r-pill)] border border-white/25 px-3 py-1 text-[15px] font-[700]">
                 {scotland ? "Scotland" : "England, Wales & NI"} · {TAX_DATA.taxYear}
               </span>
-              {hasInput && (
+              {hasInput && !inputProblem && (
                 <button
                   type="button"
                   onClick={copyLink}
-                  className="ui rounded-[var(--r-pill)] border border-white/25 px-3 py-1 text-[14px] font-[700] transition-colors hover:bg-white/10"
+                  className="ui rounded-[var(--r-pill)] border border-white/25 px-3 py-1 text-[15px] font-[700] transition-colors hover:bg-white/10"
                 >
-                  {copied ? "Copied" : "Copy link"}
+                  {copied ? "Copied" : "Copy tool link"}
                 </button>
               )}
             </div>
           </div>
 
-          {!hasInput ? (
+          {inputProblem ? <p role="alert" className="mt-4 text-[17px] leading-relaxed">{inputProblem}</p> : !hasInput ? (
             <p className="mt-4 text-[19px] leading-[1.5] opacity-80 max-w-[38ch]">
               Put your pay in on the left and this fills in, before tax or after, whichever you
               know.
@@ -538,7 +545,7 @@ export default function Calculator() {
                       key={label as string}
                       className="rounded-[var(--r-s)] border border-white/15 bg-white/[0.07] px-4 py-3"
                     >
-                      <p className="ui text-[14px] font-[700] opacity-75">{label as string}</p>
+                      <p className="ui text-[15px] font-[700] opacity-75">{label as string}</p>
                       <p className="display-stat mt-1 text-[clamp(18px,2.2vw,24px)] tnum">
                         {gbp(value as number, dp as number)}
                       </p>
@@ -609,7 +616,7 @@ export default function Calculator() {
                     {["", "Before tax", "Income tax", "NI", "Take-home"].map((h) => (
                       <th
                         key={h}
-                        className="ui border-b-2 border-[var(--ink)] px-4 pb-3 pt-4 text-left text-[14.5px] font-[750] text-[var(--muted)] last:text-right"
+                        className="ui border-b-2 border-[var(--ink)] px-4 pb-3 pt-4 text-left text-[15px] font-[750] text-[var(--muted)] last:text-right"
                       >
                         {h}
                       </th>
@@ -706,8 +713,7 @@ export default function Calculator() {
                     <p className="ui mt-6 text-[15px] font-[700] mb-2">Pension</p>
                     <p className="text-[15px] leading-[1.55] text-[var(--ink-2)]">
                       {gbp(calc.pension)} a year leaves your pay.
-                      {calc.pensionType === "ras" &&
-                        ` Your provider adds 25% basic-rate relief, so ${gbp(calc.pensionPot)} goes into the pot.`}
+
                     </p>
                   </>
                 )}

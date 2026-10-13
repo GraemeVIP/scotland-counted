@@ -72,7 +72,7 @@ export default function PovertyHub() {
           </InShort>
 
           <section className="pt-12">
-            <p className="kicker mb-4 text-[var(--action)]">Scotland, {p.period}</p>
+            <p className="kicker mb-4 text-[var(--action-text)]">Scotland, {p.period}</p>
             {/* A plain grid, not StatStrip: that component shows a movement
                 between two periods, and these are a single snapshot. */}
             <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">

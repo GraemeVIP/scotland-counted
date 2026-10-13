@@ -26,7 +26,7 @@ export const postCategories = [
     slug: "money-and-bills",
     name: "Money and bills",
     description: "Why food, rent, energy and wages no longer add up in Scotland. See what each one costs now and who controls the rules that set the price.",
-    color: "var(--action)",
+    color: "var(--action-text)",
     colorOnDark: "#ff8b75",
   },
   {
@@ -40,7 +40,7 @@ export const postCategories = [
     slug: "take-action",
     name: "Take action",
     description: "Simple ways to make the people with power answer for what they decide: who to write to, what to ask and what happens after you press send.",
-    color: "var(--good)",
+    color: "var(--good-text)",
     colorOnDark: "#3ddc9a",
   },
   {

@@ -99,8 +99,8 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
     {
       q: `Is child poverty in ${c.name} rising or falling?`,
       a: rose
-        ? `Rising. It was ${c.pcts[0]}% in ${first} and is ${c.pcts[9]}% now.`
-        : `Falling. It was ${c.pcts[0]}% in ${first} and is ${c.pcts[9]}% now.`,
+        ? `Rising. It was ${c.pcts[0]}% in ${first} and is ${c.pcts[9]}% in ${last}.`
+        : `Falling. It was ${c.pcts[0]}% in ${first} and is ${c.pcts[9]}% in ${last}.`,
     },
     {
       q: `How does ${c.name} compare with the rest of Scotland?`,
@@ -160,14 +160,14 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
         <div className="grid gap-px bg-[var(--rule)] border-y border-[var(--rule)] mt-9 [grid-template-columns:repeat(auto-fit,minmax(180px,1fr))]">
           {[
             {
-              label: "Children in poverty now",
+              label: `Children in poverty ${last}`,
               value: plainShare,
               note: `Exactly ${c.pcts[9]}% · ${c.counts[9].toLocaleString("en-GB")} children`,
             },
             {
               label: "Over the last ten years",
               value: rose ? "Worse" : "Better",
-              note: `${c.pcts[0]}% then · ${c.pcts[9]}% now`,
+              note: `${c.pcts[0]}% in ${first} · ${c.pcts[9]}% in ${last}`,
             },
             {
               label: "Compared with every Scottish area",

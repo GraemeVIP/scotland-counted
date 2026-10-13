@@ -136,7 +136,7 @@ export default async function ConstituencyPage(props: { params: Promise<{ slug: 
             {
               label: "Over the last ten years",
               value: rose ? "Worse" : "Better",
-              note: `${c.pcts[0]}% then · ${c.pcts[9]}% now`,
+              note: `${c.pcts[0]}% in ${first} · ${c.pcts[9]}% in ${last}`,
             },
             {
               label: "Compared with Scotland",
@@ -144,7 +144,7 @@ export default async function ConstituencyPage(props: { params: Promise<{ slug: 
               note: `${c.name}: ${c.pcts[9]}% · Scotland: ${SCOTLAND_PCTS[9]}%`,
             },
             {
-              label: "Children in poverty now",
+              label: `Children in poverty ${last}`,
               value: plainShare,
               note: `Exactly ${c.pcts[9]}% · ${c.counts[9].toLocaleString("en-GB")} children`,
             },
@@ -224,6 +224,7 @@ export default async function ConstituencyPage(props: { params: Promise<{ slug: 
               count: c.counts[9],
               firstPct: c.pcts[0],
               firstYear: first,
+              latestYear: last,
               scotlandPct: SCOTLAND_PCTS[9],
             }}
           />

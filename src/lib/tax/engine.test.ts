@@ -90,7 +90,7 @@ test("marginal rate in the £100k trap (62% incl. NI)", () => {
 test("parseTaxCode forms", () => {
   assert.equal((code("1257L") as { allowance: number }).allowance, 12570);
   assert.equal((code("s1100l") as { allowance: number }).allowance, 11000);
-  assert.equal((code("1257L W1") as { allowance: number }).allowance, 12570);
+  assert.equal(parseTaxCode("1257L W1"), null);
   assert.equal((code("0T") as { allowance: number }).allowance, 0);
   assert.equal((code("K497") as { kAmount: number }).kAmount, 4970);
   assert.equal(code("BR").type, "flat");
@@ -113,7 +113,7 @@ test("tax codes applied at £30,000 rUK", () => {
 
 test("Scottish flat codes use Scottish rates", () => {
   near(calculate(30000, "scotland", { taxCode: code("D0") }).tax.total, 6300); // 21%
-  near(calculate(30000, "scotland", { taxCode: code("D3") }).tax.total, 14400); // 48%
+  near(calculate(30000, "scotland", { taxCode: code("SD3") }).tax.total, 14400); // 48%
 });
 
 test("NT code: no tax but NI still due", () => {
@@ -145,12 +145,10 @@ test("salary sacrifice: reduces tax AND NI (and student loan)", () => {
   near(withLoan.sl.total, 347.85); // 9% of (33,250 − 29,385)
 });
 
-test("relief at source: full tax/NI, pot grossed up 25%", () => {
-  const r = calculate(35000, "ruk", { pension: 1750, pensionType: "ras" });
-  near(r.tax.total, 4486);
-  near(r.ni.total, 1794.4);
-  near(r.net, 26969.6);
-  near(r.pensionPot, 2187.5);
+test("unsupported RAS pensions cannot produce a misleading estimate", () => {
+  for (const region of REGIONS) {
+    for (const gross of [35000, 60000, 110000]) assert.throws(() => calculate(gross, region, {pension:10000,pensionType:"ras"}), /Relief-at-source/);
+  }
 });
 
 test("pension restores personal allowance above £100k", () => {
@@ -250,4 +248,12 @@ test("minimum wage take-home matches what the site states", () => {
   near(r.ni.total, 977.16);
   near(r.net, 21404.11);
   near(r.net / 12, 1783.68);
+});
+
+
+test("tax-code region and emergency cases are rejected instead of silently reinterpreted", () => {
+  for (const invalid of ["1257L M1","S1257LX","D2","D3","CD3"]) assert.equal(parseTaxCode(invalid),null);
+  assert.throws(() => calculate(30000,"ruk",{taxCode:code("S1257L")}), /region/);
+  assert.throws(() => calculate(30000,"scotland",{taxCode:code("C1257L")}), /region/);
+  near(calculate(30000,"scotland",{taxCode:code("SD2")}).tax.total,13500);
 });

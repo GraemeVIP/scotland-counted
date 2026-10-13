@@ -65,8 +65,9 @@ export default function About() {
 
           <h2 className="h2 mb-4 mt-11">How it is funded</h2>
           <p>
-            It is not. There are no ads, no trackers, no paywall, no email harvesting and no
-            sponsor. It costs very little to run and I pay for it myself.
+            The public site is free to use, with no ads or paywall. I also offer <Link href="/for-organisations">commissioned local evidence briefs</Link>, with scope and price agreed in advance. Paid work does not buy editorial coverage or influence the published figures.
+            Optional analytics help me understand what people find useful, and email updates
+            are opt-in. <Link href="/privacy">Read how your information is handled</Link>.
           </p>
 
           <h2 className="h2 mb-4 mt-11">Practical help in Ayrshire</h2>

@@ -48,7 +48,7 @@ export default function Browse() {
                 href="/email-your-mp-and-msp"
                 className="group block rounded-[var(--r-s)] border border-[var(--rule)] border-t-[3px] border-t-[var(--action)] bg-[var(--surface)] px-5 py-5 no-underline hover:border-[var(--action)] transition-colors"
               >
-                <span className="ui block text-[15px] font-[750] uppercase tracking-[0.06em] text-[var(--action)]">
+                <span className="ui block text-[15px] font-[750] uppercase tracking-[0.06em] text-[var(--action-text)]">
                   Fastest route
                 </span>
                 <span className="ui mt-2 block text-[19px] font-[750] text-[var(--ink)]">
@@ -63,7 +63,7 @@ export default function Browse() {
                   href="/representatives"
                   className="group block rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] px-5 py-4 no-underline hover:border-[var(--rule-strong)] transition-colors"
                 >
-                  <span className="ui text-[17px] font-[720] text-[var(--ink)] group-hover:text-[var(--action)]">
+                  <span className="ui text-[17px] font-[720] text-[var(--ink)] group-hover:text-[var(--action-text)]">
                     Browse all 57 MPs →
                   </span>
                   <span className="mt-1 block text-[15px] text-[var(--ink-2)]">
@@ -74,7 +74,7 @@ export default function Browse() {
                   href="/representatives/msps"
                   className="group block rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] px-5 py-4 no-underline hover:border-[var(--rule-strong)] transition-colors"
                 >
-                  <span className="ui text-[17px] font-[720] text-[var(--ink)] group-hover:text-[var(--action)]">
+                  <span className="ui text-[17px] font-[720] text-[var(--ink)] group-hover:text-[var(--action-text)]">
                     Browse all 129 MSPs →
                   </span>
                   <span className="mt-1 block text-[15px] text-[var(--ink-2)]">
@@ -189,7 +189,7 @@ export default function Browse() {
                   href={n.href}
                   className="group block rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] px-5 py-4 no-underline hover:border-[var(--rule-strong)] transition-colors"
                 >
-                  <span className="ui text-[16.5px] font-[680] text-[var(--ink)] group-hover:text-[var(--action)] transition-colors">
+                  <span className="ui text-[16.5px] font-[680] text-[var(--ink)] group-hover:text-[var(--action-text)] transition-colors">
                     {n.label}
                   </span>
                   {n.blurb && (

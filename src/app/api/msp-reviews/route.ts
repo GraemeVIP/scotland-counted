@@ -1,3 +1,4 @@
+import { readLimitedBody } from "@/lib/requestBody";
 import { NextResponse } from "next/server";
 import { getMspReviewProfileByMemberId } from "@/lib/data/mspReviews";
 import { submitMspReview } from "@/lib/mspReviewsDb";
@@ -28,13 +29,17 @@ function fail(request: Request, json: boolean, message: string, status = 400, ms
 
 export async function POST(request: Request) {
   const json = request.headers.get("content-type")?.includes("application/json") === true;
+  if (process.env.VERCEL_ENV && process.env.VERCEL_ENV !== "production") return fail(request, json, "Review submissions are disabled on previews.", 403);
+  const origin = request.headers.get("origin");
+  if (origin && origin !== new URL(request.url).origin) return fail(request, json, "Open this form on Scotland Counted to submit a review.", 403);
   let body: Record<string, unknown>;
   try {
-    body = json
-      ? await request.json()
-      : Object.fromEntries(await request.formData());
-  } catch {
-    return fail(request, json, "The review could not be read.");
+    const bytes = await readLimitedBody(request);
+    const bounded = new Response(bytes as BodyInit, { headers: { "Content-Type": request.headers.get("content-type") || "application/json" } });
+    body = json ? await bounded.json() : Object.fromEntries(await bounded.formData());
+    if (!body || typeof body !== "object" || Array.isArray(body)) return fail(request, json, "The review could not be read.");
+  } catch (error) {
+    return fail(request, json, error instanceof RangeError ? "The review is too large." : "The review could not be read.", error instanceof RangeError ? 413 : 400);
   }
 
   if (text(body.botcheck)) {
@@ -86,7 +91,7 @@ export async function POST(request: Request) {
       ? NextResponse.json({ success: true, confirmationPath }, { status: 201, headers: NO_STORE })
       : redirect(request, confirmationPath);
   } catch (error) {
-    console.error("MSP review submission failed", error);
+    console.error("MSP review submission failed", error instanceof Error ? error.name : "Unknown error");
     return fail(request, json, "The review could not be saved. Please try again shortly.", 502, slug);
   }
 }

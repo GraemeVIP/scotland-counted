@@ -15,9 +15,9 @@ import RepresentativeLookup from "./RepresentativeLookup";
 import RepresentativeDirectorySearch, { type DirectoryEntry } from "./RepresentativeDirectorySearch";
 
 export const metadata = meta({
-  title: "Scottish MPs and MSPs: Names and Contact Details",
+  title: "Who Is My MSP? Find Your MP and MSPs by Postcode",
   description:
-    "Find your MP and all eight MSPs in Scotland. See current names, areas, parties, public contact details and ready-written email links.",
+    "Enter a Scottish postcode to find your MP and all eight MSPs. See names, parties and official contact details, then write to the right person for free.",
   path: "/representatives",
 });
 
@@ -93,27 +93,15 @@ export default function RepresentativesPage() {
           eyebrow="Everyone who represents you"
           title="Find your MP and MSPs"
           lede="You have one MP at Westminster and eight MSPs at Holyrood. Enter your postcode to see their names and contact details. Nothing opens or sends unless you choose it."
-        >
-          <div className="mt-7 flex flex-wrap gap-3">
-            <Link href="#postcode-lookup" className="btn btn-primary">
-              Look up my representatives
-            </Link>
-            <Link href="/representatives/msps" className="btn btn-ghost">
-              Browse all 129 MSPs
-            </Link>
-            <Link href="/msp-reviews" className="btn btn-ghost">
-              Read or leave MSP reviews
-            </Link>
-          </div>
-          <p className="mt-5 text-[16px] leading-[1.6] text-[var(--ink-2)]">
-            Need something fixed, or something changed?{" "}
-            <Link href="/email-your-mp-and-msp">I will write the email for you →</Link>
-          </p>
-        </PageHeader>
+        />
 
         <ContentFrame>
-          <RepresentativeDirectorySearch entries={directoryEntries} />
           <RepresentativeLookup />
+          <div className="my-6 flex flex-wrap gap-4 text-[16px] font-semibold">
+            <Link href="/representatives/msps">Browse all 129 MSPs →</Link>
+            <Link href="/msp-reviews">Read or leave MSP reviews →</Link>
+          </div>
+          <RepresentativeDirectorySearch entries={directoryEntries} />
 
           <section aria-labelledby="feedback-heading" className="my-8 rounded-[var(--r-m)] border border-[var(--rule)] border-l-4 border-l-[var(--brand)] bg-[var(--surface-2)] p-6 sm:p-8">
             <p className="ui text-[15px] font-[750] text-[var(--brand)] mb-2">A note from Graeme</p>
@@ -161,7 +149,7 @@ export default function RepresentativesPage() {
               href="/representatives/msps"
               className="group rounded-[var(--r-m)] border border-[var(--rule)] border-t-[3px] border-t-[var(--action)] bg-[var(--surface)] p-6 no-underline transition-colors hover:border-[var(--rule-strong)] sm:p-7"
             >
-              <span className="figure-num block text-[34px] text-[var(--action)]">8 MSPs</span>
+              <span className="figure-num block text-[34px] text-[var(--action-text)]">8 MSPs</span>
               <span className="h3 mt-3 block group-hover:text-[var(--brand)]">Your voices at Holyrood</span>
               <span className="mt-2 block text-[16px] leading-[1.55] text-[var(--ink-2)]">
                 See one constituency MSP and seven regional MSPs. All eight represent you.

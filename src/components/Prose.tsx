@@ -51,7 +51,7 @@ export function UL({ children }: { children: ReactNode }) {
 export function LI({ children }: { children: ReactNode }) {
   return (
     <li className="text-[18px] leading-[1.6] text-[var(--ink-2)] flex gap-3">
-      <span aria-hidden="true" className="text-[var(--action)] shrink-0">
+      <span aria-hidden="true" className="text-[var(--action-text)] shrink-0">
         •
       </span>
       <span><ExplainText>{children}</ExplainText></span>
@@ -75,7 +75,7 @@ export function BigStat({
 }) {
   return (
     <div className="my-8 rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] border-l-[5px] border-l-[var(--action)] px-6 sm:px-8 py-7">
-      <p className="figure-num text-[44px] sm:text-[54px] leading-[1] text-[var(--action)]">
+      <p className="figure-num text-[44px] sm:text-[54px] leading-[1] text-[var(--action-text)]">
         {value}
       </p>
       <p className="ui text-[18px] font-[680] leading-[1.4] mt-3 text-[var(--ink)]"><ExplainText>{label}</ExplainText></p>

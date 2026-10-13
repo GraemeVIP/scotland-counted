@@ -33,7 +33,7 @@ export default function WaterCharge({ className = "" }: { className?: string }) 
       style={{ boxShadow: "var(--shadow-2)" }}
       aria-labelledby="water-charge"
     >
-      <p className="kicker mb-3 text-[var(--action)]">Read this before you compare anywhere else</p>
+      <p className="kicker mb-3 text-[var(--action-text)]">Read this before you compare anywhere else</p>
       <h2
         id="water-charge"
         className="display-stat text-[clamp(26px,3.2vw,40px)] max-w-[20ch]"

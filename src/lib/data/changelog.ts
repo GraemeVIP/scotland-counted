@@ -17,6 +17,13 @@ export type ChangeEntry = {
 
 export const changelog: ChangeEntry[] = [
   {
+    date: "2026-10-13",
+    title: "Clearer tools, dated evidence and privacy choices",
+    body: "Council tax and representative lookups now come first. Council tax shows exact totals and estimated instalments; seven previous-year amounts were corrected by one penny. The pay calculator now flags unsupported relief-at-source pensions, emergency codes and conflicting tax regions instead of showing a misleading estimate. Local poverty labels and email drafts name the reporting year. Optional analytics now require permission, and commissioned local evidence briefs have their own enquiry route.",
+    href: "/council-tax-bands-scotland",
+    kind: "correction",
+  },
+  {
     date: "2026-08-01",
     title: "Pay figures relabelled and minimum-wage reality added",
     body: "The ASHE values were correct but the words around them were not careful enough. The site no longer calls the restricted full-time PAYE estimate a typical wage or treats the workplace-residence difference as wages leaving Glasgow. Every council page now starts with the current legal minimum, its full-time annual equivalent and independent evidence on what a basic living standard costs. The restricted pay estimate is clearly separated from poverty figures and removed from campaign emails.",

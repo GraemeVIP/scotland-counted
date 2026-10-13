@@ -86,7 +86,7 @@ export default function Post() {
               </span>
             </span>
             <span className="text-right">
-              <span className="display-stat block text-[20px] tnum text-[var(--action)]">
+              <span className="display-stat block text-[20px] tnum text-[var(--action-text)]">
                 +{exact.format(row.councilTaxRise)}
               </span>
               <span className="mt-1 block text-[15px] tnum text-[var(--muted)]">

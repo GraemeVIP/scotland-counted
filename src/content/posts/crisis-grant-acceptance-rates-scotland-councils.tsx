@@ -138,7 +138,7 @@ export default function Post() {
           { value: "37", label: "percentage-point gap", note: `Scotland overall: ${crisisGrantScotland.acceptanceRate}%` },
         ].map((stat) => (
           <div key={stat.label} className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5">
-            <p className="display-stat text-[38px] leading-none text-[var(--action)]">{stat.value}</p>
+            <p className="display-stat text-[38px] leading-none text-[var(--action-text)]">{stat.value}</p>
             <p className="mt-3 text-[16px] font-[700] leading-[1.4] text-[var(--ink)]">{stat.label}</p>
             <p className="mt-2 text-[15px] leading-[1.5] text-[var(--muted)]">{stat.note}</p>
           </div>

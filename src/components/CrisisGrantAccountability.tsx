@@ -50,7 +50,7 @@ export default function CrisisGrantAccountability({
       <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <article className="rounded-[var(--r-m)] border border-[var(--rule)] border-t-4 border-t-[var(--action)] bg-[var(--surface)] p-5">
           <p className="ui text-[15px] font-[750] text-[var(--ink-2)]">Decisions resulting in an award</p>
-          <p className="mt-3 text-[42px] font-[800] leading-none tracking-[-0.04em] text-[var(--action)] tnum">
+          <p className="mt-3 text-[42px] font-[800] leading-none tracking-[-0.04em] text-[var(--action-text)] tnum">
             {stat.acceptanceRate}%
           </p>
           <p className="mt-3 text-[15px] leading-[1.5] text-[var(--ink-2)]">
@@ -122,7 +122,7 @@ export default function CrisisGrantAccountability({
       </figure>
 
       <div className="mt-6 rounded-[var(--r-m)] border border-[var(--rule)] border-l-4 border-l-[var(--action)] bg-[var(--surface-2)] p-5 sm:p-6">
-        <p className="ui text-[15px] font-[760] text-[var(--action)]">The question this council needs to answer</p>
+        <p className="ui text-[15px] font-[760] text-[var(--action-text)]">The question this council needs to answer</p>
         <p className="mt-2 max-w-[75ch] text-[16.5px] leading-[1.6] text-[var(--ink-2)]">{outcomeQuestion}</p>
         <p className="mt-3 max-w-[75ch] text-[15px] leading-[1.6] text-[var(--muted)]">
           A higher rate is not automatically better and a lower rate is not proof of unlawful or

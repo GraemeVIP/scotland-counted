@@ -13,6 +13,9 @@ import { PRIMARY } from "@/lib/data/navigation";
 /** Next already marks not-found responses noindex, so this only sets the title. */
 export const metadata = {
   title: "Page not found",
+  alternates: { canonical: null },
+  openGraph: null,
+  twitter: null,
 };
 
 const HELP = [
@@ -52,10 +55,10 @@ export default function NotFound() {
           href="/"
           className="ui inline-block mb-10 text-[19px] font-[800] tracking-[-0.02em] no-underline text-[var(--ink)]"
         >
-          Scotland<span className="text-[var(--action)]">Counted</span>
+          Scotland<span className="text-[var(--action-text)]">Counted</span>
         </Link>
 
-        <p className="kicker mb-4 text-[var(--action)]">404</p>
+        <p className="kicker mb-4 text-[var(--action-text)]">404</p>
         <h1 className="h1 max-w-[16ch] mb-5">This page does not exist</h1>
         <p className="lede max-w-[54ch]">
           The link was probably wrong, or the page has moved since it was shared. Nothing is
@@ -75,7 +78,7 @@ export default function NotFound() {
               <p className="text-[15.5px] leading-[1.55] text-[var(--ink-2)] mt-2">{h.body}</p>
               <span
                 aria-hidden="true"
-                className="mt-5 inline-block text-[var(--action)] text-[18px] group-hover:translate-x-1.5 transition-transform"
+                className="mt-5 inline-block text-[var(--action-text)] text-[18px] group-hover:translate-x-1.5 transition-transform"
               >
                 →
               </span>

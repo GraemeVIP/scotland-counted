@@ -19,12 +19,12 @@ export const metadata = meta({
   path: "/accessibility",
 });
 
-const LAST_REVIEWED = "3 August 2026";
+const LAST_REVIEWED = "13 October 2026";
 
 const TESTED = [
   {
     title: "Colour and contrast",
-    body: "Text is measured against WCAG AA contrast ratios in both light and dark themes: 4.5:1 for normal text and 3:1 for large text. Body text clears it comfortably. The orange accent does not, and that is listed under known limitations below rather than glossed over here. Colour is never the only way information is given, so a red or green figure always carries a word as well.",
+    body: "Text is measured against WCAG AA contrast ratios in both light and dark themes: 4.5:1 for normal text and 3:1 for large text. Body text clears it comfortably. Buttons now use dark text on orange, and small accent text uses a darker colour on light backgrounds. Colour is never the only way information is given, so a red or green figure always carries a word as well.",
   },
   {
     title: "Keyboard access",
@@ -58,8 +58,8 @@ const KNOWN = [
    * without changing the colours it describes.
    */
   {
-    title: "The orange accent does not reach AA for small text",
-    body: "The orange used for buttons and section labels sits at about 3.1:1 against white. That passes the 3:1 standard for large text and interface controls, and misses the 4.5:1 standard for normal-size text. It is never the only signal: every button also has its own words, and no figure on this site depends on colour to be understood. An automated check counts these and fails if the number grows.",
+    title: "Automated checks do not cover every interaction",
+    body: "The October review corrected the button and small accent-text contrast failures. Automated checks cover representative pages and states, but they are not a certification of every page or interaction. Please report anything that is still difficult to read or use.",
   },
   {
     title: "Real screen readers have not been tested exhaustively",

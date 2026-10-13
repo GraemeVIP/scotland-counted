@@ -88,7 +88,7 @@ export default function PaySpread({ className = "" }: { className?: string }) {
 
       {/* ---- Why believe a sample survey ---- */}
       <div className="mt-8 rounded-[var(--r-m)] bg-[var(--deep)] p-6 text-[var(--deep-ink)] sm:p-8">
-        <p className="kicker mb-3 text-[var(--action)]">How I know the survey is right</p>
+        <p className="kicker mb-3 text-[var(--action-text)]">How I know the survey is right</p>
         <h3 className="text-[22px] font-[760] leading-[1.2] max-w-[26ch]">
           Checked against every payslip in the country
         </h3>

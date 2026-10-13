@@ -77,11 +77,13 @@ export const STANDARD_CODE: TaxCode = Object.freeze({
 
 /**
  * Accepts 1257L / K497 / BR / D0–D3 / 0T / NT, with an optional S or C region
- * prefix and a W1/M1/X emergency suffix. Returns null if unrecognised.
+ * prefix. Emergency W1/M1/X codes need pay-period data and are unsupported.
  */
 export function parseTaxCode(raw: string | null | undefined): TaxCode | null {
   if (!raw || !raw.trim()) return STANDARD_CODE;
   const code = raw.toUpperCase().replace(/\s/g, "");
+
+  if (/(W1|M1|X)$/.test(code) || /^(?:C)?D[23]$/.test(code)) return null;
 
   let m = code.match(/^[SC]?(BR|D0|D1|D2|D3)(?:W1|M1|X)?$/);
   if (m) return { type: "flat", flat: m[1], code };
@@ -117,12 +119,17 @@ export function incomeTax(
   region: Region,
   codeInfo: TaxCode = STANDARD_CODE
 ): TaxResult {
+  if ((codeInfo.code.startsWith("S") && region !== "scotland") ||
+      (codeInfo.code.startsWith("C") && region !== "ruk")) {
+    throw new RangeError("Tax-code prefix conflicts with the selected tax region.");
+  }
   if (codeInfo.type === "NT") {
     return { allowance: 0, taxable: 0, total: 0, bands: [], codeInfo };
   }
 
   if (codeInfo.type === "flat") {
-    const rate = FLAT_CODES[region][codeInfo.flat] ?? FLAT_CODES.scotland[codeInfo.flat];
+    const rate = FLAT_CODES[region][codeInfo.flat];
+    if (rate === undefined) throw new RangeError("Tax code is not valid in the selected region.");
     const tax = taxableGross * rate;
     return {
       allowance: 0,
@@ -215,9 +222,10 @@ export type Calculation = ReturnType<typeof calculate>;
 export function calculate(grossAnnual: number, region: Region, opts: CalcOptions = {}) {
   const codeInfo = opts.taxCode || STANDARD_CODE;
   const pensionType: PensionType = opts.pensionType || "net";
+  if (pensionType === "ras") throw new RangeError("Relief-at-source pensions require additional tax-relief calculations not supported by this estimator.");
   const pension = Math.min(grossAnnual, Math.max(0, opts.pension || 0));
 
-  const taxableGross = pensionType === "ras" ? grossAnnual : grossAnnual - pension;
+  const taxableGross = grossAnnual - pension;
   const niBase = pensionType === "sac" ? grossAnnual - pension : grossAnnual;
 
   const tax = incomeTax(taxableGross, region, codeInfo);
@@ -235,7 +243,7 @@ export function calculate(grossAnnual: number, region: Region, opts: CalcOptions
     gross: grossAnnual,
     pension,
     pensionType,
-    pensionPot: pensionType === "ras" ? pension * 1.25 : pension,
+    pensionPot: pension,
     tax,
     ni,
     sl,

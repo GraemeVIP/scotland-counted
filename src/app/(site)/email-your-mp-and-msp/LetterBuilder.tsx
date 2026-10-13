@@ -33,7 +33,7 @@ import { trackEvent } from "@/lib/analytics";
 function StepLabel({ n, children }: { n: number; children: React.ReactNode }) {
   return (
     <div className="flex items-baseline gap-3 mb-3">
-      <span className="figure-num text-[24px] text-[var(--action)]" aria-hidden="true">
+      <span className="figure-num text-[24px] text-[var(--action-text)]" aria-hidden="true">
         {n}
       </span>
       <span className="ui text-[16px] font-[680] text-[var(--ink)]">{children}</span>
@@ -98,6 +98,7 @@ export default function LetterBuilder() {
       count: council.counts[9],
       firstPct: council.pcts[0],
       firstYear: first,
+      latestYear: COUNCIL_YEARS[9],
       scotlandPct: SCOTLAND_PCTS[9],
       evidenceLine:
         typeof claimant === "number"
@@ -341,7 +342,7 @@ export default function LetterBuilder() {
                                 <button
                                   type="button"
                                   onClick={() => openDraft(representative, letter, "regional_msp")}
-                                  className="text-[15px] font-[650] text-[var(--action)] underline underline-offset-[3px]"
+                                  className="text-[15px] font-[650] text-[var(--action-text)] underline underline-offset-[3px]"
                                 >
                                   Open ready-written email
                                 </button>
@@ -525,7 +526,7 @@ export default function LetterBuilder() {
                   key={representative.role}
                   className="rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--paper)] p-4"
                 >
-                  <p className="ui text-[15px] font-[720] text-[var(--action)]">
+                  <p className="ui text-[15px] font-[720] text-[var(--action-text)]">
                     {drafts.length === 2 ? `Email ${index + 1} of 2 · ` : "Email · "}
                     your {representativeLabel(representative)}
                   </p>
@@ -617,7 +618,7 @@ export default function LetterBuilder() {
               >
                 <div className="flex flex-wrap items-baseline justify-between gap-3 border-b border-[var(--rule)] pb-4 mb-5">
                   <div>
-                    <p className="ui text-[15px] font-[720] text-[var(--action)]">
+                    <p className="ui text-[15px] font-[720] text-[var(--action-text)]">
                       To your {representativeLabel(representative)}
                     </p>
                     <h2 className="text-[22px] font-[700] mt-1">{representative.name}</h2>

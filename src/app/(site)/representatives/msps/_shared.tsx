@@ -58,7 +58,7 @@ export function MspContactCard({
           />
         )}
         <div>
-          <p className="kicker mb-3 text-[var(--action)]">
+          <p className="kicker mb-3 text-[var(--action-text)]">
             {regional ? "Regional MSP" : "Constituency MSP"}
           </p>
           {detailsHref ? (
@@ -144,7 +144,7 @@ export function MspProfileCard({
           </p>
         </div>
         <div>
-          <p className="kicker mb-3 text-[var(--action)]">
+          <p className="kicker mb-3 text-[var(--action-text)]">
             {regional ? "Regional MSP" : "Constituency MSP"}
           </p>
           <h2 className="h2 mb-2">{msp.name}</h2>
@@ -222,7 +222,7 @@ export function MspProfileReviews({
           </div>
           {aggregate && (
             <p
-              className="ui rounded-full bg-[var(--action-tint)] px-4 py-2 text-[15px] font-[800] text-[var(--action)]"
+              className="ui rounded-full bg-[var(--action-tint)] px-4 py-2 text-[15px] font-[800] text-[var(--action-text)]"
               aria-label={`${aggregate.ratingValue.toFixed(1)} out of 5 from ${aggregate.reviewCount} approved ${aggregate.reviewCount === 1 ? "review" : "reviews"}`}
             >
               {aggregate.ratingValue.toFixed(1)} out of 5 · {aggregate.reviewCount} {aggregate.reviewCount === 1 ? "review" : "reviews"}
@@ -257,7 +257,7 @@ export function MspProfileReviews({
                     </p>
                   </div>
                   <p
-                    className="ui rounded-full bg-[var(--action-tint)] px-4 py-2 text-[15px] font-[800] text-[var(--action)]"
+                    className="ui rounded-full bg-[var(--action-tint)] px-4 py-2 text-[15px] font-[800] text-[var(--action-text)]"
                     aria-label={`${review.rating} out of 5 stars`}
                   >
                     {"★".repeat(review.rating)}{"☆".repeat(5 - review.rating)}

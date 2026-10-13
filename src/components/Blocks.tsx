@@ -197,7 +197,7 @@ export function InShort({
     >
       <div className={expert ? "grid gap-6 lg:grid-cols-[minmax(0,1fr)_250px] lg:gap-9" : "max-w-[760px]"}>
         <div>
-          <p className="ui text-[15px] font-[750] text-[var(--action)] mb-3">What this means</p>
+          <p className="ui text-[15px] font-[750] text-[var(--action-text)] mb-3">What this means</p>
           <div className="ui text-[18px] sm:text-[19px] leading-[1.55] font-[480] space-y-2.5 [&_strong]:font-[750]">
             <ExplainText>{children}</ExplainText>
           </div>
@@ -471,7 +471,7 @@ export function CTA({
               the card a straight right edge to sit on.
             */}
             <div className="w-full lg:w-[420px] rounded-[var(--r-m)] border border-white/15 bg-white/[0.055] p-5 sm:p-6">
-              <p className="kicker mb-4 text-[var(--action)]">One simple next step</p>
+              <p className="kicker mb-4 text-[var(--action-text)]">One simple next step</p>
               <div className="grid gap-3">
                 <Link href={href} className="btn btn-primary w-full justify-center">
                   {cta}
@@ -521,7 +521,7 @@ export function Card({
       <p className="text-[15.5px] text-[var(--ink-2)] leading-[1.55]">{body}</p>
       <span
         aria-hidden="true"
-        className="mt-7 text-[var(--action)] text-[18px] group-hover:translate-x-1.5 transition-transform"
+        className="mt-7 text-[var(--action-text)] text-[18px] group-hover:translate-x-1.5 transition-transform"
       >
         →
       </span>
