@@ -209,9 +209,14 @@ export default function ConstituencyLetter({
           <label className="sr-only" htmlFor="constituency-postcode">
             Your postcode
           </label>
+          {/*
+            No name attribute, on purpose. If the form is sent before the page's
+            script has loaded, the browser submits it the old way and a named
+            field lands in the address bar (?postcode=G12+8QQ), and from there in
+            browser history and analytics. Unnamed, nothing is sent.
+          */}
           <input
             id="constituency-postcode"
-            name="postcode"
             type="text"
             value={postcode}
             onChange={(event) => setPostcode(event.target.value.toUpperCase())}

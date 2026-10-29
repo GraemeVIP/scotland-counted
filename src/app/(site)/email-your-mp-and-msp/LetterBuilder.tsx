@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useId, useMemo, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useId, useMemo, useRef, useState, type ReactNode } from "react";
 import Link from "next/link";
 import { councils, COUNCIL_YEARS, SCOTLAND_PCTS } from "@/lib/data/councils";
 import {
@@ -220,6 +220,7 @@ export default function LetterBuilder() {
   const [lookupError, setLookupError] = useState("");
   const [copied, setCopied] = useState<string | null>(null);
   const ids = useId();
+  const postcodeRef = useRef<HTMLInputElement>(null);
 
   const council = councils.find((item) => item.slug === slug)!;
   const first = COUNCIL_YEARS[0];
@@ -348,7 +349,9 @@ export default function LetterBuilder() {
 
   function findRepresentatives(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const value = postcode.trim();
+    // Read the box itself as well as state, so anything typed before the
+    // script loaded still counts.
+    const value = (postcodeRef.current?.value || postcode).trim();
     if (!value) return;
     setPostcode(value.toUpperCase());
     void findRepresentativesFor(value);
@@ -508,6 +511,7 @@ export default function LetterBuilder() {
                 browser history and analytics.
               */}
               <input
+                ref={postcodeRef}
                 id={`${ids}-postcode`}
                 type="text"
                 value={postcode}
