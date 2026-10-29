@@ -36,6 +36,10 @@ import MinimumWageInGlasgowScotland from "./minimum-wage-in-glasgow-scotland";
 import MinimumWageInEdinburghScotland from "./minimum-wage-in-edinburgh-scotland";
 import MinimumWageAberdeen from "./minimum-wage-aberdeen";
 import MinimumWageDundee from "./minimum-wage-dundee";
+import CheckCouncilTaxBand from "./check-council-tax-band";
+import CouncilTaxReductionScotland from "./council-tax-reduction-scotland";
+import SinglePersonDiscountCouncilTaxScotland from "./single-person-discount-council-tax-scotland";
+import WaterRatesScotland from "./water-rates-scotland";
 
 /**
  * Slug to post body. Statically imported so every post is prerendered and no
@@ -80,4 +84,8 @@ export const postBodies: Record<string, ComponentType> = {
   "minimum-wage-in-edinburgh-scotland": MinimumWageInEdinburghScotland,
   "minimum-wage-aberdeen": MinimumWageAberdeen,
   "minimum-wage-dundee": MinimumWageDundee,
+  "check-council-tax-band": CheckCouncilTaxBand,
+  "council-tax-reduction-scotland": CouncilTaxReductionScotland,
+  "single-person-discount-council-tax-scotland": SinglePersonDiscountCouncilTaxScotland,
+  "water-rates-scotland": WaterRatesScotland,
 };

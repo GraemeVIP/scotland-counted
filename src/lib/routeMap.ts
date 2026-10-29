@@ -86,6 +86,10 @@ export const POST_PATHS: Record<string, string> = {
   "minimum-wage-in-edinburgh-scotland": "/minimum-wage-in-edinburgh-scotland",
   "minimum-wage-aberdeen": "/minimum-wage-aberdeen",
   "minimum-wage-dundee": "/minimum-wage-dundee",
+  "check-council-tax-band": "/check-council-tax-band",
+  "council-tax-reduction-scotland": "/council-tax-reduction-scotland",
+  "single-person-discount-council-tax-scotland": "/single-person-discount-council-tax-scotland",
+  "water-rates-scotland": "/water-rates-scotland",
 };
 
 export function postPath(slug: string) {

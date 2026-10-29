@@ -1,6 +1,6 @@
 import { snpMoneyTimelineSources } from "@/lib/data/snpMoneyTimeline";
 import type { QuickAnswerData } from "@/components/QuickAnswer";
-import { MINIMUM_WAGE, REAL_LIVING_WAGE, pounds } from "@/lib/data/quickAnswers";
+import { MINIMUM_WAGE, REAL_LIVING_WAGE, bandFor, pounds } from "@/lib/data/quickAnswers";
 import {
   ADULT_DISABILITY_PAYMENT,
   BANK_HOLIDAY_SOURCE,
@@ -13,6 +13,9 @@ import {
   YOUNG_CARER_GRANT,
 } from "@/lib/data/benefits";
 import { ASHE_2026, CITY_PAY, PRIVATE_RENTS, SCOTLAND_JOBS_HOURLY, asheCouncil, cityBudget, minimumWageNext, minimumWageNow } from "@/lib/data/money";
+import { waterCharges2026, BAND_LETTERS } from "@/lib/data/councilTax";
+import { COUNCIL_SEARCH_NAMES } from "@/lib/routeMap";
+import { BAND_PROPOSALS, COUNCIL_TAX_REDUCTION, LOTHIAN_VJB_SOURCE, SCOTTISH_WATER, SECOND_ADULT_REBATE, SINGLE_PERSON_DISCOUNT, WATER_CHARGES_REDUCTION, bandValueLabel } from "@/lib/data/councilTaxHelp";
 
 /**
  * Plain-English articles and their search/wayfinding metadata.
@@ -1979,6 +1982,265 @@ export const posts: Post[] = [
       },
     ],
     sourceIds: ["minimum-wage-2026", "minimum-wage-2027", "scottish-tax-2026", "ni-rates-2026", "ons-pipr-2026-10", "council-tax-scotland", "scottish-water-2026", "council-tax-discounts", "council-tax-reduction-2026", "ashe-2026-workplace", "ashe-2026-residence", "real-living-wage", "pay-work-rights"],
+  },
+  {
+    slug: "check-council-tax-band",
+    title: "Check council tax band: find your band in Scotland",
+    seoTitle: "Check Council Tax Band in Scotland: Find My Council Tax Band",
+    description: `Check your council tax band free on the Scottish Assessors site by postcode. Band A means a 1991 value ${bandValueLabel("A").toLowerCase()}. What each band means and how to appeal.`,
+    standfirst:
+      "Your band is on a public list anyone can search. Here's how to find it in a minute, what the letter means, and when you can ask for it to change.",
+    date: "2026-10-29",
+    category: "money-and-bills",
+    tags: ["Council tax bands", "Council tax", "Scottish Assessors", "Council tax appeals"],
+    readingMinutes: 5,
+    quickAnswer: {
+      label: "Check council tax band in Scotland",
+      value: "Free",
+      unit: "on saa.gov.uk, by postcode",
+      detail:
+        "Search your postcode or address on the Scottish Assessors Association website and pick your home. Your band is also printed on your council tax bill.",
+      rows: [
+        { label: "Band A, value on 1 April 1991", value: bandValueLabel("A") },
+        { label: "Band D, value on 1 April 1991", value: bandValueLabel("D") },
+        { label: "Band H, value on 1 April 1991", value: bandValueLabel("H") },
+        { label: "Time a new owner has to appeal", value: `${BAND_PROPOSALS.newOwnerMonths} months` },
+      ],
+      asOf: "Bands A to H, based on values at 1 April 1991",
+      source: LOTHIAN_VJB_SOURCE,
+    },
+    toc: [
+      { id: "find", label: "Find your band" },
+      { id: "check-my-band", label: "Check it against your bill" },
+      { id: "bands", label: "What the bands mean" },
+      { id: "appeal", label: "How to appeal" },
+      { id: "council-tax-check", label: "Check your whole bill" },
+    ],
+    faq: [
+      {
+        q: "How to find out your council tax band in Scotland?",
+        a: "Search your postcode or address on the Scottish Assessors Association website, saa.gov.uk, and pick your home from the list. It's free. Your band is also printed on your council tax bill.",
+      },
+      {
+        q: "Who decides my council tax band?",
+        a: "The local Assessor, who is independent of the council. The council only sets the price of each band.",
+      },
+      {
+        q: `Can I appeal my council tax band after ${BAND_PROPOSALS.newOwnerMonths} months?`,
+        a: "Only in certain cases, for example if the home has lost value because part of it was knocked down, the area around it physically changed, or it was adapted for a disabled person. A fall in house prices doesn't count.",
+      },
+      {
+        q: "Do I keep paying council tax while I appeal my band?",
+        a: "Yes. Keep paying as normal until the Assessor makes a decision.",
+      },
+      {
+        q: "Why is my council tax band based on 1991?",
+        a: "Council tax started in Scotland on 1 April 1993, and homes were banded on what they would have sold for on 1 April 1991. Bands A to H still use those values.",
+      },
+    ],
+    sourceIds: [
+      "lothian-vjb-council-tax",
+      "lanarkshire-vjb-proposals",
+      "grampian-assessor-appeals",
+      "west-lothian-council-tax-bands",
+      "moray-valuation-bands",
+      "council-tax-scotland",
+    ],
+  },
+  {
+    slug: "council-tax-reduction-scotland",
+    title: "Council tax reduction Scotland: who qualifies and how much",
+    seoTitle: "Council Tax Reduction Scotland: Who Qualifies and How to Apply",
+    description: `Council Tax Reduction takes up to ${COUNCIL_TAX_REDUCTION.maxPercent}% off council tax if your income is low and savings are under ${pounds(COUNCIL_TAX_REDUCTION.savingsLimit)}. Who qualifies, how much and how to apply.`,
+    standfirst:
+      "Help from your council when money is tight, whether you work, rent, own or claim Universal Credit. Who gets it, how it's worked out, and how to claim in Edinburgh, South Lanarkshire and North Lanarkshire.",
+    date: "2026-10-29",
+    category: "money-and-bills",
+    tags: ["Council Tax Reduction", "Council tax", "Universal Credit", "Low income"],
+    readingMinutes: 7,
+    quickAnswer: {
+      label: "Council Tax Reduction Scotland",
+      value: `Up to ${COUNCIL_TAX_REDUCTION.maxPercent}%`,
+      unit: "off your council tax",
+      detail: `For households on a low income, in work or not, including people on Universal Credit. You claim it from your council. Savings over ${pounds(COUNCIL_TAX_REDUCTION.savingsLimit)} rule you out unless you get Guarantee Credit.`,
+      rows: [
+        { label: "Savings limit", value: pounds(COUNCIL_TAX_REDUCTION.savingsLimit) },
+        { label: "Income above what you need", value: `You pay ${COUNCIL_TAX_REDUCTION.taperPercent}% of the difference` },
+        { label: "Water charges", value: `Up to ${WATER_CHARGES_REDUCTION.maxPercent}% off, applied for you` },
+        { label: "Second adult rebate", value: `${SECOND_ADULT_REBATE.middleIncomePercent}% to ${SECOND_ADULT_REBATE.onBenefitsPercent}% off` },
+      ],
+      asOf: "2026/27 rules for working age households",
+      source: COUNCIL_TAX_REDUCTION.source,
+    },
+    toc: [
+      { id: "who-qualifies", label: "Who qualifies" },
+      { id: "how-much", label: "How much you can get" },
+      { id: "universal-credit", label: "Universal Credit" },
+      { id: "second-adult", label: "The second adult rule" },
+      { id: "apply", label: "How to apply" },
+      { id: "edinburgh", label: "Edinburgh" },
+      { id: "south-lanarkshire", label: "South Lanarkshire" },
+      { id: "north-lanarkshire", label: "North Lanarkshire" },
+      { id: "other-help", label: "Other help with the bill" },
+    ],
+    faq: [
+      {
+        q: "Can I get Council Tax Reduction if I work?",
+        a: `Yes. It depends on your income, not on whether you work. If your income is above what the rules say you need, you pay ${COUNCIL_TAX_REDUCTION.taperPercent}% of the difference towards council tax and the reduction covers the rest.`,
+      },
+      {
+        q: "Do I get Council Tax Reduction automatically with Universal Credit?",
+        a: "No. It's a separate claim to your council. The DWP may pass on your details if you asked for it when you claimed Universal Credit, but send your own application to be safe.",
+      },
+      {
+        q: "Does Council Tax Reduction cover water charges?",
+        a: `No. But anyone who gets it can get up to ${WATER_CHARGES_REDUCTION.maxPercent}% off water and waste water through the Water Charges Reduction Scheme. The council applies it for you.`,
+      },
+      {
+        q: "What is the savings limit for Council Tax Reduction?",
+        a: `${pounds(COUNCIL_TAX_REDUCTION.savingsLimit)}. Savings above that rule you out, unless you or your partner get the Guarantee Credit part of Pension Credit.`,
+      },
+    ],
+    sourceIds: [
+      "ctr-regulations-2021",
+      "ctr-second-adult-2026",
+      "spice-ctr-universal-credit",
+      "edinburgh-ctr",
+      "south-lanarkshire-ctr",
+      "south-lanarkshire-second-adult",
+      "north-lanarkshire-ctr",
+      "north-lanarkshire-ctr-review",
+      "scottish-water-charges-2026",
+      "council-tax-scotland",
+    ],
+  },
+  {
+    slug: "single-person-discount-council-tax-scotland",
+    title: "Single person discount council tax Scotland: how to claim 25% off",
+    seoTitle: "Single Person Discount Council Tax Scotland: 25% Off and How to Claim",
+    description: `Live alone? You get ${SINGLE_PERSON_DISCOUNT.percent}% off council tax and water. That's ${pounds((bandFor("glasgow-city", "D").total * SINGLE_PERSON_DISCOUNT.percent) / 100)} a year on a Band D home in Glasgow. Who counts as an adult and how to claim.`,
+    standfirst:
+      "A quarter off the whole bill, water included, if you're the only adult who counts. Who's disregarded, how to claim, and what to do when someone moves in.",
+    date: "2026-10-29",
+    category: "money-and-bills",
+    tags: ["Single person discount", "Council tax discounts", "Council tax", "Living alone"],
+    readingMinutes: 5,
+    quickAnswer: {
+      label: "Single person discount council tax Scotland",
+      value: `${SINGLE_PERSON_DISCOUNT.percent}%`,
+      unit: "off your whole bill",
+      detail: `If you're the only adult in your home, or the only one who isn't disregarded, your council takes ${SINGLE_PERSON_DISCOUNT.percent}% off council tax, water and waste water. Income doesn't matter. You have to apply.`,
+      rows: [
+        ...["glasgow-city", "city-of-edinburgh", "aberdeen-city"].map((slug) => ({
+          label: `Band D, ${COUNCIL_SEARCH_NAMES[slug]}`,
+          value: `${pounds((bandFor(slug, "D").total * SINGLE_PERSON_DISCOUNT.percent) / 100)} a year off`,
+        })),
+        { label: "If another adult moves in", value: `Tell the council within ${SINGLE_PERSON_DISCOUNT.notifyDays} days` },
+      ],
+      asOf: "2026/27 bills, water included",
+      source: SINGLE_PERSON_DISCOUNT.source,
+    },
+    toc: [
+      { id: "worth", label: "What it's worth" },
+      { id: "who-counts", label: "Who counts as an adult" },
+      { id: "apply", label: "How to claim" },
+      { id: "moves-in", label: "If someone moves in" },
+      { id: "other-discounts", label: "Other discounts" },
+    ],
+    faq: [
+      {
+        q: "Does the single person discount apply to water charges?",
+        a: `Yes. In Scotland the ${SINGLE_PERSON_DISCOUNT.percent}% comes off the water and waste water charges as well as the council tax.`,
+      },
+      {
+        q: "Who counts as an adult for council tax?",
+        a: "Anyone aged 18 or over, except people who are disregarded, such as full time students, some apprentices, some carers, and people living permanently in a care home or in prison.",
+      },
+      {
+        q: "What happens to my single person discount if someone moves in?",
+        a: `It stops from the day another adult who isn't disregarded moves in. Tell the council in writing within ${SINGLE_PERSON_DISCOUNT.notifyDays} days, or it can charge a ${pounds(SINGLE_PERSON_DISCOUNT.penalty)} penalty.`,
+      },
+      {
+        q: "Can I get the single person discount and Council Tax Reduction?",
+        a: "Yes. The discount comes off first, then Council Tax Reduction is worked out on what's left.",
+      },
+    ],
+    sourceIds: [
+      "edinburgh-single-occupancy-discount",
+      "edinburgh-council-tax-discounts",
+      "south-lanarkshire-council-tax-discounts",
+      "south-lanarkshire-spd-review",
+      "spice-ctr-universal-credit",
+      "lgfa-1992-discounts",
+      "ct-administration-regs-1992",
+      "lgfa-1992-penalties",
+      "ctr-regulations-2021",
+      "council-tax-scotland",
+      "scottish-water-2026",
+    ],
+  },
+  {
+    slug: "water-rates-scotland",
+    title: "Water rates Scotland: what every band pays in 2026/27",
+    seoTitle: "Water Rates Scotland 2026/27: Charges by Council Tax Band",
+    description: `Water rates in Scotland for 2026/27 run from ${pounds(waterCharges2026.A.water + waterCharges2026.A.wasteWater, true)} a year at Band A to ${pounds(waterCharges2026.H.water + waterCharges2026.H.wasteWater, true)} at Band H, paid with council tax. Every band and this year's rise.`,
+    standfirst:
+      "There's no separate water bill in Scotland. Scottish Water's charge comes on your council tax bill, set by your band and the same in every council.",
+    date: "2026-10-29",
+    category: "money-and-bills",
+    tags: ["Water rates", "Scottish Water", "Council tax", "Water charges"],
+    readingMinutes: 5,
+    quickAnswer: {
+      label: "Water rates Scotland 2026/27",
+      value: pounds(waterCharges2026.D.water + waterCharges2026.D.wasteWater, true),
+      unit: "a year at Band D",
+      detail:
+        "Scottish Water's charge for water and waste water, collected on your council tax bill. It depends on your band and is the same in every council.",
+      rows: BAND_LETTERS.map((band) => ({
+        label: `Band ${band}`,
+        value: `${pounds(waterCharges2026[band].water + waterCharges2026[band].wasteWater, true)} a year`,
+      })),
+      asOf: "1 April 2026 to 31 March 2027",
+      source: SCOTTISH_WATER.source,
+    },
+    toc: [
+      { id: "charges", label: "Charges by band" },
+      { id: "same-everywhere", label: "Same in every council" },
+      { id: "rise", label: "This year's rise" },
+      { id: "help", label: "Help with water charges" },
+      { id: "not-connected", label: "Not on mains or sewers" },
+      { id: "meters", label: "Water meters" },
+    ],
+    faq: [
+      {
+        q: "Do you pay water rates in Scotland?",
+        a: "Most homes do. Scottish Water's water and waste water charges are added to your council tax bill and collected by your council. There's no separate bill unless you have a water meter.",
+      },
+      {
+        q: "Are water rates included in council tax in Scotland?",
+        a: "They're on the same bill, but they're a separate charge. Your council collects them for Scottish Water, and the amount depends on your council tax band.",
+      },
+      {
+        q: "How much are water rates in Scotland a month?",
+        a: `At Band D, ${pounds((waterCharges2026.D.water + waterCharges2026.D.wasteWater) / 12, true)} a month spread over 12 months. Band A is ${pounds((waterCharges2026.A.water + waterCharges2026.A.wasteWater) / 12, true)} a month.`,
+      },
+      {
+        q: "Do students pay water rates in Scotland?",
+        a: "Full time students don't pay water charges, so a home where everyone is a full time student pays none.",
+      },
+      {
+        q: "Do I pay water rates if I get Council Tax Reduction?",
+        a: `Yes. Council Tax Reduction doesn't cover water, but you can get up to ${WATER_CHARGES_REDUCTION.maxPercent}% off through the Water Charges Reduction Scheme. Your council applies it for you.`,
+      },
+    ],
+    sourceIds: [
+      "scottish-water-2026",
+      "scottish-water-2025",
+      "scottish-water-charges-2026",
+      "scottish-water-unmetered-faqs",
+      "edinburgh-single-occupancy-discount",
+      "council-tax-scotland",
+    ],
   },
 ];
 
