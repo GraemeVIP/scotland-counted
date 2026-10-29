@@ -94,13 +94,26 @@ export function PostView({ slug }: { slug: string }) {
             <p className="lede mt-6 max-w-[62ch]">{post.standfirst}</p>
 
             <div className="flex flex-wrap items-center justify-between gap-4 mt-8 pt-5 border-t border-[var(--rule)]">
-              <p className="text-[15px] text-[var(--muted)]">
-                By <Link href="/about" className="font-[580] text-[var(--ink-2)]">Graeme</Link>
-                {" · "}{fmtDate(post.date)} · {post.readingMinutes} min read
-                {post.updated && post.updated !== post.date && (
-                  <> · checked {fmtDate(post.updated)}</>
-                )}
-              </p>
+              <div className="grid gap-2">
+                <p className="text-[15px] text-[var(--muted)]">
+                  By <Link href="/about" className="font-[580] text-[var(--ink-2)]">Graeme</Link>
+                  {" · "}Published {fmtDate(post.date)} · {post.readingMinutes} min read
+                </p>
+                {/* Freshness, shown to readers and given to search engines as dateModified. */}
+                <p className="ui inline-flex flex-wrap items-center gap-x-2 gap-y-1 text-[14.5px] font-[560] text-[var(--ink-2)]">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--good-text)" strokeWidth="2.6" aria-hidden="true">
+                    <path d="m5 12.5 4.5 4.5L19 7.5" />
+                  </svg>
+                  <span>
+                    Last updated <time dateTime={post.updated ?? post.date}>{fmtDate(post.updated ?? post.date)}</time>
+                  </span>
+                  {post.checked && (
+                    <span className="text-[var(--muted)] font-[500]">
+                      · Figures checked <time dateTime={post.checked}>{fmtDate(post.checked)}</time>
+                    </span>
+                  )}
+                </p>
+              </div>
               <SharePage title={post.title} text={post.description} label="Share this page" />
             </div>
           </header>

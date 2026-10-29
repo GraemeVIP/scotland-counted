@@ -208,10 +208,10 @@ export default function Post() {
   return (
     <Prose>
       <Lead>
-        Scotland now has more shoplifting per person than England and Wales, by the biggest margin
-        in figures going back to 2002. Police recorded {fmt(latest.shoplifting)} shoplifting
-        crimes in 2025-26, the most since records began in 1971. Over the same years, the number of
-        shoplifters convicted in court has nearly halved.
+        Police recorded {fmt(latest.shoplifting)} shoplifting crimes in Scotland in 2025-26, the
+        most since records began in 1971. Scotland now has more shoplifting per person than England
+        and Wales, by the biggest margin in figures going back to 2002. Over the same years, the
+        number of shoplifters convicted in court has nearly halved.
       </Lead>
 
       <P>
@@ -220,7 +220,7 @@ export default function Post() {
         does not.
       </P>
 
-      <H2 id="short-answer">Four things the figures show</H2>
+      <H2 id="short-answer">Shoplifting in Scotland: four key figures</H2>
 
       <div className="not-prose my-8 grid gap-4 sm:grid-cols-2">
         {[
@@ -524,7 +524,7 @@ export default function Post() {
         many were shoplifters, so their effect on shoplifting cannot be measured yet.
       </P>
 
-      <H2 id="councils">Edinburgh has overtaken Glasgow</H2>
+      <H2 id="councils">Shoplifting by council: Edinburgh has overtaken Glasgow</H2>
 
       <div className="not-prose my-8">
         <Figure
@@ -567,8 +567,8 @@ export default function Post() {
 
       <P>
         They also have some of the lowest solved rates. Police solved 38.4% of shoplifting in
-        Edinburgh in 2025-26, down from 53.1% in 2019-20. Only East Lothian was lower, at 33.0%. In
-        Glasgow it was 39.3%, down from 57.0%.
+        Edinburgh in 2025-26, down from 53.1% in 2019-20. Only East Lothian was lower, at 33.0%. In{" "}
+        <Link href="/crime-rate-glasgow">Glasgow</Link> it was 39.3%, down from 57.0%.
       </P>
 
       <P>
@@ -686,7 +686,8 @@ export default function Post() {
       />
 
       <P>
-        Two other signs of hardship eased over the same years. Crisis Grant applications, the
+        Two other signs of hardship eased over the same years.{" "}
+        <Link href="/crisis-grant-scotland">Crisis Grant</Link> applications, the
         emergency cash councils give people with no money for essentials, peaked at{" "}
         {fmt(cgPeak.applications)} in 2022-23. There were {fmt(cgNow.applications)} in 2025-26. Trussell
         food banks in Scotland gave out 218,838 food parcels in 2025. That is 13% fewer than in 2024

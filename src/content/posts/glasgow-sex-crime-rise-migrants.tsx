@@ -106,16 +106,61 @@ export default function Post() {
   const allEntries = rapeAccusedNationality2025.reduce((sum, r) => sum + r.count, 0);
   const notRecorded = allEntries - knownTotal;
   const ew = panelResults.englandWales;
+  const sexualAssault = q3Table2024.find((row) => row.crime === "Sexual assault")!;
+  const rape = q3Table2024.find((row) => row.crime === "Rape")!;
+  const saLatest = latestYear.find((row) => row.crime === "Sexual assault")!;
 
   return (
     <Prose>
       <Lead>
+        The rise is real, but the public data checked here do not establish who caused it. Recorded
+        sexual assaults in Glasgow City went up {Math.round(sexualAssault.changePct)}%, from{" "}
+        {sexualAssault.before} to {sexualAssault.after}, in April to December 2024 against the same
+        months of 2023. Rapes went up {Math.round(rape.changePct)}%. The police reports do not
+        explain the sexual assault rise.
+      </Lead>
+
+      <P>
         A post on X says Glasgow had a &ldquo;30% increase in sexual assaults, driven by the migrants
         that linger around at night&rdquo;. We pulled the police records, the census and the Home
         Office files. Here is what they show. Every number links to a public document.
-      </Lead>
+      </P>
 
-      <H2 id="number">The number is real</H2>
+      <div className="not-prose my-8 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5 sm:p-6">
+        <p className="ui text-[15px] font-[620] text-[var(--brand)]">Key figures</p>
+        <div className="mt-4 grid gap-4 sm:grid-cols-2">
+          {[
+            {
+              value: `+${Math.round(sexualAssault.changePct)}%`,
+              label: "recorded sexual assaults in Glasgow City",
+              note: `${sexualAssault.before} to ${sexualAssault.after} · April to December 2024 against 2023`,
+            },
+            {
+              value: `+${Math.round(rape.changePct)}%`,
+              label: "recorded rapes in Glasgow City",
+              note: `${rape.before} to ${rape.after} · same police report`,
+            },
+            {
+              value: "−4%",
+              label: "recorded sexual assaults in the rest of Scotland",
+              note: "April to December 2024 against 2023",
+            },
+            {
+              value: saLatest.glasgowChange,
+              label: "recorded sexual assaults in Glasgow City, year to June 2026",
+              note: `Scotland change: ${saLatest.scotlandChange}`,
+            },
+          ].map((stat) => (
+            <div key={stat.label}>
+              <p className="display-stat text-[30px] leading-none text-[var(--action-text)]">{stat.value}</p>
+              <p className="mt-2 text-[16px] font-[580] leading-[1.4] text-[var(--ink)]">{stat.label}</p>
+              <p className="mt-1 text-[15px] leading-[1.5] text-[var(--muted)]">{stat.note}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <H2 id="number">Glasgow sexual assault figures: the number is real</H2>
 
       <P>
         Police Scotland reported it to Glasgow&apos;s Safe Glasgow Partnership on 13 March 2025. It
@@ -830,9 +875,10 @@ export default function Post() {
       />
 
       <P>
-        See also our figures on{" "}
+        See also our figures on the{" "}
+        <Link href="/crime-rate-glasgow">crime rate in Glasgow</Link>,{" "}
         <Link href="/why-poverty-is-worse-in-glasgow">why poverty is worse in Glasgow</Link> and
-        the <Link href="/blog/drug-deaths-scotland-deprivation">drug deaths report</Link>, built the
+        the <Link href="/blog/drug-deaths-scotland-deprivation">drug deaths report</Link>, built
         from official records with linked sources.
       </P>
     </Prose>

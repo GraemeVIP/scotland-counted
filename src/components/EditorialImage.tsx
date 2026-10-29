@@ -21,7 +21,7 @@ export default function EditorialImage({
   objectPosition = "center",
   sizes = "(min-width: 1024px) 1120px, calc(100vw - 40px)",
   loading,
-  creditLabel = "AI generated illustration.",
+  creditLabel,
 }: EditorialImageProps) {
   return (
     <figure
@@ -39,7 +39,7 @@ export default function EditorialImage({
         />
       </div>
       <figcaption className="border-t border-[var(--rule)] px-5 py-4 text-[15px] leading-[1.55] text-[var(--ink-2)]">
-        <span className="ui font-[580] text-[var(--ink)]">{creditLabel}</span>{" "}
+        {creditLabel && <><span className="ui font-[580] text-[var(--ink)]">{creditLabel}</span>{" "}</>}
         {caption}
       </figcaption>
     </figure>

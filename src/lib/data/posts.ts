@@ -92,8 +92,14 @@ export type Post = {
   standfirst: string;
   /** ISO date published. */
   date: string;
-  /** ISO date last checked or revised. */
+  /** ISO date the content was last revised. Shown as "Last updated". */
   updated?: string;
+  /**
+   * ISO date every figure on the page was last checked against its source.
+   * Only set it when that has actually been done: it is shown to readers as
+   * "Figures checked", so a page with figures known to be out of date has none.
+   */
+  checked?: string;
   category: PostCategorySlug;
   tags: string[];
   readingMinutes: number;
@@ -135,10 +141,9 @@ export type Post = {
 export const posts: Post[] = [
   {
     slug: "shoplifting-scotland-record-high",
-    title: "Scotland's shoplifting rate overtakes England and Wales as convictions nearly halve",
-    seoTitle: "Shoplifting in Scotland Hits Record High, Overtaking England",
-    description:
-      "Shoplifting in Scotland hit 53,369 in 2025-26, a record, and now outstrips England and Wales. Convictions nearly halved. See the data for all 32 councils.",
+    title: "Shoplifting in Scotland: the rate overtakes England and Wales as convictions nearly halve",
+    seoTitle: "Shoplifting in Scotland: Record High, Above England and Wales",
+    description: "Shoplifting in Scotland hit a record 53,369 crimes in 2025/26: 9.6 per 1,000 people against 8.2 in England and Wales. Convictions nearly halved.",
     standfirst:
       "Shoplifting in Scotland is at its highest since 1971 and now higher per person than in England and Wales. Convictions have nearly halved. Food prices explain much of the surge, but not the last two years.",
     date: "2026-09-28",
@@ -170,11 +175,11 @@ export const posts: Post[] = [
       type: "image/png",
     },
     toc: [
-      { id: "short-answer", label: "Four things the figures show" },
+      { id: "short-answer", label: "Four key figures" },
       { id: "uk", label: "Scotland has overtaken England and Wales" },
       { id: "record", label: "A record, and almost all shoplifting" },
       { id: "caught", label: "Fewer shoplifters convicted" },
-      { id: "councils", label: "Edinburgh has overtaken Glasgow" },
+      { id: "councils", label: "Shoplifting by council" },
       { id: "food-prices", label: "Food prices, up to a point" },
       { id: "reporting", label: "Are shops reporting more?" },
       { id: "who-is-in-charge", label: "Who is responsible?" },
@@ -233,10 +238,9 @@ export const posts: Post[] = [
   },
   {
     slug: "glasgow-sex-crime-rise-migrants",
-    title: "Glasgow sex crimes went up 28%. Was it migrants?",
+    title: "Glasgow sexual assaults went up 28%. Was it migrants?",
     seoTitle: "Glasgow Sexual Assault Rise: Were Migrants Behind the 28%?",
-    description:
-      "Glasgow's recorded sexual assaults rose 28% and rapes 41% in 2024. We checked police, census and Home Office records to see whether migrants were behind it. Every number linked.",
+    description: "Recorded sexual assaults in Glasgow rose 28% and rapes 41% in April to December 2024. The public data checked here do not establish who caused it.",
     standfirst:
       "A post on X says Glasgow's 30% rise in sexual assaults was driven by migrants. The rise is real. Here is what the police records, the census and the Home Office files say about who was behind it.",
     date: "2026-09-06",
@@ -418,8 +422,7 @@ export const posts: Post[] = [
     slug: "operation-branchform-snp-money-timeline",
     title: "Operation Branchform timeline: the full SNP money story",
     seoTitle: "Operation Branchform Timeline: SNP Money Case Explained",
-    description:
-      "Operation Branchform timeline covering SNP referendum donations, Peter Murrell's £400,310.65 embezzlement, Nicola Sturgeon's status and ongoing inquiries.",
+    description: "Operation Branchform: Peter Murrell admitted embezzling £400,310.65 from the SNP. Nicola Sturgeon and Colin Beattie were investigated but not charged.",
     standfirst:
       "Use this Operation Branchform timeline to follow every major event from the SNP fundraisers to Peter Murrell's conviction. Nicola Sturgeon and Colin Beattie were not charged.",
     date: "2026-08-02",
@@ -485,8 +488,7 @@ export const posts: Post[] = [
     slug: "drug-deaths-scotland-deprivation",
     title: "Drug deaths in Scotland: the deprivation divide",
     seoTitle: "Drug Deaths in Scotland and Deprivation | 2024 Data",
-    description:
-      "Scotland's drug death rate was 12 times higher in the most deprived areas in 2024. See why Glasgow's local rate was highest and what the data proves.",
+    description: "In 2024 the drug death rate in Scotland's most deprived areas was about 12 times the least deprived. Glasgow had the highest council rate for 2020 to 2024.",
     standfirst:
       "People in Scotland's most deprived areas had about 12 times the drug death rate of those in the least deprived areas in 2024. Glasgow had the highest council area rate over 2020–2024. The link is stark, but it needs to be read carefully.",
     date: "2026-08-08",
@@ -542,10 +544,9 @@ export const posts: Post[] = [
   },
   {
     slug: "crisis-grant-acceptance-rates-scotland-councils",
-    title: "Crisis Grant postcode gap: why councils award 52% to 89%",
+    title: "Crisis Grant acceptance rates: the 52% to 89% postcode gap",
     seoTitle: "Crisis Grant Acceptance Rates by Scottish Council | 2025/26",
-    description:
-      "Inverclyde awarded 89% of decided Crisis Grant applications in 2025/26. Midlothian awarded 52%. Compare all 32 councils and see what the gap proves.",
+    description: "Crisis Grant acceptance rates in 2025/26 ranged from 89% in Inverclyde to 52% in Midlothian, against 65% across Scotland. Compare all 32 councils.",
     standfirst:
       "Inverclyde awarded 89% of decided Crisis Grant applications in 2025/26. Midlothian awarded 52%. The same national scheme produced a persistent 37 point postcode gap that councils need to explain.",
     date: "2026-08-16",
@@ -577,22 +578,12 @@ export const posts: Post[] = [
       { id: "data", label: "Data and method" },
     ],
     faq: [
-      {
-        q: "Which Scottish council has the highest Crisis Grant award rate?",
-        a: "Inverclyde had the highest published rate in 2025/26: 89% of decided Crisis Grant applications resulted in an award. Angus was next at 79% and Dundee City at 78%.",
-      },
-      {
-        q: "Which Scottish council has the lowest Crisis Grant award rate?",
-        a: "Midlothian had the lowest published rate in 2025/26 at 52%, followed by Highland at 53%. The Scotland rate was 65%.",
-      },
-      {
-        q: "Does a lower award rate prove a council is refusing valid applications?",
-        a: "No. The rate proves different outcomes, not whether the underlying applications were comparable or the decisions correct. Explaining the gap requires evidence about case mix, local administration, evidence demands, budget pressure, repeat applications and reviews.",
-      },
-      {
-        q: "Can a refused Crisis Grant decision be reviewed?",
-        a: "Yes. The statutory guidance says a first tier review is requested from the council, normally within 20 working days of the decision. A Crisis Grant review should be decided within two working days. A review cannot reduce or remove an award already made.",
-      },
+      { q: "Which Scottish council has the highest Crisis Grant award rate?", a: "Inverclyde had the highest published rate in 2025/26: 89% of decided Crisis Grant applications resulted in an award. Angus was next at 79% and Dundee City at 78%." },
+      { q: "Which Scottish council has the lowest Crisis Grant award rate?", a: "Midlothian had the lowest published rate in 2025/26 at 52%, followed by Highland at 53%. The Scotland rate was 65%." },
+      { q: "What percentage of Crisis Grant applications are successful in Scotland?", a: "In 2025/26, 65% of decided Crisis Grant applications in Scotland resulted in an award. Council rates ranged from 52% in Midlothian to 89% in Inverclyde." },
+      { q: "Does a lower award rate prove a council is refusing valid applications?", a: "No. The rate proves different outcomes, not whether the underlying applications were comparable or the decisions correct. Explaining the gap requires evidence about case mix, local administration, evidence demands, budget pressure, repeat applications and reviews." },
+      { q: "How quickly should a Crisis Grant decision be made?", a: "By the end of the next working day. Nationally, 98% of Crisis Grant decisions met that deadline in January to March 2026. Local rates ranged from 67% in Shetland to 100% in nine councils." },
+      { q: "Can a refused Crisis Grant decision be reviewed?", a: "Yes. The statutory guidance says a first tier review is requested from the council, normally within 20 working days of the decision. A Crisis Grant review should be decided within two working days. A review cannot reduce or remove an award already made." },
     ],
     sourceIds: [
       "swf-statistics-2025-26",
@@ -1285,6 +1276,7 @@ export const posts: Post[] = [
     standfirst:
       "Scotland's replacement for PIP. Not means tested, backdated to the day you start, and simpler to apply for than most people expect.",
     date: "2026-10-29",
+    checked: "2026-10-29",
     category: "money-and-bills",
     tags: ["Adult Disability Payment", "Social Security Scotland", "Disability benefits", "PIP"],
     readingMinutes: 6,
@@ -1345,6 +1337,7 @@ export const posts: Post[] = [
     standfirst:
       "One freephone number covers new claims, questions and changes. Here is when it's open and how to keep the call short.",
     date: "2026-10-29",
+    checked: "2026-10-29",
     category: "money-and-bills",
     tags: ["Adult Disability Payment", "Social Security Scotland", "Phone numbers"],
     readingMinutes: 3,
@@ -1393,6 +1386,7 @@ export const posts: Post[] = [
     standfirst:
       "Scotland's replacement for Carer's Allowance, with a weekly supplement on top and extra for each additional person you care for.",
     date: "2026-10-29",
+    checked: "2026-10-29",
     category: "money-and-bills",
     tags: ["Carer Support Payment", "Carers", "Social Security Scotland", "Benefits"],
     readingMinutes: 6,
@@ -1447,6 +1441,7 @@ export const posts: Post[] = [
     standfirst:
       "Three payments for low income families in Scotland, at birth, at two and at school age. None of it is paid back and you can spend it on anything.",
     date: "2026-10-29",
+    checked: "2026-10-29",
     category: "money-and-bills",
     tags: ["Best Start Grant", "Best Start Foods", "Families", "Social Security Scotland"],
     readingMinutes: 5,
@@ -1502,6 +1497,7 @@ export const posts: Post[] = [
     standfirst:
       "Scotland pays its own version now. Most pensioners get it without applying, but anyone with income over £35,000 hands it back through tax.",
     date: "2026-10-29",
+    checked: "2026-10-29",
     category: "money-and-bills",
     tags: ["Winter Fuel Payment", "Pension Age Winter Heating Payment", "Pensioners", "Energy bills"],
     readingMinutes: 4,
@@ -1556,6 +1552,7 @@ export const posts: Post[] = [
     standfirst:
       "A single payment every winter, whatever the weather, if you get the right benefit in the qualifying week.",
     date: "2026-10-29",
+    checked: "2026-10-29",
     category: "money-and-bills",
     tags: ["Winter Heating Payment", "Energy bills", "Social Security Scotland"],
     readingMinutes: 4,
@@ -1598,6 +1595,7 @@ export const posts: Post[] = [
     standfirst:
       "When a payment date falls on a bank holiday you're paid early. That helps before Christmas and hurts in January.",
     date: "2026-10-29",
+    checked: "2026-10-29",
     category: "money-and-bills",
     tags: ["Payment dates", "Social Security Scotland", "Christmas", "Benefits"],
     readingMinutes: 3,
@@ -1645,6 +1643,7 @@ export const posts: Post[] = [
     standfirst:
       "A yearly payment for 16 to 19 year olds who look after someone. Spend it on whatever you like.",
     date: "2026-10-29",
+    checked: "2026-10-29",
     category: "money-and-bills",
     tags: ["Young Carer Grant", "Young carers", "Carers", "Social Security Scotland"],
     readingMinutes: 3,
@@ -1688,6 +1687,7 @@ export const posts: Post[] = [
     standfirst:
       "There is no national number. You ring the council where you live, and here is every one of them.",
     date: "2026-10-29",
+    checked: "2026-10-29",
     category: "money-and-bills",
     tags: ["Crisis Grant", "Scottish Welfare Fund", "Phone numbers", "Emergency help"],
     readingMinutes: 4,
@@ -1734,6 +1734,7 @@ export const posts: Post[] = [
     description: `The minimum wage rises to ${pounds(MINIMUM_WAGE.next.over21, true)} an hour on 1 April 2027 for workers 21 and over. Every age rate, the yearly pay and take home pay in Scotland.`,
     standfirst: `A ${Math.round((MINIMUM_WAGE.next.over21 - MINIMUM_WAGE.current.over21) * 100)}p rise for anyone 21 or over, and every other rate up too. Here's what it adds up to over a year, and what actually reaches the bank in Scotland.`,
     date: "2026-10-29",
+    checked: "2026-10-29",
     category: "money-and-bills",
     tags: ["Minimum wage", "National Living Wage", "Take home pay", "Scottish income tax"],
     readingMinutes: 5,
@@ -1792,6 +1793,7 @@ export const posts: Post[] = [
     description: `The average full time salary in Scotland is ${pounds(ASHE_2026.scotland.annual)} a year, the April 2026 median. The weekly and hourly figures, and what workers earn in all 32 councils.`,
     standfirst: `The latest official figures, published on ${ASHE_2026.released}, for Scotland and every council. Plus what the middle salary takes home, and how wide the spread really is.`,
     date: "2026-10-29",
+    checked: "2026-10-29",
     category: "money-and-bills",
     tags: ["Average salary", "Wages", "Earnings", "Edinburgh", "Aberdeen", "Glasgow"],
     readingMinutes: 6,
@@ -1856,6 +1858,7 @@ export const posts: Post[] = [
     description: `The minimum wage in Glasgow is ${pounds(MINIMUM_WAGE.current.over21, true)} an hour, ${pounds(MINIMUM_WAGE.next.over21, true)} from April 2027. What local jobs pay, Glasgow rent, and what's left each month on a full time wage.`,
     standfirst: "The legal rate is the same as anywhere in the UK. What isn't the same is Glasgow's rent, its council tax and what the jobs around you pay.",
     date: "2026-10-29",
+    checked: "2026-10-29",
     category: "money-and-bills",
     tags: ["Minimum wage", "Glasgow", "Pay", "Rent", "Council tax"],
     readingMinutes: 6,
@@ -1914,6 +1917,7 @@ export const posts: Post[] = [
     description: `The minimum wage in Edinburgh is ${pounds(MINIMUM_WAGE.current.over21, true)} an hour, the same as the rest of the UK. With rents at ${pounds(CITY_PAY["city-of-edinburgh"].rent.oneBed)} a month, here's what it leaves you.`,
     standfirst: "Same legal rate as Dundee or London. Edinburgh's rents are what make it go less far, and I've done the sums to show by how much.",
     date: "2026-10-29",
+    checked: "2026-10-29",
     category: "money-and-bills",
     tags: ["Minimum wage", "Edinburgh", "Pay", "Rent", "Council tax"],
     readingMinutes: 6,
@@ -1973,6 +1977,7 @@ export const posts: Post[] = [
     description: `The minimum wage in Aberdeen is ${pounds(MINIMUM_WAGE.current.over21, true)} an hour, ${pounds(MINIMUM_WAGE.next.over21, true)} from April 2027. Aberdeen jobs pay more and rent costs less: here's what's left each month.`,
     standfirst: "The legal rate is the UK rate. But Aberdeen pairs better paid jobs than Glasgow, Edinburgh or Dundee with rents well below Edinburgh or Glasgow.",
     date: "2026-10-29",
+    checked: "2026-10-29",
     category: "money-and-bills",
     tags: ["Minimum wage", "Aberdeen", "Pay", "Rent", "Council tax"],
     readingMinutes: 6,
@@ -2032,6 +2037,7 @@ export const posts: Post[] = [
     description: `The minimum wage in Dundee is ${pounds(MINIMUM_WAGE.current.over21, true)} an hour, ${pounds(MINIMUM_WAGE.next.over21, true)} from April 2027. Rent is the lowest of Scotland's four biggest cities, so the wage goes further.`,
     standfirst: "Full time jobs in Dundee pay a little less than in Glasgow, Edinburgh or Aberdeen. Its rents are lower still, and on the legal minimum that leaves more in your pocket.",
     date: "2026-10-29",
+    checked: "2026-10-29",
     category: "money-and-bills",
     tags: ["Minimum wage", "Dundee", "Pay", "Rent", "Council tax"],
     readingMinutes: 6,
@@ -2092,6 +2098,7 @@ export const posts: Post[] = [
     standfirst:
       "Your band is on a public list anyone can search. Here's how to find it in a minute, what the letter means, and when you can ask for it to change.",
     date: "2026-10-29",
+    checked: "2026-10-29",
     category: "money-and-bills",
     tags: ["Council tax bands", "Council tax", "Scottish Assessors", "Council tax appeals"],
     readingMinutes: 5,
@@ -2162,6 +2169,7 @@ export const posts: Post[] = [
     standfirst:
       "Help from your council when money is tight, whether you work, rent, own or claim Universal Credit. Who gets it, how it's worked out, and how to claim in Edinburgh, South Lanarkshire and North Lanarkshire.",
     date: "2026-10-29",
+    checked: "2026-10-29",
     category: "money-and-bills",
     tags: ["Council Tax Reduction", "Council tax", "Universal Credit", "Low income"],
     readingMinutes: 7,
@@ -2235,6 +2243,7 @@ export const posts: Post[] = [
     standfirst:
       "A quarter off the whole bill, water included, if you're the only adult who counts. Who's disregarded, how to claim, and what to do when someone moves in.",
     date: "2026-10-29",
+    checked: "2026-10-29",
     category: "money-and-bills",
     tags: ["Single person discount", "Council tax discounts", "Council tax", "Living alone"],
     readingMinutes: 5,
@@ -2306,6 +2315,7 @@ export const posts: Post[] = [
     standfirst:
       "There's no separate water bill in Scotland. Scottish Water's charge comes on your council tax bill, set by your band and the same in every council.",
     date: "2026-10-29",
+    checked: "2026-10-29",
     category: "money-and-bills",
     tags: ["Water rates", "Scottish Water", "Council tax", "Water charges"],
     readingMinutes: 5,
@@ -2375,6 +2385,7 @@ export const posts: Post[] = [
     standfirst:
       "Course facts from the people who set the exams, and up to date Scottish figures you can drop into an answer. All free, all sourced.",
     date: "2026-10-29",
+    checked: "2026-10-29",
     category: "poverty-explained",
     tags: ["Modern Studies", "National 5", "Higher", "Advanced Higher", "Revision", "Teachers"],
     readingMinutes: 5,
@@ -2449,6 +2460,7 @@ export const posts: Post[] = [
     standfirst:
       "What is in the exam, how the assignment is marked, and revision notes built on real Scottish figures you can quote.",
     date: "2026-10-29",
+    checked: "2026-10-29",
     category: "poverty-explained",
     tags: ["Modern Studies", "National 5", "Revision", "Model answers"],
     readingMinutes: 8,
@@ -2527,6 +2539,7 @@ export const posts: Post[] = [
     standfirst:
       "How Paper 1, Paper 2 and the assignment are marked, what the 2026 examiners flagged, and the latest Scottish evidence for each section.",
     date: "2026-10-29",
+    checked: "2026-10-29",
     category: "poverty-explained",
     tags: ["Modern Studies", "Higher", "Revision", "Exam skills"],
     readingMinutes: 7,
@@ -2600,6 +2613,7 @@ export const posts: Post[] = [
     standfirst:
       "Where the official papers and marking instructions live now, how to use them properly, and three Paper 2 style questions built on real Scottish figures.",
     date: "2026-10-29",
+    checked: "2026-10-29",
     category: "poverty-explained",
     tags: ["Modern Studies", "Higher", "Past papers", "Practice questions"],
     readingMinutes: 7,
@@ -2669,6 +2683,7 @@ export const posts: Post[] = [
     standfirst:
       "Where the official papers and marking instructions are, how to use them so they actually help, and two full source questions built on real Scottish figures.",
     date: "2026-10-29",
+    checked: "2026-10-29",
     category: "poverty-explained",
     tags: ["Modern Studies", "National 5", "Past papers", "Practice questions"],
     readingMinutes: 6,
@@ -2738,6 +2753,7 @@ export const posts: Post[] = [
     standfirst:
       "How the exam and the dissertation are marked, and the official Scottish data worth using, with the weakness of each source spelled out.",
     date: "2026-10-29",
+    checked: "2026-10-29",
     category: "poverty-explained",
     tags: ["Modern Studies", "Advanced Higher", "Dissertation", "Research methods"],
     readingMinutes: 6,
@@ -2812,6 +2828,7 @@ export const posts: Post[] = [
     standfirst:
       "Not bad choices. Pay, rent and benefits, set out with the official Scottish figures, then what poverty does to health and to children.",
     date: "2026-10-29",
+    checked: "2026-10-29",
     category: "poverty-explained",
     tags: ["Causes of poverty", "Child poverty", "Housing costs", "Modern Studies"],
     readingMinutes: 7,
@@ -2885,6 +2902,7 @@ export const posts: Post[] = [
     standfirst:
       "One constituency MSP, seven regional MSPs and an MP. Here's how to find all of them from your postcode, and which one to go to with what.",
     date: "2026-10-29",
+    checked: "2026-10-29",
     category: "take-action",
     tags: ["MSP", "Scottish Parliament", "MP", "Find your representative"],
     readingMinutes: 4,
@@ -2948,6 +2966,7 @@ export const posts: Post[] = [
     standfirst:
       "Scotland elects councillors in groups, so you almost certainly have more than one. Here's how to find them all from your postcode, and what they can help with.",
     date: "2026-10-29",
+    checked: "2026-10-29",
     category: "take-action",
     tags: ["Councillors", "Local council", "Wards", "Council elections 2027"],
     readingMinutes: 4,
@@ -3012,6 +3031,7 @@ export const posts: Post[] = [
     standfirst:
       "Glasgow has the lowest life expectancy of any council in Scotland. But where you live inside the city matters far more than living in Glasgow at all.",
     date: "2026-10-29",
+    checked: "2026-10-29",
     category: "poverty-explained",
     tags: ["Life expectancy", "Glasgow", "Health inequality", "Deprivation"],
     readingMinutes: 5,
@@ -3070,6 +3090,7 @@ export const posts: Post[] = [
     standfirst:
       "The latest official rate, what it actually counts, how it has moved since 2008, and the estimate for every council in Scotland.",
     date: "2026-10-29",
+    checked: "2026-10-29",
     category: "money-and-bills",
     tags: ["Unemployment", "Labour market", "Youth unemployment", "Scotland statistics"],
     readingMinutes: 5,
@@ -3139,6 +3160,7 @@ export const posts: Post[] = [
     standfirst:
       "Glasgow records more crime per resident than anywhere in Scotland except Dundee. Here's what that's made of, how it has changed since the 1990s and what the rate doesn't tell you.",
     date: "2026-10-29",
+    checked: "2026-10-29",
     category: "poverty-explained",
     tags: ["Glasgow crime", "Crime statistics", "Recorded crime", "Police Scotland"],
     readingMinutes: 5,

@@ -63,7 +63,7 @@ export default function Post() {
         </p>
       </div>
 
-      <H2 id="short-answer">The whole story in one minute</H2>
+      <H2 id="short-answer">Operation Branchform: the whole story in one minute</H2>
       <P>
         Supporters gave the SNP money in appeals for another independence referendum. The party
         first described the receipts as <strong>ring fenced</strong>, then explained that the
@@ -175,7 +175,7 @@ export default function Post() {
         </p>
       </Aside>
 
-      <H2 id="timeline">The full timeline</H2>
+      <H2 id="timeline">The full Operation Branchform timeline</H2>
       <P>
         This chronology runs from Murrell taking control of the party administration to the
         latest live inquiries. It includes political context only where it explains why money was

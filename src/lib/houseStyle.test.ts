@@ -83,7 +83,9 @@ for (const path of EXEMPT) {
   if (!existsSync(path)) throw new Error(`exempt path does not exist: ${path}`);
 }
 
-const FILES = sourceFiles(ROOT).filter((file) => !EXEMPT.includes(file));
+// AGENTS.md is a coding assistant's instruction file, not site copy, and may
+// not exist in every checkout, so it is skipped by name rather than listed above.
+const FILES = sourceFiles(ROOT).filter((file) => !EXEMPT.includes(file) && !file.endsWith("/AGENTS.md"));
 
 /**
  * The character, and every way of writing it that a browser renders as one.

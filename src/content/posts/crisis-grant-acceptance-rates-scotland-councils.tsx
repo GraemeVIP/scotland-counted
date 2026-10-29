@@ -117,9 +117,10 @@ export default function Post() {
   return (
     <Prose>
       <Lead>
-        A person facing an emergency applies to the same Scottish Welfare Fund scheme wherever they
-        live. But in 2025/26, the share of decided Crisis Grant applications resulting in an award
-        ranged from 89% in Inverclyde to 52% in Midlothian.
+        In 2025/26, the share of decided Crisis Grant applications resulting in an award ranged from
+        89% in Inverclyde to 52% in Midlothian, against {crisisGrantScotland.acceptanceRate}% across
+        Scotland. Yet a person facing an emergency applies to the same Scottish Welfare Fund scheme
+        wherever they live.
       </Lead>
 
       <P>
@@ -154,7 +155,7 @@ export default function Post() {
         </p>
       </Aside>
 
-      <H2 id="every-council">Every Scottish council compared</H2>
+      <H2 id="every-council">Crisis Grant acceptance rates: every council compared</H2>
       <P>
         The official measure is the proportion of decided applications that resulted in an award.
         &quot;Application&quot; matters: these are not 258,490 different people. Somebody can apply more than
@@ -260,7 +261,8 @@ export default function Post() {
         Explain what was misunderstood, supply missing evidence and describe the immediate harm in
         concrete terms. The <Link href="/crisis-grant-scotland">Crisis Grant application guide</Link> has
         a plain English checklist, and each <Link href="/councils">council accountability page</Link> now shows the local
-        rate beside Scotland and the five year history.
+        rate beside Scotland and the five year history. To reach your council&apos;s team, use the{" "}
+        <Link href="/crisis-grant-phone-number">Crisis Grant phone number</Link> list for every council.
       </P>
 
       <H2 id="data">Download the data and check the method</H2>

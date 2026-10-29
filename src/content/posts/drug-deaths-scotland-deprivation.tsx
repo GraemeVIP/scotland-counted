@@ -211,7 +211,7 @@ export default function Post() {
         diagnosis of any individual life.
       </P>
 
-      <H2 id="short-answer">The answer in three numbers</H2>
+      <H2 id="short-answer">Drug deaths in Scotland: the answer in three numbers</H2>
 
       <div className="not-prose my-8 grid gap-4 sm:grid-cols-3">
         {[
@@ -249,7 +249,7 @@ export default function Post() {
         </p>
       </Aside>
 
-      <H2 id="deprivation">The deprivation divide is not a small difference</H2>
+      <H2 id="deprivation">Drug deaths and deprivation: the divide is not a small difference</H2>
 
       <P>
         Scotland is split into five equal population groups using the Scottish Index of Multiple
@@ -272,7 +272,7 @@ export default function Post() {
         where the burden lands; they cannot separate every route that brought a person there.
       </P>
 
-      <H2 id="glasgow">Where Glasgow sits</H2>
+      <H2 id="glasgow">Drug deaths in Glasgow: where the city sits</H2>
 
       <P>
         NRS combines five years of deaths for council comparisons. On that matched measure,
@@ -292,7 +292,7 @@ export default function Post() {
 
       <P>
         This belongs beside Glasgow&apos;s wider record on{" "}
-        <Link href="/indicators/glasgow-life-expectancy">life expectancy</Link>,{" "}
+        <Link href="/life-expectancy-glasgow">life expectancy</Link>,{" "}
         <Link href="/indicators/glasgow-deprivation">neighbourhood deprivation</Link> and the
         evidence on <Link href="/why-poverty-is-worse-in-glasgow">why poverty hits the city so hard</Link>.
         It is not proof that one measure explains all the others. It is evidence that severe health
