@@ -4,7 +4,7 @@ import { GuideTable } from "@/components/GuideTable";
 import { G } from "@/components/Glossary";
 import { scotlandPoverty } from "@/lib/data/scotland";
 import { COUNCIL_YEARS, councils } from "@/lib/data/councils";
-import { deprivationDrugDeathRates2024 } from "@/lib/data/drugDeaths";
+import { deprivationDrugDeathRates2025 } from "@/lib/data/drugDeaths";
 import { pounds } from "@/lib/data/quickAnswers";
 import { postPath } from "@/lib/routeMap";
 import { JRF_SCOTLAND_2026 as JRF, PHS_CHILD_POVERTY as PHS, plainPeriod } from "@/lib/data/schools";
@@ -16,8 +16,8 @@ export default function Post() {
   const highest = byRate[0];
   const lowest = byRate[byRate.length - 1];
   const rateOf = (c: (typeof councils)[number]) => c.pcts[c.pcts.length - 1];
-  const mostDeprived = deprivationDrugDeathRates2024[0];
-  const leastDeprived = deprivationDrugDeathRates2024[deprivationDrugDeathRates2024.length - 1];
+  const mostDeprived = deprivationDrugDeathRates2025[0];
+  const leastDeprived = deprivationDrugDeathRates2025[deprivationDrugDeathRates2025.length - 1];
   const times = Math.round(mostDeprived.rate / leastDeprived.rate);
 
   return (
@@ -187,7 +187,7 @@ export default function Post() {
           {pounds(JRF.veryDeepCoupleMonthlyGap)} a month.
         </LI>
         <LI>
-          <strong>It shows up in health.</strong> In 2024 the drug death rate in Scotland&apos;s most
+          <strong>It shows up in health.</strong> In 2025 the drug death rate in Scotland&apos;s most
           deprived areas was {mostDeprived.rate} per 100,000 people, against {leastDeprived.rate} in
           the least deprived, about {times} times higher. See{" "}
           <Link href={postPath("drug-deaths-scotland-deprivation")}>drug deaths and deprivation</Link>.

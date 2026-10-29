@@ -156,9 +156,9 @@ export default function WhyGlasgow() {
                 Drug deaths show how wide the deprivation divide remains
               </h3>
               <p className="mt-3 max-w-[66ch] text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
-                Glasgow City had Scotland&apos;s highest age standardised drug misuse death rate in
-                2020–2024. Across Scotland in 2024, the rate in the most deprived fifth of areas was
-                about 12 times the rate in the least deprived fifth.
+                Glasgow City had Scotland&apos;s highest age standardised drug death rate in
+                2021 to 2025. Across Scotland in 2025, the rate in the most deprived fifth of areas was
+                about 15 times the rate in the least deprived fifth.
               </p>
               <Link href="/blog/drug-deaths-scotland-deprivation" className="ui mt-4 inline-flex min-h-11 items-center font-[600]">
                 See the full council comparison and what it proves <span aria-hidden="true">→</span>

@@ -1507,6 +1507,15 @@ export const sources: Source[] = [
     used: "That council tax is typically paid in 10 instalments, and that 12 instalments must be requested in advance.",
   },
   {
+    id: "nrs-drug-deaths-2025",
+    title: "Drug-related deaths in Scotland, 2025",
+    publisher: "National Records of Scotland",
+    url: "https://www.nrscotland.gov.uk/publications/drug-related-deaths-in-scotland-2025/",
+    used: "The 2025 national total and change on 2024, the age standardised rate and its confidence interval, deaths by sex, the age profile, the deprivation gradient, council area rates for 2021 to 2025, annual council counts, substances implicated, and the UK drug poisoning comparison for 2024. Published 23 September 2026. NRS now calls its headline measure drug use deaths; the definition is unchanged from drug misuse deaths.",
+    derivation:
+      "From the main tables workbook. The council comparison uses Table C4's age standardised rates for 2021 to 2025, ranked by rate with ties listed alphabetically. The deprivation chart uses Table 9's 2025 rates by SIMD quintile. Totals, rates and sex split come from Table 1, the age profile from Table 4, substances from Table 3, the share with more than one drug from Table 8 (1 minus 251 single drug deaths out of 1,133), annual council changes from Table C1, and UK rates from Table 12. Percentages are rounded to whole numbers; no rates were recalculated. The 15.1 times gap is 54.5 divided by 3.6.",
+  },
+  {
     id: "scottish-welfare-fund",
     title: "Scottish Welfare Fund, help with living costs",
     publisher: "mygov.scot",

@@ -318,6 +318,7 @@ export const HUBS: Hub[] = [
       {
         heading: "Topics and tools",
         items: [
+          { href: "/modern-studies-teaching-resources", label: "For teachers", tag: "Free" },
           { href: "/causes-of-poverty", label: "Causes of poverty" },
           { href: "/poverty-in-scotland-quiz", label: "Poverty quiz" },
           { href: "/glossary", label: "Plain English glossary" },

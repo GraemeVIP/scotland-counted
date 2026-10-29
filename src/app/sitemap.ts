@@ -32,6 +32,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${site.url}/areas`, changeFrequency: "monthly", priority: 0.95, lastModified: seoRelease },
     { url: `${site.url}/money`, changeFrequency: "monthly", priority: 0.95, lastModified: repositioning },
     { url: `${site.url}/benefits`, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${site.url}/modern-studies-teaching-resources`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${site.url}/councils`, changeFrequency: "monthly", priority: 0.85, lastModified: seoRelease },
     { url: `${site.url}/who-decides`, changeFrequency: "monthly", priority: 0.9, lastModified: repositioning },
     { url: `${site.url}/poverty-in-scotland`, changeFrequency: "monthly", priority: 0.9, lastModified: repositioning },

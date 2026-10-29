@@ -3,7 +3,7 @@ import { Prose, Lead, P, H2, H3, UL, LI, Aside, PostCTA } from "@/components/Pro
 import { GuideTable } from "@/components/GuideTable";
 import { scotlandPoverty } from "@/lib/data/scotland";
 import { COUNCIL_YEARS, SCOTLAND_PCTS, councils } from "@/lib/data/councils";
-import { deprivationDrugDeathRates2024 } from "@/lib/data/drugDeaths";
+import { deprivationDrugDeathRates2025 } from "@/lib/data/drugDeaths";
 import { councilShoplifting, shopliftingLongRun } from "@/lib/data/shoplifting";
 import {
   HIGHER_MODERN_STUDIES as H,
@@ -127,10 +127,10 @@ export default function Post() {
       </P>
       <GuideTable
         kicker="Source A"
-        title={`Drug death rates by how deprived the area is, Scotland, 2024`}
+        title={`Drug death rates by how deprived the area is, Scotland, 2025`}
         columns={["Area", "Deaths per 100,000 people"]}
         align={["left", "right"]}
-        rows={deprivationDrugDeathRates2024.map((row) => [row.area, row.rate])}
+        rows={deprivationDrugDeathRates2025.map((row) => [row.area, row.rate])}
         caption="National Records of Scotland. Rates are age standardised, so areas with older or younger populations can be compared fairly."
       />
       <GuideTable
@@ -171,7 +171,7 @@ export default function Post() {
       <UL>
         <LI>
           A clear link: the death rate rises steadily with deprivation, and the most deprived fifth
-          is about {Math.round(deprivationDrugDeathRates2024[0].rate / deprivationDrugDeathRates2024[deprivationDrugDeathRates2024.length - 1].rate)}{" "}
+          is about {Math.round(deprivationDrugDeathRates2025[0].rate / deprivationDrugDeathRates2025[deprivationDrugDeathRates2025.length - 1].rate)}{" "}
           times the least deprived. Use the steps in between, not just the two ends.
         </LI>
         <LI>
