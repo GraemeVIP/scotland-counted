@@ -35,8 +35,8 @@ export default function BlogList({
   // Quick answer guides have no photograph. Mixed into the grid by date, a
   // batch of them pushes every photographed piece below the fold, so they get
   // their own compact list underneath instead.
-  const stories = posts.filter((post) => post.image);
-  const guides = posts.filter((post) => !post.image);
+  const stories = posts.filter((post) => post.image && !post.guideImage);
+  const guides = posts.filter((post) => !post.image || post.guideImage);
   const featured = showFeatured ? stories[0] : undefined;
   const remaining = featured ? stories.filter((post) => post.slug !== featured.slug) : stories;
   const featuredCategory = featured ? getPostCategory(featured.category) : undefined;
@@ -201,6 +201,11 @@ function GuideList({ guides, grouped }: { guides: Post[]; grouped: boolean }) {
                     href={postPath(post.slug)}
                     className="tile group flex h-full flex-col gap-2 p-5 no-underline"
                   >
+                    {post.image && (
+                      <div className="relative aspect-[3/2] w-full overflow-hidden rounded-[var(--r-s)]">
+                        <Image src={post.image.src} alt={post.image.alt} fill sizes="(min-width: 1280px) 360px, (min-width: 640px) 50vw, 100vw" className="object-cover" />
+                      </div>
+                    )}
                     <span className="text-[17.5px] font-[600] leading-[1.3] text-[var(--ink)] group-hover:text-[var(--action-text)] transition-colors">
                       {post.title}
                     </span>

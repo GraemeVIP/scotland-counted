@@ -99,6 +99,8 @@ export type Post = {
   readingMinutes: number;
   /** The answer box that opens the page. Money, council tax and benefit guides have one. */
   quickAnswer?: QuickAnswerData;
+  /** Preserve guide placement when it has an editorial image. */
+  guideImage?: boolean;
   /** Optional: a guide without a photograph gets the Saltire cover instead. */
   image?: {
     src: string;
@@ -106,7 +108,7 @@ export type Post = {
     caption: string;
     aspect?: "landscape" | "wide" | "video";
     objectPosition?: string;
-    /** Replaces the default "AI generated illustration." credit, e.g. for a data graphic. */
+    /** Optional credit, e.g. for a data graphic. */
     creditLabel?: string;
     /**
      * Optional version for listing cards, which crop to anything from square
@@ -1270,6 +1272,12 @@ export const posts: Post[] = [
   },
   {
     slug: "adult-disability-payment",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-adult-disability-payment.webp",
+      alt: "Disability support, a wheelchair beside a welcoming home entrance",
+      caption: "Disability support, a wheelchair beside a welcoming home entrance.",
+    },
     title: "Adult disability payment: rates, eligibility and how to apply",
     seoTitle: "Adult Disability Payment 2026/27: Rates, Who Qualifies, How to Apply",
     description:
@@ -1324,6 +1332,12 @@ export const posts: Post[] = [
   },
   {
     slug: "adult-disability-payment-phone-number",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-adult-disability-payment-phone-number.webp",
+      alt: "A telephone handset beside a blank notepad",
+      caption: "A telephone handset beside a blank notepad.",
+    },
     title: "Adult disability payment phone number",
     seoTitle: "Adult Disability Payment Phone Number: Call Times and What to Have Ready",
     description:
@@ -1366,6 +1380,12 @@ export const posts: Post[] = [
   },
   {
     slug: "carer-support-payment",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-carer-support-payment.webp",
+      alt: "Two hands gently holding a warm mug together",
+      caption: "Two hands gently holding a warm mug together.",
+    },
     title: "Carer support payment: rates, eligibility and how to apply",
     seoTitle: "Carer Support Payment 2026/27: Rates, Who Qualifies, How to Apply",
     description:
@@ -1414,6 +1434,12 @@ export const posts: Post[] = [
   },
   {
     slug: "best-start-grant",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-best-start-grant.webp",
+      alt: "A baby blanket and small knitted baby shoes",
+      caption: "A baby blanket and small knitted baby shoes.",
+    },
     title: "Best start grant: what you get and how to apply",
     seoTitle: "Best Start Grant 2026/27: Pregnancy, Early Learning and School Payments",
     description:
@@ -1463,6 +1489,12 @@ export const posts: Post[] = [
   },
   {
     slug: "winter-fuel-payment-scotland",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-winter-fuel-payment-scotland.webp",
+      alt: "A warm Scottish home in winter, snow outside",
+      caption: "A warm Scottish home in winter, snow outside.",
+    },
     title: "Winter fuel payment in Scotland: who gets it, how much and when",
     seoTitle: "Winter Fuel Payment Scotland 2026: Who Gets It, How Much and When",
     description:
@@ -1511,6 +1543,12 @@ export const posts: Post[] = [
   },
   {
     slug: "winter-heating-payment",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-winter-heating-payment.webp",
+      alt: "A radiator beside a window on a cold Scottish day",
+      caption: "A radiator beside a window on a cold Scottish day.",
+    },
     title: "Winter heating payment: who gets it and when",
     seoTitle: "Winter Heating Payment 2026: Who Gets It and When It Is Paid",
     description:
@@ -1547,6 +1585,12 @@ export const posts: Post[] = [
   },
   {
     slug: "social-security-scotland-payment-dates",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-social-security-scotland-payment-dates.webp",
+      alt: "A plain calendar and a coin on a kitchen table",
+      caption: "A plain calendar and a coin on a kitchen table.",
+    },
     title: "Social security Scotland payment dates for 2026",
     seoTitle: "Social Security Scotland Payment Dates 2026 Including Christmas",
     description:
@@ -1588,6 +1632,12 @@ export const posts: Post[] = [
   },
   {
     slug: "young-carers-allowance-scotland",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-young-carers-allowance-scotland.webp",
+      alt: "A school backpack and a cup of tea on a kitchen table",
+      caption: "A school backpack and a cup of tea on a kitchen table.",
+    },
     title: "Young carers allowance in Scotland: the Young Carer Grant",
     seoTitle: "Young Carers Allowance Scotland: The Young Carer Grant Explained",
     description:
@@ -1625,6 +1675,12 @@ export const posts: Post[] = [
   },
   {
     slug: "crisis-grant-phone-number",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-crisis-grant-phone-number.webp",
+      alt: "A phone and simple map outline of Scotland",
+      caption: "A phone and simple map outline of Scotland.",
+    },
     title: "Crisis grant phone number: every council in Scotland",
     seoTitle: "Crisis Grant Phone Number for Every Scottish Council",
     description:
@@ -1667,6 +1723,12 @@ export const posts: Post[] = [
   },
   {
     slug: "minimum-wage-2027",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-minimum-wage-2027.webp",
+      alt: "A payslip and coins on a table",
+      caption: "A payslip and coins on a table.",
+    },
     title: "Minimum wage 2027: every rate from 1 April",
     seoTitle: `Minimum Wage 2027: ${pounds(MINIMUM_WAGE.next.over21, true)} From April, What It Means in Scotland`,
     description: `The minimum wage rises to ${pounds(MINIMUM_WAGE.next.over21, true)} an hour on 1 April 2027 for workers 21 and over. Every age rate, the yearly pay and take home pay in Scotland.`,
@@ -1719,6 +1781,12 @@ export const posts: Post[] = [
   },
   {
     slug: "average-salary-scotland",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-average-salary-scotland.webp",
+      alt: "A plain payslip beside coins and a calculator without numbers",
+      caption: "A plain payslip beside coins and a calculator without numbers.",
+    },
     title: "Average salary Scotland: what full time workers earn",
     seoTitle: "Average Salary Scotland 2026: What Full Time Workers Earn by Council",
     description: `The average full time salary in Scotland is ${pounds(ASHE_2026.scotland.annual)} a year, the April 2026 median. The weekly and hourly figures, and what workers earn in all 32 councils.`,
@@ -1777,6 +1845,12 @@ export const posts: Post[] = [
   },
   {
     slug: "minimum-wage-in-glasgow-scotland",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-minimum-wage-in-glasgow-scotland.webp",
+      alt: "Glasgow tenement street and an ordinary worker's lunch bag",
+      caption: "Glasgow tenement street and an ordinary worker's lunch bag.",
+    },
     title: "Minimum wage in Glasgow Scotland: the legal rate and what local jobs pay",
     seoTitle: "Minimum Wage in Glasgow Scotland 2026: Rates and Local Pay",
     description: `The minimum wage in Glasgow is ${pounds(MINIMUM_WAGE.current.over21, true)} an hour, ${pounds(MINIMUM_WAGE.next.over21, true)} from April 2027. What local jobs pay, Glasgow rent, and what's left each month on a full time wage.`,
@@ -1829,6 +1903,12 @@ export const posts: Post[] = [
   },
   {
     slug: "minimum-wage-in-edinburgh-scotland",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-minimum-wage-in-edinburgh-scotland.webp",
+      alt: "Edinburgh street with ordinary shops and a worker's lunch bag",
+      caption: "Edinburgh street with ordinary shops and a worker's lunch bag.",
+    },
     title: "Minimum wage in Edinburgh Scotland: the legal rate and what local jobs pay",
     seoTitle: "Minimum Wage in Edinburgh Scotland 2026: Rates and Local Pay",
     description: `The minimum wage in Edinburgh is ${pounds(MINIMUM_WAGE.current.over21, true)} an hour, the same as the rest of the UK. With rents at ${pounds(CITY_PAY["city-of-edinburgh"].rent.oneBed)} a month, here's what it leaves you.`,
@@ -1882,6 +1962,12 @@ export const posts: Post[] = [
   },
   {
     slug: "minimum-wage-aberdeen",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-minimum-wage-aberdeen.webp",
+      alt: "Aberdeen granite street with ordinary shops and a worker's lunch bag",
+      caption: "Aberdeen granite street with ordinary shops and a worker's lunch bag.",
+    },
     title: "Minimum wage Aberdeen: the legal rate and what local jobs pay",
     seoTitle: "Minimum Wage Aberdeen 2026: Rates and Local Pay",
     description: `The minimum wage in Aberdeen is ${pounds(MINIMUM_WAGE.current.over21, true)} an hour, ${pounds(MINIMUM_WAGE.next.over21, true)} from April 2027. Aberdeen jobs pay more and rent costs less: here's what's left each month.`,
@@ -1935,6 +2021,12 @@ export const posts: Post[] = [
   },
   {
     slug: "minimum-wage-dundee",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-minimum-wage-dundee.webp",
+      alt: "Dundee city street with ordinary shops and a worker's lunch bag",
+      caption: "Dundee city street with ordinary shops and a worker's lunch bag.",
+    },
     title: "Minimum wage Dundee: the legal rate and what local jobs pay",
     seoTitle: "Minimum Wage Dundee 2026: Rates and Local Pay",
     description: `The minimum wage in Dundee is ${pounds(MINIMUM_WAGE.current.over21, true)} an hour, ${pounds(MINIMUM_WAGE.next.over21, true)} from April 2027. Rent is the lowest of Scotland's four biggest cities, so the wage goes further.`,
@@ -1988,6 +2080,12 @@ export const posts: Post[] = [
   },
   {
     slug: "check-council-tax-band",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-check-council-tax-band.webp",
+      alt: "Scottish terraced houses with a plain letter and a magnifying glass",
+      caption: "Scottish terraced houses with a plain letter and a magnifying glass.",
+    },
     title: "Check council tax band: find your band in Scotland",
     seoTitle: "Check Council Tax Band in Scotland: Find My Council Tax Band",
     description: `Check your council tax band free on the Scottish Assessors site by postcode. Band A means a 1991 value ${bandValueLabel("A").toLowerCase()}. What each band means and how to appeal.`,
@@ -2052,6 +2150,12 @@ export const posts: Post[] = [
   },
   {
     slug: "council-tax-reduction-scotland",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-council-tax-reduction-scotland.webp",
+      alt: "A modest Scottish home and household bills",
+      caption: "A modest Scottish home and household bills.",
+    },
     title: "Council tax reduction Scotland: who qualifies and how much",
     seoTitle: "Council Tax Reduction Scotland: Who Qualifies and How to Apply",
     description: `Council Tax Reduction takes up to ${COUNCIL_TAX_REDUCTION.maxPercent}% off council tax if your income is low and savings are under ${pounds(COUNCIL_TAX_REDUCTION.savingsLimit)}. Who qualifies, how much and how to apply.`,
@@ -2119,6 +2223,12 @@ export const posts: Post[] = [
   },
   {
     slug: "single-person-discount-council-tax-scotland",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-single-person-discount-council-tax-scotland.webp",
+      alt: "One cup and a plain household bill on a kitchen table",
+      caption: "One cup and a plain household bill on a kitchen table.",
+    },
     title: "Single person discount council tax Scotland: how to claim 25% off",
     seoTitle: "Single Person Discount Council Tax Scotland: 25% Off and How to Claim",
     description: `Live alone? You get ${SINGLE_PERSON_DISCOUNT.percent}% off council tax and water. That's ${pounds((bandFor("glasgow-city", "D").total * SINGLE_PERSON_DISCOUNT.percent) / 100)} a year on a Band D home in Glasgow. Who counts as an adult and how to claim.`,
@@ -2184,6 +2294,12 @@ export const posts: Post[] = [
   },
   {
     slug: "water-rates-scotland",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-water-rates-scotland.webp",
+      alt: "A water tap and a clear glass of water in a Scottish home",
+      caption: "A water tap and a clear glass of water in a Scottish home.",
+    },
     title: "Water rates Scotland: what every band pays in 2026/27",
     seoTitle: "Water Rates Scotland 2026/27: Charges by Council Tax Band",
     description: `Water rates in Scotland for 2026/27 run from ${pounds(waterCharges2026.A.water + waterCharges2026.A.wasteWater, true)} a year at Band A to ${pounds(waterCharges2026.H.water + waterCharges2026.H.wasteWater, true)} at Band H, paid with council tax. Every band and this year's rise.`,
@@ -2247,6 +2363,12 @@ export const posts: Post[] = [
   },
   {
     slug: "modern-studies",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-modern-studies.webp",
+      alt: "Open textbook and pencil beside a Scottish Parliament exterior silhouette",
+      caption: "Open textbook and pencil beside a Scottish Parliament exterior silhouette.",
+    },
     title: "Modern studies: free resources for pupils and teachers",
     seoTitle: "Modern Studies: Free Resources for Pupils and Teachers in Scotland",
     description: `Free Modern Studies resources: N5 is ${N5_MODERN_STUDIES.totalMarks} marks, Higher ${HIGHER_MODERN_STUDIES.totalMarks}, Advanced Higher ${ADVANCED_HIGHER_MODERN_STUDIES.totalMarks}. Course guides, past paper help and real Scottish data.`,
@@ -2315,6 +2437,12 @@ export const posts: Post[] = [
   },
   {
     slug: "national-5-modern-studies",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-national-5-modern-studies.webp",
+      alt: "School exercise books, pencil and an abstract Scottish Parliament silhouette",
+      caption: "School exercise books, pencil and an abstract Scottish Parliament silhouette.",
+    },
     title: "National 5 modern studies: the course in plain English",
     seoTitle: "National 5 Modern Studies: Course Guide, Notes and Real Data",
     description: `National 5 Modern Studies is ${N5_MODERN_STUDIES.totalMarks} marks: an ${N5_MODERN_STUDIES.paper.marks} mark exam and a ${N5_MODERN_STUDIES.assignment.marks} mark assignment. The course in plain English, revision notes and model answers.`,
@@ -2387,6 +2515,12 @@ export const posts: Post[] = [
   },
   {
     slug: "higher-modern-studies",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-higher-modern-studies.webp",
+      alt: "Notebook and documents beside a Scottish Parliament exterior silhouette",
+      caption: "Notebook and documents beside a Scottish Parliament exterior silhouette.",
+    },
     title: "Higher modern studies: the course, the skills and the evidence",
     seoTitle: "Higher Modern Studies: Course Guide, Skills and Real Data",
     description: `Higher Modern Studies is ${HIGHER_MODERN_STUDIES.totalMarks} marks: Paper 1 (${HIGHER_MODERN_STUDIES.paper1.marks}), Paper 2 (${HIGHER_MODERN_STUDIES.paper2.marks}) and a ${HIGHER_MODERN_STUDIES.assignment.marks} mark assignment. How each is marked, plus real Scottish evidence.`,
@@ -2454,6 +2588,12 @@ export const posts: Post[] = [
   },
   {
     slug: "higher-modern-studies-past-papers",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-higher-modern-studies-past-papers.webp",
+      alt: "Unmarked exam papers, pencils and a desk",
+      caption: "Unmarked exam papers, pencils and a desk.",
+    },
     title: "Higher modern studies past papers and practice questions",
     seoTitle: "Higher Modern Studies Past Papers and Practice Questions With Real Data",
     description: `Higher Modern Studies past papers for ${MODERN_STUDIES_PAST_PAPERS.firstYear} to ${MODERN_STUDIES_PAST_PAPERS.lastYear} are free from Qualifications Scotland. Where they are, how to use them, and practice with real data.`,
@@ -2517,6 +2657,12 @@ export const posts: Post[] = [
   },
   {
     slug: "nat-5-modern-studies-past-papers",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-nat-5-modern-studies-past-papers.webp",
+      alt: "Unmarked exam papers and a pencil on a school desk",
+      caption: "Unmarked exam papers and a pencil on a school desk.",
+    },
     title: "Nat 5 modern studies past papers and practice questions",
     seoTitle: "Nat 5 Modern Studies Past Papers and Practice Questions",
     description: `Nat 5 Modern Studies past papers for ${MODERN_STUDIES_PAST_PAPERS.firstYear} to ${MODERN_STUDIES_PAST_PAPERS.lastYear} are free from Qualifications Scotland. Where to get them, the question types and real data practice.`,
@@ -2580,6 +2726,12 @@ export const posts: Post[] = [
   },
   {
     slug: "advanced-higher-modern-studies",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-advanced-higher-modern-studies.webp",
+      alt: "Unmarked research papers and a simple chart with no labels",
+      caption: "Unmarked research papers and a simple chart with no labels.",
+    },
     title: "Advanced higher modern studies: the course and where to find data",
     seoTitle: "Advanced Higher Modern Studies: Course Guide and Data Sources",
     description: `Advanced Higher Modern Studies is ${ADVANCED_HIGHER_MODERN_STUDIES.totalMarks} marks: a ${ADVANCED_HIGHER_MODERN_STUDIES.paper.marks} mark exam and a ${ADVANCED_HIGHER_MODERN_STUDIES.dissertation.words.toLocaleString("en-GB")} word dissertation worth ${ADVANCED_HIGHER_MODERN_STUDIES.dissertation.marks}. The course, and data that holds up.`,
@@ -2648,6 +2800,12 @@ export const posts: Post[] = [
   },
   {
     slug: "causes-of-poverty",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-causes-of-poverty.webp",
+      alt: "A modest Scottish residential street and household essentials",
+      caption: "A modest Scottish residential street and household essentials.",
+    },
     title: "Causes of poverty: what the evidence shows in Scotland",
     seoTitle: "Causes of Poverty: What the Scottish Evidence Shows",
     description: `Poverty in Scotland has three main causes: pay from work, the cost of living and social security. ${scotlandPoverty.all.pct}% of people are in poverty. The evidence and the effects.`,
@@ -2715,6 +2873,12 @@ export const posts: Post[] = [
   },
   {
     slug: "who-is-my-msp",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-who-is-my-msp.webp",
+      alt: "Scottish Parliament exterior and an unmarked folded map of Scotland",
+      caption: "Scottish Parliament exterior and an unmarked folded map of Scotland.",
+    },
     title: "Who is my MSP? Find your MSP and MP by postcode",
     seoTitle: "Who Is My MSP? Find Your MSP and MP by Postcode",
     description: `Every address in Scotland has ${SCOTTISH_PARLIAMENT.perPerson} MSPs: 1 constituency MSP and ${SCOTTISH_PARLIAMENT.regionalPerRegion} regional MSPs, plus 1 MP. Put in your postcode to see their names and emails.`,
@@ -2772,6 +2936,12 @@ export const posts: Post[] = [
   },
   {
     slug: "who-is-my-local-councillor-by-postcode",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-who-is-my-local-councillor-by-postcode.webp",
+      alt: "A Scottish local council building and an unmarked street map",
+      caption: "A Scottish local council building and an unmarked street map.",
+    },
     title: "Who is my local councillor by postcode?",
     seoTitle: "Who Is My Local Councillor by Postcode? Find Your Councillors",
     description: `Most homes in Scotland have 3 or 4 councillors, not 1. Use your postcode to find your council, then every councillor for your ward. All ${COUNCILLOR_TOTALS.councils} councils listed.`,
@@ -2830,6 +3000,12 @@ export const posts: Post[] = [
   },
   {
     slug: "life-expectancy-glasgow",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-life-expectancy-glasgow.webp",
+      alt: "Two contrasting Glasgow residential streets",
+      caption: "Two contrasting Glasgow residential streets.",
+    },
     title: "Life expectancy Glasgow: the figures and the gap",
     seoTitle: "Life Expectancy Glasgow: How Long People Live, Area by Area",
     description: `Life expectancy in Glasgow is ${years(LIFE_EXPECTANCY_LATEST.glasgow.men)} years for men and ${years(LIFE_EXPECTANCY_LATEST.glasgow.women)} for women (${LIFE_EXPECTANCY_LATEST.period}), the lowest in Scotland. Inside the city, the gap for men is ${years(LIFE_EXPECTANCY.glasgowByDeprivation.rows[4].men - LIFE_EXPECTANCY.glasgowByDeprivation.rows[0].men)} years.`,
@@ -2882,6 +3058,12 @@ export const posts: Post[] = [
   },
   {
     slug: "unemployment-scotland",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-unemployment-scotland.webp",
+      alt: "A quiet Scottish high street with a closed shop and unmarked job application",
+      caption: "A quiet Scottish high street with a closed shop and unmarked job application.",
+    },
     title: "Unemployment Scotland: the rate, the trend and your council",
     seoTitle: "Unemployment Scotland 2026: Rate, Trend and Council Figures",
     description: `Scotland's unemployment rate was ${pct(LABOUR_MARKET_LATEST.rate)} in ${LABOUR_MARKET_LATEST.period}, against ${pct(LABOUR_MARKET.uk.rate)} for the UK. The trend, youth unemployment and the rate for all 32 councils.`,
@@ -2945,6 +3127,12 @@ export const posts: Post[] = [
   },
   {
     slug: "crime-rate-glasgow",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-crime-rate-glasgow.webp",
+      alt: "Glasgow street at dusk, ordinary buildings",
+      caption: "Glasgow street at dusk, ordinary buildings.",
+    },
     title: "Crime rate Glasgow: what the police figures show",
     seoTitle: "Crime Rate Glasgow: Recorded Crime by Type and Year",
     description: `Glasgow's crime rate was ${GLASGOW_CRIME.glasgow.rate} crimes per 10,000 people in ${GLASGOW_CRIME.year}, against ${GLASGOW_CRIME.scotland.rate} for Scotland. Crime by type, year by year, and what the rate leaves out.`,
