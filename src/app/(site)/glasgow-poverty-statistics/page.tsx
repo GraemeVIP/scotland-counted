@@ -38,7 +38,7 @@ const CARDS = [
     summary: lifeExpectancy.summary,
     direction: lifeExpectancy.direction,
     spark: lifeExpectancy.glaM,
-    sparkNote: "Men, 2001–03 to 2017–19",
+    sparkNote: `Men, ${lifeExpectancy.x[0]} to ${lifeExpectancy.x[lifeExpectancy.x.length - 1]}`,
   },
 ];
 

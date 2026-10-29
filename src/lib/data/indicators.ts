@@ -253,7 +253,7 @@ export const indicators: Indicator[] = [
       "Gross weekly pay can include overtime, bonuses, shift premiums and allowances. ONS normally defines full time as more than 30 paid hours a week, with a separate rule for teaching jobs.",
       "Figures are in cash, not adjusted for inflation. Compare the lines against each other within a year. That comparison is valid. Do not read the upward slope as people getting better off; most of it is price rises.",
     ],
-    sourceIds: ["ashe", "ashe-guide", "glasgow-labour-profile", "minimum-wage-2026", "mis-2025", "real-living-wage", "ashe-scotland-2025", "lpc-remit", "ons-low-pay-2025"],
+    sourceIds: ["ashe", "ashe-guide", "glasgow-labour-profile", "minimum-wage-2026", "mis-2025", "real-living-wage", "ashe-scotland-2025", "lpc-remit", "ons-low-pay-2025", "ons-pipr-2026-10"],
   },
 ];
 
@@ -261,20 +261,20 @@ export const indicators: Indicator[] = [
 export const lifeExpectancy = {
   slug: "glasgow-life-expectancy",
   label: "Life expectancy",
-  title: "Life expectancy in Glasgow stopped improving",
+  title: "Life expectancy in Glasgow stalled, then fell, and is only now recovering",
   summary:
-    "People in Glasgow were living longer until about 2012. Then progress stopped. The latest male figure on this chart is 73.6 years, the lowest in Scotland.",
+    "People in Glasgow were living longer until about 2012. Then progress stopped and fell back through the pandemic years. Men in Glasgow can now expect 74.3 years, the highest yet, but still the lowest in Scotland.",
   direction: "stalled" as Direction,
   x: [
-    "2001-03", "2002-04", "2003-05", "2004-06", "2005-07", "2006-08", "2007-09",
-    "2008-10", "2009-11", "2010-12", "2011-13", "2012-14", "2013-15", "2014-16",
-    "2015-17", "2016-18", "2017-19",
+    "2001-03", "2002-04", "2003-05", "2004-06", "2005-07", "2006-08", "2007-09", "2008-10",
+    "2009-11", "2010-12", "2011-13", "2012-14", "2013-15", "2014-16", "2015-17", "2016-18",
+    "2017-19", "2018-20", "2019-21", "2020-22", "2021-23", "2022-24",
   ],
-  glaM: [69.0, 69.3, 69.9, 70.4, 70.7, 70.7, 71.1, 71.7, 72.2, 72.6, 73.0, 73.3, 73.4, 73.4, 73.3, 73.4, 73.6],
-  scoM: [73.5, 73.8, 74.2, 74.6, 74.8, 75.0, 75.3, 75.8, 76.2, 76.5, 76.8, 77.1, 77.1, 77.1, 77.0, 77.1, 77.2],
-  glaF: [76.4, 76.4, 76.7, 76.9, 77.0, 77.1, 77.4, 77.9, 78.2, 78.5, 78.5, 78.7, 78.8, 78.9, 78.7, 78.7, 78.5],
-  scoF: [78.9, 79.0, 79.2, 79.5, 79.7, 79.8, 80.0, 80.3, 80.6, 80.7, 80.9, 81.1, 81.1, 81.1, 81.1, 81.1, 81.1],
-  sourceIds: ["ons-le"],
+  glaM: [69.1, 69.3, 69.9, 70.4, 70.7, 70.7, 71.1, 71.7, 72.1, 72.6, 73.0, 73.3, 73.4, 73.4, 73.3, 73.3, 73.6, 73.1, 72.9, 72.9, 73.6, 74.3],
+  scoM: [73.5, 73.8, 74.2, 74.6, 74.8, 75.0, 75.4, 75.8, 76.2, 76.5, 76.8, 77.1, 77.1, 77.1, 77.0, 77.1, 77.2, 76.8, 76.6, 76.5, 76.8, 77.2],
+  glaF: [76.4, 76.4, 76.6, 76.9, 77.0, 77.1, 77.4, 77.9, 78.2, 78.5, 78.5, 78.7, 78.8, 78.8, 78.6, 78.5, 78.3, 78.1, 77.8, 77.9, 78.3, 78.7],
+  scoF: [78.9, 79.0, 79.2, 79.5, 79.7, 79.8, 80.0, 80.3, 80.6, 80.7, 80.9, 81.1, 81.1, 81.1, 81.1, 81.1, 81.1, 80.9, 80.8, 80.7, 80.8, 81.1],
+  sourceIds: ["nrs-life-expectancy-2022-2024"],
 };
 
 /** Neighbourhood deprivation: a two point comparison, not a series. */
@@ -324,7 +324,7 @@ export const headlineStats = [
     href: "/indicators/glasgow-child-poverty",
   },
   {
-    label: "Working-age employment rate",
+    label: "Working age employment rate",
     value: "71.2%",
     from: "62.7%",
     to: "71.2%",
@@ -343,10 +343,10 @@ export const headlineStats = [
   },
   {
     label: "Male life expectancy behind the Scottish average",
-    value: "3.6 yrs",
-    from: "4.5 yrs",
-    to: "3.6 yrs",
-    period: "2001–03 → 2017–19",
+    value: "2.9 yrs",
+    from: "4.4 yrs",
+    to: "2.9 yrs",
+    period: "2001–03 → 2022–24",
     direction: "improving" as Direction,
     href: "/indicators/glasgow-life-expectancy",
   },

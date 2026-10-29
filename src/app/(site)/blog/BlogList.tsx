@@ -28,11 +28,17 @@ export default function BlogList({
   activeCategory?: PostCategorySlug;
   showFeatured?: boolean;
 }) {
-  // The index passes postsByDate(), so the first post is always the newest.
-  // There is deliberately no manual featured flag that can leave an older
-  // article pinned above a newer one.
-  const featured = showFeatured ? posts[0] : undefined;
-  const remaining = featured ? posts.filter((post) => post.slug !== featured.slug) : posts;
+  // The index passes postsByDate(), so the first photographed post is always
+  // the newest one. There is deliberately no manual featured flag that can
+  // leave an older article pinned above a newer one.
+  //
+  // Quick answer guides have no photograph. Mixed into the grid by date, a
+  // batch of them pushes every photographed piece below the fold, so they get
+  // their own compact list underneath instead.
+  const stories = posts.filter((post) => post.image);
+  const guides = posts.filter((post) => !post.image);
+  const featured = showFeatured ? stories[0] : undefined;
+  const remaining = featured ? stories.filter((post) => post.slug !== featured.slug) : stories;
   const featuredCategory = featured ? getPostCategory(featured.category) : undefined;
 
   return (
@@ -144,9 +150,73 @@ export default function BlogList({
             ))}
           </div>
         ) : (
-          <p className="text-[17px] text-[var(--ink-2)]">More articles are being checked now.</p>
+          guides.length === 0 && (
+            <p className="text-[17px] text-[var(--ink-2)]">More articles are being checked now.</p>
+          )
         )}
       </section>
+
+      {guides.length > 0 && <GuideList guides={guides} grouped={!activeCategory} />}
     </>
+  );
+}
+
+/**
+ * The quick answer guides as a compact, scannable list: the question people
+ * searched, the answer figure, and a link. Grouped by section on the main
+ * index so twenty guides read as a reference shelf rather than a wall.
+ */
+function GuideList({ guides, grouped }: { guides: Post[]; grouped: boolean }) {
+  const groups = grouped
+    ? postCategories
+        .map((category) => ({ category, items: guides.filter((post) => post.category === category.slug) }))
+        .filter((group) => group.items.length > 0)
+    : [{ category: undefined, items: guides }];
+
+  return (
+    <section className="pt-14" aria-labelledby="guide-list-heading">
+      <div className="flex flex-wrap items-end justify-between gap-3 mb-6">
+        <div>
+          <p className="label mb-2">Answer first</p>
+          <h2 id="guide-list-heading" className="h2">
+            Quick answer guides
+          </h2>
+        </div>
+        <p className="ui text-[15px] text-[var(--muted)]">
+          {guides.length} {guides.length === 1 ? "guide" : "guides"}
+        </p>
+      </div>
+      <div className="grid gap-10">
+        {groups.map(({ category, items }) => (
+          <div key={category?.slug ?? "all"}>
+            {category && (
+              <h3 className="ui text-[15px] font-[620] mb-3" style={{ color: category.color }}>
+                {category.name}
+              </h3>
+            )}
+            <ul className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+              {items.map((post) => (
+                <li key={post.slug} className="min-w-0">
+                  <Link
+                    href={postPath(post.slug)}
+                    className="tile group flex h-full flex-col gap-2 p-5 no-underline"
+                  >
+                    <span className="text-[17.5px] font-[600] leading-[1.3] text-[var(--ink)] group-hover:text-[var(--action-text)] transition-colors">
+                      {post.title}
+                    </span>
+                    {post.quickAnswer?.value && (
+                      <span className="ui text-[15px] text-[var(--ink-2)]">
+                        <span className="font-[620] text-[var(--action-text)] tnum">{post.quickAnswer.value}</span>
+                        {post.quickAnswer.unit ? ` ${post.quickAnswer.unit}` : ""}
+                      </span>
+                    )}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }

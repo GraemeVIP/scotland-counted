@@ -109,7 +109,7 @@ export function PostView({ slug }: { slug: string }) {
             <QuickAnswer answer={post.quickAnswer} className="mt-9 sm:mt-11 max-w-[1120px] mx-auto" />
           )}
 
-          {post.image && !post.quickAnswer && (
+          {post.image && (
             <EditorialImage
               src={post.image.src}
               alt={post.image.alt}

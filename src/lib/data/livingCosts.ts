@@ -10,6 +10,7 @@
 
 import { calculate } from "@/lib/tax/engine";
 import { councilTaxByBand, waterCharges2026 } from "@/lib/data/councilTax";
+import { CITY_PAY, PRIVATE_RENTS } from "@/lib/data/money";
 
 const HOURLY = 12.71;
 const HOURS = 37.5;
@@ -46,13 +47,19 @@ export const minimumWageTakeHome = (() => {
   };
 })();
 
+/**
+ * The same ONS rent the city minimum wage pages use, so every Glasgow budget
+ * on the site starts from one figure. The Scottish Government's advertised
+ * rent (£865 in 2025) is a different measure, new lets only, and is kept for
+ * the Local Housing Allowance comparison where that is the right one.
+ */
 export const glasgowRent = {
-  monthly: 865,
-  scotlandMonthly: 738,
-  size: "one-bedroom",
-  area: "Greater Glasgow",
-  year: 2025,
-  sourceId: "rent-scotland-2025",
+  monthly: CITY_PAY["glasgow-city"].rent.oneBed,
+  scotlandMonthly: PRIVATE_RENTS.scotland.oneBed,
+  size: "one bedroom",
+  area: CITY_PAY["glasgow-city"].rentArea,
+  period: PRIVATE_RENTS.month,
+  sourceId: "ons-pipr-2026-10",
 };
 
 /** Rent as a share of gross pay, before a penny of tax comes off. */

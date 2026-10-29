@@ -62,7 +62,7 @@ export default function WorkDoesNotPay({ className = "" }: { className?: string 
           {[
             { label: "Take home pay", sub: `${pounds.format(minimumWage.annualGross)} gross, less ${pounds.format(minimumWageTakeHome.tax)} tax and ${pounds.format(minimumWageTakeHome.ni)} National Insurance`, value: minimumWageTakeHome.monthly, kind: "in" },
             { label: "Universal Credit", sub: "Nothing is payable. With no children and no health condition there is no work allowance, so the 55p taper wipes out the £425 allowance", value: 0, kind: "in" },
-            { label: "Rent", sub: `${glasgowRent.area} average, ${glasgowRent.size}`, value: -glasgowRent.monthly, kind: "out" },
+            { label: "Rent", sub: `${glasgowRent.area} average, ${glasgowRent.size}, ${glasgowRent.period} (ONS)`, value: -glasgowRent.monthly, kind: "out" },
             { label: "Council tax and water", sub: `Band A · ${pounds.format(councilTax.councilTax2026)} council tax and ${pounds.format(councilTax.waterCombined)} water a year`, value: -councilTax.monthly, kind: "out" },
             { label: "Gas and electricity", sub: "Ofgem cap for a typical home, from 1 July 2026", value: -energyMonthly, kind: "out" },
           ].map((row) => (

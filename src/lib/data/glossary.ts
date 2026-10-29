@@ -67,7 +67,7 @@ export const terms: Term[] = [
     id: "le",
     term: "Life expectancy at birth",
     def: "How long a baby born now would live if today's death rates lasted its whole life. It summarises the population's health, not what will happen to one person.",
-    tech: "Figures are averaged over three years at a time to reduce year to year noise. A period life expectancy of 73.6 does not mean today's babies will die at 73.6. It means death rates in those years were equivalent to that.",
+    tech: "Figures are averaged over three years at a time to reduce year to year noise. A period life expectancy of 74.3 does not mean today's babies will die at 73.6. It means death rates in those years were equivalent to that.",
   },
   {
     id: "median",

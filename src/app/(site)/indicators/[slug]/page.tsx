@@ -16,6 +16,7 @@ import {
   GLASGOW_CHILD_COUNTS,
 } from "@/lib/data/indicators";
 import { getSources } from "@/lib/data/sources";
+import { LIFE_EXPECTANCY } from "@/lib/data/local";
 import { JsonLd, articleJsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
 
 export function generateStaticParams() {
@@ -49,13 +50,18 @@ const IN_SHORT: Record<string, string[]> = {
   ],
   "glasgow-life-expectancy": [
     "People in Glasgow live shorter lives than anywhere else in Scotland.",
-    "Lives were getting longer until about 2012. Then it stopped.",
+    "Lives were getting longer until about 2012. Then it stopped, and fell back in the pandemic years.",
   ],
   "glasgow-deprivation": [
     "Fewer Glasgow neighbourhoods are among Scotland's poorest than in 2004. That is real progress.",
     "But nearly half the city still lives in Scotland's poorest fifth.",
   ],
 };
+
+const eastDunbartonshire = LIFE_EXPECTANCY.councils.find((c) => c.slug === "east-dunbartonshire")!;
+
+/** "2022-24" as "2022 to 2024", for use in a sentence. */
+const fullPeriod = (label: string) => `${label.slice(0, 4)} to ${label.slice(0, 2)}${label.slice(5)}`;
 
 /** The single figure each page leads with, pinned beside the headline. */
 const HEADER_STAT: Record<
@@ -83,7 +89,7 @@ const HEADER_STAT: Record<
     tone: "bad",
   },
   "glasgow-life-expectancy": {
-    value: "73.6",
+    value: lifeExpectancy.glaM[lifeExpectancy.glaM.length - 1].toFixed(1),
     label: "years, male life expectancy at birth, the lowest of Scotland's 32 council areas",
     tone: "bad",
   },
@@ -138,7 +144,7 @@ const SEO_OVERRIDE: Record<string, { title?: string; description?: string }> = {
   "glasgow-life-expectancy": {
     title: "Glasgow Life Expectancy: Lowest in Scotland",
     description:
-      "Male life expectancy in Glasgow was 73.6 years in 2017–19, the lowest of Scotland's 32 council areas. See when progress stopped and the full source data.",
+      "Male life expectancy in Glasgow is 74.3 years for 2022 to 2024, the lowest of Scotland's 32 council areas. See when progress stopped and the full source data.",
   },
 };
 
@@ -263,15 +269,19 @@ export default async function IndicatorPage(props: PageProps<"/indicators/[slug]
           <Col className="pt-9">
             <p>
               Between 2001 and 2012, Glasgow men gained more than four years of life. Then it
-              stopped. Since 2012 the line is flat for men and slightly falling for women, the
+              stopped. From 2012 the line was flat for men and slowly falling for women, the
               same stall seen across Scotland, arriving alongside a decade of cuts to working age
-              benefits.
+              benefits. It fell again through the pandemic years and has only recovered since
+              2020 to 2022.
             </p>
             <p>
-              A boy born in Glasgow in 2017–19 could expect {le.glaM[n]} years. That is the lowest
-              of Scotland&apos;s 32 council areas: {(le.scoM[n] - le.glaM[n]).toFixed(1)} years
-              below the Scottish average, and 6.9 years behind East Dunbartonshire, ten miles up
-              the road.
+              A boy born in Glasgow in {fullPeriod(le.x[n])} could expect {le.glaM[n].toFixed(1)}{" "}
+              years. That is the lowest of Scotland&apos;s 32 council areas:{" "}
+              {(le.scoM[n] - le.glaM[n]).toFixed(1)} years below the Scottish average, and{" "}
+              {(eastDunbartonshire.men - le.glaM[n]).toFixed(1)} years behind East Dunbartonshire,
+              ten miles up the road. The full council by council picture, and the gap inside
+              Glasgow itself, is on the{" "}
+              <Link href="/life-expectancy-glasgow">life expectancy Glasgow</Link> page.
             </p>
           </Col>
 
@@ -284,7 +294,7 @@ export default async function IndicatorPage(props: PageProps<"/indicators/[slug]
                 key={p.title}
                 n={p.title === "Men" ? 1 : 2}
                 title={`${p.title}, life expectancy at birth`}
-                sub="Years · 2001–03 to 2017–19 · ONS"
+                sub={`Years · ${le.x[0]} to ${le.x[n]} · National Records of Scotland`}
                 legend={[
                   { name: "Glasgow", colorVar: "--glasgow" },
                   { name: "Scotland", colorVar: "--scotland" },
@@ -302,7 +312,7 @@ export default async function IndicatorPage(props: PageProps<"/indicators/[slug]
                   yTicks={[68, 70, 72, 74, 76, 78, 80, 82]}
                   unit=""
                   decimals={1}
-                  ariaLabel={`${p.title}: life expectancy at birth in Glasgow compared with Scotland, 2001-03 to 2017-19.`}
+                  ariaLabel={`${p.title}: life expectancy at birth in Glasgow compared with Scotland, ${le.x[0]} to ${le.x[n]}.`}
                 />
               </Figure>
             ))}
@@ -327,7 +337,7 @@ export default async function IndicatorPage(props: PageProps<"/indicators/[slug]
             }
             technical={[
               "This is life expectancy at birth, averaged over three years at a time to smooth out random variation. It is not a prediction about any individual. It describes death rates in the population over those years, applied to a hypothetical newborn.",
-              "More recent ONS releases put Glasgow male life expectancy at 74.3 years for 2022–24, still the lowest or second lowest in Great Britain. That release uses a different vintage of population estimates, so it is quoted here rather than spliced onto the chart.",
+              "Every figure comes from one National Records of Scotland release, so the whole series uses the same population estimates. Glasgow is compared with Scotland's figure from the same abridged life tables.",
             ]}
           >
             <p className="text-[15px] text-[var(--ink-2)] py-2">

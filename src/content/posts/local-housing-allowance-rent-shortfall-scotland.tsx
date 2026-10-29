@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CITY_PAY, PRIVATE_RENTS } from "@/lib/data/money";
 import { Prose, Lead, P, H2, H3, UL, LI, BigStat, Aside, PostCTA } from "@/components/Prose";
 
 export default function Post() {
@@ -44,8 +45,11 @@ export default function Post() {
       />
       <P>
         This is not a claim that every one bedroom tenant pays £865. The rent statistic mainly
-        reflects homes advertised or newly let, while some existing tenants pay less. It shows the
-        problem facing someone trying to move now: the benefit cap is below the current average.
+        reflects homes advertised or newly let, while some existing tenants pay less. Across all
+        private tenancies, the ONS average for {CITY_PAY["glasgow-city"].rentArea} was{" "}
+        £{CITY_PAY["glasgow-city"].rent.oneBed} in {PRIVATE_RENTS.month}, which is still well above
+        the allowance. It shows the problem facing someone trying to move now: the benefit cap is
+        below the current average.
       </P>
 
       <H2 id="bedrooms">Which bedroom rate applies</H2>

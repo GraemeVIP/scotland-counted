@@ -29,7 +29,9 @@ const range = bandDRange();
  * quietly lost.
  */
 
-const homeReads = postsByDate().filter((post): post is Post => Boolean(post));
+// The carousel is for the photographed explainers and investigations. The
+// quick answer guides have no photograph and are listed on /blog instead.
+const homeReads = postsByDate().filter((post): post is Post => Boolean(post?.image));
 
 export const metadata = meta({
   title: "Scotland Counted | Independent Public Data for Scotland",
