@@ -22,7 +22,6 @@ import {
   type RepresentativeRole,
 } from "@/lib/letter";
 import {
-  DEFAULT_TOPIC_IDS,
   joinPhrases,
   LETTER_TOPICS,
   rolesForTopics,
@@ -136,31 +135,44 @@ function TopicIcon({ id }: { id: string }) {
 }
 
 /** One numbered step: a full width card with its own heading. */
+type StepState = "complete" | "current" | "upcoming";
+
+/** One numbered step: a full width card with its own heading. The current step is outlined. */
 function StepCard({
   n,
   id,
   title,
-  done,
+  state,
   optional,
   children,
 }: {
   n: number;
   id: string;
   title: string;
-  done?: boolean;
+  state: StepState;
   optional?: boolean;
   children: ReactNode;
 }) {
   return (
-    <section id={id} aria-labelledby={`${id}-title`} className="tile scroll-mt-28 p-5 sm:p-8">
+    <section
+      id={id}
+      aria-labelledby={`${id}-title`}
+      className={`tile scroll-mt-44 p-5 transition-[border-color,box-shadow] sm:p-8 ${
+        state === "current" ? "!border-[var(--brand)] ring-2 ring-[var(--brand)]/15" : ""
+      }`}
+    >
       <div className="mb-5 flex flex-wrap items-center gap-x-4 gap-y-2">
         <span
           className={`ui grid h-10 w-10 shrink-0 place-items-center rounded-full text-[17px] font-[700] ${
-            done ? "bg-[var(--good)] text-white" : "bg-[var(--brand)] text-white"
+            state === "complete"
+              ? "bg-[var(--good)] text-white"
+              : state === "current"
+                ? "bg-[var(--brand)] text-white"
+                : "border-2 border-[var(--rule-strong)] text-[var(--muted)]"
           }`}
           aria-hidden="true"
         >
-          {done ? <Tick size={18} /> : n}
+          {state === "complete" ? <Tick size={18} /> : n}
         </span>
         <h2 id={`${id}-title`} className="display-stat text-[clamp(22px,2.4vw,28px)] leading-[1.15]">
           <span className="sr-only">Step {n}: </span>
@@ -194,7 +206,13 @@ export default function LetterBuilder() {
   const [name, setName] = useState("");
   const [postcode, setPostcode] = useState("");
   const [personal, setPersonal] = useState("");
-  const [topicIds, setTopicIds] = useState<string[]>(DEFAULT_TOPIC_IDS);
+  // Nothing ticked to start with. A preselected subject lit step 2 before the
+  // reader had done anything, and wrote an email they had not asked for.
+  const [topicIds, setTopicIds] = useState<string[]>([]);
+  /** The reader pressed Next on the optional step 3, or skipped it. */
+  const [movedOn, setMovedOn] = useState(false);
+  /** An email was opened or copied: the journey is finished. */
+  const [finished, setFinished] = useState(false);
   const [lookup, setLookup] = useState<RepresentativeLookup | null>(null);
   const [lookupState, setLookupState] = useState<"idle" | "loading" | "error" | "success">(
     "idle"
@@ -348,6 +366,7 @@ export default function LetterBuilder() {
     try {
       await navigator.clipboard.writeText(letter);
       setCopied(`letter-${role}`);
+      setFinished(true);
       trackEvent("letter_copied", { role, topic_count: topics.length });
       setTimeout(() => setCopied(null), 3200);
     } catch {
@@ -382,6 +401,7 @@ export default function LetterBuilder() {
       role: trackingRole,
       topic_count: topics.length,
     });
+    setFinished(true);
     window.location.assign(mailtoFor(representative, letter));
   }
 
@@ -390,11 +410,29 @@ export default function LetterBuilder() {
     document.getElementById(`${ids}-postcode`)?.focus({ preventScroll: true });
   }
 
+  function goTo(id: string) {
+    document.getElementById(id)?.scrollIntoView({ block: "start", behavior: "smooth" });
+  }
+
+  /*
+   * A flow, not a checklist. Each step is complete only when the one before
+   * it is, so the bar fills from the left in order, and the current step is
+   * the first one that is not yet complete. Step 3 is optional: writing in
+   * it, pressing Next, or going on to open or copy an email all finish it.
+   */
+  const s1 = !!lookup;
+  const s2 = s1 && topics.length > 0;
+  const s4 = s2 && drafts.length > 0 && finished;
+  const s3 = s2 && (personal.trim().length > 0 || movedOn || s4);
+  const complete = [s1, s2, s3, s4];
+  const current = complete.findIndex((c) => !c); // -1 once everything is done
+  const stageOf = (i: number): StepState => (complete[i] ? "complete" : i === current ? "current" : "upcoming");
+
   const steps = [
-    { id: "lb-step-postcode", label: "Your postcode", done: !!lookup },
-    { id: "lb-step-topics", label: "What it is about", done: topics.length > 0 },
-    { id: "lb-step-words", label: "Your own words", done: personal.trim().length > 0 },
-    { id: "lb-step-send", label: "Read and send", done: drafts.length > 0 },
+    { id: "lb-step-postcode", label: "Your postcode" },
+    { id: "lb-step-topics", label: "What it is about" },
+    { id: "lb-step-words", label: "Your own words" },
+    { id: "lb-step-send", label: "Read and send" },
   ];
 
   /* Who gets what. The part almost nobody knows, so it is spelled out. */
@@ -405,40 +443,60 @@ export default function LetterBuilder() {
 
   return (
     <div id="letter-builder" className="mt-10 scroll-mt-24">
-      {/* Progress: where you are, and a way to jump back to any step */}
-      <nav aria-label="Steps">
+      {/* Progress: where you are in the flow, and a way to jump back to any step. It stays in view. */}
+      <nav
+        aria-label="Steps"
+        className="sticky top-[calc(var(--header-h)+16px)] z-20 rounded-[var(--r-m)] border border-[var(--rule)] bg-[color-mix(in_srgb,var(--surface)_94%,transparent)] px-4 py-3 shadow-[var(--shadow-1)] backdrop-blur sm:px-5"
+      >
         <ol className="grid grid-cols-4 gap-2 sm:gap-3">
-          {steps.map((step, i) => (
-            <li key={step.id}>
-              <a
-                href={`#${step.id}`}
-                className="group block no-underline"
-                aria-label={`Step ${i + 1}: ${step.label}${step.done ? ", done" : ""}`}
-              >
-                <span
-                  className={`block h-1.5 rounded-full transition-colors ${
-                    step.done ? "bg-[var(--good)]" : "bg-[var(--rule-strong)]"
-                  }`}
-                />
-                <span className="ui mt-2 flex items-center gap-1.5 text-[13.5px] font-[600] leading-[1.25] text-[var(--ink-2)] group-hover:text-[var(--action-text)]">
-                  {step.done ? (
-                    <span className="text-[var(--good-text)]">
-                      <Tick size={14} />
-                    </span>
-                  ) : (
-                    <span className="tnum text-[var(--muted)]">{i + 1}</span>
-                  )}
-                  <span className="max-sm:sr-only">{step.label}</span>
-                </span>
-              </a>
-            </li>
-          ))}
+          {steps.map((step, i) => {
+            const state = stageOf(i);
+            return (
+              <li key={step.id}>
+                <a
+                  href={`#${step.id}`}
+                  className="group block no-underline"
+                  aria-current={state === "current" ? "step" : undefined}
+                  aria-label={`Step ${i + 1}: ${step.label}${state === "complete" ? ", done" : state === "current" ? ", you are here" : ""}`}
+                >
+                  <span
+                    className={`block h-1.5 rounded-full transition-colors ${
+                      state === "complete" ? "bg-[var(--good)]" : state === "current" ? "bg-[var(--brand)]" : "bg-[var(--rule)]"
+                    }`}
+                  />
+                  <span
+                    className={`ui mt-2 flex items-center gap-1.5 text-[13.5px] leading-[1.25] ${
+                      state === "upcoming" ? "font-[500] text-[var(--muted)]" : "font-[650] text-[var(--ink)]"
+                    } group-hover:text-[var(--action-text)]`}
+                  >
+                    {state === "complete" ? (
+                      <span className="grid h-5 w-5 shrink-0 place-items-center rounded-full bg-[var(--good)] text-white">
+                        <Tick size={12} />
+                      </span>
+                    ) : (
+                      <span
+                        className={`tnum grid h-5 w-5 shrink-0 place-items-center rounded-full text-[12px] font-[700] ${
+                          state === "current" ? "bg-[var(--brand)] text-white" : "border border-[var(--rule-strong)] text-[var(--muted)]"
+                        }`}
+                      >
+                        {i + 1}
+                      </span>
+                    )}
+                    <span className="max-sm:sr-only">{step.label}</span>
+                  </span>
+                </a>
+              </li>
+            );
+          })}
         </ol>
+        <p className="ui mt-2 text-[14px] font-[600] text-[var(--ink)] sm:hidden" aria-hidden="true">
+          {current === -1 ? "All done" : `Step ${current + 1} of 4: ${steps[current].label}`}
+        </p>
       </nav>
 
       <div className="mt-6 grid gap-5">
         {/* ---------- 1. Postcode ---------- */}
-        <StepCard n={1} id="lb-step-postcode" title="Where do you live?" done={!!lookup}>
+        <StepCard n={1} id="lb-step-postcode" title="Where do you live?" state={stageOf(0)}>
           <form onSubmit={findRepresentatives} className="grid gap-3 sm:grid-cols-[minmax(0,320px)_auto] sm:items-end sm:justify-start">
             <div>
               <label htmlFor={`${ids}-postcode`} className="ui mb-1.5 block text-[15px] font-[600] text-[var(--ink)]">
@@ -546,13 +604,16 @@ export default function LetterBuilder() {
                   growing up in poverty, exactly {council.pcts[9]}% or {council.counts[9].toLocaleString("en-GB")}{" "}
                   children.
                 </p>
+                <button type="button" onClick={() => goTo("lb-step-topics")} className="btn btn-primary mt-5">
+                  Next: what it is about <span aria-hidden="true">↓</span>
+                </button>
               </div>
             )}
           </div>
         </StepCard>
 
         {/* ---------- 2. Topics ---------- */}
-        <StepCard n={2} id="lb-step-topics" title="What do you want them to act on?" done={topics.length > 0}>
+        <StepCard n={2} id="lb-step-topics" title="What do you want them to act on?" state={stageOf(1)}>
           <fieldset>
             <legend className="mb-4 max-w-[64ch] text-[16px] leading-[1.55] text-[var(--ink-2)]">
               Pick one or more. There is no wrong answer, and things that feel unrelated often are not.
@@ -626,10 +687,15 @@ export default function LetterBuilder() {
               </details>
             </div>
           )}
+          {topics.length > 0 && (
+            <button type="button" onClick={() => goTo("lb-step-words")} className="btn btn-primary mt-5">
+              Next: your own words <span aria-hidden="true">↓</span>
+            </button>
+          )}
         </StepCard>
 
         {/* ---------- 3. Your words ---------- */}
-        <StepCard n={3} id="lb-step-words" title="Add your own words" optional done={personal.trim().length > 0}>
+        <StepCard n={3} id="lb-step-words" title="Add your own words" optional state={stageOf(2)}>
           <div className="grid gap-4 md:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]">
             <div>
               <label htmlFor={`${ids}-name`} className="ui mb-1.5 block text-[15px] font-[600] text-[var(--ink)]">
@@ -665,10 +731,20 @@ export default function LetterBuilder() {
             It is the part only you can write, and it goes first, before any of the asks. A sentence or two is plenty.
             Nothing you type is sent to me or saved.
           </p>
+          <button
+            type="button"
+            onClick={() => {
+              setMovedOn(true);
+              goTo("lb-step-send");
+            }}
+            className="btn btn-primary mt-5"
+          >
+            {personal.trim() ? "Next: read and send" : "Skip this: read and send"} <span aria-hidden="true">↓</span>
+          </button>
         </StepCard>
 
         {/* ---------- 4. Read and send ---------- */}
-        <StepCard n={4} id="lb-step-send" title="Read and send" done={drafts.length > 0}>
+        <StepCard n={4} id="lb-step-send" title="Read and send" state={stageOf(3)}>
           {!lookup ? (
             <div className="flex flex-wrap items-center justify-between gap-4 rounded-[var(--r-m)] bg-[var(--surface-2)] p-5">
               <p className="max-w-[56ch] text-[16px] leading-[1.55] text-[var(--ink-2)]">
