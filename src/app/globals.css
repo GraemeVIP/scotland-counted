@@ -125,6 +125,8 @@
   --hub-area-bar: #fb923c;
   --hub-reps-bar: #c4b5fd;
   --hub-schools-bar: #4ade80;
+  /* The dropdown arrow, drawn in --ink-2 */
+  --select-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2339445c' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
 }
 
 @media (min-width: 640px) {
@@ -137,6 +139,7 @@
 
 :root[data-theme="dark"] {
   color-scheme: dark;
+  --select-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23c3cde4' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
   --paper: #050b1c;
   --paper-2: #0a1430;
   --paper-3: #0f1c3e;
@@ -1051,3 +1054,19 @@
 .logo-dark-theme { display: none !important; }
 :root[data-theme="dark"] .logo-light-theme { display: none !important; }
 :root[data-theme="dark"] .logo-dark-theme { display: block !important; }
+
+/*
+ * Every dropdown gets the same arrow, set in from the rounded corner. The
+ * browser's own arrow sat hard against the edge, which looked cramped inside
+ * the large radius. Unlayered on purpose: it has to win over the px-* padding
+ * utilities, or the label would run underneath the arrow.
+ */
+select:not([multiple]):not([size]) {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: var(--select-chevron);
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1.125rem;
+  padding-right: 2.875rem;
+}

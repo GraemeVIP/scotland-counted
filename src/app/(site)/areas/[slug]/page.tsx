@@ -6,6 +6,7 @@ import LineChart from "@/components/charts/LineChart";
 import { G } from "@/components/Glossary";
 import MinimumWageReality from "@/components/MinimumWageReality";
 import SharePage from "@/components/SharePage";
+import ComparePromo from "@/components/ComparePromo";
 import WhyBother from "@/components/WhyBother";
 import { JsonLd, articleJsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
 import {
@@ -430,6 +431,8 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
               ))}
           </div>
         </section>
+
+        <ComparePromo slug={c.slug} className="mt-16" />
 
         <WhyBother className="pt-16" />
 
