@@ -100,7 +100,7 @@ export function MspContactCard({
           href={preparedMspEmailHref({ msp, area, regional })}
           className="btn btn-primary justify-center text-center"
         >
-          Open a ready-written email
+          Open a ready written email
         </a>
         <a href={msp.profileUrl} className="btn btn-ghost justify-center text-center">
           Official Parliament profile
@@ -184,7 +184,7 @@ export function MspProfileCard({
 
       <div className="mt-8 flex flex-col gap-3 sm:flex-row">
         <a href={preparedMspEmailHref({ msp, area, regional })} className="btn btn-primary justify-center text-center">
-          Open a ready-written email
+          Open a ready written email
         </a>
         <Link href="#reviews" className="btn btn-ghost justify-center text-center">
           Read reviews

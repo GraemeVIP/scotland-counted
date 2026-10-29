@@ -23,7 +23,7 @@ export default function Organisations() {
         <section className="rounded-[var(--r-m)] border-2 border-[var(--brand)] p-6 sm:p-8">
           <p className="kicker text-[var(--brand)] mb-3">Commissioned work · by agreement</p>
           <h2 className="h2">Ask for a local evidence brief</h2>
-          <p className="mt-4 text-[17px] leading-relaxed text-[var(--ink-2)]">A clearly sourced brief for a funding application, community presentation or service-planning discussion. Tell me the place, the question and what you need to do with the answer.</p>
+          <p className="mt-4 text-[17px] leading-relaxed text-[var(--ink-2)]">A clearly sourced brief for a funding application, community presentation or service planning discussion. Tell me the place, the question and what you need to do with the answer.</p>
           <Link href="/contact?reason=commission" className="btn btn-primary mt-5">Discuss a brief →</Link>
           <p className="mt-3 text-[15px] leading-relaxed text-[var(--muted)]">Scope, price and timing are agreed before any paid work starts.</p>
         </section>
@@ -32,9 +32,9 @@ export default function Organisations() {
         <SectionHead eyebrow="A useful starting point" title="One place. One clear question." />
         <div className="mt-6 grid gap-5 md:grid-cols-3">
           {[
-            ["Community needs", "Explain local poverty and living-cost pressures, with the reporting years and comparison areas made clear."],
+            ["Community needs", "Explain local poverty and living cost pressures, with the reporting years and comparison areas made clear."],
             ["Costs and context", "Bring council tax, local figures and the relevant public sources together in a format your readers can understand."],
-            ["Evidence for a decision", "Turn an existing public dataset into a small set of charts and plain-English findings, with its limits explained."],
+            ["Evidence for a decision", "Turn an existing public dataset into a small set of charts and plain English findings, with its limits explained."],
           ].map(([title,body]) => <div key={title} className="border-t-2 border-[var(--ink)] pt-4"><h3 className="text-[20px] font-bold">{title}</h3><p className="mt-3 text-[17px] leading-relaxed text-[var(--ink-2)]">{body}</p></div>)}
         </div>
       </section>

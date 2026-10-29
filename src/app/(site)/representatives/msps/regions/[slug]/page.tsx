@@ -216,7 +216,7 @@ export default async function HolyroodRegionPage({
 
           <CTA
             title="Get the emails written as well"
-            body="Enter your postcode. I find all eight MSPs and your Westminster MP, then choose the closest local match for the ready-written email."
+            body="Enter your postcode. I find all eight MSPs and your Westminster MP, then choose the closest local match for the ready written email."
             href="/email-your-mp-and-msp"
             cta="Use my postcode"
             secondaryHref="/representatives/msps"

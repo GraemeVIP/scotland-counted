@@ -503,7 +503,7 @@ const councilTermPattern = new RegExp(
   "gi",
 );
 
-/** Adds plain-English help to the technical words used on council pages. */
+/** Adds plain English help to the technical words used on council pages. */
 export function PlainText({ text }: { text: string }) {
   if (!text) return null;
 

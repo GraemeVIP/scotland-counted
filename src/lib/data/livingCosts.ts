@@ -61,7 +61,7 @@ export const rentShareOfGross = glasgowRent.monthly / minimumWage.monthlyGross;
 /** Rent as a share of what actually reaches the bank account. */
 export const rentShareOfTakeHome = glasgowRent.monthly / minimumWageTakeHome.monthly;
 
-/** What is left each month once rent is paid, out of take-home pay. */
+/** What is left each month once rent is paid, out of take home pay. */
 export const leftAfterRentMonthly = minimumWageTakeHome.monthly - glasgowRent.monthly;
 
 /**
@@ -78,7 +78,7 @@ export const minimumIncomeStandard = [
   {
     household: "A lone parent with children aged 3 and 7",
     covers: 69,
-    note: "Nearly a third short, even in full-time work at the legal minimum.",
+    note: "Nearly a third short, even in full time work at the legal minimum.",
   },
 ];
 
@@ -120,7 +120,7 @@ export const costsThenAndNow = [
   {
     what: "Energy",
     now: "£1,862 a year",
-    detail: "Ofgem cap for a typical dual-fuel home paying by direct debit, from 1 July 2026, after a 13% rise",
+    detail: "Ofgem cap for a typical dual fuel home paying by direct debit, from 1 July 2026, after a 13% rise",
     change: "53% higher",
     against: "than winter 2021/22, before the energy crisis",
     sourceId: "ofgem-cap-2026",
@@ -128,7 +128,7 @@ export const costsThenAndNow = [
   {
     what: "Food",
     now: "38.6% dearer",
-    detail: "The price of food and non-alcoholic drinks across the UK, November 2020 to November 2025",
+    detail: "The price of food and non alcoholic drinks across the UK, November 2020 to November 2025",
     change: "31.6% in three and a half years",
     against: "against 9.5% across the whole decade before it",
     sourceId: "ons-food-prices",

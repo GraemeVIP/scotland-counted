@@ -25,7 +25,7 @@ export const metadata = meta({
   path: "/press",
 });
 
-/** Pre-written lines a journalist can lift, each carrying its source. */
+/** Prewritten lines a journalist can lift, each carrying its source. */
 const STAT_LINES = [
   "Around 940,000 people, 17% of Scotland's population, were living in relative poverty after housing costs in 2022–25 (Scottish Government).",
   "Three quarters of children in relative poverty in Scotland live in a household where at least one person is in paid work (Scottish Government, 2022–25).",
@@ -69,7 +69,7 @@ export default function Press() {
           <section className="pt-4">
           <h2 className="h2 mb-3">Lines you can lift</h2>
           <p className="text-[15.5px] text-[var(--ink-2)] mb-7 max-w-[62ch]">
-            Pre-written, each with its source attached. Copy, paste, done.
+            Prewritten, each with its source attached. Copy, paste, done.
           </p>
           <div className="grid gap-3">
             {STAT_LINES.map((t) => (
@@ -87,7 +87,7 @@ export default function Press() {
           <h2 className="h2 mb-3">Councils: worst in Scotland</h2>
           <p className="text-[15.5px] text-[var(--ink-2)] mb-7 max-w-[65ch]">
             One line for each measure every Scottish council reports the same way, naming the
-            council at the bottom of it. Like-for-like, so the comparison holds up.
+            council at the bottom of it. Like for like, so the comparison holds up.
           </p>
           <div className="grid gap-3">
             {worstInScotlandLines().map((t) => (
@@ -125,7 +125,7 @@ export default function Press() {
 
           <div className="mt-12 rounded-[var(--r-m)] border border-[var(--rule)] border-l-4 border-l-[var(--action)] bg-[var(--surface-2)] p-6 sm:p-7">
             <p className="label mb-2">New investigation · 2025/26</p>
-            <h3 className="h3">The 37-point Crisis Grant postcode gap</h3>
+            <h3 className="h3">The 37 point Crisis Grant postcode gap</h3>
             <p className="mt-3 max-w-[68ch] text-[16px] leading-[1.6] text-[var(--ink-2)]">
               The disparity involves thousands of decisions and persists across five years. The
               figures show different outcomes, not their cause, so the reporting pack includes the
@@ -240,7 +240,7 @@ export default function Press() {
 
         {/* ---------- The summary graphic ---------- */}
         <section className="pt-16">
-          <h2 className="h2 mb-3">The one-page summary</h2>
+          <h2 className="h2 mb-3">The one page summary</h2>
           <p className="text-[15.5px] text-[var(--ink-2)] mb-7 max-w-[62ch]">
             Portrait, made for a phone screen and for social posts. Free to reuse with credit.
           </p>
@@ -265,8 +265,8 @@ export default function Press() {
                 WebP · {infographic.width}×{infographic.height} · 148 KB
               </span>
               <span className="mt-3 block max-w-[52ch] text-[15.5px] leading-[1.55] text-[var(--ink-2)]">
-                Poverty rates for all people, children, working-age adults and pensioners, the
-                working-poverty figure, and Glasgow&apos;s ten-year rise.
+                Poverty rates for all people, children, working age adults and pensioners, the
+                working poverty figure, and Glasgow&apos;s ten year rise.
               </span>
               <span className="ui mt-3 block text-[15px] font-[540] text-[var(--brand)]">
                 ↓ Download
@@ -279,7 +279,7 @@ export default function Press() {
         <section className="pt-16">
           <h2 className="h2 mb-3">Charts as images</h2>
           <p className="text-[15.5px] text-[var(--ink-2)] mb-7 max-w-[62ch]">
-            1200×630 PNG cards, drawn from the same data as the live charts. Right-click and save,
+            1200×630 PNG cards, drawn from the same data as the live charts. Right click and save,
             or link directly.
           </p>
           <div className="grid gap-5 sm:grid-cols-2">
@@ -313,7 +313,7 @@ export default function Press() {
           <h2 className="h2 mb-3">Live embeds</h2>
           <Col>
             <p>
-              The four Glasgow time-series charts can be embedded with an iframe and stay current
+              The four Glasgow time series charts can be embedded with an iframe and stay current
               as the data updates. The embed button sits under each supported chart on the{" "}
               <Link href="/glasgow-poverty-statistics">indicator pages</Link>. For example, point an iframe at{" "}
               <code className="datum text-[15px] bg-[var(--paper-2)] px-1.5 py-0.5">
@@ -328,7 +328,7 @@ export default function Press() {
           <h2 className="h2 mb-3">About, in one paragraph</h2>
           <div>
             <CopyLine
-              text={`${site.name} (${site.url.replace("https://", "")}) is an independent evidence-to-action service covering poverty, work and living standards across all 32 Scottish council areas and all 57 Scottish Westminster constituencies, with Glasgow as its detailed historical case study. Built from ONS, DWP, Scottish Government and academic data, it finds a reader's MP and MSP and prepares addressed emails without storing the postcode. It is written and published by ${site.author.name} of ${site.organisation.name}, with no party affiliation or funding.`}
+              text={`${site.name} (${site.url.replace("https://", "")}) is an independent evidence to action service covering poverty, work and living standards across all 32 Scottish council areas and all 57 Scottish Westminster constituencies, with Glasgow as its detailed historical case study. Built from ONS, DWP, Scottish Government and academic data, it finds a reader's MP and MSP and prepares addressed emails without storing the postcode. It is written and published by ${site.author.name} of ${site.organisation.name}, with no party affiliation or funding.`}
             />
           </div>
         </section>

@@ -44,7 +44,7 @@ export const dwellingsByBand: Record<string, Record<string, number>> = {
   "west-lothian": { A: 16799, B: 24561, C: 10849, D: 9622, E: 10724, F: 7815, G: 3406, H: 203 },
 };
 
-/** Scotland-wide totals, for comparison. */
+/** Scotland wide totals, for comparison. */
 export const dwellingsScotland: Record<string, number> = { A: 498707, B: 583705, C: 426388, D: 369621, E: 366881, F: 221282, G: 142084, H: 14481 };
 
 export const DWELLINGS_YEAR = "September 2025";

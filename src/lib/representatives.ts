@@ -55,7 +55,7 @@ export type RepresentativeLookup = {
     region: string | null;
     source: RepresentativeSource;
   };
-  /** A plain-English reason to show the reader when msp is null. */
+  /** A plain English reason to show the reader when msp is null. */
   mspUnavailable?: string;
 };
 

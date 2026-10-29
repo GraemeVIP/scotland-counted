@@ -21,7 +21,7 @@ export default function EditorialImage({
   objectPosition = "center",
   sizes = "(min-width: 1024px) 1120px, calc(100vw - 40px)",
   loading,
-  creditLabel = "AI-generated illustration.",
+  creditLabel = "AI generated illustration.",
 }: EditorialImageProps) {
   return (
     <figure

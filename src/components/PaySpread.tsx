@@ -35,10 +35,10 @@ export default function PaySpread({ className = "" }: { className?: string }) {
       <ExplainText>
       <p className="kicker mb-3 text-[var(--brand)]">The spread, not just the middle</p>
       <h2 id="pay-spread" className="display-stat text-[clamp(26px,3.2vw,40px)] max-w-[22ch]">
-        Most full-time jobs here pay a lot less than the average
+        Most full time jobs here pay a lot less than the average
       </h2>
       <p className="mt-4 max-w-[64ch] text-[17px] leading-[1.6] text-[var(--ink-2)]">
-        A single middle figure hides the shape of it. Here is the whole range for full-time
+        A single middle figure hides the shape of it. Here is the whole range for full time
         employee jobs held by people living in Glasgow, before tax.
       </p>
 
@@ -83,7 +83,7 @@ export default function PaySpread({ className = "" }: { className?: string }) {
         The <G t="mean">mean</G> is {pounds.format(glasgowPayMean.annual)}, well above the middle, because high
         earners pull it up. When people say &ldquo;average&rdquo; they usually mean the <G t="mean">mean</G>, which
         is why it rarely matches what they see around them. None of these figures include
-        part-time work.
+        part time work.
       </p>
 
       {/* ---- Why believe a sample survey ---- */}
@@ -115,7 +115,7 @@ export default function PaySpread({ className = "" }: { className?: string }) {
         </div>
 
         <p className="mt-5 max-w-[62ch] text-[16.5px] leading-[1.6]">
-          <strong>The difference between them is part-time work.</strong> Once part-time jobs are
+          <strong>The difference between them is part time work.</strong> Once part time jobs are
           counted, the middle drops by about {pounds.format(asheFullTimeUk.annual - rtiCrossCheck.annual)} a
           year. That lower figure is much closer to what most people mean by an average wage.
         </p>

@@ -21,6 +21,15 @@ import CrisisGrantAcceptanceRatesScotlandCouncils from "./crisis-grant-acceptanc
 import GlasgowSexCrimeRiseMigrants from "./glasgow-sex-crime-rise-migrants";
 import BestPerformingCouncilsScotland from "./best-performing-councils-scotland";
 import ShopliftingScotlandRecordHigh from "./shoplifting-scotland-record-high";
+import AdultDisabilityPayment from "./adult-disability-payment";
+import AdultDisabilityPaymentPhoneNumber from "./adult-disability-payment-phone-number";
+import CarerSupportPayment from "./carer-support-payment";
+import BestStartGrant from "./best-start-grant";
+import WinterFuelPaymentScotland from "./winter-fuel-payment-scotland";
+import WinterHeatingPayment from "./winter-heating-payment";
+import SocialSecurityScotlandPaymentDates from "./social-security-scotland-payment-dates";
+import YoungCarersAllowanceScotland from "./young-carers-allowance-scotland";
+import CrisisGrantPhoneNumber from "./crisis-grant-phone-number";
 
 /**
  * Slug to post body. Statically imported so every post is prerendered and no
@@ -50,4 +59,13 @@ export const postBodies: Record<string, ComponentType> = {
   "what-does-poverty-mean": WhatDoesPovertyMean,
   "what-is-the-scottish-child-payment": WhatIsTheScottishChildPayment,
   "how-to-contact-your-mp-or-msp": HowToContactYourMpOrMsp,
+  "adult-disability-payment": AdultDisabilityPayment,
+  "adult-disability-payment-phone-number": AdultDisabilityPaymentPhoneNumber,
+  "carer-support-payment": CarerSupportPayment,
+  "best-start-grant": BestStartGrant,
+  "winter-fuel-payment-scotland": WinterFuelPaymentScotland,
+  "winter-heating-payment": WinterHeatingPayment,
+  "social-security-scotland-payment-dates": SocialSecurityScotlandPaymentDates,
+  "young-carers-allowance-scotland": YoungCarersAllowanceScotland,
+  "crisis-grant-phone-number": CrisisGrantPhoneNumber,
 };

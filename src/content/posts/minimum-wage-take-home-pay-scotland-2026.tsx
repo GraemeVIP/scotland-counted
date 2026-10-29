@@ -14,8 +14,8 @@ export default function Post() {
     <Prose>
       <Lead>
         From 1 April 2026, the legal minimum for a worker aged 21 or over is £12.71 an hour.
-        Scotland does not set a separate minimum wage, but Scottish income-tax bands change the
-        take-home calculation.
+        Scotland does not set a separate minimum wage, but Scottish income tax bands change the
+        take home calculation.
       </Lead>
 
       <H2 id="rates">The 2026 hourly rates</H2>
@@ -40,12 +40,12 @@ export default function Post() {
         <LI>Apprentices covered by the apprentice rate: £8.31 an hour.</LI>
       </UL>
       <P>
-        On the same 37.5-hour week, £13.21 an hour is £25,759.50 a year before tax, £975 more than
-        at the 2026 rate. What reaches the bank in 2027/28 also depends on the Scottish income-tax
+        On the same 37.5 hour week, £13.21 an hour is £25,759.50 a year before tax, £975 more than
+        at the 2026 rate. What reaches the bank in 2027/28 also depends on the Scottish income tax
         bands, which the Scottish Government sets in its Budget.
       </P>
 
-      <H2 id="full-time">What full-time adds up to</H2>
+      <H2 id="full-time">What full time adds up to</H2>
       <P>
         There is no official “minimum wage salary” because the law sets an hourly rate. To make it
         useful, I use 37.5 paid hours a week for all 52 weeks.
@@ -64,7 +64,7 @@ export default function Post() {
       </P>
       <BigStat
         value={money.format(minimumWageTakeHome.monthly)}
-        label="average monthly take-home pay"
+        label="average monthly take home pay"
         exact={`${money.format(minimumWageTakeHome.annual)} for the year after tax and employee National Insurance.`}
       />
       <Aside title="This is an illustration, not a payslip promise">
@@ -75,7 +75,7 @@ export default function Post() {
         </p>
         <p>
           To put your own hours, pension, student loan or tax code in, use the{" "}
-          <Link href="/take-home-pay-calculator-scotland">take-home pay calculator</Link>. It runs
+          <Link href="/take-home-pay-calculator-scotland">take home pay calculator</Link>. It runs
           the same sum as this page, from the same tested code.
         </p>
       </Aside>
@@ -109,7 +109,7 @@ export default function Post() {
 
       <PostCTA
         title="Put the pay beside real Glasgow bills"
-        body="The site works the same wage against rent, council tax, water and energy so the argument is based on the whole household budget, not one impressive-looking salary figure."
+        body="The site works the same wage against rent, council tax, water and energy so the argument is based on the whole household budget, not one impressive looking salary figure."
         href="/why-poverty-is-worse-in-glasgow"
         cta="See the Glasgow evidence"
       />

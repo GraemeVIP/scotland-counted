@@ -102,10 +102,10 @@ export const BRIDGING_ACTIONS = [
   { action: "Council tax went up", share: 35.2, amount: "£221m" },
   { action: "Savings that repeat every year", share: 26.8, amount: "£168m" },
   { action: "Money taken out of the savings pot", share: 19.4, amount: "£122m" },
-  { action: "Other one-off actions", share: 8.5, amount: null },
+  { action: "Other one off actions", share: 8.5, amount: null },
   { action: "Other repeating actions", share: 5.4, amount: null },
   { action: "Higher fees and charges", share: 2.7, amount: "£17m" },
-  { action: "One-off savings", share: 1.8, amount: "£12m" },
+  { action: "One off savings", share: 1.8, amount: "£12m" },
 ] as const;
 
 /** Council tax decisions for 2026/27. Paragraphs 40 to 44. */
@@ -117,7 +117,7 @@ export const COUNCIL_TAX = {
   highestIncrease: { council: "Aberdeenshire and Moray", value: "10%" },
   /** Key message 3: a second consecutive year of increases. */
   consecutiveYears: 2,
-  /** Paragraph 44: cumulative two-year increases. */
+  /** Paragraph 44: cumulative two year increases. */
   twoYearAverage: "18%",
   twoYearLowest: { council: "City of Edinburgh", value: "12.3%" },
   twoYearHighest: { council: "Falkirk", value: "25.8%" },
@@ -132,7 +132,7 @@ export const COUNCIL_TAX = {
  * this, or it is overclaiming.
  */
 export const COMPARISON_CAVEAT =
-  "Councils work out and describe their budget gap in different ways, so these figures are not a perfect like-for-like comparison. Audit Scotland says comparisons should be made with caution.";
+  "Councils work out and describe their budget gap in different ways, so these figures are not a perfect like for like comparison. Audit Scotland says comparisons should be made with caution.";
 
 /**
  * Shetland and Orkney are left out of Audit Scotland's own gap chart because

@@ -100,7 +100,7 @@ export default async function MspReviewsPage() {
               <div>
                 <p className="kicker mb-3 text-[var(--action-text)]">Submit an experience</p>
                 <h2 className="h2 mb-4">Leave an MSP review</h2>
-                <p className="mb-3 max-w-[62ch] text-[17px] leading-[1.65] text-[var(--ink-2)]">Specific accounts are useful: what you asked, how long replies took, what action the office took and what happened next. A one-line insult or a rating with no story will not be published.</p>
+                <p className="mb-3 max-w-[62ch] text-[17px] leading-[1.65] text-[var(--ink-2)]">Specific accounts are useful: what you asked, how long replies took, what action the office took and what happened next. A one line insult or a rating with no story will not be published.</p>
                 <p className="ui mb-7 text-[15px] font-[580] text-[var(--ink)]">No account needed. Email is optional. Nothing goes live without review.</p>
                 <MspReviewForm msps={options} latestInteractionMonth={latestInteractionMonth} />
               </div>
@@ -119,7 +119,7 @@ export default async function MspReviewsPage() {
           <section id="find-an-msp" className="scroll-mt-28 pt-16 sm:pt-20">
             <p className="kicker mb-3 text-[var(--brand)]">Browse the directory</p>
             <h2 className="h2">Scottish MSP reviews and ratings</h2>
-            <p className="mb-7 mt-4 max-w-[72ch] text-[17px] leading-[1.65] text-[var(--ink-2)]">Find any current constituency or regional MSP. A blank record means no review has passed moderation; it is never turned into a made-up zero rating.</p>
+            <p className="mb-7 mt-4 max-w-[72ch] text-[17px] leading-[1.65] text-[var(--ink-2)]">Find any current constituency or regional MSP. A blank record means no review has passed moderation; it is never turned into a made up zero rating.</p>
             <MspReviewDirectory entries={directoryEntries} />
           </section>
 

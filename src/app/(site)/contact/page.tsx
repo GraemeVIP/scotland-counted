@@ -77,7 +77,7 @@ export default function Contact() {
         <PageHeader
           eyebrow="A real person reads these"
           title="Send Graeme a message"
-          lede="I’m Graeme, the person behind Scotland Counted. I build this as a free, independent resource. Tell me what you liked, what you didn’t, or what would make it more useful. Questions and a quick thank-you are welcome too."
+          lede="I’m Graeme, the person behind Scotland Counted. I build this as a free, independent resource. Tell me what you liked, what you didn’t, or what would make it more useful. Questions and a quick thank you are welcome too."
         />
 
         <ContentFrame className="grid gap-x-14 gap-y-10 lg:grid-cols-2 items-start pt-2">
@@ -187,7 +187,7 @@ export default function Contact() {
                 <p className="text-[16px] leading-[1.6] text-[var(--ink-2)] max-w-[58ch]">
                   Every number here is taken from the body that published it, the Scottish
                   Government, the ONS, DWP records, or named academic work, and is never adjusted,
-                  reframed or cherry-picked to make a point land harder. Where the site sets out
+                  reframed or cherry picked to make a point land harder. Where the site sets out
                   what would change things, the options are costed, attributed to whoever proposed
                   them, and marked with who actually has the power to do them.
                 </p>

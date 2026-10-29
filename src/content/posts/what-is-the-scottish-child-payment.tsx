@@ -6,7 +6,7 @@ export default function Post() {
   return (
     <Prose>
       <Lead>
-        The Scottish Child Payment is money paid every week for every child in a low-income family.
+        The Scottish Child Payment is money paid every week for every child in a low income family.
         It does not exist anywhere else in the UK. Some families who are entitled to it have never
         claimed a penny.
       </Lead>
@@ -75,7 +75,7 @@ export default function Post() {
         <Link href="/email-your-mp-and-msp">you have both of them</Link>.
       </P>
 
-      <H2 id="take-up">The bit that gets missed: take-up</H2>
+      <H2 id="take-up">The bit that gets missed: take up</H2>
 
       <P>
         A payment only lifts a family out of poverty if the family receives it. Money that goes
@@ -91,7 +91,7 @@ export default function Post() {
 
       <PostCTA
         title="Ask your MSP what they are doing about it"
-        body="I will find your MSP, put your area's own child-poverty figure into the email and write it for you. You just read it and press send."
+        body="I will find your MSP, put your area's own child poverty figure into the email and write it for you. You just read it and press send."
         href="/email-your-mp-and-msp"
         cta="Email my MSP"
       />
@@ -99,7 +99,7 @@ export default function Post() {
       <P>
         Every figure I publish is sourced. See the{" "}
         <Link href="/solutions-to-poverty-in-scotland">costed list of what would actually help</Link>, or{" "}
-        <Link href="/glossary">the plain-English glossary</Link>.
+        <Link href="/glossary">the plain English glossary</Link>.
       </P>
     </Prose>
   );

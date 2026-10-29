@@ -19,7 +19,7 @@ export const infographic = {
   license: "/press#reuse-terms",
   copyrightNotice: "© 2026 Scotland Counted",
   alt:
-    "Infographic. About 17% of people in Scotland, one in six, live in relative poverty after housing costs. One in five children, one in six working-age adults and one in eight pensioners. Three in four children in poverty have a working parent. Glasgow's child poverty rose nine points to 36.1%, the highest in Scotland.",
+    "Infographic. About 17% of people in Scotland, one in six, live in relative poverty after housing costs. One in five children, one in six working age adults and one in eight pensioners. Three in four children in poverty have a working parent. Glasgow's child poverty rose nine points to 36.1%, the highest in Scotland.",
   shareText:
     "Three in four children in poverty in Scotland live with someone who works. The figures, and who decides them:",
 };

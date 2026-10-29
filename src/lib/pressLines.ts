@@ -30,7 +30,7 @@ const AUDIT = "Audit Scotland, Local government budgets 2026/27";
  */
 const WORST_SENTENCE: Record<string, (name: string, here: string, scotland: string) => string> = {
   ENV04b: (n, h, s) =>
-    `${n} has the worst-maintained main roads of Scotland's 32 councils: ${h} are flagged as needing repair, against ${s} nationally`,
+    `${n} has the worst maintained main roads of Scotland's 32 councils: ${h} are flagged as needing repair, against ${s} nationally`,
   ENV01a: (n, h, s) =>
     `${n} has the most expensive bin collection in Scotland at ${h} per property, against a national figure of ${s}`,
   CORP07: (n, h, s) =>

@@ -167,7 +167,7 @@ export default function MspsDirectoryPage() {
 
           <CTA
             title="Let the site find the right people"
-            body="Enter your postcode. I find your MP, constituency MSP and seven regional MSPs. The ready-written emails go to the closest match automatically."
+            body="Enter your postcode. I find your MP, constituency MSP and seven regional MSPs. The ready written emails go to the closest match automatically."
             href="/email-your-mp-and-msp"
             cta="Find everyone who represents me"
             secondaryHref="/representatives"

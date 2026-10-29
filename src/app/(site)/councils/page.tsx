@@ -64,7 +64,7 @@ export default function CouncilsPage() {
               paper. Each one is linked, so you can check it yourself.
             </p>
             <p>
-              Where something cannot be checked, the page says so. A gap is better than a made-up
+              Where something cannot be checked, the page says so. A gap is better than a made up
               number.
             </p>
           </InShort>
@@ -80,7 +80,7 @@ export default function CouncilsPage() {
                     Which Scottish council performs best?
                   </h2>
                   <p className="mt-4 text-[16.5px] leading-[1.6] text-[#d7deed]">
-                    East Renfrewshire comes first after we checked 53 official figures. See all 32 councils, a like-for-like list, what residents said and how much each rank can move.
+                    East Renfrewshire comes first after we checked 53 official figures. See all 32 councils, a like for like list, what residents said and how much each rank can move.
                   </p>
                 </div>
                 <Link href="/best-council-in-scotland" className="btn btn-on-deep shrink-0">

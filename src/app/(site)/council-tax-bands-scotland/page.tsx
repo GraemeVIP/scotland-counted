@@ -19,7 +19,7 @@ import { councilTaxPath } from "@/lib/routeMap";
 export const metadata = meta({
   title: "Council Tax Bands Scotland 2026/27: Prices A to H for Every Council",
   description:
-    "Check 2026/27 council tax bands in every Scottish council. Compare Band A to H yearly and monthly prices with water and waste-water charges included.",
+    "Check 2026/27 council tax bands in every Scottish council. Compare Band A to H yearly and monthly prices with water and waste water charges included.",
   path: "/council-tax-bands-scotland",
   type: "website",
 });
@@ -116,7 +116,7 @@ export default function CouncilTaxPage() {
           <p className="mt-4 text-[16px] leading-[1.6] text-[var(--ink-2)]">
             Need the rules as well as the price? Read the{" "}
             <Link href="/blog/how-council-tax-works-scotland">
-              plain-English guide to bands, discounts, reductions, appeals and arrears
+              plain English guide to bands, discounts, reductions, appeals and arrears
             </Link>.
           </p>
         </div>
@@ -166,7 +166,7 @@ export default function CouncilTaxPage() {
           </div>
           <p className="mt-5 text-[16px] leading-[1.6] text-[var(--ink-2)]">
             <Link href="/council-tax-increase-scotland">
-              Read the plain-English breakdown of Scotland&apos;s 2026/27 council tax rises
+              Read the plain English breakdown of Scotland&apos;s 2026/27 council tax rises
             </Link>.
           </p>
         </section>

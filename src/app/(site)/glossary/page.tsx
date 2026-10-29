@@ -4,7 +4,7 @@ import { terms } from "@/lib/data/glossary";
 import { site } from "@/lib/site";
 
 export const metadata = meta({
-  title: "Poverty Terms in Scotland: Plain-English Glossary",
+  title: "Poverty Terms in Scotland: Plain English Glossary",
   description:
     "Poverty terms used in Scotland explained in plain English, including after housing costs, relative poverty, SIMD and percentage points.",
   path: "/glossary",

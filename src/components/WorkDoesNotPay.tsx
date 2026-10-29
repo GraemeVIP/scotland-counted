@@ -43,7 +43,7 @@ export default function WorkDoesNotPay({ className = "" }: { className?: string 
       <ExplainText>
       <p className="kicker mb-3 text-[var(--action-text)]">The maths people actually live</p>
       <h2 id="work-does-not-pay" className="display-stat text-[clamp(30px,3.6vw,46px)] max-w-[18ch]">
-        Full-time work at the minimum does not cover Glasgow
+        Full time work at the minimum does not cover Glasgow
       </h2>
       <p className="mt-5 max-w-[62ch] text-[18px] leading-[1.6] text-[var(--ink-2)]">
         Waiting tables, cleaning, bar work, care work, shop work. This is what the legal minimum
@@ -54,13 +54,13 @@ export default function WorkDoesNotPay({ className = "" }: { className?: string 
       <div className="mt-8 overflow-hidden rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)]" style={{ boxShadow: "var(--shadow-2)" }}>
         <div className="border-b border-[var(--rule)] bg-[var(--surface-2)] px-6 py-4">
           <p className="ui text-[15px] font-[600]">
-            One adult, working 37.5 hours a week on the legal minimum, renting a one-bedroom flat
+            One adult, working 37.5 hours a week on the legal minimum, renting a one bedroom flat
             in Glasgow
           </p>
         </div>
         <dl className="divide-y divide-[var(--rule)]">
           {[
-            { label: "Take-home pay", sub: `${pounds.format(minimumWage.annualGross)} gross, less ${pounds.format(minimumWageTakeHome.tax)} tax and ${pounds.format(minimumWageTakeHome.ni)} National Insurance`, value: minimumWageTakeHome.monthly, kind: "in" },
+            { label: "Take home pay", sub: `${pounds.format(minimumWage.annualGross)} gross, less ${pounds.format(minimumWageTakeHome.tax)} tax and ${pounds.format(minimumWageTakeHome.ni)} National Insurance`, value: minimumWageTakeHome.monthly, kind: "in" },
             { label: "Universal Credit", sub: "Nothing is payable. With no children and no health condition there is no work allowance, so the 55p taper wipes out the £425 allowance", value: 0, kind: "in" },
             { label: "Rent", sub: `${glasgowRent.area} average, ${glasgowRent.size}`, value: -glasgowRent.monthly, kind: "out" },
             { label: "Council tax and water", sub: `Band A · ${pounds.format(councilTax.councilTax2026)} council tax and ${pounds.format(councilTax.waterCombined)} water a year`, value: -councilTax.monthly, kind: "out" },
@@ -89,7 +89,7 @@ export default function WorkDoesNotPay({ className = "" }: { className?: string 
         <p className="border-t border-[var(--rule)] px-6 py-4 text-[15px] leading-[1.55] text-[var(--ink-2)]">
           That {pounds.format(leftOver)} covers food, travel, phone, clothes, toiletries, haircuts,
           school things, a birthday, and anything that breaks. Rent alone is {rentPct}% of
-          take-home, against the 30% usually called affordable.
+          take home, against the 30% usually called affordable.
         </p>
       </div>
 
@@ -123,7 +123,7 @@ export default function WorkDoesNotPay({ className = "" }: { className?: string 
         <h3 className="h3 mb-3">Someone has already done this properly</h3>
         <p className="max-w-[62ch] text-[17px] leading-[1.6] text-[var(--ink-2)]">
           Loughborough University prices up what the public agrees a household needs for a decent
-          life: rent, food, energy, travel, a birthday present. Against that benchmark, full-time
+          life: rent, food, energy, travel, a birthday present. Against that benchmark, full time
           work at the legal minimum falls short:
         </p>
         <div className="mt-6 space-y-3">

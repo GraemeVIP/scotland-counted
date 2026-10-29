@@ -126,9 +126,9 @@ export default function Calculator() {
   const codeInvalid = taxCode.trim() !== "" && (codeInfo === null || regionMismatch);
   const unsupportedPension = pensionType === "ras";
   const inputProblem = unsupportedPension
-    ? "Relief-at-source pensions are not supported by this estimator: extra relief and the Personal Allowance taper need a different calculation. Check your scheme type; only select net pay or salary sacrifice if that is how your scheme actually works."
+    ? "Relief at source pensions are not supported by this estimator: extra relief and the Personal Allowance taper need a different calculation. Check your scheme type; only select net pay or salary sacrifice if that is how your scheme actually works."
     : regionMismatch ? "Your tax-code prefix and taxpayer region disagree. S means Scottish rates; C means Welsh rates. Check the region above."
-    : codeInvalid ? "This annual estimator cannot use that code. Emergency W1, M1 and X codes need your pay-period details. Check the code or leave it blank only if the standard allowance applies."
+    : codeInvalid ? "This annual estimator cannot use that code. Emergency W1, M1 and X codes need your pay period details. Check the code or leave it blank only if the standard allowance applies."
     : "";
 
   const optsFor = useMemo(() => {
@@ -259,7 +259,7 @@ export default function Calculator() {
         aria-label="Your pay"
       >
         <label htmlFor="salary" className="ui block text-[15px] font-[600] mb-2.5">
-          {reverse ? "Your take-home pay" : "Your pay before tax"}
+          {reverse ? "Your take home pay" : "Your pay before tax"}
         </label>
         <div className="relative">
           <span
@@ -308,7 +308,7 @@ export default function Calculator() {
           onClick={() => setReverse((v) => !v)}
           className="ui mt-3.5 text-[15px] font-[540] text-[var(--brand)] hover:underline"
         >
-          {reverse ? "← Enter pay before tax instead" : "Know your take-home? Work backwards →"}
+          {reverse ? "← Enter pay before tax instead" : "Know your take home? Work backwards →"}
         </button>
 
         {/* Scotland */}
@@ -524,7 +524,7 @@ export default function Calculator() {
             </p>
           ) : unreachable ? (
             <p className="mt-4 text-[19px] leading-[1.5] opacity-90 max-w-[42ch]">
-              That take-home is not reachable with these pension settings. The pension swallows the
+              That take home is not reachable with these pension settings. The pension swallows the
               extra pay.
             </p>
           ) : (
@@ -681,7 +681,7 @@ export default function Calculator() {
                 <p className="ui mt-6 text-[15px] font-[580] mb-2">National Insurance</p>
                 <p className="text-[15px] leading-[1.55] text-[var(--ink-2)]">
                   8% on pay between {gbp(TAX_DATA.ni.primaryThreshold)} and{" "}
-                  {gbp(TAX_DATA.ni.upperLimit)}, then 2% above that. NI is set UK-wide, so it is the
+                  {gbp(TAX_DATA.ni.upperLimit)}, then 2% above that. NI is set UK wide, so it is the
                   same in Scotland.
                 </p>
                 <p className="ui mt-3 flex justify-between border-t-2 border-[var(--ink)] pt-3 text-[15.5px] font-[600]">
@@ -724,7 +724,7 @@ export default function Calculator() {
 
         <p className="text-[15px] leading-[1.6] text-[var(--ink-2)]">
           Figures are {TAX_DATA.taxYear}. Income tax in Scotland is set by the Scottish Parliament;
-          National Insurance is UK-wide. Based on 52 weeks and a five-day week, and Class 1 employee
+          National Insurance is UK wide. Based on 52 weeks and a five day week, and Class 1 employee
           NI on annual earnings. This is a guide, not financial advice. If a number here looks wrong,{" "}
           <Link href="/corrections">tell me</Link>.
         </p>

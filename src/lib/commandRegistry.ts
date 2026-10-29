@@ -78,7 +78,7 @@ const CORE: Item[] = [
     keywords: "all pages site map browse contents",
   },
   {
-    label: "Take-home pay calculator",
+    label: "Take home pay calculator",
     href: "/take-home-pay-calculator-scotland",
     group: "Free tools",
     keywords: "salary wage tax national insurance pension student loan net pay after tax scottish rates",

@@ -5,8 +5,8 @@ export default function Post() {
   return (
     <Prose>
       <Lead>
-        From 1 July to 30 September 2026, Ofgem, the energy regulator, puts the headline price-cap figure at £1,862 a year for a
-        typical dual-fuel household paying by Direct Debit. A home can still pay much more or much
+        From 1 July to 30 September 2026, Ofgem, the energy regulator, puts the headline price cap figure at £1,862 a year for a
+        typical dual fuel household paying by Direct Debit. A home can still pay much more or much
         less.
       </Lead>
 
@@ -25,7 +25,7 @@ export default function Post() {
       <H2 id="rates">The current rates</H2>
       <BigStat
         value="13% higher"
-        label="the typical-use cap illustration from July 2026 compared with the previous quarter"
+        label="the typical use cap illustration from July 2026 compared with the previous quarter"
         exact="Ofgem's typical annual figure is £1,862 for July to September 2026."
       />
       <P>
@@ -43,7 +43,7 @@ export default function Post() {
       <Aside title="Why turning everything off cannot make the bill zero">
         <p>
           Cutting use reduces the unit part. It does not remove the standing charge. That matters
-          most to a low-use household because the fixed daily amount takes a larger share of the
+          most to a low use household because the fixed daily amount takes a larger share of the
           bill.
         </p>
       </Aside>

@@ -38,7 +38,7 @@ export default function PovertyHub() {
   const HEADLINES = [
     { value: `${p.all.pct}%`, label: `of people in Scotland, ${p.all.count.toLocaleString("en-GB")} in total` },
     { value: `${p.children.pct}%`, label: "of children" },
-    { value: `${p.workingAge.pct}%`, label: "of working-age adults" },
+    { value: `${p.workingAge.pct}%`, label: "of working age adults" },
     { value: `${p.pensioners.pct}%`, label: "of pensioners" },
   ];
 
@@ -129,7 +129,7 @@ export default function PovertyHub() {
                 href="/areas"
                 eyebrow="Local"
                 title="Poverty where you live"
-                body="Child poverty, out-of-work benefits and pay for all 32 council areas, each with its own permanent page."
+                body="Child poverty, out of work benefits and pay for all 32 council areas, each with its own permanent page."
                 meta="32 areas"
               />
             </div>

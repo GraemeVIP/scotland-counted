@@ -31,18 +31,18 @@ export default function Post() {
       </P>
       <P>
         Apply to the council that deals with your housing costs. The application is free. You can
-        ask a welfare-rights adviser, housing officer or Citizens Advice to help with the form.
+        ask a welfare rights adviser, housing officer or Citizens Advice to help with the form.
       </P>
 
       <H2 id="covers">What it may cover</H2>
       <UL>
         <LI>A shortfall caused by the bedroom tax in social housing.</LI>
         <LI>A shortfall caused by the benefit cap.</LI>
-        <LI>Some private-rent gaps where Local Housing Allowance is lower than the rent.</LI>
+        <LI>Some private rent gaps where Local Housing Allowance is lower than the rent.</LI>
         <LI>In some cases, a deposit, rent in advance or reasonable moving costs.</LI>
       </UL>
       <P>
-        A council may award a one-off payment or help for a limited period. It may expect a longer
+        A council may award a one off payment or help for a limited period. It may expect a longer
         term plan, such as a benefit check, a move to affordable housing or action on an incorrect
         rent decision.
       </P>
@@ -76,7 +76,7 @@ export default function Post() {
 
       <PostCTA
         title="Apply to the council that handles your rent help"
-        body="Every Scottish council has its own DHP form. Start from your area page, then follow the council's official housing-support route."
+        body="Every Scottish council has its own DHP form. Start from your area page, then follow the council's official housing support route."
         href="/areas"
         cta="Find my council"
       />

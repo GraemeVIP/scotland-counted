@@ -123,7 +123,7 @@ export default function Post() {
       </Lead>
 
       <P>
-        That 37-point gap is real and it is large. It also appeared across thousands of decisions and
+        That 37 point gap is real and it is large. It also appeared across thousands of decisions and
         has persisted for five years. The official statistics do not tell us that applicants in every
         area had identical circumstances. They do tell us that &quot;it is only a few unusual cases&quot; is
         not an adequate explanation.
@@ -135,7 +135,7 @@ export default function Post() {
         {[
           { value: "89%", label: "Inverclyde award rate", note: "1,765 awards · about 1,980 decisions" },
           { value: "52%", label: "Midlothian award rate", note: "3,815 awards · about 7,320 decisions" },
-          { value: "37", label: "percentage-point gap", note: `Scotland overall: ${crisisGrantScotland.acceptanceRate}%` },
+          { value: "37", label: "percentage point gap", note: `Scotland overall: ${crisisGrantScotland.acceptanceRate}%` },
         ].map((stat) => (
           <div key={stat.label} className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5">
             <p className="display-stat text-[38px] leading-none text-[var(--action-text)]">{stat.value}</p>
@@ -168,7 +168,7 @@ export default function Post() {
         The range is not simply one high council and one low council. Angus and Dundee City were also
         well above Scotland, at 79% and 78%. Highland was next to the bottom at 53%. Fifteen councils
         were above Scotland&apos;s 65%, one matched it and sixteen were below it when using the published
-        whole-percentage rates.
+        whole percentage rates.
       </P>
 
       <H2 id="persistent">Why one year is not enough</H2>
@@ -202,7 +202,7 @@ export default function Post() {
       </UL>
 
       <P>
-        That is precisely why the disparity is a story rather than a verdict. A 37-point gap should
+        That is precisely why the disparity is a story rather than a verdict. A 37 point gap should
         trigger disclosure and comparison. It should not be filled with a motive that has not been
         evidenced.
       </P>
@@ -234,7 +234,7 @@ export default function Post() {
       <H3>Questions for the council</H3>
       <UL>
         <LI>Why is your award rate above or below the Scotland rate, and what analysis supports that explanation?</LI>
-        <LI>What local guidance, priority rules and evidence requirements do decision-makers use?</LI>
+        <LI>What local guidance, priority rules and evidence requirements do decision makers use?</LI>
         <LI>How many potential applicants are advised or redirected before a formal application is recorded?</LI>
         <LI>How do budget pressure and remaining funds affect decisions during the year?</LI>
         <LI>How many refusals are reviewed, how many are changed and is the review data complete?</LI>
@@ -251,7 +251,7 @@ export default function Post() {
 
       <H2 id="refused">If your Crisis Grant application was refused</H2>
       <P>
-        Ask for the written reason and request a first-tier review from the council. The statutory
+        Ask for the written reason and request a first tier review from the council. The statutory
         guidance says this should normally be requested within 20 working days of the decision. A
         Crisis Grant review should be decided within two working days, and a review cannot reduce or
         take away an award already made.
@@ -259,8 +259,8 @@ export default function Post() {
       <P>
         Explain what was misunderstood, supply missing evidence and describe the immediate harm in
         concrete terms. The <Link href="/crisis-grant-scotland">Crisis Grant application guide</Link> has
-        a plain-English checklist, and each <Link href="/councils">council accountability page</Link> now shows the local
-        rate beside Scotland and the five-year history.
+        a plain English checklist, and each <Link href="/councils">council accountability page</Link> now shows the local
+        rate beside Scotland and the five year history.
       </P>
 
       <H2 id="data">Download the data and check the method</H2>
@@ -273,15 +273,15 @@ export default function Post() {
       <P>
         Council counts are rounded independently to the nearest five, so awards plus rejections can
         differ slightly from decisions and the 32 councils do not always add exactly to the separately
-        published Scotland total. The latest-quarter processing figures may also be revised as pending
-        cases and delayed records are resolved. Nothing here substitutes a local rate for case-level
+        published Scotland total. The latest quarter processing figures may also be revised as pending
+        cases and delayed records are resolved. Nothing here substitutes a local rate for case level
         evidence.
       </P>
 
       <div className="not-prose my-8 grid gap-4 sm:grid-cols-2">
         <a href={CRISIS_GRANT_CSV_URL} download className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5 no-underline hover:border-[var(--brand)]">
           <span className="label">Prepared CSV · 32 councils</span>
-          <strong className="mt-2 block text-[19px] leading-[1.3]">Download the journalist-ready table</strong>
+          <strong className="mt-2 block text-[19px] leading-[1.3]">Download the journalist ready table</strong>
           <span className="mt-2 block text-[15px] leading-[1.5] text-[var(--ink-2)]">Five years of rates, decisions, awards, spending, average awards and latest processing performance.</span>
           <span className="ui mt-4 block text-[15px] font-[560] text-[var(--brand)]">Download CSV ↓</span>
         </a>
@@ -301,7 +301,7 @@ export default function Post() {
 
       <PostCTA
         title="Ask your council to explain its rate"
-        body="Open the local accountability page, compare the five-year outcome with Scotland and use the questions above. The purpose of the ranking is to secure an evidenced explanation, not to guess one."
+        body="Open the local accountability page, compare the five year outcome with Scotland and use the questions above. The purpose of the ranking is to secure an evidenced explanation, not to guess one."
         href="/councils"
         cta="Choose a council"
       />

@@ -102,7 +102,7 @@ export default function LetterBuilder() {
       scotlandPct: SCOTLAND_PCTS[9],
       evidenceLine:
         typeof claimant === "number"
-          ? `The wider local figures show ${claimant.toFixed(1)}% of working-age people needed out-of-work benefits in January ${CC_YEARS[CC_YEARS.length - 1]}.`
+          ? `The wider local figures show ${claimant.toFixed(1)}% of working age people needed out of work benefits in January ${CC_YEARS[CC_YEARS.length - 1]}.`
           : undefined,
     };
   }, [council, first]);
@@ -325,7 +325,7 @@ export default function LetterBuilder() {
                       <p className="text-[15px] leading-[1.55] text-[var(--ink-2)]">
                         They also represent you across the wider{" "}
                         {lookup.holyrood.region ?? "Scottish Parliament"} region. You can contact
-                        any of them. I use your constituency MSP for the ready-written email
+                        any of them. I use your constituency MSP for the ready written email
                         automatically, so you do not have to choose or email all seven.
                       </p>
                       <ul className="mt-3 divide-y divide-[var(--rule)] border-y border-[var(--rule)]">
@@ -344,7 +344,7 @@ export default function LetterBuilder() {
                                   onClick={() => openDraft(representative, letter, "regional_msp")}
                                   className="text-[15px] font-[540] text-[var(--action-text)] underline underline-offset-[3px]"
                                 >
-                                  Open ready-written email
+                                  Open ready written email
                                 </button>
                               )}
                               <a
@@ -555,7 +555,7 @@ export default function LetterBuilder() {
                       type="button"
                       onClick={() => openDraft(representative, letter)}
                       className="btn btn-primary w-full justify-center text-center"
-                      aria-label={`Open ready-to-send email to ${representative.name}, your ${representativeLabel(representative)}`}
+                      aria-label={`Open ready to send email to ${representative.name}, your ${representativeLabel(representative)}`}
                     >
                       Open email to {representative.name}
                     </button>

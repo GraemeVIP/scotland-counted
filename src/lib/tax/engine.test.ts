@@ -147,7 +147,7 @@ test("salary sacrifice: reduces tax AND NI (and student loan)", () => {
 
 test("unsupported RAS pensions cannot produce a misleading estimate", () => {
   for (const region of REGIONS) {
-    for (const gross of [35000, 60000, 110000]) assert.throws(() => calculate(gross, region, {pension:10000,pensionType:"ras"}), /Relief-at-source/);
+    for (const gross of [35000, 60000, 110000]) assert.throws(() => calculate(gross, region, {pension:10000,pensionType:"ras"}), /Relief at source/);
   }
 });
 

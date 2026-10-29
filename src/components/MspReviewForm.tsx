@@ -84,7 +84,7 @@ export default function MspReviewForm({
       <div role="status" className="rounded-[var(--r-m)] border border-[var(--rule)] border-t-[4px] border-t-[var(--good)] bg-[var(--surface)] p-7 sm:p-9">
         <h2 className="h3 mb-3">Your review is in the moderation queue.</h2>
         <p className="max-w-[58ch] text-[16px] leading-[1.65] text-[var(--ink-2)]">
-          It is not public yet. Reviews are published only after the moderation checks are complete.{followUpOptIn ? " You may be contacted if the account could support a fuller public-interest story." : " No contact details were collected."}
+          It is not public yet. Reviews are published only after the moderation checks are complete.{followUpOptIn ? " You may be contacted if the account could support a fuller public interest story." : " No contact details were collected."}
         </p>
       </div>
     );
@@ -170,7 +170,7 @@ export default function MspReviewForm({
           <label id="msp-review-follow-up-email" className="rounded-[var(--r-s)] border border-[var(--brand)] bg-[var(--brand-wash)] p-5">
             <span className="ui mb-2 block text-[15px] font-[580]">Where may Scotland Counted contact you?</span>
             <input name="email" required type="email" value={email} onChange={(event) => setEmail(event.target.value)} className={field} autoComplete="email" />
-            <span className="mt-1.5 block text-[15px] leading-[1.5] text-[var(--muted)]">Used only for this possible follow-up and never shown publicly.</span>
+            <span className="mt-1.5 block text-[15px] leading-[1.5] text-[var(--muted)]">Used only for this possible follow up and never shown publicly.</span>
           </label>
         )}
 
@@ -189,7 +189,7 @@ export default function MspReviewForm({
           {state === "sending" ? "Sending for review…" : "Submit review for moderation"}
         </button>
         <p aria-live="polite" role={state === "error" ? "alert" : undefined} className={`text-[15px] leading-[1.55] ${state === "error" ? "font-[580] text-[var(--bad-text)]" : "text-[var(--muted)]"}`}>
-          {state === "error" ? `${errorMessage} Your answers are still on this page, so you can correct anything and try again.` : "Nothing is published automatically. Submissions that are party-political attacks, hearsay, discriminatory, threatening or unrelated to a real interaction are rejected."}
+          {state === "error" ? `${errorMessage} Your answers are still on this page, so you can correct anything and try again.` : "Nothing is published automatically. Submissions that are party political attacks, hearsay, discriminatory, threatening or unrelated to a real interaction are rejected."}
         </p>
       </div>
     </form>

@@ -39,7 +39,7 @@ function areaSeoCopy(slug: string, placeName: string) {
       title: "Glasgow City Council Poverty Profile: Local Figures",
       h1: "Glasgow City Council poverty profile",
       description:
-        "See the latest Glasgow City Council area figures for child poverty, out-of-work benefits and pay, with ten-year comparisons and every source linked.",
+        "See the latest Glasgow City Council area figures for child poverty, out of work benefits and pay, with ten year comparisons and every source linked.",
     };
   }
 
@@ -65,7 +65,7 @@ export async function generateMetadata(props: PageProps<"/areas/[slug]">) {
     title: seo.title,
     description:
       seo.description ||
-      `${asOneIn(c.pcts[9])} children in ${placeName} are living in poverty. See the exact local figures for poverty, out-of-work benefits and pay.`,
+      `${asOneIn(c.pcts[9])} children in ${placeName} are living in poverty. See the exact local figures for poverty, out of work benefits and pay.`,
     path: `/areas/${slug}`,
     ownImage: true,
   });
@@ -121,7 +121,7 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
       <JsonLd
         data={articleJsonLd({
           headline: seo.h1,
-          description: `${c.pcts[9]}% of children in ${c.name} live in poverty after housing costs, alongside local claimant-count and resident-pay evidence.`,
+          description: `${c.pcts[9]}% of children in ${c.name} live in poverty after housing costs, alongside local claimant count and resident-pay evidence.`,
           path: `/areas/${c.slug}`,
         })}
       />
@@ -150,8 +150,8 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
               {rose ? "Things have got worse here." : "Things have got better here."}
             </p>
             <p>
-              You can also see what minimum-wage work really pays and how many people need
-              out-of-work benefits. A separate ONS pay estimate is kept below, clearly marked so
+              You can also see what minimum wage work really pays and how many people need
+              out of work benefits. A separate ONS pay estimate is kept below, clearly marked so
               it is not mistaken for the average wage.
             </p>
           </InShort>
@@ -259,13 +259,13 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
               <Col>
                 <p>
                   Start with the legal minimum below. The ONS pay chart further down is not what
-                  the average worker earns: it covers only a selected group of full-time PAYE
+                  the average worker earns: it covers only a selected group of full time PAYE
                   employee jobs held by people living here.
                   {jdLast !== null && (
                     <>
                       {" "}There were also{" "}
                       <strong className="tnum">
-                        {jdLast} job{jdLast === 1 ? "" : "s"} located here for every working-age
+                        {jdLast} job{jdLast === 1 ? "" : "s"} located here for every working age
                         resident
                       </strong>{" "}
                       in {jdYear}.
@@ -279,7 +279,7 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
               <div className="grid gap-5 lg:grid-cols-2 mt-5">
                 <Figure
                   n={2}
-                  title="People who need out-of-work benefits"
+                  title="People who need out of work benefits"
                   sub="Residents aged 16 to 64 · each January · 2000 to 2026"
                   legend={[
                     { name: c.name, colorVar: "--glasgow" },
@@ -318,7 +318,7 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
                 {ex.payComplete ? (
                   <Figure
                     n={3}
-                    title="Restricted full-time employee-pay estimate"
+                    title="Restricted full time employee pay estimate"
                     sub="Not the average wage · selected PAYE jobs held by residents · 2008–2025"
                     legend={[
                       { name: c.name, colorVar: "--glasgow" },
@@ -334,9 +334,9 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
                         ])}
                       />
                     }
-                    caption="This does not show what the average worker, a minimum-wage worker or a person in poverty earns. It is the median only within a restricted sample of full-time PAYE employee jobs held by residents."
+                    caption="This does not show what the average worker, a minimum wage worker or a person in poverty earns. It is the median only within a restricted sample of full time PAYE employee jobs held by residents."
                     technical={[
-                      "The series excludes every part-time job, self-employment, employees outside PAYE, junior rates and people whose pay was affected by absence. It counts employee jobs rather than necessarily counting unique people.",
+                      "The series excludes every part time job, self employment, employees outside PAYE, junior rates and people whose pay was affected by absence. It counts employee jobs rather than necessarily counting unique people.",
                       "Gross weekly pay can include overtime, bonuses, shift premiums and allowances. The estimate relates to one April pay period in each year.",
                       "Cash terms, not adjusted for inflation. Compare the two lines within a year, not along them. Residence basis means selected jobs held by people living in the area, wherever those jobs are based.",
                     ]}
@@ -353,7 +353,7 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
                       unit="£"
                       decimals={0}
                       gapBand
-                      ariaLabel={`Restricted median gross weekly pay estimate for selected full-time PAYE employee jobs held by residents of ${c.name}, compared with Scotland, 2008 to 2025.`}
+                      ariaLabel={`Restricted median gross weekly pay estimate for selected full time PAYE employee jobs held by residents of ${c.name}, compared with Scotland, 2008 to 2025.`}
                     />
                   </Figure>
                 ) : (

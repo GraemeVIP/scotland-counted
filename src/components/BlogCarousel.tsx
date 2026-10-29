@@ -131,7 +131,7 @@ export default function BlogCarousel({ posts }: { posts: Post[] }) {
               Something useful to read
             </h2>
             <p className="mt-3 max-w-[54ch] text-[16px] leading-[1.5] text-[var(--ink-2)]">
-              Plain-English explainers, practical guides and source-linked investigations.
+              Plain English explainers, practical guides and sourced investigations.
             </p>
           </div>
 

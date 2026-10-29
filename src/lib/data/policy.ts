@@ -24,7 +24,7 @@ export type Fix = {
 export const fixes: Fix[] = [
   {
     id: "two-child-limit",
-    what: "Scrap the two-child limit",
+    what: "Scrap the two child limit",
     effect:
       "This stopped families getting normal support for a third or later child. It hit larger families hardest and was finally scrapped in April 2026.",
     cost: "Paid from the UK benefits budget",
@@ -115,7 +115,7 @@ export const tiers: Tier[] = [
     heading: "UK Government decisions reduced help to families",
     points: [
       {
-        emphasis: "The two-child limit ran from April 2017 to April 2026.",
+        emphasis: "The two child limit ran from April 2017 to April 2026.",
         text: "Families received no normal extra support for a third or later child. A Conservative government introduced the rule. A Labour government kept it for nearly two more years before scrapping it.",
       },
       {
@@ -178,7 +178,7 @@ export const tiers: Tier[] = [
       },
       {
         emphasis: "Both main parties have had long runs at this.",
-        text: "Labour ran Glasgow for most of the post-war period; the SNP has run it since 2017. This is not one party's record.",
+        text: "Labour ran Glasgow for most of the post war period; the SNP has run it since 2017. This is not one party's record.",
       },
     ],
     sourceIds: ["housing"],

@@ -50,7 +50,7 @@ function detailFor(row: CouncilPerformanceRow, view: View) {
 
 function viewExplanation(view: View) {
   if (view === "peer") {
-    return "We ran the same test again, but only against councils facing similar levels of poverty, population and rural challenges. This is the fairer like-for-like view.";
+    return "We ran the same test again, but only against councils facing similar levels of poverty, population and rural challenges. This is the fairer like for like view.";
   }
   if (view === "residents") {
     return "This comes from five questions in the 2024 Scottish Household Survey. People were asked about service quality, value, influence, action and respectful treatment. Small gaps may be down to chance.";

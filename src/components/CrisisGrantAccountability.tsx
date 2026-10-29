@@ -126,7 +126,7 @@ export default function CrisisGrantAccountability({
         <p className="mt-2 max-w-[75ch] text-[16.5px] leading-[1.6] text-[var(--ink-2)]">{outcomeQuestion}</p>
         <p className="mt-3 max-w-[75ch] text-[15px] leading-[1.6] text-[var(--muted)]">
           A higher rate is not automatically better and a lower rate is not proof of unlawful or
-          ruthless decision-making. The figures prove different outcomes. They do not establish motive,
+          ruthless decision making. The figures prove different outcomes. They do not establish motive,
           applicant need or decision quality on their own.
         </p>
       </div>

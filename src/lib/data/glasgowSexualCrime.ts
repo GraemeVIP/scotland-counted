@@ -21,7 +21,7 @@ export const glasgowQuarterly = {
 /** Index of the first quarter after the April 2024 changes (Apr-Jun 2024). */
 export const april2024Index = 14;
 
-/** Full financial years (April to March), Police Scotland Q4 year-to-date workbook. */
+/** Full financial years (April to March), Police Scotland Q4 year to date workbook. */
 export const financialYears = ["2020/21", "2021/22", "2022/23", "2023/24", "2024/25", "2025/26"] as const;
 export const fullYear = {
   rape: { glasgow: [322, 333, 292, 349, 468, 473], rest: [1898, 2073, 2118, 2012, 2297, 2590] },
@@ -101,7 +101,7 @@ export const arithmetic = {
   ],
 } as const;
 
-/** Home Office CSP open data and asylum support by council: 276 English and Welsh councils (one row each) in four equal groups by asylum seekers per 1,000 residents (Dec 2023). Corrected 6 Sept 2026: an earlier build double-counted 55 councils. */
+/** Home Office CSP open data and asylum support by council: 276 English and Welsh councils (one row each) in four equal groups by asylum seekers per 1,000 residents (Dec 2023). Corrected 6 Sept 2026: an earlier build double counted 55 councils. */
 export const englandQuartiles = [
   { group: "Fewest asylum seekers", councils: 69, asylumPer1000: 0.02, offences2023: 21290, offences2024: 23016, changePct: 8.1 },
   { group: "Second group", councils: 69, asylumPer1000: 0.48, offences2023: 36052, offences2024: 38110, changePct: 5.7 },

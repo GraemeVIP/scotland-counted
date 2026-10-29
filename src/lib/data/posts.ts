@@ -1,6 +1,17 @@
 import { snpMoneyTimelineSources } from "@/lib/data/snpMoneyTimeline";
 import type { QuickAnswerData } from "@/components/QuickAnswer";
 import { MINIMUM_WAGE, REAL_LIVING_WAGE, pounds } from "@/lib/data/quickAnswers";
+import {
+  ADULT_DISABILITY_PAYMENT,
+  BANK_HOLIDAY_SOURCE,
+  BEST_START,
+  CARER_SUPPORT_PAYMENT,
+  PENSION_AGE_WINTER_HEATING,
+  SOCIAL_SECURITY_SCOTLAND,
+  SSS_SOURCE,
+  WINTER_HEATING_PAYMENT,
+  YOUNG_CARER_GRANT,
+} from "@/lib/data/benefits";
 
 /**
  * Plain-English articles and their search/wayfinding metadata.
@@ -88,7 +99,7 @@ export type Post = {
     caption: string;
     aspect?: "landscape" | "wide" | "video";
     objectPosition?: string;
-    /** Replaces the default "AI-generated illustration." credit, e.g. for a data graphic. */
+    /** Replaces the default "AI generated illustration." credit, e.g. for a data graphic. */
     creditLabel?: string;
     /**
      * Optional version for listing cards, which crop to anything from square
@@ -266,11 +277,11 @@ export const posts: Post[] = [
       },
       {
         q: "Were migrants behind Glasgow's rise in sexual assaults?",
-        a: "The public data checked here do not establish who caused the increase. The police reports discuss an evidence-rule change for domestic abuse and reporting for rape, but do not explain the sexual-assault rise. Of 117 accused entries in a Greater Glasgow disclosure for 2025, 43 were British, 12 had named non-British nationalities and 62 had unknown nationality. Across 276 English and Welsh councils, the comparisons are mixed: a small positive association between places and an uncertain result within councils over time. Neither identifies a Glasgow cause.",
+        a: "The public data checked here do not establish who caused the increase. The police reports discuss an evidence rule change for domestic abuse and reporting for rape, but do not explain the sexual assault rise. Of 117 accused entries in a Greater Glasgow disclosure for 2025, 43 were British, 12 had named non British nationalities and 62 had unknown nationality. Across 276 English and Welsh councils, the comparisons are mixed: a small positive association between places and an uncertain result within councils over time. Neither identifies a Glasgow cause.",
       },
       {
         q: "What changed in April 2024?",
-        a: "Police Scotland links a domestic-abuse increase to corroboration guidance introduced in April 2024. UNIFI was fully rolled out by 5 December 2023, and the Scottish Police Authority says all crime data came from the common system from April 2024. Those changes are relevant context, but their contribution to Glasgow's sexual-assault increase has not been measured.",
+        a: "Police Scotland links a domestic abuse increase to corroboration guidance introduced in April 2024. UNIFI was fully rolled out by 5 December 2023, and the Scottish Police Authority says all crime data came from the common system from April 2024. Those changes are relevant context, but their contribution to Glasgow's sexual assault increase has not been measured.",
       },
       {
         q: "How many asylum seekers live in Glasgow?",
@@ -314,9 +325,9 @@ export const posts: Post[] = [
     title: "Best council in Scotland: all 32 ranked",
     seoTitle: "Best Council in Scotland 2026: All 32 Ranked",
     description:
-      "East Renfrewshire comes first in our 53-measure ranking. See all 32 councils, the like-for-like list, what residents said and every number used.",
+      "East Renfrewshire comes first in our 53-measure ranking. See all 32 councils, the like for like list, what residents said and every number used.",
     standfirst:
-      "East Renfrewshire comes first in our new ranking of all 32 Scottish councils. East Lothian is second and Edinburgh third. But the like-for-like list and resident survey tell a more surprising story.",
+      "East Renfrewshire comes first in our new ranking of all 32 Scottish councils. East Lothian is second and Edinburgh third. But the like for like list and resident survey tell a more surprising story.",
     date: "2026-08-16",
     category: "politics-explained",
     tags: [
@@ -349,7 +360,7 @@ export const posts: Post[] = [
       { id: "uncertainty", label: "Does the winner change?" },
       { id: "all-councils", label: "Every council ranked" },
       { id: "different-winners", label: "Five ways to be good" },
-      { id: "peer-groups", label: "The like-for-like list" },
+      { id: "peer-groups", label: "The like for like list" },
       { id: "residents", label: "Residents disagree" },
       { id: "surprises", label: "The biggest contradiction" },
       { id: "not-in-score", label: "What was left out" },
@@ -359,7 +370,7 @@ export const posts: Post[] = [
     ],
     faq: [
       {
-        q: "Which is the best-performing council in Scotland?",
+        q: "Which is the best performing council in Scotland?",
         a: "East Renfrewshire comes first in Scotland Counted's 2026 council ranking. It is number one for services and results and stayed first in all ten extra checks. We built the ranking from 53 official figures. It is not a government award.",
       },
       {
@@ -368,7 +379,7 @@ export const posts: Post[] = [
       },
       {
         q: "Does the ranking measure the best place to live in Scotland?",
-        a: "No. It measures how councils perform, not every reason a place is good to live. Poverty, crime, health, housing and loneliness are shown separately. That stops richer areas automatically looking like better-run councils.",
+        a: "No. It measures how councils perform, not every reason a place is good to live. Poverty, crime, health, housing and loneliness are shown separately. That stops richer areas automatically looking like better run councils.",
       },
       {
         q: "How were Scottish councils ranked?",
@@ -376,7 +387,7 @@ export const posts: Post[] = [
       },
       {
         q: "Which council performs best against similar councils?",
-        a: "East Renfrewshire stays first and East Lothian second in the like-for-like list. Inverclyde jumps from 12th across Scotland to third against councils facing similar conditions.",
+        a: "East Renfrewshire stays first and East Lothian second in the like for like list. Inverclyde jumps from 12th across Scotland to third against councils facing similar conditions.",
       },
     ],
     sourceIds: [
@@ -419,7 +430,7 @@ export const posts: Post[] = [
       src: "/images/editorial/snp-money-timeline-hero.webp",
       alt: "An editorial collage of a long paper trail leading through folders and receipts towards a courthouse and an unbranded white motorhome",
       caption:
-        "The story began with questions about referendum donations. The court case ultimately proved a different, 12-year course of embezzlement from the SNP's main account.",
+        "The story began with questions about referendum donations. The court case ultimately proved a different, 12 year course of embezzlement from the SNP's main account.",
       objectPosition: "center 48%",
     },
     shareImage: {
@@ -440,7 +451,7 @@ export const posts: Post[] = [
     faq: [
       {
         q: "Was Nicola Sturgeon charged over the SNP finances?",
-        a: "No. Police arrested Sturgeon in June 2023 but did not charge her. On 20 March 2025, Police Scotland said she was no longer under investigation in Operation Branchform. Prosecutors later said two separate senior-counsel reviews agreed that no charge or further inquiry was required.",
+        a: "No. Police arrested Sturgeon in June 2023 but did not charge her. On 20 March 2025, Police Scotland said she was no longer under investigation in Operation Branchform. Prosecutors later said two separate senior counsel reviews agreed that no charge or further inquiry was required.",
       },
       {
         q: "How much did Peter Murrell steal from the SNP?",
@@ -466,9 +477,9 @@ export const posts: Post[] = [
     title: "Drug deaths in Scotland: the deprivation divide",
     seoTitle: "Drug Deaths in Scotland and Deprivation | 2024 Data",
     description:
-      "Scotland's drug-death rate was 12 times higher in the most deprived areas in 2024. See why Glasgow's local rate was highest and what the data proves.",
+      "Scotland's drug death rate was 12 times higher in the most deprived areas in 2024. See why Glasgow's local rate was highest and what the data proves.",
     standfirst:
-      "People in Scotland's most deprived areas had about 12 times the drug-death rate of those in the least deprived areas in 2024. Glasgow had the highest council-area rate over 2020–2024. The link is stark, but it needs to be read carefully.",
+      "People in Scotland's most deprived areas had about 12 times the drug death rate of those in the least deprived areas in 2024. Glasgow had the highest council area rate over 2020–2024. The link is stark, but it needs to be read carefully.",
     date: "2026-08-08",
     category: "poverty-explained",
     tags: [
@@ -499,19 +510,19 @@ export const posts: Post[] = [
     faq: [
       {
         q: "Are drug deaths linked to deprivation in Scotland?",
-        a: "Yes, there is a very strong area-level association. In 2024 the age-standardised rate in Scotland's most deprived fifth was 47.3 deaths per 100,000, compared with 4.1 in the least deprived fifth. That does not prove every person who died was poor or that deprivation alone caused an individual death.",
+        a: "Yes, there is a very strong area level association. In 2024 the age standardised rate in Scotland's most deprived fifth was 47.3 deaths per 100,000, compared with 4.1 in the least deprived fifth. That does not prove every person who died was poor or that deprivation alone caused an individual death.",
       },
       {
-        q: "Which Scottish council area has the highest drug-death rate?",
-        a: "Glasgow City had the highest age-standardised drug-misuse death rate in the National Records of Scotland comparison for 2020–2024: 41.1 deaths per 100,000. NRS combines five years because single-year council rates can be unstable.",
+        q: "Which Scottish council area has the highest drug death rate?",
+        a: "Glasgow City had the highest age standardised drug misuse death rate in the National Records of Scotland comparison for 2020–2024: 41.1 deaths per 100,000. NRS combines five years because single year council rates can be unstable.",
       },
       {
         q: "Did drug deaths in Scotland fall in 2024?",
-        a: "Yes. National Records of Scotland registered 1,017 drug-misuse deaths, 155 fewer than in 2023 and the lowest annual count since 2017. The 2024 age-standardised rate was still 3.6 times the rate in 2000.",
+        a: "Yes. National Records of Scotland registered 1,017 drug misuse deaths, 155 fewer than in 2023 and the lowest annual count since 2017. The 2024 age standardised rate was still 3.6 times the rate in 2000.",
       },
       {
         q: "Can the substance figures be added together?",
-        a: "No. More than one drug was implicated in 80% of Scotland's drug-misuse deaths in 2024, and broad classes contain individual substances. The opioid, benzodiazepine, cocaine and other rows overlap.",
+        a: "No. More than one drug was implicated in 80% of Scotland's drug misuse deaths in 2024, and broad classes contain individual substances. The opioid, benzodiazepine, cocaine and other rows overlap.",
       },
     ],
     sourceIds: [
@@ -527,7 +538,7 @@ export const posts: Post[] = [
     description:
       "Inverclyde awarded 89% of decided Crisis Grant applications in 2025/26. Midlothian awarded 52%. Compare all 32 councils and see what the gap proves.",
     standfirst:
-      "Inverclyde awarded 89% of decided Crisis Grant applications in 2025/26. Midlothian awarded 52%. The same national scheme produced a persistent 37-point postcode gap that councils need to explain.",
+      "Inverclyde awarded 89% of decided Crisis Grant applications in 2025/26. Midlothian awarded 52%. The same national scheme produced a persistent 37 point postcode gap that councils need to explain.",
     date: "2026-08-16",
     category: "politics-explained",
     tags: [
@@ -571,7 +582,7 @@ export const posts: Post[] = [
       },
       {
         q: "Can a refused Crisis Grant decision be reviewed?",
-        a: "Yes. The statutory guidance says a first-tier review is requested from the council, normally within 20 working days of the decision. A Crisis Grant review should be decided within two working days. A review cannot reduce or remove an award already made.",
+        a: "Yes. The statutory guidance says a first tier review is requested from the council, normally within 20 working days of the decision. A Crisis Grant review should be decided within two working days. A review cannot reduce or remove an award already made.",
       },
     ],
     sourceIds: [
@@ -619,7 +630,7 @@ export const posts: Post[] = [
       },
       {
         q: "Does Scottish council tax include water?",
-        a: "The bill usually does. Your council collects separate water and waste-water charges for Scottish Water. That is why a council-tax-only figure can be hundreds of pounds lower than the bill that arrives.",
+        a: "The bill usually does. Your council collects separate water and waste water charges for Scottish Water. That is why a council tax only figure can be hundreds of pounds lower than the bill that arrives.",
       },
       {
         q: "Can Council Tax Reduction wipe out the whole bill?",
@@ -653,7 +664,7 @@ export const posts: Post[] = [
       src: "/images/editorial/council-tax-rises-scotland.webp",
       alt: "Council tax bills and a calculator on a kitchen table overlooking a Scottish residential street",
       caption:
-        "The rise belongs to the council-tax part of the bill. Scottish Water sets its own separate charge, even though both arrive together.",
+        "The rise belongs to the council tax part of the bill. Scottish Water sets its own separate charge, even though both arrive together.",
       objectPosition: "center 42%",
     },
     toc: [
@@ -671,13 +682,13 @@ export const posts: Post[] = [
     title: "Minimum wage Scotland: what you earn in 2026 and 2027",
     seoTitle: "Minimum Wage Scotland 2026 and 2027: £12.71 to £13.21",
     description:
-      "Minimum wage in Scotland is £12.71 an hour in 2026, rising to £13.21 in April 2027. See every age rate, yearly pay and take-home pay after tax and NI.",
+      "Minimum wage in Scotland is £12.71 an hour in 2026, rising to £13.21 in April 2027. See every age rate, yearly pay and take home pay after tax and NI.",
     standfirst:
-      "£12.71 an hour sounds clear. A payslip is not. I have done the tax and National Insurance working for a 37.5-hour week so you can see what reaches the bank.",
+      "£12.71 an hour sounds clear. A payslip is not. I have done the tax and National Insurance working for a 37.5 hour week so you can see what reaches the bank.",
     date: "2026-08-01",
     updated: "2026-10-29",
     category: "money-and-bills",
-    tags: ["Minimum wage", "Take-home pay", "Scottish income tax", "Low pay"],
+    tags: ["Minimum wage", "Take home pay", "Scottish income tax", "Low pay"],
     quickAnswer: {
       label: "Minimum wage Scotland, 21 and over",
       value: pounds(MINIMUM_WAGE.current.over21, true),
@@ -703,7 +714,7 @@ export const posts: Post[] = [
     toc: [
       { id: "rates", label: "The 2026 hourly rates" },
       { id: "april-2027", label: "What changes in April 2027" },
-      { id: "full-time", label: "What full-time adds up to" },
+      { id: "full-time", label: "What full time adds up to" },
       { id: "take-home", label: "What reaches the bank" },
       { id: "hours", label: "Why your pay may be lower" },
       { id: "enough", label: "Is it enough to live on?" },
@@ -809,7 +820,7 @@ export const posts: Post[] = [
       },
       {
         q: "What is the Universal Credit taper rate?",
-        a: "Universal Credit normally falls by 55p for each £1 of take-home earnings counted above any work allowance. That means earnings still increase total household income.",
+        a: "Universal Credit normally falls by 55p for each £1 of take home earnings counted above any work allowance. That means earnings still increase total household income.",
       },
     ],
     sourceIds: ["uc-earnings", "uc-what-youll-get", "minimum-wage-2026"],
@@ -846,8 +857,8 @@ export const posts: Post[] = [
         a: "Not necessarily. The housing element is limited by Local Housing Allowance for your area and household size, or by your actual rent if that is lower.",
       },
       {
-        q: "What is the one-bedroom LHA rate in Greater Glasgow in 2026?",
-        a: "It is £159.95 a week from April 2026 to March 2027, about £693 a month. The Scottish Government's 2025 advertised-rent average for a one-bedroom Greater Glasgow property was £865 a month.",
+        q: "What is the one bedroom LHA rate in Greater Glasgow in 2026?",
+        a: "It is £159.95 a week from April 2026 to March 2027, about £693 a month. The Scottish Government's 2025 advertised rent average for a one bedroom Greater Glasgow property was £865 a month.",
       },
     ],
     sourceIds: ["lha-2026", "sg-private-rents-2025", "discretionary-housing-payment"],
@@ -857,7 +868,7 @@ export const posts: Post[] = [
     title: "Energy price cap Scotland: what it means for your bills",
     seoTitle: "Energy Price Cap Scotland 2026: What It Means for Your Bills",
     description:
-      "Ofgem's energy price cap is £1,862 from July to September 2026 for a typical-use home. See what it really caps, why bills rose and how standing charges work.",
+      "Ofgem's energy price cap is £1,862 from July to September 2026 for a typical use home. See what it really caps, why bills rose and how standing charges work.",
     standfirst:
       "£1,862 is not the most any household can pay. It is an illustration based on typical use. The cap controls the rates, so using more still costs more.",
     date: "2026-08-01",
@@ -881,7 +892,7 @@ export const posts: Post[] = [
     faq: [
       {
         q: "Is £1,862 the maximum energy bill in 2026?",
-        a: "No. It is Ofgem's annual illustration for a typical-use dual-fuel household paying by Direct Debit. Your bill depends on the energy you use, your region, payment method and tariff.",
+        a: "No. It is Ofgem's annual illustration for a typical use dual fuel household paying by Direct Debit. Your bill depends on the energy you use, your region, payment method and tariff.",
       },
       {
         q: "Does the energy price cap apply in Scotland?",
@@ -922,7 +933,7 @@ export const posts: Post[] = [
       },
       {
         q: "How much did UK food prices rise?",
-        a: "ONS data showed food and non-alcoholic drink prices were 38.6% higher in November 2025 than in November 2020.",
+        a: "ONS data showed food and non alcoholic drink prices were 38.6% higher in November 2025 than in November 2020.",
       },
     ],
     sourceIds: ["ons-food-prices", "ons-cpi-2026", "brexit-food-prices", "sg-cost-living-2025"],
@@ -934,7 +945,7 @@ export const posts: Post[] = [
     description:
       "A Scottish Welfare Fund Crisis Grant is emergency money you do not repay. Who can apply, what it covers, and how to claim through your council.",
     standfirst:
-      "This is not a loan and it is not an advance from Universal Credit. It is a council grant for a low-income person facing an immediate emergency.",
+      "This is not a loan and it is not an advance from Universal Credit. It is a council grant for a low income person facing an immediate emergency.",
     date: "2026-08-01",
     category: "money-and-bills",
     tags: ["Crisis Grant", "Scottish Welfare Fund", "Emergency help", "Benefits"],
@@ -960,7 +971,7 @@ export const posts: Post[] = [
       },
       {
         q: "Can I get a Crisis Grant for food or heating?",
-        a: "Yes, those are the kinds of immediate essentials a Crisis Grant can cover when an emergency has left a low-income person without money.",
+        a: "Yes, those are the kinds of immediate essentials a Crisis Grant can cover when an emergency has left a low income person without money.",
       },
     ],
     sourceIds: ["scottish-welfare-fund"],
@@ -1030,11 +1041,11 @@ export const posts: Post[] = [
     faq: [
       {
         q: "Are school meals free for every primary pupil in Scotland?",
-        a: "Lunch is universal in council and Scottish Government-funded schools from primary 1 to primary 5. In primary 6 and 7, Scottish Child Payment or another qualifying benefit can give entitlement.",
+        a: "Lunch is universal in council and Scottish Government funded schools from primary 1 to primary 5. In primary 6 and 7, Scottish Child Payment or another qualifying benefit can give entitlement.",
       },
       {
         q: "How much is the school clothing grant in Scotland?",
-        a: "Every council must pay at least £120 for a primary-age child and £150 for a secondary-age child. Councils set local eligibility rules and may pay more.",
+        a: "Every council must pay at least £120 for a primary age child and £150 for a secondary age child. Councils set local eligibility rules and may pay more.",
       },
     ],
     sourceIds: ["free-school-meals-2026", "school-clothing-grants", "sg-child-payment-2026"],
@@ -1043,7 +1054,7 @@ export const posts: Post[] = [
     slug: "why-is-the-cost-of-living-so-high",
     title: "Why the cost of living is still so high in Scotland",
     description:
-      "Scotland's cost-of-living crisis did not end when inflation fell. See why food, rent and energy remain expensive and which political choices worsened it.",
+      "Scotland's cost of living crisis did not end when inflation fell. See why food, rent and energy remain expensive and which political choices worsened it.",
     standfirst:
       "War and the pandemic pushed prices up. That is true. It is also true that political choices left ordinary families with less protection, and added avoidable costs of their own.",
     date: "2026-08-01",
@@ -1069,15 +1080,15 @@ export const posts: Post[] = [
     faq: [
       {
         q: "Has the cost of living crisis ended because inflation is lower?",
-        a: "No. Lower inflation means prices are rising more slowly; it does not put them back where they were. By March 2026, the ONS Household Costs Index was about 34% higher than five years earlier for low-income households.",
+        a: "No. Lower inflation means prices are rising more slowly; it does not put them back where they were. By March 2026, the ONS Household Costs Index was about 34% higher than five years earlier for low income households.",
       },
       {
         q: "Did MPs cause the cost of living crisis?",
-        a: "Not by themselves. Pandemic disruption and Russia’s invasion of Ukraine caused major global food and energy shocks. But UK governments and MPs made choices on benefits, rent support, trade, tax and the 2022 mini-budget that left households more exposed or added extra cost.",
+        a: "Not by themselves. Pandemic disruption and Russia’s invasion of Ukraine caused major global food and energy shocks. But UK governments and MPs made choices on benefits, rent support, trade, tax and the 2022 mini budget that left households more exposed or added extra cost.",
       },
       {
         q: "Who controls help with the cost of living in Scotland?",
-        a: "Both parliaments do. Westminster controls Universal Credit, Local Housing Allowance, the legal minimum wage, most tax allowances and energy regulation. Holyrood controls the Scottish Child Payment, housing, Scottish income-tax bands, childcare and much of public transport. Councils control local crisis support and services.",
+        a: "Both parliaments do. Westminster controls Universal Credit, Local Housing Allowance, the legal minimum wage, most tax allowances and energy regulation. Holyrood controls the Scottish Child Payment, housing, Scottish income tax bands, childcare and much of public transport. Councils control local crisis support and services.",
       },
     ],
     sourceIds: [
@@ -1131,7 +1142,7 @@ export const posts: Post[] = [
       },
       {
         q: "Why does working not lift a family out of poverty?",
-        a: "Three things: wages that have not kept up with prices, hours that are part-time or unpredictable, and housing costs that take a large share of what is left. Poverty is measured after rent or mortgage is paid.",
+        a: "Three things: wages that have not kept up with prices, hours that are part time or unpredictable, and housing costs that take a large share of what is left. Poverty is measured after rent or mortgage is paid.",
       },
     ],
     sourceIds: ["sg-poverty-2026", "jrf"],
@@ -1177,7 +1188,7 @@ export const posts: Post[] = [
     title: "Scottish Child Payment: how much it is and how to apply",
     seoTitle: "Scottish Child Payment 2026/27: How Much and How to Apply",
     description:
-      "A weekly payment for every child in a low-income family in Scotland. What it is worth, who can get it, and why many eligible families never claim.",
+      "A weekly payment for every child in a low income family in Scotland. What it is worth, who can get it, and why many eligible families never claim.",
     standfirst:
       "It does not exist anywhere else in the UK, and some families who are entitled to it have never claimed it.",
     date: "2026-07-31",
@@ -1189,7 +1200,7 @@ export const posts: Post[] = [
       src: "/images/editorial/scotland-secure-homes.webp",
       alt: "Two children arriving home from school to a secure family home",
       caption:
-        "The payment is designed to give low-income families more room for everyday essentials, for every eligible child.",
+        "The payment is designed to give low income families more room for everyday essentials, for every eligible child.",
       objectPosition: "center 44%",
     },
     toc: [
@@ -1201,7 +1212,7 @@ export const posts: Post[] = [
     faq: [
       {
         q: "How much is the Scottish Child Payment?",
-        a: "As of April 2026 it is £28.20 per child per week, paid for every child in a low-income family. It is set to rise to £40 a week for children under one from 2027.",
+        a: "As of April 2026 it is £28.20 per child per week, paid for every child in a low income family. It is set to rise to £40 a week for children under one from 2027.",
       },
       {
         q: "Who decides the Scottish Child Payment?",
@@ -1214,7 +1225,7 @@ export const posts: Post[] = [
     slug: "how-to-contact-your-mp-or-msp",
     title: "How to contact your MP or MSP in Scotland",
     description:
-      "Find out how to contact your MP or MSP in Scotland, what to say and what happens next. Or use the postcode tool to open both ready-written emails.",
+      "Find out how to contact your MP or MSP in Scotland, what to say and what happens next. Or use the postcode tool to open both ready written emails.",
     standfirst:
       "Most people never contact their representatives, and the main reason is not apathy. It is not knowing how it works.",
     date: "2026-07-31",
@@ -1232,7 +1243,7 @@ export const posts: Post[] = [
       { id: "mp-and-msp", label: "Your MP and your MSP" },
       { id: "what-to-say", label: "What to actually say" },
       { id: "what-happens-next", label: "What happens next" },
-      { id: "one-minute-version", label: "The one-minute version" },
+      { id: "one-minute-version", label: "The one minute version" },
     ],
     faq: [
       {
@@ -1249,6 +1260,403 @@ export const posts: Post[] = [
       },
     ],
     sourceIds: [],
+  },
+  {
+    slug: "adult-disability-payment",
+    title: "Adult disability payment: rates, eligibility and how to apply",
+    seoTitle: "Adult Disability Payment 2026/27: Rates, Who Qualifies, How to Apply",
+    description:
+      "Adult Disability Payment pays £30.30 to £194.60 a week in 2026/27. The rates, who qualifies, how to apply in two parts, and how the myaccount login works.",
+    standfirst:
+      "Scotland's replacement for PIP. Not means tested, backdated to the day you start, and simpler to apply for than most people expect.",
+    date: "2026-10-29",
+    category: "money-and-bills",
+    tags: ["Adult Disability Payment", "Social Security Scotland", "Disability benefits", "PIP"],
+    readingMinutes: 6,
+    quickAnswer: {
+      label: "Adult Disability Payment rates 2026/27",
+      value: pounds(ADULT_DISABILITY_PAYMENT.dailyLiving.enhanced + ADULT_DISABILITY_PAYMENT.mobility.enhanced, true),
+      unit: "a week at most",
+      detail: "There are two parts, daily living and mobility, each with a standard and an enhanced rate. You can get one part or both. Income and savings don't count.",
+      rows: [
+        { label: "Daily living, standard", value: `${pounds(ADULT_DISABILITY_PAYMENT.dailyLiving.standard, true)} a week` },
+        { label: "Daily living, enhanced", value: `${pounds(ADULT_DISABILITY_PAYMENT.dailyLiving.enhanced, true)} a week` },
+        { label: "Mobility, standard", value: `${pounds(ADULT_DISABILITY_PAYMENT.mobility.standard, true)} a week` },
+        { label: "Mobility, enhanced", value: `${pounds(ADULT_DISABILITY_PAYMENT.mobility.enhanced, true)} a week` },
+      ],
+      asOf: "2026/27 rates",
+      source: ADULT_DISABILITY_PAYMENT.source,
+    },
+    toc: [
+      { id: "rates", label: "Rates for 2026/27" },
+      { id: "eligibility", label: "Who qualifies" },
+      { id: "apply", label: "How to apply" },
+      { id: "login", label: "The login" },
+      { id: "paid", label: "When it's paid" },
+      { id: "carers", label: "If someone cares for you" },
+    ],
+    faq: [
+      {
+        q: "Is Adult Disability Payment means tested?",
+        a: "No. Your wages, savings and other income are not taken into account, and you can get it whether you work or not.",
+      },
+      {
+        q: "Do I need to apply if I already get PIP?",
+        a: "No. Social Security Scotland moves people on PIP over to Adult Disability Payment automatically and writes to tell you when.",
+      },
+      {
+        q: "How far back is Adult Disability Payment paid?",
+        a: "From the day you submitted part 1 of the application, online or by phone, not from the day you get the decision.",
+      },
+      {
+        q: "What is the adult disability payment phone number?",
+        a: "Social Security Scotland's freephone number is 0800 182 2222, open 8am to 5pm, Monday to Friday, except bank holidays.",
+      },
+    ],
+    sourceIds: ["sss-adult-disability-payment", "sss-contact"],
+  },
+  {
+    slug: "adult-disability-payment-phone-number",
+    title: "Adult disability payment phone number",
+    seoTitle: "Adult Disability Payment Phone Number: Call Times and What to Have Ready",
+    description:
+      "The Adult Disability Payment phone number is 0800 182 2222, free, 8am to 5pm on weekdays. Webchat, the number from abroad, the postal address and what to have ready.",
+    standfirst:
+      "One freephone number covers new claims, questions and changes. Here is when it's open and how to keep the call short.",
+    date: "2026-10-29",
+    category: "money-and-bills",
+    tags: ["Adult Disability Payment", "Social Security Scotland", "Phone numbers"],
+    readingMinutes: 3,
+    quickAnswer: {
+      label: "Adult Disability Payment phone number",
+      value: SOCIAL_SECURITY_SCOTLAND.phone,
+      unit: "freephone",
+      detail: "Social Security Scotland, 8am to 5pm, Monday to Friday, except bank holidays. You can start a claim on this number too.",
+      rows: [
+        { label: "From outside the UK", value: SOCIAL_SECURITY_SCOTLAND.abroad },
+        { label: "Webchat", value: "8am to 5pm on weekdays" },
+        { label: "Post", value: "PO Box 10301, Dundee, DD1 9FY" },
+      ],
+      source: SSS_SOURCE,
+    },
+    toc: [
+      { id: "numbers", label: "Numbers and other ways in" },
+      { id: "ready", label: "What to have ready" },
+      { id: "apply-by-phone", label: "Applying by phone" },
+      { id: "other", label: "Other numbers" },
+    ],
+    faq: [
+      {
+        q: "Is the Adult Disability Payment number free?",
+        a: "Yes. 0800 182 2222 is a freephone number. If your mobile won't call 0800 numbers, you can call free from a landline or payphone.",
+      },
+      {
+        q: "Can I apply for Adult Disability Payment by phone?",
+        a: "Yes. They complete part 1 with you on the call and post you a paper form for part 2. If you're terminally ill the whole application can be done on the phone.",
+      },
+    ],
+    sourceIds: ["sss-contact", "sss-adult-disability-payment"],
+  },
+  {
+    slug: "carer-support-payment",
+    title: "Carer support payment: rates, eligibility and how to apply",
+    seoTitle: "Carer Support Payment 2026/27: Rates, Who Qualifies, How to Apply",
+    description:
+      "Carer Support Payment is £86.45 a week in 2026/27, plus an £11.70 Scottish Carer Supplement. Who qualifies, the £204 earnings limit and how to apply.",
+    standfirst:
+      "Scotland's replacement for Carer's Allowance, with a weekly supplement on top and extra for each additional person you care for.",
+    date: "2026-10-29",
+    category: "money-and-bills",
+    tags: ["Carer Support Payment", "Carers", "Social Security Scotland", "Benefits"],
+    readingMinutes: 6,
+    quickAnswer: {
+      label: "Carer Support Payment 2026/27",
+      value: pounds(CARER_SUPPORT_PAYMENT.weekly, true),
+      unit: "a week",
+      detail: `Plus the Scottish Carer Supplement of ${pounds(CARER_SUPPORT_PAYMENT.supplement, true)} a week, paid automatically. You need to care for 35 hours a week or more and take home no more than ${pounds(CARER_SUPPORT_PAYMENT.earningsLimit)} a week.`,
+      rows: [
+        { label: "Carer Support Payment", value: `${pounds(CARER_SUPPORT_PAYMENT.weekly, true)} a week` },
+        { label: "Scottish Carer Supplement", value: `${pounds(CARER_SUPPORT_PAYMENT.supplement, true)} a week` },
+        { label: "Each additional person", value: `${pounds(CARER_SUPPORT_PAYMENT.additionalPerson, true)} a week` },
+        { label: "Earnings limit", value: `${pounds(CARER_SUPPORT_PAYMENT.earningsLimit)} a week take home` },
+      ],
+      asOf: "2026/27 rates",
+      source: CARER_SUPPORT_PAYMENT.source,
+    },
+    toc: [
+      { id: "rates", label: "Rates for 2026/27" },
+      { id: "eligibility", label: "Who qualifies" },
+      { id: "apply", label: "How to apply" },
+      { id: "paid", label: "When you're paid" },
+    ],
+    faq: [
+      {
+        q: "Has Carer Support Payment replaced Carer's Allowance in Scotland?",
+        a: "Yes. Carer Support Payment replaced Carer's Allowance across Scotland from November 2024. The Scottish Carer Supplement replaced the old Carer's Allowance Supplement.",
+      },
+      {
+        q: "Can I work and get Carer Support Payment?",
+        a: "Yes, as long as your take home pay is no more than £204 a week after tax, National Insurance and some allowed expenses. Pay that goes up and down can be averaged.",
+      },
+      {
+        q: "Does Carer Support Payment affect Universal Credit?",
+        a: "Yes. The DWP counts it as income for Universal Credit and other income related benefits. The Scottish Carer Supplement and the Carer Additional Person Payment don't affect other benefits.",
+      },
+    ],
+    sourceIds: ["sss-carer-support-payment"],
+  },
+  {
+    slug: "best-start-grant",
+    title: "Best start grant: what you get and how to apply",
+    seoTitle: "Best Start Grant 2026/27: Pregnancy, Early Learning and School Payments",
+    description:
+      "Best Start Grant pays £796.65 for a first baby, then £331.95 for early learning and £331.95 for school. Who qualifies, when to apply and how.",
+    standfirst:
+      "Three payments for low income families in Scotland, at birth, at two and at school age. None of it is paid back and you can spend it on anything.",
+    date: "2026-10-29",
+    category: "money-and-bills",
+    tags: ["Best Start Grant", "Best Start Foods", "Families", "Social Security Scotland"],
+    readingMinutes: 5,
+    quickAnswer: {
+      label: "Best Start Grant 2026/27",
+      value: pounds(BEST_START.pregnancyAndBabyFirst, true),
+      unit: "for a first child",
+      detail: "The Pregnancy and Baby Payment for your first child. Later children get less. The Early Learning and School Age payments are the same for every child.",
+      rows: [
+        { label: "Pregnancy and Baby, first child", value: pounds(BEST_START.pregnancyAndBabyFirst, true) },
+        { label: "Pregnancy and Baby, later children", value: pounds(BEST_START.pregnancyAndBabyLater, true) },
+        { label: "Early Learning Payment", value: pounds(BEST_START.earlyLearning, true) },
+        { label: "School Age Payment", value: pounds(BEST_START.schoolAge, true) },
+      ],
+      asOf: "2026/27 rates",
+      source: BEST_START.source,
+    },
+    toc: [
+      { id: "amounts", label: "How much it is" },
+      { id: "early-learning", label: "Early Learning Payment" },
+      { id: "who", label: "Who can get it" },
+      { id: "foods", label: "Best Start Foods" },
+      { id: "apply", label: "How to apply" },
+    ],
+    faq: [
+      {
+        q: "When can I apply for the Best Start Grant Early Learning Payment?",
+        a: "When your child is between 2 years old and 3 years 6 months. Your child doesn't need to go to nursery.",
+      },
+      {
+        q: "Does Child Benefit count for Best Start Grant?",
+        a: "Not on its own. You or your partner normally need Universal Credit, Housing Benefit, Income Support, Pension Credit, income based JSA or income related ESA. Parents under 18 don't need any benefit.",
+      },
+      {
+        q: "Is the Best Start Grant paid automatically?",
+        a: "The Early Learning and School Age payments can be, if you already get Scottish Child Payment for a child of the right age. The Pregnancy and Baby Payment needs an application.",
+      },
+    ],
+    sourceIds: ["sss-best-start"],
+  },
+  {
+    slug: "winter-fuel-payment-scotland",
+    title: "Winter fuel payment in Scotland: who gets it, how much and when",
+    seoTitle: "Winter Fuel Payment Scotland 2026: Who Gets It, How Much and When",
+    description:
+      "In Scotland, Winter Fuel Payment is now Pension Age Winter Heating Payment: £105.55 to £316.70 this winter. Who gets it, the £35,000 rule and payment dates.",
+    standfirst:
+      "Scotland pays its own version now. Most pensioners get it without applying, but anyone with income over £35,000 hands it back through tax.",
+    date: "2026-10-29",
+    category: "money-and-bills",
+    tags: ["Winter Fuel Payment", "Pension Age Winter Heating Payment", "Pensioners", "Energy bills"],
+    readingMinutes: 4,
+    quickAnswer: {
+      label: "Winter fuel payment Scotland, winter 2026 to 2027",
+      value: `${pounds(PENSION_AGE_WINTER_HEATING.min, true)} to ${pounds(PENSION_AGE_WINTER_HEATING.max, true)}`,
+      detail: `Paid as Pension Age Winter Heating Payment from ${PENSION_AGE_WINTER_HEATING.paidFrom} to people born on or before ${PENSION_AGE_WINTER_HEATING.bornOnOrBefore}. Most people don't need to apply.`,
+      rows: [
+        { label: "Living alone, up to 79", value: pounds(PENSION_AGE_WINTER_HEATING.under80, true) },
+        { label: "Living alone, 80 or over", value: pounds(PENSION_AGE_WINTER_HEATING.over80, true) },
+        { label: "Income over £35,000", value: "HMRC takes it back" },
+        { label: "Not paid by March 2027", value: "Call Social Security Scotland" },
+      ],
+      asOf: "Winter 2026 to 2027",
+      source: PENSION_AGE_WINTER_HEATING.source,
+    },
+    toc: [
+      { id: "who", label: "Who gets it" },
+      { id: "all-pensioners", label: "Do all pensioners get it?" },
+      { id: "how-much", label: "How much it is" },
+      { id: "when", label: "When it's paid" },
+      { id: "pip", label: "Winter fuel payment and PIP" },
+    ],
+    faq: [
+      {
+        q: "Is there still a Winter Fuel Payment in Scotland?",
+        a: "Not under that name. In Scotland it has been replaced by Pension Age Winter Heating Payment, paid by Social Security Scotland.",
+      },
+      {
+        q: "Do all pensioners get the winter fuel payment in Scotland?",
+        a: "Most people born on or before 27 June 1960 who live in Scotland get it automatically. If your own income is over £35,000, HMRC takes it back.",
+      },
+      {
+        q: "When is the winter fuel payment paid in Scotland?",
+        a: "From November 2026, through the winter. You get a letter first. Contact Social Security Scotland if you haven't been paid by the start of March 2027.",
+      },
+    ],
+    sourceIds: ["sss-pension-age-winter-heating"],
+  },
+  {
+    slug: "winter-heating-payment",
+    title: "Winter heating payment: who gets it and when",
+    seoTitle: "Winter Heating Payment 2026: Who Gets It and When It Is Paid",
+    description:
+      "Winter Heating Payment is £62.00, paid automatically from December to people on certain low income benefits in Scotland. Who qualifies and when it lands.",
+    standfirst:
+      "A single payment every winter, whatever the weather, if you get the right benefit in the qualifying week.",
+    date: "2026-10-29",
+    category: "money-and-bills",
+    tags: ["Winter Heating Payment", "Energy bills", "Social Security Scotland"],
+    readingMinutes: 4,
+    quickAnswer: {
+      label: "Winter Heating Payment",
+      value: pounds(WINTER_HEATING_PAYMENT.amount, true),
+      unit: "once a winter",
+      detail: `Paid automatically from ${WINTER_HEATING_PAYMENT.paidFrom} if you got a qualifying benefit in the week of ${WINTER_HEATING_PAYMENT.qualifyingWeek}. It shows as WHP on your statement.`,
+      source: WINTER_HEATING_PAYMENT.source,
+    },
+    toc: [
+      { id: "who", label: "Who gets it" },
+      { id: "when", label: "When it's paid" },
+      { id: "allowance", label: "Winter heating allowance" },
+    ],
+    faq: [
+      {
+        q: "Do I need to apply for Winter Heating Payment?",
+        a: "No. It's paid automatically if you get a qualifying benefit during the qualifying week. You can send a request if you think you've been missed.",
+      },
+      {
+        q: "Does Winter Heating Payment depend on the weather?",
+        a: "No. Unlike the old Cold Weather Payment, it's a single payment every winter however cold it gets.",
+      },
+    ],
+    sourceIds: ["sss-winter-heating"],
+  },
+  {
+    slug: "social-security-scotland-payment-dates",
+    title: "Social security Scotland payment dates for 2026",
+    seoTitle: "Social Security Scotland Payment Dates 2026 Including Christmas",
+    description:
+      "Social Security Scotland payment dates over Christmas 2026: payments due 24 to 28 December come on 23 December. Every bank holiday change to 2028.",
+    standfirst:
+      "When a payment date falls on a bank holiday you're paid early. That helps before Christmas and hurts in January.",
+    date: "2026-10-29",
+    category: "money-and-bills",
+    tags: ["Payment dates", "Social Security Scotland", "Christmas", "Benefits"],
+    readingMinutes: 3,
+    quickAnswer: {
+      label: "Social Security Scotland Christmas payment dates",
+      value: "23 December",
+      detail: "Payments due on 24, 25 or 28 December 2026 are paid on Wednesday 23 December. Payments due on 1 or 4 January 2027 are paid on Thursday 31 December.",
+      rows: [
+        { label: "Due 24, 25 or 28 December", value: "Paid Wednesday 23 December" },
+        { label: "Due 1 or 4 January", value: "Paid Thursday 31 December" },
+        { label: "Best Start Foods", value: "Not affected" },
+      ],
+      asOf: "Christmas 2026",
+      source: BANK_HOLIDAY_SOURCE,
+    },
+    toc: [
+      { id: "christmas", label: "Christmas 2026" },
+      { id: "all", label: "Every bank holiday change" },
+      { id: "normal", label: "Your normal payment date" },
+    ],
+    faq: [
+      {
+        q: "Will my Social Security Scotland payment be early at Christmas?",
+        a: "Yes, if it's due on a bank holiday. Payments due from 24 to 28 December 2026 come on 23 December, and those due on 1 or 4 January 2027 come on 31 December.",
+      },
+      {
+        q: "Which benefits do the bank holiday dates cover?",
+        a: "Adult Disability Payment, Carer Support Payment, Child Disability Payment, Pension Age Disability Payment, Scottish Child Payment and Scottish Adult DLA. Best Start Foods is not affected.",
+      },
+    ],
+    sourceIds: ["sss-bank-holiday-dates"],
+  },
+  {
+    slug: "young-carers-allowance-scotland",
+    title: "Young carers allowance in Scotland: the Young Carer Grant",
+    seoTitle: "Young Carers Allowance Scotland: The Young Carer Grant Explained",
+    description:
+      "Scotland's young carers allowance is the Young Carer Grant: £405.10 a year for carers aged 16 to 19 who care 16 hours a week. Who qualifies and how to apply.",
+    standfirst:
+      "A yearly payment for 16 to 19 year olds who look after someone. Spend it on whatever you like.",
+    date: "2026-10-29",
+    category: "money-and-bills",
+    tags: ["Young Carer Grant", "Young carers", "Carers", "Social Security Scotland"],
+    readingMinutes: 3,
+    quickAnswer: {
+      label: "Young Carer Grant",
+      value: pounds(YOUNG_CARER_GRANT.yearly, true),
+      unit: "once a year",
+      detail: "For carers aged 16 to 19 in Scotland who have cared an average of 16 hours a week for the last three months. You can claim every year until you turn 20.",
+      source: YOUNG_CARER_GRANT.source,
+    },
+    toc: [
+      { id: "who", label: "Who can get it" },
+      { id: "how-often", label: "How often you can claim" },
+      { id: "spend", label: "What you can spend it on" },
+      { id: "apply", label: "How to apply" },
+    ],
+    faq: [
+      {
+        q: "Is there a Young Carers Allowance in Scotland?",
+        a: "Not by that name. The payment for young carers in Scotland is the Young Carer Grant, £405.10 once a year for 16 to 19 year olds.",
+      },
+      {
+        q: "Can I get the Young Carer Grant and Carer Support Payment?",
+        a: "Not at the same time. If you care 35 hours a week or more, get the Young Carer Grant first, then apply for Carer Support Payment.",
+      },
+    ],
+    sourceIds: ["sss-young-carer-grant"],
+  },
+  {
+    slug: "crisis-grant-phone-number",
+    title: "Crisis grant phone number: every council in Scotland",
+    seoTitle: "Crisis Grant Phone Number for Every Scottish Council",
+    description:
+      "The crisis grant phone number for all 32 Scottish councils, with opening hours and option numbers, checked against each council's own Scottish Welfare Fund page.",
+    standfirst:
+      "There is no national number. You ring the council where you live, and here is every one of them.",
+    date: "2026-10-29",
+    category: "money-and-bills",
+    tags: ["Crisis Grant", "Scottish Welfare Fund", "Phone numbers", "Emergency help"],
+    readingMinutes: 4,
+    quickAnswer: {
+      label: "Crisis grant phone number",
+      value: "Your council",
+      detail: "Crisis grants come from your council's Scottish Welfare Fund, so the number depends on where you live. The table below has all 32.",
+      rows: [
+        { label: "Glasgow", value: "0141 276 1177, option 1" },
+        { label: "Edinburgh", value: "0131 529 5299" },
+        { label: "North Lanarkshire", value: "0300 555 0405" },
+        { label: "South Lanarkshire", value: "0800 952 0448" },
+      ],
+      asOf: "Checked 29 October 2026",
+      source: { publisher: "Council websites", url: "https://www.mygov.scot/scottish-welfare-fund/crisis-grants" },
+    },
+    toc: [
+      { id: "numbers", label: "Every council's number" },
+      { id: "before", label: "Before you call" },
+      { id: "what", label: "What a crisis grant is" },
+    ],
+    faq: [
+      {
+        q: "Is there one phone number for crisis grants in Scotland?",
+        a: "No. Each council runs its own Scottish Welfare Fund, so you call the council where you live. The Scottish Government doesn't take applications.",
+      },
+      {
+        q: "How quickly will I hear about a crisis grant?",
+        a: "Councils aim to decide a crisis grant by the end of the next working day.",
+      },
+    ],
+    sourceIds: ["scottish-welfare-fund"],
   },
 ];
 

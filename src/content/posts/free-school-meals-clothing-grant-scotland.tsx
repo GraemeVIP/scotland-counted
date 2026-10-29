@@ -5,7 +5,7 @@ export default function Post() {
   return (
     <Prose>
       <Lead>
-        Scotland has universal free lunches for younger primary pupils, benefit-based meals for
+        Scotland has universal free lunches for younger primary pupils, benefit based meals for
         many older children, and a separate cash grant for school clothes. The help can overlap,
         but some of it still has to be claimed.
       </Lead>
@@ -17,7 +17,7 @@ export default function Post() {
         <LI>Eligible children in funded early learning and childcare get a meal on attendance days.</LI>
       </UL>
       <P>
-        These universal meals do not depend on family income. Independent-school and home-educated
+        These universal meals do not depend on family income. Independent school and home educated
         children are not included in the universal offer.
       </P>
 
@@ -25,11 +25,11 @@ export default function Post() {
       <P>
         In primary 6 and 7, a child can qualify when the family gets Scottish Child Payment or
         another listed benefit. In secondary school, the family usually qualifies through a listed
-        benefit or a low Universal Credit earned-income figure.
+        benefit or a low Universal Credit earned income figure.
       </P>
       <Aside title="Register even when a younger child's lunch is already free">
         <p>
-          Benefit-based registration can unlock help in school holidays and other support. Do not
+          Benefit based registration can unlock help in school holidays and other support. Do not
           assume the universal P1-to-P5 meal has registered the family for everything else.
         </p>
       </Aside>
@@ -53,12 +53,12 @@ export default function Post() {
 
       <H2 id="holidays">Help in school holidays</H2>
       <P>
-        Families who qualify for benefit-based free school meals may also get council support in
+        Families who qualify for benefit based free school meals may also get council support in
         the summer, Christmas, Easter and shorter holidays. Depending on the council, this may be a
         cash payment, food voucher or another local arrangement.
       </P>
       <P>
-        Holiday-help income rules are not always identical to the term-time meal rules. Check the
+        Holiday help income rules are not always identical to the term time meal rules. Check the
         local page instead of assuming one award automatically triggers the other.
       </P>
 
@@ -78,7 +78,7 @@ export default function Post() {
 
       <PostCTA
         title="Find the council application"
-        body="Start with your council area. The official sources below contain every local free-meal and clothing-grant link."
+        body="Start with your council area. The official sources below contain every local free meal and clothing grant link."
         href="/areas"
         cta="Find my council"
       />

@@ -35,7 +35,7 @@ export const explainerVideo: SiteVideo = {
   duration: "PT4M22S",
 };
 
-/** The argument about where the money went. Lives on the cost-of-living post. */
+/** The argument about where the money went. Lives on the cost of living post. */
 export const costOfLivingVideo: SiteVideo = {
   youtubeId: "_TDU9rTLp3E",
   name: "Cost Of Living Explained - The Truth",

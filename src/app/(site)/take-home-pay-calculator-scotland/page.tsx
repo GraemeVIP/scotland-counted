@@ -13,7 +13,7 @@ import { ExplainText } from "@/components/Glossary";
 export const metadata = meta({
   title: "Take Home Pay Calculator Scotland 2026/27",
   description:
-    "Calculate take-home pay with Scotland's 2026/27 tax bands. Enter a salary or hourly wage, then include pension and student-loan deductions.",
+    "Calculate take home pay with Scotland's 2026/27 tax bands. Enter a salary or hourly wage, then include pension and student loan deductions.",
   path: "/take-home-pay-calculator-scotland",
   type: "website",
 });
@@ -26,14 +26,14 @@ const pounds = new Intl.NumberFormat("en-GB", {
 
 const FAQ = [
   {
-    q: "How much is take-home pay on minimum wage in Scotland?",
+    q: "How much is take home pay on minimum wage in Scotland?",
     a: `At £${minimumWage.hourly} an hour for ${minimumWage.hours} hours a week, gross pay is about ${pounds.format(
       minimumWage.annualGross
     )} a year. After Scottish income tax of about ${pounds.format(
       minimumWageTakeHome.tax
     )} and National Insurance of about ${pounds.format(
       minimumWageTakeHome.ni
-    )}, take-home is roughly ${pounds.format(minimumWageTakeHome.annual)} a year, or ${pounds.format(
+    )}, take home is roughly ${pounds.format(minimumWageTakeHome.annual)} a year, or ${pounds.format(
       minimumWageTakeHome.monthly
     )} a month.`,
   },
@@ -47,15 +47,15 @@ const FAQ = [
   },
   {
     q: "Is National Insurance different in Scotland?",
-    a: "No. Income tax is set by the Scottish Parliament, but National Insurance is set UK-wide. It is 8% of pay between £12,570 and £50,270, then 2% above that, wherever you live.",
+    a: "No. Income tax is set by the Scottish Parliament, but National Insurance is set UK wide. It is 8% of pay between £12,570 and £50,270, then 2% above that, wherever you live.",
   },
   {
-    q: "Can I work out the salary I need for a certain take-home?",
-    a: "Yes. Choose 'Know your take-home? Work backwards', enter the amount you need per month or per year, and the calculator solves for the gross salary that produces it, including any pension and student loan you have set.",
+    q: "Can I work out the salary I need for a certain take home?",
+    a: "Yes. Choose 'Know your take home? Work backwards', enter the amount you need per month or per year, and the calculator solves for the gross salary that produces it, including any pension and student loan you have set.",
   },
   {
     q: "Does it handle student loans and pensions?",
-    a: "Yes. Student loan Plans 1, 2, 4 and 5, postgraduate loans, and a postgraduate loan running alongside a numbered plan. Net-pay and salary-sacrifice pensions can be a percentage or a fixed amount under More options. Relief-at-source pensions and emergency W1/M1/X tax codes are not supported, because their extra relief or pay-period rules need a different calculation.",
+    a: "Yes. Student loan Plans 1, 2, 4 and 5, postgraduate loans, and a postgraduate loan running alongside a numbered plan. Net pay and salary sacrifice pensions can be a percentage or a fixed amount under More options. Relief at source pensions and emergency W1/M1/X tax codes are not supported, because their extra relief or pay period rules need a different calculation.",
   },
 ];
 
@@ -120,7 +120,7 @@ export default function TakeHomePayCalculator() {
           />
           <p className="mt-6 text-[18px] leading-[1.6] text-[var(--ink-2)] max-w-[62ch]">
             Every salary calculator gives you a figure and stops. What matters is whether the figure
-            covers rent, council tax, energy and food where you live. On full-time minimum wage in
+            covers rent, council tax, energy and food where you live. On full time minimum wage in
             Glasgow it does not, and I show the whole household budget rather than asserting it.
           </p>
 
@@ -149,7 +149,7 @@ export default function TakeHomePayCalculator() {
           </div>
 
           <p className="mt-7 text-[18px] leading-[1.6] text-[var(--ink-2)] max-w-[66ch]">
-            The first of those is full-time work at the legal minimum.{" "}
+            The first of those is full time work at the legal minimum.{" "}
             <Link href="/indicators/glasgow-full-time-pay">
               See what is left of it after rent, council tax, energy and food
             </Link>{" "}
@@ -188,7 +188,7 @@ export default function TakeHomePayCalculator() {
           </div>
           <p className="mt-6 max-w-[70ch] text-[15px] leading-[1.6] text-[var(--muted)]">
             The tax maths behind this page is a single tested module, and it is the same one that
-            produces the take-home figures quoted elsewhere on this site, so the calculator and the
+            produces the take home figures quoted elsewhere on this site, so the calculator and the
             written pages can never disagree.
           </p>
         </ContentFrame>

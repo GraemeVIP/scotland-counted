@@ -96,14 +96,14 @@ export default async function MspReviewPage({ params }: { params: Promise<{ slug
                 ))}
               </div>
             ) : (
-              <div className="rounded-[var(--r-m)] border border-dashed border-[var(--rule-strong)] bg-[var(--surface-2)] p-7"><p className="text-[16px] leading-[1.6] text-[var(--ink-2)]">There is nothing to publish here yet. Empty pages do not receive a made-up zero rating and no aggregate-rating markup is emitted until at least one approved review is visible.</p></div>
+              <div className="rounded-[var(--r-m)] border border-dashed border-[var(--rule-strong)] bg-[var(--surface-2)] p-7"><p className="text-[16px] leading-[1.6] text-[var(--ink-2)]">There is nothing to publish here yet. Empty pages do not receive a made up zero rating and no aggregate-rating markup is emitted until at least one approved review is visible.</p></div>
             )}
           </section>
 
           <section id="leave-review" className="pt-16 sm:pt-20 scroll-mt-28">
             <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-start">
               <div><p className="kicker mb-3 text-[var(--action-text)]">Add your experience</p><h2 className="h2 mb-3">Review {profile.msp.name}</h2><p className="ui mb-6 text-[15px] font-[580] text-[var(--ink)]">No account needed. Email is optional. Nothing goes live without review.</p><MspReviewForm msps={options} initialSlug={profile.slug} latestInteractionMonth={latestInteractionMonth} /></div>
-              <aside className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] p-6"><h2 className="h3 mb-3">Before you submit</h2><p className="text-[15.5px] leading-[1.6] text-[var(--ink-2)]">Keep documents and identifying case details private. Email is requested only if you opt into a possible follow-up. Nothing appears automatically.</p><p className="mt-5 border-t border-[var(--rule)] pt-5 text-[15px] leading-[1.55] text-[var(--ink-2)]">Need an official misconduct decision? <a href="https://www.parliament.scot/msps/complain-about-an-msp" target="_blank" rel="noopener noreferrer" className="font-[580] text-[var(--brand)]">Use the Scottish Parliament&apos;s complaint process ↗</a></p></aside>
+              <aside className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] p-6"><h2 className="h3 mb-3">Before you submit</h2><p className="text-[15.5px] leading-[1.6] text-[var(--ink-2)]">Keep documents and identifying case details private. Email is requested only if you opt into a possible follow up. Nothing appears automatically.</p><p className="mt-5 border-t border-[var(--rule)] pt-5 text-[15px] leading-[1.55] text-[var(--ink-2)]">Need an official misconduct decision? <a href="https://www.parliament.scot/msps/complain-about-an-msp" target="_blank" rel="noopener noreferrer" className="font-[580] text-[var(--brand)]">Use the Scottish Parliament&apos;s complaint process ↗</a></p></aside>
             </div>
           </section>
 

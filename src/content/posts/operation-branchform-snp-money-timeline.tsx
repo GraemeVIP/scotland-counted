@@ -49,7 +49,7 @@ export default function Post() {
       <Lead>
         Peter Murrell stole £400,310.65 from the Scottish National Party. Nicola Sturgeon and
         Colin Beattie were investigated but not charged. This Operation Branchform timeline is
-        the complete, source-linked story of how questions about referendum donations became a
+        the complete, sourced story of how questions about referendum donations became a
         court case, and what remains unfinished.
       </Lead>
 
@@ -66,7 +66,7 @@ export default function Post() {
       <H2 id="short-answer">The whole story in one minute</H2>
       <P>
         Supporters gave the SNP money in appeals for another independence referendum. The party
-        first described the receipts as <strong>ring-fenced</strong>, then explained that the
+        first described the receipts as <strong>ring fenced</strong>, then explained that the
         money was pooled with its normal cash and tracked as an internal commitment. Concern
         about that gap between ordinary expectations and the accounting treatment led to police
         complaints in 2021.
@@ -136,7 +136,7 @@ export default function Post() {
               <G t="embezzled">Embezzled</G> by Murrell
             </p>
             <p className="mt-2 text-[16px] leading-[1.55] text-[var(--ink-2)]">
-              This is the final court-proved amount taken from the party&apos;s principal account
+              This is the final court proved amount taken from the party&apos;s principal account
               over more than 12 years.
             </p>
           </div>
@@ -157,9 +157,9 @@ export default function Post() {
         </div>
       </div>
 
-      <H3>“Ring-fenced” did not mean a separate bank account</H3>
+      <H3>“Ring fenced” did not mean a separate bank account</H3>
       <P>
-        In 2017 the SNP publicly said appeal money was ring-fenced. In October 2020, treasurer
+        In 2017 the SNP publicly said appeal money was ring fenced. In October 2020, treasurer
         Colin Beattie said £593,501 could be deployed “instantaneously”, even though it was woven
         through the party&apos;s general income. The 2020 accounts later said there was no
         separate fund: donor wishes were recorded internally and the commitment would be met from
@@ -170,8 +170,8 @@ export default function Post() {
           The original cash was mixed with the party&apos;s other money. The SNP kept an internal
           tally of what supporters wanted it used for and said it would spend an equivalent amount
           on independence work later. That can produce an earmarked promise larger than the cash
-          physically in the bank. It also explains why donors questioned whether “ring-fenced” was
-          the right ordinary-language description.
+          physically in the bank. It also explains why donors questioned whether “ring fenced” was
+          the right ordinary language description.
         </p>
       </Aside>
 
@@ -183,7 +183,7 @@ export default function Post() {
       </P>
       <P>
         Use the labels as an evidence key. “Established in court” is admitted fact. “Officially
-        confirmed” is a police, court, regulator, government or filed-account record. “Reported
+        confirmed” is a police, court, regulator, government or filed account record. “Reported
         at the time” is attributed contemporary reporting. “Allegation at that stage” was not yet
         proved. “Context” must not be treated as evidence of guilt.
       </P>
@@ -270,7 +270,7 @@ export default function Post() {
           ["2", "Formal inquiry", "Police opened the investigation in July 2021 and followed the money beyond the original complaints."],
           ["3", "Warrants and arrests", "A sheriff approved warrants in April 2023. Police searched addresses, seized material and arrested Murrell, Beattie and Sturgeon at different times."],
           ["4", "Different routes", "Murrell was charged. Sturgeon and Beattie were not reported for prosecution; police instead asked prosecutors for advice about whether more inquiry was needed."],
-          ["5", "Independent prosecution review", "Prosecutors assessed 516 witness statements, tens of thousands of files and a 542-page report. A second independent senior lawyer checked the key decisions and agreed."],
+          ["5", "Independent prosecution review", "Prosecutors assessed 516 witness statements, tens of thousands of files and a 542 page report. A second independent senior lawyer checked the key decisions and agreed."],
           ["6", "Plea and sentence", "Murrell pleaded guilty in May 2026. The agreed facts were read in June and he was sentenced later that month."],
         ].map(([number, title, body]) => (
           <div
@@ -322,8 +322,8 @@ export default function Post() {
         </LI>
       </UL>
       <P>
-        Parliamentary bodies are also discussing broader scrutiny of political-party finance.
-        Holyrood voted for an independently led, all-party review, while the Commons Scottish
+        Parliamentary bodies are also discussing broader scrutiny of political party finance.
+        Holyrood voted for an independently led, all party review, while the Commons Scottish
         Affairs Committee approached Holyrood committees about possible joint work. Neither
         announcement should be described as a completed inquiry.
       </P>

@@ -61,7 +61,7 @@ export type LetterTopic = {
   heading: string;
   /** Hint shown when this is the only subject ticked. */
   prompt: string;
-  /** Quote the local child-poverty figures when this subject is selected. */
+  /** Quote the local child poverty figures when this subject is selected. */
   useLocalEvidence?: boolean;
   asks?: Ask[];
 };
@@ -127,7 +127,7 @@ export const LETTER_TOPICS: LetterTopic[] = [
   {
     id: "low-pay",
     label: "Pay, hours or insecure work",
-    blurb: "Full-time work that still does not cover the basics.",
+    blurb: "Full time work that still does not cover the basics.",
     who: "MP",
     whyWho:
       "Your MP. The minimum wage, employment law and zero-hours contracts are all decided at Westminster, not Holyrood.",

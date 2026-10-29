@@ -28,8 +28,8 @@ const REASONS = [
   {
     id: "thanks",
     label: "Just say thanks",
-    subject: "A thank-you",
-    hint: "Even a quick thank-you is lovely to receive. If you like, tell me which bit helped.",
+    subject: "A thank you",
+    hint: "Even a quick thank you is lovely to receive. If you like, tell me which bit helped.",
   },
   {
     id: "question",

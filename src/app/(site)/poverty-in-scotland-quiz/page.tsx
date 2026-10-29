@@ -8,7 +8,7 @@ import Quiz from "@/components/Quiz";
 export const metadata = meta({
   title: "Poverty in Scotland Quiz: Guess the Real Figures",
   description:
-    "Take a six-question poverty quiz using real Scottish figures on child poverty, wages, council tax and living costs. Most people guess wrong.",
+    "Take a six question poverty quiz using real Scottish figures on child poverty, wages, council tax and living costs. Most people guess wrong.",
   path: "/poverty-in-scotland-quiz",
   type: "website",
 });

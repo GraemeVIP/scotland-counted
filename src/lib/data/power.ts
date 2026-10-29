@@ -48,7 +48,7 @@ export const whatHappens: Array<{
     title: "They should write back",
     body: "You live in their area, so they deal with your case. It can take a few weeks, and the reply is sometimes a standard letter. That is still a reply, and it is still on paper.",
     detail:
-      "Answering constituents is a long-standing expectation of the job rather than a law. What it means in practice is that ignoring a constituent is a choice an office has to make deliberately.",
+      "Answering constituents is a long standing expectation of the job rather than a law. What it means in practice is that ignoring a constituent is a choice an office has to make deliberately.",
   },
   {
     step: "3",
@@ -75,7 +75,7 @@ export const paperTrail = {
   plain:
     "An MP can put a formal written question to the government. A minister has to answer it, and both the question and the answer are published where anyone can read them, forever.",
   convention:
-    "The expectation is an answer within about seven days. That is a long-standing convention rather than a hard rule.",
+    "The expectation is an answer within about seven days. That is a long standing convention rather than a hard rule.",
   why: "This is what a paper trail means. It is not a phone call nobody remembers. It is a permanent public record with a date on it.",
   sourceIds: ["written-questions", "hansard"],
 };

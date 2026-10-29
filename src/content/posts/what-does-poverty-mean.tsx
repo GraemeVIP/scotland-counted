@@ -123,7 +123,7 @@ export default function Post() {
       </P>
 
       <P>
-        The full definitions are in the <Link href="/glossary">plain-English glossary</Link>, and
+        The full definitions are in the <Link href="/glossary">plain English glossary</Link>, and
         the exact method is on the <Link href="/methods">methods page</Link>.
       </P>
     </Prose>

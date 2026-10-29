@@ -27,7 +27,7 @@ const evidenceGroups = [
       "Satisfaction with local schools",
       "Satisfaction with culture and leisure",
       "Satisfaction with bins and street cleaning",
-      "Adult-care users' and carers' experience",
+      "Adult care users' and carers' experience",
     ],
   },
   {
@@ -36,13 +36,13 @@ const evidenceGroups = [
       "Positive destinations after school",
       "Primary literacy and numeracy",
       "Attainment gaps",
-      "Early-years quality",
+      "Early years quality",
       "Attendance and exclusions",
-      "Stability for looked-after children",
+      "Stability for looked after children",
       "Street cleanliness",
       "Road condition",
       "Recycling",
-      "Adult-care quality",
+      "Adult care quality",
       "Readmissions and delayed discharge",
     ],
   },
@@ -51,7 +51,7 @@ const evidenceGroups = [
     items: [
       "Council gender pay gap",
       "Staff sickness absence",
-      "Council-tax collection and invoice payment",
+      "Council tax collection and invoice payment",
       "Planning speed",
       "Condition and suitability of council buildings",
       "Spending close to budget",
@@ -113,13 +113,13 @@ const downloads = [
   },
   {
     href: "/data/scottish-council-resident-verdict-2024.csv",
-    title: "Residents' five-question verdict",
-    note: "All five published perception estimates, their equal-weight average, rank and local survey base",
+    title: "Residents' five question verdict",
+    note: "All five published perception estimates, their equal weight average, rank and local survey base",
   },
   {
     href: "/data/scottish-council-landlord-index-2026.csv",
     title: "Council landlord comparison",
-    note: "Four housing-management measures across the 26 councils with comparable housing stock",
+    note: "Four housing management measures across the 26 councils with comparable housing stock",
   },
   {
     href: "/data/scottish-council-performance-indicator-audit-2026.csv",
@@ -254,7 +254,7 @@ function PeerMovements() {
     <figure className="not-prose my-8 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5 sm:p-7">
       <div className="border-b border-[var(--rule)] pb-4">
         <p className="ui text-[15px] font-[620] text-[var(--brand)]">All councils → similar councils</p>
-        <h3 className="mt-1 text-[24px] font-[620] leading-[1.25]">What changes in a fairer match-up?</h3>
+        <h3 className="mt-1 text-[24px] font-[620] leading-[1.25]">What changes in a fairer match up?</h3>
       </div>
       <div className="mt-5 grid gap-3 sm:grid-cols-2">
         {rows.map((row) => {
@@ -312,7 +312,7 @@ export default function Post() {
       </Lead>
 
       <P>
-        But there is no single meaning of &quot;best&quot;. Shetland&apos;s residents rate their council highest. North Ayrshire is best for how the council is run and comes first in our separate council-landlord list. Inverclyde jumps from 12th to third when it is compared with councils facing similar problems.
+        But there is no single meaning of &quot;best&quot;. Shetland&apos;s residents rate their council highest. North Ayrshire is best for how the council is run and comes first in our separate council landlord list. Inverclyde jumps from 12th to third when it is compared with councils facing similar problems.
       </P>
 
       <H2 id="answer">The answer in four numbers</H2>
@@ -322,7 +322,7 @@ export default function Post() {
           { value: "#1", label: winner.name, note: `${winner.overallScore.toFixed(1)} comparison score · #1 for services and results` },
           { value: "94.5%", label: "stayed in the top five", note: "when we changed the rules 10,000 sensible ways" },
           { value: `${headlineMeasureCount}`, label: "official figures checked", note: `put into ${evidenceFamilyCount} topics so no one service can take over the score` },
-          { value: "32", label: "councils compared", note: "with a like-for-like rank and usual rank range for every one" },
+          { value: "32", label: "councils compared", note: "with a like for like rank and usual rank range for every one" },
         ].map((stat) => (
           <div key={stat.label} className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5">
             <p className="display-stat tnum text-[40px] leading-none text-[var(--action)]">{stat.value}</p>
@@ -408,18 +408,18 @@ export default function Post() {
 
       <H2 id="peer-groups">Who does well against councils like them?</H2>
       <P>
-        Councils do not all face the same job. The like-for-like list compares each one with an official group facing similar poverty levels, population and rural challenges. East Renfrewshire and East Lothian stay first and second. Inverclyde jumps from 12th to third.
+        Councils do not all face the same job. The like for like list compares each one with an official group facing similar poverty levels, population and rural challenges. East Renfrewshire and East Lothian stay first and second. Inverclyde jumps from 12th to third.
       </P>
 
       <PeerMovements />
 
       <P>
-        This is where easy assumptions fall apart. West Dunbartonshire and North Ayrshire also jump up the list. Perth and Kinross falls from sixth to 21st. East Dunbartonshire falls from fourth to 12th. The like-for-like list is not the one &quot;true&quot; answer. It shows how much the choice of comparison matters.
+        This is where easy assumptions fall apart. West Dunbartonshire and North Ayrshire also jump up the list. Perth and Kinross falls from sixth to 21st. East Dunbartonshire falls from fourth to 12th. The like for like list is not the one &quot;true&quot; answer. It shows how much the choice of comparison matters.
       </P>
 
       <H2 id="residents">Residents do not always agree with the figures</H2>
       <P>
-        Shetland comes first for what residents said in our main score. It also wins the separate five-question survey list. Its average is 52.1% across questions about good services, value for money, action, influence and respectful treatment. Perth and Kinross is second at 45.5%.
+        Shetland comes first for what residents said in our main score. It also wins the separate five question survey list. Its average is 52.1% across questions about good services, value for money, action, influence and respectful treatment. Perth and Kinross is second at 45.5%.
       </P>
       <P>
         East Renfrewshire is only eighth in that survey list, even though it wins overall. The two lists only partly match. Official figures miss things people feel every day, such as trust, tone and how easy it is to get help. And with only a few hundred answers in each area, small gaps may be down to chance.
@@ -442,7 +442,7 @@ export default function Post() {
 
       <Aside title="Do not make too much of tiny survey gaps">
         <p>
-          Between roughly 200 and 870 people answered in each council area. A one or two-point gap may be chance. We show the published figures and the number of people who answered. We do not pretend every tiny gap is real.
+          Between roughly 200 and 870 people answered in each council area. A one or two point gap may be chance. We show the published figures and the number of people who answered. We do not pretend every tiny gap is real.
         </p>
       </Aside>
 
@@ -524,7 +524,7 @@ export default function Post() {
 
       <H3>We show the year for every figure</H3>
       <P>
-        Most figures are for 2024/25. The latest adult-care and road figures are for 2025/26. Some satisfaction figures combine more than one year of survey answers. The download shows the date beside every number.
+        Most figures are for 2024/25. The latest adult care and road figures are for 2025/26. Some satisfaction figures combine more than one year of survey answers. The download shows the date beside every number.
       </P>
 
       <details className="not-prose my-8 overflow-hidden rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)]">

@@ -53,7 +53,7 @@ export default async function HolyroodConstituencyPage({
     },
     {
       q: `How do I contact ${record.msp.name}?`,
-      a: `You can email ${record.msp.name} at ${record.msp.email}. This page also links to their official Scottish Parliament profile and opens a ready-written email in your own email app.`,
+      a: `You can email ${record.msp.name} at ${record.msp.email}. This page also links to their official Scottish Parliament profile and opens a ready written email in your own email app.`,
     },
     {
       q: `How many MSPs represent someone in ${record.constituency}?`,

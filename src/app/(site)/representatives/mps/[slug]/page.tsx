@@ -223,7 +223,7 @@ export default async function MpPage({ params }: { params: Promise<{ slug: strin
 
                 <div className="mt-7 flex flex-col sm:flex-row gap-3">
                   <a href={preparedEmail} className="btn btn-primary justify-center text-center">
-                    Open a ready-written email
+                    Open a ready written email
                   </a>
                   <a href={mp.profileUrl} className="btn btn-ghost justify-center text-center">
                     Official Parliament profile
@@ -290,7 +290,7 @@ export default async function MpPage({ params }: { params: Promise<{ slug: strin
               is used so the page remains dependable when the official site is busy.
             </p>
             <p className="mt-4 text-[15px] leading-[1.55] text-[var(--ink-2)]">
-              MPs can change after an election, resignation or by-election. If this record is out
+              MPs can change after an election, resignation or by election. If this record is out
               of date, <Link href="/contact">tell me and I will check it</Link>.
             </p>
             <EvidenceDetails className="mt-6" summary="See the exact official data source">

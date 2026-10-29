@@ -68,7 +68,7 @@ export default function Browse() {
                     Browse all 57 MPs →
                   </span>
                   <span className="mt-1 block text-[15px] text-[var(--ink-2)]">
-                    Names, parties, contacts and ready-written emails.
+                    Names, parties, contacts and ready written emails.
                   </span>
                 </Link>
                 <Link
@@ -142,7 +142,7 @@ export default function Browse() {
             <h2 className="h2 mb-2">Your council area</h2>
             <p className="text-[17px] text-[var(--ink-2)] leading-[1.6] max-w-[62ch] mb-5">
               All {councils.length} council areas in Scotland, worst rate first. Each page has ten
-              years of figures for child poverty and out-of-work benefits, plus minimum-wage context
+              years of figures for child poverty and out of work benefits, plus minimum wage context
               and a clearly restricted ONS pay estimate.
             </p>
             <div className="flex flex-wrap gap-2">
@@ -207,7 +207,7 @@ export default function Browse() {
         <section className="pt-12">
           <h2 className="h2 mb-2">Explainers</h2>
           <p className="text-[17px] text-[var(--ink-2)] leading-[1.6] max-w-[62ch] mb-5">
-            Short, plain-English answers to the questions people ask most.
+            Short, plain English answers to the questions people ask most.
           </p>
           <ul className="space-y-2.5 max-w-[760px]">
             {posts.map((p) => (

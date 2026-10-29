@@ -17,7 +17,7 @@ import { ExplainText } from "@/components/Glossary";
 const COUNCIL_JOBS = [
   "Council houses, repairs and damp",
   "Homelessness applications and temporary accommodation",
-  "Bins, recycling and fly-tipping",
+  "Bins, recycling and fly tipping",
   "Local roads, pavements and street lighting",
   "Schools, school places and catchment",
   "Social care and care at home",

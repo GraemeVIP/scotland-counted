@@ -50,7 +50,7 @@ const RULES: Rule[] = [
     explain: {
       kind: "First big vote on a new law",
       plain:
-        "The first yes-or-no vote on a new law. Voting yes meant letting it move forward. Voting no meant trying to stop it early.",
+        "The first yes or no vote on a new law. Voting yes meant letting it move forward. Voting no meant trying to stop it early.",
     },
   },
   {
@@ -127,7 +127,7 @@ const RULES: Rule[] = [
     explain: {
       kind: "First big vote on a new law",
       plain:
-        "The first yes-or-no vote on a new Scottish law. Voting yes meant letting it move forward.",
+        "The first yes or no vote on a new Scottish law. Voting yes meant letting it move forward.",
     },
   },
   {
@@ -168,21 +168,21 @@ export const SUBSTANCE: Array<{ match: RegExp; what: string; example?: string }>
   // Source: this site's own sourced vote round-up (votes.ts).
   {
     match: /universal credit \(removal of two child limit\)/i,
-    what: "The two-child limit stopped families getting the usual benefit support for a third or later child. This bill removed it.",
+    what: "The two child limit stopped families getting the usual benefit support for a third or later child. This bill removed it.",
     example:
       "A family with three children on Universal Credit now gets help for all three, not just the first two.",
   },
   // Source: bills.parliament.uk/bills/4254; Amnesty UK second reading briefing.
   {
     match: /immigration and asylum bill/i,
-    what: "A new law to make it easier to refuse and deport people who ask for asylum. It limits appeals based on the right to family life, and replaces immigration judges with a new type of decision-maker.",
+    what: "A new law to make it easier to refuse and deport people who ask for asylum. It limits appeals based on the right to family life, and replaces immigration judges with a new type of decision maker.",
     example:
       "Immigration rules are the same across the UK, so this applies in Scotland too. It passed this stage by 264 votes to 90.",
   },
   // Source: Commons Library CBP-10359 and CBP-10424 (Hillsborough Law).
   {
     match: /public office \(accountability\) bill/i,
-    what: "Known as the Hillsborough Law. It makes public officials legally bound to tell the truth and help investigations after disasters and scandals, with real penalties for cover-ups. Bereaved families get their legal costs covered, like the authorities they face.",
+    what: "Known as the Hillsborough Law. It makes public officials legally bound to tell the truth and help investigations after disasters and scandals, with real penalties for cover ups. Bereaved families get their legal costs covered, like the authorities they face.",
     example:
       "After a disaster like Hillsborough or Grenfell, officials could not lawfully close ranks, and families would not face the state\u2019s lawyers alone.",
   },
@@ -196,21 +196,21 @@ export const SUBSTANCE: Array<{ match: RegExp; what: string; example?: string }>
   // Source: Commons Library CBP-10913.
   {
     match: /taxation \(energy and vehicles\) bill/i,
-    what: "A tax law brought in after energy prices jumped. It raises the windfall tax on electricity generators from 45% to 55%. It also raises the tax-free rate for people who drive for work, and pauses road tax for lorries for a year.",
+    what: "A tax law brought in after energy prices jumped. It raises the windfall tax on electricity generators from 45% to 55%. It also raises the tax free rate for people who drive for work, and pauses road tax for lorries for a year.",
     example:
-      "If you use your own car for your job, the tax-free amount your employer can pay you per mile goes up.",
+      "If you use your own car for your job, the tax free amount your employer can pay you per mile goes up.",
   },
   // Source: Commons order paper 7 Jul 2026; Commons Library CBP-10974.
   {
     match: /early release of prisoners/i,
-    what: "The Conservatives asked MPs to demand that people convicted of sexual offences be kept out of the new early-release rules for prisoners, brought in because prisons are full.",
+    what: "The Conservatives asked MPs to demand that people convicted of sexual offences be kept out of the new early release rules for prisoners, brought in because prisons are full.",
     example:
       "Those rules cover England and Wales, Scottish prisons follow separate Scottish rules. Your MP voted on it anyway.",
   },
   // Source: legislation.gov.uk ukdsi/2026/9780348284584; gov.uk draft Code of Practice.
   {
     match: /permissible means of voting|electronic and workplace ballots/i,
-    what: "Lets union members vote online, at their workplace, or by post in union ballots, including strike votes, which used to be post-only.",
+    what: "Lets union members vote online, at their workplace, or by post in union ballots, including strike votes, which used to be post only.",
     example:
       "A nurse voting on strike action could do it on her phone instead of waiting for a form in the post.",
   },
@@ -243,7 +243,7 @@ export const SUBSTANCE: Array<{ match: RegExp; what: string; example?: string }>
   // Source: legislation.gov.uk ukpga/2026/21; gov.uk education hub explainer.
   {
     match: /children.?s wellbeing and schools act/i,
-    what: "Tidy-up rules for a new schools law in England. New schools there no longer have to be academies, and councils get more say over them.",
+    what: "Tidy up rules for a new schools law in England. New schools there no longer have to be academies, and councils get more say over them.",
     example:
       "Schools in Scotland are not affected, education is run from Holyrood. Your MP still voted on it.",
   },

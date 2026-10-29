@@ -243,7 +243,7 @@ export default async function ConstituencyPage(props: { params: Promise<{ slug: 
           <p>
             A fair question is:{" "}
             <strong>
-              what do you expect this area&apos;s child-poverty figure to be in five years, and what
+              what do you expect this area&apos;s child poverty figure to be in five years, and what
               are you doing to bring it down?
             </strong>{" "}
             <Link href="#email-your-mp">I have already written that email for you.</Link>

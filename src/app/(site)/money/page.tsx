@@ -21,7 +21,7 @@ import Faq from "@/components/Faq";
 export const metadata = meta({
   title: "Your Money in Scotland: Pay, Council Tax and Bills",
   description:
-    "Work out your take-home pay on Scottish tax rates, check your council tax by band, and understand Universal Credit, rent help, energy and food costs in plain English.",
+    "Work out your take home pay on Scottish tax rates, check your council tax by band, and understand Universal Credit, rent help, energy and food costs in plain English.",
   path: "/money",
 });
 
@@ -32,7 +32,7 @@ const TASKS = [
     eyebrow: "Calculator",
     title: "Work out what I keep",
     body: "Scottish income tax, National Insurance, pension and student loan, worked out on the figures for this tax year. Nothing you type leaves your browser.",
-    meta: "Take-home pay",
+    meta: "Take home pay",
   },
   {
     href: "/council-tax-bands-scotland",
@@ -71,8 +71,8 @@ const GROUPS = [
     title: "Pay and wages",
     intro: "What you earn, what you keep, and how the two differ.",
     items: [
-      { href: "/take-home-pay-calculator-scotland", label: "Take-home pay calculator", blurb: "What you keep on Scottish tax rates" },
-      { href: "/minimum-wage-scotland", label: "Minimum wage in Scotland", blurb: "What full-time work at the legal minimum actually pays" },
+      { href: "/take-home-pay-calculator-scotland", label: "Take home pay calculator", blurb: "What you keep on Scottish tax rates" },
+      { href: "/minimum-wage-scotland", label: "Minimum wage in Scotland", blurb: "What full time work at the legal minimum actually pays" },
       { href: "/real-living-wage-scotland", label: "Real Living Wage versus minimum wage", blurb: "One is the law, one is voluntary. What separates them" },
       { href: "/blog/universal-credit-when-you-work-more-hours", label: "Universal Credit and extra hours", blurb: "Why more work does not always mean more money" },
     ],
@@ -113,7 +113,7 @@ const GROUPS = [
 
 const FAQ = [
   {
-    q: "Does the take-home pay calculator send my salary anywhere?",
+    q: "Does the take home pay calculator send my salary anywhere?",
     a: "No. It runs entirely in your browser. Nothing you type is sent to a server, stored or logged, and there is no account to create.",
   },
   {
@@ -141,7 +141,7 @@ export default function MoneyHub() {
         <PageHeader
           eyebrow="Your money"
           title="What you earn, what you keep and what it costs"
-          lede="Two calculators and a set of plain-English answers about pay, council tax, benefits and bills in Scotland. Everything you type into a calculator stays in your browser."
+          lede="Two calculators and a set of plain English answers about pay, council tax, benefits and bills in Scotland. Everything you type into a calculator stays in your browser."
         />
 
         <ContentFrame>

@@ -22,7 +22,7 @@ const TOOLS: Record<
     kicker: "Free tool",
     title: "What do you actually take home?",
     body: "Put in a salary or an hourly rate and see what reaches your account on Scotland's tax bands, or work backwards from the pay you need to live on.",
-    cta: "Open the take-home calculator",
+    cta: "Open the take home calculator",
   },
   "council-tax": {
     href: "/council-tax-bands-scotland",

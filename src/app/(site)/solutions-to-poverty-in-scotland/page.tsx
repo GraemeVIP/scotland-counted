@@ -60,7 +60,7 @@ const SCORE: { status: FixStatus; label: string; blurb: string }[] = [
   {
     status: "done",
     label: "Delivered",
-    blurb: "The two-child limit was finally scrapped in April 2026, nine years after it started.",
+    blurb: "The two child limit was finally scrapped in April 2026, nine years after it started.",
   },
   {
     status: "partial",
@@ -111,7 +111,7 @@ const FAQ = [
     a: "Not on its own. Three in four children in poverty live with someone who works. More Glaswegians found jobs while child poverty still rose. The research says families need enough money coming in as well as access to work.",
   },
   {
-    q: "What happened to the two-child limit?",
+    q: "What happened to the two child limit?",
     a: "From April 2017 to April 2026, families could not get normal benefit support for a third or later child. It hit larger families hardest, including many in Glasgow.",
   },
   {
@@ -278,7 +278,7 @@ export default function WhatWouldFixIt() {
             </p>
             <p className="text-[19px] sm:text-[21px] leading-[1.45] font-[540] max-w-[52ch]">
               The <G t="scp">Scottish Child Payment</G> is £28.20 per child per week, rising to £40
-              for under-ones from 2027.
+              for babies under one from 2027.
             </p>
             <p className="text-[16.5px] leading-[1.6] text-[var(--ink-2)] mt-3 max-w-[62ch]">
               It works. It is the main reason Scotland&apos;s line stayed flat while England&apos;s

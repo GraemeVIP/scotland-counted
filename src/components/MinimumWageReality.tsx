@@ -46,7 +46,7 @@ export default function MinimumWageReality({
           id="minimum-wage-reality"
           className="display-stat max-w-[20ch] text-[clamp(29px,3.5vw,44px)]"
         >
-          What full-time minimum wage actually pays
+          What full time minimum wage actually pays
         </Heading>
         <p className="mt-4 max-w-[68ch] text-[17px] leading-[1.6] text-[var(--ink-2)]">
           Minimum wage is an hourly rate, so there is no single yearly salary. For someone aged 21
@@ -75,7 +75,7 @@ export default function MinimumWageReality({
       </div>
 
       <div className="border-t border-[var(--rule)] bg-[var(--paper)] p-6 sm:p-8 lg:p-9">
-        <Subheading className="h3 mb-3">Full-time minimum wage can still leave people short</Subheading>
+        <Subheading className="h3 mb-3">Full time minimum wage can still leave people short</Subheading>
         <div className="max-w-[76ch] space-y-3 text-[16px] leading-[1.6] text-[var(--ink-2)]">
           <p>
             Research on the cost of a basic, decent life found that in 2025 a single adult working
@@ -85,7 +85,7 @@ export default function MinimumWageReality({
           </p>
           <p>
             The independently calculated <strong className="text-[var(--ink)]">real Living Wage is £14.10 an hour</strong>{" "}
-            outside London. It is based on living costs and is voluntary. On the same 37.5-hour
+            outside London. It is based on living costs and is voluntary. On the same 37.5 hour
             week it is {exactPounds.format(realLivingAnnual)} a year, {" "}
             <strong className="text-[var(--ink)]">{pounds.format(realLivingAnnual - legalAnnual)} more</strong>{" "}
             than today&apos;s legal minimum.
@@ -107,7 +107,7 @@ export default function MinimumWageReality({
             rel="noopener noreferrer"
             className="text-[var(--brand)] underline underline-offset-3"
           >
-            Read the minimum-income research ↗
+            Read the minimum income research ↗
           </a>
           <a
             href="https://www.livingwage.org.uk/faqs"

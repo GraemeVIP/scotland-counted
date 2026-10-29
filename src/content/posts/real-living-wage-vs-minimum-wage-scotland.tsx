@@ -37,7 +37,7 @@ export default function Post() {
       </P>
       <Aside title="The word “real” does not make it law">
         <p>
-          It distinguishes the cost-based Living Wage from the government’s legal rate with a
+          It distinguishes the cost based Living Wage from the government’s legal rate with a
           similar name. An accredited employer promises to pay it, but the legal minimum wage
           remains the floor that every employer must meet.
         </p>
@@ -55,7 +55,7 @@ export default function Post() {
       </P>
       <P>
         That does not solve every household budget. Rent, children, disability, travel and benefit
-        rules change what a household needs and keeps. It does show why a small-looking hourly gap
+        rules change what a household needs and keeps. It does show why a small looking hourly gap
         matters across a full year.
       </P>
 

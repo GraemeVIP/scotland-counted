@@ -6,7 +6,7 @@ export default function Post() {
     <Prose>
       <Lead>
         Universal Credit can be paid when you are unemployed, working a few hours or working full
-        time. There is no hours cut-off. The award changes with the take-home pay counted in each
+        time. There is no hours cutoff. The award changes with the take home pay counted in each
         monthly assessment period.
       </Lead>
 
@@ -51,7 +51,7 @@ export default function Post() {
 
       <H2 id="example">A simple example</H2>
       <P>
-        Suppose a parent gets housing help and has £1,000 of take-home earnings in the assessment
+        Suppose a parent gets housing help and has £1,000 of take home earnings in the assessment
         period. The first £427 is inside the work allowance. The remaining £573 is tapered:
         £573 × 55% = £315.15. The Universal Credit award is £315.15 lower than the maximum for that
         household.
@@ -81,7 +81,7 @@ export default function Post() {
 
       <PostCTA
         title="Ask why work leaves so little extra"
-        body="The Universal Credit taper and work-allowance rules are decided at Westminster. Enter your postcode and I find your MP, use your local evidence and prepare the email."
+        body="The Universal Credit taper and work allowance rules are decided at Westminster. Enter your postcode and I find your MP, use your local evidence and prepare the email."
         href="/email-your-mp-and-msp"
         cta="Email my MP"
       />

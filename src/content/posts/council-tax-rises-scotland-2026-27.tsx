@@ -50,7 +50,7 @@ export default function Post() {
         increase of {exact.format(smallest.councilTaxRise)} or{" "}
         {percent.format(smallest.councilTaxRisePct)}%.
       </P>
-      <Aside title="These are council-tax rises, not whole-bill rises">
+      <Aside title="These are council tax rises, not whole bill rises">
         <p>
           Scottish Water also changed its charges for 2026/27. That money is collected on the
           same bill, but the council does not set it. Every comparison below excludes water so
@@ -60,7 +60,7 @@ export default function Post() {
 
       <H2 id="all-councils">Every Scottish council compared</H2>
       <P>
-        Band D is used because it is the standard council-tax comparison. Every other band is a
+        Band D is used because it is the standard council tax comparison. Every other band is a
         fixed proportion of Band D, so the percentage rise is almost identical across Bands A to
         H. Tiny differences can appear because bills are rounded to the nearest penny.
       </P>
@@ -100,14 +100,14 @@ export default function Post() {
 
       <H2 id="what-it-means">What the percentages mean</H2>
       <P>
-        The percentage tells you how much the same council-tax band changed between the two
+        The percentage tells you how much the same council tax band changed between the two
         published years. The cash figure often makes the effect easier to understand: it is the
         extra council tax due over a full year before any discount or Council Tax Reduction is
         applied.
       </P>
       <P>
         It is not an estimate based on a council announcement. Both sides of the comparison come
-        from the Scottish Government&apos;s national council-tax-by-band workbooks, using the
+        from the Scottish Government&apos;s national council tax by band workbooks, using the
         amounts reported by the 32 local authorities.
       </P>
 
@@ -119,7 +119,7 @@ export default function Post() {
       </P>
       <P>
         The <Link href="/council-tax-bands-scotland">council tax checker</Link> therefore shows
-        both views: the council-tax rise on its own, then the current council tax and current
+        both views: the council tax rise on its own, then the current council tax and current
         Scottish Water charges combined into the amount that appears on the bill.
       </P>
 

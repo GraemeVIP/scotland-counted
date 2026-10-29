@@ -37,7 +37,7 @@ export type RepresentativeRole = "MP" | "MSP";
  */
 export type LetterArea = {
   name: string;
-  /** Latest published child-poverty rate, after housing costs. */
+  /** Latest published child poverty rate, after housing costs. */
   pct: number;
   /** Latest published number of children. */
   count: number;

@@ -34,7 +34,7 @@ const homeReads = postsByDate().filter((post): post is Post => Boolean(post));
 export const metadata = meta({
   title: "Scotland Counted | Independent Public Data for Scotland",
   description:
-    "Scottish public data made clear: local facts, council spending and performance, take-home pay, council tax and who makes the decisions.",
+    "Scottish public data made clear: local facts, council spending and performance, take home pay, council tax and who makes the decisions.",
   path: "/",
   type: "website",
 });
@@ -256,7 +256,7 @@ export default function Home() {
           A carousel, not one card, and outside the page container, not in it.
           When it came back it was restored inside <Page>, which double-framed
           it: the cards clipped against an inner box edge with dead margin
-          outside, so the cut-off card read as a mistake instead of as "there
+          outside, so the cutoff card read as a mistake instead of as "there
           is more this way". The band runs edge to edge, the heading stays on
           the content grid, and the track bleeds to the right-hand edge of the
           screen, where a peeking card actually means what it implies. */}

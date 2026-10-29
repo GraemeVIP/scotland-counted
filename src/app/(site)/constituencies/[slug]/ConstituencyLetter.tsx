@@ -182,7 +182,7 @@ export default function ConstituencyLetter({
                 type="button"
                 onClick={openEmail}
                 className="btn btn-primary justify-center text-center"
-                aria-label={`Open a ready-to-send email to ${mp.name}, the MP for ${area.name}`}
+                aria-label={`Open a ready to send email to ${mp.name}, the MP for ${area.name}`}
               >
                 Open this email in my email app
               </button>

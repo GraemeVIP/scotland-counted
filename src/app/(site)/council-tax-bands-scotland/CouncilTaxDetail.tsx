@@ -135,7 +135,7 @@ export function CouncilTaxDetail({ slug }: { slug: string }) {
     const faq = [
       ...v.charges.slice(0, 5).map((c) => ({
         q: `How much is Band ${c.band} council tax in ${placeName}?`,
-        a: `Band ${c.band} in ${placeName} is ${exact.format(c.total)} a year including water and waste water, or about ${exact.format(c.total / 12)} a month. The council-tax part rose from ${exact.format(c.previousCouncilTax)} in 2025/26 to ${exact.format(c.councilTax)} in 2026/27, an increase of ${exact.format(c.councilTaxRise)} or ${percent.format(c.councilTaxRisePct)}%. Scottish Water's separate charges add ${exact.format(c.water + c.wasteWater)}.`,
+        a: `Band ${c.band} in ${placeName} is ${exact.format(c.total)} a year including water and waste water, or about ${exact.format(c.total / 12)} a month. The council tax part rose from ${exact.format(c.previousCouncilTax)} in 2025/26 to ${exact.format(c.councilTax)} in 2026/27, an increase of ${exact.format(c.councilTaxRise)} or ${percent.format(c.councilTaxRisePct)}%. Scottish Water's separate charges add ${exact.format(c.water + c.wasteWater)}.`,
       })),
       {
         q: `How much did council tax rise in ${placeName} in 2026/27?`,
@@ -279,7 +279,7 @@ export function CouncilTaxDetail({ slug }: { slug: string }) {
     },
     {
       q: `How much did Band ${letter} council tax rise in 2026/27?`,
-      a: `It depends on the council. The Band ${letter} council-tax increase runs from ${percent.format(smallestRise.councilTaxRisePct)}% in ${smallestRise.name} to ${percent.format(largestRise.councilTaxRisePct)}% in ${largestRise.name}. Those figures compare council tax only; Scottish Water charges are separate.`,
+      a: `It depends on the council. The Band ${letter} council tax increase runs from ${percent.format(smallestRise.councilTaxRisePct)}% in ${smallestRise.name} to ${percent.format(largestRise.councilTaxRisePct)}% in ${largestRise.name}. Those figures compare council tax only; Scottish Water charges are separate.`,
     },
   ];
 
@@ -329,7 +329,7 @@ export function CouncilTaxDetail({ slug }: { slug: string }) {
               </h2>
             </div>
             <p className="ui text-[14.5px] font-[540] tnum text-[var(--muted)]">
-              Current total and council-tax rise
+              Current total and council tax rise
             </p>
           </div>
           <div className="overflow-hidden rounded-[var(--r-m)] border border-[var(--rule)]">

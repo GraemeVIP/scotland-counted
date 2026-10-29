@@ -38,7 +38,7 @@ export default function AreaGrid({ className = "" }: { className?: string }) {
         <p className="text-[16px] leading-[1.55] text-[var(--ink-2)] max-w-[44ch] lg:justify-self-end">
           <ExplainText>
           Every council area in Scotland. Pick yours and you get the short answer first, then the
-          full figures, the source, and a ready-written email for the people who represent you.
+          full figures, the source, and a ready written email for the people who represent you.
           </ExplainText>
         </p>
       </div>

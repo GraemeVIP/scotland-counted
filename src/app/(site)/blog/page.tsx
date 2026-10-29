@@ -11,7 +11,7 @@ import { postPath } from "@/lib/routeMap";
 export const metadata = meta({
   title: "Scotland Counted Explained | Poverty Evidence Hub",
   description:
-    "Browse every Scotland Counted explainer on poverty, money, bills and political responsibility. Get the plain-English answer first, then check every source.",
+    "Browse every Scotland Counted explainer on poverty, money, bills and political responsibility. Get the plain English answer first, then check every source.",
   path: "/blog",
   type: "website",
 });

@@ -59,14 +59,14 @@ const KNOWN = [
    */
   {
     title: "Automated checks do not cover every interaction",
-    body: "The October review corrected the button and small accent-text contrast failures. Automated checks cover representative pages and states, but they are not a certification of every page or interaction. Please report anything that is still difficult to read or use.",
+    body: "The October review corrected the button and small accent text contrast failures. Automated checks cover representative pages and states, but they are not a certification of every page or interaction. Please report anything that is still difficult to read or use.",
   },
   {
     title: "Real screen readers have not been tested exhaustively",
     body: "Automated checks and keyboard testing are run regularly. Full manual testing with VoiceOver, NVDA and JAWS has not been carried out across every page.",
   },
   {
-    title: "iOS Safari needs real-device testing",
+    title: "iOS Safari needs real device testing",
     body: "Mobile layouts are tested at real widths in a desktop browser. Some behaviour, particularly the menu and sticky header, has been verified on a real iPad but not across every iOS version.",
   },
   {

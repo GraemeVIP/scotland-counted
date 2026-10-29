@@ -6,7 +6,7 @@ import { site } from "@/lib/site";
 export const metadata = meta({
   title: "Download Scotland Data: Councils, Poverty and Services",
   description:
-    "Download Scotland Counted council performance, poverty, pay, benefit, health and local-area data, with definitions and original sources.",
+    "Download Scotland Counted council performance, poverty, pay, benefit, health and local area data, with definitions and original sources.",
   path: "/data",
 });
 
@@ -38,7 +38,7 @@ const FILES: DataFile[] = [
   {
     file: "scottish-council-performance-index-2026.csv",
     title: "Council performance index, all 32 results",
-    body: "The main and like-for-like result for every Scottish council, with all five parts of the score, the data available and the usual rank from 10,000 reruns.",
+    body: "The main and like for like result for every Scottish council, with all five parts of the score, the data available and the usual rank from 10,000 reruns.",
     format: "CSV",
     size: "6 KB",
     rows: "32 rows",
@@ -58,7 +58,7 @@ const FILES: DataFile[] = [
   {
     file: "scottish-council-performance-indicators-2026.csv",
     title: "Council index: every official figure used",
-    body: "The official numbers behind the ranking, with their year, unit, whether higher or lower is better, missing-data notes and converted score.",
+    body: "The official numbers behind the ranking, with their year, unit, whether higher or lower is better, missing data notes and converted score.",
     format: "CSV",
     size: "408 KB",
     rows: "1,914 rows",
@@ -72,13 +72,13 @@ const FILES: DataFile[] = [
     format: "CSV",
     size: "3 KB",
     rows: "32 rows",
-    columns: "council, median rank, rank 5th and 95th percentiles, winner probability, top-five probability and top-ten probability",
+    columns: "council, median rank, rank 5th and 95th percentiles, winner probability, top five probability and top ten probability",
     kind: "prepared",
   },
   {
     file: "scottish-council-performance-context-2026.csv",
     title: "Council index: place and accountability context",
-    body: "Neighbourhood, loneliness, housing, crime, poverty, drug-death, budget-gap and Crisis Grant figures kept outside the performance score so circumstances are not mistaken for council competence.",
+    body: "Neighbourhood, loneliness, housing, crime, poverty, drug death, budget gap and Crisis Grant figures kept outside the performance score so circumstances are not mistaken for council competence.",
     format: "CSV",
     size: "7 KB",
     rows: "32 rows",
@@ -98,7 +98,7 @@ const FILES: DataFile[] = [
   {
     file: "scottish-council-resident-verdict-2024.csv",
     title: "Council index: residents' verdict",
-    body: "All five council-perception questions from the 2024 Scottish Household Survey, with the equal-weight average, rank and local respondent base used in the article.",
+    body: "All five council perception questions from the 2024 Scottish Household Survey, with the equal weight average, rank and local respondent base used in the article.",
     format: "CSV",
     size: "4 KB",
     rows: "32 rows",
@@ -126,7 +126,7 @@ const FILES: DataFile[] = [
   {
     file: "scottish-council-performance-validation-2026.md",
     title: "Council index: a separate check of the maths",
-    body: "A second calculation checked the source files, council matches, scores, value-for-money rules, 10,000 reruns and warnings shown to readers.",
+    body: "A second calculation checked the source files, council matches, scores, value for money rules, 10,000 reruns and warnings shown to readers.",
     format: "MD",
     size: "3 KB",
     kind: "prepared",
@@ -141,8 +141,8 @@ const FILES: DataFile[] = [
   },
   {
     file: "scotland-poverty-headline-2022-25.csv",
-    title: "Scotland-wide poverty headline",
-    body: "The latest official relative-poverty rates after housing costs for all people, children, working-age adults and pensioners, 2022–25.",
+    title: "Scotland wide poverty headline",
+    body: "The latest official relative poverty rates after housing costs for all people, children, working age adults and pensioners, 2022–25.",
     format: "CSV",
     size: "252 B",
     rows: "4 rows",
@@ -188,7 +188,7 @@ const FILES: DataFile[] = [
     size: "12 KB",
     rows: "32 rows",
     columns:
-      "council, applications, decisions, awards, rejections, five annual award rates, rank, difference from Scotland, spend, average award, latest-quarter processing, source and notes",
+      "council, applications, decisions, awards, rejections, five annual award rates, rank, difference from Scotland, spend, average award, latest quarter processing, source and notes",
     kind: "prepared",
   },
   {
@@ -221,8 +221,8 @@ const FILES: DataFile[] = [
   },
   {
     file: "nomis-ashe-pay-workplace.csv",
-    title: "Restricted full-time pay | workplace basis",
-    body: "ASHE median gross weekly pay for selected full-time PAYE employee jobs located in Glasgow and Scotland. This is not the average wage of everyone working there.",
+    title: "Restricted full time pay | workplace basis",
+    body: "ASHE median gross weekly pay for selected full time PAYE employee jobs located in Glasgow and Scotland. This is not the average wage of everyone working there.",
     format: "CSV",
     size: "1 KB",
     rows: "58 rows",
@@ -230,8 +230,8 @@ const FILES: DataFile[] = [
   },
   {
     file: "nomis-ashe-pay-residence.csv",
-    title: "Restricted full-time pay | residence basis",
-    body: "ASHE median gross weekly pay for selected full-time PAYE employee jobs held by Glasgow and Scottish residents. Part-time jobs and self-employment are excluded.",
+    title: "Restricted full time pay | residence basis",
+    body: "ASHE median gross weekly pay for selected full time PAYE employee jobs held by Glasgow and Scottish residents. Part time jobs and self employment are excluded.",
     format: "CSV",
     size: "1 KB",
     rows: "48 rows",
@@ -240,7 +240,7 @@ const FILES: DataFile[] = [
   {
     file: "nomis-jobs-density-2000-2024.csv",
     title: "Jobs density",
-    body: "Jobs per working-age resident for Glasgow and Scotland. Glasgow is published to 2021.",
+    body: "Jobs per working age resident for Glasgow and Scotland. Glasgow is published to 2021.",
     format: "CSV",
     size: "1 KB",
     rows: "50 rows",
@@ -256,7 +256,7 @@ const FILES: DataFile[] = [
   },
   {
     file: "nrs-drug-related-deaths-scotland-2024.xlsx",
-    title: "NRS drug-related deaths source workbook",
+    title: "NRS drug related deaths source workbook",
     body: "The publisher's complete workbook for Scotland in 2024, including deprivation quintiles, every council area, trends, definitions and substances implicated.",
     format: "XLSX",
     size: "226 KB",
@@ -303,7 +303,7 @@ export default function Data() {
         <PageHeader
           eyebrow="Free to download and reuse"
           title="Download Scotland data"
-          lede="This is the proof behind the simple pages. Twenty-four downloadable files: 19 CSVs, two Excel workbooks, two method notes and one source manifest. Seventeen I prepared and documented; the other seven are the publishers' own files, served exactly as they came, so you can check my working against them."
+          lede="This is the proof behind the simple pages. Twenty four downloadable files: 19 CSVs, two Excel workbooks, two method notes and one source manifest. Seventeen I prepared and documented; the other seven are the publishers' own files, served exactly as they came, so you can check my working against them."
         />
 
         <ContentFrame>

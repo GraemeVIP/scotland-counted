@@ -32,30 +32,30 @@ export const sources: Source[] = [
     title: "Glasgow City Local Policing Plan 2025/26, Quarter 2 appendices",
     publisher: "Police Scotland, Safe Glasgow Partnership",
     url: "https://onlineservices.glasgow.gov.uk/councillorsandcommittees/viewSelectedDocument.asp?c=P62AFQDNNTNTNT0G0G",
-    used: "Page 3 attributes the domestic-abuse increase to April 2024 Lord Advocate guidance. The report covers July to September 2025, but its rape 117 to 137 table is labelled year-to-date. The counts resemble quarter-only figures in another publication; the period labelling is inconsistent and is not treated here as a verified April-to-September total.",
+    used: "Page 3 attributes the domestic abuse increase to April 2024 Lord Advocate guidance. The report covers July to September 2025, but its rape 117 to 137 table is labelled year to date. The counts resemble quarter only figures in another publication; the period labelling is inconsistent and is not treated here as a verified April to September total.",
   },
   {
     id: "ps-management-information-2025-26",
     title: "Quarterly management information reports, 2025/26 Q1 to Q4 and 2026/27 Q1 (aggregated files)",
     publisher: "Police Scotland",
     url: "https://www.scotland.police.uk/spa-media/uvggwj5v/q3-management-information-report-2025-26-aggregated-file.xlsx",
-    used: "Year-to-date recorded and detected rape and sexual assault counts for every council area, financial years 2020/21 to 2026/27.",
+    used: "Year to date recorded and detected rape and sexual assault counts for every council area, financial years 2020/21 to 2026/27.",
     derivation:
-      "Each quarter's count is the difference between consecutive cumulative totals taken from the workbook for that quarter, so quarters after the first in each year mix publication versions. Full-year figures are the Q4 year-to-date values. The rest-of-Scotland series is the sum of the other 31 councils.",
+      "Each quarter's count is the difference between consecutive cumulative totals taken from the workbook for that quarter, so quarters after the first in each year mix publication versions. Full year figures are the Q4 year to date values. The rest of Scotland series is the sum of the other 31 councils.",
   },
   {
     id: "sg-recorded-crime-ye-june-2026",
     title: "Recorded Crime in Scotland, year ending June 2026, Table 1",
     publisher: "Scottish Government",
     url: "https://www.gov.scot/publications/recorded-crime-scotland-year-ending-june-2026/documents/",
-    used: "Glasgow City and Scotland counts for rape and attempted rape, sexual assault and all sexual crimes for the years ending June 2025 and June 2026, and the sub-categories driving the change.",
+    used: "Glasgow City and Scotland counts for rape and attempted rape, sexual assault and all sexual crimes for the years ending June 2025 and June 2026, and the subcategories driving the change.",
   },
   {
     id: "spa-performance-q4-2024-25",
     title: "Quarterly Policing Performance Report, Quarter 4 2024/25",
     publisher: "Scottish Police Authority",
     url: "https://www.spa.police.uk/spa-media/b3yd2lam/item-2-1-quarterly-policing-performance-report-q4-2024-25.pdf",
-    used: "The national rape increase of 15.8% in 2024/25, the note that rape of a female over 16 drove it, the 25% share of non-recent sexual crime, and the appendix statement that all crime data has come from the new national system since 1 April 2024.",
+    used: "The national rape increase of 15.8% in 2024/25, the note that rape of a female over 16 drove it, the 25% share of non recent sexual crime, and the appendix statement that all crime data has come from the new national system since 1 April 2024.",
   },
   {
     id: "spa-rape-deep-dive-2025",
@@ -77,7 +77,7 @@ export const sources: Source[] = [
     publisher: "Police Scotland",
     url: "https://www.scotland.police.uk/access-to-information/freedom-of-information/disclosure-log/disclosure-log-2026/march/26-0040-crime-stats-sexual-rape-inc-accused-nationality-glasgow-2025/",
     used: "Table 2: the nationality of 117 accused entries linked to detected rapes in Greater Glasgow division in 2025, 62 of them not recorded.",
-    derivation: "The British share (78%) is 43 of the 55 entries with a nationality recorded, not 78% of all 117 entries. The response does not establish a unique-person count.",
+    derivation: "The British share (78%) is 43 of the 55 entries with a nationality recorded, not 78% of all 117 entries. The response does not establish a unique person count.",
   },
   {
     id: "ps-foi-25-0272",
@@ -149,7 +149,7 @@ export const sources: Source[] = [
     title: "Strategic Plan Monitoring Report, April 2026, page 27",
     publisher: "Glasgow City Health and Social Care Partnership",
     url: "https://glasgowcity.hscp.scot/sites/default/files/publications/Item%20No%2012%20-%20Strategic%20Plan%20Monitoring%20Report%20April%202026.pdf",
-    used: "2,750 refugee-household homelessness applications in 2024/25, set to rise to around 3,500 in 2025/26, of which approximately 900 travelled to Glasgow after being granted leave to remain outside the city.",
+    used: "2,750 refugee household homelessness applications in 2024/25, set to rise to around 3,500 in 2025/26, of which approximately 900 travelled to Glasgow after being granted leave to remain outside the city.",
   },
   {
     id: "glasgow-hscp-chief-officer-mar-2026",
@@ -186,7 +186,7 @@ export const sources: Source[] = [
     url: "https://www.gov.uk/government/statistical-data-sets/police-recorded-crime-and-outcomes-open-data-tables",
     used: "Sexual offences recorded in every Community Safety Partnership area in England and Wales, by quarter, matched by name to 276 local authorities, one row each.",
     derivation:
-      "Home Office support rows are summed per council and quarter before joining, because the support file spells some regions two ways and uses old and new codes for Barnsley and Sheffield; a first build that joined on region and code double-counted 55 councils and was corrected on 6 September 2026. Councils are grouped into four equal groups by asylum seekers per 1,000 residents in December 2023 and the change in sexual offences from 2023/24 to 2024/25 is compared. The panel test is a Poisson regression of quarterly offences on asylum seekers per 1,000 with council and quarter fixed effects, a population offset and council-clustered standard errors, over 276 councils and 14 quarters.",
+      "Home Office support rows are summed per council and quarter before joining, because the support file spells some regions two ways and uses old and new codes for Barnsley and Sheffield; a first build that joined on region and code double counted 55 councils and was corrected on 6 September 2026. Councils are grouped into four equal groups by asylum seekers per 1,000 residents in December 2023 and the change in sexual offences from 2023/24 to 2024/25 is compared. The panel test is a Poisson regression of quarterly offences on asylum seekers per 1,000 with council and quarter fixed effects, a population offset and council clustered standard errors, over 276 councils and 14 quarters.",
   },
   {
     id: "mygov-when-arrested",
@@ -200,7 +200,7 @@ export const sources: Source[] = [
     title: "Poverty and Income Inequality in Scotland 2022–25",
     publisher: "Scottish Government",
     url: "https://www.gov.scot/publications/poverty-and-income-inequality-in-scotland-2022-25/",
-    used: "The Scotland-wide headline poverty rates for all people, children, working-age adults and pensioners, and the share of children in poverty living in a working household.",
+    used: "The Scotland wide headline poverty rates for all people, children, working age adults and pensioners, and the share of children in poverty living in a working household.",
   },
   {
     id: "ecp",
@@ -209,7 +209,7 @@ export const sources: Source[] = [
     url: "https://endchildpoverty.org.uk/child-poverty-2025/",
     used: "Child poverty rates and counts for Glasgow and all 32 Scottish council areas.",
     derivation:
-      "The Scotland-wide rate is not published in this dataset. I recompute it by summing the 32 council counts and dividing by the implied child populations. The method reproduces the published Scottish rate of 24.5% for 2022/23.",
+      "The Scotland wide rate is not published in this dataset. I recompute it by summing the 32 council counts and dividing by the implied child populations. The method reproduces the published Scottish rate of 24.5% for 2022/23.",
   },
   {
     id: "lgbf-performance-2026",
@@ -218,7 +218,7 @@ export const sources: Source[] = [
     url: "https://data.spatialhub.scot/api/3/action/package_show?id=9a3728b4-49ea-40af-ab10-fc0305bace84",
     used: "The July 2026 release containing 109 consistently defined cost, performance, satisfaction and outcome indicators for all 32 Scottish councils, from which the 53 headline measures and four separate landlord measures were selected.",
     derivation:
-      "Latest comparable values are grouped into evidence families before scoring. The central model uses percentile positions, official higher-or-lower directions, a neutral value for missing cells and published pillar weights. Full selected values and reporting periods are downloadable.",
+      "Latest comparable values are grouped into evidence families before scoring. The central model uses percentile positions, official higher or lower directions, a neutral value for missing cells and published pillar weights. Full selected values and reporting periods are downloadable.",
   },
   {
     id: "lgbf-family-groups",
@@ -234,7 +234,7 @@ export const sources: Source[] = [
     title: "Scottish Household Survey: perceptions of local councils, 2024",
     publisher: "Scottish Government",
     url: "https://www.gov.scot/publications/scottish-household-survey-perceptions-of-local-councils-2024/",
-    used: "Five council-level questions about high-quality services, best use of money, action on quality of life, influence over decisions and dignity and respect, used in the separate resident-verdict comparison.",
+    used: "Five council level questions about high quality services, best use of money, action on quality of life, influence over decisions and dignity and respect, used in the separate resident verdict comparison.",
     derivation:
       "The five published percentages are averaged with equal weight. The table also shows the council sample base and warns that small differences may be sampling variation.",
   },
@@ -250,23 +250,23 @@ export const sources: Source[] = [
     title: "Neighbourhoods and communities: 2024 findings, Annex D",
     publisher: "Scottish Government",
     url: "https://www.gov.scot/publications/neighbourhoods-communities-2024-findings-scottish-household-survey/pages/12/",
-    used: "Council-level estimates for whether residents describe their neighbourhood as a good place to live, access to places to meet and loneliness. These are context and are not included in the headline council score.",
+    used: "Council level estimates for whether residents describe their neighbourhood as a good place to live, access to places to meet and loneliness. These are context and are not included in the headline council score.",
   },
   {
     id: "shcs-local-authority-2022-24",
     title: "Scottish House Condition Survey: local authority tables, 2022–2024",
     publisher: "Scottish Government",
     url: "https://www.gov.scot/publications/scottish-house-condition-survey-local-authority-tables-2022-2024/",
-    used: "Fuel poverty, extreme fuel poverty, housing-quality-standard failures, disrepair, sample sizes and confidence intervals by council area, retained as place context rather than council-performance inputs.",
+    used: "Fuel poverty, extreme fuel poverty, housing quality standard failures, disrepair, sample sizes and confidence intervals by council area, retained as place context rather than council performance inputs.",
   },
   {
     id: "recorded-crime-scotland-2025-26",
     title: "Recorded Crime in Scotland, 2025–26",
     publisher: "Scottish Government",
     url: "https://www.gov.scot/publications/recorded-crime-scotland-2025-26/documents/",
-    used: "Police-recorded crimes by council area and mid-year population estimates, converted to a rate per 10,000 residents for the separate context download.",
+    used: "Police recorded crimes by council area and mid year population estimates, converted to a rate per 10,000 residents for the separate context download.",
     derivation:
-      "The rate is not included in the council-performance score because policing is not controlled by councils and recorded crime reflects reporting and recording as well as incidence.",
+      "The rate is not included in the council performance score because policing is not controlled by councils and recorded crime reflects reporting and recording as well as incidence.",
   },
   {
     id: "oecd-composite-indicators",
@@ -303,7 +303,7 @@ export const sources: Source[] = [
     title: "Annual Survey of Hours and Earnings, resident and workplace analyses",
     publisher: "Office for National Statistics, via NOMIS",
     url: "https://www.nomisweb.co.uk/",
-    used: "Median gross weekly pay within the published full-time employee-job sample, 2008–2025, on both the workplace and residence bases.",
+    used: "Median gross weekly pay within the published full time employee job sample, 2008–2025, on both the workplace and residence bases.",
     derivation:
       "These figures are never described as the average wage or annualised as a salary. The two bases are separate medians and cannot show that a particular amount of money leaves an area.",
   },
@@ -314,16 +314,16 @@ export const sources: Source[] = [
     url: "https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/methodologies/guidetointerpretingannualsurveyofhoursandearningsasheestimates",
     used: "The sample, exclusions and definition of gross weekly pay behind the pay charts.",
     derivation:
-      "ASHE samples PAYE employee jobs, not every worker. The displayed full-time series excludes part-time jobs, self-employment, employees outside PAYE, junior rates and pay affected by absence; gross pay can include overtime, bonuses, shift premiums and allowances.",
+      "ASHE samples PAYE employee jobs, not every worker. The displayed full time series excludes part time jobs, self employment, employees outside PAYE, junior rates and pay affected by absence; gross pay can include overtime, bonuses, shift premiums and allowances.",
   },
   {
     id: "glasgow-labour-profile",
     title: "Labour Market Profile, Glasgow City",
     publisher: "Office for National Statistics, via NOMIS",
     url: "https://www.nomisweb.co.uk/reports/lmp/lad/1778385245/report.aspx",
-    used: "The 2025 Glasgow workplace and residence pay estimates and the 2024 split between full-time and part-time employee jobs.",
+    used: "The 2025 Glasgow workplace and residence pay estimates and the 2024 split between full time and part time employee jobs.",
     derivation:
-      "The employee-jobs count shows 128,000 of 442,000 Glasgow employee jobs were part-time in 2024, which is 29%. Those jobs are excluded from the full-time pay series.",
+      "The employee jobs count shows 128,000 of 442,000 Glasgow employee jobs were part time in 2024, which is 29%. Those jobs are excluded from the full time pay series.",
   },
   {
     id: "minimum-wage-2026",
@@ -332,7 +332,7 @@ export const sources: Source[] = [
     url: "https://www.gov.uk/national-minimum-wage-rates",
     used: "The legal hourly minimums from 1 April 2026: £12.71 for workers aged 21 and over, £10.85 for ages 18–20, and £8 for under-18s and eligible apprentices.",
     derivation:
-      "The full-time illustration is £12.71 multiplied by 37.5 paid hours and 52 weeks: £24,784.50 gross a year. It is an illustration, not a claim that every minimum-wage worker receives those hours.",
+      "The full time illustration is £12.71 multiplied by 37.5 paid hours and 52 weeks: £24,784.50 gross a year. It is an illustration, not a claim that every minimum wage worker receives those hours.",
   },
   {
     id: "minimum-wage-2027",
@@ -341,7 +341,7 @@ export const sources: Source[] = [
     url: "https://www.gov.uk/national-minimum-wage-rates",
     used: "The legal hourly minimums from 1 April 2027: £13.21 for workers aged 21 and over, £11.27 for ages 18–20, and £8.31 for under-18s and eligible apprentices.",
     derivation:
-      "The full-time illustration is £13.21 multiplied by 37.5 paid hours and 52 weeks: £25,759.50 gross a year, £975 more than the same hours at the 2026 rate.",
+      "The full time illustration is £13.21 multiplied by 37.5 paid hours and 52 weeks: £25,759.50 gross a year, £975 more than the same hours at the 2026 rate.",
   },
   {
     id: "mis-2025",
@@ -357,14 +357,14 @@ export const sources: Source[] = [
     url: "https://www.livingwage.org.uk/what-real-living-wage",
     used: "The voluntary real Living Wage of £14.10 an hour outside London and £15.45 in London, announced on 15 October 2026 for accredited employers to pay by 1 May 2027. It is calculated from living costs rather than set as the legal wage floor.",
     derivation:
-      "At 37.5 paid hours for 52 weeks this is £27,495 gross a year, £2,710.50 more than the same-hours illustration at the 2026 legal minimum.",
+      "At 37.5 paid hours for 52 weeks this is £27,495 gross a year, £2,710.50 more than the same hours illustration at the 2026 legal minimum.",
   },
   {
     id: "jobs-density",
     title: "Jobs Density",
     publisher: "Office for National Statistics, via NOMIS",
     url: "https://www.nomisweb.co.uk/",
-    used: "Jobs per working-age resident, Glasgow and Scotland. Published for Glasgow to 2021.",
+    used: "Jobs per working age resident, Glasgow and Scotland. Published for Glasgow to 2021.",
   },
   {
     id: "ons-le",
@@ -403,23 +403,23 @@ export const sources: Source[] = [
     title: "Drug-related deaths in Scotland, 2024",
     publisher: "National Records of Scotland",
     url: "https://www.nrscotland.gov.uk/publications/drug-related-deaths-in-scotland-2024/",
-    used: "The national total and trend, deprivation gradient, council-area rates, age profile, substances implicated and the definitions needed to compare the figures safely.",
+    used: "The national total and trend, deprivation gradient, council area rates, age profile, substances implicated and the definitions needed to compare the figures safely.",
     derivation:
-      "The council comparison uses NRS Table C4's age-standardised rates for 2020–2024. The deprivation chart uses Table 9's 2024 age-standardised rates by SIMD quintile. No rates were recalculated.",
+      "The council comparison uses NRS Table C4's age standardised rates for 2020–2024. The deprivation chart uses Table 9's 2024 age standardised rates by SIMD quintile. No rates were recalculated.",
   },
   {
     id: "sg-drugs-monitoring-2024-25",
     title: "National Mission on Drugs: Annual Monitoring Report 2024–2025",
     publisher: "Scottish Government",
     url: "https://www.gov.scot/publications/national-mission-drugs-annual-monitoring-report-2024-2025/pages/8/",
-    used: "Independent policy-monitoring context for the deprivation gap, drug-related hospital stays and the wider disadvantages surrounding drug harm.",
+    used: "Independent policy monitoring context for the deprivation gap, drug related hospital stays and the wider disadvantages surrounding drug harm.",
   },
   {
     id: "sg-population-health-evidence",
     title: "Population Health Framework: evidence paper",
     publisher: "Scottish Government",
     url: "https://www.gov.scot/publications/population-health-framework-evidence-paper/pages/5/",
-    used: "Evidence that drug deaths affect Scottish life-expectancy trends and that poverty and disadvantage interact with trauma, mental health and other risks.",
+    used: "Evidence that drug deaths affect Scottish life expectancy trends and that poverty and disadvantage interact with trauma, mental health and other risks.",
   },
   {
     id: "targets",
@@ -482,14 +482,14 @@ export const sources: Source[] = [
     title: "The Glasgow Indicators Project",
     publisher: "Understanding Glasgow / Glasgow Centre for Population Health",
     url: "https://www.understandingglasgow.com/",
-    used: "In-work poverty, neighbourhood variation in child poverty, and workless household figures.",
+    used: "In work poverty, neighbourhood variation in child poverty, and workless household figures.",
   },
   {
     id: "ashe-scotland-2025",
     title: "Annual Survey of Hours and Earnings 2025: employee earnings",
     publisher: "Scottish Government",
     url: "https://www.gov.scot/publications/annual-survey-of-hours-and-earnings-2025/pages/employee-earnings/",
-    used: "Median gross weekly pay for full-time employees in Scotland, £773.80 in April 2025, used to show that a Glasgow figure slightly above it is expected rather than anomalous.",
+    used: "Median gross weekly pay for full time employees in Scotland, £773.80 in April 2025, used to show that a Glasgow figure slightly above it is expected rather than anomalous.",
   },
   {
     id: "council-tax-scotland",
@@ -498,7 +498,7 @@ export const sources: Source[] = [
     url: "https://www.gov.scot/publications/council-tax-datasets/",
     used: "Council tax by band for all 32 Scottish councils in 2025-26 and 2026-27, including the cash and percentage change between the two years.",
     derivation:
-      "The amounts are used as displayed to the nearest penny in the two national workbooks, which record the figures reported by each local authority. Cash and percentage changes are calculated from those two published amounts. Scottish Water charges are excluded from every council-tax comparison and added separately from Scottish Water's published table.",
+      "The amounts are used as displayed to the nearest penny in the two national workbooks, which record the figures reported by each local authority. Cash and percentage changes are calculated from those two published amounts. Scottish Water charges are excluded from every council tax comparison and added separately from Scottish Water's published table.",
   },
   {
     id: "scottish-water-2026",
@@ -519,7 +519,7 @@ export const sources: Source[] = [
     title: "Council Tax discounts, exemptions and reductions",
     publisher: "mygov.scot",
     url: "https://www.mygov.scot/council-tax/discounts-exemptions-and-reductions",
-    used: "The single-adult, student, disability, severe mental impairment and low-income routes that can reduce or remove a Council Tax bill.",
+    used: "The single adult, student, disability, severe mental impairment and low income routes that can reduce or remove a Council Tax bill.",
   },
   {
     id: "council-tax-reduction-2026",
@@ -533,7 +533,7 @@ export const sources: Source[] = [
     title: "Making a proposal to alter your Council Tax band",
     publisher: "Scottish Assessors Association",
     url: "https://www.saa.gov.uk/council-tax/council-tax-proposals/",
-    used: "The Scotland-specific grounds and deadlines for asking an Assessor to alter a property band, including the six-month window after becoming liable.",
+    used: "The Scotland specific grounds and deadlines for asking an Assessor to alter a property band, including the six month window after becoming liable.",
   },
   {
     id: "council-tax-arrears",
@@ -554,21 +554,21 @@ export const sources: Source[] = [
     title: "Energy price cap unit rates and standing charges",
     publisher: "Ofgem",
     url: "https://www.ofgem.gov.uk/information-consumers/energy-advice-households/energy-price-cap-unit-rates-and-standing-charges",
-    used: "The 13% rise from 1 July 2026, the £1,862 typical-use illustration, and the electricity, gas and standing-charge rates for July to September 2026.",
+    used: "The 13% rise from 1 July 2026, the £1,862 typical use illustration, and the electricity, gas and standing charge rates for July to September 2026.",
   },
   {
     id: "ons-food-prices",
     title: "Cost of living insights: Food",
     publisher: "Office for National Statistics",
     url: "https://www.ons.gov.uk/economy/inflationandpriceindices/articles/costoflivinginsights/food",
-    used: "Food and non-alcoholic drink prices rose 38.6% between November 2020 and November 2025, and 31.6% between January 2021 and August 2024 against 9.5% in the preceding decade.",
+    used: "Food and non alcoholic drink prices rose 38.6% between November 2020 and November 2025, and 31.6% between January 2021 and August 2024 against 9.5% in the preceding decade.",
   },
   {
     id: "scottish-tax-2026",
     title: "Scottish Income Tax: rates and bands, 2026 to 2027",
     publisher: "Scottish Government",
     url: "https://www.gov.scot/publications/scottish-income-tax-rates-and-bands/pages/2026-to-2027/",
-    used: "The bands used to work out take-home pay: a £12,570 personal allowance, then 19% to £16,537, 20% to £29,526 and 21% to £43,662.",
+    used: "The bands used to work out take home pay: a £12,570 personal allowance, then 19% to £16,537, 20% to £29,526 and 21% to £43,662.",
   },
   {
     id: "ni-rates-2026",
@@ -582,7 +582,7 @@ export const sources: Source[] = [
     title: "Private Sector Rent Statistics, Scotland, 2010 to 2025",
     publisher: "Scottish Government",
     url: "https://www.gov.scot/publications/private-sector-rent-statistics-scotland-2010-to-2025/pages/1-bedroom-properties/",
-    used: "Average monthly rent for a one-bedroom property in the Greater Glasgow Broad Rental Market Area, £865 in 2025, against £738 across Scotland.",
+    used: "Average monthly rent for a one bedroom property in the Greater Glasgow Broad Rental Market Area, £865 in 2025, against £738 across Scotland.",
     derivation:
       "These are predominantly advertised rents, recorded when a property comes to market. They describe what someone moving now would pay, not what every existing tenant pays.",
   },
@@ -607,7 +607,7 @@ export const sources: Source[] = [
     title: "Earnings and employment from Pay As You Earn Real Time Information, UK: November 2025",
     publisher: "HM Revenue and Customs / Office for National Statistics",
     url: "https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/bulletins/earningsandemploymentfrompayasyouearnrealtimeinformationuk/november2025",
-    used: "Median monthly pay of £2,538 in October 2025 across all payrolled employees, used as an independent check on the survey-based earnings figures.",
+    used: "Median monthly pay of £2,538 in October 2025 across all payrolled employees, used as an independent check on the survey based earnings figures.",
     derivation:
       "This is not a sample. It covers every payroll submission to HMRC, so it is a different method and a different population from ASHE. I annualise it as 12 monthly payments: £30,456.",
   },
@@ -616,7 +616,7 @@ export const sources: Source[] = [
     title: "Employee earnings in the UK: 2025",
     publisher: "Office for National Statistics",
     url: "https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/bulletins/annualsurveyofhoursandearnings/2025",
-    used: "UK median gross weekly pay for full-time employees, £766.60 in April 2025, for comparison against the all-employee payroll figure.",
+    used: "UK median gross weekly pay for full time employees, £766.60 in April 2025, for comparison against the all employee payroll figure.",
   },
   {
     id: "ons-low-pay-2025",
@@ -630,7 +630,7 @@ export const sources: Source[] = [
     title: "Low Pay Commission Remit 2026: National Living Wage and National Minimum Wage",
     publisher: "UK Government",
     url: "https://www.gov.uk/government/publications/national-minimum-wage-and-national-living-wage-low-pay-commission-remit-2026/low-pay-commission-remit-2026-national-living-wage-and-national-minimum-wage",
-    used: "That the National Living Wage is set at two-thirds of median hourly earnings, which is why median full-time pay sits around one and a half times the minimum.",
+    used: "That the National Living Wage is set at two thirds of median hourly earnings, which is why median full time pay sits around one and a half times the minimum.",
   },
   {
     id: "ipsa-pay",
@@ -653,7 +653,7 @@ export const sources: Source[] = [
     url: "https://www.parliament.uk/about/how/business/written-answers/",
     used: "How a written parliamentary question works, the convention that it is answered within seven days, and the fact that every question and answer is published permanently.",
     derivation:
-      "The seven-day expectation is a convention rather than a binding rule, and I say so wherever I use it.",
+      "The seven day expectation is a convention rather than a binding rule, and I say so wherever I use it.",
   },
   {
     id: "hansard",
@@ -674,9 +674,9 @@ export const sources: Source[] = [
     title: "Household Costs Indices for UK household groups: January to March 2026",
     publisher: "Office for National Statistics",
     url: "https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/householdcostsindicesforukhouseholdgroups/januarytomarch2026",
-    used: "Five-year cumulative household-cost growth and the March 2026 rates for low-income households and renters.",
+    used: "Five year cumulative household cost growth and the March 2026 rates for low income households and renters.",
     derivation:
-      "I describe the published five-year rise for low-income households of 33.9% as 'about a third'. The HCI figures are official statistics in development and may be revised.",
+      "I describe the published five year rise for low income households of 33.9% as 'about a third'. The HCI figures are official statistics in development and may be revised.",
   },
   {
     id: "sg-cost-living-2025",
@@ -690,7 +690,7 @@ export const sources: Source[] = [
     title: "Private Sector Rent Statistics, Scotland, 2010 to 2025",
     publisher: "Scottish Government",
     url: "https://www.gov.scot/publications/private-sector-rent-statistics-scotland-2010-to-2025/",
-    used: "Greater Glasgow's average advertised and new-let rents, including the £1,094 monthly two-bedroom average in 2025 and its 94% rise since 2010.",
+    used: "Greater Glasgow's average advertised and new let rents, including the £1,094 monthly two bedroom average in 2025 and its 94% rise since 2010.",
     derivation:
       "The publication is based predominantly on advertised rents and does not represent what every existing tenant pays. I state that limitation beside the figures.",
   },
@@ -699,7 +699,7 @@ export const sources: Source[] = [
     title: "Welfare Reform and Work Act 2016: explanatory notes",
     publisher: "UK Legislation",
     url: "https://www.legislation.gov.uk/ukpga/2016/7/notes/division/3/index.htm",
-    used: "The four-year cash freeze applied to specified working-age benefits and tax credits from 2016–17.",
+    used: "The four year cash freeze applied to specified working age benefits and tax credits from 2016–17.",
   },
   {
     id: "welfare-freeze-vote",
@@ -735,7 +735,7 @@ export const sources: Source[] = [
     title: "Scottish Welfare Fund statistics: update to 31 March 2026",
     publisher: "Scottish Government",
     url: "https://www.gov.scot/publications/scottish-welfare-fund-statistics-update-to-31-march-2026/",
-    used: "The 2025/26 Scotland totals, the 52% to 89% spread in council Crisis Grant award rates, the year-on-year direction of rates and the published discussion of budget pressure.",
+    used: "The 2025/26 Scotland totals, the 52% to 89% spread in council Crisis Grant award rates, the year on year direction of rates and the published discussion of budget pressure.",
     derivation: "The article calls the published proportion of decided applications resulting in an award the award rate. It does not treat it as a measure of applicant need, fairness or decision quality.",
   },
   {
@@ -743,22 +743,78 @@ export const sources: Source[] = [
     title: "Scottish Welfare Fund tables, April 2021 to March 2026",
     publisher: "Scottish Government",
     url: "https://www.gov.scot/binaries/content/documents/govscot/publications/statistics/2026/07/scottish-welfare-fund-statistics-update-to-31-march-2026/documents/swf-tables---april-2021-to-march-2026---web-version/swf-tables---april-2021-to-march-2026---web-version/govscot%3Adocument/SWF%2BTables%2B-%2BApril%2B2021%2Bto%2BMarch%2B2026%2B-%2Bweb%2Bversion.xlsx",
-    used: "Council applications, decisions, awards, rejections, award rates, expenditure, average awards and latest-quarter processing times from Tables 6, 18, 24, 28 and 36.",
-    derivation: "Council rankings and differences from the 65% Scotland rate are calculated from the published whole-percentage rates. Published council counts are rounded independently to the nearest five, so local rows do not always sum exactly to the Scotland total.",
+    used: "Council applications, decisions, awards, rejections, award rates, expenditure, average awards and latest quarter processing times from Tables 6, 18, 24, 28 and 36.",
+    derivation: "Council rankings and differences from the 65% Scotland rate are calculated from the published whole percentage rates. Published council counts are rounded independently to the nearest five, so local rows do not always sum exactly to the Scotland total.",
   },
   {
     id: "swf-statutory-guidance-2026",
     title: "Scottish Welfare Fund statutory guidance",
     publisher: "Scottish Government",
     url: "https://www.gov.scot/publications/scottish-welfare-fund-statutory-guidance-2/",
-    used: "The national decision framework, the end-of-next-working-day deadline for Crisis Grants and the review rights and timescales available after a refusal.",
+    used: "The national decision framework, the end of next working day deadline for Crisis Grants and the review rights and timescales available after a refusal.",
+  },
+  {
+    id: "sss-adult-disability-payment",
+    title: "Adult Disability Payment",
+    publisher: "mygov.scot",
+    url: "https://www.mygov.scot/adult-disability-payment",
+    used: "The 2026/27 weekly rates for each part, who can apply, the two part application, backdating to part 1 and payment every four weeks.",
+  },
+  {
+    id: "sss-contact",
+    title: "Contact Social Security Scotland: webchat, phone or post",
+    publisher: "mygov.scot",
+    url: "https://www.mygov.scot/contact-social-security-scotland",
+    used: "The freephone number 0800 182 2222, opening hours, the number from abroad, webchat, BSL and the postal address.",
+  },
+  {
+    id: "sss-carer-support-payment",
+    title: "Carer Support Payment",
+    publisher: "mygov.scot",
+    url: "https://www.mygov.scot/carer-support-payment",
+    used: "Carer Support Payment, Scottish Carer Supplement and Carer Additional Person Payment rates, the 35 hour rule and the £204 a week earnings limit.",
+  },
+  {
+    id: "sss-best-start",
+    title: "Best Start Grant and Best Start Foods",
+    publisher: "mygov.scot",
+    url: "https://www.mygov.scot/best-start-grant-best-start-foods",
+    used: "The three Best Start Grant payment amounts and windows, qualifying benefits, Best Start Foods rates and how to apply.",
+  },
+  {
+    id: "sss-pension-age-winter-heating",
+    title: "Pension Age Winter Heating Payment",
+    publisher: "mygov.scot",
+    url: "https://www.mygov.scot/pension-age-winter-heating-payment",
+    used: "Eligibility, the qualifying week, the amounts by age and household, the £35,000 income rule and when payments are made for winter 2026 to 2027.",
+  },
+  {
+    id: "sss-winter-heating",
+    title: "Winter Heating Payment",
+    publisher: "mygov.scot",
+    url: "https://www.mygov.scot/winter-heating-payment",
+    used: "The payment amount, the qualifying benefits and qualifying week, and when the payment is made.",
+  },
+  {
+    id: "sss-bank-holiday-dates",
+    title: "Bank holiday payment dates",
+    publisher: "mygov.scot",
+    url: "https://www.mygov.scot/bank-holiday-payment-dates",
+    used: "Every published bank holiday change to Social Security Scotland payment dates to January 2028, and which benefits they cover.",
+  },
+  {
+    id: "sss-young-carer-grant",
+    title: "Young Carer Grant",
+    publisher: "mygov.scot",
+    url: "https://www.mygov.scot/young-carer-grant",
+    used: "The yearly amount, the age and 16 hour caring rules, how often you can claim and how it fits with Carer Support Payment.",
   },
   {
     id: "scottish-welfare-fund",
     title: "Scottish Welfare Fund, help with living costs",
     publisher: "mygov.scot",
     url: "https://www.mygov.scot/scottish-welfare-fund",
-    used: "Crisis Grants are non-repayable council grants for low-income people facing an unexpected emergency; Community Care Grants serve a different purpose.",
+    used: "Crisis Grants are not repayable council grants for low income people facing an unexpected emergency; Community Care Grants serve a different purpose.",
   },
   {
     id: "discretionary-housing-payment",
@@ -779,23 +835,23 @@ export const sources: Source[] = [
     title: "Help with school clothing costs",
     publisher: "mygov.scot",
     url: "https://www.mygov.scot/clothing-grants",
-    used: "School clothing grants are paid by councils and are at least £120 for a primary-age child and £150 for a secondary-age child, with local eligibility rules.",
+    used: "School clothing grants are paid by councils and are at least £120 for a primary age child and £150 for a secondary age child, with local eligibility rules.",
   },
   {
     id: "mini-budget-2022",
     title: "The 17 October 2022 fiscal statement: summary and background",
     publisher: "House of Commons Library",
     url: "https://commonslibrary.parliament.uk/research-briefings/cbp-9643/",
-    used: "The lack of an accompanying OBR forecast, the UK-specific component of the market reaction and the subsequent rise in mortgage rates after the September 2022 mini-budget.",
+    used: "The lack of an accompanying OBR forecast, the UK specific component of the market reaction and the subsequent rise in mortgage rates after the September 2022 mini budget.",
   },
   {
     id: "brexit-food-prices",
     title: "Brexit and Consumer Food Prices: May 2023 update",
     publisher: "Centre for Economic Performance, London School of Economics",
     url: "https://cep.lse.ac.uk/textonly/_new2014/news/releases/2023_05_25_i508.pdf",
-    used: "The modelled effect of post-Brexit non-tariff barriers on UK food prices between December 2019 and March 2023.",
+    used: "The modelled effect of post Brexit non tariff barriers on UK food prices between December 2019 and March 2023.",
     derivation:
-      "This is an academic estimate, not an official price count. The researchers estimated food-price growth would have been eight percentage points lower without the new barriers, equivalent to about £250 per household over the period.",
+      "This is an academic estimate, not an official price count. The researchers estimated food price growth would have been eight percentage points lower without the new barriers, equivalent to about £250 per household over the period.",
   },
   {
     id: "nao-energy-market",
@@ -816,7 +872,7 @@ export const sources: Source[] = [
     title: "Affordable Housing Supply Programme",
     publisher: "Scottish Parliament Information Centre",
     url: "https://www.parliament.scot/chamber-and-committees/research-prepared-for-parliament/research-briefings/2025/4/22/sb-2515",
-    used: "The 25% real-terms fall in the affordable-housing budget in 2024–25, the increase in 2025–26 and the assessment that the 2032 homes target looked challenging.",
+    used: "The 25% real terms fall in the affordable housing budget in 2024–25, the increase in 2025–26 and the assessment that the 2032 homes target looked challenging.",
   },
   {
     id: "sg-child-payment-2026",
@@ -838,8 +894,8 @@ export const sources: Source[] = [
     title: "Recorded Crime in Scotland 2025–26: tables",
     publisher: "Scottish Government",
     url: "https://www.gov.scot/binaries/content/documents/govscot/publications/statistics/2026/06/recorded-crime-scotland-2025-26/documents/recorded-crime-in-scotland-2025-26-tables/recorded-crime-in-scotland-2025-26-tables/govscot%3Adocument/Recorded%2BCrime%2Bin%2BScotland%2B2025-26%2Btables.xlsx",
-    used: "Shoplifting clear-up rates for Scotland and each council from 2016–17 to 2025–26 (Table 3). The 2014–15 and 2015–16 Scotland rates come from the 2023–24 edition of the same table.",
-    derivation: "The article calls the clear-up rate the share “solved”. Approximate numbers solved are recorded crimes multiplied by the published rate.",
+    used: "Shoplifting clear up rates for Scotland and each council from 2016–17 to 2025–26 (Table 3). The 2014–15 and 2015–16 Scotland rates come from the 2023–24 edition of the same table.",
+    derivation: "The article calls the clear up rate the share “solved”. Approximate numbers solved are recorded crimes multiplied by the published rate.",
   },
   {
     id: "sgs-recorded-crime",
@@ -848,7 +904,7 @@ export const sources: Source[] = [
     url: "https://statistics.gov.scot/data/recorded-crime",
     used: "Counts and rates per 10,000 people for shoplifting, other theft, housebreaking and other crimes of dishonesty in Scotland and all 32 councils. The 2025–26 totals match the published bulletin.",
     derivation:
-      "Population is implied from the published all-crimes count and rate. Shoplifting per 1,000 people, indexed trends, poverty-group rates and council changes are our calculations. The food-price model, the pre-2020 trend projection and the correlation tests are our own analysis, with methods set out in the article.",
+      "Population is implied from the published all crimes count and rate. Shoplifting per 1,000 people, indexed trends, poverty group rates and council changes are our calculations. The food price model, the pre-2020 trend projection and the correlation tests are our own analysis, with methods set out in the article.",
   },
   {
     id: "criminal-proceedings-2023-24",
@@ -865,14 +921,14 @@ export const sources: Source[] = [
     publisher: "Office for National Statistics",
     url: "https://www.ons.gov.uk/economy/inflationandpriceindices/timeseries/d7bu/mm23",
     used: "Monthly UK food price index, used for the 39% rise from April 2021 to March 2026 and the yearly changes compared with shoplifting.",
-    derivation: "Yearly changes compare the average index over each April-to-March year with the year before, to match the crime years.",
+    derivation: "Yearly changes compare the average index over each April to March year with the year before, to match the crime years.",
   },
   {
     id: "ons-crime-england-wales-2026",
     title: "Crime in England and Wales: appendix tables, year ending March 2026",
     publisher: "Office for National Statistics",
     url: "https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice/datasets/crimeinenglandandwalesappendixtables",
-    used: "Police-recorded shoplifting in England and Wales, as counts (Table A5a) and rates per 1,000 people (Table A7), from 2002–03 to 2025–26.",
+    used: "Police recorded shoplifting in England and Wales, as counts (Table A5a) and rates per 1,000 people (Table A7), from 2002–03 to 2025–26.",
   },
   {
     id: "sgs-scottish-welfare-fund",
@@ -893,14 +949,14 @@ export const sources: Source[] = [
     title: "Acquisitive retail crime report: key insights",
     publisher: "Scottish Police Authority / Police Scotland",
     url: "https://www.spa.police.uk/publication-library/acquisitive-retail-crime-report-10-december-2024/key-insights-retail-crime/",
-    used: "The six drivers of retail crime named by Police Scotland, the role of non-confrontation policies and self-service tills, the 36.7% repeat-offender share and the rise in 13-year-olds accused.",
+    used: "The six drivers of retail crime named by Police Scotland, the role of non confrontation policies and self service tills, the 36.7% repeat offender share and the rise in 13 year olds accused.",
   },
   {
     id: "retail-non-intervention",
     title: "New Sainsbury's dismissal reignites debate over shoplifting intervention policies",
     publisher: "HR Review",
     url: "https://hrreview.co.uk/hr-news/employment-law/new-sainsburys-dismissal-reignites-debate-over-shoplifting-intervention-policies/387712",
-    used: "An example of a large retailer's staff-safety policy that staff should not put themselves in danger to stop a theft.",
+    used: "An example of a large retailer's staff safety policy that staff should not put themselves in danger to stop a theft.",
   },
   {
     id: "slr-retail-crime-taskforce",
@@ -949,21 +1005,21 @@ export const sources: Source[] = [
     title: "Prisoners (Early Release) (Scotland) Act 2025: data publication",
     publisher: "Scottish Prison Service",
     url: "https://www.sps.gov.uk/sites/default/files/2025-05/Prisoners%20(Early%20Release)%20(Scotland)%20Act%202025%20data%20publication.pdf",
-    used: "The move from February 2025 to release most short-term prisoners at 40% of their sentence instead of 50%.",
+    used: "The move from February 2025 to release most short term prisoners at 40% of their sentence instead of 50%.",
   },
   {
     id: "short-term-prisoner-release-2026",
     title: "Short-term prisoner release: what the changes mean",
     publisher: "Scottish Government",
     url: "https://www.gov.scot/publications/short-term-prisoner-release/pages/what-the-changes-mean/",
-    used: "The further move to release short-term prisoners at 30% of their sentence from May 2026.",
+    used: "The further move to release short term prisoners at 30% of their sentence from May 2026.",
   },
   {
     id: "spa-proportionate-response",
     title: "Proportionate response to crime",
     publisher: "Scottish Police Authority",
     url: "https://www.spa.police.uk/spa-media/y5abcwk2/item-2-2-proportionate-response-to-crime.pdf",
-    used: "How the proportionate response to crime works and its national roll-out in May and June 2024. Police Scotland declined to break the figures down by crime type in freedom of information response 25-0979.",
+    used: "How the proportionate response to crime works and its national rollout in May and June 2024. Police Scotland declined to break the figures down by crime type in freedom of information response 25-0979.",
   },
   {
     id: "judiciary-shoplifting-case-management",
@@ -984,7 +1040,7 @@ export const sources: Source[] = [
     title: "Crime and Policing Act 2026: retail crime factsheet",
     publisher: "Home Office",
     url: "https://www.gov.uk/government/publications/crime-and-policing-act-2026-factsheets/crime-and-policing-act-2026-retail-crime-factsheet",
-    used: "The repeal of the £200 low-value shoplifting rule and the new offence of assaulting a retail worker, which apply in England and Wales. The first commencement regulations (SI 2026/689) did not bring these sections into force.",
+    used: "The repeal of the £200 low value shoplifting rule and the new offence of assaulting a retail worker, which apply in England and Wales. The first commencement regulations (SI 2026/689) did not bring these sections into force.",
   },
   {
     id: "protection-of-workers-scotland-2021",

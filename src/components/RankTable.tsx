@@ -28,7 +28,7 @@ const COLS: { key: SortKey; label: string; numeric: boolean }[] = [
   { key: "name", label: "", numeric: false },
   { key: "latest", label: "", numeric: true },
   { key: "first", label: "", numeric: true },
-  { key: "change", label: "10-year change", numeric: true },
+  { key: "change", label: "10 year change", numeric: true },
   { key: "children", label: "Children", numeric: true },
 ];
 
@@ -72,7 +72,7 @@ export default function RankTable({
     name: nameLabel,
     latest: latestLabel,
     first: firstLabel,
-    change: "10-year change",
+    change: "10 year change",
     children: "Children",
   };
 

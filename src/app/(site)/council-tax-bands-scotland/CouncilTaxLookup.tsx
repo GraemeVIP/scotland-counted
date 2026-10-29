@@ -185,7 +185,7 @@ export default function CouncilTaxLookup() {
                       {[
                         ["Council tax", c.previousCouncilTax, PREVIOUS_COUNCIL_TAX_YEAR],
                         ["Council tax", c.councilTax, COUNCIL_TAX_YEAR],
-                        ["Council-tax rise", c.councilTaxRise, `${risePct.format(c.councilTaxRisePct)}%`],
+                        ["Council tax rise", c.councilTaxRise, `${risePct.format(c.councilTaxRisePct)}%`],
                         ["Water supply", c.water, WATER_YEAR],
                         ["Waste water", c.wasteWater, WATER_YEAR],
                       ].map(([label, value, year]) => (

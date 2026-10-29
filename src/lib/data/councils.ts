@@ -23,7 +23,7 @@ export type Council = {
 
 export const COUNCIL_YEARS = ["2014/15", "2015/16", "2016/17", "2017/18", "2018/19", "2019/20", "2020/21", "2021/22", "2022/23", "2023/24"];
 
-/** Scotland-wide rate, recomputed from the 32 council figures. */
+/** Scotland wide rate, recomputed from the 32 council figures. */
 export const SCOTLAND_PCTS = [21.6, 22.8, 23.3, 24.2, 23.1, 24.2, 20.9, 23.9, 24.5, 23.3];
 
 export const councils: Council[] = [

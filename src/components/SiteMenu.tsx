@@ -379,7 +379,7 @@ export function MobileMenu({
           <p className="ui text-[18px] font-[640] text-[var(--ink)]">What Scotland Counted does</p>
           <p className="mt-2 mb-5 max-w-[42rem] text-[15px] leading-6 text-[var(--ink-2)]">
             See what poverty, pay and living costs look like where you live. Find the people who
-            can change things, then send them a ready-written email.
+            can change things, then send them a ready written email.
           </p>
           <Inventory onNavigate={onNavigate} />
           <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2">

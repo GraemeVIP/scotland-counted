@@ -71,6 +71,15 @@ export const POST_PATHS: Record<string, string> = {
   "what-is-the-scottish-child-payment": "/scottish-child-payment",
   "energy-price-cap-scotland-2026-explained": "/energy-price-cap-scotland",
   "best-performing-councils-scotland": "/best-council-in-scotland",
+  "adult-disability-payment": "/adult-disability-payment",
+  "adult-disability-payment-phone-number": "/adult-disability-payment-phone-number",
+  "carer-support-payment": "/carer-support-payment",
+  "best-start-grant": "/best-start-grant",
+  "winter-fuel-payment-scotland": "/winter-fuel-payment-scotland",
+  "winter-heating-payment": "/winter-heating-payment",
+  "social-security-scotland-payment-dates": "/social-security-scotland-payment-dates",
+  "young-carers-allowance-scotland": "/young-carers-allowance-scotland",
+  "crisis-grant-phone-number": "/crisis-grant-phone-number",
 };
 
 export function postPath(slug: string) {

@@ -175,7 +175,7 @@ export default function WhoDoesWhat({
           <p className="mt-3">
             You actually have more than one MSP. Everyone has one constituency MSP for their local
             area, plus seven regional MSPs covering a wider region. Any of them can be contacted.
-            This site shows all eight. It uses your constituency MSP for the ready-written email
+            This site shows all eight. It uses your constituency MSP for the ready written email
             because that is the one whose area matches where you live most closely. You do not
             have to choose.
           </p>

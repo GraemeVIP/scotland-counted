@@ -6,7 +6,7 @@ import FaqSearch from "./FaqSearch";
 export const metadata = meta({
   title: "Poverty in Scotland FAQs: Clear Answers",
   description:
-    "Straight answers about poverty in Scotland, your local figures, MPs and MSPs, the ready-written emails, privacy, and the proof behind every number.",
+    "Straight answers about poverty in Scotland, your local figures, MPs and MSPs, the ready written emails, privacy, and the proof behind every number.",
   path: "/faq",
 });
 
@@ -23,7 +23,7 @@ export default function FaqPage() {
 
       <Page>
         <PageHeader
-          eyebrow={`${faqItems.length} questions · Plain-English answers`}
+          eyebrow={`${faqItems.length} questions · Plain English answers`}
           title="Poverty in Scotland: your questions answered"
           lede="You do not need the political words or the right name for a statistic. Search in ordinary language, choose a topic, or open any question below."
         />

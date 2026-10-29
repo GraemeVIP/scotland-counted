@@ -87,13 +87,13 @@ export default function Accountability() {
           lede="The UK Government, Scottish Government and councils each control different things. You should not need a politics degree to know who to ask. This page explains the split and shows the exact record."
           stat={{
             value: "4 / 4",
-            label: "legal child-poverty promises for 2023/24 were missed. Every one of them.",
+            label: "legal child poverty promises for 2023/24 were missed. Every one of them.",
             tone: "bad",
           }}
         />
 
         <InShort>
-          <p><strong>Scotland put four child-poverty promises into law. All four were missed.</strong></p>
+          <p><strong>Scotland put four child poverty promises into law. All four were missed.</strong></p>
           <p>The UK Government controls most benefits. The Scottish Government controls the Scottish Child Payment, housing and childcare. Councils deal with homelessness and local services.</p>
           <p>Enter your postcode and I send the right question to the right person automatically.</p>
         </InShort>
@@ -111,7 +111,7 @@ export default function Accountability() {
         <ContentFrame as="section" className="pt-16 sm:pt-20">
           <SectionHead
             eyebrow="Four promises written into law"
-            title="Scotland missed every child-poverty target"
+            title="Scotland missed every child poverty target"
           />
           <div className="mt-6">
             <p className="text-[18px] leading-[1.6] text-[var(--ink-2)] max-w-[62ch]">
@@ -296,7 +296,7 @@ export default function Accountability() {
             Government choices moved the figure in both directions inside two years. Nobody has to
             argue about whether this works. <G t="reserved">The powers are split</G>, and no single
             government owns the whole result, but the lever itself is not in doubt.{" "}
-            <Link href="/indicators/glasgow-child-poverty">See the full ten-year chart</Link>.
+            <Link href="/indicators/glasgow-child-poverty">See the full ten year chart</Link>.
           </p>
         </ContentFrame>
 

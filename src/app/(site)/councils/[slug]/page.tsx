@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return meta({
     title: `${record.councilName}: budget and performance`,
     description: performanceIndex
-      ? `${record.councilName} ranks ${performanceIndex.overallRank} of 32 for council performance. Check its services, like-for-like rank, budget, Crisis Grants and official evidence.`
+      ? `${record.councilName} ranks ${performanceIndex.overallRank} of 32 for council performance. Check its services, like for like rank, budget, Crisis Grants and official evidence.`
       : `See ${record.councilName}'s published funding pressure, service goals, audit findings and promises, with every claim linked to an official source.`,
     path: `/councils/${record.councilSlug}`,
   });
@@ -145,13 +145,13 @@ export default async function CouncilAccountabilityPage({
       " for " +
       allocation.period +
       ". It is a budget or allocation, not proof of the final amount spent, and the other figures on this page are kept separate."
-    : "This record does not yet include a separate day-to-day funding allocation. The figures that are available are labelled below and linked to their sources.";
+    : "This record does not yet include a separate day to day funding allocation. The figures that are available are labelled below and linked to their sources.";
   const targetFaq =
     sameMeasureMisses > 0
       ? `${record.councilName} has ${sameMeasureMisses} goal${sameMeasureMisses === 1 ? "" : "s"} marked as missed where the numbers can be compared directly.`
       : reportedOutcomes.length > 0
         ? "The published results are shown below. None is marked as a missed goal where the numbers can be compared directly."
-        : "No service-goal result has been checked for this record yet.";
+        : "No service goal result has been checked for this record yet.";
   const faq = [
     {
       q: `How much money does ${record.councilName} receive?`,
@@ -296,7 +296,7 @@ export default async function CouncilAccountabilityPage({
               {/* The article stays on the same line as the term: JSX drops a line
                   break between text and an element, which rendered "Arevenue". */}
               A <G t="revenue-budget">revenue budget</G> pays for everyday services.{" "}
-              A <G t="capital-programme">capital programme</G> pays for big, long-term things.
+              A <G t="capital-programme">capital programme</G> pays for big, long term things.
             </p>
             <div className={`mt-7 grid gap-5 ${budgetGridClass}`}>
               {record.budgetContext.length > 0 ? record.budgetContext.map((figure, index) => (
@@ -487,7 +487,7 @@ export default async function CouncilAccountabilityPage({
           <section id="sources" className="pt-14 scroll-mt-24 max-w-[820px]">
             <h2 className="h2 mb-3">What we still do not know</h2>
             <p className="text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
-              This is a first, source-complete record, not a claim that every council decision is
+              This is a first, fully sourced record, not a claim that every council decision is
               covered. These gaps stay visible so the page cannot pretend to know more than the
               evidence supports.
             </p>

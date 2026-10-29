@@ -98,7 +98,7 @@ export type CouncilAccountabilityRecord = {
   auditFindings: AuditFinding[];
   commitments: CouncilCommitment[];
   sources: AccountabilitySource[];
-  /** Fields that should be populated only after a fresh primary-source check. */
+  /** Fields that should be populated only after a fresh primary source check. */
   knownGaps: string[];
 };
 
@@ -111,7 +111,7 @@ const sources: AccountabilitySource[] = [
     url: "https://audit.scot/uploads/2026-03/bv_2425_glasgow.pdf",
     publishedOn: "2026-03",
     usedFor:
-      "The £109.7m Glasgow says it may need over two years. Also the £105.4m set aside to help change the budget, the missing long-term money plan, the unfinished results system and the council's stated poverty priority.",
+      "The £109.7m Glasgow says it may need over two years. Also the £105.4m set aside to help change the budget, the missing long term money plan, the unfinished results system and the council's stated poverty priority.",
   },
   {
     id: "audit-2023-24",
@@ -121,7 +121,7 @@ const sources: AccountabilitySource[] = [
     url: "https://audit.scot/publications/the-202324-audit-of-glasgow-city-council",
     publishedOn: "2025-09-04",
     usedFor:
-      "The dated finding about the process that allowed five senior officers to receive large early-retirement and redundancy payouts.",
+      "The dated finding about the process that allowed five senior officers to receive large early retirement and redundancy payouts.",
   },
   {
     id: "gcc-operational-kpis-2024-25",
@@ -141,7 +141,7 @@ const sources: AccountabilitySource[] = [
     url: "https://www.housingregulator.gov.scot/landlord-performance/landlords/glasgow-city-council/engagement-plan-from-1-april-2026-to-31-march-2027/",
     publishedOn: "2026-04-02",
     usedFor:
-      "The regulator's statement that Glasgow has a serious homelessness-service problem, 12,800 cases without temporary accommodation in 2024/25, and the council's plan for temporary housing.",
+      "The regulator's statement that Glasgow has a serious homelessness service problem, 12,800 cases without temporary accommodation in 2024/25, and the council's plan for temporary housing.",
   },
   {
     id: "sp-glasgow-funding-2025-26",
@@ -165,7 +165,7 @@ export const glasgowCityAccountability: CouncilAccountabilityRecord = {
   councilCode: "S12000049",
   lastReviewedOn: "2026-08-02",
   summary:
-    "On 12,800 occasions Glasgow did not give someone temporary housing when the law said it must. Only 37.3% of people are happy with how clean the streets are, against 57% across Scotland. It recycles 30.6% of household rubbish, against 44.3%. Auditors also found no clear long-term money plan.",
+    "On 12,800 occasions Glasgow did not give someone temporary housing when the law said it must. Only 37.3% of people are happy with how clean the streets are, against 57% across Scotland. It recycles 30.6% of household rubbish, against 44.3%. Auditors also found no clear long term money plan.",
   budgetContext: [
     {
       id: "funding-gap-2026-28",
@@ -264,23 +264,23 @@ export const glasgowCityAccountability: CouncilAccountabilityRecord = {
   auditFindings: [
     {
       id: "no-medium-term-financial-plan",
-      title: "There was no clear long-term money plan",
+      title: "There was no clear long term money plan",
       reportDate: "2026-03",
       publisher: "Audit Scotland / Accounts Commission",
       severity: "grade-1",
       finding:
-        "The council did not have a clear plan for the next few years. The audit warned that this could lead to short-term decisions, and that the money saved by changing services had not been clearly shown or counted.",
+        "The council did not have a clear plan for the next few years. The audit warned that this could lead to short term decisions, and that the money saved by changing services had not been clearly shown or counted.",
       recommendation:
-        "Join the money plan to the service-change plan and show exactly how much each major change should save.",
+        "Join the money plan to the service change plan and show exactly how much each major change should save.",
       managementResponse:
-        "A Financial Outlook for 2026–2028 was presented in August 2025; a 10-year forecast was under development.",
+        "A Financial Outlook for 2026–2028 was presented in August 2025; a 10 year forecast was under development.",
       implementationDate: "2026-09",
       status: "in-progress",
       sourceIds: ["audit-bv-2024-25"],
     },
     {
       id: "performance-framework-not-finalised",
-      title: "The council did not finish its results-checking system on time",
+      title: "The council did not finish its results checking system on time",
       reportDate: "2026-03",
       publisher: "Audit Scotland / Accounts Commission",
       severity: "grade-1",
@@ -301,7 +301,7 @@ export const glasgowCityAccountability: CouncilAccountabilityRecord = {
       publisher: "Audit Scotland / Accounts Commission",
       severity: "observation",
       finding:
-        "Five senior officers were given large early-retirement and redundancy payouts. The review found that the process and the decisions behind them fell short of the standards expected of public servants.",
+        "Five senior officers were given large early retirement and redundancy payouts. The review found that the process and the decisions behind them fell short of the standards expected of public servants.",
       status: "not-verified",
       sourceIds: ["audit-2023-24"],
     },
@@ -317,14 +317,14 @@ export const glasgowCityAccountability: CouncilAccountabilityRecord = {
       owner: "Glasgow City Council",
       status: "not-verified",
       currentEvidence:
-        "The review records poverty as the council and partnership's main service-change focus, but says stronger results and money evidence are still needed.",
+        "The review records poverty as the council and partnership's main service change focus, but says stronger results and money evidence are still needed.",
       sourceIds: ["audit-bv-2024-25"],
     },
     {
       id: "ten-year-financial-forecast",
-      title: "Develop a 10-year financial forecast",
+      title: "Develop a 10 year financial forecast",
       commitment:
-        "The Council said a 10-year forecast would be developed after its Financial Outlook 2026–2028.",
+        "The Council said a 10 year forecast would be developed after its Financial Outlook 2026–2028.",
       announcedOn: "2025-08-21",
       dueBy: "2026-09",
       owner: "Glasgow City Council Executive Director of Financial Services",
@@ -336,7 +336,7 @@ export const glasgowCityAccountability: CouncilAccountabilityRecord = {
       id: "community-performance-framework",
       title: "Finalise and test the community performance framework",
       commitment:
-        "The Council and its community-planning partners committed to a first draft and iterative testing of the framework for the Glasgow Community Plan.",
+        "The Council and its community planning partners committed to a first draft and iterative testing of the framework for the Glasgow Community Plan.",
       announcedOn: "2024",
       dueBy: "2026-05",
       owner: "Glasgow City Council and Glasgow Community Planning Partnership",
@@ -349,7 +349,7 @@ export const glasgowCityAccountability: CouncilAccountabilityRecord = {
       id: "temporary-accommodation-strategy",
       title: "Publish an updated temporary accommodation strategy",
       commitment:
-        "Glasgow said it planned to publish an updated temporary accommodation strategy and improve alternatives to hotels and bed-and-breakfast accommodation.",
+        "Glasgow said it planned to publish an updated temporary accommodation strategy and improve alternatives to hotels and bed and breakfast accommodation.",
       announcedOn: "2026-04-02",
       dueBy: "2026-05",
       owner: "Glasgow City Health and Social Care Partnership / Glasgow City Council",
@@ -364,7 +364,7 @@ export const glasgowCityAccountability: CouncilAccountabilityRecord = {
     "The 12,800 homelessness failures are a count of cases, not a percentage. The total number of cases needed to calculate a rate is not included.",
     "The money set aside for budget changes was expected to be fully used by 31 March 2026. Later final spending figures or a council paper are needed to say what was actually spent.",
     "This page does not include final 2025/26 spending results for every service, the full council building programme, procurement data, or all 244 Strategic Plan promises.",
-    "Commitment statuses marked not-verified need a later council, regulator or auditor publication before they can be called complete or missed.",
+    "Commitment statuses marked not verified need a later council, regulator or auditor publication before they can be called complete or missed.",
     "No individual councillor is attributed with a service result here. Council decisions, officer accountability and national funding responsibilities need separate evidence.",
   ],
 };

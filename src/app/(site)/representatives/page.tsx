@@ -109,7 +109,7 @@ export default function RepresentativesPage() {
             <p className="mt-3 max-w-[70ch] text-[17px] leading-[1.65] text-[var(--ink-2)]">
               I’m Graeme, the person behind Scotland Counted. I build this as a free,
               independent resource. Tell me what worked, what was confusing, or what
-              would make it more useful. Even a quick thank-you is lovely to receive.
+              would make it more useful. Even a quick thank you is lovely to receive.
             </p>
             <p className="mt-3 max-w-[70ch] text-[17px] leading-[1.65] text-[var(--ink-2)]">
               Using it with a class? I’d especially like to hear how you used it and

@@ -41,7 +41,7 @@ export default function Updates() {
         <PageHeader
           eyebrow="The public log"
           title="What changed"
-          lede="Every new figure, new page and correction is dated here. Out-of-work benefit figures change monthly. Child poverty and pay normally change once a year."
+          lede="Every new figure, new page and correction is dated here. Out of work benefit figures change monthly. Child poverty and pay normally change once a year."
         >
           <div className="mt-8 flex flex-wrap items-end gap-x-10 gap-y-5">
             {site.web3formsKey ? (
