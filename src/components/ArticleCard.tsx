@@ -20,7 +20,7 @@ export default function ArticleCard({
 }) {
   const category = getPostCategory(post.category);
   const titleClass =
-    "text-[22px] font-[760] leading-[1.22] mt-3 text-[var(--ink)] group-hover:text-[var(--action-text)] transition-colors";
+    "text-[22px] font-[620] leading-[1.22] mt-3 text-[var(--ink)] group-hover:text-[var(--action-text)] transition-colors";
   const title = heading === "h3" ? (
     <h3 className={titleClass}>{post.title}</h3>
   ) : (
@@ -41,7 +41,7 @@ export default function ArticleCard({
           />
         </div>
         <div className="p-5 sm:p-6">
-          <p className="ui text-[15px] font-[750]" style={{ color: category?.color }}>
+          <p className="ui text-[15px] font-[600]" style={{ color: category?.color }}>
             {category?.name}
           </p>
           {title}

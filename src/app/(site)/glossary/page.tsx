@@ -51,11 +51,11 @@ export default function Glossary() {
               id={t.id}
               className="rounded-[var(--r-s)] bg-[var(--surface)] border border-[var(--rule)] p-5 scroll-mt-24"
             >
-              <h2 className="text-[17px] font-[620] tracking-[-0.012em] mb-2">{t.term}</h2>
+              <h2 className="text-[17px] font-[540] tracking-[-0.012em] mb-2">{t.term}</h2>
               <p className="text-[15.5px] leading-[1.55]">{t.def}</p>
               {t.tech && (
                 <p className="mt-3 pt-3 border-t border-[var(--rule)] text-[15px] text-[var(--ink-2)] leading-[1.55]">
-                  <span className="ui text-[15px] font-[650] text-[var(--muted)] block mb-1">
+                  <span className="ui text-[15px] font-[540] text-[var(--muted)] block mb-1">
                     The exact detail
                   </span>
                   {t.tech}

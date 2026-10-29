@@ -98,7 +98,7 @@ export default function YourPower() {
                 className="rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] border-t-[3px] border-t-[var(--action)] p-6"
                 style={{ boxShadow: "var(--shadow-1)" }}
               >
-                <p className="ui text-[15px] font-[720] text-[var(--ink-2)]">{p.role}</p>
+                <p className="ui text-[15px] font-[600] text-[var(--ink-2)]">{p.role}</p>
                 <p className="figure-num text-[42px] sm:text-[50px] leading-[1] text-[var(--action-text)] mt-1.5">
                   {p.amount}
                 </p>
@@ -134,7 +134,7 @@ export default function YourPower() {
                   >
                     {s.step}
                   </span>
-                  <h3 className="text-[21px] font-[740] leading-[1.25]">{s.title}</h3>
+                  <h3 className="text-[21px] font-[600] leading-[1.25]">{s.title}</h3>
                 </div>
                 <p className="text-[17px] leading-[1.6] text-[var(--ink-2)] mt-3">{s.body}</p>
                 {s.detail && (
@@ -152,10 +152,10 @@ export default function YourPower() {
             className="rounded-[var(--r-m)] bg-[var(--deep)] text-[var(--deep-ink)] p-6 sm:p-9"
             style={{ boxShadow: "var(--shadow-2)" }}
           >
-            <p className="ui text-[15px] font-[750] text-[var(--action-text)] mb-3">
+            <p className="ui text-[15px] font-[600] text-[var(--action-text)] mb-3">
               The bit almost nobody knows
             </p>
-            <h2 className="text-[26px] sm:text-[34px] font-[780] leading-[1.15] max-w-[20ch]">
+            <h2 className="text-[26px] sm:text-[34px] font-[620] leading-[1.15] max-w-[20ch]">
               {paperTrail.title}
             </h2>
             <p className="text-[18px] leading-[1.6] mt-4 max-w-[60ch] opacity-90">
@@ -189,10 +189,10 @@ export default function YourPower() {
           >
             <div className="grid grid-cols-[auto_minmax(0,1fr)] gap-x-4 border-b-2 border-[var(--ink)] bg-[var(--surface-2)] px-5 py-3.5 sm:grid-cols-[auto_minmax(0,0.95fr)_minmax(0,1.15fr)] sm:px-6">
               <span aria-hidden="true" className="w-6" />
-              <p className="ui text-[14px] font-[750] uppercase tracking-[0.08em] text-[var(--muted)]">
+              <p className="ui text-[14px] font-[600] uppercase tracking-[0.08em] text-[var(--muted)]">
                 What used to stop you
               </p>
-              <p className="ui hidden text-[14px] font-[750] uppercase tracking-[0.08em] text-[var(--good-text)] sm:block">
+              <p className="ui hidden text-[14px] font-[600] uppercase tracking-[0.08em] text-[var(--good-text)] sm:block">
                 What happens now
               </p>
             </div>
@@ -206,7 +206,7 @@ export default function YourPower() {
               >
                 <span
                   aria-hidden="true"
-                  className="flex h-6 w-6 shrink-0 translate-y-[3px] items-center justify-center rounded-full bg-[var(--good)] text-[13px] font-[800] text-white"
+                  className="flex h-6 w-6 shrink-0 translate-y-[3px] items-center justify-center rounded-full bg-[var(--good)] text-[13px] font-[640] text-white"
                 >
                   ✓
                 </span>
@@ -219,7 +219,7 @@ export default function YourPower() {
               </div>
             ))}
 
-            <p className="border-t-2 border-[var(--ink)] bg-[var(--surface-2)] px-5 py-4 text-[17px] font-[680] leading-[1.45] sm:px-6">
+            <p className="border-t-2 border-[var(--ink)] bg-[var(--surface-2)] px-5 py-4 text-[17px] font-[560] leading-[1.45] sm:px-6">
               Five jobs. Every one of them already done before you arrive.
             </p>
           </div>

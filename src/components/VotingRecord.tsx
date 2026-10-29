@@ -104,11 +104,11 @@ export default function VotingRecord({
                 />
 
                 <div className="pl-7 pr-6 sm:pl-9 sm:pr-9 py-7">
-                  <p className="ui text-[15px] font-[700] text-[var(--muted)]">
+                  <p className="ui text-[15px] font-[580] text-[var(--muted)]">
                     {division.stage} · {fmtDate(division.date)}
                   </p>
 
-                  <h3 className="text-[26px] sm:text-[32px] font-[780] leading-[1.14] mt-1.5 max-w-[20ch]">
+                  <h3 className="text-[26px] sm:text-[32px] font-[620] leading-[1.14] mt-1.5 max-w-[20ch]">
                     {division.headline}
                   </h3>
 
@@ -123,7 +123,7 @@ export default function VotingRecord({
                     >
                       {v.glyph}
                     </span>
-                    <span className="ui text-[17px] sm:text-[19px] font-[760]">
+                    <span className="ui text-[17px] sm:text-[19px] font-[620]">
                       {mpName ? `${mpName} ` : "Your MP "}
                       <span style={{ color: `var(${v.textVar})` }}>{v.label.toLowerCase()}</span>
                     </span>
@@ -143,7 +143,7 @@ export default function VotingRecord({
 
                   <dl className="grid gap-x-8 gap-y-3 sm:grid-cols-2 mt-5 pt-5 border-t border-[var(--rule)]">
                     <div>
-                      <dt className="ui text-[15px] font-[700] text-[var(--good-text)]">
+                      <dt className="ui text-[15px] font-[580] text-[var(--good-text)]">
                         Voting for it meant
                       </dt>
                       <dd className="text-[15.5px] leading-[1.5] text-[var(--ink-2)] mt-1">
@@ -151,7 +151,7 @@ export default function VotingRecord({
                       </dd>
                     </div>
                     <div>
-                      <dt className="ui text-[15px] font-[700] text-[var(--bad-text)]">
+                      <dt className="ui text-[15px] font-[580] text-[var(--bad-text)]">
                         Voting against it meant
                       </dt>
                       <dd className="text-[15.5px] leading-[1.5] text-[var(--ink-2)] mt-1">
@@ -162,16 +162,16 @@ export default function VotingRecord({
 
                   <div className="flex flex-wrap items-center gap-x-7 gap-y-2 mt-5 pt-5 border-t border-[var(--rule)]">
                     <p className="ui text-[15px] text-[var(--ink-2)] tnum">
-                      <span className="font-[740] text-[var(--ink)]">
+                      <span className="font-[600] text-[var(--ink)]">
                         {division.ayes} to {division.noes}
                       </span>{" "}
                       across the whole Commons, it {carried ? "passed" : "did not pass"}
                     </p>
                     <p className="ui text-[15px] text-[var(--ink-2)] tnum">
                       Scotland&apos;s 57 MPs:{" "}
-                      <span className="font-[740] text-[var(--good-text)]">{tally.aye} for</span>,{" "}
-                      <span className="font-[740] text-[var(--bad-text)]">{tally.no} against</span>,{" "}
-                      <span className="font-[740] text-[var(--flat-text)]">
+                      <span className="font-[600] text-[var(--good-text)]">{tally.aye} for</span>,{" "}
+                      <span className="font-[600] text-[var(--bad-text)]">{tally.no} against</span>,{" "}
+                      <span className="font-[600] text-[var(--flat-text)]">
                         {tally.absent} not recorded
                       </span>
                     </p>
@@ -181,7 +181,7 @@ export default function VotingRecord({
                     href={`https://votes.parliament.uk/Votes/Commons/Division/${division.id}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="ui text-[15px] font-[650] inline-block mt-4"
+                    className="ui text-[15px] font-[540] inline-block mt-4"
                   >
                     Check this vote on the official record →
                   </a>

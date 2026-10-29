@@ -21,14 +21,14 @@ function ExtremeHistory() {
   return (
     <figure className="not-prose my-8 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5 sm:p-7">
       <div className="border-b border-[var(--rule)] pb-4">
-        <p className="ui text-[15px] font-[760] text-[var(--brand)]">Five years of the same comparison</p>
-        <h3 className="mt-1 text-[22px] font-[760] leading-[1.25]">The two ends of the table stay far apart</h3>
+        <p className="ui text-[15px] font-[620] text-[var(--brand)]">Five years of the same comparison</p>
+        <h3 className="mt-1 text-[22px] font-[620] leading-[1.25]">The two ends of the table stay far apart</h3>
       </div>
 
       <div className="mt-6 space-y-6">
         {CRISIS_GRANT_YEARS.map((year, index) => (
           <div key={year}>
-            <p className="ui text-[15px] font-[750] text-[var(--ink)]">{year}</p>
+            <p className="ui text-[15px] font-[600] text-[var(--ink)]">{year}</p>
             <div className="mt-2 space-y-2.5">
               {[
                 { name: "Inverclyde", value: inverclyde.acceptanceHistory[index], color: "bg-[var(--brand)]" },
@@ -36,8 +36,8 @@ function ExtremeHistory() {
               ].map((row) => (
                 <div key={row.name}>
                   <div className="flex items-baseline justify-between gap-4 text-[15px] leading-[1.4]">
-                    <span className="font-[650] text-[var(--ink-2)]">{row.name}</span>
-                    <span className="tnum font-[760] text-[var(--ink)]">{row.value}%</span>
+                    <span className="font-[540] text-[var(--ink-2)]">{row.name}</span>
+                    <span className="tnum font-[620] text-[var(--ink)]">{row.value}%</span>
                   </div>
                   <div className="mt-1 h-3 overflow-hidden rounded-full bg-[var(--surface-2)]" aria-hidden="true">
                     <div className={`h-full rounded-full ${row.color}`} style={{ width: `${row.value}%` }} />
@@ -63,8 +63,8 @@ function CouncilTable() {
     <figure className="not-prose my-8 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5 sm:p-7">
       <div className="flex flex-wrap items-end justify-between gap-3 border-b border-[var(--rule)] pb-4">
         <div>
-          <p className="ui text-[15px] font-[760] text-[var(--brand)]">All 32 councils</p>
-          <h3 className="mt-1 text-[22px] font-[760] leading-[1.25]">Crisis Grant decisions resulting in an award</h3>
+          <p className="ui text-[15px] font-[620] text-[var(--brand)]">All 32 councils</p>
+          <h3 className="mt-1 text-[22px] font-[620] leading-[1.25]">Crisis Grant decisions resulting in an award</h3>
         </div>
         <p className="ui text-[15px] text-[var(--muted)]">Financial year 2025/26</p>
       </div>
@@ -73,12 +73,12 @@ function CouncilTable() {
         <table className="min-w-[720px] border-collapse text-[15px] tnum">
           <thead>
             <tr>
-              <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-left font-[700]">#</th>
-              <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-left font-[700]">Council</th>
-              <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-right font-[700]">Award rate</th>
-              <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-right font-[700]">vs Scotland</th>
-              <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-right font-[700]">Awards / decisions</th>
-              <th className="border-b-2 border-[var(--ink)] pb-2 text-right font-[700]">On time*</th>
+              <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-left font-[580]">#</th>
+              <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-left font-[580]">Council</th>
+              <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-right font-[580]">Award rate</th>
+              <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-right font-[580]">vs Scotland</th>
+              <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-right font-[580]">Awards / decisions</th>
+              <th className="border-b-2 border-[var(--ink)] pb-2 text-right font-[580]">On time*</th>
             </tr>
           </thead>
           <tbody>
@@ -87,10 +87,10 @@ function CouncilTable() {
               return (
                 <tr key={row.slug} className={extreme ? "bg-[var(--surface-2)]" : undefined}>
                   <td className="border-b border-[var(--rule)] py-2.5 pr-4 text-[var(--muted)]">{row.rank}</td>
-                  <td className="border-b border-[var(--rule)] py-2.5 pr-4 font-[650]">
+                  <td className="border-b border-[var(--rule)] py-2.5 pr-4 font-[540]">
                     <Link href={`/councils/${row.slug}`}>{row.council}</Link>
                   </td>
-                  <td className="border-b border-[var(--rule)] py-2.5 pr-4 text-right font-[780]">{row.acceptanceRate}%</td>
+                  <td className="border-b border-[var(--rule)] py-2.5 pr-4 text-right font-[620]">{row.acceptanceRate}%</td>
                   <td className="border-b border-[var(--rule)] py-2.5 pr-4 text-right text-[var(--ink-2)]">{signed(row.differenceFromScotland)}</td>
                   <td className="border-b border-[var(--rule)] py-2.5 pr-4 text-right text-[var(--ink-2)]">
                     {row.awards.toLocaleString("en-GB")} / {row.decisions.toLocaleString("en-GB")}
@@ -139,7 +139,7 @@ export default function Post() {
         ].map((stat) => (
           <div key={stat.label} className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5">
             <p className="display-stat text-[38px] leading-none text-[var(--action-text)]">{stat.value}</p>
-            <p className="mt-3 text-[16px] font-[700] leading-[1.4] text-[var(--ink)]">{stat.label}</p>
+            <p className="mt-3 text-[16px] font-[580] leading-[1.4] text-[var(--ink)]">{stat.label}</p>
             <p className="mt-2 text-[15px] leading-[1.5] text-[var(--muted)]">{stat.note}</p>
           </div>
         ))}
@@ -283,13 +283,13 @@ export default function Post() {
           <span className="label">Prepared CSV · 32 councils</span>
           <strong className="mt-2 block text-[19px] leading-[1.3]">Download the journalist-ready table</strong>
           <span className="mt-2 block text-[15px] leading-[1.5] text-[var(--ink-2)]">Five years of rates, decisions, awards, spending, average awards and latest processing performance.</span>
-          <span className="ui mt-4 block text-[15px] font-[680] text-[var(--brand)]">Download CSV ↓</span>
+          <span className="ui mt-4 block text-[15px] font-[560] text-[var(--brand)]">Download CSV ↓</span>
         </a>
         <a href={CRISIS_GRANT_TABLES_URL} className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5 no-underline hover:border-[var(--brand)]">
           <span className="label">Official source workbook</span>
           <strong className="mt-2 block text-[19px] leading-[1.3]">Check every number at source</strong>
           <span className="mt-2 block text-[15px] leading-[1.5] text-[var(--ink-2)]">The Scottish Government Excel workbook, with notes, definitions and all Scottish Welfare Fund tables.</span>
-          <span className="ui mt-4 block text-[15px] font-[680] text-[var(--brand)]">Open workbook →</span>
+          <span className="ui mt-4 block text-[15px] font-[560] text-[var(--brand)]">Open workbook →</span>
         </a>
       </div>
 

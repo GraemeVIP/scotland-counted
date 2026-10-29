@@ -151,8 +151,8 @@ export default function WhyGlasgow() {
             </Split>
 
             <aside className="mt-9 max-w-[900px] rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] p-6 sm:p-7">
-              <p className="ui text-[15px] font-[760] text-[var(--brand)]">New health evidence</p>
-              <h3 className="mt-2 text-[24px] font-[760] leading-[1.25]">
+              <p className="ui text-[15px] font-[620] text-[var(--brand)]">New health evidence</p>
+              <h3 className="mt-2 text-[24px] font-[620] leading-[1.25]">
                 Drug deaths show how wide the deprivation divide remains
               </h3>
               <p className="mt-3 max-w-[66ch] text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
@@ -160,7 +160,7 @@ export default function WhyGlasgow() {
                 2020–2024. Across Scotland in 2024, the rate in the most deprived fifth of areas was
                 about 12 times the rate in the least deprived fifth.
               </p>
-              <Link href="/blog/drug-deaths-scotland-deprivation" className="ui mt-4 inline-flex min-h-11 items-center font-[720]">
+              <Link href="/blog/drug-deaths-scotland-deprivation" className="ui mt-4 inline-flex min-h-11 items-center font-[600]">
                 See the full council comparison and what it proves <span aria-hidden="true">→</span>
               </Link>
             </aside>
@@ -234,7 +234,7 @@ export default function WhyGlasgow() {
                   <p className="display-stat text-[clamp(30px,3.4vw,40px)] text-[var(--brand)]">
                     {stat.value}
                   </p>
-                  <p className="mt-2.5 text-[16px] font-[640] leading-[1.4]">{stat.label}</p>
+                  <p className="mt-2.5 text-[16px] font-[540] leading-[1.4]">{stat.label}</p>
                   <p className="mt-2 text-[14.5px] leading-[1.45] text-[var(--muted)]">
                     {stat.note}
                   </p>

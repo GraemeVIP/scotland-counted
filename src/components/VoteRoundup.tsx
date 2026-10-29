@@ -58,10 +58,10 @@ export default function VoteRoundup({ className = "" }: { className?: string }) 
                 className="h-full flex flex-col rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] px-6 sm:px-8 py-7"
                 style={{ boxShadow: "var(--shadow-2)" }}
               >
-                <p className="ui text-[15px] font-[700] text-[var(--muted)]">
+                <p className="ui text-[15px] font-[580] text-[var(--muted)]">
                   {d.stage} · {fmtDate(d.date)}
                 </p>
-                <h3 className="text-[25px] sm:text-[29px] font-[780] leading-[1.15] mt-1.5 max-w-[20ch]">
+                <h3 className="text-[25px] sm:text-[29px] font-[620] leading-[1.15] mt-1.5 max-w-[20ch]">
                   {d.headline}
                 </h3>
                 <p className="text-[16.5px] leading-[1.6] text-[var(--ink-2)] mt-4 max-w-[54ch]">
@@ -69,7 +69,7 @@ export default function VoteRoundup({ className = "" }: { className?: string }) 
                 </p>
 
                 <div className="mt-6">
-                  <p className="ui text-[15px] font-[720] text-[var(--ink-2)] mb-2.5">
+                  <p className="ui text-[15px] font-[600] text-[var(--ink-2)] mb-2.5">
                     Scotland&apos;s {SEATS} MPs
                   </p>
                   <div
@@ -106,7 +106,7 @@ export default function VoteRoundup({ className = "" }: { className?: string }) 
 
                 <div className="mt-auto pt-6">
                   <p className="ui text-[15px] leading-[1.5] text-[var(--ink-2)] tnum border-t border-[var(--rule)] pt-4">
-                    <span className="font-[740] text-[var(--ink)]">
+                    <span className="font-[600] text-[var(--ink)]">
                       {d.ayes} to {d.noes}
                     </span>{" "}
                     across the whole Commons, it {carried ? "passed" : "did not pass"}
@@ -115,7 +115,7 @@ export default function VoteRoundup({ className = "" }: { className?: string }) 
                     href={`https://votes.parliament.uk/Votes/Commons/Division/${d.id}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="ui text-[15px] font-[650] inline-block mt-3"
+                    className="ui text-[15px] font-[540] inline-block mt-3"
                   >
                     Check this vote on the official record →
                   </a>
@@ -130,7 +130,7 @@ export default function VoteRoundup({ className = "" }: { className?: string }) 
         className="mt-6 rounded-[var(--r-m)] bg-[var(--deep)] text-[var(--deep-ink)] px-6 sm:px-8 py-6"
         style={{ boxShadow: "var(--shadow-1)" }}
       >
-        <p className="text-[19px] sm:text-[21px] leading-[1.5] font-[620] max-w-[60ch]">
+        <p className="text-[19px] sm:text-[21px] leading-[1.5] font-[540] max-w-[60ch]">
           One of those MPs is yours. Find your area and I will show you how they were recorded, by
           name, on each of these votes.
         </p>

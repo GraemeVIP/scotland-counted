@@ -28,10 +28,10 @@ function RateBar({
   return (
     <div>
       <div className="flex items-baseline justify-between gap-4 text-[15px] leading-[1.45]">
-        <span className={highlight ? "font-[760] text-[var(--ink)]" : "font-[620] text-[var(--ink-2)]"}>
+        <span className={highlight ? "font-[620] text-[var(--ink)]" : "font-[540] text-[var(--ink-2)]"}>
           {label}
         </span>
-        <span className="tnum shrink-0 font-[760] text-[var(--ink)]">{rate.toFixed(1)}</span>
+        <span className="tnum shrink-0 font-[620] text-[var(--ink)]">{rate.toFixed(1)}</span>
       </div>
       <div className="mt-1.5 h-3.5 overflow-hidden rounded-full bg-[var(--surface-2)]" aria-hidden="true">
         <div
@@ -49,8 +49,8 @@ function DeprivationChart() {
     <figure className="not-prose my-8 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5 sm:p-7">
       <div className="flex flex-wrap items-end justify-between gap-3 border-b border-[var(--rule)] pb-4">
         <div>
-          <p className="ui text-[15px] font-[760] text-[var(--brand)]">The deprivation gradient</p>
-          <h3 className="mt-1 text-[22px] font-[760] leading-[1.25]">Drug-misuse death rate by SIMD fifth</h3>
+          <p className="ui text-[15px] font-[620] text-[var(--brand)]">The deprivation gradient</p>
+          <h3 className="mt-1 text-[22px] font-[620] leading-[1.25]">Drug-misuse death rate by SIMD fifth</h3>
         </div>
         <p className="ui text-[15px] text-[var(--muted)]">Deaths per 100,000 · 2024</p>
       </div>
@@ -84,8 +84,8 @@ function CouncilChart() {
     <figure className="not-prose my-8 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5 sm:p-7">
       <div className="flex flex-wrap items-end justify-between gap-3 border-b border-[var(--rule)] pb-4">
         <div>
-          <p className="ui text-[15px] font-[760] text-[var(--brand)]">Across Scotland</p>
-          <h3 className="mt-1 text-[22px] font-[760] leading-[1.25]">The ten highest council-area rates</h3>
+          <p className="ui text-[15px] font-[620] text-[var(--brand)]">Across Scotland</p>
+          <h3 className="mt-1 text-[22px] font-[620] leading-[1.25]">The ten highest council-area rates</h3>
         </div>
         <p className="ui text-[15px] text-[var(--muted)]">Per 100,000 · 2020–2024</p>
       </div>
@@ -111,7 +111,7 @@ function CouncilChart() {
       </div>
 
       <details className="group mt-6 border-t border-[var(--rule)] pt-2">
-        <summary className="ui flex min-h-11 w-fit cursor-pointer list-none items-center gap-2 py-3 text-[15px] font-[680] text-[var(--ink-2)] hover:text-[var(--brand)]">
+        <summary className="ui flex min-h-11 w-fit cursor-pointer list-none items-center gap-2 py-3 text-[15px] font-[560] text-[var(--ink-2)] hover:text-[var(--brand)]">
           <span aria-hidden="true" className="transition-transform group-open:rotate-90">▸</span>
           See every council rate and confidence interval
         </summary>
@@ -119,11 +119,11 @@ function CouncilChart() {
           <table className="min-w-full border-collapse text-[15px] tnum">
             <thead>
               <tr>
-                <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-left font-[700]">#</th>
-                <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-left font-[700]">Council area</th>
-                <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-right font-[700]">Rate</th>
-                <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-right font-[700]">95% interval</th>
-                <th className="border-b-2 border-[var(--ink)] pb-2 text-right font-[700]">Deaths</th>
+                <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-left font-[580]">#</th>
+                <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-left font-[580]">Council area</th>
+                <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-right font-[580]">Rate</th>
+                <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-right font-[580]">95% interval</th>
+                <th className="border-b-2 border-[var(--ink)] pb-2 text-right font-[580]">Deaths</th>
               </tr>
             </thead>
             <tbody>
@@ -133,10 +133,10 @@ function CouncilChart() {
                 return (
                   <tr key={row.area} className={row.area === "Glasgow City" ? "bg-[var(--glasgow-wash)]" : undefined}>
                     <td className="border-b border-[var(--rule)] py-2.5 pr-4 text-[var(--muted)]">{rank}</td>
-                    <td className="border-b border-[var(--rule)] py-2.5 pr-4 font-[620]">
+                    <td className="border-b border-[var(--rule)] py-2.5 pr-4 font-[540]">
                       {slug ? <Link href={`/areas/${slug}`}>{row.area}</Link> : row.area}
                     </td>
-                    <td className="border-b border-[var(--rule)] py-2.5 pr-4 text-right font-[700]">
+                    <td className="border-b border-[var(--rule)] py-2.5 pr-4 text-right font-[580]">
                       {row.rate === null ? "Not published" : row.rate.toFixed(1)}
                     </td>
                     <td className="border-b border-[var(--rule)] py-2.5 pr-4 text-right text-[var(--ink-2)]">
@@ -168,8 +168,8 @@ function SubstanceChart() {
   return (
     <figure className="not-prose my-8 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5 sm:p-7">
       <div className="border-b border-[var(--rule)] pb-4">
-        <p className="ui text-[15px] font-[760] text-[var(--brand)]">Substances implicated</p>
-        <h3 className="mt-1 text-[22px] font-[760] leading-[1.25]">Four headline categories, all overlapping</h3>
+        <p className="ui text-[15px] font-[620] text-[var(--brand)]">Substances implicated</p>
+        <h3 className="mt-1 text-[22px] font-[620] leading-[1.25]">Four headline categories, all overlapping</h3>
       </div>
       <div className="mt-6 space-y-5">
         {implicatedSubstances2024.map((row) => (
@@ -233,7 +233,7 @@ export default function Post() {
         ].map((stat) => (
           <div key={stat.label} className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5">
             <p className="display-stat text-[34px] leading-none text-[var(--action-text)]">{stat.value}</p>
-            <p className="mt-3 text-[16px] font-[700] leading-[1.4] text-[var(--ink)]">{stat.label}</p>
+            <p className="mt-3 text-[16px] font-[580] leading-[1.4] text-[var(--ink)]">{stat.label}</p>
             <p className="mt-2 text-[15px] leading-[1.5] text-[var(--muted)]">{stat.note}</p>
           </div>
         ))}
@@ -352,7 +352,7 @@ export default function Post() {
       <div className="not-prose my-8 grid gap-3 sm:grid-cols-2">
         {ukDrugPoisoningRates2023.map((row) => (
           <div key={row.area} className={`rounded-[var(--r-s)] border p-5 ${row.area === "Scotland" ? "border-[var(--action)] bg-[var(--action-tint)]" : "border-[var(--rule)] bg-[var(--surface)]"}`}>
-            <p className="ui text-[15px] font-[700] text-[var(--muted)]">{row.area}</p>
+            <p className="ui text-[15px] font-[580] text-[var(--muted)]">{row.area}</p>
             <p className="mt-2 figure-num text-[30px] text-[var(--ink)]">{row.rate.toFixed(1)}</p>
             <p className="mt-1 text-[15px] text-[var(--ink-2)]">deaths per 100,000 · age-standardised</p>
           </div>

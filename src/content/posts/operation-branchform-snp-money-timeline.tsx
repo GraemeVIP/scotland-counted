@@ -54,8 +54,8 @@ export default function Post() {
       </Lead>
 
       <div className="not-prose rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--deep)] p-6 text-[var(--deep-ink)] sm:p-8">
-        <p className="ui text-[15px] font-[760] text-[var(--action-text)]">Living timeline</p>
-        <p className="mt-2 text-[22px] font-[760] leading-[1.3]">Last independently checked: 2 August 2026</p>
+        <p className="ui text-[15px] font-[620] text-[var(--action-text)]">Living timeline</p>
+        <p className="mt-2 text-[22px] font-[620] leading-[1.3]">Last independently checked: 2 August 2026</p>
         <p className="mt-3 max-w-[58ch] text-[16px] leading-[1.6] opacity-80">
           The event date and the date a fact became known are not always the same. Purchases from
           2010 onward are marked “Established in court” because the public learned the proved
@@ -91,8 +91,8 @@ export default function Post() {
             className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5 sm:p-6"
             style={{ borderTopWidth: 4, borderTopColor: person.tone }}
           >
-            <p className="ui text-[15px] font-[720] text-[var(--muted)]">{person.name}</p>
-            <p className="mt-1 text-[22px] font-[780] leading-[1.2]" style={{ color: person.tone }}>
+            <p className="ui text-[15px] font-[600] text-[var(--muted)]">{person.name}</p>
+            <p className="mt-1 text-[22px] font-[620] leading-[1.2]" style={{ color: person.tone }}>
               <ExplainText>{person.status}</ExplainText>
             </p>
             <p className="mt-3 text-[16px] leading-[1.58] text-[var(--ink-2)]"><ExplainText>{person.body}</ExplainText></p>
@@ -120,7 +120,7 @@ export default function Post() {
         <div className="grid gap-1 border-b border-[var(--rule)] p-5 sm:grid-cols-[165px_1fr] sm:gap-6 sm:p-6">
           <p className="display-stat text-[25px] text-[var(--brand)]">£666,953</p>
           <div>
-            <p className="text-[18px] font-[740]">Raised by independence appeals through 2020</p>
+            <p className="text-[18px] font-[600]">Raised by independence appeals through 2020</p>
             <p className="mt-2 text-[16px] leading-[1.55] text-[var(--ink-2)]">
               <ExplainText>
                 The SNP&apos;s own 2020 accounts said £51,760 had been applied and the rest was
@@ -132,7 +132,7 @@ export default function Post() {
         <div className="grid gap-1 border-b border-[var(--rule)] p-5 sm:grid-cols-[165px_1fr] sm:gap-6 sm:p-6">
           <p className="display-stat text-[25px] text-[var(--action-text)]">£400,310.65</p>
           <div>
-            <p className="text-[18px] font-[740]">
+            <p className="text-[18px] font-[600]">
               <G t="embezzled">Embezzled</G> by Murrell
             </p>
             <p className="mt-2 text-[16px] leading-[1.55] text-[var(--ink-2)]">
@@ -144,7 +144,7 @@ export default function Post() {
         <div className="grid gap-1 p-5 sm:grid-cols-[165px_1fr] sm:gap-6 sm:p-6">
           <p className="display-stat text-[25px] text-[var(--good-text)]">£2,248,353</p>
           <div>
-            <p className="text-[18px] font-[740]">Public grants for party policy research, 2010–22</p>
+            <p className="text-[18px] font-[600]">Public grants for party policy research, 2010–22</p>
             <p className="mt-2 text-[16px] leading-[1.55] text-[var(--ink-2)]">
               <ExplainText>
                 These grants are public money paid to eligible parties for policy research and
@@ -217,7 +217,7 @@ export default function Post() {
             className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-4 sm:p-5"
           >
             <p className="display-stat text-[25px] text-[var(--action-text)] sm:text-[30px]">{value}</p>
-            <p className="mt-2 text-[15px] font-[650] leading-[1.45] text-[var(--ink-2)]">
+            <p className="mt-2 text-[15px] font-[540] leading-[1.45] text-[var(--ink-2)]">
               <ExplainText>{label}</ExplainText>
             </p>
           </div>
@@ -281,7 +281,7 @@ export default function Post() {
               {number}
             </span>
             <div>
-              <p className="text-[18px] font-[750]">
+              <p className="text-[18px] font-[600]">
                 <ExplainText>{title}</ExplainText>
               </p>
               <p className="mt-1.5 text-[16px] leading-[1.55] text-[var(--ink-2)]"><ExplainText>{body}</ExplainText></p>
@@ -340,7 +340,7 @@ export default function Post() {
 
       <div className="not-prose my-8 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] p-6 sm:p-8">
         <p className="label mb-2">Follow the evidence</p>
-        <h3 className="text-[25px] font-[780] leading-[1.2]">One email when this timeline changes</h3>
+        <h3 className="text-[25px] font-[620] leading-[1.2]">One email when this timeline changes</h3>
         <p className="mb-5 mt-2 max-w-[58ch] text-[16px] leading-[1.55] text-[var(--ink-2)]">
           No daily political newsletter. Just an update when a court, police, prosecutor,
           regulator or official inquiry changes the verified position.

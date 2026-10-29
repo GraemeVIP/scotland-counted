@@ -79,7 +79,7 @@ export default function AreaGrid({ className = "" }: { className?: string }) {
                 style={{ width: `${18 + t * 82}%`, opacity: 0.035 + t * 0.09 }}
               />
               <span className="relative min-w-0">
-                <span className="ui block text-[15.5px] font-[700] leading-[1.25] text-[var(--ink)]">
+                <span className="ui block text-[15.5px] font-[580] leading-[1.25] text-[var(--ink)]">
                   {a.name}
                 </span>
                 <span className="ui mt-1 block text-[15px] leading-none text-[var(--muted)]">
@@ -95,7 +95,7 @@ export default function AreaGrid({ className = "" }: { className?: string }) {
       </div>
 
       <div className="flex flex-wrap items-center gap-x-6 gap-y-3 mt-7">
-        <Link href="/constituencies" className="ui text-[16px] font-[700]">
+        <Link href="/constituencies" className="ui text-[16px] font-[580]">
           Or find it by your MP&apos;s area →
         </Link>
         <Link href="/browse" className="ui text-[16px] font-[600] text-[var(--ink-2)]">

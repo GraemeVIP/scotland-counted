@@ -137,8 +137,8 @@ function TopTenChart() {
   return (
     <figure className="not-prose my-8 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5 sm:p-7">
       <div className="border-b border-[var(--rule)] pb-4">
-        <p className="ui text-[15px] font-[760] text-[var(--brand)]">Our main ranking</p>
-        <h3 className="mt-1 text-[24px] font-[780] leading-[1.25]">The top ten councils</h3>
+        <p className="ui text-[15px] font-[620] text-[var(--brand)]">Our main ranking</p>
+        <h3 className="mt-1 text-[24px] font-[620] leading-[1.25]">The top ten councils</h3>
       </div>
       <ol className="mt-5 space-y-3">
         {topTen.map((row) => (
@@ -146,7 +146,7 @@ function TopTenChart() {
             <span className="ui tnum text-right text-[15px] text-[var(--muted)]">{row.overallRank}</span>
             <div className="min-w-0">
               <div className="mb-1.5 flex items-baseline justify-between gap-3">
-                <Link href={`/councils/${row.slug}`} className="truncate text-[15.5px] font-[680] text-[var(--ink)]">
+                <Link href={`/councils/${row.slug}`} className="truncate text-[15.5px] font-[560] text-[var(--ink)]">
                   {row.name}
                 </Link>
               </div>
@@ -157,7 +157,7 @@ function TopTenChart() {
                 />
               </div>
             </div>
-            <span className="tnum text-right text-[16px] font-[760] text-[var(--ink)]">{row.overallScore.toFixed(1)}</span>
+            <span className="tnum text-right text-[16px] font-[620] text-[var(--ink)]">{row.overallScore.toFixed(1)}</span>
           </li>
         ))}
       </ol>
@@ -171,8 +171,8 @@ function TopTenChart() {
 function RankUncertainty() {
   return (
     <figure className="not-prose my-8 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--deep)] p-5 text-white sm:p-7">
-      <p className="ui text-[15px] font-[760] text-[#9db2ff]">How solid is the result?</p>
-      <h3 className="mt-1 text-[24px] font-[780] leading-[1.25]">We changed the rules 10,000 sensible ways</h3>
+      <p className="ui text-[15px] font-[620] text-[#9db2ff]">How solid is the result?</p>
+      <h3 className="mt-1 text-[24px] font-[620] leading-[1.25]">We changed the rules 10,000 sensible ways</h3>
       <p className="mt-3 max-w-[64ch] text-[16px] leading-[1.6] text-[#d7deed]">
         The line shows where each council finished in the middle 90% of those reruns. A short line means its place barely moved. A long line means the result depends more on the choices we made.
       </p>
@@ -185,7 +185,7 @@ function RankUncertainty() {
           return (
             <div key={row.code}>
               <div className="mb-2 flex items-baseline justify-between gap-4">
-                <Link href={`/councils/${row.slug}`} className="text-[15.5px] font-[700] text-white underline decoration-white/30 underline-offset-4">
+                <Link href={`/councils/${row.slug}`} className="text-[15.5px] font-[580] text-white underline decoration-white/30 underline-offset-4">
                   {row.name}
                 </Link>
                 <span className="ui tnum text-[15px] text-[#d7deed]">#{row.rankLow}–{row.rankHigh} · top five {row.topFiveProbability.toFixed(1)}%</span>
@@ -226,12 +226,12 @@ function PillarWinners() {
           <div key={pillar.key} className="rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] p-5 last:sm:col-span-2">
             <div className="flex items-start justify-between gap-4">
               <div>
-                <p className="ui text-[15px] font-[720] text-[var(--brand)]">{pillar.label} · {pillar.weight}%</p>
-                <Link href={`/councils/${leader.slug}`} className="mt-1 block text-[20px] font-[760] leading-[1.25] text-[var(--ink)]">
+                <p className="ui text-[15px] font-[600] text-[var(--brand)]">{pillar.label} · {pillar.weight}%</p>
+                <Link href={`/councils/${leader.slug}`} className="mt-1 block text-[20px] font-[620] leading-[1.25] text-[var(--ink)]">
                   {leader.name}
                 </Link>
               </div>
-              <p className="tnum text-[27px] font-[800] leading-none text-[var(--action)]">{leader.pillars[pillar.key].score.toFixed(1)}</p>
+              <p className="tnum text-[27px] font-[640] leading-none text-[var(--action)]">{leader.pillars[pillar.key].score.toFixed(1)}</p>
             </div>
           </div>
         );
@@ -253,8 +253,8 @@ function PeerMovements() {
   return (
     <figure className="not-prose my-8 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5 sm:p-7">
       <div className="border-b border-[var(--rule)] pb-4">
-        <p className="ui text-[15px] font-[760] text-[var(--brand)]">All councils → similar councils</p>
-        <h3 className="mt-1 text-[24px] font-[780] leading-[1.25]">What changes in a fairer match-up?</h3>
+        <p className="ui text-[15px] font-[620] text-[var(--brand)]">All councils → similar councils</p>
+        <h3 className="mt-1 text-[24px] font-[620] leading-[1.25]">What changes in a fairer match-up?</h3>
       </div>
       <div className="mt-5 grid gap-3 sm:grid-cols-2">
         {rows.map((row) => {
@@ -262,12 +262,12 @@ function PeerMovements() {
           return (
             <Link key={row.code} href={`/councils/${row.slug}`} className="flex items-center justify-between gap-4 rounded-[var(--r-s)] bg-[var(--surface-2)] p-4 no-underline">
               <span>
-                <span className="block text-[15.5px] font-[700] text-[var(--ink)]">{row.name}</span>
-                <span className={`ui mt-1 block text-[15px] font-[680] ${movement > 0 ? "text-[var(--good-text)]" : "text-[var(--bad-text)]"}`}>
+                <span className="block text-[15.5px] font-[580] text-[var(--ink)]">{row.name}</span>
+                <span className={`ui mt-1 block text-[15px] font-[560] ${movement > 0 ? "text-[var(--good-text)]" : "text-[var(--bad-text)]"}`}>
                   {movement > 0 ? `rises ${movement} places` : `falls ${Math.abs(movement)} places`}
                 </span>
               </span>
-              <span className="tnum shrink-0 text-[18px] font-[780] text-[var(--ink)]">#{row.overallRank} <span aria-hidden="true">→</span> #{row.peerRank}</span>
+              <span className="tnum shrink-0 text-[18px] font-[620] text-[var(--ink)]">#{row.overallRank} <span aria-hidden="true">→</span> #{row.peerRank}</span>
             </Link>
           );
         })}
@@ -289,10 +289,10 @@ function DownloadGrid() {
           download
           className="group rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] p-5 no-underline transition-colors hover:border-[var(--brand)]"
         >
-          <span className="ui text-[15px] font-[760] text-[var(--brand)]">
+          <span className="ui text-[15px] font-[620] text-[var(--brand)]">
             {file.href.endsWith(".md") ? "Read the checks" : file.href.endsWith(".json") ? "Source list" : "Download the data"} ↓
           </span>
-          <span className="mt-1 block text-[17px] font-[730] leading-[1.35] text-[var(--ink)]">{file.title}</span>
+          <span className="mt-1 block text-[17px] font-[600] leading-[1.35] text-[var(--ink)]">{file.title}</span>
           <span className="mt-2 block text-[15px] leading-[1.5] text-[var(--ink-2)]">{file.note}</span>
         </a>
       ))}
@@ -326,7 +326,7 @@ export default function Post() {
         ].map((stat) => (
           <div key={stat.label} className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5">
             <p className="display-stat tnum text-[40px] leading-none text-[var(--action)]">{stat.value}</p>
-            <p className="mt-3 text-[17px] font-[730] leading-[1.35] text-[var(--ink)]">{stat.label}</p>
+            <p className="mt-3 text-[17px] font-[600] leading-[1.35] text-[var(--ink)]">{stat.label}</p>
             <p className="mt-2 text-[15px] leading-[1.5] text-[var(--muted)]">{stat.note}</p>
           </div>
         ))}
@@ -351,10 +351,10 @@ export default function Post() {
       <div className="not-prose my-8 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5 sm:p-7">
         <div className="flex flex-wrap items-end justify-between gap-3 border-b border-[var(--rule)] pb-4">
           <div>
-            <p className="ui text-[15px] font-[760] text-[var(--brand)]">East Renfrewshire</p>
-            <h3 className="mt-1 text-[24px] font-[780]">Why it finished first</h3>
+            <p className="ui text-[15px] font-[620] text-[var(--brand)]">East Renfrewshire</p>
+            <h3 className="mt-1 text-[24px] font-[620]">Why it finished first</h3>
           </div>
-          <Link href="/councils/east-renfrewshire" className="ui text-[15px] font-[700]">Open council profile →</Link>
+          <Link href="/councils/east-renfrewshire" className="ui text-[15px] font-[580]">Open council profile →</Link>
         </div>
         <div className="mt-5 space-y-4">
           {performancePillars.map((pillar) => {
@@ -363,14 +363,14 @@ export default function Post() {
               <div key={pillar.key} className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4">
                 <div>
                   <div className="mb-1.5 flex items-baseline justify-between gap-3">
-                    <span className="text-[15.5px] font-[680] text-[var(--ink)]">{pillar.label} <span className="font-[500] text-[var(--muted)]">({pillar.weight}%)</span></span>
+                    <span className="text-[15.5px] font-[560] text-[var(--ink)]">{pillar.label} <span className="font-[500] text-[var(--muted)]">({pillar.weight}%)</span></span>
                     <span className="ui tnum text-[15px] text-[var(--muted)]">rank #{result.rank}</span>
                   </div>
                   <div className="h-3 overflow-hidden rounded-full bg-[var(--surface-2)]" aria-hidden="true">
                     <div className="h-full rounded-full bg-[var(--brand)]" style={{ width: `${result.score}%` }} />
                   </div>
                 </div>
-                <span className="tnum w-[3.2ch] text-right text-[17px] font-[760]">{result.score.toFixed(1)}</span>
+                <span className="tnum w-[3.2ch] text-right text-[17px] font-[620]">{result.score.toFixed(1)}</span>
               </div>
             );
           })}
@@ -432,8 +432,8 @@ export default function Post() {
           { name: "North Ayrshire", big: "#1", label: "how the council is run", note: `resident survey rank #${northAyrshire.residentVerdict.rank}` },
         ].map((card) => (
           <div key={card.name} className="rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] p-5">
-            <p className="tnum text-[34px] font-[820] leading-none text-[var(--action)]">{card.big}</p>
-            <p className="mt-3 text-[16px] font-[720] leading-[1.35]">{card.name}</p>
+            <p className="tnum text-[34px] font-[640] leading-none text-[var(--action)]">{card.big}</p>
+            <p className="mt-3 text-[16px] font-[600] leading-[1.35]">{card.name}</p>
             <p className="mt-1 text-[15px] text-[var(--ink-2)]">{card.label}</p>
             <p className="ui mt-3 border-t border-[var(--rule)] pt-3 text-[15px] text-[var(--muted)]">{card.note}</p>
           </div>
@@ -455,7 +455,7 @@ export default function Post() {
       </P>
 
       <div className="not-prose my-8 rounded-[var(--r-m)] border-l-[5px] border-l-[var(--action)] bg-[var(--surface-2)] p-5 sm:p-7">
-        <p className="ui text-[15px] font-[760] text-[var(--brand)]">North Ayrshire&apos;s contradiction</p>
+        <p className="ui text-[15px] font-[620] text-[var(--brand)]">North Ayrshire&apos;s contradiction</p>
         <div className="mt-4 grid gap-4 sm:grid-cols-2">
           {[
             { value: "#1", label: "how the council is run" },
@@ -464,7 +464,7 @@ export default function Post() {
             { value: `${northAyrshire.context.loneliness.toFixed(0)}%`, label: "report loneliness" },
           ].map((item) => (
             <div key={item.label}>
-              <p className="tnum text-[29px] font-[820] leading-none text-[var(--ink)]">{item.value}</p>
+              <p className="tnum text-[29px] font-[640] leading-none text-[var(--ink)]">{item.value}</p>
               <p className="mt-2 text-[15px] leading-[1.45] text-[var(--ink-2)]">{item.label}</p>
             </div>
           ))}
@@ -494,19 +494,19 @@ export default function Post() {
 
       <div className="not-prose my-8 overflow-hidden rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)]">
         <div className="p-5 sm:p-7">
-          <p className="ui text-[15px] font-[760] text-[var(--brand)]">The rules we published</p>
-          <h3 className="mt-1 text-[24px] font-[780]">What counts, and how much</h3>
+          <p className="ui text-[15px] font-[620] text-[var(--brand)]">The rules we published</p>
+          <h3 className="mt-1 text-[24px] font-[620]">What counts, and how much</h3>
         </div>
         <div className="divide-y divide-[var(--rule)] border-t border-[var(--rule)]">
           {performancePillars.map((pillar) => (
             <div key={pillar.key} className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-4 sm:px-7">
               <div>
-                <p className="text-[16px] font-[690]">{pillar.label}</p>
+                <p className="text-[16px] font-[560]">{pillar.label}</p>
                 <div className="mt-2 h-2.5 max-w-[420px] overflow-hidden rounded-full bg-[var(--surface-2)]" aria-hidden="true">
                   <div className="h-full rounded-full bg-[var(--brand)]" style={{ width: `${(pillar.weight / 40) * 100}%` }} />
                 </div>
               </div>
-              <p className="tnum text-[22px] font-[800]">{pillar.weight}%</p>
+              <p className="tnum text-[22px] font-[640]">{pillar.weight}%</p>
             </div>
           ))}
         </div>
@@ -528,13 +528,13 @@ export default function Post() {
       </P>
 
       <details className="not-prose my-8 overflow-hidden rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)]">
-        <summary className="cursor-pointer list-none px-5 py-5 text-[17px] font-[730] text-[var(--ink)] hover:bg-[var(--surface-2)] sm:px-7">
+        <summary className="cursor-pointer list-none px-5 py-5 text-[17px] font-[600] text-[var(--ink)] hover:bg-[var(--surface-2)] sm:px-7">
           See all {evidenceFamilyCount} groups of figures <span aria-hidden="true" className="ml-2 text-[var(--brand)]">+</span>
         </summary>
         <div className="grid gap-6 border-t border-[var(--rule)] p-5 sm:grid-cols-2 sm:p-7">
           {evidenceGroups.map((group) => (
             <section key={group.name}>
-              <h4 className="text-[16px] font-[740] text-[var(--brand)]">{group.name}</h4>
+              <h4 className="text-[16px] font-[600] text-[var(--brand)]">{group.name}</h4>
               <ul className="mt-3 space-y-2">
                 {group.items.map((item) => (
                   <li key={item} className="flex gap-2 text-[15px] leading-[1.45] text-[var(--ink-2)]"><span aria-hidden="true">•</span><span>{item}</span></li>

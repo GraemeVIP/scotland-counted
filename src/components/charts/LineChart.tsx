@@ -372,7 +372,7 @@ export default function LineChart({
           }}
           role="status"
         >
-          <div className="ui text-[15px] font-[680] text-[var(--ink-2)] mb-1.5">
+          <div className="ui text-[15px] font-[560] text-[var(--ink-2)] mb-1.5">
             {x[hover]}
           </div>
           {series.map((s) => (

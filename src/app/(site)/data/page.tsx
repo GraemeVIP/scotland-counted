@@ -323,11 +323,11 @@ export default function Data() {
                     className="group block rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] p-5 no-underline transition-colors hover:border-[var(--brand)]"
                   >
                     <div className="mb-2.5 flex items-start justify-between gap-3">
-                      <h3 className="text-[16.5px] font-[680] leading-[1.3] transition-colors group-hover:text-[var(--brand)]">
+                      <h3 className="text-[16.5px] font-[560] leading-[1.3] transition-colors group-hover:text-[var(--brand)]">
                         {f.title}
                       </h3>
                       <span
-                        className={`ui shrink-0 rounded-[var(--r-pill)] border px-2.5 py-1 text-[13px] font-[750] ${
+                        className={`ui shrink-0 rounded-[var(--r-pill)] border px-2.5 py-1 text-[13px] font-[600] ${
                           f.format === "CSV"
                             ? "border-[var(--brand)] text-[var(--brand)]"
                             : "border-[var(--good-text)] text-[var(--good-text)]"
@@ -341,7 +341,7 @@ export default function Data() {
 
                     {f.columns && (
                       <p className="mb-3 rounded-[var(--r-s)] bg-[var(--surface-2)] px-3 py-2 text-[14px] leading-[1.5] text-[var(--muted)]">
-                        <span className="ui font-[700]">Columns:</span> {f.columns}
+                        <span className="ui font-[580]">Columns:</span> {f.columns}
                       </p>
                     )}
 
@@ -349,7 +349,7 @@ export default function Data() {
                       {f.size}
                       {f.rows ? ` · ${f.rows}` : ""} · {f.file}
                     </p>
-                    <p className="ui mt-1.5 text-[15px] font-[650] text-[var(--brand)]">
+                    <p className="ui mt-1.5 text-[15px] font-[540] text-[var(--brand)]">
                       Download <span aria-hidden="true">↓</span>
                     </p>
                   </a>

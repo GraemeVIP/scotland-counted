@@ -68,7 +68,7 @@ export default function Figure({
 
         {table && (
           <details className="mt-4 group">
-            <summary className="ui text-[15px] font-[620] text-[var(--ink-2)] hover:text-[var(--brand)] cursor-pointer py-2 w-fit list-none flex items-center gap-2">
+            <summary className="ui text-[15px] font-[540] text-[var(--ink-2)] hover:text-[var(--brand)] cursor-pointer py-2 w-fit list-none flex items-center gap-2">
               <span className="transition-transform group-open:rotate-90" aria-hidden="true">
                 ▸
               </span>
@@ -92,7 +92,7 @@ export default function Figure({
 
         {technical && technical.length > 0 && (
           <details className="border-t border-[var(--rule)] mt-4 group">
-            <summary className="ui text-[15px] font-[620] text-[var(--ink-2)] hover:text-[var(--brand)] cursor-pointer py-4 w-fit list-none flex items-center gap-2">
+            <summary className="ui text-[15px] font-[540] text-[var(--ink-2)] hover:text-[var(--brand)] cursor-pointer py-4 w-fit list-none flex items-center gap-2">
               <span className="transition-transform group-open:rotate-90" aria-hidden="true">
                 ▸
               </span>

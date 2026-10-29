@@ -150,7 +150,7 @@ export default async function ConstituencyPage(props: { params: Promise<{ slug: 
             },
           ].map((s) => (
             <div key={s.label} className="bg-[var(--paper)] px-5 pt-5 pb-6">
-              <div className="ui text-[15px] font-[700] text-[var(--ink-2)] leading-[1.45] mb-3 sm:min-h-[2.9em]">{s.label}</div>
+              <div className="ui text-[15px] font-[580] text-[var(--ink-2)] leading-[1.45] mb-3 sm:min-h-[2.9em]">{s.label}</div>
               <div className="figure-num text-[30px] tnum">{s.value}</div>
               <div className="ui text-[15px] text-[var(--ink-2)] mt-2.5 tnum">{s.note}</div>
             </div>

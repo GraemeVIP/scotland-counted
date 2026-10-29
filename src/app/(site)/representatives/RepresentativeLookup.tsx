@@ -50,14 +50,14 @@ function ContactCard({
 
       <dl className="mt-5 grid gap-4">
         <div>
-          <dt className="ui text-[15px] font-[750] text-[var(--ink)]">Email</dt>
+          <dt className="ui text-[15px] font-[600] text-[var(--ink)]">Email</dt>
           <dd className="mt-1 break-words text-[16px] leading-[1.5]">
             <a href={`mailto:${representative.email}`}>{representative.email}</a>
           </dd>
         </div>
         {representative.phone && (
           <div>
-            <dt className="ui text-[15px] font-[750] text-[var(--ink)]">Phone</dt>
+            <dt className="ui text-[15px] font-[600] text-[var(--ink)]">Phone</dt>
             <dd className="mt-1 text-[16px] leading-[1.5]">
               {isDialablePhone(representative.phone) ? (
                 <a href={`tel:${representative.phone.replace(/[^+\d]/g, "")}`}>
@@ -71,7 +71,7 @@ function ContactCard({
         )}
         {representative.officeAddress && (
           <div>
-            <dt className="ui text-[15px] font-[750] text-[var(--ink)]">Public office</dt>
+            <dt className="ui text-[15px] font-[600] text-[var(--ink)]">Public office</dt>
             <dd className="mt-1 text-[16px] leading-[1.55] text-[var(--ink-2)]">
               {representative.officeAddress}
             </dd>
@@ -220,7 +220,7 @@ export default function RepresentativeLookup() {
 
       <div aria-live="polite">
         {state === "error" && (
-          <p role="alert" className="ui mt-5 text-[16px] font-[650] text-[var(--bad-text)]">
+          <p role="alert" className="ui mt-5 text-[16px] font-[540] text-[var(--bad-text)]">
             {error}
           </p>
         )}
@@ -256,7 +256,7 @@ export default function RepresentativeLookup() {
 
             {lookup.regionalMsps.length > 0 && (
               <details className="mt-5 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)]">
-                <summary className="ui cursor-pointer list-none px-5 py-4 text-[16px] font-[750] text-[var(--ink)] marker:hidden sm:px-6">
+                <summary className="ui cursor-pointer list-none px-5 py-4 text-[16px] font-[600] text-[var(--ink)] marker:hidden sm:px-6">
                   See your {lookup.regionalMsps.length} regional MSPs
                   <span aria-hidden="true" className="float-right text-[var(--brand)]">
                     +
@@ -279,7 +279,7 @@ export default function RepresentativeLookup() {
                         )}
                         <Link
                           href={representativePagePath(msp)}
-                          className="ui text-[16px] font-[750] text-[var(--ink)] no-underline hover:text-[var(--brand)]"
+                          className="ui text-[16px] font-[600] text-[var(--ink)] no-underline hover:text-[var(--brand)]"
                         >
                           {msp.name}
                         </Link>
@@ -288,7 +288,7 @@ export default function RepresentativeLookup() {
                       <p className="mt-3 break-words text-[15px] leading-[1.45]">
                         <a href={`mailto:${msp.email}`}>{msp.email}</a>
                       </p>
-                      <div className="ui mt-3 text-[15px] font-[680]">
+                      <div className="ui mt-3 text-[15px] font-[560]">
                         <Link href={representativePagePath(msp)}>Full details</Link>
                       </div>
                     </article>
@@ -335,7 +335,7 @@ export default function RepresentativeLookup() {
                       href={link.href}
                       className="block h-full rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--paper)] p-4 no-underline transition-colors hover:border-[var(--brand)]"
                     >
-                      <span className="ui block text-[16px] font-[750] leading-[1.35] text-[var(--ink)]">
+                      <span className="ui block text-[16px] font-[600] leading-[1.35] text-[var(--ink)]">
                         {link.label}
                         <span aria-hidden="true" className="text-[var(--brand)]">
                           {" "}

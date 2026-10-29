@@ -39,7 +39,7 @@ export default function BlogList({
         <Link
           href="/blog"
           aria-current={!activeCategory ? "page" : undefined}
-          className={`ui min-h-11 inline-flex items-center px-4 py-2 rounded-[var(--r-pill)] text-[15px] font-[680] border no-underline transition-colors ${
+          className={`ui min-h-11 inline-flex items-center px-4 py-2 rounded-[var(--r-pill)] text-[15px] font-[560] border no-underline transition-colors ${
             !activeCategory
               ? "bg-[var(--ink)] text-[var(--paper)] border-[var(--ink)]"
               : "bg-[var(--surface)] text-[var(--ink-2)] border-[var(--rule-strong)] hover:border-[var(--brand)]"
@@ -54,7 +54,7 @@ export default function BlogList({
               key={category.slug}
               href={`/blog/category/${category.slug}`}
               aria-current={active ? "page" : undefined}
-              className={`ui min-h-11 inline-flex items-center px-4 py-2 rounded-[var(--r-pill)] text-[15px] font-[680] border no-underline transition-colors ${
+              className={`ui min-h-11 inline-flex items-center px-4 py-2 rounded-[var(--r-pill)] text-[15px] font-[560] border no-underline transition-colors ${
                 active
                   ? "bg-[var(--ink)] text-[var(--paper)] border-[var(--ink)]"
                   : "bg-[var(--surface)] text-[var(--ink-2)] border-[var(--rule-strong)] hover:border-[var(--brand)]"
@@ -92,14 +92,14 @@ export default function BlogList({
                 {/* This card sits on --deep, so it needs the dark-background
                     variant. The light one drops to 2.77:1 here for politics. */}
                 <p
-                  className="ui text-[15px] font-[760]"
+                  className="ui text-[15px] font-[620]"
                   style={{ color: featuredCategory?.colorOnDark ?? "#ff8b75" }}
                 >
                   {featuredCategory?.name}
                 </p>
                 <h2
                   id="featured-story"
-                  className="text-[31px] sm:text-[42px] font-[800] leading-[1.05] tracking-[-0.03em] mt-3 max-w-[18ch]"
+                  className="text-[31px] sm:text-[42px] font-[640] leading-[1.05] tracking-[-0.03em] mt-3 max-w-[18ch]"
                 >
                   {featured.title}
                 </h2>
@@ -109,7 +109,7 @@ export default function BlogList({
                 <p className="text-[15px] opacity-62 mt-6">
                   {fmtDate(featured.updated ?? featured.date)} · {featured.readingMinutes} min read
                 </p>
-                <p className="ui text-[16px] font-[720] mt-7 text-[var(--deep-ink)]">
+                <p className="ui text-[16px] font-[600] mt-7 text-[var(--deep-ink)]">
                   Read the full story <span aria-hidden="true">→</span>
                 </p>
               </div>

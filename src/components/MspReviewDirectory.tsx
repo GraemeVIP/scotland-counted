@@ -37,7 +37,7 @@ export default function MspReviewDirectory({ entries }: { entries: MspReviewDire
   return (
     <>
       <div className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] p-5 sm:p-6">
-        <label htmlFor="msp-review-search" className="ui block text-[17px] font-[760] text-[var(--ink)]">
+        <label htmlFor="msp-review-search" className="ui block text-[17px] font-[620] text-[var(--ink)]">
           Find an MSP
         </label>
         <p id="msp-review-search-hint" className="mt-1 text-[15px] leading-[1.5] text-[var(--ink-2)]">
@@ -72,7 +72,7 @@ export default function MspReviewDirectory({ entries }: { entries: MspReviewDire
             <button
               type="button"
               onClick={() => setQuery("")}
-              className="ui min-h-11 shrink-0 px-2 text-[15px] font-[700] text-[var(--brand)]"
+              className="ui min-h-11 shrink-0 px-2 text-[15px] font-[580] text-[var(--brand)]"
             >
               Clear
             </button>
@@ -89,7 +89,7 @@ export default function MspReviewDirectory({ entries }: { entries: MspReviewDire
         <div id="msp-review-results" className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {visibleEntries.map((entry) => (
             <article key={entry.memberId} className="rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] p-5 transition-colors hover:border-[var(--brand)]">
-              <h3 className="ui text-[17px] font-[750] leading-[1.35] text-[var(--ink)]">
+              <h3 className="ui text-[17px] font-[600] leading-[1.35] text-[var(--ink)]">
                 <Link
                   href={`/msp-reviews/${entry.slug}`}
                   className="no-underline hover:text-[var(--brand)]"
@@ -100,14 +100,14 @@ export default function MspReviewDirectory({ entries }: { entries: MspReviewDire
               <p className="ui mt-1 text-[15px] leading-[1.45] text-[var(--ink-2)]">
                 {entry.party} · {entry.areas.join(", ")}
               </p>
-              <p className="ui mt-3 text-[15px] font-[700] text-[var(--brand)]">
+              <p className="ui mt-3 text-[15px] font-[580] text-[var(--brand)]">
                 {entry.reviewCount > 0 && entry.ratingValue !== null
                   ? `${entry.ratingValue.toFixed(1)} out of 5 · ${entry.reviewCount} ${entry.reviewCount === 1 ? "review" : "reviews"}`
                   : "No approved reviews yet"}
               </p>
               <Link
                 href={`/msp-reviews/${entry.slug}`}
-                className="ui mt-4 inline-block text-[15px] font-[700] text-[var(--ink)]"
+                className="ui mt-4 inline-block text-[15px] font-[580] text-[var(--ink)]"
               >
                 {entry.reviewCount > 0 ? "Read reviews or add yours →" : "Be the first to review →"}
               </Link>

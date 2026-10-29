@@ -68,7 +68,7 @@ export default function Corrections() {
                     {["Date", "Page", "What changed"].map((h) => (
                       <th
                         key={h}
-                        className="ui text-[15px] font-[680] text-[var(--muted)] text-left pr-4 pb-2.5 border-b border-[var(--rule)]"
+                        className="ui text-[15px] font-[560] text-[var(--muted)] text-left pr-4 pb-2.5 border-b border-[var(--rule)]"
                       >
                         {h}
                       </th>

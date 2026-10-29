@@ -107,9 +107,9 @@ export default function WhoDoesWhat({
                   {p.icon}
                 </div>
                 <div>
-                  <p className="text-[27px] sm:text-[31px] font-[790] leading-[1.05]">{p.who}</p>
+                  <p className="text-[27px] sm:text-[31px] font-[620] leading-[1.05]">{p.who}</p>
                   <p
-                    className="ui text-[16px] font-[740] mt-0.5"
+                    className="ui text-[16px] font-[600] mt-0.5"
                     style={{ color: `var(${p.colorVar})` }}
                   >
                     Works in {p.city}
@@ -121,7 +121,7 @@ export default function WhoDoesWhat({
 
               <p className="text-[18px] leading-[1.55] font-[560] mt-4">{p.lead}</p>
 
-              <p className="ui text-[15px] font-[720] text-[var(--ink-2)] mt-5 mb-2.5">
+              <p className="ui text-[15px] font-[600] text-[var(--ink-2)] mt-5 mb-2.5">
                 Things they help decide
               </p>
               <ul className="space-y-2">
@@ -148,7 +148,7 @@ export default function WhoDoesWhat({
         className="mt-5 rounded-[var(--r-m)] bg-[var(--deep)] text-[var(--deep-ink)] px-6 sm:px-8 py-6"
         style={{ boxShadow: "var(--shadow-1)" }}
       >
-        <p className="text-[19px] sm:text-[21px] leading-[1.5] font-[620] max-w-[64ch]">
+        <p className="text-[19px] sm:text-[21px] leading-[1.5] font-[540] max-w-[64ch]">
           Both kinds work for you. You do not need to know which one is in charge of what, and you
           do not need to pick.
         </p>

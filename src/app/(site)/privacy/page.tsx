@@ -107,7 +107,7 @@ export default function Privacy() {
                 className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] px-6 py-6"
                 style={{ boxShadow: "var(--shadow-1)" }}
               >
-                <p className="ui text-[17px] font-[750]">{row.t}</p>
+                <p className="ui text-[17px] font-[600]">{row.t}</p>
                 <p className="mt-2.5 text-[16px] leading-[1.6] text-[var(--ink-2)]">{row.b}</p>
               </div>
             ))}
@@ -128,7 +128,7 @@ export default function Privacy() {
               </p>
 
               <div className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] px-6 py-6">
-                <p className="ui text-[15px] font-[750] mb-3">What they record</p>
+                <p className="ui text-[15px] font-[600] mb-3">What they record</p>
                 <ul className="grid gap-2.5">
                   {[
                     "The pages you visit, roughly where in the world you are, and which site or search sent you.",
@@ -154,7 +154,7 @@ export default function Privacy() {
               </div>
 
               <div className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] px-6 py-6">
-                <p className="ui text-[15px] font-[750] mb-3">How to turn it off</p>
+                <p className="ui text-[15px] font-[600] mb-3">How to turn it off</p>
                 <ul className="grid gap-2.5 text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
                   <li>
                     Switch on <strong className="text-[var(--ink)]">Do Not Track</strong> or
@@ -237,7 +237,7 @@ export default function Privacy() {
                   {["Service", "What it does", "What it sees"].map((h) => (
                     <th
                       key={h}
-                      className="ui border-b-2 border-[var(--ink)] bg-[var(--surface-2)] px-5 py-3.5 text-left text-[15px] font-[750] text-[var(--muted)]"
+                      className="ui border-b-2 border-[var(--ink)] bg-[var(--surface-2)] px-5 py-3.5 text-left text-[15px] font-[600] text-[var(--muted)]"
                     >
                       {h}
                     </th>
@@ -259,7 +259,7 @@ export default function Privacy() {
                   ["YouTube", "Plays the video, but only after you press play", "Nothing until you click. Nothing loads from YouTube on a normal page view"],
                 ].map(([a, b, c]) => (
                   <tr key={a} className="transition-colors hover:bg-[var(--surface-2)]">
-                    <td className="ui border-b border-[var(--rule)] px-5 py-4 font-[700]">{a}</td>
+                    <td className="ui border-b border-[var(--rule)] px-5 py-4 font-[580]">{a}</td>
                     <td className="border-b border-[var(--rule)] px-5 py-4 text-[var(--ink-2)]">
                       {b}
                     </td>

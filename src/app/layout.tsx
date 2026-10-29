@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo, Newsreader, IBM_Plex_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import { site } from "@/lib/site";
 import Analytics from "@/components/Analytics";
@@ -11,25 +11,24 @@ import Script from "next/script";
  * embed routes can render bare inside other people's pages.
  */
 
-const archivo = Archivo({
+const geist = Geist({
   subsets: ["latin"],
   variable: "--font-display",
-  weight: ["400", "500", "600", "700", "800", "900"],
   display: "swap",
 });
 
-const newsreader = Newsreader({
+/* One italic serif, used sparingly for a single phrase in a heading. */
+const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
   variable: "--font-text",
-  weight: ["300", "400", "500", "600"],
+  weight: "400",
   style: ["normal", "italic"],
   display: "swap",
 });
 
-const plexMono = IBM_Plex_Mono({
+const geistMono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-mono-face",
-  weight: ["400", "500", "600"],
   display: "swap",
 });
 
@@ -70,7 +69,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#ffffff",
+  themeColor: "#0e56c4",
   width: "device-width",
   initialScale: 1,
 };
@@ -92,7 +91,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html
       lang="en-GB"
       suppressHydrationWarning
-      className={`${archivo.variable} ${newsreader.variable} ${plexMono.variable}`}
+      className={`${geist.variable} ${instrumentSerif.variable} ${geistMono.variable}`}
     >
       <head>
         <Script id="theme-boot" strategy="beforeInteractive">

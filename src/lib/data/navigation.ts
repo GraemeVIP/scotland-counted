@@ -27,22 +27,11 @@ export type NavTone = "local" | "tools" | "councils" | "change" | "topics" | "pr
 /** The header links. Deliberately short, deliberately task-shaped. */
 export const PRIMARY: NavItem[] = [
   { href: "/areas", label: "Your area" },
+  { href: "/money", label: "Money" },
   { href: "/council-tax-bands-scotland", label: "Council tax" },
   { href: "/councils", label: "Councils" },
-  { href: "/representatives", label: "Find MP/MSPs" },
-  /*
-   * "Explainers", not "Investigations".
-   *
-   * /blog is the whole editorial library: money explainers, practical
-   * guides, poverty and housing pieces, council articles, and one genuine
-   * investigation. Labelling the lot "Investigations" told every visitor
-   * that a minimum wage explainer was investigative journalism, which the
-   * page itself contradicted the moment they arrived on it. The label
-   * followed a recommendation for an investigations section without the
-   * section ever being built.
-   */
+  { href: "/representatives", label: "Who represents you" },
   { href: "/blog", label: "Explainers" },
-  { href: "/contact", label: "Feedback" },
 ];
 
 /** Everything, grouped the way a person would ask for it. Feeds the browse

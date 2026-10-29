@@ -55,7 +55,7 @@ const downloads = [
 
 const cell = "border-b border-[var(--rule)] py-2.5 pr-4";
 const cellRight = `${cell} text-right`;
-const head = "border-b-2 border-[var(--ink)] pb-2 pr-4 text-left font-[700]";
+const head = "border-b-2 border-[var(--ink)] pb-2 pr-4 text-left font-[580]";
 const headRight = `${head} text-right`;
 
 function Table({ children, label }: { children: React.ReactNode; label: string }) {
@@ -80,10 +80,10 @@ function Bar({ label, sub, value, max }: { label: string; sub: string; value: nu
   return (
     <div>
       <div className="flex items-baseline justify-between gap-4 text-[15px] leading-[1.45]">
-        <span className="font-[620] text-[var(--ink-2)]">
+        <span className="font-[540] text-[var(--ink-2)]">
           {label} <span className="text-[var(--muted)]">· {sub}</span>
         </span>
-        <span className="tnum shrink-0 font-[760] text-[var(--ink)]">+{value.toFixed(1)}%</span>
+        <span className="tnum shrink-0 font-[620] text-[var(--ink)]">+{value.toFixed(1)}%</span>
       </div>
       <div className="mt-1.5 h-3.5 overflow-hidden rounded-full bg-[var(--surface-2)]" aria-hidden="true">
         <div className="h-full rounded-full bg-[var(--brand)]" style={{ width: `${(value / max) * 100}%` }} />
@@ -134,10 +134,10 @@ export default function Post() {
         <tbody>
           {q3Table2024.map((row) => (
             <tr key={row.crime}>
-              <td className={`${cell} font-[620]`}>{row.crime}</td>
+              <td className={`${cell} font-[540]`}>{row.crime}</td>
               <td className={cellRight}>{row.before}</td>
               <td className={cellRight}>{row.after}</td>
-              <td className={`${cellRight} font-[700]`}>+{Math.round(row.changePct)}%</td>
+              <td className={`${cellRight} font-[580]`}>+{Math.round(row.changePct)}%</td>
             </tr>
           ))}
         </tbody>
@@ -311,7 +311,7 @@ export default function Post() {
         <tbody>
           {detected2023to2024.map((row) => (
             <tr key={row.label}>
-              <td className={`${cell} font-[620]`}>{row.label}</td>
+              <td className={`${cell} font-[540]`}>{row.label}</td>
               <td className={cellRight}>{row.y2023}</td>
               <td className={cellRight}>{row.y2024}</td>
             </tr>
@@ -362,7 +362,7 @@ export default function Post() {
         <tbody>
           {rapeAccusedNationality2025.map((row) => (
             <tr key={row.nationality}>
-              <td className={`${cell} font-[620]`}>{row.nationality}</td>
+              <td className={`${cell} font-[540]`}>{row.nationality}</td>
               <td className={cellRight}>{row.count}</td>
             </tr>
           ))}
@@ -395,7 +395,7 @@ export default function Post() {
         ].map((stat) => (
           <div key={stat.label} className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5">
             <p className="display-stat text-[34px] leading-none text-[var(--action-text)]">{stat.value}</p>
-            <p className="mt-3 text-[16px] font-[700] leading-[1.4] text-[var(--ink)]">{stat.label}</p>
+            <p className="mt-3 text-[16px] font-[580] leading-[1.4] text-[var(--ink)]">{stat.label}</p>
             <p className="mt-2 text-[15px] leading-[1.5] text-[var(--muted)]">{stat.note}</p>
           </div>
         ))}
@@ -496,7 +496,7 @@ export default function Post() {
             <tr key={row.group}>
               <td className={cell}>{row.group}</td>
               <td className={cellRight}>{row.ratePer1000} per 1,000 men</td>
-              <td className={`${cellRight} font-[700]`}>{row.multiple} times the city rate</td>
+              <td className={`${cellRight} font-[580]`}>{row.multiple} times the city rate</td>
             </tr>
           ))}
         </tbody>
@@ -541,7 +541,7 @@ export default function Post() {
               <td className={cell}>{row.measure}</td>
               <td className={cellRight}>{row.earlier}</td>
               <td className={cellRight}>{row.latest}</td>
-              <td className={`${cellRight} font-[700]`}>{row.change}</td>
+              <td className={`${cellRight} font-[580]`}>{row.change}</td>
             </tr>
           ))}
         </tbody>
@@ -592,10 +592,10 @@ export default function Post() {
         <tbody>
           {latestYear.map((row) => (
             <tr key={row.crime}>
-              <td className={`${cell} font-[620]`}>{row.crime}</td>
+              <td className={`${cell} font-[540]`}>{row.crime}</td>
               <td className={cellRight}>{row.glasgow2025.toLocaleString("en-GB")}</td>
               <td className={cellRight}>{row.glasgow2026.toLocaleString("en-GB")}</td>
-              <td className={`${cellRight} font-[700]`}>{row.glasgowChange}</td>
+              <td className={`${cellRight} font-[580]`}>{row.glasgowChange}</td>
               <td className={cellRight}>{row.scotlandChange}</td>
             </tr>
           ))}
@@ -632,8 +632,8 @@ export default function Post() {
       <figure className="not-prose my-8 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5 sm:p-7">
         <div className="flex flex-wrap items-end justify-between gap-3 border-b border-[var(--rule)] pb-4">
           <div>
-            <p className="ui text-[15px] font-[760] text-[var(--brand)]">Figure 4</p>
-            <h3 className="mt-1 text-[22px] font-[760] leading-[1.25]">
+            <p className="ui text-[15px] font-[620] text-[var(--brand)]">Figure 4</p>
+            <h3 className="mt-1 text-[22px] font-[620] leading-[1.25]">
               Rise in recorded sexual offences, 2023/24 to 2024/25
             </h3>
           </div>
@@ -801,10 +801,10 @@ export default function Post() {
             download
             className="group rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] p-5 no-underline transition-colors hover:border-[var(--brand)]"
           >
-            <span className="ui text-[15px] font-[760] text-[var(--brand)]">
+            <span className="ui text-[15px] font-[620] text-[var(--brand)]">
               {file.href.endsWith(".json") ? "Download the workings" : "Download the data"} ↓
             </span>
-            <span className="mt-1 block text-[17px] font-[730] leading-[1.35] text-[var(--ink)]">{file.title}</span>
+            <span className="mt-1 block text-[17px] font-[600] leading-[1.35] text-[var(--ink)]">{file.title}</span>
             <span className="mt-2 block text-[15px] leading-[1.5] text-[var(--ink-2)]">{file.note}</span>
           </a>
         ))}

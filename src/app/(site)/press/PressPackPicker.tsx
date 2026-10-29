@@ -46,7 +46,7 @@ export default function PressPackPicker({ packs }: { packs: PressPack[] }) {
         <div className="grow">
           <label
             htmlFor="press-pack-council"
-            className="ui mb-2 block text-[15px] font-[750] text-[var(--ink)]"
+            className="ui mb-2 block text-[15px] font-[600] text-[var(--ink)]"
           >
             Choose a council area
           </label>
@@ -78,14 +78,14 @@ export default function PressPackPicker({ packs }: { packs: PressPack[] }) {
 
       {pack ? (
         <>
-          <p className="mt-6 text-[20px] font-[750] leading-[1.25] text-[var(--ink)]">
+          <p className="mt-6 text-[20px] font-[600] leading-[1.25] text-[var(--ink)]">
             {pack.headline}
           </p>
           <p className="mt-2 max-w-[68ch] text-[15.5px] leading-[1.55] text-[var(--ink-2)]">
             {pack.standfirst}
           </p>
 
-          <h3 className="ui mt-6 mb-2 text-[15px] font-[750] text-[var(--ink)]">Figures</h3>
+          <h3 className="ui mt-6 mb-2 text-[15px] font-[600] text-[var(--ink)]">Figures</h3>
           <ul className="grid gap-3">
             {pack.facts.map((fact) => (
               <li
@@ -100,7 +100,7 @@ export default function PressPackPicker({ packs }: { packs: PressPack[] }) {
 
           {pack.notes.length > 0 && (
             <>
-              <h3 className="ui mt-6 mb-2 text-[15px] font-[750] text-[var(--ink)]">
+              <h3 className="ui mt-6 mb-2 text-[15px] font-[600] text-[var(--ink)]">
                 Notes to editors
               </h3>
               <ul className="grid gap-2">
@@ -119,7 +119,7 @@ export default function PressPackPicker({ packs }: { packs: PressPack[] }) {
             with a mouse is no use to the person who needs it most.
           */}
           <details className="mt-6">
-            <summary className="ui cursor-pointer text-[15px] font-[700] text-[var(--brand)]">
+            <summary className="ui cursor-pointer text-[15px] font-[580] text-[var(--brand)]">
               Show it as plain text
             </summary>
             <pre className="mt-3 overflow-x-auto whitespace-pre-wrap rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--paper)] p-4 font-sans text-[15px] leading-[1.6] text-[var(--ink-2)]">

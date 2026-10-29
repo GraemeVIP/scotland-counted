@@ -36,7 +36,7 @@ export default function WhyBother({ className = "" }: { className?: string }) {
               >
                 Your MP and MSP work for you
               </h2>
-              <p className="text-[19px] sm:text-[21px] leading-[1.5] font-[650] mt-6 max-w-[45ch]">
+              <p className="text-[19px] sm:text-[21px] leading-[1.5] font-[540] mt-6 max-w-[45ch]">
                 <ExplainText>
                 You do not need to have voted for them. You do not need to understand politics.
                 Answering people who live in their area is part of the job.
@@ -63,7 +63,7 @@ export default function WhyBother({ className = "" }: { className?: string }) {
                   key={person.role}
                   className="rounded-[var(--r-m)] border border-white/15 bg-white/[0.07] px-6 py-7"
                 >
-                  <p className="ui text-[15px] font-[700] opacity-75">{person.role} is paid</p>
+                  <p className="ui text-[15px] font-[580] opacity-75">{person.role} is paid</p>
                   <p className="display-stat text-[clamp(34px,3.2vw,46px)] mt-3">
                     {person.amount}
                   </p>
@@ -77,17 +77,17 @@ export default function WhyBother({ className = "" }: { className?: string }) {
             <div className="grid gap-5 lg:grid-cols-[0.55fr_1.45fr]">
               <div>
                 <p className="kicker text-[var(--action-text)] mb-2">No faff</p>
-                <h3 className="text-[25px] font-[760] leading-[1.15] max-w-[12ch]">
+                <h3 className="text-[25px] font-[620] leading-[1.15] max-w-[12ch]">
                   From postcode to two ready emails
                 </h3>
               </div>
               <ol className="grid gap-4 sm:grid-cols-3">
                 {HOW_IT_WORKS.map((item, index) => (
                   <li key={item.title} className="rounded-[var(--r-s)] bg-white/[0.055] p-5">
-                    <span className="ui text-[15px] font-[800] text-[var(--action-text)]" aria-hidden="true">
+                    <span className="ui text-[15px] font-[640] text-[var(--action-text)]" aria-hidden="true">
                       0{index + 1}
                     </span>
-                    <h4 className="mt-3 text-[18px] font-[720] leading-[1.25]">{item.title}</h4>
+                    <h4 className="mt-3 text-[18px] font-[600] leading-[1.25]">{item.title}</h4>
                     <p className="mt-2 text-[15.5px] leading-[1.5] opacity-[0.78]"><ExplainText>{item.body}</ExplainText></p>
                   </li>
                 ))}
@@ -100,7 +100,7 @@ export default function WhyBother({ className = "" }: { className?: string }) {
           <div className="grid gap-6 lg:grid-cols-[minmax(260px,0.65fr)_minmax(0,1fr)] lg:items-center">
             <div>
               <p className="kicker text-[var(--action-text)] mb-2">Ready when you are</p>
-              <h3 className="text-[26px] font-[780] leading-[1.12] max-w-[18ch]">
+              <h3 className="text-[26px] font-[620] leading-[1.12] max-w-[18ch]">
                 Put in your postcode. I do the rest.
               </h3>
             </div>

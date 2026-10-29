@@ -20,7 +20,7 @@ export default function EmbedButton({ slug, title }: { slug: string; title: stri
 
   return (
     <details className="group">
-      <summary className="ui text-[15px] font-[620] text-[var(--ink-2)] hover:text-[var(--brand)] cursor-pointer py-2 w-fit list-none flex items-center gap-2">
+      <summary className="ui text-[15px] font-[540] text-[var(--ink-2)] hover:text-[var(--brand)] cursor-pointer py-2 w-fit list-none flex items-center gap-2">
         <span className="transition-transform group-open:rotate-90" aria-hidden="true">
           ▸
         </span>
@@ -34,7 +34,7 @@ export default function EmbedButton({ slug, title }: { slug: string; title: stri
           <button
             type="button"
             onClick={copy}
-            className="ui shrink-0 bg-[var(--ink)] text-[var(--paper)] px-4 text-[15px] font-[620] hover:bg-[var(--brand)] hover:text-white transition-colors"
+            className="ui shrink-0 bg-[var(--ink)] text-[var(--paper)] px-4 text-[15px] font-[540] hover:bg-[var(--brand)] hover:text-white transition-colors"
           >
             {copied ? "Copied" : "Copy"}
           </button>

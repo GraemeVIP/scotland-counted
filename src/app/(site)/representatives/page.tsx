@@ -104,7 +104,7 @@ export default function RepresentativesPage() {
           <RepresentativeDirectorySearch entries={directoryEntries} />
 
           <section aria-labelledby="feedback-heading" className="my-8 rounded-[var(--r-m)] border border-[var(--rule)] border-l-4 border-l-[var(--brand)] bg-[var(--surface-2)] p-6 sm:p-8">
-            <p className="ui text-[15px] font-[750] text-[var(--brand)] mb-2">A note from Graeme</p>
+            <p className="ui text-[15px] font-[600] text-[var(--brand)] mb-2">A note from Graeme</p>
             <h2 id="feedback-heading" className="h3">Did this help? I’d love to hear.</h2>
             <p className="mt-3 max-w-[70ch] text-[17px] leading-[1.65] text-[var(--ink-2)]">
               I’m Graeme, the person behind Scotland Counted. I build this as a free,
@@ -117,7 +117,7 @@ export default function RepresentativesPage() {
             </p>
             <div className="mt-5 flex flex-wrap items-center gap-4">
               <Link href="/contact?reason=feedback" className="btn bg-[var(--ink)] text-[var(--paper)] hover:opacity-90">Send Graeme a message</Link>
-              <Link href="/contact?reason=teaching" className="ui text-[16px] font-[650] underline underline-offset-4">Used this in teaching?</Link>
+              <Link href="/contact?reason=teaching" className="ui text-[16px] font-[540] underline underline-offset-4">Used this in teaching?</Link>
             </div>
             <p className="mt-3 text-[15px] leading-[1.5] text-[var(--ink-2)]">A sentence or two is plenty. Leave an email only if you’d like a reply.</p>
           </section>
@@ -184,7 +184,7 @@ export default function RepresentativesPage() {
                     <span className="min-w-0">
                       <Link
                         href={`/representatives/mps/${mp.constituencySlug}`}
-                        className="ui block text-[17px] font-[750] leading-[1.3] text-[var(--ink)] no-underline hover:text-[var(--brand)]"
+                        className="ui block text-[17px] font-[600] leading-[1.3] text-[var(--ink)] no-underline hover:text-[var(--brand)]"
                       >
                         {mp.name}
                       </Link>

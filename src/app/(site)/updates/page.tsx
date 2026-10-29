@@ -53,7 +53,7 @@ export default function Updates() {
             )}
             <a
               href="/feed.xml"
-              className="ui inline-flex items-center gap-2 text-[15px] font-[620] text-[var(--brand)] underline decoration-[var(--rule-strong)] underline-offset-3 hover:decoration-current pb-1"
+              className="ui inline-flex items-center gap-2 text-[15px] font-[540] text-[var(--brand)] underline decoration-[var(--rule-strong)] underline-offset-3 hover:decoration-current pb-1"
             >
               Or subscribe by RSS
             </a>
@@ -72,7 +72,7 @@ export default function Updates() {
                   {fmtDate(e.date)}
                 </time>
                 <span
-                  className={`ui text-[15px] font-[680] ${KIND[e.kind].cls}`}
+                  className={`ui text-[15px] font-[560] ${KIND[e.kind].cls}`}
                 >
                   {KIND[e.kind].label}
                 </span>

@@ -217,7 +217,7 @@ export default async function CouncilTaxSlugPage(props: { params: Promise<{ slug
                   className="scroll-mt-24 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5 sm:p-6"
                 >
                   <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
-                    <h3 className="text-[19px] font-[750]">
+                    <h3 className="text-[19px] font-[600]">
                       Band {c.band} council tax in {placeName}
                     </h3>
                     <p className="display-stat text-[26px] tnum text-[var(--brand)]">
@@ -250,7 +250,7 @@ export default async function CouncilTaxSlugPage(props: { params: Promise<{ slug
                 <Link
                   key={b}
                   href={`/council-tax-bands-scotland/band-${b.toLowerCase()}`}
-                  className="ui rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] px-4 py-2.5 text-[15px] font-[650] text-[var(--ink-2)] no-underline transition-colors hover:border-[var(--brand)]"
+                  className="ui rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] px-4 py-2.5 text-[15px] font-[540] text-[var(--ink-2)] no-underline transition-colors hover:border-[var(--brand)]"
                 >
                   Band {b} everywhere
                 </Link>
@@ -342,7 +342,7 @@ export default async function CouncilTaxSlugPage(props: { params: Promise<{ slug
                 Band {letter} in all 32 Scottish councils
               </h2>
             </div>
-            <p className="ui text-[14.5px] font-[650] tnum text-[var(--muted)]">
+            <p className="ui text-[14.5px] font-[540] tnum text-[var(--muted)]">
               Current total and council-tax rise
             </p>
           </div>
@@ -355,7 +355,7 @@ export default async function CouncilTaxSlugPage(props: { params: Promise<{ slug
               >
                 <span className="ui w-6 text-[14px] tnum text-[var(--muted)]">{i + 1}</span>
                 <span>
-                  <span className="ui block text-[15.5px] font-[640] text-[var(--ink)]">{r.name}</span>
+                  <span className="ui block text-[15.5px] font-[540] text-[var(--ink)]">{r.name}</span>
                   <span className="mt-1 block text-[15px] leading-[1.4] text-[var(--muted)]">
                     Council tax {exact.format(r.previousCouncilTax)} → {exact.format(r.councilTax)}
                   </span>
@@ -381,7 +381,7 @@ export default async function CouncilTaxSlugPage(props: { params: Promise<{ slug
                 key={b}
                 href={`/council-tax-bands-scotland/band-${b.toLowerCase()}`}
                 aria-current={b === letter ? "page" : undefined}
-                className={`ui rounded-[var(--r-s)] border px-4 py-2.5 text-[15px] font-[650] no-underline transition-colors ${
+                className={`ui rounded-[var(--r-s)] border px-4 py-2.5 text-[15px] font-[540] no-underline transition-colors ${
                   b === letter
                     ? "border-[var(--brand)] bg-[var(--brand-wash)] text-[var(--ink)]"
                     : "border-[var(--rule)] bg-[var(--surface)] text-[var(--ink-2)] hover:border-[var(--brand)]"

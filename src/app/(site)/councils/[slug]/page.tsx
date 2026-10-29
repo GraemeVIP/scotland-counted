@@ -229,7 +229,7 @@ export default async function CouncilAccountabilityPage({
           <div className="flex flex-wrap items-end justify-between gap-5">
             <div>
               <p className="kicker text-[var(--action-text)]">The headline</p>
-              <h2 id="quick-read-title" className="mt-2 text-[clamp(28px,4vw,46px)] font-[800] leading-[1] tracking-[-0.035em]">
+              <h2 id="quick-read-title" className="mt-2 text-[clamp(28px,4vw,46px)] font-[640] leading-[1] tracking-[-0.035em]">
                 Three things to know
               </h2>
               <p className="mt-3 max-w-[58ch] text-[16px] leading-[1.55] opacity-85">
@@ -248,11 +248,11 @@ export default async function CouncilAccountabilityPage({
                 className="rounded-[var(--r-m)] border border-[var(--rule)] border-t-4 bg-[var(--surface)] p-5 text-[var(--ink)]"
                 style={{ borderTopColor: card.accent }}
               >
-                <p className="ui text-[15px] font-[760] text-[var(--ink-2)]">{card.label}</p>
-                <p className="mt-3 text-[clamp(30px,4vw,48px)] font-[800] leading-none tracking-[-0.04em]" style={{ color: card.accent }}>
+                <p className="ui text-[15px] font-[620] text-[var(--ink-2)]">{card.label}</p>
+                <p className="mt-3 text-[clamp(30px,4vw,48px)] font-[640] leading-none tracking-[-0.04em]" style={{ color: card.accent }}>
                   {card.value}
                 </p>
-                <p className="ui mt-2 text-[14px] font-[700] text-[var(--ink-2)]">{card.sub}</p>
+                <p className="ui mt-2 text-[14px] font-[580] text-[var(--ink-2)]">{card.sub}</p>
                 <p className="mt-4 text-[15px] leading-[1.5] text-[var(--ink-2)]">{card.body}</p>
               </article>
             ))}
@@ -279,7 +279,7 @@ export default async function CouncilAccountabilityPage({
               <a
                 key={anchor.id}
                 href={`#${anchor.id}`}
-                className="ui rounded-[var(--r-pill)] border border-[var(--rule)] px-3.5 py-2 text-[15px] font-[650] text-[var(--ink-2)] hover:border-[var(--brand)] hover:text-[var(--brand)]"
+                className="ui rounded-[var(--r-pill)] border border-[var(--rule)] px-3.5 py-2 text-[15px] font-[540] text-[var(--ink-2)] hover:border-[var(--brand)] hover:text-[var(--brand)]"
               >
                 {anchor.label}
               </a>
@@ -304,11 +304,11 @@ export default async function CouncilAccountabilityPage({
                   key={figure.id}
                   className={`flex h-full flex-col rounded-[var(--r-m)] border border-[var(--rule)] border-t-[3px] bg-[var(--surface)] p-6 ${budgetAccentClasses[index % budgetAccentClasses.length]} ${budgetCardSpan(index)}`}
                 >
-                  <p className="ui min-h-[42px] text-[15px] font-[750] leading-[1.4] text-[var(--muted)]"><PlainText text={figure.label} /></p>
+                  <p className="ui min-h-[42px] text-[15px] font-[600] leading-[1.4] text-[var(--muted)]"><PlainText text={figure.label} /></p>
                   <p className="figure-num mt-4 text-[42px] leading-none text-[var(--brand)]">
                     {money(figure.value, figure.unit, figure.qualifier)}
                   </p>
-                  <p className="ui mt-3 text-[15px] font-[650] text-[var(--ink-2)]">{figure.period}</p>
+                  <p className="ui mt-3 text-[15px] font-[540] text-[var(--ink-2)]">{figure.period}</p>
                   <p className="mt-4 flex-1 text-[16px] leading-[1.55] text-[var(--ink-2)]"><PlainText text={figure.plainEnglish} /></p>
                 </article>
               )) : (
@@ -353,21 +353,21 @@ export default async function CouncilAccountabilityPage({
                 >
                   <div className="flex flex-wrap items-start justify-between gap-3">
                     <div>
-                      <p className="ui text-[15px] font-[750] text-[var(--muted)]"><PlainText text={outcome.service} /></p>
+                      <p className="ui text-[15px] font-[600] text-[var(--muted)]"><PlainText text={outcome.service} /></p>
                       <h3 className="h3 mt-2"><PlainText text={outcome.measure} /></h3>
                     </div>
-                    <span className={`ui shrink-0 rounded-[var(--r-pill)] border px-3 py-1.5 text-[14px] font-[750] ${statusClass(outcome.status)}`}>
+                    <span className={`ui shrink-0 rounded-[var(--r-pill)] border px-3 py-1.5 text-[14px] font-[600] ${statusClass(outcome.status)}`}>
                       {statusLabel(outcome.status)}
                     </span>
                   </div>
                   <div className="mt-6 grid grid-cols-2 gap-3">
                     <div className="rounded-[var(--r-s)] bg-[var(--surface-2)] p-4">
-                      <p className="ui text-[14px] font-[700] text-[var(--muted)]">Goal</p>
-                      <p className="mt-1 text-[23px] font-[700] tnum">{outcome.target}</p>
+                      <p className="ui text-[14px] font-[580] text-[var(--muted)]">Goal</p>
+                      <p className="mt-1 text-[23px] font-[580] tnum">{outcome.target}</p>
                     </div>
                     <div className="rounded-[var(--r-s)] bg-[var(--surface-2)] p-4">
-                      <p className="ui text-[14px] font-[700] text-[var(--muted)]">What happened</p>
-                      <p className="mt-1 text-[23px] font-[700] tnum">{outcome.actual}</p>
+                      <p className="ui text-[14px] font-[580] text-[var(--muted)]">What happened</p>
+                      <p className="mt-1 text-[23px] font-[580] tnum">{outcome.actual}</p>
                     </div>
                   </div>
                   <p className="ui mt-4 text-[15px] leading-[1.5] text-[var(--ink-2)]">
@@ -418,10 +418,10 @@ export default async function CouncilAccountabilityPage({
                 >
                   <div className="flex flex-wrap items-start justify-between gap-3">
                     <div>
-                      <p className="ui text-[15px] font-[750] text-[var(--muted)]"><PlainText text={finding.publisher} /> · {finding.reportDate}</p>
+                      <p className="ui text-[15px] font-[600] text-[var(--muted)]"><PlainText text={finding.publisher} /> · {finding.reportDate}</p>
                       <h3 className="h3 mt-2"><PlainText text={finding.title} /></h3>
                     </div>
-                    <span className={`ui shrink-0 rounded-[var(--r-pill)] border px-3 py-1.5 text-[14px] font-[750] ${statusClass(finding.status)}`}>
+                    <span className={`ui shrink-0 rounded-[var(--r-pill)] border px-3 py-1.5 text-[14px] font-[600] ${statusClass(finding.status)}`}>
                       {statusLabel(finding.status)}
                     </span>
                   </div>
@@ -464,14 +464,14 @@ export default async function CouncilAccountabilityPage({
                 <article key={commitment.id} className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-6">
                   <div className="flex flex-wrap items-start justify-between gap-3">
                     <h3 className="h3"><PlainText text={commitment.title} /></h3>
-                    <span className={`ui shrink-0 rounded-[var(--r-pill)] border px-3 py-1.5 text-[14px] font-[750] ${statusClass(commitment.status)}`}>
+                    <span className={`ui shrink-0 rounded-[var(--r-pill)] border px-3 py-1.5 text-[14px] font-[600] ${statusClass(commitment.status)}`}>
                       {statusLabel(commitment.status)}
                     </span>
                   </div>
                   <p className="mt-4 text-[16px] leading-[1.6] text-[var(--ink-2)]"><PlainText text={commitment.commitment} /></p>
                   <dl className="mt-5 grid gap-2 text-[15px] leading-[1.5] text-[var(--ink-2)]">
-                    <div><dt className="inline font-[700]">Owner:</dt> <dd className="inline">{commitment.owner}</dd></div>
-                    <div><dt className="inline font-[700]">Due:</dt> <dd className="inline">{commitment.dueBy ?? "No date published"}</dd></div>
+                    <div><dt className="inline font-[580]">Owner:</dt> <dd className="inline">{commitment.owner}</dd></div>
+                    <div><dt className="inline font-[580]">Due:</dt> <dd className="inline">{commitment.dueBy ?? "No date published"}</dd></div>
                   </dl>
                   <p className="mt-4 border-l-2 border-[var(--rule-strong)] pl-3 text-[15px] leading-[1.55] text-[var(--ink-2)]"><PlainText text={commitment.currentEvidence} /></p>
                   <ClaimSource record={record} sourceIds={commitment.sourceIds} />
@@ -501,7 +501,7 @@ export default async function CouncilAccountabilityPage({
                   <li key={source.id} className="grid grid-cols-[2rem_1fr] gap-3">
                     <span className="ui tnum text-[14px] text-[var(--muted)]">{String(index + 1).padStart(2, "0")}</span>
                     <div>
-                      <a href={source.url} target="_blank" rel="noopener noreferrer" className="text-[16px] font-[650]">
+                      <a href={source.url} target="_blank" rel="noopener noreferrer" className="text-[16px] font-[540]">
                         {source.title}
                       </a>
                       <p className="ui mt-1 text-[14px] text-[var(--muted)]">{source.publisher}{source.publishedOn ? ` · ${source.publishedOn}` : ""}</p>

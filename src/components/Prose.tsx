@@ -78,7 +78,7 @@ export function BigStat({
       <p className="figure-num text-[44px] sm:text-[54px] leading-[1] text-[var(--action-text)]">
         {value}
       </p>
-      <p className="ui text-[18px] font-[680] leading-[1.4] mt-3 text-[var(--ink)]"><ExplainText>{label}</ExplainText></p>
+      <p className="ui text-[18px] font-[560] leading-[1.4] mt-3 text-[var(--ink)]"><ExplainText>{label}</ExplainText></p>
       {exact && (
         <p className="text-[15.5px] text-[var(--ink-2)] leading-[1.5] mt-2 tnum"><ExplainText>{exact}</ExplainText></p>
       )}
@@ -90,7 +90,7 @@ export function BigStat({
 export function Aside({ title, children }: { title: string; children: ReactNode }) {
   return (
     <div className="my-7 rounded-[var(--r-s)] bg-[var(--surface-2)] border border-[var(--rule)] px-5 sm:px-6 py-5">
-      <p className="ui text-[15px] font-[750] text-[var(--brand)] mb-2">{title}</p>
+      <p className="ui text-[15px] font-[600] text-[var(--brand)] mb-2">{title}</p>
       <div className="text-[16.5px] leading-[1.6] text-[var(--ink-2)] space-y-2.5"><ExplainText>{children}</ExplainText></div>
     </div>
   );
@@ -113,7 +113,7 @@ export function PostCTA({
       className="my-9 rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] border-t-[3px] border-t-[var(--action)] p-6 sm:p-7"
       style={{ boxShadow: "var(--shadow-2)" }}
     >
-      <p className="text-[21px] font-[750] leading-[1.3]">{title}</p>
+      <p className="text-[21px] font-[600] leading-[1.3]">{title}</p>
       <p className="text-[17px] text-[var(--ink-2)] leading-[1.6] mt-2.5 max-w-[58ch]"><ExplainText>{body}</ExplainText></p>
       <Link href={href} className="btn btn-primary mt-5">
         {cta}

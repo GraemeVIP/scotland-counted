@@ -48,10 +48,10 @@ export default function Browse() {
                 href="/email-your-mp-and-msp"
                 className="group block rounded-[var(--r-s)] border border-[var(--rule)] border-t-[3px] border-t-[var(--action)] bg-[var(--surface)] px-5 py-5 no-underline hover:border-[var(--action)] transition-colors"
               >
-                <span className="ui block text-[15px] font-[750] uppercase tracking-[0.06em] text-[var(--action-text)]">
+                <span className="ui block text-[15px] font-[600] uppercase tracking-[0.06em] text-[var(--action-text)]">
                   Fastest route
                 </span>
-                <span className="ui mt-2 block text-[19px] font-[750] text-[var(--ink)]">
+                <span className="ui mt-2 block text-[19px] font-[600] text-[var(--ink)]">
                   Find everyone by postcode →
                 </span>
                 <span className="mt-2 block text-[15px] leading-[1.5] text-[var(--ink-2)]">
@@ -63,7 +63,7 @@ export default function Browse() {
                   href="/representatives"
                   className="group block rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] px-5 py-4 no-underline hover:border-[var(--rule-strong)] transition-colors"
                 >
-                  <span className="ui text-[17px] font-[720] text-[var(--ink)] group-hover:text-[var(--action-text)]">
+                  <span className="ui text-[17px] font-[600] text-[var(--ink)] group-hover:text-[var(--action-text)]">
                     Browse all 57 MPs →
                   </span>
                   <span className="mt-1 block text-[15px] text-[var(--ink-2)]">
@@ -74,7 +74,7 @@ export default function Browse() {
                   href="/representatives/msps"
                   className="group block rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] px-5 py-4 no-underline hover:border-[var(--rule-strong)] transition-colors"
                 >
-                  <span className="ui text-[17px] font-[720] text-[var(--ink)] group-hover:text-[var(--action-text)]">
+                  <span className="ui text-[17px] font-[600] text-[var(--ink)] group-hover:text-[var(--action-text)]">
                     Browse all 129 MSPs →
                   </span>
                   <span className="mt-1 block text-[15px] text-[var(--ink-2)]">
@@ -86,7 +86,7 @@ export default function Browse() {
 
             <div className="mt-5 grid gap-3">
               <details className="rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)]">
-                <summary className="ui cursor-pointer px-5 py-4 text-[16px] font-[720] text-[var(--ink)]">
+                <summary className="ui cursor-pointer px-5 py-4 text-[16px] font-[600] text-[var(--ink)]">
                   Show all 57 current MPs
                 </summary>
                 <div className="flex flex-wrap gap-2 border-t border-[var(--rule)] px-5 py-5">
@@ -104,11 +104,11 @@ export default function Browse() {
               </details>
 
               <details className="rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)]">
-                <summary className="ui cursor-pointer px-5 py-4 text-[16px] font-[720] text-[var(--ink)]">
+                <summary className="ui cursor-pointer px-5 py-4 text-[16px] font-[600] text-[var(--ink)]">
                   Show every MSP area
                 </summary>
                 <div className="border-t border-[var(--rule)] px-5 py-5">
-                  <h3 className="ui text-[16px] font-[750] text-[var(--ink)]">73 constituencies</h3>
+                  <h3 className="ui text-[16px] font-[600] text-[var(--ink)]">73 constituencies</h3>
                   <div className="mt-3 flex flex-wrap gap-2">
                     {holyroodConstituencies.map((item) => (
                       <Link
@@ -120,7 +120,7 @@ export default function Browse() {
                       </Link>
                     ))}
                   </div>
-                  <h3 className="ui mt-6 text-[16px] font-[750] text-[var(--ink)]">8 regions</h3>
+                  <h3 className="ui mt-6 text-[16px] font-[600] text-[var(--ink)]">8 regions</h3>
                   <div className="mt-3 flex flex-wrap gap-2">
                     {holyroodRegions.map((item) => (
                       <Link
@@ -189,7 +189,7 @@ export default function Browse() {
                   href={n.href}
                   className="group block rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] px-5 py-4 no-underline hover:border-[var(--rule-strong)] transition-colors"
                 >
-                  <span className="ui text-[16.5px] font-[680] text-[var(--ink)] group-hover:text-[var(--action-text)] transition-colors">
+                  <span className="ui text-[16.5px] font-[560] text-[var(--ink)] group-hover:text-[var(--action-text)] transition-colors">
                     {n.label}
                   </span>
                   {n.blurb && (

@@ -128,7 +128,7 @@ export default function Methods() {
                   <p className="text-[15px] text-[var(--ink-2)] leading-[1.55]">{s.used}</p>
                   {s.derivation && (
                     <p className="text-[15px] text-[var(--ink-2)] leading-[1.55] mt-1.5 pl-3 border-l-2 border-[var(--rule)]">
-                      <span className="ui text-[15px] font-[650] text-[var(--muted)] block mb-0.5">
+                      <span className="ui text-[15px] font-[540] text-[var(--muted)] block mb-0.5">
                         My calculation
                       </span>
                       {s.derivation}

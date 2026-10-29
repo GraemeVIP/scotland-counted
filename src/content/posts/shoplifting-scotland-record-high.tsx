@@ -73,7 +73,7 @@ function FoodPricesChart() {
         >
           {foodPricesAndShoplifting.map((row) => (
             <div key={row.year} className={row.covid ? "opacity-60" : undefined}>
-              <p className="ui text-[15px] font-[680] text-[var(--ink-2)]">
+              <p className="ui text-[15px] font-[560] text-[var(--ink-2)]">
                 {row.year}
                 {row.covid && <span className="font-[520] text-[var(--muted)]"> · Covid</span>}
               </p>
@@ -81,7 +81,7 @@ function FoodPricesChart() {
                 <SignedBar value={row.foodInflationPct} max={36} colorVar="--brand" muted={row.covid} />
                 <span className="tnum text-right text-[15px] text-[var(--ink-2)]">{signed(row.foodInflationPct, 1)}</span>
                 <SignedBar value={row.shopliftingChangePct} max={36} colorVar="--action" muted={row.covid} />
-                <span className="tnum text-right text-[15px] font-[700] text-[var(--ink)]">{signed(row.shopliftingChangePct, 1)}</span>
+                <span className="tnum text-right text-[15px] font-[580] text-[var(--ink)]">{signed(row.shopliftingChangePct, 1)}</span>
               </div>
             </div>
           ))}
@@ -95,8 +95,8 @@ function RateBar({ label, rate, max, highlight = false, note }: { label: string;
   return (
     <div>
       <div className="flex items-baseline justify-between gap-4 text-[15px] leading-[1.45]">
-        <span className={highlight ? "font-[760] text-[var(--ink)]" : "font-[620] text-[var(--ink-2)]"}>{label}</span>
-        <span className="tnum shrink-0 font-[760] text-[var(--ink)]">{rate.toFixed(1)}</span>
+        <span className={highlight ? "font-[620] text-[var(--ink)]" : "font-[540] text-[var(--ink-2)]"}>{label}</span>
+        <span className="tnum shrink-0 font-[620] text-[var(--ink)]">{rate.toFixed(1)}</span>
       </div>
       <div className="mt-1.5 h-3.5 overflow-hidden rounded-full bg-[var(--surface-2)]" aria-hidden="true">
         <div
@@ -116,8 +116,8 @@ function CouncilChart() {
     <figure id="find-your-council" className="not-prose my-8 scroll-mt-24 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5 sm:p-7">
       <div className="flex flex-wrap items-end justify-between gap-3 border-b border-[var(--rule)] pb-4">
         <div>
-          <p className="ui text-[15px] font-[760] text-[var(--brand)]">Figure 6 · Find your council</p>
-          <h3 className="mt-1 text-[22px] font-[760] leading-[1.25]">The ten highest shoplifting rates</h3>
+          <p className="ui text-[15px] font-[620] text-[var(--brand)]">Figure 6 · Find your council</p>
+          <h3 className="mt-1 text-[22px] font-[620] leading-[1.25]">The ten highest shoplifting rates</h3>
         </div>
         <p className="ui text-[15px] text-[var(--muted)]">Per 10,000 people · 2025-26</p>
       </div>
@@ -143,7 +143,7 @@ function CouncilChart() {
       </div>
 
       <details className="group mt-6 border-t border-[var(--rule)] pt-2">
-        <summary className="ui flex min-h-11 w-fit cursor-pointer list-none items-center gap-2 py-3 text-[15px] font-[680] text-[var(--ink-2)] hover:text-[var(--brand)]">
+        <summary className="ui flex min-h-11 w-fit cursor-pointer list-none items-center gap-2 py-3 text-[15px] font-[560] text-[var(--ink-2)] hover:text-[var(--brand)]">
           <span aria-hidden="true" className="transition-transform group-open:rotate-90">▸</span>
           See all 32 councils
         </summary>
@@ -151,12 +151,12 @@ function CouncilChart() {
           <table className="min-w-full border-collapse text-[15px] tnum">
             <thead>
               <tr>
-                <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-left font-[700]">Council area</th>
-                <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-right font-[700]">2019-20</th>
-                <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-right font-[700]">2025-26</th>
-                <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-right font-[700]">Change</th>
-                <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-right font-[700]">Per 10,000</th>
-                <th className="border-b-2 border-[var(--ink)] pb-2 text-right font-[700]">Solved</th>
+                <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-left font-[580]">Council area</th>
+                <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-right font-[580]">2019-20</th>
+                <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-right font-[580]">2025-26</th>
+                <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-right font-[580]">Change</th>
+                <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-right font-[580]">Per 10,000</th>
+                <th className="border-b-2 border-[var(--ink)] pb-2 text-right font-[580]">Solved</th>
               </tr>
             </thead>
             <tbody>
@@ -164,12 +164,12 @@ function CouncilChart() {
                 const slug = councilSlugs.get(row.area);
                 return (
                   <tr key={row.area}>
-                    <td className="border-b border-[var(--rule)] py-2.5 pr-4 font-[620]">
+                    <td className="border-b border-[var(--rule)] py-2.5 pr-4 font-[540]">
                       {slug ? <Link href={`/areas/${slug}`}>{row.area}</Link> : row.area}
                     </td>
                     <td className="border-b border-[var(--rule)] py-2.5 pr-4 text-right text-[var(--ink-2)]">{fmt(row.y2019)}</td>
                     <td className="border-b border-[var(--rule)] py-2.5 pr-4 text-right text-[var(--ink-2)]">{fmt(row.y2025)}</td>
-                    <td className="border-b border-[var(--rule)] py-2.5 pr-4 text-right font-[700]">{signed(row.changePct)}</td>
+                    <td className="border-b border-[var(--rule)] py-2.5 pr-4 text-right font-[580]">{signed(row.changePct)}</td>
                     <td className="border-b border-[var(--rule)] py-2.5 pr-4 text-right">{row.rate2025.toFixed(1)}</td>
                     <td className="border-b border-[var(--rule)] py-2.5 text-right text-[var(--ink-2)]">{row.solved2025}%</td>
                   </tr>
@@ -247,7 +247,7 @@ export default function Post() {
         ].map((stat) => (
           <div key={stat.label} className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5">
             <p className="display-stat text-[34px] leading-none text-[var(--action-text)]">{stat.value}</p>
-            <p className="mt-3 text-[16px] font-[700] leading-[1.4] text-[var(--ink)]">{stat.label}</p>
+            <p className="mt-3 text-[16px] font-[580] leading-[1.4] text-[var(--ink)]">{stat.label}</p>
             <p className="mt-2 text-[15px] leading-[1.5] text-[var(--muted)]">{stat.note}</p>
           </div>
         ))}
@@ -345,19 +345,19 @@ export default function Post() {
         <table className="min-w-full border-collapse text-[15px] tnum">
           <thead>
             <tr>
-              <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-left font-[700]">Crime</th>
-              <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-right font-[700]">2019-20</th>
-              <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-right font-[700]">2025-26</th>
-              <th className="border-b-2 border-[var(--ink)] pb-2 text-right font-[700]">Change</th>
+              <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-left font-[580]">Crime</th>
+              <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-right font-[580]">2019-20</th>
+              <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-right font-[580]">2025-26</th>
+              <th className="border-b-2 border-[var(--ink)] pb-2 text-right font-[580]">Change</th>
             </tr>
           </thead>
           <tbody>
             {dishonestyCategories.map((row) => (
               <tr key={row.label} className={row.label === "Shoplifting" ? "bg-[var(--action-tint)]" : undefined}>
-                <td className="border-b border-[var(--rule)] py-2.5 pr-4 font-[620]">{row.label}</td>
+                <td className="border-b border-[var(--rule)] py-2.5 pr-4 font-[540]">{row.label}</td>
                 <td className="border-b border-[var(--rule)] py-2.5 pr-4 text-right text-[var(--ink-2)]">{fmt(row.y2019)}</td>
                 <td className="border-b border-[var(--rule)] py-2.5 pr-4 text-right text-[var(--ink-2)]">{fmt(row.y2025)}</td>
-                <td className="border-b border-[var(--rule)] py-2.5 text-right font-[700]">{signed((row.y2025 / row.y2019 - 1) * 100)}</td>
+                <td className="border-b border-[var(--rule)] py-2.5 text-right font-[580]">{signed((row.y2025 / row.y2019 - 1) * 100)}</td>
               </tr>
             ))}
           </tbody>

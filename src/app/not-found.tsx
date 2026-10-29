@@ -53,7 +53,7 @@ export default function NotFound() {
         */}
         <Link
           href="/"
-          className="ui inline-block mb-10 text-[19px] font-[800] tracking-[-0.02em] no-underline text-[var(--ink)]"
+          className="ui inline-block mb-10 text-[19px] font-[640] tracking-[-0.02em] no-underline text-[var(--ink)]"
         >
           Scotland<span className="text-[var(--action-text)]">Counted</span>
         </Link>
@@ -72,7 +72,7 @@ export default function NotFound() {
               href={h.href}
               className="group rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] p-6 no-underline transition-all duration-300 hover:border-[var(--brand)] hover:-translate-y-1"
             >
-              <p className="text-[20px] font-[750] leading-[1.2] group-hover:text-[var(--brand)] transition-colors">
+              <p className="text-[20px] font-[600] leading-[1.2] group-hover:text-[var(--brand)] transition-colors">
                 {h.title}
               </p>
               <p className="text-[15.5px] leading-[1.55] text-[var(--ink-2)] mt-2">{h.body}</p>
@@ -94,7 +94,7 @@ export default function NotFound() {
             <Link
               key={item.href}
               href={item.href}
-              className="ui text-[16px] font-[650] text-[var(--ink-2)] hover:text-[var(--brand)]"
+              className="ui text-[16px] font-[540] text-[var(--ink-2)] hover:text-[var(--brand)]"
             >
               {item.label}
             </Link>

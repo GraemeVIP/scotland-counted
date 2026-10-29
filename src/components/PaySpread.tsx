@@ -52,7 +52,7 @@ export default function PaySpread({ className = "" }: { className?: string }) {
                 : "border-[var(--rule)] bg-[var(--surface)]"
             }`}
           >
-            <p className="ui text-[15.5px] font-[750] text-[var(--ink)]">{p.label}</p>
+            <p className="ui text-[15.5px] font-[600] text-[var(--ink)]">{p.label}</p>
             <p className="text-[15px] leading-[1.4] text-[var(--ink-2)]">{p.meaning}</p>
             <div className="flex items-baseline gap-3 sm:justify-end">
               <span
@@ -89,7 +89,7 @@ export default function PaySpread({ className = "" }: { className?: string }) {
       {/* ---- Why believe a sample survey ---- */}
       <div className="mt-8 rounded-[var(--r-m)] bg-[var(--deep)] p-6 text-[var(--deep-ink)] sm:p-8">
         <p className="kicker mb-3 text-[var(--action-text)]">How I know the survey is right</p>
-        <h3 className="text-[22px] font-[760] leading-[1.2] max-w-[26ch]">
+        <h3 className="text-[22px] font-[620] leading-[1.2] max-w-[26ch]">
           Checked against every payslip in the country
         </h3>
         <p className="mt-3.5 max-w-[60ch] text-[16.5px] leading-[1.6] opacity-85">
@@ -107,7 +107,7 @@ export default function PaySpread({ className = "" }: { className?: string }) {
               key={row.name}
               className="rounded-[var(--r-s)] border border-white/15 bg-white/[0.07] px-5 py-5"
             >
-              <p className="ui text-[14.5px] font-[700] opacity-75">{row.name}</p>
+              <p className="ui text-[14.5px] font-[580] opacity-75">{row.name}</p>
               <p className="display-stat mt-2 text-[30px]">{pounds.format(row.annual)}</p>
               <p className="mt-2 text-[14.5px] leading-[1.4] opacity-75">{row.scope}</p>
             </div>

@@ -96,7 +96,7 @@ export default function TheNumbers() {
                 className="group flex flex-col h-full rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] p-6 sm:p-7 transition-all duration-300 hover:border-[var(--brand)] hover:-translate-y-1 hover:shadow-[var(--shadow-2)]"
               >
                 <div className="flex items-start justify-between gap-4 mb-5">
-                  <p className="ui text-[15px] font-[700] text-[var(--muted)]">{c.label}</p>
+                  <p className="ui text-[15px] font-[580] text-[var(--muted)]">{c.label}</p>
                   {c.slug !== "glasgow-full-time-pay" && <DirectionChip direction={c.direction} />}
                 </div>
                 <h2 className="h3 mb-3 group-hover:text-[var(--brand)] transition-colors">
@@ -124,8 +124,8 @@ export default function TheNumbers() {
           className="mt-8 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] p-6 sm:p-7"
           aria-labelledby="drug-deaths-evidence"
         >
-          <p className="ui text-[15px] font-[760] text-[var(--brand)]">Latest health evidence</p>
-          <h2 id="drug-deaths-evidence" className="mt-2 text-[25px] font-[760] leading-[1.25]">
+          <p className="ui text-[15px] font-[620] text-[var(--brand)]">Latest health evidence</p>
+          <h2 id="drug-deaths-evidence" className="mt-2 text-[25px] font-[620] leading-[1.25]">
             Glasgow has Scotland&apos;s highest recent drug-death rate
           </h2>
           <p className="mt-3 max-w-[68ch] text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
@@ -133,7 +133,7 @@ export default function TheNumbers() {
             the age-standardised council-area rate. The Scotland-wide figures also show a sharp
             deprivation gradient.
           </p>
-          <Link href="/blog/drug-deaths-scotland-deprivation" className="ui mt-4 inline-flex min-h-11 items-center font-[720]">
+          <Link href="/blog/drug-deaths-scotland-deprivation" className="ui mt-4 inline-flex min-h-11 items-center font-[600]">
             Read the deprivation and council evidence <span aria-hidden="true">→</span>
           </Link>
         </aside>

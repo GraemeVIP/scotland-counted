@@ -16,10 +16,10 @@ export default function AuthorBio({ className = "" }: { className?: string }) {
     <aside
       className={`rounded-[var(--r-m)] bg-[var(--surface-2)] border border-[var(--rule)] p-6 sm:p-7 ${className}`}
     >
-      <p className="ui text-[15px] font-[750] text-[var(--ink-2)] mb-3">Who wrote this</p>
+      <p className="ui text-[15px] font-[600] text-[var(--ink-2)] mb-3">Who wrote this</p>
 
       <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-        <p className="text-[21px] font-[750] text-[var(--ink)]">{site.author.name}</p>
+        <p className="text-[21px] font-[600] text-[var(--ink)]">{site.author.name}</p>
         <p className="text-[15px] text-[var(--ink-2)]">{site.author.role}</p>
       </div>
 

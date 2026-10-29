@@ -289,7 +289,7 @@ export default function CommandPalette() {
             return (
               <div key={r.href + r.label}>
                 {showGroup && (
-                  <p className="ui text-[15px] font-[680] text-[var(--muted)] px-5 pt-3.5 pb-1.5">
+                  <p className="ui text-[15px] font-[560] text-[var(--muted)] px-5 pt-3.5 pb-1.5">
                     {r.group}
                   </p>
                 )}

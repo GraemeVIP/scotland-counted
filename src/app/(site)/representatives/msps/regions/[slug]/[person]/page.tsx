@@ -164,7 +164,7 @@ export default async function RegionalMspPage({
                 <p className="kicker mb-2 text-[var(--brand)]">People who represent the same region</p>
                 <h2 className="h2">The other regional MSPs</h2>
               </div>
-              <Link href={`/representatives/msps/regions/${region.regionSlug}`} className="ui text-[16px] font-[700]">See the region list →</Link>
+              <Link href={`/representatives/msps/regions/${region.regionSlug}`} className="ui text-[16px] font-[580]">See the region list →</Link>
             </div>
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {otherMsps.map((other) => (
@@ -173,9 +173,9 @@ export default async function RegionalMspPage({
                   href={`/representatives/msps/regions/${region.regionSlug}/${representativeSlug(other.name)}`}
                   className="group rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] p-5 no-underline hover:border-[var(--rule-strong)]"
                 >
-                  <span className="ui block text-[17px] font-[750] text-[var(--ink)] group-hover:text-[var(--brand)]">{other.name}</span>
+                  <span className="ui block text-[17px] font-[600] text-[var(--ink)] group-hover:text-[var(--brand)]">{other.name}</span>
                   <span className="ui mt-1 block text-[15px] text-[var(--ink-2)]">{other.party}</span>
-                  <span className="ui mt-3 block text-[15px] font-[700] text-[var(--brand)]">View their details →</span>
+                  <span className="ui mt-3 block text-[15px] font-[580] text-[var(--brand)]">View their details →</span>
                 </Link>
               ))}
             </div>

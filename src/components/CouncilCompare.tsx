@@ -70,13 +70,13 @@ export default function CouncilCompare({ slug }: { slug: string }) {
             >
               <div className="flex flex-wrap items-start justify-between gap-3">
                 <div className="min-w-0">
-                  <h3 className="ui text-[16px] font-[750] leading-[1.4] text-[var(--ink)]">
+                  <h3 className="ui text-[16px] font-[600] leading-[1.4] text-[var(--ink)]">
                     {row.label}
                   </h3>
                   <p className="mt-1 text-[15px] leading-[1.5] text-[var(--ink-2)]">{row.plain}</p>
                 </div>
                 <span
-                  className={`ui shrink-0 rounded-full border px-3 py-1 text-[15px] font-[750] ${tone}`}
+                  className={`ui shrink-0 rounded-full border px-3 py-1 text-[15px] font-[600] ${tone}`}
                 >
                   {row.phrase}
                 </span>

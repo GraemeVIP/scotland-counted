@@ -97,7 +97,7 @@ export default function SnpMoneyTimeline({
     <section className="not-prose my-9" aria-labelledby="full-timeline-heading">
       <div className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] p-5 sm:p-6">
         <p className="label mb-2">Choose how much to see</p>
-        <h3 id="full-timeline-heading" className="text-[24px] font-[780] leading-[1.2] text-[var(--ink)]">
+        <h3 id="full-timeline-heading" className="text-[24px] font-[620] leading-[1.2] text-[var(--ink)]">
           The complete timeline
         </h3>
         <p className="mt-2 max-w-[62ch] text-[16px] leading-[1.55] text-[var(--ink-2)]">
@@ -113,7 +113,7 @@ export default function SnpMoneyTimeline({
                 type="button"
                 onClick={() => setFilter(item.id)}
                 aria-pressed={active}
-                className={`ui min-h-11 rounded-[var(--r-pill)] border px-4 py-2 text-[15px] font-[680] transition-colors ${
+                className={`ui min-h-11 rounded-[var(--r-pill)] border px-4 py-2 text-[15px] font-[560] transition-colors ${
                   active
                     ? "border-[var(--ink)] bg-[var(--ink)] text-[var(--paper)]"
                     : "border-[var(--rule-strong)] bg-[var(--surface)] text-[var(--ink-2)] hover:border-[var(--brand)] hover:text-[var(--ink)]"
@@ -154,30 +154,30 @@ export default function SnpMoneyTimeline({
                       />
                       <time
                         dateTime={event.dateTime}
-                        className="ui mb-2 block text-[15px] font-[760] leading-[1.35] text-[var(--action-text)] sm:absolute sm:right-[calc(100%+37px)] sm:top-[5px] sm:w-[92px] sm:text-right"
+                        className="ui mb-2 block text-[15px] font-[620] leading-[1.35] text-[var(--action-text)] sm:absolute sm:right-[calc(100%+37px)] sm:top-[5px] sm:w-[92px] sm:text-right"
                       >
                         {event.date}
                       </time>
                       <article className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5 shadow-[var(--shadow-1)] transition-[border-color,transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:border-[var(--brand)] hover:shadow-[var(--shadow-2)] sm:p-6">
                         <span
-                          className={`ui inline-flex rounded-[var(--r-pill)] border px-3 py-1 text-[15px] font-[720] leading-[1.35] ${status.className}`}
+                          className={`ui inline-flex rounded-[var(--r-pill)] border px-3 py-1 text-[15px] font-[600] leading-[1.35] ${status.className}`}
                         >
                           <ExplainText>{status.label}</ExplainText>
                         </span>
-                        <h4 className="mt-3 text-[21px] font-[770] leading-[1.25] tracking-[-0.015em] text-[var(--ink)] sm:text-[23px]">
+                        <h4 className="mt-3 text-[21px] font-[620] leading-[1.25] tracking-[-0.015em] text-[var(--ink)] sm:text-[23px]">
                           <ExplainText>{event.title}</ExplainText>
                         </h4>
                         <p className="mt-3 text-[17px] leading-[1.62] text-[var(--ink-2)]">
                           <ExplainText>{event.summary}</ExplainText>
                         </p>
                         {event.explainer && (
-                          <p className="mt-4 border-l-[3px] border-[var(--action)] pl-4 text-[16px] font-[620] leading-[1.55] text-[var(--ink)]">
-                            <span className="ui font-[760] text-[var(--action-text)]">In everyday language: </span>
+                          <p className="mt-4 border-l-[3px] border-[var(--action)] pl-4 text-[16px] font-[540] leading-[1.55] text-[var(--ink)]">
+                            <span className="ui font-[620] text-[var(--action-text)]">In everyday language: </span>
                             <ExplainText>{event.explainer}</ExplainText>
                           </p>
                         )}
                         <div className="mt-5 border-t border-[var(--rule)] pt-4">
-                          <p className="ui text-[15px] font-[720] text-[var(--muted)]">
+                          <p className="ui text-[15px] font-[600] text-[var(--muted)]">
                             {event.sourceIds.length === 1 ? "Source" : "Sources"}
                           </p>
                           <ul className="mt-2 space-y-2">
@@ -190,7 +190,7 @@ export default function SnpMoneyTimeline({
                                     href={source.url}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="font-[700] text-[var(--ink)] underline decoration-[var(--rule-strong)] underline-offset-3 hover:decoration-[var(--brand)]"
+                                    className="font-[580] text-[var(--ink)] underline decoration-[var(--rule-strong)] underline-offset-3 hover:decoration-[var(--brand)]"
                                   >
                                     {source.title}
                                   </a>{" "}

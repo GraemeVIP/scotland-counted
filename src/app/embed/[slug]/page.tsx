@@ -162,7 +162,7 @@ export default async function EmbedPage(props: { params: Promise<{ slug: string 
           href={chart.href}
           target="_blank"
           rel="noopener"
-          className="ui text-[15px] font-[640] text-[var(--brand)] hover:underline underline-offset-2"
+          className="ui text-[15px] font-[540] text-[var(--brand)] hover:underline underline-offset-2"
         >
           Scotland<span className="text-[var(--action-text)]">Counted</span>, the data behind this chart
         </a>

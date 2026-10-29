@@ -62,7 +62,7 @@ export default function MinimumWageReality({
           ].map((item) => (
             <div key={item.label} className="bg-[var(--paper)] px-5 py-5 sm:px-6 sm:py-6">
               <p className="figure-num text-[34px] text-[var(--ink)]">{item.value}</p>
-              <p className="ui mt-1.5 text-[15px] font-[680] text-[var(--ink-2)]">{item.label}</p>
+              <p className="ui mt-1.5 text-[15px] font-[560] text-[var(--ink-2)]">{item.label}</p>
             </div>
           ))}
         </div>
@@ -92,7 +92,7 @@ export default function MinimumWageReality({
           </p>
         </div>
 
-        <div className="ui mt-5 flex flex-wrap gap-x-6 gap-y-2 text-[15px] font-[650]">
+        <div className="ui mt-5 flex flex-wrap gap-x-6 gap-y-2 text-[15px] font-[540]">
           <a
             href="https://www.gov.uk/national-minimum-wage-rates"
             target="_blank"

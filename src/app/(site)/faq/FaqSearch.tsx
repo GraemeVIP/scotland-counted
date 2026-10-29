@@ -51,7 +51,7 @@ export default function FaqSearch() {
           <label
             id="faq-search-heading"
             htmlFor="faq-search"
-            className="ui block text-[17px] font-[760] text-[var(--ink)]"
+            className="ui block text-[17px] font-[620] text-[var(--ink)]"
           >
             What do you want to know?
           </label>
@@ -86,7 +86,7 @@ export default function FaqSearch() {
               <button
                 type="button"
                 onClick={() => setQuery("")}
-                className="ui min-h-11 shrink-0 px-2 text-[15px] font-[700] text-[var(--brand)]"
+                className="ui min-h-11 shrink-0 px-2 text-[15px] font-[580] text-[var(--brand)]"
               >
                 Clear
               </button>
@@ -98,7 +98,7 @@ export default function FaqSearch() {
               type="button"
               onClick={() => setTopic("all")}
               aria-pressed={topic === "all"}
-              className={`ui min-h-11 rounded-full border px-4 py-2 text-[15px] font-[680] transition-colors ${
+              className={`ui min-h-11 rounded-full border px-4 py-2 text-[15px] font-[560] transition-colors ${
                 topic === "all"
                   ? "border-[var(--ink)] bg-[var(--ink)] text-[var(--paper)]"
                   : "border-[var(--rule-strong)] bg-[var(--paper)] text-[var(--ink-2)] hover:border-[var(--brand)]"
@@ -112,7 +112,7 @@ export default function FaqSearch() {
                 type="button"
                 onClick={() => setTopic(section.id)}
                 aria-pressed={topic === section.id}
-                className={`ui min-h-11 rounded-full border px-4 py-2 text-[15px] font-[680] transition-colors ${
+                className={`ui min-h-11 rounded-full border px-4 py-2 text-[15px] font-[560] transition-colors ${
                   topic === section.id
                     ? "border-[var(--ink)] bg-[var(--ink)] text-[var(--paper)]"
                     : "border-[var(--rule-strong)] bg-[var(--paper)] text-[var(--ink-2)] hover:border-[var(--brand)]"
@@ -125,7 +125,7 @@ export default function FaqSearch() {
         </div>
 
         <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
-          <p className="ui text-[15px] font-[650] text-[var(--ink-2)]" aria-live="polite">
+          <p className="ui text-[15px] font-[540] text-[var(--ink-2)]" aria-live="polite">
             {filtering
               ? `${visibleCount} ${visibleCount === 1 ? "answer" : "answers"} found`
               : `${faqItems.length} straight answers`}
@@ -133,7 +133,7 @@ export default function FaqSearch() {
           <button
             type="button"
             onClick={() => window.dispatchEvent(new CustomEvent("open-command"))}
-            className="ui text-[15px] font-[700] text-[var(--brand)] underline decoration-[var(--rule-strong)] underline-offset-4 hover:decoration-current"
+            className="ui text-[15px] font-[580] text-[var(--brand)] underline decoration-[var(--rule-strong)] underline-offset-4 hover:decoration-current"
           >
             Search the whole site instead →
           </button>
@@ -161,7 +161,7 @@ export default function FaqSearch() {
                       open={deferredQuery ? true : undefined}
                       className="group scroll-mt-24 rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] open:border-[var(--brand)]"
                     >
-                      <summary className="ui flex min-h-14 cursor-pointer list-none items-center justify-between gap-5 px-5 py-4 text-[17px] font-[730] leading-[1.4] sm:px-6">
+                      <summary className="ui flex min-h-14 cursor-pointer list-none items-center justify-between gap-5 px-5 py-4 text-[17px] font-[600] leading-[1.4] sm:px-6">
                         <span>{item.q}</span>
                         <span
                           aria-hidden="true"
@@ -177,7 +177,7 @@ export default function FaqSearch() {
                         {item.href && item.linkLabel && (
                           <Link
                             href={item.href}
-                            className="ui mt-4 inline-flex min-h-11 items-center text-[15px] font-[700] text-[var(--brand)]"
+                            className="ui mt-4 inline-flex min-h-11 items-center text-[15px] font-[580] text-[var(--brand)]"
                           >
                             {item.linkLabel} →
                           </Link>

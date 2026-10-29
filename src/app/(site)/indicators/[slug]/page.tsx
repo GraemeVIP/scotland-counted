@@ -403,7 +403,7 @@ export default async function IndicatorPage(props: PageProps<"/indicators/[slug]
                   </span>
                   <div className="bg-[var(--surface-2)] h-[42px] relative">
                     <div
-                      className="h-full bg-[var(--glasgow)] flex items-center justify-end pr-3 text-white text-[16px] font-[640] tnum"
+                      className="h-full bg-[var(--glasgow)] flex items-center justify-end pr-3 text-white text-[16px] font-[540] tnum"
                       style={{ width: `${(r.pct / 50) * 100}%` }}
                     >
                       {r.pct}%

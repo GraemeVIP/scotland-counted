@@ -137,7 +137,7 @@ export default function BlogCarousel({ posts }: { posts: Post[] }) {
           <div className="flex flex-wrap items-center justify-end gap-3 sm:rounded-full sm:border sm:border-[var(--rule)] sm:bg-[var(--surface)] sm:p-1.5 sm:pl-4 sm:shadow-[var(--shadow-1)]">
             <Link
               href="/blog"
-              className="ui inline-flex min-h-11 items-center rounded-full border border-[var(--rule-strong)] bg-[var(--surface)] px-4 text-[15px] font-[760] text-[var(--brand)] no-underline transition-colors hover:border-[var(--brand)] hover:text-[var(--brand-deep)] sm:min-h-0 sm:border-0 sm:bg-transparent sm:px-0"
+              className="ui inline-flex min-h-11 items-center rounded-full border border-[var(--rule-strong)] bg-[var(--surface)] px-4 text-[15px] font-[620] text-[var(--brand)] no-underline transition-colors hover:border-[var(--brand)] hover:text-[var(--brand-deep)] sm:min-h-0 sm:border-0 sm:bg-transparent sm:px-0"
             >
               Browse all {posts.length} <span aria-hidden="true" className="ml-1.5">→</span>
             </Link>
@@ -151,7 +151,7 @@ export default function BlogCarousel({ posts }: { posts: Post[] }) {
               className="hidden items-center gap-2 border-l border-[var(--rule)] pl-3 sm:flex"
               aria-label="Article carousel controls"
             >
-              <span className="ui mr-1 text-[15px] font-[700] text-[var(--ink-3)] tnum">
+              <span className="ui mr-1 text-[15px] font-[580] text-[var(--ink-3)] tnum">
                 {range.first === range.last
                   ? `${range.first} of ${posts.length}`
                   : `${range.first}–${range.last} of ${posts.length}`}
@@ -257,12 +257,12 @@ export default function BlogCarousel({ posts }: { posts: Post[] }) {
                         {/* The dark-background variant: these sit on a scrimmed
                             photograph, where the light-index colours fail. */}
                         <p
-                          className="ui text-[15px] font-[760]"
+                          className="ui text-[15px] font-[620]"
                           style={{ color: category?.colorOnDark ?? "#ff8b75" }}
                         >
                           {category?.name ?? "Explained"}
                         </p>
-                        <h3 className="blog-carousel-title mt-2 text-[23px] font-[820] leading-[1.12] tracking-[-0.025em] text-white sm:text-[27px]">
+                        <h3 className="blog-carousel-title mt-2 text-[23px] font-[640] leading-[1.12] tracking-[-0.025em] text-white sm:text-[27px]">
                           {post.title}
                         </h3>
                       </div>
@@ -272,10 +272,10 @@ export default function BlogCarousel({ posts }: { posts: Post[] }) {
                         {post.standfirst}
                       </p>
                       <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
-                        <p className="ui text-[15px] font-[650] text-[var(--ink-3)]">
+                        <p className="ui text-[15px] font-[540] text-[var(--ink-3)]">
                           {fmtDate(post.updated ?? post.date)} · {post.readingMinutes} min read
                         </p>
-                        <span className="ui text-[15px] font-[760] text-[var(--brand)] transition-colors group-hover:text-[var(--action-hover)]">
+                        <span className="ui text-[15px] font-[620] text-[var(--brand)] transition-colors group-hover:text-[var(--action-hover)]">
                           Read it <span aria-hidden="true">→</span>
                         </span>
                       </div>
@@ -299,7 +299,7 @@ export default function BlogCarousel({ posts }: { posts: Post[] }) {
           */}
         </div>
 
-        <p className="ui mt-3 flex items-center gap-2 px-5 text-[15px] font-[650] text-[var(--ink-3)] sm:hidden">
+        <p className="ui mt-3 flex items-center gap-2 px-5 text-[15px] font-[540] text-[var(--ink-3)] sm:hidden">
           Swipe to browse <span aria-hidden="true" className="text-[var(--brand)]">→</span>
         </p>
 

@@ -181,10 +181,10 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
             },
           ].map((s) => (
             <div key={s.label} className="bg-[var(--paper)] px-5 pt-5 pb-6">
-              <div className="ui text-[15px] font-[700] text-[var(--muted)] leading-[1.45] mb-3 sm:min-h-[2.9em]">
+              <div className="ui text-[15px] font-[580] text-[var(--muted)] leading-[1.45] mb-3 sm:min-h-[2.9em]">
                 {s.label}
               </div>
-              <div className="text-[30px] font-[640] tracking-[-0.028em] leading-none tnum">
+              <div className="text-[30px] font-[540] tracking-[-0.028em] leading-none tnum">
                 {s.value}
               </div>
               <div className="ui text-[15px] text-[var(--ink-2)] mt-2.5 tnum">{s.note}</div>
@@ -407,7 +407,7 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
           </p>
           <Link
             href={`/council-tax-bands-scotland/${c.slug}`}
-            className="ui inline-flex mt-4 font-[700] text-[var(--ink)] underline decoration-[var(--brand)] decoration-2 underline-offset-4"
+            className="ui inline-flex mt-4 font-[580] text-[var(--ink)] underline decoration-[var(--brand)] decoration-2 underline-offset-4"
           >
             See {placeName} council tax bands and increases →
           </Link>

@@ -74,9 +74,9 @@ export default function RepresentativeDirectorySearch({ entries }: { entries: Di
                   />
                 )}
                 <span className="min-w-0">
-                  <Link href={entry.href} className="ui block text-[16px] font-[750] leading-[1.35] text-[var(--ink)] no-underline hover:text-[var(--brand)]">{entry.name}</Link>
+                  <Link href={entry.href} className="ui block text-[16px] font-[600] leading-[1.35] text-[var(--ink)] no-underline hover:text-[var(--brand)]">{entry.name}</Link>
                   <span className="ui mt-1 block text-[15px] leading-[1.4] text-[var(--ink-2)]">{entry.label} · {entry.party}</span>
-                  <Link href={entry.href} className="ui mt-2 block text-[15px] font-[700] text-[var(--brand)] no-underline">View details →</Link>
+                  <Link href={entry.href} className="ui mt-2 block text-[15px] font-[580] text-[var(--brand)] no-underline">View details →</Link>
                 </span>
               </article>
             ))}

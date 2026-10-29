@@ -129,8 +129,8 @@ export default function ConstituencyLetter({
             </p>
 
             <div className="mt-5 rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--paper)] p-4">
-              <p className="ui text-[15px] font-[720] text-[var(--action-text)]">Your MP</p>
-              <p className="text-[20px] font-[700] mt-1">{mp.name}</p>
+              <p className="ui text-[15px] font-[600] text-[var(--action-text)]">Your MP</p>
+              <p className="text-[20px] font-[580] mt-1">{mp.name}</p>
               <p className="text-[15px] text-[var(--ink-2)] leading-[1.45] mt-1">
                 {mp.party} · {mp.constituency}
               </p>
@@ -141,7 +141,7 @@ export default function ConstituencyLetter({
 
             <div data-clarity-mask="true" className="mt-5 grid gap-3 sm:grid-cols-2">
               <div>
-                <label className="ui text-[15px] font-[700] block mb-1.5" htmlFor="letter-name">
+                <label className="ui text-[15px] font-[580] block mb-1.5" htmlFor="letter-name">
                   Your name (optional)
                 </label>
                 <input
@@ -155,7 +155,7 @@ export default function ConstituencyLetter({
                 />
               </div>
               <div>
-                <label className="ui text-[15px] font-[700] block mb-1.5" htmlFor="letter-personal">
+                <label className="ui text-[15px] font-[580] block mb-1.5" htmlFor="letter-personal">
                   Add a sentence of your own (optional)
                 </label>
                 <input

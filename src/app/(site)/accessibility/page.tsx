@@ -129,7 +129,7 @@ export default function Accessibility() {
                   key={item.title}
                   className="rounded-[var(--r-m)] border border-[var(--rule)] border-t-[3px] border-t-[var(--good)] bg-[var(--surface)] p-5"
                 >
-                  <h3 className="ui text-[17px] font-[750] leading-[1.35]">{item.title}</h3>
+                  <h3 className="ui text-[17px] font-[600] leading-[1.35]">{item.title}</h3>
                   <p className="mt-2 text-[15.5px] leading-[1.55] text-[var(--ink-2)]">{item.body}</p>
                 </div>
               ))}
@@ -164,7 +164,7 @@ export default function Accessibility() {
                   key={item.title}
                   className="rounded-[var(--r-m)] border border-[var(--rule)] border-l-[3px] border-l-[var(--warn)] bg-[var(--surface)] p-5"
                 >
-                  <h3 className="ui text-[17px] font-[750] leading-[1.35]">{item.title}</h3>
+                  <h3 className="ui text-[17px] font-[600] leading-[1.35]">{item.title}</h3>
                   <p className="mt-2 max-w-[70ch] text-[15.5px] leading-[1.55] text-[var(--ink-2)]">
                     {item.body}
                   </p>

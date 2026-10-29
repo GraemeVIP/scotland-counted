@@ -115,7 +115,7 @@ function SectionList({ onNavigate }: { onNavigate: () => void }) {
                   style={{ backgroundColor: tone.accent }}
                 />
                 <div>
-                  <p className="ui text-[17px] font-[800] leading-[1.25] text-[var(--ink)]">
+                  <p className="ui text-[17px] font-[640] leading-[1.25] text-[var(--ink)]">
                     {sec.title}
                   </p>
                   <p className="mt-1 text-[15px] leading-[1.4] text-[var(--ink-2)]">
@@ -132,7 +132,7 @@ function SectionList({ onNavigate }: { onNavigate: () => void }) {
                     onClick={onNavigate}
                     className="flex min-h-14 flex-col justify-center rounded-[var(--r-s)] px-2 py-2.5 no-underline transition-colors hover:bg-[var(--surface-2)]"
                   >
-                    <span className="ui text-[15.5px] font-[650] text-[var(--ink)]">
+                    <span className="ui text-[15.5px] font-[540] text-[var(--ink)]">
                       {n.label}
                     </span>
                     {n.blurb && (
@@ -155,12 +155,12 @@ function SectionList({ onNavigate }: { onNavigate: () => void }) {
 function FindYourPlace({ onNavigate, autoFocus }: { onNavigate: () => void; autoFocus?: boolean }) {
   return (
     <div className="rounded-[var(--r-m)] bg-[var(--surface-2)] border border-[var(--rule)] p-4 sm:p-5">
-      <p className="ui text-[18px] font-[800] text-[var(--ink)]">Go straight to your area</p>
+      <p className="ui text-[18px] font-[640] text-[var(--ink)]">Go straight to your area</p>
       <p className="mt-1 mb-3.5 text-[15px] leading-[1.45] text-[var(--ink-2)]">
         You do not need to know your council or your MP. I work it out.
       </p>
       <PostcodeJump onDone={onNavigate} autoFocus={autoFocus} />
-      <p className="ui mt-4 mb-2.5 text-[15px] font-[760] uppercase tracking-[0.08em] text-[var(--muted)]">
+      <p className="ui mt-4 mb-2.5 text-[15px] font-[620] uppercase tracking-[0.08em] text-[var(--muted)]">
         Or pick a place
       </p>
       <div className="flex flex-wrap gap-1.5">
@@ -169,7 +169,7 @@ function FindYourPlace({ onNavigate, autoFocus }: { onNavigate: () => void; auto
             key={a.href}
             href={a.href}
             onClick={onNavigate}
-            className="ui rounded-[var(--r-pill)] border border-[var(--rule-strong)] bg-[var(--surface)] px-3 py-1.5 text-[15px] font-[620] text-[var(--ink-2)] no-underline transition-colors hover:border-[var(--brand)] hover:text-[var(--ink)]"
+            className="ui rounded-[var(--r-pill)] border border-[var(--rule-strong)] bg-[var(--surface)] px-3 py-1.5 text-[15px] font-[540] text-[var(--ink-2)] no-underline transition-colors hover:border-[var(--brand)] hover:text-[var(--ink)]"
           >
             {a.label}
           </Link>
@@ -247,12 +247,12 @@ export function DesktopMenu({ onNavigate }: { onNavigate: () => void }) {
                 key={l.href}
                 href={l.href}
                 onClick={onNavigate}
-                className="ui text-[15px] font-[620] text-[var(--ink-2)]"
+                className="ui text-[15px] font-[540] text-[var(--ink-2)]"
               >
                 {l.label}
               </Link>
             ))}
-            <Link href="/browse" onClick={onNavigate} className="ui text-[15.5px] font-[700]">
+            <Link href="/browse" onClick={onNavigate} className="ui text-[15.5px] font-[580]">
               See every page on this site →
             </Link>
           </div>
@@ -347,7 +347,7 @@ export function MobileMenu({
           {/* Inline rather than Chrome's Wordmark: importing it back out of
               Chrome.tsx would make the two files import each other. */}
           <span
-            className="ui font-[800] tracking-[-0.04em] leading-none text-[17px] min-[390px]:text-[19px]"
+            className="ui font-[640] tracking-[-0.04em] leading-none text-[17px] min-[390px]:text-[19px]"
             style={{ fontFamily: "var(--font-sans)" }}
           >
             Scotland<span className="text-[var(--action-text)]">Counted</span>
@@ -376,7 +376,7 @@ export function MobileMenu({
         </div>
 
         <div className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5">
-          <p className="ui text-[18px] font-[800] text-[var(--ink)]">What Scotland Counted does</p>
+          <p className="ui text-[18px] font-[640] text-[var(--ink)]">What Scotland Counted does</p>
           <p className="mt-2 mb-5 max-w-[42rem] text-[15px] leading-6 text-[var(--ink-2)]">
             See what poverty, pay and living costs look like where you live. Find the people who
             can change things, then send them a ready-written email.
@@ -388,7 +388,7 @@ export function MobileMenu({
                 key={l.href}
                 href={l.href}
                 onClick={onNavigate}
-                className="ui text-[15px] font-[620] text-[var(--ink-2)]"
+                className="ui text-[15px] font-[540] text-[var(--ink-2)]"
               >
                 {l.label}
               </Link>
@@ -397,7 +397,7 @@ export function MobileMenu({
           <Link
             href="/browse"
             onClick={onNavigate}
-            className="ui mt-4 block text-[15.5px] font-[700]"
+            className="ui mt-4 block text-[15.5px] font-[580]"
           >
             Browse every page →
           </Link>

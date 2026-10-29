@@ -99,7 +99,7 @@ export default function Press() {
               should find the reason here rather than assume it was missed. */}
           {supersededNotes().length > 0 && (
             <div className="mt-6 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] p-5">
-              <p className="ui text-[15px] font-[680] mb-2">Held back on purpose</p>
+              <p className="ui text-[15px] font-[560] mb-2">Held back on purpose</p>
               <ul className="grid gap-2">
                 {supersededNotes().map((note) => (
                   <li key={note.measure} className="text-[15.5px] leading-[1.6] text-[var(--ink-2)]">
@@ -171,7 +171,7 @@ export default function Press() {
                 Seven measures, a rank for each, and the extra money every council said it needed
                 for 2026/27.
               </span>
-              <span className="ui block text-[15px] text-[var(--brand)] font-[650] mt-4">
+              <span className="ui block text-[15px] text-[var(--brand)] font-[540] mt-4">
                 Download the CSV →
               </span>
             </a>
@@ -184,14 +184,14 @@ export default function Press() {
               <span className="block text-[15px] leading-[1.55] text-[var(--ink-2)] mt-2">
                 Every figure on every page links to the official document it came from.
               </span>
-              <span className="ui block text-[15px] text-[var(--brand)] font-[650] mt-4">
+              <span className="ui block text-[15px] text-[var(--brand)] font-[540] mt-4">
                 Find a council →
               </span>
             </Link>
           </div>
 
           <div className="mt-8 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] p-6">
-            <p className="ui text-[15px] font-[680] mb-3">How to credit it</p>
+            <p className="ui text-[15px] font-[560] mb-3">How to credit it</p>
             <CopyLine text={CITATION} />
             <p className="text-[15px] leading-[1.6] text-[var(--ink-2)] mt-4 max-w-[62ch]">
               That is all that is needed. The underlying figures belong to the{" "}
@@ -221,7 +221,7 @@ export default function Press() {
             >
               <span className="label">32 permanent council pages</span>
               <strong className="block text-[20px] mt-3">Poverty, work and pay by area</strong>
-              <span className="ui block text-[15px] text-[var(--brand)] font-[650] mt-4">
+              <span className="ui block text-[15px] text-[var(--brand)] font-[540] mt-4">
                 Find a council page →
               </span>
             </Link>
@@ -231,7 +231,7 @@ export default function Press() {
             >
               <span className="label">57 permanent constituency pages</span>
               <strong className="block text-[20px] mt-3">Child poverty by MP seat</strong>
-              <span className="ui block text-[15px] text-[var(--brand)] font-[650] mt-4">
+              <span className="ui block text-[15px] text-[var(--brand)] font-[540] mt-4">
                 Find a constituency page →
               </span>
             </Link>
@@ -258,7 +258,7 @@ export default function Press() {
               className="h-auto w-[110px] shrink-0 rounded-[var(--r-s)] border border-[var(--rule)] sm:w-[150px]"
             />
             <span className="min-w-0">
-              <span className="ui block text-[17px] font-[720] transition-colors group-hover:text-[var(--brand)]">
+              <span className="ui block text-[17px] font-[600] transition-colors group-hover:text-[var(--brand)]">
                 {infographic.title}
               </span>
               <span className="ui mt-1.5 block text-[15px] text-[var(--muted)] tnum">
@@ -268,7 +268,7 @@ export default function Press() {
                 Poverty rates for all people, children, working-age adults and pensioners, the
                 working-poverty figure, and Glasgow&apos;s ten-year rise.
               </span>
-              <span className="ui mt-3 block text-[15px] font-[650] text-[var(--brand)]">
+              <span className="ui mt-3 block text-[15px] font-[540] text-[var(--brand)]">
                 ↓ Download
               </span>
             </span>
@@ -299,7 +299,7 @@ export default function Press() {
                   className="w-full h-auto"
                   loading="lazy"
                 />
-                <span className="ui flex items-center justify-between text-[15px] font-[620] px-2 pt-2.5 pb-1 text-[var(--ink-2)] group-hover:text-[var(--brand)] transition-colors">
+                <span className="ui flex items-center justify-between text-[15px] font-[540] px-2 pt-2.5 pb-1 text-[var(--ink-2)] group-hover:text-[var(--brand)] transition-colors">
                   {i.chartTitle}
                   <span aria-hidden="true">↓ PNG</span>
                 </span>

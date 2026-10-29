@@ -29,7 +29,7 @@ export default function CouncilDirectory({ councils, publishedSlugs }: CouncilDi
   return (
     <>
       <div className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] p-5 sm:p-6">
-        <label htmlFor="council-search" className="ui block text-[17px] font-[760] text-[var(--ink)]">
+        <label htmlFor="council-search" className="ui block text-[17px] font-[620] text-[var(--ink)]">
           Find your council
         </label>
         <p id="council-search-hint" className="mt-1 text-[15px] leading-[1.5] text-[var(--ink-2)]">
@@ -64,7 +64,7 @@ export default function CouncilDirectory({ councils, publishedSlugs }: CouncilDi
             <button
               type="button"
               onClick={() => setQuery("")}
-              className="ui min-h-11 shrink-0 px-2 text-[15px] font-[700] text-[var(--brand)]"
+              className="ui min-h-11 shrink-0 px-2 text-[15px] font-[580] text-[var(--brand)]"
             >
               Clear
             </button>
@@ -98,14 +98,14 @@ export default function CouncilDirectory({ councils, publishedSlugs }: CouncilDi
                   hasRecord ? "border-[var(--brand)] border-t-[3px]" : "border-[var(--rule)]"
                 }`}
               >
-                <p className="ui text-[15px] font-[750] text-[var(--muted)]">
+                <p className="ui text-[15px] font-[600] text-[var(--muted)]">
                   {hasRecord ? "Detailed council record" : "Local facts available"}
                 </p>
-                <h3 className="ui mt-2 text-[18px] font-[750] leading-[1.3] text-[var(--ink)]">
+                <h3 className="ui mt-2 text-[18px] font-[600] leading-[1.3] text-[var(--ink)]">
                   {council.name}
                 </h3>
                 {performance && (
-                  <p className="ui mt-3 inline-flex rounded-full bg-[var(--brand-wash)] px-3 py-1.5 text-[15px] font-[700] text-[var(--brand)]">
+                  <p className="ui mt-3 inline-flex rounded-full bg-[var(--brand-wash)] px-3 py-1.5 text-[15px] font-[580] text-[var(--brand)]">
                     Performance rank #{performance.overallRank} of 32
                   </p>
                 )}
@@ -116,7 +116,7 @@ export default function CouncilDirectory({ councils, publishedSlugs }: CouncilDi
                 </p>
                 <Link
                   href={hasRecord ? `/councils/${council.slug}` : `/areas/${council.slug}`}
-                  className="ui mt-4 inline-block text-[15px] font-[700] text-[var(--brand)]"
+                  className="ui mt-4 inline-block text-[15px] font-[580] text-[var(--brand)]"
                 >
                   {hasRecord ? "Read the council record →" : "See the area figures →"}
                 </Link>

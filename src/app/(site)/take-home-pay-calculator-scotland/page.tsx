@@ -130,7 +130,7 @@ export default function TakeHomePayCalculator() {
                 key={e.gross}
                 className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] px-5 py-5"
               >
-                <p className="ui text-[14.5px] font-[720] text-[var(--muted)] tnum">
+                <p className="ui text-[14.5px] font-[600] text-[var(--muted)] tnum">
                   {pounds.format(e.gross)} a year
                 </p>
                 <p className="display-stat mt-1.5 text-[clamp(24px,2.6vw,30px)] tnum">

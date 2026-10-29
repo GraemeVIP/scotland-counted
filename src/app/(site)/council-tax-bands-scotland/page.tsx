@@ -149,7 +149,7 @@ export default function CouncilTaxPage() {
                 className="group rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] px-4 py-3 no-underline transition-colors hover:border-[var(--brand)]"
               >
                 <span className="flex items-baseline justify-between gap-3">
-                  <span className="ui text-[15px] font-[640] leading-[1.25] text-[var(--ink-2)] group-hover:text-[var(--ink)]">
+                  <span className="ui text-[15px] font-[540] leading-[1.25] text-[var(--ink-2)] group-hover:text-[var(--ink)]">
                     <span className="tnum text-[var(--muted)]">{i + 1}.</span> {c.name}
                   </span>
                   <span className="display-stat shrink-0 text-[17px] tnum text-[var(--action-text)]">

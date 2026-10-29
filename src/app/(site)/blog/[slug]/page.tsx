@@ -83,7 +83,7 @@ export default async function BlogPost(props: { params: Promise<{ slug: string }
       <Page>
         <article className="max-w-[1240px] mx-auto">
           <div className="pt-7 sm:pt-10 max-w-[1120px] mx-auto">
-            <Link href="/blog" className="ui text-[15px] font-[700]">
+            <Link href="/blog" className="ui text-[15px] font-[580]">
               <span aria-hidden="true">←</span> All explainers
             </Link>
           </div>
@@ -91,12 +91,12 @@ export default async function BlogPost(props: { params: Promise<{ slug: string }
           <header className="mt-7 max-w-[1120px] mx-auto">
             <Link
               href={`/blog/category/${post.category}`}
-              className="ui text-[15px] font-[760] no-underline hover:underline"
+              className="ui text-[15px] font-[620] no-underline hover:underline"
               style={{ color: category?.color }}
             >
               {category?.name}
             </Link>
-            <h1 className="text-[38px] sm:text-[58px] lg:text-[70px] font-[820] leading-[0.98] tracking-[-0.04em] mt-3 text-[var(--ink)] max-w-[22ch] text-balance">
+            <h1 className="text-[38px] sm:text-[58px] lg:text-[70px] font-[640] leading-[0.98] tracking-[-0.04em] mt-3 text-[var(--ink)] max-w-[22ch] text-balance">
               {post.title}
             </h1>
             <p className="text-[20px] sm:text-[23px] leading-[1.5] text-[var(--ink-2)] mt-6 max-w-[65ch]">
@@ -105,7 +105,7 @@ export default async function BlogPost(props: { params: Promise<{ slug: string }
 
             <div className="flex flex-wrap items-center justify-between gap-4 mt-7 pt-5 border-t border-[var(--rule)]">
               <p className="text-[15px] text-[var(--muted)]">
-                By <Link href="/about" className="font-[700] text-[var(--ink-2)]">Graeme</Link>
+                By <Link href="/about" className="font-[580] text-[var(--ink-2)]">Graeme</Link>
                 {" · "}{fmtDate(post.date)} · {post.readingMinutes} min read
                 {post.updated && post.updated !== post.date && (
                   <> · checked {fmtDate(post.updated)}</>
@@ -147,7 +147,7 @@ export default async function BlogPost(props: { params: Promise<{ slug: string }
               <summary className="cursor-pointer list-none flex items-center justify-between gap-4 px-5 sm:px-6 py-5 hover:bg-[var(--surface-2)]">
                 <span>
                   <span className="label block mb-1">Proof and further detail</span>
-                  <span id="article-sources" className="text-[20px] font-[750] text-[var(--ink)]">
+                  <span id="article-sources" className="text-[20px] font-[600] text-[var(--ink)]">
                     Open the {cited.length} original {cited.length === 1 ? "source" : "sources"}
                   </span>
                 </span>
@@ -157,7 +157,7 @@ export default async function BlogPost(props: { params: Promise<{ slug: string }
                 {cited.map((source, index) => (
                   <li key={source.id} className="px-5 sm:px-6 py-4 text-[15.5px] leading-[1.55] text-[var(--ink-2)]">
                     <span className="tnum text-[var(--muted)] mr-2">{String(index + 1).padStart(2, "0")}</span>
-                    <a href={source.url} target="_blank" rel="noopener noreferrer" className="font-[700] text-[var(--ink)]">
+                    <a href={source.url} target="_blank" rel="noopener noreferrer" className="font-[580] text-[var(--ink)]">
                       {source.title}
                     </a>{" "}
 , {source.publisher}. {source.used}

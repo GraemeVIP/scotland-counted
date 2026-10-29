@@ -151,9 +151,9 @@ export default function CouncilTaxLookup() {
           <p className="mt-2 text-[15px] text-[var(--ink-2)]">Full bill before discounts or reductions. Instalments below are equal-payment estimates; your council sets your payment schedule.</p>
           <div className="mt-6 overflow-hidden rounded-[var(--r-m)] border border-[var(--rule)]">
             <div className="grid grid-cols-[auto_minmax(0,1fr)_auto] gap-x-4 border-b border-[var(--rule)] bg-[var(--surface-2)] px-5 py-3">
-              <p className="ui text-[15px] font-[750] text-[var(--muted)]">Band</p>
-              <p className="ui text-[15px] font-[750] text-[var(--muted)]">Yearly breakdown</p>
-              <p className="ui text-[15px] font-[750] text-[var(--muted)] text-right">{period === "year" ? "A year" : "Each payment"}</p>
+              <p className="ui text-[15px] font-[600] text-[var(--muted)]">Band</p>
+              <p className="ui text-[15px] font-[600] text-[var(--muted)]">Yearly breakdown</p>
+              <p className="ui text-[15px] font-[600] text-[var(--muted)] text-right">{period === "year" ? "A year" : "Each payment"}</p>
             </div>
             {result.charges.map((c) => {
               const open = openBand === c.band;
@@ -190,10 +190,10 @@ export default function CouncilTaxLookup() {
                         ["Waste water", c.wasteWater, WATER_YEAR],
                       ].map(([label, value, year]) => (
                         <div key={`${label}-${year}`}>
-                          <dt className="ui text-[15px] font-[700] text-[var(--muted)]">
+                          <dt className="ui text-[15px] font-[580] text-[var(--muted)]">
                             {label as string} · {year as string}
                           </dt>
-                          <dd className="text-[17px] font-[680] tnum">{exact.format(value as number)}</dd>
+                          <dd className="text-[17px] font-[560] tnum">{exact.format(value as number)}</dd>
                         </div>
                       ))}
                       <div className="sm:col-span-2 lg:col-span-5">
@@ -216,7 +216,7 @@ export default function CouncilTaxLookup() {
             const lowThree = shares.slice(0, 3).reduce((sum, s) => sum + s.share, 0);
             return (
               <div className="mt-6 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] p-5 sm:p-6">
-                <p className="ui text-[16px] font-[750] mb-1.5">Not sure which band you are?</p>
+                <p className="ui text-[16px] font-[600] mb-1.5">Not sure which band you are?</p>
                 <p className="max-w-[62ch] text-[15.5px] leading-[1.55] text-[var(--ink-2)]">
                   The distribution below describes the area, not the band of any individual home. In {result.councilName},{" "}
                   <strong className="text-[var(--ink)]">{pct(lowThree)} of homes are Band A, B or C</strong>{" "}
@@ -226,7 +226,7 @@ export default function CouncilTaxLookup() {
                 <div className="mt-5 space-y-2">
                   {shares.map((s) => (
                     <div key={s.band} className="grid grid-cols-[2.5rem_minmax(0,1fr)_3rem] items-center gap-3">
-                      <span className="ui text-[15px] font-[700] text-[var(--ink-2)]">Band {s.band}</span>
+                      <span className="ui text-[15px] font-[580] text-[var(--ink-2)]">Band {s.band}</span>
                       <span className="h-2.5 overflow-hidden rounded-full bg-[var(--paper-3)]">
                         <span
                           className="block h-full rounded-full"
@@ -256,7 +256,7 @@ export default function CouncilTaxLookup() {
           })()}</details>
 
           <div className="mt-5 rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface-2)] px-5 py-4">
-            <p className="ui text-[15px] font-[720] mb-1.5">Which band is my house?</p>
+            <p className="ui text-[15px] font-[600] mb-1.5">Which band is my house?</p>
             <p className="text-[15px] leading-[1.55] text-[var(--ink-2)]">
               The band belongs to the property, not the postcode, and only the Scottish Assessors
               hold it. Look yours up free on the{" "}

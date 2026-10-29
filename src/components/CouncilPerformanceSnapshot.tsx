@@ -20,7 +20,7 @@ export default function CouncilPerformanceSnapshot({ slug }: { slug: string }) {
         <div className="flex flex-wrap items-start justify-between gap-6">
           <div className="max-w-[55ch]">
             <p className="kicker text-[#9db2ff]">Scotland Counted council index</p>
-            <h2 id="council-index-title" className="mt-2 text-[clamp(28px,4vw,44px)] font-[800] leading-[1.05] tracking-[-0.03em]">
+            <h2 id="council-index-title" className="mt-2 text-[clamp(28px,4vw,44px)] font-[640] leading-[1.05] tracking-[-0.03em]">
               {result.name} ranks #{result.overallRank} of 32
             </h2>
             <p className="mt-3 text-[16px] leading-[1.6] text-[#d7deed]">
@@ -28,27 +28,27 @@ export default function CouncilPerformanceSnapshot({ slug }: { slug: string }) {
             </p>
           </div>
           <div className="shrink-0 text-right">
-            <p className="tnum text-[54px] font-[840] leading-none text-[var(--action)]">#{result.overallRank}</p>
-            <p className="ui mt-2 text-[15px] font-[700] text-[#d7deed]">national result</p>
+            <p className="tnum text-[54px] font-[640] leading-none text-[var(--action)]">#{result.overallRank}</p>
+            <p className="ui mt-2 text-[15px] font-[580] text-[#d7deed]">national result</p>
           </div>
         </div>
 
         <div className="mt-6 grid gap-3 sm:grid-cols-3">
           <div className="rounded-[var(--r-s)] border border-white/15 bg-white/5 p-4">
             <p className="ui text-[15px] text-[#c7d1e5]">Against similar councils</p>
-            <p className="tnum mt-2 text-[28px] font-[800]">#{result.peerRank}</p>
-            <p className={`ui mt-1 text-[15px] font-[680] ${peerMovement > 0 ? "text-[#63e6b5]" : peerMovement < 0 ? "text-[#ff9b87]" : "text-[#c7d1e5]"}`}>
+            <p className="tnum mt-2 text-[28px] font-[640]">#{result.peerRank}</p>
+            <p className={`ui mt-1 text-[15px] font-[560] ${peerMovement > 0 ? "text-[#63e6b5]" : peerMovement < 0 ? "text-[#ff9b87]" : "text-[#c7d1e5]"}`}>
               {peerMovement > 0 ? `up ${peerMovement} places` : peerMovement < 0 ? `down ${Math.abs(peerMovement)} places` : "same as main rank"}
             </p>
           </div>
           <div className="rounded-[var(--r-s)] border border-white/15 bg-white/5 p-4">
             <p className="ui text-[15px] text-[#c7d1e5]">What residents said</p>
-            <p className="tnum mt-2 text-[28px] font-[800]">#{result.residentVerdict.rank}</p>
+            <p className="tnum mt-2 text-[28px] font-[640]">#{result.residentVerdict.rank}</p>
             <p className="ui mt-1 text-[15px] text-[#c7d1e5]">average across five questions: {result.residentVerdict.average.toFixed(1)}%</p>
           </div>
           <div className="rounded-[var(--r-s)] border border-white/15 bg-white/5 p-4">
             <p className="ui text-[15px] text-[#c7d1e5]">Data available</p>
-            <p className="tnum mt-2 text-[28px] font-[800]">{result.coverage.toFixed(1)}%</p>
+            <p className="tnum mt-2 text-[28px] font-[640]">{result.coverage.toFixed(1)}%</p>
             <p className="ui mt-1 text-[15px] text-[#c7d1e5]">missing figures get the middle score</p>
           </div>
         </div>
@@ -60,8 +60,8 @@ export default function CouncilPerformanceSnapshot({ slug }: { slug: string }) {
             const value = result.pillars[pillar.key];
             return (
               <div key={pillar.key} className="border-l-2 border-[var(--brand)] pl-3">
-                <p className="ui text-[15px] font-[690] leading-[1.3] text-[var(--ink-2)]">{pillar.label}</p>
-                <p className="tnum mt-2 text-[22px] font-[800] text-[var(--ink)]">#{value.rank}</p>
+                <p className="ui text-[15px] font-[560] leading-[1.3] text-[var(--ink-2)]">{pillar.label}</p>
+                <p className="tnum mt-2 text-[22px] font-[640] text-[var(--ink)]">#{value.rank}</p>
                 <p className="ui mt-1 text-[15px] text-[var(--muted)]">score {value.score.toFixed(1)}</p>
               </div>
             );

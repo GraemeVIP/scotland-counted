@@ -173,7 +173,7 @@ export function G({ t, children }: { t: string; children: ReactNode }) {
               >
                 &times;
               </button>
-              <span id={`${tooltipId}-title`} className="ui block text-[15px] font-[680] text-[var(--brand)] mb-1.5">
+              <span id={`${tooltipId}-title`} className="ui block text-[15px] font-[560] text-[var(--brand)] mb-1.5">
                 {term.term}
               </span>
               <span id={`${tooltipId}-description`} className="block text-[var(--ink)]">{term.def}</span>

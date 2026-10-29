@@ -3,43 +3,22 @@
 import Link from "next/link";
 import PostcodeStart from "@/components/PostcodeStart";
 import type { LocalFacts, ResponsibilitySplit } from "@/lib/localFacts";
-import { current as flagship } from "@/lib/data/flagship";
 
 /**
- * The national opening statement.
+ * The homepage opening: the Saltire band.
  *
- * It used to open with the poverty figure, which described the site as it was
- * rather than as it is. The product now covers pay, council tax, council
- * performance and political responsibility, so someone arriving about their
- * payslip was told they were on a poverty website and left.
+ * The cross is drawn in light behind the headline rather than as a flag, and
+ * the band sits under the floating header, so the page opens on one colour.
+ * Every piece of text on the blue uses --hero-ink or --hero-muted, which the
+ * contrast check holds at 4.5:1 or better against the lightest blue in the band.
  *
- * The postcode box still does the hard work, because a local answer is the
- * fastest way to show what the site is for. The card beside it carries one
- * current finding rather than four unrelated national figures, and reads from
- * lib/data/flagship.ts so swapping it is one edit.
- *
- * Nothing above the fold waits for an animation before it can be read.
+ * The postcode tool sits on a white card rather than on the blue: it renders
+ * results, links and errors that are built for the page's normal surfaces, and
+ * a card keeps all of that legible without restyling the tool.
  */
 
-const TRUST = [
-  "No account needed",
-  "Every figure sourced",
-  "Corrections published",
-];
+const TRUST = ["Free, no account", "Every figure sourced", "I never store your postcode"];
 
-const SCALE = [
-  { value: "32", label: "council areas" },
-  { value: "32", label: "council records" },
-  { value: "57", label: "MP areas" },
-  { value: "100%", label: "sourced" },
-];
-
-/*
- * facts and split arrive as props rather than being built here. This file is
- * a client component, so calling the builders inside it would pull the
- * council datasets into the browser bundle on every page that renders a hero.
- * The server page builds them once; the type import is erased at compile time.
- */
 export default function Hero({
   facts,
   split,
@@ -48,114 +27,67 @@ export default function Hero({
   split: ResponsibilitySplit;
 }) {
   return (
-    <section className="relative overflow-hidden xl:flex xl:min-h-[calc(100svh-69px)] xl:flex-col">
-      <div className="relative max-w-[1440px] mx-auto px-5 sm:px-8 xl:px-14 py-6 sm:py-12 xl:flex xl:flex-1 xl:items-center">
-        <div className="grid w-full gap-x-12 gap-y-10 xl:grid-cols-[minmax(0,1.12fr)_minmax(420px,0.88fr)] xl:items-center">
-          {/* ---- Statement ---- */}
-          <div className="md:max-xl:mx-auto md:max-xl:max-w-[680px] md:max-xl:text-center">
-            <p className="kicker text-[var(--brand)] mb-3 sm:mb-5">
-              <span className="sm:hidden">Free · independent · for Scotland</span>
-              <span className="hidden sm:inline">Independent public data for Scotland</span>
-            </p>
+    <section className="saltire-hero -mt-[72px] pt-[72px] rounded-b-[var(--r-l)]">
+      <div className="beams" aria-hidden="true">
+        <div className="beam a" />
+        <div className="beam b" />
+        <div className="beam-edge a" />
+        <div className="beam-edge b" />
+      </div>
 
-            <h1 className="display-stat text-[clamp(36px,10.5vw,44px)] sm:text-[clamp(44px,5.7vw,78px)] max-w-[16ch] mb-4 sm:mb-6 md:max-xl:mx-auto md:max-xl:max-w-[15ch]">
-              See what Scotland&rsquo;s numbers mean{" "}
-              <span className="mark">where you live.</span>
+      <div className="relative max-w-[1320px] mx-auto px-5 sm:px-8 lg:px-14 pt-12 pb-16 sm:pt-20 sm:pb-24">
+        <div className="grid gap-x-14 gap-y-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(380px,0.9fr)] lg:items-center">
+          <div className="min-w-0">
+            <p className="eyebrow rise">Independent public data for Scotland</p>
+
+            <h1 className="rise mt-6 text-[clamp(44px,7vw,96px)] font-[600] leading-[0.96] tracking-[-0.05em] text-balance">
+              What Scotland&rsquo;s numbers mean{" "}
+              <span className="serif-accent text-[1.06em] text-[var(--hero-muted)]">where you live.</span>
             </h1>
 
-            <p className="text-[17px] sm:text-[clamp(18px,1.55vw,21px)] leading-[1.5] text-[var(--ink-2)] max-w-[49ch] mb-5 sm:mb-7 md:max-xl:mx-auto">
-              See the real figures for where you live. Then do something about them.{" "}
-              <strong className="text-[var(--ink)]">It takes about a minute.</strong>
+            <p className="rise mt-6 max-w-[42ch] text-[clamp(17px,1.5vw,20px)] leading-[1.55] text-[var(--hero-muted)]">
+              Pay, council tax, benefits and who decides, in plain English. Every figure links to
+              where it came from.
             </p>
 
-            <div className="mb-5 flex flex-wrap gap-3 md:max-xl:justify-center">
-              <Link href="/council-tax-bands-scotland" className="btn btn-primary">Check council tax →</Link>
-              <Link href="/representatives" className="btn btn-ghost">Find my MP and MSPs →</Link>
-            </div>
-            <div className="md:max-xl:mx-auto md:max-xl:max-w-[620px] md:max-xl:text-left">
-              <PostcodeStart facts={facts} split={split} />
-            </div>
-
-            <div className="mt-5 sm:mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-[16px] md:max-xl:justify-center">
-              <Link href="/take-home-pay-calculator-scotland" className="font-[700]">
-                Calculate my pay →
+            <div className="rise mt-8 flex flex-wrap gap-3">
+              <Link
+                href="/council-tax-bands-scotland"
+                className="ui inline-flex min-h-12 items-center gap-2 rounded-[var(--r-pill)] bg-white px-5 text-[15.5px] font-[580] text-[#00336f] shadow-[0_1px_0_rgba(255,255,255,0.6)_inset,0_10px_24px_-12px_rgba(0,0,0,0.5)] transition-transform hover:-translate-y-px"
+              >
+                Check your council tax <span aria-hidden="true">→</span>
               </Link>
-              <Link href="/areas" className="text-[var(--ink-2)] font-[600]">
-                Browse all 32 areas
+              <Link
+                href="/take-home-pay-calculator-scotland"
+                className="glass ui inline-flex min-h-12 items-center gap-2 rounded-[var(--r-pill)] px-5 text-[15.5px] font-[560] text-white transition-colors hover:bg-white/10"
+              >
+                Work out your take home pay
               </Link>
             </div>
 
-            <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2 md:max-xl:justify-center">
+            <ul className="rise mt-6 flex flex-wrap gap-2">
               {TRUST.map((item) => (
                 <li
                   key={item}
-                  className="ui flex items-center gap-1.5 text-[15px] font-[620] text-[var(--ink-3)]"
+                  className="ui rounded-[var(--r-pill)] border border-white/15 bg-white/[0.06] px-3 py-1.5 text-[14px] text-[var(--hero-muted)]"
                 >
-                  <span aria-hidden="true" className="text-[var(--good-text)]">
-                    ✓
-                  </span>
                   {item}
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* ---- One current finding ---- */}
-          <div className="mx-auto w-full max-w-[520px] md:max-xl:max-w-[620px] xl:mx-0 xl:max-w-[500px] xl:justify-self-end">
-            <div
-              className="rounded-[var(--r-l)] border border-[var(--rule-strong)] bg-[var(--surface)] p-6 shadow-[var(--shadow-2)] sm:p-7"
-            >
-              <p className="kicker text-[var(--action-text)] mb-3">{flagship.kicker}</p>
-
-              <div className="display-stat text-[clamp(44px,5.2vw,68px)] leading-[0.95] text-[var(--ink)]">
-                {flagship.value}
-              </div>
-              <p className="text-[17px] font-[650] text-[var(--ink-2)] mt-3 max-w-[26ch]">
-                {flagship.unit}
-              </p>
-
-              <p className="mt-5 pt-5 border-t border-[var(--rule)] text-[15.5px] leading-[1.55] text-[var(--ink-2)]">
-                {flagship.context}
-              </p>
-
-              <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2">
-                <Link href={flagship.href} className="ui text-[16px] font-[700]">
-                  {flagship.hrefLabel} →
-                </Link>
-                <a
-                  href={flagship.source.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="ui text-[15px] text-[var(--ink-3)]"
-                >
-                  {flagship.source.publisher}
-                </a>
-              </div>
+          <div className="on-light scale-in min-w-0 rounded-[var(--r-l)] bg-[var(--surface)] p-6 text-[var(--ink)] shadow-[0_40px_80px_-40px_rgba(0,8,32,0.85)] sm:p-8">
+            <p className="eyebrow">Your area in a minute</p>
+            <h2 className="mt-3 text-[26px] font-[600] leading-[1.1] tracking-[-0.035em]">
+              Enter your postcode
+            </h2>
+            <p className="mt-2 text-[15.5px] leading-[1.55] text-[var(--ink-2)]">
+              Your council, what your band costs, your MP and MSPs, and who decides what.
+            </p>
+            <div className="mt-5">
+              <PostcodeStart facts={facts} split={split} />
             </div>
-          </div>
-        </div>
-      </div>
-
-      {/* ---- The scale of the thing ---- */}
-      <div className="slab-dark xl:shrink-0">
-        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 xl:px-14 py-7">
-          <div className="flex flex-wrap items-center gap-x-12 gap-y-6 justify-between md:max-xl:justify-center md:max-xl:text-center">
-            <div className="flex flex-wrap gap-x-11 gap-y-5 md:max-xl:justify-center">
-              {SCALE.map((s) => (
-                <div key={s.label}>
-                  <div className="display-stat text-[30px] sm:text-[36px] text-[var(--deep-ink)]">
-                    {s.value}
-                  </div>
-                  <p className="text-[15px] font-[600] opacity-75 mt-1">{s.label}</p>
-                </div>
-              ))}
-            </div>
-            <Link
-              href="/browse"
-              className="ui text-[16px] font-[700] text-[var(--deep-ink)] underline underline-offset-4 decoration-[var(--action)] decoration-2"
-            >
-              See everything on this site →
-            </Link>
           </div>
         </div>
       </div>

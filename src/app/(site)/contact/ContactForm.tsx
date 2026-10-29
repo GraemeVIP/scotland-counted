@@ -163,7 +163,7 @@ export default function ContactForm() {
       />
 
       <fieldset className="mb-6">
-        <legend className="ui text-[16px] font-[700] mb-3">A quick note is welcome</legend>
+        <legend className="ui text-[16px] font-[580] mb-3">A quick note is welcome</legend>
         <div className="flex flex-wrap gap-2">
           {REASONS.filter((r) => r.id === "feedback" || r.id === "teaching" || r.id === "thanks").map((r) => (
             <button
@@ -171,7 +171,7 @@ export default function ContactForm() {
               type="button"
               aria-pressed={reason === r.id}
               onClick={() => setReason(r.id)}
-              className={`ui min-h-11 rounded-[var(--r-s)] border px-3 py-2 text-[15px] font-[650] transition-colors ${
+              className={`ui min-h-11 rounded-[var(--r-s)] border px-3 py-2 text-[15px] font-[540] transition-colors ${
                 reason === r.id
                   ? "border-[var(--ink)] bg-[var(--ink)] text-[var(--paper)]"
                   : "border-[var(--rule-strong)] text-[var(--ink)] hover:border-[var(--brand)]"
@@ -184,7 +184,7 @@ export default function ContactForm() {
       </fieldset>
 
       <label className="block mb-5">
-        <span className="ui block text-[15px] font-[660] mb-2">What is this about?</span>
+        <span className="ui block text-[15px] font-[540] mb-2">What is this about?</span>
         <select
           value={reason}
           onChange={(e) => setReason(e.target.value as ReasonId)}
@@ -205,7 +205,7 @@ export default function ContactForm() {
 
       <div className="grid gap-3 sm:grid-cols-2 mb-3">
         <label className="block">
-          <span className="ui block text-[15px] font-[660] mb-2">Your name</span>
+          <span className="ui block text-[15px] font-[540] mb-2">Your name</span>
           <input
             type="text"
             value={name}
@@ -215,7 +215,7 @@ export default function ContactForm() {
           />
         </label>
         <label className="block">
-          <span className="ui block text-[15px] font-[660] mb-2">Your email (optional)</span>
+          <span className="ui block text-[15px] font-[540] mb-2">Your email (optional)</span>
           <input
             type="email"
             value={email}
@@ -227,7 +227,7 @@ export default function ContactForm() {
       </div>
 
       <label className="block mb-6">
-        <span className="ui block text-[15px] font-[660] mb-2">Your message</span>
+        <span className="ui block text-[15px] font-[540] mb-2">Your message</span>
         <textarea
           required
           value={message}

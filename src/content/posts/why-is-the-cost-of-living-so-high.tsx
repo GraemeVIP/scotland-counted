@@ -20,8 +20,8 @@ function Decision({
 }) {
   return (
     <section className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5 sm:p-6">
-      <p className="ui text-[15px] font-[750] text-[var(--action-text)]">{who}</p>
-      <h3 className="text-[21px] font-[760] leading-[1.25] text-[var(--ink)] mt-2">{title}</h3>
+      <p className="ui text-[15px] font-[600] text-[var(--action-text)]">{who}</p>
+      <h3 className="text-[21px] font-[620] leading-[1.25] text-[var(--ink)] mt-2">{title}</h3>
       <div className="text-[17px] leading-[1.62] text-[var(--ink-2)] mt-3 space-y-3"><ExplainText>{children}</ExplainText></div>
       <p className="text-[15px] leading-[1.5] text-[var(--muted)] mt-4 pt-4 border-t border-[var(--rule)]">
         <strong className="text-[var(--ink-2)]">The record:</strong> <ExplainText>{proof}</ExplainText>
@@ -82,7 +82,7 @@ export default function Post() {
           ["Housing", "Rent and mortgage costs carried on rising after the worst inflation passed."],
         ].map(([title, body]) => (
           <div key={title} className="rounded-[var(--r-s)] bg-[var(--surface-2)] border border-[var(--rule)] p-5">
-            <p className="ui text-[17px] font-[760] text-[var(--ink)]">{title}</p>
+            <p className="ui text-[17px] font-[620] text-[var(--ink)]">{title}</p>
             <p className="text-[15.5px] leading-[1.55] text-[var(--ink-2)] mt-2">{body}</p>
           </div>
         ))}

@@ -26,7 +26,7 @@ export default function ArticleToc({ items }: { items: TocItem[] }) {
   return (
     <>
       <details className="lg:hidden rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface-2)] p-5 mb-8">
-        <summary className="ui cursor-pointer text-[16px] font-[750] text-[var(--ink)]">
+        <summary className="ui cursor-pointer text-[16px] font-[600] text-[var(--ink)]">
           On this page
         </summary>
         <nav aria-label="Article contents">
@@ -39,7 +39,7 @@ export default function ArticleToc({ items }: { items: TocItem[] }) {
           aria-label="Article contents"
           className="sticky top-24 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] p-5"
         >
-          <p className="ui text-[15px] font-[760] text-[var(--ink)]">On this page</p>
+          <p className="ui text-[15px] font-[620] text-[var(--ink)]">On this page</p>
           <Links items={items} />
         </nav>
       </aside>

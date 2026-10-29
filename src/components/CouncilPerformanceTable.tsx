@@ -77,8 +77,8 @@ export default function CouncilPerformanceTable() {
   return (
     <section className="not-prose my-8 overflow-hidden rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)]">
       <div className="border-b border-[var(--rule)] bg-[var(--surface-2)] p-5 sm:p-7">
-        <p className="ui text-[15px] font-[760] text-[var(--brand)]">Explore all 32 councils</p>
-        <h3 className="mt-1 text-[26px] font-[780] leading-[1.2] tracking-[-0.02em]">
+        <p className="ui text-[15px] font-[620] text-[var(--brand)]">Explore all 32 councils</p>
+        <h3 className="mt-1 text-[26px] font-[620] leading-[1.2] tracking-[-0.02em]">
           See how the list changes
         </h3>
         <p className="mt-3 max-w-[68ch] text-[16px] leading-[1.6] text-[var(--ink-2)]">
@@ -95,7 +95,7 @@ export default function CouncilPerformanceTable() {
                 setExpanded(false);
               }}
               aria-pressed={view === item.id}
-              className={`ui rounded-full border px-4 py-2.5 text-[15px] font-[700] transition-colors ${
+              className={`ui rounded-full border px-4 py-2.5 text-[15px] font-[580] transition-colors ${
                 view === item.id
                   ? "border-[var(--ink)] bg-[var(--ink)] text-[var(--paper)]"
                   : "border-[var(--rule-strong)] bg-[var(--surface)] text-[var(--ink-2)] hover:border-[var(--brand)] hover:text-[var(--brand)]"
@@ -108,7 +108,7 @@ export default function CouncilPerformanceTable() {
         </div>
 
         <div className="mt-5 max-w-[420px]">
-          <label htmlFor={searchId} className="ui block text-[15px] font-[700] text-[var(--ink)]">
+          <label htmlFor={searchId} className="ui block text-[15px] font-[580] text-[var(--ink)]">
             Find your council
           </label>
           <input
@@ -134,15 +134,15 @@ export default function CouncilPerformanceTable() {
                 <li key={row.code} className={rank <= 3 ? "bg-[var(--brand-wash)]" : undefined}>
                   <Link href={`/councils/${row.slug}`} className="block p-4 no-underline active:bg-[var(--surface-2)]">
                     <div className="flex items-start gap-3">
-                      <span className="ui tnum flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[var(--rule-strong)] bg-[var(--surface)] text-[15px] font-[760]">
+                      <span className="ui tnum flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[var(--rule-strong)] bg-[var(--surface)] text-[15px] font-[620]">
                         {rank}
                       </span>
                       <span className="min-w-0 flex-1">
-                        <span className="block text-[16px] font-[720] leading-[1.35] text-[var(--ink)]">{row.name}</span>
+                        <span className="block text-[16px] font-[600] leading-[1.35] text-[var(--ink)]">{row.name}</span>
                         <span className="ui mt-1 block text-[15px] leading-[1.45] text-[var(--muted)]">{detailFor(row, view)}</span>
                       </span>
                       <span className="tnum shrink-0 text-right">
-                        <span className="block text-[21px] font-[790] leading-none text-[var(--ink)]">{value.toFixed(1)}{view === "residents" ? "%" : ""}</span>
+                        <span className="block text-[21px] font-[620] leading-none text-[var(--ink)]">{value.toFixed(1)}{view === "residents" ? "%" : ""}</span>
                         <span className="ui mt-1 block text-[15px] text-[var(--muted)]">{view === "residents" ? "average" : "score"}</span>
                       </span>
                     </div>
@@ -156,10 +156,10 @@ export default function CouncilPerformanceTable() {
             <table className="w-full min-w-[700px] border-collapse text-[15px]">
               <thead>
                 <tr className="bg-[var(--surface-2)] text-left">
-                  <th className="border-b-2 border-[var(--ink)] px-5 py-3 font-[720]">#</th>
-                  <th className="border-b-2 border-[var(--ink)] px-3 py-3 font-[720]">Council</th>
-                  <th className="border-b-2 border-[var(--ink)] px-3 py-3 text-right font-[720]">{valueHeading}</th>
-                  <th className="border-b-2 border-[var(--ink)] px-5 py-3 text-right font-[720]">What to know</th>
+                  <th className="border-b-2 border-[var(--ink)] px-5 py-3 font-[600]">#</th>
+                  <th className="border-b-2 border-[var(--ink)] px-3 py-3 font-[600]">Council</th>
+                  <th className="border-b-2 border-[var(--ink)] px-3 py-3 text-right font-[600]">{valueHeading}</th>
+                  <th className="border-b-2 border-[var(--ink)] px-5 py-3 text-right font-[600]">What to know</th>
                 </tr>
               </thead>
               <tbody>
@@ -170,11 +170,11 @@ export default function CouncilPerformanceTable() {
                     <tr key={row.code} className={rank <= 3 ? "bg-[var(--brand-wash)]" : "hover:bg-[var(--surface-2)]"}>
                       <td className="tnum border-b border-[var(--rule)] px-5 py-3 text-[var(--muted)]">{rank}</td>
                       <td className="border-b border-[var(--rule)] px-3 py-3">
-                        <Link href={`/councils/${row.slug}`} className="font-[680] text-[var(--ink)] hover:text-[var(--brand)]">
+                        <Link href={`/councils/${row.slug}`} className="font-[560] text-[var(--ink)] hover:text-[var(--brand)]">
                           {row.name}
                         </Link>
                       </td>
-                      <td className="tnum border-b border-[var(--rule)] px-3 py-3 text-right text-[17px] font-[760]">
+                      <td className="tnum border-b border-[var(--rule)] px-3 py-3 text-right text-[17px] font-[620]">
                         {value.toFixed(1)}{view === "residents" ? "%" : ""}
                       </td>
                       <td className="ui border-b border-[var(--rule)] px-5 py-3 text-right text-[15px] text-[var(--ink-2)]">

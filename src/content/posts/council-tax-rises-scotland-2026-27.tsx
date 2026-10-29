@@ -66,8 +66,8 @@ export default function Post() {
 
       <div className="not-prose my-7 overflow-hidden rounded-[var(--r-m)] border border-[var(--rule)]">
         <div className="grid grid-cols-[minmax(0,1fr)_auto] gap-5 border-b border-[var(--rule)] bg-[var(--surface-2)] px-5 py-4">
-          <p className="ui text-[15px] font-[750] text-[var(--muted)]">Band D council tax</p>
-          <p className="ui text-right text-[15px] font-[750] text-[var(--muted)]">Annual rise</p>
+          <p className="ui text-[15px] font-[600] text-[var(--muted)]">Band D council tax</p>
+          <p className="ui text-right text-[15px] font-[600] text-[var(--muted)]">Annual rise</p>
         </div>
         {rows.map((row, index) => (
           <Link
@@ -76,7 +76,7 @@ export default function Post() {
             className="grid grid-cols-[minmax(0,1fr)_auto] gap-5 border-b border-[var(--rule)] bg-[var(--surface)] px-5 py-4 text-[var(--ink)] no-underline transition-colors last:border-0 hover:bg-[var(--surface-2)]"
           >
             <span>
-              <span className="ui block text-[16px] font-[700]">
+              <span className="ui block text-[16px] font-[580]">
                 <span className="mr-2 tnum text-[var(--muted)]">{index + 1}.</span>
                 {row.name}
               </span>

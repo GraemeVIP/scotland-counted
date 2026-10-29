@@ -130,14 +130,14 @@ export default function Accountability() {
                     className="rounded-[var(--r-s)] bg-[var(--surface)] border border-[var(--rule)] p-4"
                   >
                     <div className="flex items-start justify-between gap-3 mb-1.5">
-                      <p className="ui font-[660] text-[15.5px] leading-[1.3]">{t.measure}</p>
-                      <span className="ui rounded-full text-[15px] font-[700] text-[var(--bad-text)] border border-current px-3 py-2 whitespace-nowrap">
+                      <p className="ui font-[540] text-[15.5px] leading-[1.3]">{t.measure}</p>
+                      <span className="ui rounded-full text-[15px] font-[580] text-[var(--bad-text)] border border-current px-3 py-2 whitespace-nowrap">
                         Missed
                       </span>
                     </div>
                     <p className="ui text-[15px] text-[var(--ink-2)]">
                       The law said {t.target}. What happened:{" "}
-                      <strong className="text-[var(--bad-text)] font-[700]">{t.actual}</strong>
+                      <strong className="text-[var(--bad-text)] font-[580]">{t.actual}</strong>
                     </p>
                   </div>
                 ))}
@@ -150,7 +150,7 @@ export default function Accountability() {
                       {["Measure", "The legal target", "What happened", ""].map((h, i) => (
                         <th
                           key={i}
-                          className="ui text-[15px] font-[700] text-[var(--muted)] text-left px-4 pt-4 pb-3 border-b-2 border-[var(--ink)]"
+                          className="ui text-[15px] font-[580] text-[var(--muted)] text-left px-4 pt-4 pb-3 border-b-2 border-[var(--ink)]"
                         >
                           {h}
                         </th>
@@ -160,17 +160,17 @@ export default function Accountability() {
                   <tbody>
                     {statutoryTargets.map((t) => (
                       <tr key={t.measure} className="hover:bg-[var(--surface-2)] transition-colors">
-                        <td className="ui px-4 py-3.5 border-b border-[var(--rule)] font-[640] text-[15px]">
+                        <td className="ui px-4 py-3.5 border-b border-[var(--rule)] font-[540] text-[15px]">
                           {t.measure}
                         </td>
                         <td className="ui tnum px-4 py-3.5 border-b border-[var(--rule)] text-[15px] text-[var(--ink-2)]">
                           {t.target}
                         </td>
-                        <td className="ui tnum px-4 py-3.5 border-b border-[var(--rule)] text-[16px] font-[700] text-[var(--bad-text)]">
+                        <td className="ui tnum px-4 py-3.5 border-b border-[var(--rule)] text-[16px] font-[580] text-[var(--bad-text)]">
                           {t.actual}
                         </td>
                         <td className="px-4 py-3.5 border-b border-[var(--rule)]">
-                          <span className="ui rounded-full text-[15px] font-[700] text-[var(--bad-text)] border border-current px-3 py-2 whitespace-nowrap">
+                          <span className="ui rounded-full text-[15px] font-[580] text-[var(--bad-text)] border border-current px-3 py-2 whitespace-nowrap">
                             Missed
                           </span>
                         </td>
@@ -181,7 +181,7 @@ export default function Accountability() {
               </div>
             </Reveal>
 
-            <p className="mt-8 max-w-[860px] rounded-[var(--r-m)] border-l-[5px] border-[var(--bad)] bg-[var(--surface-2)] px-6 sm:px-8 py-6 text-[20px] sm:text-[23px] leading-[1.45] font-[680]">
+            <p className="mt-8 max-w-[860px] rounded-[var(--r-m)] border-l-[5px] border-[var(--bad)] bg-[var(--surface-2)] px-6 sm:px-8 py-6 text-[20px] sm:text-[23px] leading-[1.45] font-[560]">
               Ministers have confirmed there is no penalty for missing them. Nothing happens next.
               That is what makes this a question worth putting to the people who voted for the law.
             </p>
@@ -213,19 +213,19 @@ export default function Accountability() {
                   >
                     <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mb-3">
                       <p
-                        className="ui text-[15px] font-[760] rounded-[var(--r-pill)] px-3.5 py-1.5 border"
+                        className="ui text-[15px] font-[620] rounded-[var(--r-pill)] px-3.5 py-1.5 border"
                         style={{ color: `var(${tier.colorVar})`, borderColor: "currentColor" }}
                       >
                         {t.who}
                       </p>
-                      <p className="ui text-[15px] font-[700] text-[var(--muted)]">
+                      <p className="ui text-[15px] font-[580] text-[var(--muted)]">
                         Write to {tier.writeTo}
                       </p>
                     </div>
                     <p className="ui text-[15.5px] text-[var(--muted)] leading-[1.5] mb-4 max-w-[70ch]">
                       {t.power}
                     </p>
-                    <h3 className="text-[24px] sm:text-[29px] font-[780] leading-[1.15] mb-6 max-w-[34ch]">
+                    <h3 className="text-[24px] sm:text-[29px] font-[620] leading-[1.15] mb-6 max-w-[34ch]">
                       {t.heading}
                     </h3>
                     <ul className="space-y-3.5">
@@ -240,7 +240,7 @@ export default function Accountability() {
                             style={{ background: `var(${tier.colorVar})` }}
                           />
                           {p.emphasis && (
-                            <strong className="text-[var(--ink)] font-[640]">{p.emphasis} </strong>
+                            <strong className="text-[var(--ink)] font-[540]">{p.emphasis} </strong>
                           )}
                           {p.text}
                         </li>
@@ -278,14 +278,14 @@ export default function Accountability() {
                   className="rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] px-6 py-7"
                   style={{ borderTop: `4px solid var(${p.colorVar})` }}
                 >
-                  <p className="ui text-[15px] font-[720] text-[var(--muted)] tnum">{p.year}</p>
+                  <p className="ui text-[15px] font-[600] text-[var(--muted)] tnum">{p.year}</p>
                   <p
                     className="display-stat text-[clamp(38px,4.4vw,54px)] mt-2"
                     style={{ color: `var(${p.colorVar})` }}
                   >
                     {p.value}
                   </p>
-                  <p className="ui text-[16px] font-[740] mt-2.5">{p.what}</p>
+                  <p className="ui text-[16px] font-[600] mt-2.5">{p.what}</p>
                   <p className="text-[15.5px] leading-[1.55] text-[var(--ink-2)] mt-2">{p.why}</p>
                 </li>
               ))}
