@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/IntentLink";
 import { Prose, Lead, P, H2, Aside, PostCTA, BigStat } from "@/components/Prose";
 import { CityBudgetCompare, MinimumWagePayTable, MinimumWageRatesTable } from "@/components/MinimumWageTables";
 import { MINIMUM_WAGE, REAL_LIVING_WAGE, pounds } from "@/lib/data/quickAnswers";

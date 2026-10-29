@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/IntentLink";
 import { notFound } from "next/navigation";
 import { G, PlainText } from "@/components/Glossary";
 import Faq from "@/components/Faq";

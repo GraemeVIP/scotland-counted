@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/IntentLink";
 import { Aside, H2, Lead, LI, P, PostCTA, Prose, UL } from "@/components/Prose";
 import { COMPARE_METRICS, metricById, placeScores, winner } from "@/lib/data/compareAreas";
 

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/IntentLink";
 import { pay } from "@/lib/data/power";
 import PostcodeStart from "@/components/PostcodeStart";
 import { buildLocalFacts, responsibilitySplit } from "@/lib/localFacts";

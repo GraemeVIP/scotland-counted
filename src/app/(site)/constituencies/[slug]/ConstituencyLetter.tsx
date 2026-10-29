@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/IntentLink";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { POSTCODE_SESSION_KEY, type Representative } from "@/lib/representatives";

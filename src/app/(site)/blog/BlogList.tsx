@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import Link from "@/components/IntentLink";
 import ArticleCard from "@/components/ArticleCard";
 import {
   getPostCategory,

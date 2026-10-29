@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/IntentLink";
 import { CITY_ORDER, CITY_PAY, PRIVATE_RENTS } from "@/lib/data/money";
 import { Prose, Lead, P, H2, H3, UL, LI, BigStat, Aside, PostCTA } from "@/components/Prose";
 import { GuideTable } from "@/components/GuideTable";

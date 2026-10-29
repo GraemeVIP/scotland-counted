@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/IntentLink";
 import { Page, Col, PageHeader, CTA, InShort } from "@/components/Blocks";
 import Figure from "@/components/charts/Figure";
 import AreaDumbbell from "./AreaDumbbell";

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/IntentLink";
 import { GuideTable } from "@/components/GuideTable";
 import { MINIMUM_WAGE, pounds } from "@/lib/data/quickAnswers";
 import { FULL_TIME, PRIVATE_RENTS, cityBudgets, minimumWageNext, minimumWageNow, type CitySlug } from "@/lib/data/money";

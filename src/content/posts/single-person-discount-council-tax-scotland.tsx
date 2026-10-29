@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/IntentLink";
 import { Prose, Lead, P, H2, H3, UL, LI, Aside, PostCTA, BigStat } from "@/components/Prose";
 import { GuideTable } from "@/components/GuideTable";
 import { SINGLE_PERSON_DISCOUNT as SPD } from "@/lib/data/councilTaxHelp";

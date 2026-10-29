@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/IntentLink";
 import ComparePromo from "@/components/ComparePromo";
 import { notFound } from "next/navigation";
 import { Page, PageHeader, InShort } from "@/components/Blocks";

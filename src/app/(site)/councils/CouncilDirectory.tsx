@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/IntentLink";
 import { useMemo, useState } from "react";
 import type { Council } from "@/lib/data/councils";
 import { councilPerformanceBySlug } from "@/lib/data/councilPerformanceIndex";

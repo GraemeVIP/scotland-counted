@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/IntentLink";
 import { Prose, Lead, P, H2, UL, LI, Aside, PostCTA } from "@/components/Prose";
 import { SOCIAL_SECURITY_SCOTLAND as SSS, YOUNG_CARER_GRANT as YCG } from "@/lib/data/benefits";
 import { pounds } from "@/lib/data/quickAnswers";

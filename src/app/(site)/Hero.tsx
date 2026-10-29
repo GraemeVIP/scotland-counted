@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/IntentLink";
 import PostcodeStart, { RESULT_SLOT_ID } from "@/components/PostcodeStart";
 import type { LocalFacts, ResponsibilitySplit } from "@/lib/localFacts";
 

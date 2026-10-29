@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/IntentLink";
 import ComparePromo from "@/components/ComparePromo";
 import { Page, Col, PageHeader, DirectionChip, CTA, InShort, Reveal } from "@/components/Blocks";
 import Spark from "@/components/charts/Spark";

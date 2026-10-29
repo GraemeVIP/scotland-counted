@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/IntentLink";
 import { Aside, BigStat, H2, H3, Lead, LI, P, PostCTA, Prose, UL } from "@/components/Prose";
 import Figure, { DataTable } from "@/components/charts/Figure";
 import LineChart from "@/components/charts/LineChart";

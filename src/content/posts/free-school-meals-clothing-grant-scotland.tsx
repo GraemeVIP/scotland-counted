@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/IntentLink";
 import { Prose, Lead, P, H2, H3, UL, LI, BigStat, Aside, PostCTA } from "@/components/Prose";
 import { GuideTable } from "@/components/GuideTable";
 import { BEST_START } from "@/lib/data/benefits";

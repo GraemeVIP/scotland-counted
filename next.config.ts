@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 import { site } from "./site.config";
 import { exactMatchRedirects } from "./src/lib/routeMap";
+import { pageHeaderRules } from "./src/headerRules";
 
 /**
  * Next's dev server compiles modules through eval(), so a script-src without
@@ -129,6 +130,11 @@ const nextConfig: NextConfig = {
         source: "/:path*",
         headers: securityHeaders,
       },
+      /*
+       * noindex off the real domain, frame protection, moderation pages. Static
+       * rules, so Vercel applies them without running a function per request.
+       */
+      ...pageHeaderRules(new URL(site.url).host),
     ];
   },
 };

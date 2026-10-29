@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/IntentLink";
 import { Page } from "@/components/Blocks";
 import Faq from "@/components/Faq";
 import QuickAnswer from "@/components/QuickAnswer";

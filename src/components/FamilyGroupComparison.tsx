@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/IntentLink";
 import {
   FAMILY_SOURCE_LINE,
   FAMILY_SOURCE_URL,

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/IntentLink";
 import type { CSSProperties, ReactNode } from "react";
 import { COUNCIL_SEARCH_NAMES } from "@/lib/routeMap";
 import { compareHref } from "@/components/ComparePromo";

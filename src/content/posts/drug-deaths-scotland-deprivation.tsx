@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/IntentLink";
 import { Aside, BigStat, H2, Lead, LI, P, PostCTA, Prose, UL } from "@/components/Prose";
 import { councils } from "@/lib/data/councils";
 import {

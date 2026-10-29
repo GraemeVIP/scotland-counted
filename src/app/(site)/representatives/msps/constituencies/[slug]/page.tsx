@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/IntentLink";
 import { notFound } from "next/navigation";
 import Faq from "@/components/Faq";
 import { CTA, ContentFrame, InShort, Page, PageHeader } from "@/components/Blocks";
@@ -15,7 +15,12 @@ import { site } from "@/lib/site";
 import { listApprovedMspReviews } from "@/lib/mspReviewsDb";
 import { HolyroodSourceNote, MspProfileCard, MspProfileReviews, MspVotingRecord, holyroodPersonJsonLd } from "../../_shared";
 
-export const revalidate = 60;
+/*
+ * A day, not a minute. Approving a review refreshes this page straight away
+ * (api/msp-review-moderation), so a short timer only rebuilt pages nothing had
+ * changed, and every rebuild used server time from the monthly allowance.
+ */
+export const revalidate = 86400;
 
 export function generateStaticParams() {
   return holyroodConstituencies.map((item) => ({ slug: item.constituencySlug }));

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/IntentLink";
 import { Suspense } from "react";
 import { Page, ContentFrame, PageHeader, SectionHead } from "@/components/Blocks";
 import ContactForm from "./ContactForm";

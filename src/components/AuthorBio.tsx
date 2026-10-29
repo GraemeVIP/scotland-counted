@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/IntentLink";
 import { site } from "@/lib/site";
 import { ExplainText } from "@/components/Glossary";
 

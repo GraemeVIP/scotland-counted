@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/IntentLink";
 import {
   CRISIS_GRANT_CSV_URL,
   CRISIS_GRANT_SOURCE_URL,

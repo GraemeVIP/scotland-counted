@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/IntentLink";
 import { Prose, Lead, P, H2, UL, LI, Aside, PostCTA, BigStat } from "@/components/Prose";
 import { GuideTable } from "@/components/GuideTable";
 import { BAND_LETTERS, waterCharges2026 } from "@/lib/data/councilTax";

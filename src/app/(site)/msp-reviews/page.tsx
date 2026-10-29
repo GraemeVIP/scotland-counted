@@ -18,7 +18,12 @@ export const metadata = meta({
   imageType: "image/webp",
 });
 
-export const revalidate = 60;
+/*
+ * A day, not a minute. Approving a review refreshes this page straight away
+ * (api/msp-review-moderation), so a short timer only rebuilt pages nothing had
+ * changed, and every rebuild used server time from the monthly allowance.
+ */
+export const revalidate = 86400;
 
 export default async function MspReviewsPage() {
   const options = mspReviewProfiles.map((profile) => ({

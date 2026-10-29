@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/IntentLink";
 import { useDeferredValue, useEffect, useMemo, useState } from "react";
 import { faqItems, faqSections } from "@/lib/data/faqs";
 

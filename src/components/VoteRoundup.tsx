@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/IntentLink";
 import { divisions, scottishTally } from "@/lib/data/votes";
 import Reveal from "@/components/Reveal";
 import { ExplainText } from "@/components/Glossary";
