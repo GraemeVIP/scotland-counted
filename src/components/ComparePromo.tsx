@@ -1,9 +1,40 @@
 import Link from "next/link";
 import { COUNCIL_SEARCH_NAMES } from "@/lib/routeMap";
 import { COUNCIL_FAMILY_GROUP, FAMILY_GROUP_MEMBERS } from "@/lib/data/familyGroups";
+import { placeScores, rankAreas } from "@/lib/data/compareAreas";
+
+const BEST = placeScores();
+const SAFEST = rankAreas("crime_total", "asc");
+const CHEAPEST = rankAreas("house_price", "asc");
+
+function ordinal(n: number) {
+  const s = ["th", "st", "nd", "rd"];
+  const v = n % 100;
+  return n + (s[(v - 20) % 10] || s[v] || s[0]);
+}
+
+/** Where an area sits in each ranking, or plain links to them when no area is in view. */
+function rankingLinks(slug?: string) {
+  const at = (rows: Array<{ slug: string; rank: number }>) => rows.find((r) => r.slug === slug)?.rank;
+  const best = slug ? at(BEST) : undefined;
+  const safe = slug ? at(SAFEST) : undefined;
+  const cheap = slug ? at(CHEAPEST) : undefined;
+  return [
+    { href: "/best-place-to-live-in-scotland", label: best ? `${ordinal(best)} best place to live` : "Best places to live" },
+    { href: "/safest-place-to-live-in-scotland", label: safe ? `${ordinal(safe)} safest` : "Safest places to live" },
+    { href: "/cheapest-place-to-live-in-scotland", label: cheap ? `${ordinal(cheap)} cheapest for homes` : "Cheapest places to live" },
+  ];
+}
 
 const name = (slug: string) => COUNCIL_SEARCH_NAMES[slug] ?? slug;
-export const compareHref = (a: string, b?: string) => (b ? `/compare-areas?a=${a}&b=${b}` : `/compare-areas?a=${a}`);
+/**
+ * The link for a pairing. Glasgow and Edinburgh have their own page, so
+ * every link to that pair points there rather than at the general tool.
+ */
+export const compareHref = (a: string, b?: string) => {
+  if (b && [a, b].sort().join() === "city-of-edinburgh,glasgow-city") return "/glasgow-vs-edinburgh";
+  return b ? `/compare-areas?a=${a}&b=${b}` : `/compare-areas?a=${a}`;
+};
 
 /** The pairings people search for most, used wherever no single area is in view. */
 export const POPULAR_PAIRS: Array<[string, string]> = [
@@ -69,6 +100,14 @@ export default function ComparePromo({ slug, className = "" }: { slug?: string; 
               </li>
             ))}
           </ul>
+          <p className="ui mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-[15px] text-[var(--ink-2)]">
+            <span>{slug ? `${name(slug)} ranks:` : "Rankings:"}</span>
+            {rankingLinks(slug).map((l) => (
+              <Link key={l.href} href={l.href} className="font-[600]">
+                {l.label} <span aria-hidden="true">→</span>
+              </Link>
+            ))}
+          </p>
         </div>
         <Link href={slug ? compareHref(slug) : "/compare-areas"} className="btn btn-primary group justify-center max-lg:self-start">
           {slug ? `Compare ${name(slug)}` : "Compare two areas"} <Arrow />

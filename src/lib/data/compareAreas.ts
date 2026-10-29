@@ -339,7 +339,12 @@ export function gapSize(metric: CompareMetric, a: string, b: string): "same" | "
   return share < 0.06 ? "same" : share < 0.2 ? "small" : share < 0.45 ? "clear" : "big";
 }
 
-export const COMPARE_DEFAULTS = { a: "glasgow-city", b: "city-of-edinburgh" };
+/**
+ * The pairing /compare-areas opens on. Not Glasgow and Edinburgh, which has
+ * its own page: the same comparison on two pages would compete in search.
+ * Edinburgh and Fife is a real moving decision for commuters.
+ */
+export const COMPARE_DEFAULTS = { a: "city-of-edinburgh", b: "fife" };
 
 /**
  * Where an area sits among all 32: 1 is the highest value. Ties share a rank.
@@ -367,3 +372,90 @@ export function winner(metric: CompareMetric, a: string, b: string): "a" | "b" |
   const aHigher = va > vb;
   return metric.direction === "higher-better" ? (aHigher ? "a" : "b") : aHigher ? "b" : "a";
 }
+
+/* ---------- Rankings across all 32 areas ---------- */
+
+/** A gathered measure by its id; undefined while it is still being added. */
+export const metricById = (id: string) => COMPARE_METRICS.find((m) => m.id === id && !m.pending);
+
+/**
+ * Every council on one measure, lowest first ("asc") or highest first
+ * ("desc"). Equal figures, as displayed, share a rank. Councils without a
+ * published figure are left out.
+ */
+export function rankAreas(id: string, order: "asc" | "desc") {
+  const metric = metricById(id);
+  if (!metric) return [];
+  const rows = Object.entries(metric.values)
+    .filter((entry): entry is [string, number] => entry[1] != null)
+    .sort((x, y) => (order === "asc" ? x[1] - y[1] : y[1] - x[1]));
+  let rank = 0;
+  let previous: string | null = null;
+  return rows.map(([slug, value], i) => {
+    const shown = metric.format(value);
+    if (shown !== previous) rank = i + 1;
+    previous = shown;
+    return { slug, value, rank };
+  });
+}
+
+/**
+ * 0 to 100 on one measure: 100 is the best of the 32 councils, 0 the worst.
+ * Null where the area has no figure or the measure has no better direction.
+ */
+export function goodness(metric: CompareMetric, slug: string) {
+  const v = metric.values[slug];
+  if (v == null || metric.direction === "neutral") return null;
+  const { min, max } = rangeOf(metric);
+  const t = (v - min) / (max - min || 1);
+  return (metric.direction === "higher-better" ? t : 1 - t) * 100;
+}
+
+/**
+ * What the "best place to live" ranking weighs: six parts of life, each
+ * counted once however many measures it has, so three crime measures do not
+ * outweigh one on pay. Prices, rents and council tax are left out on purpose:
+ * cheaper is not better for everyone, and they have their own ranking.
+ */
+export const LIVING_THEMES: Partial<Record<ThemeId, string[]>> = {
+  money: ["pay"],
+  work: ["unemployment", "claimants", "jobs_density"],
+  poverty: ["child_poverty", "simd_most_deprived"],
+  safety: ["crime_total", "crime_violence", "crime_housebreaking"],
+  health: ["life_men", "life_women", "drug_deaths"],
+  schools: ["leavers_higher", "leavers_positive"],
+};
+
+/** The same idea for families: schools, children growing up in poverty, safety and health. */
+export const FAMILY_THEMES: Partial<Record<ThemeId, string[]>> = {
+  schools: ["leavers_higher", "leavers_positive"],
+  poverty: ["child_poverty"],
+  safety: ["crime_total", "crime_violence", "crime_housebreaking"],
+  health: ["life_men", "life_women"],
+};
+
+const mean = (xs: number[]) => xs.reduce((s, x) => s + x, 0) / xs.length;
+
+/**
+ * Scores every council out of 100: the average of its theme scores, where a
+ * theme score is the average of its measures' 0 to 100 scores. Highest first.
+ */
+export function placeScores(themes: Partial<Record<ThemeId, string[]>> = LIVING_THEMES) {
+  const scored = slugs.map((slug) => {
+    const byTheme = {} as Partial<Record<ThemeId, number | null>>;
+    for (const [theme, ids] of Object.entries(themes) as Array<[ThemeId, string[]]>) {
+      const parts = ids.flatMap((id) => {
+        const metric = metricById(id);
+        const g = metric ? goodness(metric, slug) : null;
+        return g == null ? [] : [g];
+      });
+      byTheme[theme] = parts.length ? mean(parts) : null;
+    }
+    const present = Object.values(byTheme).filter((v): v is number => v != null);
+    return { slug, score: present.length ? mean(present) : 0, themes: byTheme };
+  });
+  return scored.sort((x, y) => y.score - x.score).map((row, i) => ({ ...row, rank: i + 1 }));
+}
+
+/** The four council areas that are cities, for "best city" and "cheapest city" answers. */
+export const CITY_SLUGS = ["aberdeen-city", "city-of-edinburgh", "dundee-city", "glasgow-city"];

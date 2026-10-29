@@ -250,6 +250,11 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
+              <p className="ui mt-5 flex flex-wrap gap-x-5 gap-y-2 text-[15.5px]">
+                <Link href="/best-place-to-live-in-scotland" className="font-[600]">Best places to live →</Link>
+                <Link href="/cheapest-place-to-live-in-scotland" className="font-[600]">Cheapest →</Link>
+                <Link href="/safest-place-to-live-in-scotland" className="font-[600]">Safest →</Link>
+              </p>
             </div>
             <AreaComparePicker a="glasgow-city" b="city-of-edinburgh" />
           </div>

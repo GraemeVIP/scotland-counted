@@ -37,7 +37,14 @@ export default function QuickAnswer({ answer, className = "" }: { answer: QuickA
           <p className="answer-label">Quick answer · {answer.label}</p>
           {answer.value && (
             <p className="mt-4 flex flex-wrap items-baseline gap-x-3 gap-y-1">
-              <span className="answer-value text-[clamp(56px,8vw,104px)]">{answer.value}</span>
+              {/* A place name runs longer than a figure, so it gets a smaller size to stay on a phone screen. */}
+              <span
+                className={`answer-value ${
+                  answer.value.length > 8 ? "text-[clamp(38px,6.4vw,84px)] [overflow-wrap:anywhere]" : "text-[clamp(56px,8vw,104px)]"
+                }`}
+              >
+                {answer.value}
+              </span>
               {answer.unit && <span className="text-[17px] text-[var(--hero-muted)]">{answer.unit}</span>}
             </p>
           )}
