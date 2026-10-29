@@ -77,6 +77,20 @@ export function postPath(slug: string) {
   return POST_PATHS[slug] ?? `/blog/${slug}`;
 }
 
+/** Salary after tax pages, written as people type them: /30000-after-tax-scotland. */
+export const SALARIES = [
+  15000, 18000, 20000, 22000, 24000, 25000, 26000, 28000, 30000, 32000, 35000, 38000, 40000, 45000, 50000,
+  55000, 60000, 65000, 70000, 75000, 80000, 90000, 100000, 120000, 150000,
+];
+
+export function salaryPath(amount: number) {
+  return `/${amount}-after-tax-scotland`;
+}
+
+export function salaryHubPath() {
+  return "/salary-after-tax-scotland";
+}
+
 /** Whole pages that moved. */
 export const PAGE_PATHS: Record<string, string> = {
   "/poverty": "/poverty-in-scotland",
@@ -102,7 +116,9 @@ export function exactMatchRedirects() {
 export type TopLevel =
   | { kind: "council-tax"; councilSlug: string }
   | { kind: "council-tax-band"; letter: string }
-  | { kind: "post"; postSlug: string };
+  | { kind: "post"; postSlug: string }
+  | { kind: "salary"; amount: number }
+  | { kind: "salary-hub" };
 
 export function resolveTopLevel(segment: string): TopLevel | null {
   const path = `/${segment}`;
@@ -114,6 +130,9 @@ export function resolveTopLevel(segment: string): TopLevel | null {
   for (const [postSlug, target] of Object.entries(POST_PATHS)) {
     if (target === path) return { kind: "post", postSlug };
   }
+  if (path === salaryHubPath()) return { kind: "salary-hub" };
+  const salary = /^\/(\d+)-after-tax-scotland$/.exec(path);
+  if (salary && SALARIES.includes(Number(salary[1]))) return { kind: "salary", amount: Number(salary[1]) };
   return null;
 }
 
@@ -122,5 +141,7 @@ export function topLevelSegments() {
     ...Object.keys(COUNCIL_SEARCH_NAMES).map((slug) => councilTaxPath(slug).slice(1)),
     ...BAND_KEYS.map((letter) => councilTaxBandPath(letter).slice(1)),
     ...Object.values(POST_PATHS).map((path) => path.slice(1)),
+    salaryHubPath().slice(1),
+    ...SALARIES.map((amount) => salaryPath(amount).slice(1)),
   ];
 }

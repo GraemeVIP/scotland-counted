@@ -15,7 +15,7 @@ import { representativeSlug } from "@/lib/representatives";
 import { councilAccountabilityRecords } from "@/lib/data/councilAccountability";
 import { mspReviewProfiles } from "@/lib/data/mspReviews";
 import { listApprovedMspReviews } from "@/lib/mspReviewsDb";
-import { councilTaxBandPath, councilTaxPath, postPath } from "@/lib/routeMap";
+import { SALARIES, councilTaxBandPath, councilTaxPath, postPath, salaryHubPath, salaryPath } from "@/lib/routeMap";
 
 export const revalidate = 3600;
 
@@ -128,6 +128,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: new Date(HOLYROOD_DATA_CHECKED_AT),
   }));
 
+  const salaryPages: MetadataRoute.Sitemap = [salaryHubPath(), ...SALARIES.map((amount) => salaryPath(amount))].map(
+    (path) => ({
+      url: `${site.url}${path}`,
+      changeFrequency: "yearly" as const,
+      priority: 0.7,
+      lastModified: new Date("2026-10-29T00:00:00Z"),
+    }),
+  );
+
   const councilTaxPages: MetadataRoute.Sitemap = [
     ...BAND_LETTERS.map((b) => `band-${b.toLowerCase()}`),
     ...councils.map((c) => c.slug),
@@ -191,5 +200,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...holyroodRepresentativePages,
     ...mspReviewPages,
     ...councilTaxPages,
+    ...salaryPages,
   ].map((e) => ({ lastModified: dataChecked, ...e }));
 }

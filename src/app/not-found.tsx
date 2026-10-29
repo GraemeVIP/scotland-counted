@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { PRIMARY } from "@/lib/data/navigation";
+import { LogoMark } from "@/components/Chrome";
 
 /**
  * The page people land on when a link is wrong.
@@ -53,12 +54,13 @@ export default function NotFound() {
         */}
         <Link
           href="/"
-          className="ui inline-block mb-10 text-[19px] font-[640] tracking-[-0.02em] no-underline text-[var(--ink)]"
+          className="ui inline-flex items-center gap-2.5 mb-10 text-[18px] font-[600] tracking-[-0.025em] no-underline text-[var(--ink)]"
         >
-          Scotland<span className="text-[var(--action-text)]">Counted</span>
+          <LogoMark />
+          Scotland Counted
         </Link>
 
-        <p className="kicker mb-4 text-[var(--action-text)]">404</p>
+        <p className="eyebrow mb-5">Page not found · 404</p>
         <h1 className="h1 max-w-[16ch] mb-5">This page does not exist</h1>
         <p className="lede max-w-[54ch]">
           The link was probably wrong, or the page has moved since it was shared. Nothing is
