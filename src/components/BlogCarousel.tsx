@@ -263,7 +263,7 @@ export default function BlogCarousel({ posts }: { posts: Post[] }) {
                             photograph, where the light-index colours fail. */}
                         <p
                           className="ui text-[15px] font-[620]"
-                          style={{ color: category?.colorOnDark ?? "#ff8b75" }}
+                          style={{ color: category?.colorOnDark ?? "#8bb8ff" }}
                         >
                           {category?.name ?? "Explained"}
                         </p>

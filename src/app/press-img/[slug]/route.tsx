@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { OG_LOGO } from "@/lib/og";
 import { indicators, getIndicator } from "@/lib/data/indicators";
 import { site } from "@/lib/site";
 
@@ -194,9 +195,8 @@ export async function GET(_req: Request, ctx: { params: Promise<{ slug: string }
             fontSize: 20,
           }}
         >
-          <div style={{ display: "flex", fontWeight: 700 }}>
-            Scotland<span style={{ color: "#f5e400" }}>&nbsp;Counted</span>
-          </div>
+          {/* eslint-disable-next-line @next/next/no-img-element -- ImageResponse renders plain img, not next/image */}
+          <img src={OG_LOGO} alt="Scotland Counted" width={186} height={32} />
           <div style={{ display: "flex", color: "#b4c2de" }}>
             {`${site.url.replace("https://", "")}/indicators/${ind.slug}`}
           </div>

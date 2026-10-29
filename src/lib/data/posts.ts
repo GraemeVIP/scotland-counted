@@ -47,7 +47,7 @@ export const postCategories = [
     name: "Money and bills",
     description: "Why food, rent, energy and wages no longer add up in Scotland. See what each one costs now and who controls the rules that set the price.",
     color: "var(--action-text)",
-    colorOnDark: "#ff8b75",
+    colorOnDark: "#8bb8ff",
   },
   {
     slug: "poverty-explained",
