@@ -70,7 +70,7 @@ export default function Post() {
       <VideoEmbed
         id={VIDEO.youtubeId}
         title={VIDEO.name}
-        poster="/images/video/cost-of-living-explained.webp"
+        poster="/images/video/refresh-video-cost-living.webp"
         className="my-10"
         caption="Six minutes on where the money actually went: energy company profits, supermarket fuel margins and what the ONS, the IMF and the competition watchdog found."
       />

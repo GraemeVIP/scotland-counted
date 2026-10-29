@@ -159,20 +159,18 @@ export const posts: Post[] = [
     ],
     readingMinutes: 13,
     image: {
-      src: "/images/editorial/shoplifting-scotland-record-high.png",
-      cardSrc: "/images/editorial/shoplifting-scotland-record-high-card.png",
-      alt: "Data graphic showing recorded shoplifting per 1,000 people in Scotland rising above England and Wales in 2025-26, at 9.6 against 8.2",
+      src: "/images/editorial/refresh-shoplifting.webp",
+      alt: "An empty grocery shop aisle with everyday goods on the shelves",
       caption:
         "Scotland had less shoplifting per person than England and Wales before Covid. In 2025-26 it had 17% more.",
-      creditLabel: "Scotland Counted data graphic.",
       aspect: "wide",
       objectPosition: "center",
     },
     shareImage: {
-      src: "/images/editorial/shoplifting-scotland-record-high.png",
-      width: 1800,
-      height: 900,
-      type: "image/png",
+      src: "/images/editorial/refresh-shoplifting.webp",
+      width: 1500,
+      height: 1000,
+      type: "image/webp",
     },
     toc: [
       { id: "short-answer", label: "Four key figures" },
@@ -256,18 +254,17 @@ export const posts: Post[] = [
     ],
     readingMinutes: 13,
     image: {
-      src: "/images/editorial/glasgow-sexual-assault-rise-migration-investigation-2026.webp",
-      alt: "Scotland Counted investigation graphic with Glasgow's skyline, a map, and illustrated police and Home Office documents, asking whether migration explains the 28% rise in recorded sexual assaults",
+      src: "/images/editorial/refresh-glasgow-investigation.webp",
+      alt: "Paper documents and a magnifying glass beside a window overlooking a Scottish street",
       caption:
-        "The 28.1% figure is for recorded sexual assaults in Glasgow City: 499 in April–December 2023 and 639 in the same months of 2024. The pictured chart and documents are illustrative.",
-      creditLabel: "Scotland Counted editorial illustration.",
+        "The 28.1% figure is for recorded sexual assaults in Glasgow City: 499 in April–December 2023 and 639 in the same months of 2024.",
       aspect: "video",
       objectPosition: "center",
     },
     shareImage: {
-      src: "/images/editorial/glasgow-sexual-assault-rise-migration-investigation-2026.webp",
-      width: 1672,
-      height: 941,
+      src: "/images/editorial/refresh-glasgow-investigation.webp",
+      width: 1500,
+      height: 1000,
       type: "image/webp",
     },
     toc: [
@@ -354,18 +351,17 @@ export const posts: Post[] = [
     ],
     readingMinutes: 14,
     image: {
-      src: "/images/editorial/best-performing-councils-scotland-2026.png",
-      alt: "Data graphic showing East Renfrewshire first in the Scotland Counted council performance index, followed by East Lothian, Edinburgh, East Dunbartonshire and South Ayrshire",
+      src: "/images/editorial/refresh-councils.webp",
+      alt: "A civic building with an accessible entrance and a tree-lined street",
       caption:
         "East Renfrewshire is the clear leader. But the exact order moves when we change the rules, so we show the usual range for every council.",
-      creditLabel: "Scotland Counted data graphic.",
       objectPosition: "center",
     },
     shareImage: {
-      src: "/images/editorial/best-performing-councils-scotland-2026.png",
-      width: 1800,
-      height: 900,
-      type: "image/png",
+      src: "/images/editorial/refresh-councils.webp",
+      width: 1500,
+      height: 1000,
+      type: "image/webp",
     },
     toc: [
       { id: "answer", label: "The answer in four numbers" },
@@ -426,16 +422,16 @@ export const posts: Post[] = [
     ],
     readingMinutes: 26,
     image: {
-      src: "/images/editorial/snp-money-timeline-hero.webp",
-      alt: "An editorial collage of a long paper trail leading through folders and receipts towards a courthouse and an unbranded white motorhome",
+      src: "/images/editorial/refresh-snp-finances.webp",
+      alt: "A stack of paper records and a folder on a desk overlooking a city",
       caption:
         "The story began with questions about referendum donations. The court case ultimately proved a different, 12 year course of embezzlement from the SNP's main account.",
       objectPosition: "center 48%",
     },
     shareImage: {
-      src: "/images/editorial/snp-money-timeline-hero.webp",
-      width: 1774,
-      height: 887,
+      src: "/images/editorial/refresh-snp-finances.webp",
+      width: 1500,
+      height: 1000,
       type: "image/webp",
     },
     toc: [
@@ -490,10 +486,10 @@ export const posts: Post[] = [
     ],
     readingMinutes: 8,
     image: {
-      src: "/images/editorial/drug-deaths-scotland-deprivation.webp",
-      alt: "Abstract cut-paper illustration contrasting a dense Glasgow-style urban landscape with open areas through uneven data-like bands",
+      src: "/images/editorial/refresh-drug-deaths.webp",
+      alt: "A quiet residential street with tenements and a public building in the distance",
       caption:
-        "A symbolic view of unequal places. It does not depict a real neighbourhood and the forms are not a chart of the published rates.",
+        "The figures below compare rates across areas, rather than describing individual circumstances.",
       objectPosition: "center 50%",
     },
     toc: [
