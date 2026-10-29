@@ -198,6 +198,9 @@ export default function Post() {
       <H2 id="teachers">For teachers</H2>
       <P>
         A teacher already uses this site with their classes, which is partly why these pages exist.
+        Everything for teachers, including a course map, past papers to download and how the
+        figures are checked, is on the{" "}
+        <Link href="/modern-studies-teaching-resources">Modern Studies teaching resources</Link> page.
         Here are a few things that work well in a lesson.
       </P>
       <UL>

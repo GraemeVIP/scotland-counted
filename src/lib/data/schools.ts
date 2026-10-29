@@ -48,6 +48,28 @@ export const MODERN_STUDIES_PAST_PAPERS = {
   modifiedYears: "2022 and 2023",
 } as const;
 
+/**
+ * National 5 Modern Studies papers hosted on this site, so they open in one tap
+ * on a phone. Qualifications Scotland allows its papers and marking
+ * instructions to be reproduced in support of its qualifications on a
+ * non commercial basis, with Qualifications Scotland clearly credited. If the
+ * site ever carries advertising, these must come down or need written permission.
+ */
+export const N5_PAST_PAPER_FILES: Array<{
+  year: number;
+  qp: { href: string; kb: number; pages: number };
+  mi: { href: string; kb: number; pages: number };
+}> = [
+  { year: 2026, qp: { href: "/past-papers/national-5-modern-studies/n5-modern-studies-2026-question-paper.pdf", kb: 677, pages: 18 }, mi: { href: "/past-papers/national-5-modern-studies/n5-modern-studies-2026-marking-instructions.pdf", kb: 350, pages: 45 } },
+  { year: 2025, qp: { href: "/past-papers/national-5-modern-studies/n5-modern-studies-2025-question-paper.pdf", kb: 613, pages: 18 }, mi: { href: "/past-papers/national-5-modern-studies/n5-modern-studies-2025-marking-instructions.pdf", kb: 428, pages: 46 } },
+  { year: 2024, qp: { href: "/past-papers/national-5-modern-studies/n5-modern-studies-2024-question-paper.pdf", kb: 421, pages: 16 }, mi: { href: "/past-papers/national-5-modern-studies/n5-modern-studies-2024-marking-instructions.pdf", kb: 379, pages: 37 } },
+  { year: 2023, qp: { href: "/past-papers/national-5-modern-studies/n5-modern-studies-2023-question-paper.pdf", kb: 636, pages: 16 }, mi: { href: "/past-papers/national-5-modern-studies/n5-modern-studies-2023-marking-instructions.pdf", kb: 506, pages: 42 } },
+  { year: 2022, qp: { href: "/past-papers/national-5-modern-studies/n5-modern-studies-2022-question-paper.pdf", kb: 1075, pages: 18 }, mi: { href: "/past-papers/national-5-modern-studies/n5-modern-studies-2022-marking-instructions.pdf", kb: 404, pages: 41 } },
+];
+
+export const PAST_PAPER_CREDIT =
+  "Question papers and marking instructions © Qualifications Scotland (formerly SQA), reproduced in support of its qualifications on a non commercial basis. Source: sqa.org.uk.";
+
 /** Wednesday 26 May 2027, from the Exam Timetable 2027, version 02, August 2026. */
 export const MODERN_STUDIES_EXAMS_2027 = {
   date: "Wednesday 26 May 2027",

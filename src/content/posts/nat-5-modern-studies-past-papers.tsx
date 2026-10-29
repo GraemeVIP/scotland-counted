@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Prose, Lead, P, H2, H3, UL, LI, Aside, PostCTA } from "@/components/Prose";
 import { GuideTable } from "@/components/GuideTable";
+import PastPaperDownloads from "@/components/PastPaperDownloads";
 import { postPath } from "@/lib/routeMap";
 import { scotlandPoverty } from "@/lib/data/scotland";
 import { councilShoplifting, scotlandVsEnglandWales, shopliftingLongRun } from "@/lib/data/shoplifting";
@@ -30,23 +31,22 @@ export default function Post() {
   return (
     <Prose>
       <Lead>
-        Nat 5 Modern Studies past papers are free from Qualifications Scotland, with marking
-        instructions for every year from {PAST.firstYear} to {PAST.lastYear}. Here&apos;s where to
-        get them, how to use them so they actually help, and two full 10 mark source questions I&apos;ve
-        built from real Scottish data.
+        Every Nat 5 Modern Studies past paper from {PAST.firstYear} to {PAST.lastYear} is below, with
+        its marking instructions, one tap to download. Then there&apos;s how to use them so they
+        actually help, and two full 10 mark source questions I&apos;ve built from real Scottish data.
       </Lead>
 
-      <H2 id="where">Modern studies nat 5 past papers: where to get them</H2>
+      <H2 id="where">Modern studies nat 5 past papers: download them here</H2>
       <P>
-        Qualifications Scotland took over from SQA on {QS_REPLACED_SQA}, but the papers are still on
-        the SQA website. The{" "}
-        <a href={LINKS.pastPapersN5}>National 5 Modern Studies past papers page</a> has:
+        Each question paper comes with its marking instructions, which show exactly how every
+        question is marked. Do the paper first, then mark it yourself against the instructions.
       </P>
-      <UL>
-        <LI>The question paper for every year from {PAST.firstYear} to {PAST.lastYear}, as a PDF.</LI>
-        <LI>The marking instructions for each year, which show how every question is marked.</LI>
-        <LI>A button to download them all at once.</LI>
-      </UL>
+      <PastPaperDownloads />
+      <P>
+        Qualifications Scotland took over from SQA on {QS_REPLACED_SQA}, which is why the newest
+        papers carry the new name. The same papers are on the official{" "}
+        <a href={LINKS.pastPapersN5}>National 5 Modern Studies past papers page</a> too.
+      </P>
       <P>
         Some {PAST.modifiedYears} papers are labelled modified. They were changed because of Covid,
         so they may be shorter than the paper you will sit. Use them for single questions rather than
@@ -54,8 +54,7 @@ export default function Post() {
       </P>
       <P>
         The specimen paper, which shows the current layout with its own marking instructions, is on
-        the <a href={LINKS.n5}>National 5 Modern Studies course page</a>. I don&apos;t copy any papers
-        onto this site. Always download them from the official page so you have the right version.
+        the <a href={LINKS.n5}>National 5 Modern Studies course page</a>.
       </P>
 
       <H2 id="use">How to get the most from a past paper</H2>

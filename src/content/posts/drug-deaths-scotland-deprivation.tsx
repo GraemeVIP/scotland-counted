@@ -2,12 +2,12 @@ import Link from "next/link";
 import { Aside, BigStat, H2, Lead, LI, P, PostCTA, Prose, UL } from "@/components/Prose";
 import { councils } from "@/lib/data/councils";
 import {
-  councilDrugDeathRates2020to2024,
-  councilPeriodRate2020to2024,
-  deprivationDrugDeathRates2024,
-  drugDeathHeadline2024,
-  implicatedSubstances2024,
-  ukDrugPoisoningRates2023,
+  councilDrugDeathRates2021to2025,
+  councilPeriodRate2021to2025,
+  deprivationDrugDeathRates2025,
+  drugDeathHeadline2025,
+  implicatedSubstances2025,
+  ukDrugPoisoningRates2024,
 } from "@/lib/data/drugDeaths";
 
 const councilSlugs = new Map(councils.map((council) => [council.name, council.slug]));
@@ -50,20 +50,20 @@ function DeprivationChart() {
       <div className="flex flex-wrap items-end justify-between gap-3 border-b border-[var(--rule)] pb-4">
         <div>
           <p className="ui text-[15px] font-[620] text-[var(--brand)]">The deprivation gradient</p>
-          <h3 className="mt-1 text-[22px] font-[620] leading-[1.25]">Drug misuse death rate by SIMD fifth</h3>
+          <h3 className="mt-1 text-[22px] font-[620] leading-[1.25]">Drug use death rate by SIMD fifth</h3>
         </div>
-        <p className="ui text-[15px] text-[var(--muted)]">Deaths per 100,000 · 2024</p>
+        <p className="ui text-[15px] text-[var(--muted)]">Deaths per 100,000 · 2025</p>
       </div>
 
-      <div className="mt-6 space-y-5" role="img" aria-label="Age standardised drug misuse death rates by deprivation fifth in Scotland in 2024: 47.3 in the most deprived fifth, 25.9 in the second fifth, 14.8 in the middle fifth, 6.6 in the fourth fifth and 4.1 in the least deprived fifth.">
-        {deprivationDrugDeathRates2024.map((row, index) => (
+      <div className="mt-6 space-y-5" role="img" aria-label="Age standardised drug use death rates by deprivation fifth in Scotland in 2025: 54.5 in the most deprived fifth, 29.5 in the second fifth, 14.2 in the middle fifth, 7.2 in the fourth fifth and 3.6 in the least deprived fifth.">
+        {deprivationDrugDeathRates2025.map((row, index) => (
           <RateBar
             key={row.area}
             label={row.area}
             rate={row.rate}
-            max={50}
+            max={60}
             highlight={index === 0}
-            note={`${row.deaths.toLocaleString("en-GB")} registered deaths · 95% confidence interval ${row.lower95.toFixed(1)}–${row.upper95.toFixed(1)}`}
+            note={`${row.deaths.toLocaleString("en-GB")} registered deaths · 95% confidence interval ${row.lower95.toFixed(1)} to ${row.upper95.toFixed(1)}`}
           />
         ))}
       </div>
@@ -78,7 +78,7 @@ function DeprivationChart() {
 }
 
 function CouncilChart() {
-  const topTen = councilDrugDeathRates2020to2024.slice(0, 10);
+  const topTen = councilDrugDeathRates2021to2025.slice(0, 10);
 
   return (
     <figure className="not-prose my-8 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5 sm:p-7">
@@ -87,10 +87,10 @@ function CouncilChart() {
           <p className="ui text-[15px] font-[620] text-[var(--brand)]">Across Scotland</p>
           <h3 className="mt-1 text-[22px] font-[620] leading-[1.25]">The ten highest council area rates</h3>
         </div>
-        <p className="ui text-[15px] text-[var(--muted)]">Per 100,000 · 2020–2024</p>
+        <p className="ui text-[15px] text-[var(--muted)]">Per 100,000 · 2021 to 2025</p>
       </div>
 
-      <div className="mt-6 space-y-4" role="img" aria-label="Glasgow City had the highest age standardised drug misuse death rate in Scotland in 2020 to 2024 at 41.1 per 100,000, followed by Dundee City and Inverclyde at 35.6.">
+      <div className="mt-6 space-y-4" role="img" aria-label="Glasgow City had the highest age standardised drug use death rate in Scotland in 2021 to 2025 at 38.0 per 100,000, followed by Dundee City at 34.0 and North Ayrshire at 31.0.">
         {topTen.map((row, index) => (
           <RateBar
             key={row.area}
@@ -103,7 +103,7 @@ function CouncilChart() {
         <div className="border-t border-dashed border-[var(--rule-strong)] pt-4">
           <RateBar
             label="Scotland"
-            rate={councilPeriodRate2020to2024.rate}
+            rate={councilPeriodRate2021to2025.rate}
             max={45}
             note="Same five year, age standardised measure"
           />
@@ -127,7 +127,7 @@ function CouncilChart() {
               </tr>
             </thead>
             <tbody>
-              {councilDrugDeathRates2020to2024.map((row, index) => {
+              {councilDrugDeathRates2021to2025.map((row, index) => {
                 const slug = councilSlugs.get(row.area);
                 const rank = row.rate === null ? "n/a" : String(index + 1);
                 return (
@@ -142,7 +142,7 @@ function CouncilChart() {
                     <td className="border-b border-[var(--rule)] py-2.5 pr-4 text-right text-[var(--ink-2)]">
                       {row.lower95 === null || row.upper95 === null
                         ? "Fewer than 10 deaths"
-                        : `${row.lower95.toFixed(1)}–${row.upper95.toFixed(1)}`}
+                        : `${row.lower95.toFixed(1)} to ${row.upper95.toFixed(1)}`}
                     </td>
                     <td className="border-b border-[var(--rule)] py-2.5 text-right text-[var(--ink-2)]">
                       {row.deaths.toLocaleString("en-GB")}
@@ -157,7 +157,7 @@ function CouncilChart() {
 
       <figcaption className="mt-5 border-t border-[var(--rule)] pt-4 text-[15px] leading-[1.6] text-[var(--ink-2)]">
         Five years are combined because single year council rates would be less reliable. Orkney had
-        six deaths, so NRS did not calculate a rate. The bars show estimates; the table includes the
+        five deaths, so NRS did not calculate a rate. The bars show estimates; the table includes the
         uncertainty around each one. Source: NRS Table C4.
       </figcaption>
     </figure>
@@ -172,7 +172,7 @@ function SubstanceChart() {
         <h3 className="mt-1 text-[22px] font-[620] leading-[1.25]">Four headline categories, all overlapping</h3>
       </div>
       <div className="mt-6 space-y-5">
-        {implicatedSubstances2024.map((row) => (
+        {implicatedSubstances2025.map((row) => (
           <div key={row.label}>
             <RateBar label={row.label} rate={row.pct} max={100} />
             <p className="mt-1.5 text-[15px] leading-[1.45] text-[var(--muted)]">
@@ -190,16 +190,18 @@ function SubstanceChart() {
 }
 
 export default function Post() {
-  const mostDeprived = deprivationDrugDeathRates2024[0];
-  const leastDeprived = deprivationDrugDeathRates2024.at(-1)!;
+  const mostDeprived = deprivationDrugDeathRates2025[0];
+  const leastDeprived = deprivationDrugDeathRates2025.at(-1)!;
   const deprivationRatio = mostDeprived.rate / leastDeprived.rate;
-  const glasgow = councilDrugDeathRates2020to2024[0];
+  const glasgow = councilDrugDeathRates2021to2025[0];
+  const headline = drugDeathHeadline2025;
+  const changeInDeaths = headline.deaths - headline.previousDeaths;
 
   return (
     <Prose>
       <Lead>
-        Drug deaths are not spread evenly across Scotland. In 2024, the age standardised rate in
-        the most deprived fifth of neighbourhoods was about 12 times the rate in the least
+        Drug deaths are not spread evenly across Scotland. In 2025, the age standardised rate in
+        the most deprived fifth of neighbourhoods was about 15 times the rate in the least
         deprived fifth. Glasgow City also had the highest council area rate in the latest reliable
         comparison.
       </Lead>
@@ -218,17 +220,17 @@ export default function Post() {
           {
             value: `${deprivationRatio.toFixed(1)}×`,
             label: "higher rate in the most deprived fifth",
-            note: `${mostDeprived.rate} against ${leastDeprived.rate} per 100,000 · 2024`,
+            note: `${mostDeprived.rate} against ${leastDeprived.rate} per 100,000 · 2025`,
           },
           {
             value: glasgow.rate!.toFixed(1),
             label: "deaths per 100,000 in Glasgow City",
-            note: "Highest council area rate · age standardised · 2020–2024",
+            note: "Highest council area rate · age standardised · 2021 to 2025",
           },
           {
-            value: drugDeathHeadline2024.deaths.toLocaleString("en-GB"),
-            label: "drug misuse deaths registered in Scotland",
-            note: `${Math.abs(drugDeathHeadline2024.changePct).toFixed(0)}% fewer than 2023 · latest complete year`,
+            value: headline.deaths.toLocaleString("en-GB"),
+            label: "drug use deaths registered in Scotland",
+            note: `${headline.changePct.toFixed(0)}% more than 2024 · 2025, the latest complete year`,
           },
         ].map((stat) => (
           <div key={stat.label} className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5">
@@ -239,13 +241,15 @@ export default function Post() {
         ))}
       </div>
 
-      <Aside title="What NRS means by a “drug misuse death”">
+      <Aside title="What NRS means by a “drug use death”">
         <p>
           This is a specific statistical definition. It includes deaths from mental and behavioural
           disorders due to controlled drug use, and poisoning deaths where a controlled drug was
           present. It excludes deaths caused indirectly by drug use and deaths from chronic
-          conditions caused by drug use. The ordinary language title on this page does not change
-          that underlying definition.
+          conditions caused by drug use. NRS called these “drug misuse deaths” in earlier reports
+          and changed the name for its 2025 figures after feedback from users. The definition did
+          not change. The ordinary language title on this page does not change that underlying
+          definition.
         </p>
       </Aside>
 
@@ -260,7 +264,7 @@ export default function Post() {
       <DeprivationChart />
 
       <P>
-        Almost half of all deaths, 484 of 1,017, were among people living in the most deprived
+        Almost half of all deaths, 559 of 1,133, were among people living in the most deprived
         fifth of neighbourhoods. The rate is the fairer comparison because each fifth contains the
         same share of Scotland&apos;s population and the calculation adjusts for different age profiles.
       </P>
@@ -276,18 +280,18 @@ export default function Post() {
 
       <P>
         NRS combines five years of deaths for council comparisons. On that matched measure,
-        Glasgow City recorded an age standardised rate of <strong>41.1 per 100,000</strong> in
-        2020–2024, compared with <strong>22.5 across Scotland</strong>. Glasgow&apos;s estimate is
+        Glasgow City recorded an age standardised rate of <strong>38.0 per 100,000</strong> in
+        2021 to 2025, compared with <strong>21.6 across Scotland</strong>. Glasgow&apos;s estimate is
         therefore about 1.8 times the national rate for the same period.
       </P>
 
       <CouncilChart />
 
       <P>
-        The city&apos;s annual count did improve in 2024: it fell from 246 to 185, a reduction of 61
-        deaths and the largest numerical fall of any council area. Counts are affected by population
-        size, however, so the five year age standardised rate is the right measure for comparing
-        places.
+        The city&apos;s annual count rose in 2025, from 185 to 196, an increase of 11 deaths. That
+        followed a fall of 61 in 2024. The largest increases in 2025 were in East Ayrshire (27 more
+        deaths) and North Ayrshire (25 more). Counts are affected by population size, however, so
+        the five year age standardised rate is the right measure for comparing places.
       </P>
 
       <P>
@@ -299,24 +303,30 @@ export default function Post() {
         harm and deprivation are concentrated in many of the same places.
       </P>
 
-      <H2 id="fall">A fall in 2024 is real. It is not the end of the crisis.</H2>
+      <H2 id="rise">Drug deaths rose in 2025 after the fall in 2024</H2>
 
       <BigStat
-        value="1,017"
-        label="drug misuse deaths registered in Scotland in 2024"
-        exact="155 fewer than 2023 · down 13% · lowest annual count since 2017"
+        value={headline.deaths.toLocaleString("en-GB")}
+        label="drug use deaths registered in Scotland in 2025"
+        exact={`${changeInDeaths} more than 2024 · up ${headline.changePct.toFixed(0)}% · below the ${headline.peakYear} peak of ${headline.peakDeaths.toLocaleString("en-GB")}`}
       />
 
       <P>
-        The direction matters and the reduction should not be talked away. But the age standardised
-        rate of 19.1 per 100,000 was still 3.6 times the rate at the start of the NRS series in 2000.
-        The number peaked at 1,339 in 2020 and has generally fallen since, apart from an increase in
-        2023.
+        Deaths rose by 116 after the 2024 fall to 1,017. NRS says the increase was driven by male
+        deaths, which rose by 131 to 830, while female deaths fell by 15 to 303. The number peaked
+        at 1,339 in 2020 and has moved up and down since, staying below that peak every year.
+      </P>
+
+      <P>
+        The age standardised rate rose from 19.1 to 21.4 per 100,000. NRS says this is not a
+        statistically significant increase, because the 95% confidence intervals around the two
+        years overlap (17.9 to 20.3 in 2024, 20.1 to 22.6 in 2025). The 2025 rate was still about four
+        times the rate at the start of the NRS series in 2000.
       </P>
 
       <P>
         The age profile also challenges the idea that this is mainly a story about young people.
-        The average age was 45 in 2024, and 63% of deaths were among people aged 35 to 54. Scotland
+        The average age was 46 in 2025, and 65% of deaths were among people aged 35 to 54. Scotland
         is dealing with a long running, ageing public health crisis as well as new drug threats.
       </P>
 
@@ -325,14 +335,14 @@ export default function Post() {
       <P>
         The headline substance rows are useful for understanding the drug supply and treatment
         challenge, but they are not separate causes that can be ranked and added. More than one drug
-        was implicated in 80% of deaths.
+        was implicated in 78% of deaths in 2025.
       </P>
 
       <SubstanceChart />
 
       <Aside title="Why the hierarchy matters">
         <p>
-          The 810 opioid deaths are a parent category. Methadone, heroin or morphine, nitazenes and
+          The 881 opioid deaths are a parent category. Methadone, heroin or morphine, nitazenes and
           other opioids sit inside it and can overlap with one another. The same death may also
           involve benzodiazepines, cocaine, pregabalin or alcohol. NRS also warns that testing for
           nitazenes was limited before 2023, so the earlier trend is not fully comparable.
@@ -343,14 +353,14 @@ export default function Post() {
 
       <P>
         Scotland, England and Wales, and Northern Ireland publish different headline definitions.
-        Putting their 2024 totals in one league table would mix drug misuse, drug poisoning and
-        drug related deaths. NRS instead uses the common <strong>drug poisoning</strong> definition
-        and the latest year available across all countries, which was 2023 when this release was
+        Putting their 2025 totals in one league table would mix drug use, drug poisoning and drug
+        related deaths. NRS instead uses the common <strong>drug poisoning</strong> definition
+        and the latest year available across all countries, which was 2024 when this release was
         prepared.
       </P>
 
       <div className="not-prose my-8 grid gap-3 sm:grid-cols-2">
-        {ukDrugPoisoningRates2023.map((row) => (
+        {ukDrugPoisoningRates2024.map((row) => (
           <div key={row.area} className={`rounded-[var(--r-s)] border p-5 ${row.area === "Scotland" ? "border-[var(--action)] bg-[var(--action-tint)]" : "border-[var(--rule)] bg-[var(--surface)]"}`}>
             <p className="ui text-[15px] font-[580] text-[var(--muted)]">{row.area}</p>
             <p className="mt-2 figure-num text-[30px] text-[var(--ink)]">{row.rate.toFixed(1)}</p>
@@ -360,10 +370,10 @@ export default function Post() {
       </div>
 
       <P>
-        On that consistent measure, Scotland&apos;s rate was about 2.8 times the rates in England and
-        Northern Ireland, and 1.9 times the rate in Wales. This comparison is one year older than
-        the main Scotland analysis because accuracy matters more than forcing unlike 2024 totals
-        into the same chart.
+        On that consistent measure, Scotland&apos;s rate in 2024 was about 2.4 times the rate in
+        England, 1.6 times the rate in Northern Ireland and 1.5 times the rate in Wales. This
+        comparison is one year older than the main Scotland analysis because accuracy matters more
+        than forcing unlike 2025 totals into the same chart.
       </P>
 
       <H2 id="limits">What the figures can and cannot prove</H2>
@@ -399,9 +409,10 @@ export default function Post() {
       />
 
       <P>
-        You can <a href="/data/nrs-drug-related-deaths-scotland-2024.xlsx" download>download the original NRS workbook</a>{" "}
-        served unchanged, or read the official publication through the source list below. Every rate
-        on this page comes from that workbook; none was modelled or inferred from the chart.
+        You can <a href="https://www.nrscotland.gov.uk/media/kppfvirf/drug-related-deaths-main-tables.xlsx">download the NRS main tables workbook for 2025</a>{" "}
+        from National Records of Scotland, or read the official publication through the source list
+        below. Every rate on this page comes from that workbook; none was modelled or inferred from
+        the chart.
       </P>
     </Prose>
   );

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Prose, Lead, P, H2, H3, UL, LI, Aside, PostCTA } from "@/components/Prose";
 import { GuideTable } from "@/components/GuideTable";
 import { scotlandPoverty } from "@/lib/data/scotland";
-import { deprivationDrugDeathRates2024 } from "@/lib/data/drugDeaths";
+import { deprivationDrugDeathRates2025 } from "@/lib/data/drugDeaths";
 import { shopliftingLongRun } from "@/lib/data/shoplifting";
 import { COUNCIL_TAX, FUNDING_MIX } from "@/lib/data/councilBudgetMechanics";
 import { formatHolyroodCheckedDate } from "@/lib/data/holyrood";
@@ -24,8 +24,8 @@ export default function Post() {
   const top = seats[0];
   const listOnly = seats.filter((row) => row.constituency === 0 && row.regional > 0).sort((a, b) => b.regional - a.regional)[0];
   const period = plainPeriod(scotlandPoverty.period);
-  const mostDeprived = deprivationDrugDeathRates2024[0];
-  const leastDeprived = deprivationDrugDeathRates2024[deprivationDrugDeathRates2024.length - 1];
+  const mostDeprived = deprivationDrugDeathRates2025[0];
+  const leastDeprived = deprivationDrugDeathRates2025[deprivationDrugDeathRates2025.length - 1];
   const times = Math.round(mostDeprived.rate / leastDeprived.rate);
   const latest = shopliftingLongRun[shopliftingLongRun.length - 1];
   const preCovid = shopliftingLongRun.find((row) => row.year === "2019-20")!;
@@ -178,7 +178,7 @@ export default function Post() {
           poverty had incomes {JRF.averageGapPct}% below the poverty line on average.
         </LI>
         <LI>
-          Health inequalities: in 2024 the drug death rate in Scotland&apos;s most deprived areas was{" "}
+          Health inequalities: in 2025 the drug death rate in Scotland&apos;s most deprived areas was{" "}
           {mostDeprived.rate} per 100,000, against {leastDeprived.rate} in the least deprived. That
           is about {times} times higher. See{" "}
           <Link href={postPath("drug-deaths-scotland-deprivation")}>drug deaths and deprivation</Link>.
