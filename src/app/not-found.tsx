@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { PRIMARY } from "@/lib/data/navigation";
-import { LogoMark } from "@/components/Chrome";
+import { BrandLogo } from "@/components/BrandLogo";
 
 /**
  * The page people land on when a link is wrong.
@@ -54,10 +54,10 @@ export default function NotFound() {
         */}
         <Link
           href="/"
-          className="ui inline-flex items-center gap-2.5 mb-10 text-[18px] font-[600] tracking-[-0.025em] no-underline text-[var(--ink)]"
+          aria-label="Scotland Counted home"
+          className="flex w-fit mb-10 no-underline"
         >
-          <LogoMark />
-          Scotland Counted
+          <BrandLogo tone="adaptive" height={30} />
         </Link>
 
         <p className="eyebrow mb-5">Page not found · 404</p>

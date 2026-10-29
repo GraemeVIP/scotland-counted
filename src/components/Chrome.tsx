@@ -7,32 +7,12 @@ import { site } from "@/lib/site";
 import { ScrollProgress } from "@/components/Motion";
 import { PRIMARY, SECTIONS } from "@/lib/data/navigation";
 import { DesktopMenu, MobileMenu } from "@/components/SiteMenu";
+import { BrandLogo } from "@/components/BrandLogo";
 
 export const NAV = PRIMARY;
 
-/** The mark: a Saltire blue tile with the cross in white. */
-export function LogoMark({ size = 30 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 32 32" aria-hidden="true" className="shrink-0">
-      <defs>
-        <linearGradient id="sc-mark" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#3b86ff" />
-          <stop offset="1" stopColor="#004aa0" />
-        </linearGradient>
-      </defs>
-      <rect width="32" height="32" rx="9" fill="url(#sc-mark)" />
-      <path d="M9.5 9.5 22.5 22.5M22.5 9.5 9.5 22.5" stroke="#fff" strokeWidth="3" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-function Wordmark({ className = "" }: { className?: string }) {
-  return (
-    <span className={`ui inline-flex items-center gap-2.5 font-[600] tracking-[-0.025em] leading-none ${className}`}>
-      <LogoMark />
-      Scotland Counted
-    </span>
-  );
+function Wordmark({ height = 28, priority = false, sizeClass }: { height?: number; priority?: boolean; sizeClass?: string }) {
+  return <BrandLogo tone="on-dark" height={height} priority={priority} sizeClass={sizeClass} />;
 }
 
 function SearchButton() {
@@ -165,7 +145,7 @@ export function Header() {
           onClick={() => setMenuPath(null)}
           aria-label="Scotland Counted home"
         >
-          <Wordmark className="text-[16px] min-[390px]:text-[17px]" />
+          <Wordmark height={32} priority sizeClass="h-[26px] sm:h-[29px] xl:h-[32px]" />
         </Link>
 
         <nav aria-label="Main" className="hidden xl:flex items-center gap-0.5 mx-auto">
@@ -284,7 +264,7 @@ export function Footer() {
         <div className="grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,2.1fr)]">
           <div>
             <Link href="/" className="text-white" aria-label="Scotland Counted home">
-              <Wordmark className="text-[19px]" />
+              <Wordmark height={34} />
             </Link>
             <p className="mt-4 max-w-[38ch] text-[15.5px] leading-[1.6] text-[var(--deep-muted)]">
               Independent public data for Scotland. What the numbers mean where you live, who decides,

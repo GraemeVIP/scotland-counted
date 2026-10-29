@@ -1023,3 +1023,8 @@
   .beam { animation: none; }
   .tile { transition: none; }
 }
+
+/* The logo on theme following surfaces: dark lettering on paper, white in the dark theme. */
+.logo-dark-theme { display: none !important; }
+:root[data-theme="dark"] .logo-light-theme { display: none !important; }
+:root[data-theme="dark"] .logo-dark-theme { display: block !important; }

@@ -1,5 +1,6 @@
 "use client";
 
+import { BrandLogo } from "@/components/BrandLogo";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
@@ -344,14 +345,7 @@ export function MobileMenu({
       */}
       <div className="sticky top-0 z-10 border-b border-[var(--rule)] bg-[var(--paper)]">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-8 h-[var(--header-h)] flex items-center justify-between">
-          {/* Inline rather than Chrome's Wordmark: importing it back out of
-              Chrome.tsx would make the two files import each other. */}
-          <span
-            className="ui font-[640] tracking-[-0.04em] leading-none text-[17px] min-[390px]:text-[19px]"
-            style={{ fontFamily: "var(--font-sans)" }}
-          >
-            Scotland<span className="text-[var(--action-text)]">Counted</span>
-          </span>
+          <BrandLogo tone="adaptive" height={24} />
           <button
             ref={closeRef}
             type="button"
