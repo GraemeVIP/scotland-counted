@@ -17,6 +17,7 @@ import DiscretionaryHousingPaymentScotland from "./discretionary-housing-payment
 import FreeSchoolMealsClothingGrantScotland from "./free-school-meals-clothing-grant-scotland";
 import OperationBranchformSnpMoneyTimeline from "./operation-branchform-snp-money-timeline";
 import DrugDeathsScotlandDeprivation from "./drug-deaths-scotland-deprivation";
+import EastVsWestDunbartonshire from "./east-vs-west-dunbartonshire";
 import CrisisGrantAcceptanceRatesScotlandCouncils from "./crisis-grant-acceptance-rates-scotland-councils";
 import GlasgowSexCrimeRiseMigrants from "./glasgow-sex-crime-rise-migrants";
 import BestPerformingCouncilsScotland from "./best-performing-councils-scotland";
@@ -64,6 +65,7 @@ export const postBodies: Record<string, ComponentType> = {
   "best-performing-councils-scotland": BestPerformingCouncilsScotland,
   "operation-branchform-snp-money-timeline": OperationBranchformSnpMoneyTimeline,
   "drug-deaths-scotland-deprivation": DrugDeathsScotlandDeprivation,
+  "east-vs-west-dunbartonshire": EastVsWestDunbartonshire,
   "crisis-grant-acceptance-rates-scotland-councils": CrisisGrantAcceptanceRatesScotlandCouncils,
   "how-council-tax-works-scotland": CouncilTaxInScotlandGuide,
   "council-tax-rises-scotland-2026-27": CouncilTaxRisesScotland202627,
