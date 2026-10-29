@@ -136,7 +136,7 @@ export default function SnpMoneyTimeline({
               <div className="mb-6 flex items-center gap-4">
                 <h3
                   id={`timeline-${group.id}`}
-                  className="display-stat shrink-0 text-[27px] leading-[1.1] text-[var(--ink)] sm:text-[32px]"
+                  className="display-stat min-w-0 text-[27px] leading-[1.1] text-[var(--ink)] sm:shrink-0 sm:text-[32px]"
                 >
                   {group.label}
                 </h3>

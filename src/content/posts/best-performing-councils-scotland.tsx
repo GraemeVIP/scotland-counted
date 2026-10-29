@@ -1,6 +1,8 @@
 import Link from "next/link";
 import CouncilPerformanceTable from "@/components/CouncilPerformanceTable";
+import { GuideTable } from "@/components/GuideTable";
 import { Aside, H2, H3, Lead, LI, P, PostCTA, Prose, UL } from "@/components/Prose";
+import { councilTaxPath } from "@/lib/routeMap";
 import {
   councilPerformanceBySlug,
   councilPerformanceRows,
@@ -19,6 +21,17 @@ const uncertaintyCouncils = [
   councilPerformanceBySlug["city-of-edinburgh"],
   councilPerformanceBySlug["east-dunbartonshire"],
 ];
+
+const glasgow = councilPerformanceBySlug["glasgow-city"];
+const aberdeen = councilPerformanceBySlug["aberdeen-city"];
+const dundee = councilPerformanceBySlug["dundee-city"];
+const cityCouncils = [councilPerformanceBySlug["city-of-edinburgh"], aberdeen, glasgow, dundee];
+
+function ordinal(n: number) {
+  const tens = n % 100;
+  if (tens >= 11 && tens <= 13) return `${n}th`;
+  return `${n}${({ 1: "st", 2: "nd", 3: "rd" } as Record<number, string>)[n % 10] ?? "th"}`;
+}
 
 const evidenceGroups = [
   {
@@ -188,7 +201,7 @@ function RankUncertainty() {
                 <Link href={`/councils/${row.slug}`} className="text-[15.5px] font-[580] text-white underline decoration-white/30 underline-offset-4">
                   {row.name}
                 </Link>
-                <span className="ui tnum text-[15px] text-[#d7deed]">#{row.rankLow}–{row.rankHigh} · top five {row.topFiveProbability.toFixed(1)}%</span>
+                <span className="ui tnum text-[15px] text-[#d7deed]">#{row.rankLow} to #{row.rankHigh} · top five {row.topFiveProbability.toFixed(1)}%</span>
               </div>
               <div
                 className="relative h-5 rounded-full bg-white/10"
@@ -308,14 +321,14 @@ export default function Post() {
   return (
     <Prose>
       <Lead>
-        East Renfrewshire comes first in our new ranking of all 32 Scottish councils. It is number one for services and results. It also stayed first in all ten extra checks. East Lothian is second. Edinburgh is third.
+        The best council in Scotland is East Renfrewshire, on our 2026 ranking of all 32 Scottish councils built from {headlineMeasureCount} official figures. It is number one for services and results and stayed first in all ten extra checks. East Lothian is second. Edinburgh is third.
       </Lead>
 
       <P>
         But there is no single meaning of &quot;best&quot;. Shetland&apos;s residents rate their council highest. North Ayrshire is best for how the council is run and comes first in our separate council landlord list. Inverclyde jumps from 12th to third when it is compared with councils facing similar problems.
       </P>
 
-      <H2 id="answer">The answer in four numbers</H2>
+      <H2 id="answer">Best council in Scotland: the answer in four numbers</H2>
 
       <div className="not-prose my-8 grid gap-3 sm:grid-cols-2">
         {[
@@ -388,12 +401,42 @@ export default function Post() {
         East Renfrewshire has the strongest claim to first place. The next four are more of a leading pack. South Ayrshire is fifth in our main list, but usually finished third and made the top five in 93.0% of the reruns. East Lothian made the top five in 91.5%.
       </P>
 
-      <H2 id="all-councils">Every Scottish council ranked</H2>
+      <H2 id="all-councils">Scottish council rankings: all 32 councils</H2>
       <P>
         Choose what you want to see: all councils, councils facing similar conditions, or what residents said. Search for your council or open its full page. The usual rank range is more honest than pretending one exact place tells the whole story.
       </P>
 
       <CouncilPerformanceTable />
+
+      <H2 id="cities">How Glasgow, Edinburgh, Aberdeen and Dundee compare</H2>
+      <P>
+        Edinburgh is the only one of Scotland&apos;s four big cities in the top ten. Aberdeen is {ordinal(aberdeen.overallRank)}, Glasgow {ordinal(glasgow.overallRank)} and Dundee {dundee.overallRank === 32 ? "last" : ordinal(dundee.overallRank)}. The like for like column compares each city with councils facing similar conditions, so it is worth reading beside the main rank.
+      </P>
+
+      <GuideTable
+        kicker="The four city councils"
+        title="Where the cities rank out of 32"
+        columns={["Council", "Main rank", "Usual range", "Like for like rank", "Residents' survey rank"]}
+        align={["left", "right", "right", "right", "right"]}
+        rows={cityCouncils.map((row) => [
+          <Link key="c" href={`/councils/${row.slug}`}>{row.name}</Link>,
+          `${row.overallRank}`,
+          `${row.rankLow} to ${row.rankHigh}`,
+          `${row.peerRank}`,
+          `${row.residentVerdict.rank}`,
+        ])}
+        caption="Scotland Counted council performance index, 2026. The usual range covers the middle 90% of the 10,000 reruns."
+      />
+
+      <P>
+        For the money side of each city, see <Link href={councilTaxPath("glasgow-city")}>Glasgow council tax bands</Link>,{" "}
+        <Link href={councilTaxPath("city-of-edinburgh")}>Edinburgh council tax bands</Link>,{" "}
+        <Link href={councilTaxPath("aberdeen-city")}>Aberdeen council tax bands</Link> and{" "}
+        <Link href={councilTaxPath("dundee-city")}>Dundee council tax bands</Link>. For Glasgow, the{" "}
+        <Link href="/crime-rate-glasgow">crime rate</Link>,{" "}
+        <Link href="/life-expectancy-glasgow">life expectancy</Link> and{" "}
+        <Link href="/why-poverty-is-worse-in-glasgow">why poverty is worse in Glasgow</Link> pages give the wider picture.
+      </P>
 
       <H2 id="different-winners">There is more than one kind of good council</H2>
       <P>
@@ -486,6 +529,9 @@ export default function Post() {
       <P>
         This also protects councils serving harder places. Dundee comes last in our main ranking. That does not mean Dundee is Scotland&apos;s worst place to live. It does not mean the council caused the city&apos;s poverty or health problems. It means Dundee had the weakest overall result in the latest council figures we could compare fairly.
       </P>
+      <P>
+        The area figures we kept out of the score are on every <Link href="/councils">council profile</Link>. For the wider story, see <Link href="/poverty-in-scotland">poverty in Scotland</Link> and the <Link href="/causes-of-poverty">causes of poverty</Link>.
+      </P>
 
       <H2 id="method">How we worked it out</H2>
       <P>
@@ -562,6 +608,12 @@ export default function Post() {
         Most council service figures come from the Improvement Service. What residents said comes from the Scottish Household Survey. Housing, crime, poverty, drug deaths and Crisis Grant figures keep their own official sources, all linked below.
       </P>
 
+      <Aside title="For teachers and pupils">
+        <p>
+          Because every rule and weight is published, this ranking works well for practising how to judge a source: who made it, what it counts, what it leaves out and how much the result moves when the rules change. The <Link href="/modern-studies">Modern Studies resources</Link> page links it with the rest of the site&apos;s evidence.
+        </p>
+      </Aside>
+
       <H2 id="questions">What councils now need to answer</H2>
       <P>
         The list matters only if it leads to answers. Councils near the top should explain what they are doing better, not just celebrate. Councils near the bottom should say what they can fix and what they cannot control.
@@ -573,6 +625,10 @@ export default function Post() {
         <LI>Why do Shetland&apos;s residents rate their council highest when it ranks 29th for value and last for council emissions?</LI>
         <LI>Which services place Dundee at the bottom, and what changed after the latest reporting period?</LI>
       </UL>
+
+      <P>
+        You can put these questions to the people who answer for your council. Find them with <Link href="/who-is-my-local-councillor-by-postcode">who is my local councillor by postcode</Link>, or ask your MSP through <Link href="/who-is-my-msp">who is my MSP</Link>.
+      </P>
 
       <P>
         Scotland Counted will publish any serious council response beside these findings. We will correct any number that does not match the official source. We may add new figures next time, but we will not quietly change the rules to get a neater headline.

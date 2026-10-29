@@ -84,7 +84,7 @@ export const HUBS: Hub[] = [
         heading: "Bills and prices",
         items: [
           { href: "/energy-price-cap-scotland", label: "Energy price cap" },
-          { href: "/blog/why-is-the-cost-of-living-so-high", label: "Why the cost of living is so high" },
+          { href: "/cost-of-living-scotland", label: "Why the cost of living is so high" },
           { href: "/blog/why-food-prices-stay-high-when-inflation-falls", label: "Why food prices stay high" },
         ],
       },

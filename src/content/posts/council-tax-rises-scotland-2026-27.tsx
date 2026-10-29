@@ -1,12 +1,20 @@
 import Link from "next/link";
-import { Prose, Lead, P, H2, Aside, PostCTA } from "@/components/Prose";
+import { Prose, Lead, P, H2, UL, LI, Aside, PostCTA } from "@/components/Prose";
+import { GuideTable } from "@/components/GuideTable";
 import {
+  BAND_LETTERS,
   chargesFor,
+  councilTaxChangeFor,
   COUNCIL_TAX_YEAR,
   PREVIOUS_COUNCIL_TAX_YEAR,
 } from "@/lib/data/councilTax";
+import {
+  COUNCIL_TAX_REDUCTION,
+  SINGLE_PERSON_DISCOUNT,
+  WATER_CHARGES_REDUCTION,
+} from "@/lib/data/councilTaxHelp";
 import { councils } from "@/lib/data/councils";
-import { councilTaxPath } from "@/lib/routeMap";
+import { COUNCIL_SEARCH_NAMES, councilTaxBandPath, councilTaxPath } from "@/lib/routeMap";
 
 const exact = new Intl.NumberFormat("en-GB", {
   style: "currency",
@@ -15,6 +23,29 @@ const exact = new Intl.NumberFormat("en-GB", {
 });
 
 const percent = new Intl.NumberFormat("en-GB", { maximumFractionDigits: 1 });
+
+const median = (values: number[]) => {
+  const sorted = [...values].sort((a, b) => a - b);
+  const middle = Math.floor(sorted.length / 2);
+  return sorted.length % 2 ? sorted[middle] : (sorted[middle - 1] + sorted[middle]) / 2;
+};
+
+const listNames = (names: string[]) =>
+  names.length > 1 ? `${names.slice(0, -1).join(", ")} and ${names[names.length - 1]}` : names[0];
+
+/** The smallest and largest cash rise in each band, across every council. */
+function bandRanges() {
+  return BAND_LETTERS.map((band) => {
+    const changes = councils
+      .map((council) => {
+        const change = councilTaxChangeFor(council.slug, band);
+        return change ? { slug: council.slug, cash: change.cash } : null;
+      })
+      .filter((row): row is NonNullable<typeof row> => row !== null)
+      .sort((a, b) => a.cash - b.cash);
+    return { band, smallest: changes[0], largest: changes[changes.length - 1] };
+  });
+}
 
 export default function Post() {
   const rows = councils
@@ -27,21 +58,29 @@ export default function Post() {
 
   const largest = rows[0];
   const smallest = rows[rows.length - 1];
+  const shown = (pct: number) => percent.format(pct);
+  const topNames = rows.filter((row) => shown(row.councilTaxRisePct) === shown(largest.councilTaxRisePct)).map((row) => row.name);
+  const bottomNames = rows.filter((row) => shown(row.councilTaxRisePct) === shown(smallest.councilTaxRisePct)).map((row) => row.name);
+  const middlePct = median(rows.map((row) => row.councilTaxRisePct));
+  const middleCash = median(rows.map((row) => row.councilTaxRise));
+  const ranges = bandRanges();
 
   return (
     <Prose>
       <Lead>
         All {rows.length} Scottish councils increased council tax in 2026/27. The Band D rise
-        ranges from {percent.format(smallest.councilTaxRisePct)}% in {smallest.name} to{" "}
-        {percent.format(largest.councilTaxRisePct)}% in {largest.name}. There is no single rate
-        for the whole country because each council sets its own charge.
+        ranges from {shown(smallest.councilTaxRisePct)}% in {listNames(bottomNames)} to{" "}
+        {shown(largest.councilTaxRisePct)}% in {listNames(topNames)}, and half the councils raised
+        Band D by more than {shown(middlePct)}%, about £{Math.round(middleCash)} a year. There is no
+        single rate for the whole country because each council sets its own charge.
       </Lead>
 
-      <H2 id="short-answer">The short answer</H2>
+      <H2 id="short-answer">Council tax increase Scotland 2026: the short answer</H2>
       <P>
         In {largest.name}, Band D council tax went from{" "}
         {exact.format(largest.previousCouncilTax)} to {exact.format(largest.councilTax)}. That is{" "}
-        {exact.format(largest.councilTaxRise)} more a year, the largest percentage rise at{" "}
+        {exact.format(largest.councilTaxRise)} more a year,{" "}
+        {topNames.length > 1 ? "the joint largest" : "the largest"} percentage rise at{" "}
         {percent.format(largest.councilTaxRisePct)}%.
       </P>
       <P>
@@ -98,6 +137,28 @@ export default function Post() {
         ))}
       </div>
 
+      <H2 id="by-band">Council tax rises in Scotland by band</H2>
+      <P>
+        The percentage rise is the same in every band of a council, but the cash rise is not. A
+        Band A home pays two thirds of the Band D charge, so its rise is two thirds as big. Larger
+        homes in higher bands see the biggest cash increases.
+      </P>
+      <GuideTable
+        kicker={`${PREVIOUS_COUNCIL_TAX_YEAR} to ${COUNCIL_TAX_YEAR}`}
+        title="The smallest and largest cash rise in each band"
+        columns={["Band", "Smallest rise", "Largest rise", "Largest, a month"]}
+        align={["left", "left", "left", "right"]}
+        rows={ranges.map(({ band, smallest: low, largest: high }) => [
+          <Link key={band} href={councilTaxBandPath(band)}>
+            Band {band}
+          </Link>,
+          `${exact.format(low.cash)}, ${COUNCIL_SEARCH_NAMES[low.slug]}`,
+          `${exact.format(high.cash)}, ${COUNCIL_SEARCH_NAMES[high.slug]}`,
+          exact.format(high.cash / 12),
+        ])}
+        caption="Council tax only, for a full year before discounts or Council Tax Reduction. A month is the yearly rise divided by 12. The largest cash rise is not always in the council with the largest percentage rise, because councils start from different charges."
+      />
+
       <H2 id="what-it-means">What the percentages mean</H2>
       <P>
         The percentage tells you how much the same council tax band changed between the two
@@ -121,6 +182,38 @@ export default function Post() {
         The <Link href="/council-tax-bands-scotland">council tax checker</Link> therefore shows
         both views: the council tax rise on its own, then the current council tax and current
         Scottish Water charges combined into the amount that appears on the bill.
+      </P>
+
+      <H2 id="next-year">Council tax 2027/28: when the next rise is set</H2>
+      <P>
+        Councils set their 2027/28 council tax at budget meetings in February and early March 2027,
+        once the Scottish Budget has set their funding. Bills for the new year arrive from March. I
+        will add every council&apos;s 2027/28 rise here once the national figures are published.
+      </P>
+
+      <H2 id="help">Help if the increase is hard to pay</H2>
+      <P>A higher rate does not have to mean a higher bill for everyone. Check these first:</P>
+      <UL>
+        <LI>
+          <Link href="/council-tax-reduction-scotland">Council Tax Reduction</Link> can take up to{" "}
+          {COUNCIL_TAX_REDUCTION.maxPercent}% off the council tax part of the bill on a low income.
+        </LI>
+        <LI>
+          The <Link href="/single-person-discount-council-tax-scotland">single person discount</Link>{" "}
+          takes {SINGLE_PERSON_DISCOUNT.percent}% off if only one adult lives in the home.
+        </LI>
+        <LI>
+          Households on Council Tax Reduction also get up to {WATER_CHARGES_REDUCTION.maxPercent}% off{" "}
+          <Link href="/water-rates-scotland">water charges</Link>, applied automatically.
+        </LI>
+        <LI>
+          If your band looks wrong for your home, <Link href="/check-council-tax-band">check your
+          council tax band</Link> before you think about an appeal.
+        </LI>
+      </UL>
+      <P>
+        If you have already fallen behind, contact the council before the arrears grow and ask for
+        smaller instalments.
       </P>
 
       <H2 id="check-your-bill">Check your own band and council</H2>

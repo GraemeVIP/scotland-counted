@@ -102,6 +102,9 @@ export const POST_PATHS: Record<string, string> = {
   "life-expectancy-glasgow": "/life-expectancy-glasgow",
   "unemployment-scotland": "/unemployment-scotland",
   "crime-rate-glasgow": "/crime-rate-glasgow",
+  "why-is-the-cost-of-living-so-high": "/cost-of-living-scotland",
+  "what-does-poverty-mean": "/uk-poverty-line",
+  "do-people-in-poverty-work": "/in-work-poverty-scotland",
 };
 
 export function postPath(slug: string) {

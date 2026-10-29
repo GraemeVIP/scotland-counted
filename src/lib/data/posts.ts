@@ -337,11 +337,11 @@ export const posts: Post[] = [
     slug: "best-performing-councils-scotland",
     title: "Best council in Scotland: all 32 ranked",
     seoTitle: "Best Council in Scotland 2026: All 32 Ranked",
-    description:
-      "East Renfrewshire comes first in our 53-measure ranking. See all 32 councils, the like for like list, what residents said and every number used.",
+    description: "The best council in Scotland is East Renfrewshire on our 2026 ranking of 53 official figures. See all 32 councils, the like for like list and every number.",
     standfirst:
       "East Renfrewshire comes first in our new ranking of all 32 Scottish councils. East Lothian is second and Edinburgh third. But the like for like list and resident survey tell a more surprising story.",
     date: "2026-08-16",
+    updated: "2026/10-29",
     category: "politics-explained",
     tags: [
       "Best council in Scotland",
@@ -372,6 +372,7 @@ export const posts: Post[] = [
       { id: "winner", label: "Why East Renfrewshire wins" },
       { id: "uncertainty", label: "Does the winner change?" },
       { id: "all-councils", label: "Every council ranked" },
+      { id: "cities", label: "How the cities compare" },
       { id: "different-winners", label: "Five ways to be good" },
       { id: "peer-groups", label: "The like for like list" },
       { id: "residents", label: "Residents disagree" },
@@ -382,26 +383,12 @@ export const posts: Post[] = [
       { id: "questions", label: "What councils must answer" },
     ],
     faq: [
-      {
-        q: "Which is the best performing council in Scotland?",
-        a: "East Renfrewshire comes first in Scotland Counted's 2026 council ranking. It is number one for services and results and stayed first in all ten extra checks. We built the ranking from 53 official figures. It is not a government award.",
-      },
-      {
-        q: "Which Scottish council do residents rate most highly?",
-        a: "Shetland Islands comes first in the separate resident survey, averaging 52.1% across five questions in the 2024 Scottish Household Survey. Only a few hundred people answered in each area, so tiny gaps may be down to chance.",
-      },
-      {
-        q: "Does the ranking measure the best place to live in Scotland?",
-        a: "No. It measures how councils perform, not every reason a place is good to live. Poverty, crime, health, housing and loneliness are shown separately. That stops richer areas automatically looking like better run councils.",
-      },
-      {
-        q: "How were Scottish councils ranked?",
-        a: "We used 53 official figures, grouped into 29 topics. Services and results count for 40%, what residents said 25%, how the council is run 20%, value for money 10% and council emissions 5%. We then changed the rules 10,000 sensible ways to see how much the order moved.",
-      },
-      {
-        q: "Which council performs best against similar councils?",
-        a: "East Renfrewshire stays first and East Lothian second in the like for like list. Inverclyde jumps from 12th across Scotland to third against councils facing similar conditions.",
-      },
+      { q: "What is the best council in Scotland?", a: "East Renfrewshire comes first in Scotland Counted's 2026 council ranking. It is number one for services and results and stayed first in all ten extra checks. We built the ranking from 53 official figures. It is not a government award." },
+      { q: "Which Scottish council do residents rate most highly?", a: "Shetland Islands comes first in the separate resident survey, averaging 52.1% across five questions in the 2024 Scottish Household Survey. Only a few hundred people answered in each area, so tiny gaps may be down to chance." },
+      { q: "Does the ranking measure the best place to live in Scotland?", a: "No. It measures how councils perform, not every reason a place is good to live. Poverty, crime, health, housing and loneliness are shown separately. That stops richer areas automatically looking like better run councils." },
+      { q: "How were Scottish councils ranked?", a: "We used 53 official figures, grouped into 29 topics. Services and results count for 40%, what residents said 25%, how the council is run 20%, value for money 10% and council emissions 5%. We then changed the rules 10,000 sensible ways to see how much the order moved." },
+      { q: "Which council performs best against similar councils?", a: "East Renfrewshire stays first and East Lothian second in the like for like list. Inverclyde jumps from 12th across Scotland to third against councils facing similar conditions." },
+      { q: "Which council comes last in Scotland?", a: "Dundee comes last in our 2026 main ranking. That does not mean Dundee is Scotland's worst place to live, or that the council caused the city's poverty or health problems. It had the weakest overall result in the latest council figures we could compare fairly." },
     ],
     sourceIds: [
       "lgbf-performance-2026",
@@ -594,16 +581,46 @@ export const posts: Post[] = [
   },
   {
     slug: "how-council-tax-works-scotland",
-    title: "How council tax works in Scotland: discounts, help and appeals",
-    seoTitle: "How Council Tax Works in Scotland | Help and Appeals",
-    description:
-      "How council tax works in Scotland, including who pays, water charges, discounts, Council Tax Reduction, band appeals, arrears and empty homes.",
-    standfirst:
-      "Your bill is a mix of a property band, your council's rate and Scottish Water charges. Here are the ten things that explain almost everything, followed by the exact sources.",
+    title: "How does council tax work in Scotland? Bands, bills, water and help",
+    seoTitle: "How Does Council Tax Work in Scotland? Bands and Bills",
+    description: "Your home's 1991 value sets its band, your council sets the rate and Scottish Water adds £652 a year at Band D. How council tax in Scotland is worked out.",
+    standfirst: "Your bill is a property band, your council's rate and Scottish Water's charges added together. Here are the eleven things that explain almost everything, with a worked example.",
     date: "2026-08-01",
+    updated: "2026/10-29",
     category: "money-and-bills",
     tags: ["Council tax", "Council tax bands", "Council Tax Reduction", "Scottish Water"],
     readingMinutes: 9,
+    quickAnswer: {
+      "label": "How council tax works in Scotland",
+      "detail": "The Assessor puts your home in a band from A to H by its value on 1 April 1991. Your council sets a charge for each band, and Scottish Water's charges are added to the same bill.",
+      "rows": [
+        {
+          "label": "Band set by",
+          "value": "The home's value on 1 April 1991"
+        },
+        {
+          "label": "Rate set by",
+          "value": "Your council, as a Band D charge"
+        },
+        {
+          "label": "Band A pays",
+          "value": "Two thirds of Band D"
+        },
+        {
+          "label": "Water and waste water, Band D",
+          "value": "£652.32 a year"
+        },
+        {
+          "label": "Single person discount",
+          "value": "25%"
+        }
+      ],
+      "asOf": "2026/27",
+      "source": {
+        "publisher": "mygov.scot",
+        "url": "https://www.mygov.scot/council-tax"
+      }
+    },
     image: {
       src: "/images/editorial/council-tax-scotland-guide.webp",
       alt: "A Glasgow resident working through a council tax bill with a notebook and calculator at his kitchen table",
@@ -613,53 +630,67 @@ export const posts: Post[] = [
     },
     toc: [
       { id: "what-it-pays-for", label: "1. What council tax pays for" },
-      { id: "who-pays", label: "2. Who has to pay" },
-      { id: "band", label: "3. What your band means" },
+      { id: "who-pays", label: "2. Who pays" },
+      { id: "band", label: "3. What sets your band" },
       { id: "bill", label: "4. How the bill is worked out" },
-      { id: "water", label: "5. Why water is on the bill" },
-      { id: "discounts", label: "6. Discounts and exemptions" },
-      { id: "reduction", label: "7. Help on a low income" },
-      { id: "challenge", label: "8. Challenging a band" },
-      { id: "moving", label: "9. Moving or missing payments" },
-      { id: "empty-homes", label: "10. Empty and second homes" },
+      { id: "how-much", label: "5. How much it costs" },
+      { id: "water", label: "6. Is water included?" },
+      { id: "discounts", label: "7. Discounts and exemptions" },
+      { id: "reduction", label: "8. Help on a low income" },
+      { id: "challenge", label: "9. Challenging a band" },
+      { id: "moving", label: "10. Moving or missing payments" },
+      { id: "empty-homes", label: "11. Empty and second homes" },
     ],
     faq: [
-      {
-        q: "How do I find my council tax band in Scotland?",
-        a: "Look up the property free on the Scottish Assessors Association website. A postcode can find the council area, but it cannot prove the band because neighbouring homes can be different.",
-      },
-      {
-        q: "Does Scottish council tax include water?",
-        a: "The bill usually does. Your council collects separate water and waste water charges for Scottish Water. That is why a council tax only figure can be hundreds of pounds lower than the bill that arrives.",
-      },
-      {
-        q: "Can Council Tax Reduction wipe out the whole bill?",
-        a: "It can reduce the council tax part by up to 100%, depending on income and household circumstances. Water charges can remain, although an automatic water reduction of up to 35% may apply.",
-      },
+      { q: "How does council tax work in Scotland?", a: "Every home is in a band from A to H based on its value on 1 April 1991. Your council sets a charge for Band D, every other band pays a fixed share of it, and Scottish Water's charges are added to the same bill." },
+      { q: "How is council tax calculated in Scotland?", a: "Take your council's Band D charge and apply your band's fixed share: two thirds for Band A, up to almost two and a half times for Band H. Then add Scottish Water's charges and take off any discount or Council Tax Reduction." },
+      { q: "Is council tax per person or per household?", a: "Per home. A full bill assumes two or more adults live there. If only one adult counts, you get 25% off, but extra adults do not make the bill any higher." },
+      { q: "How do I find my council tax band in Scotland?", a: "Look up the property free on the Scottish Assessors Association website. A postcode can find the council area, but it cannot prove the band because neighbouring homes can be different." },
+      { q: "Does Scottish council tax include water?", a: "The bill usually does. Your council collects separate water and waste water charges for Scottish Water. That is why a council tax only figure can be hundreds of pounds lower than the bill that arrives." },
+      { q: "Can Council Tax Reduction wipe out the whole bill?", a: "It can reduce the council tax part by up to 100%, depending on income and household circumstances. Water charges can remain, although an automatic water reduction of up to 35% may apply." },
     ],
-    sourceIds: [
-      "council-tax-how-it-works",
-      "council-tax-scotland",
-      "scottish-water-2026",
-      "council-tax-discounts",
-      "council-tax-reduction-2026",
-      "council-tax-band-proposals",
-      "council-tax-arrears",
-      "council-tax-empty-homes-2026",
-    ],
+    sourceIds: ["council-tax-how-it-works", "council-tax-scotland", "scottish-water-2026", "council-tax-discounts", "council-tax-reduction-2026", "council-tax-band-proposals", "council-tax-arrears", "council-tax-empty-homes-2026", "lothian-vjb-council-tax", "scottish-water-charges-2026", "edinburgh-single-occupancy-discount", "ctr-regulations-2021", "highland-council-tax-instalments"],
   },
   {
     slug: "council-tax-rises-scotland-2026-27",
     title: "Council tax increase Scotland: every council's rise in 2026/27",
     seoTitle: "Council Tax Increase Scotland 2026/27: Every Council's Rise",
-    description:
-      "Every Scottish council's 2026/27 council tax rise compared with 2025/26. See the Band D cash and percentage increase, then check every band.",
-    standfirst:
-      "Every council raised its rate, but not by the same amount. This compares last year's council tax with this year's, and keeps Scottish Water's separate charge out of the council figures.",
+    description: "Every Scottish council raised council tax in 2026/27. Band D rose by 4% in Edinburgh up to 10% in Aberdeenshire and Moray. See every council and every band.",
+    standfirst: "Every council raised its rate, but not by the same amount: from 4% to 10% at Band D. This compares last year's council tax with this year's, and keeps Scottish Water's separate charge out of the figures.",
     date: "2026-08-02",
+    updated: "2026/10-29",
     category: "money-and-bills",
     tags: ["Council tax rises", "Council tax 2026/27", "Council tax bands", "Scottish councils"],
     readingMinutes: 6,
+    quickAnswer: {
+      "label": "Council tax increase Scotland 2026/27, Band D",
+      "value": "4% to 10%",
+      "unit": "depending on the council",
+      "detail": "All 32 councils raised council tax. The smallest rise was in Edinburgh and the largest in Aberdeenshire and Moray. Half the councils raised Band D by more than 7.8%.",
+      "rows": [
+        {
+          "label": "Edinburgh",
+          "value": "+£62.54 a year (4%)"
+        },
+        {
+          "label": "Glasgow",
+          "value": "+£95.00 a year (5.9%)"
+        },
+        {
+          "label": "Aberdeenshire",
+          "value": "+£153.28 a year (10%)"
+        },
+        {
+          "label": "Moray",
+          "value": "+£157.38 a year (10%)"
+        }
+      ],
+      "asOf": "2025/26 to 2026/27, council tax only",
+      "source": {
+        "publisher": "Scottish Government",
+        "url": "https://www.gov.scot/publications/council-tax-datasets/"
+      }
+    },
     image: {
       src: "/images/editorial/council-tax-rises-scotland.webp",
       alt: "Council tax bills and a calculator on a kitchen table overlooking a Scottish residential street",
@@ -670,23 +701,33 @@ export const posts: Post[] = [
     toc: [
       { id: "short-answer", label: "The short answer" },
       { id: "all-councils", label: "Every council compared" },
+      { id: "by-band", label: "Rises by band" },
       { id: "what-it-means", label: "What the percentages mean" },
       { id: "water", label: "Why water is separate" },
+      { id: "next-year", label: "Council tax 2027/28" },
+      { id: "help", label: "Help with the bill" },
       { id: "check-your-bill", label: "Check your own bill" },
     ],
-    faq: [],
-    sourceIds: ["council-tax-scotland", "scottish-water-2026", "council-tax-how-it-works"],
+    faq: [
+      { q: "How much has council tax gone up in Scotland in 2026?", a: "It depends on the council. Band D council tax rose by between 4% and 10% in 2026/27, and half the councils raised it by more than 7.8%, about £120 a year at Band D." },
+      { q: "Which council has the biggest council tax increase in Scotland?", a: "Aberdeenshire and Moray both raised Band D by 10% in 2026/27. In cash terms Argyll and Bute had the largest rise, £157.69 a year at Band D." },
+      { q: "Did every Scottish council raise council tax in 2026/27?", a: "Yes. All 32 councils increased council tax. The smallest rise was 4% in Edinburgh." },
+      { q: "Does the council tax increase include water charges?", a: "No. These figures are council tax only. Scottish Water sets its own charges, which are collected on the same bill but are not decided by the council." },
+      { q: "When is council tax for 2027/28 set?", a: "Councils set it at their budget meetings in February and early March 2027, after the Scottish Budget, and bills arrive from March." },
+    ],
+    sourceIds: ["council-tax-scotland", "scottish-water-2026", "council-tax-how-it-works", "council-tax-reduction-2026", "lgfa-1992-discounts", "scottish-water-charges-2026"],
   },
   {
     slug: "minimum-wage-take-home-pay-scotland-2026",
-    title: "Minimum wage Scotland: what you earn in 2026 and 2027",
+    title: "Minimum wage Scotland 2026: rates, take home pay and the 2027 rise",
     seoTitle: "Minimum Wage Scotland 2026 and 2027: £12.71 to £13.21",
     description:
       "Minimum wage in Scotland is £12.71 an hour in 2026, rising to £13.21 in April 2027. See every age rate, yearly pay and take home pay after tax and NI.",
     standfirst:
       "£12.71 an hour sounds clear. A payslip is not. I have done the tax and National Insurance working for a 37.5 hour week so you can see what reaches the bank.",
     date: "2026-08-01",
-    updated: "2026-10-29",
+    checked: "2026/10-29",
+    updated: "2026/10-29",
     category: "money-and-bills",
     tags: ["Minimum wage", "Take home pay", "Scottish income tax", "Low pay"],
     quickAnswer: {
@@ -712,39 +753,37 @@ export const posts: Post[] = [
       objectPosition: "center 40%",
     },
     toc: [
-      { id: "rates", label: "The 2026 hourly rates" },
+      { id: "rates", label: "Every 2026 rate" },
+      { id: "by-age", label: "Rates by age" },
+      { id: "national-minimum-wage", label: "Who sets the minimum wage" },
       { id: "april-2027", label: "What changes in April 2027" },
-      { id: "full-time", label: "What full time adds up to" },
-      { id: "take-home", label: "What reaches the bank" },
+      { id: "full-time", label: "Yearly pay by hours" },
+      { id: "take-home", label: "Take home pay" },
       { id: "hours", label: "Why your pay may be lower" },
+      { id: "underpaid", label: "If you are underpaid" },
+      { id: "cities", label: "Glasgow and other cities" },
       { id: "enough", label: "Is it enough to live on?" },
     ],
     faq: [
-      {
-        q: "What is minimum wage in Scotland in 2026?",
-        a: "From 1 April 2026 it is £12.71 an hour for workers aged 21 and over, £10.85 for ages 18 to 20, and £8 for under 18s and eligible apprentices.",
-      },
-      {
-        q: "What will minimum wage be in Scotland in April 2027?",
-        a: "From 1 April 2027 it rises to £13.21 an hour for workers aged 21 and over, £11.27 for ages 18 to 20, and £8.31 for under 18s and eligible apprentices. Scotland does not set its own rate.",
-      },
-      {
-        q: "What is £12.71 an hour per year?",
-        a: "At 37.5 paid hours every week for 52 weeks it is £24,784.50 gross a year. It is not a guaranteed annual salary: fewer paid hours or unpaid time off means less.",
-      },
+      { q: "What is the minimum wage in Scotland in 2026?", a: "From 1 April 2026 it is £12.71 an hour for workers aged 21 and over, £10.85 for ages 18 to 20, and £8 for under 18s and eligible apprentices. Scotland uses the same rates as the rest of the UK." },
+      { q: "What is the minimum wage for a 16 year old in Scotland?", a: "Workers aged 16 and 17 who are past school leaving age get at least £8 an hour from 1 April 2026, rising to £8.31 on 1 April 2027." },
+      { q: "What is the minimum wage for an 18 year old in Scotland?", a: "Workers aged 18 to 20 get at least £10.85 an hour from 1 April 2026, rising to £11.27 on 1 April 2027. At 21 the rate goes up to the full £12.71." },
+      { q: "Is there a different minimum wage for over 25s in Scotland?", a: "No. There is no separate over 25 rate any more. Everyone aged 21 or over is due the same £12.71 an hour, which the UK Government calls the National Living Wage." },
+      { q: "What is the minimum wage in Scotland a year?", a: "At 37.5 paid hours every week for 52 weeks, £12.71 an hour is £24,784.50 a year before tax, or about £21,404 after Scottish income tax and National Insurance. Fewer paid hours means less." },
+      { q: "What will the minimum wage be in Scotland in April 2027?", a: "From 1 April 2027 it rises to £13.21 an hour for workers aged 21 and over, £11.27 for ages 18 to 20, and £8.31 for under 18s and eligible apprentices." },
     ],
-    sourceIds: ["minimum-wage-2026", "minimum-wage-2027", "scottish-tax-2026", "ni-rates-2026", "mis-2025"],
+    sourceIds: ["minimum-wage-2026", "minimum-wage-2027", "scottish-tax-2026", "ni-rates-2026", "mis-2025", "lpc-remit", "real-living-wage", "pay-work-rights", "nmw-what-counts-as-pay", "nmw-employers", "ons-pipr-2026-10"],
   },
   {
     slug: "real-living-wage-vs-minimum-wage-scotland",
     title: "Real Living Wage Scotland: £14.10 an hour against the legal minimum",
     seoTitle: "Real Living Wage Scotland 2026: £14.10 vs Minimum Wage",
-    description:
-      "The real Living Wage is now £14.10 an hour. The legal minimum is £12.71, rising to £13.21 in April 2027. Who sets each rate and what the gap is worth.",
+    description: "The real Living Wage in Scotland is £14.10 an hour, set in October 2026. The legal minimum is £12.71, rising to £13.21 in April 2027. What the gap is worth.",
     standfirst:
       "They sound almost identical. One is the legal floor an employer must pay. The other is a voluntary rate calculated from what ordinary life actually costs.",
     date: "2026-08-01",
-    updated: "2026-10-29",
+    checked: "2026/10-29",
+    updated: "2026/10-29",
     category: "money-and-bills",
     tags: ["Real Living Wage", "Minimum wage", "Pay", "Living costs"],
     quickAnswer: {
@@ -771,31 +810,34 @@ export const posts: Post[] = [
     },
     toc: [
       { id: "short-answer", label: "The short answer" },
-      { id: "legal", label: "The legal minimum" },
-      { id: "real", label: "The real Living Wage" },
+      { id: "rates", label: "2026 rates" },
+      { id: "vs-minimum-wage", label: "Living wage vs minimum wage" },
+      { id: "legal", label: "The National Living Wage" },
+      { id: "real", label: "How the real rate is set" },
       { id: "difference", label: "What the gap is worth" },
+      { id: "glasgow", label: "Glasgow, Edinburgh and cities" },
+      { id: "compulsory", label: "Is it compulsory?" },
       { id: "check", label: "How to check your employer" },
     ],
     faq: [
-      {
-        q: "Is the real Living Wage compulsory in Scotland?",
-        a: "No. The legal minimum wage is compulsory. The independently calculated real Living Wage is voluntary unless an employer has promised it in a contract or pay policy.",
-      },
-      {
-        q: "How much more is the real Living Wage?",
-        a: "The rate outside London is £14.10, announced on 15 October 2026. That is £1.39 an hour above the 2026 legal rate for workers aged 21 and over, or £2,710.50 gross a year at 37.5 hours a week. From April 2027, when the legal rate rises to £13.21, the gap is 89p an hour.",
-      },
+      { q: "What is the real Living Wage in Scotland in 2026?", a: "£14.10 an hour, announced on 15 October 2026. It is the same everywhere in Scotland. Accredited employers have until 1 May 2027 to pay it. The previous rate was £13.45." },
+      { q: "What is the difference between the living wage and the minimum wage in Scotland?", a: "The legal minimum, called the National Living Wage, is £12.71 an hour for workers aged 21 and over and every employer must pay it. The real Living Wage of £14.10 is worked out from living costs and is voluntary." },
+      { q: "How much is the National Living Wage in Scotland?", a: "£12.71 an hour from 1 April 2026 for workers aged 21 and over, rising to £13.21 on 1 April 2027. It is the same across the UK because Westminster sets it." },
+      { q: "Is the real Living Wage compulsory in Scotland?", a: "No. Only the legal minimum wage is compulsory. Employers that take most discretionary Scottish public sector grants awarded since 1 July 2023 must pay at least the real Living Wage, and an employer can promise it in a contract." },
+      { q: "Is the living wage different in Glasgow or Edinburgh?", a: "No. The real Living Wage is £14.10 in Glasgow, Edinburgh and the rest of Scotland. Only London has a higher rate, £15.45." },
+      { q: "How much more is the real Living Wage?", a: "£1.39 an hour above the 2026 legal rate for workers aged 21 and over, or £2,710.50 a year before tax at 37.5 hours a week. After tax and National Insurance that is about £1,952 a year. From April 2027 the gap is 89p an hour." },
     ],
-    sourceIds: ["minimum-wage-2026", "minimum-wage-2027", "real-living-wage", "mis-2025", "lpc-remit"],
+    sourceIds: ["minimum-wage-2026", "minimum-wage-2027", "real-living-wage", "mis-2025", "lpc-remit", "scottish-tax-2026", "ni-rates-2026", "ashe-2026-workplace", "fair-work-first"],
   },
   {
     slug: "universal-credit-when-you-work-more-hours",
-    title: "What happens to Universal Credit when you work more hours?",
-    description:
-      "Universal Credit does not stop when you work. See the 55% taper, the work allowance, and why an extra £1 of pay leaves only 45p of extra support.",
-    standfirst:
-      "Working more always leaves you with more total money. But the increase can feel painfully small because Universal Credit is reduced as earnings rise.",
+    title: "How many hours can you work on Universal Credit?",
+    seoTitle: "How Many Hours Can You Work on Universal Credit? 2026",
+    description: "There is no limit on the hours you can work on Universal Credit. It falls by 55p for each £1 you earn above any work allowance of £427 or £710 a month.",
+    standfirst: "Working more always leaves you with more money in total. But the gain can feel small, because Universal Credit falls by 55p for each extra £1 of take home pay.",
     date: "2026-08-01",
+    checked: "2026/10-29",
+    updated: "2026/10-29",
     category: "money-and-bills",
     tags: ["Universal Credit", "Work allowance", "Benefits", "Low pay"],
     readingMinutes: 6,
@@ -810,33 +852,62 @@ export const posts: Post[] = [
       { id: "short-answer", label: "The short answer" },
       { id: "taper", label: "How the 55% taper works" },
       { id: "allowance", label: "Who gets a work allowance" },
-      { id: "example", label: "A simple example" },
+      { id: "example", label: "Worked examples" },
+      { id: "working-hours", label: "What the jobcentre expects" },
+      { id: "overtime", label: "Does overtime count?" },
+      { id: "pay-rise", label: "A new job or pay rise" },
       { id: "changes", label: "Why payments jump around" },
     ],
     faq: [
-      {
-        q: "Do you lose Universal Credit when you start work?",
-        a: "Not automatically. Your award is recalculated from the earnings reported in each monthly assessment period. It reduces as earnings rise and can reach zero if income is high enough.",
-      },
-      {
-        q: "What is the Universal Credit taper rate?",
-        a: "Universal Credit normally falls by 55p for each £1 of take home earnings counted above any work allowance. That means earnings still increase total household income.",
-      },
+      { q: "How many hours can you work on Universal Credit?", a: "There is no limit. You can work part time or full time and still get Universal Credit. The payment falls by 55p for each £1 of take home pay above any work allowance, and stops once you earn enough." },
+      { q: "Does overtime affect Universal Credit?", a: "Yes. Overtime and bonuses count as earnings in the assessment period they are paid in, so that month's payment is lower. If a big month takes the award to zero and earnings drop again within 6 months, payments restart automatically." },
+      { q: "How many hours does the jobcentre expect you to work on Universal Credit?", a: "Usually 35 hours a week. Once you earn what 35 hours at the minimum wage for your age would pay, about £1,928 a month before tax at 21 or over, you normally have no work search requirements. Carers, parents of young children and disabled people can have fewer expected hours." },
+      { q: "Do you lose Universal Credit when you start work?", a: "Not automatically. Your award is recalculated from the earnings reported in each monthly assessment period. It reduces as earnings rise and can reach zero if income is high enough." },
+      { q: "What happens to Universal Credit if you get a pay rise?", a: "Your payment falls by 55p for each extra £1 of take home pay, so you still keep 45p. Your employer reports pay automatically. If your Universal Credit stops, check help that depends on it, such as the Scottish Child Payment." },
+      { q: "What is the Universal Credit taper rate?", a: "Universal Credit normally falls by 55p for each £1 of take home earnings counted above any work allowance. That means earnings still increase total household income." },
     ],
-    sourceIds: ["uc-earnings", "uc-what-youll-get", "minimum-wage-2026"],
+    sourceIds: ["uc-earnings", "uc-what-youll-get", "uc-expected-hours", "uc-scottish-choices", "minimum-wage-2026", "scottish-tax-2026", "ni-rates-2026"],
   },
   {
     slug: "local-housing-allowance-rent-shortfall-scotland",
-    title: "Local Housing Allowance in Scotland: why rent help falls short",
-    seoTitle: "Local Housing Allowance Scotland | Rent Shortfalls",
-    description:
-      "Local Housing Allowance caps the Universal Credit help you get for private rent. Scotland's rates are frozen at 2024 levels while rents keep rising.",
-    standfirst:
-      "The benefit is meant to help with a cheaper local rent. In 2026 it is still using rates fixed from 2024, even though newer rent evidence is higher in most Scottish areas.",
+    title: "Local Housing Allowance Scotland 2026/27: rates for every area and the rent gap",
+    seoTitle: "Local Housing Allowance Scotland 2026/27: Rates by Area",
+    description: "Local Housing Allowance in Scotland is frozen for 2026/27. Greater Glasgow pays up to £695 a month for one bedroom on Universal Credit. All 18 areas listed.",
+    standfirst: "The benefit is meant to cover a cheaper local rent. In 2026/27 it still uses rates fixed in January 2024, and in each of the four cities the one bedroom rate sits below the average rent.",
     date: "2026-08-01",
+    updated: "2026/10-29",
     category: "money-and-bills",
     tags: ["Local Housing Allowance", "Rent", "Universal Credit", "Housing"],
     readingMinutes: 6,
+    quickAnswer: {
+      "label": "Local Housing Allowance, one bedroom, Greater Glasgow",
+      "value": "£695",
+      "unit": "a month on Universal Credit",
+      "detail": "LHA is the most Universal Credit or Housing Benefit pays towards private rent. Scotland's 2026/27 rates are frozen at the levels set in January 2024.",
+      "rows": [
+        {
+          "label": "Greater Glasgow, one bedroom",
+          "value": "£695 a month"
+        },
+        {
+          "label": "Lothian (Edinburgh), one bedroom",
+          "value": "£750 a month"
+        },
+        {
+          "label": "Aberdeen and Shire, one bedroom",
+          "value": "£475 a month"
+        },
+        {
+          "label": "Dundee and Angus, one bedroom",
+          "value": "£400 a month"
+        }
+      ],
+      "asOf": "April 2026 to March 2027",
+      "source": {
+        "publisher": "DWP (GOV.UK)",
+        "url": "https://www.gov.uk/csv-preview/697a205fc23c8fa26650dec1/scotland-rates-2026-to-2027.csv"
+      }
+    },
     image: {
       src: "/images/editorial/local-housing-allowance-rent-gap.webp",
       alt: "A prospective tenant checking a letting sheet and phone calculator inside a small Glasgow flat",
@@ -846,32 +917,32 @@ export const posts: Post[] = [
     },
     toc: [
       { id: "what-it-is", label: "What Local Housing Allowance is" },
+      { id: "rates", label: "Rates for every area" },
+      { id: "glasgow", label: "LHA Glasgow 2026" },
+      { id: "edinburgh", label: "Edinburgh and the other cities" },
       { id: "frozen", label: "Why the rates are frozen" },
-      { id: "glasgow", label: "The Greater Glasgow gap" },
       { id: "bedrooms", label: "Which bedroom rate applies" },
+      { id: "housing-benefit", label: "Who still gets Housing Benefit" },
       { id: "help", label: "What to do about a shortfall" },
     ],
     faq: [
-      {
-        q: "Does Universal Credit pay all of your private rent?",
-        a: "Not necessarily. The housing element is limited by Local Housing Allowance for your area and household size, or by your actual rent if that is lower.",
-      },
-      {
-        q: "What is the one bedroom LHA rate in Greater Glasgow in 2026?",
-        a: "It is £159.95 a week from April 2026 to March 2027, about £693 a month. The Scottish Government's 2025 advertised rent average for a one bedroom Greater Glasgow property was £865 a month.",
-      },
+      { q: "Does Universal Credit pay all of your private rent?", a: "Not necessarily. The housing element is limited by Local Housing Allowance for your area and household size, or by your actual rent if that is lower." },
+      { q: "What is the one bedroom LHA rate in Greater Glasgow in 2026?", a: "It is £695 a month on Universal Credit, or £159.95 a week on Housing Benefit, from April 2026 to March 2027. The average advertised one bedroom rent in Greater Glasgow was £865 a month in 2025." },
+      { q: "What are the LHA rates in Scotland for 2026/27?", a: "They vary by area and bedroom size. For one bedroom on Universal Credit they run from £375 a month in the Ayrshires and the Scottish Borders up to £750 in Lothian. The full table for all 18 areas is on this page." },
+      { q: "What is the Local Housing Allowance rate in Edinburgh?", a: "Edinburgh is in the Lothian area. On Universal Credit the 2026/27 rate is £475 a month for a shared room, £750 for one bedroom and £970 for two bedrooms." },
+      { q: "Has Local Housing Allowance gone up in 2026?", a: "No. Scotland's 2026/27 rates are frozen at the cash levels set in January 2024, even though newer rent evidence is higher in most areas." },
     ],
-    sourceIds: ["lha-2026", "sg-private-rents-2025", "discretionary-housing-payment"],
+    sourceIds: ["lha-2026", "lha-uc-monthly-scotland-2026", "sg-private-rents-2025", "ons-pipr-2026-10", "housing-benefit-eligibility", "housing-benefit-spare-bedrooms", "discretionary-housing-payment"],
   },
   {
     slug: "energy-price-cap-scotland-2026-explained",
-    title: "Energy price cap Scotland: what it means for your bills",
-    seoTitle: "Energy Price Cap Scotland 2026: What It Means for Your Bills",
-    description:
-      "Ofgem's energy price cap is £1,862 from July to September 2026 for a typical use home. See what it really caps, why bills rose and how standing charges work.",
-    standfirst:
-      "£1,862 is not the most any household can pay. It is an illustration based on typical use. The cap controls the rates, so using more still costs more.",
+    title: "Energy price cap Scotland: what the October 2026 cap means for your bills",
+    seoTitle: "Energy Price Cap Scotland: £1,723 From October 2026",
+    description: "The energy price cap in Scotland is £1,723 a year from 1 October 2026, up 4%. North and South Scotland unit rates, standing charges and the VAT cut.",
+    standfirst: "£1,723 is not the most any household can pay. It is Ofgem's figure for typical use. The cap controls the rates, so using more still costs more.",
     date: "2026-08-01",
+    checked: "2026/10-29",
+    updated: "2026/10-29",
     category: "money-and-bills",
     tags: ["Energy price cap", "Energy bills", "Standing charge", "Cost of living"],
     readingMinutes: 6,
@@ -883,32 +954,36 @@ export const posts: Post[] = [
       objectPosition: "center 45%",
     },
     toc: [
+      { id: "current-cap", label: "October to December 2026" },
+      { id: "scotland-rates", label: "North and South Scotland rates" },
       { id: "not-a-bill-cap", label: "Why it is not a bill cap" },
-      { id: "rates", label: "The current rates" },
+      { id: "rates", label: "Price per kWh" },
       { id: "standing", label: "The standing charge" },
+      { id: "vat", label: "No VAT on electricity" },
+      { id: "january-2027", label: "January 2027 cap" },
       { id: "who", label: "Who the cap covers" },
       { id: "help", label: "If you cannot afford energy" },
     ],
     faq: [
-      {
-        q: "Is £1,862 the maximum energy bill in 2026?",
-        a: "No. It is Ofgem's annual illustration for a typical use dual fuel household paying by Direct Debit. Your bill depends on the energy you use, your region, payment method and tariff.",
-      },
-      {
-        q: "Does the energy price cap apply in Scotland?",
-        a: "Yes. Ofgem's cap covers default domestic tariffs in England, Scotland and Wales. Regional unit rates and standing charges can differ.",
-      },
+      { q: "What is the energy price cap from October 2026?", a: "From 1 October to 31 December 2026 it is £1,723 a year for a typical home paying by Direct Debit, up 4% or about £60 a year. Prepayment is £1,678 and paying when the bill arrives is £1,861." },
+      { q: "Is £1,723 the maximum energy bill?", a: "No. It is Ofgem's figure for a typical home using 2,500 kWh of electricity and 9,500 kWh of gas a year. The cap limits unit rates and standing charges, so a home that uses more pays more." },
+      { q: "Does the energy price cap apply in Scotland?", a: "Yes. Ofgem's cap covers default domestic tariffs in England, Scotland and Wales. Scotland has two regions, North and South Scotland, each with slightly different unit rates and standing charges." },
+      { q: "What is the price cap per kWh in Scotland?", a: "On Direct Debit from 1 October 2026, electricity is capped at 26.35p a kWh in North Scotland and 26.11p in South Scotland, and gas at 7.87p in both. Standing charges are extra." },
+      { q: "What is the electricity standing charge in Scotland?", a: "On Direct Debit from 1 October 2026 it is 55.14p a day in North Scotland and 61.41p in South Scotland, against a 54.83p Great Britain average." },
+      { q: "When will the January 2027 energy price cap be announced?", a: "Ofgem announces each cap about five weeks ahead. It published the July cap on 27 May and the October cap on 26 August, so the January to March 2027 cap is expected in late November 2026." },
     ],
-    sourceIds: ["ofgem-cap-2026", "sg-cost-living-2025"],
+    sourceIds: ["ofgem-cap-oct-2026", "ofgem-press-oct-2026", "ofgem-press-jul-2026", "ofgem-regional-rates-oct-2026", "ofgem-cap-2026", "sg-cost-living-2025"],
   },
   {
     slug: "why-food-prices-stay-high-when-inflation-falls",
-    title: "Why food prices are still high in Scotland",
-    description:
-      "Lower inflation does not mean cheaper food. It means prices are rising more slowly. UK food prices were 38.6% higher in November 2025 than five years earlier.",
+    title: "Food prices in Scotland: why they stay high when inflation falls",
+    seoTitle: "Food Prices in Scotland: Why They Are Still So High",
+    description: "UK food prices were 38.5% higher in September 2026 than five years earlier. Food inflation is now 1.3%, so prices are rising more slowly, not falling.",
     standfirst:
       "The news says inflation is down. The supermarket receipt says the weekly shop is still dear. Both can be true at the same time.",
     date: "2026-08-01",
+    checked: "2026/10-29",
+    updated: "2026/10-29",
     category: "money-and-bills",
     tags: ["Food prices", "Inflation", "Groceries", "Cost of living"],
     readingMinutes: 6,
@@ -920,36 +995,62 @@ export const posts: Post[] = [
       objectPosition: "center 40%",
     },
     toc: [
-      { id: "simple", label: "The simplest explanation" },
-      { id: "numbers", label: "What happened to food prices" },
+      { id: "simple", label: "Why prices stay high" },
+      { id: "numbers", label: "The latest figures" },
       { id: "why", label: "Why food rose so sharply" },
-      { id: "fall", label: "Can prices actually fall?" },
+      { id: "fall", label: "Will food prices go down?" },
       { id: "households", label: "Why low incomes feel it most" },
+      { id: "help", label: "Help with food costs" },
     ],
     faq: [
-      {
-        q: "Why are groceries still expensive if inflation is lower?",
-        a: "Because inflation measures the rate of change, not the price level. If prices rise 10% and then inflation falls to 2%, the earlier rise stays and another 2% is added.",
-      },
-      {
-        q: "How much did UK food prices rise?",
-        a: "ONS data showed food and non alcoholic drink prices were 38.6% higher in November 2025 than in November 2020.",
-      },
+      { q: "Why are food prices still so high in Scotland?", a: "Because prices jumped between 2021 and 2023 and have kept rising since, only more slowly. UK food prices were 38.5% higher in September 2026 than in September 2021." },
+      { q: "Why are groceries still expensive if inflation is lower?", a: "Because inflation measures the rate of change, not the price level. If prices rise 10% and then inflation falls to 2%, the earlier rise stays and another 2% is added." },
+      { q: "What is food inflation now?", a: "UK food and non alcoholic drink prices rose 1.3% in the year to September 2026, according to the ONS. Food inflation peaked at 19.1% in March 2023." },
+      { q: "How much have food prices gone up in the UK?", a: "ONS figures show food and non alcoholic drink prices were 38.5% higher in September 2026 than in September 2021, and 38.6% higher in November 2025 than in November 2020." },
+      { q: "Will food prices go down?", a: "Individual items can get cheaper, but a broad fall needs costs across many products to come down and shops to pass that on. In every year from 2022 to 2026 the overall price of food still went up." },
     ],
-    sourceIds: ["ons-food-prices", "ons-cpi-2026", "brexit-food-prices", "sg-cost-living-2025"],
+    sourceIds: ["ons-cpi-food-sep-2026", "ons-cpi-sep-2026", "ons-food-prices", "ons-household-costs-2026", "brexit-food-prices", "free-school-meals-2026", "sg-cost-living-2025"],
   },
   {
     slug: "crisis-grant-scotland-how-to-apply",
     title: "Crisis grant Scotland: how to apply and what you get",
-    seoTitle: "Crisis Grant Scotland: How to Apply and What You Get",
-    description:
-      "A Scottish Welfare Fund Crisis Grant is emergency money you do not repay. Who can apply, what it covers, and how to claim through your council.",
-    standfirst:
-      "This is not a loan and it is not an advance from Universal Credit. It is a council grant for a low income person facing an immediate emergency.",
+    seoTitle: "Crisis Grant Scotland: How to Apply and How Much You Get",
+    description: "A crisis grant is emergency money from your council that you never pay back. The average award in Scotland was £130 in 2025/26. Apply online or by phone.",
+    standfirst: "It is not a loan and not a Universal Credit advance. It is council money for an emergency, and in 2025/26 Scottish councils made 167,990 awards.",
     date: "2026-08-01",
+    updated: "2026/10-29",
     category: "money-and-bills",
     tags: ["Crisis Grant", "Scottish Welfare Fund", "Emergency help", "Benefits"],
     readingMinutes: 5,
+    quickAnswer: {
+      "label": "Average crisis grant in Scotland",
+      "value": "£130",
+      "unit": "per award in 2025/26",
+      "detail": "A crisis grant is emergency money from your council's Scottish Welfare Fund that you do not pay back. Apply to the council where you live. It should decide by the end of the next working day.",
+      "rows": [
+        {
+          "label": "Applications in 2025/26",
+          "value": "258,490"
+        },
+        {
+          "label": "Awards",
+          "value": "167,990"
+        },
+        {
+          "label": "Share of decisions that led to an award",
+          "value": "65%"
+        },
+        {
+          "label": "Decided by the next working day, January to March 2026",
+          "value": "98%"
+        }
+      ],
+      "asOf": "Scottish Welfare Fund statistics to 31 March 2026",
+      "source": {
+        "publisher": "Scottish Government",
+        "url": "https://www.gov.scot/publications/scottish-welfare-fund-statistics-update-to-31-march-2026/"
+      }
+    },
     image: {
       src: "/images/editorial/scottish-welfare-fund-crisis-grant.webp",
       alt: "A community adviser helping a resident complete an online application at a public computer",
@@ -958,35 +1059,66 @@ export const posts: Post[] = [
       objectPosition: "center 42%",
     },
     toc: [
-      { id: "what-it-is", label: "What a Crisis Grant is" },
+      { id: "what-it-is", label: "What a crisis grant is" },
       { id: "who", label: "Who can apply" },
       { id: "covers", label: "What it can cover" },
+      { id: "how-much", label: "How much you get" },
       { id: "apply", label: "How to apply" },
+      { id: "application", label: "What happens next" },
+      { id: "crisis-loan", label: "Crisis loans" },
+      { id: "community-care-grant", label: "Community care grants" },
       { id: "refused", label: "If the council says no" },
     ],
     faq: [
-      {
-        q: "Do you pay a Scottish Crisis Grant back?",
-        a: "No. It is a grant from the Scottish Welfare Fund, not a loan or a Universal Credit advance.",
-      },
-      {
-        q: "Can I get a Crisis Grant for food or heating?",
-        a: "Yes, those are the kinds of immediate essentials a Crisis Grant can cover when an emergency has left a low income person without money.",
-      },
+      { q: "How much is a crisis grant in Scotland?", a: "There is no fixed amount. The council pays for what you need to get through the emergency. In 2025/26 the average crisis grant in Scotland was £130." },
+      { q: "How do I apply for a crisis grant?", a: "Apply to the council where you live, through its online Scottish Welfare Fund form or by phone. Have your income, bank balance, who lives with you and what you need today ready." },
+      { q: "How long does a crisis grant take?", a: "The council should decide by the end of the next working day once it has all the information it needs. In January to March 2026, 98% of decisions in Scotland met that deadline." },
+      { q: "Do you pay a crisis grant back?", a: "No. It is a grant from the Scottish Welfare Fund, not a loan or a Universal Credit advance." },
+      { q: "Can I get a crisis loan in Scotland?", a: "No. DWP crisis loans ended in Scotland on 1 April 2013 and were replaced by Scottish Welfare Fund crisis grants, which you do not repay. The only emergency loan left is a Universal Credit advance." },
+      { q: "Is there a UK crisis grant?", a: "There is no single UK crisis grant. In Scotland emergency grants come from the Scottish Welfare Fund, run by each council, so you apply to the council where you live." },
     ],
-    sourceIds: ["scottish-welfare-fund"],
+    sourceIds: ["scottish-welfare-fund", "swf-statistics-2025-26", "swf-tables-2025-26", "swf-statutory-guidance-2026", "moray-swf-review"],
   },
   {
     slug: "discretionary-housing-payment-scotland",
-    title: "Discretionary Housing Payments in Scotland: how to apply",
-    description:
-      "A Discretionary Housing Payment can top up rent when Universal Credit or Housing Benefit falls short, including the bedroom tax. How to apply in Scotland.",
-    standfirst:
-      "If you get help with rent but there is still a gap, your council has another fund. It can sometimes cover the shortfall, a deposit, rent in advance or moving costs.",
+    title: "Discretionary housing payment Scotland: who can get it and how to apply",
+    seoTitle: "Discretionary Housing Payment Scotland: Who Can Get It",
+    description: "A discretionary housing payment tops up rent help from your council. In Scotland it covers the bedroom tax in full, a 14% or 25% rent cut. How to apply.",
+    standfirst: "If you get help with rent but there is still a gap, your council has another fund. In Scotland it should cover the bedroom tax in full, and it can sometimes help with other shortfalls, deposits and moving costs.",
     date: "2026-08-01",
+    updated: "2026/10-29",
     category: "money-and-bills",
     tags: ["Discretionary Housing Payment", "Rent", "Bedroom tax", "Benefit cap"],
     readingMinutes: 5,
+    quickAnswer: {
+      "label": "Discretionary housing payment for the bedroom tax in Scotland",
+      "value": "100%",
+      "unit": "of the shortfall, if you apply",
+      "detail": "The Scottish Government funds councils to cover the bedroom tax in full through DHP, and expects anyone affected who applies to get it. DHP can also help with the benefit cap and some other rent gaps.",
+      "rows": [
+        {
+          "label": "Bedroom tax, one spare bedroom",
+          "value": "14% off eligible rent"
+        },
+        {
+          "label": "Bedroom tax, two or more",
+          "value": "25% off eligible rent"
+        },
+        {
+          "label": "DHP budget for Scotland, 2025/26",
+          "value": "£97.1 million"
+        },
+        {
+          "label": "Of which for the bedroom tax",
+          "value": "£79.7 million"
+        }
+      ],
+      "asOf": "2025/26 budget, current rules",
+      "source": {
+        "publisher": "Scottish Government",
+        "url": "https://www.gov.scot/publications/scottish-discretionary-housing-payments-guidance-manual/"
+      }
+    },
     image: {
       src: "/images/editorial/discretionary-housing-payment.webp",
       alt: "A tenant on the phone comparing a tenancy document and household budget beside moving boxes",
@@ -996,34 +1128,63 @@ export const posts: Post[] = [
     },
     toc: [
       { id: "what-it-is", label: "What the payment is" },
+      { id: "bedroom-tax", label: "Bedroom tax Scotland" },
+      { id: "benefit-cap", label: "The benefit cap" },
       { id: "who", label: "Who can apply" },
       { id: "covers", label: "What it may cover" },
-      { id: "apply", label: "How to make a strong application" },
+      { id: "budget", label: "How much councils spend" },
+      { id: "apply", label: "How to apply" },
       { id: "next", label: "What happens next" },
     ],
     faq: [
-      {
-        q: "Who can get a Discretionary Housing Payment in Scotland?",
-        a: "You must normally rent your home and already receive Housing Benefit or the housing element of Universal Credit. Your council then decides whether extra help is appropriate.",
-      },
-      {
-        q: "Can a DHP cover a rent deposit?",
-        a: "In some cases it can help with a deposit, rent in advance or removal costs, as well as an ongoing rent shortfall. Ask your council what its local fund will consider.",
-      },
+      { q: "What is a discretionary housing payment?", a: "It is extra money from your council when Housing Benefit or the housing part of Universal Credit does not cover your rent. You have to apply, and the council decides how much and for how long." },
+      { q: "Who can get a Discretionary Housing Payment in Scotland?", a: "You must normally rent your home and already receive Housing Benefit or the housing element of Universal Credit. Your council then decides whether extra help is appropriate." },
+      { q: "Do you have to pay the bedroom tax in Scotland?", a: "The UK rule still cuts housing support by 14% for one spare bedroom and 25% for two or more. In Scotland, councils use DHP to pay that shortfall in full for anyone affected who applies." },
+      { q: "Can a DHP cover a rent deposit?", a: "In some cases it can help with a deposit, rent in advance or removal costs, as well as an ongoing rent shortfall. Ask your council what its local fund will consider." },
+      { q: "Is DHP different in Edinburgh and Glasgow?", a: "The national rules are the same across Scotland, but each council runs its own form and decides its own cases. Apply to the council that handles your Housing Benefit or Universal Credit housing costs." },
     ],
-    sourceIds: ["discretionary-housing-payment", "lha-2026"],
+    sourceIds: ["discretionary-housing-payment", "dhp-guidance-manual-2025", "dhp-statistics-2025-26", "housing-benefit-spare-bedrooms", "lha-2026"],
   },
   {
     slug: "free-school-meals-clothing-grant-scotland",
-    title: "Free school meals and clothing grants in Scotland",
-    description:
-      "Who gets free school meals in Scotland, how P1 to P5 works, the rules for older pupils, and how to claim £120 or £150 towards school clothing.",
-    standfirst:
-      "Some help is automatic, some has to be claimed, and the rules change with a child's school year. This is the short version for a busy parent.",
+    title: "Free school meals and clothing grant in Scotland: who qualifies in 2026/27",
+    seoTitle: "Free School Meals and Clothing Grant Scotland 2026/27",
+    description: "All P1 to P5 pupils in Scotland get free school lunches. Older pupils qualify on Universal Credit earning up to £995 a month. Clothing grants start at £120.",
+    standfirst: "Some help is automatic, some has to be claimed, and the rules change with a child's school year. Here are the 2026/27 rules, the income limit and what councils pay.",
     date: "2026-08-01",
+    updated: "2026/10-29",
     category: "money-and-bills",
     tags: ["Free school meals", "School clothing grant", "Families", "School costs"],
     readingMinutes: 5,
+    quickAnswer: {
+      "label": "Free school meals and clothing grant, Scotland",
+      "value": "£995",
+      "unit": "a month, the Universal Credit earnings limit",
+      "detail": "Every P1 to P5 pupil gets a free lunch. From P6, a child qualifies through a benefit such as Universal Credit with earnings of £995 a month or less, which also unlocks the clothing grant.",
+      "rows": [
+        {
+          "label": "P1 to P5",
+          "value": "Free lunch for every pupil"
+        },
+        {
+          "label": "P6 and P7",
+          "value": "Also free with Scottish Child Payment"
+        },
+        {
+          "label": "Clothing grant, primary",
+          "value": "At least £120"
+        },
+        {
+          "label": "Clothing grant, secondary",
+          "value": "At least £150"
+        }
+      ],
+      "asOf": "From 1 April 2026",
+      "source": {
+        "publisher": "legislation.gov.uk",
+        "url": "https://www.legislation.gov.uk/ssi/2026/19/made"
+      }
+    },
     image: {
       src: "/images/editorial/free-school-meals-clothing-grant.webp",
       alt: "A parent helping her primary-school child put on an unbranded school jumper before leaving home",
@@ -1033,32 +1194,30 @@ export const posts: Post[] = [
     },
     toc: [
       { id: "meals", label: "Who gets free school meals" },
-      { id: "older", label: "The rules after P5" },
-      { id: "clothing", label: "School clothing grants" },
+      { id: "eligibility", label: "Eligibility after P5" },
+      { id: "p6-p7", label: "P6 and P7" },
+      { id: "clothing", label: "Clothing grant amounts" },
       { id: "holidays", label: "Help in school holidays" },
       { id: "apply", label: "How to apply" },
     ],
     faq: [
-      {
-        q: "Are school meals free for every primary pupil in Scotland?",
-        a: "Lunch is universal in council and Scottish Government funded schools from primary 1 to primary 5. In primary 6 and 7, Scottish Child Payment or another qualifying benefit can give entitlement.",
-      },
-      {
-        q: "How much is the school clothing grant in Scotland?",
-        a: "Every council must pay at least £120 for a primary age child and £150 for a secondary age child. Councils set local eligibility rules and may pay more.",
-      },
+      { q: "Are school meals free for every primary pupil in Scotland?", a: "Lunch is universal in council and Scottish Government funded schools from primary 1 to primary 5. In primary 6 and 7, Scottish Child Payment or another qualifying benefit can give entitlement." },
+      { q: "What is the income limit for free school meals in Scotland?", a: "If you get Universal Credit, your monthly earned income, or you and your partner's together, must be £995 or less. The limit rose from £850 on 1 April 2026. Other benefits such as Pension Credit have no earnings test." },
+      { q: "Do P6 and P7 get free school meals in Scotland?", a: "Yes, if the family gets Scottish Child Payment or another qualifying benefit. The Scottish Child Payment route gives lunches only, not the clothing grant or holiday payments." },
+      { q: "How much is the school clothing grant in Scotland?", a: "Every council must pay at least £120 for a primary age child and £150 for a secondary age child. Some pay more: Highland pays £166.50 and £178.50, and South Lanarkshire £150 and £170." },
+      { q: "Can I get the clothing grant with Scottish Child Payment?", a: "Not on Scottish Child Payment alone. Councils such as Highland, Midlothian and Moray say it gives P6 and P7 lunches only. You usually need Universal Credit under the earnings limit or another qualifying benefit." },
     ],
-    sourceIds: ["free-school-meals-2026", "school-clothing-grants", "sg-child-payment-2026"],
+    sourceIds: ["free-school-meals-2026", "school-clothing-grants", "fsm-regulations-2026", "highland-meals-clothing-grants", "south-lanarkshire-clothing-grant", "midlothian-free-school-meals", "moray-meals-clothing-grants", "sss-best-start", "sg-child-payment-2026"],
   },
   {
     slug: "why-is-the-cost-of-living-so-high",
-    title: "Why the cost of living is still so high in Scotland",
-    description:
-      "Scotland's cost of living crisis did not end when inflation fell. See why food, rent and energy remain expensive and which political choices worsened it.",
+    title: "Cost of living Scotland: why it is still so high in 2026",
+    seoTitle: "Cost of Living Scotland: Why Prices Are Still So High",
+    description: "Prices rose 3.5% in the year to September 2026, on top of a 34% five year rise for low income households. Scotland's bills, the causes and who can fix it.",
     standfirst:
       "War and the pandemic pushed prices up. That is true. It is also true that political choices left ordinary families with less protection, and added avoidable costs of their own.",
     date: "2026-08-01",
-    updated: "2026-08-01",
+    updated: "2026/10-29",
     category: "money-and-bills",
     tags: ["Cost of living", "Food", "Energy", "Rent", "Universal Credit"],
     readingMinutes: 10,
@@ -1071,6 +1230,8 @@ export const posts: Post[] = [
     },
     toc: [
       { id: "what-is-happening", label: "What is happening now" },
+      { id: "monthly-costs", label: "The main bills in 2026" },
+      { id: "scotland-vs-uk", label: "Is Scotland expensive?" },
       { id: "what-started-it", label: "What started the crisis" },
       { id: "decisions-made-it-worse", label: "The choices that made it worse" },
       { id: "glasgow-hit", label: "Why Glasgow feels it harder" },
@@ -1078,48 +1239,24 @@ export const posts: Post[] = [
       { id: "who-can-fix-it", label: "Who can fix what" },
     ],
     faq: [
-      {
-        q: "Has the cost of living crisis ended because inflation is lower?",
-        a: "No. Lower inflation means prices are rising more slowly; it does not put them back where they were. By March 2026, the ONS Household Costs Index was about 34% higher than five years earlier for low income households.",
-      },
-      {
-        q: "Did MPs cause the cost of living crisis?",
-        a: "Not by themselves. Pandemic disruption and Russia’s invasion of Ukraine caused major global food and energy shocks. But UK governments and MPs made choices on benefits, rent support, trade, tax and the 2022 mini budget that left households more exposed or added extra cost.",
-      },
-      {
-        q: "Who controls help with the cost of living in Scotland?",
-        a: "Both parliaments do. Westminster controls Universal Credit, Local Housing Allowance, the legal minimum wage, most tax allowances and energy regulation. Holyrood controls the Scottish Child Payment, housing, Scottish income tax bands, childcare and much of public transport. Councils control local crisis support and services.",
-      },
+      { q: "Why is the cost of living so high in Scotland?", a: "Prices rose sharply between 2021 and 2023 after the pandemic and the war in Ukraine, and most never came back down. Inflation was 3.5% in the year to September 2026, so prices are rising again from that higher level." },
+      { q: "What is the cost of living in Scotland?", a: "In autumn 2026 the average private rent in Scotland was £1,011 a month (£702 for one bedroom), typical gas and electricity was £1,723 a year under the Ofgem cap, and a Band D council tax and water bill ran from about £2,121 to £2,468 a year depending on the council." },
+      { q: "Is it cheaper to live in Scotland than England?", a: "Rent is lower on average: £1,011 a month in Scotland in September 2026 against £1,406 across the UK. Income tax is slightly lower in Scotland on modest pay and higher on bigger salaries, and pay is close to the UK figure." },
+      { q: "Has the cost of living crisis ended because inflation is lower?", a: "No. Lower inflation means prices are rising more slowly; it does not put them back where they were. By March 2026, the ONS Household Costs Index was about 34% higher than five years earlier for low income households." },
+      { q: "Did MPs cause the cost of living crisis?", a: "Not by themselves. Pandemic disruption and Russia’s invasion of Ukraine caused major global food and energy shocks. But UK governments and MPs made choices on benefits, rent support, trade, tax and the 2022 mini budget that left households more exposed or added extra cost." },
+      { q: "Who controls help with the cost of living in Scotland?", a: "Both parliaments do. Westminster controls Universal Credit, Local Housing Allowance, the legal minimum wage, most tax allowances and energy regulation. Holyrood controls the Scottish Child Payment, housing, Scottish income tax bands, childcare and much of public transport. Councils control local crisis support and services." },
     ],
-    sourceIds: [
-      "ons-cpi-2026",
-      "ons-household-costs-2026",
-      "sg-cost-living-2025",
-      "sg-private-rents-2025",
-      "welfare-freeze-act",
-      "welfare-freeze-vote",
-      "welfare-freeze-impact",
-      "uc-uplift-withdrawal",
-      "lha-2026",
-      "mini-budget-2022",
-      "brexit-food-prices",
-      "nao-energy-market",
-      "obr-tax-thresholds-2025",
-      "scottish-housing-budget",
-      "sg-child-payment-2026",
-      "cpag",
-      "minimum-wage-2026",
-      "mis-2025",
-    ],
+    sourceIds: ["ons-cpi-2026", "ons-cpi-sep-2026", "ons-household-costs-2026", "ons-pipr-2026-10", "ons-pipr-uk-sep-2026", "ofgem-cap-oct-2026", "ashe-2026-residence", "council-tax-scotland", "scottish-water-2026", "scottish-tax-2026", "ni-rates-2026", "sg-cost-living-2025", "sg-private-rents-2025", "welfare-freeze-act", "welfare-freeze-vote", "welfare-freeze-impact", "uc-uplift-withdrawal", "lha-2026", "mini-budget-2022", "brexit-food-prices", "nao-energy-market", "obr-tax-thresholds-2025", "scottish-housing-budget", "sg-child-payment-2026", "cpag", "minimum-wage-2026", "mis-2025"],
   },
   {
     slug: "do-people-in-poverty-work",
-    title: "Most children in poverty in Scotland have a parent who works",
-    description:
-      "Three out of four children living in poverty in Scotland have a parent in work. Here is what that means, and why working more hours does not fix it.",
+    title: "In work poverty Scotland: most children in poverty have a parent who works",
+    seoTitle: "In Work Poverty Scotland: Why a Job Is Not Enough",
+    description: "75% of children in poverty in Scotland live with a working adult, and 66% of people in poverty have someone in work. Why a job is not always enough.",
     standfirst:
       "The most common thing said about poverty is that people should get a job. Most of them already have one.",
     date: "2026-07-31",
+    updated: "2026/10-29",
     category: "poverty-explained",
     tags: ["Work", "Low pay", "Housing costs"],
     readingMinutes: 4,
@@ -1131,33 +1268,63 @@ export const posts: Post[] = [
       objectPosition: "center 42%",
     },
     toc: [
+      { id: "what-is-in-work-poverty", label: "What is in work poverty?" },
+      { id: "in-work-poverty-scotland", label: "The figures for Scotland" },
       { id: "why-work-does-not-fix-it", label: "Why work does not fix it" },
       { id: "housing-costs", label: "How housing changes the picture" },
       { id: "what-this-changes", label: "What this changes" },
+      { id: "what-helps", label: "What can help" },
+      { id: "modern-studies", label: "For Modern Studies" },
     ],
     faq: [
-      {
-        q: "Do most people in poverty work?",
-        a: "Yes. In Scotland, about 75% of children living in poverty are in a household where at least one adult works. Work has stopped being a reliable way out of poverty.",
-      },
-      {
-        q: "Why does working not lift a family out of poverty?",
-        a: "Three things: wages that have not kept up with prices, hours that are part time or unpredictable, and housing costs that take a large share of what is left. Poverty is measured after rent or mortgage is paid.",
-      },
+      { q: "Do most people in poverty work?", a: "Yes. In Scotland, 75% of children in poverty live in a household where at least one adult works, and 66% of all people in poverty have someone in work (2022 to 2025). Work has stopped being a reliable way out of poverty." },
+      { q: "What is in work poverty?", a: "In work poverty means a household is below the poverty line even though at least one adult in it has a paid job. Poverty is measured for the whole household after rent or mortgage, so one wage may not stretch far enough." },
+      { q: "Does working full time protect you from poverty?", a: "Mostly. In Scotland 11% of people in families where at least one adult works full time are in poverty, and 5% where every adult works full time. With only part time work it is 27%, and where nobody works it is 43% (Joseph Rowntree Foundation, 2022 to 2025)." },
+      { q: "Why does working not lift a family out of poverty?", a: "Three things: wages that have not kept up with prices, hours that are part time or unpredictable, and housing costs that take a large share of what is left. Poverty is measured after rent or mortgage is paid." },
+      { q: "What help can a working family get in Scotland?", a: "Universal Credit can top up low pay while you work. Families getting it can also claim the Scottish Child Payment for each child under 16, the Best Start Grant for young children, and Council Tax Reduction." },
     ],
-    sourceIds: ["sg-poverty-2026", "jrf"],
+    sourceIds: ["sg-poverty-2026", "jrf-poverty-in-scotland-2026", "thresholds", "minimum-wage-2026", "jrf"],
   },
   {
     slug: "what-does-poverty-mean",
-    title: "What does poverty mean in the UK?",
-    description:
-      "Poverty has an official definition, and it is not what most people assume. What the poverty line is in pounds a week, and why 'after housing costs' matters.",
-    standfirst:
-      "The word gets used loosely. The measure behind it is precise, and knowing it makes every other number on this site readable.",
+    title: "What does poverty mean? The UK poverty line explained",
+    seoTitle: "UK Poverty Line 2024/25: What Poverty Means in Pounds a Week",
+    description: "The UK poverty line is 60% of typical income after rent. In 2024/25 that was £212 a week for a single adult and £519 for a couple with two children.",
+    standfirst: "The word gets used loosely. The measure behind it is precise, and it comes down to a sum in pounds a week that you can check your own household against.",
     date: "2026-07-31",
+    updated: "2026/10-29",
     category: "poverty-explained",
     tags: ["Poverty line", "Housing costs", "Definitions"],
     readingMinutes: 5,
+    quickAnswer: {
+      "label": "UK poverty line, single adult",
+      "value": "£212",
+      "unit": "a week after housing costs",
+      "detail": "The UK poverty line is 60% of median household income, counted after rent or mortgage. A household with less than this is in relative poverty.",
+      "rows": [
+        {
+          "label": "Single adult",
+          "value": "£212 a week"
+        },
+        {
+          "label": "Single parent, one child aged one",
+          "value": "£285 a week"
+        },
+        {
+          "label": "Couple, no children",
+          "value": "£365 a week"
+        },
+        {
+          "label": "Couple, two children aged three and seven",
+          "value": "£519 a week"
+        }
+      ],
+      "asOf": "2024/25, the latest year published",
+      "source": {
+        "publisher": "Trust for London, from DWP Households Below Average Income",
+        "url": "https://trustforlondon.org.uk/data/poverty-thresholds/"
+      }
+    },
     image: {
       src: "/images/editorial/glasgow-everyday-street.webp",
       alt: "People walking along a wet Glasgow tenement street after rain",
@@ -1165,37 +1332,65 @@ export const posts: Post[] = [
         "Poverty is not a type of person or place. It is a household being left with too little to take part in ordinary life.",
     },
     toc: [
-      { id: "short-version", label: "The short version" },
-      { id: "real-money", label: "What it means in pounds" },
-      { id: "after-housing-costs", label: "Why housing matters" },
-      { id: "three-measures", label: "Three different measures" },
-      { id: "where-scotland-stands", label: "Where Scotland stands" },
+      { id: "what-is-poverty", label: "What is poverty?" },
+      { id: "uk-poverty-line", label: "The UK poverty line" },
+      { id: "single-person", label: "For a single person" },
+      { id: "am-i-below", label: "Am I below the line?" },
+      { id: "after-housing-costs", label: "Before and after housing costs" },
+      { id: "relative-absolute", label: "Relative and absolute poverty" },
+      { id: "poverty-in-the-uk", label: "UK and Scotland figures" },
+      { id: "modern-studies", label: "For Modern Studies" },
     ],
     faq: [
-      {
-        q: "What is the poverty line in the UK?",
-        a: "A household is in relative poverty when it has less than 60% of the usual UK household income. In 2022/23, after housing costs, a couple with two young children needed more than £407 a week to be above it.",
-      },
-      {
-        q: "What does 'after housing costs' mean?",
-        a: "Rent or mortgage is taken off the household's income before the comparison is made. It is the money actually available for everything else, so it is the fairer measure in places where housing is expensive.",
-      },
+      { q: "What is the poverty line in the UK?", a: "A household is below the UK poverty line when its income is less than 60% of the typical (median) UK household income, counted after rent or mortgage. In 2024/25 that was £212 a week for a single adult and £519 a week for a couple with two children aged three and seven." },
+      { q: "What is the UK poverty line for a single person?", a: "£212 a week in 2024/25, about £11,024 a year. That is income after tax, council tax and housing costs, so it is not the same as a salary. The figure is the same for a single pensioner." },
+      { q: "Am I below the poverty line?", a: "Add up your household's weekly income after tax, including benefits. Take off council tax, then your rent or mortgage interest and water charges. If what is left is less than the line for a household like yours, such as £212 a week for one adult, you are below it." },
+      { q: "What is the difference between relative and absolute poverty?", a: "Relative poverty compares a household with typical income today: below 60% of this year's median. Absolute poverty uses a line fixed in a past year and raised only with prices, so it shows whether living standards at the bottom are really improving." },
+      { q: "What does 'after housing costs' mean?", a: "Rent or mortgage is taken off the household's income before the comparison is made. It is the money actually available for everything else, so it is the fairer measure in places where housing is expensive." },
+      { q: "What is the poverty line in Scotland?", a: "Scotland uses the same UK poverty line. On average over 2022 to 2025, 17% of people in Scotland, about 940,000, were below it after housing costs, including 21% of children." },
     ],
-    sourceIds: ["sg-poverty-2026", "thresholds"],
+    sourceIds: ["sg-poverty-2026", "thresholds", "dwp-hbai-fye-2025", "dwp-hbai-methodology-fye-2025"],
   },
   {
     slug: "what-is-the-scottish-child-payment",
     title: "Scottish Child Payment: how much it is and how to apply",
-    seoTitle: "Scottish Child Payment 2026/27: How Much and How to Apply",
-    description:
-      "A weekly payment for every child in a low income family in Scotland. What it is worth, who can get it, and why many eligible families never claim.",
-    standfirst:
-      "It does not exist anywhere else in the UK, and some families who are entitled to it have never claimed it.",
+    seoTitle: "Scottish Child Payment 2026/27: £28.20 a Week, Who Qualifies",
+    description: "Scottish Child Payment is £28.20 a week for each child under 16, paid every four weeks to families on Universal Credit or Pension Credit. How to apply.",
+    standfirst: "£28.20 a week for every child, on top of other benefits. It does not exist anywhere else in the UK, and some families who are entitled to it have never claimed.",
     date: "2026-07-31",
-    updated: "2026-08-01",
+    updated: "2026/10-29",
     category: "money-and-bills",
     tags: ["Benefits", "Families", "Scottish Child Payment"],
     readingMinutes: 4,
+    quickAnswer: {
+      "label": "Scottish Child Payment",
+      "value": "£28.20",
+      "unit": "a week per child under 16",
+      "detail": "Paid every four weeks by Social Security Scotland to families on Universal Credit or Pension Credit. There is no limit on the number of children and it does not reduce other benefits.",
+      "rows": [
+        {
+          "label": "One child, every four weeks",
+          "value": "£112.80"
+        },
+        {
+          "label": "Two children, a week",
+          "value": "£56.40"
+        },
+        {
+          "label": "Rate in 2025/26",
+          "value": "£27.15"
+        },
+        {
+          "label": "Apply by phone",
+          "value": "0800 182 2222"
+        }
+      ],
+      "asOf": "From April 2026",
+      "source": {
+        "publisher": "Social Security Scotland",
+        "url": "https://www.socialsecurity.gov.scot/news/2026/02/scottish-child-payment-five-year-anniversary"
+      }
+    },
     image: {
       src: "/images/editorial/scotland-secure-homes.webp",
       alt: "Two children arriving home from school to a secure family home",
@@ -1204,31 +1399,33 @@ export const posts: Post[] = [
       objectPosition: "center 44%",
     },
     toc: [
-      { id: "who-can-get-it", label: "Who can get it" },
+      { id: "how-much", label: "How much it is" },
+      { id: "increase", label: "The 2026 increase" },
+      { id: "who-can-get-it", label: "Who qualifies" },
+      { id: "apply", label: "How to apply" },
+      { id: "payment-dates", label: "Payment dates" },
+      { id: "child-benefit", label: "Scottish Child Payment and Child Benefit" },
       { id: "why-it-matters", label: "Why it matters" },
       { id: "who-decides", label: "Who decides it" },
       { id: "take-up", label: "The money going unclaimed" },
     ],
     faq: [
-      {
-        q: "How much is the Scottish Child Payment?",
-        a: "As of April 2026 it is £28.20 per child per week, paid for every child in a low income family. It is set to rise to £40 a week for children under one from 2027.",
-      },
-      {
-        q: "Who decides the Scottish Child Payment?",
-        a: "The Scottish Parliament in Edinburgh. It is a devolved payment, so your MSP can be asked about it. Most other benefits, including Universal Credit, are decided at Westminster by your MP.",
-      },
+      { q: "How much is Scottish Child Payment in 2026?", a: "From April 2026 it is £28.20 per child per week, paid as £112.80 per child every four weeks. It was £27.15 in 2025/26. The Scottish Government plans £40 a week for babies under one from 2027." },
+      { q: "Who qualifies for Scottish Child Payment?", a: "You must live in Scotland, be responsible for a child under 16 and get Universal Credit or Pension Credit. Only one person can get it for each child, and there is no limit on the number of children." },
+      { q: "How do I apply for Scottish Child Payment?", a: "Apply to Social Security Scotland online through mygov.scot, by paper form, or by phone on 0800 182 2222. It is not paid automatically when you get Universal Credit." },
+      { q: "Is Scottish Child Payment the same as Child Benefit?", a: "No. Child Benefit is paid across the UK by HMRC, £27.05 a week for the eldest child and £17.90 for others. Scottish Child Payment is extra, only in Scotland, and you can get both." },
+      { q: "Who decides the Scottish Child Payment?", a: "The Scottish Parliament in Edinburgh. It is a devolved payment, so your MSP can be asked about it. Most other benefits, including Universal Credit, are decided at Westminster by your MP." },
     ],
-    sourceIds: ["cpag", "jrf"],
+    sourceIds: ["sss-scp-five-years", "turn2us-scp-amount", "turn2us-scp-eligibility", "turn2us-scp-claim", "sg-child-payment-2026", "child-benefit-rates", "sss-contact", "sss-bank-holiday-dates", "sss-best-start", "cpag", "jrf"],
   },
   {
     slug: "how-to-contact-your-mp-or-msp",
-    title: "How to contact your MP or MSP in Scotland",
-    description:
-      "Find out how to contact your MP or MSP in Scotland, what to say and what happens next. Or use the postcode tool to open both ready written emails.",
-    standfirst:
-      "Most people never contact their representatives, and the main reason is not apathy. It is not knowing how it works.",
+    title: "Contact MSP or MP in Scotland: how to do it and what to say",
+    seoTitle: "Contact MSP or MP in Scotland: Email, Phone and What to Say",
+    description: "Email your MSP at firstname.surname.msp@parliament.scot or call 0131 348 5000. How to contact your MP too, what to write and what happens next.",
+    standfirst: "Most people never contact their representatives, and the main reason is not apathy. It is not knowing how it works. Here are the addresses, the numbers and the words.",
     date: "2026-07-31",
+    updated: "2026/10-29",
     category: "take-action",
     tags: ["MP", "MSP", "Email"],
     readingMinutes: 4,
@@ -1240,26 +1437,23 @@ export const posts: Post[] = [
       objectPosition: "center 38%",
     },
     toc: [
-      { id: "mp-and-msp", label: "Your MP and your MSP" },
+      { id: "mp-and-msp", label: "MSP or MP: which one" },
+      { id: "contact-msp", label: "Contact your MSP" },
+      { id: "contact-mp", label: "Contact your MP" },
       { id: "what-to-say", label: "What to actually say" },
       { id: "what-happens-next", label: "What happens next" },
+      { id: "scottish-government", label: "The Scottish Government" },
       { id: "one-minute-version", label: "The one minute version" },
     ],
     faq: [
-      {
-        q: "Do I have to have voted for my MP to contact them?",
-        a: "No. An MP represents everyone who lives in their area, whether they voted for them, voted against them, or did not vote at all. They still have to deal with your case.",
-      },
-      {
-        q: "What is the difference between an MP and an MSP?",
-        a: "Your MP works in the UK Parliament in London and helps decide Universal Credit, most benefits and help with private rent. Your MSP works in the Scottish Parliament in Edinburgh and helps decide the Scottish Child Payment, housing, childcare and schools. You have both.",
-      },
-      {
-        q: "Will my MP actually reply?",
-        a: "Usually yes, though it can take a few weeks. Offices log what constituents write about, so the volume of letters on a subject matters even when an individual reply is short.",
-      },
+      { q: "How do I contact my MSP?", a: "Email them, usually at firstname.surname.msp@parliament.scot, phone the Scottish Parliament on 0131 348 5000 (free on 0800 092 7500), or write to The Scottish Parliament, Edinburgh, EH99 1SP. Include your full address and postcode." },
+      { q: "Can I contact any of my 8 MSPs?", a: "Yes. Everyone in Scotland has one constituency MSP and seven regional MSPs. The Scottish Parliament says you can contact either type about anything it deals with." },
+      { q: "What is the Scottish Parliament phone number?", a: "0131 348 5000, or 0800 092 7500 free. Calls are answered 10am to 1pm and 2pm to 4pm, Monday to Friday." },
+      { q: "How do I contact my MP in Scotland?", a: "Most MPs use an email in the form firstname.surname.mp@parliament.uk. You can also phone their local office, call the House of Commons on 020 7219 3000, or write to House of Commons, London, SW1A 0AA." },
+      { q: "What is the difference between an MP and an MSP?", a: "Your MP sits in the UK Parliament in London and deals with things like Universal Credit, the State Pension, immigration and the minimum wage. Your MSPs sit in the Scottish Parliament in Edinburgh and deal with the NHS, schools, housing, policing and Scottish benefits like the Scottish Child Payment." },
+      { q: "Do I have to have voted for my MP to contact them?", a: "No. An MP represents everyone who lives in their area, whether they voted for them, voted against them, or did not vote at all. They still have to deal with your case." },
     ],
-    sourceIds: [],
+    sourceIds: ["sp-about-msps", "sp-contact-us", "sp-open-data-msps", "uk-parliament-members-api", "uk-parliament-contact-mp"],
   },
   {
     slug: "adult-disability-payment",
