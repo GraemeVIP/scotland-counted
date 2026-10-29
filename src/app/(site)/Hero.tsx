@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import PostcodeStart from "@/components/PostcodeStart";
+import PostcodeStart, { RESULT_SLOT_ID } from "@/components/PostcodeStart";
 import type { LocalFacts, ResponsibilitySplit } from "@/lib/localFacts";
 
 /**
@@ -27,6 +27,7 @@ export default function Hero({
   split: ResponsibilitySplit;
 }) {
   return (
+    <>
     <section className="saltire-hero -mt-[72px] pt-[72px] rounded-b-[var(--r-l)]">
       <div className="beams" aria-hidden="true">
         <div className="beam a" />
@@ -92,5 +93,8 @@ export default function Hero({
         </div>
       </div>
     </section>
+    {/* The postcode result renders here, full width, rather than stretching the card and the hero. */}
+    <div id={RESULT_SLOT_ID} />
+    </>
   );
 }
