@@ -11,7 +11,7 @@ type View = "national" | "peer" | "residents";
 
 const VIEWS: { id: View; label: string; short: string }[] = [
   { id: "national", label: "All councils", short: "All" },
-  { id: "peer", label: "Like-for-like", short: "Like-for-like" },
+  { id: "peer", label: "Like for like", short: "Like for like" },
   { id: "residents", label: "What residents said", short: "Residents" },
 ];
 

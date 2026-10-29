@@ -135,7 +135,7 @@ export const snpMoneyTimelineSources: SnpTimelineSource[] = [
     publisher: "Electoral Commission",
     url: "https://search.electoralcommission.org.uk/Api/Accounts/Documents/24333",
     used:
-      "The year-end cash, net assets, deficit and disclosure that £107,620 had been advanced by executive management, with £60,000 outstanding.",
+      "The year end cash, net assets, deficit and disclosure that £107,620 had been advanced by executive management, with £60,000 outstanding.",
   },
   {
     id: "ec-murrell-loan-foi",
@@ -375,7 +375,7 @@ export const snpMoneyTimelineSources: SnpTimelineSource[] = [
     title: "Scottish National Party annual report and financial statements 2019",
     publisher: "Electoral Commission",
     url: "https://search.electoralcommission.org.uk/Api/Accounts/Documents/22612",
-    used: "The fall in year-end cash to £96,854 and the 2019 net asset figure.",
+    used: "The fall in year end cash to £96,854 and the 2019 net asset figure.",
   },
   {
     id: "national-beattie-earmark-2020",
@@ -964,7 +964,7 @@ export const snpMoneyTimelineEvents: SnpTimelineEvent[] = [
     status: "official",
     title: "The next accounts show a £487,487 internal independence earmark",
     summary:
-      "The SNP later reported £740,822 of cumulative appeal income and £253,335 of qualifying spending, leaving £487,487 internally earmarked. Year-end cash was £144,975 and the annual deficit was £751,572.",
+      "The SNP later reported £740,822 of cumulative appeal income and £253,335 of qualifying spending, leaving £487,487 internally earmarked. Year end cash was £144,975 and the annual deficit was £751,572.",
     explainer:
       "An earmark is an internal promise about future use. It is not the same as cash sitting untouched in its own bank account.",
     sourceIds: ["ec-snp-accounts-2021"],

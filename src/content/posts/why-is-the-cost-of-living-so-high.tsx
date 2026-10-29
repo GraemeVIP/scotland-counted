@@ -222,7 +222,7 @@ export default function Post() {
       <BigStat
         value="£1,094"
         label="average monthly advertised rent for a two bedroom home in Greater Glasgow in 2025"
-        exact="Up 94% since 2010, compared with 54.7% general UK inflation over the same period. Scottish Government private-rent statistics."
+        exact="Up 94% since 2010, compared with 54.7% general UK inflation over the same period. Scottish Government private rent statistics."
       />
 
       <P>

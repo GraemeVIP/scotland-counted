@@ -528,7 +528,7 @@ const records: CouncilAccountabilityRecord[] = [
         recommendation:
           "Check the figures for buildings, equipment and council homes more carefully before the accounts are published.",
         managementResponse:
-          "The council accepted this and said it would improve its year-end checks during 2025/26.",
+          "The council accepted this and said it would improve its year end checks during 2025/26.",
         implementationDate: "2026-03",
         status: "in-progress",
         sourceIds: sourceIdList("north-ayrshire-audit-2024-25"),

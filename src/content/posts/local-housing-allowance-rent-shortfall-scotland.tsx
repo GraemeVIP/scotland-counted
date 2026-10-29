@@ -40,7 +40,7 @@ export default function Post() {
       <BigStat
         value="about £172 a month"
         label="the gap between the one bedroom LHA cap and the 2025 Greater Glasgow advertised rent average"
-        exact="LHA: £159.95 a week, about £693 a month. Average advertised one-bedroom rent in 2025: £865 a month."
+        exact="LHA: £159.95 a week, about £693 a month. Average advertised one bedroom rent in 2025: £865 a month."
       />
       <P>
         This is not a claim that every one bedroom tenant pays £865. The rent statistic mainly

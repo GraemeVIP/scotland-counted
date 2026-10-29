@@ -162,7 +162,7 @@ export default function WhatWouldFixIt() {
         <ContentFrame>
           <EditorialImage
             src="/images/editorial/scotland-secure-homes.webp"
-            alt="An illustrated family arriving home on a modern affordable-housing street in Scotland."
+            alt="An illustrated family arriving home on a modern affordable housing street in Scotland."
             caption="Security is the outcome: enough income and housing for families to plan ahead instead of constantly absorbing another bill."
             aspect="wide"
             className="mt-10"

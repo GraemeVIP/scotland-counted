@@ -38,7 +38,7 @@ export default function Post() {
       <BigStat
         value="at least £120 or £150"
         label="for each child who qualifies, once a year"
-        exact="At least £120 for a primary-age child and £150 for a secondary-age child. Councils can pay more."
+        exact="At least £120 for a primary age child and £150 for a secondary age child. Councils can pay more."
       />
       <P>
         The grant is normally cash paid into a bank account for uniforms, clothing and shoes. You

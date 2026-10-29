@@ -66,7 +66,7 @@ function budgetContext(councilName: string, numbers: BudgetNumbers): BudgetFigur
       currency: "GBP",
       period: "2026/27",
       plainEnglish: positionIsSurplus
-        ? `When the budget was set, ${councilName} had ${money(positionValue)} left before its other changes were counted. This is a budget setting figure, not a final year-end result.`
+        ? `When the budget was set, ${councilName} had ${money(positionValue)} left before its other changes were counted. This is a budget setting figure, not a final year end result.`
         : `When the budget was set, ${councilName} needed ${money(positionValue)} more to pay for planned services. The council planned to find it through savings, extra income, money already set aside or other changes. It is not money already missing from a bank account.`,
       sourceIds: [budgetBulletin.id],
     },
@@ -461,7 +461,7 @@ export const southLanarkshireAccountability: CouncilAccountabilityRecord = {
   ],
   sources: [budgetBulletin, southLanarkshireAudit],
   knownGaps: [
-    "South Lanarkshire reported £1.5m left over before other changes when setting its 2026/27 budget. This is not the same as a final year-end result.",
+    "South Lanarkshire reported £1.5m left over before other changes when setting its 2026/27 budget. This is not the same as a final year end result.",
     "The audit says the council has improvement plans for measures below the Scottish average, but this page does not yet list those measures or goals.",
     "The exact money problem after later decisions needs a current council plan.",
     "No individual councillor is linked to a budget or service result here.",

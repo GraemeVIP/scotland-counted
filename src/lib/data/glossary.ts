@@ -395,7 +395,7 @@ export const terms: Term[] = [
   },
   {
     id: "means-tested",
-    term: "Means-tested",
+    term: "Means tested",
     def: "Decided partly by looking at your income, savings or household circumstances.",
     tech: "Different schemes count income and savings in different ways. A means test is not the same as a universal payment.",
   },
@@ -461,7 +461,7 @@ export const terms: Term[] = [
   },
   {
     id: "kilowatt-hour",
-    term: "Kilowatt-hour",
+    term: "Kilowatt hour",
     def: "A unit used to measure energy. Your electricity and gas bills charge for the number of units you use.",
     tech: "It is usually shortened to kWh. The price per kWh is separate from the daily standing charge.",
   },
@@ -611,7 +611,7 @@ export const terms: Term[] = [
   },
   {
     id: "service-level",
-    term: "Service-level",
+    term: "Service level",
     def: "About one particular service, rather than the council as a whole.",
     tech: "A service level measure should name the service, the people or cases counted, the time period and the result being checked.",
   },
@@ -701,7 +701,7 @@ export const terms: Term[] = [
   },
   {
     id: "like-for-like",
-    term: "Like-for-like",
+    term: "Like for like",
     def: "A fair comparison using the same measure, time period and type of people or cases.",
     tech: "If the definition or denominator changes, the result may look different without the service actually changing.",
   },
@@ -725,7 +725,7 @@ export const terms: Term[] = [
   },
   {
     id: "ring-fenced",
-    term: "Ring-fenced",
+    term: "Ring fenced",
     def: "Promised for one stated purpose, rather than available for ordinary spending. It does not necessarily mean a separate bank account unless that is also promised.",
     tech: "The exact protection depends on the wording, legal structure and accounting treatment. A public promise can be stronger or weaker than a legally restricted fund.",
   },
