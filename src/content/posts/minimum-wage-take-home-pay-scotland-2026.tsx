@@ -31,6 +31,20 @@ export default function Post() {
         minimum for their age.
       </P>
 
+      <H2 id="april-2027">What changes in April 2027</H2>
+      <P>The UK Government has published the rates that apply from 1 April 2027:</P>
+      <UL>
+        <LI>Age 21 and over: £13.21 an hour, up 50p.</LI>
+        <LI>Age 18 to 20: £11.27 an hour.</LI>
+        <LI>Under 18: £8.31 an hour.</LI>
+        <LI>Apprentices covered by the apprentice rate: £8.31 an hour.</LI>
+      </UL>
+      <P>
+        On the same 37.5-hour week, £13.21 an hour is £25,759.50 a year before tax, £975 more than
+        at the 2026 rate. What reaches the bank in 2027/28 also depends on the Scottish income-tax
+        bands, which the Scottish Government sets in its Budget.
+      </P>
+
       <H2 id="full-time">What full-time adds up to</H2>
       <P>
         There is no official “minimum wage salary” because the law sets an hourly rate. To make it

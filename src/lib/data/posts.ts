@@ -665,10 +665,11 @@ export const posts: Post[] = [
     slug: "minimum-wage-take-home-pay-scotland-2026",
     title: "Minimum wage in Scotland: what you earn in 2026",
     description:
-      "Minimum wage in Scotland is £12.71 an hour in 2026. See every age rate, gross weekly, monthly and yearly pay, plus take-home pay after tax and NI.",
+      "Minimum wage in Scotland is £12.71 an hour in 2026, rising to £13.21 in April 2027. See every age rate, yearly pay and take-home pay after tax and NI.",
     standfirst:
       "£12.71 an hour sounds clear. A payslip is not. I have done the tax and National Insurance working for a 37.5-hour week so you can see what reaches the bank.",
     date: "2026-08-01",
+    updated: "2026-10-29",
     category: "money-and-bills",
     tags: ["Minimum wage", "Take-home pay", "Scottish income tax", "Low pay"],
     readingMinutes: 6,
@@ -681,6 +682,7 @@ export const posts: Post[] = [
     },
     toc: [
       { id: "rates", label: "The 2026 hourly rates" },
+      { id: "april-2027", label: "What changes in April 2027" },
       { id: "full-time", label: "What full-time adds up to" },
       { id: "take-home", label: "What reaches the bank" },
       { id: "hours", label: "Why your pay may be lower" },
@@ -692,20 +694,25 @@ export const posts: Post[] = [
         a: "From 1 April 2026 it is £12.71 an hour for workers aged 21 and over, £10.85 for ages 18 to 20, and £8 for under-18s and eligible apprentices.",
       },
       {
+        q: "What will minimum wage be in Scotland in April 2027?",
+        a: "From 1 April 2027 it rises to £13.21 an hour for workers aged 21 and over, £11.27 for ages 18 to 20, and £8.31 for under-18s and eligible apprentices. Scotland does not set its own rate.",
+      },
+      {
         q: "What is £12.71 an hour per year?",
         a: "At 37.5 paid hours every week for 52 weeks it is £24,784.50 gross a year. It is not a guaranteed annual salary: fewer paid hours or unpaid time off means less.",
       },
     ],
-    sourceIds: ["minimum-wage-2026", "scottish-tax-2026", "ni-rates-2026", "mis-2025"],
+    sourceIds: ["minimum-wage-2026", "minimum-wage-2027", "scottish-tax-2026", "ni-rates-2026", "mis-2025"],
   },
   {
     slug: "real-living-wage-vs-minimum-wage-scotland",
     title: "Real Living Wage Scotland versus minimum wage",
     description:
-      "The 2026 legal minimum is £12.71 an hour and Scotland's real Living Wage is £13.45. See who sets each rate, who must pay it and what the gap is worth.",
+      "The real Living Wage is now £14.10 an hour. The legal minimum is £12.71, rising to £13.21 in April 2027. Who sets each rate and what the gap is worth.",
     standfirst:
       "They sound almost identical. One is the legal floor an employer must pay. The other is a voluntary rate calculated from what ordinary life actually costs.",
     date: "2026-08-01",
+    updated: "2026-10-29",
     category: "money-and-bills",
     tags: ["Real Living Wage", "Minimum wage", "Pay", "Living costs"],
     readingMinutes: 5,
@@ -730,10 +737,10 @@ export const posts: Post[] = [
       },
       {
         q: "How much more is the real Living Wage?",
-        a: "The current rate outside London is £13.45, which is 74p an hour above the 2026 legal rate for workers aged 21 and over. At 37.5 hours a week that is £1,443 gross a year.",
+        a: "The rate outside London is £14.10, announced on 15 October 2026. That is £1.39 an hour above the 2026 legal rate for workers aged 21 and over, or £2,710.50 gross a year at 37.5 hours a week. From April 2027, when the legal rate rises to £13.21, the gap is 89p an hour.",
       },
     ],
-    sourceIds: ["minimum-wage-2026", "real-living-wage", "mis-2025", "lpc-remit"],
+    sourceIds: ["minimum-wage-2026", "minimum-wage-2027", "real-living-wage", "mis-2025", "lpc-remit"],
   },
   {
     slug: "universal-credit-when-you-work-more-hours",

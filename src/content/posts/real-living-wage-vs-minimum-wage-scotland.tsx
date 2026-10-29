@@ -12,8 +12,8 @@ export default function Post() {
 
       <H2 id="short-answer">The short answer</H2>
       <UL>
-        <LI>The legal minimum is £12.71 an hour for workers aged 21 and over from April 2026.</LI>
-        <LI>The real Living Wage is £13.45 an hour outside London.</LI>
+        <LI>The legal minimum is £12.71 an hour for workers aged 21 and over from April 2026. It rises to £13.21 on 1 April 2027.</LI>
+        <LI>The real Living Wage is £14.10 an hour outside London and £15.45 in London. The new rates were announced on 15 October 2026, and accredited employers have until 1 May 2027 to pay them.</LI>
         <LI>Every employer must pay the legal minimum. Paying the real Living Wage is voluntary.</LI>
       </UL>
 
@@ -45,10 +45,14 @@ export default function Post() {
 
       <H2 id="difference">What the gap is worth</H2>
       <BigStat
-        value="74p an hour"
-        label="the difference between £13.45 and £12.71"
-        exact="At 37.5 paid hours a week for 52 weeks, that is £1,443 before tax over a year."
+        value="£1.39 an hour"
+        label="the difference between £14.10 and £12.71"
+        exact="At 37.5 paid hours a week for 52 weeks, that is £2,710.50 before tax over a year."
       />
+      <P>
+        The gap narrows on 1 April 2027, when the legal minimum rises to £13.21. It is then 89p an
+        hour, or £1,735.50 a year on the same hours.
+      </P>
       <P>
         That does not solve every household budget. Rent, children, disability, travel and benefit
         rules change what a household needs and keeps. It does show why a small-looking hourly gap

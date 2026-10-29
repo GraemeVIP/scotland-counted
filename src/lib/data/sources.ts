@@ -335,6 +335,15 @@ export const sources: Source[] = [
       "The full-time illustration is £12.71 multiplied by 37.5 paid hours and 52 weeks: £24,784.50 gross a year. It is an illustration, not a claim that every minimum-wage worker receives those hours.",
   },
   {
+    id: "minimum-wage-2027",
+    title: "National Minimum Wage and National Living Wage rates from April 2027",
+    publisher: "UK Government",
+    url: "https://www.gov.uk/national-minimum-wage-rates",
+    used: "The legal hourly minimums from 1 April 2027: £13.21 for workers aged 21 and over, £11.27 for ages 18–20, and £8.31 for under-18s and eligible apprentices.",
+    derivation:
+      "The full-time illustration is £13.21 multiplied by 37.5 paid hours and 52 weeks: £25,759.50 gross a year, £975 more than the same hours at the 2026 rate.",
+  },
+  {
     id: "mis-2025",
     title: "A Minimum Income Standard for the United Kingdom in 2025",
     publisher: "Joseph Rowntree Foundation / Loughborough University",
@@ -345,10 +354,10 @@ export const sources: Source[] = [
     id: "real-living-wage",
     title: "Real Living Wage rates and frequently asked questions",
     publisher: "Living Wage Foundation",
-    url: "https://www.livingwage.org.uk/faqs",
-    used: "The current voluntary real Living Wage of £13.45 an hour outside London, calculated from living costs rather than set as the legal wage floor.",
+    url: "https://www.livingwage.org.uk/what-real-living-wage",
+    used: "The voluntary real Living Wage of £14.10 an hour outside London and £15.45 in London, announced on 15 October 2026 for accredited employers to pay by 1 May 2027. It is calculated from living costs rather than set as the legal wage floor.",
     derivation:
-      "At 37.5 paid hours for 52 weeks this is £26,227.50 gross a year, £1,443 more than the same-hours illustration at the 2026 legal minimum.",
+      "At 37.5 paid hours for 52 weeks this is £27,495 gross a year, £2,710.50 more than the same-hours illustration at the 2026 legal minimum.",
   },
   {
     id: "jobs-density",
