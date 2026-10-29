@@ -64,7 +64,7 @@ export default function AreaGrid({ className = "" }: { className?: string }) {
         </p>
       </div>
 
-      <div className="grid grid-cols-2 gap-2.5 lg:grid-cols-4">
+      <div className="grid grid-cols-1 min-[380px]:grid-cols-2 gap-2.5 lg:grid-cols-4">
         {areas.map((a, index) => {
           const t = (a.pcts[9] - best) / span;
           return (

@@ -316,7 +316,7 @@ export default function Press() {
               The four Glasgow time series charts can be embedded with an iframe and stay current
               as the data updates. The embed button sits under each supported chart on the{" "}
               <Link href="/glasgow-poverty-statistics">indicator pages</Link>. For example, point an iframe at{" "}
-              <code className="datum text-[15px] bg-[var(--paper-2)] px-1.5 py-0.5">
+              <code className="datum text-[15px] bg-[var(--paper-2)] px-1.5 py-0.5 [overflow-wrap:anywhere]">
                 {site.url}/embed/glasgow-child-poverty
               </code>.
             </p>

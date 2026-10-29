@@ -41,15 +41,12 @@ function SearchButton() {
       type="button"
       onClick={() => window.dispatchEvent(new CustomEvent("open-command"))}
       aria-label="Find your area, or search the site"
-      className="group h-10 w-10 shrink-0 flex items-center justify-center gap-2.5 rounded-[var(--r-pill)] border border-white/20 text-white transition-colors hover:bg-white/10 px-0 2xl:w-auto 2xl:min-w-[172px] 2xl:justify-start 2xl:px-3.5"
+      className="group h-10 w-10 shrink-0 flex items-center justify-center rounded-[var(--r-pill)] border border-white/20 text-white transition-colors hover:bg-white/10"
     >
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" aria-hidden="true">
         <circle cx="11" cy="11" r="7" />
         <path d="m20 20-3.8-3.8" />
       </svg>
-      <span className="ui hidden 2xl:block whitespace-nowrap text-[14.5px] font-[500] text-white/85 group-hover:text-white transition-colors">
-        Search site or area
-      </span>
       {/*
         No ⌘K badge. It is Mac-only notation, and on Windows, Linux, Android and
         iOS it is either wrong or meaningless, a keyboard hint that most

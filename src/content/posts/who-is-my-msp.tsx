@@ -85,7 +85,8 @@ export default function Post() {
       <UL>
         <LI>
           Email is best. Almost every MSP&apos;s address follows the same pattern,
-          firstname.surname.msp@parliament.scot. The lookup above shows the exact one.
+          <span className="[overflow-wrap:anywhere]">firstname.surname.msp@parliament.scot</span>. The lookup
+          above shows the exact one.
         </LI>
         <LI>
           Phone the Scottish Parliament on <a href={SP.phoneHref}>{SP.phone}</a>, or free on{" "}
