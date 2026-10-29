@@ -118,7 +118,7 @@ const nextConfig: NextConfig = {
          * land on the page that finds their MP.
          */
         source: "/find-my-mp-and-msp",
-        destination: "/representatives",
+        destination: "/who-is-my-msp",
         permanent: true,
       },
     ];

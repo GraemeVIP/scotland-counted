@@ -825,7 +825,7 @@ export default function Post() {
       <PostCTA
         title="Ask your MSP to get the answer"
         body="Police Scotland answers to the Scottish Government and to Holyrood. Your MSP can ask why half of crime reports have no nationality recorded and what changed in April 2024."
-        href="/find-my-mp-and-msp"
+        href="/who-is-my-msp"
         cta="Find your MSP and write to them"
       />
 

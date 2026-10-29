@@ -47,6 +47,11 @@ import HigherModernStudiesPastPapers from "./higher-modern-studies-past-papers";
 import Nat5ModernStudiesPastPapers from "./nat-5-modern-studies-past-papers";
 import AdvancedHigherModernStudies from "./advanced-higher-modern-studies";
 import CausesOfPoverty from "./causes-of-poverty";
+import WhoIsMyMsp from "./who-is-my-msp";
+import WhoIsMyLocalCouncillorByPostcode from "./who-is-my-local-councillor-by-postcode";
+import LifeExpectancyGlasgow from "./life-expectancy-glasgow";
+import UnemploymentScotland from "./unemployment-scotland";
+import CrimeRateGlasgow from "./crime-rate-glasgow";
 
 /**
  * Slug to post body. Statically imported so every post is prerendered and no
@@ -102,4 +107,9 @@ export const postBodies: Record<string, ComponentType> = {
   "nat-5-modern-studies-past-papers": Nat5ModernStudiesPastPapers,
   "advanced-higher-modern-studies": AdvancedHigherModernStudies,
   "causes-of-poverty": CausesOfPoverty,
+  "who-is-my-msp": WhoIsMyMsp,
+  "who-is-my-local-councillor-by-postcode": WhoIsMyLocalCouncillorByPostcode,
+  "life-expectancy-glasgow": LifeExpectancyGlasgow,
+  "unemployment-scotland": UnemploymentScotland,
+  "crime-rate-glasgow": CrimeRateGlasgow,
 };

@@ -18,6 +18,7 @@ import { COUNCIL_SEARCH_NAMES } from "@/lib/routeMap";
 import { BAND_PROPOSALS, COUNCIL_TAX_REDUCTION, LOTHIAN_VJB_SOURCE, SCOTTISH_WATER, SECOND_ADULT_REBATE, SINGLE_PERSON_DISCOUNT, WATER_CHARGES_REDUCTION, bandValueLabel } from "@/lib/data/councilTaxHelp";
 import { scotlandPoverty } from "@/lib/data/scotland";
 import { ADVANCED_HIGHER_MODERN_STUDIES, HIGHER_MODERN_STUDIES, JRF_SCOTLAND_2026, MODERN_STUDIES_EXAMS_2027, MODERN_STUDIES_LINKS, MODERN_STUDIES_PAST_PAPERS, N5_MODERN_STUDIES, QS_REPLACED_SQA, QS_SOURCE, plainPeriod } from "@/lib/data/schools";
+import { ANNUAL_POPULATION_SURVEY, COUNCILLOR_SOURCE, COUNCILLOR_TOTALS, COUNCIL_UNEMPLOYMENT, GLASGOW_CRIME, GLASGOW_CRIME_PREVIOUS, LABOUR_MARKET, LABOUR_MARKET_LATEST, LIFE_EXPECTANCY, LIFE_EXPECTANCY_LATEST, LOCAL_ELECTION_2027, SCOTTISH_PARLIAMENT, TOTAL_MSPS, changePct, councilSearchName, pct, pointsChange, years } from "@/lib/data/local";
 
 /**
  * Plain-English articles and their search/wayfinding metadata.
@@ -2710,6 +2711,296 @@ export const posts: Post[] = [
       "sg-poverty-2026",
       "ecp",
       "nrs-drug-deaths-2024",
+    ],
+  },
+  {
+    slug: "who-is-my-msp",
+    title: "Who is my MSP? Find your MSP and MP by postcode",
+    seoTitle: "Who Is My MSP? Find Your MSP and MP by Postcode",
+    description: `Every address in Scotland has ${SCOTTISH_PARLIAMENT.perPerson} MSPs: 1 constituency MSP and ${SCOTTISH_PARLIAMENT.regionalPerRegion} regional MSPs, plus 1 MP. Put in your postcode to see their names and emails.`,
+    standfirst:
+      "One constituency MSP, seven regional MSPs and an MP. Here's how to find all of them from your postcode, and which one to go to with what.",
+    date: "2026-10-29",
+    category: "take-action",
+    tags: ["MSP", "Scottish Parliament", "MP", "Find your representative"],
+    readingMinutes: 4,
+    quickAnswer: {
+      label: "Who is my MSP?",
+      value: String(SCOTTISH_PARLIAMENT.perPerson),
+      unit: "MSPs for every address",
+      detail:
+        "One constituency MSP for your local area and seven regional MSPs for the wider region, and all of them represent you. Put your postcode into the finder below to see their names, parties and emails, along with your MP.",
+      rows: [
+        { label: "Constituency MSPs", value: `${SCOTTISH_PARLIAMENT.constituencyMsps} in Scotland, 1 for you` },
+        { label: "Regional MSPs", value: `${SCOTTISH_PARLIAMENT.regionalMsps} in Scotland, ${SCOTTISH_PARLIAMENT.regionalPerRegion} for you` },
+        { label: "MSPs in total", value: String(TOTAL_MSPS) },
+        { label: "Scottish Parliament phone", value: `${SCOTTISH_PARLIAMENT.phone}, or free on ${SCOTTISH_PARLIAMENT.freephone}` },
+      ],
+      asOf: `Elected ${SCOTTISH_PARLIAMENT.elected}`,
+      source: SCOTTISH_PARLIAMENT.source,
+    },
+    toc: [
+      { id: "postcode", label: "Who is my MSP by postcode" },
+      { id: "two-kinds", label: "Constituency and regional MSPs" },
+      { id: "regions", label: "MSP for my area" },
+      { id: "contact", label: "How to contact my MSP" },
+      { id: "mp-or-msp", label: "MSP or MP: who to ask" },
+    ],
+    faq: [
+      {
+        q: "Who is my MSP by postcode?",
+        a: "Put your postcode into the finder on this page. It shows your constituency MSP, your seven regional MSPs and your MP, with their email addresses, from the Scottish Parliament's and the UK Parliament's own records.",
+      },
+      {
+        q: "How do I find my MSP?",
+        a: `The quickest way is by postcode. If you already know your constituency or region, the MSP directory lists all ${TOTAL_MSPS} MSPs by area.`,
+      },
+      {
+        q: "How many MSPs do I have?",
+        a: `You have ${SCOTTISH_PARLIAMENT.perPerson}: one constituency MSP for your local area and ${SCOTTISH_PARLIAMENT.regionalPerRegion} regional MSPs for the wider region. All of them represent you.`,
+      },
+      {
+        q: "Can I contact a regional MSP instead of my constituency MSP?",
+        a: "Yes. The Scottish Parliament says you can contact either type of MSP about any issue it deals with. You don't need to say why you chose them.",
+      },
+      {
+        q: "What is the Scottish Parliament phone number?",
+        a: `${SCOTTISH_PARLIAMENT.phone}, or free on ${SCOTTISH_PARLIAMENT.freephone}. Calls are answered ${SCOTTISH_PARLIAMENT.hours}.`,
+      },
+    ],
+    sourceIds: ["sp-about-msps", "sp-contact-us", "sp-open-data-msps", "scottish-parliament-devolved-powers"],
+  },
+  {
+    slug: "who-is-my-local-councillor-by-postcode",
+    title: "Who is my local councillor by postcode?",
+    seoTitle: "Who Is My Local Councillor by Postcode? Find Your Councillors",
+    description: `Most homes in Scotland have 3 or 4 councillors, not 1. Use your postcode to find your council, then every councillor for your ward. All ${COUNCILLOR_TOTALS.councils} councils listed.`,
+    standfirst:
+      "Scotland elects councillors in groups, so you almost certainly have more than one. Here's how to find them all from your postcode, and what they can help with.",
+    date: "2026-10-29",
+    category: "take-action",
+    tags: ["Councillors", "Local council", "Wards", "Council elections 2027"],
+    readingMinutes: 4,
+    quickAnswer: {
+      label: "Who is my local councillor?",
+      value: "3 or 4",
+      unit: "councillors for most wards",
+      detail:
+        "Scotland elects councillors in groups, so most homes have three or four, and every one of them represents you. Find your council with the postcode box below, then use its councillor finder in the table.",
+      rows: [
+        { label: "Councils", value: String(COUNCILLOR_TOTALS.councils) },
+        { label: "Wards", value: COUNCILLOR_TOTALS.wards.toLocaleString("en-GB") },
+        { label: "Councillors", value: COUNCILLOR_TOTALS.councillors.toLocaleString("en-GB") },
+        { label: "Next council election", value: LOCAL_ELECTION_2027.date },
+      ],
+      asOf: "Wards in use since the May 2022 election",
+      source: COUNCILLOR_SOURCE,
+    },
+    toc: [
+      { id: "postcode", label: "Find my councillor by postcode" },
+      { id: "councils", label: "Councillors in my area" },
+      { id: "who", label: "Who are my councillors?" },
+      { id: "what", label: "What a councillor can help with" },
+      { id: "contact", label: "How to contact my local councillor" },
+      { id: "election", label: "The next council election" },
+    ],
+    faq: [
+      {
+        q: "Who is my local councillor by postcode?",
+        a: "Put your postcode into the box on this page to find your council, then open that council's councillor finder from the table. Most take your postcode or street and show your ward and every councillor for it.",
+      },
+      {
+        q: "Who are my councillors?",
+        a: "The councillors elected for your ward. Almost every ward in Scotland elects three or four, and all of them represent you equally. Some island wards elect one or two.",
+      },
+      {
+        q: "How many councillors are there in Scotland?",
+        a: `${COUNCILLOR_TOTALS.councillors.toLocaleString("en-GB")} councillors across ${COUNCILLOR_TOTALS.wards} wards in ${COUNCILLOR_TOTALS.councils} councils, the numbers in use since the May 2022 election.`,
+      },
+      {
+        q: "Can I contact any of my councillors?",
+        a: "Yes. Every councillor for your ward represents you, whichever party they are from and whether or not you voted for them. You can contact one, some or all of them.",
+      },
+      {
+        q: "When are the next council elections in Scotland?",
+        a: `${LOCAL_ELECTION_2027.date}, in all ${COUNCILLOR_TOTALS.councils} councils at once.`,
+      },
+    ],
+    sourceIds: ["boundaries-scotland-wards-1995-onwards", "emb-local-elections-2027", "council-councillor-finders"],
+  },
+  {
+    slug: "life-expectancy-glasgow",
+    title: "Life expectancy Glasgow: the figures and the gap",
+    seoTitle: "Life Expectancy Glasgow: How Long People Live, Area by Area",
+    description: `Life expectancy in Glasgow is ${years(LIFE_EXPECTANCY_LATEST.glasgow.men)} years for men and ${years(LIFE_EXPECTANCY_LATEST.glasgow.women)} for women (${LIFE_EXPECTANCY_LATEST.period}), the lowest in Scotland. Inside the city, the gap for men is ${years(LIFE_EXPECTANCY.glasgowByDeprivation.rows[4].men - LIFE_EXPECTANCY.glasgowByDeprivation.rows[0].men)} years.`,
+    standfirst:
+      "Glasgow has the lowest life expectancy of any council in Scotland. But where you live inside the city matters far more than living in Glasgow at all.",
+    date: "2026-10-29",
+    category: "poverty-explained",
+    tags: ["Life expectancy", "Glasgow", "Health inequality", "Deprivation"],
+    readingMinutes: 5,
+    quickAnswer: {
+      label: `Life expectancy in Glasgow, ${LIFE_EXPECTANCY_LATEST.period}`,
+      value: years(LIFE_EXPECTANCY_LATEST.glasgow.men),
+      unit: "years for men",
+      detail: `Women in Glasgow can expect ${years(LIFE_EXPECTANCY_LATEST.glasgow.women)} years. Both are the lowest of Scotland's 32 council areas, ${years(LIFE_EXPECTANCY_LATEST.scotland.men - LIFE_EXPECTANCY_LATEST.glasgow.men)} and ${years(LIFE_EXPECTANCY_LATEST.scotland.women - LIFE_EXPECTANCY_LATEST.glasgow.women)} years below Scotland as a whole.`,
+      rows: [
+        { label: "Glasgow, men", value: `${years(LIFE_EXPECTANCY_LATEST.glasgow.men)} years` },
+        { label: "Glasgow, women", value: `${years(LIFE_EXPECTANCY_LATEST.glasgow.women)} years` },
+        { label: "Scotland, men", value: `${years(LIFE_EXPECTANCY_LATEST.scotland.men)} years` },
+        { label: "Scotland, women", value: `${years(LIFE_EXPECTANCY_LATEST.scotland.women)} years` },
+      ],
+      asOf: `${LIFE_EXPECTANCY_LATEST.period}, published ${LIFE_EXPECTANCY.published}`,
+      source: LIFE_EXPECTANCY.source,
+    },
+    toc: [
+      { id: "average", label: "Average life expectancy" },
+      { id: "men", label: "Glasgow male life expectancy" },
+      { id: "gap", label: "The gap inside Glasgow" },
+      { id: "councils", label: "Every council compared" },
+      { id: "at-65", label: "At 65" },
+    ],
+    faq: [
+      {
+        q: "What is the average life expectancy in Glasgow?",
+        a: `${years(LIFE_EXPECTANCY_LATEST.glasgow.men)} years for men and ${years(LIFE_EXPECTANCY_LATEST.glasgow.women)} years for women, for ${LIFE_EXPECTANCY_LATEST.period}, from National Records of Scotland. NRS does not publish a single figure for men and women together.`,
+      },
+      {
+        q: "What is Glasgow male life expectancy?",
+        a: `${years(LIFE_EXPECTANCY_LATEST.glasgow.men)} years in ${LIFE_EXPECTANCY_LATEST.period}, up from ${years(LIFE_EXPECTANCY.trend[LIFE_EXPECTANCY.trend.length - 2].glasgow.men)} in ${LIFE_EXPECTANCY.trend[LIFE_EXPECTANCY.trend.length - 2].period}. It is ${years(LIFE_EXPECTANCY_LATEST.scotland.men - LIFE_EXPECTANCY_LATEST.glasgow.men)} years below Scotland and the lowest of any council area.`,
+      },
+      {
+        q: "Is Glasgow's life expectancy the lowest in Scotland?",
+        a: `Yes. In ${LIFE_EXPECTANCY_LATEST.period} Glasgow City had the lowest life expectancy of Scotland's 32 council areas for both men and women, and ${councilSearchName(LIFE_EXPECTANCY.councils[LIFE_EXPECTANCY.councils.length - 1].slug)} the highest.`,
+      },
+      {
+        q: "How big is the life expectancy gap inside Glasgow?",
+        a: `Over ${LIFE_EXPECTANCY.glasgowByDeprivation.period}, men in Glasgow's most deprived fifth of neighbourhoods could expect ${years(LIFE_EXPECTANCY.glasgowByDeprivation.rows[0].men)} years, against ${years(LIFE_EXPECTANCY.glasgowByDeprivation.rows[4].men)} in the least deprived fifth. For women it was ${years(LIFE_EXPECTANCY.glasgowByDeprivation.rows[0].women)} against ${years(LIFE_EXPECTANCY.glasgowByDeprivation.rows[4].women)}.`,
+      },
+    ],
+    sourceIds: ["nrs-life-expectancy-2022-2024", "nrs-life-expectancy-local-simd-2026"],
+  },
+  {
+    slug: "unemployment-scotland",
+    title: "Unemployment Scotland: the rate, the trend and your council",
+    seoTitle: "Unemployment Scotland 2026: Rate, Trend and Council Figures",
+    description: `Scotland's unemployment rate was ${pct(LABOUR_MARKET_LATEST.rate)} in ${LABOUR_MARKET_LATEST.period}, against ${pct(LABOUR_MARKET.uk.rate)} for the UK. The trend, youth unemployment and the rate for all 32 councils.`,
+    standfirst:
+      "The latest official rate, what it actually counts, how it has moved since 2008, and the estimate for every council in Scotland.",
+    date: "2026-10-29",
+    category: "money-and-bills",
+    tags: ["Unemployment", "Labour market", "Youth unemployment", "Scotland statistics"],
+    readingMinutes: 5,
+    quickAnswer: {
+      label: `Scotland unemployment rate, ${LABOUR_MARKET_LATEST.period}`,
+      value: pct(LABOUR_MARKET_LATEST.rate),
+      unit: "aged 16 and over",
+      detail: `About ${(Math.round(LABOUR_MARKET.scotland.unemployed / 1000) * 1000).toLocaleString("en-GB")} people. The UK rate for the same months was ${pct(LABOUR_MARKET.uk.rate)}. Scotland's rate is ${pointsChange(LABOUR_MARKET_LATEST.rateChangeOnYear)} on a year earlier.`,
+      rows: [
+        { label: "UK rate", value: pct(LABOUR_MARKET.uk.rate) },
+        { label: "Scotland employment rate, 16 to 64", value: pct(LABOUR_MARKET_LATEST.employment) },
+        { label: "Youth unemployment, 16 to 24", value: `${pct(ANNUAL_POPULATION_SURVEY.scotland.youth)} (${ANNUAL_POPULATION_SURVEY.period})` },
+        { label: "Highest council", value: `${councilSearchName(COUNCIL_UNEMPLOYMENT.rows[0].slug)}, ${pct(COUNCIL_UNEMPLOYMENT.rows[0].rate)}` },
+      ],
+      asOf: `${LABOUR_MARKET_LATEST.period}, published ${LABOUR_MARKET.published}`,
+      source: LABOUR_MARKET.source,
+    },
+    toc: [
+      { id: "rate", label: "Scotland unemployment rate" },
+      { id: "trend", label: "The trend since 2008" },
+      { id: "employment", label: "Scotland employment rate" },
+      { id: "youth", label: "Youth unemployment" },
+      { id: "councils", label: "Unemployment by council" },
+      { id: "claimant", label: "The claimant count" },
+    ],
+    faq: [
+      {
+        q: "What is the unemployment rate in Scotland?",
+        a: `${pct(LABOUR_MARKET_LATEST.rate)} for people aged 16 and over in ${LABOUR_MARKET_LATEST.period}, published by the ONS on ${LABOUR_MARKET.published}. The UK rate was ${pct(LABOUR_MARKET.uk.rate)}.`,
+      },
+      {
+        q: "Is unemployment higher in Scotland than the UK?",
+        a: `Not at the moment. Scotland's ${pct(LABOUR_MARKET_LATEST.rate)} is below the UK's ${pct(LABOUR_MARKET.uk.rate)} for ${LABOUR_MARKET_LATEST.period}, although Scotland's rate is ${pointsChange(LABOUR_MARKET_LATEST.rateChangeOnYear)} on a year earlier while the UK's is ${pointsChange(LABOUR_MARKET.uk.changeOnYear)}.`,
+      },
+      {
+        q: "What is youth unemployment in Scotland?",
+        a: `${pct(ANNUAL_POPULATION_SURVEY.scotland.youth)} of 16 to 24 year olds who were working or looking for work, in ${ANNUAL_POPULATION_SURVEY.period}, against ${pct(ANNUAL_POPULATION_SURVEY.uk.youth)} for the UK. Students who are not looking for work are not counted.`,
+      },
+      {
+        q: "Which council has the highest unemployment in Scotland?",
+        a: `${councilSearchName(COUNCIL_UNEMPLOYMENT.rows[0].slug)}, at an estimated ${pct(COUNCIL_UNEMPLOYMENT.rows[0].rate)} in ${COUNCIL_UNEMPLOYMENT.period}, followed by ${councilSearchName(COUNCIL_UNEMPLOYMENT.rows[1].slug)} at ${pct(COUNCIL_UNEMPLOYMENT.rows[1].rate)}.`,
+      },
+      {
+        q: "What is the employment rate in Scotland?",
+        a: `${pct(LABOUR_MARKET_LATEST.employment)} of people aged 16 to 64 were in work in ${LABOUR_MARKET_LATEST.period}, against ${pct(LABOUR_MARKET.uk.employment)} for the UK.`,
+      },
+    ],
+    sourceIds: [
+      "ons-regional-labour-market-oct-2026",
+      "ons-hi11-scotland-oct-2026",
+      "nomis-aps-jul-2025-jun-2026",
+      "nomis-model-unemployment-2026",
+      "nomis-claimant-count-sep-2026",
+    ],
+  },
+  {
+    slug: "crime-rate-glasgow",
+    title: "Crime rate Glasgow: what the police figures show",
+    seoTitle: "Crime Rate Glasgow: Recorded Crime by Type and Year",
+    description: `Glasgow's crime rate was ${GLASGOW_CRIME.glasgow.rate} crimes per 10,000 people in ${GLASGOW_CRIME.year}, against ${GLASGOW_CRIME.scotland.rate} for Scotland. Crime by type, year by year, and what the rate leaves out.`,
+    standfirst:
+      "Glasgow records more crime per resident than anywhere in Scotland except Dundee. Here's what that's made of, how it has changed since the 1990s and what the rate doesn't tell you.",
+    date: "2026-10-29",
+    category: "poverty-explained",
+    tags: ["Glasgow crime", "Crime statistics", "Recorded crime", "Police Scotland"],
+    readingMinutes: 5,
+    quickAnswer: {
+      label: `Crime rate Glasgow, ${GLASGOW_CRIME.year}`,
+      value: GLASGOW_CRIME.glasgow.rate.toLocaleString("en-GB"),
+      unit: "recorded crimes per 10,000 people",
+      detail: `Scotland's rate was ${GLASGOW_CRIME.scotland.rate}. Only Dundee was higher. Police recorded ${GLASGOW_CRIME.glasgow.crimes.toLocaleString("en-GB")} crimes in Glasgow City, up ${changePct(GLASGOW_CRIME_PREVIOUS.glasgow, GLASGOW_CRIME.glasgow.crimes)}% on the year before.`,
+      rows: [
+        { label: "Crimes recorded in Glasgow", value: GLASGOW_CRIME.glasgow.crimes.toLocaleString("en-GB") },
+        { label: "Scotland rate", value: `${GLASGOW_CRIME.scotland.rate} per 10,000` },
+        { label: `Change on ${GLASGOW_CRIME_PREVIOUS.year}`, value: `up ${changePct(GLASGOW_CRIME_PREVIOUS.glasgow, GLASGOW_CRIME.glasgow.crimes)}%` },
+        { label: `Glasgow rate in ${GLASGOW_CRIME.history[0].year}`, value: `${GLASGOW_CRIME.history[0].glasgowRate.toLocaleString("en-GB")} per 10,000` },
+      ],
+      asOf: "April 2025 to March 2026",
+      source: GLASGOW_CRIME.source,
+    },
+    toc: [
+      { id: "rate", label: "Glasgow against Scotland" },
+      { id: "types", label: "Crime stats by type" },
+      { id: "years", label: "Crime by year" },
+      { id: "caveats", label: "What the rate leaves out" },
+      { id: "local", label: "The local police reports" },
+    ],
+    faq: [
+      {
+        q: "What is the crime rate in Glasgow?",
+        a: `${GLASGOW_CRIME.glasgow.rate} recorded crimes per 10,000 people in ${GLASGOW_CRIME.year}, against ${GLASGOW_CRIME.scotland.rate} for Scotland. Police recorded ${GLASGOW_CRIME.glasgow.crimes.toLocaleString("en-GB")} crimes in Glasgow City that year.`,
+      },
+      {
+        q: "Does Glasgow have the highest crime rate in Scotland?",
+        a: `No. Dundee had the highest recorded crime rate in ${GLASGOW_CRIME.year}. Glasgow was second, at ${GLASGOW_CRIME.glasgow.rate} per 10,000.`,
+      },
+      {
+        q: "Is crime going up in Glasgow?",
+        a: `It rose ${changePct(GLASGOW_CRIME_PREVIOUS.glasgow, GLASGOW_CRIME.glasgow.crimes)}% in ${GLASGOW_CRIME.year}, to ${GLASGOW_CRIME.glasgow.crimes.toLocaleString("en-GB")} crimes. Over the longer run it has fallen a lot: in ${GLASGOW_CRIME.history[0].year} the city recorded ${GLASGOW_CRIME.history[0].glasgow.toLocaleString("en-GB")}.`,
+      },
+      {
+        q: "Where do crime stats for Glasgow come from?",
+        a: "The official figures are the Scottish Government's Recorded Crime in Scotland statistics, published each year for every council. Police Scotland also reports quarterly figures for the city to the Safe Glasgow Partnership.",
+      },
+    ],
+    sourceIds: [
+      "sg-recorded-crimes-offences-open-data",
+      "recorded-crime-scotland-2025-26",
+      "sgs-recorded-crime",
+      "sg-recorded-crime-ye-june-2026",
+      "ps-glasgow-q3-2024-25",
+      "ps-glasgow-q2-2025-26",
+      "spa-performance-q4-2024-25",
     ],
   },
 ];

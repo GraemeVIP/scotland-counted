@@ -97,6 +97,11 @@ export const POST_PATHS: Record<string, string> = {
   "nat-5-modern-studies-past-papers": "/nat-5-modern-studies-past-papers",
   "advanced-higher-modern-studies": "/advanced-higher-modern-studies",
   "causes-of-poverty": "/causes-of-poverty",
+  "who-is-my-msp": "/who-is-my-msp",
+  "who-is-my-local-councillor-by-postcode": "/who-is-my-local-councillor-by-postcode",
+  "life-expectancy-glasgow": "/life-expectancy-glasgow",
+  "unemployment-scotland": "/unemployment-scotland",
+  "crime-rate-glasgow": "/crime-rate-glasgow",
 };
 
 export function postPath(slug: string) {

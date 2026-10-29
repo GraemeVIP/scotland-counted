@@ -15,9 +15,9 @@ import RepresentativeLookup from "./RepresentativeLookup";
 import RepresentativeDirectorySearch, { type DirectoryEntry } from "./RepresentativeDirectorySearch";
 
 export const metadata = meta({
-  title: "Who Is My MSP? Find Your MP and MSPs by Postcode",
+  title: "Scottish MPs and MSPs: Every Representative and How to Contact Them",
   description:
-    "Enter a Scottish postcode to find your MP and all eight MSPs. See names, parties and official contact details, then write to the right person for free.",
+    "Every Scottish MP and MSP in one directory, with parties, constituencies and official contact details. Search by name or enter a postcode to find yours.",
   path: "/representatives",
 });
 
