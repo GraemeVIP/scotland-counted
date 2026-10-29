@@ -9,7 +9,9 @@ import { buildLocalFacts, responsibilitySplit } from "@/lib/localFacts";
 import NewsletterSignup from "@/components/NewsletterSignup";
 import { site } from "@/lib/site";
 import { MINIMUM_WAGE, REAL_LIVING_WAGE, bandDRange, bandFor, pounds } from "@/lib/data/quickAnswers";
-import { councilTaxBandPath, councilTaxPath } from "@/lib/routeMap";
+import { COUNCIL_SEARCH_NAMES, councilTaxBandPath, councilTaxPath } from "@/lib/routeMap";
+import AreaComparePicker from "@/components/AreaComparePicker";
+import { POPULAR_PAIRS, compareHref } from "@/components/ComparePromo";
 
 const glasgowD = bandFor("glasgow-city", "D");
 const range = bandDRange();
@@ -220,6 +222,37 @@ export default function Home() {
               </span>
             </span>
           </Link>
+        </section>
+
+        {/* ---------- Compare two areas ----------
+            The tool people come back to and share, so it sits high on the
+            page with the picker itself rather than a link to it. */}
+        <section className="pt-24" aria-labelledby="compare">
+          <div className="grid gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:items-center">
+            <div>
+              <p className="eyebrow">New · Compare areas</p>
+              <h2 id="compare" className="h2 mt-4 max-w-[14ch] text-[clamp(32px,4.2vw,54px)]">
+                How does your area <span className="serif-accent text-[var(--action-text)]">compare?</span>
+              </h2>
+              <p className="mt-5 max-w-[46ch] text-[17px] leading-[1.6] text-[var(--ink-2)]">
+                Put any two council areas side by side, or type two postcodes. Pay, house prices, rent, crime, poverty, health
+                and schools, in plain words with the official figures. Handy if you are thinking of moving.
+              </p>
+              <ul className="mt-6 flex flex-wrap gap-2.5">
+                {POPULAR_PAIRS.slice(0, 4).map(([x, y]) => (
+                  <li key={`${x}-${y}`}>
+                    <Link
+                      href={compareHref(x, y)}
+                      className="ui inline-flex items-center gap-2 rounded-full border border-[var(--rule-strong)] bg-[var(--surface)] px-3.5 py-2 text-[15px] font-[600] text-[var(--ink)] no-underline hover:border-[var(--brand)]"
+                    >
+                      {COUNCIL_SEARCH_NAMES[x]} <span className="font-[500] text-[var(--muted)]">vs</span> {COUNCIL_SEARCH_NAMES[y]}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <AreaComparePicker a="glasgow-city" b="city-of-edinburgh" />
+          </div>
         </section>
 
         {/* ---------- Six doors ---------- */}

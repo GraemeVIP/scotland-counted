@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ComparePromo from "@/components/ComparePromo";
 import { notFound } from "next/navigation";
 import { Page, PageHeader, InShort } from "@/components/Blocks";
 import { JsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
@@ -247,6 +248,8 @@ export function CouncilTaxDetail({ slug }: { slug: string }) {
               <Link href="/council-tax-bands-scotland">check another postcode</Link>.
             </p>
           </section>
+
+          <ComparePromo slug={v.slug} className="mt-12" />
 
           <Faq items={faq} className="pt-12" />
 

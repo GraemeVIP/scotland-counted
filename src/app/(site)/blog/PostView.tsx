@@ -13,6 +13,20 @@ import { postBodies } from "@/content/posts";
 import Faq from "@/components/Faq";
 import QuickAnswer from "@/components/QuickAnswer";
 import { postPath } from "@/lib/routeMap";
+import ComparePromo from "@/components/ComparePromo";
+
+/**
+ * Posts that end with a pointer to the compare tool, and the area each one is
+ * about (null for national pieces). Every poverty explainer gets one too.
+ */
+const COMPARE_POSTS: Record<string, string | null> = {
+  "crime-rate-glasgow": "glasgow-city",
+  "life-expectancy-glasgow": "glasgow-city",
+  "unemployment-scotland": null,
+  "best-performing-councils-scotland": null,
+  "why-is-the-cost-of-living-so-high": null,
+  "drug-deaths-scotland-deprivation": null,
+};
 
 export function postMetadata(slug: string) {
   const post = getPost(slug);
@@ -143,6 +157,12 @@ export function PostView({ slug }: { slug: string }) {
             </div>
           </div>
         </article>
+
+        {(COMPARE_POSTS[post.slug] !== undefined || post.category === "poverty-explained") && (
+          <div className="pt-14 max-w-[1120px] mx-auto">
+            <ComparePromo slug={COMPARE_POSTS[post.slug] ?? undefined} />
+          </div>
+        )}
 
         {post.faq.length > 0 && (
           <section className="pt-14 max-w-[1120px] mx-auto" aria-labelledby="article-questions">

@@ -35,6 +35,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${site.url}/modern-studies-teaching-resources`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${site.url}/councils`, changeFrequency: "monthly", priority: 0.85, lastModified: seoRelease },
     { url: `${site.url}/who-decides`, changeFrequency: "monthly", priority: 0.9, lastModified: repositioning },
+    { url: `${site.url}/compare-areas`, changeFrequency: "monthly", priority: 0.9, lastModified: new Date("2026-10-29") },
     { url: `${site.url}/poverty-in-scotland`, changeFrequency: "monthly", priority: 0.9, lastModified: repositioning },
     { url: `${site.url}/email-your-mp-and-msp`, changeFrequency: "monthly", priority: 0.95, lastModified: seoRelease },
     { url: `${site.url}/blog`, changeFrequency: "weekly", priority: 0.9, lastModified: latestPostDate },

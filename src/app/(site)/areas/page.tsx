@@ -4,6 +4,7 @@ import Figure from "@/components/charts/Figure";
 import AreaDumbbell from "./AreaDumbbell";
 import RankTable from "@/components/RankTable";
 import AreaGrid from "@/components/AreaGrid";
+import ComparePromo from "@/components/ComparePromo";
 import { JsonLd, breadcrumbJsonLd, datasetJsonLd, meta } from "@/lib/seo";
 import {
   councilsByLevel,
@@ -65,6 +66,8 @@ export default function Areas() {
           <p><strong>Glasgow is highlighted because it has the worst child poverty rate in Scotland and the biggest ten year rise.</strong></p>
           <p>For the national picture and what sits behind these differences, see our <Link href="/poverty-in-scotland">guide to poverty in Scotland</Link>.</p>
         </InShort>
+
+        <ComparePromo className="mt-9" />
 
         <div className="mt-9">
           <Figure

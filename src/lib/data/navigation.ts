@@ -209,6 +209,7 @@ export const HUBS: Hub[] = [
       {
         heading: "Places",
         items: [
+          { href: "/compare-areas", label: "Compare two areas", tag: "New" },
           { href: "/areas", label: "All 32 council areas" },
           { href: "/constituencies", label: "All 57 MP areas" },
           { href: "/areas/glasgow-city", label: "Glasgow" },
@@ -234,6 +235,7 @@ export const HUBS: Hub[] = [
       },
     ],
     top: [
+      { href: "/compare-areas", label: "Compare two areas" },
       { href: "/areas/glasgow-city", label: "Glasgow" },
       { href: "/poverty-in-scotland", label: "Poverty in Scotland" },
       { href: "/unemployment-scotland", label: "Unemployment" },

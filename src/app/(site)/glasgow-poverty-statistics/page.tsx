@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ComparePromo from "@/components/ComparePromo";
 import { Page, Col, PageHeader, DirectionChip, CTA, InShort, Reveal } from "@/components/Blocks";
 import Spark from "@/components/charts/Spark";
 import { JsonLd, breadcrumbJsonLd, datasetJsonLd, meta } from "@/lib/seo";
@@ -161,6 +162,8 @@ export default function TheNumbers() {
             </p>
           </Col>
         </section>
+
+        <ComparePromo slug="glasgow-city" className="mt-16" />
 
         <CTA
           title="Want the figures for your own council area?"

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ComparePromo from "@/components/ComparePromo";
 import { Page, ContentFrame, PageHeader, InShort, CTA, Card } from "@/components/Blocks";
 import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
 import { scotlandPoverty } from "@/lib/data/scotland";
@@ -211,6 +212,8 @@ export default function PovertyHub() {
               </Link>
             </div>
           </section>
+
+          <ComparePromo className="mt-16" />
 
           <CTA
             title="One email is worth more than one share"
