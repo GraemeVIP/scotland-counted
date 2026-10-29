@@ -26,6 +26,7 @@ const COMPARE_POSTS: Record<string, string | null> = {
   "best-performing-councils-scotland": null,
   "why-is-the-cost-of-living-so-high": null,
   "drug-deaths-scotland-deprivation": null,
+  "east-vs-west-dunbartonshire": "west-dunbartonshire",
 };
 
 export function postMetadata(slug: string) {

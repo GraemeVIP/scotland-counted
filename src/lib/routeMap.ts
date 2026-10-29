@@ -64,6 +64,7 @@ export function councilTaxBandPath(letter: string) {
 
 /** Posts that moved out of /blog to a top level exact match address. */
 export const POST_PATHS: Record<string, string> = {
+  "east-vs-west-dunbartonshire": "/east-vs-west-dunbartonshire",
   "minimum-wage-take-home-pay-scotland-2026": "/minimum-wage-scotland",
   "real-living-wage-vs-minimum-wage-scotland": "/real-living-wage-scotland",
   "crisis-grant-scotland-how-to-apply": "/crisis-grant-scotland",

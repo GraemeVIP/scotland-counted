@@ -65,7 +65,7 @@ test.describe("the postcode journey", () => {
     for (const href of [
       "/areas/glasgow-city",
       "/councils/glasgow-city",
-      "/council-tax-bands-scotland/glasgow-city",
+      "/glasgow-council-tax-bands",
       "/constituencies/glasgow-north",
     ]) {
       await expect(page.locator(`a[href="${href}"]`).first()).toBeVisible();
@@ -88,6 +88,40 @@ test.describe("the postcode journey", () => {
     }));
     expect(stored.local).not.toMatch(/G12\s?8QQ/i);
     expect(stored.session).not.toMatch(/G12\s?8QQ/i);
+  });
+
+  test("a box sent before the script loads still keeps the postcode out of the URL", async ({ page }) => {
+    /*
+     * Until the page's script is running, pressing Enter is a plain browser
+     * GET that copies every named field into the address bar. The postcode
+     * boxes are unnamed so that path sends nothing. form.submit() goes round
+     * the script's handler the same way, so it stands in for a slow load.
+     */
+    const boxes = page.locator("form input[autocomplete='postal-code']");
+    for (const path of [
+      "/",
+      "/representatives",
+      "/council-tax-bands-scotland",
+      "/email-your-mp-and-msp",
+      "/constituencies/aberdeen-north",
+    ]) {
+      await page.goto(path);
+      const count = await boxes.count();
+      expect(count, `${path} has a postcode box`).toBeGreaterThan(0);
+      for (let i = 0; i < count; i++) {
+        if (i > 0) await page.goto(path);
+        const sent = page.waitForRequest(
+          (r) => r.isNavigationRequest() && r.frame() === page.mainFrame()
+        );
+        await boxes.nth(i).evaluate((box: HTMLInputElement) => {
+          box.value = "G12 8QQ";
+          setTimeout(() => HTMLFormElement.prototype.submit.call(box.form!), 0);
+        });
+        expect((await sent).url(), `${path}, box ${i + 1}`).not.toMatch(/G12|8QQ/i);
+        // Let that load land, or the next goto is cut short by it.
+        await page.waitForURL((url) => url.href.includes("?"));
+      }
+    }
   });
 
   test("a real request is a POST, so the postcode cannot reach a log", async ({ page }) => {
@@ -189,7 +223,9 @@ test.describe("the calculators", () => {
     await page.goto("/council-tax-bands-scotland");
     await page.locator("#ct-postcode").fill("G12 8QQ");
     await page.locator("#ct-postcode").press("Enter");
-    await expect(page.getByText(/Glasgow City/).first()).toBeVisible();
+    // The result heading, not any text: the council picker lists Glasgow City
+    // too, as an option that is never visible.
+    await expect(page.getByRole("heading", { name: "Glasgow City", exact: true })).toBeVisible();
     expect(page.url()).not.toMatch(/G12|8QQ/i);
   });
 });
@@ -284,8 +320,10 @@ test.describe("the mobile menu", () => {
     /*
      * The sheet lists SECTIONS, not the header's PRIMARY, so the label here
      * is the fuller one. Scoped to the sheet because the footer sitting
-     * behind it has its own link to the same page.
+     * behind it has its own link to the same page. Sections start closed, so
+     * the one holding the link is opened first.
      */
+    await page.locator("#mobile-nav").getByRole("button", { name: /^Council tax/ }).click();
     const link = page
       .locator("#mobile-nav")
       .getByRole("link", { name: "All 32 council records" })

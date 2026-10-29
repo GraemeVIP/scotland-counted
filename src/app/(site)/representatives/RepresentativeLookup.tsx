@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useCallback, useEffect, useId, useState } from "react";
+import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { trackEvent } from "@/lib/analytics";
 import PortraitLightbox from "@/components/PortraitLightbox";
 import {
@@ -94,6 +94,7 @@ function ContactCard({
 export default function RepresentativeLookup() {
   const router = useRouter();
   const inputId = useId();
+  const inputRef = useRef<HTMLInputElement>(null);
   const [postcode, setPostcode] = useState("");
   const [lookup, setLookup] = useState<LookupResult | null>(null);
   const [state, setState] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -132,8 +133,9 @@ export default function RepresentativeLookup() {
 
   function submit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const field = event.currentTarget.elements.namedItem("postcode") as HTMLInputElement | null;
-    void lookUp(field?.value ?? postcode);
+    // Read the box itself as well as state, so anything typed before the
+    // script loaded still counts.
+    void lookUp(inputRef.current?.value || postcode);
   }
 
   /*
@@ -195,9 +197,15 @@ export default function RepresentativeLookup() {
           <label className="sr-only" htmlFor={inputId}>
             Your Scottish postcode
           </label>
+          {/*
+            No name attribute, on purpose. If the form is sent before the page's
+            script has loaded, the browser submits it the old way and a named
+            field lands in the address bar (?postcode=G12+8QQ), and from there in
+            browser history and analytics. Unnamed, nothing is sent.
+          */}
           <input
+            ref={inputRef}
             id={inputId}
-            name="postcode"
             type="text"
             value={postcode}
             onChange={(event) => changePostcode(event.target.value)}

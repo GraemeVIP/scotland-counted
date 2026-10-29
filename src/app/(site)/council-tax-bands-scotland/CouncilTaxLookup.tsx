@@ -94,9 +94,14 @@ export default function CouncilTaxLookup() {
           <label className="sr-only" htmlFor="ct-postcode">
             Your postcode
           </label>
+          {/*
+            No name attribute, on purpose. If the form is sent before the page's
+            script has loaded, the browser submits it the old way and a named
+            field lands in the address bar (?postcode=G12+8QQ), and from there in
+            browser history and analytics. Unnamed, nothing is sent.
+          */}
           <input
             id="ct-postcode"
-            name="postcode"
             maxLength={10}
             aria-describedby={state === "error" ? "ct-error" : "ct-help"}
             aria-invalid={state === "error" || undefined}
