@@ -212,6 +212,77 @@ export const sources: Source[] = [
       "The Scotland-wide rate is not published in this dataset. I recompute it by summing the 32 council counts and dividing by the implied child populations. The method reproduces the published Scottish rate of 24.5% for 2022/23.",
   },
   {
+    id: "lgbf-performance-2026",
+    title: "Local Government Benchmarking Framework: complete data download",
+    publisher: "Improvement Service",
+    url: "https://data.spatialhub.scot/api/3/action/package_show?id=9a3728b4-49ea-40af-ab10-fc0305bace84",
+    used: "The July 2026 release containing 109 consistently defined cost, performance, satisfaction and outcome indicators for all 32 Scottish councils, from which the 53 headline measures and four separate landlord measures were selected.",
+    derivation:
+      "Latest comparable values are grouped into evidence families before scoring. The central model uses percentile positions, official higher-or-lower directions, a neutral value for missing cells and published pillar weights. Full selected values and reporting periods are downloadable.",
+  },
+  {
+    id: "lgbf-family-groups",
+    title: "Local Government Benchmarking Framework and family groups",
+    publisher: "Improvement Service",
+    url: "https://www.improvementservice.org.uk/benchmarking/home",
+    used: "The framework's purpose, indicator definitions and official groups of councils with similar population, deprivation and rurality characteristics.",
+    derivation:
+      "The peer score repeats the same calculation inside the official family groups. It is presented as a diagnostic comparison, not a replacement for the national result.",
+  },
+  {
+    id: "shs-council-perceptions-2024",
+    title: "Scottish Household Survey: perceptions of local councils, 2024",
+    publisher: "Scottish Government",
+    url: "https://www.gov.scot/publications/scottish-household-survey-perceptions-of-local-councils-2024/",
+    used: "Five council-level questions about high-quality services, best use of money, action on quality of life, influence over decisions and dignity and respect, used in the separate resident-verdict comparison.",
+    derivation:
+      "The five published percentages are averaged with equal weight. The table also shows the council sample base and warns that small differences may be sampling variation.",
+  },
+  {
+    id: "shs-methodology-2024",
+    title: "Scottish Household Survey 2024: methodology and fieldwork outcomes",
+    publisher: "Scottish Government",
+    url: "https://www.gov.scot/publications/scottish-household-survey-2024-methodology-and-fieldwork-outcomes/pages/sample-design/",
+    used: "The survey design, council sample sizes, weighting and uncertainty needed to interpret local perception estimates.",
+  },
+  {
+    id: "shs-neighbourhoods-2024",
+    title: "Neighbourhoods and communities: 2024 findings, Annex D",
+    publisher: "Scottish Government",
+    url: "https://www.gov.scot/publications/neighbourhoods-communities-2024-findings-scottish-household-survey/pages/12/",
+    used: "Council-level estimates for whether residents describe their neighbourhood as a good place to live, access to places to meet and loneliness. These are context and are not included in the headline council score.",
+  },
+  {
+    id: "shcs-local-authority-2022-24",
+    title: "Scottish House Condition Survey: local authority tables, 2022–2024",
+    publisher: "Scottish Government",
+    url: "https://www.gov.scot/publications/scottish-house-condition-survey-local-authority-tables-2022-2024/",
+    used: "Fuel poverty, extreme fuel poverty, housing-quality-standard failures, disrepair, sample sizes and confidence intervals by council area, retained as place context rather than council-performance inputs.",
+  },
+  {
+    id: "recorded-crime-scotland-2025-26",
+    title: "Recorded Crime in Scotland, 2025–26",
+    publisher: "Scottish Government",
+    url: "https://www.gov.scot/publications/recorded-crime-scotland-2025-26/documents/",
+    used: "Police-recorded crimes by council area and mid-year population estimates, converted to a rate per 10,000 residents for the separate context download.",
+    derivation:
+      "The rate is not included in the council-performance score because policing is not controlled by councils and recorded crime reflects reporting and recording as well as incidence.",
+  },
+  {
+    id: "oecd-composite-indicators",
+    title: "Handbook on Constructing Composite Indicators: Methodology and User Guide",
+    publisher: "OECD and European Commission Joint Research Centre",
+    url: "https://www.oecd.org/content/dam/oecd/en/publications/reports/2008/08/handbook-on-constructing-composite-indicators-methodology-and-user-guide_g1gh9301/9789264043466-en.pdf",
+    used: "Methodological guardrails for indicator selection, normalisation, weighting, aggregation, uncertainty analysis and transparent presentation of composite indices.",
+  },
+  {
+    id: "jrc-composite-normalisation",
+    title: "Composite indicators: step 5, normalisation",
+    publisher: "European Commission Joint Research Centre",
+    url: "https://knowledge4policy.ec.europa.eu/composite-indicators/toolkit_en/navigation-page/10-step-guide_en/step-5-normalisation_en",
+    used: "The strengths and weaknesses of alternative normalisation methods varied in the 10,000-run robustness analysis.",
+  },
+  {
     id: "aps",
     title: "Annual Population Survey, table T01",
     publisher: "Office for National Statistics, via NOMIS",

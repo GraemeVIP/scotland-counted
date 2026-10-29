@@ -357,7 +357,7 @@ const records: CouncilAccountabilityRecord[] = [
       councilSource(
         "eilean-siar-budget-2026-27",
         "Comhairle nan Eilean Siar budget 2026/27",
-        "https://www.cne-siar.gov.uk/news/2026/comhairle-nan-eileanan-siar-budget-202627",
+        "https://www.cne-siar.gov.uk/news/2026/comhairle-nan-eilean-siar-budget-202627",
         "The council's initial money problem and the council tax, money set aside and savings used to balance its 2026/27 budget.",
         "2026",
       ),
@@ -753,8 +753,8 @@ const records: CouncilAccountabilityRecord[] = [
       ),
       councilSource(
         "north-ayrshire-annual-performance-2024-25",
-        "North Ayrshire Council Annual Performance Report 2024/25",
-        "https://www.north-ayrshire.gov.uk/Document-library/annual-performance-report-2024-2025.pdf",
+        "North Ayrshire Council Plan Year-End Progress Report 2024/25",
+        "https://www.north-ayrshire.gov.uk/Document-library/council-plan-year-end-progress-report-2024-2025.pdf",
         "The council’s own headline facts, child-poverty figure, Money Matters result and reported service achievements.",
         "2025",
       ),

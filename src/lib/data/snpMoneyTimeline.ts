@@ -277,7 +277,7 @@ export const snpMoneyTimelineSources: SnpTimelineSource[] = [
     id: "itv-snp-recovery-2026",
     title: "SNP move to claim back stolen money",
     publisher: "ITV News",
-    url: "https://www.itv.com/news/border/2026-06-04/exclusive-snp-move-to-claim-back-stolen-money",
+    url: "https://www.itv.com/news/border/2026-06-04/exclusive-snp-move-to-claim-back-stolen-money-from-murrell",
     used: "The party executive's reported authorisation of civil recovery action after Murrell's plea.",
   },
   {

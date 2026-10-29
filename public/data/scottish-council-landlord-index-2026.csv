@@ -1,0 +1,27 @@
+council_code,canonical_name,council_slug,council_landlord_score,council_landlord_rank,metrics_used
+S12000021,North Ayrshire,north-ayrshire,100.000000,1,4
+S12000050,North Lanarkshire,north-lanarkshire,96.000000,2,4
+S12000005,Clackmannanshire,clackmannanshire,92.000000,3,4
+S12000047,Fife,fife,88.000000,4,4
+S12000008,East Ayrshire,east-ayrshire,82.000000,5,4
+S12000020,Moray,moray,82.000000,5,4
+S12000028,South Ayrshire,south-ayrshire,76.000000,7,4
+S12000029,South Lanarkshire,south-lanarkshire,72.000000,8,4
+S12000017,Highland,highland,66.000000,9,4
+S12000038,Renfrewshire,renfrewshire,66.000000,9,4
+S12000040,West Lothian,west-lothian,60.000000,11,4
+S12000010,East Lothian,east-lothian,54.000000,12,4
+S12000048,Perth and Kinross,perth-and-kinross,54.000000,12,4
+S12000034,Aberdeenshire,aberdeenshire,48.000000,14,4
+S12000011,East Renfrewshire,east-renfrewshire,44.000000,15,4
+S12000019,Midlothian,midlothian,40.000000,16,4
+S12000039,West Dunbartonshire,west-dunbartonshire,34.000000,17,4
+S12000027,Shetland Islands,shetland-islands,34.000000,17,4
+S12000023,Orkney Islands,orkney-islands,28.000000,19,4
+S12000030,Stirling,stirling,24.000000,20,4
+S12000033,Aberdeen City,aberdeen-city,20.000000,21,4
+S12000045,East Dunbartonshire,east-dunbartonshire,16.000000,22,4
+S12000041,Angus,angus,12.000000,23,4
+S12000042,Dundee City,dundee-city,8.000000,24,4
+S12000014,Falkirk,falkirk,4.000000,25,4
+S12000036,City of Edinburgh,city-of-edinburgh,0.000000,26,4

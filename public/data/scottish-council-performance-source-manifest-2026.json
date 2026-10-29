@@ -1,0 +1,101 @@
+{
+  "lgbf_data": {
+    "file": "lgbf-data-real-2026-07-31.csv",
+    "url": "https://data.spatialhub.scot/dataset/9a3728b4-49ea-40af-ab10-fc0305bace84/resource/7ba35197-7ca7-4477-a38b-01fd4180466b/download/lgbf_data_table_real.csv",
+    "publisher": "Improvement Service",
+    "period": "2010-11 to 2025-26",
+    "retrieved_at": "2026-08-16",
+    "sha256": "ec6043a3743005be076fe4db800e47611f91eb974402ea09e674cd68c0d81b30",
+    "bytes": 4273379
+  },
+  "lgbf_indicator_information": {
+    "file": "lgbf-indicator-information-2026-07-31.csv",
+    "url": "https://data.spatialhub.scot/dataset/9a3728b4-49ea-40af-ab10-fc0305bace84/resource/00845629-44d0-489e-8c5e-9f49ed6b19ce/download/indicator-information.csv",
+    "publisher": "Improvement Service",
+    "period": "metadata at 31 July 2026",
+    "retrieved_at": "2026-08-16",
+    "sha256": "050744516b6229a39683a33e928eaff1efe1f788f9e89a0dd79d5c30d4fe45f6",
+    "bytes": 34419
+  },
+  "lgbf_metadata": {
+    "file": "lgbf-metadata-2026-07-31.csv",
+    "url": "https://data.spatialhub.scot/dataset/9a3728b4-49ea-40af-ab10-fc0305bace84/resource/f79e1c75-f777-4a07-a704-1aca858a089f/download/metadata.csv",
+    "publisher": "Improvement Service",
+    "period": "metadata at 31 July 2026",
+    "retrieved_at": "2026-08-16",
+    "sha256": "7e045c0c19116227fd86eb6b14241cabc77f4f071e41f6f655095e667f6742d0",
+    "bytes": 188427
+  },
+  "shs_council_perceptions": {
+    "file": "shs-2024-perceptions-of-local-councils.ods",
+    "url": "https://www.gov.scot/publications/scottish-household-survey-perceptions-of-local-councils-2024/documents/",
+    "publisher": "Scottish Government",
+    "period": "2024",
+    "retrieved_at": "2026-08-16",
+    "sha256": "b024647230f168016fb8f149a810063755bf44215131bba69441b69eec183bc0",
+    "bytes": 114594
+  },
+  "shs_neighbourhoods": {
+    "file": "shs-2024-neighbourhood-annex-d.html",
+    "url": "https://www.gov.scot/publications/neighbourhoods-communities-2024-findings-scottish-household-survey/pages/12/",
+    "publisher": "Scottish Government",
+    "period": "2024 (places to meet table is labelled 2023 by source)",
+    "retrieved_at": "2026-08-16",
+    "sha256": "91338cc64da0eebad2d98f8f9fc9365fe09312bea0ce8be2c3dfbbf3f2a1c2e8",
+    "bytes": 49186
+  },
+  "house_condition": {
+    "file": "shcs-local-authority-2022-2024.ods",
+    "url": "https://www.gov.scot/publications/scottish-house-condition-survey-local-authority-tables-2022-2024/",
+    "publisher": "Scottish Government",
+    "period": "pooled 2022-2024",
+    "retrieved_at": "2026-08-16",
+    "sha256": "9c11c712ae71b59fae4041386d2c2f3b7553e359389cbf748c6fb6189d1ce4b3",
+    "bytes": 181099
+  },
+  "recorded_crime": {
+    "file": "recorded-crime-scotland-2025-26.xlsx",
+    "url": "https://www.gov.scot/publications/recorded-crime-scotland-2025-26/documents/",
+    "publisher": "Scottish Government",
+    "period": "2025-26",
+    "retrieved_at": "2026-08-16",
+    "sha256": "67482e0a367cf604dcfb16c1ea9196b46f241104bb534dd63cd3311093cc8691",
+    "bytes": 806850
+  },
+  "child_poverty": {
+    "file": "scottish-councils-child-poverty.csv",
+    "url": "https://endchildpoverty.org.uk/child-poverty/",
+    "publisher": "End Child Poverty / Loughborough University",
+    "period": "2014-15 to 2023-24",
+    "retrieved_at": "2026-08-16",
+    "sha256": "f3ccafba0713c5e49a0c407be7606ae1e3a32559061b426a26d074e0af34acf0",
+    "bytes": 2692
+  },
+  "crisis_grants": {
+    "file": "scottish-crisis-grants-by-council-2025-26.csv",
+    "url": "https://www.gov.scot/publications/scottish-welfare-fund-statistics-update-to-31-march-2026/",
+    "publisher": "Scottish Government",
+    "period": "2025-26 provisional",
+    "retrieved_at": "2026-08-16",
+    "sha256": "3a9fca375ecdae6af38f93474e34def92b453b07280def97860cd4a35dec851b",
+    "bytes": 12304
+  },
+  "council_benchmarks": {
+    "file": "scottish-councils-benchmarks.csv",
+    "url": "https://www.improvementservice.org.uk/benchmarking/home",
+    "publisher": "Scotland Counted extract from LGBF and Audit Scotland",
+    "period": "mostly 2024-25; roads 2025-26; budget gaps 2026-27",
+    "retrieved_at": "2026-08-16",
+    "sha256": "1940c663ac3f32e7a1184d770bd4c2e749b9d3adc360ab394090b56815ea559a",
+    "bytes": 3708
+  },
+  "drug_deaths": {
+    "file": "nrs-drug-related-deaths-scotland-2024.xlsx",
+    "url": "https://www.nrscotland.gov.uk/publications/drug-related-deaths-in-scotland-2024/",
+    "publisher": "National Records of Scotland",
+    "period": "pooled 2020-2024 council rates",
+    "retrieved_at": "2026-08-16",
+    "sha256": "9a38a4f55e1ce8a21ef4b3edf64981ac67b541460eff1ee5616224ea7f887381",
+    "bytes": 231686
+  }
+}

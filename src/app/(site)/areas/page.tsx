@@ -63,6 +63,7 @@ export default function Areas() {
         <InShort>
           <p>Tap your area to see how many children are in poverty, how that has changed, how many people need out-of-work benefits and what minimum-wage work actually pays.</p>
           <p><strong>Glasgow is highlighted because it has the worst child-poverty rate in Scotland and the biggest ten-year rise.</strong></p>
+          <p>For the national picture and what sits behind these differences, see our <Link href="/poverty">guide to poverty in Scotland</Link>.</p>
         </InShort>
 
         <div className="mt-9">

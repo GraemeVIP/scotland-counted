@@ -22,9 +22,9 @@ import {
  */
 
 export const metadata = meta({
-  title: "Who Decides What in Scotland: Westminster, Holyrood or Your Council",
+  title: "Who Decides What in Scotland?",
   description:
-    "Universal Credit, council tax, schools, housing, roads and energy bills. See which government controls each one in Scotland, and which representative to contact about it.",
+    "See who controls benefits, tax, schools, housing, roads and energy in Scotland, and whether to contact your MP, MSP or council.",
   path: "/who-decides",
 });
 

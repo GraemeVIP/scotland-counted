@@ -20,6 +20,8 @@ import CouncilWatch from "@/components/CouncilWatch";
 import AccountabilityMethodNote from "@/components/AccountabilityMethodNote";
 import { JsonLd, articleJsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
 import { crisisGrantScotland, getCrisisGrantCouncil } from "@/lib/data/crisisGrants";
+import { councilPerformanceBySlug } from "@/lib/data/councilPerformanceIndex";
+import CouncilPerformanceSnapshot from "@/components/CouncilPerformanceSnapshot";
 
 export function generateStaticParams() {
   return councilAccountabilityRecords.map((record) => ({ slug: record.councilSlug }));
@@ -29,11 +31,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const record = getCouncilAccountability(slug);
   if (!record) return { robots: { index: false, follow: true } };
+  const performanceIndex = councilPerformanceBySlug[record.councilSlug];
 
   return meta({
-    title: `${record.councilName}: budget and audit record`,
-    description:
-      `Read ${record.councilName}'s budget and audit record, with official sources and clear labels showing which service outcomes have and have not been verified.`,
+    title: `${record.councilName}: budget and performance`,
+    description: performanceIndex
+      ? `${record.councilName} ranks ${performanceIndex.overallRank} of 32 for council performance. Check its services, like-for-like rank, budget, Crisis Grants and official evidence.`
+      : `See ${record.councilName}'s published funding pressure, service goals, audit findings and promises, with every claim linked to an official source.`,
     path: `/councils/${record.councilSlug}`,
   });
 }
@@ -109,6 +113,7 @@ export default async function CouncilAccountabilityPage({
 
   const pagePath = `/councils/${record.councilSlug}`;
   const crisisGrant = getCrisisGrantCouncil(record.councilSlug);
+  const performanceIndex = councilPerformanceBySlug[record.councilSlug];
   const missed = record.outcomes.filter((outcome) => outcome.status === "missed");
   const reportedOutcomes = record.outcomes.filter((outcome) => outcome.status !== "not-verified");
   const sameMeasureMisses = missed.filter((outcome) => !outcome.comparisonNote).length;
@@ -165,6 +170,12 @@ export default async function CouncilAccountabilityPage({
       ? [{
           q: `What percentage of Crisis Grant applications does ${record.councilName} award?`,
           a: `In 2025/26, ${crisisGrant.acceptanceRate}% of decided Crisis Grant applications in ${record.councilName} resulted in an award, compared with ${crisisGrantScotland.acceptanceRate}% across Scotland. This is an outcome rate for applications, not unique people, and it does not by itself explain why councils differ.`,
+        }]
+      : []),
+    ...(performanceIndex
+      ? [{
+          q: `Where does ${record.councilName} rank for council performance?`,
+          a: `${record.councilName} ranks ${performanceIndex.overallRank} of 32 in Scotland Counted's 2026 council ranking, with a comparison score of ${performanceIndex.overallScore.toFixed(1)}. We changed the rules 10,000 sensible ways and it usually ranked between ${performanceIndex.rankLow} and ${performanceIndex.rankHigh}. We built the ranking from official data. It is not an official council grade.`,
         }]
       : []),
     {
@@ -248,11 +259,14 @@ export default async function CouncilAccountabilityPage({
           </div>
         </section>
 
+          <CouncilPerformanceSnapshot slug={record.councilSlug} />
+
           <nav
           aria-label="On this council page"
           className="mt-8 flex flex-wrap gap-2 border-y border-[var(--rule)] py-4"
         >
             {[
+              { id: "council-index", label: "Index rank" },
               { id: "money", label: "Money" },
               { id: "why-more-money", label: "Why they need more" },
               { id: "performance", label: "Goals" },

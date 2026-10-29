@@ -19,6 +19,7 @@ import OperationBranchformSnpMoneyTimeline from "./operation-branchform-snp-mone
 import DrugDeathsScotlandDeprivation from "./drug-deaths-scotland-deprivation";
 import CrisisGrantAcceptanceRatesScotlandCouncils from "./crisis-grant-acceptance-rates-scotland-councils";
 import GlasgowSexCrimeRiseMigrants from "./glasgow-sex-crime-rise-migrants";
+import BestPerformingCouncilsScotland from "./best-performing-councils-scotland";
 import ShopliftingScotlandRecordHigh from "./shoplifting-scotland-record-high";
 
 /**
@@ -29,6 +30,7 @@ import ShopliftingScotlandRecordHigh from "./shoplifting-scotland-record-high";
 export const postBodies: Record<string, ComponentType> = {
   "shoplifting-scotland-record-high": ShopliftingScotlandRecordHigh,
   "glasgow-sex-crime-rise-migrants": GlasgowSexCrimeRiseMigrants,
+  "best-performing-councils-scotland": BestPerformingCouncilsScotland,
   "operation-branchform-snp-money-timeline": OperationBranchformSnpMoneyTimeline,
   "drug-deaths-scotland-deprivation": DrugDeathsScotlandDeprivation,
   "crisis-grant-acceptance-rates-scotland-councils": CrisisGrantAcceptanceRatesScotlandCouncils,
