@@ -18,6 +18,8 @@ import FreeSchoolMealsClothingGrantScotland from "./free-school-meals-clothing-g
 import OperationBranchformSnpMoneyTimeline from "./operation-branchform-snp-money-timeline";
 import DrugDeathsScotlandDeprivation from "./drug-deaths-scotland-deprivation";
 import CrisisGrantAcceptanceRatesScotlandCouncils from "./crisis-grant-acceptance-rates-scotland-councils";
+import BestPerformingCouncilsScotland from "./best-performing-councils-scotland";
+import ShopliftingScotlandRecordHigh from "./shoplifting-scotland-record-high";
 
 /**
  * Slug to post body. Statically imported so every post is prerendered and no
@@ -25,6 +27,8 @@ import CrisisGrantAcceptanceRatesScotlandCouncils from "./crisis-grant-acceptanc
  * to src/lib/data/posts.ts.
  */
 export const postBodies: Record<string, ComponentType> = {
+  "shoplifting-scotland-record-high": ShopliftingScotlandRecordHigh,
+  "best-performing-councils-scotland": BestPerformingCouncilsScotland,
   "operation-branchform-snp-money-timeline": OperationBranchformSnpMoneyTimeline,
   "drug-deaths-scotland-deprivation": DrugDeathsScotlandDeprivation,
   "crisis-grant-acceptance-rates-scotland-councils": CrisisGrantAcceptanceRatesScotlandCouncils,

@@ -159,13 +159,24 @@ test("Branchform is still classified as an investigation", () => {
   );
 });
 
-test("only Branchform is filed under the investigations category", () => {
+test("only evidence-led investigations are filed under the investigations category", () => {
   /*
-   * A guide is not an investigation. If this count ever rises, either a real
-   * investigation was published, in which case update it deliberately, or an
-   * explainer was misfiled, which is the thing this whole change was about.
+   * A guide is not an investigation. The category now contains Branchform,
+   * the Crisis Grant postcode analysis, the transparent council-performance
+   * index and the shoplifting data investigation. Keep the list explicit so an
+   * ordinary guide cannot drift in.
    */
   const source = readFileSync(fileURLToPath(new URL("./posts.ts", import.meta.url)), "utf8");
   const filed = source.match(/category: "politics-explained"/g) ?? [];
-  assert.equal(filed.length, 1, `${filed.length} posts are filed as investigations`);
+  assert.equal(filed.length, 4, `${filed.length} posts are filed as investigations`);
+  for (const slug of [
+    "operation-branchform-snp-money-timeline",
+    "crisis-grant-acceptance-rates-scotland-councils",
+    "best-performing-councils-scotland",
+    "shoplifting-scotland-record-high",
+  ]) {
+    const at = source.indexOf(`slug: "${slug}"`);
+    assert.ok(at >= 0, `${slug} is missing`);
+    assert.match(source.slice(at, at + 3_500), /category: "politics-explained"/, `${slug} changed category`);
+  }
 });

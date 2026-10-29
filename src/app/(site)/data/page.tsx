@@ -4,9 +4,9 @@ import { JsonLd, breadcrumbJsonLd, datasetJsonLd, meta } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 export const metadata = meta({
-  title: "Download Scotland Poverty Data: CSV and Sources",
+  title: "Download Scotland Data: Councils, Poverty and Services",
   description:
-    "Download the Scotland Counted poverty, pay, benefit, health and local-area data, with dates, definitions and links to every original source.",
+    "Download Scotland Counted council performance, poverty, pay, benefit, health and local-area data, with definitions and original sources.",
   path: "/data",
 });
 
@@ -25,7 +25,7 @@ type DataFile = {
   file: string;
   title: string;
   body: string;
-  format: "CSV" | "XLSX";
+  format: "CSV" | "XLSX" | "MD" | "JSON";
   size: string;
   /** Row count excluding the header. Absent for the spreadsheet. */
   rows?: string;
@@ -35,6 +35,110 @@ type DataFile = {
 };
 
 const FILES: DataFile[] = [
+  {
+    file: "scottish-council-performance-index-2026.csv",
+    title: "Council performance index, all 32 results",
+    body: "The main and like-for-like result for every Scottish council, with all five parts of the score, the data available and the usual rank from 10,000 reruns.",
+    format: "CSV",
+    size: "6 KB",
+    rows: "32 rows",
+    columns: "council, score and rank, peer score and rank, coverage, five pillars, median and 5th–95th percentile rank, winner/top-five/top-ten frequency",
+    kind: "prepared",
+  },
+  {
+    file: "scottish-council-performance-evidence-2026.csv",
+    title: "Council index: all 29 groups of figures",
+    body: "Every topic used for every council, including its label, part of the score, official source codes, score and how much data was available.",
+    format: "CSV",
+    size: "175 KB",
+    rows: "928 rows",
+    columns: "council, evidence family, score, coverage, label, pillar, domain, indicator count and source codes",
+    kind: "prepared",
+  },
+  {
+    file: "scottish-council-performance-indicators-2026.csv",
+    title: "Council index: every official figure used",
+    body: "The official numbers behind the ranking, with their year, unit, whether higher or lower is better, missing-data notes and converted score.",
+    format: "CSV",
+    size: "408 KB",
+    rows: "1,914 rows",
+    columns: "council, indicator and year, raw value, direction, unit, family, missing/modelled flags and normalised score",
+    kind: "prepared",
+  },
+  {
+    file: "scottish-council-performance-robustness-2026.csv",
+    title: "Council index: what happened in 10,000 reruns",
+    body: "Each council's usual rank, middle 90% range and how often it won or reached the top five and top ten when we changed the rules.",
+    format: "CSV",
+    size: "3 KB",
+    rows: "32 rows",
+    columns: "council, median rank, rank 5th and 95th percentiles, winner probability, top-five probability and top-ten probability",
+    kind: "prepared",
+  },
+  {
+    file: "scottish-council-performance-context-2026.csv",
+    title: "Council index: place and accountability context",
+    body: "Neighbourhood, loneliness, housing, crime, poverty, drug-death, budget-gap and Crisis Grant figures kept outside the performance score so circumstances are not mistaken for council competence.",
+    format: "CSV",
+    size: "7 KB",
+    rows: "32 rows",
+    columns: "council, neighbourhood, loneliness, housing, crime, child poverty, drug deaths, budget gap and Crisis Grant measures",
+    kind: "prepared",
+  },
+  {
+    file: "scottish-council-performance-indicator-audit-2026.csv",
+    title: "Council index: checks on every measure",
+    body: "What we used or left out, with the meaning, service, year, whether higher or lower is better and how many councils had data.",
+    format: "CSV",
+    size: "15 KB",
+    rows: "81 rows",
+    columns: "indicator, period, evidence family, use, title, service area, category, unit, direction and coverage",
+    kind: "prepared",
+  },
+  {
+    file: "scottish-council-resident-verdict-2024.csv",
+    title: "Council index: residents' verdict",
+    body: "All five council-perception questions from the 2024 Scottish Household Survey, with the equal-weight average, rank and local respondent base used in the article.",
+    format: "CSV",
+    size: "4 KB",
+    rows: "32 rows",
+    columns: "council, five perception estimates, average, relative score, rank and survey base",
+    kind: "prepared",
+  },
+  {
+    file: "scottish-council-landlord-index-2026.csv",
+    title: "Council landlord comparison",
+    body: "A separate comparison for the 26 councils with comparable housing stock. It stays outside the headline score because six councils cannot be assessed on the same basis.",
+    format: "CSV",
+    size: "1 KB",
+    rows: "26 rows",
+    columns: "council, council landlord score, rank and metrics used",
+    kind: "prepared",
+  },
+  {
+    file: "scottish-council-performance-methodology-2026.md",
+    title: "Council index: how we worked it out",
+    body: "Every public rule: what counted, how much it counted, how figures became scores, what happened when data was missing and what we left out.",
+    format: "MD",
+    size: "5 KB",
+    kind: "prepared",
+  },
+  {
+    file: "scottish-council-performance-validation-2026.md",
+    title: "Council index: a separate check of the maths",
+    body: "A second calculation checked the source files, council matches, scores, value-for-money rules, 10,000 reruns and warnings shown to readers.",
+    format: "MD",
+    size: "3 KB",
+    kind: "prepared",
+  },
+  {
+    file: "scottish-council-performance-source-manifest-2026.json",
+    title: "Council index source manifest",
+    body: "Publisher, direct source URL, period, retrieval date, byte size and SHA-256 hash for all 11 frozen input files used to build and validate the index.",
+    format: "JSON",
+    size: "5 KB",
+    kind: "prepared",
+  },
   {
     file: "scotland-poverty-headline-2022-25.csv",
     title: "Scotland-wide poverty headline",
@@ -165,7 +269,7 @@ const GROUPS = [
     kind: "prepared" as const,
     title: "Files I prepared",
     blurb:
-      "Built from the sources below and tidied so they open cleanly in a spreadsheet: one row per observation, column names you can read, and the source named in the file. Start here unless you specifically need the raw output.",
+      "Built from the sources below and documented so the working can be checked. The data files open cleanly in a spreadsheet, with readable columns and one row per observation; the council index also includes its method, validation report and hashed source manifest.",
   },
   {
     kind: "original" as const,
@@ -188,9 +292,9 @@ export default function Data() {
         data={datasetJsonLd({
           name: "Scotland Counted, full dataset",
           description:
-            "National poverty rates, council child poverty, Crisis Grant outcomes, employment, benefit claims, pay, jobs density, life expectancy and drug-death inequality data for Scotland, including the Glasgow deep series, 2000–2026.",
+            "Scottish council performance and robustness results, national poverty rates, council child poverty, Crisis Grant outcomes, employment, pay, health and inequality data, 2000–2026.",
           path: "/data",
-          keywords: ["poverty", "open data", "Scotland", "CSV", "child poverty", "Crisis Grants", "Glasgow", "health inequality"],
+          keywords: ["council performance", "poverty", "open data", "Scotland", "CSV", "child poverty", "Crisis Grants", "health inequality"],
           temporalCoverage: "2000/2026",
         })}
       />
@@ -198,8 +302,8 @@ export default function Data() {
       <Page>
         <PageHeader
           eyebrow="Free to download and reuse"
-          title="Download Scotland poverty data"
-          lede="This is the proof behind the simple pages. Eleven CSVs and two Excel workbooks, all free. Six I prepared and tidied so they open cleanly in a spreadsheet; the other seven are the publishers' own files, served exactly as they came, so you can check my working against them."
+          title="Download Scotland data"
+          lede="This is the proof behind the simple pages. Twenty-four downloadable files: 19 CSVs, two Excel workbooks, two method notes and one source manifest. Seventeen I prepared and documented; the other seven are the publishers' own files, served exactly as they came, so you can check my working against them."
         />
 
         <ContentFrame>

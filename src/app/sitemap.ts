@@ -14,7 +14,6 @@ import {
 import { representativeSlug } from "@/lib/representatives";
 import { councilAccountabilityRecords } from "@/lib/data/councilAccountability";
 import { mspReviewProfiles } from "@/lib/data/mspReviews";
-import { listApprovedMspReviews } from "@/lib/mspReviewsDb";
 
 export const revalidate = 3600;
 
@@ -136,11 +135,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: seoRelease,
   }));
 
-  const approvedMspReviews = await listApprovedMspReviews();
-  const reviewedMemberIds = new Set(approvedMspReviews.map((review) => review.memberId));
-  const mspReviewPages: MetadataRoute.Sitemap = mspReviewProfiles
-    .filter((profile) => reviewedMemberIds.has(profile.msp.memberId))
-    .map((profile) => ({
+  const mspReviewPages: MetadataRoute.Sitemap = mspReviewProfiles.map((profile) => ({
     url: `${site.url}/msp-reviews/${profile.slug}`,
     changeFrequency: "weekly" as const,
     priority: 0.75,

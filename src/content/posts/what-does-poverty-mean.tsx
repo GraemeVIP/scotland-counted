@@ -118,6 +118,11 @@ export default function Post() {
       />
 
       <P>
+        See the <Link href="/poverty">poverty figures for Scotland</Link> alongside the causes
+        and the people who have the power to change them.
+      </P>
+
+      <P>
         The full definitions are in the <Link href="/glossary">plain-English glossary</Link>, and
         the exact method is on the <Link href="/methods">methods page</Link>.
       </P>

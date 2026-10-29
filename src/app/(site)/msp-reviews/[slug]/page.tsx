@@ -18,8 +18,7 @@ export const revalidate = 60;
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const profile = getMspReviewProfile((await params).slug);
   if (!profile) return {};
-  const reviews = await listApprovedMspReviews(profile.msp.memberId);
-  const metadata = meta({
+  return meta({
     title: `${profile.msp.name} MSP Reviews`,
     description: `Read moderated, firsthand reviews of ${profile.msp.name}, ${profile.msp.party} MSP for ${profile.areas.join(", ")}, or submit your own experience.`,
     path: `/msp-reviews/${profile.slug}`,
@@ -29,9 +28,6 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     imageHeight: 630,
     imageType: "image/jpeg",
   });
-  return reviews.length
-    ? metadata
-    : { ...metadata, robots: { index: false, follow: true } };
 }
 
 export default async function MspReviewPage({ params }: { params: Promise<{ slug: string }> }) {

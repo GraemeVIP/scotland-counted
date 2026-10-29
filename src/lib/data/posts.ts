@@ -82,6 +82,7 @@ export type Post = {
     alt: string;
     caption: string;
     objectPosition?: string;
+    creditLabel?: string;
   };
   /** Optional direct Open Graph and X image. Falls back to the generated post card. */
   shareImage?: {
@@ -99,6 +100,187 @@ export type Post = {
 };
 
 export const posts: Post[] = [
+  {
+    slug: "shoplifting-scotland-record-high",
+    title: "Scotland's shoplifting rate overtakes England and Wales as convictions nearly halve",
+    seoTitle: "Shoplifting in Scotland Hits Record High, Overtaking England",
+    description:
+      "Shoplifting in Scotland hit 53,369 in 2025-26, a record, and now outstrips England and Wales. Convictions nearly halved. See the data for all 32 councils.",
+    standfirst:
+      "Shoplifting in Scotland is at its highest since 1971 and now higher per person than in England and Wales. Convictions have nearly halved. Food prices explain much of the surge, but not the last two years.",
+    date: "2026-09-28",
+    category: "politics-explained",
+    tags: [
+      "Shoplifting Scotland",
+      "Shoplifting statistics",
+      "Crime in Scotland",
+      "Cost of living",
+      "Police Scotland",
+      "Edinburgh",
+      "Glasgow",
+    ],
+    readingMinutes: 13,
+    image: {
+      src: "/images/editorial/shoplifting-scotland-record-high.png",
+      alt: "Data graphic showing recorded shoplifting per 1,000 people in Scotland rising above England and Wales in 2025-26, at 9.6 against 8.2",
+      caption:
+        "Scotland had less shoplifting per person than England and Wales before Covid. In 2025-26 it had 17% more.",
+      creditLabel: "Scotland Counted data graphic.",
+      objectPosition: "center",
+    },
+    shareImage: {
+      src: "/images/editorial/shoplifting-scotland-record-high.png",
+      width: 1800,
+      height: 900,
+      type: "image/png",
+    },
+    toc: [
+      { id: "short-answer", label: "Four things the figures show" },
+      { id: "uk", label: "Scotland has overtaken England and Wales" },
+      { id: "record", label: "A record, and almost all shoplifting" },
+      { id: "caught", label: "Fewer shoplifters convicted" },
+      { id: "councils", label: "Edinburgh has overtaken Glasgow" },
+      { id: "food-prices", label: "Food prices, up to a point" },
+      { id: "reporting", label: "Are shops reporting more?" },
+      { id: "who-is-in-charge", label: "Who is responsible?" },
+      { id: "verdict", label: "What is driving it" },
+      { id: "limits", label: "What the data cannot prove" },
+    ],
+    faq: [
+      {
+        q: "Is shoplifting in Scotland at a record high?",
+        a: "Yes. Police Scotland recorded 53,369 shoplifting crimes in 2025-26, the highest since comparable records began in 1971. That is 19% more than in 2024-25 and 74% more than in 2019-20, the last year before Covid.",
+      },
+      {
+        q: "Does Scotland have more shoplifting than England?",
+        a: "Per person, yes. In 2025-26 Scotland recorded 9.6 shoplifting crimes per 1,000 people, against 8.2 in England and Wales. Scotland was lower before Covid. Shoplifting fell 4% in England and Wales in 2025-26 but rose 19% in Scotland.",
+      },
+      {
+        q: "Are fewer shoplifters being convicted in Scotland?",
+        a: "Yes. 5,422 people were convicted with shoplifting as their main crime in 2019-20, and 2,854 in 2023-24, the latest year published. Police solved 50.6% of recorded shoplifting in 2025-26, down from 66.3% in 2019-20. People who are convicted are not sentenced more lightly: the share jailed rose.",
+      },
+      {
+        q: "Is the cost of living crisis causing more shoplifting?",
+        a: "It fits the timing of the biggest rises. Shoplifting grew fastest in 2022-23 and 2023-24, when food prices were rising fastest. Since 2024 it has grown faster than food prices alone would predict, while Crisis Grant applications and food bank parcels fell, so other causes such as lower detection, more reporting and organised theft are likely to play a part.",
+      },
+      {
+        q: "Which council area in Scotland has the most shoplifting?",
+        a: "Edinburgh recorded the most shoplifting crimes in 2025-26, 10,595, ahead of Glasgow on 9,722. Dundee City had the highest rate for its size, 211.8 crimes per 10,000 people.",
+      },
+    ],
+    sourceIds: [
+      "recorded-crime-2025-26-dishonesty",
+      "recorded-crime-2025-26-tables",
+      "sgs-recorded-crime",
+      "criminal-proceedings-2023-24",
+      "ons-cpi-food-index",
+      "ons-crime-england-wales-2026",
+      "swf-tables-2025-26",
+      "sgs-scottish-welfare-fund",
+      "ecp",
+      "trussell-parcels-2025",
+      "spa-retail-crime-2024",
+      "retail-non-intervention",
+      "slr-retail-crime-taskforce",
+      "police-scotland-retail-taskforce",
+      "chalfin-mccrary-2017",
+      "sentencing-presumption-2019",
+      "sg-prison-population-2025",
+      "prisoners-early-release-act-2025",
+      "sps-early-release",
+      "short-term-prisoner-release-2026",
+      "spa-proportionate-response",
+      "judiciary-shoplifting-case-management",
+      "scottish-parliament-devolved-powers",
+      "crime-policing-act-2026-retail",
+      "protection-of-workers-scotland-2021",
+    ],
+  },
+  {
+    slug: "best-performing-councils-scotland",
+    title: "Scotland's best-performing councils: all 32 ranked",
+    seoTitle: "Best Council in Scotland 2026: All 32 Ranked",
+    description:
+      "East Renfrewshire comes first in our 53-measure ranking. See all 32 councils, the like-for-like list, what residents said and every number used.",
+    standfirst:
+      "East Renfrewshire comes first in our new ranking of all 32 Scottish councils. East Lothian is second and Edinburgh third. But the like-for-like list and resident survey tell a more surprising story.",
+    date: "2026-08-16",
+    category: "politics-explained",
+    tags: [
+      "Best council in Scotland",
+      "Scottish council rankings",
+      "Council performance",
+      "Local Government Benchmarking Framework",
+      "Best places to live in Scotland",
+      "Scottish local government",
+      "Council services",
+    ],
+    readingMinutes: 14,
+    image: {
+      src: "/images/editorial/best-performing-councils-scotland-2026.png",
+      alt: "Data graphic showing East Renfrewshire first in the Scotland Counted council performance index, followed by East Lothian, Edinburgh, East Dunbartonshire and South Ayrshire",
+      caption:
+        "East Renfrewshire is the clear leader. But the exact order moves when we change the rules, so we show the usual range for every council.",
+      creditLabel: "Scotland Counted data graphic.",
+      objectPosition: "center",
+    },
+    shareImage: {
+      src: "/images/editorial/best-performing-councils-scotland-2026.png",
+      width: 1800,
+      height: 900,
+      type: "image/png",
+    },
+    toc: [
+      { id: "answer", label: "The answer in four numbers" },
+      { id: "winner", label: "Why East Renfrewshire wins" },
+      { id: "uncertainty", label: "Does the winner change?" },
+      { id: "all-councils", label: "Every council ranked" },
+      { id: "different-winners", label: "Five ways to be good" },
+      { id: "peer-groups", label: "The like-for-like list" },
+      { id: "residents", label: "Residents disagree" },
+      { id: "surprises", label: "The biggest contradiction" },
+      { id: "not-in-score", label: "What was left out" },
+      { id: "method", label: "How we worked it out" },
+      { id: "download", label: "Check every number" },
+      { id: "questions", label: "What councils must answer" },
+    ],
+    faq: [
+      {
+        q: "Which is the best-performing council in Scotland?",
+        a: "East Renfrewshire comes first in Scotland Counted's 2026 council ranking. It is number one for services and results and stayed first in all ten extra checks. We built the ranking from 53 official figures. It is not a government award.",
+      },
+      {
+        q: "Which Scottish council do residents rate most highly?",
+        a: "Shetland Islands comes first in the separate resident survey, averaging 52.1% across five questions in the 2024 Scottish Household Survey. Only a few hundred people answered in each area, so tiny gaps may be down to chance.",
+      },
+      {
+        q: "Does the ranking measure the best place to live in Scotland?",
+        a: "No. It measures how councils perform, not every reason a place is good to live. Poverty, crime, health, housing and loneliness are shown separately. That stops richer areas automatically looking like better-run councils.",
+      },
+      {
+        q: "How were Scottish councils ranked?",
+        a: "We used 53 official figures, grouped into 29 topics. Services and results count for 40%, what residents said 25%, how the council is run 20%, value for money 10% and council emissions 5%. We then changed the rules 10,000 sensible ways to see how much the order moved.",
+      },
+      {
+        q: "Which council performs best against similar councils?",
+        a: "East Renfrewshire stays first and East Lothian second in the like-for-like list. Inverclyde jumps from 12th across Scotland to third against councils facing similar conditions.",
+      },
+    ],
+    sourceIds: [
+      "lgbf-performance-2026",
+      "lgbf-family-groups",
+      "shs-council-perceptions-2024",
+      "shs-methodology-2024",
+      "shs-neighbourhoods-2024",
+      "shcs-local-authority-2022-24",
+      "recorded-crime-scotland-2025-26",
+      "oecd-composite-indicators",
+      "jrc-composite-normalisation",
+      "ecp",
+      "nrs-drug-deaths-2024",
+      "swf-statistics-2025-26",
+    ],
+  },
   {
     slug: "operation-branchform-snp-money-timeline",
     title: "Operation Branchform timeline: the full SNP money story",
