@@ -105,14 +105,14 @@ export default function PovertyHub() {
             <h2 className="h2 mb-3">Start here</h2>
             <div className="mt-6 grid gap-4 md:grid-cols-2">
               <Card
-                href="/blog/what-does-poverty-mean"
+                href="/uk-poverty-line"
                 eyebrow="Explainer"
                 title="What poverty actually means"
                 body="Relative, absolute and persistent poverty are three different things, and the difference changes the number by hundreds of thousands of people."
                 meta="5 min read"
               />
               <Card
-                href="/blog/do-people-in-poverty-work"
+                href="/in-work-poverty-scotland"
                 eyebrow="Explainer"
                 title="Most children in poverty have a working parent"
                 body="The single most common assumption about poverty in Scotland, tested against the official figures."

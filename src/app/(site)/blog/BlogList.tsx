@@ -105,7 +105,7 @@ export default function BlogList({
                     variant. The light one drops to 2.77:1 here for politics. */}
                 <p
                   className="ui text-[15px] font-[620]"
-                  style={{ color: featuredCategory?.colorOnDark ?? "#ff8b75" }}
+                  style={{ color: featuredCategory?.colorOnDark ?? "#8bb8ff" }}
                 >
                   {featuredCategory?.name}
                 </p>

@@ -30,7 +30,7 @@ export const explainerVideo: SiteVideo = {
   name: "Scotland Counted Explainer",
   description:
     "What this site is for, in four minutes. Why one in six people in Scotland live in poverty after housing costs, why three in four children in poverty have a working parent, how the figures differ street by street, and how to put a question to your MP and MSP in about a minute.",
-  thumbnail: "/images/video/scotland-counted-explainer.webp",
+  thumbnail: "/images/video/refresh-video-scotland.webp",
   uploadDate: "2026-08-01T07:45:49-07:00",
   duration: "PT4M22S",
 };
@@ -41,7 +41,7 @@ export const costOfLivingVideo: SiteVideo = {
   name: "Cost Of Living Explained - The Truth",
   description:
     "Where the money went during the UK cost of living crisis: record upstream energy profits while retail suppliers collapsed, supermarket fuel margins that cost drivers an extra £900m in a year, and what the ONS, the IMF and the CMA actually found about profit-driven inflation.",
-  thumbnail: "/images/video/cost-of-living-explained.webp",
+  thumbnail: "/images/video/refresh-video-cost-living.webp",
   uploadDate: "2026-08-01T06:26:43-07:00",
   duration: "PT6M7S",
 };

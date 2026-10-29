@@ -862,7 +862,7 @@
 }
 
 /* Accent text remains legible inside surfaces that stay dark in either theme. */
-.slab-dark, [class*="bg-[var(--deep)]"] { --action-text: #ff9a80; }
+.slab-dark, [class*="bg-[var(--deep)]"] { --action-text: #8bb8ff; }
 
 /* ============================================================
    Saltire components

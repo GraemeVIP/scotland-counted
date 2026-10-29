@@ -29,7 +29,7 @@ export const faqSections: FaqSection[] = [
         q: "What does poverty actually mean?",
         a: "The official measure used here means a household has less than 60% of the usual UK income after rent or mortgage costs. In ordinary words: there is not enough money left for a normal, secure life.",
         keywords: "definition relative income 60 percent",
-        href: "/blog/what-does-poverty-mean",
+        href: "/uk-poverty-line",
         linkLabel: "Read the full plain English explanation",
       },
       {
@@ -53,7 +53,7 @@ export const faqSections: FaqSection[] = [
         q: "Do most children in poverty have a parent who works?",
         a: "Yes. Three quarters of children in poverty in Scotland live in a household where at least one person works. A job can still mean low pay, too few hours or bills that take too much of the wage.",
         keywords: "working poverty job employment three quarters 75%",
-        href: "/blog/do-people-in-poverty-work",
+        href: "/in-work-poverty-scotland",
         linkLabel: "See why work does not always pay enough",
       },
       {
@@ -379,7 +379,7 @@ export const faqSections: FaqSection[] = [
         q: "Is a full time minimum wage job enough to live on?",
         a: "Not for many ordinary households. Minimum Income Standard research found that in 2025 a single adult working full time at the legal minimum reached only 76% of the income needed for a basic, decent standard of living. Families can face an even larger gap.",
         keywords: "minimum wage salary enough live MIS 76%",
-        href: "/blog/do-people-in-poverty-work",
+        href: "/in-work-poverty-scotland",
         linkLabel: "See why work can still leave people short",
       },
       {
@@ -395,7 +395,7 @@ export const faqSections: FaqSection[] = [
         q: "Has the cost of living crisis ended because inflation fell?",
         a: "No. Lower inflation means prices are rising more slowly; it does not return them to their old level. Food, energy, rent and tax can stay much higher even after the inflation rate falls.",
         keywords: "prices inflation bills food energy rent crisis",
-        href: "/blog/why-is-the-cost-of-living-so-high",
+        href: "/cost-of-living-scotland",
         linkLabel: "See why everything still costs so much",
       },
       {

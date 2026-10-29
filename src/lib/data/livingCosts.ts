@@ -126,11 +126,11 @@ export const benefitsComparison = {
 export const costsThenAndNow = [
   {
     what: "Energy",
-    now: "£1,862 a year",
-    detail: "Ofgem cap for a typical dual fuel home paying by direct debit, from 1 July 2026, after a 13% rise",
-    change: "53% higher",
-    against: "than winter 2021/22, before the energy crisis",
-    sourceId: "ofgem-cap-2026",
+    now: "£1,723 a year",
+    detail: "Ofgem cap for a typical dual fuel home paying by direct debit, from 1 October 2026, on Ofgem's updated typical use",
+    change: "4% higher",
+    against: "than July to September 2026 (£1,663 on the same typical use)",
+    sourceId: "ofgem-cap-oct-2026",
   },
   {
     what: "Food",
@@ -168,7 +168,7 @@ export const councilTax = {
 };
 
 /** The Ofgem cap, as a monthly figure for the budget. */
-export const energyMonthly = 1862 / 12;
+export const energyMonthly = 1723 / 12;
 
 /**
  * Universal Credit actually payable on a full-time minimum wage.

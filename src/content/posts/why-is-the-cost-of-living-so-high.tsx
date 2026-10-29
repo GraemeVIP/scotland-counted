@@ -4,8 +4,21 @@ import { Prose, Lead, P, H2, H3, UL, LI, BigStat, Aside, PostCTA } from "@/compo
 import { ExplainText } from "@/components/Glossary";
 import VideoEmbed from "@/components/VideoEmbed";
 import { JsonLd, videoJsonLd } from "@/lib/seo";
+import { GuideTable } from "@/components/GuideTable";
+import { bandDRange, pounds } from "@/lib/data/quickAnswers";
+import { ASHE_2026, CITY_PAY, PRIVATE_RENTS, minimumWageNow } from "@/lib/data/money";
+import { calculate } from "@/lib/tax/engine";
 
 import { costOfLivingVideo as VIDEO } from "@/lib/data/video";
+
+/** ONS consumer price inflation, UK, 12 months to September 2026 (released 21 October 2026). */
+const CPI = { june: 2.6, september: 3.5 };
+
+/** Ofgem price cap, typical use, Direct Debit, 1 October to 31 December 2026. */
+const ENERGY_CAP = 1723;
+
+/** ONS Price Index of Private Rents, September 2026: UK average for all homes, and its change on a year. */
+const UK_RENT = { all: 1406, allChangePct: 3.8 };
 
 function Decision({
   title,
@@ -31,11 +44,19 @@ function Decision({
 }
 
 export default function Post() {
+  const councilTax = bandDRange();
+  const rentShare = Math.round((PRIVATE_RENTS.scotland.oneBed / minimumWageNow.netMonthly) * 100);
+  const taxGap = (salary: number) => calculate(salary, "scotland").net - calculate(salary, "ruk").net;
+  const lothian = CITY_PAY["city-of-edinburgh"].rent;
+  const dundee = CITY_PAY["dundee-city"].rent;
+
   return (
     <Prose>
       <Lead>
-        The crisis did not end when the inflation number came down. Prices went up sharply. Most
-        of them stayed up. Now they are rising from that much higher starting point.
+        The cost of living in Scotland is still high because prices rose sharply between 2021 and
+        2023 and most of them never came back down. Inflation was {CPI.september}% in the year to
+        September 2026, so prices are now rising again from that much higher starting point. The
+        crisis did not end when the inflation number came down.
       </Lead>
 
       <BigStat
@@ -49,7 +70,7 @@ export default function Post() {
       <VideoEmbed
         id={VIDEO.youtubeId}
         title={VIDEO.name}
-        poster="/images/video/cost-of-living-explained.webp"
+        poster="/images/video/refresh-video-cost-living.webp"
         className="my-10"
         caption="Six minutes on where the money actually went: energy company profits, supermarket fuel margins and what the ONS, the IMF and the competition watchdog found."
       />
@@ -57,9 +78,10 @@ export default function Post() {
       <H2 id="what-is-happening">What is happening now</H2>
 
       <P>
-        In June 2026, the main UK inflation rate was 2.6%. That sounds as if the problem has gone
-        away. It has not. It means a basket that already became far more expensive was still
-        getting another 2.6% dearer over the year.
+        In June 2026, the main UK inflation rate was {CPI.june}%. By September it had climbed back
+        to {CPI.september}%, with petrol and diesel giving the biggest push. Even a low rate would
+        not mean the problem has gone away. It means a basket that already became far more
+        expensive is still getting another {CPI.september}% dearer over the year.
       </P>
 
       <Aside title="Lower inflation does not mean lower prices">
@@ -94,7 +116,92 @@ export default function Post() {
         price cap is not a maximum bill</Link>.
       </P>
 
-      <H2 id="what-started-it">What started the crisis</H2>
+      <H2 id="monthly-costs">What is the cost of living in Scotland? The main bills in 2026</H2>
+
+      <P>
+        These are the latest official figures for the biggest fixed costs a household in Scotland
+        faces. Food is not in the table because there is no official figure for a typical shop,
+        only for how fast prices change.
+      </P>
+
+      <GuideTable
+        kicker="Scotland, autumn 2026"
+        title="What the main household bills cost"
+        columns={["Cost", "A month", "A year", "What the figure is"]}
+        align={["left", "right", "right", "left"]}
+        rows={[
+          [
+            "Rent, one bedroom home",
+            pounds(PRIVATE_RENTS.scotland.oneBed),
+            pounds(PRIVATE_RENTS.scotland.oneBed * 12),
+            `ONS average private rent in Scotland, ${PRIVATE_RENTS.month}`,
+          ],
+          [
+            "Rent, all homes",
+            pounds(PRIVATE_RENTS.scotland.all),
+            pounds(PRIVATE_RENTS.scotland.all * 12),
+            `ONS average private rent in Scotland, ${PRIVATE_RENTS.month}`,
+          ],
+          [
+            "Gas and electricity",
+            pounds(ENERGY_CAP / 12),
+            pounds(ENERGY_CAP),
+            "Ofgem price cap for typical use, Direct Debit, October to December 2026",
+          ],
+          [
+            "Council tax and water, Band D",
+            `${pounds(councilTax.lowest.total / 12)} to ${pounds(councilTax.highest.total / 12)}`,
+            `${pounds(councilTax.lowest.total)} to ${pounds(councilTax.highest.total)}`,
+            `2026/27, from ${councilTax.lowest.name} (lowest) to ${councilTax.highest.name} (highest)`,
+          ],
+        ]}
+        caption="ONS rents in Scotland are mostly advertised new lets, so they show what someone moving now would pay. Council tax depends on your band and council; Band D is the reference band."
+      />
+
+      <P>
+        Against that, the typical full time employee living in Scotland earned{" "}
+        {pounds(ASHE_2026.scotland.annual)} a year before tax in April 2026. Someone working full
+        time on the minimum wage takes home about {pounds(minimumWageNow.netMonthly)} a month, so
+        an average one bedroom rent alone would take {rentShare}% of it.
+      </P>
+
+      <P>
+        Check your own figures: <Link href="/check-council-tax-band">find your council tax
+        band</Link>, see <Link href="/water-rates-scotland">water rates in Scotland</Link>, or
+        compare with the <Link href="/average-salary-scotland">average salary in Scotland</Link>.
+      </P>
+
+      <H2 id="scotland-vs-uk">Is living in Scotland expensive compared with the rest of the UK?</H2>
+
+      <UL>
+        <LI>
+          <strong>Rent is lower on average, but not everywhere.</strong> The average private rent in
+          Scotland was {pounds(PRIVATE_RENTS.scotland.all)} a month in {PRIVATE_RENTS.month},
+          against {pounds(UK_RENT.all)} across the UK. Scottish rents rose{" "}
+          {PRIVATE_RENTS.scotland.allChangePct}% in a year, against {UK_RENT.allChangePct}% for the
+          UK. Inside Scotland the spread is wide: a one bedroom home averages{" "}
+          {pounds(lothian.oneBed)} in the Lothian area around Edinburgh and {pounds(dundee.oneBed)}{" "}
+          around Dundee.
+        </LI>
+        <LI>
+          <strong>Pay is close to the UK figure.</strong> Typical full time pay for people living in
+          Scotland was {pounds(ASHE_2026.scotland.annual)} in April 2026, against{" "}
+          {pounds(ASHE_2026.uk.annual)} for the UK.
+        </LI>
+        <LI>
+          <strong>Income tax depends on what you earn.</strong> On £25,000 a year, Scottish income
+          tax leaves you about {pounds(taxGap(25000))} a year better off than in England. On
+          £50,000 you take home about {pounds(-taxGap(50000))} less. See{" "}
+          <Link href="/30000-after-tax-scotland">£30,000 after tax in Scotland</Link> for a worked
+          example.
+        </LI>
+        <LI>
+          <strong>Some help only exists in Scotland.</strong> The Scottish Child Payment adds £28.20
+          a week per child for low income families.
+        </LI>
+      </UL>
+
+      <H2 id="what-started-it">Cost of living crisis Scotland: what started it</H2>
 
       <P>Two big shocks were real, global and outside the control of any Scottish MP.</P>
 
@@ -131,7 +238,7 @@ export default function Post() {
 
       <div className="grid gap-4 my-7">
         <Decision
-          who="UK Government and MPs · 2016–2020"
+          who="UK Government and MPs · 2016 to 2020"
           title="They froze working age benefits before prices exploded"
           proof="The Welfare Reform and Work Bill passed its final Commons division by 309 votes to 274. Independent JRF modelling put the real terms loss at 6.5% by 2019."
         >
@@ -179,14 +286,14 @@ export default function Post() {
         </Decision>
 
         <Decision
-          who="UK Government · still in force in 2026–27"
+          who="UK Government · still in force in 2026/27"
           title="Rent support is frozen while rents keep moving"
-          proof="The 2026–27 Local Housing Allowance tables carry forward the April 2024 cash rates and explicitly leave newer 2025 rent evidence out of the calculation."
+          proof="The 2026/27 Local Housing Allowance tables carry forward the April 2024 cash rates and explicitly leave newer 2025 rent evidence out of the calculation."
         >
           <p>
             Local Housing Allowance limits how much Universal Credit can help a private renter
             with rent. It was reset in April 2024, then frozen again. The present UK Government
-            has continued that freeze through 2026–27. <Link href="/blog/local-housing-allowance-rent-shortfall-scotland">See
+            has continued that freeze through 2026/27. <Link href="/blog/local-housing-allowance-rent-shortfall-scotland">See
             the current Scottish rates and the Greater Glasgow shortfall</Link>.
           </p>
         </Decision>
@@ -194,7 +301,7 @@ export default function Post() {
         <Decision
           who="Conservative and Labour UK governments"
           title="Frozen tax allowances quietly take more from wages"
-          proof="The personal allowance has stayed at £12,570 since 2022–23. The November 2025 Budget extended the freeze to 2030–31."
+          proof="The personal allowance has stayed at £12,570 since 2022/23. The November 2025 Budget extended the freeze to 2030/31."
         >
           <p>
             When pay rises but the tax free allowance does not, more of the wage is taxed. That is
@@ -205,9 +312,9 @@ export default function Post() {
         </Decision>
 
         <Decision
-          who="Scottish Government · 2024–25"
+          who="Scottish Government · 2024/25"
           title="Holyrood cut affordable housing money during a housing emergency"
-          proof="The Scottish Parliament research service records a 25% real terms fall in the programme for 2024–25. Funding rose by 32% the next year, but the building pipeline had already been hit."
+          proof="The Scottish Parliament research service records a 25% real terms fall in the programme for 2024/25. Funding rose by 32% the next year, but the building pipeline had already been hit."
         >
           <p>
             Westminster does not control every part of this. Housing is devolved. The Scottish
@@ -259,11 +366,11 @@ export default function Post() {
         Government choices can lower the pressure too. The UK energy guarantee stopped the first
         shock landing in full. In Scotland, the Scottish Child Payment puts £28.20 a week per child
         into low income households; Scottish Government modelling estimates it keeps 40,000
-        children out of relative poverty in 2025–26.
+        children out of relative poverty in 2025/26.
       </P>
 
       <P>
-        Holyrood also restored affordable housing funding in 2025–26, and the UK Government has now
+        Holyrood also restored affordable housing funding in 2025/26, and the UK Government has now
         abolished the two child limit. Those facts matter because accountability is not about
         pretending every decision failed. It is about keeping the useful choices and reversing
         the damaging ones.

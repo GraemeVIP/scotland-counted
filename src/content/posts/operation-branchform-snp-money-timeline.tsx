@@ -204,9 +204,9 @@ export default function Post() {
       </P>
 
       <EditorialImage
-        src="/images/editorial/snp-money-court-findings.webp"
-        alt="A cut-paper ledger branching to receipts, an unbranded motorhome, two cars, watches, coffee equipment and household goods"
-        caption="A symbolic map of the purchase categories in the agreed court narrative. It does not show every item or identify any unnamed recipient."
+        src="/images/editorial/refresh-court-records.webp"
+        alt="Paper receipts and a closed ledger on a desk"
+        caption="The agreed court narrative sets out the purchase categories and how they were recorded."
         className="my-8"
       />
 

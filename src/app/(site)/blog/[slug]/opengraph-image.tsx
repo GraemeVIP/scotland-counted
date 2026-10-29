@@ -1,6 +1,7 @@
 import { ImageResponse } from "next/og";
 import { getPost, getPostCategory, posts } from "@/lib/data/posts";
 import { site } from "@/lib/site";
+import { OG_LOGO } from "@/lib/og";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
@@ -28,7 +29,7 @@ export default async function Image(props: { params: Promise<{ slug: string }> }
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#16203a",
+          background: "#04112f",
           color: "#ffffff",
           padding: "64px 72px",
           fontFamily: "sans-serif",
@@ -41,7 +42,7 @@ export default async function Image(props: { params: Promise<{ slug: string }> }
             fontWeight: 700,
             letterSpacing: 3,
             textTransform: "uppercase",
-            color: category?.colorOnDark ?? "#ff8b75",
+            color: category?.colorOnDark ?? "#8bb8ff",
           }}
         >
           {category?.name ?? "Explained in plain English"}
@@ -60,7 +61,7 @@ export default async function Image(props: { params: Promise<{ slug: string }> }
           >
             {post?.title ?? "Scotland Counted"}
           </div>
-          <div style={{ display: "flex", fontSize: 28, color: "#a8b1c1" }}>
+          <div style={{ display: "flex", fontSize: 28, color: "#b4c2de" }}>
             Scotland Counted · plain English answers backed by the evidence
           </div>
         </div>
@@ -76,9 +77,9 @@ export default async function Image(props: { params: Promise<{ slug: string }> }
           }}
         >
           <div style={{ display: "flex", fontWeight: 700 }}>
-            Scotland<span style={{ color: "#ff5a3c" }}>Counted</span>
+            <img src={OG_LOGO} alt="Scotland Counted" width={233} height={40} />
           </div>
-          <div style={{ display: "flex", color: "#a8b1c1" }}>{site.url.replace("https://", "")}</div>
+          <div style={{ display: "flex", color: "#b4c2de" }}>{site.url.replace("https://", "")}</div>
         </div>
       </div>
     ),

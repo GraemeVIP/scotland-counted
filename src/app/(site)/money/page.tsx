@@ -56,7 +56,7 @@ const TASKS = [
     meta: "Emergency help",
   },
   {
-    href: "/blog/why-is-the-cost-of-living-so-high",
+    href: "/cost-of-living-scotland",
     eyebrow: "Explainer",
     title: "Understand why a bill has risen",
     body: "Energy, food and the gap between falling inflation and prices that stay where they are.",
@@ -105,7 +105,7 @@ const GROUPS = [
     title: "Why prices are what they are",
     intro: "The explanations behind the numbers on your bills.",
     items: [
-      { href: "/blog/why-is-the-cost-of-living-so-high", label: "Why the cost of living is still so high", blurb: "The longer answer, with the figures" },
+      { href: "/cost-of-living-scotland", label: "Why the cost of living is still so high", blurb: "The longer answer, with the figures" },
       { href: "/blog/why-food-prices-stay-high-when-inflation-falls", label: "Why food prices stay high", blurb: "Falling inflation does not mean falling prices" },
     ],
   },
