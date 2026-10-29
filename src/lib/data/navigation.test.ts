@@ -197,3 +197,19 @@ test("only evidence-led investigations are filed under the investigations catego
     );
   }
 });
+
+test("every post date is a real ISO date", () => {
+  /*
+   * A metadata script once rewrote "2026-10-29" as "2026/10-29", and every
+   * upgraded post showed "Figures checked Invalid Date" on the live site.
+   * Read as source: posts.ts resolves through the @/ alias, which the test
+   * runner cannot follow.
+   */
+  const source = readFileSync(fileURLToPath(new URL("./posts.ts", import.meta.url)), "utf8");
+  const dates = [...source.matchAll(/\n    (date|updated|checked): "([^"]*)"/g)];
+  assert.ok(dates.length > 40, "expected to find the post dates");
+  for (const [, field, value] of dates) {
+    assert.match(value, /^\d{4}-\d{2}-\d{2}$/, `${field} "${value}" is not YYYY-MM-DD`);
+    assert.ok(!Number.isNaN(new Date(`${value}T12:00:00Z`).getTime()), `${field} "${value}" is not a real date`);
+  }
+});
