@@ -258,7 +258,7 @@ export default function Post() {
       </P>
       <P>
         Explain what was misunderstood, supply missing evidence and describe the immediate harm in
-        concrete terms. The <Link href="/blog/crisis-grant-scotland-how-to-apply">Crisis Grant application guide</Link> has
+        concrete terms. The <Link href="/crisis-grant-scotland">Crisis Grant application guide</Link> has
         a plain-English checklist, and each <Link href="/councils">council accountability page</Link> now shows the local
         rate beside Scotland and the five-year history.
       </P>

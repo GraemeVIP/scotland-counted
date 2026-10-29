@@ -90,7 +90,7 @@ export default function Post() {
 
       <P>
         The detailed guides explain <Link href="/blog/why-food-prices-stay-high-when-inflation-falls">why
-        food stays expensive when inflation falls</Link> and why the <Link href="/blog/energy-price-cap-scotland-2026-explained">energy
+        food stays expensive when inflation falls</Link> and why the <Link href="/energy-price-cap-scotland">energy
         price cap is not a maximum bill</Link>.
       </P>
 
@@ -241,7 +241,7 @@ export default function Post() {
         week, earns £24,784.50 gross a year. The Joseph Rowntree Foundation found that full-time
         minimum-wage pay covered only 76% of what a single adult needed for a basic acceptable
         living standard in 2025. For a lone parent with two young children it covered 69%. See the
-        full <Link href="/blog/minimum-wage-take-home-pay-scotland-2026">minimum-wage take-home
+        full <Link href="/minimum-wage-scotland">minimum-wage take-home
         calculation</Link>.
       </P>
 

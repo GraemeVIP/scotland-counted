@@ -8,6 +8,7 @@ import { posts } from "@/lib/data/posts";
 import { indicators } from "@/lib/data/indicators";
 import { mps } from "@/lib/data/mps";
 import { holyroodConstituencies, holyroodRegions } from "@/lib/data/holyrood";
+import { postPath } from "@/lib/routeMap";
 
 export const metadata = meta({
   title: "Every page on this site",
@@ -211,7 +212,7 @@ export default function Browse() {
           <ul className="space-y-2.5 max-w-[760px]">
             {posts.map((p) => (
               <li key={p.slug}>
-                <Link href={`/blog/${p.slug}`} className="text-[17px]">
+                <Link href={postPath(p.slug)} className="text-[17px]">
                   {p.title}
                 </Link>
               </li>

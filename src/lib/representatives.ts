@@ -1,4 +1,5 @@
 import type { VoteRecord } from "./voting";
+import { councilTaxPath } from "./routeMap.ts";
 
 export type Representative = {
   role: "MP" | "MSP";
@@ -172,7 +173,7 @@ export function localAreaLinks(lookup: {
       blurb: "Its budget, the gap it says it has, and who paid to close it.",
     },
     {
-      href: `/council-tax-bands-scotland/${lookup.council.slug}`,
+      href: councilTaxPath(lookup.council.slug),
       label: `Council tax bands in ${place}`,
       blurb: "Every band, with the water charge that lands on the same bill.",
     },

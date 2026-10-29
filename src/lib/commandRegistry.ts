@@ -21,6 +21,7 @@ import { mps } from "@/lib/data/mps";
 import { holyroodConstituencies, holyroodRegions } from "@/lib/data/holyrood";
 import { representativeSlug } from "@/lib/representatives";
 import { councilAccountabilityRecords } from "@/lib/data/councilAccountability";
+import { councilTaxBandPath, councilTaxPath, postPath } from "./routeMap.ts";
 
 export type Item = {
   label: string;
@@ -195,7 +196,7 @@ export function buildRegistry(): Item[] {
      */
     ...posts.map((p) => ({
       label: p.title,
-      href: `/blog/${p.slug}`,
+      href: postPath(p.slug),
       group: "Explainers",
       meta: `${p.readingMinutes} min`,
       keywords: `${p.description} ${p.tags.join(" ")} blog article guide`,
@@ -208,13 +209,13 @@ export function buildRegistry(): Item[] {
     })),
     ...councils.map((c) => ({
       label: `${c.name} council tax`,
-      href: `/council-tax-bands-scotland/${c.slug}`,
+      href: councilTaxPath(c.slug),
       group: "Council tax",
       keywords: `council tax bands rates water charges ${c.name}`,
     })),
     ...BAND_LETTERS.map((b) => ({
       label: `Council tax Band ${b}`,
-      href: `/council-tax-bands-scotland/band-${b.toLowerCase()}`,
+      href: councilTaxBandPath(b),
       group: "Council tax",
       keywords: `band ${b} council tax how much cost every council water`,
     })),

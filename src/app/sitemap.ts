@@ -15,6 +15,7 @@ import { representativeSlug } from "@/lib/representatives";
 import { councilAccountabilityRecords } from "@/lib/data/councilAccountability";
 import { mspReviewProfiles } from "@/lib/data/mspReviews";
 import { listApprovedMspReviews } from "@/lib/mspReviewsDb";
+import { councilTaxBandPath, councilTaxPath, postPath } from "@/lib/routeMap";
 
 export const revalidate = 3600;
 
@@ -32,7 +33,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${site.url}/money`, changeFrequency: "monthly", priority: 0.95, lastModified: repositioning },
     { url: `${site.url}/councils`, changeFrequency: "monthly", priority: 0.85, lastModified: seoRelease },
     { url: `${site.url}/who-decides`, changeFrequency: "monthly", priority: 0.9, lastModified: repositioning },
-    { url: `${site.url}/poverty`, changeFrequency: "monthly", priority: 0.9, lastModified: repositioning },
+    { url: `${site.url}/poverty-in-scotland`, changeFrequency: "monthly", priority: 0.9, lastModified: repositioning },
     { url: `${site.url}/email-your-mp-and-msp`, changeFrequency: "monthly", priority: 0.95, lastModified: seoRelease },
     { url: `${site.url}/blog`, changeFrequency: "weekly", priority: 0.9, lastModified: latestPostDate },
     { url: `${site.url}/faq`, changeFrequency: "monthly", priority: 0.85 },
@@ -131,7 +132,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...BAND_LETTERS.map((b) => `band-${b.toLowerCase()}`),
     ...councils.map((c) => c.slug),
   ].map((slug) => ({
-    url: `${site.url}/council-tax-bands-scotland/${slug}`,
+    url: `${site.url}${slug.startsWith("band-") ? councilTaxBandPath(slug.slice(5)) : councilTaxPath(slug)}`,
     changeFrequency: "yearly" as const,
     priority: 0.8,
     lastModified: seoRelease,
@@ -157,7 +158,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
    * which is both untrue and the fastest way to have lastmod ignored entirely.
    */
   const postPages: MetadataRoute.Sitemap = posts.map((p) => ({
-    url: `${site.url}/blog/${p.slug}`,
+    url: `${site.url}${postPath(p.slug)}`,
     changeFrequency: "monthly" as const,
     priority: 0.85,
     lastModified: new Date(p.updated ?? p.date),

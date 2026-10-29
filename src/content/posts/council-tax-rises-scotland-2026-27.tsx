@@ -6,6 +6,7 @@ import {
   PREVIOUS_COUNCIL_TAX_YEAR,
 } from "@/lib/data/councilTax";
 import { councils } from "@/lib/data/councils";
+import { councilTaxPath } from "@/lib/routeMap";
 
 const exact = new Intl.NumberFormat("en-GB", {
   style: "currency",
@@ -72,7 +73,7 @@ export default function Post() {
         {rows.map((row, index) => (
           <Link
             key={row.slug}
-            href={`/council-tax-bands-scotland/${row.slug}#band-d`}
+            href={`${councilTaxPath(row.slug)}#band-d`}
             className="grid grid-cols-[minmax(0,1fr)_auto] gap-5 border-b border-[var(--rule)] bg-[var(--surface)] px-5 py-4 text-[var(--ink)] no-underline transition-colors last:border-0 hover:bg-[var(--surface-2)]"
           >
             <span>

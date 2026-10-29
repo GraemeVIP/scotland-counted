@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { POSTCODE_SESSION_KEY, type Representative } from "@/lib/representatives";
@@ -117,7 +118,7 @@ export default function ConstituencyLetter({
         {state === "error" && (
           <p className="mt-4 text-[15px] text-[var(--bad-text)] leading-[1.5]">
             {message} You can still{" "}
-            <a href="/representatives">use the postcode finder</a>.
+            <Link href="/representatives">use the postcode finder</Link>.
           </p>
         )}
 

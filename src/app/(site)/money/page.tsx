@@ -49,7 +49,7 @@ const TASKS = [
     meta: "Universal Credit",
   },
   {
-    href: "/blog/crisis-grant-scotland-how-to-apply",
+    href: "/crisis-grant-scotland",
     eyebrow: "Explainer",
     title: "Find help with rent or an emergency",
     body: "Crisis Grants, Discretionary Housing Payments and what to do when the rent help does not cover the rent.",
@@ -72,8 +72,8 @@ const GROUPS = [
     intro: "What you earn, what you keep, and how the two differ.",
     items: [
       { href: "/take-home-pay-calculator-scotland", label: "Take-home pay calculator", blurb: "What you keep on Scottish tax rates" },
-      { href: "/blog/minimum-wage-take-home-pay-scotland-2026", label: "Minimum wage in Scotland", blurb: "What full-time work at the legal minimum actually pays" },
-      { href: "/blog/real-living-wage-vs-minimum-wage-scotland", label: "Real Living Wage versus minimum wage", blurb: "One is the law, one is voluntary. What separates them" },
+      { href: "/minimum-wage-scotland", label: "Minimum wage in Scotland", blurb: "What full-time work at the legal minimum actually pays" },
+      { href: "/real-living-wage-scotland", label: "Real Living Wage versus minimum wage", blurb: "One is the law, one is voluntary. What separates them" },
       { href: "/blog/universal-credit-when-you-work-more-hours", label: "Universal Credit and extra hours", blurb: "Why more work does not always mean more money" },
     ],
   },
@@ -84,9 +84,9 @@ const GROUPS = [
     items: [
       { href: "/council-tax-bands-scotland", label: "Council tax by band", blurb: "All 32 councils, water charges shown separately" },
       { href: "/blog/how-council-tax-works-scotland", label: "How council tax works", blurb: "Bands, discounts and the help most people miss" },
-      { href: "/blog/council-tax-rises-scotland-2026-27", label: "What council tax rose by this year", blurb: "Every council, and what it means for a Band D bill" },
+      { href: "/council-tax-increase-scotland", label: "What council tax rose by this year", blurb: "Every council, and what it means for a Band D bill" },
       { href: "/blog/local-housing-allowance-rent-shortfall-scotland", label: "Local Housing Allowance", blurb: "Why rent help often falls short of the rent" },
-      { href: "/blog/energy-price-cap-scotland-2026-explained", label: "The energy price cap", blurb: "What the cap is, and what it does not cap" },
+      { href: "/energy-price-cap-scotland", label: "The energy price cap", blurb: "What the cap is, and what it does not cap" },
     ],
   },
   {
@@ -94,8 +94,8 @@ const GROUPS = [
     title: "Help you may be entitled to",
     intro: "Payments and grants that exist, and how to apply for them.",
     items: [
-      { href: "/blog/what-is-the-scottish-child-payment", label: "Scottish Child Payment", blurb: "How much it is and who can get it" },
-      { href: "/blog/crisis-grant-scotland-how-to-apply", label: "Crisis Grants", blurb: "Emergency money, and how to apply" },
+      { href: "/scottish-child-payment", label: "Scottish Child Payment", blurb: "How much it is and who can get it" },
+      { href: "/crisis-grant-scotland", label: "Crisis Grants", blurb: "Emergency money, and how to apply" },
       { href: "/blog/discretionary-housing-payment-scotland", label: "Discretionary Housing Payments", blurb: "Help with a rent shortfall" },
       { href: "/blog/free-school-meals-clothing-grant-scotland", label: "Free school meals and clothing grants", blurb: "What schools provide, and how to claim it" },
     ],

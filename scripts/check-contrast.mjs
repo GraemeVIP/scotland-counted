@@ -51,7 +51,7 @@ const PAIRS = [
   ["deep-ink", "deep", 4.5], ["deep-ink", "deep-2", 4.5], ["deep-muted", "deep", 4.5], ["deep-muted", "deep-2", 4.5],
   ["hero-ink", "hero-1", 4.5], ["hero-ink", "hero-2", 4.5], ["hero-muted", "hero-1", 4.5], ["hero-muted", "hero-2", 4.5], ["hero-muted", "hero-3", 4.5],
   ["good-text", "surface", 4.5], ["warn-text", "surface", 4.5], ["bad-text", "surface", 4.5],
-  ["action-text", "action-tint", 4.5], ["hero-muted", "#1259c8", 4.5], ["hero-ink", "#1259c8", 4.5], ["deep-muted", "#0a2a6e", 4.5],
+  ["action-text", "action-tint", 4.5], ["hero-muted", "#073a8a", 4.5], ["hero-muted", "#1259c8", 4.5], ["hero-ink", "#1259c8", 4.5], ["deep-muted", "#0a2a6e", 4.5],
   ["glasgow", "surface", 3], ["scotland", "surface", 3], ["rule-strong", "surface", 1.3],
 ];
 

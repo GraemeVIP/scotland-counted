@@ -69,7 +69,7 @@ export default function Post() {
         That is why two Band A homes in different council areas can have different bills. See the
         exact annual and monthly figures for <Link href="/council-tax-bands-scotland">all 32
         councils and every band</Link>, or compare the{" "}
-        <Link href="/blog/council-tax-rises-scotland-2026-27">
+        <Link href="/council-tax-increase-scotland">
           2026/27 council tax rise in every council
         </Link>.
       </P>
@@ -137,7 +137,7 @@ export default function Post() {
       <P>
         Council tax is a priority debt. Contact the council as soon as you know a payment will be
         missed. Ask for smaller instalments and a full check of reduction, discounts and
-        exemptions. If the emergency is immediate, a <Link href="/blog/crisis-grant-scotland-how-to-apply">Crisis
+        exemptions. If the emergency is immediate, a <Link href="/crisis-grant-scotland">Crisis
         Grant</Link> may help with food or heating while you deal with the bill.
       </P>
 

@@ -47,7 +47,7 @@ export default function Post() {
       </P>
       <P>
         The clothing grant is separate from the Best Start Grant School Age Payment and from the
-        <Link href="/blog/what-is-the-scottish-child-payment"> Scottish Child Payment</Link>. A
+        <Link href="/scottish-child-payment"> Scottish Child Payment</Link>. A
         family can qualify for more than one scheme.
       </P>
 
@@ -73,7 +73,7 @@ export default function Post() {
       <P>
         A school office or council welfare team can help when the online form is difficult. If the
         family has no money for food today, do not wait for a school application, check the
-        <Link href="/blog/crisis-grant-scotland-how-to-apply"> Crisis Grant</Link> as well.
+        <Link href="/crisis-grant-scotland"> Crisis Grant</Link> as well.
       </P>
 
       <PostCTA

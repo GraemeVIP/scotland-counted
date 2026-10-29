@@ -9,6 +9,7 @@ import { buildLocalFacts, responsibilitySplit } from "@/lib/localFacts";
 import NewsletterSignup from "@/components/NewsletterSignup";
 import { site } from "@/lib/site";
 import { MINIMUM_WAGE, REAL_LIVING_WAGE, bandDRange, bandFor, pounds } from "@/lib/data/quickAnswers";
+import { councilTaxBandPath, councilTaxPath } from "@/lib/routeMap";
 
 const glasgowD = bandFor("glasgow-city", "D");
 const range = bandDRange();
@@ -118,7 +119,7 @@ export default function Home() {
           </div>
 
           <div className="mt-9 grid gap-3.5 sm:grid-cols-2 lg:grid-cols-4 lg:auto-rows-[minmax(200px,auto)]">
-            <Link href="/blog/minimum-wage-take-home-pay-scotland-2026" className="tile flex flex-col gap-3 p-7 sm:p-8 sm:col-span-2 lg:row-span-2 no-underline">
+            <Link href="/minimum-wage-scotland" className="tile flex flex-col gap-3 p-7 sm:p-8 sm:col-span-2 lg:row-span-2 no-underline">
               <span className="tile-key">Minimum wage Scotland</span>
               <span className="display-stat text-[clamp(64px,7vw,104px)]">{pounds(MINIMUM_WAGE.current.over21, true)}</span>
               <span className="text-[15px] text-[var(--muted)]">an hour for anyone 21 and over, until 31 March 2027</span>
@@ -149,7 +150,7 @@ export default function Home() {
               </span>
             </Link>
 
-            <Link href="/council-tax-bands-scotland/glasgow-city" className="tile flex flex-col gap-2.5 p-6 no-underline">
+            <Link href={councilTaxPath("glasgow-city")} className="tile flex flex-col gap-2.5 p-6 no-underline">
               <span className="tile-key">Glasgow council tax</span>
               <span className="display-stat text-[clamp(40px,4vw,54px)]">{pounds(glasgowD.councilTax)}</span>
               <span className="text-[14.5px] text-[var(--muted)]">Band D, a year, before water</span>
@@ -159,7 +160,7 @@ export default function Home() {
               </span>
             </Link>
 
-            <Link href="/blog/real-living-wage-vs-minimum-wage-scotland" className="tile tile-blue flex flex-col gap-2.5 p-6 no-underline">
+            <Link href="/real-living-wage-scotland" className="tile tile-blue flex flex-col gap-2.5 p-6 no-underline">
               <span className="tile-key">Real Living Wage</span>
               <span className="display-stat text-[clamp(40px,4vw,54px)]">{pounds(REAL_LIVING_WAGE.uk, true)}</span>
               <span className="text-[14.5px] text-[var(--hero-muted)]">an hour outside London</span>
@@ -168,7 +169,7 @@ export default function Home() {
               </span>
             </Link>
 
-            <Link href="/council-tax-bands-scotland/band-d" className="tile flex flex-col gap-2.5 p-6 no-underline">
+            <Link href={councilTaxBandPath("d")} className="tile flex flex-col gap-2.5 p-6 no-underline">
               <span className="tile-key">Council tax Band D</span>
               <span className="display-stat text-[clamp(40px,4vw,54px)]">{pounds(range.lowest.total)}</span>
               <span className="text-[14.5px] text-[var(--muted)]">

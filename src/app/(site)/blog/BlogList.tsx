@@ -8,6 +8,8 @@ import {
   type Post,
   type PostCategorySlug,
 } from "@/lib/data/posts";
+import { postPath } from "@/lib/routeMap";
+import CoverArt from "@/components/CoverArt";
 
 function fmtDate(iso: string) {
   return new Date(`${iso}T12:00:00Z`).toLocaleDateString("en-GB", {
@@ -74,19 +76,23 @@ export default function BlogList({
           <p className="label mb-4">Latest</p>
           <article className="group overflow-hidden rounded-[var(--r-l)] border border-[var(--rule)] bg-[var(--deep)] text-[var(--deep-ink)]">
             <Link
-              href={`/blog/${featured.slug}`}
+              href={postPath(featured.slug)}
               className="grid lg:grid-cols-[minmax(0,1.08fr)_minmax(390px,0.92fr)] no-underline"
             >
               <div className="relative min-h-[300px] sm:min-h-[410px] lg:min-h-[500px] overflow-hidden">
-                <Image
-                  src={featured.image.cardSrc ?? featured.image.src}
-                  alt={featured.image.alt}
-                  fill
-                  priority
-                  sizes="(min-width: 1024px) 58vw, 100vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
-                  style={{ objectPosition: featured.image.objectPosition ?? "center" }}
-                />
+                {featured.image ? (
+                  <Image
+                    src={featured.image.cardSrc ?? featured.image.src}
+                    alt={featured.image.alt}
+                    fill
+                    priority
+                    sizes="(min-width: 1024px) 58vw, 100vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                    style={{ objectPosition: featured.image.objectPosition ?? "center" }}
+                  />
+                ) : (
+                  <CoverArt label="Guide" title={featured.title} className="absolute inset-0" />
+                )}
               </div>
               <div className="p-6 sm:p-9 lg:p-11 flex flex-col justify-center">
                 {/* This card sits on --deep, so it needs the dark-background

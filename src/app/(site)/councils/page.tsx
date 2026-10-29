@@ -83,7 +83,7 @@ export default function CouncilsPage() {
                     East Renfrewshire comes first after we checked 53 official figures. See all 32 councils, a like-for-like list, what residents said and how much each rank can move.
                   </p>
                 </div>
-                <Link href="/blog/best-performing-councils-scotland" className="btn btn-on-deep shrink-0">
+                <Link href="/best-council-in-scotland" className="btn btn-on-deep shrink-0">
                   Explore the full ranking <span aria-hidden="true">→</span>
                 </Link>
               </div>

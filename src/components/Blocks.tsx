@@ -108,32 +108,25 @@ export function PageHeader({
   /** Optional big number pinned to the right of the header. */
   stat?: { value: string; label: string; tone?: "bad" | "good" | "neutral" };
 }) {
-  const tone =
-    stat?.tone === "bad"
-      ? "text-[var(--bad)]"
-      : stat?.tone === "good"
-        ? "text-[var(--good)]"
-        : "text-[var(--brand)]";
-
   return (
-    <header className="pt-10 sm:pt-14 pb-8 sm:pb-10">
+    <header className="pt-10 sm:pt-16 pb-10 sm:pb-12">
       <div
         className={`max-w-[1120px] mx-auto ${
           stat
-            ? "grid gap-x-12 gap-y-10 lg:grid-cols-[minmax(0,1fr)_minmax(280px,320px)] items-end"
+            ? "grid gap-x-12 gap-y-10 lg:grid-cols-[minmax(0,1fr)_minmax(280px,340px)] items-end"
             : ""
         }`}
       >
-        <div>
-          {eyebrow && <p className="label mb-6"><ExplainText>{eyebrow}</ExplainText></p>}
-          <h1 className="h1 max-w-[17ch] mb-5">{title}</h1>
-          {lede && <div className="lede max-w-[54ch]"><ExplainText>{lede}</ExplainText></div>}
+        <div className="min-w-0">
+          {eyebrow && <p className="eyebrow mb-6"><ExplainText>{eyebrow}</ExplainText></p>}
+          <h1 className="h1 max-w-[18ch] mb-6 text-[clamp(40px,5.6vw,80px)]">{title}</h1>
+          {lede && <div className="lede max-w-[56ch]"><ExplainText>{lede}</ExplainText></div>}
           {children}
         </div>
 
         {stat && (
-          <div className="min-w-0 max-w-[340px] lg:pb-2 lg:border-l lg:border-[var(--rule)] lg:pl-12">
-            <div className={`figure-num whitespace-nowrap text-[clamp(56px,6.5vw,96px)] ${tone}`}>
+          <div className="tile tile-blue min-w-0 p-7">
+            <div className="figure-num whitespace-nowrap text-[clamp(52px,6vw,88px)] text-white">
               {(() => {
                 const m = stat.value.match(/^(£?)(\d+(?:\.\d+)?)(%?)$/);
                 if (!m) return stat.value;
@@ -143,11 +136,11 @@ export function PageHeader({
                 );
               })()}
             </div>
-            <p className="text-[15px] leading-[1.5] text-[var(--ink-2)] mt-5"><ExplainText>{stat.label}</ExplainText></p>
+            <p className="text-[15px] leading-[1.5] text-[var(--hero-muted)] mt-5"><ExplainText>{stat.label}</ExplainText></p>
           </div>
         )}
       </div>
-      <div className="mt-8 sm:mt-10 max-w-[1120px] mx-auto border-t-2 border-[var(--ink)]" />
+      <div className="mt-10 sm:mt-12 max-w-[1120px] mx-auto h-px bg-[linear-gradient(90deg,var(--rule-strong),transparent)]" />
     </header>
   );
 }

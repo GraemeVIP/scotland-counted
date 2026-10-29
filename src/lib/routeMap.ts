@@ -1,0 +1,126 @@
+/**
+ * Exact match addresses.
+ *
+ * Every page that targets a search phrase carries that phrase, word for word
+ * and in order, in its address, its title and its H1. This file maps the old
+ * addresses to the new ones. next.config.ts reads it for the permanent
+ * redirects, the sitemap reads it, and every internal link goes through the
+ * helpers below, so an address is changed in one place.
+ *
+ * No imports: next.config.ts loads this file directly.
+ */
+
+/** Council slug to the place name people actually search with. */
+export const COUNCIL_SEARCH_NAMES: Record<string, string> = {
+  "aberdeen-city": "Aberdeen",
+  aberdeenshire: "Aberdeenshire",
+  angus: "Angus",
+  "argyll-and-bute": "Argyll and Bute",
+  "city-of-edinburgh": "Edinburgh",
+  clackmannanshire: "Clackmannanshire",
+  "dumfries-and-galloway": "Dumfries and Galloway",
+  "dundee-city": "Dundee",
+  "east-ayrshire": "East Ayrshire",
+  "east-dunbartonshire": "East Dunbartonshire",
+  "east-lothian": "East Lothian",
+  "east-renfrewshire": "East Renfrewshire",
+  falkirk: "Falkirk",
+  fife: "Fife",
+  "glasgow-city": "Glasgow",
+  highland: "Highland",
+  inverclyde: "Inverclyde",
+  midlothian: "Midlothian",
+  moray: "Moray",
+  "na-h-eileanan-siar": "Western Isles",
+  "north-ayrshire": "North Ayrshire",
+  "north-lanarkshire": "North Lanarkshire",
+  "orkney-islands": "Orkney",
+  "perth-and-kinross": "Perth and Kinross",
+  renfrewshire: "Renfrewshire",
+  "scottish-borders": "Scottish Borders",
+  "shetland-islands": "Shetland",
+  "south-ayrshire": "South Ayrshire",
+  "south-lanarkshire": "South Lanarkshire",
+  stirling: "Stirling",
+  "west-dunbartonshire": "West Dunbartonshire",
+  "west-lothian": "West Lothian",
+};
+
+const slugify = (text: string) => text.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+
+export const BAND_KEYS = ["a", "b", "c", "d", "e", "f", "g", "h"] as const;
+
+/** /glasgow-council-tax-bands: carries "glasgow council tax" and "glasgow council tax bands". */
+export function councilTaxPath(councilSlug: string) {
+  const name = COUNCIL_SEARCH_NAMES[councilSlug];
+  if (!name) throw new Error(`No search name for council ${councilSlug}`);
+  return `/${slugify(name)}-council-tax-bands`;
+}
+
+/** /council-tax-band-d-scotland */
+export function councilTaxBandPath(letter: string) {
+  return `/council-tax-band-${letter.toLowerCase()}-scotland`;
+}
+
+/** Posts that moved out of /blog to a top level exact match address. */
+export const POST_PATHS: Record<string, string> = {
+  "minimum-wage-take-home-pay-scotland-2026": "/minimum-wage-scotland",
+  "real-living-wage-vs-minimum-wage-scotland": "/real-living-wage-scotland",
+  "crisis-grant-scotland-how-to-apply": "/crisis-grant-scotland",
+  "council-tax-rises-scotland-2026-27": "/council-tax-increase-scotland",
+  "what-is-the-scottish-child-payment": "/scottish-child-payment",
+  "energy-price-cap-scotland-2026-explained": "/energy-price-cap-scotland",
+  "best-performing-councils-scotland": "/best-council-in-scotland",
+};
+
+export function postPath(slug: string) {
+  return POST_PATHS[slug] ?? `/blog/${slug}`;
+}
+
+/** Whole pages that moved. */
+export const PAGE_PATHS: Record<string, string> = {
+  "/poverty": "/poverty-in-scotland",
+};
+
+/** Every permanent redirect from an old address to its exact match one. */
+export function exactMatchRedirects() {
+  return [
+    ...Object.keys(COUNCIL_SEARCH_NAMES).map((slug) => ({
+      source: `/council-tax-bands-scotland/${slug}`,
+      destination: councilTaxPath(slug),
+    })),
+    ...BAND_KEYS.map((letter) => ({
+      source: `/council-tax-bands-scotland/band-${letter}`,
+      destination: councilTaxBandPath(letter),
+    })),
+    ...Object.entries(POST_PATHS).map(([slug, destination]) => ({ source: `/blog/${slug}`, destination })),
+    ...Object.entries(PAGE_PATHS).map(([source, destination]) => ({ source, destination })),
+  ];
+}
+
+/** What a top level exact match address resolves to. */
+export type TopLevel =
+  | { kind: "council-tax"; councilSlug: string }
+  | { kind: "council-tax-band"; letter: string }
+  | { kind: "post"; postSlug: string };
+
+export function resolveTopLevel(segment: string): TopLevel | null {
+  const path = `/${segment}`;
+  for (const slug of Object.keys(COUNCIL_SEARCH_NAMES)) {
+    if (councilTaxPath(slug) === path) return { kind: "council-tax", councilSlug: slug };
+  }
+  const band = /^\/council-tax-band-([a-h])-scotland$/.exec(path);
+  if (band) return { kind: "council-tax-band", letter: band[1] };
+  for (const [postSlug, target] of Object.entries(POST_PATHS)) {
+    if (target === path) return { kind: "post", postSlug };
+  }
+  return null;
+}
+
+export function topLevelSegments() {
+  return [
+    ...Object.keys(COUNCIL_SEARCH_NAMES).map((slug) => councilTaxPath(slug).slice(1)),
+    ...BAND_KEYS.map((letter) => councilTaxBandPath(letter).slice(1)),
+    ...Object.values(POST_PATHS).map((path) => path.slice(1)),
+  ];
+}

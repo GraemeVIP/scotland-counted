@@ -6,6 +6,7 @@ import BlogList from "./BlogList";
 import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
 import { postsByDate } from "@/lib/data/posts";
 import { site } from "@/lib/site";
+import { postPath } from "@/lib/routeMap";
 
 export const metadata = meta({
   title: "Scotland Counted Explained | Poverty Evidence Hub",
@@ -38,11 +39,11 @@ export default function Blog() {
             description: p.description,
             datePublished: p.date,
             dateModified: p.updated ?? p.date,
-            image: `${site.url}${p.image.src}`,
+            image: p.image ? `${site.url}${p.image.src}` : undefined,
             articleSection: p.category,
             keywords: p.tags.join(", "),
             author: { "@id": `${site.url}/#author` },
-            url: `${site.url}/blog/${p.slug}`,
+            url: `${site.url}${postPath(p.slug)}`,
           })),
         }}
       />

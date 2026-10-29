@@ -63,7 +63,7 @@ export const SECTIONS: Array<{
       { href: "/take-home-pay-calculator-scotland", label: "Take-home pay calculator", blurb: "What you keep on Scottish tax rates" },
       { href: "/council-tax-bands-scotland", label: "Council tax by band", blurb: "What it really costs, water included" },
       { href: "/blog/universal-credit-when-you-work-more-hours", label: "Universal Credit and extra hours", blurb: "Why more work does not always mean more money" },
-      { href: "/blog/crisis-grant-scotland-how-to-apply", label: "Emergency help", blurb: "Crisis Grants and rent shortfall payments" },
+      { href: "/crisis-grant-scotland", label: "Emergency help", blurb: "Crisis Grants and rent shortfall payments" },
     ],
   },
   {
@@ -93,7 +93,7 @@ export const SECTIONS: Array<{
     intro: "The long-running stories, each with its own front door.",
     tone: "topics",
     items: [
-      { href: "/poverty", label: "Poverty in Scotland", blurb: "The figures, the causes and who can fix it", featured: true },
+      { href: "/poverty-in-scotland", label: "Poverty in Scotland", blurb: "The figures, the causes and who can fix it", featured: true },
       { href: "/blog", label: "Explainers and investigations", blurb: "Evidence-led pieces, filed by subject" },
       { href: "/glasgow-poverty-statistics", label: "The Glasgow record", blurb: "Every Glasgow indicator in one place" },
       { href: "/poverty-in-scotland-quiz", label: "Guess the figure", blurb: "Six questions. Most people get them wrong" },

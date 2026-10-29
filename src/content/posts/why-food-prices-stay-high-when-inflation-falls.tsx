@@ -70,7 +70,7 @@ export default function Post() {
       <P>
         Families should also check <Link href="/blog/free-school-meals-clothing-grant-scotland">free
         school meals and clothing grants</Link>. When there is no money for food or heating today,
-        a <Link href="/blog/crisis-grant-scotland-how-to-apply">Crisis Grant</Link> may be the more
+        a <Link href="/crisis-grant-scotland">Crisis Grant</Link> may be the more
         urgent route.
       </P>
 

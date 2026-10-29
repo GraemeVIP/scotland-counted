@@ -12,6 +12,7 @@ import {
 } from "./representatives.ts";
 import { councils } from "./data/councils.ts";
 import { constituencies } from "./data/constituencies.ts";
+import { councilTaxPath } from "./routeMap.ts";
 
 /* fileURLToPath, not URL.pathname: the repository path contains a space. */
 const ROOT = fileURLToPath(new URL("../../", import.meta.url));
@@ -111,7 +112,7 @@ test("every link a resolved postcode offers is a real, shareable page", () => {
       assert.deepEqual(links.map((l) => l.href), [
         `/areas/${council.slug}`,
         `/councils/${council.slug}`,
-        `/council-tax-bands-scotland/${council.slug}`,
+        councilTaxPath(council.slug),
         `/constituencies/${constituency.slug}`,
       ]);
     }
@@ -130,7 +131,7 @@ test("a postcode never reaches any of the links", () => {
     [
       "/areas/glasgow-city",
       "/councils/glasgow-city",
-      "/council-tax-bands-scotland/glasgow-city",
+      "/glasgow-council-tax-bands",
       "/constituencies/glasgow-north",
     ]
   );

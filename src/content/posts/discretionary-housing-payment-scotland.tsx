@@ -70,7 +70,7 @@ export default function Post() {
       </P>
       <P>
         When the immediate problem is food or heating rather than rent, the right route may be a
-        <Link href="/blog/crisis-grant-scotland-how-to-apply"> Scottish Welfare Fund Crisis
+        <Link href="/crisis-grant-scotland"> Scottish Welfare Fund Crisis
         Grant</Link> instead.
       </P>
 

@@ -24,6 +24,7 @@ import {
 } from "@/lib/data/councilExtra";
 import { asOneIn, changeInWords } from "@/lib/plain-language";
 import Faq from "@/components/Faq";
+import { councilTaxPath } from "@/lib/routeMap";
 
 const SEARCH_PLACE_NAMES: Record<string, string> = {
   "aberdeen-city": "Aberdeen",
@@ -406,7 +407,7 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
             Scottish Water charge collected on the same bill.
           </p>
           <Link
-            href={`/council-tax-bands-scotland/${c.slug}`}
+            href={councilTaxPath(c.slug)}
             className="ui inline-flex mt-4 font-[580] text-[var(--ink)] underline decoration-[var(--brand)] decoration-2 underline-offset-4"
           >
             See {placeName} council tax bands and increases →

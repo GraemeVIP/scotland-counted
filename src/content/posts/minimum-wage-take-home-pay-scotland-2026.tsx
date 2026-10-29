@@ -102,7 +102,7 @@ export default function Post() {
       </P>
       <P>
         That is the difference between “the employer obeyed the wage law” and “the household has
-        enough”. Read how the <Link href="/blog/real-living-wage-vs-minimum-wage-scotland">real Living
+        enough”. Read how the <Link href="/real-living-wage-scotland">real Living
         Wage</Link> tries to close that gap, or see why <Link href="/blog/universal-credit-when-you-work-more-hours">Universal
         Credit changes as earnings rise</Link>.
       </P>

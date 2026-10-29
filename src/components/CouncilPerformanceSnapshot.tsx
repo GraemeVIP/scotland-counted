@@ -72,7 +72,7 @@ export default function CouncilPerformanceSnapshot({ slug }: { slug: string }) {
           <p className="max-w-[62ch] text-[15px] leading-[1.55] text-[var(--ink-2)]">
             This score only compares councils with each other. It is not a percentage, pass mark or official grade. Poverty, crime, health, budget gaps and Crisis Grants are shown separately because they do not all measure how well a council is run.
           </p>
-          <Link href="/blog/best-performing-councils-scotland" className="btn btn-secondary shrink-0">
+          <Link href="/best-council-in-scotland" className="btn btn-secondary shrink-0">
             See all 32 and how we worked it out <span aria-hidden="true">→</span>
           </Link>
         </div>

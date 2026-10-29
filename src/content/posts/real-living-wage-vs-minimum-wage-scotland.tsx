@@ -71,7 +71,7 @@ export default function Post() {
         lawful even though it falls short of the voluntary rate.
       </P>
       <P>
-        See <Link href="/blog/minimum-wage-take-home-pay-scotland-2026">what the legal minimum
+        See <Link href="/minimum-wage-scotland">what the legal minimum
         becomes after Scottish tax and National Insurance</Link> before comparing it with rent and
         bills.
       </P>

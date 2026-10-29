@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import { readdirSync, existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { topLevelSegments } from "../routeMap.ts";
 import {
   PRIMARY,
   SECTIONS,
@@ -36,7 +37,8 @@ function staticRoutes(dir = APP, prefix = ""): string[] {
   return out;
 }
 
-const ROUTES = new Set(staticRoutes());
+/* Exact match addresses served by the top level [slug] route, from routeMap.ts. */
+const ROUTES = new Set([...staticRoutes(), ...topLevelSegments().map((segment) => `/${segment}`)]);
 
 /** Dynamic routes we know exist, for hrefs that point at a specific instance. */
 const DYNAMIC_PREFIXES = ["/blog/", "/areas/", "/councils/", "/constituencies/", "/indicators/"];

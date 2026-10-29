@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 import { site } from "./site.config";
+import { exactMatchRedirects } from "./src/lib/routeMap";
 
 /**
  * Next's dev server compiles modules through eval(), so a script-src without
@@ -107,6 +108,8 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   async redirects() {
     return [
+      /* Old addresses to their exact match replacements. See src/lib/routeMap.ts. */
+      ...exactMatchRedirects().map((r) => ({ ...r, permanent: true })),
       {
         /*
          * This URL promised a finder and served a letter writer for months.

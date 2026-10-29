@@ -5,7 +5,6 @@ import { JsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
 import {
   BAND_LETTERS,
   chargesFor,
-  councilTaxByBand,
   waterCharges2026,
   COUNCIL_TAX_YEAR,
   PREVIOUS_COUNCIL_TAX_YEAR,
@@ -13,6 +12,7 @@ import {
   type BandCharge,
 } from "@/lib/data/councilTax";
 import { councils } from "@/lib/data/councils";
+import { COUNCIL_SEARCH_NAMES, councilTaxBandPath, councilTaxPath } from "@/lib/routeMap";
 import { getSources } from "@/lib/data/sources";
 import WaterCharge from "@/components/WaterCharge";
 import Faq from "@/components/Faq";
@@ -38,23 +38,10 @@ const pounds = new Intl.NumberFormat("en-GB", { style: "currency", currency: "GB
 const exact = new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP", minimumFractionDigits: 2 });
 const percent = new Intl.NumberFormat("en-GB", { maximumFractionDigits: 1 });
 
-const SEARCH_COUNCIL_NAMES: Record<string, string> = {
-  "aberdeen-city": "Aberdeen",
-  "dundee-city": "Dundee",
-  "city-of-edinburgh": "Edinburgh",
-  "glasgow-city": "Glasgow",
-};
-
 function councilSearchName(slug: string, officialName: string) {
-  return SEARCH_COUNCIL_NAMES[slug] ?? officialName;
+  return COUNCIL_SEARCH_NAMES[slug] ?? officialName;
 }
 
-export function generateStaticParams() {
-  return [
-    ...BAND_LETTERS.map((b) => ({ slug: `band-${b.toLowerCase()}` })),
-    ...councils.filter((c) => councilTaxByBand[c.slug]).map((c) => ({ slug: c.slug })),
-  ];
-}
 
 type BandView = {
   kind: "band";
@@ -91,8 +78,8 @@ function resolve(slug: string): BandView | CouncilView | null {
   return { kind: "council", name: council.name, slug: council.slug, charges };
 }
 
-export async function generateMetadata(props: { params: Promise<{ slug: string }> }) {
-  const { slug } = await props.params;
+/** slug is the council slug (glasgow-city) or band-a to band-h. */
+export function councilTaxMetadata(slug: string) {
   const v = resolve(slug);
   if (!v) return {};
 
@@ -100,9 +87,9 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
     const cheap = v.rows[v.rows.length - 1];
     const dear = v.rows[0];
     return meta({
-      title: `Council Tax Band ${v.letter} Scotland 2026/27 | Monthly Cost`,
+      title: `Council Tax Band ${v.letter} Scotland 2026/27: Monthly Cost by Council`,
       description: `Compare 2026/27 Band ${v.letter} council tax in all 32 Scottish councils, from ${pounds.format(cheap.total)} in ${cheap.name} to ${pounds.format(dear.total)} in ${dear.name}, water included.`,
-      path: `/council-tax-bands-scotland/band-${v.letter.toLowerCase()}`,
+      path: councilTaxBandPath(v.letter),
       type: "website",
     });
   }
@@ -110,15 +97,14 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
   const d = v.charges[3];
   const placeName = councilSearchName(v.slug, v.name);
   return meta({
-    title: `${placeName} Council Tax Bands 2026/27 | A-H Prices`,
+    title: `${placeName} Council Tax Bands 2026/27: Band A to H Prices`,
     description: `2026/27 ${placeName} council tax by band. Band D rose ${percent.format(d.councilTaxRisePct)}% to ${pounds.format(d.councilTax)} before water. See A to H, last year's price and current totals.`,
-    path: `/council-tax-bands-scotland/${v.slug}`,
+    path: councilTaxPath(v.slug),
     type: "website",
   });
 }
 
-export default async function CouncilTaxSlugPage(props: { params: Promise<{ slug: string }> }) {
-  const { slug } = await props.params;
+export function CouncilTaxDetail({ slug }: { slug: string }) {
   const v = resolve(slug);
   if (!v) notFound();
   const cited = getSources(["council-tax-scotland", "scottish-water-2026"]);
@@ -170,7 +156,7 @@ export default async function CouncilTaxSlugPage(props: { params: Promise<{ slug
         <JsonLd data={breadcrumbJsonLd([
           { name: "Home", path: "/" },
           { name: "Council tax bands", path: "/council-tax-bands-scotland" },
-          { name: placeName, path: `/council-tax-bands-scotland/${v.slug}` },
+          { name: placeName, path: councilTaxPath(v.slug) },
         ])} />
         <JsonLd data={faqJsonLd(faq)} />
 
@@ -249,7 +235,7 @@ export default async function CouncilTaxSlugPage(props: { params: Promise<{ slug
               {BAND_LETTERS.map((b) => (
                 <Link
                   key={b}
-                  href={`/council-tax-bands-scotland/band-${b.toLowerCase()}`}
+                  href={councilTaxBandPath(b)}
                   className="ui rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] px-4 py-2.5 text-[15px] font-[540] text-[var(--ink-2)] no-underline transition-colors hover:border-[var(--brand)]"
                 >
                   Band {b} everywhere
@@ -302,14 +288,14 @@ export default async function CouncilTaxSlugPage(props: { params: Promise<{ slug
       <JsonLd data={breadcrumbJsonLd([
         { name: "Home", path: "/" },
         { name: "Council tax bands", path: "/council-tax-bands-scotland" },
-        { name: `Band ${letter}`, path: `/council-tax-bands-scotland/band-${letter.toLowerCase()}` },
+        { name: `Band ${letter}`, path: councilTaxBandPath(letter) },
       ])} />
       <JsonLd data={faqJsonLd(faq)} />
 
       <Page>
         <PageHeader
           eyebrow={`Band ${letter} · 2026/27 · all 32 Scottish councils`}
-          title={`Council tax Band ${letter} in Scotland: monthly and yearly cost`}
+          title={`Council tax band ${letter} Scotland: monthly and yearly cost`}
           lede={`Band ${letter} costs between ${pounds.format(cheapest.total)} and ${pounds.format(dearest.total)} a year in Scotland depending on your council, water and waste water included.`}
         />
 
@@ -350,7 +336,7 @@ export default async function CouncilTaxSlugPage(props: { params: Promise<{ slug
             {rows.map((r, i) => (
               <Link
                 key={r.slug}
-                href={`/council-tax-bands-scotland/${r.slug}#band-${letter.toLowerCase()}`}
+                href={`${councilTaxPath(r.slug)}#band-${letter.toLowerCase()}`}
                 className="grid grid-cols-[auto_minmax(0,1fr)_auto] items-start gap-x-4 border-b border-[var(--rule)] bg-[var(--surface)] px-5 py-3.5 no-underline transition-colors last:border-0 hover:bg-[var(--surface-2)]"
               >
                 <span className="ui w-6 text-[14px] tnum text-[var(--muted)]">{i + 1}</span>
@@ -379,7 +365,7 @@ export default async function CouncilTaxSlugPage(props: { params: Promise<{ slug
             {BAND_LETTERS.map((b) => (
               <Link
                 key={b}
-                href={`/council-tax-bands-scotland/band-${b.toLowerCase()}`}
+                href={councilTaxBandPath(b)}
                 aria-current={b === letter ? "page" : undefined}
                 className={`ui rounded-[var(--r-s)] border px-4 py-2.5 text-[15px] font-[540] no-underline transition-colors ${
                   b === letter

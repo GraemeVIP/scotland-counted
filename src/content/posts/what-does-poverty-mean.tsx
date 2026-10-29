@@ -118,7 +118,7 @@ export default function Post() {
       />
 
       <P>
-        See the <Link href="/poverty">poverty figures for Scotland</Link> alongside the causes
+        See the <Link href="/poverty-in-scotland">poverty figures for Scotland</Link> alongside the causes
         and the people who have the power to change them.
       </P>
 

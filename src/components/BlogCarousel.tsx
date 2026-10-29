@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { getPostCategory, type Post } from "@/lib/data/posts";
+import { postPath } from "@/lib/routeMap";
 
 function fmtDate(iso: string) {
   return new Date(`${iso}T12:00:00Z`).toLocaleDateString("en-GB", {
@@ -233,17 +234,21 @@ export default function BlogCarousel({ posts }: { posts: Post[] }) {
                    */
                   style={{ flex: "0 0 min(430px, 100%)" }}
                 >
-                  <Link href={`/blog/${post.slug}`} className="block no-underline">
+                  <Link href={postPath(post.slug)} className="block no-underline">
                     <div className="relative aspect-[1.9/1] overflow-hidden bg-[var(--deep)]">
-                      <Image
-                        src={post.image.cardSrc ?? post.image.src}
-                        alt={post.image.alt}
-                        fill
-                        loading={index === 0 ? "eager" : "lazy"}
-                        sizes="(min-width: 1024px) 430px, 100vw"
-                        className="object-cover transition-transform duration-700 ease-[var(--ease)] group-hover:scale-[1.045] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
-                        style={{ objectPosition: post.image.objectPosition ?? "center" }}
-                      />
+                      {post.image ? (
+                        <Image
+                          src={post.image.cardSrc ?? post.image.src}
+                          alt={post.image.alt}
+                          fill
+                          loading={index === 0 ? "eager" : "lazy"}
+                          sizes="(min-width: 1024px) 430px, 100vw"
+                          className="object-cover transition-transform duration-700 ease-[var(--ease)] group-hover:scale-[1.045] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                          style={{ objectPosition: post.image.objectPosition ?? "center" }}
+                        />
+                      ) : (
+                        <div className="absolute inset-0 saltire-hero" />
+                      )}
                       {/*
                         The scrim was 0.12 opaque at the halfway mark and clear
                         above it, fine behind a two-line title, useless behind

@@ -11,7 +11,7 @@ import Faq from "@/components/Faq";
 import { ExplainText } from "@/components/Glossary";
 
 export const metadata = meta({
-  title: "Take-Home Pay Calculator for Scotland 2026/27",
+  title: "Take Home Pay Calculator Scotland 2026/27",
   description:
     "Calculate take-home pay with Scotland's 2026/27 tax bands. Enter a salary or hourly wage, then include pension and student-loan deductions.",
   path: "/take-home-pay-calculator-scotland",
@@ -77,7 +77,7 @@ export default function TakeHomePayCalculator() {
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Home", path: "/" },
-          { name: "Take-home pay calculator", path: "/take-home-pay-calculator-scotland" },
+          { name: "Take home pay calculator", path: "/take-home-pay-calculator-scotland" },
         ])}
       />
       <JsonLd data={faqJsonLd(FAQ)} />
@@ -85,7 +85,7 @@ export default function TakeHomePayCalculator() {
       <Page>
         <PageHeader
           eyebrow={`Scotland · ${TAX_DATA.taxYear} rates`}
-          title="Scotland take-home pay calculator"
+          title="Take home pay calculator Scotland 2026/27"
           lede="Enter what you earn and see what actually reaches your bank account, on Scotland's six income tax bands. Or work backwards from the pay you need to live on."
         />
 

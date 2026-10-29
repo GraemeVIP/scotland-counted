@@ -11,6 +11,7 @@ import {
 } from "@/lib/data/posts";
 import { site } from "@/lib/site";
 import BlogList from "../../BlogList";
+import { postPath } from "@/lib/routeMap";
 
 const CATEGORY_SEO = {
   "money-and-bills": {
@@ -89,7 +90,7 @@ export default async function BlogCategory(props: { params: Promise<{ category: 
           hasPart: categoryPosts.map((post) => ({
             "@type": "Article",
             headline: post.title,
-            url: `${site.url}/blog/${post.slug}`,
+            url: `${site.url}${postPath(post.slug)}`,
           })),
         }}
       />

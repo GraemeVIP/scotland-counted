@@ -65,7 +65,7 @@ export default function Post() {
         <LI>Contact the supplier early and ask for an affordable repayment plan.</LI>
         <LI>Ask whether grants, hardship funds or the Warm Home Discount apply.</LI>
         <LI>Give meter readings so estimates do not hide the real position.</LI>
-        <LI>In an immediate emergency, check the <Link href="/blog/crisis-grant-scotland-how-to-apply">Scottish Crisis Grant</Link>.</LI>
+        <LI>In an immediate emergency, check the <Link href="/crisis-grant-scotland">Scottish Crisis Grant</Link>.</LI>
       </UL>
       <P>
         Lower inflation does not undo the price rises already built into energy, food and rent.

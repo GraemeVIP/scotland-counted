@@ -1,4 +1,6 @@
 import { snpMoneyTimelineSources } from "@/lib/data/snpMoneyTimeline";
+import type { QuickAnswerData } from "@/components/QuickAnswer";
+import { MINIMUM_WAGE, REAL_LIVING_WAGE, pounds } from "@/lib/data/quickAnswers";
 
 /**
  * Plain-English articles and their search/wayfinding metadata.
@@ -77,7 +79,10 @@ export type Post = {
   category: PostCategorySlug;
   tags: string[];
   readingMinutes: number;
-  image: {
+  /** The answer box that opens the page. Money, council tax and benefit guides have one. */
+  quickAnswer?: QuickAnswerData;
+  /** Optional: a guide without a photograph gets the Saltire cover instead. */
+  image?: {
     src: string;
     alt: string;
     caption: string;
@@ -306,7 +311,7 @@ export const posts: Post[] = [
   },
   {
     slug: "best-performing-councils-scotland",
-    title: "Scotland's best-performing councils: all 32 ranked",
+    title: "Best council in Scotland: all 32 ranked",
     seoTitle: "Best Council in Scotland 2026: All 32 Ranked",
     description:
       "East Renfrewshire comes first in our 53-measure ranking. See all 32 councils, the like-for-like list, what residents said and every number used.",
@@ -634,8 +639,8 @@ export const posts: Post[] = [
   },
   {
     slug: "council-tax-rises-scotland-2026-27",
-    title: "Council tax rises in Scotland 2026/27: every council",
-    seoTitle: "Council Tax Rises Scotland 2026/27 | Every Council",
+    title: "Council tax increase Scotland: every council's rise in 2026/27",
+    seoTitle: "Council Tax Increase Scotland 2026/27: Every Council's Rise",
     description:
       "Every Scottish council's 2026/27 council tax rise compared with 2025/26. See the Band D cash and percentage increase, then check every band.",
     standfirst:
@@ -663,7 +668,8 @@ export const posts: Post[] = [
   },
   {
     slug: "minimum-wage-take-home-pay-scotland-2026",
-    title: "Minimum wage in Scotland: what you earn in 2026",
+    title: "Minimum wage Scotland: what you earn in 2026 and 2027",
+    seoTitle: "Minimum Wage Scotland 2026 and 2027: £12.71 to £13.21",
     description:
       "Minimum wage in Scotland is £12.71 an hour in 2026, rising to £13.21 in April 2027. See every age rate, yearly pay and take-home pay after tax and NI.",
     standfirst:
@@ -672,6 +678,20 @@ export const posts: Post[] = [
     updated: "2026-10-29",
     category: "money-and-bills",
     tags: ["Minimum wage", "Take-home pay", "Scottish income tax", "Low pay"],
+    quickAnswer: {
+      label: "Minimum wage Scotland, 21 and over",
+      value: pounds(MINIMUM_WAGE.current.over21, true),
+      unit: "an hour",
+      detail: `Every employer in Scotland has to pay at least this from 1 April 2026. It goes up to ${pounds(MINIMUM_WAGE.next.over21, true)} on 1 April 2027. Scotland doesn't set its own rate; Westminster does.`,
+      rows: [
+        { label: "Age 21 and over", value: `${pounds(MINIMUM_WAGE.current.over21, true)}, then ${pounds(MINIMUM_WAGE.next.over21, true)}` },
+        { label: "Age 18 to 20", value: `${pounds(MINIMUM_WAGE.current.age18to20, true)}, then ${pounds(MINIMUM_WAGE.next.age18to20, true)}` },
+        { label: "Under 18", value: `${pounds(MINIMUM_WAGE.current.under18, true)}, then ${pounds(MINIMUM_WAGE.next.under18, true)}` },
+        { label: "Apprentice", value: `${pounds(MINIMUM_WAGE.current.apprentice, true)}, then ${pounds(MINIMUM_WAGE.next.apprentice, true)}` },
+      ],
+      asOf: "2026/27 rates, then the rates from 1 April 2027",
+      source: MINIMUM_WAGE.source,
+    },
     readingMinutes: 6,
     image: {
       src: "/images/editorial/minimum-wage-take-home-scotland.webp",
@@ -706,7 +726,8 @@ export const posts: Post[] = [
   },
   {
     slug: "real-living-wage-vs-minimum-wage-scotland",
-    title: "Real Living Wage Scotland versus minimum wage",
+    title: "Real Living Wage Scotland: £14.10 an hour against the legal minimum",
+    seoTitle: "Real Living Wage Scotland 2026: £14.10 vs Minimum Wage",
     description:
       "The real Living Wage is now £14.10 an hour. The legal minimum is £12.71, rising to £13.21 in April 2027. Who sets each rate and what the gap is worth.",
     standfirst:
@@ -715,6 +736,20 @@ export const posts: Post[] = [
     updated: "2026-10-29",
     category: "money-and-bills",
     tags: ["Real Living Wage", "Minimum wage", "Pay", "Living costs"],
+    quickAnswer: {
+      label: "Real Living Wage Scotland",
+      value: pounds(REAL_LIVING_WAGE.uk, true),
+      unit: "an hour",
+      detail: "The voluntary rate for employers signed up with the Living Wage Foundation, set on 15 October 2026. They have until 1 May 2027 to start paying it. The legal minimum is lower.",
+      rows: [
+        { label: "Outside London", value: pounds(REAL_LIVING_WAGE.uk, true) },
+        { label: "London", value: pounds(REAL_LIVING_WAGE.london, true) },
+        { label: "Legal minimum, 21 and over", value: pounds(MINIMUM_WAGE.current.over21, true) },
+        { label: "Gap a year at 37.5 hours", value: pounds((REAL_LIVING_WAGE.uk - MINIMUM_WAGE.current.over21) * 37.5 * 52, true) },
+      ],
+      asOf: "Rates announced 15 October 2026",
+      source: REAL_LIVING_WAGE.source,
+    },
     readingMinutes: 5,
     image: {
       src: "/images/editorial/real-living-wage-scotland.webp",
@@ -819,7 +854,8 @@ export const posts: Post[] = [
   },
   {
     slug: "energy-price-cap-scotland-2026-explained",
-    title: "What the energy price cap means in Scotland in 2026",
+    title: "Energy price cap Scotland: what it means for your bills",
+    seoTitle: "Energy Price Cap Scotland 2026: What It Means for Your Bills",
     description:
       "Ofgem's energy price cap is £1,862 from July to September 2026 for a typical-use home. See what it really caps, why bills rose and how standing charges work.",
     standfirst:
@@ -893,7 +929,8 @@ export const posts: Post[] = [
   },
   {
     slug: "crisis-grant-scotland-how-to-apply",
-    title: "Crisis Grant Scotland: how to apply and what you get",
+    title: "Crisis grant Scotland: how to apply and what you get",
+    seoTitle: "Crisis Grant Scotland: How to Apply and What You Get",
     description:
       "A Scottish Welfare Fund Crisis Grant is emergency money you do not repay. Who can apply, what it covers, and how to claim through your council.",
     standfirst:
@@ -1137,7 +1174,8 @@ export const posts: Post[] = [
   },
   {
     slug: "what-is-the-scottish-child-payment",
-    title: "Scottish Child Payment: how much it is and who can get it",
+    title: "Scottish Child Payment: how much it is and how to apply",
+    seoTitle: "Scottish Child Payment 2026/27: How Much and How to Apply",
     description:
       "A weekly payment for every child in a low-income family in Scotland. What it is worth, who can get it, and why many eligible families never claim.",
     standfirst:
