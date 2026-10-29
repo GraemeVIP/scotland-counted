@@ -11,11 +11,11 @@ export const metadata = meta({
   title: "Rate My MSP | Scottish MSP Reviews",
   description: pageDescription,
   path: "/msp-reviews",
-  image: "/images/social/msp-reviews-share.jpg",
-  imageAlt: "Rate My MSP: moderated Scottish MSP reviews on Scotland Counted",
-  imageWidth: 1200,
-  imageHeight: 630,
-  imageType: "image/jpeg",
+  image: "/images/social/refresh-msp-social.webp",
+  imageAlt: "A blank sheet of paper, pen and laptop on a desk overlooking a city",
+  imageWidth: 1500,
+  imageHeight: 1000,
+  imageType: "image/webp",
 });
 
 export const revalidate = 60;
