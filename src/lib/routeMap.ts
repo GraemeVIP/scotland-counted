@@ -80,6 +80,12 @@ export const POST_PATHS: Record<string, string> = {
   "social-security-scotland-payment-dates": "/social-security-scotland-payment-dates",
   "young-carers-allowance-scotland": "/young-carers-allowance-scotland",
   "crisis-grant-phone-number": "/crisis-grant-phone-number",
+  "minimum-wage-2027": "/minimum-wage-2027",
+  "average-salary-scotland": "/average-salary-scotland",
+  "minimum-wage-in-glasgow-scotland": "/minimum-wage-in-glasgow-scotland",
+  "minimum-wage-in-edinburgh-scotland": "/minimum-wage-in-edinburgh-scotland",
+  "minimum-wage-aberdeen": "/minimum-wage-aberdeen",
+  "minimum-wage-dundee": "/minimum-wage-dundee",
 };
 
 export function postPath(slug: string) {

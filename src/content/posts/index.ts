@@ -30,6 +30,12 @@ import WinterHeatingPayment from "./winter-heating-payment";
 import SocialSecurityScotlandPaymentDates from "./social-security-scotland-payment-dates";
 import YoungCarersAllowanceScotland from "./young-carers-allowance-scotland";
 import CrisisGrantPhoneNumber from "./crisis-grant-phone-number";
+import MinimumWage2027 from "./minimum-wage-2027";
+import AverageSalaryScotland from "./average-salary-scotland";
+import MinimumWageInGlasgowScotland from "./minimum-wage-in-glasgow-scotland";
+import MinimumWageInEdinburghScotland from "./minimum-wage-in-edinburgh-scotland";
+import MinimumWageAberdeen from "./minimum-wage-aberdeen";
+import MinimumWageDundee from "./minimum-wage-dundee";
 
 /**
  * Slug to post body. Statically imported so every post is prerendered and no
@@ -68,4 +74,10 @@ export const postBodies: Record<string, ComponentType> = {
   "social-security-scotland-payment-dates": SocialSecurityScotlandPaymentDates,
   "young-carers-allowance-scotland": YoungCarersAllowanceScotland,
   "crisis-grant-phone-number": CrisisGrantPhoneNumber,
+  "minimum-wage-2027": MinimumWage2027,
+  "average-salary-scotland": AverageSalaryScotland,
+  "minimum-wage-in-glasgow-scotland": MinimumWageInGlasgowScotland,
+  "minimum-wage-in-edinburgh-scotland": MinimumWageInEdinburghScotland,
+  "minimum-wage-aberdeen": MinimumWageAberdeen,
+  "minimum-wage-dundee": MinimumWageDundee,
 };

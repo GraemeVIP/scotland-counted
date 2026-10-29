@@ -330,7 +330,7 @@ export const sources: Source[] = [
     title: "National Minimum Wage and National Living Wage rates",
     publisher: "UK Government",
     url: "https://www.gov.uk/national-minimum-wage-rates",
-    used: "The legal hourly minimums from 1 April 2026: £12.71 for workers aged 21 and over, £10.85 for ages 18–20, and £8 for under-18s and eligible apprentices.",
+    used: "The legal hourly minimums from 1 April 2026: £12.71 for workers aged 21 and over, £10.85 for ages 18 to 20, and £8 for under 18s and eligible apprentices.",
     derivation:
       "The full time illustration is £12.71 multiplied by 37.5 paid hours and 52 weeks: £24,784.50 gross a year. It is an illustration, not a claim that every minimum wage worker receives those hours.",
   },
@@ -339,7 +339,7 @@ export const sources: Source[] = [
     title: "National Minimum Wage and National Living Wage rates from April 2027",
     publisher: "UK Government",
     url: "https://www.gov.uk/national-minimum-wage-rates",
-    used: "The legal hourly minimums from 1 April 2027: £13.21 for workers aged 21 and over, £11.27 for ages 18–20, and £8.31 for under-18s and eligible apprentices.",
+    used: "The legal hourly minimums from 1 April 2027: £13.21 for workers aged 21 and over, £11.27 for ages 18 to 20, and £8.31 for under 18s and eligible apprentices.",
     derivation:
       "The full time illustration is £13.21 multiplied by 37.5 paid hours and 52 weeks: £25,759.50 gross a year, £975 more than the same hours at the 2026 rate.",
   },
@@ -808,6 +808,61 @@ export const sources: Source[] = [
     publisher: "mygov.scot",
     url: "https://www.mygov.scot/young-carer-grant",
     used: "The yearly amount, the age and 16 hour caring rules, how often you can claim and how it fits with Carer Support Payment.",
+  },
+  {
+    id: "ashe-2026-residence",
+    title: "Annual Survey of Hours and Earnings 2026 provisional: place of residence by local authority (ASHE Table 8)",
+    publisher: "Office for National Statistics",
+    url: "https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/datasets/placeofresidencebylocalauthorityashetable8",
+    used: "Median gross annual and weekly pay for full time employees living in Scotland and in each of the 32 councils in April 2026: £41,591 a year and £825.40 a week for Scotland. Also the Scotland mean (£48,435), the 10th to 90th percentiles, hourly pay leaving out overtime (£21.59), the median for all employees (£34,559) and the UK median (£40,911).",
+    derivation:
+      "Tables 8.1a, 8.5a to 8.7a and their quality tables. Annual figures are rounded to the nearest pound. Annual pay only covers employees who had been in the same job for at least a year. Council figures with a coefficient of variation above 10% are starred, because ONS advises caution. Orkney's annual median is not published.",
+  },
+  {
+    id: "ashe-2026-workplace",
+    title: "Annual Survey of Hours and Earnings 2026 provisional: place of work by local authority (ASHE Table 7)",
+    publisher: "Office for National Statistics",
+    url: "https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/datasets/placeofworkbylocalauthorityashetable7",
+    used: "For jobs based in Glasgow, Edinburgh, Aberdeen, Dundee and Scotland in April 2026: the number of employee jobs, hourly pay leaving out overtime at the 10th and 20th percentiles and the median for all employees, and median annual and weekly pay for full time employees.",
+    derivation:
+      "Tables 7.1a, 7.6a and 7.7a. Workplace figures count a job where the work is, so they include people who commute in. They are compared with residence figures only to show that difference.",
+  },
+  {
+    id: "ashe-uk-2026",
+    title: "Employee earnings in the UK: 2026",
+    publisher: "Office for National Statistics",
+    url: "https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/bulletins/annualsurveyofhoursandearnings/2026",
+    used: "The release date of 22 October 2026, that the 2026 estimates are provisional and cover the pay period including 22 April 2026, the 1% sample of employees drawn from PAYE records, and the definition of full time as more than 30 paid hours a week.",
+  },
+  {
+    id: "ons-pipr-2026-10",
+    title: "Price Index of Private Rents, UK: monthly price statistics, 21 October 2026",
+    publisher: "Office for National Statistics",
+    url: "https://www.ons.gov.uk/economy/inflationandpriceindices/datasets/priceindexofprivaterentsukmonthlypricestatistics",
+    used: "Average monthly private rents for September 2026, for one bedroom homes and all homes, with the change on a year: Greater Glasgow £845 one bedroom, Lothian £1,036, Aberdeen and Shire £602, Dundee and Angus £573, and Scotland £702.",
+    derivation:
+      "Scotland is published by Broad Rental Market Area, not by council, so each city uses the area it sits in. ONS notes Scottish rents are mostly advertised new lets. The money left each month is full time take home pay at the legal minimum, less the one bedroom average and a 2026/27 Band A council tax and water bill divided by 12, before any discount.",
+  },
+  {
+    id: "pay-work-rights",
+    title: "Pay and work rights helpline and complaints",
+    publisher: "UK Government",
+    url: "https://www.gov.uk/pay-and-work-rights",
+    used: "The Acas helpline, 0300 123 1100, Monday to Friday 8am to 6pm, and that complaints about the minimum wage go to HMRC.",
+  },
+  {
+    id: "nmw-what-counts-as-pay",
+    title: "The National Minimum Wage and Living Wage: what counts as pay",
+    publisher: "UK Government",
+    url: "https://www.gov.uk/national-minimum-wage/what-counts-as-pay",
+    used: "That things a worker buys for the job and isn't paid back for, such as tools or a uniform, come off pay when checking whether the minimum wage has been paid.",
+  },
+  {
+    id: "nmw-employers",
+    title: "The National Minimum Wage and Living Wage: employers and the minimum wage",
+    publisher: "UK Government",
+    url: "https://www.gov.uk/national-minimum-wage/employers-and-the-minimum-wage",
+    used: "That HMRC can check an employer at any time and investigate a complaint, that arrears must be paid back straight away, and that an employer who underpays also faces a fine.",
   },
   {
     id: "scottish-welfare-fund",

@@ -76,7 +76,7 @@ export const fixes: Fix[] = [
   },
   {
     id: "childcare",
-    what: "Provide childcare for under-3s at times that fit shift work",
+    what: "Provide childcare for under 3s at times that fit shift work",
     effect:
       "This would help single parents take a job or work more hours.",
     cost: "£15m set aside",

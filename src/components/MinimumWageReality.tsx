@@ -70,7 +70,7 @@ export default function MinimumWageReality({
         <p className="ui mt-4 max-w-[78ch] text-[15px] leading-[1.55] text-[var(--muted)]">
           Calculation: £12.71 × 37.5 paid hours × 52 weeks = {exactPounds.format(legalAnnual)}. Fewer hours, unpaid time
           off or a changing rota means less. Workers aged 18 to 20 can legally be paid £10.85 an
-          hour; under-18s and eligible apprentices can be paid £8.
+          hour; under 18s and eligible apprentices can be paid £8.
         </p>
       </div>
 
