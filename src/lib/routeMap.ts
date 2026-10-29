@@ -90,6 +90,13 @@ export const POST_PATHS: Record<string, string> = {
   "council-tax-reduction-scotland": "/council-tax-reduction-scotland",
   "single-person-discount-council-tax-scotland": "/single-person-discount-council-tax-scotland",
   "water-rates-scotland": "/water-rates-scotland",
+  "modern-studies": "/modern-studies",
+  "national-5-modern-studies": "/national-5-modern-studies",
+  "higher-modern-studies": "/higher-modern-studies",
+  "higher-modern-studies-past-papers": "/higher-modern-studies-past-papers",
+  "nat-5-modern-studies-past-papers": "/nat-5-modern-studies-past-papers",
+  "advanced-higher-modern-studies": "/advanced-higher-modern-studies",
+  "causes-of-poverty": "/causes-of-poverty",
 };
 
 export function postPath(slug: string) {

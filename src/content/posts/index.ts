@@ -40,6 +40,13 @@ import CheckCouncilTaxBand from "./check-council-tax-band";
 import CouncilTaxReductionScotland from "./council-tax-reduction-scotland";
 import SinglePersonDiscountCouncilTaxScotland from "./single-person-discount-council-tax-scotland";
 import WaterRatesScotland from "./water-rates-scotland";
+import ModernStudies from "./modern-studies";
+import National5ModernStudies from "./national-5-modern-studies";
+import HigherModernStudies from "./higher-modern-studies";
+import HigherModernStudiesPastPapers from "./higher-modern-studies-past-papers";
+import Nat5ModernStudiesPastPapers from "./nat-5-modern-studies-past-papers";
+import AdvancedHigherModernStudies from "./advanced-higher-modern-studies";
+import CausesOfPoverty from "./causes-of-poverty";
 
 /**
  * Slug to post body. Statically imported so every post is prerendered and no
@@ -88,4 +95,11 @@ export const postBodies: Record<string, ComponentType> = {
   "council-tax-reduction-scotland": CouncilTaxReductionScotland,
   "single-person-discount-council-tax-scotland": SinglePersonDiscountCouncilTaxScotland,
   "water-rates-scotland": WaterRatesScotland,
+  "modern-studies": ModernStudies,
+  "national-5-modern-studies": National5ModernStudies,
+  "higher-modern-studies": HigherModernStudies,
+  "higher-modern-studies-past-papers": HigherModernStudiesPastPapers,
+  "nat-5-modern-studies-past-papers": Nat5ModernStudiesPastPapers,
+  "advanced-higher-modern-studies": AdvancedHigherModernStudies,
+  "causes-of-poverty": CausesOfPoverty,
 };
