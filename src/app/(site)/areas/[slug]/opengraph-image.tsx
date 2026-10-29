@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { OG_LOGO } from "@/lib/og";
 import { councils, getCouncil, COUNCIL_YEARS, COUNCIL_COUNT } from "@/lib/data/councils";
 import { site } from "@/lib/site";
 
@@ -25,7 +26,7 @@ export default async function Image(props: { params: Promise<{ slug: string }> }
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            background: "#0d1117",
+            background: "#04112f",
             color: "#ffffff",
             fontSize: 48,
           }}
@@ -47,7 +48,7 @@ export default async function Image(props: { params: Promise<{ slug: string }> }
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          background: "#0d1117",
+          background: "#04112f",
           color: "#ffffff",
           padding: "64px 72px",
           fontFamily: "sans-serif",
@@ -59,7 +60,7 @@ export default async function Image(props: { params: Promise<{ slug: string }> }
             fontSize: 22,
             letterSpacing: 3,
             textTransform: "uppercase",
-            color: "#8a93a3",
+            color: "#b4c2de",
           }}
         >
           {`Child poverty · ${last} · After housing costs`}
@@ -98,7 +99,7 @@ export default async function Image(props: { params: Promise<{ slug: string }> }
                 gap: 10,
                 paddingBottom: 10,
                 fontSize: 28,
-                color: "#a8b1c1",
+                color: "#b4c2de",
               }}
             >
               <div style={{ display: "flex" }}>
@@ -121,14 +122,12 @@ export default async function Image(props: { params: Promise<{ slug: string }> }
             alignItems: "center",
             marginTop: 44,
             paddingTop: 28,
-            borderTop: "2px solid #232935",
+            borderTop: "2px solid rgba(255,255,255,0.16)",
             fontSize: 24,
           }}
         >
-          <div style={{ display: "flex", fontWeight: 700 }}>
-            Scotland<span style={{ color: "#f5e400" }}>&nbsp;Counted</span>
-          </div>
-          <div style={{ display: "flex", color: "#8a93a3" }}>
+          <img src={OG_LOGO} alt="Scotland Counted" width={233} height={40} />
+          <div style={{ display: "flex", color: "#b4c2de" }}>
             {site.url.replace("https://", "")}
           </div>
         </div>

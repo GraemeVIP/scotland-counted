@@ -26,7 +26,7 @@ const ACCENT = "#6db5fc";
 const MUTED = "#b4c2de";
 
 /** The logo is read once at build time and embedded, so the card needs no network. */
-const LOGO = `data:image/png;base64,${readFileSync(join(process.cwd(), "public/brand/logo-on-dark.png")).toString("base64")}`;
+export const OG_LOGO = `data:image/png;base64,${readFileSync(join(process.cwd(), "public/brand/logo-on-dark.png")).toString("base64")}`;
 
 export function ogImage() {
   return new ImageResponse(
@@ -116,7 +116,7 @@ export function ogImage() {
           }}
         >
           {/* eslint-disable-next-line @next/next/no-img-element -- ImageResponse renders plain img, not next/image */}
-          <img src={LOGO} alt="Scotland Counted" width={233} height={40} />
+          <img src={OG_LOGO} alt="Scotland Counted" width={233} height={40} />
           <div style={{ display: "flex", color: MUTED }}>
             {site.url.replace("https://", "")}
           </div>

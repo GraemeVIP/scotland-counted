@@ -55,7 +55,7 @@ const PAIRS = [
   ["glasgow", "surface", 3], ["scotland", "surface", 3], ["rule-strong", "surface", 1.3],
   ["hub-money", "surface", 4.5], ["hub-benefits", "surface", 4.5], ["hub-tax", "surface", 4.5], ["hub-area", "surface", 4.5], ["hub-reps", "surface", 4.5], ["hub-schools", "surface", 4.5],
   ["hub-money", "paper", 4.5], ["hub-benefits", "paper", 4.5], ["hub-tax", "paper", 4.5], ["hub-area", "paper", 4.5], ["hub-reps", "paper", 4.5], ["hub-schools", "paper", 4.5],
-  ["hub-money-bar", "deep", 4.5], ["hub-benefits-bar", "deep", 4.5], ["hub-tax-bar", "deep", 4.5], ["hub-area-bar", "deep", 4.5], ["hub-reps-bar", "deep", 4.5], ["hub-schools-bar", "deep", 4.5],
+  ["#8bb8ff", "deep", 4.5], ["#8bb8ff", "deep-2", 4.5], ["hub-money-bar", "deep", 4.5], ["hub-benefits-bar", "deep", 4.5], ["hub-tax-bar", "deep", 4.5], ["hub-area-bar", "deep", 4.5], ["hub-reps-bar", "deep", 4.5], ["hub-schools-bar", "deep", 4.5],
 ];
 
 let failures = 0;

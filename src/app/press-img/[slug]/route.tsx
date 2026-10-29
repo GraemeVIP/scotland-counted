@@ -55,7 +55,7 @@ export async function GET(_req: Request, ctx: { params: Promise<{ slug: string }
           width: "100%",
           height: "100%",
           display: "flex",
-          background: "#0d1117",
+          background: "#04112f",
           color: "#ffffff",
           fontFamily: "sans-serif",
           position: "relative",
@@ -75,7 +75,7 @@ export async function GET(_req: Request, ctx: { params: Promise<{ slug: string }
           <div style={{ display: "flex", fontSize: 34, fontWeight: 700, letterSpacing: -0.5 }}>
             {ind.chartTitle}
           </div>
-          <div style={{ display: "flex", fontSize: 18, color: "#8a93a3", marginTop: 8 }}>
+          <div style={{ display: "flex", fontSize: 18, color: "#b4c2de", marginTop: 8 }}>
             {ind.chartSub}
           </div>
         </div>
@@ -91,7 +91,7 @@ export async function GET(_req: Request, ctx: { params: Promise<{ slug: string }
             <path
               key={t}
               d={`M${PLOT.l} ${Y(t)} L${PLOT.l + iw} ${Y(t)}`}
-              stroke="#161c26"
+              stroke="#1b2a4d"
               strokeWidth={1.5}
             />
           ))}
@@ -113,7 +113,7 @@ export async function GET(_req: Request, ctx: { params: Promise<{ slug: string }
               cy={Y(s.data[n - 1])}
               r={7}
               fill={COLORS[s.colorVar] ?? "#ffffff"}
-              stroke="#0d1117"
+              stroke="#04112f"
               strokeWidth={3}
             />
           ))}
@@ -131,7 +131,7 @@ export async function GET(_req: Request, ctx: { params: Promise<{ slug: string }
               display: "flex",
               justifyContent: "flex-end",
               fontSize: 18,
-              color: "#8a93a3",
+              color: "#b4c2de",
             }}
           >
             {ind.unit === "£" ? `£${t}` : `${t}${ind.unit}`}
@@ -144,7 +144,7 @@ export async function GET(_req: Request, ctx: { params: Promise<{ slug: string }
             left: PLOT.l,
             display: "flex",
             fontSize: 18,
-            color: "#8a93a3",
+            color: "#b4c2de",
           }}
         >
           {ind.x[0]}
@@ -158,7 +158,7 @@ export async function GET(_req: Request, ctx: { params: Promise<{ slug: string }
             display: "flex",
             justifyContent: "flex-end",
             fontSize: 18,
-            color: "#8a93a3",
+            color: "#b4c2de",
           }}
         >
           {ind.x[n - 1]}
@@ -197,7 +197,7 @@ export async function GET(_req: Request, ctx: { params: Promise<{ slug: string }
           <div style={{ display: "flex", fontWeight: 700 }}>
             Scotland<span style={{ color: "#f5e400" }}>&nbsp;Counted</span>
           </div>
-          <div style={{ display: "flex", color: "#8a93a3" }}>
+          <div style={{ display: "flex", color: "#b4c2de" }}>
             {`${site.url.replace("https://", "")}/indicators/${ind.slug}`}
           </div>
         </div>
