@@ -437,7 +437,7 @@ export function CTA({
   secondaryCta?: string;
 }) {
   return (
-    <FullBleed className="mt-20 -mb-24 sm:mt-28">
+    <FullBleed className="mt-20 sm:mt-28">
       <div className="bg-[var(--deep)] text-[var(--deep-ink)] py-16 sm:py-20">
         <div className="max-w-[1232px] mx-auto px-5 sm:px-8 lg:px-14">
           {/*
