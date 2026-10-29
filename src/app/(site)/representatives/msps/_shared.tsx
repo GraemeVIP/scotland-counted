@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/IntentLink";
 import type { HolyroodMspContact } from "@/lib/data/holyrood";
 import { site } from "@/lib/site";
 import { formatVoteDate } from "@/lib/voting";

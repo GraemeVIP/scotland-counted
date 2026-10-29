@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/IntentLink";
 import { Page, ContentFrame, Col, PageHeader } from "@/components/Blocks";
 import WhoDoesWhat from "@/components/WhoDoesWhat";
 import FindCouncillors from "@/components/FindCouncillors";

@@ -1,7 +1,7 @@
 "use client";
 
 import { BrandLogo } from "@/components/BrandLogo";
-import Link from "next/link";
+import Link from "@/components/IntentLink";
 import { useRouter } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
 import { POSTCODE_SESSION_KEY } from "@/lib/representatives";

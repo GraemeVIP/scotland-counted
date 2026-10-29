@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/IntentLink";
 import type { CSSProperties } from "react";
 import { COUNCIL_SEARCH_NAMES } from "@/lib/routeMap";
 import { councils } from "@/lib/data/councils";

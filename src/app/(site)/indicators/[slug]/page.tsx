@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/IntentLink";
 import { notFound } from "next/navigation";
 import { Page, Col, PageHeader, DirectionChip, CTA, InShort } from "@/components/Blocks";
 import Figure, { DataTable } from "@/components/charts/Figure";

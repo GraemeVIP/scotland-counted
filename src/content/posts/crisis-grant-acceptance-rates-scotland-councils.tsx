@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/IntentLink";
 import { Aside, H2, H3, Lead, LI, P, PostCTA, Prose, UL } from "@/components/Prose";
 import {
   CRISIS_GRANT_CSV_URL,

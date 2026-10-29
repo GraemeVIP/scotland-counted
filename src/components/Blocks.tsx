@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/IntentLink";
 import type { HTMLAttributes, ReactNode } from "react";
 import type { Direction } from "@/lib/data/indicators";
 import Reveal from "@/components/Reveal";

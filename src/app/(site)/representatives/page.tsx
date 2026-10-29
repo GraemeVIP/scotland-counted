@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/IntentLink";
 import { CTA, ContentFrame, InShort, Page, PageHeader } from "@/components/Blocks";
 import PortraitLightbox from "@/components/PortraitLightbox";
 import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";

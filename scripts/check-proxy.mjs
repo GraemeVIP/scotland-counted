@@ -1,15 +1,13 @@
 #!/usr/bin/env node
 /**
- * Does the proxy actually send the headers it is supposed to?
+ * Do the page headers actually arrive?
  *
- * The unit tests cover the matcher and the export name. They cannot cover the
- * thing that matters most: whether a request from a non-canonical host really
- * comes back marked noindex. That needs a running build and a real Host header.
- *
- * This is the check that would have caught the original bug. The proxy was
- * running, so the site looked fine, but its config was exported under a name
- * Next.js ignores, so the matcher never applied and every stylesheet and font
- * was being processed and told it was noindex.
+ * They are static rules in next.config.ts, from src/headerRules.ts. They used
+ * to come from a proxy, which ran as a function on every request; these checks
+ * are about the responses, so they hold either way. The unit tests cover the
+ * patterns. They cannot cover the thing that matters most: whether a request
+ * from a non-canonical host really comes back marked noindex while the real
+ * domain does not. That needs a running build and a real Host header.
  *
  *   npm run build && npm start &
  *   node scripts/check-proxy.mjs [baseUrl]
@@ -90,7 +88,7 @@ if (!/^https?:\/\/(localhost|127\.0\.0\.1|\[::1\])(:|\/|$)/.test(BASE) && !proce
   process.exit(2);
 }
 
-// The canonical host comes from the same config the proxy reads, so the check
+// The canonical host comes from the same config the header rules read, so the check
 // cannot drift from the thing it is checking.
 const configSource = readFileSync(new URL("../site.config.ts", import.meta.url), "utf8");
 const canonical = new URL(configSource.match(/url:\s*"([^"]+)"/)[1]).host;
@@ -123,7 +121,7 @@ for (const host of ["scotlandcounted.co.uk", "scotland-counted.vercel.app", "loc
   );
 }
 
-// 4. Static assets must be skipped by the matcher. This is the regression.
+// 4. Built assets get no page headers.
 {
   const html = await body("/", canonical);
   const asset = html.match(/\/_next\/static\/[^"']+\.css/)?.[0];
@@ -132,7 +130,7 @@ for (const host of ["scotlandcounted.co.uk", "scotland-counted.vercel.app", "loc
   } else {
     const h = await headers(asset, "scotlandcounted.co.uk");
     record(
-      "static asset skips the proxy",
+      "static asset gets no page headers",
       h.robots === null && h.frame === null,
       `${asset} -> robots: ${h.robots ?? "(none)"}, frame: ${h.frame ?? "(none)"}`,
     );
@@ -158,5 +156,5 @@ const failed = results.filter((r) => !r.pass);
 for (const r of results) {
   console.log(`${r.pass ? "  ok  " : "  FAIL"}  ${r.name}${r.detail ? `  (${r.detail})` : ""}`);
 }
-console.log(`\n${results.length - failed.length}/${results.length} proxy checks passed.`);
+console.log(`\n${results.length - failed.length}/${results.length} header checks passed.`);
 process.exit(failed.length ? 1 : 0);

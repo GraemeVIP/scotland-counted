@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/IntentLink";
 import { PRIMARY } from "@/lib/data/navigation";
 import { BrandLogo } from "@/components/BrandLogo";
 

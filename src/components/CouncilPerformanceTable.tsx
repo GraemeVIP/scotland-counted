@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/IntentLink";
 import { useId, useMemo, useState } from "react";
 import {
   councilPerformanceRows,

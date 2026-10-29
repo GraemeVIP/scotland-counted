@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/IntentLink";
 import { ContentFrame, Page, PageHeader } from "@/components/Blocks";
 import { getMspReviewProfile } from "@/lib/data/mspReviews";
 import { meta } from "@/lib/seo";

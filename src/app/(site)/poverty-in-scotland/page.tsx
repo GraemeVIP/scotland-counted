@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/IntentLink";
 import ComparePromo from "@/components/ComparePromo";
 import { Page, ContentFrame, PageHeader, InShort, CTA, Card } from "@/components/Blocks";
 import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";

@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import Link from "next/link";
+import Link from "@/components/IntentLink";
 import { ContentFrame, InShort, Page, PageHeader } from "@/components/Blocks";
 import MspReviewForm from "@/components/MspReviewForm";
 import { getMspRating, getMspReviewProfile, mspReviewProfiles } from "@/lib/data/mspReviews";
@@ -13,7 +13,12 @@ export function generateStaticParams() {
   return mspReviewProfiles.map((profile) => ({ slug: profile.slug }));
 }
 
-export const revalidate = 60;
+/*
+ * A day, not a minute. Approving a review refreshes this page straight away
+ * (api/msp-review-moderation), so a short timer only rebuilt pages nothing had
+ * changed, and every rebuild used server time from the monthly allowance.
+ */
+export const revalidate = 86400;
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const profile = getMspReviewProfile((await params).slug);

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/IntentLink";
 import { Page, ContentFrame, PageHeader, SectionHead, CTA } from "@/components/Blocks";
 import { GuideTable } from "@/components/GuideTable";
 import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";

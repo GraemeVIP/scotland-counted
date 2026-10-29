@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/IntentLink";
 import { Prose, Lead, P, H2, UL, LI, Aside, PostCTA } from "@/components/Prose";
 import { WINTER_HEATING_PAYMENT as WHP } from "@/lib/data/benefits";
 import { pounds } from "@/lib/data/quickAnswers";

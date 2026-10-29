@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/IntentLink";
 import { Page, ContentFrame, PageHeader, SectionHead } from "@/components/Blocks";
 import QuickAnswer from "@/components/QuickAnswer";
 import Faq from "@/components/Faq";

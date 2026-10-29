@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/IntentLink";
 import { COUNCIL_SEARCH_NAMES } from "@/lib/routeMap";
 import { COUNCIL_FAMILY_GROUP, FAMILY_GROUP_MEMBERS } from "@/lib/data/familyGroups";
 import { placeScores, rankAreas } from "@/lib/data/compareAreas";
