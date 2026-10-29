@@ -1,4 +1,5 @@
-import { Page, ContentFrame, PageHeader } from "@/components/Blocks";
+import { Page, ContentFrame, PageHeader, SectionHead } from "@/components/Blocks";
+import { RankingLinks } from "@/components/AreaRanking";
 import AreaComparePicker from "@/components/AreaComparePicker";
 import AreaComparison from "@/components/AreaComparison";
 import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
@@ -62,6 +63,12 @@ export default async function CompareAreasPage({
       <div className="max-w-[1232px] mx-auto px-5 sm:px-8 lg:px-14">
         <ContentFrame className="pb-16">
           <AreaComparison a={a} b={b} />
+          <section className="pt-16" aria-labelledby="rankings">
+            <SectionHead eyebrow="Rankings" title="Every area, ranked" id="rankings" />
+            <div className="mt-6">
+              <RankingLinks current="/compare-areas" />
+            </div>
+          </section>
         </ContentFrame>
       </div>
     </>

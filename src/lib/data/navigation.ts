@@ -211,9 +211,11 @@ export const HUBS: Hub[] = [
         items: [
           { href: "/compare-areas", label: "Compare two areas", tag: "New" },
           { href: "/areas", label: "All 32 council areas" },
+          { href: "/best-place-to-live-in-scotland", label: "Best places to live", tag: "New" },
+          { href: "/cheapest-place-to-live-in-scotland", label: "Cheapest places to live" },
+          { href: "/safest-place-to-live-in-scotland", label: "Safest places to live" },
+          { href: "/glasgow-vs-edinburgh", label: "Glasgow vs Edinburgh" },
           { href: "/constituencies", label: "All 57 MP areas" },
-          { href: "/areas/glasgow-city", label: "Glasgow" },
-          { href: "/areas/city-of-edinburgh", label: "Edinburgh" },
         ],
       },
       {
