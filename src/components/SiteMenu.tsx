@@ -3,280 +3,276 @@
 import { BrandLogo } from "@/components/BrandLogo";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { POSTCODE_SESSION_KEY } from "@/lib/representatives";
-import { SECTIONS, QUICK_AREAS, INVENTORY, MENU_FOOTER_LINKS } from "@/lib/data/navigation";
-
-const SECTION_TONES = {
-  local: {
-    accent: "var(--brand)",
-    wash: "var(--brand-wash)",
-  },
-  tools: {
-    accent: "var(--warn)",
-    wash: "color-mix(in srgb, var(--warn) 10%, var(--surface))",
-  },
-  councils: {
-    accent: "var(--brand-deep)",
-    wash: "color-mix(in srgb, var(--brand-deep) 10%, var(--surface))",
-  },
-  change: {
-    accent: "var(--action)",
-    wash: "var(--action-tint)",
-  },
-  topics: {
-    accent: "var(--glasgow)",
-    wash: "var(--glasgow-wash)",
-  },
-  proof: {
-    accent: "var(--good)",
-    wash: "color-mix(in srgb, var(--good) 10%, var(--surface))",
-  },
-} as const;
+import { BANK_HOLIDAY_PAYMENT_DATES } from "@/lib/data/benefits";
+import { COUNCIL_SEARCH_NAMES, councilTaxPath } from "@/lib/routeMap";
+import {
+  ABOUT,
+  EVIDENCE,
+  EXPLAINERS,
+  HUBS,
+  hubColor,
+  hubForPath,
+  type Hub,
+  type HubFeature,
+  type HubId,
+} from "@/lib/data/navigation";
 
 /**
- * The full menu, shared by the desktop panel and the mobile sheet.
+ * The menus.
  *
- * The site has 316 pages and the menu used to expose about twenty of them, so
- * the 32 council areas and 57 MP areas, the bulk of what anyone actually
- * wants, could only be reached by landing on a hub page first. The postcode
- * field is therefore in the menu itself: for most people it is the shortest
- * path to the page they came for, and it works without them knowing the name
- * of their council or their MP.
+ * Desktop: each section in the header opens its own short panel, one at a
+ * time, instead of one panel holding everything. The old panel was 928px tall
+ * at 1440 wide with a sentence under every link, and its last two sections
+ * sat below the fold.
+ *
+ * Phone: search first, then the six sections, opening one at a time. Closed,
+ * it fits on one screen; the old sheet was 4,049px long.
  */
 
-function PostcodeJump({ onDone, autoFocus = false }: { onDone: () => void; autoFocus?: boolean }) {
+const COUNCILS = Object.entries(COUNCIL_SEARCH_NAMES).sort((a, b) => a[1].localeCompare(b[1]));
+
+const inputClass =
+  "ui w-full min-h-12 rounded-[var(--r-s)] bg-[var(--surface)] border border-[var(--rule-strong)] px-4 text-[16px] text-[var(--ink)] placeholder:text-[var(--muted)] focus:border-[var(--brand)] outline-none transition-colors";
+
+const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+/** "Thursday 24 December 2026" as a local date. Parsed by hand: Safari rejects that string. */
+function parseLongDate(text: string) {
+  const [, day, month, year] = text.match(/(\d{1,2}) (\w+) (\d{4})$/) ?? [];
+  return new Date(Number(year), MONTHS.indexOf(month), Number(day)).getTime();
+}
+
+/** The next payment that moves for a bank holiday, from today. */
+function nextEarlyPayment(now = new Date()) {
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
+  return BANK_HOLIDAY_PAYMENT_DATES.find(({ due }) => parseLongDate(due) >= today);
+}
+
+function FeatureForm({ feature, onNavigate }: { feature: HubFeature; onNavigate: () => void }) {
   const router = useRouter();
-  const [postcode, setPostcode] = useState("");
-  const ref = useRef<HTMLInputElement>(null);
+  const id = useId();
+  const [value, setValue] = useState("");
+  const [state, setState] = useState<"idle" | "loading" | "error">("idle");
 
-  useEffect(() => {
-    if (autoFocus) ref.current?.focus();
-  }, [autoFocus]);
-
-  function submit(event: React.FormEvent<HTMLFormElement>) {
+  async function submit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const value = postcode.trim().toUpperCase();
-    if (!value) return;
-    /*
-     * The finder, not the letter builder. This box sits under "Go straight
-     * to your area", and for years it dropped people into an email composer
-     * instead: the same promise-toolmismatch the old page URL had. The
-     * lookup consumes the carried postcode and runs it on arrival.
-     */
-    sessionStorage.setItem(POSTCODE_SESSION_KEY, value);
-    onDone();
-    router.push("/representatives#postcode-lookup");
+    const v = value.trim();
+    if (feature.kind === "salary") {
+      const amount = v.replace(/[^0-9.]/g, "");
+      onNavigate();
+      router.push(amount ? `${feature.href}?s=${encodeURIComponent(amount)}` : feature.href);
+      return;
+    }
+    if (feature.kind === "council") {
+      if (!v) return;
+      onNavigate();
+      router.push(councilTaxPath(v));
+      return;
+    }
+    const postcode = v.toUpperCase();
+    if (!postcode) return;
+    if (feature.kind === "postcode-reps") {
+      // The lookup on the page reads the carried postcode and runs it on arrival.
+      sessionStorage.setItem(POSTCODE_SESSION_KEY, postcode);
+      onNavigate();
+      router.push(`${feature.href}#postcode-lookup`);
+      return;
+    }
+    // postcode-area: resolve the council here, then open its area page.
+    setState("loading");
+    try {
+      const response = await fetch("/api/representatives", {
+        method: "POST",
+        cache: "no-store",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ postcode }),
+      });
+      const result = (await response.json()) as { council?: { slug?: string } };
+      const slug = result.council?.slug;
+      if (!response.ok || !slug) throw new Error("not found");
+      onNavigate();
+      router.push(`/areas/${slug}`);
+    } catch {
+      setState("error");
+    }
   }
 
+  if (feature.kind === "council") {
+    return (
+      <form onSubmit={submit} className="mt-1 grid gap-2">
+        <label htmlFor={id} className="ui text-[14px] font-[600] text-[var(--ink-2)]">
+          Your council
+        </label>
+        <select id={id} value={value} onChange={(e) => setValue(e.target.value)} className={inputClass}>
+          <option value="">Choose your council</option>
+          {COUNCILS.map(([slug, name]) => (
+            <option key={slug} value={slug}>
+              {name}
+            </option>
+          ))}
+        </select>
+        <button type="submit" className="btn btn-primary justify-center">
+          {feature.cta} <span aria-hidden="true">→</span>
+        </button>
+      </form>
+    );
+  }
+
+  const salary = feature.kind === "salary";
   return (
-    <form onSubmit={submit} className="grid gap-2 grid-cols-[minmax(0,1fr)_auto]">
-      <label className="sr-only" htmlFor="menu-postcode">
-        Your postcode
+    <form onSubmit={submit} className="mt-1 grid gap-2">
+      <label htmlFor={id} className="ui text-[14px] font-[600] text-[var(--ink-2)]">
+        {salary ? "Your yearly salary" : "Your postcode"}
       </label>
       <input
-        ref={ref}
-        id="menu-postcode"
-        name="postcode"
+        id={id}
         type="text"
-        value={postcode}
-        onChange={(event) => setPostcode(event.target.value.toUpperCase())}
-        placeholder="Your postcode"
-        data-clarity-mask="true"
-        autoComplete="postal-code"
-        className="ui w-full min-h-12 rounded-[var(--r-s)] bg-[var(--paper)] border border-[var(--rule-strong)] px-4 text-[16px] text-[var(--ink)] placeholder:text-[var(--muted)] focus:border-[var(--brand)] outline-none transition-colors"
+        inputMode={salary ? "numeric" : "text"}
+        autoComplete={salary ? "off" : "postal-code"}
+        data-clarity-mask={salary ? undefined : "true"}
+        value={value}
+        onChange={(e) => setValue(salary ? e.target.value : e.target.value.toUpperCase())}
+        placeholder={salary ? "£30,000" : feature.kind === "postcode-reps" ? "e.g. EH1 1RE" : "e.g. G12 8QQ"}
+        className={inputClass}
       />
-      <button type="submit" className="btn btn-primary justify-center whitespace-nowrap !px-5">
-        Go
-        <span aria-hidden="true">→</span>
+      <button type="submit" className="btn btn-primary justify-center" disabled={state === "loading"}>
+        {state === "loading" ? "Finding your area" : feature.cta} <span aria-hidden="true">→</span>
       </button>
+      {state === "error" && (
+        <p role="alert" className="text-[14.5px] leading-[1.45] text-[var(--bad-text)]">
+          That postcode did not work. Check it, or{" "}
+          <Link href="/areas" onClick={onNavigate}>
+            pick your area from the list
+          </Link>
+          .
+        </p>
+      )}
     </form>
   );
 }
 
-function SectionList({ onNavigate }: { onNavigate: () => void }) {
-  return (
-    <>
-      {SECTIONS.map((sec) => {
-        const tone = SECTION_TONES[sec.tone];
-
-        return (
-          <section
-            key={sec.title}
-            className="overflow-hidden rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)]"
-          >
-            <div
-              className="border-b border-[var(--rule)] px-4 py-3.5 xl:min-h-[96px]"
-              style={{ backgroundColor: tone.wash }}
-            >
-              <div className="flex items-start gap-3">
-                <span
-                  aria-hidden="true"
-                  className="mt-1 h-10 w-1.5 shrink-0 rounded-full"
-                  style={{ backgroundColor: tone.accent }}
-                />
-                <div>
-                  <p className="ui text-[17px] font-[640] leading-[1.25] text-[var(--ink)]">
-                    {sec.title}
-                  </p>
-                  <p className="mt-1 text-[15px] leading-[1.4] text-[var(--ink-2)]">
-                    {sec.intro}
-                  </p>
-                </div>
-              </div>
-            </div>
-            <ul className="divide-y divide-[var(--rule)] px-2 py-1">
-              {sec.items.map((n) => (
-                <li key={n.href}>
-                  <Link
-                    href={n.href}
-                    onClick={onNavigate}
-                    className="flex min-h-14 flex-col justify-center rounded-[var(--r-s)] px-2 py-2.5 no-underline transition-colors hover:bg-[var(--surface-2)]"
-                  >
-                    <span className="ui text-[15.5px] font-[540] text-[var(--ink)]">
-                      {n.label}
-                    </span>
-                    {n.blurb && (
-                      <span className="mt-0.5 text-[15px] leading-[1.35] text-[var(--muted)]">
-                        {n.blurb}
-                      </span>
-                    )}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </section>
-        );
-      })}
-    </>
-  );
-}
-
-/** The shared top block: postcode first, then the places people ask for. */
-function FindYourPlace({ onNavigate, autoFocus }: { onNavigate: () => void; autoFocus?: boolean }) {
-  return (
-    <div className="rounded-[var(--r-m)] bg-[var(--surface-2)] border border-[var(--rule)] p-4 sm:p-5">
-      <p className="ui text-[18px] font-[640] text-[var(--ink)]">Go straight to your area</p>
-      <p className="mt-1 mb-3.5 text-[15px] leading-[1.45] text-[var(--ink-2)]">
-        You do not need to know your council or your MP. I work it out.
-      </p>
-      <PostcodeJump onDone={onNavigate} autoFocus={autoFocus} />
-      <p className="ui mt-4 mb-2.5 text-[15px] font-[620] uppercase tracking-[0.08em] text-[var(--muted)]">
-        Or pick a place
-      </p>
-      <div className="flex flex-wrap gap-1.5">
-        {QUICK_AREAS.slice(0, 6).map((a) => (
-          <Link
-            key={a.href}
-            href={a.href}
-            onClick={onNavigate}
-            className="ui rounded-[var(--r-pill)] border border-[var(--rule-strong)] bg-[var(--surface)] px-3 py-1.5 text-[15px] font-[540] text-[var(--ink-2)] no-underline transition-colors hover:border-[var(--brand)] hover:text-[var(--ink)]"
-          >
-            {a.label}
-          </Link>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-/** The counts, which double as links to each index. */
-function Inventory({ onNavigate }: { onNavigate: () => void }) {
-  return (
-    <div className="grid grid-cols-2 gap-x-6 gap-y-4 sm:grid-cols-4 sm:gap-x-8">
-      {INVENTORY.map((i) => (
-        <Link
-          key={i.href}
-          href={i.href}
-          onClick={onNavigate}
-          className="group no-underline"
-        >
-          <span className="display-stat block text-[24px] leading-[1.1] text-[var(--ink)] group-hover:text-[var(--brand)] transition-colors">
-            {i.count}
-          </span>
-          <span className="text-[15px] text-[var(--ink-2)]">{i.label}</span>
-        </Link>
-      ))}
-    </div>
-  );
-}
-
-/**
- * Desktop: a full-width panel under the header.
- *
- * It is bounded and it scrolls, because it has to be.
- *
- * The panel renders inside the sticky header, so it travels with it. When the
- * content was taller than the space left below the bar there was nothing to
- * scroll: the page moved and the panel moved with it, and the bottom simply
- * sat off the screen. Measured at 1440x900, a common laptop, the panel was
- * 1495px tall against 832px of room, so 663px of it, two whole sections and
- * every link in them, could not be reached by any means.
- *
- * Three parts to the fix, and none of them changes how it looks when it fits:
- *
- *   The panel stops at the bottom of the viewport, via --header-h so the
- *   number cannot drift away from the bar it is subtracting.
- *   The columns scroll inside it, with overscroll-contain so reaching the end
- *   does not start scrolling the page behind.
- *   The footer strip is pinned below the scroll area rather than inside it,
- *   so "See every page on this site" is reachable at any height. That link is
- *   the escape hatch for exactly this problem and it was the first thing to
- *   disappear.
- */
-export function DesktopMenu({ onNavigate }: { onNavigate: () => void }) {
+function Feature({ hub, onNavigate }: { hub: Hub; onNavigate: () => void }) {
+  const { feature } = hub;
+  const color = hubColor(hub.id);
+  const next = feature.kind === "payment-dates" ? nextEarlyPayment() : undefined;
   return (
     <div
-      id="browse-panel"
-      className="hidden xl:flex xl:flex-col max-h-[calc(100dvh-var(--header-h))] border-t border-[var(--rule)] bg-[var(--surface)] shadow-[var(--shadow-3)]"
+      className="flex flex-col gap-2.5 rounded-[var(--r-m)] p-5"
+      style={{ background: `color-mix(in srgb, ${color} 9%, var(--surface))` }}
     >
-      {/* min-h-0 so this flex child may shrink below its content height. */}
+      <p className="kicker" style={{ color }}>
+        {feature.kicker}
+      </p>
+      <p className="text-[20px] font-[600] leading-[1.2] tracking-[-0.015em] text-[var(--ink)]">
+        {next ? `Paid early on ${next.paid.replace(/ \d{4}$/, "")}` : feature.title}
+      </p>
+      <p className="text-[15px] leading-[1.5] text-[var(--ink-2)]">
+        {next ? `Due ${next.due.replace(/ \d{4}$/, "")}. ${feature.text}` : feature.text}
+      </p>
+      {feature.kind === "link" || feature.kind === "payment-dates" ? (
+        <Link href={feature.href} onClick={onNavigate} className="btn btn-primary mt-1 self-start">
+          {feature.cta} <span aria-hidden="true">→</span>
+        </Link>
+      ) : (
+        <FeatureForm feature={feature} onNavigate={onNavigate} />
+      )}
+    </div>
+  );
+}
+
+/** Desktop: the panel for one section, under the header bar. */
+export function HubPanel({ hubId, onNavigate }: { hubId: HubId; onNavigate: () => void }) {
+  const hub = HUBS.find((h) => h.id === hubId)!;
+  const color = hubColor(hub.id);
+  return (
+    <div
+      id="hub-panel"
+      role="region"
+      aria-label={`${hub.label} menu`}
+      className="hidden xl:flex flex-col max-h-[calc(100dvh-var(--header-h)-24px)] max-w-[1320px] mx-auto mt-2.5 overflow-hidden rounded-[var(--r-l)] border border-[var(--rule)] bg-[var(--surface)] shadow-[0_30px_60px_-24px_rgba(2,20,60,0.45)]"
+    >
+      <div className="flex items-center gap-3.5 border-b border-[var(--rule)] px-7 py-4">
+        <span aria-hidden="true" className="h-2.5 w-2.5 shrink-0 rounded-full" style={{ background: color }} />
+        <p className="ui text-[18px] font-[620]" style={{ color }}>
+          {hub.label}
+        </p>
+        <p className="text-[15px] text-[var(--ink-2)]">{hub.intro}</p>
+        <Link href={hub.href} onClick={onNavigate} className="ui ml-auto whitespace-nowrap text-[15px] font-[600]">
+          All of {hub.label} <span aria-hidden="true">→</span>
+        </Link>
+      </div>
+
       <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain">
-        <div className="mx-auto grid max-w-[1440px] gap-8 px-5 py-9 sm:px-8 lg:grid-cols-[minmax(280px,0.8fr)_minmax(0,3.2fr)] lg:px-14 xl:gap-10">
-          <FindYourPlace onNavigate={onNavigate} />
-          <div className="grid grid-cols-2 gap-5 xl:grid-cols-4">
-            <SectionList onNavigate={onNavigate} />
-          </div>
+        <div className="grid grid-cols-[300px_repeat(3,minmax(0,1fr))] gap-8 px-7 py-6">
+          <Feature hub={hub} onNavigate={onNavigate} />
+          {hub.groups.map((group) => (
+            <div key={group.heading} className="min-w-0">
+              <p className="kicker mb-2 text-[var(--muted)]">{group.heading}</p>
+              <ul>
+                {group.items.map((item) => (
+                  <li key={item.href} className="border-b border-[var(--rule)] last:border-b-0">
+                    <Link
+                      href={item.href}
+                      onClick={onNavigate}
+                      className="ui flex items-center justify-between gap-3 py-2.5 text-[15.5px] font-[520] text-[var(--ink)] no-underline hover:text-[var(--action-text)]"
+                    >
+                      <span>{item.label}</span>
+                      {item.tag && (
+                        <span
+                          className="shrink-0 rounded-[var(--r-pill)] px-2 py-0.5 text-[12.5px] font-[600]"
+                          style={{ color, background: `color-mix(in srgb, ${color} 10%, var(--surface))` }}
+                        >
+                          {item.tag}
+                        </span>
+                      )}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
       </div>
-      <div className="shrink-0 border-t border-[var(--rule)] bg-[var(--surface-2)]">
-        <div className="max-w-[1232px] mx-auto px-5 sm:px-8 lg:px-14 py-5 flex flex-wrap items-center justify-between gap-6">
-          <Inventory onNavigate={onNavigate} />
-          <div className="flex flex-wrap items-center gap-x-7 gap-y-2">
-            {MENU_FOOTER_LINKS.map((l) => (
-              <Link
-                key={l.href}
-                href={l.href}
-                onClick={onNavigate}
-                className="ui text-[15px] font-[540] text-[var(--ink-2)]"
-              >
-                {l.label}
-              </Link>
-            ))}
-            <Link href="/browse" onClick={onNavigate} className="ui text-[15.5px] font-[580]">
-              See every page on this site →
-            </Link>
-          </div>
-        </div>
+
+      <div className="flex flex-wrap items-center gap-2.5 border-t border-[var(--rule)] bg-[var(--surface-2)] px-7 py-3.5">
+        <p className="ui text-[14.5px] font-[600] text-[var(--ink-2)]">Most searched:</p>
+        {hub.top.map((item) => (
+          <Link
+            key={item.href}
+            href={item.href}
+            onClick={onNavigate}
+            className="ui rounded-[var(--r-pill)] border border-[var(--rule)] bg-[var(--surface)] px-3 py-1.5 text-[14.5px] font-[520] text-[var(--ink)] no-underline hover:border-[var(--brand)]"
+          >
+            {item.label}
+          </Link>
+        ))}
+        <Link href="/browse" onClick={onNavigate} className="ui ml-auto text-[14.5px] font-[600] text-[var(--ink-2)]">
+          Every page on the site <span aria-hidden="true">→</span>
+        </Link>
       </div>
     </div>
   );
 }
 
-/** Mobile: a full-height sheet, not a dropdown list. */
+/** Phone and tablet: a full height sheet with the sections as an accordion. */
 export function MobileMenu({
+  pathname,
   onNavigate,
   onClose,
 }: {
+  pathname: string;
   onNavigate: () => void;
   onClose: () => void;
 }) {
+  // Opens on the section you are already in, so the way onward is right there.
+  const [open, setOpen] = useState<HubId | null>(() => hubForPath(pathname));
+
   /*
-   * Lock scroll on both roots, not just body. Per spec, overflow on <body>
-   * propagates to the viewport, and Chromium honours that. iOS WebKit is
-   * exactly where that propagation has historically misbehaved, locking
-   * body alone is the classic scroll-lock that fails on iPhones. Setting it
-   * on <html> as well is the form that holds everywhere.
+   * Lock scroll on both roots, not just body. iOS WebKit is where body only
+   * scroll locks have historically failed; setting it on <html> as well holds
+   * everywhere.
    */
   useEffect(() => {
     const prevBody = document.body.style.overflow;
@@ -289,7 +285,6 @@ export function MobileMenu({
     };
   }, []);
 
-  // Escape closes, matching the desktop panel.
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
       if (event.key === "Escape") onClose();
@@ -298,19 +293,7 @@ export function MobileMenu({
     return () => document.removeEventListener("keydown", onKey);
   }, [onClose]);
 
-  /*
-   * Move focus into the sheet, and put it back when the sheet goes.
-   *
-   * Without this the sheet covers the whole screen while focus stays on the
-   * burger underneath it. Someone using a keyboard or a screen reader opens
-   * the menu and is told nothing has happened, then has to tab forward
-   * blindly to reach a menu that is already in front of them. On the way out
-   * focus would land back at the top of the document rather than where they
-   * were, which is the other half of the same problem.
-   *
-   * The close button is the target because it is the first thing in the
-   * sheet and the way out of it.
-   */
+  /* Focus moves into the sheet on open and back to the burger on close. */
   const closeRef = useRef<HTMLButtonElement>(null);
   useEffect(() => {
     const returnTo = document.activeElement as HTMLElement | null;
@@ -318,93 +301,146 @@ export function MobileMenu({
     return () => returnTo?.focus?.();
   }, []);
 
+  function openSearch() {
+    onClose();
+    window.dispatchEvent(new CustomEvent("open-command"));
+  }
+
   return (
     /*
-     * The sheet owns the whole screen, inset-0, above the header, and
-     * carries its own close button.
-     *
-     * It used to start below the page header and rely on that header for the
-     * X. That chain held only if the header stayed pinned and tappable while
-     * the page behind was scroll-locked: position: sticky is exactly what iOS
-     * does not guarantee under a locked body, and on iPads the header left
-     * the viewport with the sheet open, a menu with no way to close it. The
-     * close control now lives inside the thing it closes, and no behaviour of
-     * the page header can take it away.
-     *
-     * z-[60]: over the header (50); under the search palette (80).
+     * The sheet owns the whole screen, above the header, and carries its own
+     * close button, so no behaviour of the page header under a scroll lock
+     * can leave it without a way out. z-[60]: over the header (50), under the
+     * search palette (80).
      */
     <nav
       id="mobile-nav"
       aria-label="Main"
-      className="xl:hidden fixed inset-0 z-[60] overflow-y-auto overscroll-contain bg-[var(--paper)]"
+      className="xl:hidden fixed inset-0 z-[60] flex flex-col bg-[var(--paper)]"
     >
-      {/*
-        The sheet's own top bar, sticky so the X survives scrolling the menu
-        itself. Metrics mirror the page header underneath, same height, same
-        gutters, so the X lands exactly where the burger was tapped.
-      */}
-      <div className="sticky top-0 z-10 border-b border-[var(--rule)] bg-[var(--paper)]">
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-8 h-[var(--header-h)] flex items-center justify-between">
-          <BrandLogo tone="adaptive" height={24} />
-          <button
-            ref={closeRef}
-            type="button"
-            onClick={onClose}
-            aria-label="Close the menu"
-            className="w-11 h-11 -mr-2 inline-flex items-center justify-center text-[var(--ink)]"
-          >
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.25" aria-hidden="true">
-              <path d="M6 6l12 12M18 6L6 18" />
-            </svg>
-          </button>
-        </div>
-      </div>
-      <div className="space-y-5 px-5 py-5 pb-[calc(1.25rem+env(safe-area-inset-bottom))]">
-        <Link href="/contact" onClick={onNavigate} className="btn btn-ghost w-full justify-between">
-          Feedback for Graeme <span aria-hidden="true">→</span>
+      <div className="flex h-[var(--header-h)] shrink-0 items-center justify-between bg-[var(--deep)] px-4 sm:px-8">
+        <Link href="/" onClick={onNavigate} aria-label="Scotland Counted home">
+          <BrandLogo tone="on-dark" height={26} />
         </Link>
-        <FindYourPlace onNavigate={onNavigate} />
+        <button
+          ref={closeRef}
+          type="button"
+          onClick={onClose}
+          aria-label="Close the menu"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-[var(--r-pill)] border border-white/25 text-white"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18" />
+          </svg>
+        </button>
+      </div>
 
-        <div className="space-y-4">
-          <SectionList onNavigate={onNavigate} />
-        </div>
+      <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 py-4 sm:px-8">
+        <div className="mx-auto max-w-[640px] space-y-3.5">
+          <button
+            type="button"
+            onClick={openSearch}
+            className="ui flex min-h-[52px] w-full items-center gap-3 rounded-[var(--r-m)] border border-[var(--rule-strong)] bg-[var(--surface)] px-4 text-left text-[16px] text-[var(--muted)]"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" aria-hidden="true">
+              <circle cx="11" cy="11" r="7" />
+              <path d="m20 20-3.8-3.8" />
+            </svg>
+            Search, or put in your postcode
+          </button>
 
-        <div className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5">
-          <p className="ui text-[18px] font-[640] text-[var(--ink)]">What Scotland Counted does</p>
-          <p className="mt-2 mb-5 max-w-[42rem] text-[15px] leading-6 text-[var(--ink-2)]">
-            See what poverty, pay and living costs look like where you live. Find the people who
-            can change things, then send them a ready written email.
-          </p>
-          <Inventory onNavigate={onNavigate} />
-          <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2">
-            {MENU_FOOTER_LINKS.map((l) => (
-              <Link
-                key={l.href}
-                href={l.href}
-                onClick={onNavigate}
-                className="ui text-[15px] font-[540] text-[var(--ink-2)]"
-              >
-                {l.label}
+          <div className="overflow-hidden rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)]">
+            {HUBS.map((hub) => {
+              const isOpen = open === hub.id;
+              const color = hubColor(hub.id);
+              const count = hub.groups.reduce((n, g) => n + g.items.length, 0);
+              const panelId = `mobile-hub-${hub.id}`;
+              return (
+                <div key={hub.id} className="border-b border-[var(--rule)]">
+                  <button
+                    type="button"
+                    aria-expanded={isOpen}
+                    aria-controls={panelId}
+                    onClick={() => setOpen(isOpen ? null : hub.id)}
+                    className="flex min-h-14 w-full items-center gap-3 px-4 text-left text-[var(--ink)]"
+                    style={isOpen ? { background: `color-mix(in srgb, ${color} 8%, var(--surface))` } : undefined}
+                  >
+                    <span aria-hidden="true" className="h-2.5 w-2.5 shrink-0 rounded-full" style={{ background: color }} />
+                    <span className="ui flex-1 text-[17px] font-[600]">{hub.label}</span>
+                    <span className="ui text-[14px] text-[var(--muted)]">{count} pages</span>
+                    <svg
+                      width="12"
+                      height="12"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="3"
+                      aria-hidden="true"
+                      className={`transition-transform ${isOpen ? "rotate-180" : ""}`}
+                    >
+                      <path d="m5 8 7 7 7-7" />
+                    </svg>
+                  </button>
+                  {isOpen && (
+                    <div
+                      id={panelId}
+                      className="px-4 pt-1 pb-4 pl-[38px]"
+                      style={{ background: `color-mix(in srgb, ${color} 5%, var(--surface))` }}
+                    >
+                      {hub.groups.map((group) => (
+                        <div key={group.heading}>
+                          <p className="kicker mt-3.5 mb-1" style={{ color }}>
+                            {group.heading}
+                          </p>
+                          <ul>
+                            {group.items.map((item) => (
+                              <li key={item.href}>
+                                <Link
+                                  href={item.href}
+                                  onClick={onNavigate}
+                                  className="ui block border-b border-[var(--rule)] py-2.5 text-[16px] font-[500] text-[var(--ink)] no-underline"
+                                >
+                                  {item.label}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                      <Link href={hub.href} onClick={onNavigate} className="ui mt-3 inline-block text-[15.5px] font-[600]">
+                        All of {hub.label} <span aria-hidden="true">→</span>
+                      </Link>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+            <Link
+              href={EXPLAINERS.href}
+              onClick={onNavigate}
+              className="ui flex min-h-14 items-center gap-3 px-4 text-[17px] font-[600] text-[var(--ink)] no-underline"
+            >
+              <span aria-hidden="true" className="h-2.5 w-2.5 shrink-0 rounded-full bg-[var(--ink)]" />
+              Explainers and investigations
+            </Link>
+          </div>
+
+          <div className="flex flex-wrap gap-x-5 gap-y-2 px-1 pt-1">
+            {[ABOUT[0], EVIDENCE[1], ABOUT[1]].map((item) => (
+              <Link key={item.href} href={item.href} onClick={onNavigate} className="ui text-[15px] text-[var(--ink-2)]">
+                {item.label}
               </Link>
             ))}
+            <Link href="/browse" onClick={onNavigate} className="ui text-[15px] font-[600]">
+              Every page
+            </Link>
           </div>
-          <Link
-            href="/browse"
-            onClick={onNavigate}
-            className="ui mt-4 block text-[15.5px] font-[580]"
-          >
-            Browse every page →
-          </Link>
         </div>
       </div>
 
-      {/* The action stays reachable no matter how far down the sheet you are. */}
-      <div className="sticky bottom-0 grid grid-cols-2 gap-2 border-t border-[var(--rule)] bg-[var(--paper)]/95 px-5 py-4 backdrop-blur">
-        <Link href="/msp-reviews" onClick={onNavigate} className="btn btn-primary justify-center text-center">
-          Review an MSP
-        </Link>
-        <Link href="/email-your-mp-and-msp" onClick={onNavigate} className="btn btn-ghost justify-center text-center">
-          Email an MSP
+      <div className="shrink-0 border-t border-[var(--rule)] bg-[var(--surface)] px-4 pt-3 pb-[calc(0.85rem+env(safe-area-inset-bottom))] sm:px-8">
+        <Link href="/email-your-mp-and-msp" onClick={onNavigate} className="btn btn-primary mx-auto flex w-full max-w-[640px] justify-center">
+          Email your MP or MSP <span aria-hidden="true">→</span>
         </Link>
       </div>
     </nav>

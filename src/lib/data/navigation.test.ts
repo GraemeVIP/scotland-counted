@@ -4,13 +4,7 @@ import { readdirSync, existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { topLevelSegments } from "../routeMap.ts";
-import {
-  PRIMARY,
-  SECTIONS,
-  QUICK_AREAS,
-  INVENTORY,
-  MENU_FOOTER_LINKS,
-} from "./navigation.ts";
+import { ABOUT, EVIDENCE, EXPLAINERS, HUBS, PRIMARY, hubForPath } from "./navigation.ts";
 
 /**
  * The navigation registry feeds the header, both menus, /browse and the 404,
@@ -43,97 +37,103 @@ const ROUTES = new Set([...staticRoutes(), ...topLevelSegments().map((segment) =
 /** Dynamic routes we know exist, for hrefs that point at a specific instance. */
 const DYNAMIC_PREFIXES = ["/blog/", "/areas/", "/councils/", "/constituencies/", "/indicators/"];
 
-const allHrefs = [
-  ...PRIMARY,
-  ...SECTIONS.flatMap((s) => s.items),
-  ...QUICK_AREAS,
-  ...MENU_FOOTER_LINKS,
-].map((item) => item.href);
+const menuItems = [
+  ...HUBS.flatMap((hub) => [
+    { href: hub.href, label: hub.label },
+    { href: hub.feature.href, label: hub.feature.cta },
+    ...hub.groups.flatMap((group) => group.items),
+    ...hub.top,
+  ]),
+  EXPLAINERS,
+  ...EVIDENCE,
+  ...ABOUT,
+];
+const allHrefs = menuItems.map((item) => item.href);
 
 test("every navigation link points at a route that exists", () => {
   for (const href of allHrefs) {
     const isDynamic = DYNAMIC_PREFIXES.some((p) => href.startsWith(p) && href.length > p.length);
-    assert.ok(
-      ROUTES.has(href) || isDynamic,
-      `${href} is in the navigation but has no page`,
-    );
+    assert.ok(ROUTES.has(href) || isDynamic, `${href} is in the navigation but has no page`);
   }
 });
 
-test("inventory counts link somewhere real", () => {
-  for (const entry of INVENTORY) {
-    const isDynamic = DYNAMIC_PREFIXES.some((p) => entry.href.startsWith(p));
-    assert.ok(ROUTES.has(entry.href) || isDynamic, `${entry.href} has no page`);
+test("six sections, each with three groups of real links", () => {
+  assert.equal(HUBS.length, 6);
+  assert.equal(new Set(HUBS.map((hub) => hub.id)).size, 6, "two sections share an id");
+  for (const hub of HUBS) {
+    assert.equal(hub.groups.length, 3, `${hub.label} should have three groups`);
+    for (const group of hub.groups) assert.ok(group.items.length >= 2, `${hub.label}: ${group.heading} is nearly empty`);
+    assert.ok(hub.top.length >= 2, `${hub.label} has no most searched links`);
   }
 });
 
-test("each header link is reachable from the full menu too", () => {
-  const inSections = new Set([...SECTIONS.flatMap((s) => s.items), ...MENU_FOOTER_LINKS].map((i) => i.href));
-  for (const item of PRIMARY) {
-    assert.ok(
-      inSections.has(item.href),
-      `${item.href} is in the header but not in the full menu`,
-    );
+test("the header lists every section front door and Explainers", () => {
+  assert.deepEqual(
+    PRIMARY.map((item) => item.href),
+    [...HUBS.map((hub) => hub.href), EXPLAINERS.href],
+  );
+});
+
+test("the tools people come for stay one click from any page", () => {
+  for (const required of ["/take-home-pay-calculator-scotland", "/council-tax-bands-scotland", "/email-your-mp-and-msp", "/msp-reviews", "/who-is-my-msp"]) {
+    assert.ok(allHrefs.includes(required), `${required} has dropped out of the menu`);
   }
 });
 
-test("popular tools are prominent and MSP reviews remain in the full menu", () => {
-  assert.ok(PRIMARY.some((item) => item.href === "/council-tax-bands-scotland"));
-  assert.ok(PRIMARY.some((item) => item.href === "/representatives"));
-  assert.ok(SECTIONS.some((section) => section.items.some((item) => item.href === "/msp-reviews")));
-});
-
-test("each section highlights exactly one item", () => {
-  // More than one featured item per column and the eye has nowhere to land.
-  for (const section of SECTIONS) {
-    const featured = section.items.filter((i) => i.featured).length;
-    assert.equal(featured, 1, `${section.title} has ${featured} featured items, expected 1`);
+test("every planned keyword page that is live can be reached from the menu", () => {
+  /*
+   * A page nobody can navigate to only exists for search engines. Council tax
+   * band pages and salary pages are reached through their own index pages,
+   * which are in the menu, so those two clusters are checked by their index.
+   */
+  const plan = JSON.parse(readFileSync(fileURLToPath(new URL("../../../research/keywords/content-plan.json", import.meta.url)), "utf8")) as Array<{ slug: string; cluster: string }>;
+  const reachable = new Set(allHrefs);
+  for (const page of plan) {
+    if (page.cluster === "Council tax" || page.cluster === "Salary after tax") continue;
+    if (!ROUTES.has(page.slug)) continue;
+    assert.ok(reachable.has(page.slug), `${page.slug} is live but not in the menu`);
   }
 });
 
-test("no navigation label or blurb uses an em dash", () => {
-  // Matched as \u2014 rather than the character. A sweep that stripped em
-  // dashes from prose rewrote this very assertion into a check for
-  // comma-space, which would have failed on any label containing a comma.
+test("the phone menu opens on the section you are in", () => {
+  assert.equal(hubForPath("/adult-disability-payment"), "benefits");
+  assert.equal(hubForPath("/glasgow-council-tax-bands"), "tax");
+  assert.equal(hubForPath("/30000-after-tax-scotland"), "money");
+  assert.equal(hubForPath("/areas/fife"), "area");
+  assert.equal(hubForPath("/representatives/msps"), "reps");
+  assert.equal(hubForPath("/modern-studies"), "schools");
+});
+
+test("no navigation text uses an em dash or a hyphenated word", () => {
+  // Matched as \u2014 rather than the character, so a sweep cannot rewrite the assertion.
   const EM_DASH = /\u2014/;
-  for (const item of [...PRIMARY, ...SECTIONS.flatMap((s) => s.items), ...MENU_FOOTER_LINKS]) {
-    assert.doesNotMatch(item.label, EM_DASH, `${item.href} label`);
-    if (item.blurb) assert.doesNotMatch(item.blurb, EM_DASH, `${item.href} blurb`);
-  }
-  for (const section of SECTIONS) {
-    assert.doesNotMatch(section.title, EM_DASH);
-    assert.doesNotMatch(section.intro, EM_DASH);
+  const HYPHENATED = /[A-Za-z]-[A-Za-z]/;
+  const texts = [
+    ...menuItems.map((item) => item.label),
+    ...HUBS.flatMap((hub) => [hub.intro, hub.feature.title, hub.feature.text, hub.feature.kicker, ...hub.groups.map((g) => g.heading)]),
+  ];
+  for (const text of texts) {
+    assert.doesNotMatch(text, EM_DASH, text);
+    assert.doesNotMatch(text, HYPHENATED, text);
   }
 });
 
-test("the evidence section still carries the accountability pages", () => {
-  // These are the pages that make the site checkable. Losing one from the
-  // navigation would leave it published but effectively hidden.
-  const hrefs = new Set(SECTIONS.flatMap((s) => s.items.map((i) => i.href)));
+test("the evidence pages are on every page through the footer", () => {
+  // These are the pages that make the site checkable. Losing one would leave it published but hidden.
+  const hrefs = new Set(EVIDENCE.map((item) => item.href));
   for (const required of ["/data", "/methods", "/corrections", "/press", "/accessibility"]) {
-    assert.ok(hrefs.has(required), `${required} has dropped out of the menu`);
+    assert.ok(hrefs.has(required), `${required} has dropped out of the footer`);
   }
 });
 
 test("the editorial hub is labelled for what is mostly in it", () => {
   /*
-   * /blog is fourteen explainers and guides plus one investigation. Calling
-   * the primary nav item "Investigations" told every visitor that a minimum
-   * wage explainer was investigative journalism, and the page they landed on
-   * said "Scotland Counted explained" at the top of it.
-   *
-   * This is not a style preference. A site that overstates what its own
-   * articles are has a harder time being believed about anything else.
+   * /blog is mostly explainers and guides. Calling it "Investigations" told
+   * every visitor that a minimum wage explainer was investigative journalism.
    */
-  const blog = PRIMARY.find((item) => item.href === "/blog");
-  assert.ok(blog, "the editorial hub left the primary navigation");
-  assert.equal(blog.label, "Explainers");
-
-  const everywhere = JSON.stringify({ PRIMARY, SECTIONS });
-  assert.ok(
-    !/"label":\s*"Investigations"/.test(everywhere),
-    "something is still labelled Investigations as though the whole hub were one",
-  );
+  assert.equal(EXPLAINERS.href, "/blog");
+  assert.equal(EXPLAINERS.label, "Explainers");
+  assert.ok(!menuItems.some((item) => item.label === "Investigations"), "something is labelled Investigations as though the whole hub were one");
 });
 
 test("Branchform is still classified as an investigation", () => {

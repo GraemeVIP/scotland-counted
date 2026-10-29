@@ -109,6 +109,22 @@
   --r-m: 20px;
   --r-l: 28px;
   --r-pill: 999px;
+
+  /* Section colours. One per menu section, used for its dot, its headings and
+     its panel wash, so a section looks the same wherever it appears. */
+  --hub-money: #a14a07;
+  --hub-benefits: #0b6b63;
+  --hub-tax: #0b57d0;
+  --hub-area: #b4430a;
+  --hub-reps: #6d28d9;
+  --hub-schools: #17703a;
+  /* The same sections on the navy header bar, which is navy in both themes. */
+  --hub-money-bar: #fbbf24;
+  --hub-benefits-bar: #2dd4bf;
+  --hub-tax-bar: #7fb2ff;
+  --hub-area-bar: #fb923c;
+  --hub-reps-bar: #c4b5fd;
+  --hub-schools-bar: #4ade80;
 }
 
 @media (min-width: 640px) {
@@ -169,6 +185,13 @@
   --shadow-1: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 1px 2px rgba(0, 0, 0, 0.5);
   --shadow-2: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 18px 40px -24px rgba(0, 0, 0, 0.8);
   --shadow-3: 0 1px 0 rgba(255, 255, 255, 0.07) inset, 0 30px 64px -28px rgba(0, 0, 0, 0.95);
+
+  --hub-money: #f6b443;
+  --hub-benefits: #3fd1c0;
+  --hub-tax: #8bb8ff;
+  --hub-area: #fd9a5a;
+  --hub-reps: #c9b8ff;
+  --hub-schools: #5fd68c;
 }
 
 @theme inline {

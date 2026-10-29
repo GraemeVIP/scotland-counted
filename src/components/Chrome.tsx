@@ -5,8 +5,8 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { site } from "@/lib/site";
 import { ScrollProgress } from "@/components/Motion";
-import { PRIMARY, SECTIONS } from "@/lib/data/navigation";
-import { DesktopMenu, MobileMenu } from "@/components/SiteMenu";
+import { ABOUT, EVIDENCE, EXPLAINERS, HUBS, PRIMARY, hubBarColor, hubForPath, type HubId } from "@/lib/data/navigation";
+import { HubPanel, MobileMenu } from "@/components/SiteMenu";
 import { BrandLogo } from "@/components/BrandLogo";
 
 export const NAV = PRIMARY;
@@ -68,10 +68,13 @@ export function Header() {
   const pathname = usePathname();
   const [menuPath, setMenuPath] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
-  const [browsePath, setBrowsePath] = useState<string | null>(null);
+  const [panel, setPanel] = useState<{ path: string; hub: HubId } | null>(null);
   const open = menuPath === pathname;
-  /** Panel is only open for the path it was opened on, so navigating closes it. */
-  const browse = browsePath === pathname;
+  /** A panel is only open for the path it was opened on, so navigating closes it. */
+  const openHub = panel && panel.path === pathname ? panel.hub : null;
+  const browse = openHub !== null;
+  const closePanel = () => setPanel(null);
+  const currentHub = hubForPath(pathname);
 
   const headerRef = useRef<HTMLElement>(null);
 
@@ -109,10 +112,10 @@ export function Header() {
     if (!browse) return;
 
     const onPointerDown = (event: PointerEvent) => {
-      if (!headerRef.current?.contains(event.target as Node)) setBrowsePath(null);
+      if (!headerRef.current?.contains(event.target as Node)) setPanel(null);
     };
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setBrowsePath(null);
+      if (event.key === "Escape") setPanel(null);
     };
 
     document.addEventListener("pointerdown", onPointerDown);
@@ -145,38 +148,41 @@ export function Header() {
           onClick={() => setMenuPath(null)}
           aria-label="Scotland Counted home"
         >
-          <Wordmark height={32} priority sizeClass="h-[26px] sm:h-[29px] xl:h-[32px]" />
+          <Wordmark height={32} priority sizeClass="h-[26px] sm:h-[29px] xl:h-[28px] min-[1400px]:h-[32px]" />
         </Link>
 
         <nav aria-label="Main" className="hidden xl:flex items-center gap-0.5 mx-auto">
-          {NAV.map((n) => {
-            const active = pathname === n.href || pathname.startsWith(n.href + "/");
+          {HUBS.map((hub) => {
+            const expanded = openHub === hub.id;
+            const here = currentHub === hub.id;
             return (
-              <Link
-                key={n.href}
-                href={n.href}
-                aria-current={active ? "page" : undefined}
-                className={`ui whitespace-nowrap text-[14.5px] font-[500] px-3 py-2 rounded-[var(--r-pill)] transition-colors ${
-                  active ? "text-white bg-white/12" : "text-white/80 hover:text-white hover:bg-white/10"
+              <button
+                key={hub.id}
+                type="button"
+                onClick={() => setPanel(expanded ? null : { path: pathname, hub: hub.id })}
+                aria-expanded={expanded}
+                aria-controls="hub-panel"
+                className={`ui inline-flex items-center gap-1 whitespace-nowrap text-[14px] font-[500] h-10 px-2 min-[1400px]:gap-1.5 min-[1400px]:px-2.5 rounded-[var(--r-pill)] transition-colors ${
+                  expanded ? "bg-white/16 text-white" : here ? "text-white hover:bg-white/10" : "text-white/80 hover:text-white hover:bg-white/10"
                 }`}
               >
-                {n.label}
-              </Link>
+                <span aria-hidden="true" className="h-[7px] w-[7px] rounded-full" style={{ background: hubBarColor(hub.id) }} />
+                {hub.label}
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" aria-hidden="true" className={`transition-transform ${expanded ? "rotate-180" : ""}`}>
+                  <path d="m5 8 7 7 7-7" />
+                </svg>
+              </button>
             );
           })}
-          <button
-            type="button"
-            onClick={() => setBrowsePath(browse ? null : pathname)}
-            aria-expanded={browse}
-            aria-controls="browse-panel"
-            aria-label="Everything on this site"
-            className="ui inline-flex items-center gap-1.5 whitespace-nowrap text-[14.5px] font-[500] px-3 py-2 rounded-[var(--r-pill)] text-white/80 hover:text-white hover:bg-white/10 aria-expanded:bg-white/12 aria-expanded:text-white transition-colors"
+          <Link
+            href={EXPLAINERS.href}
+            aria-current={pathname === EXPLAINERS.href ? "page" : undefined}
+            className={`ui inline-flex items-center whitespace-nowrap text-[14px] font-[500] h-10 px-2 min-[1400px]:px-2.5 rounded-[var(--r-pill)] transition-colors ${
+              pathname.startsWith(EXPLAINERS.href) ? "text-white bg-white/12" : "text-white/80 hover:text-white hover:bg-white/10"
+            }`}
           >
-            Everything
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" aria-hidden="true" className={`transition-transform ${browse ? "rotate-180" : ""}`}>
-              <path d="m5 8 7 7 7-7" />
-            </svg>
-          </button>
+            {EXPLAINERS.label}
+          </Link>
         </nav>
 
         <div className="ml-auto xl:ml-0 flex items-center gap-1.5 sm:gap-2">
@@ -205,10 +211,18 @@ export function Header() {
       <ScrollProgress />
 
       {/*
-        The desktop panel is in normal flow directly under the header bar, so
-        it belongs inside the header and is unaffected by what follows.
+        The section panel floats over the page rather than pushing it down, and
+        a dimmed backdrop behind it closes it when clicked. Both sit inside the
+        header so the click away handler counts the panel as inside.
       */}
-      {browse && <DesktopMenu onNavigate={() => setBrowsePath(null)} />}
+      {openHub && (
+        <>
+          <div aria-hidden="true" onClick={closePanel} className="hidden xl:block fixed inset-0 -z-10 bg-[rgba(4,17,47,0.42)]" />
+          <div className="absolute inset-x-0 top-full px-3 sm:px-5">
+            <HubPanel hubId={openHub} onNavigate={closePanel} />
+          </div>
+        </>
+      )}
     </header>
 
     {/*
@@ -232,7 +246,7 @@ export function Header() {
       whatever the header is doing.
     */}
     {open && (
-      <MobileMenu onNavigate={() => setMenuPath(null)} onClose={() => setMenuPath(null)} />
+      <MobileMenu pathname={pathname} onNavigate={() => setMenuPath(null)} onClose={() => setMenuPath(null)} />
     )}
     </>
   );
@@ -245,13 +259,15 @@ export function Footer() {
     { href: "/email-your-mp-and-msp", label: "Email your MP and MSP" },
     { href: "/poverty-in-scotland-quiz", label: "Guess the figure" },
   ];
-  const legal = [
-    { href: "/about", label: "About" },
-    { href: "/methods", label: "Methods" },
-    { href: "/corrections", label: "Corrections" },
-    { href: "/privacy", label: "Privacy" },
-    { href: "/accessibility", label: "Accessibility" },
-    { href: "/contact", label: "Contact" },
+  /* Each section's first links, then the pages that make the site checkable. */
+  const columns = [
+    ...HUBS.map((hub) => ({
+      title: hub.label,
+      color: hubBarColor(hub.id),
+      href: hub.href,
+      items: hub.groups.flatMap((group) => group.items).slice(0, 5),
+    })),
+    { title: "Evidence", color: undefined, href: "/methods", items: EVIDENCE },
   ];
 
   return (
@@ -261,16 +277,18 @@ export function Footer() {
         <div className="beam b" />
       </div>
       <div className="max-w-[1232px] mx-auto px-5 sm:px-8 lg:px-14 pt-14 pb-10">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,2.1fr)]">
-          <div>
+        <div className="grid gap-10">
+          <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
+            <div>
             <Link href="/" className="text-white" aria-label="Scotland Counted home">
               <Wordmark height={34} />
             </Link>
-            <p className="mt-4 max-w-[38ch] text-[15.5px] leading-[1.6] text-[var(--deep-muted)]">
+            <p className="mt-4 max-w-[52ch] text-[15.5px] leading-[1.6] text-[var(--deep-muted)]">
               Independent public data for Scotland. What the numbers mean where you live, who decides,
               and how to reach them. Every figure linked to where it came from.
             </p>
-            <div className="mt-6 flex flex-wrap gap-2">
+            </div>
+            <div className="flex flex-wrap gap-2 lg:justify-end">
               {tools.map((t) => (
                 <Link
                   key={t.href}
@@ -283,14 +301,17 @@ export function Footer() {
             </div>
           </div>
 
-          <nav aria-label="Footer" className="grid gap-x-8 gap-y-9 grid-cols-2 md:grid-cols-3">
-            {SECTIONS.map((section) => (
-              <div key={section.title}>
-                <p className="kicker text-[var(--deep-muted)]">{section.title}</p>
-                <ul className="mt-4 grid gap-2.5">
-                  {section.items.slice(0, 5).map((item) => (
+          <nav aria-label="Footer" className="grid gap-x-6 gap-y-9 border-t border-white/10 pt-9 grid-cols-2 md:grid-cols-4 xl:grid-cols-7">
+            {columns.map((column) => (
+              <div key={column.title}>
+                <Link href={column.href} className="ui inline-flex items-center gap-2 text-[15px] font-[620] text-white no-underline">
+                  {column.color && <span aria-hidden="true" className="h-2 w-2 rounded-full" style={{ background: column.color }} />}
+                  {column.title}
+                </Link>
+                <ul className="mt-3.5 grid gap-2">
+                  {column.items.map((item) => (
                     <li key={item.href + item.label}>
-                      <Link href={item.href} className="ui text-[15px] text-white/85 transition-colors hover:text-white">
+                      <Link href={item.href} className="ui block text-[14.5px] leading-[1.35] text-white/80 transition-colors hover:text-white">
                         {item.label}
                       </Link>
                     </li>
@@ -303,7 +324,7 @@ export function Footer() {
 
         <div className="mt-12 pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-x-8 gap-y-4 text-[14.5px] text-[var(--deep-muted)]">
           <ul className="flex flex-wrap gap-x-5 gap-y-2">
-            {legal.map((item) => (
+            {ABOUT.map((item) => (
               <li key={item.href}>
                 <Link href={item.href} className="ui transition-colors hover:text-white">
                   {item.label}

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Page, ContentFrame, PageHeader } from "@/components/Blocks";
 import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
-import { SECTIONS } from "@/lib/data/navigation";
+import { ABOUT, EVIDENCE, HUBS, hubColor } from "@/lib/data/navigation";
 import { councilsByLevel } from "@/lib/data/councils";
 import { constituencies } from "@/lib/data/constituencies";
 import { posts } from "@/lib/data/posts";
@@ -177,32 +177,51 @@ export default function Browse() {
           </div>
         </section>
 
-        {SECTIONS.map((sec) => (
-          <section key={sec.title} className="pt-12">
-            <h2 className="h2 mb-2">{sec.title}</h2>
-            <p className="text-[17px] text-[var(--ink-2)] leading-[1.6] max-w-[62ch] mb-5">
-              {sec.intro}
-            </p>
-            <div className="grid gap-3 sm:grid-cols-2">
-              {sec.items.map((n) => (
-                <Link
-                  key={n.href}
-                  href={n.href}
-                  className="group block rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] px-5 py-4 no-underline hover:border-[var(--rule-strong)] transition-colors"
-                >
-                  <span className="ui text-[16.5px] font-[560] text-[var(--ink)] group-hover:text-[var(--action-text)] transition-colors">
-                    {n.label}
-                  </span>
-                  {n.blurb && (
-                    <span className="block text-[15px] leading-[1.45] text-[var(--ink-2)] mt-1">
-                      {n.blurb}
-                    </span>
-                  )}
-                </Link>
+        {HUBS.map((hub) => (
+          <section key={hub.id} className="pt-12">
+            <h2 className="h2 mb-2 flex items-center gap-3">
+              <span aria-hidden="true" className="h-3 w-3 rounded-full" style={{ background: hubColor(hub.id) }} />
+              <Link href={hub.href} className="no-underline text-[var(--ink)]">
+                {hub.label}
+              </Link>
+            </h2>
+            <p className="text-[17px] text-[var(--ink-2)] leading-[1.6] max-w-[62ch] mb-5">{hub.intro}</p>
+            <div className="grid gap-6 md:grid-cols-3">
+              {hub.groups.map((group) => (
+                <div key={group.heading}>
+                  <p className="kicker mb-2" style={{ color: hubColor(hub.id) }}>
+                    {group.heading}
+                  </p>
+                  <ul className="space-y-2">
+                    {group.items.map((item) => (
+                      <li key={item.href}>
+                        <Link href={item.href} className="text-[16.5px]">
+                          {item.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               ))}
             </div>
           </section>
         ))}
+
+        <section className="pt-12">
+          <h2 className="h2 mb-2">Check the evidence</h2>
+          <p className="text-[17px] text-[var(--ink-2)] leading-[1.6] max-w-[62ch] mb-5">
+            The data, methods and corrections behind every figure, and the project itself.
+          </p>
+          <ul className="grid gap-2 sm:grid-cols-2 max-w-[760px]">
+            {[...EVIDENCE, ...ABOUT].map((item) => (
+              <li key={item.href}>
+                <Link href={item.href} className="text-[16.5px]">
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
 
         <section className="pt-12">
           <h2 className="h2 mb-2">Explainers</h2>
