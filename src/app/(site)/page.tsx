@@ -29,7 +29,7 @@ const homeReads = postsByDate().filter((post): post is Post => Boolean(post));
 export const metadata = meta({
   title: "Scotland Counted | Independent Public Data for Scotland",
   description:
-    "See what Scotland's numbers mean where you live. Local facts, council spending and performance, take-home pay and council tax, and who is responsible for each of it.",
+    "Scottish public data made clear: local facts, council spending and performance, take-home pay, council tax and who makes the decisions.",
   path: "/",
   type: "website",
 });
@@ -161,6 +161,9 @@ export default function Home() {
           <h2 id="doors" className="display-stat max-w-[16ch] text-[clamp(32px,4vw,50px)]">
             What do you want to find out?
           </h2>
+          <p className="mt-4 max-w-[60ch] text-[16px] leading-[1.6] text-[var(--ink-2)]">
+            Start with our <Link href="/poverty" className="font-[650] text-[var(--brand)] underline underline-offset-4">guide to poverty in Scotland</Link> for the national figures, the causes and ways to take action.
+          </p>
           <div className="mt-9 grid gap-4 md:grid-cols-2 lg:grid-cols-6">
             {DOORS.map((door, index) => (
               <Link

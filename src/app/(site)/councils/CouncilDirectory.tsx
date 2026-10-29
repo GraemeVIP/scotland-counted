@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import type { Council } from "@/lib/data/councils";
+import { councilPerformanceBySlug } from "@/lib/data/councilPerformanceIndex";
 
 type CouncilDirectoryProps = {
   councils: Council[];
@@ -89,6 +90,7 @@ export default function CouncilDirectory({ councils, publishedSlugs }: CouncilDi
         <div id="council-results" className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {visibleCouncils.map((council) => {
             const hasRecord = published.has(council.slug);
+            const performance = councilPerformanceBySlug[council.slug];
             return (
               <article
                 key={council.slug}
@@ -102,6 +104,11 @@ export default function CouncilDirectory({ councils, publishedSlugs }: CouncilDi
                 <h3 className="ui mt-2 text-[18px] font-[750] leading-[1.3] text-[var(--ink)]">
                   {council.name}
                 </h3>
+                {performance && (
+                  <p className="ui mt-3 inline-flex rounded-full bg-[var(--brand-wash)] px-3 py-1.5 text-[15px] font-[700] text-[var(--brand)]">
+                    Performance rank #{performance.overallRank} of 32
+                  </p>
+                )}
                 <p className="mt-2 text-[15px] leading-[1.5] text-[var(--ink-2)]">
                   {hasRecord
                     ? "What they promised, what happened, and what the watchdogs found."

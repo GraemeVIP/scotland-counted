@@ -1,0 +1,82 @@
+code,year,family_id,use,Code,Title,ServiceArea,Category,Unit,Ranking_Type,ReportingPeriod,councils_with_value,source_rows,coverage_pct
+SW04b,2025-26,adult_care_experience,headline,SW04b,% of adults supported at home who agree that their services and support had an impact in improving or maintaining their quality of life,Adult Social Care Services,Satisfaction,Percentage,Descending,Annual,32,32,100.0000
+SW04c,2025-26,adult_care_experience,headline,SW04c,% of adults supported at home who agree that they are supported to live as independently as possible,Adult Social Care Services,Satisfaction,Percentage,Descending,Annual,32,32,100.0000
+SW04d,2025-26,adult_care_experience,headline,SW04d,"% of adults supported at home who agree that they had a say in how their help, care or support was provided",Adult Social Care Services,Satisfaction,Percentage,Descending,Annual,32,32,100.0000
+SW04e,2025-26,adult_care_experience,headline,SW04e,% of carers who feel supported to continue in their caring role,Adult Social Care Services,Satisfaction,Percentage,Descending,Annual,32,32,100.0000
+CHN14a,2024-25,attainment_gap,headline,CHN14a,"Literacy Attainment Gap (P1,4,7 Combined)",Children's Services,Performance,Percentage points,Ascending,Annual,28,28,87.5000
+CHN14b,2024-25,attainment_gap,headline,CHN14b,"Numeracy Attainment Gap (P1,4,7 Combined)",Children's Services,Performance,Percentage points,Ascending,Annual,28,28,87.5000
+CHN19a,2024-25,attendance_exclusions,headline,CHN19a,School attendance rates (per 100 pupils),Children's Services,Performance,Percentage,Descending,Annual,32,32,100.0000
+CHN20a,2024-25,attendance_exclusions,headline,CHN20a,"School exclusions rates (per 1,000 pupils)",Children's Services,Performance,"Rate per 1,000",Ascending,Biennial,32,32,100.0000
+ENV07a,2024-25,bins_streets_satisfaction,headline,ENV07a,Proportion of adults satisfied with refuse collection,Environmental Services,Satisfaction,Percentage,Descending,3 Year Aggregates,32,32,100.0000
+ENV07b,2024-25,bins_streets_satisfaction,headline,ENV07b,Proportion of adults satisfied with street cleaning,Environmental Services,Satisfaction,Percentage,Descending,3 Year Aggregates,32,32,100.0000
+FINSUS05,2024-25,budget_accuracy,headline,FINSUS05,Actual outturn as a percentage of budgeted expenditure,Financial Sustainability,Performance,Percentage,Absolute,Annual,32,32,100.0000
+SW07,2025-26,care_quality,headline,SW07,Proportion of adult care services graded good or better,Adult Social Care Services,Performance,Percentage,Descending,Annual,32,32,100.0000
+C&L05a,2024-25,culture_satisfaction,headline,C&L05a,Proportion of adults satisfied with libraries,Culture & Leisure Services,Satisfaction,Percentage,Descending,3 Year Aggregates,32,32,100.0000
+C&L05b,2024-25,culture_satisfaction,headline,C&L05b,Proportion of adults satisfied with parks and open spaces,Culture & Leisure Services,Satisfaction,Percentage,Descending,3 Year Aggregates,32,32,100.0000
+C&L05c,2024-25,culture_satisfaction,headline,C&L05c,Proportion of adults satisfied with museums and galleries,Culture & Leisure Services,Satisfaction,Percentage,Descending,3 Year Aggregates,32,32,100.0000
+C&L05d,2024-25,culture_satisfaction,headline,C&L05d,Proportion of adults satisfied with leisure facilities,Culture & Leisure Services,Satisfaction,Percentage,Descending,3 Year Aggregates,32,32,100.0000
+CHN18,2024-25,early_years_quality,headline,CHN18,Proportion of funded early years provision which is graded good/better,Children's Services,Performance,Percentage,Descending,Annual,32,32,100.0000
+CORP07,2024-25,financial_admin,headline,CORP07,Percentage of income due from Council Tax received by the end of the year,Corporate Services,Performance,Percentage,Descending,Annual,32,32,100.0000
+CORP08,2024-25,financial_admin,headline,CORP08,Percentage of invoices sampled that were paid within 30 days,Corporate Services,Performance,Percentage,Descending,Annual,32,32,100.0000
+CORP03c,2024-25,gender_pay_gap,headline,CORP03c,Gender pay gap (%),Corporate Services,Performance,Percentage,Absolute close 0,Annual,32,32,100.0000
+SW06,2025-26,hospital_coordination,headline,SW06,"Rate of readmission to hospital within 28 days per 1,000 discharges",Adult Social Care Services,Performance,"Rate per 1,000",Ascending,Annual,32,32,100.0000
+SW08,2025-26,hospital_coordination,headline,SW08,"Number of days people spend in hospital when they are ready to be discharged, per 1,000 population (75+)",Adult Social Care Services,Performance,Days,Ascending,Annual,32,32,100.0000
+CHN13a,2024-25,literacy_numeracy,headline,CHN13a,"% of P1, P4 and P7 pupils achieving expected CFE level in Literacy",Children's Services,Performance,Percentage,Descending,Annual,32,32,100.0000
+CHN13b,2024-25,literacy_numeracy,headline,CHN13b,"% of P1, P4 and P7 pupils achieving expected CFE level in Numeracy",Children's Services,Performance,Percentage,Descending,Annual,32,32,100.0000
+CHN23,2024-25,looked_after_stability,headline,CHN23,Proportion of LAC with more than 1 placement in the last year,Children's Services,Performance,Percentage,Ascending,Annual,32,32,100.0000
+CLIM03,2024-25,operational_emissions,headline,CLIM03,Council CO2 emissions from Transport per 1000 population (t CO2e),Tackling Climate Change,Performance,Tonnes,Ascending,Annual,32,32,100.0000
+CLIM04,2024-25,operational_emissions,headline,CLIM04,Council CO2 emissions from Electricity per 1000 population (t CO2e),Tackling Climate Change,Performance,Tonnes,Ascending,Annual,32,32,100.0000
+ECON03,2024-25,planning_speed,headline,ECON03,Average time per business and industry planning application (weeks),Economic Development,Performance,Pounds,Ascending,Annual,32,32,100.0000
+CHN11,2024-25,positive_destinations,headline,CHN11,Proportion of pupils entering positive destinations,Children's Services,Performance,Percentage,Descending,Annual,32,32,100.0000
+CORP-ASSET01,2024-25,public_assets,headline,CORP-ASSET01,% of operational buildings that are suitable for their current use,Corporate Services,Performance,Percentage,Descending,Annual,32,32,100.0000
+CORP-ASSET02,2024-25,public_assets,headline,CORP-ASSET02,% of internal floor area of operational buildings in satisfactory condition,Corporate Services,Performance,Percentage,Descending,Annual,32,32,100.0000
+ENV06,2024-25,recycling,headline,ENV06,Proportion of total household waste arising that is recycled,Environmental Services,Performance,Percentage,Descending,Annual,32,32,100.0000
+ENV04b,2025-26,road_condition,headline,ENV04b,Percentage of A class roads considered for maintenance treatment,Environmental Services,Performance,Percentage,Ascending,2 Year Aggregates,32,32,100.0000
+ENV04c,2025-26,road_condition,headline,ENV04c,Percentage of B class roads considered for maintenance treatment,Environmental Services,Performance,Percentage,Ascending,2 Year Aggregates,32,32,100.0000
+ENV04d,2025-26,road_condition,headline,ENV04d,Percentage of C class roads considered for maintenance treatment,Environmental Services,Performance,Percentage,Ascending,2 Year Aggregates,32,32,100.0000
+ENV04e,2025-26,road_condition,headline,ENV04e,Percentage of unclassified roads considered for maintenance treatment,Environmental Services,Performance,Percentage,Ascending,4 Year Aggregates,32,32,100.0000
+CHN10,2024-25,school_satisfaction,headline,CHN10,Proportion of adults satisfied with local schools,Children's Services,Satisfaction,Percentage,Descending,3 Year Aggregates,32,32,100.0000
+CORP06a,2024-25,staff_sickness,headline,CORP06a,Sickness absence days per teacher,Corporate Services,Performance,Days,Ascending,Annual,32,32,100.0000
+CORP06b,2024-25,staff_sickness,headline,CORP06b,Sickness absence days per employee (non-teacher),Corporate Services,Performance,Days,Ascending,Annual,32,32,100.0000
+ENV03c,2024-25,street_cleanliness,headline,ENV03c,Street Cleanliness Score,Environmental Services,Performance,Percentage,Descending,Annual,31,31,96.8750
+HSN01b,2024-25,council_landlord,landlord_only,HSN01b,Gross rent arrears (all tenants) as a percentage of rent due for the year,Housing Services,Performance,Percentage,Ascending,Annual,26,26,81.2500
+HSN02,2024-25,council_landlord,landlord_only,HSN02,Proportion of rent due in the year that was lost due to voids,Housing Services,Performance,Percentage,Ascending,Annual,26,26,81.2500
+HSN03,2024-25,council_landlord,landlord_only,HSN03,Proportion of council dwellings meeting Scottish Housing Quality Standards,Housing Services,Performance,Percentage,Descending,Annual,26,26,81.2500
+HSN04b,2024-25,council_landlord,landlord_only,HSN04b,Average number of days taken to complete non-emergency repairs,Housing Services,Performance,Days,Ascending,Annual,26,26,81.2500
+SW01,2024-25,value_care,value_cost,SW01,Home care costs per hour for people aged 65 or over,Adult Social Care Services,Financial ,Pounds,Ascending,Annual,32,32,100.0000
+SW05,2024-25,value_care,value_cost,SW05,Residential costs per week per resident for people aged 65 or over,Adult Social Care Services,Financial ,Pounds,Ascending,Annual,32,32,100.0000
+C&L01,2024-25,value_culture,value_cost,C&L01,Cost per attendance at Sports facilities,Culture & Leisure Services,Financial ,Pounds,Ascending,Annual,32,32,100.0000
+C&L02,2024-25,value_culture,value_cost,C&L02,Cost per Library Visit,Culture & Leisure Services,Financial ,Pounds,Ascending,Annual,32,32,100.0000
+C&L03,2024-25,value_culture,value_cost,C&L03,Cost per Museum Visit,Culture & Leisure Services,Financial ,Pounds,Ascending,Annual,27,27,84.3750
+C&L04,2024-25,value_culture,value_cost,C&L04,"Cost of Parks & Open Spaces per 1,000 Population",Culture & Leisure Services,Financial ,Pounds,Ascending,Annual,32,32,100.0000
+ECON02,2024-25,value_planning,value_cost,ECON02,Cost of Planning & Building Standards per planning application,Economic Development,Financial ,Pounds,Ascending,Annual,32,32,100.0000
+ENV04a,2024-25,value_roads,value_cost,ENV04a,Cost of roads per kilometre,Environmental Services,Financial ,Pounds,Ascending,Annual,32,32,100.0000
+CHN01,2024-25,value_schools,value_cost,CHN01,Cost per Primary School Pupil,Children's Services,Financial ,Pounds,Ascending,Annual,32,32,100.0000
+CHN02,2024-25,value_schools,value_cost,CHN02,Cost per Secondary School Pupil,Children's Services,Financial ,Pounds,Ascending,Annual,32,32,100.0000
+ENV03a,2024-25,value_street_cleaning,value_cost,ENV03a,"Net cost of street cleaning per 1,000 population",Environmental Services,Financial ,Pounds,Ascending,Annual,32,32,100.0000
+ENV01a,2024-25,value_waste,value_cost,ENV01a,Net cost per Waste collection per premises,Environmental Services,Financial ,Pounds,Ascending,Annual,32,32,100.0000
+ENV02a,2024-25,value_waste,value_cost,ENV02a,Net cost per Waste disposal per premises,Environmental Services,Financial ,Pounds,Ascending,Annual,32,32,100.0000
+SW04b,2025-26,value_care,value_outcome,SW04b,% of adults supported at home who agree that their services and support had an impact in improving or maintaining their quality of life,Adult Social Care Services,Satisfaction,Percentage,Descending,Annual,32,32,100.0000
+SW04c,2025-26,value_care,value_outcome,SW04c,% of adults supported at home who agree that they are supported to live as independently as possible,Adult Social Care Services,Satisfaction,Percentage,Descending,Annual,32,32,100.0000
+SW04d,2025-26,value_care,value_outcome,SW04d,"% of adults supported at home who agree that they had a say in how their help, care or support was provided",Adult Social Care Services,Satisfaction,Percentage,Descending,Annual,32,32,100.0000
+SW04e,2025-26,value_care,value_outcome,SW04e,% of carers who feel supported to continue in their caring role,Adult Social Care Services,Satisfaction,Percentage,Descending,Annual,32,32,100.0000
+SW07,2025-26,value_care,value_outcome,SW07,Proportion of adult care services graded good or better,Adult Social Care Services,Performance,Percentage,Descending,Annual,32,32,100.0000
+C&L05a,2024-25,value_culture,value_outcome,C&L05a,Proportion of adults satisfied with libraries,Culture & Leisure Services,Satisfaction,Percentage,Descending,3 Year Aggregates,32,32,100.0000
+C&L05b,2024-25,value_culture,value_outcome,C&L05b,Proportion of adults satisfied with parks and open spaces,Culture & Leisure Services,Satisfaction,Percentage,Descending,3 Year Aggregates,32,32,100.0000
+C&L05c,2024-25,value_culture,value_outcome,C&L05c,Proportion of adults satisfied with museums and galleries,Culture & Leisure Services,Satisfaction,Percentage,Descending,3 Year Aggregates,32,32,100.0000
+C&L05d,2024-25,value_culture,value_outcome,C&L05d,Proportion of adults satisfied with leisure facilities,Culture & Leisure Services,Satisfaction,Percentage,Descending,3 Year Aggregates,32,32,100.0000
+ECON03,2024-25,value_planning,value_outcome,ECON03,Average time per business and industry planning application (weeks),Economic Development,Performance,Pounds,Ascending,Annual,32,32,100.0000
+ENV04b,2024-25,value_roads,value_outcome,ENV04b,Percentage of A class roads considered for maintenance treatment,Environmental Services,Performance,Percentage,Ascending,2 Year Aggregates,32,32,100.0000
+ENV04c,2024-25,value_roads,value_outcome,ENV04c,Percentage of B class roads considered for maintenance treatment,Environmental Services,Performance,Percentage,Ascending,2 Year Aggregates,32,32,100.0000
+ENV04d,2024-25,value_roads,value_outcome,ENV04d,Percentage of C class roads considered for maintenance treatment,Environmental Services,Performance,Percentage,Ascending,2 Year Aggregates,32,32,100.0000
+ENV04e,2024-25,value_roads,value_outcome,ENV04e,Percentage of unclassified roads considered for maintenance treatment,Environmental Services,Performance,Percentage,Ascending,4 Year Aggregates,32,32,100.0000
+CHN11,2024-25,value_schools,value_outcome,CHN11,Proportion of pupils entering positive destinations,Children's Services,Performance,Percentage,Descending,Annual,32,32,100.0000
+CHN13a,2024-25,value_schools,value_outcome,CHN13a,"% of P1, P4 and P7 pupils achieving expected CFE level in Literacy",Children's Services,Performance,Percentage,Descending,Annual,32,32,100.0000
+CHN13b,2024-25,value_schools,value_outcome,CHN13b,"% of P1, P4 and P7 pupils achieving expected CFE level in Numeracy",Children's Services,Performance,Percentage,Descending,Annual,32,32,100.0000
+CHN18,2024-25,value_schools,value_outcome,CHN18,Proportion of funded early years provision which is graded good/better,Children's Services,Performance,Percentage,Descending,Annual,32,32,100.0000
+CHN19a,2024-25,value_schools,value_outcome,CHN19a,School attendance rates (per 100 pupils),Children's Services,Performance,Percentage,Descending,Annual,32,32,100.0000
+CHN20a,2024-25,value_schools,value_outcome,CHN20a,"School exclusions rates (per 1,000 pupils)",Children's Services,Performance,"Rate per 1,000",Ascending,Biennial,32,32,100.0000
+ENV03c,2024-25,value_street_cleaning,value_outcome,ENV03c,Street Cleanliness Score,Environmental Services,Performance,Percentage,Descending,Annual,31,31,96.8750
+ENV07b,2024-25,value_street_cleaning,value_outcome,ENV07b,Proportion of adults satisfied with street cleaning,Environmental Services,Satisfaction,Percentage,Descending,3 Year Aggregates,32,32,100.0000
+ENV06,2024-25,value_waste,value_outcome,ENV06,Proportion of total household waste arising that is recycled,Environmental Services,Performance,Percentage,Descending,Annual,32,32,100.0000
+ENV07a,2024-25,value_waste,value_outcome,ENV07a,Proportion of adults satisfied with refuse collection,Environmental Services,Satisfaction,Percentage,Descending,3 Year Aggregates,32,32,100.0000

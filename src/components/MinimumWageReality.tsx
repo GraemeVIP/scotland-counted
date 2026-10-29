@@ -1,7 +1,7 @@
 import { ExplainText } from "@/components/Glossary";
 
 const legalHourly = 12.71;
-const realLivingHourly = 13.45;
+const realLivingHourly = 14.1;
 const fullTimeHours = 37.5;
 const weeks = 52;
 
@@ -84,7 +84,7 @@ export default function MinimumWageReality({
             <strong className="text-[var(--ink)]">69%</strong>.
           </p>
           <p>
-            The independently calculated <strong className="text-[var(--ink)]">real Living Wage is £13.45 an hour</strong>{" "}
+            The independently calculated <strong className="text-[var(--ink)]">real Living Wage is £14.10 an hour</strong>{" "}
             outside London. It is based on living costs and is voluntary. On the same 37.5-hour
             week it is {exactPounds.format(realLivingAnnual)} a year, {" "}
             <strong className="text-[var(--ink)]">{pounds.format(realLivingAnnual - legalAnnual)} more</strong>{" "}

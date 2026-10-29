@@ -1,0 +1,929 @@
+council_code,family_id,score,coverage,label,pillar,domain,kind,indicator_count,keys,canonical_name,council_slug
+S12000033,school_satisfaction,25.806452,1.000000,Satisfaction with local schools,resident_experience,schools,headline,1,CHN10|2024-25,Aberdeen City,aberdeen-city
+S12000034,school_satisfaction,45.161290,1.000000,Satisfaction with local schools,resident_experience,schools,headline,1,CHN10|2024-25,Aberdeenshire,aberdeenshire
+S12000041,school_satisfaction,61.290323,1.000000,Satisfaction with local schools,resident_experience,schools,headline,1,CHN10|2024-25,Angus,angus
+S12000035,school_satisfaction,53.225806,1.000000,Satisfaction with local schools,resident_experience,schools,headline,1,CHN10|2024-25,Argyll and Bute,argyll-and-bute
+S12000036,school_satisfaction,66.129032,1.000000,Satisfaction with local schools,resident_experience,schools,headline,1,CHN10|2024-25,City of Edinburgh,city-of-edinburgh
+S12000005,school_satisfaction,80.645161,1.000000,Satisfaction with local schools,resident_experience,schools,headline,1,CHN10|2024-25,Clackmannanshire,clackmannanshire
+S12000006,school_satisfaction,0.000000,1.000000,Satisfaction with local schools,resident_experience,schools,headline,1,CHN10|2024-25,Dumfries and Galloway,dumfries-and-galloway
+S12000042,school_satisfaction,8.064516,1.000000,Satisfaction with local schools,resident_experience,schools,headline,1,CHN10|2024-25,Dundee City,dundee-city
+S12000008,school_satisfaction,32.258065,1.000000,Satisfaction with local schools,resident_experience,schools,headline,1,CHN10|2024-25,East Ayrshire,east-ayrshire
+S12000045,school_satisfaction,100.000000,1.000000,Satisfaction with local schools,resident_experience,schools,headline,1,CHN10|2024-25,East Dunbartonshire,east-dunbartonshire
+S12000010,school_satisfaction,58.064516,1.000000,Satisfaction with local schools,resident_experience,schools,headline,1,CHN10|2024-25,East Lothian,east-lothian
+S12000011,school_satisfaction,87.096774,1.000000,Satisfaction with local schools,resident_experience,schools,headline,1,CHN10|2024-25,East Renfrewshire,east-renfrewshire
+S12000014,school_satisfaction,70.967742,1.000000,Satisfaction with local schools,resident_experience,schools,headline,1,CHN10|2024-25,Falkirk,falkirk
+S12000047,school_satisfaction,53.225806,1.000000,Satisfaction with local schools,resident_experience,schools,headline,1,CHN10|2024-25,Fife,fife
+S12000049,school_satisfaction,19.354839,1.000000,Satisfaction with local schools,resident_experience,schools,headline,1,CHN10|2024-25,Glasgow City,glasgow-city
+S12000017,school_satisfaction,38.709677,1.000000,Satisfaction with local schools,resident_experience,schools,headline,1,CHN10|2024-25,Highland,highland
+S12000018,school_satisfaction,16.129032,1.000000,Satisfaction with local schools,resident_experience,schools,headline,1,CHN10|2024-25,Inverclyde,inverclyde
+S12000019,school_satisfaction,8.064516,1.000000,Satisfaction with local schools,resident_experience,schools,headline,1,CHN10|2024-25,Midlothian,midlothian
+S12000020,school_satisfaction,29.032258,1.000000,Satisfaction with local schools,resident_experience,schools,headline,1,CHN10|2024-25,Moray,moray
+S12000013,school_satisfaction,66.129032,1.000000,Satisfaction with local schools,resident_experience,schools,headline,1,CHN10|2024-25,Na h-Eileanan Siar,na-h-eileanan-siar
+S12000021,school_satisfaction,83.870968,1.000000,Satisfaction with local schools,resident_experience,schools,headline,1,CHN10|2024-25,North Ayrshire,north-ayrshire
+S12000050,school_satisfaction,38.709677,1.000000,Satisfaction with local schools,resident_experience,schools,headline,1,CHN10|2024-25,North Lanarkshire,north-lanarkshire
+S12000023,school_satisfaction,93.548387,1.000000,Satisfaction with local schools,resident_experience,schools,headline,1,CHN10|2024-25,Orkney Islands,orkney-islands
+S12000048,school_satisfaction,38.709677,1.000000,Satisfaction with local schools,resident_experience,schools,headline,1,CHN10|2024-25,Perth and Kinross,perth-and-kinross
+S12000038,school_satisfaction,12.903226,1.000000,Satisfaction with local schools,resident_experience,schools,headline,1,CHN10|2024-25,Renfrewshire,renfrewshire
+S12000026,school_satisfaction,3.225806,1.000000,Satisfaction with local schools,resident_experience,schools,headline,1,CHN10|2024-25,Scottish Borders,scottish-borders
+S12000027,school_satisfaction,90.322581,1.000000,Satisfaction with local schools,resident_experience,schools,headline,1,CHN10|2024-25,Shetland Islands,shetland-islands
+S12000028,school_satisfaction,74.193548,1.000000,Satisfaction with local schools,resident_experience,schools,headline,1,CHN10|2024-25,South Ayrshire,south-ayrshire
+S12000029,school_satisfaction,48.387097,1.000000,Satisfaction with local schools,resident_experience,schools,headline,1,CHN10|2024-25,South Lanarkshire,south-lanarkshire
+S12000030,school_satisfaction,96.774194,1.000000,Satisfaction with local schools,resident_experience,schools,headline,1,CHN10|2024-25,Stirling,stirling
+S12000039,school_satisfaction,77.419355,1.000000,Satisfaction with local schools,resident_experience,schools,headline,1,CHN10|2024-25,West Dunbartonshire,west-dunbartonshire
+S12000040,school_satisfaction,22.580645,1.000000,Satisfaction with local schools,resident_experience,schools,headline,1,CHN10|2024-25,West Lothian,west-lothian
+S12000033,culture_satisfaction,40.322581,1.000000,Satisfaction with culture and leisure,resident_experience,culture_and_leisure,headline,4,C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,Aberdeen City,aberdeen-city
+S12000034,culture_satisfaction,37.903226,1.000000,Satisfaction with culture and leisure,resident_experience,culture_and_leisure,headline,4,C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,Aberdeenshire,aberdeenshire
+S12000041,culture_satisfaction,31.451613,1.000000,Satisfaction with culture and leisure,resident_experience,culture_and_leisure,headline,4,C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,Angus,angus
+S12000035,culture_satisfaction,75.806452,1.000000,Satisfaction with culture and leisure,resident_experience,culture_and_leisure,headline,4,C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,Argyll and Bute,argyll-and-bute
+S12000036,culture_satisfaction,77.419355,1.000000,Satisfaction with culture and leisure,resident_experience,culture_and_leisure,headline,4,C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,City of Edinburgh,city-of-edinburgh
+S12000005,culture_satisfaction,21.774194,1.000000,Satisfaction with culture and leisure,resident_experience,culture_and_leisure,headline,4,C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,Clackmannanshire,clackmannanshire
+S12000006,culture_satisfaction,6.854839,1.000000,Satisfaction with culture and leisure,resident_experience,culture_and_leisure,headline,4,C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,Dumfries and Galloway,dumfries-and-galloway
+S12000042,culture_satisfaction,41.935484,1.000000,Satisfaction with culture and leisure,resident_experience,culture_and_leisure,headline,4,C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,Dundee City,dundee-city
+S12000008,culture_satisfaction,35.483871,1.000000,Satisfaction with culture and leisure,resident_experience,culture_and_leisure,headline,4,C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,East Ayrshire,east-ayrshire
+S12000045,culture_satisfaction,33.870968,1.000000,Satisfaction with culture and leisure,resident_experience,culture_and_leisure,headline,4,C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,East Dunbartonshire,east-dunbartonshire
+S12000010,culture_satisfaction,57.661290,1.000000,Satisfaction with culture and leisure,resident_experience,culture_and_leisure,headline,4,C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,East Lothian,east-lothian
+S12000011,culture_satisfaction,64.919355,1.000000,Satisfaction with culture and leisure,resident_experience,culture_and_leisure,headline,4,C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,East Renfrewshire,east-renfrewshire
+S12000014,culture_satisfaction,52.016129,1.000000,Satisfaction with culture and leisure,resident_experience,culture_and_leisure,headline,4,C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,Falkirk,falkirk
+S12000047,culture_satisfaction,60.483871,1.000000,Satisfaction with culture and leisure,resident_experience,culture_and_leisure,headline,4,C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,Fife,fife
+S12000049,culture_satisfaction,39.516129,1.000000,Satisfaction with culture and leisure,resident_experience,culture_and_leisure,headline,4,C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,Glasgow City,glasgow-city
+S12000017,culture_satisfaction,53.629032,1.000000,Satisfaction with culture and leisure,resident_experience,culture_and_leisure,headline,4,C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,Highland,highland
+S12000018,culture_satisfaction,65.725806,1.000000,Satisfaction with culture and leisure,resident_experience,culture_and_leisure,headline,4,C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,Inverclyde,inverclyde
+S12000019,culture_satisfaction,22.177419,1.000000,Satisfaction with culture and leisure,resident_experience,culture_and_leisure,headline,4,C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,Midlothian,midlothian
+S12000020,culture_satisfaction,36.693548,1.000000,Satisfaction with culture and leisure,resident_experience,culture_and_leisure,headline,4,C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,Moray,moray
+S12000013,culture_satisfaction,70.967742,1.000000,Satisfaction with culture and leisure,resident_experience,culture_and_leisure,headline,4,C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,Na h-Eileanan Siar,na-h-eileanan-siar
+S12000021,culture_satisfaction,59.677419,1.000000,Satisfaction with culture and leisure,resident_experience,culture_and_leisure,headline,4,C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,North Ayrshire,north-ayrshire
+S12000050,culture_satisfaction,23.387097,1.000000,Satisfaction with culture and leisure,resident_experience,culture_and_leisure,headline,4,C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,North Lanarkshire,north-lanarkshire
+S12000023,culture_satisfaction,75.806452,1.000000,Satisfaction with culture and leisure,resident_experience,culture_and_leisure,headline,4,C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,Orkney Islands,orkney-islands
+S12000048,culture_satisfaction,52.419355,1.000000,Satisfaction with culture and leisure,resident_experience,culture_and_leisure,headline,4,C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,Perth and Kinross,perth-and-kinross
+S12000038,culture_satisfaction,39.919355,1.000000,Satisfaction with culture and leisure,resident_experience,culture_and_leisure,headline,4,C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,Renfrewshire,renfrewshire
+S12000026,culture_satisfaction,22.983871,1.000000,Satisfaction with culture and leisure,resident_experience,culture_and_leisure,headline,4,C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,Scottish Borders,scottish-borders
+S12000027,culture_satisfaction,99.193548,1.000000,Satisfaction with culture and leisure,resident_experience,culture_and_leisure,headline,4,C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,Shetland Islands,shetland-islands
+S12000028,culture_satisfaction,56.854839,1.000000,Satisfaction with culture and leisure,resident_experience,culture_and_leisure,headline,4,C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,South Ayrshire,south-ayrshire
+S12000029,culture_satisfaction,56.854839,1.000000,Satisfaction with culture and leisure,resident_experience,culture_and_leisure,headline,4,C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,South Lanarkshire,south-lanarkshire
+S12000030,culture_satisfaction,87.500000,1.000000,Satisfaction with culture and leisure,resident_experience,culture_and_leisure,headline,4,C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,Stirling,stirling
+S12000039,culture_satisfaction,75.806452,1.000000,Satisfaction with culture and leisure,resident_experience,culture_and_leisure,headline,4,C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,West Dunbartonshire,west-dunbartonshire
+S12000040,culture_satisfaction,22.983871,1.000000,Satisfaction with culture and leisure,resident_experience,culture_and_leisure,headline,4,C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,West Lothian,west-lothian
+S12000033,bins_streets_satisfaction,42.741935,1.000000,Satisfaction with bins and street cleaning,resident_experience,bins_and_streets,headline,2,ENV07a|2024-25;ENV07b|2024-25,Aberdeen City,aberdeen-city
+S12000034,bins_streets_satisfaction,29.032258,1.000000,Satisfaction with bins and street cleaning,resident_experience,bins_and_streets,headline,2,ENV07a|2024-25;ENV07b|2024-25,Aberdeenshire,aberdeenshire
+S12000041,bins_streets_satisfaction,64.516129,1.000000,Satisfaction with bins and street cleaning,resident_experience,bins_and_streets,headline,2,ENV07a|2024-25;ENV07b|2024-25,Angus,angus
+S12000035,bins_streets_satisfaction,54.032258,1.000000,Satisfaction with bins and street cleaning,resident_experience,bins_and_streets,headline,2,ENV07a|2024-25;ENV07b|2024-25,Argyll and Bute,argyll-and-bute
+S12000036,bins_streets_satisfaction,45.161290,1.000000,Satisfaction with bins and street cleaning,resident_experience,bins_and_streets,headline,2,ENV07a|2024-25;ENV07b|2024-25,City of Edinburgh,city-of-edinburgh
+S12000005,bins_streets_satisfaction,37.096774,1.000000,Satisfaction with bins and street cleaning,resident_experience,bins_and_streets,headline,2,ENV07a|2024-25;ENV07b|2024-25,Clackmannanshire,clackmannanshire
+S12000006,bins_streets_satisfaction,37.096774,1.000000,Satisfaction with bins and street cleaning,resident_experience,bins_and_streets,headline,2,ENV07a|2024-25;ENV07b|2024-25,Dumfries and Galloway,dumfries-and-galloway
+S12000042,bins_streets_satisfaction,16.129032,1.000000,Satisfaction with bins and street cleaning,resident_experience,bins_and_streets,headline,2,ENV07a|2024-25;ENV07b|2024-25,Dundee City,dundee-city
+S12000008,bins_streets_satisfaction,20.967742,1.000000,Satisfaction with bins and street cleaning,resident_experience,bins_and_streets,headline,2,ENV07a|2024-25;ENV07b|2024-25,East Ayrshire,east-ayrshire
+S12000045,bins_streets_satisfaction,58.064516,1.000000,Satisfaction with bins and street cleaning,resident_experience,bins_and_streets,headline,2,ENV07a|2024-25;ENV07b|2024-25,East Dunbartonshire,east-dunbartonshire
+S12000010,bins_streets_satisfaction,70.967742,1.000000,Satisfaction with bins and street cleaning,resident_experience,bins_and_streets,headline,2,ENV07a|2024-25;ENV07b|2024-25,East Lothian,east-lothian
+S12000011,bins_streets_satisfaction,54.032258,1.000000,Satisfaction with bins and street cleaning,resident_experience,bins_and_streets,headline,2,ENV07a|2024-25;ENV07b|2024-25,East Renfrewshire,east-renfrewshire
+S12000014,bins_streets_satisfaction,13.709677,1.000000,Satisfaction with bins and street cleaning,resident_experience,bins_and_streets,headline,2,ENV07a|2024-25;ENV07b|2024-25,Falkirk,falkirk
+S12000047,bins_streets_satisfaction,70.967742,1.000000,Satisfaction with bins and street cleaning,resident_experience,bins_and_streets,headline,2,ENV07a|2024-25;ENV07b|2024-25,Fife,fife
+S12000049,bins_streets_satisfaction,1.612903,1.000000,Satisfaction with bins and street cleaning,resident_experience,bins_and_streets,headline,2,ENV07a|2024-25;ENV07b|2024-25,Glasgow City,glasgow-city
+S12000017,bins_streets_satisfaction,66.129032,1.000000,Satisfaction with bins and street cleaning,resident_experience,bins_and_streets,headline,2,ENV07a|2024-25;ENV07b|2024-25,Highland,highland
+S12000018,bins_streets_satisfaction,95.161290,1.000000,Satisfaction with bins and street cleaning,resident_experience,bins_and_streets,headline,2,ENV07a|2024-25;ENV07b|2024-25,Inverclyde,inverclyde
+S12000019,bins_streets_satisfaction,77.419355,1.000000,Satisfaction with bins and street cleaning,resident_experience,bins_and_streets,headline,2,ENV07a|2024-25;ENV07b|2024-25,Midlothian,midlothian
+S12000020,bins_streets_satisfaction,26.612903,1.000000,Satisfaction with bins and street cleaning,resident_experience,bins_and_streets,headline,2,ENV07a|2024-25;ENV07b|2024-25,Moray,moray
+S12000013,bins_streets_satisfaction,35.483871,1.000000,Satisfaction with bins and street cleaning,resident_experience,bins_and_streets,headline,2,ENV07a|2024-25;ENV07b|2024-25,Na h-Eileanan Siar,na-h-eileanan-siar
+S12000021,bins_streets_satisfaction,73.387097,1.000000,Satisfaction with bins and street cleaning,resident_experience,bins_and_streets,headline,2,ENV07a|2024-25;ENV07b|2024-25,North Ayrshire,north-ayrshire
+S12000050,bins_streets_satisfaction,27.419355,1.000000,Satisfaction with bins and street cleaning,resident_experience,bins_and_streets,headline,2,ENV07a|2024-25;ENV07b|2024-25,North Lanarkshire,north-lanarkshire
+S12000023,bins_streets_satisfaction,58.064516,1.000000,Satisfaction with bins and street cleaning,resident_experience,bins_and_streets,headline,2,ENV07a|2024-25;ENV07b|2024-25,Orkney Islands,orkney-islands
+S12000048,bins_streets_satisfaction,74.193548,1.000000,Satisfaction with bins and street cleaning,resident_experience,bins_and_streets,headline,2,ENV07a|2024-25;ENV07b|2024-25,Perth and Kinross,perth-and-kinross
+S12000038,bins_streets_satisfaction,16.935484,1.000000,Satisfaction with bins and street cleaning,resident_experience,bins_and_streets,headline,2,ENV07a|2024-25;ENV07b|2024-25,Renfrewshire,renfrewshire
+S12000026,bins_streets_satisfaction,77.419355,1.000000,Satisfaction with bins and street cleaning,resident_experience,bins_and_streets,headline,2,ENV07a|2024-25;ENV07b|2024-25,Scottish Borders,scottish-borders
+S12000027,bins_streets_satisfaction,100.000000,1.000000,Satisfaction with bins and street cleaning,resident_experience,bins_and_streets,headline,2,ENV07a|2024-25;ENV07b|2024-25,Shetland Islands,shetland-islands
+S12000028,bins_streets_satisfaction,37.096774,1.000000,Satisfaction with bins and street cleaning,resident_experience,bins_and_streets,headline,2,ENV07a|2024-25;ENV07b|2024-25,South Ayrshire,south-ayrshire
+S12000029,bins_streets_satisfaction,54.032258,1.000000,Satisfaction with bins and street cleaning,resident_experience,bins_and_streets,headline,2,ENV07a|2024-25;ENV07b|2024-25,South Lanarkshire,south-lanarkshire
+S12000030,bins_streets_satisfaction,35.483871,1.000000,Satisfaction with bins and street cleaning,resident_experience,bins_and_streets,headline,2,ENV07a|2024-25;ENV07b|2024-25,Stirling,stirling
+S12000039,bins_streets_satisfaction,67.741935,1.000000,Satisfaction with bins and street cleaning,resident_experience,bins_and_streets,headline,2,ENV07a|2024-25;ENV07b|2024-25,West Dunbartonshire,west-dunbartonshire
+S12000040,bins_streets_satisfaction,61.290323,1.000000,Satisfaction with bins and street cleaning,resident_experience,bins_and_streets,headline,2,ENV07a|2024-25;ENV07b|2024-25,West Lothian,west-lothian
+S12000033,adult_care_experience,53.225806,1.000000,Adult-care users and carers,resident_experience,adult_care,headline,4,SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26,Aberdeen City,aberdeen-city
+S12000034,adult_care_experience,13.709677,1.000000,Adult-care users and carers,resident_experience,adult_care,headline,4,SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26,Aberdeenshire,aberdeenshire
+S12000041,adult_care_experience,67.741935,1.000000,Adult-care users and carers,resident_experience,adult_care,headline,4,SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26,Angus,angus
+S12000035,adult_care_experience,66.129032,1.000000,Adult-care users and carers,resident_experience,adult_care,headline,4,SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26,Argyll and Bute,argyll-and-bute
+S12000036,adult_care_experience,75.806452,1.000000,Adult-care users and carers,resident_experience,adult_care,headline,4,SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26,City of Edinburgh,city-of-edinburgh
+S12000005,adult_care_experience,20.967742,1.000000,Adult-care users and carers,resident_experience,adult_care,headline,4,SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26,Clackmannanshire,clackmannanshire
+S12000006,adult_care_experience,48.387097,1.000000,Adult-care users and carers,resident_experience,adult_care,headline,4,SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26,Dumfries and Galloway,dumfries-and-galloway
+S12000042,adult_care_experience,46.774194,1.000000,Adult-care users and carers,resident_experience,adult_care,headline,4,SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26,Dundee City,dundee-city
+S12000008,adult_care_experience,26.612903,1.000000,Adult-care users and carers,resident_experience,adult_care,headline,4,SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26,East Ayrshire,east-ayrshire
+S12000045,adult_care_experience,55.645161,1.000000,Adult-care users and carers,resident_experience,adult_care,headline,4,SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26,East Dunbartonshire,east-dunbartonshire
+S12000010,adult_care_experience,61.290323,1.000000,Adult-care users and carers,resident_experience,adult_care,headline,4,SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26,East Lothian,east-lothian
+S12000011,adult_care_experience,61.290323,1.000000,Adult-care users and carers,resident_experience,adult_care,headline,4,SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26,East Renfrewshire,east-renfrewshire
+S12000014,adult_care_experience,66.129032,1.000000,Adult-care users and carers,resident_experience,adult_care,headline,4,SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26,Falkirk,falkirk
+S12000047,adult_care_experience,26.612903,1.000000,Adult-care users and carers,resident_experience,adult_care,headline,4,SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26,Fife,fife
+S12000049,adult_care_experience,62.096774,1.000000,Adult-care users and carers,resident_experience,adult_care,headline,4,SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26,Glasgow City,glasgow-city
+S12000017,adult_care_experience,76.612903,1.000000,Adult-care users and carers,resident_experience,adult_care,headline,4,SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26,Highland,highland
+S12000018,adult_care_experience,45.161290,1.000000,Adult-care users and carers,resident_experience,adult_care,headline,4,SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26,Inverclyde,inverclyde
+S12000019,adult_care_experience,28.225806,1.000000,Adult-care users and carers,resident_experience,adult_care,headline,4,SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26,Midlothian,midlothian
+S12000020,adult_care_experience,45.967742,1.000000,Adult-care users and carers,resident_experience,adult_care,headline,4,SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26,Moray,moray
+S12000013,adult_care_experience,91.935484,1.000000,Adult-care users and carers,resident_experience,adult_care,headline,4,SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26,Na h-Eileanan Siar,na-h-eileanan-siar
+S12000021,adult_care_experience,16.129032,1.000000,Adult-care users and carers,resident_experience,adult_care,headline,4,SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26,North Ayrshire,north-ayrshire
+S12000050,adult_care_experience,29.838710,1.000000,Adult-care users and carers,resident_experience,adult_care,headline,4,SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26,North Lanarkshire,north-lanarkshire
+S12000023,adult_care_experience,82.258065,1.000000,Adult-care users and carers,resident_experience,adult_care,headline,4,SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26,Orkney Islands,orkney-islands
+S12000048,adult_care_experience,72.580645,1.000000,Adult-care users and carers,resident_experience,adult_care,headline,4,SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26,Perth and Kinross,perth-and-kinross
+S12000038,adult_care_experience,23.387097,1.000000,Adult-care users and carers,resident_experience,adult_care,headline,4,SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26,Renfrewshire,renfrewshire
+S12000026,adult_care_experience,41.935484,1.000000,Adult-care users and carers,resident_experience,adult_care,headline,4,SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26,Scottish Borders,scottish-borders
+S12000027,adult_care_experience,82.258065,1.000000,Adult-care users and carers,resident_experience,adult_care,headline,4,SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26,Shetland Islands,shetland-islands
+S12000028,adult_care_experience,66.129032,1.000000,Adult-care users and carers,resident_experience,adult_care,headline,4,SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26,South Ayrshire,south-ayrshire
+S12000029,adult_care_experience,5.645161,1.000000,Adult-care users and carers,resident_experience,adult_care,headline,4,SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26,South Lanarkshire,south-lanarkshire
+S12000030,adult_care_experience,61.290323,1.000000,Adult-care users and carers,resident_experience,adult_care,headline,4,SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26,Stirling,stirling
+S12000039,adult_care_experience,36.290323,1.000000,Adult-care users and carers,resident_experience,adult_care,headline,4,SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26,West Dunbartonshire,west-dunbartonshire
+S12000040,adult_care_experience,41.935484,1.000000,Adult-care users and carers,resident_experience,adult_care,headline,4,SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26,West Lothian,west-lothian
+S12000033,positive_destinations,25.806452,1.000000,Positive destinations after school,service_outcomes,children_and_schools,headline,1,CHN11|2024-25,Aberdeen City,aberdeen-city
+S12000034,positive_destinations,29.032258,1.000000,Positive destinations after school,service_outcomes,children_and_schools,headline,1,CHN11|2024-25,Aberdeenshire,aberdeenshire
+S12000041,positive_destinations,38.709677,1.000000,Positive destinations after school,service_outcomes,children_and_schools,headline,1,CHN11|2024-25,Angus,angus
+S12000035,positive_destinations,32.258065,1.000000,Positive destinations after school,service_outcomes,children_and_schools,headline,1,CHN11|2024-25,Argyll and Bute,argyll-and-bute
+S12000036,positive_destinations,74.193548,1.000000,Positive destinations after school,service_outcomes,children_and_schools,headline,1,CHN11|2024-25,City of Edinburgh,city-of-edinburgh
+S12000005,positive_destinations,77.419355,1.000000,Positive destinations after school,service_outcomes,children_and_schools,headline,1,CHN11|2024-25,Clackmannanshire,clackmannanshire
+S12000006,positive_destinations,54.838710,1.000000,Positive destinations after school,service_outcomes,children_and_schools,headline,1,CHN11|2024-25,Dumfries and Galloway,dumfries-and-galloway
+S12000042,positive_destinations,16.129032,1.000000,Positive destinations after school,service_outcomes,children_and_schools,headline,1,CHN11|2024-25,Dundee City,dundee-city
+S12000008,positive_destinations,3.225806,1.000000,Positive destinations after school,service_outcomes,children_and_schools,headline,1,CHN11|2024-25,East Ayrshire,east-ayrshire
+S12000045,positive_destinations,100.000000,1.000000,Positive destinations after school,service_outcomes,children_and_schools,headline,1,CHN11|2024-25,East Dunbartonshire,east-dunbartonshire
+S12000010,positive_destinations,93.548387,1.000000,Positive destinations after school,service_outcomes,children_and_schools,headline,1,CHN11|2024-25,East Lothian,east-lothian
+S12000011,positive_destinations,90.322581,1.000000,Positive destinations after school,service_outcomes,children_and_schools,headline,1,CHN11|2024-25,East Renfrewshire,east-renfrewshire
+S12000014,positive_destinations,87.096774,1.000000,Positive destinations after school,service_outcomes,children_and_schools,headline,1,CHN11|2024-25,Falkirk,falkirk
+S12000047,positive_destinations,67.741935,1.000000,Positive destinations after school,service_outcomes,children_and_schools,headline,1,CHN11|2024-25,Fife,fife
+S12000049,positive_destinations,35.483871,1.000000,Positive destinations after school,service_outcomes,children_and_schools,headline,1,CHN11|2024-25,Glasgow City,glasgow-city
+S12000017,positive_destinations,9.677419,1.000000,Positive destinations after school,service_outcomes,children_and_schools,headline,1,CHN11|2024-25,Highland,highland
+S12000018,positive_destinations,61.290323,1.000000,Positive destinations after school,service_outcomes,children_and_schools,headline,1,CHN11|2024-25,Inverclyde,inverclyde
+S12000019,positive_destinations,41.935484,1.000000,Positive destinations after school,service_outcomes,children_and_schools,headline,1,CHN11|2024-25,Midlothian,midlothian
+S12000020,positive_destinations,6.451613,1.000000,Positive destinations after school,service_outcomes,children_and_schools,headline,1,CHN11|2024-25,Moray,moray
+S12000013,positive_destinations,58.064516,1.000000,Positive destinations after school,service_outcomes,children_and_schools,headline,1,CHN11|2024-25,Na h-Eileanan Siar,na-h-eileanan-siar
+S12000021,positive_destinations,51.612903,1.000000,Positive destinations after school,service_outcomes,children_and_schools,headline,1,CHN11|2024-25,North Ayrshire,north-ayrshire
+S12000050,positive_destinations,19.354839,1.000000,Positive destinations after school,service_outcomes,children_and_schools,headline,1,CHN11|2024-25,North Lanarkshire,north-lanarkshire
+S12000023,positive_destinations,12.903226,1.000000,Positive destinations after school,service_outcomes,children_and_schools,headline,1,CHN11|2024-25,Orkney Islands,orkney-islands
+S12000048,positive_destinations,70.967742,1.000000,Positive destinations after school,service_outcomes,children_and_schools,headline,1,CHN11|2024-25,Perth and Kinross,perth-and-kinross
+S12000038,positive_destinations,96.774194,1.000000,Positive destinations after school,service_outcomes,children_and_schools,headline,1,CHN11|2024-25,Renfrewshire,renfrewshire
+S12000026,positive_destinations,80.645161,1.000000,Positive destinations after school,service_outcomes,children_and_schools,headline,1,CHN11|2024-25,Scottish Borders,scottish-borders
+S12000027,positive_destinations,22.580645,1.000000,Positive destinations after school,service_outcomes,children_and_schools,headline,1,CHN11|2024-25,Shetland Islands,shetland-islands
+S12000028,positive_destinations,83.870968,1.000000,Positive destinations after school,service_outcomes,children_and_schools,headline,1,CHN11|2024-25,South Ayrshire,south-ayrshire
+S12000029,positive_destinations,64.516129,1.000000,Positive destinations after school,service_outcomes,children_and_schools,headline,1,CHN11|2024-25,South Lanarkshire,south-lanarkshire
+S12000030,positive_destinations,48.387097,1.000000,Positive destinations after school,service_outcomes,children_and_schools,headline,1,CHN11|2024-25,Stirling,stirling
+S12000039,positive_destinations,0.000000,1.000000,Positive destinations after school,service_outcomes,children_and_schools,headline,1,CHN11|2024-25,West Dunbartonshire,west-dunbartonshire
+S12000040,positive_destinations,45.161290,1.000000,Positive destinations after school,service_outcomes,children_and_schools,headline,1,CHN11|2024-25,West Lothian,west-lothian
+S12000033,literacy_numeracy,20.967742,1.000000,Primary literacy and numeracy,service_outcomes,children_and_schools,headline,2,CHN13a|2024-25;CHN13b|2024-25,Aberdeen City,aberdeen-city
+S12000034,literacy_numeracy,24.193548,1.000000,Primary literacy and numeracy,service_outcomes,children_and_schools,headline,2,CHN13a|2024-25;CHN13b|2024-25,Aberdeenshire,aberdeenshire
+S12000041,literacy_numeracy,75.000000,1.000000,Primary literacy and numeracy,service_outcomes,children_and_schools,headline,2,CHN13a|2024-25;CHN13b|2024-25,Angus,angus
+S12000035,literacy_numeracy,38.709677,1.000000,Primary literacy and numeracy,service_outcomes,children_and_schools,headline,2,CHN13a|2024-25;CHN13b|2024-25,Argyll and Bute,argyll-and-bute
+S12000036,literacy_numeracy,85.483871,1.000000,Primary literacy and numeracy,service_outcomes,children_and_schools,headline,2,CHN13a|2024-25;CHN13b|2024-25,City of Edinburgh,city-of-edinburgh
+S12000005,literacy_numeracy,18.548387,1.000000,Primary literacy and numeracy,service_outcomes,children_and_schools,headline,2,CHN13a|2024-25;CHN13b|2024-25,Clackmannanshire,clackmannanshire
+S12000006,literacy_numeracy,23.387097,1.000000,Primary literacy and numeracy,service_outcomes,children_and_schools,headline,2,CHN13a|2024-25;CHN13b|2024-25,Dumfries and Galloway,dumfries-and-galloway
+S12000042,literacy_numeracy,41.935484,1.000000,Primary literacy and numeracy,service_outcomes,children_and_schools,headline,2,CHN13a|2024-25;CHN13b|2024-25,Dundee City,dundee-city
+S12000008,literacy_numeracy,66.129032,1.000000,Primary literacy and numeracy,service_outcomes,children_and_schools,headline,2,CHN13a|2024-25;CHN13b|2024-25,East Ayrshire,east-ayrshire
+S12000045,literacy_numeracy,96.774194,1.000000,Primary literacy and numeracy,service_outcomes,children_and_schools,headline,2,CHN13a|2024-25;CHN13b|2024-25,East Dunbartonshire,east-dunbartonshire
+S12000010,literacy_numeracy,40.322581,1.000000,Primary literacy and numeracy,service_outcomes,children_and_schools,headline,2,CHN13a|2024-25;CHN13b|2024-25,East Lothian,east-lothian
+S12000011,literacy_numeracy,100.000000,1.000000,Primary literacy and numeracy,service_outcomes,children_and_schools,headline,2,CHN13a|2024-25;CHN13b|2024-25,East Renfrewshire,east-renfrewshire
+S12000014,literacy_numeracy,78.225806,1.000000,Primary literacy and numeracy,service_outcomes,children_and_schools,headline,2,CHN13a|2024-25;CHN13b|2024-25,Falkirk,falkirk
+S12000047,literacy_numeracy,19.354839,1.000000,Primary literacy and numeracy,service_outcomes,children_and_schools,headline,2,CHN13a|2024-25;CHN13b|2024-25,Fife,fife
+S12000049,literacy_numeracy,5.645161,1.000000,Primary literacy and numeracy,service_outcomes,children_and_schools,headline,2,CHN13a|2024-25;CHN13b|2024-25,Glasgow City,glasgow-city
+S12000017,literacy_numeracy,4.838710,1.000000,Primary literacy and numeracy,service_outcomes,children_and_schools,headline,2,CHN13a|2024-25;CHN13b|2024-25,Highland,highland
+S12000018,literacy_numeracy,69.354839,1.000000,Primary literacy and numeracy,service_outcomes,children_and_schools,headline,2,CHN13a|2024-25;CHN13b|2024-25,Inverclyde,inverclyde
+S12000019,literacy_numeracy,54.032258,1.000000,Primary literacy and numeracy,service_outcomes,children_and_schools,headline,2,CHN13a|2024-25;CHN13b|2024-25,Midlothian,midlothian
+S12000020,literacy_numeracy,25.806452,1.000000,Primary literacy and numeracy,service_outcomes,children_and_schools,headline,2,CHN13a|2024-25;CHN13b|2024-25,Moray,moray
+S12000013,literacy_numeracy,72.580645,1.000000,Primary literacy and numeracy,service_outcomes,children_and_schools,headline,2,CHN13a|2024-25;CHN13b|2024-25,Na h-Eileanan Siar,na-h-eileanan-siar
+S12000021,literacy_numeracy,0.000000,1.000000,Primary literacy and numeracy,service_outcomes,children_and_schools,headline,2,CHN13a|2024-25;CHN13b|2024-25,North Ayrshire,north-ayrshire
+S12000050,literacy_numeracy,53.225806,1.000000,Primary literacy and numeracy,service_outcomes,children_and_schools,headline,2,CHN13a|2024-25;CHN13b|2024-25,North Lanarkshire,north-lanarkshire
+S12000023,literacy_numeracy,93.548387,1.000000,Primary literacy and numeracy,service_outcomes,children_and_schools,headline,2,CHN13a|2024-25;CHN13b|2024-25,Orkney Islands,orkney-islands
+S12000048,literacy_numeracy,58.064516,1.000000,Primary literacy and numeracy,service_outcomes,children_and_schools,headline,2,CHN13a|2024-25;CHN13b|2024-25,Perth and Kinross,perth-and-kinross
+S12000038,literacy_numeracy,79.838710,1.000000,Primary literacy and numeracy,service_outcomes,children_and_schools,headline,2,CHN13a|2024-25;CHN13b|2024-25,Renfrewshire,renfrewshire
+S12000026,literacy_numeracy,40.322581,1.000000,Primary literacy and numeracy,service_outcomes,children_and_schools,headline,2,CHN13a|2024-25;CHN13b|2024-25,Scottish Borders,scottish-borders
+S12000027,literacy_numeracy,11.290323,1.000000,Primary literacy and numeracy,service_outcomes,children_and_schools,headline,2,CHN13a|2024-25;CHN13b|2024-25,Shetland Islands,shetland-islands
+S12000028,literacy_numeracy,84.677419,1.000000,Primary literacy and numeracy,service_outcomes,children_and_schools,headline,2,CHN13a|2024-25;CHN13b|2024-25,South Ayrshire,south-ayrshire
+S12000029,literacy_numeracy,45.967742,1.000000,Primary literacy and numeracy,service_outcomes,children_and_schools,headline,2,CHN13a|2024-25;CHN13b|2024-25,South Lanarkshire,south-lanarkshire
+S12000030,literacy_numeracy,62.903226,1.000000,Primary literacy and numeracy,service_outcomes,children_and_schools,headline,2,CHN13a|2024-25;CHN13b|2024-25,Stirling,stirling
+S12000039,literacy_numeracy,26.612903,1.000000,Primary literacy and numeracy,service_outcomes,children_and_schools,headline,2,CHN13a|2024-25;CHN13b|2024-25,West Dunbartonshire,west-dunbartonshire
+S12000040,literacy_numeracy,82.258065,1.000000,Primary literacy and numeracy,service_outcomes,children_and_schools,headline,2,CHN13a|2024-25;CHN13b|2024-25,West Lothian,west-lothian
+S12000033,attainment_gap,16.666667,1.000000,Literacy and numeracy attainment gaps,service_outcomes,children_and_schools,headline,2,CHN14a|2024-25;CHN14b|2024-25,Aberdeen City,aberdeen-city
+S12000034,attainment_gap,100.000000,1.000000,Literacy and numeracy attainment gaps,service_outcomes,children_and_schools,headline,2,CHN14a|2024-25;CHN14b|2024-25,Aberdeenshire,aberdeenshire
+S12000041,attainment_gap,43.518519,1.000000,Literacy and numeracy attainment gaps,service_outcomes,children_and_schools,headline,2,CHN14a|2024-25;CHN14b|2024-25,Angus,angus
+S12000035,attainment_gap,59.259259,1.000000,Literacy and numeracy attainment gaps,service_outcomes,children_and_schools,headline,2,CHN14a|2024-25;CHN14b|2024-25,Argyll and Bute,argyll-and-bute
+S12000036,attainment_gap,61.111111,1.000000,Literacy and numeracy attainment gaps,service_outcomes,children_and_schools,headline,2,CHN14a|2024-25;CHN14b|2024-25,City of Edinburgh,city-of-edinburgh
+S12000005,attainment_gap,59.259259,1.000000,Literacy and numeracy attainment gaps,service_outcomes,children_and_schools,headline,2,CHN14a|2024-25;CHN14b|2024-25,Clackmannanshire,clackmannanshire
+S12000006,attainment_gap,85.185185,1.000000,Literacy and numeracy attainment gaps,service_outcomes,children_and_schools,headline,2,CHN14a|2024-25;CHN14b|2024-25,Dumfries and Galloway,dumfries-and-galloway
+S12000042,attainment_gap,88.888889,1.000000,Literacy and numeracy attainment gaps,service_outcomes,children_and_schools,headline,2,CHN14a|2024-25;CHN14b|2024-25,Dundee City,dundee-city
+S12000008,attainment_gap,53.703704,1.000000,Literacy and numeracy attainment gaps,service_outcomes,children_and_schools,headline,2,CHN14a|2024-25;CHN14b|2024-25,East Ayrshire,east-ayrshire
+S12000045,attainment_gap,31.481481,1.000000,Literacy and numeracy attainment gaps,service_outcomes,children_and_schools,headline,2,CHN14a|2024-25;CHN14b|2024-25,East Dunbartonshire,east-dunbartonshire
+S12000010,attainment_gap,5.555556,1.000000,Literacy and numeracy attainment gaps,service_outcomes,children_and_schools,headline,2,CHN14a|2024-25;CHN14b|2024-25,East Lothian,east-lothian
+S12000011,attainment_gap,81.481481,1.000000,Literacy and numeracy attainment gaps,service_outcomes,children_and_schools,headline,2,CHN14a|2024-25;CHN14b|2024-25,East Renfrewshire,east-renfrewshire
+S12000014,attainment_gap,55.555556,1.000000,Literacy and numeracy attainment gaps,service_outcomes,children_and_schools,headline,2,CHN14a|2024-25;CHN14b|2024-25,Falkirk,falkirk
+S12000047,attainment_gap,32.407407,1.000000,Literacy and numeracy attainment gaps,service_outcomes,children_and_schools,headline,2,CHN14a|2024-25;CHN14b|2024-25,Fife,fife
+S12000049,attainment_gap,10.185185,1.000000,Literacy and numeracy attainment gaps,service_outcomes,children_and_schools,headline,2,CHN14a|2024-25;CHN14b|2024-25,Glasgow City,glasgow-city
+S12000017,attainment_gap,14.814815,1.000000,Literacy and numeracy attainment gaps,service_outcomes,children_and_schools,headline,2,CHN14a|2024-25;CHN14b|2024-25,Highland,highland
+S12000018,attainment_gap,57.407407,1.000000,Literacy and numeracy attainment gaps,service_outcomes,children_and_schools,headline,2,CHN14a|2024-25;CHN14b|2024-25,Inverclyde,inverclyde
+S12000019,attainment_gap,92.592593,1.000000,Literacy and numeracy attainment gaps,service_outcomes,children_and_schools,headline,2,CHN14a|2024-25;CHN14b|2024-25,Midlothian,midlothian
+S12000020,attainment_gap,50.000000,0.000000,Literacy and numeracy attainment gaps,service_outcomes,children_and_schools,headline,2,CHN14a|2024-25;CHN14b|2024-25,Moray,moray
+S12000013,attainment_gap,50.000000,0.000000,Literacy and numeracy attainment gaps,service_outcomes,children_and_schools,headline,2,CHN14a|2024-25;CHN14b|2024-25,Na h-Eileanan Siar,na-h-eileanan-siar
+S12000021,attainment_gap,30.555556,1.000000,Literacy and numeracy attainment gaps,service_outcomes,children_and_schools,headline,2,CHN14a|2024-25;CHN14b|2024-25,North Ayrshire,north-ayrshire
+S12000050,attainment_gap,69.444444,1.000000,Literacy and numeracy attainment gaps,service_outcomes,children_and_schools,headline,2,CHN14a|2024-25;CHN14b|2024-25,North Lanarkshire,north-lanarkshire
+S12000023,attainment_gap,50.000000,0.000000,Literacy and numeracy attainment gaps,service_outcomes,children_and_schools,headline,2,CHN14a|2024-25;CHN14b|2024-25,Orkney Islands,orkney-islands
+S12000048,attainment_gap,20.370370,1.000000,Literacy and numeracy attainment gaps,service_outcomes,children_and_schools,headline,2,CHN14a|2024-25;CHN14b|2024-25,Perth and Kinross,perth-and-kinross
+S12000038,attainment_gap,57.407407,1.000000,Literacy and numeracy attainment gaps,service_outcomes,children_and_schools,headline,2,CHN14a|2024-25;CHN14b|2024-25,Renfrewshire,renfrewshire
+S12000026,attainment_gap,0.000000,1.000000,Literacy and numeracy attainment gaps,service_outcomes,children_and_schools,headline,2,CHN14a|2024-25;CHN14b|2024-25,Scottish Borders,scottish-borders
+S12000027,attainment_gap,50.000000,0.000000,Literacy and numeracy attainment gaps,service_outcomes,children_and_schools,headline,2,CHN14a|2024-25;CHN14b|2024-25,Shetland Islands,shetland-islands
+S12000028,attainment_gap,29.629630,1.000000,Literacy and numeracy attainment gaps,service_outcomes,children_and_schools,headline,2,CHN14a|2024-25;CHN14b|2024-25,South Ayrshire,south-ayrshire
+S12000029,attainment_gap,36.111111,1.000000,Literacy and numeracy attainment gaps,service_outcomes,children_and_schools,headline,2,CHN14a|2024-25;CHN14b|2024-25,South Lanarkshire,south-lanarkshire
+S12000030,attainment_gap,38.888889,1.000000,Literacy and numeracy attainment gaps,service_outcomes,children_and_schools,headline,2,CHN14a|2024-25;CHN14b|2024-25,Stirling,stirling
+S12000039,attainment_gap,96.296296,1.000000,Literacy and numeracy attainment gaps,service_outcomes,children_and_schools,headline,2,CHN14a|2024-25;CHN14b|2024-25,West Dunbartonshire,west-dunbartonshire
+S12000040,attainment_gap,72.222222,1.000000,Literacy and numeracy attainment gaps,service_outcomes,children_and_schools,headline,2,CHN14a|2024-25;CHN14b|2024-25,West Lothian,west-lothian
+S12000033,early_years_quality,6.451613,1.000000,Early-years provision graded good or better,service_outcomes,children_and_schools,headline,1,CHN18|2024-25,Aberdeen City,aberdeen-city
+S12000034,early_years_quality,62.903226,1.000000,Early-years provision graded good or better,service_outcomes,children_and_schools,headline,1,CHN18|2024-25,Aberdeenshire,aberdeenshire
+S12000041,early_years_quality,88.709677,1.000000,Early-years provision graded good or better,service_outcomes,children_and_schools,headline,1,CHN18|2024-25,Angus,angus
+S12000035,early_years_quality,51.612903,1.000000,Early-years provision graded good or better,service_outcomes,children_and_schools,headline,1,CHN18|2024-25,Argyll and Bute,argyll-and-bute
+S12000036,early_years_quality,24.193548,1.000000,Early-years provision graded good or better,service_outcomes,children_and_schools,headline,1,CHN18|2024-25,City of Edinburgh,city-of-edinburgh
+S12000005,early_years_quality,77.419355,1.000000,Early-years provision graded good or better,service_outcomes,children_and_schools,headline,1,CHN18|2024-25,Clackmannanshire,clackmannanshire
+S12000006,early_years_quality,35.483871,1.000000,Early-years provision graded good or better,service_outcomes,children_and_schools,headline,1,CHN18|2024-25,Dumfries and Galloway,dumfries-and-galloway
+S12000042,early_years_quality,41.935484,1.000000,Early-years provision graded good or better,service_outcomes,children_and_schools,headline,1,CHN18|2024-25,Dundee City,dundee-city
+S12000008,early_years_quality,51.612903,1.000000,Early-years provision graded good or better,service_outcomes,children_and_schools,headline,1,CHN18|2024-25,East Ayrshire,east-ayrshire
+S12000045,early_years_quality,3.225806,1.000000,Early-years provision graded good or better,service_outcomes,children_and_schools,headline,1,CHN18|2024-25,East Dunbartonshire,east-dunbartonshire
+S12000010,early_years_quality,19.354839,1.000000,Early-years provision graded good or better,service_outcomes,children_and_schools,headline,1,CHN18|2024-25,East Lothian,east-lothian
+S12000011,early_years_quality,70.967742,1.000000,Early-years provision graded good or better,service_outcomes,children_and_schools,headline,1,CHN18|2024-25,East Renfrewshire,east-renfrewshire
+S12000014,early_years_quality,51.612903,1.000000,Early-years provision graded good or better,service_outcomes,children_and_schools,headline,1,CHN18|2024-25,Falkirk,falkirk
+S12000047,early_years_quality,83.870968,1.000000,Early-years provision graded good or better,service_outcomes,children_and_schools,headline,1,CHN18|2024-25,Fife,fife
+S12000049,early_years_quality,24.193548,1.000000,Early-years provision graded good or better,service_outcomes,children_and_schools,headline,1,CHN18|2024-25,Glasgow City,glasgow-city
+S12000017,early_years_quality,9.677419,1.000000,Early-years provision graded good or better,service_outcomes,children_and_schools,headline,1,CHN18|2024-25,Highland,highland
+S12000018,early_years_quality,88.709677,1.000000,Early-years provision graded good or better,service_outcomes,children_and_schools,headline,1,CHN18|2024-25,Inverclyde,inverclyde
+S12000019,early_years_quality,35.483871,1.000000,Early-years provision graded good or better,service_outcomes,children_and_schools,headline,1,CHN18|2024-25,Midlothian,midlothian
+S12000020,early_years_quality,14.516129,1.000000,Early-years provision graded good or better,service_outcomes,children_and_schools,headline,1,CHN18|2024-25,Moray,moray
+S12000013,early_years_quality,0.000000,1.000000,Early-years provision graded good or better,service_outcomes,children_and_schools,headline,1,CHN18|2024-25,Na h-Eileanan Siar,na-h-eileanan-siar
+S12000021,early_years_quality,35.483871,1.000000,Early-years provision graded good or better,service_outcomes,children_and_schools,headline,1,CHN18|2024-25,North Ayrshire,north-ayrshire
+S12000050,early_years_quality,29.032258,1.000000,Early-years provision graded good or better,service_outcomes,children_and_schools,headline,1,CHN18|2024-25,North Lanarkshire,north-lanarkshire
+S12000023,early_years_quality,77.419355,1.000000,Early-years provision graded good or better,service_outcomes,children_and_schools,headline,1,CHN18|2024-25,Orkney Islands,orkney-islands
+S12000048,early_years_quality,96.774194,1.000000,Early-years provision graded good or better,service_outcomes,children_and_schools,headline,1,CHN18|2024-25,Perth and Kinross,perth-and-kinross
+S12000038,early_years_quality,14.516129,1.000000,Early-years provision graded good or better,service_outcomes,children_and_schools,headline,1,CHN18|2024-25,Renfrewshire,renfrewshire
+S12000026,early_years_quality,51.612903,1.000000,Early-years provision graded good or better,service_outcomes,children_and_schools,headline,1,CHN18|2024-25,Scottish Borders,scottish-borders
+S12000027,early_years_quality,67.741935,1.000000,Early-years provision graded good or better,service_outcomes,children_and_schools,headline,1,CHN18|2024-25,Shetland Islands,shetland-islands
+S12000028,early_years_quality,96.774194,1.000000,Early-years provision graded good or better,service_outcomes,children_and_schools,headline,1,CHN18|2024-25,South Ayrshire,south-ayrshire
+S12000029,early_years_quality,62.903226,1.000000,Early-years provision graded good or better,service_outcomes,children_and_schools,headline,1,CHN18|2024-25,South Lanarkshire,south-lanarkshire
+S12000030,early_years_quality,77.419355,1.000000,Early-years provision graded good or better,service_outcomes,children_and_schools,headline,1,CHN18|2024-25,Stirling,stirling
+S12000039,early_years_quality,96.774194,1.000000,Early-years provision graded good or better,service_outcomes,children_and_schools,headline,1,CHN18|2024-25,West Dunbartonshire,west-dunbartonshire
+S12000040,early_years_quality,51.612903,1.000000,Early-years provision graded good or better,service_outcomes,children_and_schools,headline,1,CHN18|2024-25,West Lothian,west-lothian
+S12000033,attendance_exclusions,46.774194,1.000000,Attendance and exclusions,service_outcomes,children_and_schools,headline,2,CHN19a|2024-25;CHN20a|2024-25,Aberdeen City,aberdeen-city
+S12000034,attendance_exclusions,59.677419,1.000000,Attendance and exclusions,service_outcomes,children_and_schools,headline,2,CHN19a|2024-25;CHN20a|2024-25,Aberdeenshire,aberdeenshire
+S12000041,attendance_exclusions,35.483871,1.000000,Attendance and exclusions,service_outcomes,children_and_schools,headline,2,CHN19a|2024-25;CHN20a|2024-25,Angus,angus
+S12000035,attendance_exclusions,56.451613,1.000000,Attendance and exclusions,service_outcomes,children_and_schools,headline,2,CHN19a|2024-25;CHN20a|2024-25,Argyll and Bute,argyll-and-bute
+S12000036,attendance_exclusions,67.741935,1.000000,Attendance and exclusions,service_outcomes,children_and_schools,headline,2,CHN19a|2024-25;CHN20a|2024-25,City of Edinburgh,city-of-edinburgh
+S12000005,attendance_exclusions,72.580645,1.000000,Attendance and exclusions,service_outcomes,children_and_schools,headline,2,CHN19a|2024-25;CHN20a|2024-25,Clackmannanshire,clackmannanshire
+S12000006,attendance_exclusions,40.322581,1.000000,Attendance and exclusions,service_outcomes,children_and_schools,headline,2,CHN19a|2024-25;CHN20a|2024-25,Dumfries and Galloway,dumfries-and-galloway
+S12000042,attendance_exclusions,4.838710,1.000000,Attendance and exclusions,service_outcomes,children_and_schools,headline,2,CHN19a|2024-25;CHN20a|2024-25,Dundee City,dundee-city
+S12000008,attendance_exclusions,4.838710,1.000000,Attendance and exclusions,service_outcomes,children_and_schools,headline,2,CHN19a|2024-25;CHN20a|2024-25,East Ayrshire,east-ayrshire
+S12000045,attendance_exclusions,88.709677,1.000000,Attendance and exclusions,service_outcomes,children_and_schools,headline,2,CHN19a|2024-25;CHN20a|2024-25,East Dunbartonshire,east-dunbartonshire
+S12000010,attendance_exclusions,53.225806,1.000000,Attendance and exclusions,service_outcomes,children_and_schools,headline,2,CHN19a|2024-25;CHN20a|2024-25,East Lothian,east-lothian
+S12000011,attendance_exclusions,98.387097,1.000000,Attendance and exclusions,service_outcomes,children_and_schools,headline,2,CHN19a|2024-25;CHN20a|2024-25,East Renfrewshire,east-renfrewshire
+S12000014,attendance_exclusions,75.806452,1.000000,Attendance and exclusions,service_outcomes,children_and_schools,headline,2,CHN19a|2024-25;CHN20a|2024-25,Falkirk,falkirk
+S12000047,attendance_exclusions,27.419355,1.000000,Attendance and exclusions,service_outcomes,children_and_schools,headline,2,CHN19a|2024-25;CHN20a|2024-25,Fife,fife
+S12000049,attendance_exclusions,35.483871,1.000000,Attendance and exclusions,service_outcomes,children_and_schools,headline,2,CHN19a|2024-25;CHN20a|2024-25,Glasgow City,glasgow-city
+S12000017,attendance_exclusions,29.032258,1.000000,Attendance and exclusions,service_outcomes,children_and_schools,headline,2,CHN19a|2024-25;CHN20a|2024-25,Highland,highland
+S12000018,attendance_exclusions,61.290323,1.000000,Attendance and exclusions,service_outcomes,children_and_schools,headline,2,CHN19a|2024-25;CHN20a|2024-25,Inverclyde,inverclyde
+S12000019,attendance_exclusions,35.483871,1.000000,Attendance and exclusions,service_outcomes,children_and_schools,headline,2,CHN19a|2024-25;CHN20a|2024-25,Midlothian,midlothian
+S12000020,attendance_exclusions,48.387097,1.000000,Attendance and exclusions,service_outcomes,children_and_schools,headline,2,CHN19a|2024-25;CHN20a|2024-25,Moray,moray
+S12000013,attendance_exclusions,61.290323,1.000000,Attendance and exclusions,service_outcomes,children_and_schools,headline,2,CHN19a|2024-25;CHN20a|2024-25,Na h-Eileanan Siar,na-h-eileanan-siar
+S12000021,attendance_exclusions,17.741935,1.000000,Attendance and exclusions,service_outcomes,children_and_schools,headline,2,CHN19a|2024-25;CHN20a|2024-25,North Ayrshire,north-ayrshire
+S12000050,attendance_exclusions,38.709677,1.000000,Attendance and exclusions,service_outcomes,children_and_schools,headline,2,CHN19a|2024-25;CHN20a|2024-25,North Lanarkshire,north-lanarkshire
+S12000023,attendance_exclusions,83.870968,1.000000,Attendance and exclusions,service_outcomes,children_and_schools,headline,2,CHN19a|2024-25;CHN20a|2024-25,Orkney Islands,orkney-islands
+S12000048,attendance_exclusions,33.870968,1.000000,Attendance and exclusions,service_outcomes,children_and_schools,headline,2,CHN19a|2024-25;CHN20a|2024-25,Perth and Kinross,perth-and-kinross
+S12000038,attendance_exclusions,22.580645,1.000000,Attendance and exclusions,service_outcomes,children_and_schools,headline,2,CHN19a|2024-25;CHN20a|2024-25,Renfrewshire,renfrewshire
+S12000026,attendance_exclusions,77.419355,1.000000,Attendance and exclusions,service_outcomes,children_and_schools,headline,2,CHN19a|2024-25;CHN20a|2024-25,Scottish Borders,scottish-borders
+S12000027,attendance_exclusions,75.806452,1.000000,Attendance and exclusions,service_outcomes,children_and_schools,headline,2,CHN19a|2024-25;CHN20a|2024-25,Shetland Islands,shetland-islands
+S12000028,attendance_exclusions,59.677419,1.000000,Attendance and exclusions,service_outcomes,children_and_schools,headline,2,CHN19a|2024-25;CHN20a|2024-25,South Ayrshire,south-ayrshire
+S12000029,attendance_exclusions,30.645161,1.000000,Attendance and exclusions,service_outcomes,children_and_schools,headline,2,CHN19a|2024-25;CHN20a|2024-25,South Lanarkshire,south-lanarkshire
+S12000030,attendance_exclusions,74.193548,1.000000,Attendance and exclusions,service_outcomes,children_and_schools,headline,2,CHN19a|2024-25;CHN20a|2024-25,Stirling,stirling
+S12000039,attendance_exclusions,30.645161,1.000000,Attendance and exclusions,service_outcomes,children_and_schools,headline,2,CHN19a|2024-25;CHN20a|2024-25,West Dunbartonshire,west-dunbartonshire
+S12000040,attendance_exclusions,51.612903,1.000000,Attendance and exclusions,service_outcomes,children_and_schools,headline,2,CHN19a|2024-25;CHN20a|2024-25,West Lothian,west-lothian
+S12000033,looked_after_stability,25.806452,1.000000,Placement stability for looked-after children,service_outcomes,children_and_schools,headline,1,CHN23|2024-25,Aberdeen City,aberdeen-city
+S12000034,looked_after_stability,41.935484,1.000000,Placement stability for looked-after children,service_outcomes,children_and_schools,headline,1,CHN23|2024-25,Aberdeenshire,aberdeenshire
+S12000041,looked_after_stability,6.451613,1.000000,Placement stability for looked-after children,service_outcomes,children_and_schools,headline,1,CHN23|2024-25,Angus,angus
+S12000035,looked_after_stability,48.387097,1.000000,Placement stability for looked-after children,service_outcomes,children_and_schools,headline,1,CHN23|2024-25,Argyll and Bute,argyll-and-bute
+S12000036,looked_after_stability,32.258065,1.000000,Placement stability for looked-after children,service_outcomes,children_and_schools,headline,1,CHN23|2024-25,City of Edinburgh,city-of-edinburgh
+S12000005,looked_after_stability,12.903226,1.000000,Placement stability for looked-after children,service_outcomes,children_and_schools,headline,1,CHN23|2024-25,Clackmannanshire,clackmannanshire
+S12000006,looked_after_stability,35.483871,1.000000,Placement stability for looked-after children,service_outcomes,children_and_schools,headline,1,CHN23|2024-25,Dumfries and Galloway,dumfries-and-galloway
+S12000042,looked_after_stability,19.354839,1.000000,Placement stability for looked-after children,service_outcomes,children_and_schools,headline,1,CHN23|2024-25,Dundee City,dundee-city
+S12000008,looked_after_stability,54.838710,1.000000,Placement stability for looked-after children,service_outcomes,children_and_schools,headline,1,CHN23|2024-25,East Ayrshire,east-ayrshire
+S12000045,looked_after_stability,61.290323,1.000000,Placement stability for looked-after children,service_outcomes,children_and_schools,headline,1,CHN23|2024-25,East Dunbartonshire,east-dunbartonshire
+S12000010,looked_after_stability,87.096774,1.000000,Placement stability for looked-after children,service_outcomes,children_and_schools,headline,1,CHN23|2024-25,East Lothian,east-lothian
+S12000011,looked_after_stability,70.967742,1.000000,Placement stability for looked-after children,service_outcomes,children_and_schools,headline,1,CHN23|2024-25,East Renfrewshire,east-renfrewshire
+S12000014,looked_after_stability,64.516129,1.000000,Placement stability for looked-after children,service_outcomes,children_and_schools,headline,1,CHN23|2024-25,Falkirk,falkirk
+S12000047,looked_after_stability,9.677419,1.000000,Placement stability for looked-after children,service_outcomes,children_and_schools,headline,1,CHN23|2024-25,Fife,fife
+S12000049,looked_after_stability,74.193548,1.000000,Placement stability for looked-after children,service_outcomes,children_and_schools,headline,1,CHN23|2024-25,Glasgow City,glasgow-city
+S12000017,looked_after_stability,16.129032,1.000000,Placement stability for looked-after children,service_outcomes,children_and_schools,headline,1,CHN23|2024-25,Highland,highland
+S12000018,looked_after_stability,22.580645,1.000000,Placement stability for looked-after children,service_outcomes,children_and_schools,headline,1,CHN23|2024-25,Inverclyde,inverclyde
+S12000019,looked_after_stability,83.870968,1.000000,Placement stability for looked-after children,service_outcomes,children_and_schools,headline,1,CHN23|2024-25,Midlothian,midlothian
+S12000020,looked_after_stability,90.322581,1.000000,Placement stability for looked-after children,service_outcomes,children_and_schools,headline,1,CHN23|2024-25,Moray,moray
+S12000013,looked_after_stability,0.000000,1.000000,Placement stability for looked-after children,service_outcomes,children_and_schools,headline,1,CHN23|2024-25,Na h-Eileanan Siar,na-h-eileanan-siar
+S12000021,looked_after_stability,38.709677,1.000000,Placement stability for looked-after children,service_outcomes,children_and_schools,headline,1,CHN23|2024-25,North Ayrshire,north-ayrshire
+S12000050,looked_after_stability,96.774194,1.000000,Placement stability for looked-after children,service_outcomes,children_and_schools,headline,1,CHN23|2024-25,North Lanarkshire,north-lanarkshire
+S12000023,looked_after_stability,3.225806,1.000000,Placement stability for looked-after children,service_outcomes,children_and_schools,headline,1,CHN23|2024-25,Orkney Islands,orkney-islands
+S12000048,looked_after_stability,29.032258,1.000000,Placement stability for looked-after children,service_outcomes,children_and_schools,headline,1,CHN23|2024-25,Perth and Kinross,perth-and-kinross
+S12000038,looked_after_stability,67.741935,1.000000,Placement stability for looked-after children,service_outcomes,children_and_schools,headline,1,CHN23|2024-25,Renfrewshire,renfrewshire
+S12000026,looked_after_stability,58.064516,1.000000,Placement stability for looked-after children,service_outcomes,children_and_schools,headline,1,CHN23|2024-25,Scottish Borders,scottish-borders
+S12000027,looked_after_stability,100.000000,1.000000,Placement stability for looked-after children,service_outcomes,children_and_schools,headline,1,CHN23|2024-25,Shetland Islands,shetland-islands
+S12000028,looked_after_stability,77.419355,1.000000,Placement stability for looked-after children,service_outcomes,children_and_schools,headline,1,CHN23|2024-25,South Ayrshire,south-ayrshire
+S12000029,looked_after_stability,93.548387,1.000000,Placement stability for looked-after children,service_outcomes,children_and_schools,headline,1,CHN23|2024-25,South Lanarkshire,south-lanarkshire
+S12000030,looked_after_stability,45.161290,1.000000,Placement stability for looked-after children,service_outcomes,children_and_schools,headline,1,CHN23|2024-25,Stirling,stirling
+S12000039,looked_after_stability,80.645161,1.000000,Placement stability for looked-after children,service_outcomes,children_and_schools,headline,1,CHN23|2024-25,West Dunbartonshire,west-dunbartonshire
+S12000040,looked_after_stability,51.612903,1.000000,Placement stability for looked-after children,service_outcomes,children_and_schools,headline,1,CHN23|2024-25,West Lothian,west-lothian
+S12000033,street_cleanliness,30.000000,1.000000,Measured street cleanliness,service_outcomes,environment_and_roads,headline,1,ENV03c|2024-25,Aberdeen City,aberdeen-city
+S12000034,street_cleanliness,70.000000,1.000000,Measured street cleanliness,service_outcomes,environment_and_roads,headline,1,ENV03c|2024-25,Aberdeenshire,aberdeenshire
+S12000041,street_cleanliness,66.666667,1.000000,Measured street cleanliness,service_outcomes,environment_and_roads,headline,1,ENV03c|2024-25,Angus,angus
+S12000035,street_cleanliness,76.666667,1.000000,Measured street cleanliness,service_outcomes,environment_and_roads,headline,1,ENV03c|2024-25,Argyll and Bute,argyll-and-bute
+S12000036,street_cleanliness,26.666667,1.000000,Measured street cleanliness,service_outcomes,environment_and_roads,headline,1,ENV03c|2024-25,City of Edinburgh,city-of-edinburgh
+S12000005,street_cleanliness,0.000000,1.000000,Measured street cleanliness,service_outcomes,environment_and_roads,headline,1,ENV03c|2024-25,Clackmannanshire,clackmannanshire
+S12000006,street_cleanliness,93.333333,1.000000,Measured street cleanliness,service_outcomes,environment_and_roads,headline,1,ENV03c|2024-25,Dumfries and Galloway,dumfries-and-galloway
+S12000042,street_cleanliness,3.333333,1.000000,Measured street cleanliness,service_outcomes,environment_and_roads,headline,1,ENV03c|2024-25,Dundee City,dundee-city
+S12000008,street_cleanliness,60.000000,1.000000,Measured street cleanliness,service_outcomes,environment_and_roads,headline,1,ENV03c|2024-25,East Ayrshire,east-ayrshire
+S12000045,street_cleanliness,23.333333,1.000000,Measured street cleanliness,service_outcomes,environment_and_roads,headline,1,ENV03c|2024-25,East Dunbartonshire,east-dunbartonshire
+S12000010,street_cleanliness,56.666667,1.000000,Measured street cleanliness,service_outcomes,environment_and_roads,headline,1,ENV03c|2024-25,East Lothian,east-lothian
+S12000011,street_cleanliness,73.333333,1.000000,Measured street cleanliness,service_outcomes,environment_and_roads,headline,1,ENV03c|2024-25,East Renfrewshire,east-renfrewshire
+S12000014,street_cleanliness,13.333333,1.000000,Measured street cleanliness,service_outcomes,environment_and_roads,headline,1,ENV03c|2024-25,Falkirk,falkirk
+S12000047,street_cleanliness,80.000000,1.000000,Measured street cleanliness,service_outcomes,environment_and_roads,headline,1,ENV03c|2024-25,Fife,fife
+S12000049,street_cleanliness,10.000000,1.000000,Measured street cleanliness,service_outcomes,environment_and_roads,headline,1,ENV03c|2024-25,Glasgow City,glasgow-city
+S12000017,street_cleanliness,83.333333,1.000000,Measured street cleanliness,service_outcomes,environment_and_roads,headline,1,ENV03c|2024-25,Highland,highland
+S12000018,street_cleanliness,43.333333,1.000000,Measured street cleanliness,service_outcomes,environment_and_roads,headline,1,ENV03c|2024-25,Inverclyde,inverclyde
+S12000019,street_cleanliness,20.000000,1.000000,Measured street cleanliness,service_outcomes,environment_and_roads,headline,1,ENV03c|2024-25,Midlothian,midlothian
+S12000020,street_cleanliness,50.000000,0.000000,Measured street cleanliness,service_outcomes,environment_and_roads,headline,1,ENV03c|2024-25,Moray,moray
+S12000013,street_cleanliness,53.333333,1.000000,Measured street cleanliness,service_outcomes,environment_and_roads,headline,1,ENV03c|2024-25,Na h-Eileanan Siar,na-h-eileanan-siar
+S12000021,street_cleanliness,36.666667,1.000000,Measured street cleanliness,service_outcomes,environment_and_roads,headline,1,ENV03c|2024-25,North Ayrshire,north-ayrshire
+S12000050,street_cleanliness,33.333333,1.000000,Measured street cleanliness,service_outcomes,environment_and_roads,headline,1,ENV03c|2024-25,North Lanarkshire,north-lanarkshire
+S12000023,street_cleanliness,100.000000,1.000000,Measured street cleanliness,service_outcomes,environment_and_roads,headline,1,ENV03c|2024-25,Orkney Islands,orkney-islands
+S12000048,street_cleanliness,96.666667,1.000000,Measured street cleanliness,service_outcomes,environment_and_roads,headline,1,ENV03c|2024-25,Perth and Kinross,perth-and-kinross
+S12000038,street_cleanliness,46.666667,1.000000,Measured street cleanliness,service_outcomes,environment_and_roads,headline,1,ENV03c|2024-25,Renfrewshire,renfrewshire
+S12000026,street_cleanliness,90.000000,1.000000,Measured street cleanliness,service_outcomes,environment_and_roads,headline,1,ENV03c|2024-25,Scottish Borders,scottish-borders
+S12000027,street_cleanliness,86.666667,1.000000,Measured street cleanliness,service_outcomes,environment_and_roads,headline,1,ENV03c|2024-25,Shetland Islands,shetland-islands
+S12000028,street_cleanliness,50.000000,1.000000,Measured street cleanliness,service_outcomes,environment_and_roads,headline,1,ENV03c|2024-25,South Ayrshire,south-ayrshire
+S12000029,street_cleanliness,63.333333,1.000000,Measured street cleanliness,service_outcomes,environment_and_roads,headline,1,ENV03c|2024-25,South Lanarkshire,south-lanarkshire
+S12000030,street_cleanliness,40.000000,1.000000,Measured street cleanliness,service_outcomes,environment_and_roads,headline,1,ENV03c|2024-25,Stirling,stirling
+S12000039,street_cleanliness,6.666667,1.000000,Measured street cleanliness,service_outcomes,environment_and_roads,headline,1,ENV03c|2024-25,West Dunbartonshire,west-dunbartonshire
+S12000040,street_cleanliness,16.666667,1.000000,Measured street cleanliness,service_outcomes,environment_and_roads,headline,1,ENV03c|2024-25,West Lothian,west-lothian
+S12000033,road_condition,90.322581,1.000000,Road condition across all road classes,service_outcomes,environment_and_roads,headline,4,ENV04b|2025-26;ENV04c|2025-26;ENV04d|2025-26;ENV04e|2025-26,Aberdeen City,aberdeen-city
+S12000034,road_condition,90.322581,1.000000,Road condition across all road classes,service_outcomes,environment_and_roads,headline,4,ENV04b|2025-26;ENV04c|2025-26;ENV04d|2025-26;ENV04e|2025-26,Aberdeenshire,aberdeenshire
+S12000041,road_condition,48.387097,1.000000,Road condition across all road classes,service_outcomes,environment_and_roads,headline,4,ENV04b|2025-26;ENV04c|2025-26;ENV04d|2025-26;ENV04e|2025-26,Angus,angus
+S12000035,road_condition,4.838710,1.000000,Road condition across all road classes,service_outcomes,environment_and_roads,headline,4,ENV04b|2025-26;ENV04c|2025-26;ENV04d|2025-26;ENV04e|2025-26,Argyll and Bute,argyll-and-bute
+S12000036,road_condition,63.709677,1.000000,Road condition across all road classes,service_outcomes,environment_and_roads,headline,4,ENV04b|2025-26;ENV04c|2025-26;ENV04d|2025-26;ENV04e|2025-26,City of Edinburgh,city-of-edinburgh
+S12000005,road_condition,36.290323,1.000000,Road condition across all road classes,service_outcomes,environment_and_roads,headline,4,ENV04b|2025-26;ENV04c|2025-26;ENV04d|2025-26;ENV04e|2025-26,Clackmannanshire,clackmannanshire
+S12000006,road_condition,13.709677,1.000000,Road condition across all road classes,service_outcomes,environment_and_roads,headline,4,ENV04b|2025-26;ENV04c|2025-26;ENV04d|2025-26;ENV04e|2025-26,Dumfries and Galloway,dumfries-and-galloway
+S12000042,road_condition,85.483871,1.000000,Road condition across all road classes,service_outcomes,environment_and_roads,headline,4,ENV04b|2025-26;ENV04c|2025-26;ENV04d|2025-26;ENV04e|2025-26,Dundee City,dundee-city
+S12000008,road_condition,66.935484,1.000000,Road condition across all road classes,service_outcomes,environment_and_roads,headline,4,ENV04b|2025-26;ENV04c|2025-26;ENV04d|2025-26;ENV04e|2025-26,East Ayrshire,east-ayrshire
+S12000045,road_condition,54.838710,1.000000,Road condition across all road classes,service_outcomes,environment_and_roads,headline,4,ENV04b|2025-26;ENV04c|2025-26;ENV04d|2025-26;ENV04e|2025-26,East Dunbartonshire,east-dunbartonshire
+S12000010,road_condition,56.451613,1.000000,Road condition across all road classes,service_outcomes,environment_and_roads,headline,4,ENV04b|2025-26;ENV04c|2025-26;ENV04d|2025-26;ENV04e|2025-26,East Lothian,east-lothian
+S12000011,road_condition,72.580645,1.000000,Road condition across all road classes,service_outcomes,environment_and_roads,headline,4,ENV04b|2025-26;ENV04c|2025-26;ENV04d|2025-26;ENV04e|2025-26,East Renfrewshire,east-renfrewshire
+S12000014,road_condition,39.516129,1.000000,Road condition across all road classes,service_outcomes,environment_and_roads,headline,4,ENV04b|2025-26;ENV04c|2025-26;ENV04d|2025-26;ENV04e|2025-26,Falkirk,falkirk
+S12000047,road_condition,53.225806,1.000000,Road condition across all road classes,service_outcomes,environment_and_roads,headline,4,ENV04b|2025-26;ENV04c|2025-26;ENV04d|2025-26;ENV04e|2025-26,Fife,fife
+S12000049,road_condition,54.838710,1.000000,Road condition across all road classes,service_outcomes,environment_and_roads,headline,4,ENV04b|2025-26;ENV04c|2025-26;ENV04d|2025-26;ENV04e|2025-26,Glasgow City,glasgow-city
+S12000017,road_condition,20.161290,1.000000,Road condition across all road classes,service_outcomes,environment_and_roads,headline,4,ENV04b|2025-26;ENV04c|2025-26;ENV04d|2025-26;ENV04e|2025-26,Highland,highland
+S12000018,road_condition,45.967742,1.000000,Road condition across all road classes,service_outcomes,environment_and_roads,headline,4,ENV04b|2025-26;ENV04c|2025-26;ENV04d|2025-26;ENV04e|2025-26,Inverclyde,inverclyde
+S12000019,road_condition,57.258065,1.000000,Road condition across all road classes,service_outcomes,environment_and_roads,headline,4,ENV04b|2025-26;ENV04c|2025-26;ENV04d|2025-26;ENV04e|2025-26,Midlothian,midlothian
+S12000020,road_condition,73.387097,1.000000,Road condition across all road classes,service_outcomes,environment_and_roads,headline,4,ENV04b|2025-26;ENV04c|2025-26;ENV04d|2025-26;ENV04e|2025-26,Moray,moray
+S12000013,road_condition,20.161290,1.000000,Road condition across all road classes,service_outcomes,environment_and_roads,headline,4,ENV04b|2025-26;ENV04c|2025-26;ENV04d|2025-26;ENV04e|2025-26,Na h-Eileanan Siar,na-h-eileanan-siar
+S12000021,road_condition,58.064516,1.000000,Road condition across all road classes,service_outcomes,environment_and_roads,headline,4,ENV04b|2025-26;ENV04c|2025-26;ENV04d|2025-26;ENV04e|2025-26,North Ayrshire,north-ayrshire
+S12000050,road_condition,58.064516,1.000000,Road condition across all road classes,service_outcomes,environment_and_roads,headline,4,ENV04b|2025-26;ENV04c|2025-26;ENV04d|2025-26;ENV04e|2025-26,North Lanarkshire,north-lanarkshire
+S12000023,road_condition,65.322581,1.000000,Road condition across all road classes,service_outcomes,environment_and_roads,headline,4,ENV04b|2025-26;ENV04c|2025-26;ENV04d|2025-26;ENV04e|2025-26,Orkney Islands,orkney-islands
+S12000048,road_condition,26.612903,1.000000,Road condition across all road classes,service_outcomes,environment_and_roads,headline,4,ENV04b|2025-26;ENV04c|2025-26;ENV04d|2025-26;ENV04e|2025-26,Perth and Kinross,perth-and-kinross
+S12000038,road_condition,69.354839,1.000000,Road condition across all road classes,service_outcomes,environment_and_roads,headline,4,ENV04b|2025-26;ENV04c|2025-26;ENV04d|2025-26;ENV04e|2025-26,Renfrewshire,renfrewshire
+S12000026,road_condition,9.677419,1.000000,Road condition across all road classes,service_outcomes,environment_and_roads,headline,4,ENV04b|2025-26;ENV04c|2025-26;ENV04d|2025-26;ENV04e|2025-26,Scottish Borders,scottish-borders
+S12000027,road_condition,52.419355,1.000000,Road condition across all road classes,service_outcomes,environment_and_roads,headline,4,ENV04b|2025-26;ENV04c|2025-26;ENV04d|2025-26;ENV04e|2025-26,Shetland Islands,shetland-islands
+S12000028,road_condition,50.000000,1.000000,Road condition across all road classes,service_outcomes,environment_and_roads,headline,4,ENV04b|2025-26;ENV04c|2025-26;ENV04d|2025-26;ENV04e|2025-26,South Ayrshire,south-ayrshire
+S12000029,road_condition,53.225806,1.000000,Road condition across all road classes,service_outcomes,environment_and_roads,headline,4,ENV04b|2025-26;ENV04c|2025-26;ENV04d|2025-26;ENV04e|2025-26,South Lanarkshire,south-lanarkshire
+S12000030,road_condition,4.838710,1.000000,Road condition across all road classes,service_outcomes,environment_and_roads,headline,4,ENV04b|2025-26;ENV04c|2025-26;ENV04d|2025-26;ENV04e|2025-26,Stirling,stirling
+S12000039,road_condition,63.709677,1.000000,Road condition across all road classes,service_outcomes,environment_and_roads,headline,4,ENV04b|2025-26;ENV04c|2025-26;ENV04d|2025-26;ENV04e|2025-26,West Dunbartonshire,west-dunbartonshire
+S12000040,road_condition,40.322581,1.000000,Road condition across all road classes,service_outcomes,environment_and_roads,headline,4,ENV04b|2025-26;ENV04c|2025-26;ENV04d|2025-26;ENV04e|2025-26,West Lothian,west-lothian
+S12000033,recycling,35.483871,1.000000,Household waste recycled,service_outcomes,environment_and_roads,headline,1,ENV06|2024-25,Aberdeen City,aberdeen-city
+S12000034,recycling,45.161290,1.000000,Household waste recycled,service_outcomes,environment_and_roads,headline,1,ENV06|2024-25,Aberdeenshire,aberdeenshire
+S12000041,recycling,85.483871,1.000000,Household waste recycled,service_outcomes,environment_and_roads,headline,1,ENV06|2024-25,Angus,angus
+S12000035,recycling,27.419355,1.000000,Household waste recycled,service_outcomes,environment_and_roads,headline,1,ENV06|2024-25,Argyll and Bute,argyll-and-bute
+S12000036,recycling,12.903226,1.000000,Household waste recycled,service_outcomes,environment_and_roads,headline,1,ENV06|2024-25,City of Edinburgh,city-of-edinburgh
+S12000005,recycling,100.000000,1.000000,Household waste recycled,service_outcomes,environment_and_roads,headline,1,ENV06|2024-25,Clackmannanshire,clackmannanshire
+S12000006,recycling,38.709677,1.000000,Household waste recycled,service_outcomes,environment_and_roads,headline,1,ENV06|2024-25,Dumfries and Galloway,dumfries-and-galloway
+S12000042,recycling,9.677419,1.000000,Household waste recycled,service_outcomes,environment_and_roads,headline,1,ENV06|2024-25,Dundee City,dundee-city
+S12000008,recycling,54.838710,1.000000,Household waste recycled,service_outcomes,environment_and_roads,headline,1,ENV06|2024-25,East Ayrshire,east-ayrshire
+S12000045,recycling,90.322581,1.000000,Household waste recycled,service_outcomes,environment_and_roads,headline,1,ENV06|2024-25,East Dunbartonshire,east-dunbartonshire
+S12000010,recycling,93.548387,1.000000,Household waste recycled,service_outcomes,environment_and_roads,headline,1,ENV06|2024-25,East Lothian,east-lothian
+S12000011,recycling,66.129032,1.000000,Household waste recycled,service_outcomes,environment_and_roads,headline,1,ENV06|2024-25,East Renfrewshire,east-renfrewshire
+S12000014,recycling,70.967742,1.000000,Household waste recycled,service_outcomes,environment_and_roads,headline,1,ENV06|2024-25,Falkirk,falkirk
+S12000047,recycling,41.935484,1.000000,Household waste recycled,service_outcomes,environment_and_roads,headline,1,ENV06|2024-25,Fife,fife
+S12000049,recycling,6.451613,1.000000,Household waste recycled,service_outcomes,environment_and_roads,headline,1,ENV06|2024-25,Glasgow City,glasgow-city
+S12000017,recycling,27.419355,1.000000,Household waste recycled,service_outcomes,environment_and_roads,headline,1,ENV06|2024-25,Highland,highland
+S12000018,recycling,61.290323,1.000000,Household waste recycled,service_outcomes,environment_and_roads,headline,1,ENV06|2024-25,Inverclyde,inverclyde
+S12000019,recycling,51.612903,1.000000,Household waste recycled,service_outcomes,environment_and_roads,headline,1,ENV06|2024-25,Midlothian,midlothian
+S12000020,recycling,96.774194,1.000000,Household waste recycled,service_outcomes,environment_and_roads,headline,1,ENV06|2024-25,Moray,moray
+S12000013,recycling,19.354839,1.000000,Household waste recycled,service_outcomes,environment_and_roads,headline,1,ENV06|2024-25,Na h-Eileanan Siar,na-h-eileanan-siar
+S12000021,recycling,74.193548,1.000000,Household waste recycled,service_outcomes,environment_and_roads,headline,1,ENV06|2024-25,North Ayrshire,north-ayrshire
+S12000050,recycling,48.387097,1.000000,Household waste recycled,service_outcomes,environment_and_roads,headline,1,ENV06|2024-25,North Lanarkshire,north-lanarkshire
+S12000023,recycling,3.225806,1.000000,Household waste recycled,service_outcomes,environment_and_roads,headline,1,ENV06|2024-25,Orkney Islands,orkney-islands
+S12000048,recycling,66.129032,1.000000,Household waste recycled,service_outcomes,environment_and_roads,headline,1,ENV06|2024-25,Perth and Kinross,perth-and-kinross
+S12000038,recycling,32.258065,1.000000,Household waste recycled,service_outcomes,environment_and_roads,headline,1,ENV06|2024-25,Renfrewshire,renfrewshire
+S12000026,recycling,79.032258,1.000000,Household waste recycled,service_outcomes,environment_and_roads,headline,1,ENV06|2024-25,Scottish Borders,scottish-borders
+S12000027,recycling,0.000000,1.000000,Household waste recycled,service_outcomes,environment_and_roads,headline,1,ENV06|2024-25,Shetland Islands,shetland-islands
+S12000028,recycling,85.483871,1.000000,Household waste recycled,service_outcomes,environment_and_roads,headline,1,ENV06|2024-25,South Ayrshire,south-ayrshire
+S12000029,recycling,22.580645,1.000000,Household waste recycled,service_outcomes,environment_and_roads,headline,1,ENV06|2024-25,South Lanarkshire,south-lanarkshire
+S12000030,recycling,79.032258,1.000000,Household waste recycled,service_outcomes,environment_and_roads,headline,1,ENV06|2024-25,Stirling,stirling
+S12000039,recycling,16.129032,1.000000,Household waste recycled,service_outcomes,environment_and_roads,headline,1,ENV06|2024-25,West Dunbartonshire,west-dunbartonshire
+S12000040,recycling,58.064516,1.000000,Household waste recycled,service_outcomes,environment_and_roads,headline,1,ENV06|2024-25,West Lothian,west-lothian
+S12000033,care_quality,19.354839,1.000000,Adult-care services graded good or better,service_outcomes,adult_care,headline,1,SW07|2025-26,Aberdeen City,aberdeen-city
+S12000034,care_quality,35.483871,1.000000,Adult-care services graded good or better,service_outcomes,adult_care,headline,1,SW07|2025-26,Aberdeenshire,aberdeenshire
+S12000041,care_quality,0.000000,1.000000,Adult-care services graded good or better,service_outcomes,adult_care,headline,1,SW07|2025-26,Angus,angus
+S12000035,care_quality,6.451613,1.000000,Adult-care services graded good or better,service_outcomes,adult_care,headline,1,SW07|2025-26,Argyll and Bute,argyll-and-bute
+S12000036,care_quality,58.064516,1.000000,Adult-care services graded good or better,service_outcomes,adult_care,headline,1,SW07|2025-26,City of Edinburgh,city-of-edinburgh
+S12000005,care_quality,93.548387,1.000000,Adult-care services graded good or better,service_outcomes,adult_care,headline,1,SW07|2025-26,Clackmannanshire,clackmannanshire
+S12000006,care_quality,41.935484,1.000000,Adult-care services graded good or better,service_outcomes,adult_care,headline,1,SW07|2025-26,Dumfries and Galloway,dumfries-and-galloway
+S12000042,care_quality,16.129032,1.000000,Adult-care services graded good or better,service_outcomes,adult_care,headline,1,SW07|2025-26,Dundee City,dundee-city
+S12000008,care_quality,11.290323,1.000000,Adult-care services graded good or better,service_outcomes,adult_care,headline,1,SW07|2025-26,East Ayrshire,east-ayrshire
+S12000045,care_quality,83.870968,1.000000,Adult-care services graded good or better,service_outcomes,adult_care,headline,1,SW07|2025-26,East Dunbartonshire,east-dunbartonshire
+S12000010,care_quality,48.387097,1.000000,Adult-care services graded good or better,service_outcomes,adult_care,headline,1,SW07|2025-26,East Lothian,east-lothian
+S12000011,care_quality,100.000000,1.000000,Adult-care services graded good or better,service_outcomes,adult_care,headline,1,SW07|2025-26,East Renfrewshire,east-renfrewshire
+S12000014,care_quality,90.322581,1.000000,Adult-care services graded good or better,service_outcomes,adult_care,headline,1,SW07|2025-26,Falkirk,falkirk
+S12000047,care_quality,29.032258,1.000000,Adult-care services graded good or better,service_outcomes,adult_care,headline,1,SW07|2025-26,Fife,fife
+S12000049,care_quality,96.774194,1.000000,Adult-care services graded good or better,service_outcomes,adult_care,headline,1,SW07|2025-26,Glasgow City,glasgow-city
+S12000017,care_quality,45.161290,1.000000,Adult-care services graded good or better,service_outcomes,adult_care,headline,1,SW07|2025-26,Highland,highland
+S12000018,care_quality,32.258065,1.000000,Adult-care services graded good or better,service_outcomes,adult_care,headline,1,SW07|2025-26,Inverclyde,inverclyde
+S12000019,care_quality,22.580645,1.000000,Adult-care services graded good or better,service_outcomes,adult_care,headline,1,SW07|2025-26,Midlothian,midlothian
+S12000020,care_quality,70.967742,1.000000,Adult-care services graded good or better,service_outcomes,adult_care,headline,1,SW07|2025-26,Moray,moray
+S12000013,care_quality,64.516129,1.000000,Adult-care services graded good or better,service_outcomes,adult_care,headline,1,SW07|2025-26,Na h-Eileanan Siar,na-h-eileanan-siar
+S12000021,care_quality,87.096774,1.000000,Adult-care services graded good or better,service_outcomes,adult_care,headline,1,SW07|2025-26,North Ayrshire,north-ayrshire
+S12000050,care_quality,80.645161,1.000000,Adult-care services graded good or better,service_outcomes,adult_care,headline,1,SW07|2025-26,North Lanarkshire,north-lanarkshire
+S12000023,care_quality,3.225806,1.000000,Adult-care services graded good or better,service_outcomes,adult_care,headline,1,SW07|2025-26,Orkney Islands,orkney-islands
+S12000048,care_quality,38.709677,1.000000,Adult-care services graded good or better,service_outcomes,adult_care,headline,1,SW07|2025-26,Perth and Kinross,perth-and-kinross
+S12000038,care_quality,25.806452,1.000000,Adult-care services graded good or better,service_outcomes,adult_care,headline,1,SW07|2025-26,Renfrewshire,renfrewshire
+S12000026,care_quality,74.193548,1.000000,Adult-care services graded good or better,service_outcomes,adult_care,headline,1,SW07|2025-26,Scottish Borders,scottish-borders
+S12000027,care_quality,11.290323,1.000000,Adult-care services graded good or better,service_outcomes,adult_care,headline,1,SW07|2025-26,Shetland Islands,shetland-islands
+S12000028,care_quality,51.612903,1.000000,Adult-care services graded good or better,service_outcomes,adult_care,headline,1,SW07|2025-26,South Ayrshire,south-ayrshire
+S12000029,care_quality,67.741935,1.000000,Adult-care services graded good or better,service_outcomes,adult_care,headline,1,SW07|2025-26,South Lanarkshire,south-lanarkshire
+S12000030,care_quality,77.419355,1.000000,Adult-care services graded good or better,service_outcomes,adult_care,headline,1,SW07|2025-26,Stirling,stirling
+S12000039,care_quality,54.838710,1.000000,Adult-care services graded good or better,service_outcomes,adult_care,headline,1,SW07|2025-26,West Dunbartonshire,west-dunbartonshire
+S12000040,care_quality,61.290323,1.000000,Adult-care services graded good or better,service_outcomes,adult_care,headline,1,SW07|2025-26,West Lothian,west-lothian
+S12000033,hospital_coordination,54.838710,1.000000,Readmissions and delayed discharge,service_outcomes,adult_care,headline,2,SW06|2025-26;SW08|2025-26,Aberdeen City,aberdeen-city
+S12000034,hospital_coordination,51.612903,1.000000,Readmissions and delayed discharge,service_outcomes,adult_care,headline,2,SW06|2025-26;SW08|2025-26,Aberdeenshire,aberdeenshire
+S12000041,hospital_coordination,58.064516,1.000000,Readmissions and delayed discharge,service_outcomes,adult_care,headline,2,SW06|2025-26;SW08|2025-26,Angus,angus
+S12000035,hospital_coordination,48.387097,1.000000,Readmissions and delayed discharge,service_outcomes,adult_care,headline,2,SW06|2025-26;SW08|2025-26,Argyll and Bute,argyll-and-bute
+S12000036,hospital_coordination,50.000000,1.000000,Readmissions and delayed discharge,service_outcomes,adult_care,headline,2,SW06|2025-26;SW08|2025-26,City of Edinburgh,city-of-edinburgh
+S12000005,hospital_coordination,30.645161,1.000000,Readmissions and delayed discharge,service_outcomes,adult_care,headline,2,SW06|2025-26;SW08|2025-26,Clackmannanshire,clackmannanshire
+S12000006,hospital_coordination,40.322581,1.000000,Readmissions and delayed discharge,service_outcomes,adult_care,headline,2,SW06|2025-26;SW08|2025-26,Dumfries and Galloway,dumfries-and-galloway
+S12000042,hospital_coordination,48.387097,1.000000,Readmissions and delayed discharge,service_outcomes,adult_care,headline,2,SW06|2025-26;SW08|2025-26,Dundee City,dundee-city
+S12000008,hospital_coordination,41.935484,1.000000,Readmissions and delayed discharge,service_outcomes,adult_care,headline,2,SW06|2025-26;SW08|2025-26,East Ayrshire,east-ayrshire
+S12000045,hospital_coordination,88.709677,1.000000,Readmissions and delayed discharge,service_outcomes,adult_care,headline,2,SW06|2025-26;SW08|2025-26,East Dunbartonshire,east-dunbartonshire
+S12000010,hospital_coordination,62.903226,1.000000,Readmissions and delayed discharge,service_outcomes,adult_care,headline,2,SW06|2025-26;SW08|2025-26,East Lothian,east-lothian
+S12000011,hospital_coordination,88.709677,1.000000,Readmissions and delayed discharge,service_outcomes,adult_care,headline,2,SW06|2025-26;SW08|2025-26,East Renfrewshire,east-renfrewshire
+S12000014,hospital_coordination,16.129032,1.000000,Readmissions and delayed discharge,service_outcomes,adult_care,headline,2,SW06|2025-26;SW08|2025-26,Falkirk,falkirk
+S12000047,hospital_coordination,41.935484,1.000000,Readmissions and delayed discharge,service_outcomes,adult_care,headline,2,SW06|2025-26;SW08|2025-26,Fife,fife
+S12000049,hospital_coordination,48.387097,1.000000,Readmissions and delayed discharge,service_outcomes,adult_care,headline,2,SW06|2025-26;SW08|2025-26,Glasgow City,glasgow-city
+S12000017,hospital_coordination,17.741935,1.000000,Readmissions and delayed discharge,service_outcomes,adult_care,headline,2,SW06|2025-26;SW08|2025-26,Highland,highland
+S12000018,hospital_coordination,75.806452,1.000000,Readmissions and delayed discharge,service_outcomes,adult_care,headline,2,SW06|2025-26;SW08|2025-26,Inverclyde,inverclyde
+S12000019,hospital_coordination,59.677419,1.000000,Readmissions and delayed discharge,service_outcomes,adult_care,headline,2,SW06|2025-26;SW08|2025-26,Midlothian,midlothian
+S12000020,hospital_coordination,67.741935,1.000000,Readmissions and delayed discharge,service_outcomes,adult_care,headline,2,SW06|2025-26;SW08|2025-26,Moray,moray
+S12000013,hospital_coordination,35.483871,1.000000,Readmissions and delayed discharge,service_outcomes,adult_care,headline,2,SW06|2025-26;SW08|2025-26,Na h-Eileanan Siar,na-h-eileanan-siar
+S12000021,hospital_coordination,25.806452,1.000000,Readmissions and delayed discharge,service_outcomes,adult_care,headline,2,SW06|2025-26;SW08|2025-26,North Ayrshire,north-ayrshire
+S12000050,hospital_coordination,32.258065,1.000000,Readmissions and delayed discharge,service_outcomes,adult_care,headline,2,SW06|2025-26;SW08|2025-26,North Lanarkshire,north-lanarkshire
+S12000023,hospital_coordination,56.451613,1.000000,Readmissions and delayed discharge,service_outcomes,adult_care,headline,2,SW06|2025-26;SW08|2025-26,Orkney Islands,orkney-islands
+S12000048,hospital_coordination,37.096774,1.000000,Readmissions and delayed discharge,service_outcomes,adult_care,headline,2,SW06|2025-26;SW08|2025-26,Perth and Kinross,perth-and-kinross
+S12000038,hospital_coordination,90.322581,1.000000,Readmissions and delayed discharge,service_outcomes,adult_care,headline,2,SW06|2025-26;SW08|2025-26,Renfrewshire,renfrewshire
+S12000026,hospital_coordination,25.806452,1.000000,Readmissions and delayed discharge,service_outcomes,adult_care,headline,2,SW06|2025-26;SW08|2025-26,Scottish Borders,scottish-borders
+S12000027,hospital_coordination,64.516129,1.000000,Readmissions and delayed discharge,service_outcomes,adult_care,headline,2,SW06|2025-26;SW08|2025-26,Shetland Islands,shetland-islands
+S12000028,hospital_coordination,22.580645,1.000000,Readmissions and delayed discharge,service_outcomes,adult_care,headline,2,SW06|2025-26;SW08|2025-26,South Ayrshire,south-ayrshire
+S12000029,hospital_coordination,54.838710,1.000000,Readmissions and delayed discharge,service_outcomes,adult_care,headline,2,SW06|2025-26;SW08|2025-26,South Lanarkshire,south-lanarkshire
+S12000030,hospital_coordination,41.935484,1.000000,Readmissions and delayed discharge,service_outcomes,adult_care,headline,2,SW06|2025-26;SW08|2025-26,Stirling,stirling
+S12000039,hospital_coordination,45.161290,1.000000,Readmissions and delayed discharge,service_outcomes,adult_care,headline,2,SW06|2025-26;SW08|2025-26,West Dunbartonshire,west-dunbartonshire
+S12000040,hospital_coordination,75.806452,1.000000,Readmissions and delayed discharge,service_outcomes,adult_care,headline,2,SW06|2025-26;SW08|2025-26,West Lothian,west-lothian
+S12000033,gender_pay_gap,3.225806,1.000000,Council gender pay gap,council_management,workplace_fairness,headline,1,CORP03c|2024-25,Aberdeen City,aberdeen-city
+S12000034,gender_pay_gap,70.967742,1.000000,Council gender pay gap,council_management,workplace_fairness,headline,1,CORP03c|2024-25,Aberdeenshire,aberdeenshire
+S12000041,gender_pay_gap,41.935484,1.000000,Council gender pay gap,council_management,workplace_fairness,headline,1,CORP03c|2024-25,Angus,angus
+S12000035,gender_pay_gap,19.354839,1.000000,Council gender pay gap,council_management,workplace_fairness,headline,1,CORP03c|2024-25,Argyll and Bute,argyll-and-bute
+S12000036,gender_pay_gap,90.322581,1.000000,Council gender pay gap,council_management,workplace_fairness,headline,1,CORP03c|2024-25,City of Edinburgh,city-of-edinburgh
+S12000005,gender_pay_gap,51.612903,1.000000,Council gender pay gap,council_management,workplace_fairness,headline,1,CORP03c|2024-25,Clackmannanshire,clackmannanshire
+S12000006,gender_pay_gap,46.774194,1.000000,Council gender pay gap,council_management,workplace_fairness,headline,1,CORP03c|2024-25,Dumfries and Galloway,dumfries-and-galloway
+S12000042,gender_pay_gap,62.903226,1.000000,Council gender pay gap,council_management,workplace_fairness,headline,1,CORP03c|2024-25,Dundee City,dundee-city
+S12000008,gender_pay_gap,9.677419,1.000000,Council gender pay gap,council_management,workplace_fairness,headline,1,CORP03c|2024-25,East Ayrshire,east-ayrshire
+S12000045,gender_pay_gap,33.870968,1.000000,Council gender pay gap,council_management,workplace_fairness,headline,1,CORP03c|2024-25,East Dunbartonshire,east-dunbartonshire
+S12000010,gender_pay_gap,79.032258,1.000000,Council gender pay gap,council_management,workplace_fairness,headline,1,CORP03c|2024-25,East Lothian,east-lothian
+S12000011,gender_pay_gap,6.451613,1.000000,Council gender pay gap,council_management,workplace_fairness,headline,1,CORP03c|2024-25,East Renfrewshire,east-renfrewshire
+S12000014,gender_pay_gap,29.032258,1.000000,Council gender pay gap,council_management,workplace_fairness,headline,1,CORP03c|2024-25,Falkirk,falkirk
+S12000047,gender_pay_gap,90.322581,1.000000,Council gender pay gap,council_management,workplace_fairness,headline,1,CORP03c|2024-25,Fife,fife
+S12000049,gender_pay_gap,79.032258,1.000000,Council gender pay gap,council_management,workplace_fairness,headline,1,CORP03c|2024-25,Glasgow City,glasgow-city
+S12000017,gender_pay_gap,38.709677,1.000000,Council gender pay gap,council_management,workplace_fairness,headline,1,CORP03c|2024-25,Highland,highland
+S12000018,gender_pay_gap,25.806452,1.000000,Council gender pay gap,council_management,workplace_fairness,headline,1,CORP03c|2024-25,Inverclyde,inverclyde
+S12000019,gender_pay_gap,46.774194,1.000000,Council gender pay gap,council_management,workplace_fairness,headline,1,CORP03c|2024-25,Midlothian,midlothian
+S12000020,gender_pay_gap,14.516129,1.000000,Council gender pay gap,council_management,workplace_fairness,headline,1,CORP03c|2024-25,Moray,moray
+S12000013,gender_pay_gap,0.000000,1.000000,Council gender pay gap,council_management,workplace_fairness,headline,1,CORP03c|2024-25,Na h-Eileanan Siar,na-h-eileanan-siar
+S12000021,gender_pay_gap,90.322581,1.000000,Council gender pay gap,council_management,workplace_fairness,headline,1,CORP03c|2024-25,North Ayrshire,north-ayrshire
+S12000050,gender_pay_gap,14.516129,1.000000,Council gender pay gap,council_management,workplace_fairness,headline,1,CORP03c|2024-25,North Lanarkshire,north-lanarkshire
+S12000023,gender_pay_gap,33.870968,1.000000,Council gender pay gap,council_management,workplace_fairness,headline,1,CORP03c|2024-25,Orkney Islands,orkney-islands
+S12000048,gender_pay_gap,54.838710,1.000000,Council gender pay gap,council_management,workplace_fairness,headline,1,CORP03c|2024-25,Perth and Kinross,perth-and-kinross
+S12000038,gender_pay_gap,83.870968,1.000000,Council gender pay gap,council_management,workplace_fairness,headline,1,CORP03c|2024-25,Renfrewshire,renfrewshire
+S12000026,gender_pay_gap,58.064516,1.000000,Council gender pay gap,council_management,workplace_fairness,headline,1,CORP03c|2024-25,Scottish Borders,scottish-borders
+S12000027,gender_pay_gap,22.580645,1.000000,Council gender pay gap,council_management,workplace_fairness,headline,1,CORP03c|2024-25,Shetland Islands,shetland-islands
+S12000028,gender_pay_gap,67.741935,1.000000,Council gender pay gap,council_management,workplace_fairness,headline,1,CORP03c|2024-25,South Ayrshire,south-ayrshire
+S12000029,gender_pay_gap,62.903226,1.000000,Council gender pay gap,council_management,workplace_fairness,headline,1,CORP03c|2024-25,South Lanarkshire,south-lanarkshire
+S12000030,gender_pay_gap,96.774194,1.000000,Council gender pay gap,council_management,workplace_fairness,headline,1,CORP03c|2024-25,Stirling,stirling
+S12000039,gender_pay_gap,100.000000,1.000000,Council gender pay gap,council_management,workplace_fairness,headline,1,CORP03c|2024-25,West Dunbartonshire,west-dunbartonshire
+S12000040,gender_pay_gap,74.193548,1.000000,Council gender pay gap,council_management,workplace_fairness,headline,1,CORP03c|2024-25,West Lothian,west-lothian
+S12000033,staff_sickness,69.354839,1.000000,Teacher and non-teacher sickness absence,council_management,workforce_resilience,headline,2,CORP06a|2024-25;CORP06b|2024-25,Aberdeen City,aberdeen-city
+S12000034,staff_sickness,88.709677,1.000000,Teacher and non-teacher sickness absence,council_management,workforce_resilience,headline,2,CORP06a|2024-25;CORP06b|2024-25,Aberdeenshire,aberdeenshire
+S12000041,staff_sickness,58.064516,1.000000,Teacher and non-teacher sickness absence,council_management,workforce_resilience,headline,2,CORP06a|2024-25;CORP06b|2024-25,Angus,angus
+S12000035,staff_sickness,9.677419,1.000000,Teacher and non-teacher sickness absence,council_management,workforce_resilience,headline,2,CORP06a|2024-25;CORP06b|2024-25,Argyll and Bute,argyll-and-bute
+S12000036,staff_sickness,35.483871,1.000000,Teacher and non-teacher sickness absence,council_management,workforce_resilience,headline,2,CORP06a|2024-25;CORP06b|2024-25,City of Edinburgh,city-of-edinburgh
+S12000005,staff_sickness,19.354839,1.000000,Teacher and non-teacher sickness absence,council_management,workforce_resilience,headline,2,CORP06a|2024-25;CORP06b|2024-25,Clackmannanshire,clackmannanshire
+S12000006,staff_sickness,38.709677,1.000000,Teacher and non-teacher sickness absence,council_management,workforce_resilience,headline,2,CORP06a|2024-25;CORP06b|2024-25,Dumfries and Galloway,dumfries-and-galloway
+S12000042,staff_sickness,30.645161,1.000000,Teacher and non-teacher sickness absence,council_management,workforce_resilience,headline,2,CORP06a|2024-25;CORP06b|2024-25,Dundee City,dundee-city
+S12000008,staff_sickness,20.967742,1.000000,Teacher and non-teacher sickness absence,council_management,workforce_resilience,headline,2,CORP06a|2024-25;CORP06b|2024-25,East Ayrshire,east-ayrshire
+S12000045,staff_sickness,61.290323,1.000000,Teacher and non-teacher sickness absence,council_management,workforce_resilience,headline,2,CORP06a|2024-25;CORP06b|2024-25,East Dunbartonshire,east-dunbartonshire
+S12000010,staff_sickness,50.000000,1.000000,Teacher and non-teacher sickness absence,council_management,workforce_resilience,headline,2,CORP06a|2024-25;CORP06b|2024-25,East Lothian,east-lothian
+S12000011,staff_sickness,88.709677,1.000000,Teacher and non-teacher sickness absence,council_management,workforce_resilience,headline,2,CORP06a|2024-25;CORP06b|2024-25,East Renfrewshire,east-renfrewshire
+S12000014,staff_sickness,85.483871,1.000000,Teacher and non-teacher sickness absence,council_management,workforce_resilience,headline,2,CORP06a|2024-25;CORP06b|2024-25,Falkirk,falkirk
+S12000047,staff_sickness,24.193548,1.000000,Teacher and non-teacher sickness absence,council_management,workforce_resilience,headline,2,CORP06a|2024-25;CORP06b|2024-25,Fife,fife
+S12000049,staff_sickness,88.709677,1.000000,Teacher and non-teacher sickness absence,council_management,workforce_resilience,headline,2,CORP06a|2024-25;CORP06b|2024-25,Glasgow City,glasgow-city
+S12000017,staff_sickness,24.193548,1.000000,Teacher and non-teacher sickness absence,council_management,workforce_resilience,headline,2,CORP06a|2024-25;CORP06b|2024-25,Highland,highland
+S12000018,staff_sickness,27.419355,1.000000,Teacher and non-teacher sickness absence,council_management,workforce_resilience,headline,2,CORP06a|2024-25;CORP06b|2024-25,Inverclyde,inverclyde
+S12000019,staff_sickness,90.322581,1.000000,Teacher and non-teacher sickness absence,council_management,workforce_resilience,headline,2,CORP06a|2024-25;CORP06b|2024-25,Midlothian,midlothian
+S12000020,staff_sickness,14.516129,1.000000,Teacher and non-teacher sickness absence,council_management,workforce_resilience,headline,2,CORP06a|2024-25;CORP06b|2024-25,Moray,moray
+S12000013,staff_sickness,67.741935,1.000000,Teacher and non-teacher sickness absence,council_management,workforce_resilience,headline,2,CORP06a|2024-25;CORP06b|2024-25,Na h-Eileanan Siar,na-h-eileanan-siar
+S12000021,staff_sickness,38.709677,1.000000,Teacher and non-teacher sickness absence,council_management,workforce_resilience,headline,2,CORP06a|2024-25;CORP06b|2024-25,North Ayrshire,north-ayrshire
+S12000050,staff_sickness,61.290323,1.000000,Teacher and non-teacher sickness absence,council_management,workforce_resilience,headline,2,CORP06a|2024-25;CORP06b|2024-25,North Lanarkshire,north-lanarkshire
+S12000023,staff_sickness,43.548387,1.000000,Teacher and non-teacher sickness absence,council_management,workforce_resilience,headline,2,CORP06a|2024-25;CORP06b|2024-25,Orkney Islands,orkney-islands
+S12000048,staff_sickness,80.645161,1.000000,Teacher and non-teacher sickness absence,council_management,workforce_resilience,headline,2,CORP06a|2024-25;CORP06b|2024-25,Perth and Kinross,perth-and-kinross
+S12000038,staff_sickness,37.096774,1.000000,Teacher and non-teacher sickness absence,council_management,workforce_resilience,headline,2,CORP06a|2024-25;CORP06b|2024-25,Renfrewshire,renfrewshire
+S12000026,staff_sickness,61.290323,1.000000,Teacher and non-teacher sickness absence,council_management,workforce_resilience,headline,2,CORP06a|2024-25;CORP06b|2024-25,Scottish Borders,scottish-borders
+S12000027,staff_sickness,64.516129,1.000000,Teacher and non-teacher sickness absence,council_management,workforce_resilience,headline,2,CORP06a|2024-25;CORP06b|2024-25,Shetland Islands,shetland-islands
+S12000028,staff_sickness,96.774194,1.000000,Teacher and non-teacher sickness absence,council_management,workforce_resilience,headline,2,CORP06a|2024-25;CORP06b|2024-25,South Ayrshire,south-ayrshire
+S12000029,staff_sickness,29.032258,1.000000,Teacher and non-teacher sickness absence,council_management,workforce_resilience,headline,2,CORP06a|2024-25;CORP06b|2024-25,South Lanarkshire,south-lanarkshire
+S12000030,staff_sickness,16.129032,1.000000,Teacher and non-teacher sickness absence,council_management,workforce_resilience,headline,2,CORP06a|2024-25;CORP06b|2024-25,Stirling,stirling
+S12000039,staff_sickness,40.322581,1.000000,Teacher and non-teacher sickness absence,council_management,workforce_resilience,headline,2,CORP06a|2024-25;CORP06b|2024-25,West Dunbartonshire,west-dunbartonshire
+S12000040,staff_sickness,37.096774,1.000000,Teacher and non-teacher sickness absence,council_management,workforce_resilience,headline,2,CORP06a|2024-25;CORP06b|2024-25,West Lothian,west-lothian
+S12000033,financial_admin,24.193548,1.000000,Council-tax collection and invoice payment,council_management,financial_admin,headline,2,CORP07|2024-25;CORP08|2024-25,Aberdeen City,aberdeen-city
+S12000034,financial_admin,51.612903,1.000000,Council-tax collection and invoice payment,council_management,financial_admin,headline,2,CORP07|2024-25;CORP08|2024-25,Aberdeenshire,aberdeenshire
+S12000041,financial_admin,46.774194,1.000000,Council-tax collection and invoice payment,council_management,financial_admin,headline,2,CORP07|2024-25;CORP08|2024-25,Angus,angus
+S12000035,financial_admin,69.354839,1.000000,Council-tax collection and invoice payment,council_management,financial_admin,headline,2,CORP07|2024-25;CORP08|2024-25,Argyll and Bute,argyll-and-bute
+S12000036,financial_admin,67.741935,1.000000,Council-tax collection and invoice payment,council_management,financial_admin,headline,2,CORP07|2024-25;CORP08|2024-25,City of Edinburgh,city-of-edinburgh
+S12000005,financial_admin,48.387097,1.000000,Council-tax collection and invoice payment,council_management,financial_admin,headline,2,CORP07|2024-25;CORP08|2024-25,Clackmannanshire,clackmannanshire
+S12000006,financial_admin,96.774194,1.000000,Council-tax collection and invoice payment,council_management,financial_admin,headline,2,CORP07|2024-25;CORP08|2024-25,Dumfries and Galloway,dumfries-and-galloway
+S12000042,financial_admin,30.645161,1.000000,Council-tax collection and invoice payment,council_management,financial_admin,headline,2,CORP07|2024-25;CORP08|2024-25,Dundee City,dundee-city
+S12000008,financial_admin,48.387097,1.000000,Council-tax collection and invoice payment,council_management,financial_admin,headline,2,CORP07|2024-25;CORP08|2024-25,East Ayrshire,east-ayrshire
+S12000045,financial_admin,41.935484,1.000000,Council-tax collection and invoice payment,council_management,financial_admin,headline,2,CORP07|2024-25;CORP08|2024-25,East Dunbartonshire,east-dunbartonshire
+S12000010,financial_admin,43.548387,1.000000,Council-tax collection and invoice payment,council_management,financial_admin,headline,2,CORP07|2024-25;CORP08|2024-25,East Lothian,east-lothian
+S12000011,financial_admin,83.870968,1.000000,Council-tax collection and invoice payment,council_management,financial_admin,headline,2,CORP07|2024-25;CORP08|2024-25,East Renfrewshire,east-renfrewshire
+S12000014,financial_admin,80.645161,1.000000,Council-tax collection and invoice payment,council_management,financial_admin,headline,2,CORP07|2024-25;CORP08|2024-25,Falkirk,falkirk
+S12000047,financial_admin,61.290323,1.000000,Council-tax collection and invoice payment,council_management,financial_admin,headline,2,CORP07|2024-25;CORP08|2024-25,Fife,fife
+S12000049,financial_admin,32.258065,1.000000,Council-tax collection and invoice payment,council_management,financial_admin,headline,2,CORP07|2024-25;CORP08|2024-25,Glasgow City,glasgow-city
+S12000017,financial_admin,35.483871,1.000000,Council-tax collection and invoice payment,council_management,financial_admin,headline,2,CORP07|2024-25;CORP08|2024-25,Highland,highland
+S12000018,financial_admin,50.000000,1.000000,Council-tax collection and invoice payment,council_management,financial_admin,headline,2,CORP07|2024-25;CORP08|2024-25,Inverclyde,inverclyde
+S12000019,financial_admin,30.645161,1.000000,Council-tax collection and invoice payment,council_management,financial_admin,headline,2,CORP07|2024-25;CORP08|2024-25,Midlothian,midlothian
+S12000020,financial_admin,37.096774,1.000000,Council-tax collection and invoice payment,council_management,financial_admin,headline,2,CORP07|2024-25;CORP08|2024-25,Moray,moray
+S12000013,financial_admin,6.451613,1.000000,Council-tax collection and invoice payment,council_management,financial_admin,headline,2,CORP07|2024-25;CORP08|2024-25,Na h-Eileanan Siar,na-h-eileanan-siar
+S12000021,financial_admin,50.000000,1.000000,Council-tax collection and invoice payment,council_management,financial_admin,headline,2,CORP07|2024-25;CORP08|2024-25,North Ayrshire,north-ayrshire
+S12000050,financial_admin,32.258065,1.000000,Council-tax collection and invoice payment,council_management,financial_admin,headline,2,CORP07|2024-25;CORP08|2024-25,North Lanarkshire,north-lanarkshire
+S12000023,financial_admin,40.322581,1.000000,Council-tax collection and invoice payment,council_management,financial_admin,headline,2,CORP07|2024-25;CORP08|2024-25,Orkney Islands,orkney-islands
+S12000048,financial_admin,75.806452,1.000000,Council-tax collection and invoice payment,council_management,financial_admin,headline,2,CORP07|2024-25;CORP08|2024-25,Perth and Kinross,perth-and-kinross
+S12000038,financial_admin,58.064516,1.000000,Council-tax collection and invoice payment,council_management,financial_admin,headline,2,CORP07|2024-25;CORP08|2024-25,Renfrewshire,renfrewshire
+S12000026,financial_admin,64.516129,1.000000,Council-tax collection and invoice payment,council_management,financial_admin,headline,2,CORP07|2024-25;CORP08|2024-25,Scottish Borders,scottish-borders
+S12000027,financial_admin,61.290323,1.000000,Council-tax collection and invoice payment,council_management,financial_admin,headline,2,CORP07|2024-25;CORP08|2024-25,Shetland Islands,shetland-islands
+S12000028,financial_admin,20.967742,1.000000,Council-tax collection and invoice payment,council_management,financial_admin,headline,2,CORP07|2024-25;CORP08|2024-25,South Ayrshire,south-ayrshire
+S12000029,financial_admin,58.064516,1.000000,Council-tax collection and invoice payment,council_management,financial_admin,headline,2,CORP07|2024-25;CORP08|2024-25,South Lanarkshire,south-lanarkshire
+S12000030,financial_admin,50.000000,1.000000,Council-tax collection and invoice payment,council_management,financial_admin,headline,2,CORP07|2024-25;CORP08|2024-25,Stirling,stirling
+S12000039,financial_admin,17.741935,1.000000,Council-tax collection and invoice payment,council_management,financial_admin,headline,2,CORP07|2024-25;CORP08|2024-25,West Dunbartonshire,west-dunbartonshire
+S12000040,financial_admin,83.870968,1.000000,Council-tax collection and invoice payment,council_management,financial_admin,headline,2,CORP07|2024-25;CORP08|2024-25,West Lothian,west-lothian
+S12000033,planning_speed,45.161290,1.000000,Business and industry planning speed,council_management,planning,headline,1,ECON03|2024-25,Aberdeen City,aberdeen-city
+S12000034,planning_speed,74.193548,1.000000,Business and industry planning speed,council_management,planning,headline,1,ECON03|2024-25,Aberdeenshire,aberdeenshire
+S12000041,planning_speed,93.548387,1.000000,Business and industry planning speed,council_management,planning,headline,1,ECON03|2024-25,Angus,angus
+S12000035,planning_speed,3.225806,1.000000,Business and industry planning speed,council_management,planning,headline,1,ECON03|2024-25,Argyll and Bute,argyll-and-bute
+S12000036,planning_speed,67.741935,1.000000,Business and industry planning speed,council_management,planning,headline,1,ECON03|2024-25,City of Edinburgh,city-of-edinburgh
+S12000005,planning_speed,61.290323,1.000000,Business and industry planning speed,council_management,planning,headline,1,ECON03|2024-25,Clackmannanshire,clackmannanshire
+S12000006,planning_speed,35.483871,1.000000,Business and industry planning speed,council_management,planning,headline,1,ECON03|2024-25,Dumfries and Galloway,dumfries-and-galloway
+S12000042,planning_speed,64.516129,1.000000,Business and industry planning speed,council_management,planning,headline,1,ECON03|2024-25,Dundee City,dundee-city
+S12000008,planning_speed,22.580645,1.000000,Business and industry planning speed,council_management,planning,headline,1,ECON03|2024-25,East Ayrshire,east-ayrshire
+S12000045,planning_speed,80.645161,1.000000,Business and industry planning speed,council_management,planning,headline,1,ECON03|2024-25,East Dunbartonshire,east-dunbartonshire
+S12000010,planning_speed,83.870968,1.000000,Business and industry planning speed,council_management,planning,headline,1,ECON03|2024-25,East Lothian,east-lothian
+S12000011,planning_speed,29.032258,1.000000,Business and industry planning speed,council_management,planning,headline,1,ECON03|2024-25,East Renfrewshire,east-renfrewshire
+S12000014,planning_speed,25.806452,1.000000,Business and industry planning speed,council_management,planning,headline,1,ECON03|2024-25,Falkirk,falkirk
+S12000047,planning_speed,32.258065,1.000000,Business and industry planning speed,council_management,planning,headline,1,ECON03|2024-25,Fife,fife
+S12000049,planning_speed,58.064516,1.000000,Business and industry planning speed,council_management,planning,headline,1,ECON03|2024-25,Glasgow City,glasgow-city
+S12000017,planning_speed,19.354839,1.000000,Business and industry planning speed,council_management,planning,headline,1,ECON03|2024-25,Highland,highland
+S12000018,planning_speed,16.129032,1.000000,Business and industry planning speed,council_management,planning,headline,1,ECON03|2024-25,Inverclyde,inverclyde
+S12000019,planning_speed,0.000000,1.000000,Business and industry planning speed,council_management,planning,headline,1,ECON03|2024-25,Midlothian,midlothian
+S12000020,planning_speed,77.419355,1.000000,Business and industry planning speed,council_management,planning,headline,1,ECON03|2024-25,Moray,moray
+S12000013,planning_speed,38.709677,1.000000,Business and industry planning speed,council_management,planning,headline,1,ECON03|2024-25,Na h-Eileanan Siar,na-h-eileanan-siar
+S12000021,planning_speed,100.000000,1.000000,Business and industry planning speed,council_management,planning,headline,1,ECON03|2024-25,North Ayrshire,north-ayrshire
+S12000050,planning_speed,90.322581,1.000000,Business and industry planning speed,council_management,planning,headline,1,ECON03|2024-25,North Lanarkshire,north-lanarkshire
+S12000023,planning_speed,41.935484,1.000000,Business and industry planning speed,council_management,planning,headline,1,ECON03|2024-25,Orkney Islands,orkney-islands
+S12000048,planning_speed,70.967742,1.000000,Business and industry planning speed,council_management,planning,headline,1,ECON03|2024-25,Perth and Kinross,perth-and-kinross
+S12000038,planning_speed,12.903226,1.000000,Business and industry planning speed,council_management,planning,headline,1,ECON03|2024-25,Renfrewshire,renfrewshire
+S12000026,planning_speed,96.774194,1.000000,Business and industry planning speed,council_management,planning,headline,1,ECON03|2024-25,Scottish Borders,scottish-borders
+S12000027,planning_speed,6.451613,1.000000,Business and industry planning speed,council_management,planning,headline,1,ECON03|2024-25,Shetland Islands,shetland-islands
+S12000028,planning_speed,87.096774,1.000000,Business and industry planning speed,council_management,planning,headline,1,ECON03|2024-25,South Ayrshire,south-ayrshire
+S12000029,planning_speed,48.387097,1.000000,Business and industry planning speed,council_management,planning,headline,1,ECON03|2024-25,South Lanarkshire,south-lanarkshire
+S12000030,planning_speed,54.838710,1.000000,Business and industry planning speed,council_management,planning,headline,1,ECON03|2024-25,Stirling,stirling
+S12000039,planning_speed,51.612903,1.000000,Business and industry planning speed,council_management,planning,headline,1,ECON03|2024-25,West Dunbartonshire,west-dunbartonshire
+S12000040,planning_speed,9.677419,1.000000,Business and industry planning speed,council_management,planning,headline,1,ECON03|2024-25,West Lothian,west-lothian
+S12000033,public_assets,53.225806,1.000000,Suitability and condition of council buildings,council_management,public_assets,headline,2,CORP-ASSET01|2024-25;CORP-ASSET02|2024-25,Aberdeen City,aberdeen-city
+S12000034,public_assets,43.548387,1.000000,Suitability and condition of council buildings,council_management,public_assets,headline,2,CORP-ASSET01|2024-25;CORP-ASSET02|2024-25,Aberdeenshire,aberdeenshire
+S12000041,public_assets,91.935484,1.000000,Suitability and condition of council buildings,council_management,public_assets,headline,2,CORP-ASSET01|2024-25;CORP-ASSET02|2024-25,Angus,angus
+S12000035,public_assets,59.677419,1.000000,Suitability and condition of council buildings,council_management,public_assets,headline,2,CORP-ASSET01|2024-25;CORP-ASSET02|2024-25,Argyll and Bute,argyll-and-bute
+S12000036,public_assets,43.548387,1.000000,Suitability and condition of council buildings,council_management,public_assets,headline,2,CORP-ASSET01|2024-25;CORP-ASSET02|2024-25,City of Edinburgh,city-of-edinburgh
+S12000005,public_assets,51.612903,1.000000,Suitability and condition of council buildings,council_management,public_assets,headline,2,CORP-ASSET01|2024-25;CORP-ASSET02|2024-25,Clackmannanshire,clackmannanshire
+S12000006,public_assets,37.096774,1.000000,Suitability and condition of council buildings,council_management,public_assets,headline,2,CORP-ASSET01|2024-25;CORP-ASSET02|2024-25,Dumfries and Galloway,dumfries-and-galloway
+S12000042,public_assets,24.193548,1.000000,Suitability and condition of council buildings,council_management,public_assets,headline,2,CORP-ASSET01|2024-25;CORP-ASSET02|2024-25,Dundee City,dundee-city
+S12000008,public_assets,62.903226,1.000000,Suitability and condition of council buildings,council_management,public_assets,headline,2,CORP-ASSET01|2024-25;CORP-ASSET02|2024-25,East Ayrshire,east-ayrshire
+S12000045,public_assets,43.548387,1.000000,Suitability and condition of council buildings,council_management,public_assets,headline,2,CORP-ASSET01|2024-25;CORP-ASSET02|2024-25,East Dunbartonshire,east-dunbartonshire
+S12000010,public_assets,19.354839,1.000000,Suitability and condition of council buildings,council_management,public_assets,headline,2,CORP-ASSET01|2024-25;CORP-ASSET02|2024-25,East Lothian,east-lothian
+S12000011,public_assets,37.096774,1.000000,Suitability and condition of council buildings,council_management,public_assets,headline,2,CORP-ASSET01|2024-25;CORP-ASSET02|2024-25,East Renfrewshire,east-renfrewshire
+S12000014,public_assets,51.612903,1.000000,Suitability and condition of council buildings,council_management,public_assets,headline,2,CORP-ASSET01|2024-25;CORP-ASSET02|2024-25,Falkirk,falkirk
+S12000047,public_assets,43.548387,1.000000,Suitability and condition of council buildings,council_management,public_assets,headline,2,CORP-ASSET01|2024-25;CORP-ASSET02|2024-25,Fife,fife
+S12000049,public_assets,32.258065,1.000000,Suitability and condition of council buildings,council_management,public_assets,headline,2,CORP-ASSET01|2024-25;CORP-ASSET02|2024-25,Glasgow City,glasgow-city
+S12000017,public_assets,9.677419,1.000000,Suitability and condition of council buildings,council_management,public_assets,headline,2,CORP-ASSET01|2024-25;CORP-ASSET02|2024-25,Highland,highland
+S12000018,public_assets,70.967742,1.000000,Suitability and condition of council buildings,council_management,public_assets,headline,2,CORP-ASSET01|2024-25;CORP-ASSET02|2024-25,Inverclyde,inverclyde
+S12000019,public_assets,8.064516,1.000000,Suitability and condition of council buildings,council_management,public_assets,headline,2,CORP-ASSET01|2024-25;CORP-ASSET02|2024-25,Midlothian,midlothian
+S12000020,public_assets,46.774194,1.000000,Suitability and condition of council buildings,council_management,public_assets,headline,2,CORP-ASSET01|2024-25;CORP-ASSET02|2024-25,Moray,moray
+S12000013,public_assets,20.967742,1.000000,Suitability and condition of council buildings,council_management,public_assets,headline,2,CORP-ASSET01|2024-25;CORP-ASSET02|2024-25,Na h-Eileanan Siar,na-h-eileanan-siar
+S12000021,public_assets,79.032258,1.000000,Suitability and condition of council buildings,council_management,public_assets,headline,2,CORP-ASSET01|2024-25;CORP-ASSET02|2024-25,North Ayrshire,north-ayrshire
+S12000050,public_assets,43.548387,1.000000,Suitability and condition of council buildings,council_management,public_assets,headline,2,CORP-ASSET01|2024-25;CORP-ASSET02|2024-25,North Lanarkshire,north-lanarkshire
+S12000023,public_assets,66.129032,1.000000,Suitability and condition of council buildings,council_management,public_assets,headline,2,CORP-ASSET01|2024-25;CORP-ASSET02|2024-25,Orkney Islands,orkney-islands
+S12000048,public_assets,75.806452,1.000000,Suitability and condition of council buildings,council_management,public_assets,headline,2,CORP-ASSET01|2024-25;CORP-ASSET02|2024-25,Perth and Kinross,perth-and-kinross
+S12000038,public_assets,43.548387,1.000000,Suitability and condition of council buildings,council_management,public_assets,headline,2,CORP-ASSET01|2024-25;CORP-ASSET02|2024-25,Renfrewshire,renfrewshire
+S12000026,public_assets,1.612903,1.000000,Suitability and condition of council buildings,council_management,public_assets,headline,2,CORP-ASSET01|2024-25;CORP-ASSET02|2024-25,Scottish Borders,scottish-borders
+S12000027,public_assets,82.258065,1.000000,Suitability and condition of council buildings,council_management,public_assets,headline,2,CORP-ASSET01|2024-25;CORP-ASSET02|2024-25,Shetland Islands,shetland-islands
+S12000028,public_assets,51.612903,1.000000,Suitability and condition of council buildings,council_management,public_assets,headline,2,CORP-ASSET01|2024-25;CORP-ASSET02|2024-25,South Ayrshire,south-ayrshire
+S12000029,public_assets,61.290323,1.000000,Suitability and condition of council buildings,council_management,public_assets,headline,2,CORP-ASSET01|2024-25;CORP-ASSET02|2024-25,South Lanarkshire,south-lanarkshire
+S12000030,public_assets,82.258065,1.000000,Suitability and condition of council buildings,council_management,public_assets,headline,2,CORP-ASSET01|2024-25;CORP-ASSET02|2024-25,Stirling,stirling
+S12000039,public_assets,70.967742,1.000000,Suitability and condition of council buildings,council_management,public_assets,headline,2,CORP-ASSET01|2024-25;CORP-ASSET02|2024-25,West Dunbartonshire,west-dunbartonshire
+S12000040,public_assets,90.322581,1.000000,Suitability and condition of council buildings,council_management,public_assets,headline,2,CORP-ASSET01|2024-25;CORP-ASSET02|2024-25,West Lothian,west-lothian
+S12000033,budget_accuracy,48.387097,1.000000,Actual spending close to budget,council_management,budget_accuracy,headline,1,FINSUS05|2024-25,Aberdeen City,aberdeen-city
+S12000034,budget_accuracy,61.290323,1.000000,Actual spending close to budget,council_management,budget_accuracy,headline,1,FINSUS05|2024-25,Aberdeenshire,aberdeenshire
+S12000041,budget_accuracy,29.032258,1.000000,Actual spending close to budget,council_management,budget_accuracy,headline,1,FINSUS05|2024-25,Angus,angus
+S12000035,budget_accuracy,87.096774,1.000000,Actual spending close to budget,council_management,budget_accuracy,headline,1,FINSUS05|2024-25,Argyll and Bute,argyll-and-bute
+S12000036,budget_accuracy,90.322581,1.000000,Actual spending close to budget,council_management,budget_accuracy,headline,1,FINSUS05|2024-25,City of Edinburgh,city-of-edinburgh
+S12000005,budget_accuracy,16.129032,1.000000,Actual spending close to budget,council_management,budget_accuracy,headline,1,FINSUS05|2024-25,Clackmannanshire,clackmannanshire
+S12000006,budget_accuracy,80.645161,1.000000,Actual spending close to budget,council_management,budget_accuracy,headline,1,FINSUS05|2024-25,Dumfries and Galloway,dumfries-and-galloway
+S12000042,budget_accuracy,32.258065,1.000000,Actual spending close to budget,council_management,budget_accuracy,headline,1,FINSUS05|2024-25,Dundee City,dundee-city
+S12000008,budget_accuracy,58.064516,1.000000,Actual spending close to budget,council_management,budget_accuracy,headline,1,FINSUS05|2024-25,East Ayrshire,east-ayrshire
+S12000045,budget_accuracy,0.000000,1.000000,Actual spending close to budget,council_management,budget_accuracy,headline,1,FINSUS05|2024-25,East Dunbartonshire,east-dunbartonshire
+S12000010,budget_accuracy,69.354839,1.000000,Actual spending close to budget,council_management,budget_accuracy,headline,1,FINSUS05|2024-25,East Lothian,east-lothian
+S12000011,budget_accuracy,3.225806,1.000000,Actual spending close to budget,council_management,budget_accuracy,headline,1,FINSUS05|2024-25,East Renfrewshire,east-renfrewshire
+S12000014,budget_accuracy,19.354839,1.000000,Actual spending close to budget,council_management,budget_accuracy,headline,1,FINSUS05|2024-25,Falkirk,falkirk
+S12000047,budget_accuracy,77.419355,1.000000,Actual spending close to budget,council_management,budget_accuracy,headline,1,FINSUS05|2024-25,Fife,fife
+S12000049,budget_accuracy,9.677419,1.000000,Actual spending close to budget,council_management,budget_accuracy,headline,1,FINSUS05|2024-25,Glasgow City,glasgow-city
+S12000017,budget_accuracy,41.935484,1.000000,Actual spending close to budget,council_management,budget_accuracy,headline,1,FINSUS05|2024-25,Highland,highland
+S12000018,budget_accuracy,98.387097,1.000000,Actual spending close to budget,council_management,budget_accuracy,headline,1,FINSUS05|2024-25,Inverclyde,inverclyde
+S12000019,budget_accuracy,38.709677,1.000000,Actual spending close to budget,council_management,budget_accuracy,headline,1,FINSUS05|2024-25,Midlothian,midlothian
+S12000020,budget_accuracy,74.193548,1.000000,Actual spending close to budget,council_management,budget_accuracy,headline,1,FINSUS05|2024-25,Moray,moray
+S12000013,budget_accuracy,12.903226,1.000000,Actual spending close to budget,council_management,budget_accuracy,headline,1,FINSUS05|2024-25,Na h-Eileanan Siar,na-h-eileanan-siar
+S12000021,budget_accuracy,45.161290,1.000000,Actual spending close to budget,council_management,budget_accuracy,headline,1,FINSUS05|2024-25,North Ayrshire,north-ayrshire
+S12000050,budget_accuracy,51.612903,1.000000,Actual spending close to budget,council_management,budget_accuracy,headline,1,FINSUS05|2024-25,North Lanarkshire,north-lanarkshire
+S12000023,budget_accuracy,83.870968,1.000000,Actual spending close to budget,council_management,budget_accuracy,headline,1,FINSUS05|2024-25,Orkney Islands,orkney-islands
+S12000048,budget_accuracy,22.580645,1.000000,Actual spending close to budget,council_management,budget_accuracy,headline,1,FINSUS05|2024-25,Perth and Kinross,perth-and-kinross
+S12000038,budget_accuracy,93.548387,1.000000,Actual spending close to budget,council_management,budget_accuracy,headline,1,FINSUS05|2024-25,Renfrewshire,renfrewshire
+S12000026,budget_accuracy,69.354839,1.000000,Actual spending close to budget,council_management,budget_accuracy,headline,1,FINSUS05|2024-25,Scottish Borders,scottish-borders
+S12000027,budget_accuracy,54.838710,1.000000,Actual spending close to budget,council_management,budget_accuracy,headline,1,FINSUS05|2024-25,Shetland Islands,shetland-islands
+S12000028,budget_accuracy,64.516129,1.000000,Actual spending close to budget,council_management,budget_accuracy,headline,1,FINSUS05|2024-25,South Ayrshire,south-ayrshire
+S12000029,budget_accuracy,98.387097,1.000000,Actual spending close to budget,council_management,budget_accuracy,headline,1,FINSUS05|2024-25,South Lanarkshire,south-lanarkshire
+S12000030,budget_accuracy,6.451613,1.000000,Actual spending close to budget,council_management,budget_accuracy,headline,1,FINSUS05|2024-25,Stirling,stirling
+S12000039,budget_accuracy,25.806452,1.000000,Actual spending close to budget,council_management,budget_accuracy,headline,1,FINSUS05|2024-25,West Dunbartonshire,west-dunbartonshire
+S12000040,budget_accuracy,35.483871,1.000000,Actual spending close to budget,council_management,budget_accuracy,headline,1,FINSUS05|2024-25,West Lothian,west-lothian
+S12000033,operational_emissions,85.483871,1.000000,Council transport and electricity emissions,operational_climate,council_emissions,headline,2,CLIM03|2024-25;CLIM04|2024-25,Aberdeen City,aberdeen-city
+S12000034,operational_emissions,20.967742,1.000000,Council transport and electricity emissions,operational_climate,council_emissions,headline,2,CLIM03|2024-25;CLIM04|2024-25,Aberdeenshire,aberdeenshire
+S12000041,operational_emissions,67.741935,1.000000,Council transport and electricity emissions,operational_climate,council_emissions,headline,2,CLIM03|2024-25;CLIM04|2024-25,Angus,angus
+S12000035,operational_emissions,20.967742,1.000000,Council transport and electricity emissions,operational_climate,council_emissions,headline,2,CLIM03|2024-25;CLIM04|2024-25,Argyll and Bute,argyll-and-bute
+S12000036,operational_emissions,77.419355,1.000000,Council transport and electricity emissions,operational_climate,council_emissions,headline,2,CLIM03|2024-25;CLIM04|2024-25,City of Edinburgh,city-of-edinburgh
+S12000005,operational_emissions,79.032258,1.000000,Council transport and electricity emissions,operational_climate,council_emissions,headline,2,CLIM03|2024-25;CLIM04|2024-25,Clackmannanshire,clackmannanshire
+S12000006,operational_emissions,30.645161,1.000000,Council transport and electricity emissions,operational_climate,council_emissions,headline,2,CLIM03|2024-25;CLIM04|2024-25,Dumfries and Galloway,dumfries-and-galloway
+S12000042,operational_emissions,48.387097,1.000000,Council transport and electricity emissions,operational_climate,council_emissions,headline,2,CLIM03|2024-25;CLIM04|2024-25,Dundee City,dundee-city
+S12000008,operational_emissions,54.838710,1.000000,Council transport and electricity emissions,operational_climate,council_emissions,headline,2,CLIM03|2024-25;CLIM04|2024-25,East Ayrshire,east-ayrshire
+S12000045,operational_emissions,22.580645,1.000000,Council transport and electricity emissions,operational_climate,council_emissions,headline,2,CLIM03|2024-25;CLIM04|2024-25,East Dunbartonshire,east-dunbartonshire
+S12000010,operational_emissions,95.161290,1.000000,Council transport and electricity emissions,operational_climate,council_emissions,headline,2,CLIM03|2024-25;CLIM04|2024-25,East Lothian,east-lothian
+S12000011,operational_emissions,83.870968,1.000000,Council transport and electricity emissions,operational_climate,council_emissions,headline,2,CLIM03|2024-25;CLIM04|2024-25,East Renfrewshire,east-renfrewshire
+S12000014,operational_emissions,79.032258,1.000000,Council transport and electricity emissions,operational_climate,council_emissions,headline,2,CLIM03|2024-25;CLIM04|2024-25,Falkirk,falkirk
+S12000047,operational_emissions,30.645161,1.000000,Council transport and electricity emissions,operational_climate,council_emissions,headline,2,CLIM03|2024-25;CLIM04|2024-25,Fife,fife
+S12000049,operational_emissions,46.774194,1.000000,Council transport and electricity emissions,operational_climate,council_emissions,headline,2,CLIM03|2024-25;CLIM04|2024-25,Glasgow City,glasgow-city
+S12000017,operational_emissions,14.516129,1.000000,Council transport and electricity emissions,operational_climate,council_emissions,headline,2,CLIM03|2024-25;CLIM04|2024-25,Highland,highland
+S12000018,operational_emissions,70.967742,1.000000,Council transport and electricity emissions,operational_climate,council_emissions,headline,2,CLIM03|2024-25;CLIM04|2024-25,Inverclyde,inverclyde
+S12000019,operational_emissions,33.870968,1.000000,Council transport and electricity emissions,operational_climate,council_emissions,headline,2,CLIM03|2024-25;CLIM04|2024-25,Midlothian,midlothian
+S12000020,operational_emissions,48.387097,1.000000,Council transport and electricity emissions,operational_climate,council_emissions,headline,2,CLIM03|2024-25;CLIM04|2024-25,Moray,moray
+S12000013,operational_emissions,16.129032,1.000000,Council transport and electricity emissions,operational_climate,council_emissions,headline,2,CLIM03|2024-25;CLIM04|2024-25,Na h-Eileanan Siar,na-h-eileanan-siar
+S12000021,operational_emissions,37.096774,1.000000,Council transport and electricity emissions,operational_climate,council_emissions,headline,2,CLIM03|2024-25;CLIM04|2024-25,North Ayrshire,north-ayrshire
+S12000050,operational_emissions,59.677419,1.000000,Council transport and electricity emissions,operational_climate,council_emissions,headline,2,CLIM03|2024-25;CLIM04|2024-25,North Lanarkshire,north-lanarkshire
+S12000023,operational_emissions,3.225806,1.000000,Council transport and electricity emissions,operational_climate,council_emissions,headline,2,CLIM03|2024-25;CLIM04|2024-25,Orkney Islands,orkney-islands
+S12000048,operational_emissions,80.645161,1.000000,Council transport and electricity emissions,operational_climate,council_emissions,headline,2,CLIM03|2024-25;CLIM04|2024-25,Perth and Kinross,perth-and-kinross
+S12000038,operational_emissions,90.322581,1.000000,Council transport and electricity emissions,operational_climate,council_emissions,headline,2,CLIM03|2024-25;CLIM04|2024-25,Renfrewshire,renfrewshire
+S12000026,operational_emissions,48.387097,1.000000,Council transport and electricity emissions,operational_climate,council_emissions,headline,2,CLIM03|2024-25;CLIM04|2024-25,Scottish Borders,scottish-borders
+S12000027,operational_emissions,0.000000,1.000000,Council transport and electricity emissions,operational_climate,council_emissions,headline,2,CLIM03|2024-25;CLIM04|2024-25,Shetland Islands,shetland-islands
+S12000028,operational_emissions,45.161290,1.000000,Council transport and electricity emissions,operational_climate,council_emissions,headline,2,CLIM03|2024-25;CLIM04|2024-25,South Ayrshire,south-ayrshire
+S12000029,operational_emissions,66.129032,1.000000,Council transport and electricity emissions,operational_climate,council_emissions,headline,2,CLIM03|2024-25;CLIM04|2024-25,South Lanarkshire,south-lanarkshire
+S12000030,operational_emissions,45.161290,1.000000,Council transport and electricity emissions,operational_climate,council_emissions,headline,2,CLIM03|2024-25;CLIM04|2024-25,Stirling,stirling
+S12000039,operational_emissions,37.096774,1.000000,Council transport and electricity emissions,operational_climate,council_emissions,headline,2,CLIM03|2024-25;CLIM04|2024-25,West Dunbartonshire,west-dunbartonshire
+S12000040,operational_emissions,59.677419,1.000000,Council transport and electricity emissions,operational_climate,council_emissions,headline,2,CLIM03|2024-25;CLIM04|2024-25,West Lothian,west-lothian
+S12000033,value_waste,49.130278,1.000000,Waste collection and disposal value,value_for_money,waste,value_for_money,4,ENV01a|2024-25;ENV02a|2024-25;ENV06|2024-25;ENV07a|2024-25,Aberdeen City,aberdeen-city
+S12000034,value_waste,39.354968,1.000000,Waste collection and disposal value,value_for_money,waste,value_for_money,4,ENV01a|2024-25;ENV02a|2024-25;ENV06|2024-25;ENV07a|2024-25,Aberdeenshire,aberdeenshire
+S12000041,value_waste,77.727596,1.000000,Waste collection and disposal value,value_for_money,waste,value_for_money,4,ENV01a|2024-25;ENV02a|2024-25;ENV06|2024-25;ENV07a|2024-25,Angus,angus
+S12000035,value_waste,35.847140,1.000000,Waste collection and disposal value,value_for_money,waste,value_for_money,4,ENV01a|2024-25;ENV02a|2024-25;ENV06|2024-25;ENV07a|2024-25,Argyll and Bute,argyll-and-bute
+S12000036,value_waste,38.187720,1.000000,Waste collection and disposal value,value_for_money,waste,value_for_money,4,ENV01a|2024-25;ENV02a|2024-25;ENV06|2024-25;ENV07a|2024-25,City of Edinburgh,city-of-edinburgh
+S12000005,value_waste,60.955314,1.000000,Waste collection and disposal value,value_for_money,waste,value_for_money,4,ENV01a|2024-25;ENV02a|2024-25;ENV06|2024-25;ENV07a|2024-25,Clackmannanshire,clackmannanshire
+S12000006,value_waste,41.638780,1.000000,Waste collection and disposal value,value_for_money,waste,value_for_money,4,ENV01a|2024-25;ENV02a|2024-25;ENV06|2024-25;ENV07a|2024-25,Dumfries and Galloway,dumfries-and-galloway
+S12000042,value_waste,30.984501,1.000000,Waste collection and disposal value,value_for_money,waste,value_for_money,4,ENV01a|2024-25;ENV02a|2024-25;ENV06|2024-25;ENV07a|2024-25,Dundee City,dundee-city
+S12000008,value_waste,44.347668,1.000000,Waste collection and disposal value,value_for_money,waste,value_for_money,4,ENV01a|2024-25;ENV02a|2024-25;ENV06|2024-25;ENV07a|2024-25,East Ayrshire,east-ayrshire
+S12000045,value_waste,69.059333,1.000000,Waste collection and disposal value,value_for_money,waste,value_for_money,4,ENV01a|2024-25;ENV02a|2024-25;ENV06|2024-25;ENV07a|2024-25,East Dunbartonshire,east-dunbartonshire
+S12000010,value_waste,64.337203,1.000000,Waste collection and disposal value,value_for_money,waste,value_for_money,4,ENV01a|2024-25;ENV02a|2024-25;ENV06|2024-25;ENV07a|2024-25,East Lothian,east-lothian
+S12000011,value_waste,55.875697,1.000000,Waste collection and disposal value,value_for_money,waste,value_for_money,4,ENV01a|2024-25;ENV02a|2024-25;ENV06|2024-25;ENV07a|2024-25,East Renfrewshire,east-renfrewshire
+S12000014,value_waste,58.146382,1.000000,Waste collection and disposal value,value_for_money,waste,value_for_money,4,ENV01a|2024-25;ENV02a|2024-25;ENV06|2024-25;ENV07a|2024-25,Falkirk,falkirk
+S12000047,value_waste,54.026349,1.000000,Waste collection and disposal value,value_for_money,waste,value_for_money,4,ENV01a|2024-25;ENV02a|2024-25;ENV06|2024-25;ENV07a|2024-25,Fife,fife
+S12000049,value_waste,8.634907,1.000000,Waste collection and disposal value,value_for_money,waste,value_for_money,4,ENV01a|2024-25;ENV02a|2024-25;ENV06|2024-25;ENV07a|2024-25,Glasgow City,glasgow-city
+S12000017,value_waste,37.967368,1.000000,Waste collection and disposal value,value_for_money,waste,value_for_money,4,ENV01a|2024-25;ENV02a|2024-25;ENV06|2024-25;ENV07a|2024-25,Highland,highland
+S12000018,value_waste,73.172585,1.000000,Waste collection and disposal value,value_for_money,waste,value_for_money,4,ENV01a|2024-25;ENV02a|2024-25;ENV06|2024-25;ENV07a|2024-25,Inverclyde,inverclyde
+S12000019,value_waste,71.769725,1.000000,Waste collection and disposal value,value_for_money,waste,value_for_money,4,ENV01a|2024-25;ENV02a|2024-25;ENV06|2024-25;ENV07a|2024-25,Midlothian,midlothian
+S12000020,value_waste,66.812068,1.000000,Waste collection and disposal value,value_for_money,waste,value_for_money,4,ENV01a|2024-25;ENV02a|2024-25;ENV06|2024-25;ENV07a|2024-25,Moray,moray
+S12000013,value_waste,18.517755,1.000000,Waste collection and disposal value,value_for_money,waste,value_for_money,4,ENV01a|2024-25;ENV02a|2024-25;ENV06|2024-25;ENV07a|2024-25,Na h-Eileanan Siar,na-h-eileanan-siar
+S12000021,value_waste,60.053967,1.000000,Waste collection and disposal value,value_for_money,waste,value_for_money,4,ENV01a|2024-25;ENV02a|2024-25;ENV06|2024-25;ENV07a|2024-25,North Ayrshire,north-ayrshire
+S12000050,value_waste,39.869657,1.000000,Waste collection and disposal value,value_for_money,waste,value_for_money,4,ENV01a|2024-25;ENV02a|2024-25;ENV06|2024-25;ENV07a|2024-25,North Lanarkshire,north-lanarkshire
+S12000023,value_waste,34.222808,1.000000,Waste collection and disposal value,value_for_money,waste,value_for_money,4,ENV01a|2024-25;ENV02a|2024-25;ENV06|2024-25;ENV07a|2024-25,Orkney Islands,orkney-islands
+S12000048,value_waste,51.048924,1.000000,Waste collection and disposal value,value_for_money,waste,value_for_money,4,ENV01a|2024-25;ENV02a|2024-25;ENV06|2024-25;ENV07a|2024-25,Perth and Kinross,perth-and-kinross
+S12000038,value_waste,37.695374,1.000000,Waste collection and disposal value,value_for_money,waste,value_for_money,4,ENV01a|2024-25;ENV02a|2024-25;ENV06|2024-25;ENV07a|2024-25,Renfrewshire,renfrewshire
+S12000026,value_waste,54.494991,1.000000,Waste collection and disposal value,value_for_money,waste,value_for_money,4,ENV01a|2024-25;ENV02a|2024-25;ENV06|2024-25;ENV07a|2024-25,Scottish Borders,scottish-borders
+S12000027,value_waste,44.002150,1.000000,Waste collection and disposal value,value_for_money,waste,value_for_money,4,ENV01a|2024-25;ENV02a|2024-25;ENV06|2024-25;ENV07a|2024-25,Shetland Islands,shetland-islands
+S12000028,value_waste,57.800762,1.000000,Waste collection and disposal value,value_for_money,waste,value_for_money,4,ENV01a|2024-25;ENV02a|2024-25;ENV06|2024-25;ENV07a|2024-25,South Ayrshire,south-ayrshire
+S12000029,value_waste,37.220171,1.000000,Waste collection and disposal value,value_for_money,waste,value_for_money,4,ENV01a|2024-25;ENV02a|2024-25;ENV06|2024-25;ENV07a|2024-25,South Lanarkshire,south-lanarkshire
+S12000030,value_waste,40.723858,1.000000,Waste collection and disposal value,value_for_money,waste,value_for_money,4,ENV01a|2024-25;ENV02a|2024-25;ENV06|2024-25;ENV07a|2024-25,Stirling,stirling
+S12000039,value_waste,42.555686,1.000000,Waste collection and disposal value,value_for_money,waste,value_for_money,4,ENV01a|2024-25;ENV02a|2024-25;ENV06|2024-25;ENV07a|2024-25,West Dunbartonshire,west-dunbartonshire
+S12000040,value_waste,50.325673,1.000000,Waste collection and disposal value,value_for_money,waste,value_for_money,4,ENV01a|2024-25;ENV02a|2024-25;ENV06|2024-25;ENV07a|2024-25,West Lothian,west-lothian
+S12000033,value_street_cleaning,54.510365,1.000000,Street-cleaning value,value_for_money,street_cleaning,value_for_money,3,ENV03a|2024-25;ENV03c|2024-25;ENV07b|2024-25,Aberdeen City,aberdeen-city
+S12000034,value_street_cleaning,60.951409,1.000000,Street-cleaning value,value_for_money,street_cleaning,value_for_money,3,ENV03a|2024-25;ENV03c|2024-25;ENV07b|2024-25,Aberdeenshire,aberdeenshire
+S12000041,value_street_cleaning,23.121815,1.000000,Street-cleaning value,value_for_money,street_cleaning,value_for_money,3,ENV03a|2024-25;ENV03c|2024-25;ENV07b|2024-25,Angus,angus
+S12000035,value_street_cleaning,63.737384,1.000000,Street-cleaning value,value_for_money,street_cleaning,value_for_money,3,ENV03a|2024-25;ENV03c|2024-25;ENV07b|2024-25,Argyll and Bute,argyll-and-bute
+S12000036,value_street_cleaning,5.398925,1.000000,Street-cleaning value,value_for_money,street_cleaning,value_for_money,3,ENV03a|2024-25;ENV03c|2024-25;ENV07b|2024-25,City of Edinburgh,city-of-edinburgh
+S12000005,value_street_cleaning,39.528006,1.000000,Street-cleaning value,value_for_money,street_cleaning,value_for_money,3,ENV03a|2024-25;ENV03c|2024-25;ENV07b|2024-25,Clackmannanshire,clackmannanshire
+S12000006,value_street_cleaning,68.385397,1.000000,Street-cleaning value,value_for_money,street_cleaning,value_for_money,3,ENV03a|2024-25;ENV03c|2024-25;ENV07b|2024-25,Dumfries and Galloway,dumfries-and-galloway
+S12000042,value_street_cleaning,15.960688,1.000000,Street-cleaning value,value_for_money,street_cleaning,value_for_money,3,ENV03a|2024-25;ENV03c|2024-25;ENV07b|2024-25,Dundee City,dundee-city
+S12000008,value_street_cleaning,54.151301,1.000000,Street-cleaning value,value_for_money,street_cleaning,value_for_money,3,ENV03a|2024-25;ENV03c|2024-25;ENV07b|2024-25,East Ayrshire,east-ayrshire
+S12000045,value_street_cleaning,49.783125,1.000000,Street-cleaning value,value_for_money,street_cleaning,value_for_money,3,ENV03a|2024-25;ENV03c|2024-25;ENV07b|2024-25,East Dunbartonshire,east-dunbartonshire
+S12000010,value_street_cleaning,78.658628,1.000000,Street-cleaning value,value_for_money,street_cleaning,value_for_money,3,ENV03a|2024-25;ENV03c|2024-25;ENV07b|2024-25,East Lothian,east-lothian
+S12000011,value_street_cleaning,74.251729,1.000000,Street-cleaning value,value_for_money,street_cleaning,value_for_money,3,ENV03a|2024-25;ENV03c|2024-25;ENV07b|2024-25,East Renfrewshire,east-renfrewshire
+S12000014,value_street_cleaning,25.846825,1.000000,Street-cleaning value,value_for_money,street_cleaning,value_for_money,3,ENV03a|2024-25;ENV03c|2024-25;ENV07b|2024-25,Falkirk,falkirk
+S12000047,value_street_cleaning,47.429562,1.000000,Street-cleaning value,value_for_money,street_cleaning,value_for_money,3,ENV03a|2024-25;ENV03c|2024-25;ENV07b|2024-25,Fife,fife
+S12000049,value_street_cleaning,4.671918,1.000000,Street-cleaning value,value_for_money,street_cleaning,value_for_money,3,ENV03a|2024-25;ENV03c|2024-25;ENV07b|2024-25,Glasgow City,glasgow-city
+S12000017,value_street_cleaning,66.794547,1.000000,Street-cleaning value,value_for_money,street_cleaning,value_for_money,3,ENV03a|2024-25;ENV03c|2024-25;ENV07b|2024-25,Highland,highland
+S12000018,value_street_cleaning,33.488472,1.000000,Street-cleaning value,value_for_money,street_cleaning,value_for_money,3,ENV03a|2024-25;ENV03c|2024-25;ENV07b|2024-25,Inverclyde,inverclyde
+S12000019,value_street_cleaning,41.285401,1.000000,Street-cleaning value,value_for_money,street_cleaning,value_for_money,3,ENV03a|2024-25;ENV03c|2024-25;ENV07b|2024-25,Midlothian,midlothian
+S12000020,value_street_cleaning,62.112852,0.666667,Street-cleaning value,value_for_money,street_cleaning,value_for_money,3,ENV03a|2024-25;ENV03c|2024-25;ENV07b|2024-25,Moray,moray
+S12000013,value_street_cleaning,51.398550,1.000000,Street-cleaning value,value_for_money,street_cleaning,value_for_money,3,ENV03a|2024-25;ENV03c|2024-25;ENV07b|2024-25,Na h-Eileanan Siar,na-h-eileanan-siar
+S12000021,value_street_cleaning,44.436806,1.000000,Street-cleaning value,value_for_money,street_cleaning,value_for_money,3,ENV03a|2024-25;ENV03c|2024-25;ENV07b|2024-25,North Ayrshire,north-ayrshire
+S12000050,value_street_cleaning,42.049141,1.000000,Street-cleaning value,value_for_money,street_cleaning,value_for_money,3,ENV03a|2024-25;ENV03c|2024-25;ENV07b|2024-25,North Lanarkshire,north-lanarkshire
+S12000023,value_street_cleaning,69.137081,1.000000,Street-cleaning value,value_for_money,street_cleaning,value_for_money,3,ENV03a|2024-25;ENV03c|2024-25;ENV07b|2024-25,Orkney Islands,orkney-islands
+S12000048,value_street_cleaning,35.246104,1.000000,Street-cleaning value,value_for_money,street_cleaning,value_for_money,3,ENV03a|2024-25;ENV03c|2024-25;ENV07b|2024-25,Perth and Kinross,perth-and-kinross
+S12000038,value_street_cleaning,48.133854,1.000000,Street-cleaning value,value_for_money,street_cleaning,value_for_money,3,ENV03a|2024-25;ENV03c|2024-25;ENV07b|2024-25,Renfrewshire,renfrewshire
+S12000026,value_street_cleaning,70.945291,1.000000,Street-cleaning value,value_for_money,street_cleaning,value_for_money,3,ENV03a|2024-25;ENV03c|2024-25;ENV07b|2024-25,Scottish Borders,scottish-borders
+S12000027,value_street_cleaning,42.819400,1.000000,Street-cleaning value,value_for_money,street_cleaning,value_for_money,3,ENV03a|2024-25;ENV03c|2024-25;ENV07b|2024-25,Shetland Islands,shetland-islands
+S12000028,value_street_cleaning,35.730109,1.000000,Street-cleaning value,value_for_money,street_cleaning,value_for_money,3,ENV03a|2024-25;ENV03c|2024-25;ENV07b|2024-25,South Ayrshire,south-ayrshire
+S12000029,value_street_cleaning,42.901804,1.000000,Street-cleaning value,value_for_money,street_cleaning,value_for_money,3,ENV03a|2024-25;ENV03c|2024-25;ENV07b|2024-25,South Lanarkshire,south-lanarkshire
+S12000030,value_street_cleaning,19.220712,1.000000,Street-cleaning value,value_for_money,street_cleaning,value_for_money,3,ENV03a|2024-25;ENV03c|2024-25;ENV07b|2024-25,Stirling,stirling
+S12000039,value_street_cleaning,49.088693,1.000000,Street-cleaning value,value_for_money,street_cleaning,value_for_money,3,ENV03a|2024-25;ENV03c|2024-25;ENV07b|2024-25,West Dunbartonshire,west-dunbartonshire
+S12000040,value_street_cleaning,34.042381,1.000000,Street-cleaning value,value_for_money,street_cleaning,value_for_money,3,ENV03a|2024-25;ENV03c|2024-25;ENV07b|2024-25,West Lothian,west-lothian
+S12000033,value_roads,8.168670,1.000000,Road-maintenance value,value_for_money,roads,value_for_money,5,ENV04a|2024-25;ENV04b|2024-25;ENV04c|2024-25;ENV04d|2024-25;ENV04e|2024-25,Aberdeen City,aberdeen-city
+S12000034,value_roads,97.136837,1.000000,Road-maintenance value,value_for_money,roads,value_for_money,5,ENV04a|2024-25;ENV04b|2024-25;ENV04c|2024-25;ENV04d|2024-25;ENV04e|2024-25,Aberdeenshire,aberdeenshire
+S12000041,value_roads,35.078392,1.000000,Road-maintenance value,value_for_money,roads,value_for_money,5,ENV04a|2024-25;ENV04b|2024-25;ENV04c|2024-25;ENV04d|2024-25;ENV04e|2024-25,Angus,angus
+S12000035,value_roads,12.817828,1.000000,Road-maintenance value,value_for_money,roads,value_for_money,5,ENV04a|2024-25;ENV04b|2024-25;ENV04c|2024-25;ENV04d|2024-25;ENV04e|2024-25,Argyll and Bute,argyll-and-bute
+S12000036,value_roads,26.092185,1.000000,Road-maintenance value,value_for_money,roads,value_for_money,5,ENV04a|2024-25;ENV04b|2024-25;ENV04c|2024-25;ENV04d|2024-25;ENV04e|2024-25,City of Edinburgh,city-of-edinburgh
+S12000005,value_roads,62.719771,1.000000,Road-maintenance value,value_for_money,roads,value_for_money,5,ENV04a|2024-25;ENV04b|2024-25;ENV04c|2024-25;ENV04d|2024-25;ENV04e|2024-25,Clackmannanshire,clackmannanshire
+S12000006,value_roads,25.992137,1.000000,Road-maintenance value,value_for_money,roads,value_for_money,5,ENV04a|2024-25;ENV04b|2024-25;ENV04c|2024-25;ENV04d|2024-25;ENV04e|2024-25,Dumfries and Galloway,dumfries-and-galloway
+S12000042,value_roads,65.184957,1.000000,Road-maintenance value,value_for_money,roads,value_for_money,5,ENV04a|2024-25;ENV04b|2024-25;ENV04c|2024-25;ENV04d|2024-25;ENV04e|2024-25,Dundee City,dundee-city
+S12000008,value_roads,71.315904,1.000000,Road-maintenance value,value_for_money,roads,value_for_money,5,ENV04a|2024-25;ENV04b|2024-25;ENV04c|2024-25;ENV04d|2024-25;ENV04e|2024-25,East Ayrshire,east-ayrshire
+S12000045,value_roads,26.119058,1.000000,Road-maintenance value,value_for_money,roads,value_for_money,5,ENV04a|2024-25;ENV04b|2024-25;ENV04c|2024-25;ENV04d|2024-25;ENV04e|2024-25,East Dunbartonshire,east-dunbartonshire
+S12000010,value_roads,37.825579,1.000000,Road-maintenance value,value_for_money,roads,value_for_money,5,ENV04a|2024-25;ENV04b|2024-25;ENV04c|2024-25;ENV04d|2024-25;ENV04e|2024-25,East Lothian,east-lothian
+S12000011,value_roads,15.012840,1.000000,Road-maintenance value,value_for_money,roads,value_for_money,5,ENV04a|2024-25;ENV04b|2024-25;ENV04c|2024-25;ENV04d|2024-25;ENV04e|2024-25,East Renfrewshire,east-renfrewshire
+S12000014,value_roads,52.152305,1.000000,Road-maintenance value,value_for_money,roads,value_for_money,5,ENV04a|2024-25;ENV04b|2024-25;ENV04c|2024-25;ENV04d|2024-25;ENV04e|2024-25,Falkirk,falkirk
+S12000047,value_roads,52.266954,1.000000,Road-maintenance value,value_for_money,roads,value_for_money,5,ENV04a|2024-25;ENV04b|2024-25;ENV04c|2024-25;ENV04d|2024-25;ENV04e|2024-25,Fife,fife
+S12000049,value_roads,37.076625,1.000000,Road-maintenance value,value_for_money,roads,value_for_money,5,ENV04a|2024-25;ENV04b|2024-25;ENV04c|2024-25;ENV04d|2024-25;ENV04e|2024-25,Glasgow City,glasgow-city
+S12000017,value_roads,40.505375,1.000000,Road-maintenance value,value_for_money,roads,value_for_money,5,ENV04a|2024-25;ENV04b|2024-25;ENV04c|2024-25;ENV04d|2024-25;ENV04e|2024-25,Highland,highland
+S12000018,value_roads,18.647942,1.000000,Road-maintenance value,value_for_money,roads,value_for_money,5,ENV04a|2024-25;ENV04b|2024-25;ENV04c|2024-25;ENV04d|2024-25;ENV04e|2024-25,Inverclyde,inverclyde
+S12000019,value_roads,42.555686,1.000000,Road-maintenance value,value_for_money,roads,value_for_money,5,ENV04a|2024-25;ENV04b|2024-25;ENV04c|2024-25;ENV04d|2024-25;ENV04e|2024-25,Midlothian,midlothian
+S12000020,value_roads,82.117340,1.000000,Road-maintenance value,value_for_money,roads,value_for_money,5,ENV04a|2024-25;ENV04b|2024-25;ENV04c|2024-25;ENV04d|2024-25;ENV04e|2024-25,Moray,moray
+S12000013,value_roads,43.790076,1.000000,Road-maintenance value,value_for_money,roads,value_for_money,5,ENV04a|2024-25;ENV04b|2024-25;ENV04c|2024-25;ENV04d|2024-25;ENV04e|2024-25,Na h-Eileanan Siar,na-h-eileanan-siar
+S12000021,value_roads,51.380492,1.000000,Road-maintenance value,value_for_money,roads,value_for_money,5,ENV04a|2024-25;ENV04b|2024-25;ENV04c|2024-25;ENV04d|2024-25;ENV04e|2024-25,North Ayrshire,north-ayrshire
+S12000050,value_roads,32.222847,1.000000,Road-maintenance value,value_for_money,roads,value_for_money,5,ENV04a|2024-25;ENV04b|2024-25;ENV04c|2024-25;ENV04d|2024-25;ENV04e|2024-25,North Lanarkshire,north-lanarkshire
+S12000023,value_roads,80.559405,1.000000,Road-maintenance value,value_for_money,roads,value_for_money,5,ENV04a|2024-25;ENV04b|2024-25;ENV04c|2024-25;ENV04d|2024-25;ENV04e|2024-25,Orkney Islands,orkney-islands
+S12000048,value_roads,20.503357,1.000000,Road-maintenance value,value_for_money,roads,value_for_money,5,ENV04a|2024-25;ENV04b|2024-25;ENV04c|2024-25;ENV04d|2024-25;ENV04e|2024-25,Perth and Kinross,perth-and-kinross
+S12000038,value_roads,49.007918,1.000000,Road-maintenance value,value_for_money,roads,value_for_money,5,ENV04a|2024-25;ENV04b|2024-25;ENV04c|2024-25;ENV04d|2024-25;ENV04e|2024-25,Renfrewshire,renfrewshire
+S12000026,value_roads,31.699973,1.000000,Road-maintenance value,value_for_money,roads,value_for_money,5,ENV04a|2024-25;ENV04b|2024-25;ENV04c|2024-25;ENV04d|2024-25;ENV04e|2024-25,Scottish Borders,scottish-borders
+S12000027,value_roads,61.470064,1.000000,Road-maintenance value,value_for_money,roads,value_for_money,5,ENV04a|2024-25;ENV04b|2024-25;ENV04c|2024-25;ENV04d|2024-25;ENV04e|2024-25,Shetland Islands,shetland-islands
+S12000028,value_roads,64.790724,1.000000,Road-maintenance value,value_for_money,roads,value_for_money,5,ENV04a|2024-25;ENV04b|2024-25;ENV04c|2024-25;ENV04d|2024-25;ENV04e|2024-25,South Ayrshire,south-ayrshire
+S12000029,value_roads,46.746959,1.000000,Road-maintenance value,value_for_money,roads,value_for_money,5,ENV04a|2024-25;ENV04b|2024-25;ENV04c|2024-25;ENV04d|2024-25;ENV04e|2024-25,South Lanarkshire,south-lanarkshire
+S12000030,value_roads,19.917707,1.000000,Road-maintenance value,value_for_money,roads,value_for_money,5,ENV04a|2024-25;ENV04b|2024-25;ENV04c|2024-25;ENV04d|2024-25;ENV04e|2024-25,Stirling,stirling
+S12000039,value_roads,59.655979,1.000000,Road-maintenance value,value_for_money,roads,value_for_money,5,ENV04a|2024-25;ENV04b|2024-25;ENV04c|2024-25;ENV04d|2024-25;ENV04e|2024-25,West Dunbartonshire,west-dunbartonshire
+S12000040,value_roads,51.536950,1.000000,Road-maintenance value,value_for_money,roads,value_for_money,5,ENV04a|2024-25;ENV04b|2024-25;ENV04c|2024-25;ENV04d|2024-25;ENV04e|2024-25,West Lothian,west-lothian
+S12000033,value_schools,47.140349,1.000000,School-service value,value_for_money,schools,value_for_money,8,CHN01|2024-25;CHN02|2024-25;CHN11|2024-25;CHN13a|2024-25;CHN13b|2024-25;CHN18|2024-25;CHN19a|2024-25;CHN20a|2024-25,Aberdeen City,aberdeen-city
+S12000034,value_schools,52.861174,1.000000,School-service value,value_for_money,schools,value_for_money,8,CHN01|2024-25;CHN02|2024-25;CHN11|2024-25;CHN13a|2024-25;CHN13b|2024-25;CHN18|2024-25;CHN19a|2024-25;CHN20a|2024-25,Aberdeenshire,aberdeenshire
+S12000041,value_schools,58.064516,1.000000,School-service value,value_for_money,schools,value_for_money,8,CHN01|2024-25;CHN02|2024-25;CHN11|2024-25;CHN13a|2024-25;CHN13b|2024-25;CHN18|2024-25;CHN19a|2024-25;CHN20a|2024-25,Angus,angus
+S12000035,value_schools,21.329890,1.000000,School-service value,value_for_money,schools,value_for_money,8,CHN01|2024-25;CHN02|2024-25;CHN11|2024-25;CHN13a|2024-25;CHN13b|2024-25;CHN18|2024-25;CHN19a|2024-25;CHN20a|2024-25,Argyll and Bute,argyll-and-bute
+S12000036,value_schools,80.144707,1.000000,School-service value,value_for_money,schools,value_for_money,8,CHN01|2024-25;CHN02|2024-25;CHN11|2024-25;CHN13a|2024-25;CHN13b|2024-25;CHN18|2024-25;CHN19a|2024-25;CHN20a|2024-25,City of Edinburgh,city-of-edinburgh
+S12000005,value_schools,36.955731,1.000000,School-service value,value_for_money,schools,value_for_money,8,CHN01|2024-25;CHN02|2024-25;CHN11|2024-25;CHN13a|2024-25;CHN13b|2024-25;CHN18|2024-25;CHN19a|2024-25;CHN20a|2024-25,Clackmannanshire,clackmannanshire
+S12000006,value_schools,29.650865,1.000000,School-service value,value_for_money,schools,value_for_money,8,CHN01|2024-25;CHN02|2024-25;CHN11|2024-25;CHN13a|2024-25;CHN13b|2024-25;CHN18|2024-25;CHN19a|2024-25;CHN20a|2024-25,Dumfries and Galloway,dumfries-and-galloway
+S12000042,value_schools,45.766343,1.000000,School-service value,value_for_money,schools,value_for_money,8,CHN01|2024-25;CHN02|2024-25;CHN11|2024-25;CHN13a|2024-25;CHN13b|2024-25;CHN18|2024-25;CHN19a|2024-25;CHN20a|2024-25,Dundee City,dundee-city
+S12000008,value_schools,43.678033,1.000000,School-service value,value_for_money,schools,value_for_money,8,CHN01|2024-25;CHN02|2024-25;CHN11|2024-25;CHN13a|2024-25;CHN13b|2024-25;CHN18|2024-25;CHN19a|2024-25;CHN20a|2024-25,East Ayrshire,east-ayrshire
+S12000045,value_schools,54.217487,1.000000,School-service value,value_for_money,schools,value_for_money,8,CHN01|2024-25;CHN02|2024-25;CHN11|2024-25;CHN13a|2024-25;CHN13b|2024-25;CHN18|2024-25;CHN19a|2024-25;CHN20a|2024-25,East Dunbartonshire,east-dunbartonshire
+S12000010,value_schools,68.440390,1.000000,School-service value,value_for_money,schools,value_for_money,8,CHN01|2024-25;CHN02|2024-25;CHN11|2024-25;CHN13a|2024-25;CHN13b|2024-25;CHN18|2024-25;CHN19a|2024-25;CHN20a|2024-25,East Lothian,east-lothian
+S12000011,value_schools,90.005736,1.000000,School-service value,value_for_money,schools,value_for_money,8,CHN01|2024-25;CHN02|2024-25;CHN11|2024-25;CHN13a|2024-25;CHN13b|2024-25;CHN18|2024-25;CHN19a|2024-25;CHN20a|2024-25,East Renfrewshire,east-renfrewshire
+S12000014,value_schools,70.173841,1.000000,School-service value,value_for_money,schools,value_for_money,8,CHN01|2024-25;CHN02|2024-25;CHN11|2024-25;CHN13a|2024-25;CHN13b|2024-25;CHN18|2024-25;CHN19a|2024-25;CHN20a|2024-25,Falkirk,falkirk
+S12000047,value_schools,53.887022,1.000000,School-service value,value_for_money,schools,value_for_money,8,CHN01|2024-25;CHN02|2024-25;CHN11|2024-25;CHN13a|2024-25;CHN13b|2024-25;CHN18|2024-25;CHN19a|2024-25;CHN20a|2024-25,Fife,fife
+S12000049,value_schools,35.564830,1.000000,School-service value,value_for_money,schools,value_for_money,8,CHN01|2024-25;CHN02|2024-25;CHN11|2024-25;CHN13a|2024-25;CHN13b|2024-25;CHN18|2024-25;CHN19a|2024-25;CHN20a|2024-25,Glasgow City,glasgow-city
+S12000017,value_schools,23.312846,1.000000,School-service value,value_for_money,schools,value_for_money,8,CHN01|2024-25;CHN02|2024-25;CHN11|2024-25;CHN13a|2024-25;CHN13b|2024-25;CHN18|2024-25;CHN19a|2024-25;CHN20a|2024-25,Highland,highland
+S12000018,value_schools,63.961655,1.000000,School-service value,value_for_money,schools,value_for_money,8,CHN01|2024-25;CHN02|2024-25;CHN11|2024-25;CHN13a|2024-25;CHN13b|2024-25;CHN18|2024-25;CHN19a|2024-25;CHN20a|2024-25,Inverclyde,inverclyde
+S12000019,value_schools,49.130278,1.000000,School-service value,value_for_money,schools,value_for_money,8,CHN01|2024-25;CHN02|2024-25;CHN11|2024-25;CHN13a|2024-25;CHN13b|2024-25;CHN18|2024-25;CHN19a|2024-25;CHN20a|2024-25,Midlothian,midlothian
+S12000020,value_schools,44.345087,1.000000,School-service value,value_for_money,schools,value_for_money,8,CHN01|2024-25;CHN02|2024-25;CHN11|2024-25;CHN13a|2024-25;CHN13b|2024-25;CHN18|2024-25;CHN19a|2024-25;CHN20a|2024-25,Moray,moray
+S12000013,value_schools,6.436469,1.000000,School-service value,value_for_money,schools,value_for_money,8,CHN01|2024-25;CHN02|2024-25;CHN11|2024-25;CHN13a|2024-25;CHN13b|2024-25;CHN18|2024-25;CHN19a|2024-25;CHN20a|2024-25,Na h-Eileanan Siar,na-h-eileanan-siar
+S12000021,value_schools,18.159254,1.000000,School-service value,value_for_money,schools,value_for_money,8,CHN01|2024-25;CHN02|2024-25;CHN11|2024-25;CHN13a|2024-25;CHN13b|2024-25;CHN18|2024-25;CHN19a|2024-25;CHN20a|2024-25,North Ayrshire,north-ayrshire
+S12000050,value_schools,60.794286,1.000000,School-service value,value_for_money,schools,value_for_money,8,CHN01|2024-25;CHN02|2024-25;CHN11|2024-25;CHN13a|2024-25;CHN13b|2024-25;CHN18|2024-25;CHN19a|2024-25;CHN20a|2024-25,North Lanarkshire,north-lanarkshire
+S12000023,value_schools,19.953121,1.000000,School-service value,value_for_money,schools,value_for_money,8,CHN01|2024-25;CHN02|2024-25;CHN11|2024-25;CHN13a|2024-25;CHN13b|2024-25;CHN18|2024-25;CHN19a|2024-25;CHN20a|2024-25,Orkney Islands,orkney-islands
+S12000048,value_schools,35.184591,1.000000,School-service value,value_for_money,schools,value_for_money,8,CHN01|2024-25;CHN02|2024-25;CHN11|2024-25;CHN13a|2024-25;CHN13b|2024-25;CHN18|2024-25;CHN19a|2024-25;CHN20a|2024-25,Perth and Kinross,perth-and-kinross
+S12000038,value_schools,68.399918,1.000000,School-service value,value_for_money,schools,value_for_money,8,CHN01|2024-25;CHN02|2024-25;CHN11|2024-25;CHN13a|2024-25;CHN13b|2024-25;CHN18|2024-25;CHN19a|2024-25;CHN20a|2024-25,Renfrewshire,renfrewshire
+S12000026,value_schools,46.671712,1.000000,School-service value,value_for_money,schools,value_for_money,8,CHN01|2024-25;CHN02|2024-25;CHN11|2024-25;CHN13a|2024-25;CHN13b|2024-25;CHN18|2024-25;CHN19a|2024-25;CHN20a|2024-25,Scottish Borders,scottish-borders
+S12000027,value_schools,15.224802,1.000000,School-service value,value_for_money,schools,value_for_money,8,CHN01|2024-25;CHN02|2024-25;CHN11|2024-25;CHN13a|2024-25;CHN13b|2024-25;CHN18|2024-25;CHN19a|2024-25;CHN20a|2024-25,Shetland Islands,shetland-islands
+S12000028,value_schools,56.217259,1.000000,School-service value,value_for_money,schools,value_for_money,8,CHN01|2024-25;CHN02|2024-25;CHN11|2024-25;CHN13a|2024-25;CHN13b|2024-25;CHN18|2024-25;CHN19a|2024-25;CHN20a|2024-25,South Ayrshire,south-ayrshire
+S12000029,value_schools,48.360752,1.000000,School-service value,value_for_money,schools,value_for_money,8,CHN01|2024-25;CHN02|2024-25;CHN11|2024-25;CHN13a|2024-25;CHN13b|2024-25;CHN18|2024-25;CHN19a|2024-25;CHN20a|2024-25,South Lanarkshire,south-lanarkshire
+S12000030,value_schools,42.852514,1.000000,School-service value,value_for_money,schools,value_for_money,8,CHN01|2024-25;CHN02|2024-25;CHN11|2024-25;CHN13a|2024-25;CHN13b|2024-25;CHN18|2024-25;CHN19a|2024-25;CHN20a|2024-25,Stirling,stirling
+S12000039,value_schools,32.853083,1.000000,School-service value,value_for_money,schools,value_for_money,8,CHN01|2024-25;CHN02|2024-25;CHN11|2024-25;CHN13a|2024-25;CHN13b|2024-25;CHN18|2024-25;CHN19a|2024-25;CHN20a|2024-25,West Dunbartonshire,west-dunbartonshire
+S12000040,value_schools,60.212693,1.000000,School-service value,value_for_money,schools,value_for_money,8,CHN01|2024-25;CHN02|2024-25;CHN11|2024-25;CHN13a|2024-25;CHN13b|2024-25;CHN18|2024-25;CHN19a|2024-25;CHN20a|2024-25,West Lothian,west-lothian
+S12000033,value_culture,51.191550,1.000000,Culture and leisure value,value_for_money,culture_and_leisure,value_for_money,8,C&L01|2024-25;C&L02|2024-25;C&L03|2024-25;C&L04|2024-25;C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,Aberdeen City,aberdeen-city
+S12000034,value_culture,40.702630,1.000000,Culture and leisure value,value_for_money,culture_and_leisure,value_for_money,8,C&L01|2024-25;C&L02|2024-25;C&L03|2024-25;C&L04|2024-25;C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,Aberdeenshire,aberdeenshire
+S12000041,value_culture,36.178670,1.000000,Culture and leisure value,value_for_money,culture_and_leisure,value_for_money,8,C&L01|2024-25;C&L02|2024-25;C&L03|2024-25;C&L04|2024-25;C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,Angus,angus
+S12000035,value_culture,59.061848,1.000000,Culture and leisure value,value_for_money,culture_and_leisure,value_for_money,8,C&L01|2024-25;C&L02|2024-25;C&L03|2024-25;C&L04|2024-25;C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,Argyll and Bute,argyll-and-bute
+S12000036,value_culture,70.576102,1.000000,Culture and leisure value,value_for_money,culture_and_leisure,value_for_money,8,C&L01|2024-25;C&L02|2024-25;C&L03|2024-25;C&L04|2024-25;C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,City of Edinburgh,city-of-edinburgh
+S12000005,value_culture,37.269147,0.875000,Culture and leisure value,value_for_money,culture_and_leisure,value_for_money,8,C&L01|2024-25;C&L02|2024-25;C&L03|2024-25;C&L04|2024-25;C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,Clackmannanshire,clackmannanshire
+S12000006,value_culture,16.723031,1.000000,Culture and leisure value,value_for_money,culture_and_leisure,value_for_money,8,C&L01|2024-25;C&L02|2024-25;C&L03|2024-25;C&L04|2024-25;C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,Dumfries and Galloway,dumfries-and-galloway
+S12000042,value_culture,46.472450,1.000000,Culture and leisure value,value_for_money,culture_and_leisure,value_for_money,8,C&L01|2024-25;C&L02|2024-25;C&L03|2024-25;C&L04|2024-25;C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,Dundee City,dundee-city
+S12000008,value_culture,48.086859,1.000000,Culture and leisure value,value_for_money,culture_and_leisure,value_for_money,8,C&L01|2024-25;C&L02|2024-25;C&L03|2024-25;C&L04|2024-25;C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,East Ayrshire,east-ayrshire
+S12000045,value_culture,43.163273,1.000000,Culture and leisure value,value_for_money,culture_and_leisure,value_for_money,8,C&L01|2024-25;C&L02|2024-25;C&L03|2024-25;C&L04|2024-25;C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,East Dunbartonshire,east-dunbartonshire
+S12000010,value_culture,40.251508,1.000000,Culture and leisure value,value_for_money,culture_and_leisure,value_for_money,8,C&L01|2024-25;C&L02|2024-25;C&L03|2024-25;C&L04|2024-25;C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,East Lothian,east-lothian
+S12000011,value_culture,58.116741,0.875000,Culture and leisure value,value_for_money,culture_and_leisure,value_for_money,8,C&L01|2024-25;C&L02|2024-25;C&L03|2024-25;C&L04|2024-25;C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,East Renfrewshire,east-renfrewshire
+S12000014,value_culture,48.103113,1.000000,Culture and leisure value,value_for_money,culture_and_leisure,value_for_money,8,C&L01|2024-25;C&L02|2024-25;C&L03|2024-25;C&L04|2024-25;C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,Falkirk,falkirk
+S12000047,value_culture,47.239824,1.000000,Culture and leisure value,value_for_money,culture_and_leisure,value_for_money,8,C&L01|2024-25;C&L02|2024-25;C&L03|2024-25;C&L04|2024-25;C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,Fife,fife
+S12000049,value_culture,36.167446,1.000000,Culture and leisure value,value_for_money,culture_and_leisure,value_for_money,8,C&L01|2024-25;C&L02|2024-25;C&L03|2024-25;C&L04|2024-25;C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,Glasgow City,glasgow-city
+S12000017,value_culture,65.993690,1.000000,Culture and leisure value,value_for_money,culture_and_leisure,value_for_money,8,C&L01|2024-25;C&L02|2024-25;C&L03|2024-25;C&L04|2024-25;C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,Highland,highland
+S12000018,value_culture,55.111033,1.000000,Culture and leisure value,value_for_money,culture_and_leisure,value_for_money,8,C&L01|2024-25;C&L02|2024-25;C&L03|2024-25;C&L04|2024-25;C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,Inverclyde,inverclyde
+S12000019,value_culture,35.872989,0.875000,Culture and leisure value,value_for_money,culture_and_leisure,value_for_money,8,C&L01|2024-25;C&L02|2024-25;C&L03|2024-25;C&L04|2024-25;C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,Midlothian,midlothian
+S12000020,value_culture,46.345012,0.875000,Culture and leisure value,value_for_money,culture_and_leisure,value_for_money,8,C&L01|2024-25;C&L02|2024-25;C&L03|2024-25;C&L04|2024-25;C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,Moray,moray
+S12000013,value_culture,54.827922,1.000000,Culture and leisure value,value_for_money,culture_and_leisure,value_for_money,8,C&L01|2024-25;C&L02|2024-25;C&L03|2024-25;C&L04|2024-25;C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,Na h-Eileanan Siar,na-h-eileanan-siar
+S12000021,value_culture,46.269966,1.000000,Culture and leisure value,value_for_money,culture_and_leisure,value_for_money,8,C&L01|2024-25;C&L02|2024-25;C&L03|2024-25;C&L04|2024-25;C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,North Ayrshire,north-ayrshire
+S12000050,value_culture,31.147413,1.000000,Culture and leisure value,value_for_money,culture_and_leisure,value_for_money,8,C&L01|2024-25;C&L02|2024-25;C&L03|2024-25;C&L04|2024-25;C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,North Lanarkshire,north-lanarkshire
+S12000023,value_culture,77.357174,1.000000,Culture and leisure value,value_for_money,culture_and_leisure,value_for_money,8,C&L01|2024-25;C&L02|2024-25;C&L03|2024-25;C&L04|2024-25;C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,Orkney Islands,orkney-islands
+S12000048,value_culture,45.093158,1.000000,Culture and leisure value,value_for_money,culture_and_leisure,value_for_money,8,C&L01|2024-25;C&L02|2024-25;C&L03|2024-25;C&L04|2024-25;C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,Perth and Kinross,perth-and-kinross
+S12000038,value_culture,43.027144,0.875000,Culture and leisure value,value_for_money,culture_and_leisure,value_for_money,8,C&L01|2024-25;C&L02|2024-25;C&L03|2024-25;C&L04|2024-25;C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,Renfrewshire,renfrewshire
+S12000026,value_culture,30.291737,1.000000,Culture and leisure value,value_for_money,culture_and_leisure,value_for_money,8,C&L01|2024-25;C&L02|2024-25;C&L03|2024-25;C&L04|2024-25;C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,Scottish Borders,scottish-borders
+S12000027,value_culture,79.520135,1.000000,Culture and leisure value,value_for_money,culture_and_leisure,value_for_money,8,C&L01|2024-25;C&L02|2024-25;C&L03|2024-25;C&L04|2024-25;C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,Shetland Islands,shetland-islands
+S12000028,value_culture,33.938432,1.000000,Culture and leisure value,value_for_money,culture_and_leisure,value_for_money,8,C&L01|2024-25;C&L02|2024-25;C&L03|2024-25;C&L04|2024-25;C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,South Ayrshire,south-ayrshire
+S12000029,value_culture,56.504835,1.000000,Culture and leisure value,value_for_money,culture_and_leisure,value_for_money,8,C&L01|2024-25;C&L02|2024-25;C&L03|2024-25;C&L04|2024-25;C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,South Lanarkshire,south-lanarkshire
+S12000030,value_culture,63.450757,1.000000,Culture and leisure value,value_for_money,culture_and_leisure,value_for_money,8,C&L01|2024-25;C&L02|2024-25;C&L03|2024-25;C&L04|2024-25;C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,Stirling,stirling
+S12000039,value_culture,57.024218,1.000000,Culture and leisure value,value_for_money,culture_and_leisure,value_for_money,8,C&L01|2024-25;C&L02|2024-25;C&L03|2024-25;C&L04|2024-25;C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,West Dunbartonshire,west-dunbartonshire
+S12000040,value_culture,41.876526,1.000000,Culture and leisure value,value_for_money,culture_and_leisure,value_for_money,8,C&L01|2024-25;C&L02|2024-25;C&L03|2024-25;C&L04|2024-25;C&L05a|2024-25;C&L05b|2024-25;C&L05c|2024-25;C&L05d|2024-25,West Lothian,west-lothian
+S12000033,value_planning,45.161290,1.000000,Planning-service value,value_for_money,planning,value_for_money,2,ECON02|2024-25;ECON03|2024-25,Aberdeen City,aberdeen-city
+S12000034,value_planning,41.108341,1.000000,Planning-service value,value_for_money,planning,value_for_money,2,ECON02|2024-25;ECON03|2024-25,Aberdeenshire,aberdeenshire
+S12000041,value_planning,77.704792,1.000000,Planning-service value,value_for_money,planning,value_for_money,2,ECON02|2024-25;ECON03|2024-25,Angus,angus
+S12000035,value_planning,17.938012,1.000000,Planning-service value,value_for_money,planning,value_for_money,2,ECON02|2024-25;ECON03|2024-25,Argyll and Bute,argyll-and-bute
+S12000036,value_planning,67.741935,1.000000,Planning-service value,value_for_money,planning,value_for_money,2,ECON02|2024-25;ECON03|2024-25,City of Edinburgh,city-of-edinburgh
+S12000005,value_planning,78.317858,1.000000,Planning-service value,value_for_money,planning,value_for_money,2,ECON02|2024-25;ECON03|2024-25,Clackmannanshire,clackmannanshire
+S12000006,value_planning,52.488706,1.000000,Planning-service value,value_for_money,planning,value_for_money,2,ECON02|2024-25;ECON03|2024-25,Dumfries and Galloway,dumfries-and-galloway
+S12000042,value_planning,45.679114,1.000000,Planning-service value,value_for_money,planning,value_for_money,2,ECON02|2024-25;ECON03|2024-25,Dundee City,dundee-city
+S12000008,value_planning,14.867591,1.000000,Planning-service value,value_for_money,planning,value_for_money,2,ECON02|2024-25;ECON03|2024-25,East Ayrshire,east-ayrshire
+S12000045,value_planning,77.352979,1.000000,Planning-service value,value_for_money,planning,value_for_money,2,ECON02|2024-25;ECON03|2024-25,East Dunbartonshire,east-dunbartonshire
+S12000010,value_planning,85.468830,1.000000,Planning-service value,value_for_money,planning,value_for_money,2,ECON02|2024-25;ECON03|2024-25,East Lothian,east-lothian
+S12000011,value_planning,45.490362,1.000000,Planning-service value,value_for_money,planning,value_for_money,2,ECON02|2024-25;ECON03|2024-25,East Renfrewshire,east-renfrewshire
+S12000014,value_planning,30.273041,1.000000,Planning-service value,value_for_money,planning,value_for_money,2,ECON02|2024-25;ECON03|2024-25,Falkirk,falkirk
+S12000047,value_planning,36.788240,1.000000,Planning-service value,value_for_money,planning,value_for_money,2,ECON02|2024-25;ECON03|2024-25,Fife,fife
+S12000049,value_planning,38.790829,1.000000,Planning-service value,value_for_money,planning,value_for_money,2,ECON02|2024-25;ECON03|2024-25,Glasgow City,glasgow-city
+S12000017,value_planning,43.611410,1.000000,Planning-service value,value_for_money,planning,value_for_money,2,ECON02|2024-25;ECON03|2024-25,Highland,highland
+S12000018,value_planning,28.085274,1.000000,Planning-service value,value_for_money,planning,value_for_money,2,ECON02|2024-25;ECON03|2024-25,Inverclyde,inverclyde
+S12000019,value_planning,2.728703,1.000000,Planning-service value,value_for_money,planning,value_for_money,2,ECON02|2024-25;ECON03|2024-25,Midlothian,midlothian
+S12000020,value_planning,35.650343,1.000000,Planning-service value,value_for_money,planning,value_for_money,2,ECON02|2024-25;ECON03|2024-25,Moray,moray
+S12000013,value_planning,60.273860,1.000000,Planning-service value,value_for_money,planning,value_for_money,2,ECON02|2024-25;ECON03|2024-25,Na h-Eileanan Siar,na-h-eileanan-siar
+S12000021,value_planning,78.317858,1.000000,Planning-service value,value_for_money,planning,value_for_money,2,ECON02|2024-25;ECON03|2024-25,North Ayrshire,north-ayrshire
+S12000050,value_planning,51.370061,1.000000,Planning-service value,value_for_money,planning,value_for_money,2,ECON02|2024-25;ECON03|2024-25,North Lanarkshire,north-lanarkshire
+S12000023,value_planning,49.358352,1.000000,Planning-service value,value_for_money,planning,value_for_money,2,ECON02|2024-25;ECON03|2024-25,Orkney Islands,orkney-islands
+S12000048,value_planning,52.458543,1.000000,Planning-service value,value_for_money,planning,value_for_money,2,ECON02|2024-25;ECON03|2024-25,Perth and Kinross,perth-and-kinross
+S12000038,value_planning,26.862846,1.000000,Planning-service value,value_for_money,planning,value_for_money,2,ECON02|2024-25;ECON03|2024-25,Renfrewshire,renfrewshire
+S12000026,value_planning,43.611410,1.000000,Planning-service value,value_for_money,planning,value_for_money,2,ECON02|2024-25;ECON03|2024-25,Scottish Borders,scottish-borders
+S12000027,value_planning,1.729764,1.000000,Planning-service value,value_for_money,planning,value_for_money,2,ECON02|2024-25;ECON03|2024-25,Shetland Islands,shetland-islands
+S12000028,value_planning,24.621535,1.000000,Planning-service value,value_for_money,planning,value_for_money,2,ECON02|2024-25;ECON03|2024-25,South Ayrshire,south-ayrshire
+S12000029,value_planning,62.499744,1.000000,Planning-service value,value_for_money,planning,value_for_money,2,ECON02|2024-25;ECON03|2024-25,South Lanarkshire,south-lanarkshire
+S12000030,value_planning,14.361106,1.000000,Planning-service value,value_for_money,planning,value_for_money,2,ECON02|2024-25;ECON03|2024-25,Stirling,stirling
+S12000039,value_planning,68.316276,1.000000,Planning-service value,value_for_money,planning,value_for_money,2,ECON02|2024-25;ECON03|2024-25,West Dunbartonshire,west-dunbartonshire
+S12000040,value_planning,22.701688,1.000000,Planning-service value,value_for_money,planning,value_for_money,2,ECON02|2024-25;ECON03|2024-25,West Lothian,west-lothian
+S12000033,value_care,49.725753,1.000000,Adult-care value,value_for_money,adult_care,value_for_money,7,SW01|2024-25;SW05|2024-25;SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26;SW07|2025-26,Aberdeen City,aberdeen-city
+S12000034,value_care,33.903926,1.000000,Adult-care value,value_for_money,adult_care,value_for_money,7,SW01|2024-25;SW05|2024-25;SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26;SW07|2025-26,Aberdeenshire,aberdeenshire
+S12000041,value_care,52.887780,1.000000,Adult-care value,value_for_money,adult_care,value_for_money,7,SW01|2024-25;SW05|2024-25;SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26;SW07|2025-26,Angus,angus
+S12000035,value_care,41.844260,1.000000,Adult-care value,value_for_money,adult_care,value_for_money,7,SW01|2024-25;SW05|2024-25;SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26;SW07|2025-26,Argyll and Bute,argyll-and-bute
+S12000036,value_care,66.551969,1.000000,Adult-care value,value_for_money,adult_care,value_for_money,7,SW01|2024-25;SW05|2024-25;SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26;SW07|2025-26,City of Edinburgh,city-of-edinburgh
+S12000005,value_care,59.703138,1.000000,Adult-care value,value_for_money,adult_care,value_for_money,7,SW01|2024-25;SW05|2024-25;SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26;SW07|2025-26,Clackmannanshire,clackmannanshire
+S12000006,value_care,64.093553,1.000000,Adult-care value,value_for_money,adult_care,value_for_money,7,SW01|2024-25;SW05|2024-25;SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26;SW07|2025-26,Dumfries and Galloway,dumfries-and-galloway
+S12000042,value_care,42.845118,1.000000,Adult-care value,value_for_money,adult_care,value_for_money,7,SW01|2024-25;SW05|2024-25;SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26;SW07|2025-26,Dundee City,dundee-city
+S12000008,value_care,37.594466,1.000000,Adult-care value,value_for_money,adult_care,value_for_money,7,SW01|2024-25;SW05|2024-25;SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26;SW07|2025-26,East Ayrshire,east-ayrshire
+S12000045,value_care,62.882868,1.000000,Adult-care value,value_for_money,adult_care,value_for_money,7,SW01|2024-25;SW05|2024-25;SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26;SW07|2025-26,East Dunbartonshire,east-dunbartonshire
+S12000010,value_care,55.901717,1.000000,Adult-care value,value_for_money,adult_care,value_for_money,7,SW01|2024-25;SW05|2024-25;SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26;SW07|2025-26,East Lothian,east-lothian
+S12000011,value_care,76.824551,1.000000,Adult-care value,value_for_money,adult_care,value_for_money,7,SW01|2024-25;SW05|2024-25;SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26;SW07|2025-26,East Renfrewshire,east-renfrewshire
+S12000014,value_care,63.301344,1.000000,Adult-care value,value_for_money,adult_care,value_for_money,7,SW01|2024-25;SW05|2024-25;SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26;SW07|2025-26,Falkirk,falkirk
+S12000047,value_care,19.879492,1.000000,Adult-care value,value_for_money,adult_care,value_for_money,7,SW01|2024-25;SW05|2024-25;SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26;SW07|2025-26,Fife,fife
+S12000049,value_care,51.734793,1.000000,Adult-care value,value_for_money,adult_care,value_for_money,7,SW01|2024-25;SW05|2024-25;SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26;SW07|2025-26,Glasgow City,glasgow-city
+S12000017,value_care,35.561225,1.000000,Adult-care value,value_for_money,adult_care,value_for_money,7,SW01|2024-25;SW05|2024-25;SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26;SW07|2025-26,Highland,highland
+S12000018,value_care,34.192809,1.000000,Adult-care value,value_for_money,adult_care,value_for_money,7,SW01|2024-25;SW05|2024-25;SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26;SW07|2025-26,Inverclyde,inverclyde
+S12000019,value_care,30.301145,1.000000,Adult-care value,value_for_money,adult_care,value_for_money,7,SW01|2024-25;SW05|2024-25;SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26;SW07|2025-26,Midlothian,midlothian
+S12000020,value_care,58.769249,1.000000,Adult-care value,value_for_money,adult_care,value_for_money,7,SW01|2024-25;SW05|2024-25;SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26;SW07|2025-26,Moray,moray
+S12000013,value_care,14.116303,1.000000,Adult-care value,value_for_money,adult_care,value_for_money,7,SW01|2024-25;SW05|2024-25;SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26;SW07|2025-26,Na h-Eileanan Siar,na-h-eileanan-siar
+S12000021,value_care,38.331048,1.000000,Adult-care value,value_for_money,adult_care,value_for_money,7,SW01|2024-25;SW05|2024-25;SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26;SW07|2025-26,North Ayrshire,north-ayrshire
+S12000050,value_care,43.257677,1.000000,Adult-care value,value_for_money,adult_care,value_for_money,7,SW01|2024-25;SW05|2024-25;SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26;SW07|2025-26,North Lanarkshire,north-lanarkshire
+S12000023,value_care,21.419262,1.000000,Adult-care value,value_for_money,adult_care,value_for_money,7,SW01|2024-25;SW05|2024-25;SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26;SW07|2025-26,Orkney Islands,orkney-islands
+S12000048,value_care,77.108499,1.000000,Adult-care value,value_for_money,adult_care,value_for_money,7,SW01|2024-25;SW05|2024-25;SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26;SW07|2025-26,Perth and Kinross,perth-and-kinross
+S12000038,value_care,44.943695,1.000000,Adult-care value,value_for_money,adult_care,value_for_money,7,SW01|2024-25;SW05|2024-25;SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26;SW07|2025-26,Renfrewshire,renfrewshire
+S12000026,value_care,51.513920,1.000000,Adult-care value,value_for_money,adult_care,value_for_money,7,SW01|2024-25;SW05|2024-25;SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26;SW07|2025-26,Scottish Borders,scottish-borders
+S12000027,value_care,12.433499,1.000000,Adult-care value,value_for_money,adult_care,value_for_money,7,SW01|2024-25;SW05|2024-25;SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26;SW07|2025-26,Shetland Islands,shetland-islands
+S12000028,value_care,54.392564,1.000000,Adult-care value,value_for_money,adult_care,value_for_money,7,SW01|2024-25;SW05|2024-25;SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26;SW07|2025-26,South Ayrshire,south-ayrshire
+S12000029,value_care,30.181570,1.000000,Adult-care value,value_for_money,adult_care,value_for_money,7,SW01|2024-25;SW05|2024-25;SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26;SW07|2025-26,South Lanarkshire,south-lanarkshire
+S12000030,value_care,69.937024,1.000000,Adult-care value,value_for_money,adult_care,value_for_money,7,SW01|2024-25;SW05|2024-25;SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26;SW07|2025-26,Stirling,stirling
+S12000039,value_care,35.020156,1.000000,Adult-care value,value_for_money,adult_care,value_for_money,7,SW01|2024-25;SW05|2024-25;SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26;SW07|2025-26,West Dunbartonshire,west-dunbartonshire
+S12000040,value_care,47.858254,1.000000,Adult-care value,value_for_money,adult_care,value_for_money,7,SW01|2024-25;SW05|2024-25;SW04b|2025-26;SW04c|2025-26;SW04d|2025-26;SW04e|2025-26;SW07|2025-26,West Lothian,west-lothian

@@ -305,6 +305,91 @@ export const posts: Post[] = [
     ],
   },
   {
+    slug: "best-performing-councils-scotland",
+    title: "Scotland's best-performing councils: all 32 ranked",
+    seoTitle: "Best Council in Scotland 2026: All 32 Ranked",
+    description:
+      "East Renfrewshire comes first in our 53-measure ranking. See all 32 councils, the like-for-like list, what residents said and every number used.",
+    standfirst:
+      "East Renfrewshire comes first in our new ranking of all 32 Scottish councils. East Lothian is second and Edinburgh third. But the like-for-like list and resident survey tell a more surprising story.",
+    date: "2026-08-16",
+    category: "politics-explained",
+    tags: [
+      "Best council in Scotland",
+      "Scottish council rankings",
+      "Council performance",
+      "Local Government Benchmarking Framework",
+      "Best places to live in Scotland",
+      "Scottish local government",
+      "Council services",
+    ],
+    readingMinutes: 14,
+    image: {
+      src: "/images/editorial/best-performing-councils-scotland-2026.png",
+      alt: "Data graphic showing East Renfrewshire first in the Scotland Counted council performance index, followed by East Lothian, Edinburgh, East Dunbartonshire and South Ayrshire",
+      caption:
+        "East Renfrewshire is the clear leader. But the exact order moves when we change the rules, so we show the usual range for every council.",
+      creditLabel: "Scotland Counted data graphic.",
+      objectPosition: "center",
+    },
+    shareImage: {
+      src: "/images/editorial/best-performing-councils-scotland-2026.png",
+      width: 1800,
+      height: 900,
+      type: "image/png",
+    },
+    toc: [
+      { id: "answer", label: "The answer in four numbers" },
+      { id: "winner", label: "Why East Renfrewshire wins" },
+      { id: "uncertainty", label: "Does the winner change?" },
+      { id: "all-councils", label: "Every council ranked" },
+      { id: "different-winners", label: "Five ways to be good" },
+      { id: "peer-groups", label: "The like-for-like list" },
+      { id: "residents", label: "Residents disagree" },
+      { id: "surprises", label: "The biggest contradiction" },
+      { id: "not-in-score", label: "What was left out" },
+      { id: "method", label: "How we worked it out" },
+      { id: "download", label: "Check every number" },
+      { id: "questions", label: "What councils must answer" },
+    ],
+    faq: [
+      {
+        q: "Which is the best-performing council in Scotland?",
+        a: "East Renfrewshire comes first in Scotland Counted's 2026 council ranking. It is number one for services and results and stayed first in all ten extra checks. We built the ranking from 53 official figures. It is not a government award.",
+      },
+      {
+        q: "Which Scottish council do residents rate most highly?",
+        a: "Shetland Islands comes first in the separate resident survey, averaging 52.1% across five questions in the 2024 Scottish Household Survey. Only a few hundred people answered in each area, so tiny gaps may be down to chance.",
+      },
+      {
+        q: "Does the ranking measure the best place to live in Scotland?",
+        a: "No. It measures how councils perform, not every reason a place is good to live. Poverty, crime, health, housing and loneliness are shown separately. That stops richer areas automatically looking like better-run councils.",
+      },
+      {
+        q: "How were Scottish councils ranked?",
+        a: "We used 53 official figures, grouped into 29 topics. Services and results count for 40%, what residents said 25%, how the council is run 20%, value for money 10% and council emissions 5%. We then changed the rules 10,000 sensible ways to see how much the order moved.",
+      },
+      {
+        q: "Which council performs best against similar councils?",
+        a: "East Renfrewshire stays first and East Lothian second in the like-for-like list. Inverclyde jumps from 12th across Scotland to third against councils facing similar conditions.",
+      },
+    ],
+    sourceIds: [
+      "lgbf-performance-2026",
+      "lgbf-family-groups",
+      "shs-council-perceptions-2024",
+      "shs-methodology-2024",
+      "shs-neighbourhoods-2024",
+      "shcs-local-authority-2022-24",
+      "recorded-crime-scotland-2025-26",
+      "oecd-composite-indicators",
+      "jrc-composite-normalisation",
+      "ecp",
+      "nrs-drug-deaths-2024",
+      "swf-statistics-2025-26",
+    ],
+  },
+  {
     slug: "operation-branchform-snp-money-timeline",
     title: "Operation Branchform timeline: the full SNP money story",
     seoTitle: "Operation Branchform Timeline: SNP Money Case Explained",
@@ -580,10 +665,11 @@ export const posts: Post[] = [
     slug: "minimum-wage-take-home-pay-scotland-2026",
     title: "Minimum wage in Scotland: what you earn in 2026",
     description:
-      "Minimum wage in Scotland is £12.71 an hour in 2026. See every age rate, gross weekly, monthly and yearly pay, plus take-home pay after tax and NI.",
+      "Minimum wage in Scotland is £12.71 an hour in 2026, rising to £13.21 in April 2027. See every age rate, yearly pay and take-home pay after tax and NI.",
     standfirst:
       "£12.71 an hour sounds clear. A payslip is not. I have done the tax and National Insurance working for a 37.5-hour week so you can see what reaches the bank.",
     date: "2026-08-01",
+    updated: "2026-10-29",
     category: "money-and-bills",
     tags: ["Minimum wage", "Take-home pay", "Scottish income tax", "Low pay"],
     readingMinutes: 6,
@@ -596,6 +682,7 @@ export const posts: Post[] = [
     },
     toc: [
       { id: "rates", label: "The 2026 hourly rates" },
+      { id: "april-2027", label: "What changes in April 2027" },
       { id: "full-time", label: "What full-time adds up to" },
       { id: "take-home", label: "What reaches the bank" },
       { id: "hours", label: "Why your pay may be lower" },
@@ -607,20 +694,25 @@ export const posts: Post[] = [
         a: "From 1 April 2026 it is £12.71 an hour for workers aged 21 and over, £10.85 for ages 18 to 20, and £8 for under-18s and eligible apprentices.",
       },
       {
+        q: "What will minimum wage be in Scotland in April 2027?",
+        a: "From 1 April 2027 it rises to £13.21 an hour for workers aged 21 and over, £11.27 for ages 18 to 20, and £8.31 for under-18s and eligible apprentices. Scotland does not set its own rate.",
+      },
+      {
         q: "What is £12.71 an hour per year?",
         a: "At 37.5 paid hours every week for 52 weeks it is £24,784.50 gross a year. It is not a guaranteed annual salary: fewer paid hours or unpaid time off means less.",
       },
     ],
-    sourceIds: ["minimum-wage-2026", "scottish-tax-2026", "ni-rates-2026", "mis-2025"],
+    sourceIds: ["minimum-wage-2026", "minimum-wage-2027", "scottish-tax-2026", "ni-rates-2026", "mis-2025"],
   },
   {
     slug: "real-living-wage-vs-minimum-wage-scotland",
     title: "Real Living Wage Scotland versus minimum wage",
     description:
-      "The 2026 legal minimum is £12.71 an hour and Scotland's real Living Wage is £13.45. See who sets each rate, who must pay it and what the gap is worth.",
+      "The real Living Wage is now £14.10 an hour. The legal minimum is £12.71, rising to £13.21 in April 2027. Who sets each rate and what the gap is worth.",
     standfirst:
       "They sound almost identical. One is the legal floor an employer must pay. The other is a voluntary rate calculated from what ordinary life actually costs.",
     date: "2026-08-01",
+    updated: "2026-10-29",
     category: "money-and-bills",
     tags: ["Real Living Wage", "Minimum wage", "Pay", "Living costs"],
     readingMinutes: 5,
@@ -645,10 +737,10 @@ export const posts: Post[] = [
       },
       {
         q: "How much more is the real Living Wage?",
-        a: "The current rate outside London is £13.45, which is 74p an hour above the 2026 legal rate for workers aged 21 and over. At 37.5 hours a week that is £1,443 gross a year.",
+        a: "The rate outside London is £14.10, announced on 15 October 2026. That is £1.39 an hour above the 2026 legal rate for workers aged 21 and over, or £2,710.50 gross a year at 37.5 hours a week. From April 2027, when the legal rate rises to £13.21, the gap is 89p an hour.",
       },
     ],
-    sourceIds: ["minimum-wage-2026", "real-living-wage", "mis-2025", "lpc-remit"],
+    sourceIds: ["minimum-wage-2026", "minimum-wage-2027", "real-living-wage", "mis-2025", "lpc-remit"],
   },
   {
     slug: "universal-credit-when-you-work-more-hours",

@@ -71,6 +71,25 @@ export default function CouncilsPage() {
 
           <AccountabilityMethodNote />
 
+          <section className="pt-10" aria-labelledby="performance-index-heading">
+            <div className="overflow-hidden rounded-[var(--r-l)] bg-[var(--deep)] p-6 text-[var(--deep-ink)] sm:p-8">
+              <p className="kicker text-[#9db2ff]">New: all 32 ranked</p>
+              <div className="mt-3 flex flex-wrap items-end justify-between gap-6">
+                <div className="max-w-[62ch]">
+                  <h2 id="performance-index-heading" className="text-[clamp(28px,4vw,44px)] font-[810] leading-[1.05] tracking-[-0.03em]">
+                    Which Scottish council performs best?
+                  </h2>
+                  <p className="mt-4 text-[16.5px] leading-[1.6] text-[#d7deed]">
+                    East Renfrewshire comes first after we checked 53 official figures. See all 32 councils, a like-for-like list, what residents said and how much each rank can move.
+                  </p>
+                </div>
+                <Link href="/blog/best-performing-councils-scotland" className="btn btn-on-deep shrink-0">
+                  Explore the full ranking <span aria-hidden="true">→</span>
+                </Link>
+              </div>
+            </div>
+          </section>
+
           {/*
             The receipts, before any prose. Counted from the records themselves
             so the figures can never drift from the pages they summarise, and

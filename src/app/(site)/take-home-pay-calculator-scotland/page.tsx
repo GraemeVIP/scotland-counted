@@ -11,9 +11,9 @@ import Faq from "@/components/Faq";
 import { ExplainText } from "@/components/Glossary";
 
 export const metadata = meta({
-  title: "Take-Home Pay Calculator Scotland 2026/27",
+  title: "Take-Home Pay Calculator for Scotland 2026/27",
   description:
-    "Calculate monthly and yearly take-home pay using Scotland's 2026/27 income-tax bands. Enter a salary or hourly wage and include deductions that apply to you.",
+    "Calculate take-home pay with Scotland's 2026/27 tax bands. Enter a salary or hourly wage, then include pension and student-loan deductions.",
   path: "/take-home-pay-calculator-scotland",
   type: "website",
 });

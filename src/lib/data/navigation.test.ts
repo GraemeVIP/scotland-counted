@@ -159,14 +159,9 @@ test("Branchform is still classified as an investigation", () => {
   );
 });
 
-test("only Branchform is filed under the investigations category", () => {
+test("only evidence-led investigations are filed under the investigations category", () => {
   /*
-   * A guide is not an investigation. If this count ever rises, either a real
-   * investigation was published, in which case update it deliberately, or an
-   * explainer was misfiled, which is the thing this whole change was about.
-   */
-  /*
-   * An allowlist, not a head-count. The original assertion pinned the count
+   * A guide is not an investigation. An allowlist, not a head-count. The original assertion pinned the count
    * at one, which broke the moment a second genuine investigation, the
    * Crisis Grant piece, was published. The invariant worth keeping is that
    * nothing gets filed here casually: every slug in the category must be
@@ -178,6 +173,7 @@ test("only Branchform is filed under the investigations category", () => {
     "crisis-grant-acceptance-rates-scotland-councils",
     "glasgow-sex-crime-rise-migrants",
     "shoplifting-scotland-record-high",
+    "best-performing-councils-scotland",
   ];
   const source = readFileSync(fileURLToPath(new URL("./posts.ts", import.meta.url)), "utf8");
   /*

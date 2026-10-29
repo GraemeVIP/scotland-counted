@@ -25,9 +25,9 @@ import { explainerVideo } from "@/lib/data/video";
  */
 
 export const metadata = meta({
-  title: "Poverty in Scotland: The Figures, the Causes and Who Can Fix It",
+  title: "Poverty in Scotland: Facts, Causes and Who Can Help",
   description:
-    "How many people live in poverty in Scotland, how many of them are in work, why Glasgow is worst, and which government controls each lever. Every figure sourced.",
+    "See Scotland's poverty figures, how work and housing costs affect them, why Glasgow stands out, and who has the power to act.",
   path: "/poverty",
 });
 
