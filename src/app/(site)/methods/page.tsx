@@ -38,15 +38,15 @@ const PRINCIPLES = [
 ];
 
 const LIMITS = [
-  "The main poverty survey is reliable for Scotland as a whole, but not for each council area. Local pages therefore use separate records for child poverty, out-of-work benefits and pay. They show different parts of the story and should not be treated as the same thing.",
-  "There is no reliable local child-poverty series before 2014/15. Older local pages can show work and neighbourhood figures, but not the same poverty measure.",
-  "Scotland's neighbourhood list ranks places from worst-off to best-off. It does not count every person in hardship. A place can improve and still move down if other places improve faster.",
+  "The main poverty survey is reliable for Scotland as a whole, but not for each council area. Local pages therefore use separate records for child poverty, out of work benefits and pay. They show different parts of the story and should not be treated as the same thing.",
+  "There is no reliable local child poverty series before 2014/15. Older local pages can show work and neighbourhood figures, but not the same poverty measure.",
+  "Scotland's neighbourhood list ranks places from worst off to best off. It does not count every person in hardship. A place can improve and still move down if other places improve faster.",
   "Some job figures from 2024 onward are unreliable because too few people answered the survey. I show that part with a dotted line and a warning.",
-  "An area-wide figure does not describe every street or family. Within Glasgow, estimated child poverty ranges from roughly 5% in some neighbourhoods to roughly 75% in others.",
-  "The ONS pay charts are not the average wage. They cover a restricted sample of full-time PAYE employee jobs and exclude all part-time jobs, self-employment, employees outside PAYE, junior rates and pay affected by absence.",
+  "An area wide figure does not describe every street or family. Within Glasgow, estimated child poverty ranges from roughly 5% in some neighbourhoods to roughly 75% in others.",
+  "The ONS pay charts are not the average wage. They cover a restricted sample of full time PAYE employee jobs and exclude all part time jobs, self employment, employees outside PAYE, junior rates and pay affected by absence.",
   "Workplace and residence pay are separate medians for separate groups. The difference between them does not track the same people and cannot prove that a particular amount of wages leaves an area.",
   "Pay figures show the cash amount at the time and do not remove the effect of rising prices. Compare places within the same year, not along the line.",
-  "The life-expectancy figure describes death rates across the population. It is not a prediction for any one person.",
+  "The life expectancy figure describes death rates across the population. It is not a prediction for any one person.",
 ];
 
 export default function Methods() {
@@ -128,7 +128,7 @@ export default function Methods() {
                   <p className="text-[15px] text-[var(--ink-2)] leading-[1.55]">{s.used}</p>
                   {s.derivation && (
                     <p className="text-[15px] text-[var(--ink-2)] leading-[1.55] mt-1.5 pl-3 border-l-2 border-[var(--rule)]">
-                      <span className="ui text-[15px] font-[650] text-[var(--muted)] block mb-0.5">
+                      <span className="ui text-[15px] font-[540] text-[var(--muted)] block mb-0.5">
                         My calculation
                       </span>
                       {s.derivation}
@@ -150,7 +150,7 @@ export default function Methods() {
         />
 
         <p className="mt-10 text-[15px] text-[var(--ink-2)] max-w-[66ch]">
-          Terms are explained in the <Link href="/glossary">plain-English glossary</Link>.
+          Terms are explained in the <Link href="/glossary">plain English glossary</Link>.
         </p>
         </ContentFrame>
       </Page>

@@ -62,7 +62,7 @@ test("the homepage is in the sitemap", () => {
 test("the new section hubs are listed", () => {
   // Named explicitly: these are the entry points the whole repositioning
   // depends on, and a silent omission would strand them.
-  for (const hub of ["/areas", "/money", "/councils", "/who-decides", "/poverty", "/accessibility"]) {
+  for (const hub of ["/areas", "/money", "/councils", "/who-decides", "/poverty-in-scotland", "/accessibility"]) {
     assert.ok(SITEMAP.includes(`\${site.url}${hub}\``), `${hub} is missing from the sitemap`);
   }
 });

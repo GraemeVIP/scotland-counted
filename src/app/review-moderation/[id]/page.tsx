@@ -11,7 +11,7 @@ export default async function ReviewModerationPage({ params }: { params: Promise
   return (
     <main className="min-h-screen bg-[var(--paper)] px-5 py-10 sm:px-8 sm:py-16">
       <div className="mx-auto max-w-[760px]">
-        <p className="ui mb-10 text-[18px] font-[800] tracking-[-0.04em]">Scotland<span className="text-[var(--action-text)]">Counted</span></p>
+        <p className="ui mb-10 text-[18px] font-[640] tracking-[-0.04em]">Scotland<span className="text-[var(--action-text)]">Counted</span></p>
         <ModerationPanel id={id} />
       </div>
     </main>

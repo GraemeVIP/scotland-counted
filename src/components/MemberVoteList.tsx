@@ -31,10 +31,10 @@ export default function MemberVoteList({
             return (
               <article key={`${vote.sourceUrl}-${vote.date}-${vote.title}-${vote.vote}`} className="rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] p-4 sm:p-5">
                 <div className="flex flex-wrap items-start justify-between gap-3">
-                  <h3 className="ui max-w-[70ch] text-[16px] font-[750] leading-[1.4] text-[var(--ink)]">{vote.title}</h3>
+                  <h3 className="ui max-w-[70ch] text-[16px] font-[600] leading-[1.4] text-[var(--ink)]">{vote.title}</h3>
                   {/* The official term stays in the record line below; the chip
                       answers the only question a visitor actually has. */}
-                  <span className={`ui shrink-0 rounded-full border px-3 py-1 text-[15px] font-[750] ${positive ? "border-[var(--good-text)] text-[var(--good-text)]" : "border-[var(--brand)] text-[var(--brand)]"}`}>{plainVoteLabel(vote.vote)}</span>
+                  <span className={`ui shrink-0 rounded-full border px-3 py-1 text-[15px] font-[600] ${positive ? "border-[var(--good-text)] text-[var(--good-text)]" : "border-[var(--brand)] text-[var(--brand)]"}`}>{plainVoteLabel(vote.vote)}</span>
                 </div>
                 {(explainer || substance) && (
                   <div className="mt-3 rounded-[var(--r-s)] border-l-[3px] border-[var(--brand)] bg-[var(--surface-2)] px-3.5 py-2.5">
@@ -64,7 +64,7 @@ export default function MemberVoteList({
                   {` · They voted ${vote.vote}`}
                   {vote.reference ? ` · ${vote.reference}` : ""}
                 </p>
-                <a href={vote.sourceUrl} className="ui mt-3 inline-block text-[15px] font-[650]">Check the official record →</a>
+                <a href={vote.sourceUrl} className="ui mt-3 inline-block text-[15px] font-[540]">Check the official record →</a>
               </article>
             );
           })}

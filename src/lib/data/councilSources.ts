@@ -61,7 +61,7 @@ export const COUNCIL_SOURCES: CouncilSource[] = [
     startUrl: "https://audit.scot/publications",
     feeds: ["budgetFigures", "outcomes"],
     whatToExtract:
-      "The Scotland-wide picture in one place: combined funding gaps, reserves drawn down, councils flagged as financially stressed. The comparative lines that make one council's record mean something.",
+      "The Scotland wide picture in one place: combined funding gaps, reserves drawn down, councils flagged as financially stressed. The comparative lines that make one council's record mean something.",
   },
   {
     id: "lgbf",
@@ -76,7 +76,7 @@ export const COUNCIL_SOURCES: CouncilSource[] = [
       "https://www.improvementservice.org.uk/products-and-services/data-intelligence-and-benchmarking/local-government-benchmarking-framework",
     feeds: ["outcomes"],
     whatToExtract:
-      "The like-for-like numbers people actually argue about: cost per bin collection, share of roads needing repair, cost per pupil, satisfaction scores. Every council on the same ruler, so \"worst in Scotland\" is a fact rather than a feeling.",
+      "The like for like numbers people actually argue about: cost per bin collection, share of roads needing repair, cost per pupil, satisfaction scores. Every council on the same ruler, so \"worst in Scotland\" is a fact rather than a feeling.",
   },
   {
     id: "shr-engagement",

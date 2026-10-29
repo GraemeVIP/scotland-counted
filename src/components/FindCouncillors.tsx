@@ -17,7 +17,7 @@ import { ExplainText } from "@/components/Glossary";
 const COUNCIL_JOBS = [
   "Council houses, repairs and damp",
   "Homelessness applications and temporary accommodation",
-  "Bins, recycling and fly-tipping",
+  "Bins, recycling and fly tipping",
   "Local roads, pavements and street lighting",
   "Schools, school places and catchment",
   "Social care and care at home",
@@ -43,7 +43,7 @@ export default function FindCouncillors({ className = "" }: { className?: string
           className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] px-6 py-6"
           style={{ boxShadow: "var(--shadow-1)" }}
         >
-          <p className="ui text-[15px] font-[750] text-[var(--brand)] mb-2">
+          <p className="ui text-[15px] font-[600] text-[var(--brand)] mb-2">
             You have three or four, not one
           </p>
           <p className="text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
@@ -62,10 +62,10 @@ export default function FindCouncillors({ className = "" }: { className?: string
           className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] px-6 py-6"
           style={{ boxShadow: "var(--shadow-1)" }}
         >
-          <p className="ui text-[15px] font-[750] text-[var(--brand)] mb-2">How to find yours</p>
+          <p className="ui text-[15px] font-[600] text-[var(--brand)] mb-2">How to find yours</p>
           <ol className="grid gap-3 text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
             <li className="flex gap-3">
-              <span aria-hidden="true" className="ui tnum shrink-0 font-[750] text-[var(--muted)]">
+              <span aria-hidden="true" className="ui tnum shrink-0 font-[600] text-[var(--muted)]">
                 01
               </span>
               <span>
@@ -75,7 +75,7 @@ export default function FindCouncillors({ className = "" }: { className?: string
               </span>
             </li>
             <li className="flex gap-3">
-              <span aria-hidden="true" className="ui tnum shrink-0 font-[750] text-[var(--muted)]">
+              <span aria-hidden="true" className="ui tnum shrink-0 font-[600] text-[var(--muted)]">
                 02
               </span>
               <span>
@@ -84,7 +84,7 @@ export default function FindCouncillors({ className = "" }: { className?: string
               </span>
             </li>
             <li className="flex gap-3">
-              <span aria-hidden="true" className="ui tnum shrink-0 font-[750] text-[var(--muted)]">
+              <span aria-hidden="true" className="ui tnum shrink-0 font-[600] text-[var(--muted)]">
                 03
               </span>
               <span>
@@ -100,7 +100,7 @@ export default function FindCouncillors({ className = "" }: { className?: string
       </div>
 
       <div className="mt-5 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] px-6 py-6">
-        <p className="ui text-[15px] font-[750] mb-3">Things to take to a councillor</p>
+        <p className="ui text-[15px] font-[600] mb-3">Things to take to a councillor</p>
         <ul className="grid gap-x-8 gap-y-2 sm:grid-cols-2">
           {COUNCIL_JOBS.map((job) => (
             <li

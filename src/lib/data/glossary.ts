@@ -19,7 +19,7 @@ export const terms: Term[] = [
     id: "ahc",
     term: "After housing costs",
     def: "Income counted once the rent or mortgage is paid, rather than before. It is the money a family actually has left to live on.",
-    tech: "The alternative is a before-housing-costs measure. Glasgow looks worse on the after-housing-costs count because rents here take a bigger bite than in much of Scotland, so the two measures tell different stories about the same households.",
+    tech: "The alternative is a before housing costs measure. Glasgow looks worse on the after housing costs count because rents here take a bigger bite than in much of Scotland, so the two measures tell different stories about the same households.",
   },
   {
     id: "pp",
@@ -36,14 +36,14 @@ export const terms: Term[] = [
   {
     id: "scp",
     term: "Scottish Child Payment",
-    def: "A weekly payment from the Scottish Government for every child in a low-income family. It does not exist anywhere else in the UK. In April 2026 it was £28.20 per child per week.",
+    def: "A weekly payment from the Scottish Government for every child in a low income family. It does not exist anywhere else in the UK. In April 2026 it was £28.20 per child per week.",
     tech: "Introduced in 2021 and increased repeatedly since. Independent analysis credits it with holding Scotland's child poverty rate roughly flat while rates in English cities rose. It is set to rise to £40 a week for children under one from 2027.",
   },
   {
     id: "claimant",
-    term: "Out-of-work benefits",
-    def: "Payments to working-age people who are out of work, or on very low earnings and expected to look for more.",
-    tech: "The official name is the Claimant Count. It is not the same as unemployment: it counts people claiming, which misses those out of work but not eligible, and includes some people in low-paid work.",
+    term: "Out of work benefits",
+    def: "Payments to working age people who are out of work, or on very low earnings and expected to look for more.",
+    tech: "The official name is the Claimant Count. It is not the same as unemployment: it counts people claiming, which misses those out of work but not eligible, and includes some people in low paid work.",
   },
   {
     id: "uc",
@@ -55,19 +55,19 @@ export const terms: Term[] = [
     id: "aps",
     term: "A survey that stopped working",
     def: "Some job figures come from asking a sample of households, not from counting everyone. After 2023, far too few people answered for the results to be trusted at city level.",
-    tech: "The ONS Annual Population Survey. Response rates fell so far that the ONS itself downgraded the estimates and flagged them as unreliable for local areas. Glasgow's apparent six-point fall in 2024 is not corroborated by any other source, which is why it is shown dotted here rather than removed or trusted.",
+    tech: "The ONS Annual Population Survey. Response rates fell so far that the ONS itself downgraded the estimates and flagged them as unreliable for local areas. Glasgow's apparent six point fall in 2024 is not corroborated by any other source, which is why it is shown dotted here rather than removed or trusted.",
   },
   {
     id: "simd",
     term: "SIMD",
-    def: "The Scottish Index of Multiple Deprivation. It splits Scotland into about 7,000 small neighbourhoods and ranks them from worst-off to best-off, using income, jobs, health, education, housing, crime and access to services.",
+    def: "The Scottish Index of Multiple Deprivation. It splits Scotland into about 7,000 small neighbourhoods and ranks them from worst off to best off, using income, jobs, health, education, housing, crime and access to services.",
     tech: "Because it is a ranking, it can only tell you how places compare with each other, never whether the country as a whole got richer or poorer. A neighbourhood can improve in absolute terms and still fall in the ranking if others improved faster.",
   },
   {
     id: "le",
     term: "Life expectancy at birth",
     def: "How long a baby born now would live if today's death rates lasted its whole life. It summarises the population's health, not what will happen to one person.",
-    tech: "Figures are averaged over three years at a time to reduce year-to-year noise. A period life expectancy of 73.6 does not mean today's babies will die at 73.6. It means death rates in those years were equivalent to that.",
+    tech: "Figures are averaged over three years at a time to reduce year to year noise. A period life expectancy of 74.3 does not mean today's babies will die at 73.6. It means death rates in those years were equivalent to that.",
   },
   {
     id: "median",
@@ -109,7 +109,7 @@ export const terms: Term[] = [
     id: "real-terms",
     term: "Real terms",
     def: "Adjusted for price rises, so it shows what the money can really buy.",
-    tech: "A real-terms change removes the effect of inflation using a stated price index and period.",
+    tech: "A real terms change removes the effect of inflation using a stated price index and period.",
   },
   {
     id: "work-allowance",
@@ -138,24 +138,24 @@ export const terms: Term[] = [
   {
     id: "workres",
     term: "Workplace and residence pay",
-    def: "Two restricted pay estimates. Workplace pay covers selected full-time employee jobs based in Glasgow. Residence pay covers selected full-time employee jobs held by people who live in Glasgow. Neither is the average wage of everyone who works.",
-    tech: "Both come from the ONS Annual Survey of Hours and Earnings, which samples PAYE employee jobs. The full-time figures exclude all part-time jobs, self-employment and other workers outside the selected sample. The two lines describe separate groups, so the difference between them is not a direct measure of commuting and cannot show that a particular amount of wages leaves Glasgow.",
+    def: "Two restricted pay estimates. Workplace pay covers selected full time employee jobs based in Glasgow. Residence pay covers selected full time employee jobs held by people who live in Glasgow. Neither is the average wage of everyone who works.",
+    tech: "Both come from the ONS Annual Survey of Hours and Earnings, which samples PAYE employee jobs. The full time figures exclude all part time jobs, self employment and other workers outside the selected sample. The two lines describe separate groups, so the difference between them is not a direct measure of commuting and cannot show that a particular amount of wages leaves Glasgow.",
   },
   {
     id: "jobs-density",
     term: "Jobs density",
-    def: "The number of jobs in an area for every working-age person living there. Above 1.0 means there are more jobs than adults, so people must be travelling in to fill them.",
-    tech: "Published by the ONS. It counts jobs by location of workplace, including part-time and self-employment. Glasgow's figure of 1.08 against Scotland's 0.82 is the clearest single indicator that the city is a regional employment centre rather than a place short of work.",
+    def: "The number of jobs in an area for every working age person living there. Above 1.0 means there are more jobs than adults, so people must be travelling in to fill them.",
+    tech: "Published by the ONS. It counts jobs by location of workplace, including part time and self employment. Glasgow's figure of 1.08 against Scotland's 0.82 is the clearest single indicator that the city is a regional employment centre rather than a place short of work.",
   },
   {
     id: "freeze",
     term: "The benefit freeze",
-    def: "From 2016 to 2020 most working-age benefits were held at the same cash amount while prices rose. Standing still while the shops get dearer is a cut.",
-    tech: "Formally a nominal freeze on most working-age rates. Its real-terms bite grew each year as inflation compounded, and it coincided almost exactly with the steepest phase of Glasgow's child poverty rise.",
+    def: "From 2016 to 2020 most working age benefits were held at the same cash amount while prices rose. Standing still while the shops get dearer is a cut.",
+    tech: "Formally a nominal freeze on most working age rates. Its real terms bite grew each year as inflation compounded, and it coincided almost exactly with the steepest phase of Glasgow's child poverty rise.",
   },
   {
     id: "tcl",
-    term: "The two-child limit",
+    term: "The two child limit",
     def: "A rule that stopped families getting benefit support for a third or any later child. It ran from April 2017 until it was scrapped in April 2026.",
     tech: "It applied to children born after April 2017, so its effect compounded each year as more families came within scope. Because it targeted larger families, its impact fell disproportionately on places with bigger average family sizes, Glasgow among them.",
   },
@@ -163,7 +163,7 @@ export const terms: Term[] = [
     id: "lha",
     term: "Housing benefit for private renters",
     def: "The maximum help with rent a private tenant can get. It is meant to track local rents, but has been frozen for most of the past decade while rents rose.",
-    tech: "Formally Local Housing Allowance. It was designed to cover the cheapest 30% of local rents. Freezes mean it now falls well short of that in much of Glasgow, so tenants make up the difference out of money meant for food and heating, which is precisely how the after-housing-costs poverty figure worsens.",
+    tech: "Formally Local Housing Allowance. It was designed to cover the cheapest 30% of local rents. Freezes mean it now falls well short of that in much of Glasgow, so tenants make up the difference out of money meant for food and heating, which is precisely how the after housing costs poverty figure worsens.",
   },
   {
     id: "lha-acronym",
@@ -181,7 +181,7 @@ export const terms: Term[] = [
     id: "persistent",
     term: "Persistent poverty",
     def: "Being poor in three or more of the last four years. It is far more damaging than a single bad year, because families have no savings left to fall back on.",
-    tech: "One of four statutory measures in the Child Poverty (Scotland) Act 2017. Its 2023/24 interim target was under 8%; the outturn was 23%. It is the target Scotland missed by the widest margin, and the one most closely linked to long-term harm to children.",
+    tech: "One of four statutory measures in the Child Poverty (Scotland) Act 2017. Its 2023/24 interim target was under 8%; the outturn was 23%. It is the target Scotland missed by the widest margin, and the one most closely linked to long term harm to children.",
   },
   {
     id: "newtowns",
@@ -193,13 +193,13 @@ export const terms: Term[] = [
     id: "saleleaseback",
     term: "Sale and leaseback",
     def: "Selling a building you own for a lump sum, then renting it back from the new owner. You get the cash now and pay rent forever.",
-    tech: "Glasgow used it on the City Chambers, Kelvingrove and other buildings to fund the equal pay settlement. The council now pays £32.1m a year plus inflation, on leases running up to 30 years. It converted a one-off liability into a permanent charge on the revenue budget, money that would otherwise fund services.",
+    tech: "Glasgow used it on the City Chambers, Kelvingrove and other buildings to fund the equal pay settlement. The council now pays £32.1m a year plus inflation, on leases running up to 30 years. It converted a one off liability into a permanent charge on the revenue budget, money that would otherwise fund services.",
   },
   {
     id: "reserved",
     term: "Reserved",
     def: "Reserved means Westminster decides. Devolved means Holyrood decides. Most benefits are reserved; the Scottish Child Payment, housing and childcare are devolved.",
-    tech: "The split is set out in the Scotland Acts. It matters here because the largest levers on child poverty (Universal Credit, the two-child limit and Local Housing Allowance) sit with Westminster, while the legal duty to cut child poverty sits with Holyrood. Responsibility and power are not held by the same body.",
+    tech: "The split is set out in the Scotland Acts. It matters here because the largest levers on child poverty (Universal Credit, the two child limit and Local Housing Allowance) sit with Westminster, while the legal duty to cut child poverty sits with Holyrood. Responsibility and power are not held by the same body.",
   },
   {
     id: "devolved",
@@ -257,7 +257,7 @@ export const terms: Term[] = [
   },
   {
     id: "in-work-poverty",
-    term: "In-work poverty",
+    term: "In work poverty",
     def: "Being poor even though someone in the household has a job. It is now the most common kind of poverty in Scotland.",
     tech: "Across Scotland, 75% of children in poverty live in a household where at least one adult works (Scottish Government, 2022–25). It is driven by low hourly pay, too few hours, insecure contracts and housing costs, which is why raising the employment rate alone does not reduce it.",
   },
@@ -325,7 +325,7 @@ export const terms: Term[] = [
     id: "material-deprivation",
     term: "Material deprivation",
     def: "Not being able to afford things most people need for everyday life.",
-    tech: "Official measures use a list of goods and activities and ask whether a household can afford them. It is different from an income-only measure.",
+    tech: "Official measures use a list of goods and activities and ask whether a household can afford them. It is different from an income only measure.",
   },
   {
     id: "fiscal-drag",
@@ -395,7 +395,7 @@ export const terms: Term[] = [
   },
   {
     id: "means-tested",
-    term: "Means-tested",
+    term: "Means tested",
     def: "Decided partly by looking at your income, savings or household circumstances.",
     tech: "Different schemes count income and savings in different ways. A means test is not the same as a universal payment.",
   },
@@ -415,12 +415,12 @@ export const terms: Term[] = [
     id: "council-tax-reduction",
     term: "Council Tax Reduction",
     def: "Help that cuts a council tax bill for people on a low income or certain benefits.",
-    tech: "It is a means-tested Scottish scheme run through councils. The amount depends on household circumstances and the local decision.",
+    tech: "It is a means tested Scottish scheme run through councils. The amount depends on household circumstances and the local decision.",
   },
   {
     id: "water-charges-reduction",
     term: "Water Charges Reduction Scheme",
-    def: "A reduction that can cut the water and waste-water part of a Scottish council tax bill.",
+    def: "A reduction that can cut the water and waste water part of a Scottish council tax bill.",
     tech: "The reduction is linked to Council Tax Reduction and is applied through the council's billing system.",
   },
   {
@@ -432,7 +432,7 @@ export const terms: Term[] = [
   {
     id: "claimant-count",
     term: "Claimant Count",
-    def: "The number of people claiming certain out-of-work benefits or expected to look for work.",
+    def: "The number of people claiming certain out of work benefits or expected to look for work.",
     tech: "It is not the same as the number of unemployed people. It counts people claiming, so it can miss people who are out of work but do not qualify.",
   },
   {
@@ -451,7 +451,7 @@ export const terms: Term[] = [
     id: "bedroom-tax",
     term: "Bedroom tax",
     def: "A cut to housing help for some social tenants who are judged to have more bedrooms than the rules allow.",
-    tech: "The formal name is the under-occupancy charge. Exemptions and protections can apply, so the exact decision matters.",
+    tech: "The formal name is the under occupancy charge. Exemptions and protections can apply, so the exact decision matters.",
   },
   {
     id: "standing-charge",
@@ -461,14 +461,14 @@ export const terms: Term[] = [
   },
   {
     id: "kilowatt-hour",
-    term: "Kilowatt-hour",
+    term: "Kilowatt hour",
     def: "A unit used to measure energy. Your electricity and gas bills charge for the number of units you use.",
     tech: "It is usually shortened to kWh. The price per kWh is separate from the daily standing charge.",
   },
   {
     id: "kwh",
     term: "kWh",
-    def: "The short form of kilowatt-hour, the unit used on energy bills for the energy you use.",
+    def: "The short form of kilowatt hour, the unit used on energy bills for the energy you use.",
     tech: "The price per kWh is separate from the daily standing charge.",
   },
   {
@@ -492,14 +492,14 @@ export const terms: Term[] = [
   {
     id: "relief-at-source",
     term: "Relief at source",
-    def: "A pension method where the provider adds basic-rate tax relief after money is taken from your pay.",
-    tech: "The provider claims the basic relief from HMRC. Higher-rate taxpayers may need to claim any extra relief themselves.",
+    def: "A pension method where the provider adds basic rate tax relief after money is taken from your pay.",
+    tech: "The provider claims the basic relief from HMRC. Higher rate taxpayers may need to claim any extra relief themselves.",
   },
   {
     id: "net-earnings",
     term: "Net earnings",
     def: "Money from work after the deductions counted by the benefit rules.",
-    tech: "Universal Credit uses its own definition of earnings, so the figure used for a benefit calculation may not be the same as take-home pay on a payslip.",
+    tech: "Universal Credit uses its own definition of earnings, so the figure used for a benefit calculation may not be the same as take home pay on a payslip.",
   },
   {
     id: "gross-salary",
@@ -565,7 +565,7 @@ export const terms: Term[] = [
     id: "funding-allocation",
     term: "Funding allocation",
     def: "Money set aside or awarded for services. It is not necessarily what was finally spent.",
-    tech: "Allocations can be provisional, ring-fenced or part of a wider settlement. They must be kept separate from final outturn figures.",
+    tech: "Allocations can be provisional, ring fenced or part of a wider settlement. They must be kept separate from final outturn figures.",
   },
   {
     id: "provisional",
@@ -576,14 +576,14 @@ export const terms: Term[] = [
   {
     id: "capital-programme",
     term: "Capital programme",
-    def: "Big, long-term spending on things such as buildings, roads and equipment, rather than everyday bills.",
+    def: "Big, long term spending on things such as buildings, roads and equipment, rather than everyday bills.",
     tech: "Capital spending is normally planned over several years and is separate from the revenue budget used to run services day to day.",
   },
   {
     id: "revenue-budget",
     term: "Revenue budget",
     def: "The money used to run services day to day, such as staff, care, bins and buildings.",
-    tech: "It is separate from capital spending on long-term projects. A council can have money in one budget and pressure in the other.",
+    tech: "It is separate from capital spending on long term projects. A council can have money in one budget and pressure in the other.",
   },
   {
     id: "regulator",
@@ -611,9 +611,9 @@ export const terms: Term[] = [
   },
   {
     id: "service-level",
-    term: "Service-level",
+    term: "Service level",
     def: "About one particular service, rather than the council as a whole.",
-    tech: "A service-level measure should name the service, the people or cases counted, the time period and the result being checked.",
+    tech: "A service level measure should name the service, the people or cases counted, the time period and the result being checked.",
   },
   {
     id: "accountability",
@@ -629,7 +629,7 @@ export const terms: Term[] = [
   },
   {
     id: "medium-term-financial-plan",
-    term: "Medium-term financial plan",
+    term: "Medium term financial plan",
     def: "A money plan covering the next few years, not just the next budget. It should show what the council expects to spend, save and change.",
     tech: "There is no single format used by every council. We look for the years covered, the assumptions and how the plan connects to service decisions.",
   },
@@ -684,7 +684,7 @@ export const terms: Term[] = [
   {
     id: "capital-plan",
     term: "Capital plan",
-    def: "A plan for big, long-lasting spending such as buildings, roads or equipment.",
+    def: "A plan for big, long lasting spending such as buildings, roads or equipment.",
     tech: "Capital plans are separate from the everyday revenue budget and may run over several years.",
   },
   {
@@ -701,7 +701,7 @@ export const terms: Term[] = [
   },
   {
     id: "like-for-like",
-    term: "Like-for-like",
+    term: "Like for like",
     def: "A fair comparison using the same measure, time period and type of people or cases.",
     tech: "If the definition or denominator changes, the result may look different without the service actually changing.",
   },
@@ -721,11 +721,11 @@ export const terms: Term[] = [
     id: "embezzled",
     term: "Embezzled",
     def: "Took money they were trusted to look after and used it for something they were not allowed to use it for.",
-    tech: "This is the past-tense form of embezzlement. The person already had lawful access because of a trusted role.",
+    tech: "This is the past tense form of embezzlement. The person already had lawful access because of a trusted role.",
   },
   {
     id: "ring-fenced",
-    term: "Ring-fenced",
+    term: "Ring fenced",
     def: "Promised for one stated purpose, rather than available for ordinary spending. It does not necessarily mean a separate bank account unless that is also promised.",
     tech: "The exact protection depends on the wording, legal structure and accounting treatment. A public promise can be stronger or weaker than a legally restricted fund.",
   },
@@ -823,7 +823,7 @@ export const terms: Term[] = [
     id: "crown-counsel",
     term: "Crown Counsel",
     def: "Senior Scottish prosecutors who make or review decisions in serious criminal cases.",
-    tech: "They act within COPFS and make prosecution decisions independently of political office-holders.",
+    tech: "They act within COPFS and make prosecution decisions independently of political office holders.",
   },
   {
     id: "copfs",
@@ -853,13 +853,13 @@ export const terms: Term[] = [
     id: "net-liabilities",
     term: "Net liabilities",
     def: "The amount by which what an organisation owes is greater than what it owns.",
-    tech: "This is a balance-sheet position, not the same as one year's deficit or the cash balance.",
+    tech: "This is a balance sheet position, not the same as one year's deficit or the cash balance.",
   },
   {
     id: "working-capital",
     term: "Working capital",
-    def: "Money and short-term resources available for everyday bills and running costs.",
-    tech: "It is concerned with short-term assets and amounts due, rather than the organisation's total long-term value.",
+    def: "Money and short term resources available for everyday bills and running costs.",
+    tech: "It is concerned with short term assets and amounts due, rather than the organisation's total long term value.",
   },
   {
     id: "auditor",
@@ -877,7 +877,7 @@ export const terms: Term[] = [
     id: "surplus",
     term: "Surplus",
     def: "The amount left when income was greater than spending over the period.",
-    tech: "A yearly surplus does not necessarily mean the same amount of cash is available, because accounts also include amounts owed and non-cash items.",
+    tech: "A yearly surplus does not necessarily mean the same amount of cash is available, because accounts also include amounts owed and non cash items.",
   },
   {
     id: "liabilities",

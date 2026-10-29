@@ -16,10 +16,10 @@ export default function AuthorBio({ className = "" }: { className?: string }) {
     <aside
       className={`rounded-[var(--r-m)] bg-[var(--surface-2)] border border-[var(--rule)] p-6 sm:p-7 ${className}`}
     >
-      <p className="ui text-[15px] font-[750] text-[var(--ink-2)] mb-3">Who wrote this</p>
+      <p className="ui text-[15px] font-[600] text-[var(--ink-2)] mb-3">Who wrote this</p>
 
       <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-        <p className="text-[21px] font-[750] text-[var(--ink)]">{site.author.name}</p>
+        <p className="text-[21px] font-[600] text-[var(--ink)]">{site.author.name}</p>
         <p className="text-[15px] text-[var(--ink-2)]">{site.author.role}</p>
       </div>
 
@@ -28,7 +28,7 @@ export default function AuthorBio({ className = "" }: { className?: string }) {
         Scotland Counted is an independent record of poverty, work and living costs in Scotland. It is
         not a newspaper and not a campaign group. Every
         figure on it is taken from the original publisher, the Scottish Government, the ONS, DWP
-        records or named academic work, never from someone else&apos;s write-up of them.
+        records or named academic work, never from someone else&apos;s write up of them.
         </ExplainText>
       </p>
 

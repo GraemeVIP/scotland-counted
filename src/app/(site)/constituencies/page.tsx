@@ -12,7 +12,7 @@ import { asOneIn } from "@/lib/plain-language";
 export const metadata = meta({
   title: "Child Poverty by Scottish Constituency and MP Area",
   description:
-    "Compare child poverty across all 57 Scottish Westminster constituencies. Enter a postcode to find the correct MP and open a ready-written email.",
+    "Compare child poverty across all 57 Scottish Westminster constituencies. Enter a postcode to find the correct MP and open a ready written email.",
   path: "/constituencies",
 });
 
@@ -91,14 +91,14 @@ export default function Constituencies() {
           </p>
           <p>
             Six of the seven worst MP areas in Scotland are in Glasgow.{" "}
-            <Link href="/why-poverty-is-worse-in-glasgow">See why Glasgow is hit harder</Link>. Council-level figures
+            <Link href="/why-poverty-is-worse-in-glasgow">See why Glasgow is hit harder</Link>. Council level figures
             are on <Link href="/areas">the local area pages</Link>.
           </p>
         </Col>
 
         <CTA
           title="You do not need to work out who your MP is"
-          body="Enter your postcode. I find your MP, add the exact local figure and open a ready-written email."
+          body="Enter your postcode. I find your MP, add the exact local figure and open a ready written email."
           href="/email-your-mp-and-msp"
           cta="Find and email my MP"
           secondaryHref={`/constituencies/${worst.slug}`}

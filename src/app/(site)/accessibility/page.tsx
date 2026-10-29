@@ -59,14 +59,14 @@ const KNOWN = [
    */
   {
     title: "Automated checks do not cover every interaction",
-    body: "The October review corrected the button and small accent-text contrast failures. Automated checks cover representative pages and states, but they are not a certification of every page or interaction. Please report anything that is still difficult to read or use.",
+    body: "The October review corrected the button and small accent text contrast failures. Automated checks cover representative pages and states, but they are not a certification of every page or interaction. Please report anything that is still difficult to read or use.",
   },
   {
     title: "Real screen readers have not been tested exhaustively",
     body: "Automated checks and keyboard testing are run regularly. Full manual testing with VoiceOver, NVDA and JAWS has not been carried out across every page.",
   },
   {
-    title: "iOS Safari needs real-device testing",
+    title: "iOS Safari needs real device testing",
     body: "Mobile layouts are tested at real widths in a desktop browser. Some behaviour, particularly the menu and sticky header, has been verified on a real iPad but not across every iOS version.",
   },
   {
@@ -129,7 +129,7 @@ export default function Accessibility() {
                   key={item.title}
                   className="rounded-[var(--r-m)] border border-[var(--rule)] border-t-[3px] border-t-[var(--good)] bg-[var(--surface)] p-5"
                 >
-                  <h3 className="ui text-[17px] font-[750] leading-[1.35]">{item.title}</h3>
+                  <h3 className="ui text-[17px] font-[600] leading-[1.35]">{item.title}</h3>
                   <p className="mt-2 text-[15.5px] leading-[1.55] text-[var(--ink-2)]">{item.body}</p>
                 </div>
               ))}
@@ -164,7 +164,7 @@ export default function Accessibility() {
                   key={item.title}
                   className="rounded-[var(--r-m)] border border-[var(--rule)] border-l-[3px] border-l-[var(--warn)] bg-[var(--surface)] p-5"
                 >
-                  <h3 className="ui text-[17px] font-[750] leading-[1.35]">{item.title}</h3>
+                  <h3 className="ui text-[17px] font-[600] leading-[1.35]">{item.title}</h3>
                   <p className="mt-2 max-w-[70ch] text-[15.5px] leading-[1.55] text-[var(--ink-2)]">
                     {item.body}
                   </p>

@@ -46,7 +46,7 @@ export default function MinimumWageReality({
           id="minimum-wage-reality"
           className="display-stat max-w-[20ch] text-[clamp(29px,3.5vw,44px)]"
         >
-          What full-time minimum wage actually pays
+          What full time minimum wage actually pays
         </Heading>
         <p className="mt-4 max-w-[68ch] text-[17px] leading-[1.6] text-[var(--ink-2)]">
           Minimum wage is an hourly rate, so there is no single yearly salary. For someone aged 21
@@ -62,7 +62,7 @@ export default function MinimumWageReality({
           ].map((item) => (
             <div key={item.label} className="bg-[var(--paper)] px-5 py-5 sm:px-6 sm:py-6">
               <p className="figure-num text-[34px] text-[var(--ink)]">{item.value}</p>
-              <p className="ui mt-1.5 text-[15px] font-[680] text-[var(--ink-2)]">{item.label}</p>
+              <p className="ui mt-1.5 text-[15px] font-[560] text-[var(--ink-2)]">{item.label}</p>
             </div>
           ))}
         </div>
@@ -70,12 +70,12 @@ export default function MinimumWageReality({
         <p className="ui mt-4 max-w-[78ch] text-[15px] leading-[1.55] text-[var(--muted)]">
           Calculation: £12.71 × 37.5 paid hours × 52 weeks = {exactPounds.format(legalAnnual)}. Fewer hours, unpaid time
           off or a changing rota means less. Workers aged 18 to 20 can legally be paid £10.85 an
-          hour; under-18s and eligible apprentices can be paid £8.
+          hour; under 18s and eligible apprentices can be paid £8.
         </p>
       </div>
 
       <div className="border-t border-[var(--rule)] bg-[var(--paper)] p-6 sm:p-8 lg:p-9">
-        <Subheading className="h3 mb-3">Full-time minimum wage can still leave people short</Subheading>
+        <Subheading className="h3 mb-3">Full time minimum wage can still leave people short</Subheading>
         <div className="max-w-[76ch] space-y-3 text-[16px] leading-[1.6] text-[var(--ink-2)]">
           <p>
             Research on the cost of a basic, decent life found that in 2025 a single adult working
@@ -85,14 +85,14 @@ export default function MinimumWageReality({
           </p>
           <p>
             The independently calculated <strong className="text-[var(--ink)]">real Living Wage is £14.10 an hour</strong>{" "}
-            outside London. It is based on living costs and is voluntary. On the same 37.5-hour
+            outside London. It is based on living costs and is voluntary. On the same 37.5 hour
             week it is {exactPounds.format(realLivingAnnual)} a year, {" "}
             <strong className="text-[var(--ink)]">{pounds.format(realLivingAnnual - legalAnnual)} more</strong>{" "}
             than today&apos;s legal minimum.
           </p>
         </div>
 
-        <div className="ui mt-5 flex flex-wrap gap-x-6 gap-y-2 text-[15px] font-[650]">
+        <div className="ui mt-5 flex flex-wrap gap-x-6 gap-y-2 text-[15px] font-[540]">
           <a
             href="https://www.gov.uk/national-minimum-wage-rates"
             target="_blank"
@@ -107,7 +107,7 @@ export default function MinimumWageReality({
             rel="noopener noreferrer"
             className="text-[var(--brand)] underline underline-offset-3"
           >
-            Read the minimum-income research ↗
+            Read the minimum income research ↗
           </a>
           <a
             href="https://www.livingwage.org.uk/faqs"

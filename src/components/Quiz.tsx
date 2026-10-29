@@ -68,10 +68,10 @@ export default function Quiz({
           {correct}
           <span className="opacity-50"> / {quiz.length}</span>
         </p>
-        <Heading className="mt-4 text-[24px] font-[780] leading-[1.2] sm:text-[30px]">{v.title}</Heading>
+        <Heading className="mt-4 text-[24px] font-[620] leading-[1.2] sm:text-[30px]">{v.title}</Heading>
         <p className="mt-4 max-w-[56ch] text-[17.5px] leading-[1.6] opacity-85"><ExplainText>{v.body}</ExplainText></p>
 
-        <p className="mt-7 max-w-[56ch] text-[19px] leading-[1.5] font-[660]">
+        <p className="mt-7 max-w-[56ch] text-[19px] leading-[1.5] font-[540]">
           Every one of those figures was decided by someone. You can write to them in about a
           minute, and I will do the writing.
         </p>
@@ -101,7 +101,7 @@ export default function Quiz({
     >
       {/* Progress */}
       <div className="flex items-center gap-3 border-b border-[var(--rule)] bg-[var(--surface-2)] px-5 py-3.5 sm:px-7">
-        <p className="ui text-[14px] font-[750] uppercase tracking-[0.08em] text-[var(--muted)]">
+        <p className="ui text-[14px] font-[600] uppercase tracking-[0.08em] text-[var(--muted)]">
           {q.tag}
         </p>
         <div className="ml-auto flex items-center gap-1.5" aria-hidden="true">
@@ -118,13 +118,13 @@ export default function Quiz({
             />
           ))}
         </div>
-        <p className="ui tnum text-[14px] font-[700] text-[var(--muted)]">
+        <p className="ui tnum text-[14px] font-[580] text-[var(--muted)]">
           {step + 1}/{quiz.length}
         </p>
       </div>
 
       <div className="px-5 py-7 sm:px-7 sm:py-8">
-        <Heading className="text-[21px] font-[770] leading-[1.25] max-w-[30ch] sm:text-[26px]">
+        <Heading className="text-[21px] font-[620] leading-[1.25] max-w-[30ch] sm:text-[26px]">
           <ExplainText>{q.question}</ExplainText>
         </Heading>
 
@@ -146,7 +146,7 @@ export default function Quiz({
                 onClick={() => choose(i)}
                 disabled={answered}
                 aria-pressed={isPicked}
-                className={`ui flex items-center gap-3.5 rounded-[var(--r-s)] border-2 px-5 py-4 text-left text-[16.5px] font-[650] transition-all ${
+                className={`ui flex items-center gap-3.5 rounded-[var(--r-s)] border-2 px-5 py-4 text-left text-[16.5px] font-[540] transition-all ${
                   state === "idle"
                     ? "border-[var(--rule)] bg-[var(--paper)] hover:border-[var(--brand)] hover:-translate-y-px"
                     : state === "right"
@@ -158,7 +158,7 @@ export default function Quiz({
               >
                 <span
                   aria-hidden="true"
-                  className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[13px] font-[800] ${
+                  className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[13px] font-[640] ${
                     state === "right"
                       ? "bg-[var(--good)] text-white"
                       : state === "wrong"
@@ -176,7 +176,7 @@ export default function Quiz({
 
         {answered && (
           <div className="mt-7 border-t-2 border-[var(--ink)] pt-6" aria-live="polite">
-            <p className="ui text-[15px] font-[750] text-[var(--muted)]">
+            <p className="ui text-[15px] font-[600] text-[var(--muted)]">
               {picked === q.answer ? "Correct" : "Almost nobody gets this one"}
             </p>
             <p className="display-stat mt-1.5 text-[clamp(34px,5.5vw,54px)] text-[var(--brand)]">
@@ -191,7 +191,7 @@ export default function Quiz({
                 {isLast ? "See my score" : "Next question"}
                 <span aria-hidden="true">→</span>
               </button>
-              <Link href={q.href} className="ui text-[15.5px] font-[680] text-[var(--brand)]">
+              <Link href={q.href} className="ui text-[15.5px] font-[560] text-[var(--brand)]">
                 {q.hrefLabel} →
               </Link>
             </div>

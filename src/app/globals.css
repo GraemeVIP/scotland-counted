@@ -28,58 +28,55 @@
    */
   --header-h: 72px;
 
-  /* Grounds: cool, bright, app-like */
-  --paper: #ffffff;
-  --paper-2: #f4f6fb;
-  --paper-3: #e8ecf5;
+  /* Grounds: a cool, faintly blue white, so white cards lift off it */
+  --paper: #f6f8fc;
+  --paper-2: #eef3fb;
+  --paper-3: #e3eaf6;
   --surface: #ffffff;
-  --surface-2: #f8faff;
+  --surface-2: #f4f7fd;
 
-  /* Near-black slabs: full-bleed bands, the footer, dramatic pauses */
-  --deep: #16203a;
-  --deep-2: #1e2b4a;
+  /* Night: the footer, dark slabs and anything that stays dark in both themes */
+  --deep: #04112f;
+  --deep-2: #0a1d4a;
   --deep-ink: #ffffff;
+  --deep-muted: #b4c2de;
 
-  /* Ink, proper contrast, no brown */
-  --ink: #131926;
-  --ink-2: #4d5666;
-  --ink-3: #667085;
-  /*
-   * Was #667085, the same as --ink-3, at 4.97:1 on white. That scrapes past AA
-   * and still reads as thin, and it is doing real work in 111 places: chart
-   * captions, source notes, table headers, the line telling people where to
-   * find their council tax band. Darkened to 6.33:1. Still a clear step below
-   * --ink-2 (7.40:1) so the hierarchy holds, but no longer something you have
-   * to lean in for.
-   */
-  --muted: #59606d;
-  --rule: #e3e8f0;
-  --rule-strong: #c6cedc;
-  --grid: #eef1f7;
-  --baseline: #c6cedc;
+  /* The hero: Saltire blue, never lighter than --hero-1 behind text */
+  --hero-1: #0e56c4;
+  --hero-2: #00449a;
+  --hero-3: #022a66;
+  --hero-ink: #ffffff;
+  --hero-muted: #dbe7fa;
 
-  /* Brand */
-  --brand: #2c5cff;
-  --brand-deep: #1b3ec7;
-  --brand-wash: rgba(44, 92, 255, 0.08);
-  --action: #ff5a3c;
-  --action-hover: #ed5033;
-  --action-text: #b72d18;
-  /* Menu highlight. A wash, not a fill, the label on top of it must stay
-     --ink, because --action on white is about 3:1 and these labels are
-     15.5px, which needs 4.5:1. The colour comes from the tint and the dot,
-     never from the text. */
-  --action-tint: #fff1ed;
+  /* Ink */
+  --ink: #0a1022;
+  --ink-2: #39445c;
+  --ink-3: #56617a;
+  --muted: #56617a;
+  --rule: #e2e8f2;
+  --rule-strong: #c5cfe0;
+  --grid: #edf1f8;
+  --baseline: #c5cfe0;
 
-  /* Emphasis wash, the marker-pen bar, in the brand blue. */
-  --signal: rgba(44, 92, 255, 0.16);
-  --signal-ink: #131926;
+  /* Brand: the Saltire. --action is the button, --action-text is blue text on light grounds */
+  --brand: #005eb8;
+  --brand-deep: #00478f;
+  --brand-wash: rgba(0, 94, 184, 0.08);
+  --action: #0b57d0;
+  --action-hover: #0a4bb5;
+  --action-ink: #ffffff;
+  --action-text: #0b57d0;
+  --action-tint: #eaf1ff;
 
-  /* Data series, validated for colour-vision deficiency */
-  --glasgow: #2c5cff;
-  --scotland: #ff5a3c;
-  --workplace: #00c48c;
-  --glasgow-wash: rgba(44, 92, 255, 0.08);
+  /* Emphasis wash behind text, never a surface */
+  --signal: rgba(0, 94, 184, 0.12);
+  --signal-ink: #0a1022;
+
+  /* Data series, kept apart from the brand so a chart never looks like a button */
+  --glasgow: #1f6fff;
+  --scotland: #e8590c;
+  --workplace: #0aa37f;
+  --glasgow-wash: rgba(31, 111, 255, 0.08);
 
   /* Signal, restrained, never the brand */
   --good: #00a870;
@@ -88,94 +85,113 @@
   --flat: #8a93a3;
 
   /*
-   * The same signals, dark enough to be read.
-   *
-   * The colours above are tuned for bars, borders and big numbers, where they
-   * only ever need the 3:1 that large text and graphics require. Used as small
-   * text they all fail WCAG AA on white, the amber worst of all, at 2.07:1,
-   * which fails even the large-text threshold. Status pills, direction chips
-   * and any other signal-coloured text below about 19px use these instead.
+   * The same signals, dark enough to be read as small text. The colours above
+   * are for bars, borders and big numbers, which only need 3:1.
    */
   --good-text: #00794f;
   --warn-text: #8a5c00;
   --bad-text: #c0272d;
   --flat-text: #69707d;
 
-  --grain-opacity: 0;
-  --shadow-1: 0 1px 2px rgba(13, 17, 23, 0.04), 0 1px 3px rgba(13, 17, 23, 0.03);
-  --shadow-2: 0 4px 12px rgba(13, 17, 23, 0.06), 0 16px 40px -20px rgba(13, 17, 23, 0.22);
-  --shadow-3: 0 8px 24px rgba(13, 17, 23, 0.08), 0 32px 64px -28px rgba(13, 17, 23, 0.32);
+  --grain-opacity: 0.035;
+  --shadow-1: 0 1px 0 rgba(255, 255, 255, 0.9) inset, 0 1px 2px rgba(10, 16, 34, 0.04);
+  --shadow-2: 0 1px 0 rgba(255, 255, 255, 0.9) inset, 0 1px 2px rgba(10, 16, 34, 0.04), 0 18px 40px -24px rgba(2, 42, 102, 0.3);
+  --shadow-3: 0 1px 0 rgba(255, 255, 255, 0.9) inset, 0 2px 4px rgba(10, 16, 34, 0.05), 0 30px 64px -28px rgba(2, 42, 102, 0.45);
 
   --font-sans: var(--font-display), system-ui, sans-serif;
   --font-serif: var(--font-text), Georgia, serif;
   --font-mono: var(--font-mono-face), ui-monospace, Menlo, monospace;
 
-  --ease: cubic-bezier(0.22, 0.68, 0.28, 1);
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
 
-  /* Radius scale. Bigger and softer than print, this should feel like
-     something you tap, not something you read. */
+  /* Radius scale: soft, app-like */
   --r-s: 14px;
   --r-m: 20px;
   --r-l: 28px;
   --r-pill: 999px;
+
+  /* Section colours. One per menu section, used for its dot, its headings and
+     its panel wash, so a section looks the same wherever it appears. */
+  --hub-money: #a14a07;
+  --hub-benefits: #0b6b63;
+  --hub-tax: #0b57d0;
+  --hub-area: #b4430a;
+  --hub-reps: #6d28d9;
+  --hub-schools: #17703a;
+  /* The same sections on the navy header bar, which is navy in both themes. */
+  --hub-money-bar: #fbbf24;
+  --hub-benefits-bar: #2dd4bf;
+  --hub-tax-bar: #7fb2ff;
+  --hub-area-bar: #fb923c;
+  --hub-reps-bar: #c4b5fd;
+  --hub-schools-bar: #4ade80;
 }
 
 @media (min-width: 640px) {
   :root {
-    --header-h: 68px;
+    --header-h: 72px;
   }
 }
 
-/* Light is the default, deliberately: the warm paper ground is the
-   identity. Dark is available, but only when the reader asks for it
-   with the toggle. We do not follow the OS setting, because flipping
-   a civic publication to near-black changes what it looks like it is. */
+/* Light is the default. Dark is there when the reader asks for it with the toggle. */
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --paper: #0a0c10;
-  --paper-2: #12161d;
-  --paper-3: #1a1f28;
-  --surface: #12161d;
-  --surface-2: #181d26;
-  --deep: #0e1626;
-  --deep-2: #16203a;
+  --paper: #050b1c;
+  --paper-2: #0a1430;
+  --paper-3: #0f1c3e;
+  --surface: #0b1531;
+  --surface-2: #101d40;
+  --deep: #020818;
+  --deep-2: #08143a;
   --deep-ink: #ffffff;
-  --ink: #f2f4f8;
-  --ink-2: #a8b1c1;
-  --ink-3: #8a93a3;
-  /* The same lift in the other direction: 5.86:1 to 6.96:1 on --surface. */
-  --muted: #98a1b0;
-  --rule: #232935;
-  --rule-strong: #38404f;
-  --grid: #1a1f28;
-  --baseline: #38404f;
-  --brand: #5b84ff;
-  --brand-deep: #2c5cff;
-  --brand-wash: rgba(91, 132, 255, 0.14);
-  --action: #ff7a5c;
-  --action-hover: #ff9a80;
-  --action-text: #ff9a80;
-  --action-tint: #2a1c19;
-  --signal: rgba(91, 132, 255, 0.26);
-  --signal-ink: #f2f4f8;
-  --glasgow: #5b84ff;
-  --scotland: #ff7a5c;
+  --deep-muted: #b4c2de;
+  --hero-1: #0e56c4;
+  --hero-2: #00449a;
+  --hero-3: #022a66;
+  --hero-ink: #ffffff;
+  --hero-muted: #dbe7fa;
+  --ink: #eef3ff;
+  --ink-2: #c3cde4;
+  --ink-3: #9aa7c2;
+  --muted: #9aa7c2;
+  --rule: #1a2648;
+  --rule-strong: #2c3c68;
+  --grid: #13204a;
+  --baseline: #2c3c68;
+  --brand: #6ea8ff;
+  --brand-deep: #3b86ff;
+  --brand-wash: rgba(110, 168, 255, 0.14);
+  --action: #1f63e0;
+  --action-hover: #1a56c9;
+  --action-ink: #ffffff;
+  --action-text: #8fb6ff;
+  --action-tint: #102252;
+  --signal: rgba(110, 168, 255, 0.24);
+  --signal-ink: #eef3ff;
+  --glasgow: #6ea8ff;
+  --scotland: #ff8a4c;
   --workplace: #00d9a0;
-  --glasgow-wash: rgba(91, 132, 255, 0.15);
+  --glasgow-wash: rgba(110, 168, 255, 0.15);
   --good: #00c48c;
   --warn: #ffb32e;
   --bad: #ff6369;
   --flat: #8a93a3;
-  /* Lifted rather than darkened: on a dark surface, legibility runs the other way. */
   --good-text: #3ce0ab;
   --warn-text: #ffc65c;
   --bad-text: #ff8a8f;
   --flat-text: #a3abb8;
-  --grain-opacity: 0;
-  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.6);
-  --shadow-2: 0 4px 12px rgba(0, 0, 0, 0.5), 0 16px 40px -20px rgba(0, 0, 0, 0.9);
-  --shadow-3: 0 8px 24px rgba(0, 0, 0, 0.6), 0 32px 64px -28px rgba(0, 0, 0, 1);
+  --grain-opacity: 0.05;
+  --shadow-1: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-2: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 18px 40px -24px rgba(0, 0, 0, 0.8);
+  --shadow-3: 0 1px 0 rgba(255, 255, 255, 0.07) inset, 0 30px 64px -28px rgba(0, 0, 0, 0.95);
+
+  --hub-money: #f6b443;
+  --hub-benefits: #3fd1c0;
+  --hub-tax: #8bb8ff;
+  --hub-area: #fd9a5a;
+  --hub-reps: #c9b8ff;
+  --hub-schools: #5fd68c;
 }
 
 @theme inline {
@@ -198,6 +214,8 @@
   --color-brand-deep: var(--brand-deep);
   --color-action: var(--action);
   --color-action-tint: var(--action-tint);
+  --color-action-ink: var(--action-ink);
+  --color-deep-muted: var(--deep-muted);
   --color-glasgow: var(--glasgow);
   --color-scotland: var(--scotland);
   --color-workplace: var(--workplace);
@@ -337,7 +355,7 @@
     z-index: 1;
     pointer-events: none;
     opacity: var(--grain-opacity);
-    mix-blend-mode: multiply;
+    mix-blend-mode: overlay;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
   }
   :root[data-theme="dark"] .grain {
@@ -415,9 +433,9 @@
   /* Small label. Sans, not mono, mono everywhere reads as a terminal. */
   .label {
     font-family: var(--font-sans);
-    font-size: 15px;
-    font-weight: 720;
-    letter-spacing: 0.01em;
+    font-size: 14.5px;
+    font-weight: 560;
+    letter-spacing: -0.005em;
     color: var(--brand);
   }
   .label-quiet {
@@ -432,8 +450,8 @@
 
   .display {
     font-family: var(--font-sans);
-    font-weight: 800;
-    letter-spacing: -0.035em;
+    font-weight: 620;
+    letter-spacing: -0.045em;
     line-height: 0.96;
     text-wrap: balance;
   }
@@ -441,33 +459,33 @@
   .h1 {
     font-family: var(--font-sans);
     font-size: clamp(38px, 5.4vw, 76px);
-    font-weight: 800;
-    line-height: 0.95;
-    letter-spacing: -0.038em;
+    font-weight: 620;
+    line-height: 0.98;
+    letter-spacing: -0.048em;
     text-wrap: balance;
   }
 
   .h2 {
     font-family: var(--font-sans);
     font-size: clamp(28px, 3.8vw, 46px);
-    font-weight: 760;
-    line-height: 1.05;
-    letter-spacing: -0.028em;
+    font-weight: 600;
+    line-height: 1.04;
+    letter-spacing: -0.038em;
     text-wrap: balance;
   }
 
   .h3 {
     font-family: var(--font-sans);
     font-size: 21px;
-    font-weight: 660;
-    letter-spacing: -0.016em;
+    font-weight: 580;
+    letter-spacing: -0.025em;
     line-height: 1.25;
   }
 
   .h4 {
     font-family: var(--font-sans);
     font-size: 17px;
-    font-weight: 640;
+    font-weight: 540;
     letter-spacing: -0.008em;
   }
 
@@ -481,7 +499,7 @@
 
   .figure-num {
     font-family: var(--font-sans);
-    font-weight: 800;
+    font-weight: 640;
     letter-spacing: -0.05em;
     font-variant-numeric: tabular-nums;
     line-height: 0.82;
@@ -510,12 +528,13 @@
     position: absolute;
     left: 0;
     top: 0.7em;
-    width: 11px;
+    width: 10px;
     height: 2px;
+    border-radius: 2px;
     background: var(--action);
   }
   .prose strong {
-    font-weight: 720;
+    font-weight: 600;
     color: var(--ink);
   }
   .prose em {
@@ -555,19 +574,51 @@
   /* Oversized display number. Tight, heavy, unmistakably the point. */
   .display-stat {
     font-family: var(--font-sans);
-    font-weight: 800;
-    letter-spacing: -0.045em;
+    font-weight: 620;
+    letter-spacing: -0.05em;
     line-height: 0.9;
     font-variant-numeric: tabular-nums;
   }
 
   /* Small all-caps eyebrow, the campaign register. */
   .kicker {
-    font-family: var(--font-sans);
-    font-weight: 750;
-    font-size: 15px;
-    letter-spacing: 0.065em;
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 12.5px;
+    line-height: 1.4;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
+  }
+
+  /* The eyebrow: a kicker with the Saltire dot in front of it */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 12.5px;
+    line-height: 1.4;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    flex: none;
+    border-radius: 50%;
+    background: var(--action);
+    box-shadow: 0 0 0 4px var(--brand-wash);
+  }
+
+  /* One italic serif phrase inside a heading. Never a whole heading. */
+  .serif-accent {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.01em;
   }
 
   .ui {
@@ -585,10 +636,11 @@
     gap: 10px;
     border-radius: var(--r-pill);
     min-height: 48px;
-    padding: 13px 26px;
+    max-width: 100%;
+    padding: 13px 24px;
     font-size: 16px;
-    font-weight: 700;
-    letter-spacing: -0.008em;
+    font-weight: 560;
+    letter-spacing: -0.012em;
     border: 1px solid transparent;
     transition: background 0.18s var(--ease), color 0.18s var(--ease),
       border-color 0.18s var(--ease), transform 0.18s var(--ease);
@@ -597,18 +649,18 @@
     transform: translateY(-1px);
   }
   .btn-primary {
-    background: var(--action);
-    color: #131926;
+    background: linear-gradient(180deg, color-mix(in srgb, var(--action) 88%, white), var(--action));
+    color: var(--action-ink);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.22) inset, 0 8px 20px -10px rgba(11, 87, 208, 0.7);
   }
   .btn-primary:hover {
     background: var(--action-hover);
   }
-  :root[data-theme="dark"] .btn-primary {
-    color: #131926;
-  }
   .btn-ghost {
     border-color: var(--rule-strong);
+    background: var(--surface);
     color: var(--ink);
+    box-shadow: var(--shadow-1);
   }
   .btn-ghost:hover {
     border-color: var(--ink);
@@ -811,3 +863,191 @@
 
 /* Accent text remains legible inside surfaces that stay dark in either theme. */
 .slab-dark, [class*="bg-[var(--deep)]"] { --action-text: #ff9a80; }
+
+/* ============================================================
+   Saltire components
+   ============================================================ */
+
+@layer components {
+  /* The deep blue band. Text on it uses --hero-ink and --hero-muted, which
+     are checked against --hero-1, the lightest blue that ever sits behind text. */
+  .saltire-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    color: var(--hero-ink);
+    background:
+      radial-gradient(55% 70% at 88% 18%, rgba(59, 134, 255, 0.32), transparent 62%),
+      radial-gradient(50% 70% at 96% 92%, rgba(0, 18, 64, 0.85), transparent 70%),
+      linear-gradient(160deg, var(--hero-1) 0%, var(--hero-2) 45%, var(--hero-3) 82%, #021a47 100%);
+  }
+  .saltire-hero .eyebrow {
+    color: var(--hero-muted);
+  }
+  .saltire-hero .eyebrow::before {
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.18);
+  }
+  /* A light card sitting on the blue goes back to the page's own colours */
+  .saltire-hero .on-light .eyebrow {
+    color: var(--muted);
+  }
+  .saltire-hero .on-light .eyebrow::before {
+    background: var(--action);
+    box-shadow: 0 0 0 4px var(--brand-wash);
+  }
+
+  /* The saltire, drawn in light: two soft beams and two hairlines crossing. */
+  .beams {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+  }
+  .beam,
+  .beam-edge {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 180%;
+    transform-origin: center;
+  }
+  .beam {
+    height: 26%;
+    border-radius: 50%;
+    background: linear-gradient(90deg, transparent 0%, rgba(160, 205, 255, 0) 22%, rgba(200, 228, 255, 0.42) 50%, rgba(160, 205, 255, 0) 78%, transparent 100%);
+    background-size: 220% 100%;
+    filter: blur(30px);
+    mix-blend-mode: screen;
+    animation: beam-travel 16s ease-in-out infinite alternate;
+  }
+  .beam-edge {
+    height: 1px;
+    opacity: 0.55;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8) 50%, transparent);
+    box-shadow: 0 0 16px 1px rgba(170, 210, 255, 0.3);
+  }
+  .beam.a,
+  .beam-edge.a {
+    transform: translate(-50%, -50%) rotate(var(--saltire-angle, 28deg));
+  }
+  .beam.b,
+  .beam-edge.b {
+    transform: translate(-50%, -50%) rotate(calc(var(--saltire-angle, 28deg) * -1));
+  }
+  .beam.b {
+    animation-delay: -8s;
+  }
+  @keyframes beam-travel {
+    from { background-position: 0% 0; opacity: 0.75; }
+    to { background-position: 100% 0; opacity: 1; }
+  }
+  @media (max-width: 900px) {
+    .beams { --saltire-angle: 48deg; }
+  }
+
+  /* Frosted glass on the deep blue */
+  .glass {
+    background: linear-gradient(180deg, rgba(3, 22, 66, 0.42), rgba(3, 22, 66, 0.3));
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    -webkit-backdrop-filter: blur(20px) saturate(150%);
+    backdrop-filter: blur(20px) saturate(150%);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.12) inset, 0 30px 60px -36px rgba(0, 8, 32, 0.8);
+  }
+
+  /* A tile: the card everything else is built from */
+  .tile {
+    position: relative;
+    border-radius: var(--r-l);
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    box-shadow: var(--shadow-2);
+    transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), border-color 0.25s var(--ease);
+  }
+  a.tile:hover,
+  .tile-link:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-3);
+    border-color: var(--rule-strong);
+  }
+  .tile-blue {
+    background: radial-gradient(120% 120% at 100% 0%, #1259c8, var(--hero-1) 45%, var(--hero-3));
+    border-color: transparent;
+    color: var(--hero-ink);
+  }
+  .tile-night {
+    background: radial-gradient(90% 120% at 0% 100%, rgba(31, 111, 255, 0.32), transparent 60%), var(--deep);
+    border-color: rgba(255, 255, 255, 0.06);
+    color: var(--deep-ink);
+  }
+
+  /* Small mono figure label inside a tile */
+  .tile-key {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .tile-blue .tile-key { color: var(--hero-muted); }
+  .tile-night .tile-key { color: var(--deep-muted); }
+
+  /* The quick answer that opens every money, council tax and benefit guide */
+  .answer-box {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    border-radius: var(--r-l);
+    padding: clamp(22px, 3vw, 34px);
+    color: var(--hero-ink);
+    background:
+      radial-gradient(60% 90% at 100% 0%, rgba(59, 134, 255, 0.35), transparent 60%),
+      linear-gradient(150deg, var(--hero-1), var(--hero-2) 60%, var(--hero-3));
+    box-shadow: 0 30px 60px -36px rgba(2, 42, 102, 0.7);
+  }
+  .answer-box .beams { --saltire-angle: 34deg; opacity: 0.6; }
+  .answer-box .answer-label {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--hero-muted);
+  }
+  .answer-box .answer-value {
+    font-weight: 620;
+    letter-spacing: -0.05em;
+    line-height: 0.95;
+    font-variant-numeric: tabular-nums;
+  }
+  .answer-box .answer-detail {
+    color: var(--hero-muted);
+  }
+  .answer-box a {
+    color: #fff;
+    text-decoration-color: rgba(255, 255, 255, 0.5);
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border-radius: var(--r-pill);
+    color: var(--action-text);
+    background: var(--action-tint);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .beam { animation: none; }
+  .tile { transition: none; }
+}
+
+/* The logo on theme following surfaces: dark lettering on paper, white in the dark theme. */
+.logo-dark-theme { display: none !important; }
+:root[data-theme="dark"] .logo-light-theme { display: none !important; }
+:root[data-theme="dark"] .logo-dark-theme { display: block !important; }

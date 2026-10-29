@@ -107,7 +107,7 @@ export default function MspsDirectoryPage() {
                   href={`/representatives/msps/regions/${item.regionSlug}`}
                   className="group rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] px-5 py-5 no-underline hover:border-[var(--rule-strong)]"
                 >
-                  <span className="ui block text-[17px] font-[750] leading-[1.35] text-[var(--ink)] group-hover:text-[var(--brand)]">
+                  <span className="ui block text-[17px] font-[600] leading-[1.35] text-[var(--ink)] group-hover:text-[var(--brand)]">
                     {item.region}
                   </span>
                   <span className="ui mt-2 block text-[15px] text-[var(--ink-2)]">See all 7 regional MSPs</span>
@@ -118,7 +118,7 @@ export default function MspsDirectoryPage() {
 
           <section className="pt-12">
             <details className="group rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)]">
-              <summary className="ui cursor-pointer list-none px-6 py-6 text-[18px] font-[750] marker:content-none sm:px-8 [&::-webkit-details-marker]:hidden">
+              <summary className="ui cursor-pointer list-none px-6 py-6 text-[18px] font-[600] marker:content-none sm:px-8 [&::-webkit-details-marker]:hidden">
                 <span className="flex items-center justify-between gap-4">
                   Browse all 73 constituencies
                   <span aria-hidden="true" className="text-[var(--brand)] group-open:rotate-45">＋</span>
@@ -141,7 +141,7 @@ export default function MspsDirectoryPage() {
                         <span className="min-w-0">
                           <Link
                             href={`/representatives/msps/constituencies/${item.constituencySlug}`}
-                            className="ui block text-[16px] font-[750] leading-[1.35] text-[var(--ink)] no-underline hover:text-[var(--brand)]"
+                            className="ui block text-[16px] font-[600] leading-[1.35] text-[var(--ink)] no-underline hover:text-[var(--brand)]"
                           >
                             {item.constituency}
                           </Link>
@@ -167,7 +167,7 @@ export default function MspsDirectoryPage() {
 
           <CTA
             title="Let the site find the right people"
-            body="Enter your postcode. I find your MP, constituency MSP and seven regional MSPs. The ready-written emails go to the closest match automatically."
+            body="Enter your postcode. I find your MP, constituency MSP and seven regional MSPs. The ready written emails go to the closest match automatically."
             href="/email-your-mp-and-msp"
             cta="Find everyone who represents me"
             secondaryHref="/representatives"

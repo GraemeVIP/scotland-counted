@@ -126,7 +126,7 @@ async function lookupHolyroodAreasFromOfficialFinder(
   }
 }
 
-/** The plain-English message for each way a lookup can fail. */
+/** The plain English message for each way a lookup can fail. */
 export const POSTCODE_MESSAGES: Record<PostcodeFailure, string> = {
   "not-found": "I could not find that postcode. Check it and try again.",
   "outside-scotland": "That postcode is not in Scotland. This site only covers Scotland.",

@@ -16,6 +16,7 @@ import {
   GLASGOW_CHILD_COUNTS,
 } from "@/lib/data/indicators";
 import { getSources } from "@/lib/data/sources";
+import { LIFE_EXPECTANCY } from "@/lib/data/local";
 import { JsonLd, articleJsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
 
 export function generateStaticParams() {
@@ -28,7 +29,7 @@ export function generateStaticParams() {
 
 type Meta = { title: string; summary: string; sourceIds: string[] };
 
-/** The plain-English opening for each measure, short sentences, no jargon. */
+/** The plain English opening for each measure, short sentences, no jargon. */
 const IN_SHORT: Record<string, string[]> = {
   "glasgow-child-poverty": [
     "More than 1 in 3 children in Glasgow are growing up poor. That is 39,319 children.",
@@ -39,23 +40,28 @@ const IN_SHORT: Record<string, string[]> = {
     "But for many families, a job is no longer a way out of poverty.",
   ],
   "glasgow-claimant-count": [
-    "Fewer people claim out-of-work benefits than in 2000.",
+    "Fewer people claim out of work benefits than in 2000.",
     "The number jumped in the pandemic, then came back down.",
   ],
   "glasgow-full-time-pay": [
     "An adult on today's legal minimum gets £12.71 an hour. At 37.5 paid hours every week, that is about £24,785 a year before tax.",
-    "The £796.50 figure below is not the average Glasgow wage and it is not what people in poverty earn. It covers a restricted group of full-time PAYE employee jobs.",
-    "It excludes all part-time jobs. For scale, 29% of Glasgow employee jobs were part-time in a separate 2024 count.",
+    "The £796.50 figure below is not the average Glasgow wage and it is not what people in poverty earn. It covers a restricted group of full time PAYE employee jobs.",
+    "It excludes all part time jobs. For scale, 29% of Glasgow employee jobs were part time in a separate 2024 count.",
   ],
   "glasgow-life-expectancy": [
     "People in Glasgow live shorter lives than anywhere else in Scotland.",
-    "Lives were getting longer until about 2012. Then it stopped.",
+    "Lives were getting longer until about 2012. Then it stopped, and fell back in the pandemic years.",
   ],
   "glasgow-deprivation": [
     "Fewer Glasgow neighbourhoods are among Scotland's poorest than in 2004. That is real progress.",
     "But nearly half the city still lives in Scotland's poorest fifth.",
   ],
 };
+
+const eastDunbartonshire = LIFE_EXPECTANCY.councils.find((c) => c.slug === "east-dunbartonshire")!;
+
+/** "2022-24" as "2022 to 2024", for use in a sentence. */
+const fullPeriod = (label: string) => `${label.slice(0, 4)} to ${label.slice(0, 2)}${label.slice(5)}`;
 
 /** The single figure each page leads with, pinned beside the headline. */
 const HEADER_STAT: Record<
@@ -69,12 +75,12 @@ const HEADER_STAT: Record<
   },
   "glasgow-employment-rate": {
     value: "71.2%",
-    label: "of working-age Glaswegians in work in 2023, up from 62.7% in 2004",
+    label: "of working age Glaswegians in work in 2023, up from 62.7% in 2004",
     tone: "good",
   },
   "glasgow-claimant-count": {
     value: "4.5%",
-    label: "claiming out-of-work benefits in January 2026, down from 6.0% in 2000",
+    label: "claiming out of work benefits in January 2026, down from 6.0% in 2000",
     tone: "good",
   },
   "glasgow-full-time-pay": {
@@ -83,13 +89,13 @@ const HEADER_STAT: Record<
     tone: "bad",
   },
   "glasgow-life-expectancy": {
-    value: "73.6",
+    value: lifeExpectancy.glaM[lifeExpectancy.glaM.length - 1].toFixed(1),
     label: "years, male life expectancy at birth, the lowest of Scotland's 32 council areas",
     tone: "bad",
   },
   "glasgow-deprivation": {
     value: "29%",
-    label: "of Glaswegians in Scotland's worst-off tenth of neighbourhoods, down from 46% in 2004",
+    label: "of Glaswegians in Scotland's worst off tenth of neighbourhoods, down from 46% in 2004",
     tone: "good",
   },
 };
@@ -111,9 +117,9 @@ function lookup(slug: string): Meta | null {
  */
 const SEO_OVERRIDE: Record<string, { title?: string; description?: string }> = {
   "glasgow-full-time-pay": {
-    title: "Average Full-Time Pay in Glasgow: What £796 Means",
+    title: "Average Full Time Pay in Glasgow: What £796 Means",
     description:
-      "£796.50 a week sounds far too high because it is not what a typical worker earns. It counts full-time employees only, and jobs in Glasgow, not Glaswegians.",
+      "£796.50 a week sounds far too high because it is not what a typical worker earns. It counts full time employees only, and jobs in Glasgow, not Glaswegians.",
   },
   "glasgow-child-poverty": {
     title: "Child Poverty in Glasgow: 36.1% and Rising",
@@ -121,24 +127,24 @@ const SEO_OVERRIDE: Record<string, { title?: string; description?: string }> = {
       "More than one in three Glasgow children live in poverty after housing costs. Ten years ago it was 27.1%; it is now 36.1%, the biggest rise in Scotland.",
   },
   "glasgow-claimant-count": {
-    title: "Glasgow Claimant Count: The Long-Term Change",
+    title: "Glasgow Claimant Count: The Long Term Change",
     description:
-      "The share of working-age Glaswegians on out-of-work benefits fell from 6.0% in 2000 to 3.2% in 2016, jumped during the pandemic, and is about 4.5% now.",
+      "The share of working age Glaswegians on out of work benefits fell from 6.0% in 2000 to 3.2% in 2016, jumped during the pandemic, and is about 4.5% now.",
   },
   "glasgow-deprivation": {
     title: "Glasgow Deprivation: What the SIMD Shows",
     description:
-      "Almost half of Glaswegians lived in Scotland's worst-off tenth of neighbourhoods in 2004. By 2020 it was under a third, at 29%. Here is what changed.",
+      "Almost half of Glaswegians lived in Scotland's worst off tenth of neighbourhoods in 2004. By 2020 it was under a third, at 29%. Here is what changed.",
   },
   "glasgow-employment-rate": {
     title: "Glasgow Employment Rate: What Changed Since 2004",
     description:
-      "In 2004, 62.7% of working-age Glaswegians had a job. By 2022 it was 72.1%, much closer to Scotland as a whole. Child poverty rose over the same years.",
+      "In 2004, 62.7% of working age Glaswegians had a job. By 2022 it was 72.1%, much closer to Scotland as a whole. Child poverty rose over the same years.",
   },
   "glasgow-life-expectancy": {
     title: "Glasgow Life Expectancy: Lowest in Scotland",
     description:
-      "Male life expectancy in Glasgow was 73.6 years in 2017–19, the lowest of Scotland's 32 council areas. See when progress stopped and the full source data.",
+      "Male life expectancy in Glasgow is 74.3 years for 2022 to 2024, the lowest of Scotland's 32 council areas. See when progress stopped and the full source data.",
   },
 };
 
@@ -189,7 +195,7 @@ const indicatorLinks = [
   { slug: "glasgow-child-poverty", label: "Child poverty in Glasgow" },
   { slug: "glasgow-employment-rate", label: "Glasgow employment rate" },
   { slug: "glasgow-claimant-count", label: "Glasgow claimant count" },
-  { slug: "glasgow-full-time-pay", label: "Full-time pay in Glasgow" },
+  { slug: "glasgow-full-time-pay", label: "Full time pay in Glasgow" },
   { slug: "glasgow-life-expectancy", label: "Glasgow life expectancy" },
   { slug: "glasgow-deprivation", label: "Glasgow deprivation" },
 ] as const;
@@ -263,15 +269,19 @@ export default async function IndicatorPage(props: PageProps<"/indicators/[slug]
           <Col className="pt-9">
             <p>
               Between 2001 and 2012, Glasgow men gained more than four years of life. Then it
-              stopped. Since 2012 the line is flat for men and slightly falling for women, the
-              same stall seen across Scotland, arriving alongside a decade of cuts to working-age
-              benefits.
+              stopped. From 2012 the line was flat for men and slowly falling for women, the
+              same stall seen across Scotland, arriving alongside a decade of cuts to working age
+              benefits. It fell again through the pandemic years and has only recovered since
+              2020 to 2022.
             </p>
             <p>
-              A boy born in Glasgow in 2017–19 could expect {le.glaM[n]} years. That is the lowest
-              of Scotland&apos;s 32 council areas: {(le.scoM[n] - le.glaM[n]).toFixed(1)} years
-              below the Scottish average, and 6.9 years behind East Dunbartonshire, ten miles up
-              the road.
+              A boy born in Glasgow in {fullPeriod(le.x[n])} could expect {le.glaM[n].toFixed(1)}{" "}
+              years. That is the lowest of Scotland&apos;s 32 council areas:{" "}
+              {(le.scoM[n] - le.glaM[n]).toFixed(1)} years below the Scottish average, and{" "}
+              {(eastDunbartonshire.men - le.glaM[n]).toFixed(1)} years behind East Dunbartonshire,
+              ten miles up the road. The full council by council picture, and the gap inside
+              Glasgow itself, is on the{" "}
+              <Link href="/life-expectancy-glasgow">life expectancy Glasgow</Link> page.
             </p>
           </Col>
 
@@ -284,7 +294,7 @@ export default async function IndicatorPage(props: PageProps<"/indicators/[slug]
                 key={p.title}
                 n={p.title === "Men" ? 1 : 2}
                 title={`${p.title}, life expectancy at birth`}
-                sub="Years · 2001–03 to 2017–19 · ONS"
+                sub={`Years · ${le.x[0]} to ${le.x[n]} · National Records of Scotland`}
                 legend={[
                   { name: "Glasgow", colorVar: "--glasgow" },
                   { name: "Scotland", colorVar: "--scotland" },
@@ -302,7 +312,7 @@ export default async function IndicatorPage(props: PageProps<"/indicators/[slug]
                   yTicks={[68, 70, 72, 74, 76, 78, 80, 82]}
                   unit=""
                   decimals={1}
-                  ariaLabel={`${p.title}: life expectancy at birth in Glasgow compared with Scotland, 2001-03 to 2017-19.`}
+                  ariaLabel={`${p.title}: life expectancy at birth in Glasgow compared with Scotland, ${le.x[0]} to ${le.x[n]}.`}
                 />
               </Figure>
             ))}
@@ -327,7 +337,7 @@ export default async function IndicatorPage(props: PageProps<"/indicators/[slug]
             }
             technical={[
               "This is life expectancy at birth, averaged over three years at a time to smooth out random variation. It is not a prediction about any individual. It describes death rates in the population over those years, applied to a hypothetical newborn.",
-              "More recent ONS releases put Glasgow male life expectancy at 74.3 years for 2022–24, still the lowest or second-lowest in Great Britain. That release uses a different vintage of population estimates, so it is quoted here rather than spliced onto the chart.",
+              "Every figure comes from one National Records of Scotland release, so the whole series uses the same population estimates. Glasgow is compared with Scotland's figure from the same abridged life tables.",
             ]}
           >
             <p className="text-[15px] text-[var(--ink-2)] py-2">
@@ -372,8 +382,8 @@ export default async function IndicatorPage(props: PageProps<"/indicators/[slug]
 
           <Col className="pt-9">
             <p>
-              Scotland ranks every small neighbourhood in the country from worst-off to best-off.
-              In 2004, 46% of Glaswegians lived in the worst-off tenth. By 2020 that was down to
+              Scotland ranks every small neighbourhood in the country from worst off to best off.
+              In 2004, 46% of Glaswegians lived in the worst off tenth. By 2020 that was down to
               29%, about 185,000 people. That is a genuine improvement, and a big one.
             </p>
             <p>
@@ -381,18 +391,18 @@ export default async function IndicatorPage(props: PageProps<"/indicators/[slug]
               move up it because Glasgow got better, or because other places got worse, or both.
               And even after the improvement, {d.stillIn20pct.pct}% of the city,{" "}
               {d.stillIn20pct.people.toLocaleString("en-GB")} people, still live in
-              Scotland&apos;s worst-off fifth.
+              Scotland&apos;s worst off fifth.
             </p>
           </Col>
 
           <Figure
             className="mt-7"
             n={1}
-            title="Share of Glaswegians in Scotland's worst-off 10% of neighbourhoods"
+            title="Share of Glaswegians in Scotland's worst off 10% of neighbourhoods"
             sub="2004 compared with 2020 · Scottish Government"
             technical={[
               "The ranking was also published in 2006, 2009, 2012 and 2016. Those years are omitted because neighbourhood boundaries were redrawn between the 2001 and 2011 censuses, so the middle points cannot be compared like for like with either end.",
-              "The ranking cannot tell you whether anyone got richer or poorer in cash terms. Large-scale demolition and rehousing moved people between neighbourhoods during this period, which shifts the figures without necessarily changing anyone's income.",
+              "The ranking cannot tell you whether anyone got richer or poorer in cash terms. Large scale demolition and rehousing moved people between neighbourhoods during this period, which shifts the figures without necessarily changing anyone's income.",
             ]}
           >
             <div className="grid gap-5 py-3">
@@ -403,7 +413,7 @@ export default async function IndicatorPage(props: PageProps<"/indicators/[slug]
                   </span>
                   <div className="bg-[var(--surface-2)] h-[42px] relative">
                     <div
-                      className="h-full bg-[var(--glasgow)] flex items-center justify-end pr-3 text-white text-[16px] font-[640] tnum"
+                      className="h-full bg-[var(--glasgow)] flex items-center justify-end pr-3 text-white text-[16px] font-[540] tnum"
                       style={{ width: `${(r.pct / 50) * 100}%` }}
                     >
                       {r.pct}%
@@ -459,7 +469,7 @@ export default async function IndicatorPage(props: PageProps<"/indicators/[slug]
 
         {isPay && <MinimumWageReality className="mt-8" headingLevel="h2" />}
 
-        {/* Offered right after the minimum-wage figures raise the question. */}
+        {/* Offered right after the minimum wage figures raise the question. */}
         {isPay && <ToolCTA tool="take-home" className="mt-8" />}
 
         <div className="pt-9">
@@ -528,10 +538,10 @@ export default async function IndicatorPage(props: PageProps<"/indicators/[slug]
           <Col className="pt-10">
             <h2 className="h2 mb-4">What this chart can, and cannot, tell us</h2>
             <p>
-              It compares ONS pay estimates for selected full-time employee jobs by workplace and
+              It compares ONS pay estimates for selected full time employee jobs by workplace and
               by where the job holder lives. It cannot tell us what the average Glasgow worker
               earns, what people in poverty earn, or that the £51 difference is money leaving the
-              city. The direct poverty figures prove the scale of poverty; the minimum-wage figures
+              city. The direct poverty figures prove the scale of poverty; the minimum wage figures
               above show why having a job does not always provide enough to live on.{" "}
               <Link href="/why-poverty-is-worse-in-glasgow">See Glasgow&apos;s wider evidence</Link>.
             </p>

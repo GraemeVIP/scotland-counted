@@ -50,7 +50,7 @@ function FoodPricesChart() {
           { name: "Food prices", colorVar: "--brand" },
           { name: "Shoplifting", colorVar: "--action" },
         ]}
-        caption="The two Covid years are faded. Shops were shut for long spells, so shoplifting fell and bounced back for reasons that had nothing to do with prices. Sources: ONS consumer price index for food and non-alcoholic drinks; Scottish Government recorded crime."
+        caption="The two Covid years are faded. Shops were shut for long spells, so shoplifting fell and bounced back for reasons that had nothing to do with prices. Sources: ONS consumer price index for food and non alcoholic drinks; Scottish Government recorded crime."
         table={
           <DataTable
             head={["Year", "Food prices", "Shoplifting"]}
@@ -62,8 +62,8 @@ function FoodPricesChart() {
           />
         }
         technical={[
-          "Correlation across the 11 non-Covid years from 2013-14 to 2025-26: 0.82. We shuffled the years 20,000 times; a link this strong turned up by chance about 2 times in 1,000. Dropping any single year leaves it between 0.75 and 0.88. Dropping both big crisis years (2022-23 and 2023-24) leaves 0.56.",
-          "A straight line fitted to the non-Covid years up to 2023-24 gives: shoplifting growth ≈ 2% + 2 × food price growth. It predicts rises of 6.4% in 2024-25 and 10.6% in 2025-26. The recorded rises were 15.7% and 19.3%.",
+          "Correlation across the 11 non Covid years from 2013-14 to 2025-26: 0.82. We shuffled the years 20,000 times; a link this strong turned up by chance about 2 times in 1,000. Dropping any single year leaves it between 0.75 and 0.88. Dropping both big crisis years (2022-23 and 2023-24) leaves 0.56.",
+          "A straight line fitted to the non Covid years up to 2023-24 gives: shoplifting growth ≈ 2% + 2 × food price growth. It predicts rises of 6.4% in 2024-25 and 10.6% in 2025-26. The recorded rises were 15.7% and 19.3%.",
         ]}
       >
         <div
@@ -73,7 +73,7 @@ function FoodPricesChart() {
         >
           {foodPricesAndShoplifting.map((row) => (
             <div key={row.year} className={row.covid ? "opacity-60" : undefined}>
-              <p className="ui text-[15px] font-[680] text-[var(--ink-2)]">
+              <p className="ui text-[15px] font-[560] text-[var(--ink-2)]">
                 {row.year}
                 {row.covid && <span className="font-[520] text-[var(--muted)]"> · Covid</span>}
               </p>
@@ -81,7 +81,7 @@ function FoodPricesChart() {
                 <SignedBar value={row.foodInflationPct} max={36} colorVar="--brand" muted={row.covid} />
                 <span className="tnum text-right text-[15px] text-[var(--ink-2)]">{signed(row.foodInflationPct, 1)}</span>
                 <SignedBar value={row.shopliftingChangePct} max={36} colorVar="--action" muted={row.covid} />
-                <span className="tnum text-right text-[15px] font-[700] text-[var(--ink)]">{signed(row.shopliftingChangePct, 1)}</span>
+                <span className="tnum text-right text-[15px] font-[580] text-[var(--ink)]">{signed(row.shopliftingChangePct, 1)}</span>
               </div>
             </div>
           ))}
@@ -95,8 +95,8 @@ function RateBar({ label, rate, max, highlight = false, note }: { label: string;
   return (
     <div>
       <div className="flex items-baseline justify-between gap-4 text-[15px] leading-[1.45]">
-        <span className={highlight ? "font-[760] text-[var(--ink)]" : "font-[620] text-[var(--ink-2)]"}>{label}</span>
-        <span className="tnum shrink-0 font-[760] text-[var(--ink)]">{rate.toFixed(1)}</span>
+        <span className={highlight ? "font-[620] text-[var(--ink)]" : "font-[540] text-[var(--ink-2)]"}>{label}</span>
+        <span className="tnum shrink-0 font-[620] text-[var(--ink)]">{rate.toFixed(1)}</span>
       </div>
       <div className="mt-1.5 h-3.5 overflow-hidden rounded-full bg-[var(--surface-2)]" aria-hidden="true">
         <div
@@ -116,8 +116,8 @@ function CouncilChart() {
     <figure id="find-your-council" className="not-prose my-8 scroll-mt-24 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5 sm:p-7">
       <div className="flex flex-wrap items-end justify-between gap-3 border-b border-[var(--rule)] pb-4">
         <div>
-          <p className="ui text-[15px] font-[760] text-[var(--brand)]">Figure 6 · Find your council</p>
-          <h3 className="mt-1 text-[22px] font-[760] leading-[1.25]">The ten highest shoplifting rates</h3>
+          <p className="ui text-[15px] font-[620] text-[var(--brand)]">Figure 6 · Find your council</p>
+          <h3 className="mt-1 text-[22px] font-[620] leading-[1.25]">The ten highest shoplifting rates</h3>
         </div>
         <p className="ui text-[15px] text-[var(--muted)]">Per 10,000 people · 2025-26</p>
       </div>
@@ -143,7 +143,7 @@ function CouncilChart() {
       </div>
 
       <details className="group mt-6 border-t border-[var(--rule)] pt-2">
-        <summary className="ui flex min-h-11 w-fit cursor-pointer list-none items-center gap-2 py-3 text-[15px] font-[680] text-[var(--ink-2)] hover:text-[var(--brand)]">
+        <summary className="ui flex min-h-11 w-fit cursor-pointer list-none items-center gap-2 py-3 text-[15px] font-[560] text-[var(--ink-2)] hover:text-[var(--brand)]">
           <span aria-hidden="true" className="transition-transform group-open:rotate-90">▸</span>
           See all 32 councils
         </summary>
@@ -151,12 +151,12 @@ function CouncilChart() {
           <table className="min-w-full border-collapse text-[15px] tnum">
             <thead>
               <tr>
-                <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-left font-[700]">Council area</th>
-                <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-right font-[700]">2019-20</th>
-                <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-right font-[700]">2025-26</th>
-                <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-right font-[700]">Change</th>
-                <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-right font-[700]">Per 10,000</th>
-                <th className="border-b-2 border-[var(--ink)] pb-2 text-right font-[700]">Solved</th>
+                <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-left font-[580]">Council area</th>
+                <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-right font-[580]">2019-20</th>
+                <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-right font-[580]">2025-26</th>
+                <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-right font-[580]">Change</th>
+                <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-right font-[580]">Per 10,000</th>
+                <th className="border-b-2 border-[var(--ink)] pb-2 text-right font-[580]">Solved</th>
               </tr>
             </thead>
             <tbody>
@@ -164,12 +164,12 @@ function CouncilChart() {
                 const slug = councilSlugs.get(row.area);
                 return (
                   <tr key={row.area}>
-                    <td className="border-b border-[var(--rule)] py-2.5 pr-4 font-[620]">
+                    <td className="border-b border-[var(--rule)] py-2.5 pr-4 font-[540]">
                       {slug ? <Link href={`/areas/${slug}`}>{row.area}</Link> : row.area}
                     </td>
                     <td className="border-b border-[var(--rule)] py-2.5 pr-4 text-right text-[var(--ink-2)]">{fmt(row.y2019)}</td>
                     <td className="border-b border-[var(--rule)] py-2.5 pr-4 text-right text-[var(--ink-2)]">{fmt(row.y2025)}</td>
-                    <td className="border-b border-[var(--rule)] py-2.5 pr-4 text-right font-[700]">{signed(row.changePct)}</td>
+                    <td className="border-b border-[var(--rule)] py-2.5 pr-4 text-right font-[580]">{signed(row.changePct)}</td>
                     <td className="border-b border-[var(--rule)] py-2.5 pr-4 text-right">{row.rate2025.toFixed(1)}</td>
                     <td className="border-b border-[var(--rule)] py-2.5 text-right text-[var(--ink-2)]">{row.solved2025}%</td>
                   </tr>
@@ -183,7 +183,7 @@ function CouncilChart() {
       <figcaption className="mt-5 border-t border-[var(--rule)] pt-4 text-[15px] leading-[1.6] text-[var(--ink-2)]">
         Crimes are counted where the shop is, not where the thief lives, so city centres with big
         shopping streets have high rates. Island counts are small: Shetland went from 48 to 6.
-        “Solved” is the official clear-up rate for 2025-26. Source: Scottish Government recorded crime.
+        “Solved” is the official clear up rate for 2025-26. Source: Scottish Government recorded crime.
       </figcaption>
     </figure>
   );
@@ -208,10 +208,10 @@ export default function Post() {
   return (
     <Prose>
       <Lead>
-        Scotland now has more shoplifting per person than England and Wales, by the biggest margin
-        in figures going back to 2002. Police recorded {fmt(latest.shoplifting)} shoplifting
-        crimes in 2025-26, the most since records began in 1971. Over the same years, the number of
-        shoplifters convicted in court has nearly halved.
+        Police recorded {fmt(latest.shoplifting)} shoplifting crimes in Scotland in 2025-26, the
+        most since records began in 1971. Scotland now has more shoplifting per person than England
+        and Wales, by the biggest margin in figures going back to 2002. Over the same years, the
+        number of shoplifters convicted in court has nearly halved.
       </Lead>
 
       <P>
@@ -220,7 +220,7 @@ export default function Post() {
         does not.
       </P>
 
-      <H2 id="short-answer">Four things the figures show</H2>
+      <H2 id="short-answer">Shoplifting in Scotland: four key figures</H2>
 
       <div className="not-prose my-8 grid gap-4 sm:grid-cols-2">
         {[
@@ -247,7 +247,7 @@ export default function Post() {
         ].map((stat) => (
           <div key={stat.label} className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5">
             <p className="display-stat text-[34px] leading-none text-[var(--action-text)]">{stat.value}</p>
-            <p className="mt-3 text-[16px] font-[700] leading-[1.4] text-[var(--ink)]">{stat.label}</p>
+            <p className="mt-3 text-[16px] font-[580] leading-[1.4] text-[var(--ink)]">{stat.label}</p>
             <p className="mt-2 text-[15px] leading-[1.5] text-[var(--muted)]">{stat.note}</p>
           </div>
         ))}
@@ -259,7 +259,7 @@ export default function Post() {
         <Figure
           n={1}
           title="Scotland's shoplifting rate has overtaken England and Wales"
-          sub="Police-recorded shoplifting per 1,000 people · years run April to March"
+          sub="Police recorded shoplifting per 1,000 people · years run April to March"
           legend={[
             { name: "Scotland", colorVar: "--scotland" },
             { name: "England and Wales", colorVar: "--brand" },
@@ -301,7 +301,7 @@ export default function Post() {
       </P>
 
       <P>
-        England and Wales also had the “£200 rule” from 2014, which critics said made low-value theft
+        England and Wales also had the “£200 rule” from 2014, which critics said made low value theft
         a lower priority. Scotland never had it. Yet Scotland&apos;s rise has been bigger.
       </P>
 
@@ -345,19 +345,19 @@ export default function Post() {
         <table className="min-w-full border-collapse text-[15px] tnum">
           <thead>
             <tr>
-              <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-left font-[700]">Crime</th>
-              <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-right font-[700]">2019-20</th>
-              <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-right font-[700]">2025-26</th>
-              <th className="border-b-2 border-[var(--ink)] pb-2 text-right font-[700]">Change</th>
+              <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-left font-[580]">Crime</th>
+              <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-right font-[580]">2019-20</th>
+              <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-right font-[580]">2025-26</th>
+              <th className="border-b-2 border-[var(--ink)] pb-2 text-right font-[580]">Change</th>
             </tr>
           </thead>
           <tbody>
             {dishonestyCategories.map((row) => (
               <tr key={row.label} className={row.label === "Shoplifting" ? "bg-[var(--action-tint)]" : undefined}>
-                <td className="border-b border-[var(--rule)] py-2.5 pr-4 font-[620]">{row.label}</td>
+                <td className="border-b border-[var(--rule)] py-2.5 pr-4 font-[540]">{row.label}</td>
                 <td className="border-b border-[var(--rule)] py-2.5 pr-4 text-right text-[var(--ink-2)]">{fmt(row.y2019)}</td>
                 <td className="border-b border-[var(--rule)] py-2.5 pr-4 text-right text-[var(--ink-2)]">{fmt(row.y2025)}</td>
-                <td className="border-b border-[var(--rule)] py-2.5 text-right font-[700]">{signed((row.y2025 / row.y2019 - 1) * 100)}</td>
+                <td className="border-b border-[var(--rule)] py-2.5 text-right font-[580]">{signed((row.y2025 / row.y2019 - 1) * 100)}</td>
               </tr>
             ))}
           </tbody>
@@ -365,7 +365,7 @@ export default function Post() {
       </div>
 
       <P>
-        Add the other seven types together and they fell by 20%, from 80,721 to 64,671. Break-ins
+        Add the other seven types together and they fell by 20%, from 80,721 to 64,671. Break ins
         to homes and other buildings are at their lowest level since 1971.
       </P>
 
@@ -414,8 +414,8 @@ export default function Post() {
       </P>
 
       <P>
-        Shops have changed too. In a December 2024 report, Police Scotland listed self-service tills,
-        fewer staff and shops&apos; “non-confrontation” policies among the things driving retail theft.
+        Shops have changed too. In a December 2024 report, Police Scotland listed self service tills,
+        fewer staff and shops&apos; “non confrontation” policies among the things driving retail theft.
         Many big retailers tell staff not to tackle shoplifters, to keep them safe. Those are the
         shops&apos; own rules. We found no government policy telling staff to let thieves walk out.
       </P>
@@ -425,7 +425,7 @@ export default function Post() {
           Its report to the Scottish Police Authority names six things: the cost of living crisis,
           serious organised crime, changes in shops, the criminal justice system, peer pressure, and
           mental health and addiction. It found 36.7% of shoplifters committed more than one
-          shoplifting in the year. And 663 thirteen-year-olds were named in shoplifting crimes in
+          shoplifting in the year. And 663 thirteen year olds were named in shoplifting crimes in
           2023-24, 61% more than in 2019-20.
         </p>
       </Aside>
@@ -497,7 +497,7 @@ export default function Post() {
         are caught and convicted in the first place.
       </P>
 
-      <H3 id="council-test">A council-by-council check</H3>
+      <H3 id="council-test">A council by council check</H3>
 
       <P>
         If a falling chance of getting caught leads to more theft, the places where it fell most
@@ -510,9 +510,9 @@ export default function Post() {
       <Aside title="What changed in policing, courts and prisons">
         <p><strong>July 2019:</strong> courts must avoid prison sentences of 12 months or less unless nothing else is suitable. The limit had been three months.</p>
         <p><strong>2020–2022:</strong> Covid closes courts for long spells and leaves a large backlog.</p>
-        <p><strong>May–June 2024:</strong> Police Scotland rolls out its “proportionate response to crime”. Low-risk crimes with no leads can be closed without investigation. Police would not say how many were shoplifting.</p>
+        <p><strong>May–June 2024:</strong> Police Scotland rolls out its “proportionate response to crime”. Low risk crimes with no leads can be closed without investigation. Police would not say how many were shoplifting.</p>
         <p><strong>June–July 2024:</strong> 477 prisoners released early to ease overcrowding.</p>
-        <p><strong>February 2025:</strong> short-term prisoners released after 40% of their sentence instead of 50%.</p>
+        <p><strong>February 2025:</strong> short term prisoners released after 40% of their sentence instead of 50%.</p>
         <p><strong>April 2025:</strong> a police Retail Crime Taskforce starts work, funded with £3 million a year.</p>
         <p><strong>November 2025 to April 2026:</strong> 614 more prisoners released early.</p>
         <p><strong>December 2025:</strong> a faster court process extended to shoplifting cases.</p>
@@ -520,11 +520,11 @@ export default function Post() {
       </Aside>
 
       <P>
-        The early releases cover all short-term prisoners. The published figures do not say how
+        The early releases cover all short term prisoners. The published figures do not say how
         many were shoplifters, so their effect on shoplifting cannot be measured yet.
       </P>
 
-      <H2 id="councils">Edinburgh has overtaken Glasgow</H2>
+      <H2 id="councils">Shoplifting by council: Edinburgh has overtaken Glasgow</H2>
 
       <div className="not-prose my-8">
         <Figure
@@ -567,8 +567,8 @@ export default function Post() {
 
       <P>
         They also have some of the lowest solved rates. Police solved 38.4% of shoplifting in
-        Edinburgh in 2025-26, down from 53.1% in 2019-20. Only East Lothian was lower, at 33.0%. In
-        Glasgow it was 39.3%, down from 57.0%.
+        Edinburgh in 2025-26, down from 53.1% in 2019-20. Only East Lothian was lower, at 33.0%. In{" "}
+        <Link href="/crime-rate-glasgow">Glasgow</Link> it was 39.3%, down from 57.0%.
       </P>
 
       <P>
@@ -630,7 +630,7 @@ export default function Post() {
             `Middle third: ${shopliftingByPovertyThird.members.middle.join(", ")}.`,
             `Least poor third: ${shopliftingByPovertyThird.members.leastPoor.join(", ")}.`,
             "Tests across the 32 councils used rank correlations with 20,000 random shuffles. Rise from 2019-20 against child poverty: 0.28, could easily be chance. Level in 2025-26 against child poverty: 0.56, very unlikely to be chance. Rise against the change in child poverty: 0.44, about 1 in 100 by chance, falling to 0.32 once the four cities and three island councils are removed.",
-            "Solved-rate test: the fall in the solved rate from 2019-20 to 2021-22 against the rise in shoplifting from 2021-22 to 2025-26 gives −0.40 (about 2 in 100 by chance), or −0.47 without the island councils. It holds after allowing for the Covid bounce-back, but falls to −0.21 using 2022-23 as the split year.",
+            "Solved rate test: the fall in the solved rate from 2019-20 to 2021-22 against the rise in shoplifting from 2021-22 to 2025-26 gives −0.40 (about 2 in 100 by chance), or −0.47 without the island councils. It holds after allowing for the Covid bounce back, but falls to −0.21 using 2022-23 as the split year.",
           ]}
         >
           <LineChart
@@ -686,7 +686,8 @@ export default function Post() {
       />
 
       <P>
-        Two other signs of hardship eased over the same years. Crisis Grant applications, the
+        Two other signs of hardship eased over the same years.{" "}
+        <Link href="/crisis-grant-scotland">Crisis Grant</Link> applications, the
         emergency cash councils give people with no money for essentials, peaked at{" "}
         {fmt(cgPeak.applications)} in 2022-23. There were {fmt(cgNow.applications)} in 2025-26. Trussell
         food banks in Scotland gave out 218,838 food parcels in 2025. That is 13% fewer than in 2024
@@ -793,9 +794,9 @@ export default function Post() {
       <P>
         You can{" "}
         <a href="/data/scottish-shoplifting-by-council-2013-2026.csv" download>
-          download our council-by-council table
+          download our council by council table
         </a>{" "}
-        of shoplifting, other theft, break-ins, Crisis Grant applications and child poverty from
+        of shoplifting, other theft, break ins, Crisis Grant applications and child poverty from
         2013-14 to 2025-26. Every figure comes from the official sources listed below. The tests and
         predictions are our own and are labelled as such.
       </P>

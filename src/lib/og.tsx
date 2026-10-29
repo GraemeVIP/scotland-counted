@@ -1,4 +1,6 @@
 import { ImageResponse } from "next/og";
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 import { site } from "@/lib/site";
 
 /**
@@ -10,9 +12,8 @@ import { site } from "@/lib/site";
  * home page. Both segments now render this, so there is one card and one place
  * to change it.
  *
- * The palette is the site's own: deep navy, white, and coral for the accent,
- * matching the header wordmark. Every colour here clears WCAG AA against the
- * background (coral 5.21:1, the muted grey 7.47:1).
+ * The palette is the site's own Saltire navy and blue, with the SC logo in
+ * the corner. Every colour here clears WCAG AA against the navy background.
  */
 
 export const OG_ALT =
@@ -20,9 +21,12 @@ export const OG_ALT =
 export const OG_SIZE = { width: 1200, height: 630 };
 export const OG_CONTENT_TYPE = "image/png";
 
-const DEEP = "#16203a";
-const CORAL = "#ff5a3c";
-const MUTED = "#a8b1c1";
+const DEEP = "#04112f";
+const ACCENT = "#6db5fc";
+const MUTED = "#b4c2de";
+
+/** The logo is read once at build time and embedded, so the card needs no network. */
+const LOGO = `data:image/png;base64,${readFileSync(join(process.cwd(), "public/brand/logo-on-dark.png")).toString("base64")}`;
 
 export function ogImage() {
   return new ImageResponse(
@@ -46,7 +50,7 @@ export function ogImage() {
             fontWeight: 700,
             letterSpacing: 3,
             textTransform: "uppercase",
-            color: CORAL,
+            color: ACCENT,
           }}
         >
           Scotland · Every council area · Every figure sourced
@@ -111,9 +115,8 @@ export function ogImage() {
             fontSize: 24,
           }}
         >
-          <div style={{ display: "flex", fontWeight: 700 }}>
-            Scotland<span style={{ color: CORAL }}>Counted</span>
-          </div>
+          {/* eslint-disable-next-line @next/next/no-img-element -- ImageResponse renders plain img, not next/image */}
+          <img src={LOGO} alt="Scotland Counted" width={233} height={40} />
           <div style={{ display: "flex", color: MUTED }}>
             {site.url.replace("https://", "")}
           </div>

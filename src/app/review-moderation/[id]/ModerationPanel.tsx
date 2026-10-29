@@ -87,10 +87,10 @@ export default function ModerationPanel({ id }: { id: string }) {
         <p className="mt-2">Follow-up permission: <strong className="text-[var(--ink)]">{submission.follow_up_opt_in ? "Yes" : "No"}</strong>{submission.follow_up_opt_in && submission.email ? ` · ${submission.email}` : ""}</p>
       </div>
       <div className="grid gap-5">
-        <label><span className="ui mb-2 block text-[15px] font-[700]">Published name</span><input value={displayName} onChange={(event) => setDisplayName(event.target.value)} className={field} /></label>
-        <label><span className="ui mb-2 block text-[15px] font-[700]">Headline</span><input value={title} onChange={(event) => setTitle(event.target.value)} className={field} /></label>
-        <label><span className="ui mb-2 block text-[15px] font-[700]">Account</span><textarea rows={12} value={story} onChange={(event) => setStory(event.target.value)} className={`${field} resize-y font-sans`} /></label>
-        {message && <p role="alert" className="rounded-[var(--r-s)] border border-[var(--bad)] bg-[var(--surface)] p-4 text-[15.5px] font-[700] leading-[1.5] text-[var(--bad-text)]">{message}</p>}
+        <label><span className="ui mb-2 block text-[15px] font-[580]">Published name</span><input value={displayName} onChange={(event) => setDisplayName(event.target.value)} className={field} /></label>
+        <label><span className="ui mb-2 block text-[15px] font-[580]">Headline</span><input value={title} onChange={(event) => setTitle(event.target.value)} className={field} /></label>
+        <label><span className="ui mb-2 block text-[15px] font-[580]">Account</span><textarea rows={12} value={story} onChange={(event) => setStory(event.target.value)} className={`${field} resize-y font-sans`} /></label>
+        {message && <p role="alert" className="rounded-[var(--r-s)] border border-[var(--bad)] bg-[var(--surface)] p-4 text-[15.5px] font-[580] leading-[1.5] text-[var(--bad-text)]">{message}</p>}
         <div className="flex flex-col gap-3 sm:flex-row">
           <button type="button" disabled={state === "saving"} onClick={() => decide("approve")} className="btn btn-primary justify-center">{pendingAction === "approve" ? "Approving…" : "Approve and publish"}</button>
           <button type="button" disabled={state === "saving"} onClick={() => decide("reject")} className="btn btn-ghost justify-center">{pendingAction === "reject" ? "Rejecting…" : "Reject"}</button>

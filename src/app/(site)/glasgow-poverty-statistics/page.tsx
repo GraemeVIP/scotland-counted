@@ -7,7 +7,7 @@ import { indicators, lifeExpectancy, deprivation } from "@/lib/data/indicators";
 export const metadata = meta({
   title: "Glasgow Poverty Statistics: Work, Pay and Health",
   description:
-    "Glasgow poverty statistics alongside long-term evidence on employment, benefits, pay, deprivation and life expectancy, with every source linked.",
+    "Glasgow poverty statistics alongside long term evidence on employment, benefits, pay, deprivation and life expectancy, with every source linked.",
   path: "/glasgow-poverty-statistics",
 });
 
@@ -20,7 +20,7 @@ const CARDS = [
     summary: i.summary,
     direction: i.direction,
     spark: i.series[0].data,
-    sparkNote: `${i.x[0]} – ${i.x[i.x.length - 1]}`,
+    sparkNote: `${i.x[0]} to ${i.x[i.x.length - 1]}`,
   })),
   {
     slug: deprivation.slug,
@@ -29,7 +29,7 @@ const CARDS = [
     summary: deprivation.summary,
     direction: deprivation.direction,
     spark: deprivation.rows.map((r) => r.pct),
-    sparkNote: "SIMD 2004 – 2020",
+    sparkNote: "SIMD 2004 to 2020",
   },
   {
     slug: lifeExpectancy.slug,
@@ -38,7 +38,7 @@ const CARDS = [
     summary: lifeExpectancy.summary,
     direction: lifeExpectancy.direction,
     spark: lifeExpectancy.glaM,
-    sparkNote: "Men, 2001–03 – 2017–19",
+    sparkNote: `Men, ${lifeExpectancy.x[0]} to ${lifeExpectancy.x[lifeExpectancy.x.length - 1]}`,
   },
 ];
 
@@ -55,7 +55,7 @@ export default function TheNumbers() {
         data={datasetJsonLd({
           name: "Poverty indicators for Glasgow, 2000–2026",
           description:
-            "Six time series covering child poverty after housing costs, employment, out-of-work benefit claims, restricted full-time employee-pay estimates, neighbourhood deprivation and life expectancy at birth.",
+            "Six time series covering child poverty after housing costs, employment, out of work benefit claims, restricted full time employee pay estimates, neighbourhood deprivation and life expectancy at birth.",
           path: "/glasgow-poverty-statistics",
           keywords: [
             "Glasgow",
@@ -75,7 +75,7 @@ export default function TheNumbers() {
         <PageHeader
           eyebrow="Glasgow · Six parts of the story · 2000–2026"
           title="Glasgow poverty statistics since 2000"
-          lede="Glasgow has Scotland's worst child-poverty rate and the biggest ten-year rise. These six pages show the wider story: children, work, benefits, wages, neighbourhoods and how long people live."
+          lede="Glasgow has Scotland's worst child poverty rate and the biggest ten year rise. These six pages show the wider story: children, work, benefits, wages, neighbourhoods and how long people live."
           stat={{
             value: "6",
             label: "parts of Glasgow's story, each with an easy summary and the exact proof",
@@ -96,7 +96,7 @@ export default function TheNumbers() {
                 className="group flex flex-col h-full rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] p-6 sm:p-7 transition-all duration-300 hover:border-[var(--brand)] hover:-translate-y-1 hover:shadow-[var(--shadow-2)]"
               >
                 <div className="flex items-start justify-between gap-4 mb-5">
-                  <p className="ui text-[15px] font-[700] text-[var(--muted)]">{c.label}</p>
+                  <p className="ui text-[15px] font-[580] text-[var(--muted)]">{c.label}</p>
                   {c.slug !== "glasgow-full-time-pay" && <DirectionChip direction={c.direction} />}
                 </div>
                 <h2 className="h3 mb-3 group-hover:text-[var(--brand)] transition-colors">
@@ -124,16 +124,16 @@ export default function TheNumbers() {
           className="mt-8 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] p-6 sm:p-7"
           aria-labelledby="drug-deaths-evidence"
         >
-          <p className="ui text-[15px] font-[760] text-[var(--brand)]">Latest health evidence</p>
-          <h2 id="drug-deaths-evidence" className="mt-2 text-[25px] font-[760] leading-[1.25]">
-            Glasgow has Scotland&apos;s highest recent drug-death rate
+          <p className="ui text-[15px] font-[620] text-[var(--brand)]">Latest health evidence</p>
+          <h2 id="drug-deaths-evidence" className="mt-2 text-[25px] font-[620] leading-[1.25]">
+            Glasgow has Scotland&apos;s highest recent drug death rate
           </h2>
           <p className="mt-3 max-w-[68ch] text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
             The National Records of Scotland comparison for 2020–2024 puts Glasgow City first on
-            the age-standardised council-area rate. The Scotland-wide figures also show a sharp
+            the age standardised council area rate. The Scotland wide figures also show a sharp
             deprivation gradient.
           </p>
-          <Link href="/blog/drug-deaths-scotland-deprivation" className="ui mt-4 inline-flex min-h-11 items-center font-[720]">
+          <Link href="/blog/drug-deaths-scotland-deprivation" className="ui mt-4 inline-flex min-h-11 items-center font-[600]">
             Read the deprivation and council evidence <span aria-hidden="true">→</span>
           </Link>
         </aside>

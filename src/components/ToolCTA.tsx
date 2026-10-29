@@ -22,7 +22,7 @@ const TOOLS: Record<
     kicker: "Free tool",
     title: "What do you actually take home?",
     body: "Put in a salary or an hourly rate and see what reaches your account on Scotland's tax bands, or work backwards from the pay you need to live on.",
-    cta: "Open the take-home calculator",
+    cta: "Open the take home calculator",
   },
   "council-tax": {
     href: "/council-tax-bands-scotland",
@@ -49,7 +49,7 @@ export default function ToolCTA({
       <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center lg:gap-10">
         <div>
           <p className="kicker mb-2.5 text-[var(--action-text)]">{t.kicker}</p>
-          <p className="text-[22px] font-[760] leading-[1.2] max-w-[26ch] sm:text-[26px]">
+          <p className="text-[22px] font-[620] leading-[1.2] max-w-[26ch] sm:text-[26px]">
             {t.title}
           </p>
           <p className="mt-3 max-w-[58ch] text-[16.5px] leading-[1.55] opacity-85"><ExplainText>{t.body}</ExplainText></p>

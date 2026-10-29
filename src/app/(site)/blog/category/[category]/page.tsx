@@ -11,31 +11,32 @@ import {
 } from "@/lib/data/posts";
 import { site } from "@/lib/site";
 import BlogList from "../../BlogList";
+import { postPath } from "@/lib/routeMap";
 
 const CATEGORY_SEO = {
   "money-and-bills": {
-    title: "Money and Bills in Scotland: Plain-English Guides",
+    title: "Money and Bills in Scotland: Plain English Guides",
     h1: "Money and bills in Scotland",
     description:
-      "Plain-English guides to wages, benefits, council tax, rent, food and energy in Scotland, with short answers first and exact sources underneath.",
+      "Plain English guides to wages, benefits, council tax, rent, food and energy in Scotland, with short answers first and exact sources underneath.",
   },
   "poverty-explained": {
     title: "Poverty in Scotland Explained",
     h1: "Poverty in Scotland explained",
     description:
-      "Plain-English answers to what poverty means in Scotland, how it is measured, why housing costs matter and what the official statistics show.",
+      "Plain English answers to what poverty means in Scotland, how it is measured, why housing costs matter and what the official statistics show.",
   },
   "take-action": {
     title: "Contact Your MP or MSP: Guides and Tools",
     h1: "Contact your MP or MSP",
     description:
-      "Plain-English guides and free tools for finding your MP and MSP, writing a focused email and understanding what happens after you press send.",
+      "Plain English guides and free tools for finding your MP and MSP, writing a focused email and understanding what happens after you press send.",
   },
   "politics-explained": {
     title: "Scottish Politics Explained: Timelines and Primary Sources",
     h1: "Scottish politics explained",
     description:
-      "Long-form, plain-English timelines of Scottish political stories, with allegations, official records and court findings clearly separated.",
+      "Long form, plain English timelines of Scottish political stories, with allegations, official records and court findings clearly separated.",
   },
 } as const;
 
@@ -89,7 +90,7 @@ export default async function BlogCategory(props: { params: Promise<{ category: 
           hasPart: categoryPosts.map((post) => ({
             "@type": "Article",
             headline: post.title,
-            url: `${site.url}/blog/${post.slug}`,
+            url: `${site.url}${postPath(post.slug)}`,
           })),
         }}
       />

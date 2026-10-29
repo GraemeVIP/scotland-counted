@@ -18,7 +18,7 @@
 export type PayPoint = {
   /** Percentile label, or "Median". */
   label: string;
-  /** Plain-English gloss of what the percentile means. */
+  /** Plain English gloss of what the percentile means. */
   meaning: string;
   weekly: number;
   annual: number;
@@ -28,7 +28,7 @@ export type PayPoint = {
 export const glasgowPaySpread: PayPoint[] = [
   {
     label: "Lowest tenth",
-    meaning: "1 in 10 full-time workers earn less than this",
+    meaning: "1 in 10 full time workers earn less than this",
     weekly: 496.1,
     annual: 25797,
   },
@@ -68,7 +68,7 @@ export const glasgowPayMean = { weekly: 886.9, annual: 46119 };
 
 export const glasgowPayMedian = glasgowPaySpread.find((p) => p.emphasis)!;
 
-/** Full-time employee jobs held by Glasgow residents, in the ASHE sample. */
+/** Full time employee jobs held by Glasgow residents, in the ASHE sample. */
 export const glasgowFullTimeJobs = 199_000;
 
 /**
@@ -84,7 +84,7 @@ export const rtiCrossCheck = {
   monthly: 2538,
   annual: 30456,
   month: "October 2025",
-  scope: "All payrolled employees, full-time and part-time",
+  scope: "All payrolled employees, full time and part time",
   sourceId: "hmrc-rti",
 };
 
@@ -92,6 +92,6 @@ export const rtiCrossCheck = {
 export const asheFullTimeUk = {
   weekly: 766.6,
   annual: 39863,
-  scope: "Full-time employees only",
+  scope: "Full time employees only",
   sourceId: "ashe-uk-2025",
 };

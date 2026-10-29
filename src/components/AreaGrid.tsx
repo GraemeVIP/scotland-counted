@@ -38,7 +38,7 @@ export default function AreaGrid({ className = "" }: { className?: string }) {
         <p className="text-[16px] leading-[1.55] text-[var(--ink-2)] max-w-[44ch] lg:justify-self-end">
           <ExplainText>
           Every council area in Scotland. Pick yours and you get the short answer first, then the
-          full figures, the source, and a ready-written email for the people who represent you.
+          full figures, the source, and a ready written email for the people who represent you.
           </ExplainText>
         </p>
       </div>
@@ -64,7 +64,7 @@ export default function AreaGrid({ className = "" }: { className?: string }) {
         </p>
       </div>
 
-      <div className="grid grid-cols-2 gap-2.5 lg:grid-cols-4">
+      <div className="grid grid-cols-1 min-[380px]:grid-cols-2 gap-2.5 lg:grid-cols-4">
         {areas.map((a, index) => {
           const t = (a.pcts[9] - best) / span;
           return (
@@ -79,7 +79,7 @@ export default function AreaGrid({ className = "" }: { className?: string }) {
                 style={{ width: `${18 + t * 82}%`, opacity: 0.035 + t * 0.09 }}
               />
               <span className="relative min-w-0">
-                <span className="ui block text-[15.5px] font-[700] leading-[1.25] text-[var(--ink)]">
+                <span className="ui block text-[15.5px] font-[580] leading-[1.25] text-[var(--ink)]">
                   {a.name}
                 </span>
                 <span className="ui mt-1 block text-[15px] leading-none text-[var(--muted)]">
@@ -95,7 +95,7 @@ export default function AreaGrid({ className = "" }: { className?: string }) {
       </div>
 
       <div className="flex flex-wrap items-center gap-x-6 gap-y-3 mt-7">
-        <Link href="/constituencies" className="ui text-[16px] font-[700]">
+        <Link href="/constituencies" className="ui text-[16px] font-[580]">
           Or find it by your MP&apos;s area →
         </Link>
         <Link href="/browse" className="ui text-[16px] font-[600] text-[var(--ink-2)]">

@@ -27,7 +27,7 @@ const evidenceGroups = [
       "Satisfaction with local schools",
       "Satisfaction with culture and leisure",
       "Satisfaction with bins and street cleaning",
-      "Adult-care users' and carers' experience",
+      "Adult care users' and carers' experience",
     ],
   },
   {
@@ -36,13 +36,13 @@ const evidenceGroups = [
       "Positive destinations after school",
       "Primary literacy and numeracy",
       "Attainment gaps",
-      "Early-years quality",
+      "Early years quality",
       "Attendance and exclusions",
-      "Stability for looked-after children",
+      "Stability for looked after children",
       "Street cleanliness",
       "Road condition",
       "Recycling",
-      "Adult-care quality",
+      "Adult care quality",
       "Readmissions and delayed discharge",
     ],
   },
@@ -51,7 +51,7 @@ const evidenceGroups = [
     items: [
       "Council gender pay gap",
       "Staff sickness absence",
-      "Council-tax collection and invoice payment",
+      "Council tax collection and invoice payment",
       "Planning speed",
       "Condition and suitability of council buildings",
       "Spending close to budget",
@@ -113,13 +113,13 @@ const downloads = [
   },
   {
     href: "/data/scottish-council-resident-verdict-2024.csv",
-    title: "Residents' five-question verdict",
-    note: "All five published perception estimates, their equal-weight average, rank and local survey base",
+    title: "Residents' five question verdict",
+    note: "All five published perception estimates, their equal weight average, rank and local survey base",
   },
   {
     href: "/data/scottish-council-landlord-index-2026.csv",
     title: "Council landlord comparison",
-    note: "Four housing-management measures across the 26 councils with comparable housing stock",
+    note: "Four housing management measures across the 26 councils with comparable housing stock",
   },
   {
     href: "/data/scottish-council-performance-indicator-audit-2026.csv",
@@ -137,8 +137,8 @@ function TopTenChart() {
   return (
     <figure className="not-prose my-8 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5 sm:p-7">
       <div className="border-b border-[var(--rule)] pb-4">
-        <p className="ui text-[15px] font-[760] text-[var(--brand)]">Our main ranking</p>
-        <h3 className="mt-1 text-[24px] font-[780] leading-[1.25]">The top ten councils</h3>
+        <p className="ui text-[15px] font-[620] text-[var(--brand)]">Our main ranking</p>
+        <h3 className="mt-1 text-[24px] font-[620] leading-[1.25]">The top ten councils</h3>
       </div>
       <ol className="mt-5 space-y-3">
         {topTen.map((row) => (
@@ -146,7 +146,7 @@ function TopTenChart() {
             <span className="ui tnum text-right text-[15px] text-[var(--muted)]">{row.overallRank}</span>
             <div className="min-w-0">
               <div className="mb-1.5 flex items-baseline justify-between gap-3">
-                <Link href={`/councils/${row.slug}`} className="truncate text-[15.5px] font-[680] text-[var(--ink)]">
+                <Link href={`/councils/${row.slug}`} className="truncate text-[15.5px] font-[560] text-[var(--ink)]">
                   {row.name}
                 </Link>
               </div>
@@ -157,7 +157,7 @@ function TopTenChart() {
                 />
               </div>
             </div>
-            <span className="tnum text-right text-[16px] font-[760] text-[var(--ink)]">{row.overallScore.toFixed(1)}</span>
+            <span className="tnum text-right text-[16px] font-[620] text-[var(--ink)]">{row.overallScore.toFixed(1)}</span>
           </li>
         ))}
       </ol>
@@ -171,8 +171,8 @@ function TopTenChart() {
 function RankUncertainty() {
   return (
     <figure className="not-prose my-8 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--deep)] p-5 text-white sm:p-7">
-      <p className="ui text-[15px] font-[760] text-[#9db2ff]">How solid is the result?</p>
-      <h3 className="mt-1 text-[24px] font-[780] leading-[1.25]">We changed the rules 10,000 sensible ways</h3>
+      <p className="ui text-[15px] font-[620] text-[#9db2ff]">How solid is the result?</p>
+      <h3 className="mt-1 text-[24px] font-[620] leading-[1.25]">We changed the rules 10,000 sensible ways</h3>
       <p className="mt-3 max-w-[64ch] text-[16px] leading-[1.6] text-[#d7deed]">
         The line shows where each council finished in the middle 90% of those reruns. A short line means its place barely moved. A long line means the result depends more on the choices we made.
       </p>
@@ -185,7 +185,7 @@ function RankUncertainty() {
           return (
             <div key={row.code}>
               <div className="mb-2 flex items-baseline justify-between gap-4">
-                <Link href={`/councils/${row.slug}`} className="text-[15.5px] font-[700] text-white underline decoration-white/30 underline-offset-4">
+                <Link href={`/councils/${row.slug}`} className="text-[15.5px] font-[580] text-white underline decoration-white/30 underline-offset-4">
                   {row.name}
                 </Link>
                 <span className="ui tnum text-[15px] text-[#d7deed]">#{row.rankLow}–{row.rankHigh} · top five {row.topFiveProbability.toFixed(1)}%</span>
@@ -226,12 +226,12 @@ function PillarWinners() {
           <div key={pillar.key} className="rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] p-5 last:sm:col-span-2">
             <div className="flex items-start justify-between gap-4">
               <div>
-                <p className="ui text-[15px] font-[720] text-[var(--brand)]">{pillar.label} · {pillar.weight}%</p>
-                <Link href={`/councils/${leader.slug}`} className="mt-1 block text-[20px] font-[760] leading-[1.25] text-[var(--ink)]">
+                <p className="ui text-[15px] font-[600] text-[var(--brand)]">{pillar.label} · {pillar.weight}%</p>
+                <Link href={`/councils/${leader.slug}`} className="mt-1 block text-[20px] font-[620] leading-[1.25] text-[var(--ink)]">
                   {leader.name}
                 </Link>
               </div>
-              <p className="tnum text-[27px] font-[800] leading-none text-[var(--action)]">{leader.pillars[pillar.key].score.toFixed(1)}</p>
+              <p className="tnum text-[27px] font-[640] leading-none text-[var(--action)]">{leader.pillars[pillar.key].score.toFixed(1)}</p>
             </div>
           </div>
         );
@@ -253,8 +253,8 @@ function PeerMovements() {
   return (
     <figure className="not-prose my-8 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5 sm:p-7">
       <div className="border-b border-[var(--rule)] pb-4">
-        <p className="ui text-[15px] font-[760] text-[var(--brand)]">All councils → similar councils</p>
-        <h3 className="mt-1 text-[24px] font-[780] leading-[1.25]">What changes in a fairer match-up?</h3>
+        <p className="ui text-[15px] font-[620] text-[var(--brand)]">All councils → similar councils</p>
+        <h3 className="mt-1 text-[24px] font-[620] leading-[1.25]">What changes in a fairer match up?</h3>
       </div>
       <div className="mt-5 grid gap-3 sm:grid-cols-2">
         {rows.map((row) => {
@@ -262,12 +262,12 @@ function PeerMovements() {
           return (
             <Link key={row.code} href={`/councils/${row.slug}`} className="flex items-center justify-between gap-4 rounded-[var(--r-s)] bg-[var(--surface-2)] p-4 no-underline">
               <span>
-                <span className="block text-[15.5px] font-[700] text-[var(--ink)]">{row.name}</span>
-                <span className={`ui mt-1 block text-[15px] font-[680] ${movement > 0 ? "text-[var(--good-text)]" : "text-[var(--bad-text)]"}`}>
+                <span className="block text-[15.5px] font-[580] text-[var(--ink)]">{row.name}</span>
+                <span className={`ui mt-1 block text-[15px] font-[560] ${movement > 0 ? "text-[var(--good-text)]" : "text-[var(--bad-text)]"}`}>
                   {movement > 0 ? `rises ${movement} places` : `falls ${Math.abs(movement)} places`}
                 </span>
               </span>
-              <span className="tnum shrink-0 text-[18px] font-[780] text-[var(--ink)]">#{row.overallRank} <span aria-hidden="true">→</span> #{row.peerRank}</span>
+              <span className="tnum shrink-0 text-[18px] font-[620] text-[var(--ink)]">#{row.overallRank} <span aria-hidden="true">→</span> #{row.peerRank}</span>
             </Link>
           );
         })}
@@ -289,10 +289,10 @@ function DownloadGrid() {
           download
           className="group rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] p-5 no-underline transition-colors hover:border-[var(--brand)]"
         >
-          <span className="ui text-[15px] font-[760] text-[var(--brand)]">
+          <span className="ui text-[15px] font-[620] text-[var(--brand)]">
             {file.href.endsWith(".md") ? "Read the checks" : file.href.endsWith(".json") ? "Source list" : "Download the data"} ↓
           </span>
-          <span className="mt-1 block text-[17px] font-[730] leading-[1.35] text-[var(--ink)]">{file.title}</span>
+          <span className="mt-1 block text-[17px] font-[600] leading-[1.35] text-[var(--ink)]">{file.title}</span>
           <span className="mt-2 block text-[15px] leading-[1.5] text-[var(--ink-2)]">{file.note}</span>
         </a>
       ))}
@@ -312,7 +312,7 @@ export default function Post() {
       </Lead>
 
       <P>
-        But there is no single meaning of &quot;best&quot;. Shetland&apos;s residents rate their council highest. North Ayrshire is best for how the council is run and comes first in our separate council-landlord list. Inverclyde jumps from 12th to third when it is compared with councils facing similar problems.
+        But there is no single meaning of &quot;best&quot;. Shetland&apos;s residents rate their council highest. North Ayrshire is best for how the council is run and comes first in our separate council landlord list. Inverclyde jumps from 12th to third when it is compared with councils facing similar problems.
       </P>
 
       <H2 id="answer">The answer in four numbers</H2>
@@ -322,11 +322,11 @@ export default function Post() {
           { value: "#1", label: winner.name, note: `${winner.overallScore.toFixed(1)} comparison score · #1 for services and results` },
           { value: "94.5%", label: "stayed in the top five", note: "when we changed the rules 10,000 sensible ways" },
           { value: `${headlineMeasureCount}`, label: "official figures checked", note: `put into ${evidenceFamilyCount} topics so no one service can take over the score` },
-          { value: "32", label: "councils compared", note: "with a like-for-like rank and usual rank range for every one" },
+          { value: "32", label: "councils compared", note: "with a like for like rank and usual rank range for every one" },
         ].map((stat) => (
           <div key={stat.label} className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5">
             <p className="display-stat tnum text-[40px] leading-none text-[var(--action)]">{stat.value}</p>
-            <p className="mt-3 text-[17px] font-[730] leading-[1.35] text-[var(--ink)]">{stat.label}</p>
+            <p className="mt-3 text-[17px] font-[600] leading-[1.35] text-[var(--ink)]">{stat.label}</p>
             <p className="mt-2 text-[15px] leading-[1.5] text-[var(--muted)]">{stat.note}</p>
           </div>
         ))}
@@ -351,10 +351,10 @@ export default function Post() {
       <div className="not-prose my-8 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5 sm:p-7">
         <div className="flex flex-wrap items-end justify-between gap-3 border-b border-[var(--rule)] pb-4">
           <div>
-            <p className="ui text-[15px] font-[760] text-[var(--brand)]">East Renfrewshire</p>
-            <h3 className="mt-1 text-[24px] font-[780]">Why it finished first</h3>
+            <p className="ui text-[15px] font-[620] text-[var(--brand)]">East Renfrewshire</p>
+            <h3 className="mt-1 text-[24px] font-[620]">Why it finished first</h3>
           </div>
-          <Link href="/councils/east-renfrewshire" className="ui text-[15px] font-[700]">Open council profile →</Link>
+          <Link href="/councils/east-renfrewshire" className="ui text-[15px] font-[580]">Open council profile →</Link>
         </div>
         <div className="mt-5 space-y-4">
           {performancePillars.map((pillar) => {
@@ -363,14 +363,14 @@ export default function Post() {
               <div key={pillar.key} className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4">
                 <div>
                   <div className="mb-1.5 flex items-baseline justify-between gap-3">
-                    <span className="text-[15.5px] font-[680] text-[var(--ink)]">{pillar.label} <span className="font-[500] text-[var(--muted)]">({pillar.weight}%)</span></span>
+                    <span className="text-[15.5px] font-[560] text-[var(--ink)]">{pillar.label} <span className="font-[500] text-[var(--muted)]">({pillar.weight}%)</span></span>
                     <span className="ui tnum text-[15px] text-[var(--muted)]">rank #{result.rank}</span>
                   </div>
                   <div className="h-3 overflow-hidden rounded-full bg-[var(--surface-2)]" aria-hidden="true">
                     <div className="h-full rounded-full bg-[var(--brand)]" style={{ width: `${result.score}%` }} />
                   </div>
                 </div>
-                <span className="tnum w-[3.2ch] text-right text-[17px] font-[760]">{result.score.toFixed(1)}</span>
+                <span className="tnum w-[3.2ch] text-right text-[17px] font-[620]">{result.score.toFixed(1)}</span>
               </div>
             );
           })}
@@ -408,18 +408,18 @@ export default function Post() {
 
       <H2 id="peer-groups">Who does well against councils like them?</H2>
       <P>
-        Councils do not all face the same job. The like-for-like list compares each one with an official group facing similar poverty levels, population and rural challenges. East Renfrewshire and East Lothian stay first and second. Inverclyde jumps from 12th to third.
+        Councils do not all face the same job. The like for like list compares each one with an official group facing similar poverty levels, population and rural challenges. East Renfrewshire and East Lothian stay first and second. Inverclyde jumps from 12th to third.
       </P>
 
       <PeerMovements />
 
       <P>
-        This is where easy assumptions fall apart. West Dunbartonshire and North Ayrshire also jump up the list. Perth and Kinross falls from sixth to 21st. East Dunbartonshire falls from fourth to 12th. The like-for-like list is not the one &quot;true&quot; answer. It shows how much the choice of comparison matters.
+        This is where easy assumptions fall apart. West Dunbartonshire and North Ayrshire also jump up the list. Perth and Kinross falls from sixth to 21st. East Dunbartonshire falls from fourth to 12th. The like for like list is not the one &quot;true&quot; answer. It shows how much the choice of comparison matters.
       </P>
 
       <H2 id="residents">Residents do not always agree with the figures</H2>
       <P>
-        Shetland comes first for what residents said in our main score. It also wins the separate five-question survey list. Its average is 52.1% across questions about good services, value for money, action, influence and respectful treatment. Perth and Kinross is second at 45.5%.
+        Shetland comes first for what residents said in our main score. It also wins the separate five question survey list. Its average is 52.1% across questions about good services, value for money, action, influence and respectful treatment. Perth and Kinross is second at 45.5%.
       </P>
       <P>
         East Renfrewshire is only eighth in that survey list, even though it wins overall. The two lists only partly match. Official figures miss things people feel every day, such as trust, tone and how easy it is to get help. And with only a few hundred answers in each area, small gaps may be down to chance.
@@ -432,8 +432,8 @@ export default function Post() {
           { name: "North Ayrshire", big: "#1", label: "how the council is run", note: `resident survey rank #${northAyrshire.residentVerdict.rank}` },
         ].map((card) => (
           <div key={card.name} className="rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] p-5">
-            <p className="tnum text-[34px] font-[820] leading-none text-[var(--action)]">{card.big}</p>
-            <p className="mt-3 text-[16px] font-[720] leading-[1.35]">{card.name}</p>
+            <p className="tnum text-[34px] font-[640] leading-none text-[var(--action)]">{card.big}</p>
+            <p className="mt-3 text-[16px] font-[600] leading-[1.35]">{card.name}</p>
             <p className="mt-1 text-[15px] text-[var(--ink-2)]">{card.label}</p>
             <p className="ui mt-3 border-t border-[var(--rule)] pt-3 text-[15px] text-[var(--muted)]">{card.note}</p>
           </div>
@@ -442,7 +442,7 @@ export default function Post() {
 
       <Aside title="Do not make too much of tiny survey gaps">
         <p>
-          Between roughly 200 and 870 people answered in each council area. A one or two-point gap may be chance. We show the published figures and the number of people who answered. We do not pretend every tiny gap is real.
+          Between roughly 200 and 870 people answered in each council area. A one or two point gap may be chance. We show the published figures and the number of people who answered. We do not pretend every tiny gap is real.
         </p>
       </Aside>
 
@@ -455,7 +455,7 @@ export default function Post() {
       </P>
 
       <div className="not-prose my-8 rounded-[var(--r-m)] border-l-[5px] border-l-[var(--action)] bg-[var(--surface-2)] p-5 sm:p-7">
-        <p className="ui text-[15px] font-[760] text-[var(--brand)]">North Ayrshire&apos;s contradiction</p>
+        <p className="ui text-[15px] font-[620] text-[var(--brand)]">North Ayrshire&apos;s contradiction</p>
         <div className="mt-4 grid gap-4 sm:grid-cols-2">
           {[
             { value: "#1", label: "how the council is run" },
@@ -464,7 +464,7 @@ export default function Post() {
             { value: `${northAyrshire.context.loneliness.toFixed(0)}%`, label: "report loneliness" },
           ].map((item) => (
             <div key={item.label}>
-              <p className="tnum text-[29px] font-[820] leading-none text-[var(--ink)]">{item.value}</p>
+              <p className="tnum text-[29px] font-[640] leading-none text-[var(--ink)]">{item.value}</p>
               <p className="mt-2 text-[15px] leading-[1.45] text-[var(--ink-2)]">{item.label}</p>
             </div>
           ))}
@@ -494,19 +494,19 @@ export default function Post() {
 
       <div className="not-prose my-8 overflow-hidden rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)]">
         <div className="p-5 sm:p-7">
-          <p className="ui text-[15px] font-[760] text-[var(--brand)]">The rules we published</p>
-          <h3 className="mt-1 text-[24px] font-[780]">What counts, and how much</h3>
+          <p className="ui text-[15px] font-[620] text-[var(--brand)]">The rules we published</p>
+          <h3 className="mt-1 text-[24px] font-[620]">What counts, and how much</h3>
         </div>
         <div className="divide-y divide-[var(--rule)] border-t border-[var(--rule)]">
           {performancePillars.map((pillar) => (
             <div key={pillar.key} className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-4 sm:px-7">
               <div>
-                <p className="text-[16px] font-[690]">{pillar.label}</p>
+                <p className="text-[16px] font-[560]">{pillar.label}</p>
                 <div className="mt-2 h-2.5 max-w-[420px] overflow-hidden rounded-full bg-[var(--surface-2)]" aria-hidden="true">
                   <div className="h-full rounded-full bg-[var(--brand)]" style={{ width: `${(pillar.weight / 40) * 100}%` }} />
                 </div>
               </div>
-              <p className="tnum text-[22px] font-[800]">{pillar.weight}%</p>
+              <p className="tnum text-[22px] font-[640]">{pillar.weight}%</p>
             </div>
           ))}
         </div>
@@ -524,17 +524,17 @@ export default function Post() {
 
       <H3>We show the year for every figure</H3>
       <P>
-        Most figures are for 2024/25. The latest adult-care and road figures are for 2025/26. Some satisfaction figures combine more than one year of survey answers. The download shows the date beside every number.
+        Most figures are for 2024/25. The latest adult care and road figures are for 2025/26. Some satisfaction figures combine more than one year of survey answers. The download shows the date beside every number.
       </P>
 
       <details className="not-prose my-8 overflow-hidden rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)]">
-        <summary className="cursor-pointer list-none px-5 py-5 text-[17px] font-[730] text-[var(--ink)] hover:bg-[var(--surface-2)] sm:px-7">
+        <summary className="cursor-pointer list-none px-5 py-5 text-[17px] font-[600] text-[var(--ink)] hover:bg-[var(--surface-2)] sm:px-7">
           See all {evidenceFamilyCount} groups of figures <span aria-hidden="true" className="ml-2 text-[var(--brand)]">+</span>
         </summary>
         <div className="grid gap-6 border-t border-[var(--rule)] p-5 sm:grid-cols-2 sm:p-7">
           {evidenceGroups.map((group) => (
             <section key={group.name}>
-              <h4 className="text-[16px] font-[740] text-[var(--brand)]">{group.name}</h4>
+              <h4 className="text-[16px] font-[600] text-[var(--brand)]">{group.name}</h4>
               <ul className="mt-3 space-y-2">
                 {group.items.map((item) => (
                   <li key={item} className="flex gap-2 text-[15px] leading-[1.45] text-[var(--ink-2)]"><span aria-hidden="true">•</span><span>{item}</span></li>

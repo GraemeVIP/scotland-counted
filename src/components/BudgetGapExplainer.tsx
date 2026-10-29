@@ -52,7 +52,7 @@ export default function BudgetGapExplainer({
 
       {/* The pattern, stated first. This is the part a reader can repeat. */}
       <div className="mt-6 rounded-[var(--r-m)] border border-[var(--action)] bg-[var(--action-tint)] p-5 sm:p-6">
-        <p className="text-[26px] font-[800] leading-[1.2] text-[var(--ink)] sm:text-[30px]">
+        <p className="text-[26px] font-[640] leading-[1.2] text-[var(--ink)] sm:text-[30px]">
           {NATIONAL.councilsWithGap} of Scotland&rsquo;s {NATIONAL.councilsTotal} councils said
           they needed more money this year.
         </p>
@@ -83,7 +83,7 @@ export default function BudgetGapExplainer({
 
       {/* What a gap is. The single most useful thing on the page. */}
       <div className="mt-6 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5 sm:p-6">
-        <h3 className="ui mb-3 text-[19px] font-[750] leading-[1.3] text-[var(--ink)]">
+        <h3 className="ui mb-3 text-[19px] font-[600] leading-[1.3] text-[var(--ink)]">
           So what is a &ldquo;budget gap&rdquo;?
         </h3>
         <p className="max-w-[66ch] text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
@@ -103,7 +103,7 @@ export default function BudgetGapExplainer({
 
       {/* Who paid. */}
       <div className="mt-6 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5 sm:p-6">
-        <h3 className="ui mb-1 text-[19px] font-[750] leading-[1.3] text-[var(--ink)]">
+        <h3 className="ui mb-1 text-[19px] font-[600] leading-[1.3] text-[var(--ink)]">
           Who paid to close it
         </h3>
         <p className="mb-4 max-w-[66ch] text-[16px] leading-[1.6] text-[var(--ink-2)]">
@@ -118,7 +118,7 @@ export default function BudgetGapExplainer({
                 <div className="flex flex-wrap items-baseline gap-x-2">
                   <span
                     className={`ui text-[16px] leading-[1.4] ${
-                      index === 0 ? "font-[750] text-[var(--ink)]" : "text-[var(--ink-2)]"
+                      index === 0 ? "font-[600] text-[var(--ink)]" : "text-[var(--ink-2)]"
                     }`}
                   >
                     {row.action}
@@ -139,7 +139,7 @@ export default function BudgetGapExplainer({
                   />
                 </div>
               </div>
-              <span className="ui tnum shrink-0 text-[15px] font-[750] text-[var(--ink-2)]">
+              <span className="ui tnum shrink-0 text-[15px] font-[600] text-[var(--ink-2)]">
                 {row.share}%
               </span>
             </li>
@@ -158,7 +158,7 @@ export default function BudgetGapExplainer({
 
       {/* The suspicion, answered straight. */}
       <div className="mt-6 rounded-[var(--r-m)] border border-[var(--brand)] bg-[var(--brand-wash)] p-5 sm:p-6">
-        <h3 className="ui mb-3 text-[19px] font-[750] leading-[1.3] text-[var(--ink)]">
+        <h3 className="ui mb-3 text-[19px] font-[600] leading-[1.3] text-[var(--ink)]">
           Do they lose money if they spend less?
         </h3>
         <p className="max-w-[66ch] text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
@@ -192,7 +192,7 @@ export default function BudgetGapExplainer({
 
       {/* Where the money comes from, for context. */}
       <div className="mt-6 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5 sm:p-6">
-        <h3 className="ui mb-3 text-[19px] font-[750] leading-[1.3] text-[var(--ink)]">
+        <h3 className="ui mb-3 text-[19px] font-[600] leading-[1.3] text-[var(--ink)]">
           Where every £1 comes from
         </h3>
         <ul className="grid gap-2 sm:grid-cols-2">
@@ -201,7 +201,7 @@ export default function BudgetGapExplainer({
               key={row.source}
               className="flex items-baseline gap-3 rounded-[var(--r-s)] border border-[var(--rule)] px-3 py-2"
             >
-              <span className="ui tnum text-[19px] font-[800] text-[var(--brand)]">
+              <span className="ui tnum text-[19px] font-[640] text-[var(--brand)]">
                 {row.pence}p
               </span>
               <span className="text-[15.5px] leading-[1.45] text-[var(--ink-2)]">{row.source}</span>
@@ -214,7 +214,7 @@ export default function BudgetGapExplainer({
         </p>
       </div>
 
-      <p className="mt-6 max-w-[68ch] text-[17px] font-[750] leading-[1.5] text-[var(--ink)]">
+      <p className="mt-6 max-w-[68ch] text-[17px] font-[600] leading-[1.5] text-[var(--ink)]">
         Those are the facts. What you make of them is up to you.
       </p>
 

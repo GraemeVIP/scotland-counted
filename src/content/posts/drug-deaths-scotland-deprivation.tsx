@@ -28,10 +28,10 @@ function RateBar({
   return (
     <div>
       <div className="flex items-baseline justify-between gap-4 text-[15px] leading-[1.45]">
-        <span className={highlight ? "font-[760] text-[var(--ink)]" : "font-[620] text-[var(--ink-2)]"}>
+        <span className={highlight ? "font-[620] text-[var(--ink)]" : "font-[540] text-[var(--ink-2)]"}>
           {label}
         </span>
-        <span className="tnum shrink-0 font-[760] text-[var(--ink)]">{rate.toFixed(1)}</span>
+        <span className="tnum shrink-0 font-[620] text-[var(--ink)]">{rate.toFixed(1)}</span>
       </div>
       <div className="mt-1.5 h-3.5 overflow-hidden rounded-full bg-[var(--surface-2)]" aria-hidden="true">
         <div
@@ -49,13 +49,13 @@ function DeprivationChart() {
     <figure className="not-prose my-8 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5 sm:p-7">
       <div className="flex flex-wrap items-end justify-between gap-3 border-b border-[var(--rule)] pb-4">
         <div>
-          <p className="ui text-[15px] font-[760] text-[var(--brand)]">The deprivation gradient</p>
-          <h3 className="mt-1 text-[22px] font-[760] leading-[1.25]">Drug-misuse death rate by SIMD fifth</h3>
+          <p className="ui text-[15px] font-[620] text-[var(--brand)]">The deprivation gradient</p>
+          <h3 className="mt-1 text-[22px] font-[620] leading-[1.25]">Drug misuse death rate by SIMD fifth</h3>
         </div>
         <p className="ui text-[15px] text-[var(--muted)]">Deaths per 100,000 · 2024</p>
       </div>
 
-      <div className="mt-6 space-y-5" role="img" aria-label="Age-standardised drug-misuse death rates by deprivation fifth in Scotland in 2024: 47.3 in the most deprived fifth, 25.9 in the second fifth, 14.8 in the middle fifth, 6.6 in the fourth fifth and 4.1 in the least deprived fifth.">
+      <div className="mt-6 space-y-5" role="img" aria-label="Age standardised drug misuse death rates by deprivation fifth in Scotland in 2024: 47.3 in the most deprived fifth, 25.9 in the second fifth, 14.8 in the middle fifth, 6.6 in the fourth fifth and 4.1 in the least deprived fifth.">
         {deprivationDrugDeathRates2024.map((row, index) => (
           <RateBar
             key={row.area}
@@ -69,7 +69,7 @@ function DeprivationChart() {
       </div>
 
       <figcaption className="mt-6 border-t border-[var(--rule)] pt-4 text-[15px] leading-[1.6] text-[var(--ink-2)]">
-        Age-standardised rates allow areas with different age profiles to be compared. SIMD describes
+        Age standardised rates allow areas with different age profiles to be compared. SIMD describes
         the neighbourhood where somebody lived, not their personal income. Source: National Records
         of Scotland, Table 9.
       </figcaption>
@@ -84,13 +84,13 @@ function CouncilChart() {
     <figure className="not-prose my-8 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5 sm:p-7">
       <div className="flex flex-wrap items-end justify-between gap-3 border-b border-[var(--rule)] pb-4">
         <div>
-          <p className="ui text-[15px] font-[760] text-[var(--brand)]">Across Scotland</p>
-          <h3 className="mt-1 text-[22px] font-[760] leading-[1.25]">The ten highest council-area rates</h3>
+          <p className="ui text-[15px] font-[620] text-[var(--brand)]">Across Scotland</p>
+          <h3 className="mt-1 text-[22px] font-[620] leading-[1.25]">The ten highest council area rates</h3>
         </div>
         <p className="ui text-[15px] text-[var(--muted)]">Per 100,000 · 2020–2024</p>
       </div>
 
-      <div className="mt-6 space-y-4" role="img" aria-label="Glasgow City had the highest age-standardised drug-misuse death rate in Scotland in 2020 to 2024 at 41.1 per 100,000, followed by Dundee City and Inverclyde at 35.6.">
+      <div className="mt-6 space-y-4" role="img" aria-label="Glasgow City had the highest age standardised drug misuse death rate in Scotland in 2020 to 2024 at 41.1 per 100,000, followed by Dundee City and Inverclyde at 35.6.">
         {topTen.map((row, index) => (
           <RateBar
             key={row.area}
@@ -105,13 +105,13 @@ function CouncilChart() {
             label="Scotland"
             rate={councilPeriodRate2020to2024.rate}
             max={45}
-            note="Same five-year, age-standardised measure"
+            note="Same five year, age standardised measure"
           />
         </div>
       </div>
 
       <details className="group mt-6 border-t border-[var(--rule)] pt-2">
-        <summary className="ui flex min-h-11 w-fit cursor-pointer list-none items-center gap-2 py-3 text-[15px] font-[680] text-[var(--ink-2)] hover:text-[var(--brand)]">
+        <summary className="ui flex min-h-11 w-fit cursor-pointer list-none items-center gap-2 py-3 text-[15px] font-[560] text-[var(--ink-2)] hover:text-[var(--brand)]">
           <span aria-hidden="true" className="transition-transform group-open:rotate-90">▸</span>
           See every council rate and confidence interval
         </summary>
@@ -119,11 +119,11 @@ function CouncilChart() {
           <table className="min-w-full border-collapse text-[15px] tnum">
             <thead>
               <tr>
-                <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-left font-[700]">#</th>
-                <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-left font-[700]">Council area</th>
-                <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-right font-[700]">Rate</th>
-                <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-right font-[700]">95% interval</th>
-                <th className="border-b-2 border-[var(--ink)] pb-2 text-right font-[700]">Deaths</th>
+                <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-left font-[580]">#</th>
+                <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-left font-[580]">Council area</th>
+                <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-right font-[580]">Rate</th>
+                <th className="border-b-2 border-[var(--ink)] pb-2 pr-4 text-right font-[580]">95% interval</th>
+                <th className="border-b-2 border-[var(--ink)] pb-2 text-right font-[580]">Deaths</th>
               </tr>
             </thead>
             <tbody>
@@ -133,10 +133,10 @@ function CouncilChart() {
                 return (
                   <tr key={row.area} className={row.area === "Glasgow City" ? "bg-[var(--glasgow-wash)]" : undefined}>
                     <td className="border-b border-[var(--rule)] py-2.5 pr-4 text-[var(--muted)]">{rank}</td>
-                    <td className="border-b border-[var(--rule)] py-2.5 pr-4 font-[620]">
+                    <td className="border-b border-[var(--rule)] py-2.5 pr-4 font-[540]">
                       {slug ? <Link href={`/areas/${slug}`}>{row.area}</Link> : row.area}
                     </td>
-                    <td className="border-b border-[var(--rule)] py-2.5 pr-4 text-right font-[700]">
+                    <td className="border-b border-[var(--rule)] py-2.5 pr-4 text-right font-[580]">
                       {row.rate === null ? "Not published" : row.rate.toFixed(1)}
                     </td>
                     <td className="border-b border-[var(--rule)] py-2.5 pr-4 text-right text-[var(--ink-2)]">
@@ -156,7 +156,7 @@ function CouncilChart() {
       </details>
 
       <figcaption className="mt-5 border-t border-[var(--rule)] pt-4 text-[15px] leading-[1.6] text-[var(--ink-2)]">
-        Five years are combined because single-year council rates would be less reliable. Orkney had
+        Five years are combined because single year council rates would be less reliable. Orkney had
         six deaths, so NRS did not calculate a rate. The bars show estimates; the table includes the
         uncertainty around each one. Source: NRS Table C4.
       </figcaption>
@@ -168,8 +168,8 @@ function SubstanceChart() {
   return (
     <figure className="not-prose my-8 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5 sm:p-7">
       <div className="border-b border-[var(--rule)] pb-4">
-        <p className="ui text-[15px] font-[760] text-[var(--brand)]">Substances implicated</p>
-        <h3 className="mt-1 text-[22px] font-[760] leading-[1.25]">Four headline categories, all overlapping</h3>
+        <p className="ui text-[15px] font-[620] text-[var(--brand)]">Substances implicated</p>
+        <h3 className="mt-1 text-[22px] font-[620] leading-[1.25]">Four headline categories, all overlapping</h3>
       </div>
       <div className="mt-6 space-y-5">
         {implicatedSubstances2024.map((row) => (
@@ -198,20 +198,20 @@ export default function Post() {
   return (
     <Prose>
       <Lead>
-        Drug deaths are not spread evenly across Scotland. In 2024, the age-standardised rate in
+        Drug deaths are not spread evenly across Scotland. In 2024, the age standardised rate in
         the most deprived fifth of neighbourhoods was about 12 times the rate in the least
-        deprived fifth. Glasgow City also had the highest council-area rate in the latest reliable
+        deprived fifth. Glasgow City also had the highest council area rate in the latest reliable
         comparison.
       </Lead>
 
       <P>
         That makes this part of Scotland&apos;s poverty story. It does not mean poverty alone caused
         every death, or that everyone who died had a low income. The official statistics show a
-        very strong inequality between places. They do not turn an area-level pattern into a
+        very strong inequality between places. They do not turn an area level pattern into a
         diagnosis of any individual life.
       </P>
 
-      <H2 id="short-answer">The answer in three numbers</H2>
+      <H2 id="short-answer">Drug deaths in Scotland: the answer in three numbers</H2>
 
       <div className="not-prose my-8 grid gap-4 sm:grid-cols-3">
         {[
@@ -223,33 +223,33 @@ export default function Post() {
           {
             value: glasgow.rate!.toFixed(1),
             label: "deaths per 100,000 in Glasgow City",
-            note: "Highest council-area rate · age-standardised · 2020–2024",
+            note: "Highest council area rate · age standardised · 2020–2024",
           },
           {
             value: drugDeathHeadline2024.deaths.toLocaleString("en-GB"),
-            label: "drug-misuse deaths registered in Scotland",
+            label: "drug misuse deaths registered in Scotland",
             note: `${Math.abs(drugDeathHeadline2024.changePct).toFixed(0)}% fewer than 2023 · latest complete year`,
           },
         ].map((stat) => (
           <div key={stat.label} className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5">
             <p className="display-stat text-[34px] leading-none text-[var(--action-text)]">{stat.value}</p>
-            <p className="mt-3 text-[16px] font-[700] leading-[1.4] text-[var(--ink)]">{stat.label}</p>
+            <p className="mt-3 text-[16px] font-[580] leading-[1.4] text-[var(--ink)]">{stat.label}</p>
             <p className="mt-2 text-[15px] leading-[1.5] text-[var(--muted)]">{stat.note}</p>
           </div>
         ))}
       </div>
 
-      <Aside title="What NRS means by a “drug-misuse death”">
+      <Aside title="What NRS means by a “drug misuse death”">
         <p>
           This is a specific statistical definition. It includes deaths from mental and behavioural
-          disorders due to controlled-drug use, and poisoning deaths where a controlled drug was
+          disorders due to controlled drug use, and poisoning deaths where a controlled drug was
           present. It excludes deaths caused indirectly by drug use and deaths from chronic
-          conditions caused by drug use. The ordinary-language title on this page does not change
+          conditions caused by drug use. The ordinary language title on this page does not change
           that underlying definition.
         </p>
       </Aside>
 
-      <H2 id="deprivation">The deprivation divide is not a small difference</H2>
+      <H2 id="deprivation">Drug deaths and deprivation: the divide is not a small difference</H2>
 
       <P>
         Scotland is split into five equal population groups using the Scottish Index of Multiple
@@ -272,11 +272,11 @@ export default function Post() {
         where the burden lands; they cannot separate every route that brought a person there.
       </P>
 
-      <H2 id="glasgow">Where Glasgow sits</H2>
+      <H2 id="glasgow">Drug deaths in Glasgow: where the city sits</H2>
 
       <P>
         NRS combines five years of deaths for council comparisons. On that matched measure,
-        Glasgow City recorded an age-standardised rate of <strong>41.1 per 100,000</strong> in
+        Glasgow City recorded an age standardised rate of <strong>41.1 per 100,000</strong> in
         2020–2024, compared with <strong>22.5 across Scotland</strong>. Glasgow&apos;s estimate is
         therefore about 1.8 times the national rate for the same period.
       </P>
@@ -286,13 +286,13 @@ export default function Post() {
       <P>
         The city&apos;s annual count did improve in 2024: it fell from 246 to 185, a reduction of 61
         deaths and the largest numerical fall of any council area. Counts are affected by population
-        size, however, so the five-year age-standardised rate is the right measure for comparing
+        size, however, so the five year age standardised rate is the right measure for comparing
         places.
       </P>
 
       <P>
         This belongs beside Glasgow&apos;s wider record on{" "}
-        <Link href="/indicators/glasgow-life-expectancy">life expectancy</Link>,{" "}
+        <Link href="/life-expectancy-glasgow">life expectancy</Link>,{" "}
         <Link href="/indicators/glasgow-deprivation">neighbourhood deprivation</Link> and the
         evidence on <Link href="/why-poverty-is-worse-in-glasgow">why poverty hits the city so hard</Link>.
         It is not proof that one measure explains all the others. It is evidence that severe health
@@ -303,12 +303,12 @@ export default function Post() {
 
       <BigStat
         value="1,017"
-        label="drug-misuse deaths registered in Scotland in 2024"
+        label="drug misuse deaths registered in Scotland in 2024"
         exact="155 fewer than 2023 · down 13% · lowest annual count since 2017"
       />
 
       <P>
-        The direction matters and the reduction should not be talked away. But the age-standardised
+        The direction matters and the reduction should not be talked away. But the age standardised
         rate of 19.1 per 100,000 was still 3.6 times the rate at the start of the NRS series in 2000.
         The number peaked at 1,339 in 2020 and has generally fallen since, apart from an increase in
         2023.
@@ -317,7 +317,7 @@ export default function Post() {
       <P>
         The age profile also challenges the idea that this is mainly a story about young people.
         The average age was 45 in 2024, and 63% of deaths were among people aged 35 to 54. Scotland
-        is dealing with a long-running, ageing public-health crisis as well as new drug threats.
+        is dealing with a long running, ageing public health crisis as well as new drug threats.
       </P>
 
       <H2 id="substances">What the substance figures mean</H2>
@@ -344,7 +344,7 @@ export default function Post() {
       <P>
         Scotland, England and Wales, and Northern Ireland publish different headline definitions.
         Putting their 2024 totals in one league table would mix drug misuse, drug poisoning and
-        drug-related deaths. NRS instead uses the common <strong>drug-poisoning</strong> definition
+        drug related deaths. NRS instead uses the common <strong>drug poisoning</strong> definition
         and the latest year available across all countries, which was 2023 when this release was
         prepared.
       </P>
@@ -352,9 +352,9 @@ export default function Post() {
       <div className="not-prose my-8 grid gap-3 sm:grid-cols-2">
         {ukDrugPoisoningRates2023.map((row) => (
           <div key={row.area} className={`rounded-[var(--r-s)] border p-5 ${row.area === "Scotland" ? "border-[var(--action)] bg-[var(--action-tint)]" : "border-[var(--rule)] bg-[var(--surface)]"}`}>
-            <p className="ui text-[15px] font-[700] text-[var(--muted)]">{row.area}</p>
+            <p className="ui text-[15px] font-[580] text-[var(--muted)]">{row.area}</p>
             <p className="mt-2 figure-num text-[30px] text-[var(--ink)]">{row.rate.toFixed(1)}</p>
-            <p className="mt-1 text-[15px] text-[var(--ink-2)]">deaths per 100,000 · age-standardised</p>
+            <p className="mt-1 text-[15px] text-[var(--ink-2)]">deaths per 100,000 · age standardised</p>
           </div>
         ))}
       </div>
@@ -371,7 +371,7 @@ export default function Post() {
       <UL>
         <LI>
           They <strong>can</strong> show that drug deaths are far more common in deprived areas and
-          that Glasgow has the highest recent council-area rate.
+          that Glasgow has the highest recent council area rate.
         </LI>
         <LI>
           They <strong>cannot</strong>{" "}tell us an individual&apos;s income from the deprivation score of
@@ -393,7 +393,7 @@ export default function Post() {
 
       <PostCTA
         title="Put this beside Glasgow's wider record"
-        body="The drug-death figures are one part of a longer pattern involving life expectancy, insecure work, housing and decisions made over decades. See the evidence together, with every source linked."
+        body="The drug death figures are one part of a longer pattern involving life expectancy, insecure work, housing and decisions made over decades. See the evidence together, with every source linked."
         href="/why-poverty-is-worse-in-glasgow"
         cta="See why poverty is worse in Glasgow"
       />

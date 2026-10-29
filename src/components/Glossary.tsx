@@ -2,6 +2,8 @@
 
 import {
   cloneElement,
+  createContext,
+  useContext,
   isValidElement,
   useCallback,
   useEffect,
@@ -19,7 +21,11 @@ import { getTerm } from "@/lib/data/glossary";
  * Keyboard accessible, dismissable with Escape or an outside click,
  * and it repositions itself to stay on screen.
  */
+/* Set inside a glossary term, so a term can never be wrapped in a second one. */
+const InsideTerm = createContext(false);
+
 export function G({ t, children }: { t: string; children: ReactNode }) {
+  const nested = useContext(InsideTerm);
   const [open, setOpen] = useState(false);
   const [pos, setPos] = useState<{ top: number; left: number } | null>(null);
   const instanceId = useId();
@@ -120,7 +126,7 @@ export function G({ t, children }: { t: string; children: ReactNode }) {
     };
   }, [closeTooltip, open]);
 
-  if (!term) return <>{children}</>;
+  if (!term || nested) return <>{children}</>;
 
   return (
     <>
@@ -147,7 +153,7 @@ export function G({ t, children }: { t: string; children: ReactNode }) {
           setOpen(true);
         }}
       >
-        {children}
+        <InsideTerm.Provider value={true}>{children}</InsideTerm.Provider>
       </button>
       {open && typeof document !== "undefined"
         ? createPortal(
@@ -173,7 +179,7 @@ export function G({ t, children }: { t: string; children: ReactNode }) {
               >
                 &times;
               </button>
-              <span id={`${tooltipId}-title`} className="ui block text-[15px] font-[680] text-[var(--brand)] mb-1.5">
+              <span id={`${tooltipId}-title`} className="ui block text-[15px] font-[560] text-[var(--brand)] mb-1.5">
                 {term.term}
               </span>
               <span id={`${tooltipId}-description`} className="block text-[var(--ink)]">{term.def}</span>
@@ -497,7 +503,7 @@ const councilTermPattern = new RegExp(
   "gi",
 );
 
-/** Adds plain-English help to the technical words used on council pages. */
+/** Adds plain English help to the technical words used on council pages. */
 export function PlainText({ text }: { text: string }) {
   if (!text) return null;
 

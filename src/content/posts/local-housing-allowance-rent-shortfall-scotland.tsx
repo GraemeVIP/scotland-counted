@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CITY_PAY, PRIVATE_RENTS } from "@/lib/data/money";
 import { Prose, Lead, P, H2, H3, UL, LI, BigStat, Aside, PostCTA } from "@/components/Prose";
 
 export default function Post() {
@@ -39,24 +40,27 @@ export default function Post() {
       <H2 id="glasgow">The Greater Glasgow gap</H2>
       <BigStat
         value="about £172 a month"
-        label="the gap between the one-bedroom LHA cap and the 2025 Greater Glasgow advertised-rent average"
-        exact="LHA: £159.95 a week, about £693 a month. Average advertised one-bedroom rent in 2025: £865 a month."
+        label="the gap between the one bedroom LHA cap and the 2025 Greater Glasgow advertised rent average"
+        exact="LHA: £159.95 a week, about £693 a month. Average advertised one bedroom rent in 2025: £865 a month."
       />
       <P>
-        This is not a claim that every one-bedroom tenant pays £865. The rent statistic mainly
-        reflects homes advertised or newly let, while some existing tenants pay less. It shows the
-        problem facing someone trying to move now: the benefit cap is below the current average.
+        This is not a claim that every one bedroom tenant pays £865. The rent statistic mainly
+        reflects homes advertised or newly let, while some existing tenants pay less. Across all
+        private tenancies, the ONS average for {CITY_PAY["glasgow-city"].rentArea} was{" "}
+        £{CITY_PAY["glasgow-city"].rent.oneBed} in {PRIVATE_RENTS.month}, which is still well above
+        the allowance. It shows the problem facing someone trying to move now: the benefit cap is
+        below the current average.
       </P>
 
       <H2 id="bedrooms">Which bedroom rate applies</H2>
       <P>
         The benefit system has rules for how many bedrooms a household needs. Children may be
         expected to share depending on age and sex. A single person under 35 will often receive
-        only the shared-accommodation rate unless an exemption applies.
+        only the shared accommodation rate unless an exemption applies.
       </P>
       <P>
         Do not guess from the number of bedrooms in the property. Check the household’s allowed
-        size and any disability, care, foster-care, domestic-abuse or homelessness exception that
+        size and any disability, care, foster care, domestic abuse or homelessness exception that
         may apply.
       </P>
 

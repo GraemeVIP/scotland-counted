@@ -167,7 +167,7 @@ export default function DecadeScroll() {
                 dimOpacity={0.17}
               />
               <p className="ui text-[15px] font-[560] opacity-80 mt-6 text-center lg:text-left">
-                <span className="text-[var(--action-text)] font-[750]">{lit}</span> in every 100 Glasgow
+                <span className="text-[var(--action-text)] font-[600]">{lit}</span> in every 100 Glasgow
                 children · {GLASGOW_CHILD_COUNTS[yearIdx].toLocaleString("en-GB")} children
               </p>
             </div>

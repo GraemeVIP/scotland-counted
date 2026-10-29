@@ -59,7 +59,7 @@ export default function PortraitLightbox({
           priority={priority}
           className="object-cover object-top"
         />
-        <span className="pointer-events-none absolute inset-x-1 bottom-1 rounded bg-black/65 px-1.5 py-1 text-center text-[15px] font-[700] leading-none text-white opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
+        <span className="pointer-events-none absolute inset-x-1 bottom-1 rounded bg-black/65 px-1.5 py-1 text-center text-[15px] font-[580] leading-none text-white opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
           View larger
         </span>
       </button>

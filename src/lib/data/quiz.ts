@@ -42,7 +42,7 @@ export const quiz: QuizQuestion[] = [
     reveal:
       "More than one in three. It is the worst rate in Scotland, and ten years ago it was 27.1%, the biggest rise of any council area in the country.",
     href: "/indicators/glasgow-child-poverty",
-    hrefLabel: "See the ten-year chart",
+    hrefLabel: "See the ten year chart",
   },
   {
     id: "working-families",
@@ -73,12 +73,12 @@ export const quiz: QuizQuestion[] = [
     id: "take-home",
     tag: "Wages",
     question:
-      "Full-time on the legal minimum wage in Scotland. What reaches your account each month?",
+      "Full time on the legal minimum wage in Scotland. What reaches your account each month?",
     options: ["About £2,400", "About £2,050", "About £1,780"],
     answer: 2,
     headline: "£1,784",
     reveal:
-      "£24,785 a year before tax becomes about £1,784 a month after Scottish income tax and National Insurance. Average rent on a Glasgow two-bedroom flat is about £865 of that.",
+      "£24,785 a year before tax becomes about £1,784 a month after Scottish income tax and National Insurance. Average rent on a Glasgow two bedroom flat is about £865 of that.",
     href: "/take-home-pay-calculator-scotland",
     hrefLabel: "Work out your own",
   },

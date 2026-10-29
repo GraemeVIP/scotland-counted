@@ -8,6 +8,11 @@ import Hero from "./Hero";
 import { buildLocalFacts, responsibilitySplit } from "@/lib/localFacts";
 import NewsletterSignup from "@/components/NewsletterSignup";
 import { site } from "@/lib/site";
+import { MINIMUM_WAGE, REAL_LIVING_WAGE, bandDRange, bandFor, pounds } from "@/lib/data/quickAnswers";
+import { councilTaxBandPath, councilTaxPath } from "@/lib/routeMap";
+
+const glasgowD = bandFor("glasgow-city", "D");
+const range = bandDRange();
 
 /**
  * The homepage.
@@ -24,70 +29,37 @@ import { site } from "@/lib/site";
  * quietly lost.
  */
 
-const homeReads = postsByDate().filter((post): post is Post => Boolean(post));
+// The carousel is for the photographed explainers and investigations. The
+// quick answer guides have no photograph and are listed on /blog instead.
+const homeReads = postsByDate().filter((post): post is Post => Boolean(post?.image && !post.guideImage));
 
 export const metadata = meta({
   title: "Scotland Counted | Independent Public Data for Scotland",
   description:
-    "Scottish public data made clear: local facts, council spending and performance, take-home pay, council tax and who makes the decisions.",
+    "Scottish public data made clear: local facts, council spending and performance, take home pay, council tax and who makes the decisions.",
   path: "/",
   type: "website",
 });
 
-/** The five doors. Each says what you get, not what the section is called. */
-const DOORS = [
-  {
-    href: "/areas",
-    eyebrow: "Your area",
-    title: "What the figures say where you live",
-    body: "Child poverty, benefits and pay for all 32 council areas, each with a permanent page you can link to.",
-  },
-  {
-    href: "/money",
-    eyebrow: "Your money",
-    title: "What you keep and what it costs",
-    body: "Take-home pay on Scottish rates, council tax by band, and plain answers on benefits, rent help and bills.",
-  },
-  {
-    href: "/councils",
-    eyebrow: "Councils",
-    title: "What your council spends and delivers",
-    body: "Budgets, service results, audit findings and promises, with every figure linked to the document it came from.",
-  },
-  {
-    href: "/who-decides",
-    eyebrow: "Who decides",
-    title: "Westminster, Holyrood or your council",
-    body: "Fifteen everyday issues, and which government actually controls each one. Stop writing to the wrong building.",
-  },
-  {
-    href: "/blog",
-    eyebrow: "Explainers",
-    title: "The longer pieces, with the working shown",
-    body: "Evidence-led explainers on poverty, money, politics and what to do about any of it.",
-  },
+const ICONS = {
+  pin: <><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z" /><circle cx="12" cy="9.5" r="2.5" /></>,
+  wallet: <><rect x="3" y="6" width="18" height="13" rx="3" /><path d="M3 10h18M16 15h2" /></>,
+  home: <><path d="M4 11l8-6 8 6v8a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z" /><path d="M10 20v-5h4v5" /></>,
+  chart: <><path d="M4 20V10M10 20V4M16 20v-7M22 20H2" /></>,
+  people: <><circle cx="9" cy="8" r="3.2" /><path d="M3.5 19a5.5 5.5 0 0 1 11 0" /><circle cx="17" cy="9" r="2.4" /><path d="M15.5 14.2A4.5 4.5 0 0 1 21 18.5" /></>,
+  book: <><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z" /><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5" /></>,
+};
+
+/** Six doors. Each says what you get, not what the section is called. */
+const DOORS: Array<{ href: string; title: string; body: string; icon: keyof typeof ICONS }> = [
+  { href: "/areas", title: "Your area", body: "Child poverty, benefits and pay for all 32 councils", icon: "pin" },
+  { href: "/money", title: "Money", body: "Wages, tax, bills and what help exists", icon: "wallet" },
+  { href: "/council-tax-bands-scotland", title: "Council tax", body: "Every band for every council, water included", icon: "home" },
+  { href: "/councils", title: "Councils", body: "Budgets, results, audits and promises", icon: "chart" },
+  { href: "/who-decides", title: "Who decides", body: "Westminster, Holyrood or your council", icon: "people" },
+  { href: "/blog", title: "Explainers", body: "The longer pieces, with the working shown", icon: "book" },
 ];
 
-const TOOLS = [
-  {
-    href: "/take-home-pay-calculator-scotland",
-    eyebrow: "Take-home pay",
-    title: "What you actually keep",
-    body: "Scotland's tax bands, pensions and student loans. Or work backwards from the pay you need.",
-  },
-  {
-    href: "/council-tax-bands-scotland",
-    eyebrow: "Council tax",
-    title: "What your band really costs",
-    body: "All 32 councils, bands A to H, with the water charges most published figures leave out.",
-  },
-  {
-    href: "/representatives",
-    eyebrow: "Representatives",
-    title: "Who represents you",
-    body: "Your MP, your constituency MSP and your seven regional MSPs. The postcode is not stored.",
-  },
-];
 
 const EVIDENCE = [
   { href: "/methods", label: "Methods and sources", body: "Exactly how every figure was counted" },
@@ -134,112 +106,159 @@ export default function Home() {
       <Hero facts={buildLocalFacts()} split={responsibilitySplit()} />
 
       <Page>
-        <section className="pt-8 sm:pt-10" aria-labelledby="msp-reviews-home-title">
-          <Link
-            href="/msp-reviews"
-            className="group grid items-center gap-5 rounded-[var(--r-m)] border border-[var(--action)] bg-[var(--action-tint)] p-6 no-underline transition-all hover:-translate-y-0.5 hover:shadow-[var(--shadow-2)] sm:p-8 md:grid-cols-[minmax(0,1fr)_auto]"
-          >
-            <span className="block">
-              <span className="kicker block text-[var(--action-text)]">Scottish MSP reviews</span>
-              <h2 id="msp-reviews-home-title" className="h2 mt-2 text-[var(--ink)]">
-                Rate or review your MSP
+        {/* ---------- The answers people look for most ---------- */}
+        <section className="pt-20 sm:pt-28" aria-labelledby="answers">
+          <div className="flex flex-wrap items-end justify-between gap-x-10 gap-y-5">
+            <div>
+              <p className="eyebrow">Most searched</p>
+              <h2 id="answers" className="h2 mt-4 max-w-[16ch] text-[clamp(32px,4.2vw,54px)]">
+                The answers people <span className="serif-accent text-[var(--action-text)]">look for most</span>
               </h2>
-              <span className="mt-2 block max-w-[62ch] text-[16px] leading-[1.6] text-[var(--ink-2)]">
-                Read moderated firsthand experiences or describe what happened when you dealt with an MSP or their office. No account is needed.
+            </div>
+            <Link href="/money" className="btn btn-ghost">
+              Everything about your money <span aria-hidden="true">→</span>
+            </Link>
+          </div>
+
+          <div className="mt-9 grid gap-3.5 sm:grid-cols-2 lg:grid-cols-4 lg:auto-rows-[minmax(200px,auto)]">
+            <Link href="/minimum-wage-scotland" className="tile flex flex-col gap-3 p-7 sm:p-8 sm:col-span-2 lg:row-span-2 no-underline">
+              <span className="tile-key">Minimum wage Scotland</span>
+              <span className="display-stat text-[clamp(64px,7vw,104px)]">{pounds(MINIMUM_WAGE.current.over21, true)}</span>
+              <span className="text-[15px] text-[var(--muted)]">an hour for anyone 21 and over, until 31 March 2027</span>
+              <span className="max-w-[44ch] text-[15.5px] leading-[1.55] text-[var(--ink-2)]">
+                On 1 April 2027 it goes up 50p to {pounds(MINIMUM_WAGE.next.over21, true)}. Scotland doesn&rsquo;t set its own rate; Westminster does.
               </span>
+              <span className="mt-4 grid h-[140px] grid-cols-4 items-end gap-2.5" aria-hidden="true">
+                {MINIMUM_WAGE.history.map((step, index) => {
+                  const last = index === MINIMUM_WAGE.history.length - 1;
+                  return (
+                    <span key={step.year} className="flex h-full flex-col justify-end gap-1.5">
+                      <span className="tile-key text-center">{step.year}</span>
+                      <span
+                        className={`flex items-end justify-center rounded-t-[12px] rounded-b-[5px] pb-2.5 text-[13px] font-[580] tnum ${
+                          last ? "bg-[var(--action)] text-[var(--action-ink)]" : "bg-[var(--paper-2)] text-[var(--ink-2)]"
+                        }`}
+                        style={{ height: `${Math.round((step.rate / MINIMUM_WAGE.history[MINIMUM_WAGE.history.length - 1].rate) * 86)}%` }}
+                      >
+                        {pounds(step.rate, true)}
+                      </span>
+                    </span>
+                  );
+                })}
+              </span>
+              <span className="mt-auto flex justify-between gap-3 border-t border-[var(--rule)] pt-3 text-[13px] text-[var(--muted)]">
+                <span>Source <b className="font-[560] text-[var(--ink)]">{MINIMUM_WAGE.source.publisher}</b></span>
+                <span>National Living Wage</span>
+              </span>
+            </Link>
+
+            <Link href={councilTaxPath("glasgow-city")} className="tile flex flex-col gap-2.5 p-6 no-underline">
+              <span className="tile-key">Glasgow council tax</span>
+              <span className="display-stat text-[clamp(40px,4vw,54px)]">{pounds(glasgowD.councilTax)}</span>
+              <span className="text-[14.5px] text-[var(--muted)]">Band D, a year, before water</span>
+              <span className="mt-auto flex justify-between gap-3 border-t border-[var(--rule)] pt-3 text-[13px] text-[var(--muted)]">
+                <span>Up <b className="font-[560] text-[var(--ink)]">{glasgowD.change.percent.toFixed(1)}%</b> on last year</span>
+                <span>2026/27</span>
+              </span>
+            </Link>
+
+            <Link href="/real-living-wage-scotland" className="tile tile-blue flex flex-col gap-2.5 p-6 no-underline">
+              <span className="tile-key">Real Living Wage</span>
+              <span className="display-stat text-[clamp(40px,4vw,54px)]">{pounds(REAL_LIVING_WAGE.uk, true)}</span>
+              <span className="text-[14.5px] text-[var(--hero-muted)]">an hour outside London</span>
+              <span className="mt-auto flex justify-between gap-3 border-t border-white/20 pt-3 text-[13px] text-[var(--hero-muted)]">
+                <span>Source <b className="font-[560] text-white">{REAL_LIVING_WAGE.source.publisher}</b></span>
+              </span>
+            </Link>
+
+            <Link href={councilTaxBandPath("d")} className="tile flex flex-col gap-2.5 p-6 no-underline">
+              <span className="tile-key">Council tax Band D</span>
+              <span className="display-stat text-[clamp(40px,4vw,54px)]">{pounds(range.lowest.total)}</span>
+              <span className="text-[14.5px] text-[var(--muted)]">
+                to {pounds(range.highest.total)} a year across all {range.count} councils, water included
+              </span>
+              <span className="mt-auto flex justify-between gap-3 border-t border-[var(--rule)] pt-3 text-[13px] text-[var(--muted)]">
+                <span>Lowest <b className="font-[560] text-[var(--ink)]">{range.lowest.name}</b></span>
+                <span>2026/27</span>
+              </span>
+            </Link>
+
+            <Link href="/representatives" className="tile flex flex-col justify-between gap-4 p-6 no-underline">
+              <span>
+                <span className="tile-key">Who is my MSP?</span>
+                <span className="mt-3 block text-[15.5px] leading-[1.55] text-[var(--ink-2)]">
+                  Your MP and all eight MSPs, with a ready written email to each.
+                </span>
+              </span>
+              <span className="btn btn-primary self-start !min-h-10 !px-4 !py-2 !text-[14.5px]">
+                Find yours <span aria-hidden="true">→</span>
+              </span>
+            </Link>
+          </div>
+        </section>
+
+        {/* ---------- One current finding ---------- */}
+        <section className="pt-14" aria-labelledby="flagship">
+          <Link
+            href={flagship.href}
+            className="tile tile-night grid items-center gap-x-12 gap-y-5 p-8 no-underline sm:p-12 md:grid-cols-[auto_minmax(0,1fr)]"
+          >
+            <span
+              className="display-stat text-[clamp(84px,13vw,176px)] leading-[0.85]"
+              style={{ background: "linear-gradient(180deg,#ffffff,#8fb6ff)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}
+            >
+              {flagship.value.replace(" of ", "/")}
             </span>
-            <span className="btn btn-primary justify-center text-center">
-              Find an MSP&apos;s reviews
-              <span aria-hidden="true">→</span>
+            <span className="grid gap-3">
+              <span className="tile-key">{flagship.kicker}</span>
+              <span id="flagship" className="text-[clamp(22px,2.6vw,34px)] font-[600] leading-[1.15] tracking-[-0.03em]">
+                {flagship.unit}.
+              </span>
+              <span className="max-w-[58ch] text-[15.5px] leading-[1.6] text-[var(--deep-muted)]">{flagship.context}</span>
+              <span className="mt-1 text-[13.5px] text-[var(--deep-muted)]">
+                Source <b className="font-[560] text-white">{flagship.source.publisher}</b> · {flagship.hrefLabel} <span aria-hidden="true">→</span>
+              </span>
             </span>
           </Link>
         </section>
 
-        {/* ---------- Five doors ---------- */}
-        <section className="py-12 sm:py-16" aria-labelledby="doors">
-          <p className="kicker mb-3 text-[var(--brand)]">Pick a starting point</p>
-          <h2 id="doors" className="display-stat max-w-[16ch] text-[clamp(32px,4vw,50px)]">
-            What do you want to find out?
-          </h2>
-          <p className="mt-4 max-w-[60ch] text-[16px] leading-[1.6] text-[var(--ink-2)]">
-            Start with our <Link href="/poverty" className="font-[650] text-[var(--brand)] underline underline-offset-4">guide to poverty in Scotland</Link> for the national figures, the causes and ways to take action.
-          </p>
-          <div className="mt-9 grid gap-4 md:grid-cols-2 lg:grid-cols-6">
-            {DOORS.map((door, index) => (
-              <Link
-                key={door.href}
-                href={door.href}
-                className={`group flex flex-col rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-6 no-underline transition-all duration-300 hover:-translate-y-1 hover:border-[var(--brand)] hover:shadow-[var(--shadow-2)] lg:col-span-2 ${
-                  index === 3 ? "lg:col-start-2" : ""
-                } ${
-                  index === 4
-                    ? "md:col-span-2 md:mx-auto md:w-[calc(50%-0.5rem)] lg:col-start-4 lg:mx-0 lg:w-auto"
-                    : ""
-                }`}
-              >
-                <p className="label">{door.eyebrow}</p>
-                <p className="mt-3 text-[21px] font-[770] leading-[1.2] transition-colors group-hover:text-[var(--brand)]">
-                  {door.title}
-                </p>
-                <p className="mt-2.5 flex-1 text-[15.5px] leading-[1.55] text-[var(--ink-2)]">
-                  {door.body}
-                </p>
-                <span
-                  aria-hidden="true"
-                  className="mt-6 text-[18px] text-[var(--action-text)] transition-transform group-hover:translate-x-1.5"
-                >
-                  →
+        {/* ---------- Six doors ---------- */}
+        <section className="pt-24" aria-labelledby="doors">
+          <div className="flex flex-wrap items-end justify-between gap-x-10 gap-y-4">
+            <div>
+              <p className="eyebrow">Start here</p>
+              <h2 id="doors" className="h2 mt-4 text-[clamp(32px,4.2vw,54px)]">
+                What do you <span className="serif-accent text-[var(--action-text)]">want to know?</span>
+              </h2>
+            </div>
+            <p className="max-w-[44ch] text-[16px] leading-[1.6] text-[var(--ink-2)]">
+              Six ways into the same evidence. Pick the one that matches your question.
+            </p>
+          </div>
+          <div className="mt-9 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {DOORS.map((door) => (
+              <Link key={door.href} href={door.href} className="tile group flex items-center gap-4 p-5 no-underline">
+                <span className="grid h-12 w-12 shrink-0 place-items-center rounded-[14px] bg-[var(--action-tint)] text-[var(--action-text)]">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    {ICONS[door.icon]}
+                  </svg>
                 </span>
+                <span className="min-w-0 flex-1">
+                  <span className="block text-[18px] font-[600] tracking-[-0.02em]">{door.title}</span>
+                  <span className="block text-[14.5px] leading-[1.45] text-[var(--muted)]">{door.body}</span>
+                </span>
+                <span aria-hidden="true" className="text-[var(--muted)] transition-transform group-hover:translate-x-1 group-hover:text-[var(--action-text)]">→</span>
               </Link>
             ))}
           </div>
         </section>
-
-        {/* ---------- Tools ---------- */}
-        <section className="border-t border-[var(--rule)] py-12 sm:py-16" aria-labelledby="tools">
-          <div className="grid gap-x-14 gap-y-8 lg:grid-cols-[minmax(280px,0.62fr)_minmax(0,1.38fr)]">
-            <div>
-              <p className="kicker mb-3 text-[var(--action-text)]">Free, no sign-up</p>
-              <h2 id="tools" className="display-stat max-w-[12ch] text-[clamp(34px,4vw,52px)]">
-                Work out your own numbers
-              </h2>
-              <p className="mt-4 max-w-[34ch] text-[17px] leading-[1.55] text-[var(--ink-2)]">
-                Calculator sums stay in your browser. Postcodes are sent only when you request a local lookup.
-              </p>
-            </div>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {TOOLS.map((tool) => (
-                <Link
-                  key={tool.href}
-                  href={tool.href}
-                  className="group flex flex-col rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-6 no-underline transition-all duration-300 hover:-translate-y-1 hover:border-[var(--brand)] hover:shadow-[var(--shadow-2)]"
-                >
-                  <p className="label">{tool.eyebrow}</p>
-                  <p className="mt-3 text-[19px] font-[770] leading-[1.2] transition-colors group-hover:text-[var(--brand)]">
-                    {tool.title}
-                  </p>
-                  <p className="mt-2.5 flex-1 text-[15.5px] leading-[1.55] text-[var(--ink-2)]">
-                    {tool.body}
-                  </p>
-                  <span
-                    aria-hidden="true"
-                    className="mt-6 text-[18px] text-[var(--action-text)] transition-transform group-hover:translate-x-1.5"
-                  >
-                    →
-                  </span>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-
       </Page>
 
       {/* ---------- The reading rail ----------
           A carousel, not one card, and outside the page container, not in it.
           When it came back it was restored inside <Page>, which double-framed
           it: the cards clipped against an inner box edge with dead margin
-          outside, so the cut-off card read as a mistake instead of as "there
+          outside, so the cutoff card read as a mistake instead of as "there
           is more this way". The band runs edge to edge, the heading stays on
           the content grid, and the track bleeds to the right-hand edge of the
           screen, where a peeking card actually means what it implies. */}
@@ -247,12 +266,12 @@ export default function Home() {
 
       <Page>
         {/* ---------- Trust ---------- */}
-        <section className="border-t border-[var(--rule)] py-12 sm:py-16" aria-labelledby="trust">
+        <section className="pt-24 pb-6" aria-labelledby="trust">
           <div className="grid gap-x-14 gap-y-8 lg:grid-cols-[minmax(280px,0.62fr)_minmax(0,1.38fr)]">
             <div>
-              <p className="kicker mb-3 text-[var(--good-text)]">Check the work</p>
-              <h2 id="trust" className="display-stat max-w-[12ch] text-[clamp(34px,4vw,52px)]">
-                Nothing here asks you to take my word
+              <p className="eyebrow">Check the work</p>
+              <h2 id="trust" className="h2 mt-4 max-w-[13ch] text-[clamp(32px,4vw,50px)]">
+                Nothing here asks you to <span className="serif-accent text-[var(--action-text)]">take my word</span>
               </h2>
               <p className="mt-4 max-w-[36ch] text-[17px] leading-[1.55] text-[var(--ink-2)]">
                 Every figure links to the official document it came from. When something is
@@ -264,7 +283,7 @@ export default function Home() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5 no-underline transition-colors hover:border-[var(--brand)]"
+                  className="tile p-5 no-underline"
                 >
                   <strong className="block text-[17px] leading-[1.3]">{item.label}</strong>
                   <span className="mt-1.5 block text-[15px] leading-[1.5] text-[var(--ink-2)]">
@@ -283,16 +302,15 @@ export default function Home() {
       </Page>
 
       {/* ---------- Keep in touch ---------- */}
-      <FullBleed className="border-y border-[var(--rule)] bg-[var(--paper-2)]">
+      <FullBleed className="bg-transparent">
         <Page>
-          <section className="py-12 sm:py-16" aria-labelledby="updates">
-            <div className="relative overflow-hidden rounded-[var(--r-l)] border border-[var(--rule)] bg-[var(--surface)] shadow-[var(--shadow-1)]">
-              <div aria-hidden="true" className="absolute inset-y-0 left-0 w-2 bg-[var(--action)]" />
+          <section className="pt-16" aria-labelledby="updates">
+            <div className="tile relative overflow-hidden">
               <div className="grid gap-8 p-7 sm:p-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(420px,1.1fr)] lg:items-center lg:gap-12 lg:p-12">
                 <div>
-                  <p className="kicker mb-3 text-[var(--action-text)]">When the numbers move</p>
-                  <h2 id="updates" className="display-stat max-w-[18ch] text-[clamp(36px,4vw,54px)]">
-                    Councils publish. Nobody tells you
+                  <p className="eyebrow">When the numbers move</p>
+                  <h2 id="updates" className="h2 mt-4 max-w-[16ch] text-[clamp(32px,4vw,50px)]">
+                    Councils publish. <span className="serif-accent text-[var(--action-text)]">Nobody tells you.</span>
                   </h2>
                   <p className="mt-4 max-w-[40ch] text-[17px] leading-[1.55] text-[var(--ink-2)]">
                     Audits, budgets and benchmarking land quietly through the year. I read them and
@@ -318,12 +336,12 @@ export default function Home() {
 
       <Page>
         {/* ---------- Questions ---------- */}
-        <section className="border-t border-[var(--rule)] py-12 sm:py-16" aria-labelledby="questions">
+        <section className="pt-16" aria-labelledby="questions">
           <div className="grid gap-x-14 gap-y-8 lg:grid-cols-[minmax(280px,0.62fr)_minmax(0,1.38fr)]">
             <div>
-              <p className="kicker mb-3 text-[var(--brand)]">Straight answers</p>
-              <h2 id="questions" className="display-stat max-w-[12ch] text-[clamp(34px,4vw,52px)]">
-                What people ask first
+              <p className="eyebrow">Straight answers</p>
+              <h2 id="questions" className="h2 mt-4 max-w-[12ch] text-[clamp(32px,4vw,50px)]">
+                What people <span className="serif-accent text-[var(--action-text)]">ask first</span>
               </h2>
             </div>
             <div>
@@ -333,7 +351,7 @@ export default function Home() {
                     key={item.q}
                     className={`group rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] p-5 open:border-[var(--brand)] ${index === FAQ.length - 1 ? "sm:col-span-2" : ""}`}
                   >
-                    <summary className="ui flex cursor-pointer list-none items-start justify-between gap-4 text-[17px] font-[720] leading-[1.35]">
+                    <summary className="ui flex cursor-pointer list-none items-start justify-between gap-4 text-[17px] font-[600] leading-[1.35]">
                       {item.q}
                       <span
                         aria-hidden="true"

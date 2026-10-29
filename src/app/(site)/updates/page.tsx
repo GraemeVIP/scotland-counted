@@ -41,7 +41,7 @@ export default function Updates() {
         <PageHeader
           eyebrow="The public log"
           title="What changed"
-          lede="Every new figure, new page and correction is dated here. Out-of-work benefit figures change monthly. Child poverty and pay normally change once a year."
+          lede="Every new figure, new page and correction is dated here. Out of work benefit figures change monthly. Child poverty and pay normally change once a year."
         >
           <div className="mt-8 flex flex-wrap items-end gap-x-10 gap-y-5">
             {site.web3formsKey ? (
@@ -53,7 +53,7 @@ export default function Updates() {
             )}
             <a
               href="/feed.xml"
-              className="ui inline-flex items-center gap-2 text-[15px] font-[620] text-[var(--brand)] underline decoration-[var(--rule-strong)] underline-offset-3 hover:decoration-current pb-1"
+              className="ui inline-flex items-center gap-2 text-[15px] font-[540] text-[var(--brand)] underline decoration-[var(--rule-strong)] underline-offset-3 hover:decoration-current pb-1"
             >
               Or subscribe by RSS
             </a>
@@ -72,7 +72,7 @@ export default function Updates() {
                   {fmtDate(e.date)}
                 </time>
                 <span
-                  className={`ui text-[15px] font-[680] ${KIND[e.kind].cls}`}
+                  className={`ui text-[15px] font-[560] ${KIND[e.kind].cls}`}
                 >
                   {KIND[e.kind].label}
                 </span>

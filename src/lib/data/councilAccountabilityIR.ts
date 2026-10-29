@@ -157,7 +157,7 @@ const records: CouncilAccountabilityRecord[] = [
         "inverclyde-budget-2026-28",
         "2026/27 and 2027/28 Inverclyde budget and council tax agreed",
         "https://www.inverclyde.gov.uk/news/2026/mar/2026-28-inverclyde-budget-and-council-tax-agreed",
-        "The council's approved budget, council tax decision and two-year funding gap explanation.",
+        "The council's approved budget, council tax decision and two year funding gap explanation.",
         "2026-03",
       ),
       auditSource(
@@ -169,9 +169,9 @@ const records: CouncilAccountabilityRecord[] = [
       ),
     ],
     knownGaps: [
-      "A service-by-service list of the 2026/27 savings and their final results still needs to be added.",
+      "A service by service list of the 2026/27 savings and their final results still needs to be added.",
       "This page does not yet show council goals and actual results for homelessness, education, roads or social care.",
-      "The audit finding is dated. A newer follow-up source is needed before calling the outstanding savings complete or missed.",
+      "The audit finding is dated. A newer follow up source is needed before calling the outstanding savings complete or missed.",
     ],
   },
   {
@@ -197,7 +197,7 @@ const records: CouncilAccountabilityRecord[] = [
         publisher: "Audit Scotland / Accounts Commission",
         severity: "grade-1",
         finding:
-          "The 2024/25 audit says Midlothian ended the year £3m over budget. Money set aside for future use covered it. The report also says the remaining service-change work needs to speed up.",
+          "The 2024/25 audit says Midlothian ended the year £3m over budget. Money set aside for future use covered it. The report also says the remaining service change work needs to speed up.",
         recommendation:
           "Finish the remaining change projects and show publicly how they reduce costs or improve services.",
         status: "in-progress",
@@ -209,7 +209,7 @@ const records: CouncilAccountabilityRecord[] = [
         id: "midlothian-complete-transformation",
         title: "Finish the remaining service changes",
         commitment:
-          "Complete the remaining service-change projects and report what changed for residents and the budget.",
+          "Complete the remaining service change projects and report what changed for residents and the budget.",
         announcedOn: "2025-10-15",
         owner: "Midlothian Council",
         status: "in-progress",
@@ -231,13 +231,13 @@ const records: CouncilAccountabilityRecord[] = [
         "midlothian-audit-2024-25",
         "Midlothian Council annual audit 2024/25",
         "https://audit.scot/uploads/2025-10/aar_2425_midlothian.pdf",
-        "The unplanned overspend, money set aside and service-change findings in the external audit.",
+        "The unplanned overspend, money set aside and service change findings in the external audit.",
         "2025-10-15",
       ),
     ],
     knownGaps: [
       "The £340.7m figure is spending on everyday services. It is not every pound the council receives or spends on building projects.",
-      "A full list of service-change projects, deadlines and results still needs to be added.",
+      "A full list of service change projects, deadlines and results still needs to be added.",
       "Service goals and actual results for children, housing, social care and roads have not yet been checked here.",
     ],
   },
@@ -264,7 +264,7 @@ const records: CouncilAccountabilityRecord[] = [
         publisher: "Audit Scotland / Accounts Commission",
         severity: "grade-1",
         finding:
-          "A review said Moray's service-change work had moved too slowly. It warned that relying on savings not yet identified and money set aside was not a lasting answer to the money problem.",
+          "A review said Moray's service change work had moved too slowly. It warned that relying on savings not yet identified and money set aside was not a lasting answer to the money problem.",
         recommendation:
           "Set clear milestones, name the savings, and report what has actually changed each year.",
         status: "in-progress",
@@ -291,7 +291,7 @@ const records: CouncilAccountabilityRecord[] = [
         "moray-budget-2026-27",
         "Moray Council revenue budget",
         "https://www.moray.gov.uk/council-and-government/budget-and-finance/revenue-budget/",
-        "The council's approved 2026/27 everyday-services budget and savings figure.",
+        "The council's approved 2026/27 everyday services budget and savings figure.",
         "2026",
       ),
       auditSource(
@@ -304,7 +304,7 @@ const records: CouncilAccountabilityRecord[] = [
     ],
     knownGaps: [
       "Moray's council budget page and Audit Scotland bulletin use slightly different rounded totals. They should be reconciled against the signed budget papers.",
-      "The service-change finding is from 2024. A current progress report is needed before saying whether the problem was fixed.",
+      "The service change finding is from 2024. A current progress report is needed before saying whether the problem was fixed.",
       "No service goal and actual comparisons have been added yet.",
     ],
   },
@@ -365,7 +365,7 @@ const records: CouncilAccountabilityRecord[] = [
         "eilean-siar-cyber-audit",
         "Cyber attack affecting operations and services: the 2023/24 audit of Comhairle nan Eilean Siar",
         "https://audit.scot/news/cyber-attack-on-comhairle-nan-eilean-siar-highlights-risks-to-all-councils",
-        "The impact of the 2023 cyber attack, the continuity-planning weaknesses and the open cyber recommendations.",
+        "The impact of the 2023 cyber attack, the continuity planning weaknesses and the open cyber recommendations.",
         "2025-11-27",
       ),
     ],
@@ -381,7 +381,7 @@ const records: CouncilAccountabilityRecord[] = [
     councilCode: "S12000021",
     lastReviewedOn: "2026-08-03",
     summary:
-      "Young people who have been in care left North Ayrshire's schools with 355 exam points, against a goal of 465. Seven of its checked goals were missed. Council-funded adult care is now only for people at very serious risk. It has a £38.5m road repair bill waiting, and says it must find £46.7m more by 2027/28.",
+      "Young people who have been in care left North Ayrshire's schools with 355 exam points, against a goal of 465. Seven of its checked goals were missed. Council funded adult care is now only for people at very serious risk. It has a £38.5m road repair bill waiting, and says it must find £46.7m more by 2027/28.",
     budgetContext: [
       ...budgetFigures({
         slug: "north-ayrshire",
@@ -485,9 +485,9 @@ const records: CouncilAccountabilityRecord[] = [
         actual: "12.76 days",
         status: "missed",
         variance: "2.29 days above goal",
-        explanation: "This is the average number of work days lost to sickness for one full-time staff member.",
+        explanation: "This is the average number of work days lost to sickness for one full time staff member.",
         comparisonNote:
-          "Teacher and waste-service cover contributed about £2.6m of extra cost. Waste Services reported 30.42 days lost per employee.",
+          "Teacher and waste service cover contributed about £2.6m of extra cost. Waste Services reported 30.42 days lost per employee.",
         sourceIds: sourceIdList("north-ayrshire-audit-2024-25"),
       },
       {
@@ -499,7 +499,7 @@ const records: CouncilAccountabilityRecord[] = [
         actual: "24.3%, down from 29.2% in 2022/23",
         status: "not-comparable",
         comparisonNote:
-          "This is a one-year fall reported by the council using End Child Poverty Coalition figures. It is encouraging, but one fall does not prove a sustained trend or show what caused it.",
+          "This is a one year fall reported by the council using End Child Poverty Coalition figures. It is encouraging, but one fall does not prove a sustained trend or show what caused it.",
         sourceIds: sourceIdList("north-ayrshire-annual-performance-2024-25"),
       },
       {
@@ -524,11 +524,11 @@ const records: CouncilAccountabilityRecord[] = [
         publisher: "Audit Scotland / Accounts Commission",
         severity: "grade-1",
         finding:
-          "The final accounts were judged to show a true and fair picture. Before sign-off, auditors found £82.374m of errors in the draft accounts. Most were in the numbers for buildings, equipment and leased items. The council corrected them. The recorded value of the council’s homes was reduced by a further £33.673m for the previous year.",
+          "The final accounts were judged to show a true and fair picture. Before sign off, auditors found £82.374m of errors in the draft accounts. Most were in the numbers for buildings, equipment and leased items. The council corrected them. The recorded value of the council’s homes was reduced by a further £33.673m for the previous year.",
         recommendation:
           "Check the figures for buildings, equipment and council homes more carefully before the accounts are published.",
         managementResponse:
-          "The council accepted this and said it would improve its year-end checks during 2025/26.",
+          "The council accepted this and said it would improve its year end checks during 2025/26.",
         implementationDate: "2026-03",
         status: "in-progress",
         sourceIds: sourceIdList("north-ayrshire-audit-2024-25"),
@@ -551,12 +551,12 @@ const records: CouncilAccountabilityRecord[] = [
       },
       {
         id: "north-ayrshire-adult-social-care-threshold",
-        title: "Council-funded care is now limited to people judged at critical risk",
+        title: "Council funded care is now limited to people judged at critical risk",
         reportDate: "2026-06-11",
         publisher: "Accounts Commission",
         severity: "grade-1",
         finding:
-          "North Ayrshire moved to a ‘critical only’ rule for council-funded adult care. In everyday words, people may now need to be at very serious risk before the council will pay for help. The change is linked to more people needing care, higher costs and pressure on the budget.",
+          "North Ayrshire moved to a ‘critical only’ rule for council funded adult care. In everyday words, people may now need to be at very serious risk before the council will pay for help. The change is linked to more people needing care, higher costs and pressure on the budget.",
         status: "not-verified",
         sourceIds: sourceIdList("audit-scotland-council-budgets-2026-27"),
       },
@@ -644,7 +644,7 @@ const records: CouncilAccountabilityRecord[] = [
         publisher: "Audit Scotland / Accounts Commission",
         severity: "observation",
         finding:
-          "Seven council-run charity funds had not been used for at least three years. There was no clear plan to put them back to work. The council said it would keep advertising the funds and review the issue during the 2025/26 audit.",
+          "Seven council run charity funds had not been used for at least three years. There was no clear plan to put them back to work. The council said it would keep advertising the funds and review the issue during the 2025/26 audit.",
         status: "in-progress",
         sourceIds: sourceIdList("north-ayrshire-audit-2024-25"),
       },
@@ -748,14 +748,14 @@ const records: CouncilAccountabilityRecord[] = [
         "north-ayrshire-audit-2024-25",
         "North Ayrshire Council annual audit 2024/25",
         "https://audit.scot/uploads/2025-09/aar_2425_north_ayrshire.pdf",
-        "The audited accounts, independent checks, performance results, roads backlog, building-project risks and agreed action plan.",
+        "The audited accounts, independent checks, performance results, roads backlog, building project risks and agreed action plan.",
         "2025-09-26",
       ),
       councilSource(
         "north-ayrshire-annual-performance-2024-25",
         "North Ayrshire Council Plan Year-End Progress Report 2024/25",
         "https://www.north-ayrshire.gov.uk/Document-library/council-plan-year-end-progress-report-2024-2025.pdf",
-        "The council’s own headline facts, child-poverty figure, Money Matters result and reported service achievements.",
+        "The council’s own headline facts, child poverty figure, Money Matters result and reported service achievements.",
         "2025",
       ),
       councilSource(
@@ -769,7 +769,7 @@ const records: CouncilAccountabilityRecord[] = [
         "north-ayrshire-mid-year-2025-26",
         "Our Council Plan Six Monthly Progress Report: 1 April to 30 September 2025",
         "https://www.north-ayrshire.gov.uk/documents/our-council-plan-six-monthly-progress-report-1-april-2025-to-30-september-2025",
-        "The council’s follow-up reporting on independent audit actions and the refreshed performance results available after the annual audit.",
+        "The council’s follow up reporting on independent audit actions and the refreshed performance results available after the annual audit.",
         "2026-01-26",
       ),
       councilSource(
@@ -789,14 +789,14 @@ const records: CouncilAccountabilityRecord[] = [
         "north-ayrshire-lgbf-2025",
         "Local Government Benchmarking Framework Analysis of October 2025 Data Release",
         "https://www.north-ayrshire.gov.uk/documents/local-government-benchmarking-framework-analysis-of-october-2025-data-release",
-        "North Ayrshire’s council-published benchmarking context for housing quality, council-tax collection and other priority indicators.",
+        "North Ayrshire’s council published benchmarking context for housing quality, council tax collection and other priority indicators.",
         "2026-01-27",
       ),
     ],
     knownGaps: [
       "The council spent £17m less than planned in 2024/25. That does not tell us whether services were good. The audit explains some of the differences, but we still do not have a full explanation for each service.",
       "The seven missed goals come from the council’s own performance list and are repeated in the independent audit. The rules for calling actions ‘on track’ were not clear enough.",
-      "We do not yet know how many people lost help, waited longer or were affected by the critical-only care rule.",
+      "We do not yet know how many people lost help, waited longer or were affected by the critical only care rule.",
       "The audit covers 2024/25. We still need the final 2025/26 spending figures, the result of the budget changes and the latest outside checks.",
       "The council says its public performance dashboard is being rebuilt. A plan to publish information is not proof that every promise is finished.",
       "No individual councillor is attributed with a service result here. Council decisions, officer accountability and national funding responsibilities need separate evidence.",
@@ -830,9 +830,9 @@ const records: CouncilAccountabilityRecord[] = [
         publisher: "Audit Scotland / Accounts Commission",
         severity: "grade-2",
         finding:
-          "The 2024/25 audit says 50% of North Lanarkshire's 28 health-check measures had improved and 50% had not. It also says the summary was hard for the public to find and the council did not yet track the money or service benefit of each project.",
+          "The 2024/25 audit says 50% of North Lanarkshire's 28 health check measures had improved and 50% had not. It also says the summary was hard for the public to find and the council did not yet track the money or service benefit of each project.",
         recommendation:
-          "Publish the 28 measures in one easy-to-read place and show the money and service benefit for each major change project.",
+          "Publish the 28 measures in one easy to read place and show the money and service benefit for each major change project.",
         status: "in-progress",
         sourceIds: sourceIdList("north-lanarkshire-audit-2024-25"),
       },
@@ -842,7 +842,7 @@ const records: CouncilAccountabilityRecord[] = [
         id: "north-lanarkshire-publish-health-checks",
         title: "Make progress and project benefits easy to check",
         commitment:
-          "Publish the 28 health-check measures and track the money and service benefit of each change project.",
+          "Publish the 28 health check measures and track the money and service benefit of each change project.",
         announcedOn: "2025-10-15",
         owner: "North Lanarkshire Council",
         status: "in-progress",
@@ -864,14 +864,14 @@ const records: CouncilAccountabilityRecord[] = [
         "north-lanarkshire-audit-2024-25",
         "North Lanarkshire Council annual audit 2024/25",
         "https://audit.scot/uploads/2025-10/aar_2425_north_lanarkshire.pdf",
-        "The 28 health-check measures, change-project benefit tracking and public performance-reporting findings.",
+        "The 28 health check measures, change project benefit tracking and public performance reporting findings.",
         "2025-10-15",
       ),
     ],
     knownGaps: [
-      "The budget figure is the national everyday-services measure. A signed council budget table should be linked when the exact table is available.",
+      "The budget figure is the national everyday services measure. A signed council budget table should be linked when the exact table is available.",
       "The 50/50 result is for the period of The Plan for North Lanarkshire and is not a complete scorecard for every service.",
-      "No goal-and-result comparisons for individual services have been added yet.",
+      "No goal and result comparisons for individual services have been added yet.",
     ],
   },
   {
@@ -880,7 +880,7 @@ const records: CouncilAccountabilityRecord[] = [
     councilCode: "S12000023",
     lastReviewedOn: "2026-08-02",
     summary:
-      "Orkney recycles 21.1% of household rubbish, against 44.3% across Scotland. Only one council recycles less. More than a third of its main roads need repair. The review found high-quality services, but a large gap between what they cost and the money available, and called for urgent action.",
+      "Orkney recycles 21.1% of household rubbish, against 44.3% across Scotland. Only one council recycles less. More than a third of its main roads need repair. The review found high quality services, but a large gap between what they cost and the money available, and called for urgent action.",
     budgetContext: budgetFigures({
       slug: "orkney-islands",
       councilName: "Orkney Islands Council",
@@ -892,12 +892,12 @@ const records: CouncilAccountabilityRecord[] = [
     auditFindings: [
       {
         id: "orkney-long-term-financial-plan",
-        title: "A long-term funding gap needs a clear plan",
+        title: "A long term funding gap needs a clear plan",
         reportDate: "2024-01-30",
         publisher: "Audit Scotland / Accounts Commission",
         severity: "grade-1",
         finding:
-          "The review found that Orkney provides high-quality services but has a large gap between what services cost and the money available. It called for urgent action on service changes, building projects and climate change, and warned against unplanned use of money set aside.",
+          "The review found that Orkney provides high quality services but has a large gap between what services cost and the money available. It called for urgent action on service changes, building projects and climate change, and warned against unplanned use of money set aside.",
         recommendation:
           "Publish a clear plan showing the money still needed, the role of money set aside and the changes residents should expect.",
         status: "in-progress",
@@ -907,14 +907,14 @@ const records: CouncilAccountabilityRecord[] = [
     commitments: [
       {
         id: "orkney-reserves-transformation-plan",
-        title: "Set out the money and service-change plan",
+        title: "Set out the money and service change plan",
         commitment:
           "Show how money set aside will be used, what service changes will save, and how essential island services will be protected.",
         announcedOn: "2024-01-30",
         owner: "Orkney Islands Council",
         status: "in-progress",
         currentEvidence:
-          "The review called for a clear plan. The 2026/27 budget explains the use of money set aside, but this page has not checked every longer-term action.",
+          "The review called for a clear plan. The 2026/27 budget explains the use of money set aside, but this page has not checked every longer term action.",
         sourceIds: sourceIdList("orkney-best-value-2024", "orkney-budget-2026-27"),
       },
     ],
@@ -931,14 +931,14 @@ const records: CouncilAccountabilityRecord[] = [
         "orkney-best-value-2024",
         "Orkney Islands Council delivers excellent services but must focus on the future",
         "https://audit.scot/news/orkney-islands-council-delivers-excellent-services-but-must-focus-on-the-future",
-        "The review's findings about the long-term money problem, service changes and money set aside.",
+        "The review's findings about the long term money problem, service changes and money set aside.",
         "2024-01-30",
       ),
     ],
     knownGaps: [
       "The £20m reserve figure is a maximum planned draw, not proof that the full amount will be spent.",
-      "The review finding is dated. A current follow-up report is needed before calling the long-term plan complete.",
-      "Island-specific service goals and actual results are not yet included.",
+      "The review finding is dated. A current follow up report is needed before calling the long term plan complete.",
+      "Island specific service goals and actual results are not yet included.",
     ],
   },
   {
@@ -947,7 +947,7 @@ const records: CouncilAccountabilityRecord[] = [
     councilCode: "S12000048",
     lastReviewedOn: "2026-08-02",
     summary:
-      "More of Perth and Kinross's main roads need repair than any other council's in Scotland: 40.5%, against 30.3%. Its own six-year plan shows £80.4m still to find by 2030/31. The council planned to use money set aside, and said changing services alone will not solve it.",
+      "More of Perth and Kinross's main roads need repair than any other council's in Scotland: 40.5%, against 30.3%. Its own six year plan shows £80.4m still to find by 2030/31. The council planned to use money set aside, and said changing services alone will not solve it.",
     budgetContext: budgetFigures({
       slug: "perth-and-kinross",
       councilName: "Perth and Kinross Council",
@@ -959,14 +959,14 @@ const records: CouncilAccountabilityRecord[] = [
     auditFindings: [
       {
         id: "perth-kinross-medium-term-funding-gap",
-        title: "The six-year plan shows £80.4m still needed",
+        title: "The six year plan shows £80.4m still needed",
         reportDate: "2025-12-18",
         publisher: "Audit Scotland / Accounts Commission",
         severity: "grade-1",
         finding:
-          "The 2024/25 audit says Perth and Kinross's six-year plan showed £80.4m still needed between 2024/25 and 2030/31. The council planned to use money set aside and said service changes alone would not solve the longer-term problem.",
+          "The 2024/25 audit says Perth and Kinross's six year plan showed £80.4m still needed between 2024/25 and 2030/31. The council planned to use money set aside and said service changes alone would not solve the longer term problem.",
         recommendation:
-          "Keep the long-term money still needed, use of money set aside and savings plan visible, with a clear yearly update on what has actually happened.",
+          "Keep the long term money still needed, use of money set aside and savings plan visible, with a clear yearly update on what has actually happened.",
         status: "in-progress",
         sourceIds: sourceIdList("perth-kinross-audit-2024-25"),
       },
@@ -981,7 +981,7 @@ const records: CouncilAccountabilityRecord[] = [
         owner: "Perth and Kinross Council",
         status: "in-progress",
         currentEvidence:
-          "The audit sets out the long-term money still needed and use of money set aside. This page has not checked a later report that proves the planned savings will keep happening.",
+          "The audit sets out the long term money still needed and use of money set aside. This page has not checked a later report that proves the planned savings will keep happening.",
         sourceIds: sourceIdList("perth-kinross-audit-2024-25"),
       },
     ],
@@ -998,12 +998,12 @@ const records: CouncilAccountabilityRecord[] = [
         "perth-kinross-audit-2024-25",
         "Perth and Kinross Council annual audit 2024/25",
         "https://audit.scot/uploads/2025-12/aar_2425_perth_kinross.pdf",
-        "The long-term money still needed, use of money set aside and service-change findings.",
+        "The long term money still needed, use of money set aside and service change findings.",
         "2025-12-18",
       ),
     ],
     knownGaps: [
-      "The £533.8m figure is the national everyday-services measure. It should be paired with the council's signed 2026/27 budget table.",
+      "The £533.8m figure is the national everyday services measure. It should be paired with the council's signed 2026/27 budget table.",
       "The £80.4m gap covers six years and must not be presented as one year's overspend.",
       "No local service goal and actual comparisons have been added yet.",
     ],
@@ -1041,9 +1041,9 @@ const records: CouncilAccountabilityRecord[] = [
     commitments: [
       {
         id: "renfrewshire-housing-investment",
-        title: "Deliver the five-year housing investment plan",
+        title: "Deliver the five year housing investment plan",
         commitment:
-          "Deliver the planned £337m five-year housing investment and publish progress against the work and funding each year.",
+          "Deliver the planned £337m five year housing investment and publish progress against the work and funding each year.",
         announcedOn: "2026-02",
         dueBy: "2031",
         owner: "Renfrewshire Council",
@@ -1059,7 +1059,7 @@ const records: CouncilAccountabilityRecord[] = [
         "renfrewshire-budget-2026-27",
         "Council budget 2026/27",
         "https://www.renfrewshire.gov.uk/council-and-elections/budget-and-performance/council-budget/council-budget-2026-2027",
-        "The council's 2026/27 budget and five-year housing investment announcement.",
+        "The council's 2026/27 budget and five year housing investment announcement.",
         "2026-02",
       ),
       auditSource(

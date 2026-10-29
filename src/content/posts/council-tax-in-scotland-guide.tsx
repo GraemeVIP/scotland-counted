@@ -61,7 +61,7 @@ export default function Post() {
       <H2 id="bill">4. How the bill is worked out</H2>
       <P>
         Each council sets one main figure: its Band D charge. The other bands are fixed
-        proportions of Band D. A Band A home pays two-thirds of the Band D council-tax charge;
+        proportions of Band D. A Band A home pays two thirds of the Band D council tax charge;
         higher bands pay more. The proportions are set nationally, but each council chooses its
         own Band D starting point.
       </P>
@@ -69,7 +69,7 @@ export default function Post() {
         That is why two Band A homes in different council areas can have different bills. See the
         exact annual and monthly figures for <Link href="/council-tax-bands-scotland">all 32
         councils and every band</Link>, or compare the{" "}
-        <Link href="/blog/council-tax-rises-scotland-2026-27">
+        <Link href="/council-tax-increase-scotland">
           2026/27 council tax rise in every council
         </Link>.
       </P>
@@ -77,12 +77,12 @@ export default function Post() {
       <H2 id="water">5. Why water is on the same bill</H2>
       <P>
         Most Scottish households pay Scottish Water through the council tax bill. The council is
-        collecting the money, but the water and waste-water lines are not council tax. In 2026–27
+        collecting the money, but the water and waste water lines are not council tax. In 2026–27
         they add £434.88 a year at Band A and £652.32 at Band D.
       </P>
       <Aside title="Why online figures often look too low">
         <p>
-          Many pages quote only the council-tax part. The bill through your door normally includes
+          Many pages quote only the council tax part. The bill through your door normally includes
           council tax, water and waste water. My calculator shows all three separately and then
           gives the total.
         </p>
@@ -92,7 +92,7 @@ export default function Post() {
       <P>You may not owe the full bill. Common routes include:</P>
       <UL>
         <LI>A 25% discount when only one adult in the home is counted.</LI>
-        <LI>No council tax when every resident is a qualifying full-time student.</LI>
+        <LI>No council tax when every resident is a qualifying full time student.</LI>
         <LI>A lower band charge when the home has qualifying disability adaptations.</LI>
         <LI>Discounts or exemptions where someone has a severe mental impairment.</LI>
       </UL>
@@ -103,12 +103,12 @@ export default function Post() {
 
       <H2 id="reduction">7. Help when your income is low</H2>
       <P>
-        Council Tax Reduction is means-tested help run by your council under a Scottish scheme. It
-        can remove part of the council-tax charge or reduce it to zero. The decision depends on
+        Council Tax Reduction is means tested help run by your council under a Scottish scheme. It
+        can remove part of the council tax charge or reduce it to zero. The decision depends on
         income, savings, benefits, children, disability and who else lives with you.
       </P>
       <P>
-        A zero council-tax charge does not always mean a zero bill because water can remain.
+        A zero council tax charge does not always mean a zero bill because water can remain.
         Households receiving Council Tax Reduction can also get up to 35% off water and waste
         water through a scheme the council applies automatically.
       </P>
@@ -137,16 +137,16 @@ export default function Post() {
       <P>
         Council tax is a priority debt. Contact the council as soon as you know a payment will be
         missed. Ask for smaller instalments and a full check of reduction, discounts and
-        exemptions. If the emergency is immediate, a <Link href="/blog/crisis-grant-scotland-how-to-apply">Crisis
+        exemptions. If the emergency is immediate, a <Link href="/crisis-grant-scotland">Crisis
         Grant</Link> may help with food or heating while you deal with the bill.
       </P>
 
       <H2 id="empty-homes">10. Empty homes and second homes</H2>
       <P>
-        Councils have discretion over many empty and second-home charges. A home empty for long
+        Councils have discretion over many empty and second home charges. A home empty for long
         enough can face an increase of up to 100%, but important exemptions remain, including
         some homes being sold or let, properties under structural repair, and homes left empty
-        because the owner is in long-term care, hospital or prison.
+        because the owner is in long term care, hospital or prison.
       </P>
       <P>
         These rules depend on the reason, dates and the council’s policy. Tell the council rather

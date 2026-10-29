@@ -19,7 +19,7 @@ export default function Post() {
       <Aside title="It is not a Universal Credit advance">
         <p>
           A Universal Credit advance is normally recovered from later benefits. A Scottish Welfare
-          Fund grant is council-administered emergency support that you do not pay back.
+          Fund grant is council administered emergency support that you do not pay back.
         </p>
       </Aside>
 
@@ -42,7 +42,7 @@ export default function Post() {
         <LI>Needs arising after a fire, flood, theft or sudden loss of income.</LI>
       </UL>
       <P>
-        It is not a general top-up for every low income and it will not usually clear old debt. Say
+        It is not a general top up for every low income and it will not usually clear old debt. Say
         what happened, what is needed now and what harm will occur if help does not arrive.
       </P>
 
@@ -56,7 +56,7 @@ export default function Post() {
       </UL>
       <P>
         Councils accept applications online or by phone. If forms are difficult, ask the council,
-        a library, Citizens Advice or a local welfare-rights service to help. Do not wait to make
+        a library, Citizens Advice or a local welfare rights service to help. Do not wait to make
         the wording perfect while the emergency gets worse.
       </P>
 

@@ -109,7 +109,7 @@ export default function WhoDecides() {
                         key={item.id}
                         className="rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--paper)] p-5"
                       >
-                        <h3 className="ui text-[17px] font-[750] leading-[1.35]">{item.issue}</h3>
+                        <h3 className="ui text-[17px] font-[600] leading-[1.35]">{item.issue}</h3>
                         <p className="mt-2 max-w-[68ch] text-[16px] leading-[1.55] text-[var(--ink-2)]">
                           {item.what}
                         </p>
@@ -119,7 +119,7 @@ export default function WhoDecides() {
                             {item.shared}
                           </p>
                         ) : null}
-                        <p className="ui mt-3 text-[15px] font-[650] text-[var(--ink-2)]">
+                        <p className="ui mt-3 text-[15px] font-[540] text-[var(--ink-2)]">
                           Contact: {item.contact}
                         </p>
                       </li>

@@ -61,7 +61,7 @@ export default async function Image(props: { params: Promise<{ slug: string }> }
             {post?.title ?? "Scotland Counted"}
           </div>
           <div style={{ display: "flex", fontSize: 28, color: "#a8b1c1" }}>
-            Scotland Counted · plain-English answers backed by the evidence
+            Scotland Counted · plain English answers backed by the evidence
           </div>
         </div>
 

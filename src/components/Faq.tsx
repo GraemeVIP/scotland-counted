@@ -54,12 +54,12 @@ export default function Faq({
           >
             <span
               aria-hidden="true"
-              className="ui tnum shrink-0 text-[14px] font-[750] leading-[1.6] text-[var(--brand)]"
+              className="ui tnum shrink-0 text-[14px] font-[600] leading-[1.6] text-[var(--brand)]"
             >
               {String(i + 1).padStart(2, "0")}
             </span>
             <div className="min-w-0">
-              <h3 className="text-[18px] font-[740] leading-[1.3] sm:text-[19px]">{item.q}</h3>
+              <h3 className="text-[18px] font-[600] leading-[1.3] sm:text-[19px]">{item.q}</h3>
               <div className="mt-2.5 max-w-[62ch] text-[16px] leading-[1.6] text-[var(--ink-2)]">
                 <ExplainText>{item.a}</ExplainText>
               </div>

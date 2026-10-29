@@ -59,7 +59,7 @@ export default function FamilyGroupComparison({
             key={group.kind}
             className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5"
           >
-            <p className="ui text-[15px] font-[750] text-[var(--ink)]">
+            <p className="ui text-[15px] font-[600] text-[var(--ink)]">
               For {group.groupedBy}
             </p>
             <p className="mt-1 text-[15.5px] leading-[1.55] text-[var(--ink-2)]">
@@ -70,7 +70,7 @@ export default function FamilyGroupComparison({
                 <li key={peer.slug}>
                   <Link
                     href={`/councils/${peer.slug}`}
-                    className="ui inline-block rounded-[var(--r-pill)] border border-[var(--rule-strong)] bg-[var(--paper)] px-3 py-1.5 text-[14.5px] font-[620] text-[var(--ink-2)] no-underline transition-colors hover:border-[var(--brand)] hover:text-[var(--ink)]"
+                    className="ui inline-block rounded-[var(--r-pill)] border border-[var(--rule-strong)] bg-[var(--paper)] px-3 py-1.5 text-[14.5px] font-[540] text-[var(--ink-2)] no-underline transition-colors hover:border-[var(--brand)] hover:text-[var(--ink)]"
                   >
                     {peer.name}
                   </Link>
@@ -89,30 +89,30 @@ export default function FamilyGroupComparison({
             className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5"
           >
             <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-              <p className="ui text-[16px] font-[750] leading-[1.35] text-[var(--ink)]">
+              <p className="ui text-[16px] font-[600] leading-[1.35] text-[var(--ink)]">
                 {measure.label}
               </p>
               <p className="ui tnum text-[14px] text-[var(--muted)]">{measure.year}</p>
             </div>
             <dl className="mt-3 grid grid-cols-3 gap-3">
               <div>
-                <dt className="ui text-[13.5px] font-[700] text-[var(--muted)]">{place}</dt>
-                <dd className="tnum mt-0.5 text-[19px] font-[780] text-[var(--ink)]">
+                <dt className="ui text-[13.5px] font-[580] text-[var(--muted)]">{place}</dt>
+                <dd className="tnum mt-0.5 text-[19px] font-[620] text-[var(--ink)]">
                   {measure.council}
                 </dd>
               </div>
               <div>
-                <dt className="ui text-[13.5px] font-[700] text-[var(--muted)]">
+                <dt className="ui text-[13.5px] font-[580] text-[var(--muted)]">
                   Similar councils
                 </dt>
-                <dd className="tnum mt-0.5 text-[19px] font-[780] text-[var(--ink-2)]">
+                <dd className="tnum mt-0.5 text-[19px] font-[620] text-[var(--ink-2)]">
                   {measure.family}
                 </dd>
               </div>
               {measure.scotland && (
                 <div>
-                  <dt className="ui text-[13.5px] font-[700] text-[var(--muted)]">Scotland</dt>
-                  <dd className="tnum mt-0.5 text-[19px] font-[780] text-[var(--ink-2)]">
+                  <dt className="ui text-[13.5px] font-[580] text-[var(--muted)]">Scotland</dt>
+                  <dd className="tnum mt-0.5 text-[19px] font-[620] text-[var(--ink-2)]">
                     {measure.scotland}
                   </dd>
                 </div>

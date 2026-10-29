@@ -14,9 +14,9 @@ export const metadata = meta({
 const LOG: { date: string; page: string; change: string }[] = [
   {
     date: "1 August 2026",
-    page: "Pay and council-area pages",
+    page: "Pay and council area pages",
     change:
-      "The published ASHE numbers were correct, but I described the selected full-time PAYE sample as a typical wage and implied that the £51 difference between two separate medians measured wages leaving Glasgow. It does not. I removed those claims, made the sample exclusions prominent, added the current minimum-wage and living-cost evidence, and removed the pay estimate from campaign emails.",
+      "The published ASHE numbers were correct, but I described the selected full time PAYE sample as a typical wage and implied that the £51 difference between two separate medians measured wages leaving Glasgow. It does not. I removed those claims, made the sample exclusions prominent, added the current minimum wage and living cost evidence, and removed the pay estimate from campaign emails.",
   },
 ];
 
@@ -68,7 +68,7 @@ export default function Corrections() {
                     {["Date", "Page", "What changed"].map((h) => (
                       <th
                         key={h}
-                        className="ui text-[15px] font-[680] text-[var(--muted)] text-left pr-4 pb-2.5 border-b border-[var(--rule)]"
+                        className="ui text-[15px] font-[560] text-[var(--muted)] text-left pr-4 pb-2.5 border-b border-[var(--rule)]"
                       >
                         {h}
                       </th>

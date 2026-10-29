@@ -49,8 +49,8 @@ export default function CrisisGrantAccountability({
 
       <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <article className="rounded-[var(--r-m)] border border-[var(--rule)] border-t-4 border-t-[var(--action)] bg-[var(--surface)] p-5">
-          <p className="ui text-[15px] font-[750] text-[var(--ink-2)]">Decisions resulting in an award</p>
-          <p className="mt-3 text-[42px] font-[800] leading-none tracking-[-0.04em] text-[var(--action-text)] tnum">
+          <p className="ui text-[15px] font-[600] text-[var(--ink-2)]">Decisions resulting in an award</p>
+          <p className="mt-3 text-[42px] font-[640] leading-none tracking-[-0.04em] text-[var(--action-text)] tnum">
             {stat.acceptanceRate}%
           </p>
           <p className="mt-3 text-[15px] leading-[1.5] text-[var(--ink-2)]">
@@ -59,8 +59,8 @@ export default function CrisisGrantAccountability({
         </article>
 
         <article className="rounded-[var(--r-m)] border border-[var(--rule)] border-t-4 border-t-[var(--brand)] bg-[var(--surface)] p-5">
-          <p className="ui text-[15px] font-[750] text-[var(--ink-2)]">Compared with Scotland</p>
-          <p className="mt-3 text-[34px] font-[800] leading-none tracking-[-0.04em] text-[var(--brand)] tnum">
+          <p className="ui text-[15px] font-[600] text-[var(--ink-2)]">Compared with Scotland</p>
+          <p className="mt-3 text-[34px] font-[640] leading-none tracking-[-0.04em] text-[var(--brand)] tnum">
             {stat.differenceFromScotland > 0 ? "+" : ""}{stat.differenceFromScotland} points
           </p>
           <p className="mt-3 text-[15px] leading-[1.5] text-[var(--ink-2)]">
@@ -69,8 +69,8 @@ export default function CrisisGrantAccountability({
         </article>
 
         <article className="rounded-[var(--r-m)] border border-[var(--rule)] border-t-4 border-t-[var(--good)] bg-[var(--surface)] p-5">
-          <p className="ui text-[15px] font-[750] text-[var(--ink-2)]">Decided by the deadline</p>
-          <p className="mt-3 text-[42px] font-[800] leading-none tracking-[-0.04em] text-[var(--good-text)] tnum">
+          <p className="ui text-[15px] font-[600] text-[var(--ink-2)]">Decided by the deadline</p>
+          <p className="mt-3 text-[42px] font-[640] leading-none tracking-[-0.04em] text-[var(--good-text)] tnum">
             {stat.processedByNextWorkingDay}%
           </p>
           <p className="mt-3 text-[15px] leading-[1.5] text-[var(--ink-2)]">
@@ -79,8 +79,8 @@ export default function CrisisGrantAccountability({
         </article>
 
         <article className="rounded-[var(--r-m)] border border-[var(--rule)] border-t-4 border-t-[var(--brand-deep)] bg-[var(--surface)] p-5">
-          <p className="ui text-[15px] font-[750] text-[var(--ink-2)]">Average award</p>
-          <p className="mt-3 text-[42px] font-[800] leading-none tracking-[-0.04em] text-[var(--brand-deep)] tnum">
+          <p className="ui text-[15px] font-[600] text-[var(--ink-2)]">Average award</p>
+          <p className="mt-3 text-[42px] font-[640] leading-none tracking-[-0.04em] text-[var(--brand-deep)] tnum">
             {money(stat.averageAward)}
           </p>
           <p className="mt-3 text-[15px] leading-[1.5] text-[var(--ink-2)]">
@@ -92,8 +92,8 @@ export default function CrisisGrantAccountability({
       <figure className="mt-6 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5 sm:p-6">
         <div className="flex flex-wrap items-end justify-between gap-2 border-b border-[var(--rule)] pb-4">
           <div>
-            <p className="ui text-[15px] font-[750] text-[var(--brand)]">Five complete years</p>
-            <h3 className="mt-1 text-[21px] font-[760] leading-[1.3]">This is not just one quarter</h3>
+            <p className="ui text-[15px] font-[600] text-[var(--brand)]">Five complete years</p>
+            <h3 className="mt-1 text-[21px] font-[620] leading-[1.3]">This is not just one quarter</h3>
           </div>
           <p className="ui text-[15px] text-[var(--muted)]">Share of decisions resulting in an award</p>
         </div>
@@ -101,8 +101,8 @@ export default function CrisisGrantAccountability({
           {CRISIS_GRANT_YEARS.map((year, index) => (
             <div key={year}>
               <div className="flex items-baseline justify-between gap-4 text-[15px] leading-[1.45]">
-                <span className="font-[680] text-[var(--ink-2)]">{year}</span>
-                <span className="tnum font-[750] text-[var(--ink)]">
+                <span className="font-[560] text-[var(--ink-2)]">{year}</span>
+                <span className="tnum font-[600] text-[var(--ink)]">
                   {councilName} {stat.acceptanceHistory[index]}% · Scotland {crisisGrantScotlandAcceptanceHistory[index]}%
                 </span>
               </div>
@@ -122,11 +122,11 @@ export default function CrisisGrantAccountability({
       </figure>
 
       <div className="mt-6 rounded-[var(--r-m)] border border-[var(--rule)] border-l-4 border-l-[var(--action)] bg-[var(--surface-2)] p-5 sm:p-6">
-        <p className="ui text-[15px] font-[760] text-[var(--action-text)]">The question this council needs to answer</p>
+        <p className="ui text-[15px] font-[620] text-[var(--action-text)]">The question this council needs to answer</p>
         <p className="mt-2 max-w-[75ch] text-[16.5px] leading-[1.6] text-[var(--ink-2)]">{outcomeQuestion}</p>
         <p className="mt-3 max-w-[75ch] text-[15px] leading-[1.6] text-[var(--muted)]">
           A higher rate is not automatically better and a lower rate is not proof of unlawful or
-          ruthless decision-making. The figures prove different outcomes. They do not establish motive,
+          ruthless decision making. The figures prove different outcomes. They do not establish motive,
           applicant need or decision quality on their own.
         </p>
       </div>

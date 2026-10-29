@@ -1,0 +1,2386 @@
+[
+ {
+  "cluster": "Wages and pay",
+  "tier": 1,
+  "primary": "minimum wage scotland",
+  "volume": 14800,
+  "slug": "/minimum-wage-scotland",
+  "title": "Minimum Wage Scotland 2026 and 2027: £12.71 to £13.21",
+  "h1": "Minimum wage Scotland: what you earn in 2026 and 2027",
+  "action": "move",
+  "current": "/blog/minimum-wage-take-home-pay-scotland-2026",
+  "secondary": [
+   [
+    "national minimum wage scotland",
+    1300
+   ],
+   [
+    "minimum salary scotland",
+    14800
+   ],
+   [
+    "minimum wage scotland age 18",
+    140
+   ],
+   [
+    "minimum wage age 16 scotland",
+    140
+   ],
+   [
+    "national living wage scotland",
+    590
+   ],
+   [
+    "basic wage scotland",
+    14800
+   ]
+  ],
+  "data": "GOV.UK rates, tax engine",
+  "notes": ""
+ },
+ {
+  "cluster": "Wages and pay",
+  "tier": 1,
+  "primary": "take home pay calculator scotland",
+  "volume": 6600,
+  "slug": "/take-home-pay-calculator-scotland",
+  "title": "Take Home Pay Calculator Scotland 2026/27",
+  "h1": "Take home pay calculator Scotland 2026/27",
+  "action": "retitle",
+  "current": "/take-home-pay-calculator-scotland",
+  "secondary": [
+   [
+    "net pay calculator scotland",
+    320
+   ],
+   [
+    "salary after tax scotland",
+    260
+   ],
+   [
+    "calculate take home pay scotland",
+    260
+   ],
+   [
+    "net salary calculator scotland",
+    140
+   ]
+  ],
+  "data": "tax engine",
+  "notes": ""
+ },
+ {
+  "cluster": "Wages and pay",
+  "tier": 1,
+  "primary": "average salary scotland",
+  "volume": 2400,
+  "slug": "/average-salary-scotland",
+  "title": "Average Salary Scotland 2026: What Full Time Workers Earn by Council",
+  "h1": "Average salary Scotland: what full time workers earn",
+  "action": "new",
+  "current": null,
+  "secondary": [
+   [
+    "average wage in scotland",
+    2400
+   ],
+   [
+    "average salary in edinburgh",
+    260
+   ],
+   [
+    "average salary in aberdeen",
+    40
+   ]
+  ],
+  "data": "ONS ASHE (held: nomis-ashe-pay-*.csv)",
+  "notes": ""
+ },
+ {
+  "cluster": "Wages and pay",
+  "tier": 1,
+  "primary": "real living wage scotland",
+  "volume": 720,
+  "slug": "/real-living-wage-scotland",
+  "title": "Real Living Wage Scotland 2026: £14.10 vs Minimum Wage",
+  "h1": "Real living wage Scotland: £14.10 an hour against the legal minimum",
+  "action": "move",
+  "current": "/blog/real-living-wage-vs-minimum-wage-scotland",
+  "secondary": [
+   [
+    "scotland living wage",
+    170
+   ],
+   [
+    "living wage glasgow",
+    170
+   ],
+   [
+    "edinburgh living wage",
+    110
+   ]
+  ],
+  "data": "Living Wage Foundation",
+  "notes": ""
+ },
+ {
+  "cluster": "Wages and pay",
+  "tier": 1,
+  "primary": "minimum wage 2027",
+  "volume": 210,
+  "slug": "/minimum-wage-2027",
+  "title": "Minimum Wage 2027: £13.21 From April, What It Means in Scotland",
+  "h1": "Minimum wage 2027: every rate from 1 April",
+  "action": "new",
+  "current": null,
+  "secondary": [],
+  "data": "GOV.UK rates",
+  "notes": "Searches up 274% in 3 months; peaks March to April"
+ },
+ {
+  "cluster": "Wages and pay",
+  "tier": 2,
+  "primary": "minimum wage in glasgow scotland",
+  "volume": 1000,
+  "slug": "/minimum-wage-in-glasgow-scotland",
+  "title": "Minimum Wage in Glasgow Scotland 2026: Rates and Local Pay",
+  "h1": "Minimum wage in glasgow scotland: the legal rate and what local jobs pay",
+  "action": "new",
+  "current": null,
+  "secondary": [],
+  "data": "GOV.UK rates + ASHE by council",
+  "notes": "Local pay data makes each page distinct"
+ },
+ {
+  "cluster": "Wages and pay",
+  "tier": 2,
+  "primary": "minimum wage in edinburgh scotland",
+  "volume": 880,
+  "slug": "/minimum-wage-in-edinburgh-scotland",
+  "title": "Minimum Wage in Edinburgh Scotland 2026: Rates and Local Pay",
+  "h1": "Minimum wage in edinburgh scotland: the legal rate and what local jobs pay",
+  "action": "new",
+  "current": null,
+  "secondary": [],
+  "data": "GOV.UK rates + ASHE by council",
+  "notes": "Local pay data makes each page distinct"
+ },
+ {
+  "cluster": "Wages and pay",
+  "tier": 2,
+  "primary": "minimum wage aberdeen",
+  "volume": 210,
+  "slug": "/minimum-wage-aberdeen",
+  "title": "Minimum Wage Aberdeen 2026: Rates and Local Pay",
+  "h1": "Minimum wage aberdeen: the legal rate and what local jobs pay",
+  "action": "new",
+  "current": null,
+  "secondary": [],
+  "data": "GOV.UK rates + ASHE by council",
+  "notes": "Local pay data makes each page distinct"
+ },
+ {
+  "cluster": "Wages and pay",
+  "tier": 2,
+  "primary": "minimum wage dundee",
+  "volume": 70,
+  "slug": "/minimum-wage-dundee",
+  "title": "Minimum Wage Dundee 2026: Rates and Local Pay",
+  "h1": "Minimum wage dundee: the legal rate and what local jobs pay",
+  "action": "new",
+  "current": null,
+  "secondary": [],
+  "data": "GOV.UK rates + ASHE by council",
+  "notes": "Local pay data makes each page distinct"
+ },
+ {
+  "cluster": "Wages and pay",
+  "tier": 2,
+  "primary": "salary after tax scotland",
+  "volume": 260,
+  "slug": "/salary-after-tax-scotland",
+  "title": "Salary After Tax Scotland 2026/27: Every Salary From £15,000 to £150,000",
+  "h1": "Salary after tax Scotland: take home pay for every salary",
+  "action": "new",
+  "current": null,
+  "secondary": [],
+  "data": "tax engine",
+  "notes": "Hub linking to one page per salary below"
+ },
+ {
+  "cluster": "Salary after tax",
+  "tier": 3,
+  "primary": "15000 after tax scotland",
+  "volume": 0,
+  "slug": "/15000-after-tax-scotland",
+  "title": "15000 After Tax Scotland 2026/27: Monthly, Weekly and Yearly",
+  "h1": "15000 after tax Scotland: what you take home",
+  "action": "new",
+  "current": null,
+  "secondary": [],
+  "data": "tax engine",
+  "notes": "Exact keyword uses digits with no comma, as people type it"
+ },
+ {
+  "cluster": "Salary after tax",
+  "tier": 3,
+  "primary": "18000 after tax scotland",
+  "volume": 0,
+  "slug": "/18000-after-tax-scotland",
+  "title": "18000 After Tax Scotland 2026/27: Monthly, Weekly and Yearly",
+  "h1": "18000 after tax Scotland: what you take home",
+  "action": "new",
+  "current": null,
+  "secondary": [],
+  "data": "tax engine",
+  "notes": "Exact keyword uses digits with no comma, as people type it"
+ },
+ {
+  "cluster": "Salary after tax",
+  "tier": 2,
+  "primary": "20000 after tax scotland",
+  "volume": 0,
+  "slug": "/20000-after-tax-scotland",
+  "title": "20000 After Tax Scotland 2026/27: Monthly, Weekly and Yearly",
+  "h1": "20000 after tax Scotland: what you take home",
+  "action": "new",
+  "current": null,
+  "secondary": [],
+  "data": "tax engine",
+  "notes": "Exact keyword uses digits with no comma, as people type it"
+ },
+ {
+  "cluster": "Salary after tax",
+  "tier": 3,
+  "primary": "22000 after tax scotland",
+  "volume": 0,
+  "slug": "/22000-after-tax-scotland",
+  "title": "22000 After Tax Scotland 2026/27: Monthly, Weekly and Yearly",
+  "h1": "22000 after tax Scotland: what you take home",
+  "action": "new",
+  "current": null,
+  "secondary": [],
+  "data": "tax engine",
+  "notes": "Exact keyword uses digits with no comma, as people type it"
+ },
+ {
+  "cluster": "Salary after tax",
+  "tier": 3,
+  "primary": "24000 after tax scotland",
+  "volume": 0,
+  "slug": "/24000-after-tax-scotland",
+  "title": "24000 After Tax Scotland 2026/27: Monthly, Weekly and Yearly",
+  "h1": "24000 after tax Scotland: what you take home",
+  "action": "new",
+  "current": null,
+  "secondary": [],
+  "data": "tax engine",
+  "notes": "Exact keyword uses digits with no comma, as people type it"
+ },
+ {
+  "cluster": "Salary after tax",
+  "tier": 2,
+  "primary": "25000 after tax scotland",
+  "volume": 0,
+  "slug": "/25000-after-tax-scotland",
+  "title": "25000 After Tax Scotland 2026/27: Monthly, Weekly and Yearly",
+  "h1": "25000 after tax Scotland: what you take home",
+  "action": "new",
+  "current": null,
+  "secondary": [],
+  "data": "tax engine",
+  "notes": "Exact keyword uses digits with no comma, as people type it"
+ },
+ {
+  "cluster": "Salary after tax",
+  "tier": 3,
+  "primary": "26000 after tax scotland",
+  "volume": 0,
+  "slug": "/26000-after-tax-scotland",
+  "title": "26000 After Tax Scotland 2026/27: Monthly, Weekly and Yearly",
+  "h1": "26000 after tax Scotland: what you take home",
+  "action": "new",
+  "current": null,
+  "secondary": [],
+  "data": "tax engine",
+  "notes": "Exact keyword uses digits with no comma, as people type it"
+ },
+ {
+  "cluster": "Salary after tax",
+  "tier": 3,
+  "primary": "28000 after tax scotland",
+  "volume": 0,
+  "slug": "/28000-after-tax-scotland",
+  "title": "28000 After Tax Scotland 2026/27: Monthly, Weekly and Yearly",
+  "h1": "28000 after tax Scotland: what you take home",
+  "action": "new",
+  "current": null,
+  "secondary": [],
+  "data": "tax engine",
+  "notes": "Exact keyword uses digits with no comma, as people type it"
+ },
+ {
+  "cluster": "Salary after tax",
+  "tier": 2,
+  "primary": "30000 after tax scotland",
+  "volume": 170,
+  "slug": "/30000-after-tax-scotland",
+  "title": "30000 After Tax Scotland 2026/27: Monthly, Weekly and Yearly",
+  "h1": "30000 after tax Scotland: what you take home",
+  "action": "new",
+  "current": null,
+  "secondary": [],
+  "data": "tax engine",
+  "notes": "Exact keyword uses digits with no comma, as people type it"
+ },
+ {
+  "cluster": "Salary after tax",
+  "tier": 3,
+  "primary": "32000 after tax scotland",
+  "volume": 0,
+  "slug": "/32000-after-tax-scotland",
+  "title": "32000 After Tax Scotland 2026/27: Monthly, Weekly and Yearly",
+  "h1": "32000 after tax Scotland: what you take home",
+  "action": "new",
+  "current": null,
+  "secondary": [],
+  "data": "tax engine",
+  "notes": "Exact keyword uses digits with no comma, as people type it"
+ },
+ {
+  "cluster": "Salary after tax",
+  "tier": 2,
+  "primary": "35000 after tax scotland",
+  "volume": 0,
+  "slug": "/35000-after-tax-scotland",
+  "title": "35000 After Tax Scotland 2026/27: Monthly, Weekly and Yearly",
+  "h1": "35000 after tax Scotland: what you take home",
+  "action": "new",
+  "current": null,
+  "secondary": [],
+  "data": "tax engine",
+  "notes": "Exact keyword uses digits with no comma, as people type it"
+ },
+ {
+  "cluster": "Salary after tax",
+  "tier": 3,
+  "primary": "38000 after tax scotland",
+  "volume": 0,
+  "slug": "/38000-after-tax-scotland",
+  "title": "38000 After Tax Scotland 2026/27: Monthly, Weekly and Yearly",
+  "h1": "38000 after tax Scotland: what you take home",
+  "action": "new",
+  "current": null,
+  "secondary": [],
+  "data": "tax engine",
+  "notes": "Exact keyword uses digits with no comma, as people type it"
+ },
+ {
+  "cluster": "Salary after tax",
+  "tier": 2,
+  "primary": "40000 after tax scotland",
+  "volume": 0,
+  "slug": "/40000-after-tax-scotland",
+  "title": "40000 After Tax Scotland 2026/27: Monthly, Weekly and Yearly",
+  "h1": "40000 after tax Scotland: what you take home",
+  "action": "new",
+  "current": null,
+  "secondary": [],
+  "data": "tax engine",
+  "notes": "Exact keyword uses digits with no comma, as people type it"
+ },
+ {
+  "cluster": "Salary after tax",
+  "tier": 3,
+  "primary": "45000 after tax scotland",
+  "volume": 0,
+  "slug": "/45000-after-tax-scotland",
+  "title": "45000 After Tax Scotland 2026/27: Monthly, Weekly and Yearly",
+  "h1": "45000 after tax Scotland: what you take home",
+  "action": "new",
+  "current": null,
+  "secondary": [],
+  "data": "tax engine",
+  "notes": "Exact keyword uses digits with no comma, as people type it"
+ },
+ {
+  "cluster": "Salary after tax",
+  "tier": 2,
+  "primary": "50000 after tax scotland",
+  "volume": 0,
+  "slug": "/50000-after-tax-scotland",
+  "title": "50000 After Tax Scotland 2026/27: Monthly, Weekly and Yearly",
+  "h1": "50000 after tax Scotland: what you take home",
+  "action": "new",
+  "current": null,
+  "secondary": [],
+  "data": "tax engine",
+  "notes": "Exact keyword uses digits with no comma, as people type it"
+ },
+ {
+  "cluster": "Salary after tax",
+  "tier": 3,
+  "primary": "55000 after tax scotland",
+  "volume": 0,
+  "slug": "/55000-after-tax-scotland",
+  "title": "55000 After Tax Scotland 2026/27: Monthly, Weekly and Yearly",
+  "h1": "55000 after tax Scotland: what you take home",
+  "action": "new",
+  "current": null,
+  "secondary": [],
+  "data": "tax engine",
+  "notes": "Exact keyword uses digits with no comma, as people type it"
+ },
+ {
+  "cluster": "Salary after tax",
+  "tier": 3,
+  "primary": "60000 after tax scotland",
+  "volume": 0,
+  "slug": "/60000-after-tax-scotland",
+  "title": "60000 After Tax Scotland 2026/27: Monthly, Weekly and Yearly",
+  "h1": "60000 after tax Scotland: what you take home",
+  "action": "new",
+  "current": null,
+  "secondary": [],
+  "data": "tax engine",
+  "notes": "Exact keyword uses digits with no comma, as people type it"
+ },
+ {
+  "cluster": "Salary after tax",
+  "tier": 3,
+  "primary": "65000 after tax scotland",
+  "volume": 0,
+  "slug": "/65000-after-tax-scotland",
+  "title": "65000 After Tax Scotland 2026/27: Monthly, Weekly and Yearly",
+  "h1": "65000 after tax Scotland: what you take home",
+  "action": "new",
+  "current": null,
+  "secondary": [],
+  "data": "tax engine",
+  "notes": "Exact keyword uses digits with no comma, as people type it"
+ },
+ {
+  "cluster": "Salary after tax",
+  "tier": 3,
+  "primary": "70000 after tax scotland",
+  "volume": 0,
+  "slug": "/70000-after-tax-scotland",
+  "title": "70000 After Tax Scotland 2026/27: Monthly, Weekly and Yearly",
+  "h1": "70000 after tax Scotland: what you take home",
+  "action": "new",
+  "current": null,
+  "secondary": [],
+  "data": "tax engine",
+  "notes": "Exact keyword uses digits with no comma, as people type it"
+ },
+ {
+  "cluster": "Salary after tax",
+  "tier": 3,
+  "primary": "75000 after tax scotland",
+  "volume": 0,
+  "slug": "/75000-after-tax-scotland",
+  "title": "75000 After Tax Scotland 2026/27: Monthly, Weekly and Yearly",
+  "h1": "75000 after tax Scotland: what you take home",
+  "action": "new",
+  "current": null,
+  "secondary": [],
+  "data": "tax engine",
+  "notes": "Exact keyword uses digits with no comma, as people type it"
+ },
+ {
+  "cluster": "Salary after tax",
+  "tier": 3,
+  "primary": "80000 after tax scotland",
+  "volume": 0,
+  "slug": "/80000-after-tax-scotland",
+  "title": "80000 After Tax Scotland 2026/27: Monthly, Weekly and Yearly",
+  "h1": "80000 after tax Scotland: what you take home",
+  "action": "new",
+  "current": null,
+  "secondary": [],
+  "data": "tax engine",
+  "notes": "Exact keyword uses digits with no comma, as people type it"
+ },
+ {
+  "cluster": "Salary after tax",
+  "tier": 3,
+  "primary": "90000 after tax scotland",
+  "volume": 0,
+  "slug": "/90000-after-tax-scotland",
+  "title": "90000 After Tax Scotland 2026/27: Monthly, Weekly and Yearly",
+  "h1": "90000 after tax Scotland: what you take home",
+  "action": "new",
+  "current": null,
+  "secondary": [],
+  "data": "tax engine",
+  "notes": "Exact keyword uses digits with no comma, as people type it"
+ },
+ {
+  "cluster": "Salary after tax",
+  "tier": 3,
+  "primary": "100000 after tax scotland",
+  "volume": 0,
+  "slug": "/100000-after-tax-scotland",
+  "title": "100000 After Tax Scotland 2026/27: Monthly, Weekly and Yearly",
+  "h1": "100000 after tax Scotland: what you take home",
+  "action": "new",
+  "current": null,
+  "secondary": [],
+  "data": "tax engine",
+  "notes": "Exact keyword uses digits with no comma, as people type it"
+ },
+ {
+  "cluster": "Salary after tax",
+  "tier": 3,
+  "primary": "120000 after tax scotland",
+  "volume": 0,
+  "slug": "/120000-after-tax-scotland",
+  "title": "120000 After Tax Scotland 2026/27: Monthly, Weekly and Yearly",
+  "h1": "120000 after tax Scotland: what you take home",
+  "action": "new",
+  "current": null,
+  "secondary": [],
+  "data": "tax engine",
+  "notes": "Exact keyword uses digits with no comma, as people type it"
+ },
+ {
+  "cluster": "Salary after tax",
+  "tier": 3,
+  "primary": "150000 after tax scotland",
+  "volume": 0,
+  "slug": "/150000-after-tax-scotland",
+  "title": "150000 After Tax Scotland 2026/27: Monthly, Weekly and Yearly",
+  "h1": "150000 after tax Scotland: what you take home",
+  "action": "new",
+  "current": null,
+  "secondary": [],
+  "data": "tax engine",
+  "notes": "Exact keyword uses digits with no comma, as people type it"
+ },
+ {
+  "cluster": "Council tax",
+  "tier": 2,
+  "primary": "aberdeen council tax bands",
+  "volume": 0,
+  "slug": "/aberdeen-council-tax-bands",
+  "title": "Aberdeen Council Tax Bands 2026/27: Band A to H Prices",
+  "h1": "Aberdeen council tax bands 2026/27",
+  "action": "move",
+  "current": "/council-tax-bands-scotland/aberdeen-city",
+  "secondary": [
+   [
+    "council tax reduction aberdeen",
+    0
+   ],
+   [
+    "aberdeen council tax single person discount",
+    40
+   ],
+   [
+    "aberdeen council tax band checker",
+    0
+   ]
+  ],
+  "data": "council tax data held (councilTax.ts)",
+  "notes": "Slug also contains '<council> council tax', the bigger search for Glasgow (14,800) and Edinburgh (12,100)"
+ },
+ {
+  "cluster": "Council tax",
+  "tier": 2,
+  "primary": "aberdeenshire council tax bands",
+  "volume": 720,
+  "slug": "/aberdeenshire-council-tax-bands",
+  "title": "Aberdeenshire Council Tax Bands 2026/27: Band A to H Prices",
+  "h1": "Aberdeenshire council tax bands 2026/27",
+  "action": "move",
+  "current": "/council-tax-bands-scotland/aberdeenshire",
+  "secondary": [
+   [
+    "council tax reduction aberdeenshire",
+    30
+   ],
+   [
+    "aberdeenshire council tax single person discount",
+    0
+   ],
+   [
+    "aberdeenshire council tax band checker",
+    0
+   ]
+  ],
+  "data": "council tax data held (councilTax.ts)",
+  "notes": "Slug also contains '<council> council tax', the bigger search for Glasgow (14,800) and Edinburgh (12,100)"
+ },
+ {
+  "cluster": "Council tax",
+  "tier": 2,
+  "primary": "angus council tax bands",
+  "volume": 0,
+  "slug": "/angus-council-tax-bands",
+  "title": "Angus Council Tax Bands 2026/27: Band A to H Prices",
+  "h1": "Angus council tax bands 2026/27",
+  "action": "move",
+  "current": "/council-tax-bands-scotland/angus",
+  "secondary": [
+   [
+    "council tax reduction angus",
+    0
+   ],
+   [
+    "angus council tax single person discount",
+    10
+   ],
+   [
+    "angus council tax band checker",
+    0
+   ]
+  ],
+  "data": "council tax data held (councilTax.ts)",
+  "notes": "Slug also contains '<council> council tax', the bigger search for Glasgow (14,800) and Edinburgh (12,100)"
+ },
+ {
+  "cluster": "Council tax",
+  "tier": 2,
+  "primary": "argyll and bute council tax bands",
+  "volume": 170,
+  "slug": "/argyll-and-bute-council-tax-bands",
+  "title": "Argyll and Bute Council Tax Bands 2026/27: Band A to H Prices",
+  "h1": "Argyll and Bute council tax bands 2026/27",
+  "action": "move",
+  "current": "/council-tax-bands-scotland/argyll-and-bute",
+  "secondary": [
+   [
+    "council tax reduction argyll and bute",
+    10
+   ],
+   [
+    "argyll and bute council tax single person discount",
+    0
+   ],
+   [
+    "argyll and bute council tax band checker",
+    0
+   ]
+  ],
+  "data": "council tax data held (councilTax.ts)",
+  "notes": "Slug also contains '<council> council tax', the bigger search for Glasgow (14,800) and Edinburgh (12,100)"
+ },
+ {
+  "cluster": "Council tax",
+  "tier": 1,
+  "primary": "edinburgh council tax bands",
+  "volume": 0,
+  "slug": "/edinburgh-council-tax-bands",
+  "title": "Edinburgh Council Tax Bands 2026/27: Band A to H Prices",
+  "h1": "Edinburgh council tax bands 2026/27",
+  "action": "move",
+  "current": "/council-tax-bands-scotland/city-of-edinburgh",
+  "secondary": [
+   [
+    "edinburgh council tax",
+    12100
+   ],
+   [
+    "edinburgh council tax payments",
+    1000
+   ],
+   [
+    "edinburgh council tax contact number",
+    720
+   ],
+   [
+    "council tax band d edinburgh",
+    320
+   ],
+   [
+    "council tax online edinburgh",
+    320
+   ],
+   [
+    "edinburgh council tax reduction",
+    260
+   ],
+   [
+    "edinburgh council tax register",
+    110
+   ],
+   [
+    "council tax reduction edinburgh",
+    260
+   ],
+   [
+    "edinburgh council tax single person discount",
+    0
+   ],
+   [
+    "edinburgh council tax band checker",
+    0
+   ]
+  ],
+  "data": "council tax data held (councilTax.ts)",
+  "notes": "Slug also contains '<council> council tax', the bigger search for Glasgow (14,800) and Edinburgh (12,100)"
+ },
+ {
+  "cluster": "Council tax",
+  "tier": 2,
+  "primary": "clackmannanshire council tax bands",
+  "volume": 0,
+  "slug": "/clackmannanshire-council-tax-bands",
+  "title": "Clackmannanshire Council Tax Bands 2026/27: Band A to H Prices",
+  "h1": "Clackmannanshire council tax bands 2026/27",
+  "action": "move",
+  "current": "/council-tax-bands-scotland/clackmannanshire",
+  "secondary": [
+   [
+    "council tax reduction clackmannanshire",
+    0
+   ],
+   [
+    "clackmannanshire council tax single person discount",
+    0
+   ],
+   [
+    "clackmannanshire council tax band checker",
+    0
+   ]
+  ],
+  "data": "council tax data held (councilTax.ts)",
+  "notes": "Slug also contains '<council> council tax', the bigger search for Glasgow (14,800) and Edinburgh (12,100)"
+ },
+ {
+  "cluster": "Council tax",
+  "tier": 2,
+  "primary": "dumfries and galloway council tax bands",
+  "volume": 0,
+  "slug": "/dumfries-and-galloway-council-tax-bands",
+  "title": "Dumfries and Galloway Council Tax Bands 2026/27: Band A to H Prices",
+  "h1": "Dumfries and Galloway council tax bands 2026/27",
+  "action": "move",
+  "current": "/council-tax-bands-scotland/dumfries-and-galloway",
+  "secondary": [
+   [
+    "council tax reduction dumfries and galloway",
+    0
+   ],
+   [
+    "dumfries and galloway council tax single person discount",
+    20
+   ],
+   [
+    "dumfries and galloway council tax band checker",
+    0
+   ]
+  ],
+  "data": "council tax data held (councilTax.ts)",
+  "notes": "Slug also contains '<council> council tax', the bigger search for Glasgow (14,800) and Edinburgh (12,100)"
+ },
+ {
+  "cluster": "Council tax",
+  "tier": 2,
+  "primary": "dundee council tax bands",
+  "volume": 0,
+  "slug": "/dundee-council-tax-bands",
+  "title": "Dundee Council Tax Bands 2026/27: Band A to H Prices",
+  "h1": "Dundee council tax bands 2026/27",
+  "action": "move",
+  "current": "/council-tax-bands-scotland/dundee-city",
+  "secondary": [
+   [
+    "council tax reduction dundee",
+    40
+   ],
+   [
+    "dundee council tax single person discount",
+    30
+   ],
+   [
+    "dundee council tax band checker",
+    0
+   ]
+  ],
+  "data": "council tax data held (councilTax.ts)",
+  "notes": "Slug also contains '<council> council tax', the bigger search for Glasgow (14,800) and Edinburgh (12,100)"
+ },
+ {
+  "cluster": "Council tax",
+  "tier": 2,
+  "primary": "east ayrshire council tax bands",
+  "volume": 0,
+  "slug": "/east-ayrshire-council-tax-bands",
+  "title": "East Ayrshire Council Tax Bands 2026/27: Band A to H Prices",
+  "h1": "East Ayrshire council tax bands 2026/27",
+  "action": "move",
+  "current": "/council-tax-bands-scotland/east-ayrshire",
+  "secondary": [
+   [
+    "council tax reduction east ayrshire",
+    30
+   ],
+   [
+    "east ayrshire council tax single person discount",
+    0
+   ],
+   [
+    "east ayrshire council tax band checker",
+    30
+   ]
+  ],
+  "data": "council tax data held (councilTax.ts)",
+  "notes": "Slug also contains '<council> council tax', the bigger search for Glasgow (14,800) and Edinburgh (12,100)"
+ },
+ {
+  "cluster": "Council tax",
+  "tier": 2,
+  "primary": "east dunbartonshire council tax bands",
+  "volume": 0,
+  "slug": "/east-dunbartonshire-council-tax-bands",
+  "title": "East Dunbartonshire Council Tax Bands 2026/27: Band A to H Prices",
+  "h1": "East Dunbartonshire council tax bands 2026/27",
+  "action": "move",
+  "current": "/council-tax-bands-scotland/east-dunbartonshire",
+  "secondary": [
+   [
+    "council tax reduction east dunbartonshire",
+    0
+   ],
+   [
+    "east dunbartonshire council tax single person discount",
+    10
+   ],
+   [
+    "east dunbartonshire council tax band checker",
+    0
+   ]
+  ],
+  "data": "council tax data held (councilTax.ts)",
+  "notes": "Slug also contains '<council> council tax', the bigger search for Glasgow (14,800) and Edinburgh (12,100)"
+ },
+ {
+  "cluster": "Council tax",
+  "tier": 2,
+  "primary": "east lothian council tax bands",
+  "volume": 0,
+  "slug": "/east-lothian-council-tax-bands",
+  "title": "East Lothian Council Tax Bands 2026/27: Band A to H Prices",
+  "h1": "East Lothian council tax bands 2026/27",
+  "action": "move",
+  "current": "/council-tax-bands-scotland/east-lothian",
+  "secondary": [
+   [
+    "council tax reduction east lothian",
+    20
+   ],
+   [
+    "east lothian council tax single person discount",
+    0
+   ],
+   [
+    "east lothian council tax band checker",
+    0
+   ]
+  ],
+  "data": "council tax data held (councilTax.ts)",
+  "notes": "Slug also contains '<council> council tax', the bigger search for Glasgow (14,800) and Edinburgh (12,100)"
+ },
+ {
+  "cluster": "Council tax",
+  "tier": 2,
+  "primary": "east renfrewshire council tax bands",
+  "volume": 0,
+  "slug": "/east-renfrewshire-council-tax-bands",
+  "title": "East Renfrewshire Council Tax Bands 2026/27: Band A to H Prices",
+  "h1": "East Renfrewshire council tax bands 2026/27",
+  "action": "move",
+  "current": "/council-tax-bands-scotland/east-renfrewshire",
+  "secondary": [
+   [
+    "council tax reduction east renfrewshire",
+    0
+   ],
+   [
+    "east renfrewshire council tax single person discount",
+    0
+   ],
+   [
+    "east renfrewshire council tax band checker",
+    0
+   ]
+  ],
+  "data": "council tax data held (councilTax.ts)",
+  "notes": "Slug also contains '<council> council tax', the bigger search for Glasgow (14,800) and Edinburgh (12,100)"
+ },
+ {
+  "cluster": "Council tax",
+  "tier": 2,
+  "primary": "falkirk council tax bands",
+  "volume": 0,
+  "slug": "/falkirk-council-tax-bands",
+  "title": "Falkirk Council Tax Bands 2026/27: Band A to H Prices",
+  "h1": "Falkirk council tax bands 2026/27",
+  "action": "move",
+  "current": "/council-tax-bands-scotland/falkirk",
+  "secondary": [
+   [
+    "council tax reduction falkirk",
+    0
+   ],
+   [
+    "falkirk council tax single person discount",
+    0
+   ],
+   [
+    "falkirk council tax band checker",
+    0
+   ]
+  ],
+  "data": "council tax data held (councilTax.ts)",
+  "notes": "Slug also contains '<council> council tax', the bigger search for Glasgow (14,800) and Edinburgh (12,100)"
+ },
+ {
+  "cluster": "Council tax",
+  "tier": 2,
+  "primary": "fife council tax bands",
+  "volume": 880,
+  "slug": "/fife-council-tax-bands",
+  "title": "Fife Council Tax Bands 2026/27: Band A to H Prices",
+  "h1": "Fife council tax bands 2026/27",
+  "action": "move",
+  "current": "/council-tax-bands-scotland/fife",
+  "secondary": [
+   [
+    "council tax reduction fife",
+    0
+   ],
+   [
+    "fife council tax single person discount",
+    0
+   ],
+   [
+    "fife council tax band checker",
+    0
+   ]
+  ],
+  "data": "council tax data held (councilTax.ts)",
+  "notes": "Slug also contains '<council> council tax', the bigger search for Glasgow (14,800) and Edinburgh (12,100)"
+ },
+ {
+  "cluster": "Council tax",
+  "tier": 1,
+  "primary": "glasgow council tax bands",
+  "volume": 0,
+  "slug": "/glasgow-council-tax-bands",
+  "title": "Glasgow Council Tax Bands 2026/27: Band A to H Prices",
+  "h1": "Glasgow council tax bands 2026/27",
+  "action": "move",
+  "current": "/council-tax-bands-scotland/glasgow-city",
+  "secondary": [
+   [
+    "glasgow council tax",
+    14800
+   ],
+   [
+    "council tax glasgow pay",
+    2900
+   ],
+   [
+    "glasgow council tax phone number",
+    0
+   ],
+   [
+    "council tax discount glasgow",
+    390
+   ],
+   [
+    "glasgow council tax band checker",
+    320
+   ],
+   [
+    "council tax glasgow single person discount",
+    170
+   ],
+   [
+    "council tax register glasgow",
+    170
+   ],
+   [
+    "council tax reduction glasgow",
+    0
+   ],
+   [
+    "glasgow council tax single person discount",
+    0
+   ],
+   [
+    "glasgow council tax band checker",
+    320
+   ]
+  ],
+  "data": "council tax data held (councilTax.ts)",
+  "notes": "Slug also contains '<council> council tax', the bigger search for Glasgow (14,800) and Edinburgh (12,100)"
+ },
+ {
+  "cluster": "Council tax",
+  "tier": 2,
+  "primary": "highland council tax bands",
+  "volume": 0,
+  "slug": "/highland-council-tax-bands",
+  "title": "Highland Council Tax Bands 2026/27: Band A to H Prices",
+  "h1": "Highland council tax bands 2026/27",
+  "action": "move",
+  "current": "/council-tax-bands-scotland/highland",
+  "secondary": [
+   [
+    "council tax reduction highland",
+    0
+   ],
+   [
+    "highland council tax single person discount",
+    0
+   ],
+   [
+    "highland council tax band checker",
+    0
+   ]
+  ],
+  "data": "council tax data held (councilTax.ts)",
+  "notes": "Slug also contains '<council> council tax', the bigger search for Glasgow (14,800) and Edinburgh (12,100)"
+ },
+ {
+  "cluster": "Council tax",
+  "tier": 2,
+  "primary": "inverclyde council tax bands",
+  "volume": 140,
+  "slug": "/inverclyde-council-tax-bands",
+  "title": "Inverclyde Council Tax Bands 2026/27: Band A to H Prices",
+  "h1": "Inverclyde council tax bands 2026/27",
+  "action": "move",
+  "current": "/council-tax-bands-scotland/inverclyde",
+  "secondary": [
+   [
+    "council tax reduction inverclyde",
+    0
+   ],
+   [
+    "inverclyde council tax single person discount",
+    10
+   ],
+   [
+    "inverclyde council tax band checker",
+    0
+   ]
+  ],
+  "data": "council tax data held (councilTax.ts)",
+  "notes": "Slug also contains '<council> council tax', the bigger search for Glasgow (14,800) and Edinburgh (12,100)"
+ },
+ {
+  "cluster": "Council tax",
+  "tier": 2,
+  "primary": "midlothian council tax bands",
+  "volume": 0,
+  "slug": "/midlothian-council-tax-bands",
+  "title": "Midlothian Council Tax Bands 2026/27: Band A to H Prices",
+  "h1": "Midlothian council tax bands 2026/27",
+  "action": "move",
+  "current": "/council-tax-bands-scotland/midlothian",
+  "secondary": [
+   [
+    "council tax reduction midlothian",
+    0
+   ],
+   [
+    "midlothian council tax single person discount",
+    0
+   ],
+   [
+    "midlothian council tax band checker",
+    0
+   ]
+  ],
+  "data": "council tax data held (councilTax.ts)",
+  "notes": "Slug also contains '<council> council tax', the bigger search for Glasgow (14,800) and Edinburgh (12,100)"
+ },
+ {
+  "cluster": "Council tax",
+  "tier": 2,
+  "primary": "moray council tax bands",
+  "volume": 0,
+  "slug": "/moray-council-tax-bands",
+  "title": "Moray Council Tax Bands 2026/27: Band A to H Prices",
+  "h1": "Moray council tax bands 2026/27",
+  "action": "move",
+  "current": "/council-tax-bands-scotland/moray",
+  "secondary": [
+   [
+    "council tax reduction moray",
+    0
+   ],
+   [
+    "moray council tax single person discount",
+    0
+   ],
+   [
+    "moray council tax band checker",
+    0
+   ]
+  ],
+  "data": "council tax data held (councilTax.ts)",
+  "notes": "Slug also contains '<council> council tax', the bigger search for Glasgow (14,800) and Edinburgh (12,100)"
+ },
+ {
+  "cluster": "Council tax",
+  "tier": 2,
+  "primary": "western isles council tax bands",
+  "volume": 0,
+  "slug": "/western-isles-council-tax-bands",
+  "title": "Western Isles Council Tax Bands 2026/27: Band A to H Prices",
+  "h1": "Western Isles council tax bands 2026/27",
+  "action": "move",
+  "current": "/council-tax-bands-scotland/na-h-eileanan-siar",
+  "secondary": [
+   [
+    "council tax reduction western isles",
+    0
+   ],
+   [
+    "western isles council tax single person discount",
+    0
+   ],
+   [
+    "western isles council tax band checker",
+    0
+   ]
+  ],
+  "data": "council tax data held (councilTax.ts)",
+  "notes": "Slug also contains '<council> council tax', the bigger search for Glasgow (14,800) and Edinburgh (12,100)"
+ },
+ {
+  "cluster": "Council tax",
+  "tier": 2,
+  "primary": "north ayrshire council tax bands",
+  "volume": 0,
+  "slug": "/north-ayrshire-council-tax-bands",
+  "title": "North Ayrshire Council Tax Bands 2026/27: Band A to H Prices",
+  "h1": "North Ayrshire council tax bands 2026/27",
+  "action": "move",
+  "current": "/council-tax-bands-scotland/north-ayrshire",
+  "secondary": [
+   [
+    "council tax reduction north ayrshire",
+    0
+   ],
+   [
+    "north ayrshire council tax single person discount",
+    0
+   ],
+   [
+    "north ayrshire council tax band checker",
+    0
+   ]
+  ],
+  "data": "council tax data held (councilTax.ts)",
+  "notes": "Slug also contains '<council> council tax', the bigger search for Glasgow (14,800) and Edinburgh (12,100)"
+ },
+ {
+  "cluster": "Council tax",
+  "tier": 2,
+  "primary": "north lanarkshire council tax bands",
+  "volume": 0,
+  "slug": "/north-lanarkshire-council-tax-bands",
+  "title": "North Lanarkshire Council Tax Bands 2026/27: Band A to H Prices",
+  "h1": "North Lanarkshire council tax bands 2026/27",
+  "action": "move",
+  "current": "/council-tax-bands-scotland/north-lanarkshire",
+  "secondary": [
+   [
+    "council tax reduction north lanarkshire",
+    140
+   ],
+   [
+    "north lanarkshire council tax single person discount",
+    30
+   ],
+   [
+    "north lanarkshire council tax band checker",
+    140
+   ]
+  ],
+  "data": "council tax data held (councilTax.ts)",
+  "notes": "Slug also contains '<council> council tax', the bigger search for Glasgow (14,800) and Edinburgh (12,100)"
+ },
+ {
+  "cluster": "Council tax",
+  "tier": 2,
+  "primary": "orkney council tax bands",
+  "volume": 0,
+  "slug": "/orkney-council-tax-bands",
+  "title": "Orkney Council Tax Bands 2026/27: Band A to H Prices",
+  "h1": "Orkney council tax bands 2026/27",
+  "action": "move",
+  "current": "/council-tax-bands-scotland/orkney-islands",
+  "secondary": [
+   [
+    "council tax reduction orkney",
+    0
+   ],
+   [
+    "orkney council tax single person discount",
+    0
+   ],
+   [
+    "orkney council tax band checker",
+    0
+   ]
+  ],
+  "data": "council tax data held (councilTax.ts)",
+  "notes": "Slug also contains '<council> council tax', the bigger search for Glasgow (14,800) and Edinburgh (12,100)"
+ },
+ {
+  "cluster": "Council tax",
+  "tier": 2,
+  "primary": "perth and kinross council tax bands",
+  "volume": 320,
+  "slug": "/perth-and-kinross-council-tax-bands",
+  "title": "Perth and Kinross Council Tax Bands 2026/27: Band A to H Prices",
+  "h1": "Perth and Kinross council tax bands 2026/27",
+  "action": "move",
+  "current": "/council-tax-bands-scotland/perth-and-kinross",
+  "secondary": [
+   [
+    "council tax reduction perth and kinross",
+    0
+   ],
+   [
+    "perth and kinross council tax single person discount",
+    20
+   ],
+   [
+    "perth and kinross council tax band checker",
+    0
+   ]
+  ],
+  "data": "council tax data held (councilTax.ts)",
+  "notes": "Slug also contains '<council> council tax', the bigger search for Glasgow (14,800) and Edinburgh (12,100)"
+ },
+ {
+  "cluster": "Council tax",
+  "tier": 2,
+  "primary": "renfrewshire council tax bands",
+  "volume": 480,
+  "slug": "/renfrewshire-council-tax-bands",
+  "title": "Renfrewshire Council Tax Bands 2026/27: Band A to H Prices",
+  "h1": "Renfrewshire council tax bands 2026/27",
+  "action": "move",
+  "current": "/council-tax-bands-scotland/renfrewshire",
+  "secondary": [
+   [
+    "council tax reduction renfrewshire",
+    30
+   ],
+   [
+    "renfrewshire council tax single person discount",
+    20
+   ],
+   [
+    "renfrewshire council tax band checker",
+    0
+   ]
+  ],
+  "data": "council tax data held (councilTax.ts)",
+  "notes": "Slug also contains '<council> council tax', the bigger search for Glasgow (14,800) and Edinburgh (12,100)"
+ },
+ {
+  "cluster": "Council tax",
+  "tier": 2,
+  "primary": "scottish borders council tax bands",
+  "volume": 0,
+  "slug": "/scottish-borders-council-tax-bands",
+  "title": "Scottish Borders Council Tax Bands 2026/27: Band A to H Prices",
+  "h1": "Scottish Borders council tax bands 2026/27",
+  "action": "move",
+  "current": "/council-tax-bands-scotland/scottish-borders",
+  "secondary": [
+   [
+    "council tax reduction scottish borders",
+    0
+   ],
+   [
+    "scottish borders council tax single person discount",
+    0
+   ],
+   [
+    "scottish borders council tax band checker",
+    0
+   ]
+  ],
+  "data": "council tax data held (councilTax.ts)",
+  "notes": "Slug also contains '<council> council tax', the bigger search for Glasgow (14,800) and Edinburgh (12,100)"
+ },
+ {
+  "cluster": "Council tax",
+  "tier": 2,
+  "primary": "shetland council tax bands",
+  "volume": 0,
+  "slug": "/shetland-council-tax-bands",
+  "title": "Shetland Council Tax Bands 2026/27: Band A to H Prices",
+  "h1": "Shetland council tax bands 2026/27",
+  "action": "move",
+  "current": "/council-tax-bands-scotland/shetland-islands",
+  "secondary": [
+   [
+    "council tax reduction shetland",
+    0
+   ],
+   [
+    "shetland council tax single person discount",
+    0
+   ],
+   [
+    "shetland council tax band checker",
+    0
+   ]
+  ],
+  "data": "council tax data held (councilTax.ts)",
+  "notes": "Slug also contains '<council> council tax', the bigger search for Glasgow (14,800) and Edinburgh (12,100)"
+ },
+ {
+  "cluster": "Council tax",
+  "tier": 2,
+  "primary": "south ayrshire council tax bands",
+  "volume": 0,
+  "slug": "/south-ayrshire-council-tax-bands",
+  "title": "South Ayrshire Council Tax Bands 2026/27: Band A to H Prices",
+  "h1": "South Ayrshire council tax bands 2026/27",
+  "action": "move",
+  "current": "/council-tax-bands-scotland/south-ayrshire",
+  "secondary": [
+   [
+    "council tax reduction south ayrshire",
+    30
+   ],
+   [
+    "south ayrshire council tax single person discount",
+    0
+   ],
+   [
+    "south ayrshire council tax band checker",
+    90
+   ]
+  ],
+  "data": "council tax data held (councilTax.ts)",
+  "notes": "Slug also contains '<council> council tax', the bigger search for Glasgow (14,800) and Edinburgh (12,100)"
+ },
+ {
+  "cluster": "Council tax",
+  "tier": 2,
+  "primary": "south lanarkshire council tax bands",
+  "volume": 0,
+  "slug": "/south-lanarkshire-council-tax-bands",
+  "title": "South Lanarkshire Council Tax Bands 2026/27: Band A to H Prices",
+  "h1": "South Lanarkshire council tax bands 2026/27",
+  "action": "move",
+  "current": "/council-tax-bands-scotland/south-lanarkshire",
+  "secondary": [
+   [
+    "council tax reduction south lanarkshire",
+    0
+   ],
+   [
+    "south lanarkshire council tax single person discount",
+    0
+   ],
+   [
+    "south lanarkshire council tax band checker",
+    0
+   ]
+  ],
+  "data": "council tax data held (councilTax.ts)",
+  "notes": "Slug also contains '<council> council tax', the bigger search for Glasgow (14,800) and Edinburgh (12,100)"
+ },
+ {
+  "cluster": "Council tax",
+  "tier": 2,
+  "primary": "stirling council tax bands",
+  "volume": 0,
+  "slug": "/stirling-council-tax-bands",
+  "title": "Stirling Council Tax Bands 2026/27: Band A to H Prices",
+  "h1": "Stirling council tax bands 2026/27",
+  "action": "move",
+  "current": "/council-tax-bands-scotland/stirling",
+  "secondary": [
+   [
+    "council tax reduction stirling",
+    0
+   ],
+   [
+    "stirling council tax single person discount",
+    0
+   ],
+   [
+    "stirling council tax band checker",
+    0
+   ]
+  ],
+  "data": "council tax data held (councilTax.ts)",
+  "notes": "Slug also contains '<council> council tax', the bigger search for Glasgow (14,800) and Edinburgh (12,100)"
+ },
+ {
+  "cluster": "Council tax",
+  "tier": 2,
+  "primary": "west dunbartonshire council tax bands",
+  "volume": 0,
+  "slug": "/west-dunbartonshire-council-tax-bands",
+  "title": "West Dunbartonshire Council Tax Bands 2026/27: Band A to H Prices",
+  "h1": "West Dunbartonshire council tax bands 2026/27",
+  "action": "move",
+  "current": "/council-tax-bands-scotland/west-dunbartonshire",
+  "secondary": [
+   [
+    "council tax reduction west dunbartonshire",
+    20
+   ],
+   [
+    "west dunbartonshire council tax single person discount",
+    0
+   ],
+   [
+    "west dunbartonshire council tax band checker",
+    0
+   ]
+  ],
+  "data": "council tax data held (councilTax.ts)",
+  "notes": "Slug also contains '<council> council tax', the bigger search for Glasgow (14,800) and Edinburgh (12,100)"
+ },
+ {
+  "cluster": "Council tax",
+  "tier": 2,
+  "primary": "west lothian council tax bands",
+  "volume": 0,
+  "slug": "/west-lothian-council-tax-bands",
+  "title": "West Lothian Council Tax Bands 2026/27: Band A to H Prices",
+  "h1": "West Lothian council tax bands 2026/27",
+  "action": "move",
+  "current": "/council-tax-bands-scotland/west-lothian",
+  "secondary": [
+   [
+    "council tax reduction west lothian",
+    0
+   ],
+   [
+    "west lothian council tax single person discount",
+    10
+   ],
+   [
+    "west lothian council tax band checker",
+    0
+   ]
+  ],
+  "data": "council tax data held (councilTax.ts)",
+  "notes": "Slug also contains '<council> council tax', the bigger search for Glasgow (14,800) and Edinburgh (12,100)"
+ },
+ {
+  "cluster": "Council tax",
+  "tier": 1,
+  "primary": "council tax bands scotland",
+  "volume": 1900,
+  "slug": "/council-tax-bands-scotland",
+  "title": "Council Tax Bands Scotland 2026/27: Prices A to H for Every Council",
+  "h1": "Council tax bands Scotland 2026/27",
+  "action": "retitle",
+  "current": "/council-tax-bands-scotland",
+  "secondary": [
+   [
+    "council tax rates scotland",
+    1900
+   ],
+   [
+    "council tax increase scotland",
+    320
+   ],
+   [
+    "water rates scotland",
+    170
+   ]
+  ],
+  "data": "",
+  "notes": ""
+ },
+ {
+  "cluster": "Council tax",
+  "tier": 2,
+  "primary": "council tax band a scotland",
+  "volume": 0,
+  "slug": "/council-tax-band-a-scotland",
+  "title": "Council Tax Band A Scotland 2026/27: Monthly Cost by Council",
+  "h1": "Council tax band A Scotland: monthly and yearly cost",
+  "action": "move",
+  "current": "/council-tax-bands-scotland/band-a",
+  "secondary": [
+   [
+    "council tax band a",
+    0
+   ]
+  ],
+  "data": "",
+  "notes": ""
+ },
+ {
+  "cluster": "Council tax",
+  "tier": 2,
+  "primary": "council tax band b scotland",
+  "volume": 0,
+  "slug": "/council-tax-band-b-scotland",
+  "title": "Council Tax Band B Scotland 2026/27: Monthly Cost by Council",
+  "h1": "Council tax band B Scotland: monthly and yearly cost",
+  "action": "move",
+  "current": "/council-tax-bands-scotland/band-b",
+  "secondary": [
+   [
+    "council tax band b",
+    0
+   ]
+  ],
+  "data": "",
+  "notes": ""
+ },
+ {
+  "cluster": "Council tax",
+  "tier": 2,
+  "primary": "council tax band c scotland",
+  "volume": 0,
+  "slug": "/council-tax-band-c-scotland",
+  "title": "Council Tax Band C Scotland 2026/27: Monthly Cost by Council",
+  "h1": "Council tax band C Scotland: monthly and yearly cost",
+  "action": "move",
+  "current": "/council-tax-bands-scotland/band-c",
+  "secondary": [
+   [
+    "council tax band c",
+    0
+   ]
+  ],
+  "data": "",
+  "notes": ""
+ },
+ {
+  "cluster": "Council tax",
+  "tier": 2,
+  "primary": "council tax band d scotland",
+  "volume": 0,
+  "slug": "/council-tax-band-d-scotland",
+  "title": "Council Tax Band D Scotland 2026/27: Monthly Cost by Council",
+  "h1": "Council tax band D Scotland: monthly and yearly cost",
+  "action": "move",
+  "current": "/council-tax-bands-scotland/band-d",
+  "secondary": [
+   [
+    "council tax band d",
+    720
+   ]
+  ],
+  "data": "",
+  "notes": ""
+ },
+ {
+  "cluster": "Council tax",
+  "tier": 2,
+  "primary": "council tax band e scotland",
+  "volume": 0,
+  "slug": "/council-tax-band-e-scotland",
+  "title": "Council Tax Band E Scotland 2026/27: Monthly Cost by Council",
+  "h1": "Council tax band E Scotland: monthly and yearly cost",
+  "action": "move",
+  "current": "/council-tax-bands-scotland/band-e",
+  "secondary": [
+   [
+    "council tax band e",
+    0
+   ]
+  ],
+  "data": "",
+  "notes": ""
+ },
+ {
+  "cluster": "Council tax",
+  "tier": 2,
+  "primary": "council tax band f scotland",
+  "volume": 0,
+  "slug": "/council-tax-band-f-scotland",
+  "title": "Council Tax Band F Scotland 2026/27: Monthly Cost by Council",
+  "h1": "Council tax band F Scotland: monthly and yearly cost",
+  "action": "move",
+  "current": "/council-tax-bands-scotland/band-f",
+  "secondary": [
+   [
+    "council tax band f",
+    0
+   ]
+  ],
+  "data": "",
+  "notes": ""
+ },
+ {
+  "cluster": "Council tax",
+  "tier": 2,
+  "primary": "council tax band g scotland",
+  "volume": 0,
+  "slug": "/council-tax-band-g-scotland",
+  "title": "Council Tax Band G Scotland 2026/27: Monthly Cost by Council",
+  "h1": "Council tax band G Scotland: monthly and yearly cost",
+  "action": "move",
+  "current": "/council-tax-bands-scotland/band-g",
+  "secondary": [
+   [
+    "council tax band g",
+    0
+   ]
+  ],
+  "data": "",
+  "notes": ""
+ },
+ {
+  "cluster": "Council tax",
+  "tier": 2,
+  "primary": "council tax band h scotland",
+  "volume": 0,
+  "slug": "/council-tax-band-h-scotland",
+  "title": "Council Tax Band H Scotland 2026/27: Monthly Cost by Council",
+  "h1": "Council tax band H Scotland: monthly and yearly cost",
+  "action": "move",
+  "current": "/council-tax-bands-scotland/band-h",
+  "secondary": [
+   [
+    "council tax band h",
+    0
+   ]
+  ],
+  "data": "",
+  "notes": ""
+ },
+ {
+  "cluster": "Council tax",
+  "tier": 1,
+  "primary": "check council tax band",
+  "volume": 2400,
+  "slug": "/check-council-tax-band",
+  "title": "Check Council Tax Band in Scotland: Find My Council Tax Band",
+  "h1": "Check council tax band: find your band in Scotland",
+  "action": "new",
+  "current": null,
+  "secondary": [
+   [
+    "find my council tax band",
+    2400
+   ],
+   [
+    "check my council tax band",
+    390
+   ],
+   [
+    "how to find out your council tax band",
+    170
+   ],
+   [
+    "council tax check scotland",
+    170
+   ]
+  ],
+  "data": "Scottish Assessors portal (link out), band values",
+  "notes": "2,400 a month; also the route to appeals"
+ },
+ {
+  "cluster": "Council tax",
+  "tier": 2,
+  "primary": "council tax reduction scotland",
+  "volume": 320,
+  "slug": "/council-tax-reduction-scotland",
+  "title": "Council Tax Reduction Scotland: Who Qualifies and How to Apply",
+  "h1": "Council tax reduction Scotland: who qualifies and how much",
+  "action": "new",
+  "current": null,
+  "secondary": [
+   [
+    "council tax reduction edinburgh",
+    260
+   ],
+   [
+    "south lanarkshire council tax reduction",
+    170
+   ],
+   [
+    "north lanarkshire council tax reduction",
+    140
+   ]
+  ],
+  "data": "gov.scot / mygov.scot",
+  "notes": ""
+ },
+ {
+  "cluster": "Council tax",
+  "tier": 2,
+  "primary": "council tax increase scotland",
+  "volume": 320,
+  "slug": "/council-tax-increase-scotland",
+  "title": "Council Tax Increase Scotland 2026/27: Every Council's Rise",
+  "h1": "Council tax increase Scotland: every council's rise in 2026/27",
+  "action": "move",
+  "current": "/blog/council-tax-rises-scotland-2026-27",
+  "secondary": [],
+  "data": "",
+  "notes": "Update for 2027/28 in February and March"
+ },
+ {
+  "cluster": "Council tax",
+  "tier": 3,
+  "primary": "single person discount council tax scotland",
+  "volume": 140,
+  "slug": "/single-person-discount-council-tax-scotland",
+  "title": "Single Person Discount Council Tax Scotland: 25% Off and How to Claim",
+  "h1": "Single person discount council tax Scotland: how to claim 25% off",
+  "action": "new",
+  "current": null,
+  "secondary": [
+   [
+    "council tax discounts scotland",
+    110
+   ]
+  ],
+  "data": "mygov.scot",
+  "notes": ""
+ },
+ {
+  "cluster": "Council tax",
+  "tier": 3,
+  "primary": "water rates scotland",
+  "volume": 170,
+  "slug": "/water-rates-scotland",
+  "title": "Water Rates Scotland 2026/27: Charges by Council Tax Band",
+  "h1": "Water rates Scotland: what every band pays in 2026/27",
+  "action": "new",
+  "current": null,
+  "secondary": [],
+  "data": "Scottish Water charges (held in councilTax.ts)",
+  "notes": ""
+ },
+ {
+  "cluster": "Benefits",
+  "tier": 1,
+  "primary": "adult disability payment",
+  "volume": 12100,
+  "slug": "/adult-disability-payment",
+  "title": "Adult Disability Payment 2026/27: Rates, Who Qualifies, How to Apply",
+  "h1": "Adult disability payment: rates, eligibility and how to apply",
+  "action": "new",
+  "current": null,
+  "secondary": [
+   [
+    "apply for adult disability payment",
+    720
+   ],
+   [
+    "adult disability payment rates",
+    260
+   ],
+   [
+    "adult disability payment login",
+    390
+   ],
+   [
+    "adult disability payments",
+    140
+   ]
+  ],
+  "data": "Social Security Scotland, mygov.scot",
+  "notes": ""
+ },
+ {
+  "cluster": "Benefits",
+  "tier": 1,
+  "primary": "adult disability payment phone number",
+  "volume": 1600,
+  "slug": "/adult-disability-payment-phone-number",
+  "title": "Adult Disability Payment Phone Number: Call Times and What to Have Ready",
+  "h1": "Adult disability payment phone number",
+  "action": "new",
+  "current": null,
+  "secondary": [
+   [
+    "adult disability payment number",
+    210
+   ]
+  ],
+  "data": "Social Security Scotland",
+  "notes": ""
+ },
+ {
+  "cluster": "Benefits",
+  "tier": 1,
+  "primary": "winter fuel payment",
+  "volume": 8100,
+  "slug": "/winter-fuel-payment-scotland",
+  "title": "Winter Fuel Payment Scotland 2026: Who Gets It, How Much and When",
+  "h1": "Winter fuel payment in Scotland: who gets it, how much and when",
+  "action": "new",
+  "current": null,
+  "secondary": [
+   [
+    "winter fuel payment dates",
+    590
+   ],
+   [
+    "winter fuel payment for pensioners",
+    880
+   ],
+   [
+    "do all pensioners get winter fuel allowance",
+    320
+   ],
+   [
+    "how much is the winter fuel payment",
+    210
+   ],
+   [
+    "when is the winter fuel payment paid",
+    210
+   ],
+   [
+    "winter fuel payment and pip",
+    140
+   ]
+  ],
+  "data": "Social Security Scotland (Pension Age Winter Heating Payment)",
+  "notes": "8,100 a month; Scotland has its own payment, verify before writing"
+ },
+ {
+  "cluster": "Benefits",
+  "tier": 1,
+  "primary": "crisis grant",
+  "volume": 5400,
+  "slug": "/crisis-grant-scotland",
+  "title": "Crisis Grant Scotland: How to Apply, What You Get, Phone Numbers",
+  "h1": "Crisis grant Scotland: how to apply and what you get",
+  "action": "move",
+  "current": "/blog/crisis-grant-scotland-how-to-apply",
+  "secondary": [
+   [
+    "apply for crisis grant",
+    720
+   ],
+   [
+    "crisis grant application",
+    720
+   ],
+   [
+    "crisis grant apply online",
+    590
+   ],
+   [
+    "apply for crisis loan",
+    170
+   ]
+  ],
+  "data": "Scottish Welfare Fund statistics (held)",
+  "notes": ""
+ },
+ {
+  "cluster": "Benefits",
+  "tier": 1,
+  "primary": "crisis grant phone number",
+  "volume": 880,
+  "slug": "/crisis-grant-phone-number",
+  "title": "Crisis Grant Phone Number for Every Scottish Council",
+  "h1": "Crisis grant phone number: every council in Scotland",
+  "action": "new",
+  "current": null,
+  "secondary": [],
+  "data": "32 council websites",
+  "notes": "Table of 32 numbers and opening hours"
+ },
+ {
+  "cluster": "Benefits",
+  "tier": 1,
+  "primary": "carer support payment",
+  "volume": 4400,
+  "slug": "/carer-support-payment",
+  "title": "Carer Support Payment 2026/27: Rates, Who Qualifies, How to Apply",
+  "h1": "Carer support payment: rates, eligibility and how to apply",
+  "action": "new",
+  "current": null,
+  "secondary": [],
+  "data": "Social Security Scotland",
+  "notes": ""
+ },
+ {
+  "cluster": "Benefits",
+  "tier": 1,
+  "primary": "best start grant",
+  "volume": 2400,
+  "slug": "/best-start-grant",
+  "title": "Best Start Grant 2026/27: Pregnancy, Early Learning and School Payments",
+  "h1": "Best start grant: what you get and how to apply",
+  "action": "new",
+  "current": null,
+  "secondary": [
+   [
+    "best start grant early learning payment",
+    320
+   ],
+   [
+    "apply for best start grant",
+    110
+   ],
+   [
+    "best start early learning payment",
+    110
+   ]
+  ],
+  "data": "Social Security Scotland",
+  "notes": ""
+ },
+ {
+  "cluster": "Benefits",
+  "tier": 2,
+  "primary": "winter heating payment",
+  "volume": 720,
+  "slug": "/winter-heating-payment",
+  "title": "Winter Heating Payment 2026: Who Gets It and When It Is Paid",
+  "h1": "Winter heating payment: who gets it and when",
+  "action": "new",
+  "current": null,
+  "secondary": [
+   [
+    "winter heating allowance",
+    140
+   ]
+  ],
+  "data": "Social Security Scotland",
+  "notes": ""
+ },
+ {
+  "cluster": "Benefits",
+  "tier": 2,
+  "primary": "social security scotland payment dates",
+  "volume": 260,
+  "slug": "/social-security-scotland-payment-dates",
+  "title": "Social Security Scotland Payment Dates 2026 Including Christmas",
+  "h1": "Social security Scotland payment dates for 2026",
+  "action": "new",
+  "current": null,
+  "secondary": [],
+  "data": "Social Security Scotland",
+  "notes": "Christmas dates drive a December peak"
+ },
+ {
+  "cluster": "Benefits",
+  "tier": 3,
+  "primary": "young carers allowance",
+  "volume": 110,
+  "slug": "/young-carers-allowance-scotland",
+  "title": "Young Carers Allowance Scotland: The Young Carer Grant Explained",
+  "h1": "Young carers allowance in Scotland: the Young Carer Grant",
+  "action": "new",
+  "current": null,
+  "secondary": [],
+  "data": "Social Security Scotland",
+  "notes": ""
+ },
+ {
+  "cluster": "Benefits",
+  "tier": 2,
+  "primary": "scottish child payment",
+  "volume": 0,
+  "slug": "/scottish-child-payment",
+  "title": "Scottish Child Payment 2026/27: How Much and How to Apply",
+  "h1": "Scottish child payment: how much it is and how to apply",
+  "action": "move",
+  "current": "/blog/what-is-the-scottish-child-payment",
+  "secondary": [],
+  "data": "",
+  "notes": "No planner volume returned; GSC shows 224 impressions"
+ },
+ {
+  "cluster": "Who represents you",
+  "tier": 1,
+  "primary": "who is my local councillor by postcode",
+  "volume": 590,
+  "slug": "/who-is-my-local-councillor-by-postcode",
+  "title": "Who Is My Local Councillor by Postcode? Find Your Councillors",
+  "h1": "Who is my local councillor by postcode?",
+  "action": "new",
+  "current": null,
+  "secondary": [
+   [
+    "find my councillor",
+    70
+   ],
+   [
+    "who are my councillors",
+    320
+   ],
+   [
+    "local councillor for my area",
+    260
+   ],
+   [
+    "councillors in my area",
+    170
+   ],
+   [
+    "my local councillor",
+    140
+   ]
+  ],
+  "data": "Postcodes.io ward lookup + council councillor pages",
+  "notes": "About 3,000 a month across variants; peaks in May, and the council elections are 6 May 2027"
+ },
+ {
+  "cluster": "Who represents you",
+  "tier": 1,
+  "primary": "who is my msp",
+  "volume": 0,
+  "slug": "/who-is-my-msp",
+  "title": "Who Is My MSP? Find Your MSP and MP by Postcode",
+  "h1": "Who is my MSP? Find your MSP and MP by postcode",
+  "action": "new",
+  "current": null,
+  "secondary": [
+   [
+    "who is my msp by postcode",
+    0
+   ],
+   [
+    "find my msp",
+    0
+   ],
+   [
+    "my msp",
+    0
+   ],
+   [
+    "msp for my area",
+    0
+   ]
+  ],
+  "data": "Existing finder",
+  "notes": "Planner returned no MSP data; Search Console shows ~4,800 impressions in 3 months. /find-my-mp-and-msp redirects here"
+ },
+ {
+  "cluster": "Your area",
+  "tier": 2,
+  "primary": "life expectancy glasgow",
+  "volume": 390,
+  "slug": "/life-expectancy-glasgow",
+  "title": "Life Expectancy Glasgow: How Long People Live, Area by Area",
+  "h1": "Life expectancy Glasgow: the figures and the gap",
+  "action": "new",
+  "current": null,
+  "secondary": [
+   [
+    "average life expectancy glasgow",
+    110
+   ],
+   [
+    "glasgow male life expectancy",
+    30
+   ]
+  ],
+  "data": "ONS/NRS (held: ons-life-expectancy-glasgow-scotland.csv)",
+  "notes": ""
+ },
+ {
+  "cluster": "Your area",
+  "tier": 2,
+  "primary": "unemployment scotland",
+  "volume": 390,
+  "slug": "/unemployment-scotland",
+  "title": "Unemployment Scotland 2026: Rate, Trend and Council Figures",
+  "h1": "Unemployment Scotland: the rate, the trend and your council",
+  "action": "new",
+  "current": null,
+  "secondary": [
+   [
+    "scotland unemployment rate",
+    210
+   ],
+   [
+    "youth unemployment scotland",
+    50
+   ],
+   [
+    "scotland employment rate",
+    40
+   ]
+  ],
+  "data": "ONS APS + claimant count (held)",
+  "notes": ""
+ },
+ {
+  "cluster": "Your area",
+  "tier": 2,
+  "primary": "crime rate glasgow",
+  "volume": 320,
+  "slug": "/crime-rate-glasgow",
+  "title": "Crime Rate Glasgow: Recorded Crime by Type and Year",
+  "h1": "Crime rate Glasgow: what the police figures show",
+  "action": "new",
+  "current": null,
+  "secondary": [
+   [
+    "crime stats glasgow",
+    320
+   ]
+  ],
+  "data": "Recorded Crime in Scotland (partly held)",
+  "notes": ""
+ },
+ {
+  "cluster": "Your area",
+  "tier": 2,
+  "primary": "poverty in scotland",
+  "volume": 260,
+  "slug": "/poverty-in-scotland",
+  "title": "Poverty in Scotland: The Figures, the Causes and Who Can Fix It",
+  "h1": "Poverty in Scotland: the figures, the causes and who can fix it",
+  "action": "move",
+  "current": "/poverty",
+  "secondary": [
+   [
+    "poverty statistics scotland",
+    90
+   ],
+   [
+    "poverty rates in scotland",
+    90
+   ]
+  ],
+  "data": "",
+  "notes": ""
+ },
+ {
+  "cluster": "Your area",
+  "tier": 2,
+  "primary": "energy price cap",
+  "volume": 720,
+  "slug": "/energy-price-cap-scotland",
+  "title": "Energy Price Cap January 2027: What It Means in Scotland",
+  "h1": "Energy price cap: what it means in Scotland",
+  "action": "move",
+  "current": "/blog/energy-price-cap-scotland-2026-explained",
+  "secondary": [
+   [
+    "ofgem price cap",
+    320
+   ],
+   [
+    "price cap",
+    140
+   ]
+  ],
+  "data": "",
+  "notes": "Ofgem announces the January cap in late November"
+ },
+ {
+  "cluster": "Your area",
+  "tier": 3,
+  "primary": "house prices in edinburgh",
+  "volume": 480,
+  "slug": "/house-prices-in-edinburgh",
+  "title": "House Prices in Edinburgh 2026: Average Price by Area and Type",
+  "h1": "House prices in Edinburgh: the average and the trend",
+  "action": "new",
+  "current": null,
+  "secondary": [
+   [
+    "average house price edinburgh",
+    170
+   ]
+  ],
+  "data": "Registers of Scotland (not held yet)",
+  "notes": ""
+ },
+ {
+  "cluster": "Your area",
+  "tier": 3,
+  "primary": "simd postcode checker",
+  "volume": 390,
+  "slug": "/simd-postcode-checker",
+  "title": "SIMD Postcode Checker: How Deprived Is Your Area?",
+  "h1": "SIMD postcode checker: look up your area's deprivation rank",
+  "action": "new",
+  "current": null,
+  "secondary": [],
+  "data": "SIMD 2020v2 (not held yet)",
+  "notes": ""
+ },
+ {
+  "cluster": "Your area",
+  "tier": 3,
+  "primary": "food banks glasgow",
+  "volume": 480,
+  "slug": "/food-banks-glasgow",
+  "title": "Food Banks Glasgow: Where They Are and How to Get Help",
+  "h1": "Food banks Glasgow: where to get help",
+  "action": "new",
+  "current": null,
+  "secondary": [],
+  "data": "Needs a maintained directory",
+  "notes": "Only if it can be kept current"
+ },
+ {
+  "cluster": "Your area",
+  "tier": 3,
+  "primary": "best council in scotland",
+  "volume": 20,
+  "slug": "/best-council-in-scotland",
+  "title": "Best Council in Scotland 2026: All 32 Ranked",
+  "h1": "Best council in Scotland: all 32 ranked",
+  "action": "move",
+  "current": "/blog/best-performing-councils-scotland",
+  "secondary": [],
+  "data": "",
+  "notes": ""
+ },
+ {
+  "cluster": "Schools",
+  "tier": 1,
+  "primary": "higher modern studies past papers",
+  "volume": 1000,
+  "slug": "/higher-modern-studies-past-papers",
+  "title": "Higher Modern Studies Past Papers and Practice Questions With Real Data",
+  "h1": "Higher modern studies past papers and practice questions",
+  "action": "new",
+  "current": null,
+  "secondary": [
+   [
+    "sqa past papers higher modern studies",
+    140
+   ]
+  ],
+  "data": "Links to SQA's own papers; practice questions from site data",
+  "notes": "Peaks April to May; never rehost SQA papers"
+ },
+ {
+  "cluster": "Schools",
+  "tier": 1,
+  "primary": "national 5 modern studies",
+  "volume": 880,
+  "slug": "/national-5-modern-studies",
+  "title": "National 5 Modern Studies: Course Guide, Notes and Real Data",
+  "h1": "National 5 modern studies: the course in plain English",
+  "action": "new",
+  "current": null,
+  "secondary": [
+   [
+    "national 5 modern studies revision notes",
+    20
+   ],
+   [
+    "national 5 modern studies model answers",
+    20
+   ]
+  ],
+  "data": "",
+  "notes": ""
+ },
+ {
+  "cluster": "Schools",
+  "tier": 1,
+  "primary": "higher modern studies",
+  "volume": 720,
+  "slug": "/higher-modern-studies",
+  "title": "Higher Modern Studies: Course Guide, Skills and Real Data",
+  "h1": "Higher modern studies: the course, the skills and the evidence",
+  "action": "new",
+  "current": null,
+  "secondary": [
+   [
+    "bbc bitesize higher modern studies",
+    90
+   ]
+  ],
+  "data": "",
+  "notes": ""
+ },
+ {
+  "cluster": "Schools",
+  "tier": 1,
+  "primary": "modern studies",
+  "volume": 720,
+  "slug": "/modern-studies",
+  "title": "Modern Studies: Free Resources for Pupils and Teachers in Scotland",
+  "h1": "Modern studies: free resources for pupils and teachers",
+  "action": "new",
+  "current": null,
+  "secondary": [
+   [
+    "modern studies resources",
+    10
+   ],
+   [
+    "modern studies revision",
+    10
+   ]
+  ],
+  "data": "",
+  "notes": "Hub for the schools section"
+ },
+ {
+  "cluster": "Schools",
+  "tier": 2,
+  "primary": "nat 5 modern studies past papers",
+  "volume": 590,
+  "slug": "/nat-5-modern-studies-past-papers",
+  "title": "Nat 5 Modern Studies Past Papers and Practice Questions",
+  "h1": "Nat 5 modern studies past papers and practice questions",
+  "action": "new",
+  "current": null,
+  "secondary": [
+   [
+    "modern studies nat 5 past papers",
+    170
+   ]
+  ],
+  "data": "",
+  "notes": ""
+ },
+ {
+  "cluster": "Schools",
+  "tier": 2,
+  "primary": "advanced higher modern studies",
+  "volume": 320,
+  "slug": "/advanced-higher-modern-studies",
+  "title": "Advanced Higher Modern Studies: Course Guide and Data Sources",
+  "h1": "Advanced higher modern studies: the course and where to find data",
+  "action": "new",
+  "current": null,
+  "secondary": [],
+  "data": "",
+  "notes": ""
+ },
+ {
+  "cluster": "Schools",
+  "tier": 3,
+  "primary": "causes of poverty",
+  "volume": 90,
+  "slug": "/causes-of-poverty",
+  "title": "Causes of Poverty: What the Scottish Evidence Shows",
+  "h1": "Causes of poverty: what the evidence shows in Scotland",
+  "action": "new",
+  "current": null,
+  "secondary": [
+   [
+    "effects of poverty",
+    10
+   ],
+   [
+    "impact of poverty",
+    20
+   ],
+   [
+    "effects of childhood poverty",
+    20
+   ]
+  ],
+  "data": "",
+  "notes": ""
+ }
+]

@@ -179,7 +179,7 @@ export default function Dumbbell({
           }}
           role="status"
         >
-          <div className="ui text-[15px] font-[680] text-[var(--ink-2)] mb-1.5">
+          <div className="ui text-[15px] font-[560] text-[var(--ink-2)] mb-1.5">
             {rows[hover].name}
           </div>
           <div className="flex items-center gap-2 text-[15px]">

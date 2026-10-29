@@ -49,7 +49,7 @@ export { pressPackText } from "./pressPackText.ts";
 /** Codes that read as a plain last-place sentence, and how each one reads. */
 const LAST_PLACE: Record<string, (name: string, here: string, scotland: string) => string> = {
   ENV04b: (n, h, s) =>
-    `${n} has the worst-maintained main roads of Scotland's 32 council areas: ${h} are flagged as needing repair, against ${s} nationally`,
+    `${n} has the worst maintained main roads of Scotland's 32 council areas: ${h} are flagged as needing repair, against ${s} nationally`,
   ENV01a: (n, h, s) =>
     `${n} has the most expensive bin collection in Scotland at ${h} per property, against ${s} nationally`,
   CORP06b: (n, h, s) =>

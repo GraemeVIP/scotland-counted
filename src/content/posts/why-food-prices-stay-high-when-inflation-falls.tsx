@@ -26,7 +26,7 @@ export default function Post() {
       <H2 id="numbers">What happened to food prices</H2>
       <BigStat
         value="38.6% higher"
-        label="UK food and non-alcoholic drink prices in November 2025 than in November 2020"
+        label="UK food and non alcoholic drink prices in November 2025 than in November 2020"
         exact="Official ONS price data. The rise is cumulative across five years."
       />
       <P>
@@ -42,8 +42,8 @@ export default function Post() {
         disruption affected some products. Labour and packaging costs also changed.
       </P>
       <P>
-        Brexit added a UK-specific cost. Research from the London School of Economics estimated
-        that new non-tariff barriers added about eight percentage points to food-price growth from
+        Brexit added a UK specific cost. Research from the London School of Economics estimated
+        that new non tariff barriers added about eight percentage points to food price growth from
         late 2019 to March 2023, roughly £250 for the average household over that period. It is an
         academic estimate, not a receipt count, and I label it that way.
       </P>
@@ -60,23 +60,23 @@ export default function Post() {
         <LI>Cheaper fuel can help transport costs without reversing every earlier increase.</LI>
       </UL>
 
-      <H2 id="households">Why low-income households feel it most</H2>
+      <H2 id="households">Why low income households feel it most</H2>
       <P>
         Food takes a larger share of a small income. The same £10 increase therefore removes more
         of the money available for heating, travel or a child’s shoes. Official Household Costs
-        Indices show that low-income households experienced about a third of cumulative cost growth
+        Indices show that low income households experienced about a third of cumulative cost growth
         over the five years to March 2026.
       </P>
       <P>
         Families should also check <Link href="/blog/free-school-meals-clothing-grant-scotland">free
         school meals and clothing grants</Link>. When there is no money for food or heating today,
-        a <Link href="/blog/crisis-grant-scotland-how-to-apply">Crisis Grant</Link> may be the more
+        a <Link href="/crisis-grant-scotland">Crisis Grant</Link> may be the more
         urgent route.
       </P>
 
       <PostCTA
         title="Inflation is not an excuse to ignore the price level"
-        body="The site turns the official figures into a ready-written question for the people who control wages, benefits and food policy. I find your MP and MSP automatically."
+        body="The site turns the official figures into a ready written question for the people who control wages, benefits and food policy. I find your MP and MSP automatically."
         href="/email-your-mp-and-msp"
         cta="Ask for an answer"
       />

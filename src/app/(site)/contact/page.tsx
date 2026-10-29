@@ -77,7 +77,7 @@ export default function Contact() {
         <PageHeader
           eyebrow="A real person reads these"
           title="Send Graeme a message"
-          lede="I’m Graeme, the person behind Scotland Counted. I build this as a free, independent resource. Tell me what you liked, what you didn’t, or what would make it more useful. Questions and a quick thank-you are welcome too."
+          lede="I’m Graeme, the person behind Scotland Counted. I build this as a free, independent resource. Tell me what you liked, what you didn’t, or what would make it more useful. Questions and a quick thank you are welcome too."
         />
 
         <ContentFrame className="grid gap-x-14 gap-y-10 lg:grid-cols-2 items-start pt-2">
@@ -91,7 +91,7 @@ export default function Contact() {
 
           <div className="grid gap-6">
             <div className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] px-6 py-6">
-              <p className="ui text-[15px] font-[750] mb-3">What happens when you send it</p>
+              <p className="ui text-[15px] font-[600] mb-3">What happens when you send it</p>
               <ul className="grid gap-2.5 text-[16px] leading-[1.6] text-[var(--ink-2)]">
                 {[
                   "I read the messages myself. A sentence or two is plenty, and honest criticism is useful too.",
@@ -112,7 +112,7 @@ export default function Contact() {
             </div>
 
             <div className="rounded-[var(--r-m)] border-l-[3px] border-[var(--warn)] bg-[var(--surface)] px-6 py-6">
-              <p className="ui text-[15px] font-[750] mb-2">If you need help this week</p>
+              <p className="ui text-[15px] font-[600] mb-2">If you need help this week</p>
               <p className="text-[16px] leading-[1.6] text-[var(--ink-2)]">
                 Please do not wait for me. This site explains the figures. It cannot give
                 benefits, debt or legal advice, and a reply in a few days is no use if something
@@ -134,7 +134,7 @@ export default function Contact() {
                   href={s.href}
                   rel="noopener noreferrer"
                   target="_blank"
-                  className="ui text-[17px] font-[720] text-[var(--brand)]"
+                  className="ui text-[17px] font-[600] text-[var(--brand)]"
                 >
                   {s.name}
                 </a>
@@ -183,11 +183,11 @@ export default function Contact() {
                 how to vote.
               */}
               <div className="mt-6 rounded-[var(--r-m)] border-l-[3px] border-[var(--brand)] bg-[var(--surface-2)] px-6 py-5">
-                <p className="ui text-[15px] font-[750] mb-2">Figures, not spin</p>
+                <p className="ui text-[15px] font-[600] mb-2">Figures, not spin</p>
                 <p className="text-[16px] leading-[1.6] text-[var(--ink-2)] max-w-[58ch]">
                   Every number here is taken from the body that published it, the Scottish
                   Government, the ONS, DWP records, or named academic work, and is never adjusted,
-                  reframed or cherry-picked to make a point land harder. Where the site sets out
+                  reframed or cherry picked to make a point land harder. Where the site sets out
                   what would change things, the options are costed, attributed to whoever proposed
                   them, and marked with who actually has the power to do them.
                 </p>
@@ -208,7 +208,7 @@ export default function Contact() {
             </div>
 
             <div className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] px-6 py-6">
-              <p className="ui text-[15px] font-[750] mb-3">Who pays for this</p>
+              <p className="ui text-[15px] font-[600] mb-3">Who pays for this</p>
               <p className="text-[16px] leading-[1.6] text-[var(--ink-2)]">
                 The public site is free to use. You can also <Link href="/for-organisations">commission a local evidence brief</Link>. Paid research is agreed separately and does not buy editorial influence.
               </p>

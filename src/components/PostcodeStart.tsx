@@ -144,7 +144,7 @@ export default function PostcodeStart({
 
       <div aria-live="polite">
         {state === "error" && (
-          <p role="alert" className="ui mt-4 text-[16px] font-[650] text-[var(--bad-text)]">
+          <p role="alert" className="ui mt-4 text-[16px] font-[540] text-[var(--bad-text)]">
             {error}
           </p>
         )}
@@ -196,7 +196,7 @@ export default function PostcodeStart({
               </div>
             )}
 
-            <h3 className="ui mt-6 mb-2 text-[15px] font-[750] text-[var(--ink)]">
+            <h3 className="ui mt-6 mb-2 text-[15px] font-[600] text-[var(--ink)]">
               Who represents you
             </h3>
             <ul className="grid gap-2" data-testid="local-representatives">
@@ -220,7 +220,7 @@ export default function PostcodeStart({
 
             {lookup.regionalMsps.length > 0 && (
               <details className="mt-3 rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--paper)]">
-                <summary className="ui cursor-pointer px-4 py-3 text-[15px] font-[700] text-[var(--ink)]">
+                <summary className="ui cursor-pointer px-4 py-3 text-[15px] font-[580] text-[var(--ink)]">
                   You also have {lookup.regionalMsps.length} regional MSPs
                   {lookup.holyrood.region ? ` for ${lookup.holyrood.region}` : ""}
                 </summary>
@@ -241,7 +241,7 @@ export default function PostcodeStart({
               <Link href="/who-decides">See which is which</Link>.
             </p>
 
-            <h3 className="ui mt-6 mb-2 text-[15px] font-[750] text-[var(--ink)]">
+            <h3 className="ui mt-6 mb-2 text-[15px] font-[600] text-[var(--ink)]">
               The rest of your area
             </h3>
             <ul className="grid gap-2 sm:grid-cols-2">
@@ -251,7 +251,7 @@ export default function PostcodeStart({
                     href={link.href}
                     className="block h-full rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--paper)] p-3.5 no-underline transition-colors hover:border-[var(--brand)]"
                   >
-                    <span className="ui block text-[15.5px] font-[720] leading-[1.35] text-[var(--ink)]">
+                    <span className="ui block text-[15.5px] font-[600] leading-[1.35] text-[var(--ink)]">
                       {link.label}
                       <span aria-hidden="true" className="text-[var(--brand)]"> →</span>
                     </span>
@@ -266,7 +266,7 @@ export default function PostcodeStart({
                   href="/take-home-pay-calculator-scotland"
                   className="block h-full rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--paper)] p-3.5 no-underline transition-colors hover:border-[var(--brand)]"
                 >
-                  <span className="ui block text-[15.5px] font-[720] leading-[1.35] text-[var(--ink)]">
+                  <span className="ui block text-[15.5px] font-[600] leading-[1.35] text-[var(--ink)]">
                     What you keep from your pay
                     <span aria-hidden="true" className="text-[var(--brand)]"> →</span>
                   </span>
@@ -319,9 +319,9 @@ function RepLine({
 }) {
   return (
     <li className="rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--paper)] p-3.5">
-      <p className="ui text-[13.5px] font-[700] text-[var(--brand)]">{label}</p>
+      <p className="ui text-[13.5px] font-[580] text-[var(--brand)]">{label}</p>
       <p className="mt-1 text-[16px] leading-[1.4]">
-        <Link href={representativePagePath(representative)} className="font-[720]">
+        <Link href={representativePagePath(representative)} className="font-[600]">
           {representative.name}
         </Link>
         <span className="text-[var(--ink-2)]"> · {representative.party}</span>

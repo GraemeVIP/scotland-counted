@@ -8,7 +8,7 @@ import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
 export const metadata = meta({
   title: "Email Your MP and MSP: Letters Written For You",
   description:
-    "Scotland Counted writes ready-to-send emails to your MP and constituency MSP, with your area's real figures already in them. You read them and press send.",
+    "Scotland Counted writes ready to send emails to your MP and constituency MSP, with your area's real figures already in them. You read them and press send.",
   path: "/email-your-mp-and-msp",
 });
 

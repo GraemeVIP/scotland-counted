@@ -76,7 +76,7 @@ export default function NewsletterSignup({
       className={compact ? "max-w-[340px]" : feature ? "w-full" : "max-w-[480px]"}
     >
       {!compact && (
-        <p className={feature ? "ui mb-4 text-[17px] font-[720]" : "ui mb-3 text-[15px] font-[680]"}>
+        <p className={feature ? "ui mb-4 text-[17px] font-[600]" : "ui mb-3 text-[15px] font-[560]"}>
           One email when the data changes
         </p>
       )}

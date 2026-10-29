@@ -59,7 +59,7 @@ export const snpMoneyTimelineSources: SnpTimelineSource[] = [
     publisher: "Judiciary of Scotland",
     url: "https://www.judiciary.scot/home/sentences-judgments/sentences-and-opinions/2026/06/23/hma-v-peter-murrell",
     used:
-      "The sentence of five years and three months, the seven-year starting point, credit for the guilty plea and Lord Young's assessment of the breach of trust.",
+      "The sentence of five years and three months, the seven year starting point, credit for the guilty plea and Lord Young's assessment of the breach of trust.",
   },
   {
     id: "police-murrell-arrest-2023",
@@ -125,7 +125,7 @@ export const snpMoneyTimelineSources: SnpTimelineSource[] = [
     publisher: "Electoral Commission",
     url: "https://search.electoralcommission.org.uk/Api/Accounts/Documents/23205",
     used:
-      "The party's statement that independence-related appeals raised £666,953 from 2017 to 2020, £51,760 had been applied and the balance was internally earmarked rather than held in a separate account.",
+      "The party's statement that independence related appeals raised £666,953 from 2017 to 2020, £51,760 had been applied and the balance was internally earmarked rather than held in a separate account.",
     derivation:
       "Publication by the Commission does not mean it independently verified every statement in the accounts.",
   },
@@ -135,7 +135,7 @@ export const snpMoneyTimelineSources: SnpTimelineSource[] = [
     publisher: "Electoral Commission",
     url: "https://search.electoralcommission.org.uk/Api/Accounts/Documents/24333",
     used:
-      "The year-end cash, net assets, deficit and disclosure that £107,620 had been advanced by executive management, with £60,000 outstanding.",
+      "The year end cash, net assets, deficit and disclosure that £107,620 had been advanced by executive management, with £60,000 outstanding.",
   },
   {
     id: "ec-murrell-loan-foi",
@@ -151,7 +151,7 @@ export const snpMoneyTimelineSources: SnpTimelineSource[] = [
     publisher: "Electoral Commission",
     url: "https://search.electoralcommission.org.uk/Api/Accounts/Documents/27288",
     used:
-      "The accounting treatment and carrying value of the motorhome while it remained impounded, and the outstanding £60,000 former-executive loan.",
+      "The accounting treatment and carrying value of the motorhome while it remained impounded, and the outstanding £60,000 former executive loan.",
   },
   {
     id: "ec-snp-review-2026",
@@ -159,7 +159,7 @@ export const snpMoneyTimelineSources: SnpTimelineSource[] = [
     publisher: "UK Parliament",
     url: "https://committees.parliament.uk/publications/53943/documents/300715/default/",
     used:
-      "The £2,248,353 in public grants for party policy research and development received from 2010 to 2022, the absence of evidence of grant misuse in annual checks and the Commission's post-conviction review of past filings.",
+      "The £2,248,353 in public grants for party policy research and development received from 2010 to 2022, the absence of evidence of grant misuse in annual checks and the Commission's post conviction review of past filings.",
   },
   {
     id: "stv-indyref2-fundraiser-2017",
@@ -271,7 +271,7 @@ export const snpMoneyTimelineSources: SnpTimelineSource[] = [
     publisher: "Scottish Parliament",
     url: "https://www.parliament.scot/chamber-and-committees/votes-and-motions/S7M-00294",
     used:
-      "The original Branchform-specific proposal, its amendment and the final 71–50 vote for an independently led review covering all political-party finances.",
+      "The original Branchform specific proposal, its amendment and the final 71–50 vote for an independently led review covering all political party finances.",
   },
   {
     id: "itv-snp-recovery-2026",
@@ -302,7 +302,7 @@ export const snpMoneyTimelineSources: SnpTimelineSource[] = [
     publisher: "Police Scotland",
     url: "https://www.scotland.police.uk/access-to-information/freedom-of-information/disclosure-log/disclosure-log-2026/july/26-1903-branchform-snp-timeline-advice-guidance-submission-reviews-copfs-report-communications-briefings/",
     used:
-      "Confirmation of the August 2024 advice request and where the prosecution reviews and 542-page report were held.",
+      "Confirmation of the August 2024 advice request and where the prosecution reviews and 542 page report were held.",
   },
   {
     id: "stv-yes-scotland-complaint-2026",
@@ -318,7 +318,7 @@ export const snpMoneyTimelineSources: SnpTimelineSource[] = [
     publisher: "Companies House",
     url: "https://find-and-update.company-information.service.gov.uk/company/SC422720/filing-history",
     used:
-      "The company's filed accounts and dormant-company records. Companies House warns that it does not check the accuracy of information filed.",
+      "The company's filed accounts and dormant company records. Companies House warns that it does not check the accuracy of information filed.",
   },
   {
     id: "ec-scottish-referendum-2014",
@@ -361,21 +361,21 @@ export const snpMoneyTimelineSources: SnpTimelineSource[] = [
     title: "Scottish National Party annual report and financial statements 2017",
     publisher: "Electoral Commission",
     url: "https://search.electoralcommission.org.uk/Api/Accounts/Documents/20553",
-    used: "The party's 2017 income, expenditure, cash and net-liability figures.",
+    used: "The party's 2017 income, expenditure, cash and net liability figures.",
   },
   {
     id: "ec-snp-accounts-2018",
     title: "Scottish National Party annual report and financial statements 2018",
     publisher: "Electoral Commission",
     url: "https://search.electoralcommission.org.uk/Api/Accounts/Documents/21513",
-    used: "The party's 2018 cash and net-asset figures.",
+    used: "The party's 2018 cash and net asset figures.",
   },
   {
     id: "ec-snp-accounts-2019",
     title: "Scottish National Party annual report and financial statements 2019",
     publisher: "Electoral Commission",
     url: "https://search.electoralcommission.org.uk/Api/Accounts/Documents/22612",
-    used: "The fall in year-end cash to £96,854 and the 2019 net-asset figure.",
+    used: "The fall in year end cash to £96,854 and the 2019 net asset figure.",
   },
   {
     id: "national-beattie-earmark-2020",
@@ -430,7 +430,7 @@ export const snpMoneyTimelineSources: SnpTimelineSource[] = [
     publisher: "STV News",
     url: "https://news.stv.tv/politics/peter-murrell-resigns-as-snp-chief-executive-amid-row-over-membership-numbers",
     used:
-      "Murrell's 18 March 2023 resignation over the party's handling of membership-number statements, not as an admission about finances.",
+      "Murrell's 18 March 2023 resignation over the party's handling of membership number statements, not as an admission about finances.",
   },
   {
     id: "police-murrell-release-2023",
@@ -608,7 +608,7 @@ export const snpMoneyTimelineEvents: SnpTimelineEvent[] = [
     summary:
       "STV recorded a total of almost £482,000 on 8 June. By the next morning the fundraising page had been removed. The SNP said it had always planned a short campaign and that the money remained available for a future referendum.",
     explainer:
-      "That public total was not the later court-proved theft figure. The two numbers describe different things and cannot simply be subtracted from each other.",
+      "That public total was not the later court proved theft figure. The two numbers describe different things and cannot simply be subtracted from each other.",
     sourceIds: ["stv-indyref2-fundraiser-2017"],
   },
   {
@@ -619,9 +619,9 @@ export const snpMoneyTimelineEvents: SnpTimelineEvent[] = [
     groupLabel: "2017–2020 · appeals, spending and questions",
     phase: "fundraising",
     status: "reported",
-    title: "The SNP says the appeal money is ring-fenced",
+    title: "The SNP says the appeal money is ring fenced",
     summary:
-      "Responding to questions after the page closed, the party said the money was ring-fenced for the stated referendum purpose and had not been used for the general election.",
+      "Responding to questions after the page closed, the party said the money was ring fenced for the stated referendum purpose and had not been used for the general election.",
     explainer:
       "The original appeal did not promise a legally separate bank account. But 'ring-fenced' commonly sounds stronger than the internal earmark and future-cashflow treatment described later.",
     sourceIds: ["stv-indyref2-fundraiser-2017", "stv-snp-finance-explainer-2023"],
@@ -673,7 +673,7 @@ export const snpMoneyTimelineEvents: SnpTimelineEvent[] = [
     groupLabel: "2017–2020 · appeals, spending and questions",
     phase: "fundraising",
     status: "official",
-    title: "The first post-appeal annual accounts show £7,906 cash",
+    title: "The first post appeal annual accounts show £7,906 cash",
     summary:
       "The SNP's 2017 accounts reported £5.80 million income, £5.10 million expenditure, £7,906 cash and £528,276 net liabilities. They did not itemise the appeal as a separate fund.",
     explainer:
@@ -923,9 +923,9 @@ export const snpMoneyTimelineEvents: SnpTimelineEvent[] = [
     status: "official",
     title: "Murrell lends the SNP £107,620",
     summary:
-      "Murrell made an interest-free loan to help the party's working capital after the Holyrood election. The party repaid £26,905 in August and £20,715 in October, leaving £60,000 outstanding.",
+      "Murrell made an interest free loan to help the party's working capital after the Holyrood election. The party repaid £26,905 in August and £20,715 in October, leaving £60,000 outstanding.",
     explainer:
-      "The loan was not the theft. It was real money advanced to the party, but the lender-specific regulatory report was submitted late.",
+      "The loan was not the theft. It was real money advanced to the party, but the lender specific regulatory report was submitted late.",
     sourceIds: ["ec-murrell-loan-record", "ec-murrell-loan-foi", "ec-snp-accounts-2021"],
   },
   {
@@ -964,7 +964,7 @@ export const snpMoneyTimelineEvents: SnpTimelineEvent[] = [
     status: "official",
     title: "The next accounts show a £487,487 internal independence earmark",
     summary:
-      "The SNP later reported £740,822 of cumulative appeal income and £253,335 of qualifying spending, leaving £487,487 internally earmarked. Year-end cash was £144,975 and the annual deficit was £751,572.",
+      "The SNP later reported £740,822 of cumulative appeal income and £253,335 of qualifying spending, leaving £487,487 internally earmarked. Year end cash was £144,975 and the annual deficit was £751,572.",
     explainer:
       "An earmark is an internal promise about future use. It is not the same as cash sitting untouched in its own bank account.",
     sourceIds: ["ec-snp-accounts-2021"],
@@ -1061,11 +1061,11 @@ export const snpMoneyTimelineEvents: SnpTimelineEvent[] = [
     groupLabel: "2023 · arrests, searches and public scrutiny",
     phase: "investigation",
     status: "context",
-    title: "A separate membership-number row erupts",
+    title: "A separate membership number row erupts",
     summary:
       "The SNP said 72,186 members could vote in its leadership contest, down from 103,884 reported at the end of 2021. Communications chief Murray Foote resigned after the party's earlier public response was shown to be inaccurate.",
     explainer:
-      "This was a party-governance controversy, not a police or court finding about money.",
+      "This was a party governance controversy, not a police or court finding about money.",
     sourceIds: ["stv-membership-row-2023"],
   },
   {
@@ -1093,7 +1093,7 @@ export const snpMoneyTimelineEvents: SnpTimelineEvent[] = [
     summary:
       "Police sent draft warrant applications to COPFS on 20 March. Crown Counsel instructed prosecutors to apply, and a sheriff granted the warrants on 3 April. Additional orders later obtained evidence from banks, retailers, HMRC and accountants.",
     explainer:
-      "A sheriff-approved warrant gives police legal authority to search or arrest. It is not a verdict.",
+      "A sheriff approved warrant gives police legal authority to search or arrest. It is not a verdict.",
     sourceIds: ["branchform-copfs-briefing"],
   },
   {
@@ -1237,7 +1237,7 @@ export const snpMoneyTimelineEvents: SnpTimelineEvent[] = [
     status: "official",
     title: "Police submit the Murrell prosecution report",
     summary:
-      "Police passed prosecutors a standard prosecution report containing one embezzlement charge, then covering alleged conduct from 2016 to 2023. COPFS began its independent evidence and public-interest assessment.",
+      "Police passed prosecutors a standard prosecution report containing one embezzlement charge, then covering alleged conduct from 2016 to 2023. COPFS began its independent evidence and public interest assessment.",
     explainer:
       "Later examination traced the proved offending back to 2010 and narrowed the final amount. Earlier dates and totals remained allegations until the plea was agreed.",
     sourceIds: ["police-branchform-report-2024", "branchform-copfs-briefing"],
@@ -1252,7 +1252,7 @@ export const snpMoneyTimelineEvents: SnpTimelineEvent[] = [
     status: "official",
     title: "Police ask prosecutors for advice about Sturgeon and Beattie",
     summary:
-      "Police submitted an advice-and-guidance request, including whether more inquiries were needed. It was not a prosecution report and neither person had been charged.",
+      "Police submitted an advice and guidance request, including whether more inquiries were needed. It was not a prosecution report and neither person had been charged.",
     explainer:
       "The distinction matters: police did not submit either Sturgeon or Beattie for prosecution.",
     sourceIds: ["branchform-copfs-briefing", "police-foi-advice-request-2026"],
@@ -1360,7 +1360,7 @@ export const snpMoneyTimelineEvents: SnpTimelineEvent[] = [
     groupLabel: "2026 · guilty plea, proof and sentence",
     phase: "court",
     status: "official",
-    title: "A 318-page statement of agreed evidence is served",
+    title: "A 318 page statement of agreed evidence is served",
     summary:
       "Prosecutors served a Statement of Uncontroversial Evidence and draft schedules running to 118 pages and more than 1,000 purchases. This reduced what would have needed to be proved by witnesses at a trial.",
     sourceIds: ["branchform-copfs-briefing", "murrell-agreed-narrative"],
@@ -1377,7 +1377,7 @@ export const snpMoneyTimelineEvents: SnpTimelineEvent[] = [
     summary:
       "The Crown and defence jointly asked for more preparation time because of the volume of material and the defence's position. A High Court judge granted the application.",
     explainer:
-      "The official record gives an ordinary case-preparation reason. It provides no basis for claims that the date was moved for political advantage.",
+      "The official record gives an ordinary case preparation reason. It provides no basis for claims that the date was moved for political advantage.",
     sourceIds: ["branchform-copfs-briefing"],
   },
   {
@@ -1476,7 +1476,7 @@ export const snpMoneyTimelineEvents: SnpTimelineEvent[] = [
     status: "court",
     title: "Murrell is sentenced to five years and three months",
     summary:
-      "Lord Young set a seven-year sentence, then reduced it for the early guilty plea and backdated it to 25 May. The judge described prolonged, calculated dishonesty and a serious breach of trust, while also recording remorse and a low risk of reoffending.",
+      "Lord Young set a seven year sentence, then reduced it for the early guilty plea and backdated it to 25 May. The judge described prolonged, calculated dishonesty and a serious breach of trust, while also recording remorse and a low risk of reoffending.",
     sourceIds: ["murrell-sentencing-judiciary"],
   },
   {
@@ -1506,7 +1506,7 @@ export const snpMoneyTimelineEvents: SnpTimelineEvent[] = [
     summary:
       "The Commission said it was reviewing past accounts, declarations and disclosures after the conviction. It also said its annual checks found no evidence that £2,248,353 in public grants for party policy research and development had been misused.",
     explainer:
-      "A review is not a finding of wrongdoing. The public-grant checks and the wider post-conviction account review are two different things.",
+      "A review is not a finding of wrongdoing. The public grant checks and the wider post conviction account review are two different things.",
     sourceIds: ["ec-snp-review-2026"],
   },
   {
@@ -1551,9 +1551,9 @@ export const snpMoneyTimelineEvents: SnpTimelineEvent[] = [
     status: "official",
     title: "Police release narrow records about warrants and the advice request",
     summary:
-      "Police said they had sought no court orders compelling the SNP itself to provide financial information. A separate response confirmed the August 2024 advice request but withheld it and said the Crown held the 542-page prosecution review.",
+      "Police said they had sought no court orders compelling the SNP itself to provide financial information. A separate response confirmed the August 2024 advice request but withheld it and said the Crown held the 542 page prosecution review.",
     explainer:
-      "These disclosures answer limited questions. They do not prove broad claims that the party either fully co-operated with or obstructed every part of the inquiry.",
+      "These disclosures answer limited questions. They do not prove broad claims that the party either fully cooperated with or obstructed every part of the inquiry.",
     sourceIds: ["police-foi-court-orders-2026", "police-foi-advice-request-2026"],
   },
   {
@@ -1566,7 +1566,7 @@ export const snpMoneyTimelineEvents: SnpTimelineEvent[] = [
     status: "ongoing",
     title: "The latest verified position",
     summary:
-      "Murrell is serving a five-year-three-month sentence. Sturgeon and Beattie were not charged and are no longer under investigation in Operation Branchform. Asset recovery, the Electoral Commission review and police inquiries into the separate Yes Scotland complaint remain unfinished.",
+      "Murrell is serving a five year three month sentence. Sturgeon and Beattie were not charged and are no longer under investigation in Operation Branchform. Asset recovery, the Electoral Commission review and police inquiries into the separate Yes Scotland complaint remain unfinished.",
     explainer:
       "This page will change when an official source changes that position, not simply when a new allegation or anonymous claim appears.",
     sourceIds: [

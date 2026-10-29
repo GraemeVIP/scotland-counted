@@ -58,7 +58,7 @@ export default function WaterCharge({ className = "" }: { className?: string }) 
             key={r.band}
             className="rounded-[var(--r-s)] border border-white/15 bg-white/[0.07] px-5 py-5"
           >
-            <p className="ui text-[14.5px] font-[700] opacity-75">Band {r.band}, {r.note}</p>
+            <p className="ui text-[14.5px] font-[580] opacity-75">Band {r.band}, {r.note}</p>
             <p className="display-stat mt-2 text-[clamp(28px,3vw,38px)]">{pounds.format(r.total)}</p>
             <p className="mt-2.5 text-[14.5px] leading-[1.5] opacity-75">
               a year of water charges, {exact.format(r.water)} for water and{" "}
@@ -68,7 +68,7 @@ export default function WaterCharge({ className = "" }: { className?: string }) 
         ))}
       </div>
 
-      <p className="mt-7 max-w-[60ch] text-[19px] leading-[1.55] font-[640]">
+      <p className="mt-7 max-w-[60ch] text-[19px] leading-[1.55] font-[540]">
         <ExplainText>
         This is why other websites give you a lower number. They quote the council tax and leave
         the water out. Every figure on this site includes it.

@@ -21,6 +21,37 @@ import CrisisGrantAcceptanceRatesScotlandCouncils from "./crisis-grant-acceptanc
 import GlasgowSexCrimeRiseMigrants from "./glasgow-sex-crime-rise-migrants";
 import BestPerformingCouncilsScotland from "./best-performing-councils-scotland";
 import ShopliftingScotlandRecordHigh from "./shoplifting-scotland-record-high";
+import AdultDisabilityPayment from "./adult-disability-payment";
+import AdultDisabilityPaymentPhoneNumber from "./adult-disability-payment-phone-number";
+import CarerSupportPayment from "./carer-support-payment";
+import BestStartGrant from "./best-start-grant";
+import WinterFuelPaymentScotland from "./winter-fuel-payment-scotland";
+import WinterHeatingPayment from "./winter-heating-payment";
+import SocialSecurityScotlandPaymentDates from "./social-security-scotland-payment-dates";
+import YoungCarersAllowanceScotland from "./young-carers-allowance-scotland";
+import CrisisGrantPhoneNumber from "./crisis-grant-phone-number";
+import MinimumWage2027 from "./minimum-wage-2027";
+import AverageSalaryScotland from "./average-salary-scotland";
+import MinimumWageInGlasgowScotland from "./minimum-wage-in-glasgow-scotland";
+import MinimumWageInEdinburghScotland from "./minimum-wage-in-edinburgh-scotland";
+import MinimumWageAberdeen from "./minimum-wage-aberdeen";
+import MinimumWageDundee from "./minimum-wage-dundee";
+import CheckCouncilTaxBand from "./check-council-tax-band";
+import CouncilTaxReductionScotland from "./council-tax-reduction-scotland";
+import SinglePersonDiscountCouncilTaxScotland from "./single-person-discount-council-tax-scotland";
+import WaterRatesScotland from "./water-rates-scotland";
+import ModernStudies from "./modern-studies";
+import National5ModernStudies from "./national-5-modern-studies";
+import HigherModernStudies from "./higher-modern-studies";
+import HigherModernStudiesPastPapers from "./higher-modern-studies-past-papers";
+import Nat5ModernStudiesPastPapers from "./nat-5-modern-studies-past-papers";
+import AdvancedHigherModernStudies from "./advanced-higher-modern-studies";
+import CausesOfPoverty from "./causes-of-poverty";
+import WhoIsMyMsp from "./who-is-my-msp";
+import WhoIsMyLocalCouncillorByPostcode from "./who-is-my-local-councillor-by-postcode";
+import LifeExpectancyGlasgow from "./life-expectancy-glasgow";
+import UnemploymentScotland from "./unemployment-scotland";
+import CrimeRateGlasgow from "./crime-rate-glasgow";
 
 /**
  * Slug to post body. Statically imported so every post is prerendered and no
@@ -50,4 +81,35 @@ export const postBodies: Record<string, ComponentType> = {
   "what-does-poverty-mean": WhatDoesPovertyMean,
   "what-is-the-scottish-child-payment": WhatIsTheScottishChildPayment,
   "how-to-contact-your-mp-or-msp": HowToContactYourMpOrMsp,
+  "adult-disability-payment": AdultDisabilityPayment,
+  "adult-disability-payment-phone-number": AdultDisabilityPaymentPhoneNumber,
+  "carer-support-payment": CarerSupportPayment,
+  "best-start-grant": BestStartGrant,
+  "winter-fuel-payment-scotland": WinterFuelPaymentScotland,
+  "winter-heating-payment": WinterHeatingPayment,
+  "social-security-scotland-payment-dates": SocialSecurityScotlandPaymentDates,
+  "young-carers-allowance-scotland": YoungCarersAllowanceScotland,
+  "crisis-grant-phone-number": CrisisGrantPhoneNumber,
+  "minimum-wage-2027": MinimumWage2027,
+  "average-salary-scotland": AverageSalaryScotland,
+  "minimum-wage-in-glasgow-scotland": MinimumWageInGlasgowScotland,
+  "minimum-wage-in-edinburgh-scotland": MinimumWageInEdinburghScotland,
+  "minimum-wage-aberdeen": MinimumWageAberdeen,
+  "minimum-wage-dundee": MinimumWageDundee,
+  "check-council-tax-band": CheckCouncilTaxBand,
+  "council-tax-reduction-scotland": CouncilTaxReductionScotland,
+  "single-person-discount-council-tax-scotland": SinglePersonDiscountCouncilTaxScotland,
+  "water-rates-scotland": WaterRatesScotland,
+  "modern-studies": ModernStudies,
+  "national-5-modern-studies": National5ModernStudies,
+  "higher-modern-studies": HigherModernStudies,
+  "higher-modern-studies-past-papers": HigherModernStudiesPastPapers,
+  "nat-5-modern-studies-past-papers": Nat5ModernStudiesPastPapers,
+  "advanced-higher-modern-studies": AdvancedHigherModernStudies,
+  "causes-of-poverty": CausesOfPoverty,
+  "who-is-my-msp": WhoIsMyMsp,
+  "who-is-my-local-councillor-by-postcode": WhoIsMyLocalCouncillorByPostcode,
+  "life-expectancy-glasgow": LifeExpectancyGlasgow,
+  "unemployment-scotland": UnemploymentScotland,
+  "crime-rate-glasgow": CrimeRateGlasgow,
 };

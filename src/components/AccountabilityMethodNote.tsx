@@ -31,7 +31,7 @@ export default function AccountabilityMethodNote({ councilName }: Accountability
       className="mt-8 rounded-[var(--r-m)] border border-[var(--brand)] bg-[var(--brand-wash)] p-5 sm:p-6"
     >
       <p className="kicker mb-2 text-[var(--brand)]">I read it so you do not have to</p>
-      <p className="text-[19px] font-[800] leading-[1.3] text-[var(--ink)] sm:text-[21px]">
+      <p className="text-[19px] font-[640] leading-[1.3] text-[var(--ink)] sm:text-[21px]">
         None of this is secret. It is just buried where you would never look.
       </p>
       <p className="mt-3 max-w-[68ch] text-[16px] leading-[1.6] text-[var(--ink-2)]">

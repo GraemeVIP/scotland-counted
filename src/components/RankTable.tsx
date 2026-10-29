@@ -28,7 +28,7 @@ const COLS: { key: SortKey; label: string; numeric: boolean }[] = [
   { key: "name", label: "", numeric: false },
   { key: "latest", label: "", numeric: true },
   { key: "first", label: "", numeric: true },
-  { key: "change", label: "10-year change", numeric: true },
+  { key: "change", label: "10 year change", numeric: true },
   { key: "children", label: "Children", numeric: true },
 ];
 
@@ -72,7 +72,7 @@ export default function RankTable({
     name: nameLabel,
     latest: latestLabel,
     first: firstLabel,
-    change: "10-year change",
+    change: "10 year change",
     children: "Children",
   };
 
@@ -118,7 +118,7 @@ export default function RankTable({
             )}
           </div>
           {measure && (
-            <p className="ui text-[14.5px] font-[650] text-[var(--muted)] tnum"><ExplainText>{measure}</ExplainText></p>
+            <p className="ui text-[14.5px] font-[540] text-[var(--muted)] tnum"><ExplainText>{measure}</ExplainText></p>
           )}
         </div>
       )}
@@ -135,7 +135,7 @@ export default function RankTable({
                 setAsc(m.asc);
               }}
               aria-pressed={activeMobile === m.id}
-              className={`ui rounded-full px-4 py-2 text-[15px] font-[640] border transition-colors ${
+              className={`ui rounded-full px-4 py-2 text-[15px] font-[540] border transition-colors ${
                 activeMobile === m.id
                   ? "bg-[var(--ink)] text-[var(--paper)] border-[var(--ink)]"
                   : "bg-[var(--surface)] text-[var(--ink-2)] border-[var(--rule-strong)]"
@@ -162,7 +162,7 @@ export default function RankTable({
                 <span className="min-w-0 flex-1">
                   <span
                     className={`ui block text-[15.5px] leading-[1.3] ${
-                      r.highlight ? "font-[680]" : "font-[540]"
+                      r.highlight ? "font-[560]" : "font-[540]"
                     }`}
                   >
                     {r.name}
@@ -199,7 +199,7 @@ export default function RankTable({
                   <button
                     type="button"
                     onClick={() => toggle(c.key)}
-                    className={`ui w-full text-[15px] font-[680] pr-4 pt-1 pb-2.5 whitespace-nowrap transition-colors ${
+                    className={`ui w-full text-[15px] font-[560] pr-4 pt-1 pb-2.5 whitespace-nowrap transition-colors ${
                       c.numeric && c.key !== "rank" ? "text-right" : "text-left"
                     } ${active ? "text-[var(--brand)]" : "text-[var(--muted)] hover:text-[var(--ink)]"}`}
                   >
@@ -229,7 +229,7 @@ export default function RankTable({
               <td className="pr-4 py-2.5 border-b border-[var(--rule)]">
                 <Link
                   href={r.href}
-                  className={`hover:text-[var(--brand)] ${r.highlight ? "font-[640]" : ""}`}
+                  className={`hover:text-[var(--brand)] ${r.highlight ? "font-[540]" : ""}`}
                 >
                   {r.name}
                 </Link>

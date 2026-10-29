@@ -24,12 +24,12 @@ const downloads = [
   {
     href: "/data/glasgow-rape-sexual-assault-quarterly-2026.csv",
     title: "Glasgow by quarter",
-    note: "Rapes and sexual assaults recorded each quarter from October 2020 to June 2026, worked out from the police year-to-date files",
+    note: "Rapes and sexual assaults recorded each quarter from October 2020 to June 2026, worked out from the police year to date files",
   },
   {
     href: "/data/scotland-councils-rape-sexual-assault-ytd-2026.csv",
     title: "All 32 councils",
-    note: "Year-to-date rape and sexual assault counts for every council area, financial years 2020/21 to 2026/27, as published by Police Scotland",
+    note: "Year to date rape and sexual assault counts for every council area, financial years 2020/21 to 2026/27, as published by Police Scotland",
   },
   {
     href: "/data/glasgow-wards-sexual-crimes-2026.csv",
@@ -55,7 +55,7 @@ const downloads = [
 
 const cell = "border-b border-[var(--rule)] py-2.5 pr-4";
 const cellRight = `${cell} text-right`;
-const head = "border-b-2 border-[var(--ink)] pb-2 pr-4 text-left font-[700]";
+const head = "border-b-2 border-[var(--ink)] pb-2 pr-4 text-left font-[580]";
 const headRight = `${head} text-right`;
 
 function Table({ children, label }: { children: React.ReactNode; label: string }) {
@@ -80,10 +80,10 @@ function Bar({ label, sub, value, max }: { label: string; sub: string; value: nu
   return (
     <div>
       <div className="flex items-baseline justify-between gap-4 text-[15px] leading-[1.45]">
-        <span className="font-[620] text-[var(--ink-2)]">
+        <span className="font-[540] text-[var(--ink-2)]">
           {label} <span className="text-[var(--muted)]">· {sub}</span>
         </span>
-        <span className="tnum shrink-0 font-[760] text-[var(--ink)]">+{value.toFixed(1)}%</span>
+        <span className="tnum shrink-0 font-[620] text-[var(--ink)]">+{value.toFixed(1)}%</span>
       </div>
       <div className="mt-1.5 h-3.5 overflow-hidden rounded-full bg-[var(--surface-2)]" aria-hidden="true">
         <div className="h-full rounded-full bg-[var(--brand)]" style={{ width: `${(value / max) * 100}%` }} />
@@ -106,16 +106,61 @@ export default function Post() {
   const allEntries = rapeAccusedNationality2025.reduce((sum, r) => sum + r.count, 0);
   const notRecorded = allEntries - knownTotal;
   const ew = panelResults.englandWales;
+  const sexualAssault = q3Table2024.find((row) => row.crime === "Sexual assault")!;
+  const rape = q3Table2024.find((row) => row.crime === "Rape")!;
+  const saLatest = latestYear.find((row) => row.crime === "Sexual assault")!;
 
   return (
     <Prose>
       <Lead>
+        The rise is real, but the public data checked here do not establish who caused it. Recorded
+        sexual assaults in Glasgow City went up {Math.round(sexualAssault.changePct)}%, from{" "}
+        {sexualAssault.before} to {sexualAssault.after}, in April to December 2024 against the same
+        months of 2023. Rapes went up {Math.round(rape.changePct)}%. The police reports do not
+        explain the sexual assault rise.
+      </Lead>
+
+      <P>
         A post on X says Glasgow had a &ldquo;30% increase in sexual assaults, driven by the migrants
         that linger around at night&rdquo;. We pulled the police records, the census and the Home
         Office files. Here is what they show. Every number links to a public document.
-      </Lead>
+      </P>
 
-      <H2 id="number">The number is real</H2>
+      <div className="not-prose my-8 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5 sm:p-6">
+        <p className="ui text-[15px] font-[620] text-[var(--brand)]">Key figures</p>
+        <div className="mt-4 grid gap-4 sm:grid-cols-2">
+          {[
+            {
+              value: `+${Math.round(sexualAssault.changePct)}%`,
+              label: "recorded sexual assaults in Glasgow City",
+              note: `${sexualAssault.before} to ${sexualAssault.after} · April to December 2024 against 2023`,
+            },
+            {
+              value: `+${Math.round(rape.changePct)}%`,
+              label: "recorded rapes in Glasgow City",
+              note: `${rape.before} to ${rape.after} · same police report`,
+            },
+            {
+              value: "−4%",
+              label: "recorded sexual assaults in the rest of Scotland",
+              note: "April to December 2024 against 2023",
+            },
+            {
+              value: saLatest.glasgowChange,
+              label: "recorded sexual assaults in Glasgow City, year to June 2026",
+              note: `Scotland change: ${saLatest.scotlandChange}`,
+            },
+          ].map((stat) => (
+            <div key={stat.label}>
+              <p className="display-stat text-[30px] leading-none text-[var(--action-text)]">{stat.value}</p>
+              <p className="mt-2 text-[16px] font-[580] leading-[1.4] text-[var(--ink)]">{stat.label}</p>
+              <p className="mt-1 text-[15px] leading-[1.5] text-[var(--muted)]">{stat.note}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <H2 id="number">Glasgow sexual assault figures: the number is real</H2>
 
       <P>
         Police Scotland reported it to Glasgow&apos;s Safe Glasgow Partnership on 13 March 2025. It
@@ -134,10 +179,10 @@ export default function Post() {
         <tbody>
           {q3Table2024.map((row) => (
             <tr key={row.crime}>
-              <td className={`${cell} font-[620]`}>{row.crime}</td>
+              <td className={`${cell} font-[540]`}>{row.crime}</td>
               <td className={cellRight}>{row.before}</td>
               <td className={cellRight}>{row.after}</td>
-              <td className={`${cellRight} font-[700]`}>+{Math.round(row.changePct)}%</td>
+              <td className={`${cellRight} font-[580]`}>+{Math.round(row.changePct)}%</td>
             </tr>
           ))}
         </tbody>
@@ -169,7 +214,7 @@ export default function Post() {
           { name: "Glasgow City", colorVar: "--brand" },
           { name: "Rest of Scotland", colorVar: "--action" },
         ]}
-        caption="Glasgow's rapes rose 34% in 2024/25 against 14% elsewhere, and stayed at the new level in 2025/26. Source: Police Scotland year-to-date management information."
+        caption="Glasgow's rapes rose 34% in 2024/25 against 14% elsewhere, and stayed at the new level in 2025/26. Source: Police Scotland year to date management information."
         table={
           <DataTable
             head={["Year", "Glasgow rapes", "Rest of Scotland rapes"]}
@@ -199,7 +244,7 @@ export default function Post() {
           { name: "Glasgow City", colorVar: "--brand" },
           { name: "Rest of Scotland", colorVar: "--action" },
         ]}
-        caption="Glasgow's sexual assaults rose 22% in 2024/25 while the rest of Scotland rose 1%, then fell back in 2025/26. 2023/24 was a low year for Glasgow, so part of the 28% is a return to earlier levels. Source: Police Scotland year-to-date management information."
+        caption="Glasgow's sexual assaults rose 22% in 2024/25 while the rest of Scotland rose 1%, then fell back in 2025/26. 2023/24 was a low year for Glasgow, so part of the 28% is a return to earlier levels. Source: Police Scotland year to date management information."
         table={
           <DataTable
             head={["Year", "Glasgow sexual assaults", "Rest of Scotland sexual assaults"]}
@@ -233,7 +278,7 @@ export default function Post() {
           { name: "Rape", colorVar: "--brand" },
           { name: "Sexual assault", colorVar: "--action" },
         ]}
-        caption="Rape stepped up in April 2024 and has stayed up. Sexual assault rose for nine months and then fell back. Source: Police Scotland management information workbooks, 2025/26 and 2026/27; quarters worked out from the year-to-date totals."
+        caption="Rape stepped up in April 2024 and has stayed up. Sexual assault rose for nine months and then fell back. Source: Police Scotland management information workbooks, 2025/26 and 2026/27; quarters worked out from the year to date totals."
         table={
           <DataTable
             head={["Quarter", "Rape", "Sexual assault"]}
@@ -241,7 +286,7 @@ export default function Post() {
           />
         }
         technical={[
-          `Police Scotland publishes cumulative year-to-date counts each quarter. Each quarter here is the difference between two consecutive totals, so quarters after the first in each year mix publication versions. The April 2024 change is at index ${april2024Index + 1} of ${quarterLabels.length} quarters.`,
+          `Police Scotland publishes cumulative year to date counts each quarter. Each quarter here is the difference between two consecutive totals, so quarters after the first in each year mix publication versions. The April 2024 change is at index ${april2024Index + 1} of ${quarterLabels.length} quarters.`,
         ]}
       >
         <LineChart
@@ -293,7 +338,7 @@ export default function Post() {
         Police Scotland has explained the domestic abuse rise by the new evidence rule, and says the
         rape rise reflects more reporting. The reports checked here give no explanation for the
         sexual assault rise and do not attribute it to migration. They do not measure how much of
-        that rise came from the evidence rule or the recording-system change.
+        that rise came from the evidence rule or the recording system change.
       </P>
 
       <H2 id="kind">What kind of crimes went up</H2>
@@ -311,7 +356,7 @@ export default function Post() {
         <tbody>
           {detected2023to2024.map((row) => (
             <tr key={row.label}>
-              <td className={`${cell} font-[620]`}>{row.label}</td>
+              <td className={`${cell} font-[540]`}>{row.label}</td>
               <td className={cellRight}>{row.y2023}</td>
               <td className={cellRight}>{row.y2024}</td>
             </tr>
@@ -332,7 +377,7 @@ export default function Post() {
         detected, or whether the accused were partners, strangers or recent arrivals.
       </P>
       <P>
-        The smaller increase in sexual-assault detections does not tell us how many of the extra
+        The smaller increase in sexual assault detections does not tell us how many of the extra
         recorded assaults had a known suspect. An undetected crime can also have a suspect without
         enough evidence to meet the detection threshold.
       </P>
@@ -350,9 +395,9 @@ export default function Post() {
         compulsory. In the published tables, nationality is unknown or unrecorded for about half
         the accused entries.
       </P>
-      <P>Greater Glasgow, 2025: {allEntries} accused entries linked to the detected rape-related crimes listed in the disclosure.</P>
+      <P>Greater Glasgow, 2025: {allEntries} accused entries linked to the detected rape related crimes listed in the disclosure.</P>
 
-      <Table label="Nationality of accused linked to the disclosed detected rape-related crimes, Greater Glasgow division, 2025">
+      <Table label="Nationality of accused linked to the disclosed detected rape related crimes, Greater Glasgow division, 2025">
         <thead>
           <tr>
             <th className={head}>Nationality</th>
@@ -362,7 +407,7 @@ export default function Post() {
         <tbody>
           {rapeAccusedNationality2025.map((row) => (
             <tr key={row.nationality}>
-              <td className={`${cell} font-[620]`}>{row.nationality}</td>
+              <td className={`${cell} font-[540]`}>{row.nationality}</td>
               <td className={cellRight}>{row.count}</td>
             </tr>
           ))}
@@ -395,7 +440,7 @@ export default function Post() {
         ].map((stat) => (
           <div key={stat.label} className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5">
             <p className="display-stat text-[34px] leading-none text-[var(--action-text)]">{stat.value}</p>
-            <p className="mt-3 text-[16px] font-[700] leading-[1.4] text-[var(--ink)]">{stat.label}</p>
+            <p className="mt-3 text-[16px] font-[580] leading-[1.4] text-[var(--ink)]">{stat.label}</p>
             <p className="mt-2 text-[15px] leading-[1.5] text-[var(--muted)]">{stat.note}</p>
           </div>
         ))}
@@ -403,9 +448,9 @@ export default function Post() {
 
       <P>
         Nationality and place of birth are different things, and half the forms are blank. If every
-        blank form were a foreign national, the non-British share would be 63%. If every blank form
-        were British, it would be 10%. So this table cannot settle whether migrants are over- or
-        under-represented. Most entries with a known nationality were British; that does not tell
+        blank form were a foreign national, the non British share would be 63%. If every blank form
+        were British, it would be 10%. So this table cannot settle whether migrants are over or
+        under represented. Most entries with a known nationality were British; that does not tell
         us the nationality of the missing entries.
       </P>
       <P>
@@ -414,9 +459,9 @@ export default function Post() {
         or White British. These are not unique people.
       </P>
       <P>
-        Scotland-wide, for sexual crimes recorded from January 2024 to May 2025, 19% of accused
-        entries with a known nationality were non-British. The census says 10% of residents were
-        born outside the UK. Those measure different things and cannot establish an offending-rate
+        Scotland wide, for sexual crimes recorded from January 2024 to May 2025, 19% of accused
+        entries with a known nationality were non British. The census says 10% of residents were
+        born outside the UK. Those measure different things and cannot establish an offending rate
         comparison. Nationality was unknown or unrecorded for 54% of entries, and no age or sex
         adjustment has been made.
       </P>
@@ -496,7 +541,7 @@ export default function Post() {
             <tr key={row.group}>
               <td className={cell}>{row.group}</td>
               <td className={cellRight}>{row.ratePer1000} per 1,000 men</td>
-              <td className={`${cellRight} font-[700]`}>{row.multiple} times the city rate</td>
+              <td className={`${cellRight} font-[580]`}>{row.multiple} times the city rate</td>
             </tr>
           ))}
         </tbody>
@@ -524,7 +569,7 @@ export default function Post() {
         after being granted status somewhere else. By March 2026, refugee households were 44% of new
         homeless cases and half of the live caseload.
       </P>
-      <P>These measures cover different dates and populations. Support counts and homelessness applications are not direct counts of new arrivals; the small-boat figures cover the whole UK.</P>
+      <P>These measures cover different dates and populations. Support counts and homelessness applications are not direct counts of new arrivals; the small boat figures cover the whole UK.</P>
 
       <Table label="Migration and support measures, with their different reporting periods">
         <thead>
@@ -541,7 +586,7 @@ export default function Post() {
               <td className={cell}>{row.measure}</td>
               <td className={cellRight}>{row.earlier}</td>
               <td className={cellRight}>{row.latest}</td>
-              <td className={`${cellRight} font-[700]`}>{row.change}</td>
+              <td className={`${cellRight} font-[580]`}>{row.change}</td>
             </tr>
           ))}
         </tbody>
@@ -592,10 +637,10 @@ export default function Post() {
         <tbody>
           {latestYear.map((row) => (
             <tr key={row.crime}>
-              <td className={`${cell} font-[620]`}>{row.crime}</td>
+              <td className={`${cell} font-[540]`}>{row.crime}</td>
               <td className={cellRight}>{row.glasgow2025.toLocaleString("en-GB")}</td>
               <td className={cellRight}>{row.glasgow2026.toLocaleString("en-GB")}</td>
-              <td className={`${cellRight} font-[700]`}>{row.glasgowChange}</td>
+              <td className={`${cellRight} font-[580]`}>{row.glasgowChange}</td>
               <td className={cellRight}>{row.scotlandChange}</td>
             </tr>
           ))}
@@ -632,8 +677,8 @@ export default function Post() {
       <figure className="not-prose my-8 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5 sm:p-7">
         <div className="flex flex-wrap items-end justify-between gap-3 border-b border-[var(--rule)] pb-4">
           <div>
-            <p className="ui text-[15px] font-[760] text-[var(--brand)]">Figure 4</p>
-            <h3 className="mt-1 text-[22px] font-[760] leading-[1.25]">
+            <p className="ui text-[15px] font-[620] text-[var(--brand)]">Figure 4</p>
+            <h3 className="mt-1 text-[22px] font-[620] leading-[1.25]">
               Rise in recorded sexual offences, 2023/24 to 2024/25
             </h3>
           </div>
@@ -660,14 +705,14 @@ export default function Post() {
           There is no ladder. The third group rose most, and the councils with the most asylum
           seekers rose about the same as the group with the fewest. Sources: Home Office police recorded crime
           open data by council; Home Office asylum support by council, December 2023. Corrected on
-          6 September 2026: the first version of this chart double-counted 55 councils.
+          6 September 2026: the first version of this chart double counted 55 councils.
         </figcaption>
       </figure>
 
       <P>
-        The result is mixed. A straight-line comparison across the councils finds a small link:
+        The result is mixed. A straight line comparison across the councils finds a small link:
         councils with more asylum seekers at the end of 2023 had slightly bigger rises on average.
-        That comes mostly from a few high-asylum councils with big rises. But councils whose asylum
+        That comes mostly from a few high asylum councils with big rises. But councils whose asylum
         numbers went up during 2024 did not see bigger rises than councils whose numbers went down.
         And the test that follows the {`${ew.councils} councils`} quarter by quarter
         does not establish a clear association. The sums are in the next section.
@@ -693,12 +738,12 @@ export default function Post() {
         really following the same trend as everywhere else, how often would you get a split that
         lopsided by chance? The test is called Fisher&apos;s exact test. Answer: about one time in
         84,000 under that simple model. Glasgow&apos;s recorded counts did move differently, but this
-        is not the real-world odds that luck or a particular cause explains the change. The test
+        is not the real world odds that luck or a particular cause explains the change. The test
         assumes independent records and does not account for local effects of recording changes.
       </P>
       <P>
         We also asked how unusual it was for Glasgow. We had seven earlier years where the same
-        April-to-December comparison could be made. In none of them did Glasgow pull away from the
+        April to December comparison could be made. In none of them did Glasgow pull away from the
         rest of Scotland by anything like this much. Under the old pattern, a gap this size would
         happen about once in 190 tries under the model&apos;s assumptions. With only seven earlier
         comparisons, archive gaps and recording changes, that is an illustrative check rather than
@@ -707,7 +752,7 @@ export default function Post() {
 
       <H3>2. Do more asylum seekers mean more sex crime?</H3>
       <P>
-        A correlation is a number from &minus;1 to +1. Zero means no straight-line relationship;
+        A correlation is a number from &minus;1 to +1. Zero means no straight line relationship;
         other patterns can still exist. Across the {`${englandCrossSection.councils} English and Welsh councils`}, the correlation
         between how many asylum seekers a council houses and how much its sexual offences rose was{" "}
         {englandCrossSection.corrLevel.toFixed(2)}. Between the change in asylum seekers and the
@@ -718,7 +763,7 @@ export default function Post() {
         same police force. It is a comparison between places, and places differ in many ways.
       </P>
       <P>
-        Then the within-council version. We used the available observations from {`${ew.councils} councils`} across 14 quarters. We let every
+        Then the within council version. We used the available observations from {`${ew.councils} councils`} across 14 quarters. We let every
         council have its own normal level, so a big city is not compared with a village. We let
         every quarter have its own shared effect. That accounts for common changes, but a law or
         recording change can still affect places differently. Then we asked: when a council&apos;s asylum numbers
@@ -736,18 +781,18 @@ export default function Post() {
       <Aside title="For the statisticians">
         <p>
           Poisson regression with council and quarter fixed effects and a log population offset.
-          Standard errors are clustered by council. England and Wales: {ew.rows.toLocaleString("en-GB")} council-quarters,
+          Standard errors are clustered by council. England and Wales: {ew.rows.toLocaleString("en-GB")} council quarters,
           December 2022 to March 2026, coefficient {ew.pctPerAsylumSeekerPer1000.toFixed(2)}% per
           asylum seeker per 1,000 (95% interval {ew.low.toFixed(2)}% to {ew.high.toFixed(2)}%, p ={" "}
-          {ew.p.toFixed(2)}). Between councils, a population-weighted regression of the log change in
+          {ew.p.toFixed(2)}). Between councils, a population weighted regression of the log change in
           offences on December 2023 support density gives {englandCrossSection.levelCoefWeighted.toFixed(3)} per
           asylum seeker per 1,000 (p = {englandCrossSection.levelPWeighted.toFixed(3)}), and{" "}
-          {englandCrossSection.levelCoefForceFixedEffects.toFixed(3)} with police-force fixed effects (p ={" "}
+          {englandCrossSection.levelCoefForceFixedEffects.toFixed(3)} with police force fixed effects (p ={" "}
           {englandCrossSection.levelPForceFixedEffects.toFixed(3)}); the change in density is not
           associated with the change in offences (p = {englandCrossSection.changePWeighted.toFixed(2)}).
-          The divergence test is a two-sided Fisher exact test on the 2×2 table of
-          Glasgow and rest-of-Scotland counts (p = 0.000012); the historical check is a Student-t
-          prediction interval from seven earlier April-to-December relative changes (p = 0.0053).
+          The divergence test is a two sided Fisher exact test on the 2×2 table of
+          Glasgow and rest of Scotland counts (p = 0.000012); the historical check is a Student-t
+          prediction interval from seven earlier April to December relative changes (p = 0.0053).
           The script and every result are in the downloads.
         </p>
       </Aside>
@@ -774,7 +819,7 @@ export default function Post() {
           and nationality&rdquo;.
         </LI>
         <LI>How much of Glasgow&apos;s 2024 rise came from the April 2024 evidence rule and the new computer system?</LI>
-        <LI>How many of the extra rapes were by partners or ex-partners?</LI>
+        <LI>How many of the extra rapes were by partners or ex partners?</LI>
       </UL>
 
       <BigStat
@@ -801,10 +846,10 @@ export default function Post() {
             download
             className="group rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] p-5 no-underline transition-colors hover:border-[var(--brand)]"
           >
-            <span className="ui text-[15px] font-[760] text-[var(--brand)]">
+            <span className="ui text-[15px] font-[620] text-[var(--brand)]">
               {file.href.endsWith(".json") ? "Download the workings" : "Download the data"} ↓
             </span>
-            <span className="mt-1 block text-[17px] font-[730] leading-[1.35] text-[var(--ink)]">{file.title}</span>
+            <span className="mt-1 block text-[17px] font-[600] leading-[1.35] text-[var(--ink)]">{file.title}</span>
             <span className="mt-2 block text-[15px] leading-[1.5] text-[var(--ink-2)]">{file.note}</span>
           </a>
         ))}
@@ -825,14 +870,15 @@ export default function Post() {
       <PostCTA
         title="Ask your MSP to get the answer"
         body="Police Scotland answers to the Scottish Government and to Holyrood. Your MSP can ask why half of crime reports have no nationality recorded and what changed in April 2024."
-        href="/find-my-mp-and-msp"
+        href="/who-is-my-msp"
         cta="Find your MSP and write to them"
       />
 
       <P>
-        See also our figures on{" "}
+        See also our figures on the{" "}
+        <Link href="/crime-rate-glasgow">crime rate in Glasgow</Link>,{" "}
         <Link href="/why-poverty-is-worse-in-glasgow">why poverty is worse in Glasgow</Link> and
-        the <Link href="/blog/drug-deaths-scotland-deprivation">drug-deaths report</Link>, built the
+        the <Link href="/blog/drug-deaths-scotland-deprivation">drug deaths report</Link>, built
         from official records with linked sources.
       </P>
     </Prose>

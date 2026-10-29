@@ -35,10 +35,10 @@ export default function PaySpread({ className = "" }: { className?: string }) {
       <ExplainText>
       <p className="kicker mb-3 text-[var(--brand)]">The spread, not just the middle</p>
       <h2 id="pay-spread" className="display-stat text-[clamp(26px,3.2vw,40px)] max-w-[22ch]">
-        Most full-time jobs here pay a lot less than the average
+        Most full time jobs here pay a lot less than the average
       </h2>
       <p className="mt-4 max-w-[64ch] text-[17px] leading-[1.6] text-[var(--ink-2)]">
-        A single middle figure hides the shape of it. Here is the whole range for full-time
+        A single middle figure hides the shape of it. Here is the whole range for full time
         employee jobs held by people living in Glasgow, before tax.
       </p>
 
@@ -52,7 +52,7 @@ export default function PaySpread({ className = "" }: { className?: string }) {
                 : "border-[var(--rule)] bg-[var(--surface)]"
             }`}
           >
-            <p className="ui text-[15.5px] font-[750] text-[var(--ink)]">{p.label}</p>
+            <p className="ui text-[15.5px] font-[600] text-[var(--ink)]">{p.label}</p>
             <p className="text-[15px] leading-[1.4] text-[var(--ink-2)]">{p.meaning}</p>
             <div className="flex items-baseline gap-3 sm:justify-end">
               <span
@@ -83,13 +83,13 @@ export default function PaySpread({ className = "" }: { className?: string }) {
         The <G t="mean">mean</G> is {pounds.format(glasgowPayMean.annual)}, well above the middle, because high
         earners pull it up. When people say &ldquo;average&rdquo; they usually mean the <G t="mean">mean</G>, which
         is why it rarely matches what they see around them. None of these figures include
-        part-time work.
+        part time work.
       </p>
 
       {/* ---- Why believe a sample survey ---- */}
       <div className="mt-8 rounded-[var(--r-m)] bg-[var(--deep)] p-6 text-[var(--deep-ink)] sm:p-8">
         <p className="kicker mb-3 text-[var(--action-text)]">How I know the survey is right</p>
-        <h3 className="text-[22px] font-[760] leading-[1.2] max-w-[26ch]">
+        <h3 className="text-[22px] font-[620] leading-[1.2] max-w-[26ch]">
           Checked against every payslip in the country
         </h3>
         <p className="mt-3.5 max-w-[60ch] text-[16.5px] leading-[1.6] opacity-85">
@@ -107,7 +107,7 @@ export default function PaySpread({ className = "" }: { className?: string }) {
               key={row.name}
               className="rounded-[var(--r-s)] border border-white/15 bg-white/[0.07] px-5 py-5"
             >
-              <p className="ui text-[14.5px] font-[700] opacity-75">{row.name}</p>
+              <p className="ui text-[14.5px] font-[580] opacity-75">{row.name}</p>
               <p className="display-stat mt-2 text-[30px]">{pounds.format(row.annual)}</p>
               <p className="mt-2 text-[14.5px] leading-[1.4] opacity-75">{row.scope}</p>
             </div>
@@ -115,7 +115,7 @@ export default function PaySpread({ className = "" }: { className?: string }) {
         </div>
 
         <p className="mt-5 max-w-[62ch] text-[16.5px] leading-[1.6]">
-          <strong>The difference between them is part-time work.</strong> Once part-time jobs are
+          <strong>The difference between them is part time work.</strong> Once part time jobs are
           counted, the middle drops by about {pounds.format(asheFullTimeUk.annual - rtiCrossCheck.annual)} a
           year. That lower figure is much closer to what most people mean by an average wage.
         </p>

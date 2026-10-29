@@ -153,7 +153,7 @@ export default async function HolyroodRegionPage({
 
           <section className="pt-12">
             <details className="group rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)]">
-              <summary className="ui cursor-pointer list-none px-6 py-6 text-[18px] font-[750] marker:content-none sm:px-8 [&::-webkit-details-marker]:hidden">
+              <summary className="ui cursor-pointer list-none px-6 py-6 text-[18px] font-[600] marker:content-none sm:px-8 [&::-webkit-details-marker]:hidden">
                 <span className="flex items-center justify-between gap-4">
                   See the {constituencies.length} constituencies in {record.region}
                   <span aria-hidden="true" className="text-[var(--brand)] group-open:rotate-45">＋</span>
@@ -171,7 +171,7 @@ export default async function HolyroodRegionPage({
                       href={`/representatives/msps/constituencies/${item.constituencySlug}`}
                       className="group block rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface-2)] px-5 py-4 no-underline hover:border-[var(--rule-strong)]"
                     >
-                      <span className="ui block text-[16px] font-[750] leading-[1.35] text-[var(--ink)] group-hover:text-[var(--brand)]">
+                      <span className="ui block text-[16px] font-[600] leading-[1.35] text-[var(--ink)] group-hover:text-[var(--brand)]">
                         {item.constituency}
                       </span>
                       <span className="ui mt-1.5 block text-[15px] text-[var(--ink-2)]">
@@ -216,7 +216,7 @@ export default async function HolyroodRegionPage({
 
           <CTA
             title="Get the emails written as well"
-            body="Enter your postcode. I find all eight MSPs and your Westminster MP, then choose the closest local match for the ready-written email."
+            body="Enter your postcode. I find all eight MSPs and your Westminster MP, then choose the closest local match for the ready written email."
             href="/email-your-mp-and-msp"
             cta="Use my postcode"
             secondaryHref="/representatives/msps"

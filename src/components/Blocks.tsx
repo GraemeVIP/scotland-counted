@@ -108,32 +108,25 @@ export function PageHeader({
   /** Optional big number pinned to the right of the header. */
   stat?: { value: string; label: string; tone?: "bad" | "good" | "neutral" };
 }) {
-  const tone =
-    stat?.tone === "bad"
-      ? "text-[var(--bad)]"
-      : stat?.tone === "good"
-        ? "text-[var(--good)]"
-        : "text-[var(--brand)]";
-
   return (
-    <header className="pt-10 sm:pt-14 pb-8 sm:pb-10">
+    <header className="pt-10 sm:pt-16 pb-10 sm:pb-12">
       <div
         className={`max-w-[1120px] mx-auto ${
           stat
-            ? "grid gap-x-12 gap-y-10 lg:grid-cols-[minmax(0,1fr)_minmax(280px,320px)] items-end"
+            ? "grid gap-x-12 gap-y-10 lg:grid-cols-[minmax(0,1fr)_minmax(280px,340px)] items-end"
             : ""
         }`}
       >
-        <div>
-          {eyebrow && <p className="label mb-6"><ExplainText>{eyebrow}</ExplainText></p>}
-          <h1 className="h1 max-w-[17ch] mb-5">{title}</h1>
-          {lede && <div className="lede max-w-[54ch]"><ExplainText>{lede}</ExplainText></div>}
+        <div className="min-w-0">
+          {eyebrow && <p className="eyebrow mb-6"><ExplainText>{eyebrow}</ExplainText></p>}
+          <h1 className="h1 max-w-[18ch] mb-6 text-[clamp(40px,5.6vw,80px)]">{title}</h1>
+          {lede && <div className="lede max-w-[56ch]"><ExplainText>{lede}</ExplainText></div>}
           {children}
         </div>
 
         {stat && (
-          <div className="min-w-0 max-w-[340px] lg:pb-2 lg:border-l lg:border-[var(--rule)] lg:pl-12">
-            <div className={`figure-num whitespace-nowrap text-[clamp(56px,6.5vw,96px)] ${tone}`}>
+          <div className="tile tile-blue min-w-0 p-7">
+            <div className="figure-num whitespace-nowrap text-[clamp(52px,6vw,88px)] text-white">
               {(() => {
                 const m = stat.value.match(/^(£?)(\d+(?:\.\d+)?)(%?)$/);
                 if (!m) return stat.value;
@@ -143,11 +136,11 @@ export function PageHeader({
                 );
               })()}
             </div>
-            <p className="text-[15px] leading-[1.5] text-[var(--ink-2)] mt-5"><ExplainText>{stat.label}</ExplainText></p>
+            <p className="text-[15px] leading-[1.5] text-[var(--hero-muted)] mt-5"><ExplainText>{stat.label}</ExplainText></p>
           </div>
         )}
       </div>
-      <div className="mt-8 sm:mt-10 max-w-[1120px] mx-auto border-t-2 border-[var(--ink)]" />
+      <div className="mt-10 sm:mt-12 max-w-[1120px] mx-auto h-px bg-[linear-gradient(90deg,var(--rule-strong),transparent)]" />
     </header>
   );
 }
@@ -162,7 +155,7 @@ export function DirectionChip({ direction }: { direction: Direction }) {
   const d = DIR[direction];
   return (
     <span
-      className={`ui inline-flex items-center gap-2 rounded-full text-[15px] font-[680] px-3.5 py-2 border whitespace-nowrap ${d.cls}`}
+      className={`ui inline-flex items-center gap-2 rounded-full text-[15px] font-[560] px-3.5 py-2 border whitespace-nowrap ${d.cls}`}
       style={{ borderColor: "currentColor" }}
     >
       <span aria-hidden="true" className="text-[15px] leading-none">
@@ -197,22 +190,22 @@ export function InShort({
     >
       <div className={expert ? "grid gap-6 lg:grid-cols-[minmax(0,1fr)_250px] lg:gap-9" : "max-w-[760px]"}>
         <div>
-          <p className="ui text-[15px] font-[750] text-[var(--action-text)] mb-3">What this means</p>
-          <div className="ui text-[18px] sm:text-[19px] leading-[1.55] font-[480] space-y-2.5 [&_strong]:font-[750]">
+          <p className="ui text-[15px] font-[600] text-[var(--action-text)] mb-3">What this means</p>
+          <div className="ui text-[18px] sm:text-[19px] leading-[1.55] font-[480] space-y-2.5 [&_strong]:font-[600]">
             <ExplainText>{children}</ExplainText>
           </div>
         </div>
         {expert && (
           <aside className="border-t border-[var(--rule)] pt-5 lg:border-l lg:border-t-0 lg:pl-7 lg:pt-0">
-            <p className="ui text-[15px] font-[750] text-[var(--ink)] mb-3">Want to check the proof?</p>
+            <p className="ui text-[15px] font-[600] text-[var(--ink)] mb-3">Want to check the proof?</p>
             <div className="grid gap-2.5 ui text-[15px] leading-[1.45] text-[var(--ink-2)]">
-              <Link href="/data" className="font-[650] hover:text-[var(--brand)]">
+              <Link href="/data" className="font-[540] hover:text-[var(--brand)]">
                 Exact data →
               </Link>
-              <Link href="/methods" className="font-[650] hover:text-[var(--brand)]">
+              <Link href="/methods" className="font-[540] hover:text-[var(--brand)]">
                 How it was counted →
               </Link>
-              <Link href="/press" className="font-[650] hover:text-[var(--brand)]">
+              <Link href="/press" className="font-[540] hover:text-[var(--brand)]">
                 Press downloads →
               </Link>
             </div>
@@ -237,7 +230,7 @@ export function EvidenceDetails({
     <details
       className={`group rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] ${className}`}
     >
-      <summary className="ui min-h-12 cursor-pointer list-none flex items-center gap-3 px-5 py-3 text-[16px] font-[700] text-[var(--brand)] hover:bg-[var(--surface-2)]">
+      <summary className="ui min-h-12 cursor-pointer list-none flex items-center gap-3 px-5 py-3 text-[16px] font-[580] text-[var(--brand)] hover:bg-[var(--surface-2)]">
         <span className="transition-transform group-open:rotate-90" aria-hidden="true">
           ▸
         </span>
@@ -323,7 +316,7 @@ export function StatStrip({
         const dp = s.value.includes(".") ? 1 : 0;
         const inner = (
           <>
-            <div className="ui text-[15px] font-[650] text-[var(--ink-2)] leading-[1.45] mb-5 sm:min-h-[3em]">
+            <div className="ui text-[15px] font-[540] text-[var(--ink-2)] leading-[1.45] mb-5 sm:min-h-[3em]">
               {s.label}
             </div>
             <div
@@ -405,7 +398,7 @@ export function Slab({
       <div className="bg-[var(--deep)] text-[var(--deep-ink)] py-20 sm:py-28">
         <div className="max-w-[1232px] mx-auto px-5 sm:px-8 lg:px-14">
           <Reveal>
-            <p className="display text-[clamp(26px,3.6vw,46px)] max-w-[19ch] font-[750]">
+            <p className="display text-[clamp(26px,3.6vw,46px)] max-w-[19ch] font-[600]">
               <ExplainText>{children}</ExplainText>
             </p>
             {attribution && (

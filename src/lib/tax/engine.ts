@@ -222,7 +222,7 @@ export type Calculation = ReturnType<typeof calculate>;
 export function calculate(grossAnnual: number, region: Region, opts: CalcOptions = {}) {
   const codeInfo = opts.taxCode || STANDARD_CODE;
   const pensionType: PensionType = opts.pensionType || "net";
-  if (pensionType === "ras") throw new RangeError("Relief-at-source pensions require additional tax-relief calculations not supported by this estimator.");
+  if (pensionType === "ras") throw new RangeError("Relief at source pensions require additional tax relief calculations not supported by this estimator.");
   const pension = Math.min(grossAnnual, Math.max(0, opts.pension || 0));
 
   const taxableGross = grossAnnual - pension;

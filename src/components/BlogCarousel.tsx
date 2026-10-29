@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { getPostCategory, type Post } from "@/lib/data/posts";
+import { postPath } from "@/lib/routeMap";
 
 function fmtDate(iso: string) {
   return new Date(`${iso}T12:00:00Z`).toLocaleDateString("en-GB", {
@@ -130,14 +131,14 @@ export default function BlogCarousel({ posts }: { posts: Post[] }) {
               Something useful to read
             </h2>
             <p className="mt-3 max-w-[54ch] text-[16px] leading-[1.5] text-[var(--ink-2)]">
-              Plain-English explainers, practical guides and source-linked investigations.
+              Plain English explainers, practical guides and sourced investigations.
             </p>
           </div>
 
           <div className="flex flex-wrap items-center justify-end gap-3 sm:rounded-full sm:border sm:border-[var(--rule)] sm:bg-[var(--surface)] sm:p-1.5 sm:pl-4 sm:shadow-[var(--shadow-1)]">
             <Link
               href="/blog"
-              className="ui inline-flex min-h-11 items-center rounded-full border border-[var(--rule-strong)] bg-[var(--surface)] px-4 text-[15px] font-[760] text-[var(--brand)] no-underline transition-colors hover:border-[var(--brand)] hover:text-[var(--brand-deep)] sm:min-h-0 sm:border-0 sm:bg-transparent sm:px-0"
+              className="ui inline-flex min-h-11 items-center rounded-full border border-[var(--rule-strong)] bg-[var(--surface)] px-4 text-[15px] font-[620] text-[var(--brand)] no-underline transition-colors hover:border-[var(--brand)] hover:text-[var(--brand-deep)] sm:min-h-0 sm:border-0 sm:bg-transparent sm:px-0"
             >
               Browse all {posts.length} <span aria-hidden="true" className="ml-1.5">→</span>
             </Link>
@@ -151,7 +152,7 @@ export default function BlogCarousel({ posts }: { posts: Post[] }) {
               className="hidden items-center gap-2 border-l border-[var(--rule)] pl-3 sm:flex"
               aria-label="Article carousel controls"
             >
-              <span className="ui mr-1 text-[15px] font-[700] text-[var(--ink-3)] tnum">
+              <span className="ui mr-1 text-[15px] font-[580] text-[var(--ink-3)] tnum">
                 {range.first === range.last
                   ? `${range.first} of ${posts.length}`
                   : `${range.first}–${range.last} of ${posts.length}`}
@@ -233,17 +234,21 @@ export default function BlogCarousel({ posts }: { posts: Post[] }) {
                    */
                   style={{ flex: "0 0 min(430px, 100%)" }}
                 >
-                  <Link href={`/blog/${post.slug}`} className="block no-underline">
+                  <Link href={postPath(post.slug)} className="block no-underline">
                     <div className="relative aspect-[1.9/1] overflow-hidden bg-[var(--deep)]">
-                      <Image
-                        src={post.image.cardSrc ?? post.image.src}
-                        alt={post.image.alt}
-                        fill
-                        loading={index === 0 ? "eager" : "lazy"}
-                        sizes="(min-width: 1024px) 430px, 100vw"
-                        className="object-cover transition-transform duration-700 ease-[var(--ease)] group-hover:scale-[1.045] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
-                        style={{ objectPosition: post.image.objectPosition ?? "center" }}
-                      />
+                      {post.image ? (
+                        <Image
+                          src={post.image.cardSrc ?? post.image.src}
+                          alt={post.image.alt}
+                          fill
+                          loading={index === 0 ? "eager" : "lazy"}
+                          sizes="(min-width: 1024px) 430px, 100vw"
+                          className="object-cover transition-transform duration-700 ease-[var(--ease)] group-hover:scale-[1.045] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                          style={{ objectPosition: post.image.objectPosition ?? "center" }}
+                        />
+                      ) : (
+                        <div className="absolute inset-0 saltire-hero" />
+                      )}
                       {/*
                         The scrim was 0.12 opaque at the halfway mark and clear
                         above it, fine behind a two-line title, useless behind
@@ -257,12 +262,12 @@ export default function BlogCarousel({ posts }: { posts: Post[] }) {
                         {/* The dark-background variant: these sit on a scrimmed
                             photograph, where the light-index colours fail. */}
                         <p
-                          className="ui text-[15px] font-[760]"
+                          className="ui text-[15px] font-[620]"
                           style={{ color: category?.colorOnDark ?? "#ff8b75" }}
                         >
                           {category?.name ?? "Explained"}
                         </p>
-                        <h3 className="blog-carousel-title mt-2 text-[23px] font-[820] leading-[1.12] tracking-[-0.025em] text-white sm:text-[27px]">
+                        <h3 className="blog-carousel-title mt-2 text-[23px] font-[640] leading-[1.12] tracking-[-0.025em] text-white sm:text-[27px]">
                           {post.title}
                         </h3>
                       </div>
@@ -272,10 +277,10 @@ export default function BlogCarousel({ posts }: { posts: Post[] }) {
                         {post.standfirst}
                       </p>
                       <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
-                        <p className="ui text-[15px] font-[650] text-[var(--ink-3)]">
+                        <p className="ui text-[15px] font-[540] text-[var(--ink-3)]">
                           {fmtDate(post.updated ?? post.date)} · {post.readingMinutes} min read
                         </p>
-                        <span className="ui text-[15px] font-[760] text-[var(--brand)] transition-colors group-hover:text-[var(--action-hover)]">
+                        <span className="ui text-[15px] font-[620] text-[var(--brand)] transition-colors group-hover:text-[var(--action-hover)]">
                           Read it <span aria-hidden="true">→</span>
                         </span>
                       </div>
@@ -299,7 +304,7 @@ export default function BlogCarousel({ posts }: { posts: Post[] }) {
           */}
         </div>
 
-        <p className="ui mt-3 flex items-center gap-2 px-5 text-[15px] font-[650] text-[var(--ink-3)] sm:hidden">
+        <p className="ui mt-3 flex items-center gap-2 px-5 text-[15px] font-[540] text-[var(--ink-3)] sm:hidden">
           Swipe to browse <span aria-hidden="true" className="text-[var(--brand)]">→</span>
         </p>
 

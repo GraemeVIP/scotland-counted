@@ -1,162 +1,376 @@
 /**
  * The site's spine.
  *
- * One registry feeds the header, both menus, the /browse page and the 404, so
- * they cannot disagree with each other. Editing this file is how the
- * navigation changes; there is deliberately nowhere else to do it.
+ * One registry feeds the header, the section panels, the phone menu, the
+ * footer, /browse and the 404, so they cannot disagree with each other.
+ * Editing this file is how the navigation changes; there is deliberately
+ * nowhere else to do it.
  *
- * The primary path follows the four questions a visitor actually arrives with:
- * what is happening where I live, what does it mean for my money, who is
- * responsible, and what is the evidence. That order is why "Your area" comes
- * before "Councils" even though councils is the larger section.
- *
- * Poverty used to be the umbrella and is now one flagship subject among
- * several. It keeps a hub of its own at /poverty and every poverty URL that
- * existed before still works.
+ * Six sections, shaped by what people actually come looking for: money and
+ * pay, benefits, council tax, their area, who represents them, and Modern
+ * Studies for schools. Every page belongs to exactly one section, so nothing
+ * is more than two clicks from anywhere. The pages that make the site
+ * checkable (data, methods, corrections) sit in the footer on every page
+ * rather than crowding the menu.
  */
+
+export type NavItem = { href: string; label: string; tag?: string };
+
+export type HubId = "money" | "benefits" | "tax" | "area" | "reps" | "schools";
 
 /**
- * `featured` lights an item up in the menu. Used sparingly and on purpose:
- * one per column, so the eye lands on a short diagonal instead of scanning a
- * wall of identical links. Highlighting a fifth would mean highlighting
- * nothing.
+ * The featured box at the left of each panel. `kind` picks the control:
+ * a salary box that opens the calculator, a council picker, a postcode box,
+ * the next early payment date, or a plain link.
  */
-export type NavItem = { href: string; label: string; blurb?: string; featured?: boolean };
-export type NavTone = "local" | "tools" | "councils" | "change" | "topics" | "proof";
-
-/** The header links. Deliberately short, deliberately task-shaped. */
-export const PRIMARY: NavItem[] = [
-  { href: "/areas", label: "Your area" },
-  { href: "/council-tax-bands-scotland", label: "Council tax" },
-  { href: "/councils", label: "Councils" },
-  { href: "/representatives", label: "Find MP/MSPs" },
-  /*
-   * "Explainers", not "Investigations".
-   *
-   * /blog is the whole editorial library: money explainers, practical
-   * guides, poverty and housing pieces, council articles, and one genuine
-   * investigation. Labelling the lot "Investigations" told every visitor
-   * that a minimum wage explainer was investigative journalism, which the
-   * page itself contradicted the moment they arrived on it. The label
-   * followed a recommendation for an investigations section without the
-   * section ever being built.
-   */
-  { href: "/blog", label: "Explainers" },
-  { href: "/contact", label: "Feedback" },
-];
-
-/** Everything, grouped the way a person would ask for it. Feeds the browse
- *  panel, the /browse page and the footer, so they can never disagree. */
-export const SECTIONS: Array<{
+export type HubFeature = {
+  kind: "salary" | "council" | "postcode-area" | "postcode-reps" | "payment-dates" | "link";
+  kicker: string;
   title: string;
+  text: string;
+  cta: string;
+  href: string;
+};
+
+export type Hub = {
+  id: HubId;
+  label: string;
+  /** The section's front door. */
+  href: string;
   intro: string;
-  tone: NavTone;
-  items: NavItem[];
-}> = [
+  feature: HubFeature;
+  groups: { heading: string; items: NavItem[] }[];
+  /** Shown as chips along the bottom of the panel. */
+  top: NavItem[];
+};
+
+export const HUBS: Hub[] = [
   {
-    title: "Your area",
-    intro: "What the numbers look like where you live, and who represents you there.",
-    tone: "local",
-    items: [
-      { href: "/areas", label: "All 32 council areas", blurb: "Child poverty, benefits and pay context where you live", featured: true },
-      { href: "/representatives", label: "Every MP and MSP", blurb: "Who they are, how to reach them, and how they voted" },
-      { href: "/msp-reviews", label: "Review your MSP", blurb: "Moderated accounts from people who dealt with an MSP" },
-      { href: "/constituencies", label: "All 57 MP areas", blurb: "The area each MP is responsible for" },
-      { href: "/why-poverty-is-worse-in-glasgow", label: "Glasgow", blurb: "Why the worst rate in Scotland is where it is" },
+    id: "money",
+    label: "Money",
+    href: "/money",
+    intro: "What you earn, what you keep and the legal minimum.",
+    feature: {
+      kind: "salary",
+      kicker: "Calculator",
+      title: "Take home pay",
+      text: "Put in your salary and see what reaches your bank on Scottish tax rates.",
+      cta: "Work it out",
+      href: "/take-home-pay-calculator-scotland",
+    },
+    groups: [
+      {
+        heading: "Pay and tax",
+        items: [
+          { href: "/take-home-pay-calculator-scotland", label: "Take home pay calculator", tag: "Tool" },
+          { href: "/salary-after-tax-scotland", label: "Salary after tax, every amount" },
+          { href: "/30000-after-tax-scotland", label: "£30,000 after tax" },
+          { href: "/average-salary-scotland", label: "Average salary in Scotland" },
+        ],
+      },
+      {
+        heading: "Minimum wage",
+        items: [
+          { href: "/minimum-wage-scotland", label: "Minimum wage Scotland" },
+          { href: "/minimum-wage-2027", label: "Minimum wage 2027", tag: "April" },
+          { href: "/real-living-wage-scotland", label: "Real Living Wage" },
+          { href: "/minimum-wage-in-glasgow-scotland", label: "Minimum wage in Glasgow" },
+          { href: "/minimum-wage-in-edinburgh-scotland", label: "Minimum wage in Edinburgh" },
+          { href: "/minimum-wage-aberdeen", label: "Minimum wage in Aberdeen" },
+          { href: "/minimum-wage-dundee", label: "Minimum wage in Dundee" },
+        ],
+      },
+      {
+        heading: "Bills and prices",
+        items: [
+          { href: "/energy-price-cap-scotland", label: "Energy price cap" },
+          { href: "/blog/why-is-the-cost-of-living-so-high", label: "Why the cost of living is so high" },
+          { href: "/blog/why-food-prices-stay-high-when-inflation-falls", label: "Why food prices stay high" },
+        ],
+      },
+    ],
+    top: [
+      { href: "/minimum-wage-scotland", label: "Minimum wage" },
+      { href: "/30000-after-tax-scotland", label: "£30,000 after tax" },
+      { href: "/average-salary-scotland", label: "Average salary" },
     ],
   },
   {
-    title: "Your money",
-    intro: "What you earn, what you keep, what it costs and what help exists.",
-    tone: "tools",
-    items: [
-      { href: "/money", label: "Everything about your money", blurb: "Pay, council tax, benefits and bills in one place", featured: true },
-      { href: "/take-home-pay-calculator-scotland", label: "Take-home pay calculator", blurb: "What you keep on Scottish tax rates" },
-      { href: "/council-tax-bands-scotland", label: "Council tax by band", blurb: "What it really costs, water included" },
-      { href: "/blog/universal-credit-when-you-work-more-hours", label: "Universal Credit and extra hours", blurb: "Why more work does not always mean more money" },
-      { href: "/blog/crisis-grant-scotland-how-to-apply", label: "Emergency help", blurb: "Crisis Grants and rent shortfall payments" },
+    id: "benefits",
+    label: "Benefits",
+    href: "/benefits",
+    intro: "What you can claim, how much it is and when it is paid.",
+    feature: {
+      kind: "payment-dates",
+      kicker: "Payment dates",
+      title: "Paid early over holidays",
+      text: "When a payment falls on a bank holiday, Social Security Scotland pays it early.",
+      cta: "All payment dates",
+      href: "/social-security-scotland-payment-dates",
+    },
+    groups: [
+      {
+        heading: "Disability and caring",
+        items: [
+          { href: "/adult-disability-payment", label: "Adult Disability Payment" },
+          { href: "/adult-disability-payment-phone-number", label: "Adult Disability Payment phone number" },
+          { href: "/carer-support-payment", label: "Carer Support Payment" },
+          { href: "/young-carers-allowance-scotland", label: "Young Carer Grant" },
+        ],
+      },
+      {
+        heading: "Families and winter",
+        items: [
+          { href: "/scottish-child-payment", label: "Scottish Child Payment" },
+          { href: "/best-start-grant", label: "Best Start Grant" },
+          { href: "/blog/free-school-meals-clothing-grant-scotland", label: "Free school meals and clothing" },
+          { href: "/winter-fuel-payment-scotland", label: "Winter fuel payment" },
+          { href: "/winter-heating-payment", label: "Winter Heating Payment" },
+        ],
+      },
+      {
+        heading: "Help in a crisis",
+        items: [
+          { href: "/crisis-grant-scotland", label: "Crisis grant" },
+          { href: "/crisis-grant-phone-number", label: "Crisis grant phone numbers", tag: "32 councils" },
+          { href: "/blog/discretionary-housing-payment-scotland", label: "Discretionary Housing Payment" },
+          { href: "/blog/universal-credit-when-you-work-more-hours", label: "Universal Credit and extra hours" },
+          { href: "/blog/local-housing-allowance-rent-shortfall-scotland", label: "Housing benefit and rent gaps" },
+        ],
+      },
+    ],
+    top: [
+      { href: "/adult-disability-payment", label: "Adult Disability Payment" },
+      { href: "/winter-fuel-payment-scotland", label: "Winter fuel payment" },
+      { href: "/social-security-scotland-payment-dates", label: "Payment dates" },
     ],
   },
   {
-    title: "Councils",
-    intro: "What your council spends, what it delivers and what the auditors found.",
-    tone: "councils",
-    items: [
-      { href: "/councils", label: "All 32 council records", blurb: "Budgets, results, audits and promises", featured: true },
-      { href: "/data", label: "Download the council data", blurb: "Every council on the same seven measures" },
-      { href: "/for-organisations", label: "For organisations", blurb: "Free resources and commissioned local evidence briefs." },
-      { href: "/press", label: "Figures for reuse", blurb: "Lift-ready lines, charts and citation" },
+    id: "tax",
+    label: "Council tax",
+    href: "/council-tax-bands-scotland",
+    intro: "Your band, your bill and how to pay less.",
+    feature: {
+      kind: "council",
+      kicker: "Your bill",
+      title: "Council tax by council",
+      text: "Every band from A to H, with water and sewerage included.",
+      cta: "Show my bands",
+      href: "/council-tax-bands-scotland",
+    },
+    groups: [
+      {
+        heading: "Your bill",
+        items: [
+          { href: "/council-tax-bands-scotland", label: "Bands for every council", tag: "32" },
+          { href: "/check-council-tax-band", label: "Check your council tax band" },
+          { href: "/council-tax-band-d-scotland", label: "Band D across Scotland" },
+          { href: "/council-tax-increase-scotland", label: "This year’s rises" },
+        ],
+      },
+      {
+        heading: "Pay less",
+        items: [
+          { href: "/council-tax-reduction-scotland", label: "Council tax reduction" },
+          { href: "/single-person-discount-council-tax-scotland", label: "Single person discount" },
+          { href: "/water-rates-scotland", label: "Water rates" },
+          { href: "/blog/how-council-tax-works-scotland", label: "How council tax works" },
+        ],
+      },
+      {
+        heading: "Your council",
+        items: [
+          { href: "/councils", label: "All 32 council records" },
+          { href: "/best-council-in-scotland", label: "Best council in Scotland" },
+          { href: "/who-decides", label: "Who decides what" },
+        ],
+      },
+    ],
+    top: [
+      { href: "/glasgow-council-tax-bands", label: "Glasgow council tax bands" },
+      { href: "/council-tax-band-d-scotland", label: "Band D" },
+      { href: "/single-person-discount-council-tax-scotland", label: "Single person discount" },
     ],
   },
   {
-    title: "Who decides",
-    intro: "Which government controls what, and what happens when you contact them.",
-    tone: "change",
-    items: [
-      { href: "/who-decides", label: "Who decides what", blurb: "London, Edinburgh or your council, issue by issue", featured: true },
-      { href: "/who-is-responsible-for-poverty-in-scotland", label: "Responsibility for poverty", blurb: "Which powers sit where, on this one subject" },
-      { href: "/solutions-to-poverty-in-scotland", label: "What would fix it", blurb: "Costed options, and who can do them" },
-      { href: "/what-happens-when-you-email-your-mp", label: "Why it is worth the bother", blurb: "What happens after you press send" },
+    id: "area",
+    label: "Your area",
+    href: "/areas",
+    intro: "The local figures, your council and who represents you.",
+    feature: {
+      kind: "postcode-area",
+      kicker: "Postcode",
+      title: "Everything about where you live",
+      text: "Your council area, its local figures and the people who represent you.",
+      cta: "Go",
+      href: "/areas",
+    },
+    groups: [
+      {
+        heading: "Places",
+        items: [
+          { href: "/areas", label: "All 32 council areas" },
+          { href: "/constituencies", label: "All 57 MP areas" },
+          { href: "/areas/glasgow-city", label: "Glasgow" },
+          { href: "/areas/city-of-edinburgh", label: "Edinburgh" },
+        ],
+      },
+      {
+        heading: "Local figures",
+        items: [
+          { href: "/poverty-in-scotland", label: "Poverty in Scotland" },
+          { href: "/unemployment-scotland", label: "Unemployment in Scotland" },
+          { href: "/life-expectancy-glasgow", label: "Life expectancy in Glasgow" },
+          { href: "/crime-rate-glasgow", label: "Crime rate in Glasgow" },
+        ],
+      },
+      {
+        heading: "The Glasgow record",
+        items: [
+          { href: "/glasgow-poverty-statistics", label: "Glasgow poverty statistics" },
+          { href: "/why-poverty-is-worse-in-glasgow", label: "Why poverty is worse in Glasgow" },
+          { href: "/blog/drug-deaths-scotland-deprivation", label: "Drug deaths and deprivation" },
+        ],
+      },
+    ],
+    top: [
+      { href: "/areas/glasgow-city", label: "Glasgow" },
+      { href: "/poverty-in-scotland", label: "Poverty in Scotland" },
+      { href: "/unemployment-scotland", label: "Unemployment" },
     ],
   },
   {
-    title: "Big subjects",
-    intro: "The long-running stories, each with its own front door.",
-    tone: "topics",
-    items: [
-      { href: "/poverty", label: "Poverty in Scotland", blurb: "The figures, the causes and who can fix it", featured: true },
-      { href: "/blog", label: "Explainers and investigations", blurb: "Evidence-led pieces, filed by subject" },
-      { href: "/glasgow-poverty-statistics", label: "The Glasgow record", blurb: "Every Glasgow indicator in one place" },
-      { href: "/poverty-in-scotland-quiz", label: "Guess the figure", blurb: "Six questions. Most people get them wrong" },
-      { href: "/faq", label: "Questions and answers", blurb: "Search the things people actually ask" },
-      { href: "/glossary", label: "Plain-English glossary", blurb: "Every term, in ordinary words" },
+    id: "reps",
+    label: "MSPs and MPs",
+    href: "/representatives",
+    intro: "Who represents you, how to reach them and who decides what.",
+    feature: {
+      kind: "postcode-reps",
+      kicker: "Postcode",
+      title: "Find your MSP and MP",
+      text: "All eight of your MSPs and your MP, with their official contact details.",
+      cta: "Find them",
+      href: "/who-is-my-msp",
+    },
+    groups: [
+      {
+        heading: "Find yours",
+        items: [
+          { href: "/who-is-my-msp", label: "Who is my MSP" },
+          { href: "/who-is-my-local-councillor-by-postcode", label: "Who is my local councillor" },
+          { href: "/representatives/msps", label: "All 129 MSPs" },
+          { href: "/representatives", label: "All 57 MPs" },
+        ],
+      },
+      {
+        heading: "Get in touch",
+        items: [
+          { href: "/email-your-mp-and-msp", label: "Email your MP and MSP", tag: "Tool" },
+          { href: "/what-happens-when-you-email-your-mp", label: "What happens when you email" },
+          { href: "/msp-reviews", label: "Review your MSP" },
+          { href: "/blog/how-to-contact-your-mp-or-msp", label: "How to contact them" },
+        ],
+      },
+      {
+        heading: "Who decides",
+        items: [
+          { href: "/who-decides", label: "Who decides what" },
+          { href: "/who-is-responsible-for-poverty-in-scotland", label: "Who is responsible for poverty" },
+          { href: "/solutions-to-poverty-in-scotland", label: "What would fix it" },
+        ],
+      },
+    ],
+    top: [
+      { href: "/who-is-my-msp", label: "Who is my MSP" },
+      { href: "/email-your-mp-and-msp", label: "Email your MSP" },
+      { href: "/who-is-my-local-councillor-by-postcode", label: "Councillors" },
     ],
   },
   {
-    title: "Check the evidence",
-    intro: "The data, methods and corrections behind every claim.",
-    tone: "proof",
-    items: [
-      { href: "/data", label: "Download the data", blurb: "The source files and their reuse rules", featured: true },
-      { href: "/methods", label: "Methods and sources", blurb: "Exactly how every figure was counted" },
-      { href: "/press", label: "Press and reuse", blurb: "Charts, embeds and a press kit" },
-      { href: "/updates", label: "What changed", blurb: "The public log, with RSS" },
-      { href: "/corrections", label: "Corrections", blurb: "Errors, and what I did about them" },
-      { href: "/accessibility", label: "Accessibility", blurb: "What is tested, and what is still known to be wrong" },
+    id: "schools",
+    label: "Schools",
+    href: "/modern-studies",
+    intro: "Modern Studies with real Scottish figures, free for every school.",
+    feature: {
+      kind: "link",
+      kicker: "Free for schools",
+      title: "Modern Studies",
+      text: "Course guides, past paper help and practice questions built on up to date Scottish data.",
+      cta: "Open the Modern Studies hub",
+      href: "/modern-studies",
+    },
+    groups: [
+      {
+        heading: "Courses",
+        items: [
+          { href: "/national-5-modern-studies", label: "National 5 Modern Studies" },
+          { href: "/higher-modern-studies", label: "Higher Modern Studies" },
+          { href: "/advanced-higher-modern-studies", label: "Advanced Higher Modern Studies" },
+        ],
+      },
+      {
+        heading: "Past papers",
+        items: [
+          { href: "/nat-5-modern-studies-past-papers", label: "Nat 5 past papers" },
+          { href: "/higher-modern-studies-past-papers", label: "Higher past papers" },
+        ],
+      },
+      {
+        heading: "Topics and tools",
+        items: [
+          { href: "/causes-of-poverty", label: "Causes of poverty" },
+          { href: "/poverty-in-scotland-quiz", label: "Poverty quiz" },
+          { href: "/glossary", label: "Plain English glossary" },
+          { href: "/faq", label: "Questions and answers" },
+        ],
+      },
+    ],
+    top: [
+      { href: "/higher-modern-studies-past-papers", label: "Higher past papers" },
+      { href: "/national-5-modern-studies", label: "National 5" },
+      { href: "/causes-of-poverty", label: "Causes of poverty" },
     ],
   },
 ];
 
-/**
- * The places most people are looking for, for the menu's quick picks.
- *
- * Hard-coded rather than derived from the council data so the header does not
- * pull the whole dataset into the client bundle on every page. Names and hrefs
- * only. The figures live on the pages themselves.
- */
-export const QUICK_AREAS: NavItem[] = [
-  { href: "/areas/glasgow-city", label: "Glasgow" },
-  { href: "/areas/city-of-edinburgh", label: "Edinburgh" },
-  { href: "/areas/north-lanarkshire", label: "North Lanarkshire" },
-  { href: "/areas/fife", label: "Fife" },
-  { href: "/areas/aberdeen-city", label: "Aberdeen" },
-  { href: "/areas/dundee-city", label: "Dundee" },
-  { href: "/areas/south-lanarkshire", label: "South Lanarkshire" },
-  { href: "/areas/renfrewshire", label: "Renfrewshire" },
+/** The one header link without a panel. */
+export const EXPLAINERS: NavItem = { href: "/blog", label: "Explainers" };
+
+/** The pages that make the site checkable. Footer, phone menu and /browse. */
+export const EVIDENCE: NavItem[] = [
+  { href: "/data", label: "Download the data" },
+  { href: "/methods", label: "Methods and sources" },
+  { href: "/corrections", label: "Corrections" },
+  { href: "/press", label: "Press and reuse" },
+  { href: "/updates", label: "What changed" },
+  { href: "/accessibility", label: "Accessibility" },
 ];
 
-/** What the site actually holds, for the menu footer. */
-export const INVENTORY = [
-  { count: "32", label: "council areas covered", href: "/areas" },
-  { count: "32", label: "council records checked", href: "/councils" },
-  { count: "57", label: "current MPs listed", href: "/representatives" },
-  { count: "129", label: "current MSPs listed", href: "/representatives/msps" },
-];
-
-/** About and contact, which sit in the menu footer rather than a column. */
-export const MENU_FOOTER_LINKS: NavItem[] = [
+/** About the project. Footer and phone menu. */
+export const ABOUT: NavItem[] = [
   { href: "/about", label: "About the project" },
   { href: "/contact", label: "Feedback and contact" },
-  { href: "/accessibility", label: "Accessibility" },
+  { href: "/for-organisations", label: "For organisations" },
   { href: "/privacy", label: "Privacy" },
 ];
+
+/** Every section front door plus Explainers: the 404 and anywhere that needs the short list. */
+export const PRIMARY: NavItem[] = [...HUBS.map((hub) => ({ href: hub.href, label: hub.label })), EXPLAINERS];
+
+/** CSS colour for a section, themed for the page. */
+export const hubColor = (id: HubId) => `var(--hub-${id})`;
+/** CSS colour for a section's dot on the navy header bar. */
+export const hubBarColor = (id: HubId) => `var(--hub-${id}-bar)`;
+
+/** The section a path belongs to, so the phone menu can open on the right one. */
+export function hubForPath(pathname: string): HubId | null {
+  for (const hub of HUBS) {
+    if (pathname === hub.href) return hub.id;
+    if (hub.groups.some((group) => group.items.some((item) => item.href === pathname))) return hub.id;
+  }
+  if (pathname.startsWith("/areas") || pathname.startsWith("/constituencies") || pathname.startsWith("/indicators")) return "area";
+  if (pathname.startsWith("/representatives") || pathname.startsWith("/msp-reviews")) return "reps";
+  if (pathname.startsWith("/councils") || pathname.endsWith("-council-tax-bands") || pathname.startsWith("/council-tax-band-")) return "tax";
+  if (pathname.endsWith("-after-tax-scotland")) return "money";
+  return null;
+}

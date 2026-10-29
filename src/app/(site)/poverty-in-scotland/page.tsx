@@ -25,10 +25,10 @@ import { explainerVideo } from "@/lib/data/video";
  */
 
 export const metadata = meta({
-  title: "Poverty in Scotland: Facts, Causes and Who Can Help",
+  title: "Poverty in Scotland: The Figures, the Causes and Who Can Fix It",
   description:
     "See Scotland's poverty figures, how work and housing costs affect them, why Glasgow stands out, and who has the power to act.",
-  path: "/poverty",
+  path: "/poverty-in-scotland",
 });
 
 export default function PovertyHub() {
@@ -38,7 +38,7 @@ export default function PovertyHub() {
   const HEADLINES = [
     { value: `${p.all.pct}%`, label: `of people in Scotland, ${p.all.count.toLocaleString("en-GB")} in total` },
     { value: `${p.children.pct}%`, label: "of children" },
-    { value: `${p.workingAge.pct}%`, label: "of working-age adults" },
+    { value: `${p.workingAge.pct}%`, label: "of working age adults" },
     { value: `${p.pensioners.pct}%`, label: "of pensioners" },
   ];
 
@@ -47,14 +47,14 @@ export default function PovertyHub() {
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Home", path: "/" },
-          { name: "Poverty", path: "/poverty" },
+          { name: "Poverty", path: "/poverty-in-scotland" },
         ])}
       />
 
       <Page>
         <PageHeader
           eyebrow="Poverty in Scotland"
-          title="The figures, the causes and who can fix it"
+          title="Poverty in Scotland: the figures, the causes and who can fix it"
           lede={`${p.all.pct}% of people in Scotland were living in relative poverty after housing costs in ${p.period}. Three quarters of the children among them live in a household where somebody works.`}
         />
 
@@ -129,7 +129,7 @@ export default function PovertyHub() {
                 href="/areas"
                 eyebrow="Local"
                 title="Poverty where you live"
-                body="Child poverty, out-of-work benefits and pay for all 32 council areas, each with its own permanent page."
+                body="Child poverty, out of work benefits and pay for all 32 council areas, each with its own permanent page."
                 meta="32 areas"
               />
             </div>

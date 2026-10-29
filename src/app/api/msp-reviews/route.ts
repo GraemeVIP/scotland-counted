@@ -66,7 +66,7 @@ export async function POST(request: Request) {
   if (story.length < 80 || story.length > 4000) return fail(request, json, "The account must be between 80 and 4,000 characters.", 400, slug);
   if (displayName.length < 2 || displayName.length > 70) return fail(request, json, "Enter the name that may be shown with the review.", 400, slug);
   if (email && (email.length < 5 || email.length > 254 || !/^\S+@\S+\.\S+$/.test(email))) return fail(request, json, "Enter a valid email address.", 400, slug);
-  if (followUpOptIn && !email) return fail(request, json, "Enter an email address if you would like to be considered for a follow-up.", 400, slug);
+  if (followUpOptIn && !email) return fail(request, json, "Enter an email address if you would like to be considered for a follow up.", 400, slug);
   if (!RELATIONSHIPS.has(relationship)) return fail(request, json, "Choose how you were connected to the experience.", 400, slug);
   if (!boolean(body.firsthand) || !boolean(body.permission)) return fail(request, json, "Both confirmations are required.", 400, slug);
   if (interactionMonth && !/^\d{4}-(0[1-9]|1[0-2])$/.test(interactionMonth)) return fail(request, json, "Enter a valid interaction month.", 400, slug);

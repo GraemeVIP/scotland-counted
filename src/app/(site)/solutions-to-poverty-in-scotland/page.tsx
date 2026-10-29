@@ -60,7 +60,7 @@ const SCORE: { status: FixStatus; label: string; blurb: string }[] = [
   {
     status: "done",
     label: "Delivered",
-    blurb: "The two-child limit was finally scrapped in April 2026, nine years after it started.",
+    blurb: "The two child limit was finally scrapped in April 2026, nine years after it started.",
   },
   {
     status: "partial",
@@ -97,7 +97,7 @@ const SPEND = [
 function StatusTag({ status, label }: { status: FixStatus; label: string }) {
   return (
     <span
-      className={`ui inline-block rounded-full text-[15px] font-[700] px-3 py-2 border whitespace-nowrap ${TAG[status]}`}
+      className={`ui inline-block rounded-full text-[15px] font-[580] px-3 py-2 border whitespace-nowrap ${TAG[status]}`}
       style={{ borderColor: "currentColor" }}
     >
       {label}
@@ -111,7 +111,7 @@ const FAQ = [
     a: "Not on its own. Three in four children in poverty live with someone who works. More Glaswegians found jobs while child poverty still rose. The research says families need enough money coming in as well as access to work.",
   },
   {
-    q: "What happened to the two-child limit?",
+    q: "What happened to the two child limit?",
     a: "From April 2017 to April 2026, families could not get normal benefit support for a third or later child. It hit larger families hardest, including many in Glasgow.",
   },
   {
@@ -162,7 +162,7 @@ export default function WhatWouldFixIt() {
         <ContentFrame>
           <EditorialImage
             src="/images/editorial/scotland-secure-homes.webp"
-            alt="An illustrated family arriving home on a modern affordable-housing street in Scotland."
+            alt="An illustrated family arriving home on a modern affordable housing street in Scotland."
             caption="Security is the outcome: enough income and housing for families to plan ahead instead of constantly absorbing another bill."
             aspect="wide"
             className="mt-10"
@@ -199,7 +199,7 @@ export default function WhatWouldFixIt() {
                   >
                     {n}
                   </p>
-                  <p className="ui text-[17px] font-[750] mt-1.5">{s.label}</p>
+                  <p className="ui text-[17px] font-[600] mt-1.5">{s.label}</p>
                   <p className="text-[15.5px] leading-[1.55] text-[var(--ink-2)] mt-1.5">
                     {s.blurb}
                   </p>
@@ -230,12 +230,12 @@ export default function WhatWouldFixIt() {
                     style={{ borderColor: `var(${style.colorVar})` }}
                   >
                     <h3
-                      className="text-[24px] sm:text-[29px] font-[790] leading-[1.1]"
+                      className="text-[24px] sm:text-[29px] font-[620] leading-[1.1]"
                       style={{ color: `var(${style.colorVar})` }}
                     >
                       {lever}
                     </h3>
-                    <p className="ui text-[16px] font-[720] text-[var(--ink-2)]">
+                    <p className="ui text-[16px] font-[600] text-[var(--ink-2)]">
                       {group.length} {group.length === 1 ? "change" : "changes"} · write to{" "}
                       {style.writeTo}
                     </p>
@@ -252,7 +252,7 @@ export default function WhatWouldFixIt() {
                           style={{ boxShadow: "var(--shadow-1)" }}
                         >
                           <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
-                            <p className="ui font-[750] text-[18px] leading-[1.35] max-w-[30ch]">
+                            <p className="ui font-[600] text-[18px] leading-[1.35] max-w-[30ch]">
                               {f.what}
                             </p>
                             <StatusTag status={f.status} label={f.statusLabel} />
@@ -273,12 +273,12 @@ export default function WhatWouldFixIt() {
           </div>
 
           <div className="mt-10 rounded-[var(--r-m)] border-l-[5px] border-[var(--brand)] bg-[var(--surface-2)] px-6 sm:px-8 py-6 max-w-[880px]">
-            <p className="ui text-[15px] font-[750] text-[var(--brand)] mb-2">
+            <p className="ui text-[15px] font-[600] text-[var(--brand)] mb-2">
               The help that already exists
             </p>
-            <p className="text-[19px] sm:text-[21px] leading-[1.45] font-[660] max-w-[52ch]">
+            <p className="text-[19px] sm:text-[21px] leading-[1.45] font-[540] max-w-[52ch]">
               The <G t="scp">Scottish Child Payment</G> is £28.20 per child per week, rising to £40
-              for under-ones from 2027.
+              for babies under one from 2027.
             </p>
             <p className="text-[16.5px] leading-[1.6] text-[var(--ink-2)] mt-3 max-w-[62ch]">
               It works. It is the main reason Scotland&apos;s line stayed flat while England&apos;s
@@ -304,7 +304,7 @@ export default function WhatWouldFixIt() {
               {SPEND.map((s) => (
                 <div key={s.label}>
                   <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 mb-2.5">
-                    <p className="ui text-[16.5px] font-[740] max-w-[46ch]">{s.label}</p>
+                    <p className="ui text-[16.5px] font-[600] max-w-[46ch]">{s.label}</p>
                     <p
                       className="figure-num text-[30px] sm:text-[36px] tnum"
                       style={{ color: `var(${s.colorVar})` }}

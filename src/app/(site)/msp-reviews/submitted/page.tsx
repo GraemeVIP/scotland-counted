@@ -44,7 +44,7 @@ export default async function ReviewSubmittedPage({
             <>
               <h2 className="h3 mb-3">What happens next</h2>
               <p className="text-[16px] leading-[1.65] text-[var(--ink-2)]">The account will be checked for a genuine, direct interaction and for private or unsafe details. It will appear publicly only if it passes moderation.</p>
-              <p className="mt-4 text-[16px] leading-[1.65] text-[var(--ink-2)]">If you opted into follow-up, Scotland Counted may email you when the account could support a fuller public-interest article. Otherwise, no contact email was collected.</p>
+              <p className="mt-4 text-[16px] leading-[1.65] text-[var(--ink-2)]">If you opted into follow up, Scotland Counted may email you when the account could support a fuller public interest article. Otherwise, no contact email was collected.</p>
             </>
           )}
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">

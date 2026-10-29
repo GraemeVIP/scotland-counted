@@ -15,7 +15,7 @@ import {
 export const metadata = meta({
   title: "Poverty in Scotland by Council Area: Local Statistics",
   description:
-    "Compare child poverty, out-of-work benefits and pay across all 32 Scottish council areas, with plain-English summaries and sourced local figures.",
+    "Compare child poverty, out of work benefits and pay across all 32 Scottish council areas, with plain English summaries and sourced local figures.",
   path: "/areas",
 });
 
@@ -38,7 +38,7 @@ export default function Areas() {
         data={datasetJsonLd({
           name: "Poverty, claimant count and pay by Scottish council area, 2000–2026",
           description:
-            "Relative child poverty after housing costs, out-of-work claimant rates and median resident pay for all 32 Scottish council areas, compared with Scotland across time.",
+            "Relative child poverty after housing costs, out of work claimant rates and median resident pay for all 32 Scottish council areas, compared with Scotland across time.",
           path: "/areas",
           keywords: [
             "poverty",
@@ -61,9 +61,9 @@ export default function Areas() {
         />
 
         <InShort>
-          <p>Tap your area to see how many children are in poverty, how that has changed, how many people need out-of-work benefits and what minimum-wage work actually pays.</p>
-          <p><strong>Glasgow is highlighted because it has the worst child-poverty rate in Scotland and the biggest ten-year rise.</strong></p>
-          <p>For the national picture and what sits behind these differences, see our <Link href="/poverty">guide to poverty in Scotland</Link>.</p>
+          <p>Tap your area to see how many children are in poverty, how that has changed, how many people need out of work benefits and what minimum wage work actually pays.</p>
+          <p><strong>Glasgow is highlighted because it has the worst child poverty rate in Scotland and the biggest ten year rise.</strong></p>
+          <p>For the national picture and what sits behind these differences, see our <Link href="/poverty-in-scotland">guide to poverty in Scotland</Link>.</p>
         </InShort>
 
         <div className="mt-9">
@@ -121,12 +121,12 @@ export default function Areas() {
           <p>
             The three areas with the lowest child poverty, {byLevel[31].name},{" "}
             {byLevel[30].name} and {byLevel[29].name}, are places where many people travel to
-            better-paid jobs elsewhere. Two border Glasgow.
+            better paid jobs elsewhere. Two border Glasgow.
           </p>
           <p>
             That is not a coincidence.{" "}
             <Link href="/why-poverty-is-worse-in-glasgow">
-              Many better-paid jobs are in Glasgow, but the people doing them often live outside it
+              Many better paid jobs are in Glasgow, but the people doing them often live outside it
             </Link>{" "}
             to exactly these places.
           </p>

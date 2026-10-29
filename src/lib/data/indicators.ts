@@ -18,7 +18,7 @@ export type Indicator = {
   slug: string;
   /** Short label for navigation and cards. */
   label: string;
-  /** Plain-English headline used as the page H1. */
+  /** Plain English headline used as the page H1. */
   title: string;
   /** One sentence a non-specialist can act on. */
   summary: string;
@@ -77,7 +77,7 @@ export const indicators: Indicator[] = [
     decimals: 1,
     chartTitle: "Children living in poverty, after the rent is paid",
     chartSub:
-      "Share of children aged 0–15 · 2014/15 – 2023/24 · End Child Poverty / Loughborough University",
+      "Share of children aged 0–15 · 2014/15 to 2023/24 · End Child Poverty / Loughborough University",
     caption:
       "The dip in 2020/21 is the pandemic. Benefits went up by the extra £20 a week on Universal Credit, plus furlough, and child poverty fell. The support was withdrawn, and it went straight back up.",
     series: [
@@ -94,7 +94,7 @@ export const indicators: Indicator[] = [
     ],
     technical: [
       "These are relative poverty figures after housing costs: children in households with less than 60% of median UK income once rent or mortgage is paid.",
-      "The Scotland figure is not published directly in this dataset. It is recomputed here by summing the 32 council-area counts and dividing by the implied child populations. That method reproduces the published Scottish rate of 24.5% for 2022/23, which is how I know it is sound.",
+      "The Scotland figure is not published directly in this dataset. It is recomputed here by summing the 32 council area counts and dividing by the implied child populations. That method reproduces the published Scottish rate of 24.5% for 2022/23, which is how I know it is sound.",
     ],
     sourceIds: ["ecp"],
   },
@@ -104,7 +104,7 @@ export const indicators: Indicator[] = [
     label: "Work",
     title: "Glasgow's employment rate since 2004",
     summary:
-      "In 2004, 62.7% of working-age Glaswegians had a job. The figure reached 72.1% in 2022, much closer to Scotland as a whole.",
+      "In 2004, 62.7% of working age Glaswegians had a job. The figure reached 72.1% in 2022, much closer to Scotland as a whole.",
     direction: "improving",
     unit: "%",
     x: [
@@ -119,10 +119,10 @@ export const indicators: Indicator[] = [
     decimals: 1,
     provisionalFrom: 19,
     provisionalLabel: "ONS: unreliable",
-    chartTitle: "Share of working-age people in a job",
-    chartSub: "Ages 16–64 · 2004 – 2025 · ONS Annual Population Survey",
+    chartTitle: "Share of working age people in a job",
+    chartSub: "Ages 16–64 · 2004 to 2025 · ONS Annual Population Survey",
     caption:
-      "The dotted section at the end is shaded for a reason: these figures come from a survey that stopped working properly after 2023. Glasgow's apparent six-point crash in 2024 is almost certainly the survey, not the city.",
+      "The dotted section at the end is shaded for a reason: these figures come from a survey that stopped working properly after 2023. Glasgow's apparent six point crash in 2024 is almost certainly the survey, not the city.",
     series: [
       {
         name: "Glasgow",
@@ -166,8 +166,8 @@ export const indicators: Indicator[] = [
     yMax: 9,
     yTicks: [0, 2, 4, 6, 8],
     decimals: 1,
-    chartTitle: "Share of working-age people claiming out-of-work benefits",
-    chartSub: "Each January · 2000 – 2026 · ONS Claimant Count",
+    chartTitle: "Share of working age people claiming out of work benefits",
+    chartSub: "Each January · 2000 to 2026 · ONS Claimant Count",
     caption:
       "Glasgow's figure has stayed higher than Scotland's throughout the full 26 years.",
     series: [
@@ -190,7 +190,7 @@ export const indicators: Indicator[] = [
     ],
     technical: [
       "From 2015 this count includes people on Universal Credit who are required to look for work, which is a wider group than the Jobseeker's Allowance count it replaced. The line before and after 2015 is not measuring quite the same thing.",
-      "The Glasgow-to-Scotland ratio is unaffected by that change, because it applies equally to both.",
+      "The Glasgow to Scotland ratio is unaffected by that change, because it applies equally to both.",
     ],
     sourceIds: ["claimant"],
   },
@@ -198,9 +198,9 @@ export const indicators: Indicator[] = [
   {
     slug: "glasgow-full-time-pay",
     label: "Pay",
-    title: "What Glasgow's full-time pay figure really measures",
+    title: "What Glasgow's full time pay figure really measures",
     summary:
-      "£796.50 a week is about £41,400 a year, and it sounds far too high because it is not what a typical worker earns. It covers full-time employee jobs only, so every part-time job is excluded, and it is gross pay including overtime and bonuses, before tax and National Insurance.",
+      "£796.50 a week is about £41,400 a year, and it sounds far too high because it is not what a typical worker earns. It covers full time employee jobs only, so every part time job is excluded, and it is gross pay including overtime and bonuses, before tax and National Insurance.",
     direction: "worsening",
     unit: "£",
     x: [
@@ -212,13 +212,13 @@ export const indicators: Indicator[] = [
     yMax: 820,
     yTicks: [400, 500, 600, 700, 800],
     decimals: 0,
-    chartTitle: "Pay in a restricted sample of full-time employee jobs",
+    chartTitle: "Pay in a restricted sample of full time employee jobs",
     chartSub: "Gross weekly pay in one April pay period · cash terms · 2008–2025 · ONS ASHE",
     caption:
-      "This is not what the average worker earns, and it is not the pay of people in poverty. Green is the median within selected full-time PAYE employee jobs located in Glasgow. Blue is the same restricted measure for jobs held by Glasgow residents. Grey is Scotland. The difference between the lines compares separate groups; it does not track wages or people moving between them.",
+      "This is not what the average worker earns, and it is not the pay of people in poverty. Green is the median within selected full time PAYE employee jobs located in Glasgow. Blue is the same restricted measure for jobs held by Glasgow residents. Grey is Scotland. The difference between the lines compares separate groups; it does not track wages or people moving between them.",
     series: [
       {
-        name: "Selected full-time jobs based in Glasgow",
+        name: "Selected full time jobs based in Glasgow",
         colorVar: "--workplace",
         data: [
           459.8, 476.0, 476.8, 486.4, 498.9, 523.6, 539.1, 538.3, 546.7, 558.2,
@@ -226,7 +226,7 @@ export const indicators: Indicator[] = [
         ],
       },
       {
-        name: "Selected full-time jobs held by Glasgow residents",
+        name: "Selected full time jobs held by Glasgow residents",
         colorVar: "--glasgow",
         data: [
           434.1, 451.7, 452.5, 460.0, 474.3, 483.9, 497.1, 514.9, 522.2, 519.7,
@@ -234,7 +234,7 @@ export const indicators: Indicator[] = [
         ],
       },
       {
-        name: "Selected full-time jobs held by Scottish residents",
+        name: "Selected full time jobs held by Scottish residents",
         colorVar: "--scotland",
         data: [
           462.9, 471.2, 486.6, 487.2, 498.3, 507.9, 518.6, 527.0, 536.0, 547.4,
@@ -243,17 +243,17 @@ export const indicators: Indicator[] = [
       },
     ],
     technical: [
-      "Why the figure looks too high. It is gross pay, before income tax and National Insurance are taken off. It is the middle of full-time employee jobs only, so every part-time job and every self-employed person is excluded. And it counts overtime, bonuses and shift premiums, not basic salary. A single profession's advertised salary is not the same statistic as the median across all full-time jobs.",
-      "For scale, the Scottish Government's own ASHE 2025 release puts median gross weekly pay for full-time employees in Scotland at £773.80, about £40,200 a year. A city figure slightly above that is expected, because cities concentrate higher-paying employment.",
-      "The figure only covers full-time jobs, and that is the biggest reason it feels wrong. Part-time work is paid far less: in Scotland in 2025 the median part-time employee earned £304.30 a week if a woman and £267.10 if a man, roughly £14,000 to £16,000 a year. Around 29% of Glasgow's employee jobs are part-time and none of them appear in the line on this chart, so the chart is not a picture of what a typical worker earns.",
-      "Minimum-wage work is also a smaller share of employment than most people assume. The ONS puts around 2.0 million UK workers at or below the minimum wage in 2025, about 6.6% of the workforce, roughly one in fifteen, so most jobs sit somewhere between the legal minimum and the middle of the range rather than clustered at the floor.",
-      "The gap from the minimum wage is also smaller than it looks, and it is deliberate. The National Living Wage is set by law at two-thirds of median hourly earnings, that is the Low Pay Commission's remit from government. So the middle of full-time pay sitting around one and a half times the minimum is not an odd result; it is the arithmetic of how the minimum wage is defined. Full-time minimum wage is about £24,800 a year against a Glasgow full-time median near £41,400: roughly 1.7 times, not double.",
-      "ASHE samples employee jobs from PAYE records. This displayed series is then restricted to jobs classed as full-time, paid at adult rates and unaffected by absence. It excludes every part-time job, self-employment, employees outside PAYE, junior rates and pay affected by sickness or other absence. A person with more than one job can be counted more than once.",
-      "For scale, a separate ONS count found 128,000 of Glasgow's 442,000 employee jobs were part-time in 2024, which is 29%. None of those part-time jobs is represented in this full-time series.",
-      "Gross weekly pay can include overtime, bonuses, shift premiums and allowances. ONS normally defines full-time as more than 30 paid hours a week, with a separate rule for teaching jobs.",
+      "Why the figure looks too high. It is gross pay, before income tax and National Insurance are taken off. It is the middle of full time employee jobs only, so every part time job and every self employed person is excluded. And it counts overtime, bonuses and shift premiums, not basic salary. A single profession's advertised salary is not the same statistic as the median across all full time jobs.",
+      "For scale, the Scottish Government's own ASHE 2025 release puts median gross weekly pay for full time employees in Scotland at £773.80, about £40,200 a year. A city figure slightly above that is expected, because cities concentrate higher paying employment.",
+      "The figure only covers full time jobs, and that is the biggest reason it feels wrong. Part time work is paid far less: in Scotland in 2025 the median part time employee earned £304.30 a week if a woman and £267.10 if a man, roughly £14,000 to £16,000 a year. Around 29% of Glasgow's employee jobs are part time and none of them appear in the line on this chart, so the chart is not a picture of what a typical worker earns.",
+      "Minimum wage work is also a smaller share of employment than most people assume. The ONS puts around 2.0 million UK workers at or below the minimum wage in 2025, about 6.6% of the workforce, roughly one in fifteen, so most jobs sit somewhere between the legal minimum and the middle of the range rather than clustered at the floor.",
+      "The gap from the minimum wage is also smaller than it looks, and it is deliberate. The National Living Wage is set by law at two thirds of median hourly earnings, that is the Low Pay Commission's remit from government. So the middle of full time pay sitting around one and a half times the minimum is not an odd result; it is the arithmetic of how the minimum wage is defined. Full time minimum wage is about £24,800 a year against a Glasgow full time median near £41,400: roughly 1.7 times, not double.",
+      "ASHE samples employee jobs from PAYE records. This displayed series is then restricted to jobs classed as full time, paid at adult rates and unaffected by absence. It excludes every part time job, self employment, employees outside PAYE, junior rates and pay affected by sickness or other absence. A person with more than one job can be counted more than once.",
+      "For scale, a separate ONS count found 128,000 of Glasgow's 442,000 employee jobs were part time in 2024, which is 29%. None of those part time jobs is represented in this full time series.",
+      "Gross weekly pay can include overtime, bonuses, shift premiums and allowances. ONS normally defines full time as more than 30 paid hours a week, with a separate rule for teaching jobs.",
       "Figures are in cash, not adjusted for inflation. Compare the lines against each other within a year. That comparison is valid. Do not read the upward slope as people getting better off; most of it is price rises.",
     ],
-    sourceIds: ["ashe", "ashe-guide", "glasgow-labour-profile", "minimum-wage-2026", "mis-2025", "real-living-wage", "ashe-scotland-2025", "lpc-remit", "ons-low-pay-2025"],
+    sourceIds: ["ashe", "ashe-guide", "glasgow-labour-profile", "minimum-wage-2026", "mis-2025", "real-living-wage", "ashe-scotland-2025", "lpc-remit", "ons-low-pay-2025", "ons-pipr-2026-10"],
   },
 ];
 
@@ -261,29 +261,29 @@ export const indicators: Indicator[] = [
 export const lifeExpectancy = {
   slug: "glasgow-life-expectancy",
   label: "Life expectancy",
-  title: "Life expectancy in Glasgow stopped improving",
+  title: "Life expectancy in Glasgow stalled, then fell, and is only now recovering",
   summary:
-    "People in Glasgow were living longer until about 2012. Then progress stopped. The latest male figure on this chart is 73.6 years, the lowest in Scotland.",
+    "People in Glasgow were living longer until about 2012. Then progress stopped and fell back through the pandemic years. Men in Glasgow can now expect 74.3 years, the highest yet, but still the lowest in Scotland.",
   direction: "stalled" as Direction,
   x: [
-    "2001-03", "2002-04", "2003-05", "2004-06", "2005-07", "2006-08", "2007-09",
-    "2008-10", "2009-11", "2010-12", "2011-13", "2012-14", "2013-15", "2014-16",
-    "2015-17", "2016-18", "2017-19",
+    "2001-03", "2002-04", "2003-05", "2004-06", "2005-07", "2006-08", "2007-09", "2008-10",
+    "2009-11", "2010-12", "2011-13", "2012-14", "2013-15", "2014-16", "2015-17", "2016-18",
+    "2017-19", "2018-20", "2019-21", "2020-22", "2021-23", "2022-24",
   ],
-  glaM: [69.0, 69.3, 69.9, 70.4, 70.7, 70.7, 71.1, 71.7, 72.2, 72.6, 73.0, 73.3, 73.4, 73.4, 73.3, 73.4, 73.6],
-  scoM: [73.5, 73.8, 74.2, 74.6, 74.8, 75.0, 75.3, 75.8, 76.2, 76.5, 76.8, 77.1, 77.1, 77.1, 77.0, 77.1, 77.2],
-  glaF: [76.4, 76.4, 76.7, 76.9, 77.0, 77.1, 77.4, 77.9, 78.2, 78.5, 78.5, 78.7, 78.8, 78.9, 78.7, 78.7, 78.5],
-  scoF: [78.9, 79.0, 79.2, 79.5, 79.7, 79.8, 80.0, 80.3, 80.6, 80.7, 80.9, 81.1, 81.1, 81.1, 81.1, 81.1, 81.1],
-  sourceIds: ["ons-le"],
+  glaM: [69.1, 69.3, 69.9, 70.4, 70.7, 70.7, 71.1, 71.7, 72.1, 72.6, 73.0, 73.3, 73.4, 73.4, 73.3, 73.3, 73.6, 73.1, 72.9, 72.9, 73.6, 74.3],
+  scoM: [73.5, 73.8, 74.2, 74.6, 74.8, 75.0, 75.4, 75.8, 76.2, 76.5, 76.8, 77.1, 77.1, 77.1, 77.0, 77.1, 77.2, 76.8, 76.6, 76.5, 76.8, 77.2],
+  glaF: [76.4, 76.4, 76.6, 76.9, 77.0, 77.1, 77.4, 77.9, 78.2, 78.5, 78.5, 78.7, 78.8, 78.8, 78.6, 78.5, 78.3, 78.1, 77.8, 77.9, 78.3, 78.7],
+  scoF: [78.9, 79.0, 79.2, 79.5, 79.7, 79.8, 80.0, 80.3, 80.6, 80.7, 80.9, 81.1, 81.1, 81.1, 81.1, 81.1, 81.1, 80.9, 80.8, 80.7, 80.8, 81.1],
+  sourceIds: ["nrs-life-expectancy-2022-2024"],
 };
 
-/** Neighbourhood deprivation: a two-point comparison, not a series. */
+/** Neighbourhood deprivation: a two point comparison, not a series. */
 export const deprivation = {
   slug: "glasgow-deprivation",
   label: "Neighbourhoods",
   title: "What the Scottish deprivation index shows about Glasgow",
   summary:
-    "Almost half of Glaswegians lived in Scotland's worst-off tenth of neighbourhoods in 2004. By 2020 it was under a third, 29%.",
+    "Almost half of Glaswegians lived in Scotland's worst off tenth of neighbourhoods in 2004. By 2020 it was under a third, 29%.",
   direction: "improving" as Direction,
   rows: [
     { year: "SIMD 2004", pct: 46, note: "nearly half the city" },
@@ -293,7 +293,7 @@ export const deprivation = {
   sourceIds: ["simd"],
 };
 
-/** Jobs per working-age resident. The city has more jobs than adults. */
+/** Jobs per working age resident. The city has more jobs than adults. */
 export const jobsDensity = {
   glasgow: 1.08,
   scotland: 0.82,
@@ -324,7 +324,7 @@ export const headlineStats = [
     href: "/indicators/glasgow-child-poverty",
   },
   {
-    label: "Working-age employment rate",
+    label: "Working age employment rate",
     value: "71.2%",
     from: "62.7%",
     to: "71.2%",
@@ -333,7 +333,7 @@ export const headlineStats = [
     href: "/indicators/glasgow-employment-rate",
   },
   {
-    label: "Living in Scotland's worst-off 10% of neighbourhoods",
+    label: "Living in Scotland's worst off 10% of neighbourhoods",
     value: "29%",
     from: "46%",
     to: "29%",
@@ -343,10 +343,10 @@ export const headlineStats = [
   },
   {
     label: "Male life expectancy behind the Scottish average",
-    value: "3.6 yrs",
-    from: "4.5 yrs",
-    to: "3.6 yrs",
-    period: "2001–03 → 2017–19",
+    value: "2.9 yrs",
+    from: "4.4 yrs",
+    to: "2.9 yrs",
+    period: "2001–03 → 2022–24",
     direction: "improving" as Direction,
     href: "/indicators/glasgow-life-expectancy",
   },

@@ -36,7 +36,7 @@ function StepLabel({ n, children }: { n: number; children: React.ReactNode }) {
       <span className="figure-num text-[24px] text-[var(--action-text)]" aria-hidden="true">
         {n}
       </span>
-      <span className="ui text-[16px] font-[680] text-[var(--ink)]">{children}</span>
+      <span className="ui text-[16px] font-[560] text-[var(--ink)]">{children}</span>
     </div>
   );
 }
@@ -61,7 +61,7 @@ function representativeLabel(representative: Representative) {
 function RepresentativeSummary({ representative }: { representative: Representative }) {
   return (
     <div className="border-t border-[var(--rule)] pt-3 first:border-t-0 first:pt-0">
-      <p className="ui text-[15px] font-[720] text-[var(--ink)]">
+      <p className="ui text-[15px] font-[600] text-[var(--ink)]">
         Your {representativeLabel(representative)}: {representative.name}
       </p>
       <p className="text-[15px] text-[var(--ink-2)] leading-[1.5] mt-1">
@@ -102,7 +102,7 @@ export default function LetterBuilder() {
       scotlandPct: SCOTLAND_PCTS[9],
       evidenceLine:
         typeof claimant === "number"
-          ? `The wider local figures show ${claimant.toFixed(1)}% of working-age people needed out-of-work benefits in January ${CC_YEARS[CC_YEARS.length - 1]}.`
+          ? `The wider local figures show ${claimant.toFixed(1)}% of working age people needed out of work benefits in January ${CC_YEARS[CC_YEARS.length - 1]}.`
           : undefined,
     };
   }, [council, first]);
@@ -296,7 +296,7 @@ export default function LetterBuilder() {
                 data-clarity-mask="true"
                 className="rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--paper)] p-4 space-y-3"
               >
-                <p className="ui text-[15px] font-[720] text-[var(--good-text)]">
+                <p className="ui text-[15px] font-[600] text-[var(--good-text)]">
                   Found automatically for {lookup.postcode}
                 </p>
                 <RepresentativeSummary representative={lookup.mp} />
@@ -309,7 +309,7 @@ export default function LetterBuilder() {
                 )}
                 {lookup.regionalMsps.length > 0 && (
                   <details className="group border-t border-[var(--rule)] pt-3">
-                    <summary className="ui flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 text-[15px] font-[720] text-[var(--ink)] marker:content-none">
+                    <summary className="ui flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 text-[15px] font-[600] text-[var(--ink)] marker:content-none">
                       <span>
                         See your {lookup.regionalMsps.length} regional MSP
                         {lookup.regionalMsps.length === 1 ? "" : "s"}
@@ -325,13 +325,13 @@ export default function LetterBuilder() {
                       <p className="text-[15px] leading-[1.55] text-[var(--ink-2)]">
                         They also represent you across the wider{" "}
                         {lookup.holyrood.region ?? "Scottish Parliament"} region. You can contact
-                        any of them. I use your constituency MSP for the ready-written email
+                        any of them. I use your constituency MSP for the ready written email
                         automatically, so you do not have to choose or email all seven.
                       </p>
                       <ul className="mt-3 divide-y divide-[var(--rule)] border-y border-[var(--rule)]">
                         {regionalDrafts.map(({ representative, letter }) => (
                           <li key={`${representative.name}-${representative.email}`} className="py-3">
-                            <p className="ui text-[15px] font-[700] text-[var(--ink)]">
+                            <p className="ui text-[15px] font-[580] text-[var(--ink)]">
                               {representative.name}
                             </p>
                             <p className="mt-0.5 text-[15px] leading-[1.45] text-[var(--ink-2)]">
@@ -342,9 +342,9 @@ export default function LetterBuilder() {
                                 <button
                                   type="button"
                                   onClick={() => openDraft(representative, letter, "regional_msp")}
-                                  className="text-[15px] font-[650] text-[var(--action-text)] underline underline-offset-[3px]"
+                                  className="text-[15px] font-[540] text-[var(--action-text)] underline underline-offset-[3px]"
                                 >
-                                  Open ready-written email
+                                  Open ready written email
                                 </button>
                               )}
                               <a
@@ -404,7 +404,7 @@ export default function LetterBuilder() {
                     className="mt-[3px] h-[18px] w-[18px] shrink-0 accent-[var(--brand)]"
                   />
                   <span>
-                    <span className="ui block text-[15.5px] font-[680] leading-[1.35] text-[var(--ink)]">
+                    <span className="ui block text-[15.5px] font-[560] leading-[1.35] text-[var(--ink)]">
                       {t.label}
                     </span>
                     <span className="block text-[14.5px] leading-[1.45] text-[var(--ink-2)] mt-0.5">
@@ -435,7 +435,7 @@ export default function LetterBuilder() {
                     key={role}
                     className="rounded-[var(--r-s)] border-l-[3px] border-[var(--brand)] bg-[var(--surface-2)] px-4 py-3"
                   >
-                    <p className="ui text-[14px] font-[750] text-[var(--brand)] mb-1">
+                    <p className="ui text-[14px] font-[600] text-[var(--brand)] mb-1">
                       Your {role} gets: {joinPhrases(theirs.map((t) => t.phrase))}
                     </p>
                     <p className="text-[15px] leading-[1.55] text-[var(--ink-2)]">
@@ -526,11 +526,11 @@ export default function LetterBuilder() {
                   key={representative.role}
                   className="rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--paper)] p-4"
                 >
-                  <p className="ui text-[15px] font-[720] text-[var(--action-text)]">
+                  <p className="ui text-[15px] font-[600] text-[var(--action-text)]">
                     {drafts.length === 2 ? `Email ${index + 1} of 2 · ` : "Email · "}
                     your {representativeLabel(representative)}
                   </p>
-                  <p className="text-[18px] font-[680] mt-1">{representative.name}</p>
+                  <p className="text-[18px] font-[560] mt-1">{representative.name}</p>
                   <p className="text-[15px] text-[var(--ink-2)] leading-[1.45] mt-1">
                     {representative.party} · {representative.constituency}
                   </p>
@@ -555,7 +555,7 @@ export default function LetterBuilder() {
                       type="button"
                       onClick={() => openDraft(representative, letter)}
                       className="btn btn-primary w-full justify-center text-center"
-                      aria-label={`Open ready-to-send email to ${representative.name}, your ${representativeLabel(representative)}`}
+                      aria-label={`Open ready to send email to ${representative.name}, your ${representativeLabel(representative)}`}
                     >
                       Open email to {representative.name}
                     </button>
@@ -602,7 +602,7 @@ export default function LetterBuilder() {
             className="rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] border-t-[3px] border-t-[var(--brand)] p-7 sm:p-10"
             style={{ boxShadow: "var(--shadow-2)" }}
           >
-            <p className="text-[20px] font-[720]">Your addressed emails will appear here</p>
+            <p className="text-[20px] font-[600]">Your addressed emails will appear here</p>
             <p className="text-[16px] text-[var(--ink-2)] leading-[1.6] mt-3 max-w-[58ch]">
               Enter your postcode. I find your MP and every MSP, use your area&apos;s official figures
               and write to your MP and constituency MSP automatically.
@@ -618,10 +618,10 @@ export default function LetterBuilder() {
               >
                 <div className="flex flex-wrap items-baseline justify-between gap-3 border-b border-[var(--rule)] pb-4 mb-5">
                   <div>
-                    <p className="ui text-[15px] font-[720] text-[var(--action-text)]">
+                    <p className="ui text-[15px] font-[600] text-[var(--action-text)]">
                       To your {representativeLabel(representative)}
                     </p>
-                    <h2 className="text-[22px] font-[700] mt-1">{representative.name}</h2>
+                    <h2 className="text-[22px] font-[580] mt-1">{representative.name}</h2>
                   </div>
                   <p className="ui tnum text-[15px] text-[var(--muted)]">
                     {letter.split(/\s+/).length} words
@@ -656,7 +656,7 @@ export default function LetterBuilder() {
         */}
         {lookup && (
           <div className="mt-6 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5 sm:p-6">
-            <h2 className="text-[20px] font-[720]">While you are here</h2>
+            <h2 className="text-[20px] font-[600]">While you are here</h2>
             <p className="mt-2 max-w-[62ch] text-[15.5px] leading-[1.55] text-[var(--ink-2)]">
               The figures behind your email, and the rest of what is on the record for your area.
               These pages are public and safe to share.
@@ -668,7 +668,7 @@ export default function LetterBuilder() {
                     href={link.href}
                     className="block h-full rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--paper)] p-4 no-underline transition-colors hover:border-[var(--brand)]"
                   >
-                    <span className="ui block text-[16px] font-[750] leading-[1.35] text-[var(--ink)]">
+                    <span className="ui block text-[16px] font-[600] leading-[1.35] text-[var(--ink)]">
                       {link.label}
                       <span aria-hidden="true" className="text-[var(--brand)]">
                         {" "}

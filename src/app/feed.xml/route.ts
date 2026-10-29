@@ -1,6 +1,7 @@
 import { changelog } from "@/lib/data/changelog";
 import { postsByDate } from "@/lib/data/posts";
 import { site } from "@/lib/site";
+import { postPath } from "@/lib/routeMap";
 
 /**
  * RSS feed of the public change log and the articles, newest first. Static at
@@ -44,9 +45,9 @@ export async function GET() {
       date: p.date,
       title: p.title,
       body: p.description,
-      link: `${site.url}/blog/${p.slug}`,
+      link: `${site.url}${postPath(p.slug)}`,
       category: p.category,
-      image: `${site.url}${p.image.src}`,
+      image: p.image ? `${site.url}${p.image.src}` : undefined,
     })),
     ...changelog.map((e) => ({
       date: e.date,

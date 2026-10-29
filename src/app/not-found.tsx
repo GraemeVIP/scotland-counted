@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { PRIMARY } from "@/lib/data/navigation";
+import { BrandLogo } from "@/components/BrandLogo";
 
 /**
  * The page people land on when a link is wrong.
@@ -53,12 +54,13 @@ export default function NotFound() {
         */}
         <Link
           href="/"
-          className="ui inline-block mb-10 text-[19px] font-[800] tracking-[-0.02em] no-underline text-[var(--ink)]"
+          aria-label="Scotland Counted home"
+          className="flex w-fit mb-10 no-underline"
         >
-          Scotland<span className="text-[var(--action-text)]">Counted</span>
+          <BrandLogo tone="adaptive" height={30} />
         </Link>
 
-        <p className="kicker mb-4 text-[var(--action-text)]">404</p>
+        <p className="eyebrow mb-5">Page not found · 404</p>
         <h1 className="h1 max-w-[16ch] mb-5">This page does not exist</h1>
         <p className="lede max-w-[54ch]">
           The link was probably wrong, or the page has moved since it was shared. Nothing is
@@ -72,7 +74,7 @@ export default function NotFound() {
               href={h.href}
               className="group rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] p-6 no-underline transition-all duration-300 hover:border-[var(--brand)] hover:-translate-y-1"
             >
-              <p className="text-[20px] font-[750] leading-[1.2] group-hover:text-[var(--brand)] transition-colors">
+              <p className="text-[20px] font-[600] leading-[1.2] group-hover:text-[var(--brand)] transition-colors">
                 {h.title}
               </p>
               <p className="text-[15.5px] leading-[1.55] text-[var(--ink-2)] mt-2">{h.body}</p>
@@ -94,7 +96,7 @@ export default function NotFound() {
             <Link
               key={item.href}
               href={item.href}
-              className="ui text-[16px] font-[650] text-[var(--ink-2)] hover:text-[var(--brand)]"
+              className="ui text-[16px] font-[540] text-[var(--ink-2)] hover:text-[var(--brand)]"
             >
               {item.label}
             </Link>

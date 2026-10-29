@@ -6,11 +6,12 @@ import BlogList from "./BlogList";
 import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
 import { postsByDate } from "@/lib/data/posts";
 import { site } from "@/lib/site";
+import { postPath } from "@/lib/routeMap";
 
 export const metadata = meta({
   title: "Scotland Counted Explained | Poverty Evidence Hub",
   description:
-    "Browse every Scotland Counted explainer on poverty, money, bills and political responsibility. Get the plain-English answer first, then check every source.",
+    "Browse every Scotland Counted explainer on poverty, money, bills and political responsibility. Get the plain English answer first, then check every source.",
   path: "/blog",
   type: "website",
 });
@@ -38,11 +39,11 @@ export default function Blog() {
             description: p.description,
             datePublished: p.date,
             dateModified: p.updated ?? p.date,
-            image: `${site.url}${p.image.src}`,
+            image: p.image ? `${site.url}${p.image.src}` : undefined,
             articleSection: p.category,
             keywords: p.tags.join(", "),
             author: { "@id": `${site.url}/#author` },
-            url: `${site.url}/blog/${p.slug}`,
+            url: `${site.url}${postPath(p.slug)}`,
           })),
         }}
       />

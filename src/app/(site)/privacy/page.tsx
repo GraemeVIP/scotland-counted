@@ -91,15 +91,15 @@ export default function Privacy() {
               },
               {
                 t: "Submitting an MSP review",
-                b: "Your review, rating, chosen display name, relationship to the experience and approximate interaction date are stored in a private Supabase moderation queue. Gmail emails the moderator a short alert and private moderation link; Resend may be tried as a fallback if Gmail cannot send. The full account and any optional contact address stay out of either alert. Email is optional and collected only if you ask to be considered for a follow-up about a fuller public-interest article. Nothing is published automatically, rejected submissions are deleted, and any email is never copied to the public review table.",
+                b: "Your review, rating, chosen display name, relationship to the experience and approximate interaction date are stored in a private Supabase moderation queue. Gmail emails the moderator a short alert and private moderation link; Resend may be tried as a fallback if Gmail cannot send. The full account and any optional contact address stay out of either alert. Email is optional and collected only if you ask to be considered for a follow up about a fuller public interest article. Nothing is published automatically, rejected submissions are deleted, and any email is never copied to the public review table.",
               },
               {
                 t: "Entering a postcode",
-                b: "It is sent to a public lookup service to work out your council area, MP and MSPs. It is then placed in the email draft so the office can confirm you live in the area. For that handoff it may be held temporarily in this tab’s session storage, then removed when the email builder reads it. Closing the tab clears it. It is not added to a server-side postcode list, and the site does not send the email.",
+                b: "It is sent to a public lookup service to work out your council area, MP and MSPs. It is then placed in the email draft so the office can confirm you live in the area. For that handoff it may be held temporarily in this tab’s session storage, then removed when the email builder reads it. Closing the tab clears it. It is not added to a server side postcode list, and the site does not send the email.",
               },
               {
                 t: "Using the calculators",
-                b: "The sums run in your browser. Wages and pension amounts are not included in custom analytics events. A council-tax postcode is sent to the lookup service to find your council.",
+                b: "The sums run in your browser. Wages and pension amounts are not included in custom analytics events. A council tax postcode is sent to the lookup service to find your council.",
               },
             ].map((row) => (
               <div
@@ -107,7 +107,7 @@ export default function Privacy() {
                 className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] px-6 py-6"
                 style={{ boxShadow: "var(--shadow-1)" }}
               >
-                <p className="ui text-[17px] font-[750]">{row.t}</p>
+                <p className="ui text-[17px] font-[600]">{row.t}</p>
                 <p className="mt-2.5 text-[16px] leading-[1.6] text-[var(--ink-2)]">{row.b}</p>
               </div>
             ))}
@@ -128,7 +128,7 @@ export default function Privacy() {
               </p>
 
               <div className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] px-6 py-6">
-                <p className="ui text-[15px] font-[750] mb-3">What they record</p>
+                <p className="ui text-[15px] font-[600] mb-3">What they record</p>
                 <ul className="grid gap-2.5">
                   {[
                     "The pages you visit, roughly where in the world you are, and which site or search sent you.",
@@ -154,7 +154,7 @@ export default function Privacy() {
               </div>
 
               <div className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] px-6 py-6">
-                <p className="ui text-[15px] font-[750] mb-3">How to turn it off</p>
+                <p className="ui text-[15px] font-[600] mb-3">How to turn it off</p>
                 <ul className="grid gap-2.5 text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
                   <li>
                     Switch on <strong className="text-[var(--ink)]">Do Not Track</strong> or
@@ -169,7 +169,7 @@ export default function Privacy() {
                         rel="noopener noreferrer nofollow"
                         target="_blank"
                       >
-                        Analytics opt-out add-on
+                        Analytics opt out add on
                       </a>
                       , which stops it on every site, not just this one.
                     </li>
@@ -206,8 +206,8 @@ export default function Privacy() {
                   ]),
               "No advertising networks and no sale of personal information. Service providers are listed below.",
               "No profiling, no automated decisions and no attempt to work out who you are.",
-              "No account, no password and no sign-up needed to use anything here.",
-              "Postcodes are not added to a server-side list. A postcode may be kept temporarily in this browser tab to pass your chosen area to the email builder.",
+              "No account, no password and no sign up needed to use anything here.",
+              "Postcodes are not added to a server side list. A postcode may be kept temporarily in this browser tab to pass your chosen area to the email builder.",
             ].map((item) => (
               <li
                 key={item}
@@ -237,7 +237,7 @@ export default function Privacy() {
                   {["Service", "What it does", "What it sees"].map((h) => (
                     <th
                       key={h}
-                      className="ui border-b-2 border-[var(--ink)] bg-[var(--surface-2)] px-5 py-3.5 text-left text-[15px] font-[750] text-[var(--muted)]"
+                      className="ui border-b-2 border-[var(--ink)] bg-[var(--surface-2)] px-5 py-3.5 text-left text-[15px] font-[600] text-[var(--muted)]"
                     >
                       {h}
                     </th>
@@ -247,10 +247,10 @@ export default function Privacy() {
               <tbody>
                 {[
                   ["Vercel", "Hosts the site", "Standard server logs, which include IP addresses, for security and to keep the site running"],
-                  ["Web3Forms", "Delivers contact forms and sign-ups to a real inbox", "What you typed into the relevant contact or sign-up form"],
-                  ["Google Gmail", "Sends a new-review alert and private moderation link to the moderator", "The MSP, rating, chosen display name and whether follow-up permission was given. The full account and optional reviewer email are not included"],
-                  ["Resend", "May send the same limited new-review alert if Gmail cannot send it", "The MSP, rating, chosen display name and whether follow-up permission was given. The full account and optional reviewer email are not included"],
-                  ["Supabase", "Stores MSP reviews while they are moderated and publishes approved reviews", "The review fields you submit. If you opt into a possible follow-up, your email remains in the private moderation queue and is excluded from the public review table"],
+                  ["Web3Forms", "Delivers contact forms and sign ups to a real inbox", "What you typed into the relevant contact or sign up form"],
+                  ["Google Gmail", "Sends a new review alert and private moderation link to the moderator", "The MSP, rating, chosen display name and whether follow up permission was given. The full account and optional reviewer email are not included"],
+                  ["Resend", "May send the same limited new review alert if Gmail cannot send it", "The MSP, rating, chosen display name and whether follow up permission was given. The full account and optional reviewer email are not included"],
+                  ["Supabase", "Stores MSP reviews while they are moderated and publishes approved reviews", "The review fields you submit. If you opt into a possible follow up, your email remains in the private moderation queue and is excluded from the public review table"],
                   ...(GA4_ON ? [["Google Analytics", "Measures visits and existing tool actions", "Page paths, device details, approximate location, referral information and limited action events"]] : []),
                   ...(CLARITY_ON ? [["Microsoft Clarity", "Helps find usability problems", "Page interaction and session recordings with private form fields masked"]] : []),
                   ["postcodes.io", "Turns a postcode into a council area", "The postcode you entered"],
@@ -259,7 +259,7 @@ export default function Privacy() {
                   ["YouTube", "Plays the video, but only after you press play", "Nothing until you click. Nothing loads from YouTube on a normal page view"],
                 ].map(([a, b, c]) => (
                   <tr key={a} className="transition-colors hover:bg-[var(--surface-2)]">
-                    <td className="ui border-b border-[var(--rule)] px-5 py-4 font-[700]">{a}</td>
+                    <td className="ui border-b border-[var(--rule)] px-5 py-4 font-[580]">{a}</td>
                     <td className="border-b border-[var(--rule)] px-5 py-4 text-[var(--ink-2)]">
                       {b}
                     </td>
@@ -280,7 +280,7 @@ export default function Privacy() {
               <p>
                 Under UK data protection law you can ask what is held about you, ask for it to be
                 corrected, and ask for it to be deleted. Depending on what you used, that may be a
-                mailing-list address, a contact message or an MSP review. If a review has no contact
+                mailing list address, a contact message or an MSP review. If a review has no contact
                 email, say which MSP it concerned and the display name or headline you used so it can
                 be found without collecting anything new.
               </p>

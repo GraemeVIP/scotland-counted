@@ -1,13 +1,14 @@
 import Link from "next/link";
 import { Page, ContentFrame, PageHeader } from "@/components/Blocks";
 import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
-import { SECTIONS } from "@/lib/data/navigation";
+import { ABOUT, EVIDENCE, HUBS, hubColor } from "@/lib/data/navigation";
 import { councilsByLevel } from "@/lib/data/councils";
 import { constituencies } from "@/lib/data/constituencies";
 import { posts } from "@/lib/data/posts";
 import { indicators } from "@/lib/data/indicators";
 import { mps } from "@/lib/data/mps";
 import { holyroodConstituencies, holyroodRegions } from "@/lib/data/holyrood";
+import { postPath } from "@/lib/routeMap";
 
 export const metadata = meta({
   title: "Every page on this site",
@@ -48,10 +49,10 @@ export default function Browse() {
                 href="/email-your-mp-and-msp"
                 className="group block rounded-[var(--r-s)] border border-[var(--rule)] border-t-[3px] border-t-[var(--action)] bg-[var(--surface)] px-5 py-5 no-underline hover:border-[var(--action)] transition-colors"
               >
-                <span className="ui block text-[15px] font-[750] uppercase tracking-[0.06em] text-[var(--action-text)]">
+                <span className="ui block text-[15px] font-[600] uppercase tracking-[0.06em] text-[var(--action-text)]">
                   Fastest route
                 </span>
-                <span className="ui mt-2 block text-[19px] font-[750] text-[var(--ink)]">
+                <span className="ui mt-2 block text-[19px] font-[600] text-[var(--ink)]">
                   Find everyone by postcode →
                 </span>
                 <span className="mt-2 block text-[15px] leading-[1.5] text-[var(--ink-2)]">
@@ -63,18 +64,18 @@ export default function Browse() {
                   href="/representatives"
                   className="group block rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] px-5 py-4 no-underline hover:border-[var(--rule-strong)] transition-colors"
                 >
-                  <span className="ui text-[17px] font-[720] text-[var(--ink)] group-hover:text-[var(--action-text)]">
+                  <span className="ui text-[17px] font-[600] text-[var(--ink)] group-hover:text-[var(--action-text)]">
                     Browse all 57 MPs →
                   </span>
                   <span className="mt-1 block text-[15px] text-[var(--ink-2)]">
-                    Names, parties, contacts and ready-written emails.
+                    Names, parties, contacts and ready written emails.
                   </span>
                 </Link>
                 <Link
                   href="/representatives/msps"
                   className="group block rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] px-5 py-4 no-underline hover:border-[var(--rule-strong)] transition-colors"
                 >
-                  <span className="ui text-[17px] font-[720] text-[var(--ink)] group-hover:text-[var(--action-text)]">
+                  <span className="ui text-[17px] font-[600] text-[var(--ink)] group-hover:text-[var(--action-text)]">
                     Browse all 129 MSPs →
                   </span>
                   <span className="mt-1 block text-[15px] text-[var(--ink-2)]">
@@ -86,7 +87,7 @@ export default function Browse() {
 
             <div className="mt-5 grid gap-3">
               <details className="rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)]">
-                <summary className="ui cursor-pointer px-5 py-4 text-[16px] font-[720] text-[var(--ink)]">
+                <summary className="ui cursor-pointer px-5 py-4 text-[16px] font-[600] text-[var(--ink)]">
                   Show all 57 current MPs
                 </summary>
                 <div className="flex flex-wrap gap-2 border-t border-[var(--rule)] px-5 py-5">
@@ -104,11 +105,11 @@ export default function Browse() {
               </details>
 
               <details className="rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)]">
-                <summary className="ui cursor-pointer px-5 py-4 text-[16px] font-[720] text-[var(--ink)]">
+                <summary className="ui cursor-pointer px-5 py-4 text-[16px] font-[600] text-[var(--ink)]">
                   Show every MSP area
                 </summary>
                 <div className="border-t border-[var(--rule)] px-5 py-5">
-                  <h3 className="ui text-[16px] font-[750] text-[var(--ink)]">73 constituencies</h3>
+                  <h3 className="ui text-[16px] font-[600] text-[var(--ink)]">73 constituencies</h3>
                   <div className="mt-3 flex flex-wrap gap-2">
                     {holyroodConstituencies.map((item) => (
                       <Link
@@ -120,7 +121,7 @@ export default function Browse() {
                       </Link>
                     ))}
                   </div>
-                  <h3 className="ui mt-6 text-[16px] font-[750] text-[var(--ink)]">8 regions</h3>
+                  <h3 className="ui mt-6 text-[16px] font-[600] text-[var(--ink)]">8 regions</h3>
                   <div className="mt-3 flex flex-wrap gap-2">
                     {holyroodRegions.map((item) => (
                       <Link
@@ -141,7 +142,7 @@ export default function Browse() {
             <h2 className="h2 mb-2">Your council area</h2>
             <p className="text-[17px] text-[var(--ink-2)] leading-[1.6] max-w-[62ch] mb-5">
               All {councils.length} council areas in Scotland, worst rate first. Each page has ten
-              years of figures for child poverty and out-of-work benefits, plus minimum-wage context
+              years of figures for child poverty and out of work benefits, plus minimum wage context
               and a clearly restricted ONS pay estimate.
             </p>
             <div className="flex flex-wrap gap-2">
@@ -176,42 +177,61 @@ export default function Browse() {
           </div>
         </section>
 
-        {SECTIONS.map((sec) => (
-          <section key={sec.title} className="pt-12">
-            <h2 className="h2 mb-2">{sec.title}</h2>
-            <p className="text-[17px] text-[var(--ink-2)] leading-[1.6] max-w-[62ch] mb-5">
-              {sec.intro}
-            </p>
-            <div className="grid gap-3 sm:grid-cols-2">
-              {sec.items.map((n) => (
-                <Link
-                  key={n.href}
-                  href={n.href}
-                  className="group block rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] px-5 py-4 no-underline hover:border-[var(--rule-strong)] transition-colors"
-                >
-                  <span className="ui text-[16.5px] font-[680] text-[var(--ink)] group-hover:text-[var(--action-text)] transition-colors">
-                    {n.label}
-                  </span>
-                  {n.blurb && (
-                    <span className="block text-[15px] leading-[1.45] text-[var(--ink-2)] mt-1">
-                      {n.blurb}
-                    </span>
-                  )}
-                </Link>
+        {HUBS.map((hub) => (
+          <section key={hub.id} className="pt-12">
+            <h2 className="h2 mb-2 flex items-center gap-3">
+              <span aria-hidden="true" className="h-3 w-3 rounded-full" style={{ background: hubColor(hub.id) }} />
+              <Link href={hub.href} className="no-underline text-[var(--ink)]">
+                {hub.label}
+              </Link>
+            </h2>
+            <p className="text-[17px] text-[var(--ink-2)] leading-[1.6] max-w-[62ch] mb-5">{hub.intro}</p>
+            <div className="grid gap-6 md:grid-cols-3">
+              {hub.groups.map((group) => (
+                <div key={group.heading}>
+                  <p className="kicker mb-2" style={{ color: hubColor(hub.id) }}>
+                    {group.heading}
+                  </p>
+                  <ul className="space-y-2">
+                    {group.items.map((item) => (
+                      <li key={item.href}>
+                        <Link href={item.href} className="text-[16.5px]">
+                          {item.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               ))}
             </div>
           </section>
         ))}
 
         <section className="pt-12">
+          <h2 className="h2 mb-2">Check the evidence</h2>
+          <p className="text-[17px] text-[var(--ink-2)] leading-[1.6] max-w-[62ch] mb-5">
+            The data, methods and corrections behind every figure, and the project itself.
+          </p>
+          <ul className="grid gap-2 sm:grid-cols-2 max-w-[760px]">
+            {[...EVIDENCE, ...ABOUT].map((item) => (
+              <li key={item.href}>
+                <Link href={item.href} className="text-[16.5px]">
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section className="pt-12">
           <h2 className="h2 mb-2">Explainers</h2>
           <p className="text-[17px] text-[var(--ink-2)] leading-[1.6] max-w-[62ch] mb-5">
-            Short, plain-English answers to the questions people ask most.
+            Short, plain English answers to the questions people ask most.
           </p>
           <ul className="space-y-2.5 max-w-[760px]">
             {posts.map((p) => (
               <li key={p.slug}>
-                <Link href={`/blog/${p.slug}`} className="text-[17px]">
+                <Link href={postPath(p.slug)} className="text-[17px]">
                   {p.title}
                 </Link>
               </li>

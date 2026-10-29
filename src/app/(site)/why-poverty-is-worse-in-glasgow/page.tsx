@@ -78,7 +78,7 @@ export default function WhyGlasgow() {
           lede="More than 1 in 3 Glasgow children are growing up in poverty. That is the worst rate in Scotland, and it rose faster here than anywhere else. Glasgow keeps its own detailed record so those facts are never watered down."
           stat={{
             value: jobsDensity.glasgow.toFixed(2),
-            label: `jobs in Glasgow for every working-age adult living here. There are more jobs than adults. Scotland: ${jobsDensity.scotland}.`,
+            label: `jobs in Glasgow for every working age adult living here. There are more jobs than adults. Scotland: ${jobsDensity.scotland}.`,
             tone: "neutral",
           }}
         />
@@ -151,16 +151,16 @@ export default function WhyGlasgow() {
             </Split>
 
             <aside className="mt-9 max-w-[900px] rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] p-6 sm:p-7">
-              <p className="ui text-[15px] font-[760] text-[var(--brand)]">New health evidence</p>
-              <h3 className="mt-2 text-[24px] font-[760] leading-[1.25]">
+              <p className="ui text-[15px] font-[620] text-[var(--brand)]">New health evidence</p>
+              <h3 className="mt-2 text-[24px] font-[620] leading-[1.25]">
                 Drug deaths show how wide the deprivation divide remains
               </h3>
               <p className="mt-3 max-w-[66ch] text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
-                Glasgow City had Scotland&apos;s highest age-standardised drug-misuse death rate in
+                Glasgow City had Scotland&apos;s highest age standardised drug misuse death rate in
                 2020–2024. Across Scotland in 2024, the rate in the most deprived fifth of areas was
                 about 12 times the rate in the least deprived fifth.
               </p>
-              <Link href="/blog/drug-deaths-scotland-deprivation" className="ui mt-4 inline-flex min-h-11 items-center font-[720]">
+              <Link href="/blog/drug-deaths-scotland-deprivation" className="ui mt-4 inline-flex min-h-11 items-center font-[600]">
                 See the full council comparison and what it proves <span aria-hidden="true">→</span>
               </Link>
             </aside>
@@ -169,8 +169,8 @@ export default function WhyGlasgow() {
       </Page>
 
       {/* ---------- 2 ---------- */}
-      <Slab attribution="ONS jobs density; UK minimum-wage rates; JRF / Loughborough minimum-income research">
-        Glasgow has more jobs than working-age adults. A job can still leave a family without enough to live on.
+      <Slab attribution="ONS jobs density; UK minimum wage rates; JRF / Loughborough minimum income research">
+        Glasgow has more jobs than working age adults. A job can still leave a family without enough to live on.
       </Slab>
 
       <Page>
@@ -188,7 +188,7 @@ export default function WhyGlasgow() {
                     At 37.5 paid hours every week, that is about £24,785 a year before tax. Fewer
                     or changing hours mean less.
                   </Note>
-                  <Note label="Single adult, full-time legal minimum" value="76%">
+                  <Note label="Single adult, full time legal minimum" value="76%">
                     That was how much of a basic, decent living standard the pay covered in 2025.
                     For a lone parent with children aged 3 and 7 it covered 69%.
                   </Note>
@@ -197,7 +197,7 @@ export default function WhyGlasgow() {
             >
               <p>
                 Glasgow is not short of work. There are more jobs inside the city than there are
-                working-age people living in it. What the city is short of is jobs that pay enough
+                working age people living in it. What the city is short of is jobs that pay enough
                 to live on.
               </p>
               <p>
@@ -213,7 +213,7 @@ export default function WhyGlasgow() {
               {[
                 {
                   value: `${jobsDensity.glasgow}`,
-                  label: "jobs in the city for every working-age resident",
+                  label: "jobs in the city for every working age resident",
                   note: `${jobsDensity.scotland} across Scotland · ${jobsDensity.year}`,
                 },
                 {
@@ -234,7 +234,7 @@ export default function WhyGlasgow() {
                   <p className="display-stat text-[clamp(30px,3.4vw,40px)] text-[var(--brand)]">
                     {stat.value}
                   </p>
-                  <p className="mt-2.5 text-[16px] font-[640] leading-[1.4]">{stat.label}</p>
+                  <p className="mt-2.5 text-[16px] font-[540] leading-[1.4]">{stat.label}</p>
                   <p className="mt-2 text-[14.5px] leading-[1.45] text-[var(--muted)]">
                     {stat.note}
                   </p>
@@ -245,7 +245,7 @@ export default function WhyGlasgow() {
             <p className="mt-8 max-w-[64ch] rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface-2)] px-5 py-4 text-[15.5px] leading-[1.55] text-[var(--ink-2)]">
               <strong className="text-[var(--ink)]">Before you read the chart below:</strong> the
               £796.50 on it is not the average Glasgow wage. It covers a selected sample of
-              full-time employee jobs and excludes every part-time job and all self-employment.{" "}
+              full time employee jobs and excludes every part time job and all self employment.{" "}
               <Link href="/indicators/glasgow-full-time-pay">I explain what it does and does not measure</Link>,
               including the full spread of pay and what it means after tax.
             </p>
@@ -278,7 +278,7 @@ export default function WhyGlasgow() {
                   yTicks={pay.yTicks}
                   unit="£"
                   decimals={0}
-                  ariaLabel="Restricted median gross weekly pay estimates for selected full-time PAYE employee jobs based in Glasgow, held by Glasgow residents and held by Scottish residents, 2008 to 2025."
+                  ariaLabel="Restricted median gross weekly pay estimates for selected full time PAYE employee jobs based in Glasgow, held by Glasgow residents and held by Scottish residents, 2008 to 2025."
                 />
               </Figure>
             </div>
@@ -311,7 +311,7 @@ export default function WhyGlasgow() {
                 single parents, larger families and some minority ethnic families.
               </p>
               <p>
-                Glasgow has more of these families than the Scottish average. So a UK-wide benefit
+                Glasgow has more of these families than the Scottish average. So a UK wide benefit
                 cut can hurt more people here.{" "}
                 <strong>
                   The rule may be the same everywhere, but the harm is not.

@@ -126,9 +126,9 @@ export default function Calculator() {
   const codeInvalid = taxCode.trim() !== "" && (codeInfo === null || regionMismatch);
   const unsupportedPension = pensionType === "ras";
   const inputProblem = unsupportedPension
-    ? "Relief-at-source pensions are not supported by this estimator: extra relief and the Personal Allowance taper need a different calculation. Check your scheme type; only select net pay or salary sacrifice if that is how your scheme actually works."
+    ? "Relief at source pensions are not supported by this estimator: extra relief and the Personal Allowance taper need a different calculation. Check your scheme type; only select net pay or salary sacrifice if that is how your scheme actually works."
     : regionMismatch ? "Your tax-code prefix and taxpayer region disagree. S means Scottish rates; C means Welsh rates. Check the region above."
-    : codeInvalid ? "This annual estimator cannot use that code. Emergency W1, M1 and X codes need your pay-period details. Check the code or leave it blank only if the standard allowance applies."
+    : codeInvalid ? "This annual estimator cannot use that code. Emergency W1, M1 and X codes need your pay period details. Check the code or leave it blank only if the standard allowance applies."
     : "";
 
   const optsFor = useMemo(() => {
@@ -258,13 +258,13 @@ export default function Calculator() {
         style={{ boxShadow: "var(--shadow-2)" }}
         aria-label="Your pay"
       >
-        <label htmlFor="salary" className="ui block text-[15px] font-[750] mb-2.5">
-          {reverse ? "Your take-home pay" : "Your pay before tax"}
+        <label htmlFor="salary" className="ui block text-[15px] font-[600] mb-2.5">
+          {reverse ? "Your take home pay" : "Your pay before tax"}
         </label>
         <div className="relative">
           <span
             aria-hidden="true"
-            className="absolute left-4 top-1/2 -translate-y-1/2 text-[22px] font-[700] text-[var(--muted)]"
+            className="absolute left-4 top-1/2 -translate-y-1/2 text-[22px] font-[580] text-[var(--muted)]"
           >
             £
           </span>
@@ -277,7 +277,7 @@ export default function Calculator() {
             placeholder="30,000"
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
-            className="w-full rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--paper)] py-4 pl-10 pr-4 text-[28px] font-[760] tnum outline-none focus:border-[var(--brand)]"
+            className="w-full rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--paper)] py-4 pl-10 pr-4 text-[28px] font-[620] tnum outline-none focus:border-[var(--brand)]"
           />
         </div>
 
@@ -292,7 +292,7 @@ export default function Calculator() {
               type="button"
               onClick={() => setPeriod(p.id)}
               aria-pressed={period === p.id}
-              className={`ui rounded-[10px] py-2 text-[15px] font-[700] transition-colors ${
+              className={`ui rounded-[10px] py-2 text-[15px] font-[580] transition-colors ${
                 period === p.id
                   ? "bg-[var(--paper)] text-[var(--ink)] shadow-[var(--shadow-1)]"
                   : "text-[var(--muted)] hover:text-[var(--ink)]"
@@ -306,15 +306,15 @@ export default function Calculator() {
         <button
           type="button"
           onClick={() => setReverse((v) => !v)}
-          className="ui mt-3.5 text-[15px] font-[650] text-[var(--brand)] hover:underline"
+          className="ui mt-3.5 text-[15px] font-[540] text-[var(--brand)] hover:underline"
         >
-          {reverse ? "← Enter pay before tax instead" : "Know your take-home? Work backwards →"}
+          {reverse ? "← Enter pay before tax instead" : "Know your take home? Work backwards →"}
         </button>
 
         {/* Scotland */}
         <div className="mt-6 flex items-center justify-between gap-4 border-t border-[var(--rule)] pt-5">
           <div>
-            <p className="ui text-[15.5px] font-[720]">Scottish taxpayer</p>
+            <p className="ui text-[15.5px] font-[600]">Scottish taxpayer</p>
             <p className="text-[15px] leading-[1.45] text-[var(--muted)] mt-0.5">
               Scotland&apos;s six bands, not the UK&apos;s three
             </p>
@@ -340,7 +340,7 @@ export default function Calculator() {
         {/* Hours */}
         <div className="mt-5 flex items-center justify-between gap-4 border-t border-[var(--rule)] pt-5">
           <div>
-            <p className="ui text-[15.5px] font-[720]">Hours a week</p>
+            <p className="ui text-[15.5px] font-[600]">Hours a week</p>
             <p className="text-[15px] leading-[1.45] text-[var(--muted)] mt-0.5">
               Used for the hourly figures
             </p>
@@ -351,7 +351,7 @@ export default function Calculator() {
             aria-label="Hours per week"
             value={hours}
             onChange={(e) => setHours(num(e.target.value))}
-            className="w-20 rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--paper)] px-3 py-2 text-center text-[16px] font-[700] tnum outline-none focus:border-[var(--brand)]"
+            className="w-20 rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--paper)] px-3 py-2 text-center text-[16px] font-[580] tnum outline-none focus:border-[var(--brand)]"
           />
         </div>
 
@@ -363,7 +363,7 @@ export default function Calculator() {
           className="ui mt-5 flex w-full items-center justify-between border-t border-[var(--rule)] pt-5 text-left"
         >
           <span>
-            <span className="block text-[15.5px] font-[720]">More options</span>
+            <span className="block text-[15.5px] font-[600]">More options</span>
             <span className="mt-0.5 block text-[15px] text-[var(--muted)]">
               Pension, student loan, tax code
             </span>
@@ -379,7 +379,7 @@ export default function Calculator() {
         {advanced && (
           <div className="mt-5 grid gap-5 rounded-[var(--r-s)] bg-[var(--surface-2)] p-5">
             <div>
-              <label htmlFor="pension" className="ui block text-[15px] font-[700] mb-2">
+              <label htmlFor="pension" className="ui block text-[15px] font-[580] mb-2">
                 Pension
               </label>
               <div className="flex gap-2">
@@ -399,7 +399,7 @@ export default function Calculator() {
                       type="button"
                       onClick={() => setPensionUnit(u)}
                       aria-pressed={pensionUnit === u}
-                      className={`ui rounded-[8px] px-3 text-[15px] font-[700] ${
+                      className={`ui rounded-[8px] px-3 text-[15px] font-[580] ${
                         pensionUnit === u
                           ? "bg-[var(--brand)] text-white"
                           : "text-[var(--muted)]"
@@ -432,7 +432,7 @@ export default function Calculator() {
             </div>
 
             <div>
-              <label htmlFor="loan" className="ui block text-[15px] font-[700] mb-2">
+              <label htmlFor="loan" className="ui block text-[15px] font-[580] mb-2">
                 Student loan
               </label>
               <select
@@ -461,7 +461,7 @@ export default function Calculator() {
             </div>
 
             <div>
-              <label htmlFor="code" className="ui block text-[15px] font-[700] mb-2">
+              <label htmlFor="code" className="ui block text-[15px] font-[580] mb-2">
                 Tax code
               </label>
               <input
@@ -473,7 +473,7 @@ export default function Calculator() {
                 value={taxCode}
                 onChange={(e) => setTaxCode(e.target.value)}
                 aria-invalid={codeInvalid}
-                className={`${fieldCls} font-[700] uppercase ${
+                className={`${fieldCls} font-[580] uppercase ${
                   codeInvalid ? "border-[var(--bad-text)]" : ""
                 }`}
               />
@@ -502,14 +502,14 @@ export default function Calculator() {
               {reverse ? "You would need to earn" : "You take home"}
             </p>
             <div className="flex items-center gap-2.5">
-              <span className="ui rounded-[var(--r-pill)] border border-white/25 px-3 py-1 text-[15px] font-[700]">
+              <span className="ui rounded-[var(--r-pill)] border border-white/25 px-3 py-1 text-[15px] font-[580]">
                 {scotland ? "Scotland" : "England, Wales & NI"} · {TAX_DATA.taxYear}
               </span>
               {hasInput && !inputProblem && (
                 <button
                   type="button"
                   onClick={copyLink}
-                  className="ui rounded-[var(--r-pill)] border border-white/25 px-3 py-1 text-[15px] font-[700] transition-colors hover:bg-white/10"
+                  className="ui rounded-[var(--r-pill)] border border-white/25 px-3 py-1 text-[15px] font-[580] transition-colors hover:bg-white/10"
                 >
                   {copied ? "Copied" : "Copy tool link"}
                 </button>
@@ -524,7 +524,7 @@ export default function Calculator() {
             </p>
           ) : unreachable ? (
             <p className="mt-4 text-[19px] leading-[1.5] opacity-90 max-w-[42ch]">
-              That take-home is not reachable with these pension settings. The pension swallows the
+              That take home is not reachable with these pension settings. The pension swallows the
               extra pay.
             </p>
           ) : (
@@ -545,7 +545,7 @@ export default function Calculator() {
                       key={label as string}
                       className="rounded-[var(--r-s)] border border-white/15 bg-white/[0.07] px-4 py-3"
                     >
-                      <p className="ui text-[15px] font-[700] opacity-75">{label as string}</p>
+                      <p className="ui text-[15px] font-[580] opacity-75">{label as string}</p>
                       <p className="display-stat mt-1 text-[clamp(18px,2.2vw,24px)] tnum">
                         {gbp(value as number, dp as number)}
                       </p>
@@ -591,7 +591,7 @@ export default function Calculator() {
                           style={{ background: SPLIT_COLOURS[p.key] }}
                         />
                         <span className="opacity-85">{p.name}</span>
-                        <span className="ml-auto tnum font-[700]">{gbp(p.value)}</span>
+                        <span className="ml-auto tnum font-[580]">{gbp(p.value)}</span>
                       </li>
                     ))}
                   </ul>
@@ -616,7 +616,7 @@ export default function Calculator() {
                     {["", "Before tax", "Income tax", "NI", "Take-home"].map((h) => (
                       <th
                         key={h}
-                        className="ui border-b-2 border-[var(--ink)] px-4 pb-3 pt-4 text-left text-[15px] font-[750] text-[var(--muted)] last:text-right"
+                        className="ui border-b-2 border-[var(--ink)] px-4 pb-3 pt-4 text-left text-[15px] font-[600] text-[var(--muted)] last:text-right"
                       >
                         {h}
                       </th>
@@ -626,7 +626,7 @@ export default function Calculator() {
                 <tbody>
                   {rows.map(([label, factor]) => (
                     <tr key={label} className="transition-colors hover:bg-[var(--surface-2)]">
-                      <td className="ui border-b border-[var(--rule)] px-4 py-3 font-[700]">
+                      <td className="ui border-b border-[var(--rule)] px-4 py-3 font-[580]">
                         {label}
                       </td>
                       {[calc.gross, calc.tax.total, calc.ni.total].map((v, i) => (
@@ -637,7 +637,7 @@ export default function Calculator() {
                           {gbp(v * factor, factor < 1 / WEEKS ? 2 : 0)}
                         </td>
                       ))}
-                      <td className="ui tnum border-b border-[var(--rule)] px-4 py-3 text-right font-[750]">
+                      <td className="ui tnum border-b border-[var(--rule)] px-4 py-3 text-right font-[600]">
                         {gbp(calc.net * factor, factor < 1 / WEEKS ? 2 : 0)}
                       </td>
                     </tr>
@@ -647,11 +647,11 @@ export default function Calculator() {
             </div>
 
             <details className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)]">
-              <summary className="ui cursor-pointer list-none px-6 py-4 text-[16px] font-[700] text-[var(--brand)]">
+              <summary className="ui cursor-pointer list-none px-6 py-4 text-[16px] font-[580] text-[var(--brand)]">
                 How this was worked out
               </summary>
               <div className="border-t border-[var(--rule)] px-6 py-5">
-                <p className="ui text-[15px] font-[700] mb-3">
+                <p className="ui text-[15px] font-[580] mb-3">
                   Income tax, {scotland ? "Scottish" : "UK"} rates, {TAX_DATA.taxYear}
                 </p>
                 {calc.tax.allowance > 0 && (
@@ -669,29 +669,29 @@ export default function Calculator() {
                       <span className="text-[var(--ink-2)]">
                         {b.name}, {gbp(b.amount)} at {(b.rate * 100).toFixed(0)}%
                       </span>
-                      <span className="tnum font-[700]">{gbp(b.tax, 2)}</span>
+                      <span className="tnum font-[580]">{gbp(b.tax, 2)}</span>
                     </li>
                   ))}
                 </ul>
-                <p className="ui mt-4 flex justify-between border-t-2 border-[var(--ink)] pt-3 text-[15.5px] font-[750]">
+                <p className="ui mt-4 flex justify-between border-t-2 border-[var(--ink)] pt-3 text-[15.5px] font-[600]">
                   <span>Income tax</span>
                   <span className="tnum">{gbp(calc.tax.total, 2)}</span>
                 </p>
 
-                <p className="ui mt-6 text-[15px] font-[700] mb-2">National Insurance</p>
+                <p className="ui mt-6 text-[15px] font-[580] mb-2">National Insurance</p>
                 <p className="text-[15px] leading-[1.55] text-[var(--ink-2)]">
                   8% on pay between {gbp(TAX_DATA.ni.primaryThreshold)} and{" "}
-                  {gbp(TAX_DATA.ni.upperLimit)}, then 2% above that. NI is set UK-wide, so it is the
+                  {gbp(TAX_DATA.ni.upperLimit)}, then 2% above that. NI is set UK wide, so it is the
                   same in Scotland.
                 </p>
-                <p className="ui mt-3 flex justify-between border-t-2 border-[var(--ink)] pt-3 text-[15.5px] font-[750]">
+                <p className="ui mt-3 flex justify-between border-t-2 border-[var(--ink)] pt-3 text-[15.5px] font-[600]">
                   <span>National Insurance</span>
                   <span className="tnum">{gbp(calc.ni.total, 2)}</span>
                 </p>
 
                 {calc.sl.rows.length > 0 && (
                   <>
-                    <p className="ui mt-6 text-[15px] font-[700] mb-2">Student loan</p>
+                    <p className="ui mt-6 text-[15px] font-[580] mb-2">Student loan</p>
                     <ul className="grid gap-2">
                       {calc.sl.rows.map((r) => (
                         <li
@@ -701,7 +701,7 @@ export default function Calculator() {
                           <span>
                             {r.name}, {(r.rate * 100).toFixed(0)}% over {gbp(r.threshold)}
                           </span>
-                          <span className="tnum font-[700]">{gbp(r.amount, 2)}</span>
+                          <span className="tnum font-[580]">{gbp(r.amount, 2)}</span>
                         </li>
                       ))}
                     </ul>
@@ -710,7 +710,7 @@ export default function Calculator() {
 
                 {calc.pension > 0 && (
                   <>
-                    <p className="ui mt-6 text-[15px] font-[700] mb-2">Pension</p>
+                    <p className="ui mt-6 text-[15px] font-[580] mb-2">Pension</p>
                     <p className="text-[15px] leading-[1.55] text-[var(--ink-2)]">
                       {gbp(calc.pension)} a year leaves your pay.
 
@@ -724,7 +724,7 @@ export default function Calculator() {
 
         <p className="text-[15px] leading-[1.6] text-[var(--ink-2)]">
           Figures are {TAX_DATA.taxYear}. Income tax in Scotland is set by the Scottish Parliament;
-          National Insurance is UK-wide. Based on 52 weeks and a five-day week, and Class 1 employee
+          National Insurance is UK wide. Based on 52 weeks and a five day week, and Class 1 employee
           NI on annual earnings. This is a guide, not financial advice. If a number here looks wrong,{" "}
           <Link href="/corrections">tell me</Link>.
         </p>

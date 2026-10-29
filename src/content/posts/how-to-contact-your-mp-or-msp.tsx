@@ -97,14 +97,14 @@ export default function Post() {
         the same area is a problem that needs managing.
       </P>
 
-      <Aside title="If you get a non-answer">
+      <Aside title="If you get a non answer">
         <p>
           Write back once, quoting your original question and asking it again. Politely refusing to
-          accept a non-answer is entirely legitimate, and it is what journalists do.
+          accept a non answer is entirely legitimate, and it is what journalists do.
         </p>
       </Aside>
 
-      <H2 id="one-minute-version">The one-minute version</H2>
+      <H2 id="one-minute-version">The one minute version</H2>
 
       <P>
         If all of that still feels like effort, that is exactly why this site exists. Put in your

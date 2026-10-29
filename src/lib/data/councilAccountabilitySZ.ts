@@ -66,7 +66,7 @@ function budgetContext(councilName: string, numbers: BudgetNumbers): BudgetFigur
       currency: "GBP",
       period: "2026/27",
       plainEnglish: positionIsSurplus
-        ? `When the budget was set, ${councilName} had ${money(positionValue)} left before its other changes were counted. This is a budget-setting figure, not a final year-end result.`
+        ? `When the budget was set, ${councilName} had ${money(positionValue)} left before its other changes were counted. This is a budget setting figure, not a final year end result.`
         : `When the budget was set, ${councilName} needed ${money(positionValue)} more to pay for planned services. The council planned to find it through savings, extra income, money already set aside or other changes. It is not money already missing from a bank account.`,
       sourceIds: [budgetBulletin.id],
     },
@@ -194,7 +194,7 @@ export const scottishBordersAccountability: CouncilAccountabilityRecord = {
       "savings-and-transformation-reporting",
       "The council needs clearer proof that its change plans save money",
       "2025-09",
-      "The review recognised Scottish Borders' record of savings, but said it should report more clearly on change-plan milestones, expected benefits and how improvement work affects results.",
+      "The review recognised Scottish Borders' record of savings, but said it should report more clearly on change plan milestones, expected benefits and how improvement work affects results.",
       [scottishBordersAudit.id],
       {
         recommendation:
@@ -217,7 +217,7 @@ export const scottishBordersAccountability: CouncilAccountabilityRecord = {
     commitment(
       "transformation-benefits-reporting",
       "Show whether the change plan is working",
-      "Improve public reporting on change-plan dates, expected benefits and regular savings.",
+      "Improve public reporting on change plan dates, expected benefits and regular savings.",
       "2025-09",
       "2026-03-31",
       "The audit records this as a required improvement. This record does not claim the later milestone was met.",
@@ -227,8 +227,8 @@ export const scottishBordersAccountability: CouncilAccountabilityRecord = {
   sources: [budgetBulletin, scottishBordersAudit],
   knownGaps: [
     "The budget figures are council returns collected for the 2026/27 national bulletin. They are not the final accounts or final spending result.",
-    "The report says service performance was broadly stable, but this page does not yet contain a full service-by-service goal table.",
-    "The Hawick Flood Protection Scheme had a dispute that was settled in July 2025. A later lessons-learned report is still needed to judge what changed.",
+    "The report says service performance was broadly stable, but this page does not yet contain a full service by service goal table.",
+    "The Hawick Flood Protection Scheme had a dispute that was settled in July 2025. A later lessons learned report is still needed to judge what changed.",
     "Commitments marked as needing a fresh check have not been called complete or missed without a newer source.",
   ],
 };
@@ -240,7 +240,7 @@ const shetlandAudit = source(
   "audit",
   "https://audit.scot/uploads/2025-12/aar_2425_shetland_islands.pdf",
   "2025-12",
-    "The audit's findings on money set aside for future years, the four-year money problem, the plan to change services and performance measures.",
+    "The audit's findings on money set aside for future years, the four year money problem, the plan to change services and performance measures.",
 );
 
 export const shetlandIslandsAccountability: CouncilAccountabilityRecord = {
@@ -249,7 +249,7 @@ export const shetlandIslandsAccountability: CouncilAccountabilityRecord = {
   councilCode: "S12000027",
   lastReviewedOn: reviewedOn,
   summary:
-    "Shetland's day-to-day finances were judged well managed in 2024/25, but the council used £20.9m of money set aside for future use to balance its 2025/26 plan. Its own plan shows a much bigger money problem over four years, and the detailed plans for changing services were slow to arrive.",
+    "Shetland's day to day finances were judged well managed in 2024/25, but the council used £20.9m of money set aside for future use to balance its 2025/26 plan. Its own plan shows a much bigger money problem over four years, and the detailed plans for changing services were slow to arrive.",
   budgetContext: budgetContext("Shetland Islands Council", {
     budget: 186.5,
     gap: 43.7,
@@ -262,11 +262,11 @@ export const shetlandIslandsAccountability: CouncilAccountabilityRecord = {
       "reserves-used-to-balance",
       "Reserves were used to balance the yearly budget",
       "2025-12",
-      "The audit found that Shetland used £20.9m of money set aside for future use to balance its 2025/26 everyday-services budget. It warned that repeated large withdrawals could leave less money for future investment.",
+      "The audit found that Shetland used £20.9m of money set aside for future use to balance its 2025/26 everyday services budget. It warned that repeated large withdrawals could leave less money for future investment.",
       [shetlandAudit.id],
       {
         recommendation:
-          "Keep the long-term money plan under review and reduce reliance on one-off withdrawals from money set aside for the future.",
+          "Keep the long term money plan under review and reduce reliance on one off withdrawals from money set aside for the future.",
         status: "open",
       },
     ),
@@ -289,13 +289,13 @@ export const shetlandIslandsAccountability: CouncilAccountabilityRecord = {
       "Take further action so the council's plan for the next few years does not depend on repeated large withdrawals from money set aside.",
       "2025-12",
       "2029-30",
-      "The audit records an estimated four-year money problem of £134.3m. A later source is needed to show how much of it has been solved.",
+      "The audit records an estimated four year money problem of £134.3m. A later source is needed to show how much of it has been solved.",
       [shetlandAudit.id],
     ),
     commitment(
       "shetland-change-project-plans",
       "Finish the detailed change plans",
-      "Turn the service-change themes into detailed project plans with clear delivery dates and results.",
+      "Turn the service change themes into detailed project plans with clear delivery dates and results.",
       "2025-12",
       "Not published",
       "The audit says this work was slow. No later completion evidence is included here.",
@@ -305,7 +305,7 @@ export const shetlandIslandsAccountability: CouncilAccountabilityRecord = {
   sources: [budgetBulletin, shetlandAudit],
   knownGaps: [
     "Shetland's budget figures are affected by money linked to its harbour. Island councils are different in this respect, so simple comparisons with other councils can mislead.",
-    "The £134.3m figure is an estimated four-year money problem from the 2024/25 audit, not a final bill or money already lost.",
+    "The £134.3m figure is an estimated four year money problem from the 2024/25 audit, not a final bill or money already lost.",
     "The audit reports that 56% of national comparison measures were in the best two groups, but this page does not yet show each measure or its goal.",
     "The current status of the change programme and reserve plan needs a newer council or audit report.",
   ],
@@ -364,7 +364,7 @@ export const southAyrshireAccountability: CouncilAccountabilityRecord = {
     commitment(
       "south-ayrshire-reserves",
       "Rebuild money set aside and solve the problem over the next few years",
-      "Identify savings and service changes that can solve the money problem over the next few years without relying on one-off withdrawals from money set aside.",
+      "Identify savings and service changes that can solve the money problem over the next few years without relying on one off withdrawals from money set aside.",
       "2025-09",
       "2029-30",
       "The audit recorded £32.9m still needed by 2029/30 in the 2025/26 update, later revised to £26.2m. Fresh final spending figures are needed to check the position now.",
@@ -418,7 +418,7 @@ export const southLanarkshireAccountability: CouncilAccountabilityRecord = {
       "south-lanarkshire-medium-term-gap",
       "More money is still needed over the next few years",
       "2025-09",
-      "The council reported money left over in its 2025/26 plan, but the audit found that more money was still needed over the next few years. The council was using different possible plans and service-change reviews to work out what to do next.",
+      "The council reported money left over in its 2025/26 plan, but the audit found that more money was still needed over the next few years. The council was using different possible plans and service change reviews to work out what to do next.",
       [southLanarkshireAudit.id],
       {
         recommendation:
@@ -443,16 +443,16 @@ export const southLanarkshireAccountability: CouncilAccountabilityRecord = {
     commitment(
       "south-lanarkshire-transformation-reporting",
       "Report what service users get after changes",
-      "Track service quality and results alongside the money saved by service-change projects.",
+      "Track service quality and results alongside the money saved by service change projects.",
       "2025-09",
       "Not published",
-      "The audit says a performance framework exists, but service-change results are not routinely shown separately. No later report is included here.",
+      "The audit says a performance framework exists, but service change results are not routinely shown separately. No later report is included here.",
       [southLanarkshireAudit.id],
     ),
     commitment(
       "south-lanarkshire-financial-strategy",
       "Keep the plan for the next few years under review",
-      "Use different possible plans and service-change reviews to solve the remaining money problem over the next few years.",
+      "Use different possible plans and service change reviews to solve the remaining money problem over the next few years.",
       "2025-09",
       "Not published",
       "The audit records ongoing work but no final date for closing the gap.",
@@ -461,7 +461,7 @@ export const southLanarkshireAccountability: CouncilAccountabilityRecord = {
   ],
   sources: [budgetBulletin, southLanarkshireAudit],
   knownGaps: [
-    "South Lanarkshire reported £1.5m left over before other changes when setting its 2026/27 budget. This is not the same as a final year-end result.",
+    "South Lanarkshire reported £1.5m left over before other changes when setting its 2026/27 budget. This is not the same as a final year end result.",
     "The audit says the council has improvement plans for measures below the Scottish average, but this page does not yet list those measures or goals.",
     "The exact money problem after later decisions needs a current council plan.",
     "No individual councillor is linked to a budget or service result here.",
@@ -484,7 +484,7 @@ const stirlingBudget = source(
   "council",
   "https://www.stirling.gov.uk/news/stirling-council-approves-2026-27-budget-that-commits-to-restoring-pride-in-communities/",
   "2026-02-26",
-  "The council's approved 2026/27 budget and its published five-year cumulative budget gap.",
+  "The council's approved 2026/27 budget and its published five year cumulative budget gap.",
 );
 
 export const stirlingAccountability: CouncilAccountabilityRecord = {
@@ -506,7 +506,7 @@ export const stirlingAccountability: CouncilAccountabilityRecord = {
       "stirling-erp-overrun",
       "The new finance and HR system used more time and money than planned",
       "2025-04-07",
-      "The review found that the new finance and HR system used much more time and money than its original plan allowed. The council had a fix-it plan, but the report said it still had to show the promised benefits.",
+      "The review found that the new finance and HR system used much more time and money than its original plan allowed. The council had a fix it plan, but the report said it still had to show the promised benefits.",
       [stirlingAudit.id],
       {
         recommendation: "Track the remaining costs, benefits and service improvements from the new system in public reports.",
@@ -517,7 +517,7 @@ export const stirlingAccountability: CouncilAccountabilityRecord = {
       "stirling-hybrid-working-evidence",
       "The effect of hybrid working on sickness absence was not shown",
       "2025-04-07",
-      "The review found that Stirling had tested working from home, but had not shown whether it changed sickness absence. Absence was above the national average, with stress and muscle-and-bone problems the main recorded reasons.",
+      "The review found that Stirling had tested working from home, but had not shown whether it changed sickness absence. Absence was above the national average, with stress and muscle and bone problems the main recorded reasons.",
       [stirlingAudit.id],
       {
         recommendation: "Publish evidence on absence, staff wellbeing and service performance as the workforce plan changes.",
@@ -529,7 +529,7 @@ export const stirlingAccountability: CouncilAccountabilityRecord = {
     commitment(
       "stirling-erp-benefits",
       "Show what the new finance system achieved",
-      "Use the fix-it plan to show whether the new system delivers the promised workforce and service benefits.",
+      "Use the fix it plan to show whether the new system delivers the promised workforce and service benefits.",
       "2025-04-07",
       "Not published",
       "The audit records a stabilisation plan but not a completed benefits report.",
@@ -537,8 +537,8 @@ export const stirlingAccountability: CouncilAccountabilityRecord = {
     ),
     commitment(
       "stirling-people-strategy",
-      "Join staff, service-change and money plans",
-      "Develop a People Strategy that links staff numbers and skills to the service-change plan and the plan for the next few years.",
+      "Join staff, service change and money plans",
+      "Develop a People Strategy that links staff numbers and skills to the service change plan and the plan for the next few years.",
       "2025-04-07",
       "2026-03",
       "The audit set March 2026 as the goal date. A later published review is needed before calling this complete.",
@@ -549,8 +549,8 @@ export const stirlingAccountability: CouncilAccountabilityRecord = {
   knownGaps: [
       "The 2026/27 budget figures are council returns collected for the national bulletin; they are not final accounts.",
       "The review covers workforce changes in 2023/24, not every council service or the final 2025/26 position.",
-      "The council's published £37.2m five-year money problem is an estimate based on assumptions about future savings and investment.",
-      "No current service-goal table or individual councillor decision trail is included yet.",
+      "The council's published £37.2m five year money problem is an estimate based on assumptions about future savings and investment.",
+      "No current service goal table or individual councillor decision trail is included yet.",
   ],
 };
 
@@ -570,7 +570,7 @@ export const westDunbartonshireAccountability: CouncilAccountabilityRecord = {
   councilCode: "S12000039",
   lastReviewedOn: reviewedOn,
   summary:
-    "West Dunbartonshire identified £15.9m more needed in its 2026/27 budget and planned £5.4m of savings. The review found no single joined-up plan for all the changes, so it is hard to see the total cost and results. Many savings involved reducing local services.",
+    "West Dunbartonshire identified £15.9m more needed in its 2026/27 budget and planned £5.4m of savings. The review found no single joined up plan for all the changes, so it is hard to see the total cost and results. Many savings involved reducing local services.",
   budgetContext: budgetContext("West Dunbartonshire Council", {
     budget: 325.7,
     gap: 15.9,
@@ -583,7 +583,7 @@ export const westDunbartonshireAccountability: CouncilAccountabilityRecord = {
       "west-dunbartonshire-no-single-programme",
       "There is no single plan showing all the service changes",
       "2026-01",
-      "The review found that West Dunbartonshire's service changes were spread across separate projects rather than one joined-up plan. That makes it difficult to measure the total cost, savings and effect on services.",
+      "The review found that West Dunbartonshire's service changes were spread across separate projects rather than one joined up plan. That makes it difficult to measure the total cost, savings and effect on services.",
       [westDunbartonshireAudit.id],
       {
         recommendation:
@@ -598,7 +598,7 @@ export const westDunbartonshireAccountability: CouncilAccountabilityRecord = {
       "The audit reviewed 57 savings options and found most would reduce spending on education, roads, parks, street cleaning, environmental work, leisure and community services. It said the council recognised these changes would not fully solve its money problems over the next few years or later.",
       [westDunbartonshireAudit.id],
       {
-        recommendation: "Show residents the service effect and long-term value of each saving option before decisions are made.",
+        recommendation: "Show residents the service effect and long term value of each saving option before decisions are made.",
         status: "open",
       },
     ),
@@ -606,7 +606,7 @@ export const westDunbartonshireAccountability: CouncilAccountabilityRecord = {
   commitments: [
     commitment(
       "west-dunbartonshire-transformation-programme",
-      "Create one joined-up plan for all the service changes",
+      "Create one joined up plan for all the service changes",
       "Bring separate change projects into one plan so councillors and residents can see the total cost and results.",
       "2026-01",
       "Not published",
@@ -627,7 +627,7 @@ export const westDunbartonshireAccountability: CouncilAccountabilityRecord = {
   knownGaps: [
     "Councils describe their money problems and budget changes differently, so this figure should not be used as a league table.",
     "The service reductions are taken from the audit's review of budget options. A full list of final decisions and actual savings is still needed.",
-    "This page does not yet include service-by-service goals or results for poverty, housing, education, roads and social care.",
+    "This page does not yet include service by service goals or results for poverty, housing, education, roads and social care.",
     "No individual councillor is attributed with a service result without a documented decision trail.",
   ],
 };
@@ -648,7 +648,7 @@ export const westLothianAccountability: CouncilAccountabilityRecord = {
   councilCode: "S12000040",
   lastReviewedOn: reviewedOn,
   summary:
-    "West Lothian spent £3.1m more than its approved everyday-services budget in 2024/25 and used money set aside to balance the year. The audit found that £9.7m was still expected to be needed by 2027/28 after savings, although 68% of service measures improved from the year before.",
+    "West Lothian spent £3.1m more than its approved everyday services budget in 2024/25 and used money set aside to balance the year. The audit found that £9.7m was still expected to be needed by 2027/28 after savings, although 68% of service measures improved from the year before.",
   budgetContext: budgetContext("West Lothian Council", {
     budget: 634.6,
     gap: 20.2,
@@ -661,7 +661,7 @@ export const westLothianAccountability: CouncilAccountabilityRecord = {
       "west-lothian-overspend-2024-25",
       "The council spent too much and used money set aside",
       "2025-09",
-      "The audit recorded that West Lothian spent £3.1m more than its approved 2024/25 everyday-services budget of £613.4m. The council used money it had set aside to cover the extra spending.",
+      "The audit recorded that West Lothian spent £3.1m more than its approved 2024/25 everyday services budget of £613.4m. The council used money it had set aside to cover the extra spending.",
       [westLothianAudit.id],
       {
         recommendation: "Keep regular spending and savings under close review so money set aside is not used to cover the same problem every year.",
@@ -672,10 +672,10 @@ export const westLothianAccountability: CouncilAccountabilityRecord = {
       "west-lothian-remaining-gap",
       "A gap remained after the planned savings",
       "2025-09",
-      "The audit said West Lothian's three-year plan needed an estimated £34.9m before savings. After known savings and assumptions about its health-and-care partnership, £9.7m was still expected to be needed in 2027/28.",
+      "The audit said West Lothian's three year plan needed an estimated £34.9m before savings. After known savings and assumptions about its health and care partnership, £9.7m was still expected to be needed in 2027/28.",
       [westLothianAudit.id],
       {
-        recommendation: "Set out regular savings and income that solve the remaining money problem without relying on one-off fixes.",
+        recommendation: "Set out regular savings and income that solve the remaining money problem without relying on one off fixes.",
         status: "open",
       },
     ),
@@ -705,7 +705,7 @@ export const westLothianAccountability: CouncilAccountabilityRecord = {
     "The 2026/27 budget figure is a council return in the national bulletin. It is not the final accounts or final spending result.",
     "The £9.7m figure is an estimate after known changes, not a final bill already due.",
     "The audit says 68% of measures improved, but this page does not yet show which services improved or got worse.",
-    "The audit also raised concerns about asset valuation assumptions. A later follow-up is needed to see whether the recommendation was completed.",
+    "The audit also raised concerns about asset valuation assumptions. A later follow up is needed to see whether the recommendation was completed.",
   ],
 };
 

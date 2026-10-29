@@ -1,4 +1,24 @@
 import { snpMoneyTimelineSources } from "@/lib/data/snpMoneyTimeline";
+import type { QuickAnswerData } from "@/components/QuickAnswer";
+import { MINIMUM_WAGE, REAL_LIVING_WAGE, bandFor, pounds } from "@/lib/data/quickAnswers";
+import {
+  ADULT_DISABILITY_PAYMENT,
+  BANK_HOLIDAY_SOURCE,
+  BEST_START,
+  CARER_SUPPORT_PAYMENT,
+  PENSION_AGE_WINTER_HEATING,
+  SOCIAL_SECURITY_SCOTLAND,
+  SSS_SOURCE,
+  WINTER_HEATING_PAYMENT,
+  YOUNG_CARER_GRANT,
+} from "@/lib/data/benefits";
+import { ASHE_2026, CITY_PAY, PRIVATE_RENTS, SCOTLAND_JOBS_HOURLY, asheCouncil, cityBudget, minimumWageNext, minimumWageNow } from "@/lib/data/money";
+import { waterCharges2026, BAND_LETTERS } from "@/lib/data/councilTax";
+import { COUNCIL_SEARCH_NAMES } from "@/lib/routeMap";
+import { BAND_PROPOSALS, COUNCIL_TAX_REDUCTION, LOTHIAN_VJB_SOURCE, SCOTTISH_WATER, SECOND_ADULT_REBATE, SINGLE_PERSON_DISCOUNT, WATER_CHARGES_REDUCTION, bandValueLabel } from "@/lib/data/councilTaxHelp";
+import { scotlandPoverty } from "@/lib/data/scotland";
+import { ADVANCED_HIGHER_MODERN_STUDIES, HIGHER_MODERN_STUDIES, JRF_SCOTLAND_2026, MODERN_STUDIES_EXAMS_2027, MODERN_STUDIES_LINKS, MODERN_STUDIES_PAST_PAPERS, N5_MODERN_STUDIES, QS_REPLACED_SQA, QS_SOURCE, plainPeriod } from "@/lib/data/schools";
+import { ANNUAL_POPULATION_SURVEY, COUNCILLOR_SOURCE, COUNCILLOR_TOTALS, COUNCIL_UNEMPLOYMENT, GLASGOW_CRIME, GLASGOW_CRIME_PREVIOUS, LABOUR_MARKET, LABOUR_MARKET_LATEST, LIFE_EXPECTANCY, LIFE_EXPECTANCY_LATEST, LOCAL_ELECTION_2027, SCOTTISH_PARLIAMENT, TOTAL_MSPS, changePct, councilSearchName, pct, pointsChange, years } from "@/lib/data/local";
 
 /**
  * Plain-English articles and their search/wayfinding metadata.
@@ -72,18 +92,29 @@ export type Post = {
   standfirst: string;
   /** ISO date published. */
   date: string;
-  /** ISO date last checked or revised. */
+  /** ISO date the content was last revised. Shown as "Last updated". */
   updated?: string;
+  /**
+   * ISO date every figure on the page was last checked against its source.
+   * Only set it when that has actually been done: it is shown to readers as
+   * "Figures checked", so a page with figures known to be out of date has none.
+   */
+  checked?: string;
   category: PostCategorySlug;
   tags: string[];
   readingMinutes: number;
-  image: {
+  /** The answer box that opens the page. Money, council tax and benefit guides have one. */
+  quickAnswer?: QuickAnswerData;
+  /** Preserve guide placement when it has an editorial image. */
+  guideImage?: boolean;
+  /** Optional: a guide without a photograph gets the Saltire cover instead. */
+  image?: {
     src: string;
     alt: string;
     caption: string;
     aspect?: "landscape" | "wide" | "video";
     objectPosition?: string;
-    /** Replaces the default "AI-generated illustration." credit, e.g. for a data graphic. */
+    /** Optional credit, e.g. for a data graphic. */
     creditLabel?: string;
     /**
      * Optional version for listing cards, which crop to anything from square
@@ -110,10 +141,9 @@ export type Post = {
 export const posts: Post[] = [
   {
     slug: "shoplifting-scotland-record-high",
-    title: "Scotland's shoplifting rate overtakes England and Wales as convictions nearly halve",
-    seoTitle: "Shoplifting in Scotland Hits Record High, Overtaking England",
-    description:
-      "Shoplifting in Scotland hit 53,369 in 2025-26, a record, and now outstrips England and Wales. Convictions nearly halved. See the data for all 32 councils.",
+    title: "Shoplifting in Scotland: the rate overtakes England and Wales as convictions nearly halve",
+    seoTitle: "Shoplifting in Scotland: Record High, Above England and Wales",
+    description: "Shoplifting in Scotland hit a record 53,369 crimes in 2025/26: 9.6 per 1,000 people against 8.2 in England and Wales. Convictions nearly halved.",
     standfirst:
       "Shoplifting in Scotland is at its highest since 1971 and now higher per person than in England and Wales. Convictions have nearly halved. Food prices explain much of the surge, but not the last two years.",
     date: "2026-09-28",
@@ -145,11 +175,11 @@ export const posts: Post[] = [
       type: "image/png",
     },
     toc: [
-      { id: "short-answer", label: "Four things the figures show" },
+      { id: "short-answer", label: "Four key figures" },
       { id: "uk", label: "Scotland has overtaken England and Wales" },
       { id: "record", label: "A record, and almost all shoplifting" },
       { id: "caught", label: "Fewer shoplifters convicted" },
-      { id: "councils", label: "Edinburgh has overtaken Glasgow" },
+      { id: "councils", label: "Shoplifting by council" },
       { id: "food-prices", label: "Food prices, up to a point" },
       { id: "reporting", label: "Are shops reporting more?" },
       { id: "who-is-in-charge", label: "Who is responsible?" },
@@ -208,10 +238,9 @@ export const posts: Post[] = [
   },
   {
     slug: "glasgow-sex-crime-rise-migrants",
-    title: "Glasgow sex crimes went up 28%. Was it migrants?",
+    title: "Glasgow sexual assaults went up 28%. Was it migrants?",
     seoTitle: "Glasgow Sexual Assault Rise: Were Migrants Behind the 28%?",
-    description:
-      "Glasgow's recorded sexual assaults rose 28% and rapes 41% in 2024. We checked police, census and Home Office records to see whether migrants were behind it. Every number linked.",
+    description: "Recorded sexual assaults in Glasgow rose 28% and rapes 41% in April to December 2024. The public data checked here do not establish who caused it.",
     standfirst:
       "A post on X says Glasgow's 30% rise in sexual assaults was driven by migrants. The rise is real. Here is what the police records, the census and the Home Office files say about who was behind it.",
     date: "2026-09-06",
@@ -261,11 +290,11 @@ export const posts: Post[] = [
       },
       {
         q: "Were migrants behind Glasgow's rise in sexual assaults?",
-        a: "The public data checked here do not establish who caused the increase. The police reports discuss an evidence-rule change for domestic abuse and reporting for rape, but do not explain the sexual-assault rise. Of 117 accused entries in a Greater Glasgow disclosure for 2025, 43 were British, 12 had named non-British nationalities and 62 had unknown nationality. Across 276 English and Welsh councils, the comparisons are mixed: a small positive association between places and an uncertain result within councils over time. Neither identifies a Glasgow cause.",
+        a: "The public data checked here do not establish who caused the increase. The police reports discuss an evidence rule change for domestic abuse and reporting for rape, but do not explain the sexual assault rise. Of 117 accused entries in a Greater Glasgow disclosure for 2025, 43 were British, 12 had named non British nationalities and 62 had unknown nationality. Across 276 English and Welsh councils, the comparisons are mixed: a small positive association between places and an uncertain result within councils over time. Neither identifies a Glasgow cause.",
       },
       {
         q: "What changed in April 2024?",
-        a: "Police Scotland links a domestic-abuse increase to corroboration guidance introduced in April 2024. UNIFI was fully rolled out by 5 December 2023, and the Scottish Police Authority says all crime data came from the common system from April 2024. Those changes are relevant context, but their contribution to Glasgow's sexual-assault increase has not been measured.",
+        a: "Police Scotland links a domestic abuse increase to corroboration guidance introduced in April 2024. UNIFI was fully rolled out by 5 December 2023, and the Scottish Police Authority says all crime data came from the common system from April 2024. Those changes are relevant context, but their contribution to Glasgow's sexual assault increase has not been measured.",
       },
       {
         q: "How many asylum seekers live in Glasgow?",
@@ -306,12 +335,12 @@ export const posts: Post[] = [
   },
   {
     slug: "best-performing-councils-scotland",
-    title: "Scotland's best-performing councils: all 32 ranked",
+    title: "Best council in Scotland: all 32 ranked",
     seoTitle: "Best Council in Scotland 2026: All 32 Ranked",
     description:
-      "East Renfrewshire comes first in our 53-measure ranking. See all 32 councils, the like-for-like list, what residents said and every number used.",
+      "East Renfrewshire comes first in our 53-measure ranking. See all 32 councils, the like for like list, what residents said and every number used.",
     standfirst:
-      "East Renfrewshire comes first in our new ranking of all 32 Scottish councils. East Lothian is second and Edinburgh third. But the like-for-like list and resident survey tell a more surprising story.",
+      "East Renfrewshire comes first in our new ranking of all 32 Scottish councils. East Lothian is second and Edinburgh third. But the like for like list and resident survey tell a more surprising story.",
     date: "2026-08-16",
     category: "politics-explained",
     tags: [
@@ -344,7 +373,7 @@ export const posts: Post[] = [
       { id: "uncertainty", label: "Does the winner change?" },
       { id: "all-councils", label: "Every council ranked" },
       { id: "different-winners", label: "Five ways to be good" },
-      { id: "peer-groups", label: "The like-for-like list" },
+      { id: "peer-groups", label: "The like for like list" },
       { id: "residents", label: "Residents disagree" },
       { id: "surprises", label: "The biggest contradiction" },
       { id: "not-in-score", label: "What was left out" },
@@ -354,7 +383,7 @@ export const posts: Post[] = [
     ],
     faq: [
       {
-        q: "Which is the best-performing council in Scotland?",
+        q: "Which is the best performing council in Scotland?",
         a: "East Renfrewshire comes first in Scotland Counted's 2026 council ranking. It is number one for services and results and stayed first in all ten extra checks. We built the ranking from 53 official figures. It is not a government award.",
       },
       {
@@ -363,7 +392,7 @@ export const posts: Post[] = [
       },
       {
         q: "Does the ranking measure the best place to live in Scotland?",
-        a: "No. It measures how councils perform, not every reason a place is good to live. Poverty, crime, health, housing and loneliness are shown separately. That stops richer areas automatically looking like better-run councils.",
+        a: "No. It measures how councils perform, not every reason a place is good to live. Poverty, crime, health, housing and loneliness are shown separately. That stops richer areas automatically looking like better run councils.",
       },
       {
         q: "How were Scottish councils ranked?",
@@ -371,7 +400,7 @@ export const posts: Post[] = [
       },
       {
         q: "Which council performs best against similar councils?",
-        a: "East Renfrewshire stays first and East Lothian second in the like-for-like list. Inverclyde jumps from 12th across Scotland to third against councils facing similar conditions.",
+        a: "East Renfrewshire stays first and East Lothian second in the like for like list. Inverclyde jumps from 12th across Scotland to third against councils facing similar conditions.",
       },
     ],
     sourceIds: [
@@ -393,8 +422,7 @@ export const posts: Post[] = [
     slug: "operation-branchform-snp-money-timeline",
     title: "Operation Branchform timeline: the full SNP money story",
     seoTitle: "Operation Branchform Timeline: SNP Money Case Explained",
-    description:
-      "Operation Branchform timeline covering SNP referendum donations, Peter Murrell's £400,310.65 embezzlement, Nicola Sturgeon's status and ongoing inquiries.",
+    description: "Operation Branchform: Peter Murrell admitted embezzling £400,310.65 from the SNP. Nicola Sturgeon and Colin Beattie were investigated but not charged.",
     standfirst:
       "Use this Operation Branchform timeline to follow every major event from the SNP fundraisers to Peter Murrell's conviction. Nicola Sturgeon and Colin Beattie were not charged.",
     date: "2026-08-02",
@@ -414,7 +442,7 @@ export const posts: Post[] = [
       src: "/images/editorial/snp-money-timeline-hero.webp",
       alt: "An editorial collage of a long paper trail leading through folders and receipts towards a courthouse and an unbranded white motorhome",
       caption:
-        "The story began with questions about referendum donations. The court case ultimately proved a different, 12-year course of embezzlement from the SNP's main account.",
+        "The story began with questions about referendum donations. The court case ultimately proved a different, 12 year course of embezzlement from the SNP's main account.",
       objectPosition: "center 48%",
     },
     shareImage: {
@@ -435,7 +463,7 @@ export const posts: Post[] = [
     faq: [
       {
         q: "Was Nicola Sturgeon charged over the SNP finances?",
-        a: "No. Police arrested Sturgeon in June 2023 but did not charge her. On 20 March 2025, Police Scotland said she was no longer under investigation in Operation Branchform. Prosecutors later said two separate senior-counsel reviews agreed that no charge or further inquiry was required.",
+        a: "No. Police arrested Sturgeon in June 2023 but did not charge her. On 20 March 2025, Police Scotland said she was no longer under investigation in Operation Branchform. Prosecutors later said two separate senior counsel reviews agreed that no charge or further inquiry was required.",
       },
       {
         q: "How much did Peter Murrell steal from the SNP?",
@@ -460,10 +488,9 @@ export const posts: Post[] = [
     slug: "drug-deaths-scotland-deprivation",
     title: "Drug deaths in Scotland: the deprivation divide",
     seoTitle: "Drug Deaths in Scotland and Deprivation | 2024 Data",
-    description:
-      "Scotland's drug-death rate was 12 times higher in the most deprived areas in 2024. See why Glasgow's local rate was highest and what the data proves.",
+    description: "In 2024 the drug death rate in Scotland's most deprived areas was about 12 times the least deprived. Glasgow had the highest council rate for 2020 to 2024.",
     standfirst:
-      "People in Scotland's most deprived areas had about 12 times the drug-death rate of those in the least deprived areas in 2024. Glasgow had the highest council-area rate over 2020–2024. The link is stark, but it needs to be read carefully.",
+      "People in Scotland's most deprived areas had about 12 times the drug death rate of those in the least deprived areas in 2024. Glasgow had the highest council area rate over 2020–2024. The link is stark, but it needs to be read carefully.",
     date: "2026-08-08",
     category: "poverty-explained",
     tags: [
@@ -494,19 +521,19 @@ export const posts: Post[] = [
     faq: [
       {
         q: "Are drug deaths linked to deprivation in Scotland?",
-        a: "Yes, there is a very strong area-level association. In 2024 the age-standardised rate in Scotland's most deprived fifth was 47.3 deaths per 100,000, compared with 4.1 in the least deprived fifth. That does not prove every person who died was poor or that deprivation alone caused an individual death.",
+        a: "Yes, there is a very strong area level association. In 2024 the age standardised rate in Scotland's most deprived fifth was 47.3 deaths per 100,000, compared with 4.1 in the least deprived fifth. That does not prove every person who died was poor or that deprivation alone caused an individual death.",
       },
       {
-        q: "Which Scottish council area has the highest drug-death rate?",
-        a: "Glasgow City had the highest age-standardised drug-misuse death rate in the National Records of Scotland comparison for 2020–2024: 41.1 deaths per 100,000. NRS combines five years because single-year council rates can be unstable.",
+        q: "Which Scottish council area has the highest drug death rate?",
+        a: "Glasgow City had the highest age standardised drug misuse death rate in the National Records of Scotland comparison for 2020–2024: 41.1 deaths per 100,000. NRS combines five years because single year council rates can be unstable.",
       },
       {
         q: "Did drug deaths in Scotland fall in 2024?",
-        a: "Yes. National Records of Scotland registered 1,017 drug-misuse deaths, 155 fewer than in 2023 and the lowest annual count since 2017. The 2024 age-standardised rate was still 3.6 times the rate in 2000.",
+        a: "Yes. National Records of Scotland registered 1,017 drug misuse deaths, 155 fewer than in 2023 and the lowest annual count since 2017. The 2024 age standardised rate was still 3.6 times the rate in 2000.",
       },
       {
         q: "Can the substance figures be added together?",
-        a: "No. More than one drug was implicated in 80% of Scotland's drug-misuse deaths in 2024, and broad classes contain individual substances. The opioid, benzodiazepine, cocaine and other rows overlap.",
+        a: "No. More than one drug was implicated in 80% of Scotland's drug misuse deaths in 2024, and broad classes contain individual substances. The opioid, benzodiazepine, cocaine and other rows overlap.",
       },
     ],
     sourceIds: [
@@ -517,12 +544,11 @@ export const posts: Post[] = [
   },
   {
     slug: "crisis-grant-acceptance-rates-scotland-councils",
-    title: "Crisis Grant postcode gap: why councils award 52% to 89%",
+    title: "Crisis Grant acceptance rates: the 52% to 89% postcode gap",
     seoTitle: "Crisis Grant Acceptance Rates by Scottish Council | 2025/26",
-    description:
-      "Inverclyde awarded 89% of decided Crisis Grant applications in 2025/26. Midlothian awarded 52%. Compare all 32 councils and see what the gap proves.",
+    description: "Crisis Grant acceptance rates in 2025/26 ranged from 89% in Inverclyde to 52% in Midlothian, against 65% across Scotland. Compare all 32 councils.",
     standfirst:
-      "Inverclyde awarded 89% of decided Crisis Grant applications in 2025/26. Midlothian awarded 52%. The same national scheme produced a persistent 37-point postcode gap that councils need to explain.",
+      "Inverclyde awarded 89% of decided Crisis Grant applications in 2025/26. Midlothian awarded 52%. The same national scheme produced a persistent 37 point postcode gap that councils need to explain.",
     date: "2026-08-16",
     category: "politics-explained",
     tags: [
@@ -552,22 +578,12 @@ export const posts: Post[] = [
       { id: "data", label: "Data and method" },
     ],
     faq: [
-      {
-        q: "Which Scottish council has the highest Crisis Grant award rate?",
-        a: "Inverclyde had the highest published rate in 2025/26: 89% of decided Crisis Grant applications resulted in an award. Angus was next at 79% and Dundee City at 78%.",
-      },
-      {
-        q: "Which Scottish council has the lowest Crisis Grant award rate?",
-        a: "Midlothian had the lowest published rate in 2025/26 at 52%, followed by Highland at 53%. The Scotland rate was 65%.",
-      },
-      {
-        q: "Does a lower award rate prove a council is refusing valid applications?",
-        a: "No. The rate proves different outcomes, not whether the underlying applications were comparable or the decisions correct. Explaining the gap requires evidence about case mix, local administration, evidence demands, budget pressure, repeat applications and reviews.",
-      },
-      {
-        q: "Can a refused Crisis Grant decision be reviewed?",
-        a: "Yes. The statutory guidance says a first-tier review is requested from the council, normally within 20 working days of the decision. A Crisis Grant review should be decided within two working days. A review cannot reduce or remove an award already made.",
-      },
+      { q: "Which Scottish council has the highest Crisis Grant award rate?", a: "Inverclyde had the highest published rate in 2025/26: 89% of decided Crisis Grant applications resulted in an award. Angus was next at 79% and Dundee City at 78%." },
+      { q: "Which Scottish council has the lowest Crisis Grant award rate?", a: "Midlothian had the lowest published rate in 2025/26 at 52%, followed by Highland at 53%. The Scotland rate was 65%." },
+      { q: "What percentage of Crisis Grant applications are successful in Scotland?", a: "In 2025/26, 65% of decided Crisis Grant applications in Scotland resulted in an award. Council rates ranged from 52% in Midlothian to 89% in Inverclyde." },
+      { q: "Does a lower award rate prove a council is refusing valid applications?", a: "No. The rate proves different outcomes, not whether the underlying applications were comparable or the decisions correct. Explaining the gap requires evidence about case mix, local administration, evidence demands, budget pressure, repeat applications and reviews." },
+      { q: "How quickly should a Crisis Grant decision be made?", a: "By the end of the next working day. Nationally, 98% of Crisis Grant decisions met that deadline in January to March 2026. Local rates ranged from 67% in Shetland to 100% in nine councils." },
+      { q: "Can a refused Crisis Grant decision be reviewed?", a: "Yes. The statutory guidance says a first tier review is requested from the council, normally within 20 working days of the decision. A Crisis Grant review should be decided within two working days. A review cannot reduce or remove an award already made." },
     ],
     sourceIds: [
       "swf-statistics-2025-26",
@@ -614,7 +630,7 @@ export const posts: Post[] = [
       },
       {
         q: "Does Scottish council tax include water?",
-        a: "The bill usually does. Your council collects separate water and waste-water charges for Scottish Water. That is why a council-tax-only figure can be hundreds of pounds lower than the bill that arrives.",
+        a: "The bill usually does. Your council collects separate water and waste water charges for Scottish Water. That is why a council tax only figure can be hundreds of pounds lower than the bill that arrives.",
       },
       {
         q: "Can Council Tax Reduction wipe out the whole bill?",
@@ -634,8 +650,8 @@ export const posts: Post[] = [
   },
   {
     slug: "council-tax-rises-scotland-2026-27",
-    title: "Council tax rises in Scotland 2026/27: every council",
-    seoTitle: "Council Tax Rises Scotland 2026/27 | Every Council",
+    title: "Council tax increase Scotland: every council's rise in 2026/27",
+    seoTitle: "Council Tax Increase Scotland 2026/27: Every Council's Rise",
     description:
       "Every Scottish council's 2026/27 council tax rise compared with 2025/26. See the Band D cash and percentage increase, then check every band.",
     standfirst:
@@ -648,7 +664,7 @@ export const posts: Post[] = [
       src: "/images/editorial/council-tax-rises-scotland.webp",
       alt: "Council tax bills and a calculator on a kitchen table overlooking a Scottish residential street",
       caption:
-        "The rise belongs to the council-tax part of the bill. Scottish Water sets its own separate charge, even though both arrive together.",
+        "The rise belongs to the council tax part of the bill. Scottish Water sets its own separate charge, even though both arrive together.",
       objectPosition: "center 42%",
     },
     toc: [
@@ -663,15 +679,30 @@ export const posts: Post[] = [
   },
   {
     slug: "minimum-wage-take-home-pay-scotland-2026",
-    title: "Minimum wage in Scotland: what you earn in 2026",
+    title: "Minimum wage Scotland: what you earn in 2026 and 2027",
+    seoTitle: "Minimum Wage Scotland 2026 and 2027: £12.71 to £13.21",
     description:
-      "Minimum wage in Scotland is £12.71 an hour in 2026, rising to £13.21 in April 2027. See every age rate, yearly pay and take-home pay after tax and NI.",
+      "Minimum wage in Scotland is £12.71 an hour in 2026, rising to £13.21 in April 2027. See every age rate, yearly pay and take home pay after tax and NI.",
     standfirst:
-      "£12.71 an hour sounds clear. A payslip is not. I have done the tax and National Insurance working for a 37.5-hour week so you can see what reaches the bank.",
+      "£12.71 an hour sounds clear. A payslip is not. I have done the tax and National Insurance working for a 37.5 hour week so you can see what reaches the bank.",
     date: "2026-08-01",
     updated: "2026-10-29",
     category: "money-and-bills",
-    tags: ["Minimum wage", "Take-home pay", "Scottish income tax", "Low pay"],
+    tags: ["Minimum wage", "Take home pay", "Scottish income tax", "Low pay"],
+    quickAnswer: {
+      label: "Minimum wage Scotland, 21 and over",
+      value: pounds(MINIMUM_WAGE.current.over21, true),
+      unit: "an hour",
+      detail: `Every employer in Scotland has to pay at least this from 1 April 2026. It goes up to ${pounds(MINIMUM_WAGE.next.over21, true)} on 1 April 2027. Scotland doesn't set its own rate; Westminster does.`,
+      rows: [
+        { label: "Age 21 and over", value: `${pounds(MINIMUM_WAGE.current.over21, true)}, then ${pounds(MINIMUM_WAGE.next.over21, true)}` },
+        { label: "Age 18 to 20", value: `${pounds(MINIMUM_WAGE.current.age18to20, true)}, then ${pounds(MINIMUM_WAGE.next.age18to20, true)}` },
+        { label: "Under 18", value: `${pounds(MINIMUM_WAGE.current.under18, true)}, then ${pounds(MINIMUM_WAGE.next.under18, true)}` },
+        { label: "Apprentice", value: `${pounds(MINIMUM_WAGE.current.apprentice, true)}, then ${pounds(MINIMUM_WAGE.next.apprentice, true)}` },
+      ],
+      asOf: "2026/27 rates, then the rates from 1 April 2027",
+      source: MINIMUM_WAGE.source,
+    },
     readingMinutes: 6,
     image: {
       src: "/images/editorial/minimum-wage-take-home-scotland.webp",
@@ -683,7 +714,7 @@ export const posts: Post[] = [
     toc: [
       { id: "rates", label: "The 2026 hourly rates" },
       { id: "april-2027", label: "What changes in April 2027" },
-      { id: "full-time", label: "What full-time adds up to" },
+      { id: "full-time", label: "What full time adds up to" },
       { id: "take-home", label: "What reaches the bank" },
       { id: "hours", label: "Why your pay may be lower" },
       { id: "enough", label: "Is it enough to live on?" },
@@ -691,11 +722,11 @@ export const posts: Post[] = [
     faq: [
       {
         q: "What is minimum wage in Scotland in 2026?",
-        a: "From 1 April 2026 it is £12.71 an hour for workers aged 21 and over, £10.85 for ages 18 to 20, and £8 for under-18s and eligible apprentices.",
+        a: "From 1 April 2026 it is £12.71 an hour for workers aged 21 and over, £10.85 for ages 18 to 20, and £8 for under 18s and eligible apprentices.",
       },
       {
         q: "What will minimum wage be in Scotland in April 2027?",
-        a: "From 1 April 2027 it rises to £13.21 an hour for workers aged 21 and over, £11.27 for ages 18 to 20, and £8.31 for under-18s and eligible apprentices. Scotland does not set its own rate.",
+        a: "From 1 April 2027 it rises to £13.21 an hour for workers aged 21 and over, £11.27 for ages 18 to 20, and £8.31 for under 18s and eligible apprentices. Scotland does not set its own rate.",
       },
       {
         q: "What is £12.71 an hour per year?",
@@ -706,7 +737,8 @@ export const posts: Post[] = [
   },
   {
     slug: "real-living-wage-vs-minimum-wage-scotland",
-    title: "Real Living Wage Scotland versus minimum wage",
+    title: "Real Living Wage Scotland: £14.10 an hour against the legal minimum",
+    seoTitle: "Real Living Wage Scotland 2026: £14.10 vs Minimum Wage",
     description:
       "The real Living Wage is now £14.10 an hour. The legal minimum is £12.71, rising to £13.21 in April 2027. Who sets each rate and what the gap is worth.",
     standfirst:
@@ -715,6 +747,20 @@ export const posts: Post[] = [
     updated: "2026-10-29",
     category: "money-and-bills",
     tags: ["Real Living Wage", "Minimum wage", "Pay", "Living costs"],
+    quickAnswer: {
+      label: "Real Living Wage Scotland",
+      value: pounds(REAL_LIVING_WAGE.uk, true),
+      unit: "an hour",
+      detail: "The voluntary rate for employers signed up with the Living Wage Foundation, set on 15 October 2026. They have until 1 May 2027 to start paying it. The legal minimum is lower.",
+      rows: [
+        { label: "Outside London", value: pounds(REAL_LIVING_WAGE.uk, true) },
+        { label: "London", value: pounds(REAL_LIVING_WAGE.london, true) },
+        { label: "Legal minimum, 21 and over", value: pounds(MINIMUM_WAGE.current.over21, true) },
+        { label: "Gap a year at 37.5 hours", value: pounds((REAL_LIVING_WAGE.uk - MINIMUM_WAGE.current.over21) * 37.5 * 52, true) },
+      ],
+      asOf: "Rates announced 15 October 2026",
+      source: REAL_LIVING_WAGE.source,
+    },
     readingMinutes: 5,
     image: {
       src: "/images/editorial/real-living-wage-scotland.webp",
@@ -774,7 +820,7 @@ export const posts: Post[] = [
       },
       {
         q: "What is the Universal Credit taper rate?",
-        a: "Universal Credit normally falls by 55p for each £1 of take-home earnings counted above any work allowance. That means earnings still increase total household income.",
+        a: "Universal Credit normally falls by 55p for each £1 of take home earnings counted above any work allowance. That means earnings still increase total household income.",
       },
     ],
     sourceIds: ["uc-earnings", "uc-what-youll-get", "minimum-wage-2026"],
@@ -811,17 +857,18 @@ export const posts: Post[] = [
         a: "Not necessarily. The housing element is limited by Local Housing Allowance for your area and household size, or by your actual rent if that is lower.",
       },
       {
-        q: "What is the one-bedroom LHA rate in Greater Glasgow in 2026?",
-        a: "It is £159.95 a week from April 2026 to March 2027, about £693 a month. The Scottish Government's 2025 advertised-rent average for a one-bedroom Greater Glasgow property was £865 a month.",
+        q: "What is the one bedroom LHA rate in Greater Glasgow in 2026?",
+        a: "It is £159.95 a week from April 2026 to March 2027, about £693 a month. The Scottish Government's 2025 advertised rent average for a one bedroom Greater Glasgow property was £865 a month.",
       },
     ],
     sourceIds: ["lha-2026", "sg-private-rents-2025", "discretionary-housing-payment"],
   },
   {
     slug: "energy-price-cap-scotland-2026-explained",
-    title: "What the energy price cap means in Scotland in 2026",
+    title: "Energy price cap Scotland: what it means for your bills",
+    seoTitle: "Energy Price Cap Scotland 2026: What It Means for Your Bills",
     description:
-      "Ofgem's energy price cap is £1,862 from July to September 2026 for a typical-use home. See what it really caps, why bills rose and how standing charges work.",
+      "Ofgem's energy price cap is £1,862 from July to September 2026 for a typical use home. See what it really caps, why bills rose and how standing charges work.",
     standfirst:
       "£1,862 is not the most any household can pay. It is an illustration based on typical use. The cap controls the rates, so using more still costs more.",
     date: "2026-08-01",
@@ -845,7 +892,7 @@ export const posts: Post[] = [
     faq: [
       {
         q: "Is £1,862 the maximum energy bill in 2026?",
-        a: "No. It is Ofgem's annual illustration for a typical-use dual-fuel household paying by Direct Debit. Your bill depends on the energy you use, your region, payment method and tariff.",
+        a: "No. It is Ofgem's annual illustration for a typical use dual fuel household paying by Direct Debit. Your bill depends on the energy you use, your region, payment method and tariff.",
       },
       {
         q: "Does the energy price cap apply in Scotland?",
@@ -886,18 +933,19 @@ export const posts: Post[] = [
       },
       {
         q: "How much did UK food prices rise?",
-        a: "ONS data showed food and non-alcoholic drink prices were 38.6% higher in November 2025 than in November 2020.",
+        a: "ONS data showed food and non alcoholic drink prices were 38.6% higher in November 2025 than in November 2020.",
       },
     ],
     sourceIds: ["ons-food-prices", "ons-cpi-2026", "brexit-food-prices", "sg-cost-living-2025"],
   },
   {
     slug: "crisis-grant-scotland-how-to-apply",
-    title: "Crisis Grant Scotland: how to apply and what you get",
+    title: "Crisis grant Scotland: how to apply and what you get",
+    seoTitle: "Crisis Grant Scotland: How to Apply and What You Get",
     description:
       "A Scottish Welfare Fund Crisis Grant is emergency money you do not repay. Who can apply, what it covers, and how to claim through your council.",
     standfirst:
-      "This is not a loan and it is not an advance from Universal Credit. It is a council grant for a low-income person facing an immediate emergency.",
+      "This is not a loan and it is not an advance from Universal Credit. It is a council grant for a low income person facing an immediate emergency.",
     date: "2026-08-01",
     category: "money-and-bills",
     tags: ["Crisis Grant", "Scottish Welfare Fund", "Emergency help", "Benefits"],
@@ -923,7 +971,7 @@ export const posts: Post[] = [
       },
       {
         q: "Can I get a Crisis Grant for food or heating?",
-        a: "Yes, those are the kinds of immediate essentials a Crisis Grant can cover when an emergency has left a low-income person without money.",
+        a: "Yes, those are the kinds of immediate essentials a Crisis Grant can cover when an emergency has left a low income person without money.",
       },
     ],
     sourceIds: ["scottish-welfare-fund"],
@@ -993,11 +1041,11 @@ export const posts: Post[] = [
     faq: [
       {
         q: "Are school meals free for every primary pupil in Scotland?",
-        a: "Lunch is universal in council and Scottish Government-funded schools from primary 1 to primary 5. In primary 6 and 7, Scottish Child Payment or another qualifying benefit can give entitlement.",
+        a: "Lunch is universal in council and Scottish Government funded schools from primary 1 to primary 5. In primary 6 and 7, Scottish Child Payment or another qualifying benefit can give entitlement.",
       },
       {
         q: "How much is the school clothing grant in Scotland?",
-        a: "Every council must pay at least £120 for a primary-age child and £150 for a secondary-age child. Councils set local eligibility rules and may pay more.",
+        a: "Every council must pay at least £120 for a primary age child and £150 for a secondary age child. Councils set local eligibility rules and may pay more.",
       },
     ],
     sourceIds: ["free-school-meals-2026", "school-clothing-grants", "sg-child-payment-2026"],
@@ -1006,7 +1054,7 @@ export const posts: Post[] = [
     slug: "why-is-the-cost-of-living-so-high",
     title: "Why the cost of living is still so high in Scotland",
     description:
-      "Scotland's cost-of-living crisis did not end when inflation fell. See why food, rent and energy remain expensive and which political choices worsened it.",
+      "Scotland's cost of living crisis did not end when inflation fell. See why food, rent and energy remain expensive and which political choices worsened it.",
     standfirst:
       "War and the pandemic pushed prices up. That is true. It is also true that political choices left ordinary families with less protection, and added avoidable costs of their own.",
     date: "2026-08-01",
@@ -1032,15 +1080,15 @@ export const posts: Post[] = [
     faq: [
       {
         q: "Has the cost of living crisis ended because inflation is lower?",
-        a: "No. Lower inflation means prices are rising more slowly; it does not put them back where they were. By March 2026, the ONS Household Costs Index was about 34% higher than five years earlier for low-income households.",
+        a: "No. Lower inflation means prices are rising more slowly; it does not put them back where they were. By March 2026, the ONS Household Costs Index was about 34% higher than five years earlier for low income households.",
       },
       {
         q: "Did MPs cause the cost of living crisis?",
-        a: "Not by themselves. Pandemic disruption and Russia’s invasion of Ukraine caused major global food and energy shocks. But UK governments and MPs made choices on benefits, rent support, trade, tax and the 2022 mini-budget that left households more exposed or added extra cost.",
+        a: "Not by themselves. Pandemic disruption and Russia’s invasion of Ukraine caused major global food and energy shocks. But UK governments and MPs made choices on benefits, rent support, trade, tax and the 2022 mini budget that left households more exposed or added extra cost.",
       },
       {
         q: "Who controls help with the cost of living in Scotland?",
-        a: "Both parliaments do. Westminster controls Universal Credit, Local Housing Allowance, the legal minimum wage, most tax allowances and energy regulation. Holyrood controls the Scottish Child Payment, housing, Scottish income-tax bands, childcare and much of public transport. Councils control local crisis support and services.",
+        a: "Both parliaments do. Westminster controls Universal Credit, Local Housing Allowance, the legal minimum wage, most tax allowances and energy regulation. Holyrood controls the Scottish Child Payment, housing, Scottish income tax bands, childcare and much of public transport. Councils control local crisis support and services.",
       },
     ],
     sourceIds: [
@@ -1094,7 +1142,7 @@ export const posts: Post[] = [
       },
       {
         q: "Why does working not lift a family out of poverty?",
-        a: "Three things: wages that have not kept up with prices, hours that are part-time or unpredictable, and housing costs that take a large share of what is left. Poverty is measured after rent or mortgage is paid.",
+        a: "Three things: wages that have not kept up with prices, hours that are part time or unpredictable, and housing costs that take a large share of what is left. Poverty is measured after rent or mortgage is paid.",
       },
     ],
     sourceIds: ["sg-poverty-2026", "jrf"],
@@ -1137,9 +1185,10 @@ export const posts: Post[] = [
   },
   {
     slug: "what-is-the-scottish-child-payment",
-    title: "Scottish Child Payment: how much it is and who can get it",
+    title: "Scottish Child Payment: how much it is and how to apply",
+    seoTitle: "Scottish Child Payment 2026/27: How Much and How to Apply",
     description:
-      "A weekly payment for every child in a low-income family in Scotland. What it is worth, who can get it, and why many eligible families never claim.",
+      "A weekly payment for every child in a low income family in Scotland. What it is worth, who can get it, and why many eligible families never claim.",
     standfirst:
       "It does not exist anywhere else in the UK, and some families who are entitled to it have never claimed it.",
     date: "2026-07-31",
@@ -1151,7 +1200,7 @@ export const posts: Post[] = [
       src: "/images/editorial/scotland-secure-homes.webp",
       alt: "Two children arriving home from school to a secure family home",
       caption:
-        "The payment is designed to give low-income families more room for everyday essentials, for every eligible child.",
+        "The payment is designed to give low income families more room for everyday essentials, for every eligible child.",
       objectPosition: "center 44%",
     },
     toc: [
@@ -1163,7 +1212,7 @@ export const posts: Post[] = [
     faq: [
       {
         q: "How much is the Scottish Child Payment?",
-        a: "As of April 2026 it is £28.20 per child per week, paid for every child in a low-income family. It is set to rise to £40 a week for children under one from 2027.",
+        a: "As of April 2026 it is £28.20 per child per week, paid for every child in a low income family. It is set to rise to £40 a week for children under one from 2027.",
       },
       {
         q: "Who decides the Scottish Child Payment?",
@@ -1176,7 +1225,7 @@ export const posts: Post[] = [
     slug: "how-to-contact-your-mp-or-msp",
     title: "How to contact your MP or MSP in Scotland",
     description:
-      "Find out how to contact your MP or MSP in Scotland, what to say and what happens next. Or use the postcode tool to open both ready-written emails.",
+      "Find out how to contact your MP or MSP in Scotland, what to say and what happens next. Or use the postcode tool to open both ready written emails.",
     standfirst:
       "Most people never contact their representatives, and the main reason is not apathy. It is not knowing how it works.",
     date: "2026-07-31",
@@ -1194,7 +1243,7 @@ export const posts: Post[] = [
       { id: "mp-and-msp", label: "Your MP and your MSP" },
       { id: "what-to-say", label: "What to actually say" },
       { id: "what-happens-next", label: "What happens next" },
-      { id: "one-minute-version", label: "The one-minute version" },
+      { id: "one-minute-version", label: "The one minute version" },
     ],
     faq: [
       {
@@ -1211,6 +1260,1958 @@ export const posts: Post[] = [
       },
     ],
     sourceIds: [],
+  },
+  {
+    slug: "adult-disability-payment",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-adult-disability-payment.webp",
+      alt: "Disability support, a wheelchair beside a welcoming home entrance",
+      caption: "Disability support, a wheelchair beside a welcoming home entrance.",
+    },
+    title: "Adult disability payment: rates, eligibility and how to apply",
+    seoTitle: "Adult Disability Payment 2026/27: Rates, Who Qualifies, How to Apply",
+    description:
+      "Adult Disability Payment pays £30.30 to £194.60 a week in 2026/27. The rates, who qualifies, how to apply in two parts, and how the myaccount login works.",
+    standfirst:
+      "Scotland's replacement for PIP. Not means tested, backdated to the day you start, and simpler to apply for than most people expect.",
+    date: "2026-10-29",
+    checked: "2026-10-29",
+    category: "money-and-bills",
+    tags: ["Adult Disability Payment", "Social Security Scotland", "Disability benefits", "PIP"],
+    readingMinutes: 6,
+    quickAnswer: {
+      label: "Adult Disability Payment rates 2026/27",
+      value: pounds(ADULT_DISABILITY_PAYMENT.dailyLiving.enhanced + ADULT_DISABILITY_PAYMENT.mobility.enhanced, true),
+      unit: "a week at most",
+      detail: "There are two parts, daily living and mobility, each with a standard and an enhanced rate. You can get one part or both. Income and savings don't count.",
+      rows: [
+        { label: "Daily living, standard", value: `${pounds(ADULT_DISABILITY_PAYMENT.dailyLiving.standard, true)} a week` },
+        { label: "Daily living, enhanced", value: `${pounds(ADULT_DISABILITY_PAYMENT.dailyLiving.enhanced, true)} a week` },
+        { label: "Mobility, standard", value: `${pounds(ADULT_DISABILITY_PAYMENT.mobility.standard, true)} a week` },
+        { label: "Mobility, enhanced", value: `${pounds(ADULT_DISABILITY_PAYMENT.mobility.enhanced, true)} a week` },
+      ],
+      asOf: "2026/27 rates",
+      source: ADULT_DISABILITY_PAYMENT.source,
+    },
+    toc: [
+      { id: "rates", label: "Rates for 2026/27" },
+      { id: "eligibility", label: "Who qualifies" },
+      { id: "apply", label: "How to apply" },
+      { id: "login", label: "The login" },
+      { id: "paid", label: "When it's paid" },
+      { id: "carers", label: "If someone cares for you" },
+    ],
+    faq: [
+      {
+        q: "Is Adult Disability Payment means tested?",
+        a: "No. Your wages, savings and other income are not taken into account, and you can get it whether you work or not.",
+      },
+      {
+        q: "Do I need to apply if I already get PIP?",
+        a: "No. Social Security Scotland moves people on PIP over to Adult Disability Payment automatically and writes to tell you when.",
+      },
+      {
+        q: "How far back is Adult Disability Payment paid?",
+        a: "From the day you submitted part 1 of the application, online or by phone, not from the day you get the decision.",
+      },
+      {
+        q: "What is the adult disability payment phone number?",
+        a: "Social Security Scotland's freephone number is 0800 182 2222, open 8am to 5pm, Monday to Friday, except bank holidays.",
+      },
+    ],
+    sourceIds: ["sss-adult-disability-payment", "sss-contact"],
+  },
+  {
+    slug: "adult-disability-payment-phone-number",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-adult-disability-payment-phone-number.webp",
+      alt: "A telephone handset beside a blank notepad",
+      caption: "A telephone handset beside a blank notepad.",
+    },
+    title: "Adult disability payment phone number",
+    seoTitle: "Adult Disability Payment Phone Number: Call Times and What to Have Ready",
+    description:
+      "The Adult Disability Payment phone number is 0800 182 2222, free, 8am to 5pm on weekdays. Webchat, the number from abroad, the postal address and what to have ready.",
+    standfirst:
+      "One freephone number covers new claims, questions and changes. Here is when it's open and how to keep the call short.",
+    date: "2026-10-29",
+    checked: "2026-10-29",
+    category: "money-and-bills",
+    tags: ["Adult Disability Payment", "Social Security Scotland", "Phone numbers"],
+    readingMinutes: 3,
+    quickAnswer: {
+      label: "Adult Disability Payment phone number",
+      value: SOCIAL_SECURITY_SCOTLAND.phone,
+      unit: "freephone",
+      detail: "Social Security Scotland, 8am to 5pm, Monday to Friday, except bank holidays. You can start a claim on this number too.",
+      rows: [
+        { label: "From outside the UK", value: SOCIAL_SECURITY_SCOTLAND.abroad },
+        { label: "Webchat", value: "8am to 5pm on weekdays" },
+        { label: "Post", value: "PO Box 10301, Dundee, DD1 9FY" },
+      ],
+      source: SSS_SOURCE,
+    },
+    toc: [
+      { id: "numbers", label: "Numbers and other ways in" },
+      { id: "ready", label: "What to have ready" },
+      { id: "apply-by-phone", label: "Applying by phone" },
+      { id: "other", label: "Other numbers" },
+    ],
+    faq: [
+      {
+        q: "Is the Adult Disability Payment number free?",
+        a: "Yes. 0800 182 2222 is a freephone number. If your mobile won't call 0800 numbers, you can call free from a landline or payphone.",
+      },
+      {
+        q: "Can I apply for Adult Disability Payment by phone?",
+        a: "Yes. They complete part 1 with you on the call and post you a paper form for part 2. If you're terminally ill the whole application can be done on the phone.",
+      },
+    ],
+    sourceIds: ["sss-contact", "sss-adult-disability-payment"],
+  },
+  {
+    slug: "carer-support-payment",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-carer-support-payment.webp",
+      alt: "Two hands gently holding a warm mug together",
+      caption: "Two hands gently holding a warm mug together.",
+    },
+    title: "Carer support payment: rates, eligibility and how to apply",
+    seoTitle: "Carer Support Payment 2026/27: Rates, Who Qualifies, How to Apply",
+    description:
+      "Carer Support Payment is £86.45 a week in 2026/27, plus an £11.70 Scottish Carer Supplement. Who qualifies, the £204 earnings limit and how to apply.",
+    standfirst:
+      "Scotland's replacement for Carer's Allowance, with a weekly supplement on top and extra for each additional person you care for.",
+    date: "2026-10-29",
+    checked: "2026-10-29",
+    category: "money-and-bills",
+    tags: ["Carer Support Payment", "Carers", "Social Security Scotland", "Benefits"],
+    readingMinutes: 6,
+    quickAnswer: {
+      label: "Carer Support Payment 2026/27",
+      value: pounds(CARER_SUPPORT_PAYMENT.weekly, true),
+      unit: "a week",
+      detail: `Plus the Scottish Carer Supplement of ${pounds(CARER_SUPPORT_PAYMENT.supplement, true)} a week, paid automatically. You need to care for 35 hours a week or more and take home no more than ${pounds(CARER_SUPPORT_PAYMENT.earningsLimit)} a week.`,
+      rows: [
+        { label: "Carer Support Payment", value: `${pounds(CARER_SUPPORT_PAYMENT.weekly, true)} a week` },
+        { label: "Scottish Carer Supplement", value: `${pounds(CARER_SUPPORT_PAYMENT.supplement, true)} a week` },
+        { label: "Each additional person", value: `${pounds(CARER_SUPPORT_PAYMENT.additionalPerson, true)} a week` },
+        { label: "Earnings limit", value: `${pounds(CARER_SUPPORT_PAYMENT.earningsLimit)} a week take home` },
+      ],
+      asOf: "2026/27 rates",
+      source: CARER_SUPPORT_PAYMENT.source,
+    },
+    toc: [
+      { id: "rates", label: "Rates for 2026/27" },
+      { id: "eligibility", label: "Who qualifies" },
+      { id: "apply", label: "How to apply" },
+      { id: "paid", label: "When you're paid" },
+    ],
+    faq: [
+      {
+        q: "Has Carer Support Payment replaced Carer's Allowance in Scotland?",
+        a: "Yes. Carer Support Payment replaced Carer's Allowance across Scotland from November 2024. The Scottish Carer Supplement replaced the old Carer's Allowance Supplement.",
+      },
+      {
+        q: "Can I work and get Carer Support Payment?",
+        a: "Yes, as long as your take home pay is no more than £204 a week after tax, National Insurance and some allowed expenses. Pay that goes up and down can be averaged.",
+      },
+      {
+        q: "Does Carer Support Payment affect Universal Credit?",
+        a: "Yes. The DWP counts it as income for Universal Credit and other income related benefits. The Scottish Carer Supplement and the Carer Additional Person Payment don't affect other benefits.",
+      },
+    ],
+    sourceIds: ["sss-carer-support-payment"],
+  },
+  {
+    slug: "best-start-grant",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-best-start-grant.webp",
+      alt: "A baby blanket and small knitted baby shoes",
+      caption: "A baby blanket and small knitted baby shoes.",
+    },
+    title: "Best start grant: what you get and how to apply",
+    seoTitle: "Best Start Grant 2026/27: Pregnancy, Early Learning and School Payments",
+    description:
+      "Best Start Grant pays £796.65 for a first baby, then £331.95 for early learning and £331.95 for school. Who qualifies, when to apply and how.",
+    standfirst:
+      "Three payments for low income families in Scotland, at birth, at two and at school age. None of it is paid back and you can spend it on anything.",
+    date: "2026-10-29",
+    checked: "2026-10-29",
+    category: "money-and-bills",
+    tags: ["Best Start Grant", "Best Start Foods", "Families", "Social Security Scotland"],
+    readingMinutes: 5,
+    quickAnswer: {
+      label: "Best Start Grant 2026/27",
+      value: pounds(BEST_START.pregnancyAndBabyFirst, true),
+      unit: "for a first child",
+      detail: "The Pregnancy and Baby Payment for your first child. Later children get less. The Early Learning and School Age payments are the same for every child.",
+      rows: [
+        { label: "Pregnancy and Baby, first child", value: pounds(BEST_START.pregnancyAndBabyFirst, true) },
+        { label: "Pregnancy and Baby, later children", value: pounds(BEST_START.pregnancyAndBabyLater, true) },
+        { label: "Early Learning Payment", value: pounds(BEST_START.earlyLearning, true) },
+        { label: "School Age Payment", value: pounds(BEST_START.schoolAge, true) },
+      ],
+      asOf: "2026/27 rates",
+      source: BEST_START.source,
+    },
+    toc: [
+      { id: "amounts", label: "How much it is" },
+      { id: "early-learning", label: "Early Learning Payment" },
+      { id: "who", label: "Who can get it" },
+      { id: "foods", label: "Best Start Foods" },
+      { id: "apply", label: "How to apply" },
+    ],
+    faq: [
+      {
+        q: "When can I apply for the Best Start Grant Early Learning Payment?",
+        a: "When your child is between 2 years old and 3 years 6 months. Your child doesn't need to go to nursery.",
+      },
+      {
+        q: "Does Child Benefit count for Best Start Grant?",
+        a: "Not on its own. You or your partner normally need Universal Credit, Housing Benefit, Income Support, Pension Credit, income based JSA or income related ESA. Parents under 18 don't need any benefit.",
+      },
+      {
+        q: "Is the Best Start Grant paid automatically?",
+        a: "The Early Learning and School Age payments can be, if you already get Scottish Child Payment for a child of the right age. The Pregnancy and Baby Payment needs an application.",
+      },
+    ],
+    sourceIds: ["sss-best-start"],
+  },
+  {
+    slug: "winter-fuel-payment-scotland",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-winter-fuel-payment-scotland.webp",
+      alt: "A warm Scottish home in winter, snow outside",
+      caption: "A warm Scottish home in winter, snow outside.",
+    },
+    title: "Winter fuel payment in Scotland: who gets it, how much and when",
+    seoTitle: "Winter Fuel Payment Scotland 2026: Who Gets It, How Much and When",
+    description:
+      "In Scotland, Winter Fuel Payment is now Pension Age Winter Heating Payment: £105.55 to £316.70 this winter. Who gets it, the £35,000 rule and payment dates.",
+    standfirst:
+      "Scotland pays its own version now. Most pensioners get it without applying, but anyone with income over £35,000 hands it back through tax.",
+    date: "2026-10-29",
+    checked: "2026-10-29",
+    category: "money-and-bills",
+    tags: ["Winter Fuel Payment", "Pension Age Winter Heating Payment", "Pensioners", "Energy bills"],
+    readingMinutes: 4,
+    quickAnswer: {
+      label: "Winter fuel payment Scotland, winter 2026 to 2027",
+      value: `${pounds(PENSION_AGE_WINTER_HEATING.min, true)} to ${pounds(PENSION_AGE_WINTER_HEATING.max, true)}`,
+      detail: `Paid as Pension Age Winter Heating Payment from ${PENSION_AGE_WINTER_HEATING.paidFrom} to people born on or before ${PENSION_AGE_WINTER_HEATING.bornOnOrBefore}. Most people don't need to apply.`,
+      rows: [
+        { label: "Living alone, up to 79", value: pounds(PENSION_AGE_WINTER_HEATING.under80, true) },
+        { label: "Living alone, 80 or over", value: pounds(PENSION_AGE_WINTER_HEATING.over80, true) },
+        { label: "Income over £35,000", value: "HMRC takes it back" },
+        { label: "Not paid by March 2027", value: "Call Social Security Scotland" },
+      ],
+      asOf: "Winter 2026 to 2027",
+      source: PENSION_AGE_WINTER_HEATING.source,
+    },
+    toc: [
+      { id: "who", label: "Who gets it" },
+      { id: "all-pensioners", label: "Do all pensioners get it?" },
+      { id: "how-much", label: "How much it is" },
+      { id: "when", label: "When it's paid" },
+      { id: "pip", label: "Winter fuel payment and PIP" },
+    ],
+    faq: [
+      {
+        q: "Is there still a Winter Fuel Payment in Scotland?",
+        a: "Not under that name. In Scotland it has been replaced by Pension Age Winter Heating Payment, paid by Social Security Scotland.",
+      },
+      {
+        q: "Do all pensioners get the winter fuel payment in Scotland?",
+        a: "Most people born on or before 27 June 1960 who live in Scotland get it automatically. If your own income is over £35,000, HMRC takes it back.",
+      },
+      {
+        q: "When is the winter fuel payment paid in Scotland?",
+        a: "From November 2026, through the winter. You get a letter first. Contact Social Security Scotland if you haven't been paid by the start of March 2027.",
+      },
+    ],
+    sourceIds: ["sss-pension-age-winter-heating"],
+  },
+  {
+    slug: "winter-heating-payment",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-winter-heating-payment.webp",
+      alt: "A radiator beside a window on a cold Scottish day",
+      caption: "A radiator beside a window on a cold Scottish day.",
+    },
+    title: "Winter heating payment: who gets it and when",
+    seoTitle: "Winter Heating Payment 2026: Who Gets It and When It Is Paid",
+    description:
+      "Winter Heating Payment is £62.00, paid automatically from December to people on certain low income benefits in Scotland. Who qualifies and when it lands.",
+    standfirst:
+      "A single payment every winter, whatever the weather, if you get the right benefit in the qualifying week.",
+    date: "2026-10-29",
+    checked: "2026-10-29",
+    category: "money-and-bills",
+    tags: ["Winter Heating Payment", "Energy bills", "Social Security Scotland"],
+    readingMinutes: 4,
+    quickAnswer: {
+      label: "Winter Heating Payment",
+      value: pounds(WINTER_HEATING_PAYMENT.amount, true),
+      unit: "once a winter",
+      detail: `Paid automatically from ${WINTER_HEATING_PAYMENT.paidFrom} if you got a qualifying benefit in the week of ${WINTER_HEATING_PAYMENT.qualifyingWeek}. It shows as WHP on your statement.`,
+      source: WINTER_HEATING_PAYMENT.source,
+    },
+    toc: [
+      { id: "who", label: "Who gets it" },
+      { id: "when", label: "When it's paid" },
+      { id: "allowance", label: "Winter heating allowance" },
+    ],
+    faq: [
+      {
+        q: "Do I need to apply for Winter Heating Payment?",
+        a: "No. It's paid automatically if you get a qualifying benefit during the qualifying week. You can send a request if you think you've been missed.",
+      },
+      {
+        q: "Does Winter Heating Payment depend on the weather?",
+        a: "No. Unlike the old Cold Weather Payment, it's a single payment every winter however cold it gets.",
+      },
+    ],
+    sourceIds: ["sss-winter-heating"],
+  },
+  {
+    slug: "social-security-scotland-payment-dates",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-social-security-scotland-payment-dates.webp",
+      alt: "A plain calendar and a coin on a kitchen table",
+      caption: "A plain calendar and a coin on a kitchen table.",
+    },
+    title: "Social security Scotland payment dates for 2026",
+    seoTitle: "Social Security Scotland Payment Dates 2026 Including Christmas",
+    description:
+      "Social Security Scotland payment dates over Christmas 2026: payments due 24 to 28 December come on 23 December. Every bank holiday change to 2028.",
+    standfirst:
+      "When a payment date falls on a bank holiday you're paid early. That helps before Christmas and hurts in January.",
+    date: "2026-10-29",
+    checked: "2026-10-29",
+    category: "money-and-bills",
+    tags: ["Payment dates", "Social Security Scotland", "Christmas", "Benefits"],
+    readingMinutes: 3,
+    quickAnswer: {
+      label: "Social Security Scotland Christmas payment dates",
+      value: "23 December",
+      detail: "Payments due on 24, 25 or 28 December 2026 are paid on Wednesday 23 December. Payments due on 1 or 4 January 2027 are paid on Thursday 31 December.",
+      rows: [
+        { label: "Due 24, 25 or 28 December", value: "Paid Wednesday 23 December" },
+        { label: "Due 1 or 4 January", value: "Paid Thursday 31 December" },
+        { label: "Best Start Foods", value: "Not affected" },
+      ],
+      asOf: "Christmas 2026",
+      source: BANK_HOLIDAY_SOURCE,
+    },
+    toc: [
+      { id: "christmas", label: "Christmas 2026" },
+      { id: "all", label: "Every bank holiday change" },
+      { id: "normal", label: "Your normal payment date" },
+    ],
+    faq: [
+      {
+        q: "Will my Social Security Scotland payment be early at Christmas?",
+        a: "Yes, if it's due on a bank holiday. Payments due from 24 to 28 December 2026 come on 23 December, and those due on 1 or 4 January 2027 come on 31 December.",
+      },
+      {
+        q: "Which benefits do the bank holiday dates cover?",
+        a: "Adult Disability Payment, Carer Support Payment, Child Disability Payment, Pension Age Disability Payment, Scottish Child Payment and Scottish Adult DLA. Best Start Foods is not affected.",
+      },
+    ],
+    sourceIds: ["sss-bank-holiday-dates"],
+  },
+  {
+    slug: "young-carers-allowance-scotland",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-young-carers-allowance-scotland.webp",
+      alt: "A school backpack and a cup of tea on a kitchen table",
+      caption: "A school backpack and a cup of tea on a kitchen table.",
+    },
+    title: "Young carers allowance in Scotland: the Young Carer Grant",
+    seoTitle: "Young Carers Allowance Scotland: The Young Carer Grant Explained",
+    description:
+      "Scotland's young carers allowance is the Young Carer Grant: £405.10 a year for carers aged 16 to 19 who care 16 hours a week. Who qualifies and how to apply.",
+    standfirst:
+      "A yearly payment for 16 to 19 year olds who look after someone. Spend it on whatever you like.",
+    date: "2026-10-29",
+    checked: "2026-10-29",
+    category: "money-and-bills",
+    tags: ["Young Carer Grant", "Young carers", "Carers", "Social Security Scotland"],
+    readingMinutes: 3,
+    quickAnswer: {
+      label: "Young Carer Grant",
+      value: pounds(YOUNG_CARER_GRANT.yearly, true),
+      unit: "once a year",
+      detail: "For carers aged 16 to 19 in Scotland who have cared an average of 16 hours a week for the last three months. You can claim every year until you turn 20.",
+      source: YOUNG_CARER_GRANT.source,
+    },
+    toc: [
+      { id: "who", label: "Who can get it" },
+      { id: "how-often", label: "How often you can claim" },
+      { id: "spend", label: "What you can spend it on" },
+      { id: "apply", label: "How to apply" },
+    ],
+    faq: [
+      {
+        q: "Is there a Young Carers Allowance in Scotland?",
+        a: "Not by that name. The payment for young carers in Scotland is the Young Carer Grant, £405.10 once a year for 16 to 19 year olds.",
+      },
+      {
+        q: "Can I get the Young Carer Grant and Carer Support Payment?",
+        a: "Not at the same time. If you care 35 hours a week or more, get the Young Carer Grant first, then apply for Carer Support Payment.",
+      },
+    ],
+    sourceIds: ["sss-young-carer-grant"],
+  },
+  {
+    slug: "crisis-grant-phone-number",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-crisis-grant-phone-number.webp",
+      alt: "A phone and simple map outline of Scotland",
+      caption: "A phone and simple map outline of Scotland.",
+    },
+    title: "Crisis grant phone number: every council in Scotland",
+    seoTitle: "Crisis Grant Phone Number for Every Scottish Council",
+    description:
+      "The crisis grant phone number for all 32 Scottish councils, with opening hours and option numbers, checked against each council's own Scottish Welfare Fund page.",
+    standfirst:
+      "There is no national number. You ring the council where you live, and here is every one of them.",
+    date: "2026-10-29",
+    checked: "2026-10-29",
+    category: "money-and-bills",
+    tags: ["Crisis Grant", "Scottish Welfare Fund", "Phone numbers", "Emergency help"],
+    readingMinutes: 4,
+    quickAnswer: {
+      label: "Crisis grant phone number",
+      value: "Your council",
+      detail: "Crisis grants come from your council's Scottish Welfare Fund, so the number depends on where you live. The table below has all 32.",
+      rows: [
+        { label: "Glasgow", value: "0141 276 1177, option 1" },
+        { label: "Edinburgh", value: "0131 529 5299" },
+        { label: "North Lanarkshire", value: "0300 555 0405" },
+        { label: "South Lanarkshire", value: "0800 952 0448" },
+      ],
+      asOf: "Checked 29 October 2026",
+      source: { publisher: "Council websites", url: "https://www.mygov.scot/scottish-welfare-fund/crisis-grants" },
+    },
+    toc: [
+      { id: "numbers", label: "Every council's number" },
+      { id: "before", label: "Before you call" },
+      { id: "what", label: "What a crisis grant is" },
+    ],
+    faq: [
+      {
+        q: "Is there one phone number for crisis grants in Scotland?",
+        a: "No. Each council runs its own Scottish Welfare Fund, so you call the council where you live. The Scottish Government doesn't take applications.",
+      },
+      {
+        q: "How quickly will I hear about a crisis grant?",
+        a: "Councils aim to decide a crisis grant by the end of the next working day.",
+      },
+    ],
+    sourceIds: ["scottish-welfare-fund"],
+  },
+  {
+    slug: "minimum-wage-2027",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-minimum-wage-2027.webp",
+      alt: "A payslip and coins on a table",
+      caption: "A payslip and coins on a table.",
+    },
+    title: "Minimum wage 2027: every rate from 1 April",
+    seoTitle: `Minimum Wage 2027: ${pounds(MINIMUM_WAGE.next.over21, true)} From April, What It Means in Scotland`,
+    description: `The minimum wage rises to ${pounds(MINIMUM_WAGE.next.over21, true)} an hour on 1 April 2027 for workers 21 and over. Every age rate, the yearly pay and take home pay in Scotland.`,
+    standfirst: `A ${Math.round((MINIMUM_WAGE.next.over21 - MINIMUM_WAGE.current.over21) * 100)}p rise for anyone 21 or over, and every other rate up too. Here's what it adds up to over a year, and what actually reaches the bank in Scotland.`,
+    date: "2026-10-29",
+    checked: "2026-10-29",
+    category: "money-and-bills",
+    tags: ["Minimum wage", "National Living Wage", "Take home pay", "Scottish income tax"],
+    readingMinutes: 5,
+    quickAnswer: {
+      label: "Minimum wage from 1 April 2027, 21 and over",
+      value: pounds(MINIMUM_WAGE.next.over21, true),
+      unit: "an hour",
+      detail: `Up from ${pounds(MINIMUM_WAGE.current.over21, true)}. At 37.5 hours a week that's ${pounds(minimumWageNext.annual, true)} a year before tax, about ${pounds(minimumWageNext.netMonthly)} a month take home in Scotland on this year's tax rules.`,
+      rows: [
+        { label: "Age 21 and over", value: pounds(MINIMUM_WAGE.next.over21, true) },
+        { label: "Age 18 to 20", value: pounds(MINIMUM_WAGE.next.age18to20, true) },
+        { label: "Under 18", value: pounds(MINIMUM_WAGE.next.under18, true) },
+        { label: "Apprentice", value: pounds(MINIMUM_WAGE.next.apprentice, true) },
+      ],
+      asOf: "Rates from 1 April 2027",
+      source: MINIMUM_WAGE.source,
+    },
+    toc: [
+      { id: "rates", label: "Every rate from 1 April 2027" },
+      { id: "yearly", label: "What it adds up to in a year" },
+      { id: "take-home", label: "Take home pay in Scotland" },
+      { id: "scotland", label: "Does Scotland set its own rate?" },
+      { id: "living-wage", label: "Against the real Living Wage" },
+      { id: "check", label: "If your pay doesn't go up" },
+    ],
+    faq: [
+      {
+        q: "What will the minimum wage be in April 2027?",
+        a: `From 1 April 2027 it is ${pounds(MINIMUM_WAGE.next.over21, true)} an hour for workers aged 21 and over, ${pounds(MINIMUM_WAGE.next.age18to20, true)} for ages 18 to 20, ${pounds(MINIMUM_WAGE.next.under18, true)} for under 18s and ${pounds(MINIMUM_WAGE.next.apprentice, true)} for apprentices on the apprentice rate.`,
+      },
+      {
+        q: "How much is the minimum wage going up in 2027?",
+        a: `By ${Math.round((MINIMUM_WAGE.next.over21 - MINIMUM_WAGE.current.over21) * 100)}p an hour for workers aged 21 and over, from ${pounds(MINIMUM_WAGE.current.over21, true)} to ${pounds(MINIMUM_WAGE.next.over21, true)}. At 37.5 hours a week that's ${pounds(minimumWageNext.annual - minimumWageNow.annual)} a year more before tax.`,
+      },
+      {
+        q: `How much is ${pounds(MINIMUM_WAGE.next.over21, true)} an hour a year?`,
+        a: `At 37.5 hours a week for 52 weeks it's ${pounds(minimumWageNext.annual, true)} before tax. On this year's Scottish tax rules that's about ${pounds(minimumWageNext.net)} a year take home, or ${pounds(minimumWageNext.netMonthly)} a month.`,
+      },
+      {
+        q: "Is the minimum wage different in Scotland?",
+        a: "No. The UK Government sets one minimum wage for the whole UK. Scotland sets its own income tax bands, so take home pay on the same wage is slightly different from England.",
+      },
+    ],
+    sourceIds: ["minimum-wage-2027", "minimum-wage-2026", "scottish-tax-2026", "ni-rates-2026", "lpc-remit", "real-living-wage", "pay-work-rights", "nmw-employers"],
+  },
+  {
+    slug: "average-salary-scotland",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-average-salary-scotland.webp",
+      alt: "A plain payslip beside coins and a calculator without numbers",
+      caption: "A plain payslip beside coins and a calculator without numbers.",
+    },
+    title: "Average salary Scotland: what full time workers earn",
+    seoTitle: "Average Salary Scotland 2026: What Full Time Workers Earn by Council",
+    description: `The average full time salary in Scotland is ${pounds(ASHE_2026.scotland.annual)} a year, the April 2026 median. The weekly and hourly figures, and what workers earn in all 32 councils.`,
+    standfirst: `The latest official figures, published on ${ASHE_2026.released}, for Scotland and every council. Plus what the middle salary takes home, and how wide the spread really is.`,
+    date: "2026-10-29",
+    checked: "2026-10-29",
+    category: "money-and-bills",
+    tags: ["Average salary", "Wages", "Earnings", "Edinburgh", "Aberdeen", "Glasgow"],
+    readingMinutes: 6,
+    quickAnswer: {
+      label: "Average full time salary, Scotland",
+      value: pounds(ASHE_2026.scotland.annual),
+      unit: "a year",
+      detail: `The median for full time employees living in Scotland in ${ASHE_2026.period}. Half earn more and half earn less. It works out at ${pounds(ASHE_2026.scotland.weekly, true)} a week before tax.`,
+      rows: [
+        { label: "Mean, pulled up by top earners", value: pounds(ASHE_2026.scotland.annualMean) },
+        { label: "UK", value: pounds(ASHE_2026.uk.annual) },
+        { label: "Edinburgh", value: pounds(asheCouncil("city-of-edinburgh").annual ?? 0) },
+        { label: "Aberdeen", value: pounds(asheCouncil("aberdeen-city").annual ?? 0) },
+        { label: "Glasgow", value: pounds(asheCouncil("glasgow-city").annual ?? 0) },
+      ],
+      asOf: `${ASHE_2026.period}, provisional`,
+      source: ASHE_2026.residenceSource,
+    },
+    toc: [
+      { id: "average-wage", label: "The average wage in Scotland" },
+      { id: "councils", label: "Every council" },
+      { id: "edinburgh", label: "Average salary in Edinburgh" },
+      { id: "aberdeen", label: "Average salary in Aberdeen" },
+      { id: "take-home", label: "What it takes home" },
+      { id: "spread", label: "The lowest and highest paid" },
+      { id: "source", label: "Where the figures come from" },
+    ],
+    faq: [
+      {
+        q: "What is the average salary in Scotland?",
+        a: `${pounds(ASHE_2026.scotland.annual)} a year for full time employees, the median from the ONS Annual Survey of Hours and Earnings for ${ASHE_2026.period}. The mean, which high earners pull up, is ${pounds(ASHE_2026.scotland.annualMean)}. The 2026 figures are provisional.`,
+      },
+      {
+        q: "What is the average wage in Scotland per hour?",
+        a: `${pounds(ASHE_2026.scotland.hourly, true)} an hour for full time employees living in Scotland, leaving out overtime, in ${ASHE_2026.period}. Counting part time jobs as well, the middle hourly wage for jobs in Scotland is ${pounds(SCOTLAND_JOBS_HOURLY.hourlyMedian, true)}.`,
+      },
+      {
+        q: "What is the average salary in Edinburgh?",
+        a: `Full time workers living in Edinburgh earn ${pounds(asheCouncil("city-of-edinburgh").annual ?? 0)} a year in the middle, ${ASHE_2026.period}. Full time jobs based in the city pay ${pounds(CITY_PAY["city-of-edinburgh"].jobs.fullTimeAnnual)}, because they include people who travel in.`,
+      },
+      {
+        q: "What is the average salary in Aberdeen?",
+        a: `Full time workers living in Aberdeen earn ${pounds(asheCouncil("aberdeen-city").annual ?? 0)} a year in the middle, ${ASHE_2026.period}. Full time jobs based in the city pay ${pounds(CITY_PAY["aberdeen-city"].jobs.fullTimeAnnual)}, the highest of Scotland's four biggest cities.`,
+      },
+      {
+        q: "Is £30,000 a good salary in Scotland?",
+        a: `It's below the middle. About 1 in 5 full time workers in Scotland earn less than ${pounds(ASHE_2026.scotland.spread.p20)}, and 1 in 4 earn less than ${pounds(ASHE_2026.scotland.spread.p25)}. So £30,000 sits just above the lowest fifth of full time pay.`,
+      },
+    ],
+    sourceIds: ["ashe-2026-residence", "ashe-2026-workplace", "ashe-uk-2026", "ashe-guide", "scottish-tax-2026", "ni-rates-2026", "ons-pipr-2026-10"],
+  },
+  {
+    slug: "minimum-wage-in-glasgow-scotland",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-minimum-wage-in-glasgow-scotland.webp",
+      alt: "Glasgow tenement street and an ordinary worker's lunch bag",
+      caption: "Glasgow tenement street and an ordinary worker's lunch bag.",
+    },
+    title: "Minimum wage in Glasgow Scotland: the legal rate and what local jobs pay",
+    seoTitle: "Minimum Wage in Glasgow Scotland 2026: Rates and Local Pay",
+    description: `The minimum wage in Glasgow is ${pounds(MINIMUM_WAGE.current.over21, true)} an hour, ${pounds(MINIMUM_WAGE.next.over21, true)} from April 2027. What local jobs pay, Glasgow rent, and what's left each month on a full time wage.`,
+    standfirst: "The legal rate is the same as anywhere in the UK. What isn't the same is Glasgow's rent, its council tax and what the jobs around you pay.",
+    date: "2026-10-29",
+    checked: "2026-10-29",
+    category: "money-and-bills",
+    tags: ["Minimum wage", "Glasgow", "Pay", "Rent", "Council tax"],
+    readingMinutes: 6,
+    quickAnswer: {
+      label: "Minimum wage in Glasgow, 21 and over",
+      value: pounds(MINIMUM_WAGE.current.over21, true),
+      unit: "an hour",
+      detail: `The same legal rate as the rest of the UK, rising to ${pounds(MINIMUM_WAGE.next.over21, true)} on 1 April 2027. Full time, that's about ${pounds(minimumWageNow.netMonthly)} a month take home.`,
+      rows: [
+        { label: "Age 21 and over", value: `${pounds(MINIMUM_WAGE.current.over21, true)}, then ${pounds(MINIMUM_WAGE.next.over21, true)}` },
+        { label: "Age 18 to 20", value: `${pounds(MINIMUM_WAGE.current.age18to20, true)}, then ${pounds(MINIMUM_WAGE.next.age18to20, true)}` },
+        { label: `One bedroom rent, ${CITY_PAY["glasgow-city"].rentArea}`, value: `${pounds(CITY_PAY["glasgow-city"].rent.oneBed)} a month` },
+        { label: "Left after rent and council tax", value: `${pounds(cityBudget("glasgow-city").left)} a month` },
+      ],
+      asOf: `Rates from 1 April 2026. Rent for ${PRIVATE_RENTS.month}`,
+      source: MINIMUM_WAGE.source,
+    },
+    toc: [
+      { id: "rates", label: "The legal rate in Glasgow" },
+      { id: "pay", label: "Full time pay" },
+      { id: "local-jobs", label: "What Glasgow jobs pay" },
+      { id: "money", label: "After rent and council tax" },
+      { id: "living-wage", label: "The real Living Wage gap" },
+      { id: "underpaid", label: "If you're underpaid" },
+    ],
+    faq: [
+      {
+        q: "Is the minimum wage different in Glasgow?",
+        a: `No. The UK Government sets one minimum wage for the whole UK. In Glasgow it's ${pounds(MINIMUM_WAGE.current.over21, true)} an hour for workers aged 21 and over, the same as Edinburgh or London.`,
+      },
+      {
+        q: "How much is the minimum wage a month in Glasgow?",
+        a: `Working 37.5 hours a week at ${pounds(MINIMUM_WAGE.current.over21, true)} takes home about ${pounds(minimumWageNow.netMonthly)} a month after Scottish income tax and National Insurance. That's the same anywhere in Scotland.`,
+      },
+      {
+        q: "What do jobs in Glasgow pay?",
+        a: `In ${ASHE_2026.period}, 1 in 10 jobs based in Glasgow paid less than ${pounds(CITY_PAY["glasgow-city"].jobs.hourlyP10, true)} an hour and the middle job paid ${pounds(CITY_PAY["glasgow-city"].jobs.hourlyMedian, true)}. The middle full time job paid ${pounds(CITY_PAY["glasgow-city"].jobs.fullTimeAnnual)} a year.`,
+      },
+      {
+        q: "What will the minimum wage be in Glasgow in 2027?",
+        a: `${pounds(MINIMUM_WAGE.next.over21, true)} an hour from 1 April 2027 for workers aged 21 and over, the same as the rest of the UK.`,
+      },
+    ],
+    sourceIds: ["minimum-wage-2026", "minimum-wage-2027", "scottish-tax-2026", "ni-rates-2026", "ashe-2026-workplace", "ashe-2026-residence", "ons-pipr-2026-10", "council-tax-scotland", "scottish-water-2026", "council-tax-discounts", "real-living-wage", "pay-work-rights", "nmw-employers"],
+  },
+  {
+    slug: "minimum-wage-in-edinburgh-scotland",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-minimum-wage-in-edinburgh-scotland.webp",
+      alt: "Edinburgh street with ordinary shops and a worker's lunch bag",
+      caption: "Edinburgh street with ordinary shops and a worker's lunch bag.",
+    },
+    title: "Minimum wage in Edinburgh Scotland: the legal rate and what local jobs pay",
+    seoTitle: "Minimum Wage in Edinburgh Scotland 2026: Rates and Local Pay",
+    description: `The minimum wage in Edinburgh is ${pounds(MINIMUM_WAGE.current.over21, true)} an hour, the same as the rest of the UK. With rents at ${pounds(CITY_PAY["city-of-edinburgh"].rent.oneBed)} a month, here's what it leaves you.`,
+    standfirst: "Same legal rate as Dundee or London. Edinburgh's rents are what make it go less far, and I've done the sums to show by how much.",
+    date: "2026-10-29",
+    checked: "2026-10-29",
+    category: "money-and-bills",
+    tags: ["Minimum wage", "Edinburgh", "Pay", "Rent", "Council tax"],
+    readingMinutes: 6,
+    quickAnswer: {
+      label: "Minimum wage in Edinburgh, 21 and over",
+      value: pounds(MINIMUM_WAGE.current.over21, true),
+      unit: "an hour",
+      detail: `The UK wide legal rate, rising to ${pounds(MINIMUM_WAGE.next.over21, true)} on 1 April 2027. Edinburgh rents take ${Math.round(cityBudget("city-of-edinburgh").rentShare * 100)}% of full time take home pay.`,
+      rows: [
+        { label: "Age 21 and over", value: `${pounds(MINIMUM_WAGE.current.over21, true)}, then ${pounds(MINIMUM_WAGE.next.over21, true)}` },
+        { label: "Age 18 to 20", value: `${pounds(MINIMUM_WAGE.current.age18to20, true)}, then ${pounds(MINIMUM_WAGE.next.age18to20, true)}` },
+        { label: `One bedroom rent, ${CITY_PAY["city-of-edinburgh"].rentArea}`, value: `${pounds(CITY_PAY["city-of-edinburgh"].rent.oneBed)} a month` },
+        { label: "Left after rent and council tax", value: `${pounds(cityBudget("city-of-edinburgh").left)} a month` },
+      ],
+      asOf: `Rates from 1 April 2026. Rent for ${PRIVATE_RENTS.month}`,
+      source: MINIMUM_WAGE.source,
+    },
+    toc: [
+      { id: "rates", label: "The legal rate in Edinburgh" },
+      { id: "rent", label: "Rent against a minimum wage" },
+      { id: "money", label: "After rent and council tax" },
+      { id: "pay", label: "Full time take home pay" },
+      { id: "local-jobs", label: "What Edinburgh jobs pay" },
+      { id: "living-wage", label: "The real Living Wage gap" },
+      { id: "underpaid", label: "If you're underpaid" },
+    ],
+    faq: [
+      {
+        q: "Is the minimum wage higher in Edinburgh?",
+        a: `No. The legal minimum is the same across the UK: ${pounds(MINIMUM_WAGE.current.over21, true)} an hour for workers aged 21 and over, rising to ${pounds(MINIMUM_WAGE.next.over21, true)} on 1 April 2027.`,
+      },
+      {
+        q: "How much of a minimum wage goes on rent in Edinburgh?",
+        a: `The average one bedroom rent in the Lothian area was ${pounds(CITY_PAY["city-of-edinburgh"].rent.oneBed)} a month in ${PRIVATE_RENTS.month}. That's ${Math.round(cityBudget("city-of-edinburgh").rentShare * 100)}% of the ${pounds(minimumWageNow.netMonthly)} a full time minimum wage takes home.`,
+      },
+      {
+        q: "What do jobs in Edinburgh pay?",
+        a: `In ${ASHE_2026.period}, 1 in 10 jobs based in Edinburgh paid less than ${pounds(CITY_PAY["city-of-edinburgh"].jobs.hourlyP10, true)} an hour and the middle job paid ${pounds(CITY_PAY["city-of-edinburgh"].jobs.hourlyMedian, true)}. The middle full time job paid ${pounds(CITY_PAY["city-of-edinburgh"].jobs.fullTimeAnnual)} a year.`,
+      },
+      {
+        q: "What will the minimum wage be in Edinburgh in 2027?",
+        a: `${pounds(MINIMUM_WAGE.next.over21, true)} an hour from 1 April 2027 for workers aged 21 and over, the same as everywhere else in the UK.`,
+      },
+    ],
+    sourceIds: ["minimum-wage-2026", "minimum-wage-2027", "scottish-tax-2026", "ni-rates-2026", "ons-pipr-2026-10", "ashe-2026-workplace", "ashe-2026-residence", "council-tax-scotland", "scottish-water-2026", "council-tax-discounts", "nmw-what-counts-as-pay", "real-living-wage", "pay-work-rights"],
+  },
+  {
+    slug: "minimum-wage-aberdeen",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-minimum-wage-aberdeen.webp",
+      alt: "Aberdeen granite street with ordinary shops and a worker's lunch bag",
+      caption: "Aberdeen granite street with ordinary shops and a worker's lunch bag.",
+    },
+    title: "Minimum wage Aberdeen: the legal rate and what local jobs pay",
+    seoTitle: "Minimum Wage Aberdeen 2026: Rates and Local Pay",
+    description: `The minimum wage in Aberdeen is ${pounds(MINIMUM_WAGE.current.over21, true)} an hour, ${pounds(MINIMUM_WAGE.next.over21, true)} from April 2027. Aberdeen jobs pay more and rent costs less: here's what's left each month.`,
+    standfirst: "The legal rate is the UK rate. But Aberdeen pairs better paid jobs than Glasgow, Edinburgh or Dundee with rents well below Edinburgh or Glasgow.",
+    date: "2026-10-29",
+    checked: "2026-10-29",
+    category: "money-and-bills",
+    tags: ["Minimum wage", "Aberdeen", "Pay", "Rent", "Council tax"],
+    readingMinutes: 6,
+    quickAnswer: {
+      label: "Minimum wage in Aberdeen, 21 and over",
+      value: pounds(MINIMUM_WAGE.current.over21, true),
+      unit: "an hour",
+      detail: `The same legal rate as the rest of the UK, rising to ${pounds(MINIMUM_WAGE.next.over21, true)} on 1 April 2027. The middle job in Aberdeen pays ${pounds(CITY_PAY["aberdeen-city"].jobs.hourlyMedian, true)} an hour.`,
+      rows: [
+        { label: "Age 21 and over", value: `${pounds(MINIMUM_WAGE.current.over21, true)}, then ${pounds(MINIMUM_WAGE.next.over21, true)}` },
+        { label: "Age 18 to 20", value: `${pounds(MINIMUM_WAGE.current.age18to20, true)}, then ${pounds(MINIMUM_WAGE.next.age18to20, true)}` },
+        { label: `One bedroom rent, ${CITY_PAY["aberdeen-city"].rentArea}`, value: `${pounds(CITY_PAY["aberdeen-city"].rent.oneBed)} a month` },
+        { label: "Left after rent and council tax", value: `${pounds(cityBudget("aberdeen-city").left)} a month` },
+      ],
+      asOf: `Rates from 1 April 2026. Rent for ${PRIVATE_RENTS.month}`,
+      source: MINIMUM_WAGE.source,
+    },
+    toc: [
+      { id: "rates", label: "The legal rate in Aberdeen" },
+      { id: "local-jobs", label: "What Aberdeen jobs pay" },
+      { id: "rent", label: "Rent on a minimum wage" },
+      { id: "money", label: "Council tax and what's left" },
+      { id: "pay", label: "Full time take home pay" },
+      { id: "living-wage", label: "The real Living Wage gap" },
+      { id: "underpaid", label: "If you're underpaid" },
+    ],
+    faq: [
+      {
+        q: "Is the minimum wage different in Aberdeen?",
+        a: `No. It's ${pounds(MINIMUM_WAGE.current.over21, true)} an hour for workers aged 21 and over, the same everywhere in the UK. The UK Government sets it each year on advice from the Low Pay Commission.`,
+      },
+      {
+        q: "What do jobs in Aberdeen pay?",
+        a: `In ${ASHE_2026.period}, the middle job based in Aberdeen paid ${pounds(CITY_PAY["aberdeen-city"].jobs.hourlyMedian, true)} an hour, and only 1 in 10 paid less than ${pounds(CITY_PAY["aberdeen-city"].jobs.hourlyP10, true)}. The middle full time job paid ${pounds(CITY_PAY["aberdeen-city"].jobs.fullTimeAnnual)} a year.`,
+      },
+      {
+        q: "How much is left on minimum wage in Aberdeen after rent?",
+        a: `About ${pounds(cityBudget("aberdeen-city").left)} a month, working full time at ${pounds(MINIMUM_WAGE.current.over21, true)}, after an average one bedroom rent of ${pounds(CITY_PAY["aberdeen-city"].rent.oneBed)} and a Band A council tax and water bill.`,
+      },
+      {
+        q: "What will the minimum wage be in Aberdeen in 2027?",
+        a: `${pounds(MINIMUM_WAGE.next.over21, true)} an hour from 1 April 2027 for workers aged 21 and over.`,
+      },
+    ],
+    sourceIds: ["minimum-wage-2026", "minimum-wage-2027", "scottish-tax-2026", "ni-rates-2026", "ashe-2026-workplace", "ashe-2026-residence", "ons-pipr-2026-10", "council-tax-scotland", "scottish-water-2026", "council-tax-discounts", "lpc-remit", "real-living-wage", "pay-work-rights", "nmw-employers"],
+  },
+  {
+    slug: "minimum-wage-dundee",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-minimum-wage-dundee.webp",
+      alt: "Dundee city street with ordinary shops and a worker's lunch bag",
+      caption: "Dundee city street with ordinary shops and a worker's lunch bag.",
+    },
+    title: "Minimum wage Dundee: the legal rate and what local jobs pay",
+    seoTitle: "Minimum Wage Dundee 2026: Rates and Local Pay",
+    description: `The minimum wage in Dundee is ${pounds(MINIMUM_WAGE.current.over21, true)} an hour, ${pounds(MINIMUM_WAGE.next.over21, true)} from April 2027. Rent is the lowest of Scotland's four biggest cities, so the wage goes further.`,
+    standfirst: "Full time jobs in Dundee pay a little less than in Glasgow, Edinburgh or Aberdeen. Its rents are lower still, and on the legal minimum that leaves more in your pocket.",
+    date: "2026-10-29",
+    checked: "2026-10-29",
+    category: "money-and-bills",
+    tags: ["Minimum wage", "Dundee", "Pay", "Rent", "Council tax"],
+    readingMinutes: 6,
+    quickAnswer: {
+      label: "Minimum wage in Dundee, 21 and over",
+      value: pounds(MINIMUM_WAGE.current.over21, true),
+      unit: "an hour",
+      detail: `The same legal rate as the rest of the UK, rising to ${pounds(MINIMUM_WAGE.next.over21, true)} on 1 April 2027. Working full time, that's about ${pounds(minimumWageNow.netMonthly)} a month take home.`,
+      rows: [
+        { label: "Age 21 and over", value: `${pounds(MINIMUM_WAGE.current.over21, true)}, then ${pounds(MINIMUM_WAGE.next.over21, true)}` },
+        { label: "Age 18 to 20", value: `${pounds(MINIMUM_WAGE.current.age18to20, true)}, then ${pounds(MINIMUM_WAGE.next.age18to20, true)}` },
+        { label: `One bedroom rent, ${CITY_PAY["dundee-city"].rentArea}`, value: `${pounds(CITY_PAY["dundee-city"].rent.oneBed)} a month` },
+        { label: "Left after rent and council tax", value: `${pounds(cityBudget("dundee-city").left)} a month` },
+      ],
+      asOf: `Rates from 1 April 2026. Rent for ${PRIVATE_RENTS.month}`,
+      source: MINIMUM_WAGE.source,
+    },
+    toc: [
+      { id: "rates", label: "The legal rate in Dundee" },
+      { id: "money", label: "After rent and council tax" },
+      { id: "council-tax", label: "Dundee council tax" },
+      { id: "local-jobs", label: "What Dundee jobs pay" },
+      { id: "pay", label: "Full time take home pay" },
+      { id: "living-wage", label: "The real Living Wage gap" },
+      { id: "underpaid", label: "If you're underpaid" },
+    ],
+    faq: [
+      {
+        q: "Is the minimum wage different in Dundee?",
+        a: `No. The UK Government sets one rate for the whole UK. In Dundee it's ${pounds(MINIMUM_WAGE.current.over21, true)} an hour for workers aged 21 and over.`,
+      },
+      {
+        q: "How much is left on minimum wage in Dundee after rent?",
+        a: `About ${pounds(cityBudget("dundee-city").left)} a month, working full time at ${pounds(MINIMUM_WAGE.current.over21, true)}, after an average one bedroom rent of ${pounds(CITY_PAY["dundee-city"].rent.oneBed)} and a Band A council tax and water bill. That's more than in Glasgow, Edinburgh or Aberdeen.`,
+      },
+      {
+        q: "How much did Dundee council tax go up?",
+        a: `Dundee City Council raised council tax by ${cityBudget("dundee-city").councilTaxRisePct.toFixed(1)}% for 2026/27. A Band A bill with water and waste water is ${pounds(cityBudget("dundee-city").councilTaxAnnual, true)} a year.`,
+      },
+      {
+        q: "What do jobs in Dundee pay?",
+        a: `In ${ASHE_2026.period}, 1 in 10 jobs based in Dundee paid less than ${pounds(CITY_PAY["dundee-city"].jobs.hourlyP10, true)} an hour and the middle job paid ${pounds(CITY_PAY["dundee-city"].jobs.hourlyMedian, true)}. The middle full time job paid ${pounds(CITY_PAY["dundee-city"].jobs.fullTimeAnnual)} a year.`,
+      },
+    ],
+    sourceIds: ["minimum-wage-2026", "minimum-wage-2027", "scottish-tax-2026", "ni-rates-2026", "ons-pipr-2026-10", "council-tax-scotland", "scottish-water-2026", "council-tax-discounts", "council-tax-reduction-2026", "ashe-2026-workplace", "ashe-2026-residence", "real-living-wage", "pay-work-rights"],
+  },
+  {
+    slug: "check-council-tax-band",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-check-council-tax-band.webp",
+      alt: "Scottish terraced houses with a plain letter and a magnifying glass",
+      caption: "Scottish terraced houses with a plain letter and a magnifying glass.",
+    },
+    title: "Check council tax band: find your band in Scotland",
+    seoTitle: "Check Council Tax Band in Scotland: Find My Council Tax Band",
+    description: `Check your council tax band free on the Scottish Assessors site by postcode. Band A means a 1991 value ${bandValueLabel("A").toLowerCase()}. What each band means and how to appeal.`,
+    standfirst:
+      "Your band is on a public list anyone can search. Here's how to find it in a minute, what the letter means, and when you can ask for it to change.",
+    date: "2026-10-29",
+    checked: "2026-10-29",
+    category: "money-and-bills",
+    tags: ["Council tax bands", "Council tax", "Scottish Assessors", "Council tax appeals"],
+    readingMinutes: 5,
+    quickAnswer: {
+      label: "Check council tax band in Scotland",
+      value: "Free",
+      unit: "on saa.gov.uk, by postcode",
+      detail:
+        "Search your postcode or address on the Scottish Assessors Association website and pick your home. Your band is also printed on your council tax bill.",
+      rows: [
+        { label: "Band A, value on 1 April 1991", value: bandValueLabel("A") },
+        { label: "Band D, value on 1 April 1991", value: bandValueLabel("D") },
+        { label: "Band H, value on 1 April 1991", value: bandValueLabel("H") },
+        { label: "Time a new owner has to appeal", value: `${BAND_PROPOSALS.newOwnerMonths} months` },
+      ],
+      asOf: "Bands A to H, based on values at 1 April 1991",
+      source: LOTHIAN_VJB_SOURCE,
+    },
+    toc: [
+      { id: "find", label: "Find your band" },
+      { id: "check-my-band", label: "Check it against your bill" },
+      { id: "bands", label: "What the bands mean" },
+      { id: "appeal", label: "How to appeal" },
+      { id: "council-tax-check", label: "Check your whole bill" },
+    ],
+    faq: [
+      {
+        q: "How to find out your council tax band in Scotland?",
+        a: "Search your postcode or address on the Scottish Assessors Association website, saa.gov.uk, and pick your home from the list. It's free. Your band is also printed on your council tax bill.",
+      },
+      {
+        q: "Who decides my council tax band?",
+        a: "The local Assessor, who is independent of the council. The council only sets the price of each band.",
+      },
+      {
+        q: `Can I appeal my council tax band after ${BAND_PROPOSALS.newOwnerMonths} months?`,
+        a: "Only in certain cases, for example if the home has lost value because part of it was knocked down, the area around it physically changed, or it was adapted for a disabled person. A fall in house prices doesn't count.",
+      },
+      {
+        q: "Do I keep paying council tax while I appeal my band?",
+        a: "Yes. Keep paying as normal until the Assessor makes a decision.",
+      },
+      {
+        q: "Why is my council tax band based on 1991?",
+        a: "Council tax started in Scotland on 1 April 1993, and homes were banded on what they would have sold for on 1 April 1991. Bands A to H still use those values.",
+      },
+    ],
+    sourceIds: [
+      "lothian-vjb-council-tax",
+      "lanarkshire-vjb-proposals",
+      "grampian-assessor-appeals",
+      "west-lothian-council-tax-bands",
+      "moray-valuation-bands",
+      "council-tax-scotland",
+    ],
+  },
+  {
+    slug: "council-tax-reduction-scotland",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-council-tax-reduction-scotland.webp",
+      alt: "A modest Scottish home and household bills",
+      caption: "A modest Scottish home and household bills.",
+    },
+    title: "Council tax reduction Scotland: who qualifies and how much",
+    seoTitle: "Council Tax Reduction Scotland: Who Qualifies and How to Apply",
+    description: `Council Tax Reduction takes up to ${COUNCIL_TAX_REDUCTION.maxPercent}% off council tax if your income is low and savings are under ${pounds(COUNCIL_TAX_REDUCTION.savingsLimit)}. Who qualifies, how much and how to apply.`,
+    standfirst:
+      "Help from your council when money is tight, whether you work, rent, own or claim Universal Credit. Who gets it, how it's worked out, and how to claim in Edinburgh, South Lanarkshire and North Lanarkshire.",
+    date: "2026-10-29",
+    checked: "2026-10-29",
+    category: "money-and-bills",
+    tags: ["Council Tax Reduction", "Council tax", "Universal Credit", "Low income"],
+    readingMinutes: 7,
+    quickAnswer: {
+      label: "Council Tax Reduction Scotland",
+      value: `Up to ${COUNCIL_TAX_REDUCTION.maxPercent}%`,
+      unit: "off your council tax",
+      detail: `For households on a low income, in work or not, including people on Universal Credit. You claim it from your council. Savings over ${pounds(COUNCIL_TAX_REDUCTION.savingsLimit)} rule you out unless you get Guarantee Credit.`,
+      rows: [
+        { label: "Savings limit", value: pounds(COUNCIL_TAX_REDUCTION.savingsLimit) },
+        { label: "Income above what you need", value: `You pay ${COUNCIL_TAX_REDUCTION.taperPercent}% of the difference` },
+        { label: "Water charges", value: `Up to ${WATER_CHARGES_REDUCTION.maxPercent}% off, applied for you` },
+        { label: "Second adult rebate", value: `${SECOND_ADULT_REBATE.middleIncomePercent}% to ${SECOND_ADULT_REBATE.onBenefitsPercent}% off` },
+      ],
+      asOf: "2026/27 rules for working age households",
+      source: COUNCIL_TAX_REDUCTION.source,
+    },
+    toc: [
+      { id: "who-qualifies", label: "Who qualifies" },
+      { id: "how-much", label: "How much you can get" },
+      { id: "universal-credit", label: "Universal Credit" },
+      { id: "second-adult", label: "The second adult rule" },
+      { id: "apply", label: "How to apply" },
+      { id: "edinburgh", label: "Edinburgh" },
+      { id: "south-lanarkshire", label: "South Lanarkshire" },
+      { id: "north-lanarkshire", label: "North Lanarkshire" },
+      { id: "other-help", label: "Other help with the bill" },
+    ],
+    faq: [
+      {
+        q: "Can I get Council Tax Reduction if I work?",
+        a: `Yes. It depends on your income, not on whether you work. If your income is above what the rules say you need, you pay ${COUNCIL_TAX_REDUCTION.taperPercent}% of the difference towards council tax and the reduction covers the rest.`,
+      },
+      {
+        q: "Do I get Council Tax Reduction automatically with Universal Credit?",
+        a: "No. It's a separate claim to your council. The DWP may pass on your details if you asked for it when you claimed Universal Credit, but send your own application to be safe.",
+      },
+      {
+        q: "Does Council Tax Reduction cover water charges?",
+        a: `No. But anyone who gets it can get up to ${WATER_CHARGES_REDUCTION.maxPercent}% off water and waste water through the Water Charges Reduction Scheme. The council applies it for you.`,
+      },
+      {
+        q: "What is the savings limit for Council Tax Reduction?",
+        a: `${pounds(COUNCIL_TAX_REDUCTION.savingsLimit)}. Savings above that rule you out, unless you or your partner get the Guarantee Credit part of Pension Credit.`,
+      },
+    ],
+    sourceIds: [
+      "ctr-regulations-2021",
+      "ctr-second-adult-2026",
+      "spice-ctr-universal-credit",
+      "edinburgh-ctr",
+      "south-lanarkshire-ctr",
+      "south-lanarkshire-second-adult",
+      "north-lanarkshire-ctr",
+      "north-lanarkshire-ctr-review",
+      "scottish-water-charges-2026",
+      "council-tax-scotland",
+    ],
+  },
+  {
+    slug: "single-person-discount-council-tax-scotland",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-single-person-discount-council-tax-scotland.webp",
+      alt: "One cup and a plain household bill on a kitchen table",
+      caption: "One cup and a plain household bill on a kitchen table.",
+    },
+    title: "Single person discount council tax Scotland: how to claim 25% off",
+    seoTitle: "Single Person Discount Council Tax Scotland: 25% Off and How to Claim",
+    description: `Live alone? You get ${SINGLE_PERSON_DISCOUNT.percent}% off council tax and water. That's ${pounds((bandFor("glasgow-city", "D").total * SINGLE_PERSON_DISCOUNT.percent) / 100)} a year on a Band D home in Glasgow. Who counts as an adult and how to claim.`,
+    standfirst:
+      "A quarter off the whole bill, water included, if you're the only adult who counts. Who's disregarded, how to claim, and what to do when someone moves in.",
+    date: "2026-10-29",
+    checked: "2026-10-29",
+    category: "money-and-bills",
+    tags: ["Single person discount", "Council tax discounts", "Council tax", "Living alone"],
+    readingMinutes: 5,
+    quickAnswer: {
+      label: "Single person discount council tax Scotland",
+      value: `${SINGLE_PERSON_DISCOUNT.percent}%`,
+      unit: "off your whole bill",
+      detail: `If you're the only adult in your home, or the only one who isn't disregarded, your council takes ${SINGLE_PERSON_DISCOUNT.percent}% off council tax, water and waste water. Income doesn't matter. You have to apply.`,
+      rows: [
+        ...["glasgow-city", "city-of-edinburgh", "aberdeen-city"].map((slug) => ({
+          label: `Band D, ${COUNCIL_SEARCH_NAMES[slug]}`,
+          value: `${pounds((bandFor(slug, "D").total * SINGLE_PERSON_DISCOUNT.percent) / 100)} a year off`,
+        })),
+        { label: "If another adult moves in", value: `Tell the council within ${SINGLE_PERSON_DISCOUNT.notifyDays} days` },
+      ],
+      asOf: "2026/27 bills, water included",
+      source: SINGLE_PERSON_DISCOUNT.source,
+    },
+    toc: [
+      { id: "worth", label: "What it's worth" },
+      { id: "who-counts", label: "Who counts as an adult" },
+      { id: "apply", label: "How to claim" },
+      { id: "moves-in", label: "If someone moves in" },
+      { id: "other-discounts", label: "Other discounts" },
+    ],
+    faq: [
+      {
+        q: "Does the single person discount apply to water charges?",
+        a: `Yes. In Scotland the ${SINGLE_PERSON_DISCOUNT.percent}% comes off the water and waste water charges as well as the council tax.`,
+      },
+      {
+        q: "Who counts as an adult for council tax?",
+        a: "Anyone aged 18 or over, except people who are disregarded, such as full time students, some apprentices, some carers, and people living permanently in a care home or in prison.",
+      },
+      {
+        q: "What happens to my single person discount if someone moves in?",
+        a: `It stops from the day another adult who isn't disregarded moves in. Tell the council in writing within ${SINGLE_PERSON_DISCOUNT.notifyDays} days, or it can charge a ${pounds(SINGLE_PERSON_DISCOUNT.penalty)} penalty.`,
+      },
+      {
+        q: "Can I get the single person discount and Council Tax Reduction?",
+        a: "Yes. The discount comes off first, then Council Tax Reduction is worked out on what's left.",
+      },
+    ],
+    sourceIds: [
+      "edinburgh-single-occupancy-discount",
+      "edinburgh-council-tax-discounts",
+      "south-lanarkshire-council-tax-discounts",
+      "south-lanarkshire-spd-review",
+      "spice-ctr-universal-credit",
+      "lgfa-1992-discounts",
+      "ct-administration-regs-1992",
+      "lgfa-1992-penalties",
+      "ctr-regulations-2021",
+      "council-tax-scotland",
+      "scottish-water-2026",
+    ],
+  },
+  {
+    slug: "water-rates-scotland",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-water-rates-scotland.webp",
+      alt: "A water tap and a clear glass of water in a Scottish home",
+      caption: "A water tap and a clear glass of water in a Scottish home.",
+    },
+    title: "Water rates Scotland: what every band pays in 2026/27",
+    seoTitle: "Water Rates Scotland 2026/27: Charges by Council Tax Band",
+    description: `Water rates in Scotland for 2026/27 run from ${pounds(waterCharges2026.A.water + waterCharges2026.A.wasteWater, true)} a year at Band A to ${pounds(waterCharges2026.H.water + waterCharges2026.H.wasteWater, true)} at Band H, paid with council tax. Every band and this year's rise.`,
+    standfirst:
+      "There's no separate water bill in Scotland. Scottish Water's charge comes on your council tax bill, set by your band and the same in every council.",
+    date: "2026-10-29",
+    checked: "2026-10-29",
+    category: "money-and-bills",
+    tags: ["Water rates", "Scottish Water", "Council tax", "Water charges"],
+    readingMinutes: 5,
+    quickAnswer: {
+      label: "Water rates Scotland 2026/27",
+      value: pounds(waterCharges2026.D.water + waterCharges2026.D.wasteWater, true),
+      unit: "a year at Band D",
+      detail:
+        "Scottish Water's charge for water and waste water, collected on your council tax bill. It depends on your band and is the same in every council.",
+      rows: BAND_LETTERS.map((band) => ({
+        label: `Band ${band}`,
+        value: `${pounds(waterCharges2026[band].water + waterCharges2026[band].wasteWater, true)} a year`,
+      })),
+      asOf: "1 April 2026 to 31 March 2027",
+      source: SCOTTISH_WATER.source,
+    },
+    toc: [
+      { id: "charges", label: "Charges by band" },
+      { id: "same-everywhere", label: "Same in every council" },
+      { id: "rise", label: "This year's rise" },
+      { id: "help", label: "Help with water charges" },
+      { id: "not-connected", label: "Not on mains or sewers" },
+      { id: "meters", label: "Water meters" },
+    ],
+    faq: [
+      {
+        q: "Do you pay water rates in Scotland?",
+        a: "Most homes do. Scottish Water's water and waste water charges are added to your council tax bill and collected by your council. There's no separate bill unless you have a water meter.",
+      },
+      {
+        q: "Are water rates included in council tax in Scotland?",
+        a: "They're on the same bill, but they're a separate charge. Your council collects them for Scottish Water, and the amount depends on your council tax band.",
+      },
+      {
+        q: "How much are water rates in Scotland a month?",
+        a: `At Band D, ${pounds((waterCharges2026.D.water + waterCharges2026.D.wasteWater) / 12, true)} a month spread over 12 months. Band A is ${pounds((waterCharges2026.A.water + waterCharges2026.A.wasteWater) / 12, true)} a month.`,
+      },
+      {
+        q: "Do students pay water rates in Scotland?",
+        a: "Full time students don't pay water charges, so a home where everyone is a full time student pays none.",
+      },
+      {
+        q: "Do I pay water rates if I get Council Tax Reduction?",
+        a: `Yes. Council Tax Reduction doesn't cover water, but you can get up to ${WATER_CHARGES_REDUCTION.maxPercent}% off through the Water Charges Reduction Scheme. Your council applies it for you.`,
+      },
+    ],
+    sourceIds: [
+      "scottish-water-2026",
+      "scottish-water-2025",
+      "scottish-water-charges-2026",
+      "scottish-water-unmetered-faqs",
+      "edinburgh-single-occupancy-discount",
+      "council-tax-scotland",
+    ],
+  },
+  {
+    slug: "modern-studies",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-modern-studies.webp",
+      alt: "Open textbook and pencil beside a Scottish Parliament exterior silhouette",
+      caption: "Open textbook and pencil beside a Scottish Parliament exterior silhouette.",
+    },
+    title: "Modern studies: free resources for pupils and teachers",
+    seoTitle: "Modern Studies: Free Resources for Pupils and Teachers in Scotland",
+    description: `Free Modern Studies resources: N5 is ${N5_MODERN_STUDIES.totalMarks} marks, Higher ${HIGHER_MODERN_STUDIES.totalMarks}, Advanced Higher ${ADVANCED_HIGHER_MODERN_STUDIES.totalMarks}. Course guides, past paper help and real Scottish data.`,
+    standfirst:
+      "Course facts from the people who set the exams, and up to date Scottish figures you can drop into an answer. All free, all sourced.",
+    date: "2026-10-29",
+    checked: "2026-10-29",
+    category: "poverty-explained",
+    tags: ["Modern Studies", "National 5", "Higher", "Advanced Higher", "Revision", "Teachers"],
+    readingMinutes: 5,
+    quickAnswer: {
+      label: "Modern Studies in Scotland",
+      value: "3",
+      unit: "areas of study: democracy, social issues and international issues",
+      detail: `Qualifications Scotland, which replaced SQA on ${QS_REPLACED_SQA}, sets and marks the exams. Every level combines an exam with coursework.`,
+      rows: [
+        { label: "National 5", value: `${N5_MODERN_STUDIES.totalMarks} marks: ${N5_MODERN_STUDIES.paper.marks} exam, ${N5_MODERN_STUDIES.assignment.marks} assignment` },
+        { label: "Higher", value: `${HIGHER_MODERN_STUDIES.totalMarks} marks: two papers worth ${HIGHER_MODERN_STUDIES.paper1.marks + HIGHER_MODERN_STUDIES.paper2.marks}, assignment ${HIGHER_MODERN_STUDIES.assignment.marks}` },
+        { label: "Advanced Higher", value: `${ADVANCED_HIGHER_MODERN_STUDIES.totalMarks} marks: ${ADVANCED_HIGHER_MODERN_STUDIES.paper.marks} exam, ${ADVANCED_HIGHER_MODERN_STUDIES.dissertation.marks} dissertation` },
+        { label: "Exams in 2027", value: MODERN_STUDIES_EXAMS_2027.date },
+      ],
+      asOf: "Course specifications checked 29 October 2026",
+      source: QS_SOURCE,
+    },
+    toc: [
+      { id: "what", label: "What modern studies is" },
+      { id: "levels", label: "The courses, level by level" },
+      { id: "resources", label: "Resources on this site" },
+      { id: "revision", label: "Revision with real data" },
+      { id: "teachers", label: "For teachers" },
+      { id: "official", label: "Official links" },
+    ],
+    faq: [
+      {
+        q: "What is modern studies?",
+        a: "A Scottish school subject about politics, society and international issues. At National 5 and Higher it has three areas of study: democracy in Scotland and the UK, social issues in the UK, and international issues.",
+      },
+      {
+        q: "Is SQA now called Qualifications Scotland?",
+        a: `Yes. Qualifications Scotland replaced SQA on ${QS_REPLACED_SQA}. Course documents and past papers are still on sqa.org.uk while its new website is built, and Qualifications Scotland says they remain current.`,
+      },
+      {
+        q: "When is the modern studies exam in 2027?",
+        a: `Every Modern Studies exam is on ${MODERN_STUDIES_EXAMS_2027.date}. National 5 is ${MODERN_STUDIES_EXAMS_2027.n5}. Higher Paper 1 is ${MODERN_STUDIES_EXAMS_2027.higherPaper1} and Paper 2 ${MODERN_STUDIES_EXAMS_2027.higherPaper2}. Advanced Higher is ${MODERN_STUDIES_EXAMS_2027.advancedHigher}.`,
+      },
+      {
+        q: "What are the best free modern studies resources?",
+        a: "The official course pages and past papers from Qualifications Scotland, BBC Bitesize for notes, and up to date Scottish statistics for examples. This site links each part of the course to official figures on poverty, crime, councils and MSPs.",
+      },
+      {
+        q: "How should I start modern studies revision?",
+        a: "Learn how your course is marked, then learn a few recent, accurate Scottish examples for each topic, then practise past paper questions on time and mark them with the marking instructions.",
+      },
+    ],
+    sourceIds: [
+      "qs-modern-studies-subject",
+      "qs-n5-modern-studies-spec",
+      "qs-higher-modern-studies-spec",
+      "qs-ah-modern-studies-spec",
+      "qs-exam-timetable-2027",
+      "qs-higher-modern-studies-report-2026",
+      "sg-poverty-2026",
+      "sp-open-data-msps",
+      "audit-scotland-council-budgets-2026-27",
+      "recorded-crime-2025-26-dishonesty",
+    ],
+  },
+  {
+    slug: "national-5-modern-studies",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-national-5-modern-studies.webp",
+      alt: "School exercise books, pencil and an abstract Scottish Parliament silhouette",
+      caption: "School exercise books, pencil and an abstract Scottish Parliament silhouette.",
+    },
+    title: "National 5 modern studies: the course in plain English",
+    seoTitle: "National 5 Modern Studies: Course Guide, Notes and Real Data",
+    description: `National 5 Modern Studies is ${N5_MODERN_STUDIES.totalMarks} marks: an ${N5_MODERN_STUDIES.paper.marks} mark exam and a ${N5_MODERN_STUDIES.assignment.marks} mark assignment. The course in plain English, revision notes and model answers.`,
+    standfirst:
+      "What is in the exam, how the assignment is marked, and revision notes built on real Scottish figures you can quote.",
+    date: "2026-10-29",
+    checked: "2026-10-29",
+    category: "poverty-explained",
+    tags: ["Modern Studies", "National 5", "Revision", "Model answers"],
+    readingMinutes: 8,
+    quickAnswer: {
+      label: "National 5 Modern Studies marks",
+      value: `${N5_MODERN_STUDIES.totalMarks}`,
+      unit: "marks in total",
+      detail: `An exam worth ${N5_MODERN_STUDIES.paper.marks} marks, lasting ${N5_MODERN_STUDIES.paper.duration}, and an assignment worth ${N5_MODERN_STUDIES.assignment.marks}, written up in ${N5_MODERN_STUDIES.assignment.duration}. The exam is ${N5_MODERN_STUDIES.paper.sharePct}% of your grade.`,
+      rows: [
+        { label: "Exam", value: `${N5_MODERN_STUDIES.paper.marks} marks, ${N5_MODERN_STUDIES.paper.duration}` },
+        { label: "Assignment", value: `${N5_MODERN_STUDIES.assignment.marks} marks, ${N5_MODERN_STUDIES.assignment.duration} to write up` },
+        { label: `Grade A in ${N5_MODERN_STUDIES.results.year}`, value: `${N5_MODERN_STUDIES.results.a} out of ${N5_MODERN_STUDIES.totalMarks}` },
+        { label: "Exam in 2027", value: `${MODERN_STUDIES_EXAMS_2027.date}, ${MODERN_STUDIES_EXAMS_2027.n5}` },
+      ],
+      asOf: `Course specification ${N5_MODERN_STUDIES.specVersion}`,
+      source: N5_MODERN_STUDIES.source,
+    },
+    toc: [
+      { id: "course", label: "How it is assessed" },
+      { id: "exam", label: "What is in the exam" },
+      { id: "assignment", label: "The assignment" },
+      { id: "notes", label: "Revision notes" },
+      { id: "model-answers", label: "Model answers" },
+      { id: "dates", label: "Exam date and results" },
+    ],
+    faq: [
+      {
+        q: "How long is the National 5 Modern Studies exam?",
+        a: `${N5_MODERN_STUDIES.paper.duration}, for ${N5_MODERN_STUDIES.paper.marks} marks. It has three sections, democracy, social issues and international issues, and you answer one option in each.`,
+      },
+      {
+        q: "How many marks is the N5 Modern Studies assignment worth?",
+        a: `${N5_MODERN_STUDIES.assignment.marks} marks out of ${N5_MODERN_STUDIES.totalMarks}. You research a topic of your choice, then write it up in ${N5_MODERN_STUDIES.assignment.duration} using only your research sheet, which is two single sided sheets of A4.`,
+      },
+      {
+        q: "What topics are in National 5 Modern Studies?",
+        a: "Democracy in Scotland or the UK; social inequality or crime and the law; and a world power or a world issue. Your school chooses the options.",
+      },
+      {
+        q: "Where can I find national 5 modern studies revision notes?",
+        a: "BBC Bitesize has free notes for every topic. This guide adds revision notes built on up to date Scottish figures for democracy, social inequality and crime, which you can quote as recent examples.",
+      },
+      {
+        q: "Are there national 5 modern studies model answers?",
+        a: "The marking instructions published with every past paper show what earns marks. This guide also has two example answers, a 4 mark describe and a 6 mark explain, written to show the shape markers look for.",
+      },
+    ],
+    sourceIds: [
+      "qs-n5-modern-studies-spec",
+      "qs-n5-modern-studies-sqp",
+      "qs-n5-modern-studies-cat",
+      "qs-n5-modern-studies-report-2025",
+      "qs-exam-timetable-2027",
+      "sp-open-data-msps",
+      "scottish-parliament-devolved-powers",
+      "sg-poverty-2026",
+      "ecp",
+      "jrf-poverty-in-scotland-2026",
+      "free-school-meals-2026",
+      "recorded-crime-2025-26-dishonesty",
+      "sgs-recorded-crime",
+      "ons-crime-england-wales-2026",
+    ],
+  },
+  {
+    slug: "higher-modern-studies",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-higher-modern-studies.webp",
+      alt: "Notebook and documents beside a Scottish Parliament exterior silhouette",
+      caption: "Notebook and documents beside a Scottish Parliament exterior silhouette.",
+    },
+    title: "Higher modern studies: the course, the skills and the evidence",
+    seoTitle: "Higher Modern Studies: Course Guide, Skills and Real Data",
+    description: `Higher Modern Studies is ${HIGHER_MODERN_STUDIES.totalMarks} marks: Paper 1 (${HIGHER_MODERN_STUDIES.paper1.marks}), Paper 2 (${HIGHER_MODERN_STUDIES.paper2.marks}) and a ${HIGHER_MODERN_STUDIES.assignment.marks} mark assignment. How each is marked, plus real Scottish evidence.`,
+    standfirst:
+      "How Paper 1, Paper 2 and the assignment are marked, what the 2026 examiners flagged, and the latest Scottish evidence for each section.",
+    date: "2026-10-29",
+    checked: "2026-10-29",
+    category: "poverty-explained",
+    tags: ["Modern Studies", "Higher", "Revision", "Exam skills"],
+    readingMinutes: 7,
+    quickAnswer: {
+      label: "Higher Modern Studies marks",
+      value: `${HIGHER_MODERN_STUDIES.totalMarks}`,
+      unit: "marks in total",
+      detail: `Paper 1 tests knowledge through essays, Paper 2 tests source skills, and the assignment tests your research. All three count towards one grade.`,
+      rows: [
+        { label: "Paper 1", value: `${HIGHER_MODERN_STUDIES.paper1.marks} marks, ${HIGHER_MODERN_STUDIES.paper1.duration}` },
+        { label: "Paper 2", value: `${HIGHER_MODERN_STUDIES.paper2.marks} marks, ${HIGHER_MODERN_STUDIES.paper2.duration}` },
+        { label: "Assignment", value: `${HIGHER_MODERN_STUDIES.assignment.marks} marks, ${HIGHER_MODERN_STUDIES.assignment.duration} to write up` },
+        { label: "Exams in 2027", value: MODERN_STUDIES_EXAMS_2027.date },
+      ],
+      asOf: `Course specification ${HIGHER_MODERN_STUDIES.specVersion}`,
+      source: HIGHER_MODERN_STUDIES.source,
+    },
+    toc: [
+      { id: "assessment", label: "How Higher is assessed" },
+      { id: "paper-1", label: "Paper 1: the essays" },
+      { id: "paper-2", label: "Paper 2: source skills" },
+      { id: "assignment", label: "The assignment" },
+      { id: "evidence", label: "Evidence for each section" },
+      { id: "bitesize", label: "BBC Bitesize and free help" },
+      { id: "dates", label: "Dates and grade boundaries" },
+    ],
+    faq: [
+      {
+        q: "How many marks is Higher Modern Studies?",
+        a: `${HIGHER_MODERN_STUDIES.totalMarks}. Paper 1 is worth ${HIGHER_MODERN_STUDIES.paper1.marks}, Paper 2 is worth ${HIGHER_MODERN_STUDIES.paper2.marks} and the assignment is worth ${HIGHER_MODERN_STUDIES.assignment.marks}.`,
+      },
+      {
+        q: "Is BBC Bitesize higher modern studies enough to pass?",
+        a: "It is a good free start and covers democracy, inequality, crime and the law and international issues. But markers reward recent, accurate examples, so learn each topic there and then add the latest Scottish figures.",
+      },
+      {
+        q: "What is the difference between Paper 1 and Paper 2?",
+        a: `Paper 1 is three essays worth ${HIGHER_MODERN_STUDIES.paper1.marks} marks in all, two of them worth 20 and one worth 12, testing knowledge, analysis and evaluation. Paper 2 is three source questions on conclusions, objectivity and reliability, worth ${HIGHER_MODERN_STUDIES.paper2.marks} marks in all.`,
+      },
+      {
+        q: "When is the Higher Modern Studies exam in 2027?",
+        a: `${MODERN_STUDIES_EXAMS_2027.date}. Paper 1 runs ${MODERN_STUDIES_EXAMS_2027.higherPaper1} and Paper 2 runs ${MODERN_STUDIES_EXAMS_2027.higherPaper2}.`,
+      },
+    ],
+    sourceIds: [
+      "qs-higher-modern-studies-spec",
+      "qs-higher-past-papers",
+      "qs-higher-modern-studies-cat",
+      "qs-higher-modern-studies-report-2026",
+      "qs-exam-timetable-2027",
+      "sp-open-data-msps",
+      "sg-poverty-2026",
+      "jrf-poverty-in-scotland-2026",
+      "nrs-drug-deaths-2024",
+      "phs-child-poverty-impact",
+      "audit-scotland-council-budgets-2026-27",
+      "recorded-crime-2025-26-dishonesty",
+    ],
+  },
+  {
+    slug: "higher-modern-studies-past-papers",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-higher-modern-studies-past-papers.webp",
+      alt: "Unmarked exam papers, pencils and a desk",
+      caption: "Unmarked exam papers, pencils and a desk.",
+    },
+    title: "Higher modern studies past papers and practice questions",
+    seoTitle: "Higher Modern Studies Past Papers and Practice Questions With Real Data",
+    description: `Higher Modern Studies past papers for ${MODERN_STUDIES_PAST_PAPERS.firstYear} to ${MODERN_STUDIES_PAST_PAPERS.lastYear} are free from Qualifications Scotland. Where they are, how to use them, and practice with real data.`,
+    standfirst:
+      "Where the official papers and marking instructions live now, how to use them properly, and three Paper 2 style questions built on real Scottish figures.",
+    date: "2026-10-29",
+    checked: "2026-10-29",
+    category: "poverty-explained",
+    tags: ["Modern Studies", "Higher", "Past papers", "Practice questions"],
+    readingMinutes: 7,
+    quickAnswer: {
+      label: "Higher Modern Studies past papers",
+      value: `${MODERN_STUDIES_PAST_PAPERS.years}`,
+      unit: `years of papers, ${MODERN_STUDIES_PAST_PAPERS.firstYear} to ${MODERN_STUDIES_PAST_PAPERS.lastYear}`,
+      detail: `Paper 1, Paper 2 and the marking instructions for every year are free on the Qualifications Scotland past papers page, still hosted on sqa.org.uk. Some ${MODERN_STUDIES_PAST_PAPERS.modifiedYears} papers are shorter, modified versions.`,
+      rows: [
+        { label: "Paper 1", value: `${HIGHER_MODERN_STUDIES.paper1.marks} marks, ${HIGHER_MODERN_STUDIES.paper1.duration}` },
+        { label: "Paper 2", value: `${HIGHER_MODERN_STUDIES.paper2.marks} marks, ${HIGHER_MODERN_STUDIES.paper2.duration}` },
+        { label: "Marking instructions", value: "Free, one set for each paper" },
+        { label: "Practice on this page", value: "3 Paper 2 questions using real data" },
+      ],
+      asOf: "Checked 29 October 2026",
+      source: { publisher: "Qualifications Scotland", url: MODERN_STUDIES_LINKS.pastPapersHigher },
+    },
+    toc: [
+      { id: "where", label: "Where the papers are" },
+      { id: "use", label: "How to use them well" },
+      { id: "question-types", label: "Question types and marks" },
+      { id: "practice-conclusions", label: "Practice: conclusions" },
+      { id: "practice-objectivity", label: "Practice: objectivity" },
+      { id: "practice-reliability", label: "Practice: reliability" },
+    ],
+    faq: [
+      {
+        q: "Where can I find SQA past papers for Higher Modern Studies now?",
+        a: `On the past papers page of the SQA website, which Qualifications Scotland still uses since it replaced SQA on ${QS_REPLACED_SQA}. Choose Modern Studies and Higher to see every paper from ${MODERN_STUDIES_PAST_PAPERS.firstYear} to ${MODERN_STUDIES_PAST_PAPERS.lastYear}.`,
+      },
+      {
+        q: "Are the Higher Modern Studies marking instructions free?",
+        a: "Yes. A set of marking instructions sits beside every paper on the official past papers page, and you can download them all at once.",
+      },
+      {
+        q: "Why are some 2022 and 2023 past papers labelled modified?",
+        a: "They were changed because of Covid disruption, for example made shorter or given fewer marks. They are still useful for single questions, but they will not match the full exam.",
+      },
+      {
+        q: "Are the practice questions on this page official?",
+        a: "No. I wrote them in the style of Paper 2 using real Scottish figures, with hints on what a strong answer covers. For official questions and marking, use the past papers.",
+      },
+    ],
+    sourceIds: [
+      "qs-higher-past-papers",
+      "qs-higher-modern-studies-spec",
+      "qs-higher-modern-studies-report-2026",
+      "nrs-drug-deaths-2024",
+      "ecp",
+      "sg-poverty-2026",
+      "jrf-poverty-in-scotland-2026",
+      "sgs-recorded-crime",
+      "recorded-crime-2025-26-dishonesty",
+    ],
+  },
+  {
+    slug: "nat-5-modern-studies-past-papers",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-nat-5-modern-studies-past-papers.webp",
+      alt: "Unmarked exam papers and a pencil on a school desk",
+      caption: "Unmarked exam papers and a pencil on a school desk.",
+    },
+    title: "Nat 5 modern studies past papers and practice questions",
+    seoTitle: "Nat 5 Modern Studies Past Papers and Practice Questions",
+    description: `Nat 5 Modern Studies past papers for ${MODERN_STUDIES_PAST_PAPERS.firstYear} to ${MODERN_STUDIES_PAST_PAPERS.lastYear} are free from Qualifications Scotland. Where to get them, the question types and real data practice.`,
+    standfirst:
+      "Where the official papers and marking instructions are, how to use them so they actually help, and two full source questions built on real Scottish figures.",
+    date: "2026-10-29",
+    checked: "2026-10-29",
+    category: "poverty-explained",
+    tags: ["Modern Studies", "National 5", "Past papers", "Practice questions"],
+    readingMinutes: 6,
+    quickAnswer: {
+      label: "Nat 5 Modern Studies past papers",
+      value: `${MODERN_STUDIES_PAST_PAPERS.years}`,
+      unit: `years of papers, ${MODERN_STUDIES_PAST_PAPERS.firstYear} to ${MODERN_STUDIES_PAST_PAPERS.lastYear}`,
+      detail: `Every National 5 Modern Studies paper and its marking instructions are free on the Qualifications Scotland past papers page, still hosted on sqa.org.uk. Some ${MODERN_STUDIES_PAST_PAPERS.modifiedYears} papers are modified versions.`,
+      rows: [
+        { label: "Exam", value: `${N5_MODERN_STUDIES.paper.marks} marks, ${N5_MODERN_STUDIES.paper.duration}` },
+        { label: "Source questions", value: "3 in each paper, 10 marks each" },
+        { label: "Marking instructions", value: "Free, one set for each year" },
+        { label: "Practice on this page", value: "2 full source questions using real data" },
+      ],
+      asOf: "Checked 29 October 2026",
+      source: { publisher: "Qualifications Scotland", url: MODERN_STUDIES_LINKS.pastPapersN5 },
+    },
+    toc: [
+      { id: "where", label: "Where to get the papers" },
+      { id: "use", label: "How to use a past paper" },
+      { id: "question-types", label: "Question types and marks" },
+      { id: "practice-knowledge", label: "Practice knowledge questions" },
+      { id: "practice-conclusions", label: "Practice: conclusions" },
+      { id: "practice-support-oppose", label: "Practice: support and oppose" },
+    ],
+    faq: [
+      {
+        q: "Where can I get modern studies nat 5 past papers?",
+        a: `On the past papers page of the SQA website, which Qualifications Scotland still uses. Choose Modern Studies and National 5 for every paper and marking instruction from ${MODERN_STUDIES_PAST_PAPERS.firstYear} to ${MODERN_STUDIES_PAST_PAPERS.lastYear}.`,
+      },
+      {
+        q: "How many marks are the N5 Modern Studies source questions worth?",
+        a: `Each one is worth 10 marks, and there is one at the end of each of the three sections, so 30 of the ${N5_MODERN_STUDIES.paper.marks} exam marks are for source skills.`,
+      },
+      {
+        q: "Do Nat 5 Modern Studies past papers come with answers?",
+        a: "They come with marking instructions, which explain how each question is marked and give examples of creditworthy points. They are free on the same page as the papers.",
+      },
+      {
+        q: "Are the 2022 and 2023 papers the same as the real exam?",
+        a: "Some are labelled modified because they were changed after Covid, for example made shorter. Use them for practice questions, and use a later paper for a full timed run.",
+      },
+    ],
+    sourceIds: [
+      "qs-n5-past-papers",
+      "qs-n5-modern-studies-sqp",
+      "qs-n5-modern-studies-spec",
+      "qs-n5-modern-studies-report-2025",
+      "sg-poverty-2026",
+      "jrf-poverty-in-scotland-2026",
+      "sgs-recorded-crime",
+      "recorded-crime-2025-26-dishonesty",
+      "ons-crime-england-wales-2026",
+    ],
+  },
+  {
+    slug: "advanced-higher-modern-studies",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-advanced-higher-modern-studies.webp",
+      alt: "Unmarked research papers and a simple chart with no labels",
+      caption: "Unmarked research papers and a simple chart with no labels.",
+    },
+    title: "Advanced higher modern studies: the course and where to find data",
+    seoTitle: "Advanced Higher Modern Studies: Course Guide and Data Sources",
+    description: `Advanced Higher Modern Studies is ${ADVANCED_HIGHER_MODERN_STUDIES.totalMarks} marks: a ${ADVANCED_HIGHER_MODERN_STUDIES.paper.marks} mark exam and a ${ADVANCED_HIGHER_MODERN_STUDIES.dissertation.words.toLocaleString("en-GB")} word dissertation worth ${ADVANCED_HIGHER_MODERN_STUDIES.dissertation.marks}. The course, and data that holds up.`,
+    standfirst:
+      "How the exam and the dissertation are marked, and the official Scottish data worth using, with the weakness of each source spelled out.",
+    date: "2026-10-29",
+    checked: "2026-10-29",
+    category: "poverty-explained",
+    tags: ["Modern Studies", "Advanced Higher", "Dissertation", "Research methods"],
+    readingMinutes: 6,
+    quickAnswer: {
+      label: "Advanced Higher Modern Studies marks",
+      value: `${ADVANCED_HIGHER_MODERN_STUDIES.totalMarks}`,
+      unit: "marks in total",
+      detail: `A ${ADVANCED_HIGHER_MODERN_STUDIES.paper.duration} exam worth ${ADVANCED_HIGHER_MODERN_STUDIES.paper.marks} marks (${ADVANCED_HIGHER_MODERN_STUDIES.paper.sharePct}% of the grade) and a project dissertation worth ${ADVANCED_HIGHER_MODERN_STUDIES.dissertation.marks} (${ADVANCED_HIGHER_MODERN_STUDIES.dissertation.sharePct}%).`,
+      rows: [
+        { label: "Exam", value: `${ADVANCED_HIGHER_MODERN_STUDIES.paper.marks} marks, ${ADVANCED_HIGHER_MODERN_STUDIES.paper.duration}` },
+        { label: "Dissertation", value: `${ADVANCED_HIGHER_MODERN_STUDIES.dissertation.marks} marks, ${ADVANCED_HIGHER_MODERN_STUDIES.dissertation.words.toLocaleString("en-GB")} words` },
+        { label: `Grade A in ${ADVANCED_HIGHER_MODERN_STUDIES.results.year}`, value: `${ADVANCED_HIGHER_MODERN_STUDIES.results.a} out of ${ADVANCED_HIGHER_MODERN_STUDIES.totalMarks}` },
+        { label: "Exam in 2027", value: `${MODERN_STUDIES_EXAMS_2027.date}, ${MODERN_STUDIES_EXAMS_2027.advancedHigher}` },
+      ],
+      asOf: `Course specification ${ADVANCED_HIGHER_MODERN_STUDIES.specVersion}`,
+      source: ADVANCED_HIGHER_MODERN_STUDIES.source,
+    },
+    toc: [
+      { id: "assessment", label: "How it is assessed" },
+      { id: "exam", label: "The exam" },
+      { id: "dissertation", label: "The dissertation" },
+      { id: "data", label: "Where to find data" },
+      { id: "research-methods", label: "Research methods examples" },
+      { id: "results", label: "Results and the 2027 exam" },
+    ],
+    faq: [
+      {
+        q: "How long is the Advanced Higher Modern Studies dissertation?",
+        a: `${ADVANCED_HIGHER_MODERN_STUDIES.dissertation.words.toLocaleString("en-GB")} words, including your evaluation of research methods but not the contents page, bibliography, footnotes or appendices. Going more than ${ADVANCED_HIGHER_MODERN_STUDIES.dissertation.penaltyOverPct}% over brings a penalty.`,
+      },
+      {
+        q: "How long is the Advanced Higher Modern Studies exam?",
+        a: `${ADVANCED_HIGHER_MODERN_STUDIES.paper.duration}, for ${ADVANCED_HIGHER_MODERN_STUDIES.paper.marks} marks. You answer one section: two ${ADVANCED_HIGHER_MODERN_STUDIES.essayMarks} mark essays from a choice of three, plus a ${ADVANCED_HIGHER_MODERN_STUDIES.researchMethodsMarks} mark research methods question and a ${ADVANCED_HIGHER_MODERN_STUDIES.sourceTrustMarks} mark question on how trustworthy a source is.`,
+      },
+      {
+        q: "Where can I find data for an Advanced Higher Modern Studies dissertation?",
+        a: "Official statistics are the strongest base: Scottish Government poverty and crime statistics, National Records of Scotland, Audit Scotland and the Local Government Benchmarking Framework. Evaluate each one, because the weaknesses earn marks too.",
+      },
+      {
+        q: "Can I choose my own dissertation title?",
+        a: "Yes. Qualifications Scotland publishes an approved list of titles and a form for checking your own. Its 2026 course report said pupils who built their own titles often wrote insightful dissertations.",
+      },
+    ],
+    sourceIds: [
+      "qs-ah-modern-studies-spec",
+      "qs-ah-modern-studies-cat",
+      "qs-ah-modern-studies-report-2026",
+      "qs-ah-past-papers",
+      "qs-exam-timetable-2027",
+      "jrf-poverty-in-scotland-2026",
+      "sg-poverty-2026",
+      "ecp",
+      "nrs-drug-deaths-2024",
+      "sgs-recorded-crime",
+      "lgbf-family-groups",
+      "audit-scotland-council-budgets-2026-27",
+      "shs-council-perceptions-2024",
+      "sp-open-data-msps",
+    ],
+  },
+  {
+    slug: "causes-of-poverty",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-causes-of-poverty.webp",
+      alt: "A modest Scottish residential street and household essentials",
+      caption: "A modest Scottish residential street and household essentials.",
+    },
+    title: "Causes of poverty: what the evidence shows in Scotland",
+    seoTitle: "Causes of Poverty: What the Scottish Evidence Shows",
+    description: `Poverty in Scotland has three main causes: pay from work, the cost of living and social security. ${scotlandPoverty.all.pct}% of people are in poverty. The evidence and the effects.`,
+    standfirst:
+      "Not bad choices. Pay, rent and benefits, set out with the official Scottish figures, then what poverty does to health and to children.",
+    date: "2026-10-29",
+    checked: "2026-10-29",
+    category: "poverty-explained",
+    tags: ["Causes of poverty", "Child poverty", "Housing costs", "Modern Studies"],
+    readingMinutes: 7,
+    quickAnswer: {
+      label: "Main causes of poverty in Scotland",
+      value: "3",
+      unit: "drivers: income from work, the cost of living and social security",
+      detail: `Public Health Scotland and the Scottish Government group the causes into these three. In ${plainPeriod(scotlandPoverty.period)}, ${scotlandPoverty.all.pct}% of people in Scotland, ${scotlandPoverty.all.count.toLocaleString("en-GB")}, were in poverty after housing costs.`,
+      rows: [
+        { label: "Income from work", value: `${scotlandPoverty.childrenInWorkingHouseholdsPct}% of children in poverty live in a working household` },
+        { label: "Cost of living", value: `${JRF_SCOTLAND_2026.tenure.find((row) => row.home === "Private renters")?.pct}% of private renters are in poverty` },
+        { label: "Social security", value: `${JRF_SCOTLAND_2026.universalCreditFamiliesPct}% of people in families on Universal Credit are in poverty` },
+      ],
+      asOf: plainPeriod(scotlandPoverty.period),
+      source: JRF_SCOTLAND_2026.source,
+    },
+    toc: [
+      { id: "drivers", label: "The three drivers" },
+      { id: "work", label: "Income from work" },
+      { id: "costs", label: "The cost of living" },
+      { id: "security", label: "Social security" },
+      { id: "who", label: "Who is most at risk" },
+      { id: "myths", label: "What the evidence does not support" },
+      { id: "effects", label: "Effects of poverty" },
+      { id: "childhood", label: "Effects of childhood poverty" },
+      { id: "answers", label: "Using this in an answer" },
+    ],
+    faq: [
+      {
+        q: "What are the main causes of poverty in Scotland?",
+        a: "Three drivers: not enough income from work, because of low pay or too few hours; high costs, above all housing; and social security that does not pay enough to keep families out of poverty.",
+      },
+      {
+        q: "What is the impact of poverty on families in Scotland?",
+        a: `It leaves many families far short: people in poverty had incomes ${JRF_SCOTLAND_2026.averageGapPct}% below the poverty line on average. Public Health Scotland says it strains parents' mental health and relationships, raises the risk of debt, and harms children's health and development.`,
+      },
+      {
+        q: "What are the effects of childhood poverty?",
+        a: "Public Health Scotland says the harm starts before birth and builds up over a lifetime, affecting children's health, development, behaviour and how they do at school, and it can pass from one generation to the next.",
+      },
+      {
+        q: "Is poverty caused by people not working?",
+        a: `Mostly not. ${scotlandPoverty.childrenInWorkingHouseholdsPct}% of children in poverty in Scotland live in a household where someone works. Low pay, short hours and high rent keep many working families below the line.`,
+      },
+      {
+        q: "Does poverty affect health?",
+        a: "Yes. In 2024 the drug death rate in Scotland's most deprived areas was more than ten times the rate in the least deprived, and Public Health Scotland finds poorer children have worse general health and mental wellbeing.",
+      },
+    ],
+    sourceIds: [
+      "phs-child-poverty-drivers",
+      "phs-child-poverty-impact",
+      "phs-child-poverty-statement-2025",
+      "jrf-poverty-in-scotland-2026",
+      "sg-poverty-2026",
+      "ecp",
+      "nrs-drug-deaths-2024",
+    ],
+  },
+  {
+    slug: "who-is-my-msp",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-who-is-my-msp.webp",
+      alt: "Scottish Parliament exterior and an unmarked folded map of Scotland",
+      caption: "Scottish Parliament exterior and an unmarked folded map of Scotland.",
+    },
+    title: "Who is my MSP? Find your MSP and MP by postcode",
+    seoTitle: "Who Is My MSP? Find Your MSP and MP by Postcode",
+    description: `Every address in Scotland has ${SCOTTISH_PARLIAMENT.perPerson} MSPs: 1 constituency MSP and ${SCOTTISH_PARLIAMENT.regionalPerRegion} regional MSPs, plus 1 MP. Put in your postcode to see their names and emails.`,
+    standfirst:
+      "One constituency MSP, seven regional MSPs and an MP. Here's how to find all of them from your postcode, and which one to go to with what.",
+    date: "2026-10-29",
+    checked: "2026-10-29",
+    category: "take-action",
+    tags: ["MSP", "Scottish Parliament", "MP", "Find your representative"],
+    readingMinutes: 4,
+    quickAnswer: {
+      label: "Who is my MSP?",
+      value: String(SCOTTISH_PARLIAMENT.perPerson),
+      unit: "MSPs for every address",
+      detail:
+        "One constituency MSP for your local area and seven regional MSPs for the wider region, and all of them represent you. Put your postcode into the finder below to see their names, parties and emails, along with your MP.",
+      rows: [
+        { label: "Constituency MSPs", value: `${SCOTTISH_PARLIAMENT.constituencyMsps} in Scotland, 1 for you` },
+        { label: "Regional MSPs", value: `${SCOTTISH_PARLIAMENT.regionalMsps} in Scotland, ${SCOTTISH_PARLIAMENT.regionalPerRegion} for you` },
+        { label: "MSPs in total", value: String(TOTAL_MSPS) },
+        { label: "Scottish Parliament phone", value: `${SCOTTISH_PARLIAMENT.phone}, or free on ${SCOTTISH_PARLIAMENT.freephone}` },
+      ],
+      asOf: `Elected ${SCOTTISH_PARLIAMENT.elected}`,
+      source: SCOTTISH_PARLIAMENT.source,
+    },
+    toc: [
+      { id: "postcode", label: "Who is my MSP by postcode" },
+      { id: "two-kinds", label: "Constituency and regional MSPs" },
+      { id: "regions", label: "MSP for my area" },
+      { id: "contact", label: "How to contact my MSP" },
+      { id: "mp-or-msp", label: "MSP or MP: who to ask" },
+    ],
+    faq: [
+      {
+        q: "Who is my MSP by postcode?",
+        a: "Put your postcode into the finder on this page. It shows your constituency MSP, your seven regional MSPs and your MP, with their email addresses, from the Scottish Parliament's and the UK Parliament's own records.",
+      },
+      {
+        q: "How do I find my MSP?",
+        a: `The quickest way is by postcode. If you already know your constituency or region, the MSP directory lists all ${TOTAL_MSPS} MSPs by area.`,
+      },
+      {
+        q: "How many MSPs do I have?",
+        a: `You have ${SCOTTISH_PARLIAMENT.perPerson}: one constituency MSP for your local area and ${SCOTTISH_PARLIAMENT.regionalPerRegion} regional MSPs for the wider region. All of them represent you.`,
+      },
+      {
+        q: "Can I contact a regional MSP instead of my constituency MSP?",
+        a: "Yes. The Scottish Parliament says you can contact either type of MSP about any issue it deals with. You don't need to say why you chose them.",
+      },
+      {
+        q: "What is the Scottish Parliament phone number?",
+        a: `${SCOTTISH_PARLIAMENT.phone}, or free on ${SCOTTISH_PARLIAMENT.freephone}. Calls are answered ${SCOTTISH_PARLIAMENT.hours}.`,
+      },
+    ],
+    sourceIds: ["sp-about-msps", "sp-contact-us", "sp-open-data-msps", "scottish-parliament-devolved-powers"],
+  },
+  {
+    slug: "who-is-my-local-councillor-by-postcode",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-who-is-my-local-councillor-by-postcode.webp",
+      alt: "A Scottish local council building and an unmarked street map",
+      caption: "A Scottish local council building and an unmarked street map.",
+    },
+    title: "Who is my local councillor by postcode?",
+    seoTitle: "Who Is My Local Councillor by Postcode? Find Your Councillors",
+    description: `Most homes in Scotland have 3 or 4 councillors, not 1. Use your postcode to find your council, then every councillor for your ward. All ${COUNCILLOR_TOTALS.councils} councils listed.`,
+    standfirst:
+      "Scotland elects councillors in groups, so you almost certainly have more than one. Here's how to find them all from your postcode, and what they can help with.",
+    date: "2026-10-29",
+    checked: "2026-10-29",
+    category: "take-action",
+    tags: ["Councillors", "Local council", "Wards", "Council elections 2027"],
+    readingMinutes: 4,
+    quickAnswer: {
+      label: "Who is my local councillor?",
+      value: "3 or 4",
+      unit: "councillors for most wards",
+      detail:
+        "Scotland elects councillors in groups, so most homes have three or four, and every one of them represents you. Find your council with the postcode box below, then use its councillor finder in the table.",
+      rows: [
+        { label: "Councils", value: String(COUNCILLOR_TOTALS.councils) },
+        { label: "Wards", value: COUNCILLOR_TOTALS.wards.toLocaleString("en-GB") },
+        { label: "Councillors", value: COUNCILLOR_TOTALS.councillors.toLocaleString("en-GB") },
+        { label: "Next council election", value: LOCAL_ELECTION_2027.date },
+      ],
+      asOf: "Wards in use since the May 2022 election",
+      source: COUNCILLOR_SOURCE,
+    },
+    toc: [
+      { id: "postcode", label: "Find my councillor by postcode" },
+      { id: "councils", label: "Councillors in my area" },
+      { id: "who", label: "Who are my councillors?" },
+      { id: "what", label: "What a councillor can help with" },
+      { id: "contact", label: "How to contact my local councillor" },
+      { id: "election", label: "The next council election" },
+    ],
+    faq: [
+      {
+        q: "Who is my local councillor by postcode?",
+        a: "Put your postcode into the box on this page to find your council, then open that council's councillor finder from the table. Most take your postcode or street and show your ward and every councillor for it.",
+      },
+      {
+        q: "Who are my councillors?",
+        a: "The councillors elected for your ward. Almost every ward in Scotland elects three or four, and all of them represent you equally. Some island wards elect one or two.",
+      },
+      {
+        q: "How many councillors are there in Scotland?",
+        a: `${COUNCILLOR_TOTALS.councillors.toLocaleString("en-GB")} councillors across ${COUNCILLOR_TOTALS.wards} wards in ${COUNCILLOR_TOTALS.councils} councils, the numbers in use since the May 2022 election.`,
+      },
+      {
+        q: "Can I contact any of my councillors?",
+        a: "Yes. Every councillor for your ward represents you, whichever party they are from and whether or not you voted for them. You can contact one, some or all of them.",
+      },
+      {
+        q: "When are the next council elections in Scotland?",
+        a: `${LOCAL_ELECTION_2027.date}, in all ${COUNCILLOR_TOTALS.councils} councils at once.`,
+      },
+    ],
+    sourceIds: ["boundaries-scotland-wards-1995-onwards", "emb-local-elections-2027", "council-councillor-finders"],
+  },
+  {
+    slug: "life-expectancy-glasgow",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-life-expectancy-glasgow.webp",
+      alt: "Two contrasting Glasgow residential streets",
+      caption: "Two contrasting Glasgow residential streets.",
+    },
+    title: "Life expectancy Glasgow: the figures and the gap",
+    seoTitle: "Life Expectancy Glasgow: How Long People Live, Area by Area",
+    description: `Life expectancy in Glasgow is ${years(LIFE_EXPECTANCY_LATEST.glasgow.men)} years for men and ${years(LIFE_EXPECTANCY_LATEST.glasgow.women)} for women (${LIFE_EXPECTANCY_LATEST.period}), the lowest in Scotland. Inside the city, the gap for men is ${years(LIFE_EXPECTANCY.glasgowByDeprivation.rows[4].men - LIFE_EXPECTANCY.glasgowByDeprivation.rows[0].men)} years.`,
+    standfirst:
+      "Glasgow has the lowest life expectancy of any council in Scotland. But where you live inside the city matters far more than living in Glasgow at all.",
+    date: "2026-10-29",
+    checked: "2026-10-29",
+    category: "poverty-explained",
+    tags: ["Life expectancy", "Glasgow", "Health inequality", "Deprivation"],
+    readingMinutes: 5,
+    quickAnswer: {
+      label: `Life expectancy in Glasgow, ${LIFE_EXPECTANCY_LATEST.period}`,
+      value: years(LIFE_EXPECTANCY_LATEST.glasgow.men),
+      unit: "years for men",
+      detail: `Women in Glasgow can expect ${years(LIFE_EXPECTANCY_LATEST.glasgow.women)} years. Both are the lowest of Scotland's 32 council areas, ${years(LIFE_EXPECTANCY_LATEST.scotland.men - LIFE_EXPECTANCY_LATEST.glasgow.men)} and ${years(LIFE_EXPECTANCY_LATEST.scotland.women - LIFE_EXPECTANCY_LATEST.glasgow.women)} years below Scotland as a whole.`,
+      rows: [
+        { label: "Glasgow, men", value: `${years(LIFE_EXPECTANCY_LATEST.glasgow.men)} years` },
+        { label: "Glasgow, women", value: `${years(LIFE_EXPECTANCY_LATEST.glasgow.women)} years` },
+        { label: "Scotland, men", value: `${years(LIFE_EXPECTANCY_LATEST.scotland.men)} years` },
+        { label: "Scotland, women", value: `${years(LIFE_EXPECTANCY_LATEST.scotland.women)} years` },
+      ],
+      asOf: `${LIFE_EXPECTANCY_LATEST.period}, published ${LIFE_EXPECTANCY.published}`,
+      source: LIFE_EXPECTANCY.source,
+    },
+    toc: [
+      { id: "average", label: "Average life expectancy" },
+      { id: "men", label: "Glasgow male life expectancy" },
+      { id: "gap", label: "The gap inside Glasgow" },
+      { id: "councils", label: "Every council compared" },
+      { id: "at-65", label: "At 65" },
+    ],
+    faq: [
+      {
+        q: "What is the average life expectancy in Glasgow?",
+        a: `${years(LIFE_EXPECTANCY_LATEST.glasgow.men)} years for men and ${years(LIFE_EXPECTANCY_LATEST.glasgow.women)} years for women, for ${LIFE_EXPECTANCY_LATEST.period}, from National Records of Scotland. NRS does not publish a single figure for men and women together.`,
+      },
+      {
+        q: "What is Glasgow male life expectancy?",
+        a: `${years(LIFE_EXPECTANCY_LATEST.glasgow.men)} years in ${LIFE_EXPECTANCY_LATEST.period}, up from ${years(LIFE_EXPECTANCY.trend[LIFE_EXPECTANCY.trend.length - 2].glasgow.men)} in ${LIFE_EXPECTANCY.trend[LIFE_EXPECTANCY.trend.length - 2].period}. It is ${years(LIFE_EXPECTANCY_LATEST.scotland.men - LIFE_EXPECTANCY_LATEST.glasgow.men)} years below Scotland and the lowest of any council area.`,
+      },
+      {
+        q: "Is Glasgow's life expectancy the lowest in Scotland?",
+        a: `Yes. In ${LIFE_EXPECTANCY_LATEST.period} Glasgow City had the lowest life expectancy of Scotland's 32 council areas for both men and women, and ${councilSearchName(LIFE_EXPECTANCY.councils[LIFE_EXPECTANCY.councils.length - 1].slug)} the highest.`,
+      },
+      {
+        q: "How big is the life expectancy gap inside Glasgow?",
+        a: `Over ${LIFE_EXPECTANCY.glasgowByDeprivation.period}, men in Glasgow's most deprived fifth of neighbourhoods could expect ${years(LIFE_EXPECTANCY.glasgowByDeprivation.rows[0].men)} years, against ${years(LIFE_EXPECTANCY.glasgowByDeprivation.rows[4].men)} in the least deprived fifth. For women it was ${years(LIFE_EXPECTANCY.glasgowByDeprivation.rows[0].women)} against ${years(LIFE_EXPECTANCY.glasgowByDeprivation.rows[4].women)}.`,
+      },
+    ],
+    sourceIds: ["nrs-life-expectancy-2022-2024", "nrs-life-expectancy-local-simd-2026"],
+  },
+  {
+    slug: "unemployment-scotland",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-unemployment-scotland.webp",
+      alt: "A quiet Scottish high street with a closed shop and unmarked job application",
+      caption: "A quiet Scottish high street with a closed shop and unmarked job application.",
+    },
+    title: "Unemployment Scotland: the rate, the trend and your council",
+    seoTitle: "Unemployment Scotland 2026: Rate, Trend and Council Figures",
+    description: `Scotland's unemployment rate was ${pct(LABOUR_MARKET_LATEST.rate)} in ${LABOUR_MARKET_LATEST.period}, against ${pct(LABOUR_MARKET.uk.rate)} for the UK. The trend, youth unemployment and the rate for all 32 councils.`,
+    standfirst:
+      "The latest official rate, what it actually counts, how it has moved since 2008, and the estimate for every council in Scotland.",
+    date: "2026-10-29",
+    checked: "2026-10-29",
+    category: "money-and-bills",
+    tags: ["Unemployment", "Labour market", "Youth unemployment", "Scotland statistics"],
+    readingMinutes: 5,
+    quickAnswer: {
+      label: `Scotland unemployment rate, ${LABOUR_MARKET_LATEST.period}`,
+      value: pct(LABOUR_MARKET_LATEST.rate),
+      unit: "aged 16 and over",
+      detail: `About ${(Math.round(LABOUR_MARKET.scotland.unemployed / 1000) * 1000).toLocaleString("en-GB")} people. The UK rate for the same months was ${pct(LABOUR_MARKET.uk.rate)}. Scotland's rate is ${pointsChange(LABOUR_MARKET_LATEST.rateChangeOnYear)} on a year earlier.`,
+      rows: [
+        { label: "UK rate", value: pct(LABOUR_MARKET.uk.rate) },
+        { label: "Scotland employment rate, 16 to 64", value: pct(LABOUR_MARKET_LATEST.employment) },
+        { label: "Youth unemployment, 16 to 24", value: `${pct(ANNUAL_POPULATION_SURVEY.scotland.youth)} (${ANNUAL_POPULATION_SURVEY.period})` },
+        { label: "Highest council", value: `${councilSearchName(COUNCIL_UNEMPLOYMENT.rows[0].slug)}, ${pct(COUNCIL_UNEMPLOYMENT.rows[0].rate)}` },
+      ],
+      asOf: `${LABOUR_MARKET_LATEST.period}, published ${LABOUR_MARKET.published}`,
+      source: LABOUR_MARKET.source,
+    },
+    toc: [
+      { id: "rate", label: "Scotland unemployment rate" },
+      { id: "trend", label: "The trend since 2008" },
+      { id: "employment", label: "Scotland employment rate" },
+      { id: "youth", label: "Youth unemployment" },
+      { id: "councils", label: "Unemployment by council" },
+      { id: "claimant", label: "The claimant count" },
+    ],
+    faq: [
+      {
+        q: "What is the unemployment rate in Scotland?",
+        a: `${pct(LABOUR_MARKET_LATEST.rate)} for people aged 16 and over in ${LABOUR_MARKET_LATEST.period}, published by the ONS on ${LABOUR_MARKET.published}. The UK rate was ${pct(LABOUR_MARKET.uk.rate)}.`,
+      },
+      {
+        q: "Is unemployment higher in Scotland than the UK?",
+        a: `Not at the moment. Scotland's ${pct(LABOUR_MARKET_LATEST.rate)} is below the UK's ${pct(LABOUR_MARKET.uk.rate)} for ${LABOUR_MARKET_LATEST.period}, although Scotland's rate is ${pointsChange(LABOUR_MARKET_LATEST.rateChangeOnYear)} on a year earlier while the UK's is ${pointsChange(LABOUR_MARKET.uk.changeOnYear)}.`,
+      },
+      {
+        q: "What is youth unemployment in Scotland?",
+        a: `${pct(ANNUAL_POPULATION_SURVEY.scotland.youth)} of 16 to 24 year olds who were working or looking for work, in ${ANNUAL_POPULATION_SURVEY.period}, against ${pct(ANNUAL_POPULATION_SURVEY.uk.youth)} for the UK. Students who are not looking for work are not counted.`,
+      },
+      {
+        q: "Which council has the highest unemployment in Scotland?",
+        a: `${councilSearchName(COUNCIL_UNEMPLOYMENT.rows[0].slug)}, at an estimated ${pct(COUNCIL_UNEMPLOYMENT.rows[0].rate)} in ${COUNCIL_UNEMPLOYMENT.period}, followed by ${councilSearchName(COUNCIL_UNEMPLOYMENT.rows[1].slug)} at ${pct(COUNCIL_UNEMPLOYMENT.rows[1].rate)}.`,
+      },
+      {
+        q: "What is the employment rate in Scotland?",
+        a: `${pct(LABOUR_MARKET_LATEST.employment)} of people aged 16 to 64 were in work in ${LABOUR_MARKET_LATEST.period}, against ${pct(LABOUR_MARKET.uk.employment)} for the UK.`,
+      },
+    ],
+    sourceIds: [
+      "ons-regional-labour-market-oct-2026",
+      "ons-hi11-scotland-oct-2026",
+      "nomis-aps-jul-2025-jun-2026",
+      "nomis-model-unemployment-2026",
+      "nomis-claimant-count-sep-2026",
+    ],
+  },
+  {
+    slug: "crime-rate-glasgow",
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-crime-rate-glasgow.webp",
+      alt: "Glasgow street at dusk, ordinary buildings",
+      caption: "Glasgow street at dusk, ordinary buildings.",
+    },
+    title: "Crime rate Glasgow: what the police figures show",
+    seoTitle: "Crime Rate Glasgow: Recorded Crime by Type and Year",
+    description: `Glasgow's crime rate was ${GLASGOW_CRIME.glasgow.rate} crimes per 10,000 people in ${GLASGOW_CRIME.year}, against ${GLASGOW_CRIME.scotland.rate} for Scotland. Crime by type, year by year, and what the rate leaves out.`,
+    standfirst:
+      "Glasgow records more crime per resident than anywhere in Scotland except Dundee. Here's what that's made of, how it has changed since the 1990s and what the rate doesn't tell you.",
+    date: "2026-10-29",
+    checked: "2026-10-29",
+    category: "poverty-explained",
+    tags: ["Glasgow crime", "Crime statistics", "Recorded crime", "Police Scotland"],
+    readingMinutes: 5,
+    quickAnswer: {
+      label: `Crime rate Glasgow, ${GLASGOW_CRIME.year}`,
+      value: GLASGOW_CRIME.glasgow.rate.toLocaleString("en-GB"),
+      unit: "recorded crimes per 10,000 people",
+      detail: `Scotland's rate was ${GLASGOW_CRIME.scotland.rate}. Only Dundee was higher. Police recorded ${GLASGOW_CRIME.glasgow.crimes.toLocaleString("en-GB")} crimes in Glasgow City, up ${changePct(GLASGOW_CRIME_PREVIOUS.glasgow, GLASGOW_CRIME.glasgow.crimes)}% on the year before.`,
+      rows: [
+        { label: "Crimes recorded in Glasgow", value: GLASGOW_CRIME.glasgow.crimes.toLocaleString("en-GB") },
+        { label: "Scotland rate", value: `${GLASGOW_CRIME.scotland.rate} per 10,000` },
+        { label: `Change on ${GLASGOW_CRIME_PREVIOUS.year}`, value: `up ${changePct(GLASGOW_CRIME_PREVIOUS.glasgow, GLASGOW_CRIME.glasgow.crimes)}%` },
+        { label: `Glasgow rate in ${GLASGOW_CRIME.history[0].year}`, value: `${GLASGOW_CRIME.history[0].glasgowRate.toLocaleString("en-GB")} per 10,000` },
+      ],
+      asOf: "April 2025 to March 2026",
+      source: GLASGOW_CRIME.source,
+    },
+    toc: [
+      { id: "rate", label: "Glasgow against Scotland" },
+      { id: "types", label: "Crime stats by type" },
+      { id: "years", label: "Crime by year" },
+      { id: "caveats", label: "What the rate leaves out" },
+      { id: "local", label: "The local police reports" },
+    ],
+    faq: [
+      {
+        q: "What is the crime rate in Glasgow?",
+        a: `${GLASGOW_CRIME.glasgow.rate} recorded crimes per 10,000 people in ${GLASGOW_CRIME.year}, against ${GLASGOW_CRIME.scotland.rate} for Scotland. Police recorded ${GLASGOW_CRIME.glasgow.crimes.toLocaleString("en-GB")} crimes in Glasgow City that year.`,
+      },
+      {
+        q: "Does Glasgow have the highest crime rate in Scotland?",
+        a: `No. Dundee had the highest recorded crime rate in ${GLASGOW_CRIME.year}. Glasgow was second, at ${GLASGOW_CRIME.glasgow.rate} per 10,000.`,
+      },
+      {
+        q: "Is crime going up in Glasgow?",
+        a: `It rose ${changePct(GLASGOW_CRIME_PREVIOUS.glasgow, GLASGOW_CRIME.glasgow.crimes)}% in ${GLASGOW_CRIME.year}, to ${GLASGOW_CRIME.glasgow.crimes.toLocaleString("en-GB")} crimes. Over the longer run it has fallen a lot: in ${GLASGOW_CRIME.history[0].year} the city recorded ${GLASGOW_CRIME.history[0].glasgow.toLocaleString("en-GB")}.`,
+      },
+      {
+        q: "Where do crime stats for Glasgow come from?",
+        a: "The official figures are the Scottish Government's Recorded Crime in Scotland statistics, published each year for every council. Police Scotland also reports quarterly figures for the city to the Safe Glasgow Partnership.",
+      },
+    ],
+    sourceIds: [
+      "sg-recorded-crimes-offences-open-data",
+      "recorded-crime-scotland-2025-26",
+      "sgs-recorded-crime",
+      "sg-recorded-crime-ye-june-2026",
+      "ps-glasgow-q3-2024-25",
+      "ps-glasgow-q2-2025-26",
+      "spa-performance-q4-2024-25",
+    ],
   },
 ];
 

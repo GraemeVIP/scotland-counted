@@ -30,7 +30,7 @@ export const faqSections: FaqSection[] = [
         a: "The official measure used here means a household has less than 60% of the usual UK income after rent or mortgage costs. In ordinary words: there is not enough money left for a normal, secure life.",
         keywords: "definition relative income 60 percent",
         href: "/blog/what-does-poverty-mean",
-        linkLabel: "Read the full plain-English explanation",
+        linkLabel: "Read the full plain English explanation",
       },
       {
         id: "how-many-people-scotland",
@@ -38,12 +38,12 @@ export const faqSections: FaqSection[] = [
         a: "Around 940,000 people, about 1 in every 6 people in Scotland. The exact official figure is 17% after housing costs, measured across 2022–25.",
         keywords: "940000 940,000 17% one in six national",
         href: "/",
-        linkLabel: "See the Scotland-wide picture",
+        linkLabel: "See the Scotland wide picture",
       },
       {
         id: "how-many-children-scotland",
         q: "How many children in Scotland live in poverty?",
-        a: "About 1 in every 5 children. The exact Scotland-wide figure is 21% after housing costs in 2022–25.",
+        a: "About 1 in every 5 children. The exact Scotland wide figure is 21% after housing costs in 2022–25.",
         keywords: "21% one in five children national",
         href: "/areas",
         linkLabel: "Compare every Scottish area",
@@ -59,7 +59,7 @@ export const faqSections: FaqSection[] = [
       {
         id: "not-only-child-poverty",
         q: "Is this site only about child poverty?",
-        a: "No. It also covers poverty among adults and pensioners, work, out-of-work benefits, minimum-wage reality, carefully labelled pay evidence, housing, neighbourhoods and health.",
+        a: "No. It also covers poverty among adults and pensioners, work, out of work benefits, minimum wage reality, carefully labelled pay evidence, housing, neighbourhoods and health.",
         keywords: "adults pensioners unemployment benefits pay health housing",
         href: "/glasgow-poverty-statistics",
         linkLabel: "See the wider Glasgow record",
@@ -110,7 +110,7 @@ export const faqSections: FaqSection[] = [
       {
         id: "local-child-poverty",
         q: "Why do local pages lead with child poverty?",
-        a: "The main poverty survey is reliable for Scotland as a whole but not for every council area. The child-poverty estimates use tax and benefit records, so every area can be compared in the same way.",
+        a: "The main poverty survey is reliable for Scotland as a whole but not for every council area. The child poverty estimates use tax and benefit records, so every area can be compared in the same way.",
         keywords: "local data survey reliable records council",
         href: "/methods",
         linkLabel: "See how the local figures are counted",
@@ -126,7 +126,7 @@ export const faqSections: FaqSection[] = [
       {
         id: "why-area-numbers-differ",
         q: "Why does my town show a different figure on two pages?",
-        a: "The pages may cover different boundaries or different measures. A council page and an MP-area page do not always contain the same streets. Each page states the area and definition beside the figure.",
+        a: "The pages may cover different boundaries or different measures. A council page and an MP area page do not always contain the same streets. Each page states the area and definition beside the figure.",
         keywords: "different number mismatch town constituency council",
         href: "/methods",
         linkLabel: "Check the definitions and limits",
@@ -134,7 +134,7 @@ export const faqSections: FaqSection[] = [
       {
         id: "why-glasgow-special",
         q: "Why does Glasgow get its own detailed section?",
-        a: "Because Glasgow’s child-poverty figures are the worst in Scotland. In 2023/24, 36.1% of children, 39,319 children, were in relative poverty after housing costs. Glasgow also had the steepest ten-year rise of any Scottish council area.",
+        a: "Because Glasgow’s child poverty figures are the worst in Scotland. In 2023/24, 36.1% of children, 39,319 children, were in relative poverty after housing costs. Glasgow also had the steepest ten year rise of any Scottish council area.",
         keywords: "Glasgow 36.1 39319 worst highest rise special",
         href: "/why-poverty-is-worse-in-glasgow",
         linkLabel: "See why Glasgow has been hit harder",
@@ -142,29 +142,29 @@ export const faqSections: FaqSection[] = [
       {
         id: "glasgow-not-diluted",
         q: "Does covering all of Scotland water down Glasgow’s figures?",
-        a: "No. Scotland-wide coverage makes comparison possible, while Glasgow keeps a separate record across poverty, work, benefits, pay, neighbourhoods and health. Its worst-in-Scotland figures stay clearly marked.",
+        a: "No. Scotland wide coverage makes comparison possible, while Glasgow keeps a separate record across poverty, work, benefits, pay, neighbourhoods and health. Its worst in Scotland figures stay clearly marked.",
         keywords: "Glasgow separate record Scotland dilute",
         href: "/glasgow-poverty-statistics",
         linkLabel: "Open Glasgow’s full record",
       },
       {
         id: "local-average",
-        q: "Does an area-wide figure describe every family or street?",
+        q: "Does an area wide figure describe every family or street?",
         a: "No. It describes the area as a whole. Some neighbourhoods and families will be doing much better and others much worse. It is evidence about the scale of the problem, not a label for every person who lives there.",
         keywords: "average street neighbourhood family local",
       },
       {
         id: "pay-not-average-wage",
         q: "Is the ONS pay figure the average wage where I live?",
-        a: "No. It is a median for a restricted sample of full-time PAYE employee jobs. It leaves out every part-time job, self-employment, workers outside PAYE, junior rates and some people affected by absence. The site labels it clearly so it is not mistaken for everyone’s wage.",
+        a: "No. It is a median for a restricted sample of full time PAYE employee jobs. It leaves out every part time job, self employment, workers outside PAYE, junior rates and some people affected by absence. The site labels it clearly so it is not mistaken for everyone’s wage.",
         keywords: "salary wage ASHE median full time PAYE average",
         href: "/methods",
         linkLabel: "Read the exact pay warning",
       },
       {
         id: "no-local-all-person-rate",
-        q: "Why is there no reliable all-person poverty rate for every council?",
-        a: "The national poverty survey does not have enough responses in each council area to produce a safe like-for-like rate. The local pages use the strongest comparable records available instead of inventing a number.",
+        q: "Why is there no reliable all person poverty rate for every council?",
+        a: "The national poverty survey does not have enough responses in each council area to produce a safe like for like rate. The local pages use the strongest comparable records available instead of inventing a number.",
         keywords: "missing data local survey sample council all people",
         href: "/methods",
         linkLabel: "See the data limitations",
@@ -219,7 +219,7 @@ export const faqSections: FaqSection[] = [
       {
         id: "regional-msps",
         q: "Why does the site write to my constituency MSP automatically?",
-        a: "The site shows all eight MSPs who represent you: one constituency MSP and seven regional MSPs. Your constituency MSP covers the closest matching local area, so the ready-written email uses them automatically. You can also open the same ready-written email to any regional MSP. There is no wrong choice.",
+        a: "The site shows all eight MSPs who represent you: one constituency MSP and seven regional MSPs. Your constituency MSP covers the closest matching local area, so the ready written email uses them automatically. You can also open the same ready written email to any regional MSP. There is no wrong choice.",
         keywords: "regional MSP list eight constituency",
         href: "/email-your-mp-and-msp",
         linkLabel: "Find every MSP who represents you",
@@ -227,7 +227,7 @@ export const faqSections: FaqSection[] = [
       {
         id: "who-controls-benefits",
         q: "Who controls Universal Credit and most benefits?",
-        a: "The UK Government and Westminster Parliament control Universal Credit, most working-age benefits, the State Pension and help with private rent through Local Housing Allowance.",
+        a: "The UK Government and Westminster Parliament control Universal Credit, most working age benefits, the State Pension and help with private rent through Local Housing Allowance.",
         keywords: "Westminster UK government universal credit LHA pension benefits",
         href: "/who-is-responsible-for-poverty-in-scotland",
         linkLabel: "See the full split of powers",
@@ -252,7 +252,7 @@ export const faqSections: FaqSection[] = [
   },
   {
     id: "email",
-    title: "The ready-written emails",
+    title: "The ready written emails",
     intro: "What the tool does, what you still control and what happens to your information.",
     items: [
       {
@@ -316,7 +316,7 @@ export const faqSections: FaqSection[] = [
       {
         id: "email-cost",
         q: "Does it cost anything to use?",
-        a: "No. The tool, local pages, data and ready-written emails are free. There is no account, subscription or paywall.",
+        a: "No. The tool, local pages, data and ready written emails are free. There is no account, subscription or paywall.",
         keywords: "free account subscription paywall price",
       },
     ],
@@ -369,14 +369,14 @@ export const faqSections: FaqSection[] = [
       {
         id: "political-party",
         q: "Is Scotland Counted run by a political party or campaign?",
-        a: "No. It is a personal, independent public-interest project. It has no party affiliation, funder, sponsor, adverts or paywall.",
+        a: "No. It is a personal, independent public interest project. It has no party affiliation, funder, sponsor, adverts or paywall.",
         keywords: "independent bias party funding sponsor ads",
         href: "/about",
         linkLabel: "See who made the project",
       },
       {
         id: "minimum-wage-enough",
-        q: "Is a full-time minimum-wage job enough to live on?",
+        q: "Is a full time minimum wage job enough to live on?",
         a: "Not for many ordinary households. Minimum Income Standard research found that in 2025 a single adult working full time at the legal minimum reached only 76% of the income needed for a basic, decent standard of living. Families can face an even larger gap.",
         keywords: "minimum wage salary enough live MIS 76%",
         href: "/blog/do-people-in-poverty-work",
@@ -401,7 +401,7 @@ export const faqSections: FaqSection[] = [
       {
         id: "what-would-help",
         q: "What do experts say would cut poverty?",
-        a: "The repeated answers are enough family income, affordable secure housing, childcare that fits real working hours, better take-up of support and work that pays enough. No single change fixes every part.",
+        a: "The repeated answers are enough family income, affordable secure housing, childcare that fits real working hours, better take up of support and work that pays enough. No single change fixes every part.",
         keywords: "solutions child payment housing childcare income policy",
         href: "/solutions-to-poverty-in-scotland",
         linkLabel: "See the seven practical changes",

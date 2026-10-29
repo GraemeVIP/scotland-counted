@@ -80,14 +80,14 @@ export function MspContactCard({
 
       <dl className="mt-6 grid gap-4">
         <div>
-          <dt className="ui text-[15px] font-[750] text-[var(--ink)]">Email</dt>
+          <dt className="ui text-[15px] font-[600] text-[var(--ink)]">Email</dt>
           <dd className="mt-1 text-[16px] leading-[1.5] break-words">
             <a href={`mailto:${msp.email}`}>{msp.email}</a>
           </dd>
         </div>
         {msp.officeAddress && (
           <div>
-            <dt className="ui text-[15px] font-[750] text-[var(--ink)]">Public office address</dt>
+            <dt className="ui text-[15px] font-[600] text-[var(--ink)]">Public office address</dt>
             <dd className="mt-1 text-[16px] leading-[1.55] text-[var(--ink-2)]">
               {msp.officeAddress}
             </dd>
@@ -100,7 +100,7 @@ export function MspContactCard({
           href={preparedMspEmailHref({ msp, area, regional })}
           className="btn btn-primary justify-center text-center"
         >
-          Open a ready-written email
+          Open a ready written email
         </a>
         <a href={msp.profileUrl} className="btn btn-ghost justify-center text-center">
           Official Parliament profile
@@ -154,18 +154,18 @@ export function MspProfileCard({
 
           <dl className="mt-7 grid gap-5">
             <div>
-              <dt className="ui text-[15px] font-[750] text-[var(--ink)]">In office since</dt>
+              <dt className="ui text-[15px] font-[600] text-[var(--ink)]">In office since</dt>
               <dd className="mt-1 text-[16px] leading-[1.5]">
                 <time dateTime={msp.termStart}>{formatVoteDate(msp.termStart, "en-GB")}</time>
               </dd>
             </div>
             <div>
-              <dt className="ui text-[15px] font-[750] text-[var(--ink)]">Email</dt>
+              <dt className="ui text-[15px] font-[600] text-[var(--ink)]">Email</dt>
               <dd className="mt-1 break-words text-[16px] leading-[1.5]"><a href={`mailto:${msp.email}`}>{msp.email}</a></dd>
             </div>
             {msp.officeAddress && (
               <div>
-                <dt className="ui text-[15px] font-[750] text-[var(--ink)]">Public office</dt>
+                <dt className="ui text-[15px] font-[600] text-[var(--ink)]">Public office</dt>
                 <dd className="mt-1 text-[16px] leading-[1.55] text-[var(--ink-2)]">{msp.officeAddress}</dd>
               </div>
             )}
@@ -184,7 +184,7 @@ export function MspProfileCard({
 
       <div className="mt-8 flex flex-col gap-3 sm:flex-row">
         <a href={preparedMspEmailHref({ msp, area, regional })} className="btn btn-primary justify-center text-center">
-          Open a ready-written email
+          Open a ready written email
         </a>
         <Link href="#reviews" className="btn btn-ghost justify-center text-center">
           Read reviews
@@ -222,7 +222,7 @@ export function MspProfileReviews({
           </div>
           {aggregate && (
             <p
-              className="ui rounded-full bg-[var(--action-tint)] px-4 py-2 text-[15px] font-[800] text-[var(--action-text)]"
+              className="ui rounded-full bg-[var(--action-tint)] px-4 py-2 text-[15px] font-[640] text-[var(--action-text)]"
               aria-label={`${aggregate.ratingValue.toFixed(1)} out of 5 from ${aggregate.reviewCount} approved ${aggregate.reviewCount === 1 ? "review" : "reviews"}`}
             >
               {aggregate.ratingValue.toFixed(1)} out of 5 · {aggregate.reviewCount} {aggregate.reviewCount === 1 ? "review" : "reviews"}
@@ -239,7 +239,7 @@ export function MspProfileReviews({
               >
                 <div className="flex flex-wrap items-start justify-between gap-3">
                   <div>
-                    <h3 className="ui text-[18px] font-[800] text-[var(--ink)]">{review.title}</h3>
+                    <h3 className="ui text-[18px] font-[640] text-[var(--ink)]">{review.title}</h3>
                     <p className="ui mt-2 text-[15px] leading-[1.55] text-[var(--muted)]">
                       {review.authorName} · {review.relationship}
                       {review.interactionDate ? (
@@ -257,7 +257,7 @@ export function MspProfileReviews({
                     </p>
                   </div>
                   <p
-                    className="ui rounded-full bg-[var(--action-tint)] px-4 py-2 text-[15px] font-[800] text-[var(--action-text)]"
+                    className="ui rounded-full bg-[var(--action-tint)] px-4 py-2 text-[15px] font-[640] text-[var(--action-text)]"
                     aria-label={`${review.rating} out of 5 stars`}
                   >
                     {"★".repeat(review.rating)}{"☆".repeat(5 - review.rating)}
@@ -306,8 +306,8 @@ export function MspVotingRecord({ msp }: { msp: HolyroodMspContact }) {
           {msp.votes.map((vote) => (
             <article key={`${vote.reference ?? vote.title}-${vote.date}-${vote.vote}`} className="rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] p-4 sm:p-5">
               <div className="flex flex-wrap items-start justify-between gap-3">
-                <h3 className="ui text-[16px] font-[750] leading-[1.4] text-[var(--ink)]">{vote.title}</h3>
-                <span className={`ui shrink-0 rounded-full border px-3 py-1 text-[15px] font-[750] ${vote.vote.toLowerCase() === "yes" || vote.vote.toLowerCase() === "for" ? "border-[var(--good-text)] text-[var(--good-text)]" : "border-[var(--brand)] text-[var(--brand)]"}`}>
+                <h3 className="ui text-[16px] font-[600] leading-[1.4] text-[var(--ink)]">{vote.title}</h3>
+                <span className={`ui shrink-0 rounded-full border px-3 py-1 text-[15px] font-[600] ${vote.vote.toLowerCase() === "yes" || vote.vote.toLowerCase() === "for" ? "border-[var(--good-text)] text-[var(--good-text)]" : "border-[var(--brand)] text-[var(--brand)]"}`}>
                   {vote.vote}
                 </span>
               </div>

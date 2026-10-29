@@ -22,7 +22,7 @@ const settlementSource: AccountabilitySource = {
   url: "https://www.gov.scot/news/15-billion-for-councils/",
   publishedOn: "2024-12-12",
   usedFor:
-    "The early 2025/26 national council-funding table, including each council's share and the change from the year before.",
+    "The early 2025/26 national council funding table, including each council's share and the change from the year before.",
 };
 
 const financeSource: AccountabilitySource = {
@@ -33,7 +33,7 @@ const financeSource: AccountabilitySource = {
   url: "https://www.gov.scot/publications/local-government-2025-26-provisional-outturn-and-2026-27-budget-estimates/",
   publishedOn: "2026-07-24",
   usedFor:
-    "The publication containing the council finance results and 2026/27 budget estimates. Service-by-service comparisons have not yet been extracted into these records.",
+    "The publication containing the council finance results and 2026/27 budget estimates. Service by service comparisons have not yet been extracted into these records.",
 };
 
 const budgetBulletinSource: AccountabilitySource = {
@@ -201,7 +201,7 @@ const createRecord = ({
         service: "Council finance",
         measure: "Can we check what the council actually spent?",
         period: "2025/26 final spending and 2026/27 plan",
-        target: "A like-for-like result for each service",
+        target: "A like for like result for each service",
         actual: "The final spending figures for each service have not been added yet.",
         status: "not-verified",
         comparisonNote:
@@ -223,26 +223,26 @@ export const additionalCouncilAccountabilityRecords: CouncilAccountabilityRecord
     councilCode: "S12000033",
     settlementMillion: 494.9,
     summary:
-      "Weak checks at Aberdeen City let 655 council-tax refunds be paid out fraudulently between 2006 and 2023, worth £1.109m. The audit says staff did not always follow the checks meant to stop it. The council was expected to get the money back and tighten up. This page does not assume that is finished.",
+      "Weak checks at Aberdeen City let 655 council tax refunds be paid out fraudulently between 2006 and 2023, worth £1.109m. The audit says staff did not always follow the checks meant to stop it. The council was expected to get the money back and tighten up. This page does not assume that is finished.",
     audit: {
       id: "audit-aberdeen-fraud-2023-24",
       title: "The 2023/24 audit of Aberdeen City Council",
-      plainTitle: "Weak checks let £1.109m of council-tax refunds go out fraudulently",
+      plainTitle: "Weak checks let £1.109m of council tax refunds go out fraudulently",
       url: "https://audit.scot/news/%C2%A31-million-fraud-at-aberdeen-city-council-sends-a-warning-across-local-government",
       reportDate: "2025-01-09",
       severity: "grade-1",
       finding:
-        "The audit counted 655 fraudulent council-tax refund payments worth £1.109m between 2006 and 2023. Checks were supposed to stop this, but staff did not always follow them or check them closely enough.",
+        "The audit counted 655 fraudulent council tax refund payments worth £1.109m between 2006 and 2023. Checks were supposed to stop this, but staff did not always follow them or check them closely enough.",
       recommendation:
         "The council was expected to recover the money and keep working through outstanding improvement actions. The latest completion position needs a fresh check.",
       status: "in-progress",
       usedFor:
-        "The number and value of fraudulent council-tax refund payments, the period covered, and the audit's explanation of control failures.",
+        "The number and value of fraudulent council tax refund payments, the period covered, and the audit's explanation of control failures.",
     },
     knownGaps: [
       "The final 2025/26 spending figures have not yet been matched to the early funding figure.",
       "A current list of savings promises, owners and due dates still needs to be added.",
-      "The latest status of the outstanding fraud-related improvement actions needs checking.",
+      "The latest status of the outstanding fraud related improvement actions needs checking.",
     ],
   }),
   createRecord({
@@ -268,8 +268,8 @@ export const additionalCouncilAccountabilityRecords: CouncilAccountabilityRecord
         "The future money needed, the savings not yet delivered and the report's description of the council as well run with improving services.",
     },
     knownGaps: [
-      "The £81m figure is an estimate about future years and needs updating when the council publishes a new multi-year budget.",
-      "Service-by-service goals and results are not yet mapped here.",
+      "The £81m figure is an estimate about future years and needs updating when the council publishes a new multi year budget.",
+      "Service by service goals and results are not yet mapped here.",
       "The council's response and due dates for each Best Value action need to be added.",
     ],
   }),
@@ -288,15 +288,15 @@ export const additionalCouncilAccountabilityRecords: CouncilAccountabilityRecord
       reportDate: "2026-06",
       severity: "grade-1",
       finding:
-        "The report says Angus may need to find £24.5m. Planned savings and money already set aside cannot be the whole long-term answer, so the council needs a clearer plan for changing services.",
+        "The report says Angus may need to find £24.5m. Planned savings and money already set aside cannot be the whole long term answer, so the council needs a clearer plan for changing services.",
       recommendation:
         "The council should publish a clear route from the £24.5m it may need to find to sustainable services, including which changes will happen and when.",
       status: "in-progress",
       usedFor:
-        "The £24.5m estimate, the warning about one-off fixes and money already set aside, and the report's comments on service redesign.",
+        "The £24.5m estimate, the warning about one off fixes and money already set aside, and the report's comments on service redesign.",
     },
     knownGaps: [
-      "The £24.5m figure is an estimate and needs a date-stamped update after the next budget review.",
+      "The £24.5m figure is an estimate and needs a date stamped update after the next budget review.",
       "A full list of Angus service goals and actual results is not yet extracted.",
       "The council's response to the Best Value recommendations needs to be linked.",
     ],
@@ -353,7 +353,7 @@ export const additionalCouncilAccountabilityRecords: CouncilAccountabilityRecord
     },
     knownGaps: [
       "The settlement is an early funding figure and is not Edinburgh's final spending result.",
-      "The current savings programme and service-by-service results are not yet extracted.",
+      "The current savings programme and service by service results are not yet extracted.",
       "A current tracker of resident engagement and resulting decisions needs to be added.",
     ],
   }),
@@ -363,7 +363,7 @@ export const additionalCouncilAccountabilityRecords: CouncilAccountabilityRecord
     councilCode: "S12000005",
     settlementMillion: 134.5,
     summary:
-      "The audit found serious delays in Clackmannanshire's accounts. Leaders were making budget and council-tax decisions without up-to-date financial information, and the delay had happened for five years.",
+      "The audit found serious delays in Clackmannanshire's accounts. Leaders were making budget and council tax decisions without up to date financial information, and the delay had happened for five years.",
     audit: {
       id: "audit-clackmannanshire-delays-2026",
       title: "Collective leadership needed to tackle significant audit delays at Clackmannanshire Council",
@@ -405,10 +405,10 @@ export const additionalCouncilAccountabilityRecords: CouncilAccountabilityRecord
         "The council should show which savings were delivered, what services changed and whether the future money problem is getting smaller.",
       status: "in-progress",
       usedFor:
-        "The pre-savings budget-gap figures, the balanced-budget qualification and the Best Value recommendation to improve service reform and performance communication.",
+        "The pre savings budget gap figures, the balanced budget qualification and the Best Value recommendation to improve service reform and performance communication.",
     },
     knownGaps: [
-      "The pre-savings gap must not be presented as money already lost; a new forecast is needed.",
+      "The pre savings gap must not be presented as money already lost; a new forecast is needed.",
       "Savings delivery and service outcomes are not yet tracked here.",
       "The latest audit response and completion dates need to be linked.",
     ],
@@ -433,7 +433,7 @@ export const additionalCouncilAccountabilityRecords: CouncilAccountabilityRecord
         "The council needs to show how overspends are being brought under control and whether the capital work that slipped has been rescheduled and delivered.",
       status: "in-progress",
       usedFor:
-        "The audit's dated overspends, capital-plan slippage and budget-gap figures, including the separate housing-account result.",
+        "The audit's dated overspends, capital plan slippage and budget gap figures, including the separate housing account result.",
     },
     knownGaps: [
       "The 2023/24 figures are not the current 2025/26 final spending result and need updating.",
@@ -458,7 +458,7 @@ export const additionalCouncilAccountabilityRecords: CouncilAccountabilityRecord
       finding:
         "The review said East Ayrshire was performing well, services were improving and partnership working was strong. It is an older review and does not prove the council's current performance.",
       recommendation:
-        "A current Best Value and service-outcome update should be linked before this record is used to judge today's performance.",
+        "A current Best Value and service outcome update should be linked before this record is used to judge today's performance.",
       status: "not-verified",
       usedFor:
         "The older Best Value review's positive findings and the fact that they cannot be treated as a current result.",
@@ -466,7 +466,7 @@ export const additionalCouncilAccountabilityRecords: CouncilAccountabilityRecord
     knownGaps: [
       "The linked Best Value evidence is from 2018 and needs a current update.",
       "The current council budget, savings plan and service goals are not yet extracted.",
-      "No current negative claim is made until a fresh primary-source check is complete.",
+      "No current negative claim is made until a fresh primary source check is complete.",
     ],
   }),
   createRecord({
@@ -512,17 +512,17 @@ export const additionalCouncilAccountabilityRecords: CouncilAccountabilityRecord
       reportDate: "2025-06-26",
       severity: "grade-1",
       finding:
-        "The review reported that East Lothian spent £12.3m more than planned in 2023/24. £9.2m was covered with money the council had set aside and £3.1m with money held by its health-and-care partnership. It also reported £17.7m more needed for 2025/26 and savings that were not fully delivered.",
+        "The review reported that East Lothian spent £12.3m more than planned in 2023/24. £9.2m was covered with money the council had set aside and £3.1m with money held by its health and care partnership. It also reported £17.7m more needed for 2025/26 and savings that were not fully delivered.",
       recommendation:
         "The council should show which savings were delivered, how the money it had set aside was used and what service changes will solve the problem.",
       status: "in-progress",
       usedFor:
-        "The dated overspend, reserve-use, budget-gap and savings-delivery figures in the Best Value report.",
+        "The dated overspend, reserve use, budget gap and savings delivery figures in the Best Value report.",
     },
     knownGaps: [
       "The £17.7m gap is a dated forecast and needs to be refreshed against the latest budget.",
       "The council's current savings tracker and service results are not yet listed.",
-      "The longer-term money problem and finance-system control issues need a separate current source check.",
+      "The longer term money problem and finance system control issues need a separate current source check.",
     ],
   }),
   createRecord({
@@ -545,11 +545,11 @@ export const additionalCouncilAccountabilityRecords: CouncilAccountabilityRecord
         "The council should publish the detailed savings and income choices, then report whether they closed the forecast gap without reducing the quality of services.",
       status: "in-progress",
       usedFor:
-        "The review's positive service findings and the reported £32m budget-gap pressure.",
+        "The review's positive service findings and the reported £32m budget gap pressure.",
     },
     knownGaps: [
       "The £32m figure is a forecast and needs a current budget update.",
-      "Service-by-service goals and the effect of savings are not yet extracted.",
+      "Service by service goals and the effect of savings are not yet extracted.",
       "The council's detailed income and savings plan needs to be linked.",
     ],
   }),
@@ -559,7 +559,7 @@ export const additionalCouncilAccountabilityRecords: CouncilAccountabilityRecord
     councilCode: "S12000014",
     settlementMillion: 381.0,
     summary:
-      "Falkirk may need to find £62m. The review warned that one-off savings will not last, and that services could suffer without deeper change. Just over half of people are happy with how clean the streets are. Nearly a third of its main roads need repair.",
+      "Falkirk may need to find £62m. The review warned that one off savings will not last, and that services could suffer without deeper change. Just over half of people are happy with how clean the streets are. Nearly a third of its main roads need repair.",
     audit: {
       id: "audit-bv-falkirk-2024",
       title: "Best Value: Falkirk Council",
@@ -568,12 +568,12 @@ export const additionalCouncilAccountabilityRecords: CouncilAccountabilityRecord
       reportDate: "2024-05-02",
       severity: "grade-1",
       finding:
-        "The review says Falkirk may need to find £62m and warned that one-off savings will not last. It called for urgent service changes, while noting that performance reporting was strong but some services were falling behind.",
+        "The review says Falkirk may need to find £62m and warned that one off savings will not last. It called for urgent service changes, while noting that performance reporting was strong but some services were falling behind.",
       recommendation:
         "The council should show a lasting way to solve the money problem and publish action for services that are below their goals.",
       status: "in-progress",
       usedFor:
-        "The estimated money problem, warning about one-off savings, and comments about performance reporting and underperforming areas.",
+        "The estimated money problem, warning about one off savings, and comments about performance reporting and underperforming areas.",
     },
     knownGaps: [
       "The £62m figure is a forecast from the 2024 review and needs a fresh budget update.",
@@ -598,14 +598,14 @@ export const additionalCouncilAccountabilityRecords: CouncilAccountabilityRecord
       finding:
         "The review found mixed results, growing inequality and worsening pressure in social care. It said Fife must save more than £46m by 2027/28 and noted that its emergency money set aside had fallen below its own safety goal.",
       recommendation:
-        "The council should publish the savings and service-reform choices, then report their effect on inequalities and social care.",
+        "The council should publish the savings and service reform choices, then report their effect on inequalities and social care.",
       status: "in-progress",
       usedFor:
-        "The review's descriptions of mixed performance, inequality and social-care pressure, the £46m savings requirement and reserve position.",
+        "The review's descriptions of mixed performance, inequality and social care pressure, the £46m savings requirement and reserve position.",
     },
     knownGaps: [
       "The more-than-£46m figure is an estimate about future years and needs a current budget update.",
-      "Service-by-service goals, savings delivered and results are not yet mapped here.",
+      "Service by service goals, savings delivered and results are not yet mapped here.",
       "The current amount of emergency money set aside needs to be checked against the latest signed accounts.",
     ],
   }),
@@ -629,7 +629,7 @@ export const additionalCouncilAccountabilityRecords: CouncilAccountabilityRecord
         "Show how the missed adult social care savings will be dealt with and report what later changes mean for services and the budget.",
       status: "not-verified",
       usedFor:
-        "The 2024/25 overspend, the adult social care savings missed and the need for a clear follow-up.",
+        "The 2024/25 overspend, the adult social care savings missed and the need for a clear follow up.",
     },
     knownGaps: [
       "The current 2026/27 savings plan and final spending results are not yet added.",

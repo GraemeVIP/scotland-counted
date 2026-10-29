@@ -64,7 +64,7 @@ export default function CouncilsPage() {
               paper. Each one is linked, so you can check it yourself.
             </p>
             <p>
-              Where something cannot be checked, the page says so. A gap is better than a made-up
+              Where something cannot be checked, the page says so. A gap is better than a made up
               number.
             </p>
           </InShort>
@@ -76,14 +76,14 @@ export default function CouncilsPage() {
               <p className="kicker text-[#9db2ff]">New: all 32 ranked</p>
               <div className="mt-3 flex flex-wrap items-end justify-between gap-6">
                 <div className="max-w-[62ch]">
-                  <h2 id="performance-index-heading" className="text-[clamp(28px,4vw,44px)] font-[810] leading-[1.05] tracking-[-0.03em]">
+                  <h2 id="performance-index-heading" className="text-[clamp(28px,4vw,44px)] font-[640] leading-[1.05] tracking-[-0.03em]">
                     Which Scottish council performs best?
                   </h2>
                   <p className="mt-4 text-[16.5px] leading-[1.6] text-[#d7deed]">
-                    East Renfrewshire comes first after we checked 53 official figures. See all 32 councils, a like-for-like list, what residents said and how much each rank can move.
+                    East Renfrewshire comes first after we checked 53 official figures. See all 32 councils, a like for like list, what residents said and how much each rank can move.
                   </p>
                 </div>
-                <Link href="/blog/best-performing-councils-scotland" className="btn btn-on-deep shrink-0">
+                <Link href="/best-council-in-scotland" className="btn btn-on-deep shrink-0">
                   Explore the full ranking <span aria-hidden="true">→</span>
                 </Link>
               </div>
@@ -124,7 +124,7 @@ export default function CouncilsPage() {
           <section className="pt-12" aria-label="Why councils say they need more money">
             <div className="rounded-[var(--r-m)] border border-[var(--action)] bg-[var(--action-tint)] p-6 sm:p-7">
               <p className="kicker mb-3 text-[var(--action-text)]">The bit nobody explains</p>
-              <p className="text-[26px] font-[800] leading-[1.2] text-[var(--ink)] sm:text-[32px]">
+              <p className="text-[26px] font-[640] leading-[1.2] text-[var(--ink)] sm:text-[32px]">
                 {NATIONAL.councilsWithGap} of Scotland&rsquo;s {NATIONAL.councilsTotal} councils
                 said they needed more money this year.
               </p>
@@ -140,7 +140,7 @@ export default function CouncilsPage() {
                 <strong className="text-[var(--ink)]">your council tax</strong>, up{" "}
                 {COUNCIL_TAX.averageIncrease} on average, for the second year in a row.
               </p>
-              <p className="mt-4 text-[16px] font-[700] leading-[1.5] text-[var(--ink)]">
+              <p className="mt-4 text-[16px] font-[580] leading-[1.5] text-[var(--ink)]">
                 Open any council below to see how it works, and what yours did.
               </p>
             </div>
@@ -174,7 +174,7 @@ export default function CouncilsPage() {
                 <p className="ui text-[15px] text-[var(--muted)]">
                   {publishedSlugs.size} of {areas.length} detailed council records published
                 </p>
-                <Link href="/areas" className="ui text-[16px] font-[700]">
+                <Link href="/areas" className="ui text-[16px] font-[580]">
                   See all local poverty figures →
                 </Link>
               </div>

@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { getPostCategory, type Post } from "@/lib/data/posts";
 import { ExplainText } from "@/components/Glossary";
+import { postPath } from "@/lib/routeMap";
+import CoverArt from "@/components/CoverArt";
 
 function fmtDate(iso: string) {
   return new Date(`${iso}T12:00:00Z`).toLocaleDateString("en-GB", {
@@ -20,7 +22,7 @@ export default function ArticleCard({
 }) {
   const category = getPostCategory(post.category);
   const titleClass =
-    "text-[22px] font-[760] leading-[1.22] mt-3 text-[var(--ink)] group-hover:text-[var(--action-text)] transition-colors";
+    "text-[22px] font-[620] leading-[1.22] mt-3 text-[var(--ink)] group-hover:text-[var(--action-text)] transition-colors";
   const title = heading === "h3" ? (
     <h3 className={titleClass}>{post.title}</h3>
   ) : (
@@ -28,20 +30,24 @@ export default function ArticleCard({
   );
 
   return (
-    <article className="group min-w-0 overflow-hidden rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] hover:border-[var(--rule-strong)] transition-colors">
-      <Link href={`/blog/${post.slug}`} className="block no-underline">
+    <article className="tile group min-w-0 overflow-hidden">
+      <Link href={postPath(post.slug)} className="block no-underline">
         <div className="relative aspect-[3/2] overflow-hidden bg-[var(--paper-3)]">
-          <Image
-            src={post.image.cardSrc ?? post.image.src}
-            alt={post.image.alt}
-            fill
-            sizes="(min-width: 1024px) 430px, (min-width: 640px) 50vw, calc(100vw - 40px)"
-            className="object-cover transition-transform duration-500 group-hover:scale-[1.025]"
-            style={{ objectPosition: post.image.objectPosition ?? "center" }}
-          />
+          {post.image ? (
+            <Image
+              src={post.image.cardSrc ?? post.image.src}
+              alt={post.image.alt}
+              fill
+              sizes="(min-width: 1024px) 430px, (min-width: 640px) 50vw, calc(100vw - 40px)"
+              className="object-cover transition-transform duration-500 group-hover:scale-[1.025]"
+              style={{ objectPosition: post.image.objectPosition ?? "center" }}
+            />
+          ) : (
+            <CoverArt label={category?.name ?? "Guide"} title={post.quickAnswer?.label ?? post.title} />
+          )}
         </div>
         <div className="p-5 sm:p-6">
-          <p className="ui text-[15px] font-[750]" style={{ color: category?.color }}>
+          <p className="ui text-[15px] font-[600]" style={{ color: category?.color }}>
             {category?.name}
           </p>
           {title}

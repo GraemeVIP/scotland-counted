@@ -100,7 +100,7 @@ export const crisisGrantApplications = [
   { year: "2025-26", applications: 258490 },
 ] as const;
 
-/** Police-recorded shoplifting per 1,000 people. Years are April to March. */
+/** Police recorded shoplifting per 1,000 people. Years are April to March. */
 export const scotlandVsEnglandWales = [
   { year: "2013-14", scotlandPer1000: 5.21, englandWalesPer1000: 5.67, englandWalesCount: 321065, scotlandCount: 27693 },
   { year: "2014-15", scotlandPer1000: 5.13, englandWalesPer1000: 5.72, englandWalesCount: 326053, scotlandCount: 27364 },
@@ -117,7 +117,7 @@ export const scotlandVsEnglandWales = [
   { year: "2025-26", scotlandPer1000: 9.63, englandWalesPer1000: 8.2, englandWalesCount: 507086, scotlandCount: 53369 },
 ] as const;
 
-/** All 32 councils, sorted by 2025-26 rate. Rates are per 10,000 people. Solved is the published clear-up rate (Recorded Crime 2025-26 tables, Table_3). Child poverty is after housing costs, 2023/24. */
+/** All 32 councils, sorted by 2025-26 rate. Rates are per 10,000 people. Solved is the published clear up rate (Recorded Crime 2025-26 tables, Table_3). Child poverty is after housing costs, 2023/24. */
 export const councilShoplifting = [
   { area: "Dundee City", y2019: 1410, y2025: 3174, rate2019: 95.1, rate2025: 211.8, changePct: 125, solved2019: 65, solved2025: 47.4, childPoverty2023: 26.1 },
   { area: "City of Edinburgh", y2019: 3969, y2025: 10595, rate2019: 78.1, rate2025: 199.6, changePct: 167, solved2019: 53.1, solved2025: 38.4, childPoverty2023: 22.8 },

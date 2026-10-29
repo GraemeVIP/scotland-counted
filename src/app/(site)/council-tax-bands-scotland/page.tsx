@@ -14,11 +14,12 @@ import {
 import { councils } from "@/lib/data/councils";
 import { getSources } from "@/lib/data/sources";
 import Faq from "@/components/Faq";
+import { councilTaxPath } from "@/lib/routeMap";
 
 export const metadata = meta({
-  title: "Council Tax Bands Scotland 2026/27 | Prices A-H",
+  title: "Council Tax Bands Scotland 2026/27: Prices A to H for Every Council",
   description:
-    "Check 2026/27 council tax bands in every Scottish council. Compare Band A to H yearly and monthly prices with water and waste-water charges included.",
+    "Check 2026/27 council tax bands in every Scottish council. Compare Band A to H yearly and monthly prices with water and waste water charges included.",
   path: "/council-tax-bands-scotland",
   type: "website",
 });
@@ -93,7 +94,7 @@ export default function CouncilTaxPage() {
       <Page>
         <PageHeader
           eyebrow="Scotland · all 32 councils · bands A to H"
-          title="Council tax bands in Scotland: 2026/27 prices"
+          title="Council tax bands Scotland 2026/27"
           lede="Find your council’s 2026/27 charges, including Scottish Water. Enter a Scottish postcode or choose your council."
         />
 
@@ -115,7 +116,7 @@ export default function CouncilTaxPage() {
           <p className="mt-4 text-[16px] leading-[1.6] text-[var(--ink-2)]">
             Need the rules as well as the price? Read the{" "}
             <Link href="/blog/how-council-tax-works-scotland">
-              plain-English guide to bands, discounts, reductions, appeals and arrears
+              plain English guide to bands, discounts, reductions, appeals and arrears
             </Link>.
           </p>
         </div>
@@ -145,11 +146,11 @@ export default function CouncilTaxPage() {
             {bandDRises.slice(0, 10).map((c, i) => (
               <Link
                 key={c.slug}
-                href={`/council-tax-bands-scotland/${c.slug}#band-d`}
+                href={`${councilTaxPath(c.slug)}#band-d`}
                 className="group rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] px-4 py-3 no-underline transition-colors hover:border-[var(--brand)]"
               >
                 <span className="flex items-baseline justify-between gap-3">
-                  <span className="ui text-[15px] font-[640] leading-[1.25] text-[var(--ink-2)] group-hover:text-[var(--ink)]">
+                  <span className="ui text-[15px] font-[540] leading-[1.25] text-[var(--ink-2)] group-hover:text-[var(--ink)]">
                     <span className="tnum text-[var(--muted)]">{i + 1}.</span> {c.name}
                   </span>
                   <span className="display-stat shrink-0 text-[17px] tnum text-[var(--action-text)]">
@@ -164,8 +165,8 @@ export default function CouncilTaxPage() {
             ))}
           </div>
           <p className="mt-5 text-[16px] leading-[1.6] text-[var(--ink-2)]">
-            <Link href="/blog/council-tax-rises-scotland-2026-27">
-              Read the plain-English breakdown of Scotland&apos;s 2026/27 council tax rises
+            <Link href="/council-tax-increase-scotland">
+              Read the plain English breakdown of Scotland&apos;s 2026/27 council tax rises
             </Link>.
           </p>
         </section>

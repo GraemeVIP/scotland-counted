@@ -5,7 +5,7 @@ export default function Post() {
   return (
     <Prose>
       <Lead>
-        Scotland has universal free lunches for younger primary pupils, benefit-based meals for
+        Scotland has universal free lunches for younger primary pupils, benefit based meals for
         many older children, and a separate cash grant for school clothes. The help can overlap,
         but some of it still has to be claimed.
       </Lead>
@@ -17,7 +17,7 @@ export default function Post() {
         <LI>Eligible children in funded early learning and childcare get a meal on attendance days.</LI>
       </UL>
       <P>
-        These universal meals do not depend on family income. Independent-school and home-educated
+        These universal meals do not depend on family income. Independent school and home educated
         children are not included in the universal offer.
       </P>
 
@@ -25,11 +25,11 @@ export default function Post() {
       <P>
         In primary 6 and 7, a child can qualify when the family gets Scottish Child Payment or
         another listed benefit. In secondary school, the family usually qualifies through a listed
-        benefit or a low Universal Credit earned-income figure.
+        benefit or a low Universal Credit earned income figure.
       </P>
       <Aside title="Register even when a younger child's lunch is already free">
         <p>
-          Benefit-based registration can unlock help in school holidays and other support. Do not
+          Benefit based registration can unlock help in school holidays and other support. Do not
           assume the universal P1-to-P5 meal has registered the family for everything else.
         </p>
       </Aside>
@@ -38,7 +38,7 @@ export default function Post() {
       <BigStat
         value="at least £120 or £150"
         label="for each child who qualifies, once a year"
-        exact="At least £120 for a primary-age child and £150 for a secondary-age child. Councils can pay more."
+        exact="At least £120 for a primary age child and £150 for a secondary age child. Councils can pay more."
       />
       <P>
         The grant is normally cash paid into a bank account for uniforms, clothing and shoes. You
@@ -47,18 +47,18 @@ export default function Post() {
       </P>
       <P>
         The clothing grant is separate from the Best Start Grant School Age Payment and from the
-        <Link href="/blog/what-is-the-scottish-child-payment"> Scottish Child Payment</Link>. A
+        <Link href="/scottish-child-payment"> Scottish Child Payment</Link>. A
         family can qualify for more than one scheme.
       </P>
 
       <H2 id="holidays">Help in school holidays</H2>
       <P>
-        Families who qualify for benefit-based free school meals may also get council support in
+        Families who qualify for benefit based free school meals may also get council support in
         the summer, Christmas, Easter and shorter holidays. Depending on the council, this may be a
         cash payment, food voucher or another local arrangement.
       </P>
       <P>
-        Holiday-help income rules are not always identical to the term-time meal rules. Check the
+        Holiday help income rules are not always identical to the term time meal rules. Check the
         local page instead of assuming one award automatically triggers the other.
       </P>
 
@@ -73,12 +73,12 @@ export default function Post() {
       <P>
         A school office or council welfare team can help when the online form is difficult. If the
         family has no money for food today, do not wait for a school application, check the
-        <Link href="/blog/crisis-grant-scotland-how-to-apply"> Crisis Grant</Link> as well.
+        <Link href="/crisis-grant-scotland"> Crisis Grant</Link> as well.
       </P>
 
       <PostCTA
         title="Find the council application"
-        body="Start with your council area. The official sources below contain every local free-meal and clothing-grant link."
+        body="Start with your council area. The official sources below contain every local free meal and clothing grant link."
         href="/areas"
         cta="Find my council"
       />

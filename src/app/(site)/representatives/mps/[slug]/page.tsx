@@ -196,14 +196,14 @@ export default async function MpPage({ params }: { params: Promise<{ slug: strin
 
                 <dl className="mt-7 grid gap-5">
                   <div>
-                    <dt className="ui text-[15px] font-[750] text-[var(--ink)]">Email</dt>
+                    <dt className="ui text-[15px] font-[600] text-[var(--ink)]">Email</dt>
                     <dd className="mt-1 text-[16px] leading-[1.5] break-words">
                       <a href={`mailto:${mp.email}`}>{mp.email}</a>
                     </dd>
                   </div>
                   {mp.phone && (
                     <div>
-                      <dt className="ui text-[15px] font-[750] text-[var(--ink)]">Phone</dt>
+                      <dt className="ui text-[15px] font-[600] text-[var(--ink)]">Phone</dt>
                       <dd className="mt-1 text-[16px] leading-[1.5]">
                         {isDialablePhone(mp.phone) ? (
                           <a href={`tel:${mp.phone.replace(/[^+\d]/g, "")}`}>{mp.phone}</a>
@@ -214,7 +214,7 @@ export default async function MpPage({ params }: { params: Promise<{ slug: strin
                     </div>
                   )}
                   <div>
-                    <dt className="ui text-[15px] font-[750] text-[var(--ink)]">Office address</dt>
+                    <dt className="ui text-[15px] font-[600] text-[var(--ink)]">Office address</dt>
                     <dd className="mt-1 text-[16px] leading-[1.55] text-[var(--ink-2)]">
                       {mp.officeAddress}
                     </dd>
@@ -223,7 +223,7 @@ export default async function MpPage({ params }: { params: Promise<{ slug: strin
 
                 <div className="mt-7 flex flex-col sm:flex-row gap-3">
                   <a href={preparedEmail} className="btn btn-primary justify-center text-center">
-                    Open a ready-written email
+                    Open a ready written email
                   </a>
                   <a href={mp.profileUrl} className="btn btn-ghost justify-center text-center">
                     Official Parliament profile
@@ -246,7 +246,7 @@ export default async function MpPage({ params }: { params: Promise<{ slug: strin
                 </p>
                 <Link
                   href={`/constituencies/${mp.constituencySlug}`}
-                  className="ui mt-6 inline-block text-[16px] font-[700]"
+                  className="ui mt-6 inline-block text-[16px] font-[580]"
                 >
                   See the full local evidence →
                 </Link>
@@ -290,7 +290,7 @@ export default async function MpPage({ params }: { params: Promise<{ slug: strin
               is used so the page remains dependable when the official site is busy.
             </p>
             <p className="mt-4 text-[15px] leading-[1.55] text-[var(--ink-2)]">
-              MPs can change after an election, resignation or by-election. If this record is out
+              MPs can change after an election, resignation or by election. If this record is out
               of date, <Link href="/contact">tell me and I will check it</Link>.
             </p>
             <EvidenceDetails className="mt-6" summary="See the exact official data source">
