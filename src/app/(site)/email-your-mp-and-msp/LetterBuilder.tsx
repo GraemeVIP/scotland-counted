@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useId, useMemo, useState, type ReactNode } from "react";
 import Link from "next/link";
 import { councils, COUNCIL_YEARS, SCOTLAND_PCTS } from "@/lib/data/councils";
 import {
@@ -30,19 +30,20 @@ import {
 } from "@/lib/data/letterTopics";
 import { trackEvent } from "@/lib/analytics";
 
-function StepLabel({ n, children }: { n: number; children: React.ReactNode }) {
-  return (
-    <div className="flex items-baseline gap-3 mb-3">
-      <span className="figure-num text-[24px] text-[var(--action-text)]" aria-hidden="true">
-        {n}
-      </span>
-      <span className="ui text-[16px] font-[560] text-[var(--ink)]">{children}</span>
-    </div>
-  );
-}
+/*
+ * The email builder, as one journey down the page.
+ *
+ * It used to be two columns: a 420px form holding all four steps, beside a
+ * preview that stayed an empty box until a postcode was in. On a desktop the
+ * form ran three screens long in a narrow strip while the preview sat empty
+ * beside it; the topic cards were squeezed to a few words a line. Now each
+ * step is a full width card, in order, with a progress bar that ticks off as
+ * you go, and the finished emails come last, side by side, where the reader
+ * actually needs them.
+ */
 
 const inputCls =
-  "ui w-full rounded-[var(--r-s)] bg-[var(--paper)] border border-[var(--rule-strong)] px-3.5 py-3 text-[16px] focus:border-[var(--brand)] outline-none transition-colors";
+  "ui w-full min-h-12 rounded-[var(--r-s)] bg-[var(--surface)] border border-[var(--rule-strong)] px-4 py-3 text-[16px] text-[var(--ink)] placeholder:text-[var(--muted)] focus:border-[var(--brand)] outline-none transition-colors";
 
 function normalisePostcode(value: string) {
   return value.toUpperCase().replace(/\s+/g, "");
@@ -58,13 +59,130 @@ function representativeLabel(representative: Representative) {
   return representative.role;
 }
 
-function RepresentativeSummary({ representative }: { representative: Representative }) {
+const Tick = ({ size = 16 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" aria-hidden="true">
+    <path d="m5 12 5 5 9-10" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+/** A small picture for each subject, so the list can be scanned rather than read. */
+function TopicIcon({ id }: { id: string }) {
+  const common = {
+    width: 22,
+    height: 22,
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: 1.9,
+    strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const,
+    "aria-hidden": true,
+  };
+  switch (id) {
+    case "cost-of-living":
+      return (
+        <svg {...common}>
+          <path d="M6 3h12v18l-3-2-3 2-3-2-3 2z" />
+          <path d="M9 8h6M9 12h6" />
+        </svg>
+      );
+    case "housing":
+      return (
+        <svg {...common}>
+          <path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z" />
+        </svg>
+      );
+    case "low-pay":
+      return (
+        <svg {...common}>
+          <circle cx="12" cy="12" r="8.5" />
+          <path d="M12 7.5V12l3 2" />
+        </svg>
+      );
+    case "council-tax":
+      return (
+        <svg {...common}>
+          <path d="M3 21h18M5 21V10M19 21V10M9 21v-7M15 21v-7M2 10l10-6 10 6z" />
+        </svg>
+      );
+    case "child-poverty":
+      return (
+        <svg {...common}>
+          <circle cx="12" cy="6" r="2.6" />
+          <path d="M8 21v-5l-2-3 3-3.5h6L18 13l-2 3v5" />
+        </svg>
+      );
+    case "benefits":
+      return (
+        <svg {...common}>
+          <rect x="3" y="6" width="18" height="13" rx="2.5" />
+          <path d="M3 10h18M16 15h2" />
+        </svg>
+      );
+    case "nhs":
+      return (
+        <svg {...common}>
+          <path d="M12 20s-7.5-4.6-9.2-9.2A4.8 4.8 0 0 1 12 6.4a4.8 4.8 0 0 1 9.2 4.4C19.5 15.4 12 20 12 20z" />
+        </svg>
+      );
+    default:
+      return (
+        <svg {...common}>
+          <path d="M4 20h4L19 9l-4-4L4 16z" />
+          <path d="m13.5 6.5 4 4" />
+        </svg>
+      );
+  }
+}
+
+/** One numbered step: a full width card with its own heading. */
+function StepCard({
+  n,
+  id,
+  title,
+  done,
+  optional,
+  children,
+}: {
+  n: number;
+  id: string;
+  title: string;
+  done?: boolean;
+  optional?: boolean;
+  children: ReactNode;
+}) {
   return (
-    <div className="border-t border-[var(--rule)] pt-3 first:border-t-0 first:pt-0">
-      <p className="ui text-[15px] font-[600] text-[var(--ink)]">
-        Your {representativeLabel(representative)}: {representative.name}
-      </p>
-      <p className="text-[15px] text-[var(--ink-2)] leading-[1.5] mt-1">
+    <section id={id} aria-labelledby={`${id}-title`} className="tile scroll-mt-28 p-5 sm:p-8">
+      <div className="mb-5 flex flex-wrap items-center gap-x-4 gap-y-2">
+        <span
+          className={`ui grid h-10 w-10 shrink-0 place-items-center rounded-full text-[17px] font-[700] ${
+            done ? "bg-[var(--good)] text-white" : "bg-[var(--brand)] text-white"
+          }`}
+          aria-hidden="true"
+        >
+          {done ? <Tick size={18} /> : n}
+        </span>
+        <h2 id={`${id}-title`} className="display-stat text-[clamp(22px,2.4vw,28px)] leading-[1.15]">
+          <span className="sr-only">Step {n}: </span>
+          {title}
+        </h2>
+        {optional && (
+          <span className="ui rounded-full border border-[var(--rule-strong)] px-2.5 py-0.5 text-[13px] font-[600] text-[var(--ink-2)]">
+            Optional
+          </span>
+        )}
+      </div>
+      {children}
+    </section>
+  );
+}
+
+function PersonCard({ representative, heading }: { representative: Representative; heading: string }) {
+  return (
+    <div className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] p-4 sm:p-5">
+      <p className="ui text-[14px] font-[600] text-[var(--brand)]">{heading}</p>
+      <p className="mt-1 text-[19px] font-[650] leading-[1.25] text-[var(--ink)]">{representative.name}</p>
+      <p className="mt-1 text-[15px] leading-[1.45] text-[var(--ink-2)]">
         {representative.party} · {representative.constituency}
       </p>
     </div>
@@ -82,7 +200,8 @@ export default function LetterBuilder() {
     "idle"
   );
   const [lookupError, setLookupError] = useState("");
-  const [copied, setCopied] = useState<RepresentativeRole | null>(null);
+  const [copied, setCopied] = useState<string | null>(null);
+  const ids = useId();
 
   const council = councils.find((item) => item.slug === slug)!;
   const first = COUNCIL_YEARS[0];
@@ -211,8 +330,8 @@ export default function LetterBuilder() {
 
   function findRepresentatives(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const field = event.currentTarget.elements.namedItem("postcode") as HTMLInputElement | null;
-    const value = field?.value ?? postcode;
+    const value = postcode.trim();
+    if (!value) return;
     setPostcode(value.toUpperCase());
     void findRepresentativesFor(value);
   }
@@ -228,8 +347,18 @@ export default function LetterBuilder() {
   async function copyDraft(role: RepresentativeRole, letter: string) {
     try {
       await navigator.clipboard.writeText(letter);
-      setCopied(role);
+      setCopied(`letter-${role}`);
       trackEvent("letter_copied", { role, topic_count: topics.length });
+      setTimeout(() => setCopied(null), 3200);
+    } catch {
+      setCopied(null);
+    }
+  }
+
+  async function copyText(key: string, text: string) {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopied(key);
       setTimeout(() => setCopied(null), 3200);
     } catch {
       setCopied(null);
@@ -256,103 +385,152 @@ export default function LetterBuilder() {
     window.location.assign(mailtoFor(representative, letter));
   }
 
+  function goToPostcode() {
+    document.getElementById("lb-step-postcode")?.scrollIntoView({ block: "start", behavior: "smooth" });
+    document.getElementById(`${ids}-postcode`)?.focus({ preventScroll: true });
+  }
+
+  const steps = [
+    { id: "lb-step-postcode", label: "Your postcode", done: !!lookup },
+    { id: "lb-step-topics", label: "What it is about", done: topics.length > 0 },
+    { id: "lb-step-words", label: "Your own words", done: personal.trim().length > 0 },
+    { id: "lb-step-send", label: "Read and send", done: drafts.length > 0 },
+  ];
+
+  /* Who gets what. The part almost nobody knows, so it is spelled out. */
+  const routing = (["MP", "MSP"] as const)
+    .map((role) => ({ role, theirs: topicsForRole(topics, role) }))
+    .filter((r) => r.theirs.length > 0);
+  const reasons = topics.filter((t, i, all) => all.findIndex((x) => x.whyWho === t.whyWho) === i);
+
   return (
-    <div id="letter-builder" className="mt-10 grid gap-7 lg:grid-cols-[420px_1fr] items-start scroll-mt-24">
-      <div
-        className="rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] p-6 sm:p-7 lg:sticky lg:top-[84px]"
-        style={{ boxShadow: "var(--shadow-2)" }}
-      >
-        <div className="mb-8">
-          <StepLabel n={1}>Enter your postcode</StepLabel>
-          <form onSubmit={findRepresentatives} className="grid gap-2.5">
-            <input
-              type="text"
-              name="postcode"
-              value={postcode}
-              onChange={(event) => changePostcode(event.target.value)}
-              placeholder="Postcode, e.g. G12 8QQ"
-              data-clarity-mask="true"
-              aria-label="Your postcode"
-              className={inputCls}
-              autoComplete="postal-code"
-              inputMode="text"
-              required
-            />
+    <div id="letter-builder" className="mt-10 scroll-mt-24">
+      {/* Progress: where you are, and a way to jump back to any step */}
+      <nav aria-label="Steps">
+        <ol className="grid grid-cols-4 gap-2 sm:gap-3">
+          {steps.map((step, i) => (
+            <li key={step.id}>
+              <a
+                href={`#${step.id}`}
+                className="group block no-underline"
+                aria-label={`Step ${i + 1}: ${step.label}${step.done ? ", done" : ""}`}
+              >
+                <span
+                  className={`block h-1.5 rounded-full transition-colors ${
+                    step.done ? "bg-[var(--good)]" : "bg-[var(--rule-strong)]"
+                  }`}
+                />
+                <span className="ui mt-2 flex items-center gap-1.5 text-[13.5px] font-[600] leading-[1.25] text-[var(--ink-2)] group-hover:text-[var(--action-text)]">
+                  {step.done ? (
+                    <span className="text-[var(--good-text)]">
+                      <Tick size={14} />
+                    </span>
+                  ) : (
+                    <span className="tnum text-[var(--muted)]">{i + 1}</span>
+                  )}
+                  <span className="max-sm:sr-only">{step.label}</span>
+                </span>
+              </a>
+            </li>
+          ))}
+        </ol>
+      </nav>
+
+      <div className="mt-6 grid gap-5">
+        {/* ---------- 1. Postcode ---------- */}
+        <StepCard n={1} id="lb-step-postcode" title="Where do you live?" done={!!lookup}>
+          <form onSubmit={findRepresentatives} className="grid gap-3 sm:grid-cols-[minmax(0,320px)_auto] sm:items-end sm:justify-start">
+            <div>
+              <label htmlFor={`${ids}-postcode`} className="ui mb-1.5 block text-[15px] font-[600] text-[var(--ink)]">
+                Your postcode
+              </label>
+              {/*
+                No name attribute, on purpose: sent before the script loads, a
+                named field would land in the address bar, and from there in
+                browser history and analytics.
+              */}
+              <input
+                id={`${ids}-postcode`}
+                type="text"
+                value={postcode}
+                onChange={(event) => changePostcode(event.target.value)}
+                placeholder="e.g. G12 8QQ"
+                data-clarity-mask="true"
+                className={inputCls}
+                autoComplete="postal-code"
+                inputMode="text"
+                required
+              />
+            </div>
             <button
               type="submit"
-              className="btn btn-primary w-full justify-center"
+              className="btn btn-primary min-h-12 justify-center"
               disabled={lookupState === "loading"}
             >
               {lookupState === "loading" ? "Finding them…" : "Find my MP and MSP"}
             </button>
           </form>
+          <p className="mt-3 max-w-[64ch] text-[15px] leading-[1.55] text-[var(--ink-2)]">
+            I use your postcode to find your representatives, then add it to your email so their office knows you live
+            there. I do not save it and nothing is sent until you press send yourself.
+          </p>
 
-          <div className="mt-3" aria-live="polite">
+          <div aria-live="polite">
             {lookupState === "error" && (
-              <p className="text-[15px] text-[var(--bad-text)] leading-[1.5]">{lookupError}</p>
+              <p role="alert" className="ui mt-4 text-[16px] font-[540] leading-[1.5] text-[var(--bad-text)]">
+                {lookupError}
+              </p>
             )}
             {lookup && (
-              <div
-                data-clarity-mask="true"
-                className="rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--paper)] p-4 space-y-3"
-              >
-                <p className="ui text-[15px] font-[600] text-[var(--good-text)]">
-                  Found automatically for {lookup.postcode}
+              <div data-clarity-mask="true" className="mt-6 border-t border-[var(--rule)] pt-6">
+                <p className="ui flex items-center gap-2 text-[16px] font-[650] text-[var(--good-text)]">
+                  <Tick /> Found for {lookup.postcode}, in {lookup.council.name}
                 </p>
-                <RepresentativeSummary representative={lookup.mp} />
-                {lookup.msp ? (
-                  <RepresentativeSummary representative={lookup.msp} />
-                ) : (
-                  <p className="text-[15px] text-[var(--warn-text)] leading-[1.5] border-t border-[var(--rule)] pt-3">
-                    {lookup.mspUnavailable ?? "I could not find your MSP just now."}
-                  </p>
-                )}
+                <div className="mt-4 grid gap-3 md:grid-cols-2">
+                  <PersonCard representative={lookup.mp} heading="Your MP, in London" />
+                  {lookup.msp ? (
+                    <PersonCard representative={lookup.msp} heading="Your constituency MSP, in Edinburgh" />
+                  ) : (
+                    <p className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] p-4 text-[15px] leading-[1.5] text-[var(--warn-text)]">
+                      {lookup.mspUnavailable ?? "I could not find your MSP just now."}
+                    </p>
+                  )}
+                </div>
+
                 {lookup.regionalMsps.length > 0 && (
-                  <details className="group border-t border-[var(--rule)] pt-3">
-                    <summary className="ui flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 text-[15px] font-[600] text-[var(--ink)] marker:content-none">
+                  <details className="group mt-3 rounded-[var(--r-m)] border border-[var(--rule)]">
+                    <summary className="ui flex min-h-12 cursor-pointer list-none items-center justify-between gap-4 px-4 text-[15px] font-[600] text-[var(--ink)] marker:content-none">
                       <span>
-                        See your {lookup.regionalMsps.length} regional MSP
+                        You also have {lookup.regionalMsps.length} regional MSP
                         {lookup.regionalMsps.length === 1 ? "" : "s"}
+                        {lookup.holyrood.region ? ` for ${lookup.holyrood.region}` : ""}
                       </span>
-                      <span
-                        aria-hidden="true"
-                        className="text-[20px] leading-none text-[var(--brand)] transition-transform group-open:rotate-45"
-                      >
+                      <span aria-hidden="true" className="text-[20px] leading-none text-[var(--brand)] transition-transform group-open:rotate-45">
                         +
                       </span>
                     </summary>
-                    <div className="pb-1 pt-2">
+                    <div className="border-t border-[var(--rule)] px-4 pb-2 pt-3">
                       <p className="text-[15px] leading-[1.55] text-[var(--ink-2)]">
-                        They also represent you across the wider{" "}
-                        {lookup.holyrood.region ?? "Scottish Parliament"} region. You can contact
-                        any of them. I use your constituency MSP for the ready written email
-                        automatically, so you do not have to choose or email all seven.
+                        They also represent you, across the wider {lookup.holyrood.region ?? "Scottish Parliament"} region.
+                        You can write to any of them, but you do not need to: the ready written email goes to your
+                        constituency MSP.
                       </p>
-                      <ul className="mt-3 divide-y divide-[var(--rule)] border-y border-[var(--rule)]">
+                      <ul className="mt-3 grid gap-x-6 sm:grid-cols-2">
                         {regionalDrafts.map(({ representative, letter }) => (
-                          <li key={`${representative.name}-${representative.email}`} className="py-3">
-                            <p className="ui text-[15px] font-[580] text-[var(--ink)]">
-                              {representative.name}
-                            </p>
-                            <p className="mt-0.5 text-[15px] leading-[1.45] text-[var(--ink-2)]">
-                              {representative.party}
-                            </p>
+                          <li key={`${representative.name}-${representative.email}`} className="border-t border-[var(--rule)] py-3">
+                            <p className="ui text-[15px] font-[600] text-[var(--ink)]">{representative.name}</p>
+                            <p className="mt-0.5 text-[15px] leading-[1.45] text-[var(--ink-2)]">{representative.party}</p>
                             <div className="mt-1.5 flex flex-wrap gap-x-4 gap-y-1">
                               {letter && (
                                 <button
                                   type="button"
                                   onClick={() => openDraft(representative, letter, "regional_msp")}
-                                  className="text-[15px] font-[540] text-[var(--action-text)] underline underline-offset-[3px]"
+                                  className="text-[15px] font-[560] text-[var(--action-text)] underline underline-offset-[3px]"
                                 >
                                   Open ready written email
                                 </button>
                               )}
-                              <a
-                                href={representative.profileUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-[15px]"
-                              >
+                              <a href={representative.profileUrl} target="_blank" rel="noopener noreferrer" className="text-[15px]">
                                 Official profile
                               </a>
                             </div>
@@ -362,329 +540,321 @@ export default function LetterBuilder() {
                     </div>
                   </details>
                 )}
-                <p className="text-[15px] text-[var(--ink-2)] leading-[1.5] border-t border-[var(--rule)] pt-3">
-                  Using the official figures for {lookup.council.name}: {asOneIn(council.pcts[9])}{" "}
-                  children, exactly {council.pcts[9]}% or {council.counts[9].toLocaleString("en-GB")} children.
+
+                <p className="mt-4 text-[15px] leading-[1.55] text-[var(--ink-2)]">
+                  Your emails use the official figures for {lookup.council.name}: {asOneIn(council.pcts[9])} children
+                  growing up in poverty, exactly {council.pcts[9]}% or {council.counts[9].toLocaleString("en-GB")}{" "}
+                  children.
                 </p>
               </div>
             )}
           </div>
+        </StepCard>
 
-          <p className="text-[15px] text-[var(--muted)] leading-[1.5] mt-3">
-            I use your postcode to find your area and representatives, then add it to your draft
-            so their office knows you live there. I do not save it or send the email.
-          </p>
-        </div>
-
-        <fieldset className="mb-8">
-          <legend className="contents">
-            <StepLabel n={2}>What do you want them to act on?</StepLabel>
-          </legend>
-          <p className="text-[15px] leading-[1.55] text-[var(--ink-2)] -mt-1 mb-3">
-            Choose one or more. There is no wrong answer, and you can tick things that feel
-            unrelated, they often are not.
-          </p>
-
-          <div className="grid gap-2 sm:grid-cols-2">
-            {LETTER_TOPICS.map((t) => {
-              const on = topicIds.includes(t.id);
-              return (
-                <label
-                  key={t.id}
-                  className={`group flex gap-3 cursor-pointer rounded-[var(--r-s)] border px-3.5 py-3 transition-colors ${
-                    on
-                      ? "border-[var(--brand)] bg-[var(--surface-2)]"
-                      : "border-[var(--rule-strong)] bg-[var(--paper)] hover:border-[var(--muted)]"
-                  }`}
-                >
-                  <input
-                    type="checkbox"
-                    checked={on}
-                    onChange={() => toggleTopic(t.id)}
-                    className="mt-[3px] h-[18px] w-[18px] shrink-0 accent-[var(--brand)]"
-                  />
-                  <span>
-                    <span className="ui block text-[15.5px] font-[560] leading-[1.35] text-[var(--ink)]">
-                      {t.label}
-                    </span>
-                    <span className="block text-[14.5px] leading-[1.45] text-[var(--ink-2)] mt-0.5">
-                      {t.blurb}
-                    </span>
-                  </span>
-                </label>
-              );
-            })}
-          </div>
-
-          {topics.length === 0 ? (
-            <p className="mt-3 rounded-[var(--r-s)] border-l-[3px] border-[var(--warn)] bg-[var(--surface-2)] px-4 py-3 text-[15px] leading-[1.55] text-[var(--ink-2)]">
-              Tick at least one thing above and I will work out who can act on it.
-            </p>
-          ) : (
-            /*
-             * Who each email goes to, and why. This is the part almost nobody
-             * knows, and with several subjects ticked it is the part doing the
-             * real work, the reader never has to sort reserved from devolved.
-             */
-            <div className="mt-3 space-y-2">
-              {(["MP", "MSP"] as const).map((role) => {
-                const theirs = topicsForRole(topics, role);
-                if (!theirs.length) return null;
+        {/* ---------- 2. Topics ---------- */}
+        <StepCard n={2} id="lb-step-topics" title="What do you want them to act on?" done={topics.length > 0}>
+          <fieldset>
+            <legend className="mb-4 max-w-[64ch] text-[16px] leading-[1.55] text-[var(--ink-2)]">
+              Pick one or more. There is no wrong answer, and things that feel unrelated often are not.
+            </legend>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {LETTER_TOPICS.map((t) => {
+                const on = topicIds.includes(t.id);
                 return (
-                  <div
-                    key={role}
-                    className="rounded-[var(--r-s)] border-l-[3px] border-[var(--brand)] bg-[var(--surface-2)] px-4 py-3"
+                  <label
+                    key={t.id}
+                    className={`group relative flex cursor-pointer gap-3.5 rounded-[var(--r-m)] border-2 p-4 transition-colors has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-[var(--brand)] ${
+                      on
+                        ? "border-[var(--brand)] bg-[var(--brand-wash)]"
+                        : "border-[var(--rule)] bg-[var(--surface)] hover:border-[var(--rule-strong)]"
+                    }`}
                   >
-                    <p className="ui text-[14px] font-[600] text-[var(--brand)] mb-1">
-                      Your {role} gets: {joinPhrases(theirs.map((t) => t.phrase))}
-                    </p>
-                    <p className="text-[15px] leading-[1.55] text-[var(--ink-2)]">
-                      {theirs[0].whyWho}
-                    </p>
-                  </div>
+                    <input type="checkbox" checked={on} onChange={() => toggleTopic(t.id)} className="sr-only" />
+                    <span
+                      className={`grid h-11 w-11 shrink-0 place-items-center rounded-[12px] ${
+                        on ? "bg-[var(--brand)] text-white" : "bg-[var(--surface-2)] text-[var(--brand)]"
+                      }`}
+                    >
+                      <TopicIcon id={t.id} />
+                    </span>
+                    <span className="min-w-0 flex-1 pr-7">
+                      <span className="ui block text-[16.5px] font-[650] leading-[1.3] text-[var(--ink)]">{t.label}</span>
+                      <span className="mt-1 block text-[15px] leading-[1.45] text-[var(--ink-2)]">{t.blurb}</span>
+                    </span>
+                    <span
+                      aria-hidden="true"
+                      className={`absolute right-3.5 top-3.5 grid h-6 w-6 place-items-center rounded-full border-2 ${
+                        on ? "border-[var(--brand)] bg-[var(--brand)] text-white" : "border-[var(--rule-strong)] text-transparent"
+                      }`}
+                    >
+                      <Tick size={13} />
+                    </span>
+                  </label>
                 );
               })}
             </div>
-          )}
-        </fieldset>
+          </fieldset>
 
-        <div className="mb-8">
-          <StepLabel n={3}>Add your own words</StepLabel>
-          <div className="space-y-3">
-            <input
-              type="text"
-              value={name}
-              onChange={(event) => setName(event.target.value)}
-              placeholder="Your name (optional)"
-              data-clarity-mask="true"
-              aria-label="Your name, optional"
-              className={inputCls}
-              autoComplete="name"
-            />
-            <textarea
-              value={personal}
-              onChange={(event) => setPersonal(event.target.value)}
-              placeholder={promptText}
-              data-clarity-mask="true"
-              aria-label="What you want to tell them, optional"
-              rows={6}
-              className={`${inputCls} resize-y`}
-            />
-          </div>
-          <p className="text-[15px] text-[var(--muted)] leading-[1.5] mt-3">
-            Optional, but it is the part only you can write, and it goes in first, before
-            any of the policy asks. Nothing is sent to me and nothing is saved.
-          </p>
-        </div>
-
-        <div>
-          <StepLabel n={4}>Open and send</StepLabel>
-          {!lookup ? (
-            <p className="rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--paper)] p-4 text-[15px] text-[var(--ink-2)] leading-[1.5]">
-              Enter your postcode above. I will find everyone who represents you, then prepare
-              focused emails to your MP and constituency MSP. You do not need to choose who gets
-              which request.
+          {topics.length === 0 ? (
+            <p className="mt-4 rounded-[var(--r-s)] border-l-[3px] border-[var(--warn)] bg-[var(--surface-2)] px-4 py-3 text-[15px] leading-[1.55] text-[var(--ink-2)]">
+              Tick at least one thing above and I will work out who can act on it.
             </p>
           ) : (
-            <div data-clarity-mask="true" className="space-y-4">
-              {drafts.length === 0 ? (
-                <div className="rounded-[var(--r-s)] border-l-[3px] border-[var(--warn)] bg-[var(--surface-2)] px-4 py-3">
-                  <p className="text-[15px] text-[var(--ink-2)] leading-[1.55]">
-                    {topics.length === 0 ? (
-                      <>
-                        <strong>No email is ready yet.</strong> Tick at least one subject above and
-                        I will work out who can act on it.
-                      </>
-                    ) : (
-                      <>
-                        <strong>I could not prepare this email just now.</strong> Your representative
-                        details are incomplete. Try the postcode lookup again in a moment, or use
-                        the official profile links above to contact them directly.
-                      </>
-                    )}
-                  </p>
-                </div>
-              ) : (
-                <p className="text-[15px] text-[var(--ink-2)] leading-[1.55]">
-                  {drafts.length === 2 ? (
+            <div className="mt-5 rounded-[var(--r-m)] bg-[var(--surface-2)] p-4 sm:p-5">
+              <p className="ui text-[15px] font-[650] text-[var(--ink)]">Who gets asked about what</p>
+              <ul className={`mt-3 grid gap-3 ${routing.length === 2 ? "md:grid-cols-2" : ""}`}>
+                {routing.map(({ role, theirs }) => (
+                  <li key={role} className="rounded-[var(--r-s)] border-l-[3px] border-[var(--brand)] bg-[var(--surface)] px-4 py-3">
+                    <p className="ui text-[13.5px] font-[600] text-[var(--brand)]">
+                      {role === "MP" ? "Your MP, in London" : "Your MSP, in Edinburgh"}
+                    </p>
+                    <p className="mt-1 text-[16px] font-[600] leading-[1.4] text-[var(--ink)]">
+                      {joinPhrases(theirs.map((t) => t.phrase)).replace(/^./, (c) => c.toUpperCase())}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+              <details className="mt-3">
+                <summary className="ui cursor-pointer text-[15px] font-[600] text-[var(--action-text)]">Why is it split like this?</summary>
+                <ul className="mt-2 grid gap-2 text-[15px] leading-[1.55] text-[var(--ink-2)]">
+                  {reasons.map((t) => (
+                    <li key={t.id}>
+                      <strong className="text-[var(--ink)]">{t.label}:</strong> {t.whyWho}
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            </div>
+          )}
+        </StepCard>
+
+        {/* ---------- 3. Your words ---------- */}
+        <StepCard n={3} id="lb-step-words" title="Add your own words" optional done={personal.trim().length > 0}>
+          <div className="grid gap-4 md:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]">
+            <div>
+              <label htmlFor={`${ids}-name`} className="ui mb-1.5 block text-[15px] font-[600] text-[var(--ink)]">
+                Your name
+              </label>
+              <input
+                id={`${ids}-name`}
+                type="text"
+                value={name}
+                onChange={(event) => setName(event.target.value)}
+                placeholder="So they know who it is from"
+                data-clarity-mask="true"
+                className={inputCls}
+                autoComplete="name"
+              />
+            </div>
+            <div>
+              <label htmlFor={`${ids}-message`} className="ui mb-1.5 block text-[15px] font-[600] text-[var(--ink)]">
+                Why this matters to you
+              </label>
+              <textarea
+                id={`${ids}-message`}
+                value={personal}
+                onChange={(event) => setPersonal(event.target.value)}
+                placeholder={promptText}
+                data-clarity-mask="true"
+                rows={5}
+                className={`${inputCls} resize-y`}
+              />
+            </div>
+          </div>
+          <p className="mt-3 max-w-[64ch] text-[15px] leading-[1.55] text-[var(--ink-2)]">
+            It is the part only you can write, and it goes first, before any of the asks. A sentence or two is plenty.
+            Nothing you type is sent to me or saved.
+          </p>
+        </StepCard>
+
+        {/* ---------- 4. Read and send ---------- */}
+        <StepCard n={4} id="lb-step-send" title="Read and send" done={drafts.length > 0}>
+          {!lookup ? (
+            <div className="flex flex-wrap items-center justify-between gap-4 rounded-[var(--r-m)] bg-[var(--surface-2)] p-5">
+              <p className="max-w-[56ch] text-[16px] leading-[1.55] text-[var(--ink-2)]">
+                Your emails appear here once I know your postcode. I write one to your MP and one to your constituency
+                MSP, and each only asks for what that person can do.
+              </p>
+              <button type="button" onClick={goToPostcode} className="btn btn-primary">
+                Enter your postcode <span aria-hidden="true">↑</span>
+              </button>
+            </div>
+          ) : drafts.length === 0 ? (
+            <div className="rounded-[var(--r-s)] border-l-[3px] border-[var(--warn)] bg-[var(--surface-2)] px-4 py-3">
+              <p className="text-[15px] leading-[1.55] text-[var(--ink-2)]">
+                {topics.length === 0 ? (
                   <>
-                    <strong>Two emails are ready.</strong> One goes to your MP in London and one
-                    to your constituency MSP in Edinburgh. Each one only asks for things that
-                    person can actually do.
+                    <strong>No email is ready yet.</strong> Tick at least one subject in step 2 and I will work out who
+                    can act on it.
                   </>
                 ) : (
                   <>
-                    <strong>Your email is ready.</strong> It goes to your{" "}
-                    {drafts[0] ? representativeLabel(drafts[0].representative) : "MP"}, because
-                    that is who can act on this.
+                    <strong>I could not prepare this email just now.</strong> Your representative details are incomplete.
+                    Try the postcode again in a moment, or use the official profile links to contact them directly.
                   </>
-                  )}
-                </p>
-              )}
-              {drafts.map(({ representative, letter }, index) => (
-                <div
-                  key={representative.role}
-                  className="rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--paper)] p-4"
-                >
-                  <p className="ui text-[15px] font-[600] text-[var(--action-text)]">
-                    {drafts.length === 2 ? `Email ${index + 1} of 2 · ` : "Email · "}
-                    your {representativeLabel(representative)}
-                  </p>
-                  <p className="text-[18px] font-[560] mt-1">{representative.name}</p>
-                  <p className="text-[15px] text-[var(--ink-2)] leading-[1.45] mt-1">
-                    {representative.party} · {representative.constituency}
-                  </p>
-                  <a
-                    href={`mailto:${representative.email}`}
-                    className="text-[15px] break-all inline-block mt-2"
-                  >
-                    {representative.email}
-                  </a>
-                  {representative.phone && (
-                    <p className="text-[15px] text-[var(--ink-2)] mt-1">
-                      {representative.phone}
-                    </p>
-                  )}
-                  {representative.officeAddress && (
-                    <p className="text-[15px] text-[var(--ink-2)] leading-[1.5] mt-1">
-                      {representative.officeAddress}
-                    </p>
-                  )}
-                  <div className="grid gap-2.5 mt-4">
-                    <button
-                      type="button"
-                      onClick={() => openDraft(representative, letter)}
-                      className="btn btn-primary w-full justify-center text-center"
-                      aria-label={`Open ready to send email to ${representative.name}, your ${representativeLabel(representative)}`}
-                    >
-                      Open email to {representative.name}
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => copyDraft(representative.role, letter)}
-                      className="btn btn-ghost w-full justify-center"
-                      aria-live="polite"
-                    >
-                      {copied === representative.role ? "Copied" : "Copy email instead"}
-                    </button>
-                  </div>
-                  <a
-                    href={representative.profileUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="ui text-[15px] inline-block mt-3"
-                  >
-                    Check official profile →
-                  </a>
-                </div>
-              ))}
-              <p className="text-[15px] text-[var(--muted)] leading-[1.5]">
-                Your email app opens with everything filled in. Read it, add your street address
-                if needed, then press send when you are happy.
+                )}
               </p>
             </div>
+          ) : (
+            <div data-clarity-mask="true">
+              <p className="max-w-[70ch] text-[16px] leading-[1.55] text-[var(--ink-2)]">
+                {drafts.length === 2 ? (
+                  <>
+                    <strong className="text-[var(--ink)]">Two emails are ready.</strong> One to your MP in London and one
+                    to your constituency MSP in Edinburgh. Read them, change anything you like, then open each in your
+                    email app and press send.
+                  </>
+                ) : (
+                  <>
+                    <strong className="text-[var(--ink)]">Your email is ready.</strong> It goes to your{" "}
+                    {drafts[0] ? representativeLabel(drafts[0].representative) : "MP"}, because that is who can act on
+                    this.
+                  </>
+                )}
+              </p>
+
+              <div className={`mt-5 grid gap-5 ${drafts.length === 2 ? "lg:grid-cols-2" : ""}`}>
+                {drafts.map(({ representative, letter }, index) => {
+                  const subject = letterSubject(area, topicsForRole(topics, representative.role));
+                  return (
+                    <article
+                      key={representative.role}
+                      aria-labelledby={`${ids}-to-${representative.role}`}
+                      className="flex min-w-0 flex-col rounded-[var(--r-m)] border border-[var(--rule)] border-t-[4px] border-t-[var(--brand)] bg-[var(--surface)] p-5"
+                    >
+                      <p className="ui text-[13.5px] font-[600] text-[var(--brand)]">
+                        {drafts.length === 2 ? `Email ${index + 1} of 2 · ` : ""}To your {representativeLabel(representative)}
+                      </p>
+                      <h3 id={`${ids}-to-${representative.role}`} className="mt-1 text-[21px] font-[650] leading-[1.2]">
+                        {representative.name}
+                      </h3>
+                      <p className="mt-1 text-[15px] leading-[1.45] text-[var(--ink-2)]">
+                        {representative.party} · {representative.constituency}
+                      </p>
+
+                      <dl className="mt-4 grid gap-2 border-y border-[var(--rule)] py-3 text-[15px]">
+                        <div className="flex min-w-0 flex-wrap items-baseline gap-x-2">
+                          <dt className="ui w-[64px] shrink-0 text-[var(--muted)]">To</dt>
+                          <dd className="m-0 min-w-0 flex-1 break-all">
+                            {representative.email}{" "}
+                            <button
+                              type="button"
+                              onClick={() => copyText(`address-${representative.role}`, representative.email)}
+                              className="ui ml-1 text-[14px] font-[600] text-[var(--action-text)] underline underline-offset-[3px]"
+                            >
+                              {copied === `address-${representative.role}` ? "Copied" : "Copy address"}
+                            </button>
+                          </dd>
+                        </div>
+                        <div className="flex min-w-0 flex-wrap items-baseline gap-x-2">
+                          <dt className="ui w-[64px] shrink-0 text-[var(--muted)]">Subject</dt>
+                          <dd className="m-0 min-w-0 flex-1 font-[600] text-[var(--ink)]">{subject}</dd>
+                        </div>
+                      </dl>
+
+                      <div
+                        role="region"
+                        aria-label={`The email to ${representative.name}`}
+                        tabIndex={0}
+                        className="mt-3 max-h-[380px] overflow-y-auto rounded-[var(--r-s)] bg-[var(--surface-2)] p-4 outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand)]"
+                      >
+                        <pre className="m-0 whitespace-pre-wrap font-sans text-[15.5px] leading-[1.6] text-[var(--ink-2)]">
+                          {letter}
+                        </pre>
+                      </div>
+                      <p className="ui mt-2 text-[13.5px] text-[var(--muted)]">
+                        {letter.split(/\s+/).length} words · scroll to read it all
+                      </p>
+
+                      <div className="mt-4 grid gap-2.5 sm:grid-cols-2">
+                        <button
+                          type="button"
+                          onClick={() => openDraft(representative, letter)}
+                          className="btn btn-primary justify-center text-center"
+                          aria-label={`Open ready to send email to ${representative.name}, your ${representativeLabel(representative)}`}
+                        >
+                          Open in your email app
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => copyDraft(representative.role, letter)}
+                          className="btn btn-ghost justify-center"
+                          aria-live="polite"
+                        >
+                          {copied === `letter-${representative.role}` ? "Copied" : "Copy the email"}
+                        </button>
+                      </div>
+                      <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-[14.5px] text-[var(--ink-2)]">
+                        <a href={representative.profileUrl} target="_blank" rel="noopener noreferrer">
+                          Official profile →
+                        </a>
+                        {representative.phone && <span>{representative.phone}</span>}
+                      </div>
+                      {representative.officeAddress && (
+                        <p className="mt-1 text-[14.5px] leading-[1.5] text-[var(--ink-2)]">{representative.officeAddress}</p>
+                      )}
+                    </article>
+                  );
+                })}
+              </div>
+
+              <div className="mt-5 grid gap-2 rounded-[var(--r-m)] bg-[var(--surface-2)] p-4 text-[15px] leading-[1.55] text-[var(--ink-2)] sm:p-5">
+                <p>
+                  <strong className="text-[var(--ink)]">Using Gmail or Outlook in a browser?</strong> The button opens
+                  your computer&apos;s email app, which might not be the one you use. Press <em>Copy the email</em> and{" "}
+                  <em>Copy address</em> instead, then paste them into a new message.
+                </p>
+                <p>Add your street address at the bottom if you like. Offices often ask for it to confirm you live there.</p>
+              </div>
+            </div>
           )}
-        </div>
+        </StepCard>
       </div>
 
-      <div data-clarity-mask="true">
-        <div className="flex items-baseline justify-between gap-4 mb-3">
-          <p className="label">Your email{drafts.length === 2 ? "s" : ""}</p>
-          {drafts.length > 0 && (
-            <p className="ui tnum text-[15px] text-[var(--muted)]">
-              {drafts.length} ready
-            </p>
-          )}
-        </div>
-
-        {drafts.length === 0 ? (
-          <div
-            className="rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] border-t-[3px] border-t-[var(--brand)] p-7 sm:p-10"
-            style={{ boxShadow: "var(--shadow-2)" }}
-          >
-            <p className="text-[20px] font-[600]">Your addressed emails will appear here</p>
-            <p className="text-[16px] text-[var(--ink-2)] leading-[1.6] mt-3 max-w-[58ch]">
-              Enter your postcode. I find your MP and every MSP, use your area&apos;s official figures
-              and write to your MP and constituency MSP automatically.
-            </p>
-          </div>
-        ) : (
-          <div className="space-y-6">
-            {drafts.map(({ representative, letter }) => (
-              <article
-                key={representative.role}
-                className="rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] border-t-[3px] border-t-[var(--brand)] p-6 sm:p-10"
-                style={{ boxShadow: "var(--shadow-2)" }}
-              >
-                <div className="flex flex-wrap items-baseline justify-between gap-3 border-b border-[var(--rule)] pb-4 mb-5">
-                  <div>
-                    <p className="ui text-[15px] font-[600] text-[var(--action-text)]">
-                      To your {representativeLabel(representative)}
-                    </p>
-                    <h2 className="text-[22px] font-[580] mt-1">{representative.name}</h2>
-                  </div>
-                  <p className="ui tnum text-[15px] text-[var(--muted)]">
-                    {letter.split(/\s+/).length} words
-                  </p>
-                </div>
-                <pre className="text-[16px] leading-[1.65] whitespace-pre-wrap font-sans text-[var(--ink-2)] overflow-x-auto m-0">
-                  {letter}
-                </pre>
-              </article>
-            ))}
-          </div>
-        )}
-
-        <p className="text-[15px] text-[var(--ink-2)] leading-[1.55] mt-4 max-w-[64ch]">
-          Every figure in the email is published on this site. You and your representative can
-          check it on{" "}
-          {/*
-            Resolved, not the hub. The reader has already told us where they
-            live, so sending them to a list of 32 areas to find it again is
-            asking them to do work we have already done.
-          */}
-          <Link href={lookup ? `/areas/${lookup.council.slug}` : "/areas"}>
-            your area&apos;s page
-          </Link>
-          , alongside the source.
-        </p>
-
+      <p className="mt-5 max-w-[70ch] text-[15px] leading-[1.55] text-[var(--ink-2)]">
+        Every figure in the email is published on this site. You and your representative can check it on{" "}
         {/*
-          The rest of the local record, once the postcode has resolved.
-          Every href names a council or a constituency, so all of them are
-          safe to bookmark or send on. None of them carries the postcode.
+          Resolved, not the hub. The reader has already told us where they
+          live, so sending them to a list of 32 areas to find it again is
+          asking them to do work we have already done.
         */}
-        {lookup && (
-          <div className="mt-6 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5 sm:p-6">
-            <h2 className="text-[20px] font-[600]">While you are here</h2>
-            <p className="mt-2 max-w-[62ch] text-[15.5px] leading-[1.55] text-[var(--ink-2)]">
-              The figures behind your email, and the rest of what is on the record for your area.
-              These pages are public and safe to share.
-            </p>
-            <ul className="mt-4 grid gap-2.5 sm:grid-cols-2">
-              {localAreaLinks(lookup).map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="block h-full rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--paper)] p-4 no-underline transition-colors hover:border-[var(--brand)]"
-                  >
-                    <span className="ui block text-[16px] font-[600] leading-[1.35] text-[var(--ink)]">
-                      {link.label}
-                      <span aria-hidden="true" className="text-[var(--brand)]">
-                        {" "}
-                        →
-                      </span>
+        <Link href={lookup ? `/areas/${lookup.council.slug}` : "/areas"}>your area&apos;s page</Link>, alongside the
+        source.
+      </p>
+
+      {/*
+        The rest of the local record, once the postcode has resolved.
+        Every href names a council or a constituency, so all of them are
+        safe to bookmark or send on. None of them carries the postcode.
+      */}
+      {lookup && (
+        <div className="tile mt-6 p-5 sm:p-8">
+          <h2 className="display-stat text-[clamp(22px,2.4vw,28px)]">While you are here</h2>
+          <p className="mt-2 max-w-[62ch] text-[15.5px] leading-[1.55] text-[var(--ink-2)]">
+            The figures behind your email, and the rest of what is on the record for your area. These pages are public
+            and safe to share.
+          </p>
+          <ul className="mt-4 grid gap-2.5 sm:grid-cols-2">
+            {localAreaLinks(lookup).map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="block h-full rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface-2)] p-4 no-underline transition-colors hover:border-[var(--brand)]"
+                >
+                  <span className="ui block text-[16px] font-[600] leading-[1.35] text-[var(--ink)]">
+                    {link.label}
+                    <span aria-hidden="true" className="text-[var(--brand)]">
+                      {" "}
+                      →
                     </span>
-                    <span className="mt-1 block text-[15px] leading-[1.45] text-[var(--ink-2)]">
-                      {link.blurb}
-                    </span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-      </div>
+                  </span>
+                  <span className="mt-1 block text-[15px] leading-[1.45] text-[var(--ink-2)]">{link.blurb}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }

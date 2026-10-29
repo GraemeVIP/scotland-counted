@@ -73,14 +73,20 @@ test("the homepage still promises local information", async ({ page }) => {
    * repositioning. The promise is correct; the journey had to meet it.
    */
   await page.goto("/");
-  const lede = (
-    await page.locator("main p").filter({ hasText: /postcode/i }).first().innerText()
+  // The postcode card as a whole: since the redesign its promise is split
+  // across a heading, a line on what you get, and a line on privacy.
+  const card = (
+    await page
+      .locator("main div")
+      .filter({ has: page.getByRole("heading", { name: "Enter your postcode" }) })
+      .last()
+      .innerText()
   ).toLowerCase();
 
-  expect(lede, "the hero stopped promising local figures").toMatch(
-    /figures for your area|your area, your council/,
+  expect(card, "the hero stopped promising local figures").toMatch(
+    /figures for your area|your area, your council|your local figures/,
   );
-  expect(lede).toMatch(/council/);
+  expect(card).toMatch(/your council/);
 
   // And the CTA names the first thing the reader gets, not the last.
   await expect(page.getByRole("button", { name: "Check my area" })).toBeVisible();
@@ -151,10 +157,12 @@ test("the local result carries the figures the hero promises", async ({ page }) 
   await expect(result).toContainText("in poverty after housing costs");
   await expect(result).toContainText(/council said it was short|left over/);
   await expect(result).toContainText(/decided at\s+Westminster/);
-  await expect(result.locator('a[href="/areas/glasgow-city"]')).toBeVisible();
+  // .first(): the area page is linked twice, from the heading and from the list.
+  await expect(result.locator('a[href="/areas/glasgow-city"]').first()).toBeVisible();
   await expect(result.locator('a[href="/councils/glasgow-city"]')).toBeVisible();
   await expect(
-    result.locator('a[href="/council-tax-bands-scotland/glasgow-city"]'),
+    // The exact match address that replaced /council-tax-bands-scotland/glasgow-city.
+    result.locator('a[href="/glasgow-council-tax-bands"]'),
   ).toBeVisible();
   await expect(
     result.locator('a[href="/take-home-pay-calculator-scotland"]'),
