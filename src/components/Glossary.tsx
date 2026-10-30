@@ -358,19 +358,51 @@ const autoTermPattern = autoTerms.length
   ? new RegExp(`\\b(${autoTerms.map((term) => termPatternSource(term.term)).join("|")})\\b`, "gi")
   : null;
 
+/*
+ * A term is a button, and browsers will start a new line right beside a
+ * button even where they never would in plain text. That stranded the
+ * opening quote of “after housing costs” at the end of one line, with the
+ * words starting the next. So anything touching a term with no space
+ * between, such as quote marks, brackets or a comma, is kept with it.
+ */
 function annotateString(value: string, keyPrefix: string): ReactNode {
   if (!autoTermPattern || !value.trim()) return value;
 
-  return value.split(autoTermPattern).map((part, index) => {
+  // One capture group, so the parts alternate: text, term, text, … text.
+  const parts = value.split(autoTermPattern);
+  const out: ReactNode[] = [];
+  let text = parts[0];
+  for (let index = 1; index < parts.length; index += 2) {
+    const part = parts[index];
+    const after = parts[index + 1] ?? "";
     const term = autoTerms.find((candidate) => normaliseTermText(candidate.term) === normaliseTermText(part));
-    return term ? (
+    if (!term) {
+      text += part + after;
+      continue;
+    }
+    const lead = /\S*$/.exec(text)![0];
+    const trail = /^\S*/.exec(after)![0];
+    if (text.length > lead.length) out.push(text.slice(0, text.length - lead.length));
+    const button = (
       <G key={`${keyPrefix}-${term.id}-${index}`} t={term.id}>
         {part}
       </G>
-    ) : (
-      part
     );
-  });
+    out.push(
+      lead || trail ? (
+        <span key={`${keyPrefix}-word-${index}`} className="gl-word">
+          {lead}
+          {button}
+          {trail}
+        </span>
+      ) : (
+        button
+      ),
+    );
+    text = after.slice(trail.length);
+  }
+  if (text) out.push(text);
+  return out;
 }
 
 function annotateNode(node: ReactNode, keyPrefix: string): ReactNode {

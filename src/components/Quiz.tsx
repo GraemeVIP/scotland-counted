@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "@/components/IntentLink";
 import { quiz, scoreVerdict } from "@/lib/data/quiz";
 import { ExplainText } from "@/components/Glossary";
@@ -27,11 +27,41 @@ export default function Quiz({
   const [picked, setPicked] = useState<number | null>(null);
   const [correct, setCorrect] = useState(0);
   const [done, setDone] = useState(false);
+  const cardRef = useRef<HTMLElement>(null);
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  // Set by the buttons that change the question, so the page never moves on load.
+  const moved = useRef(false);
 
   const q = quiz[step];
   const answered = picked !== null;
   const isLast = step === quiz.length - 1;
   const Heading = headingLevel;
+
+  /*
+   * Next question, See my score and Play again each remove the answer panel
+   * the reader had scrolled down to read. On a small phone that left the page
+   * showing the bottom of the next question, or the section below the quiz,
+   * and people had to scroll back up to find it. So when the top of the quiz
+   * has gone above the screen, bring it back. When it is in view, nothing
+   * moves.
+   *
+   * Focus goes to the new heading too, because the button that had it is
+   * gone. This runs as an effect so the new question exists by then.
+   */
+  useEffect(() => {
+    if (!moved.current) return;
+    moved.current = false;
+    headingRef.current?.focus({ preventScroll: true });
+    const card = cardRef.current;
+    // The sticky header covers the top of the screen. The page's
+    // scroll-padding-top is its height plus a small gap.
+    const covered = parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0;
+    if (card && card.getBoundingClientRect().top < covered) {
+      // No behavior given, so the page's CSS decides: a smooth scroll, or an
+      // instant one for people who have asked for reduced motion.
+      card.scrollIntoView({ block: "start" });
+    }
+  }, [step, done]);
 
   function choose(i: number) {
     if (answered) return;
@@ -40,6 +70,7 @@ export default function Quiz({
   }
 
   function next() {
+    moved.current = true;
     if (isLast) {
       setDone(true);
       return;
@@ -49,6 +80,7 @@ export default function Quiz({
   }
 
   function restart() {
+    moved.current = true;
     setStep(0);
     setPicked(null);
     setCorrect(0);
@@ -59,6 +91,7 @@ export default function Quiz({
     const v = scoreVerdict(correct, quiz.length);
     return (
       <section
+        ref={cardRef}
         className={`rounded-[var(--r-m)] bg-[var(--deep)] px-6 py-9 text-[var(--deep-ink)] sm:px-10 sm:py-12 ${className}`}
         style={{ boxShadow: "var(--shadow-2)" }}
         aria-live="polite"
@@ -68,7 +101,13 @@ export default function Quiz({
           {correct}
           <span className="opacity-50"> / {quiz.length}</span>
         </p>
-        <Heading className="mt-4 text-[24px] font-[620] leading-[1.2] sm:text-[30px]">{v.title}</Heading>
+        <Heading
+          ref={headingRef}
+          tabIndex={-1}
+          className="mt-4 text-[24px] font-[620] leading-[1.2] outline-none sm:text-[30px]"
+        >
+          {v.title}
+        </Heading>
         <p className="mt-4 max-w-[56ch] text-[17.5px] leading-[1.6] opacity-85"><ExplainText>{v.body}</ExplainText></p>
 
         <p className="mt-7 max-w-[56ch] text-[19px] leading-[1.5] font-[540]">
@@ -95,6 +134,7 @@ export default function Quiz({
 
   return (
     <section
+      ref={cardRef}
       className={`overflow-hidden rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] ${className}`}
       style={{ boxShadow: "var(--shadow-2)" }}
       aria-label="Guess the figure"
@@ -124,7 +164,11 @@ export default function Quiz({
       </div>
 
       <div className="px-5 py-7 sm:px-7 sm:py-8">
-        <Heading className="text-[21px] font-[620] leading-[1.25] max-w-[30ch] sm:text-[26px]">
+        <Heading
+          ref={headingRef}
+          tabIndex={-1}
+          className="text-[21px] font-[620] leading-[1.25] max-w-[30ch] outline-none sm:text-[26px]"
+        >
           <ExplainText>{q.question}</ExplainText>
         </Heading>
 

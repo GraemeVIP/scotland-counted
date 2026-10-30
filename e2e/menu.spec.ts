@@ -1,139 +1,156 @@
 import { test, expect, type Page } from "@playwright/test";
 
 /*
- * The browse panel has to fit on the screen it is drawn on.
+ * The section menus have to fit on the screen they are drawn on.
  *
- * It renders inside the sticky header, so it travels with it. When the
- * content was taller than the room below the bar there was nothing to
- * scroll: the page moved and the panel moved with it, so the bottom simply
- * sat off screen. Measured at 1440x900 the panel was 1495px tall against
- * 832px of room, and 663px of it, two whole sections and every link in them,
- * could not be reached by any means.
+ * Each section in the header (Money, Benefits and the rest) opens its own
+ * panel under the bar. The panel travels with the sticky header, so scrolling
+ * the page cannot reveal the bottom of it: if it is taller than the room below
+ * the bar, it has to stop at the bottom of the screen and scroll inside
+ * itself. The old single browse panel once ran 663px off the bottom of a
+ * 1440x900 screen, two whole sections of links that nothing could reach, and
+ * no other test noticed. It needed measuring at real screen heights.
  *
- * No existing test caught it. Every link was in the DOM, every href was
- * right, and axe has nothing to say about a thing that is rendered but
- * unreachable. It needed measuring at a real viewport height.
+ * At ordinary laptop heights every panel fits without scrolling. 480 stands
+ * for a short window, or a laptop zoomed in, where the panels have to scroll.
  *
- * The desktop panel is xl-only, so every width here is at least 1280.
+ * The desktop menus are xl only, so every width here is at least 1280.
  */
 
-const HEIGHTS = [640, 720, 900, 1080];
+const SHORT = 480;
+const HEIGHTS = [SHORT, 640, 720, 900, 1080];
 
-async function openPanel(page: Page) {
-  await page.goto("/");
-  await page.getByRole("button", { name: "Everything on this site" }).click();
-  const panel = page.locator("#browse-panel");
-  await expect(panel).toBeVisible();
-  return panel;
+/** Every section button in the header, so a new section is checked without editing this file. */
+function sectionButtons(page: Page) {
+  return page.getByRole("navigation", { name: "Main" }).locator('button[aria-controls="hub-panel"]');
+}
+
+async function openSection(page: Page, index: number) {
+  const button = sectionButtons(page).nth(index);
+  const name = (await button.textContent())?.trim() ?? "";
+  await button.click();
+  const panel = page.locator("#hub-panel");
+  await expect(panel).toHaveAttribute("aria-label", `${name} menu`);
+  return { panel, name };
 }
 
 for (const height of HEIGHTS) {
-  test(`the browse panel fits and stays reachable at 1440x${height}`, async ({
+  test(`every section menu fits and stays reachable at 1440x${height}`, async ({
     page,
   }, testInfo) => {
     test.skip(testInfo.project.name !== "chromium", "layout maths does not vary by engine");
     await page.setViewportSize({ width: 1440, height });
-    const panel = await openPanel(page);
+    await page.goto("/");
+    const sections = await sectionButtons(page).count();
+    expect(sections, "the header has no section buttons, so this proves nothing").toBeGreaterThan(0);
 
-    const geometry = await panel.evaluate((el) => {
-      const scroller = el.querySelector<HTMLElement>(".overflow-y-auto")!;
-      const footer = el.lastElementChild!.getBoundingClientRect();
-      const p = el.getBoundingClientRect();
-      return {
-        panelBottom: Math.round(p.bottom),
-        viewport: window.innerHeight,
-        scrollRange: Math.round(scroller.scrollHeight - scroller.clientHeight),
-        footerBottom: Math.round(footer.bottom),
-        footerTop: Math.round(footer.top),
-      };
-    });
+    for (let i = 0; i < sections; i++) {
+      const { panel, name } = await openSection(page, i);
+      const geometry = await panel.evaluate((el) => {
+        const footer = el.lastElementChild!.getBoundingClientRect();
+        return {
+          panelBottom: Math.round(el.getBoundingClientRect().bottom),
+          viewport: window.innerHeight,
+          footerTop: Math.round(footer.top),
+          footerBottom: Math.round(footer.bottom),
+        };
+      });
 
-    // Nothing hangs off the bottom of the screen.
-    expect(
-      geometry.panelBottom,
-      `the panel runs ${geometry.panelBottom - geometry.viewport}px past the viewport`,
-    ).toBeLessThanOrEqual(geometry.viewport);
+      // Nothing hangs off the bottom of the screen.
+      expect(
+        geometry.panelBottom,
+        `${name}: the panel runs ${geometry.panelBottom - geometry.viewport}px past the screen`,
+      ).toBeLessThanOrEqual(geometry.viewport);
 
-    // The footer strip, which carries the escape hatch, is always on screen.
-    expect(geometry.footerTop).toBeGreaterThanOrEqual(0);
-    expect(geometry.footerBottom).toBeLessThanOrEqual(geometry.viewport);
-    await expect(panel.getByRole("link", { name: /every page on this site/i })).toBeVisible();
+      // The bottom strip, which carries the way out to every page, is always on screen.
+      expect(geometry.footerTop, `${name}: the bottom strip is off the top`).toBeGreaterThanOrEqual(0);
+      expect(geometry.footerBottom, `${name}: the bottom strip is off the bottom`).toBeLessThanOrEqual(
+        geometry.viewport,
+      );
+      await expect(panel.getByRole("link", { name: /every page on the site/i })).toBeVisible();
+    }
   });
 }
 
-test("every link in the panel can be reached by scrolling inside it", async ({
+test("every link in every section menu can be reached on a short screen", async ({
   page,
 }, testInfo) => {
   test.skip(testInfo.project.name !== "chromium", "layout maths does not vary by engine");
-  await page.setViewportSize({ width: 1440, height: 720 });
-  const panel = await openPanel(page);
+  await page.setViewportSize({ width: 1440, height: SHORT });
+  await page.goto("/");
+  const sections = await sectionButtons(page).count();
 
-  const unreachable = await panel.evaluate(async (el) => {
-    const scroller = el.querySelector<HTMLElement>(".overflow-y-auto")!;
-    const links = [...scroller.querySelectorAll("a")];
-    const missed: string[] = [];
+  for (let i = 0; i < sections; i++) {
+    const { panel, name } = await openSection(page, i);
+    const result = await panel.evaluate(async (el) => {
+      const links = [...el.querySelectorAll("a")];
+      const missed: string[] = [];
 
-    for (const link of links) {
-      link.scrollIntoView({ block: "nearest" });
-      await new Promise((r) => requestAnimationFrame(r));
-      const r = link.getBoundingClientRect();
-      const onScreen = r.bottom > 0 && r.top < window.innerHeight && r.height > 0;
-      if (!onScreen) missed.push(link.textContent?.trim().slice(0, 40) ?? "(unnamed)");
-    }
-    return { missed, total: links.length };
-  });
+      for (const link of links) {
+        link.scrollIntoView({ block: "nearest" });
+        await new Promise((r) => requestAnimationFrame(r));
+        const r = link.getBoundingClientRect();
+        const onScreen = r.bottom > 0 && r.top < window.innerHeight && r.height > 0;
+        if (!onScreen) missed.push(link.textContent?.trim().slice(0, 40) ?? "(unnamed)");
+      }
+      return { missed, total: links.length };
+    });
 
-  expect(unreachable.total, "the panel has no links, so this proves nothing").toBeGreaterThan(20);
-  expect(
-    unreachable.missed,
-    `links that cannot be brought on screen:\n  ${unreachable.missed.join("\n  ")}`,
-  ).toEqual([]);
+    expect(result.total, `${name}: the menu has no links, so this proves nothing`).toBeGreaterThan(5);
+    expect(
+      result.missed,
+      `${name}: links that cannot be brought on screen:\n  ${result.missed.join("\n  ")}`,
+    ).toEqual([]);
+  }
 });
 
-test("scrolling the panel does not scroll the page behind it", async ({ page }, testInfo) => {
+test("scrolling inside a section menu does not scroll the page behind it", async ({
+  page,
+}, testInfo) => {
   test.skip(testInfo.project.name !== "chromium", "layout maths does not vary by engine");
-  await page.setViewportSize({ width: 1440, height: 720 });
-  const panel = await openPanel(page);
+  await page.setViewportSize({ width: 1440, height: SHORT });
+  await page.goto("/");
+  const { panel, name } = await openSection(page, 0);
+  const scroller = panel.locator(".overflow-y-auto");
 
-  const result = await panel.evaluate(async (el) => {
-    const scroller = el.querySelector<HTMLElement>(".overflow-y-auto")!;
-    const pageBefore = window.scrollY;
-    scroller.scrollTop = scroller.scrollHeight;
-    await new Promise((r) => setTimeout(r, 200));
+  const range = await scroller.evaluate((el) => el.scrollHeight - el.clientHeight);
+  expect(range, `${name}: the menu does not need to scroll at ${SHORT}px, so this proves nothing`).toBeGreaterThan(0);
+
+  // A real mouse wheel, because only a real scroll can spill over onto the page.
+  const box = (await scroller.boundingBox())!;
+  await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
+  for (let i = 0; i < 6; i++) await page.mouse.wheel(0, 400);
+
+  await expect
+    .poll(() => scroller.evaluate((el) => el.scrollTop), { message: "the menu did not scroll inside" })
+    .toBeGreaterThan(0);
+  await page.waitForTimeout(300);
+  expect(await page.evaluate(() => window.scrollY), "scrolling the menu moved the page behind it").toBe(0);
+});
+
+test("the header height setting matches the real header", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "chromium", "layout maths does not vary by engine");
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/");
+  const { panel } = await openSection(page, 0);
+
+  /*
+   * A panel's height limit is the screen height minus --header-h. If that
+   * token ever stops matching the real header, a panel is either cut short or
+   * runs off the screen again, and the failure is silent. This checks the
+   * token against the measurement rather than trusting it.
+   */
+  const measured = await panel.evaluate((el) => {
+    const header = document.querySelector('nav[aria-label="Main"]')!.closest("header")!;
     return {
-      scrolledInside: scroller.scrollTop > 0,
-      pageMoved: window.scrollY !== pageBefore,
+      token: getComputedStyle(document.documentElement).getPropertyValue("--header-h").trim(),
+      headerBottom: Math.round(header.getBoundingClientRect().bottom),
+      panelTop: Math.round(el.getBoundingClientRect().top),
     };
   });
 
-  expect(result.scrolledInside, "the panel did not scroll internally").toBe(true);
-  expect(result.pageMoved, "scrolling the menu moved the page behind it").toBe(false);
-});
-
-test("the header bar and the panel agree on where the header ends", async ({
-  page,
-}, testInfo) => {
-  test.skip(testInfo.project.name !== "chromium", "layout maths does not vary by engine");
-  await page.setViewportSize({ width: 1440, height: 900 });
-  await openPanel(page);
-
-  /*
-   * The panel's height budget is 100dvh minus --header-h. If that token ever
-   * stops matching the real bar, the panel is either short or overflows
-   * again, and the failure is silent. This checks the token against the
-   * measurement rather than trusting it.
-   */
-  const agree = await page.evaluate(() => {
-    const token = getComputedStyle(document.documentElement)
-      .getPropertyValue("--header-h")
-      .trim();
-    const panelTop = document.querySelector("#browse-panel")!.getBoundingClientRect().top;
-    return { token, panelTop: Math.round(panelTop) };
-  });
-
-  expect(agree.token).toBe("68px");
-  expect(
-    agree.panelTop,
-    "--header-h no longer matches the height of the bar above the panel",
-  ).toBe(parseInt(agree.token, 10));
+  expect(measured.token, "--header-h no longer matches the height of the header").toBe(
+    `${measured.headerBottom}px`,
+  );
+  expect(measured.panelTop, "the panel overlaps the header").toBeGreaterThanOrEqual(measured.headerBottom);
 });

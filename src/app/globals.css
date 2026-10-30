@@ -698,6 +698,16 @@
      Glossary
      ============================================================ */
 
+  /* A term plus the quote marks or punctuation touching it, kept on one
+     line (see annotateString). The term itself can still wrap if it is
+     wider than the whole column. */
+  .gl-word {
+    white-space: nowrap;
+  }
+  .gl-word > button.gl {
+    white-space: normal;
+  }
+
   button.gl {
     font: inherit;
     color: inherit;
