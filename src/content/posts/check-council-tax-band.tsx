@@ -90,6 +90,16 @@ export default function Post() {
         <Link href={councilTaxBandPath("D")}>council tax band D Scotland</Link> page compares it
         across all 32 councils.
       </P>
+      <Aside title="Bands A to D and the £100 energy payment">
+        <p>
+          The UK Budget on 28 October 2026 announced £100 for homes in bands A to D, and the
+          Scottish Government says it will pay it here too.{" "}
+          <Link href={postPath("100-energy-payment-scotland")}>
+            Who gets the £100 energy payment in Scotland, and when
+          </Link>
+          .
+        </p>
+      </Aside>
       <Aside title="Two new bands are on the way">
         <p>
           Lothian Valuation Joint Board says Bands I and J are due from {HIGH_VALUE_BANDS.start}.

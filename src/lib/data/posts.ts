@@ -1770,6 +1770,69 @@ export const posts: Post[] = [
     sourceIds: ["sss-best-start"],
   },
   {
+    slug: "100-energy-payment-scotland",
+    title: "£100 energy payment in Scotland: who gets it and when",
+    seoTitle: "£100 Energy Payment Scotland: Who Gets It, Bands A to D and When",
+    description:
+      "The £100 energy payment from the UK Budget goes to homes in council tax bands A to D. Scotland will pay it too. Check your band, and what's still not announced.",
+    standfirst:
+      "Announced in the Budget on 28 October. The band rule is settled for Scotland. The date, and whether you need to apply, are not.",
+    date: "2026-10-30",
+    checked: "2026-10-30",
+    category: "money-and-bills",
+    tags: ["£100 energy payment", "Council tax bands", "Energy bills", "UK Budget"],
+    readingMinutes: 4,
+    quickAnswer: {
+      label: "£100 energy payment, Scotland",
+      value: "£100",
+      unit: "per household",
+      detail:
+        "For homes in council tax bands A to D, using the bands they have now. The Scottish Government says it will pay it, working with councils. No date yet.",
+      rows: [
+        { label: "Bands A to D", value: "Get £100" },
+        { label: "Bands E to H", value: "Don't get it" },
+        { label: "Do I need to apply?", value: "Not announced yet" },
+        { label: "When", value: "This winter, date not set" },
+      ],
+      asOf: "Announced 28 October 2026",
+      source: {
+        publisher: "BBC Scotland",
+        url: "https://www.yahoo.com/news/politics/articles/scottish-ministers-councils-100-energy-115428442.html",
+      },
+    },
+    toc: [
+      { id: "who", label: "Who gets it" },
+      { id: "scotland", label: "Is Scotland getting it?" },
+      { id: "bands", label: "Am I in band A to D?" },
+      { id: "when", label: "When it's paid" },
+      { id: "fair", label: "Why bands, not income" },
+      { id: "other-help", label: "Other help this winter" },
+    ],
+    faq: [
+      {
+        q: "Who gets the £100 energy payment?",
+        a: "Households in council tax bands A to D. It isn't means tested, so income and benefits don't matter. Homes in bands E to H don't get it.",
+      },
+      {
+        q: "Is Scotland getting the £100 energy payment?",
+        a: "Yes. The UK Government is giving Scotland its share of the money, and the Scottish Government has said it will pay it to homes in bands A to D, working with councils.",
+      },
+      {
+        q: "When will the £100 energy payment be paid in Scotland?",
+        a: "No date has been announced for Scotland yet. The UK Government says it's for this winter. Early reports say councils in England will pay it from January 2027.",
+      },
+      {
+        q: "Do I need to apply for the £100 energy payment in Scotland?",
+        a: "That hasn't been announced. In England, people who pay council tax by direct debit are expected to get it automatically, and others will be asked to claim. Scotland hasn't said how it will work here.",
+      },
+      {
+        q: "How do I find out my council tax band in Scotland?",
+        a: "It's printed on your council tax bill. You can also look it up free with your postcode on the Scottish Assessors Association website.",
+      },
+    ],
+    sourceIds: ["independent-energy-payment", "bbc-energy-payment-scotland", "lothian-vjb-council-tax", "moray-valuation-bands"],
+  },
+  {
     slug: "winter-fuel-payment-scotland",
     guideImage: true,
     image: {

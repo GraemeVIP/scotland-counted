@@ -126,6 +126,7 @@ export const HUBS: Hub[] = [
           { href: "/blog/free-school-meals-clothing-grant-scotland", label: "Free school meals and clothing" },
           { href: "/winter-fuel-payment-scotland", label: "Winter fuel payment" },
           { href: "/winter-heating-payment", label: "Winter Heating Payment" },
+          { href: "/100-energy-payment-scotland", label: "£100 energy payment", tag: "New" },
         ],
       },
       {

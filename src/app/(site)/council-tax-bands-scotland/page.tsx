@@ -30,6 +30,10 @@ const BASE_FAQ = [
     a: "Your band belongs to the property, not the postcode, and only the Scottish Assessors hold it. You can look it up free on the Scottish Assessors Association website. Most flats and smaller homes in Scotland are Band A to C.",
   },
   {
+    q: "Which council tax bands get the £100 energy payment?",
+    a: "Bands A to D. The £100 was announced in the UK Budget on 28 October 2026, and the Scottish Government says it will pay it to Scottish homes in bands A to D, working with councils. No payment date has been set for Scotland yet.",
+  },
+  {
     q: "Does council tax include water charges in Scotland?",
     a: "Yes. Water and waste water charges are set by Scottish Water but collected on your council tax bill. They are a large part of it, £434.88 a year at Band A, and most figures published online leave them out.",
   },
@@ -99,6 +103,15 @@ export default function CouncilTaxPage() {
         />
 
         <CouncilTaxLookup />
+
+        <p className="mt-6 max-w-[760px] rounded-[var(--r-s)] border-l-[4px] border-[var(--action)] bg-[var(--surface-2)] px-5 py-4 text-[16px] leading-[1.6] text-[var(--ink-2)]">
+          <strong className="text-[var(--ink)]">In band A, B, C or D?</strong> You&apos;re in line
+          for the £100 energy payment announced in the UK Budget.{" "}
+          <Link href="/100-energy-payment-scotland">
+            Who gets the £100 in Scotland, and when it&apos;s paid
+          </Link>
+          .
+        </p>
 
         <div className="mt-10 mb-9">
           <InShort>

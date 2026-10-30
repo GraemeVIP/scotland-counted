@@ -78,6 +78,7 @@ export const POST_PATHS: Record<string, string> = {
   "best-start-grant": "/best-start-grant",
   "winter-fuel-payment-scotland": "/winter-fuel-payment-scotland",
   "winter-heating-payment": "/winter-heating-payment",
+  "100-energy-payment-scotland": "/100-energy-payment-scotland",
   "social-security-scotland-payment-dates": "/social-security-scotland-payment-dates",
   "young-carers-allowance-scotland": "/young-carers-allowance-scotland",
   "crisis-grant-phone-number": "/crisis-grant-phone-number",
