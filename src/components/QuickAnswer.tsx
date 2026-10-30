@@ -57,7 +57,10 @@ export default function QuickAnswer({ answer, className = "" }: { answer: QuickA
             {answer.rows.map((row) => (
               <div key={row.label} className="flex items-baseline justify-between gap-4 bg-[rgba(2,30,80,0.55)] px-4 py-3">
                 <dt className="text-[15px] text-[var(--hero-muted)]">{row.label}</dt>
-                <dd className="m-0 text-[16px] font-[600] tnum text-white">{row.value}</dd>
+                {/* Right aligned even when it wraps, so a long value lines up with the short ones above and below. */}
+                <dd className="m-0 text-right text-[16px] font-[600] leading-[1.4] tnum text-white [text-wrap:balance]">
+                  {row.value}
+                </dd>
               </div>
             ))}
           </dl>

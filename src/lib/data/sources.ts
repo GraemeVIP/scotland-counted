@@ -790,6 +790,20 @@ export const sources: Source[] = [
     used: "Eligibility, the qualifying week, the amounts by age and household, the £35,000 income rule and when payments are made for winter 2026 to 2027.",
   },
   {
+    id: "bbc-energy-payment-scotland",
+    title: "Scottish ministers to work with councils on £100 energy payment rollout",
+    publisher: "BBC Scotland, via Yahoo News",
+    url: "https://www.yahoo.com/news/politics/articles/scottish-ministers-councils-100-energy-115428442.html",
+    used: "The Scottish Government's commitment to pay the £100 to homes in bands A to D, working with councils, the 1.9 million eligible Scottish homes and £190 million cost, and that bands won't be revalued before winter.",
+  },
+  {
+    id: "independent-energy-payment",
+    title: "Budget 2026: Millions of UK households to get £100 energy bill payment",
+    publisher: "The Independent, via Yahoo News UK",
+    url: "https://uk.news.yahoo.com/budget-2026-millions-uk-households-131233966.html",
+    used: "The Budget announcement: £100 for households in council tax bands A to D, about 20 million households in England, the £2.6 billion cost, payment into bank accounts, and the targeting figures.",
+  },
+  {
     id: "sss-winter-heating",
     title: "Winter Heating Payment",
     publisher: "mygov.scot",
