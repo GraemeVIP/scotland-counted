@@ -230,6 +230,79 @@ test.describe("the calculators", () => {
   });
 });
 
+test.describe("the quiz", () => {
+  // An iPhone SE sized screen. Bigger phones hid the scroll problem.
+  test.use({ viewport: { width: 375, height: 568 } });
+
+  test("each new question starts on screen, not above it", async ({ page }) => {
+    await page.goto("/poverty-in-scotland-quiz");
+    const quiz = page.getByRole("region", { name: "Guess the figure" });
+    const question = quiz.getByRole("heading", { level: 2 });
+
+    for (let round = 0; round < 2; round++) {
+      await quiz.locator("button[aria-pressed]").first().click();
+      const next = page.getByRole("button", { name: /Next question/ });
+      // Read down to the button, as a reader does, then press it.
+      await next.evaluate((b) => window.scrollBy(0, b.getBoundingClientRect().bottom - innerHeight + 24));
+      await next.click();
+
+      await expect(question).toBeFocused();
+      await expect
+        .poll(() =>
+          question.evaluate((h) => {
+            const box = h.getBoundingClientRect();
+            // Clear of the sticky header, and not below the bottom edge.
+            return box.top >= 72 && box.bottom <= innerHeight;
+          }),
+        )
+        .toBe(true);
+    }
+  });
+
+  test("a quote mark never ends a line apart from the word it opens", async ({ page }) => {
+    await page.goto("/poverty-in-scotland-quiz");
+    /*
+     * "after housing costs" is a tap-to-explain button, and browsers allow a
+     * line break right beside a button, even after an opening quote mark.
+     * Try every column width a phone or laptop could give the paragraph.
+     */
+    const { terms, problems } = await page
+      .locator("p", { hasText: "equivalised" })
+      .first()
+      .evaluate((p) => {
+        const found: string[] = [];
+        const lineTop = (node: Node, offset: number) => {
+          const range = document.createRange();
+          range.setStart(node, offset);
+          range.setEnd(node, offset + 1);
+          return range.getClientRects()[0]?.top ?? NaN;
+        };
+        p.style.maxWidth = "none";
+        for (let width = 240; width <= 640; width++) {
+          p.style.width = `${width}px`;
+          if (p.scrollWidth > p.clientWidth + 1) found.push(`${width}px: runs off the side`);
+          for (const term of Array.from(p.querySelectorAll("button.gl"))) {
+            const top = term.getBoundingClientRect().top;
+            const before = term.previousSibling;
+            const after = term.nextSibling;
+            if (before?.nodeType === Node.TEXT_NODE && /\S$/.test(before.textContent ?? "")) {
+              if (lineTop(before, before.textContent!.length - 1) < top - 4) {
+                found.push(`${width}px: line ends before ${term.textContent}`);
+              }
+            }
+            if (after?.nodeType === Node.TEXT_NODE && /^\S/.test(after.textContent ?? "")) {
+              if (lineTop(after, 0) > top + 4) found.push(`${width}px: line starts after ${term.textContent}`);
+            }
+          }
+        }
+        return { terms: p.querySelectorAll("button.gl").length, problems: found };
+      });
+    // Without the buttons there is nothing to test, and the check would pass.
+    expect(terms).toBeGreaterThan(0);
+    expect(problems, problems.slice(0, 10).join("\n")).toEqual([]);
+  });
+});
+
 test.describe("the command palette", () => {
   test("opens with the keyboard, searches, and closes on Escape", async ({ page }) => {
     await page.goto("/");
