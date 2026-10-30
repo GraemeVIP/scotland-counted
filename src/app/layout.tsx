@@ -88,8 +88,12 @@ try{
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
+    // The attribute tells Next.js to turn off the CSS smooth scroll while it
+    // resets the scroll on a page change. Without it, the reset animates and
+    // can carry the reader to the bottom of the new page instead of the top.
     <html
       lang="en-GB"
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
       className={`${geist.variable} ${instrumentSerif.variable} ${geistMono.variable}`}
     >
