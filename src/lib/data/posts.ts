@@ -1784,6 +1784,21 @@ export const posts: Post[] = [
     category: "money-and-bills",
     tags: ["£100 energy payment", "Council tax bands", "Energy bills", "UK Budget"],
     readingMinutes: 4,
+    guideImage: true,
+    image: {
+      src: "/images/editorial/guide-100-energy-payment-scotland.webp",
+      alt: "Scotland Counted graphic headed £100 energy payment in Scotland, with a piggy bank and a glowing house marked £100 beside an energy bill and a radiator",
+      caption: "Homes in council tax bands A to D get £100. The date, and whether you need to apply, are still to be announced.",
+      aspect: "landscape",
+      objectPosition: "50% 0%",
+    },
+    shareImage: {
+      src: "/images/editorial/guide-100-energy-payment-scotland-share.jpg",
+      width: 1200,
+      height: 630,
+      type: "image/jpeg",
+      alt: "Scotland Counted graphic: £100 energy payment in Scotland. Who gets it, when it's paid and how to apply.",
+    },
     quickAnswer: {
       label: "£100 energy payment, Scotland",
       value: "£100",
