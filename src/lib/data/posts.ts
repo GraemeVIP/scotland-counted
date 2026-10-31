@@ -129,6 +129,8 @@ export type Post = {
     width: number;
     height: number;
     type: string;
+    /** For a card with words on it. Falls back to the hero photo's alt text. */
+    alt?: string;
   };
   /** Explicit headings keep the contents list honest and stable. */
   toc: { id: string; label: string }[];
@@ -1831,6 +1833,108 @@ export const posts: Post[] = [
       },
     ],
     sourceIds: ["independent-energy-payment", "bbc-energy-payment-scotland", "lothian-vjb-council-tax", "moray-valuation-bands"],
+  },
+  {
+    slug: "buchanan-galleries-man-council-houses",
+    title: "The man on the Buchanan Galleries steps: was he right about council houses?",
+    seoTitle: "Buchanan Galleries Man Video: Was He Right About Council Houses?",
+    description:
+      "A Glasgow man's 86 second rant says Scotland's council houses were sold off and rented back at fortunes. The full transcript, checked against official figures.",
+    standfirst:
+      "His clip has gone round social media this week. Most of what he says stands up. Here's every word, the figures behind it, and why hardship can reach anyone.",
+    date: "2026-10-31",
+    checked: "2026-10-31",
+    category: "poverty-explained",
+    tags: [
+      "Buchanan Galleries video",
+      "Right to Buy Scotland",
+      "Council houses",
+      "Private rents Glasgow",
+      "Homelessness Scotland",
+      "Housing emergency",
+      "Fact check",
+    ],
+    readingMinutes: 8,
+    image: {
+      src: "/images/editorial/buchanan-galleries-steps-wide.webp",
+      alt: "A grey haired man in a dark jacket sitting on stone steps at night, talking to the camera",
+      caption: "A still from the video, sharpened. Filmed on the steps by Buchanan Galleries by @scotsagainstcorruption.",
+      aspect: "video",
+      objectPosition: "center",
+    },
+    shareImage: {
+      src: "/images/editorial/buchanan-galleries-share-card.jpg",
+      width: 1200,
+      height: 630,
+      type: "image/jpeg",
+      alt: "A grey haired man on stone steps at night, beside the headline: Was he right about council houses? 494,580 council homes sold under Right to Buy.",
+    },
+    quickAnswer: {
+      label: "Were Scotland's council houses sold off?",
+      value: "494,580",
+      unit: "homes sold",
+      detail:
+        "Council and housing association homes sold to their tenants under Right to Buy, 1979/80 to 2014/15. Rents have soared since. Where he goes too far is calling it fraud: Parliament passed it, so it was legal.",
+      rows: [
+        { label: "Right to Buy ended", value: "31 July 2016" },
+        { label: "Glasgow's council homes", value: "Handed to Glasgow Housing Association in 2003" },
+        { label: "2 bed private rent, Greater Glasgow, 2025", value: "£1,094 a month" },
+        { label: "Average council rent, 2024/25", value: "£86.32 a week" },
+      ],
+      asOf: "Figures checked 31 October 2026",
+      source: {
+        publisher: "Scottish Government",
+        url: "https://www.gov.scot/news/right-to-buy-ends-in-scotland/",
+      },
+    },
+    toc: [
+      { id: "what-he-said", label: "What he said" },
+      { id: "his-story", label: "What we don't know about him" },
+      { id: "sold", label: "Were the houses sold off?" },
+      { id: "fraud", label: "Was it fraud?" },
+      { id: "rents", label: "Is he right about rents?" },
+      { id: "demand", label: "Can you still demand a home?" },
+      { id: "anyone", label: "Hardship can reach anyone" },
+      { id: "help", label: "If you're struggling" },
+    ],
+    faq: [
+      {
+        q: "Who is the man on the Buchanan Galleries steps?",
+        a: "He hasn't been named publicly. The video was filmed and first posted on TikTok by @scotsagainstcorruption, and shared widely on X at the end of October 2026. Nobody watching knows his circumstances.",
+      },
+      {
+        q: "How many council houses were sold under Right to Buy in Scotland?",
+        a: "494,580 council and housing association homes were sold to their tenants between 1979/80 and 2014/15, according to the Scottish Government. Sales peaked at just under 40,000 in 1989. Right to Buy ended in Scotland on 31 July 2016.",
+      },
+      {
+        q: "Was Right to Buy fraud?",
+        a: "Not in law. Parliament passed it, and councils had to sell when a qualifying tenant applied. The argument he's making is a moral one: homes built with public money for everyone were sold cheaply, never replaced, and some are now rented privately at much higher rents.",
+      },
+      {
+        q: "How much is private rent for a two bedroom home in Glasgow?",
+        a: "The average advertised two bedroom private rent in Greater Glasgow was £1,094 a month in 2025, up 94% from £564 in 2010. The average council rent in Scotland was £86.32 a week in 2024/25, about £374 a month.",
+      },
+      {
+        q: "Does the council have to house you in Scotland?",
+        a: "If you're homeless and it isn't judged to be your own fault, yes. Since 31 December 2012 councils have a legal duty to find you a settled home. But a record 19,004 households were in temporary accommodation in March 2026, and on 21,800 occasions in 2025/26 councils didn't offer temporary accommodation when they should have.",
+      },
+    ],
+    sourceIds: [
+      "video-scotsagainstcorruption",
+      "sg-right-to-buy-ends-2016",
+      "sg-housing-key-trends-2019-rtb",
+      "sg-housing-key-trends-2016-tenure",
+      "sg-housing-key-trends-2025-tenure",
+      "sfha-glasgow-stock-transfer",
+      "sg-private-rents-2025",
+      "sg-hra-2024-25",
+      "ons-pipr-2026-10",
+      "sg-homelessness-2025-26",
+      "spice-housing-emergency",
+      "sg-poverty-2026",
+      "jrf-poverty-in-scotland-2026",
+      "shelter-scotland-helpline",
+    ],
   },
   {
     slug: "winter-fuel-payment-scotland",

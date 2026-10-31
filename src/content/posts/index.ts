@@ -29,6 +29,7 @@ import BestStartGrant from "./best-start-grant";
 import WinterFuelPaymentScotland from "./winter-fuel-payment-scotland";
 import WinterHeatingPayment from "./winter-heating-payment";
 import HundredPoundEnergyPaymentScotland from "./100-energy-payment-scotland";
+import BuchananGalleriesManCouncilHouses from "./buchanan-galleries-man-council-houses";
 import SocialSecurityScotlandPaymentDates from "./social-security-scotland-payment-dates";
 import YoungCarersAllowanceScotland from "./young-carers-allowance-scotland";
 import CrisisGrantPhoneNumber from "./crisis-grant-phone-number";
@@ -91,6 +92,7 @@ export const postBodies: Record<string, ComponentType> = {
   "winter-fuel-payment-scotland": WinterFuelPaymentScotland,
   "winter-heating-payment": WinterHeatingPayment,
   "100-energy-payment-scotland": HundredPoundEnergyPaymentScotland,
+  "buchanan-galleries-man-council-houses": BuchananGalleriesManCouncilHouses,
   "social-security-scotland-payment-dates": SocialSecurityScotlandPaymentDates,
   "young-carers-allowance-scotland": YoungCarersAllowanceScotland,
   "crisis-grant-phone-number": CrisisGrantPhoneNumber,
