@@ -129,6 +129,8 @@ export type Post = {
     width: number;
     height: number;
     type: string;
+    /** For a card with words on it. Falls back to the hero photo's alt text. */
+    alt?: string;
   };
   /** Explicit headings keep the contents list honest and stable. */
   toc: { id: string; label: string }[];
@@ -1861,10 +1863,11 @@ export const posts: Post[] = [
       objectPosition: "center",
     },
     shareImage: {
-      src: "/images/editorial/buchanan-galleries-steps-share.jpg",
+      src: "/images/editorial/buchanan-galleries-share-card.jpg",
       width: 1200,
       height: 630,
       type: "image/jpeg",
+      alt: "A grey haired man on stone steps at night, beside the headline: Was he right about council houses? 494,580 council homes sold under Right to Buy.",
     },
     quickAnswer: {
       label: "Were Scotland's council houses sold off?",

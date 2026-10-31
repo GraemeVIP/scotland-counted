@@ -40,7 +40,7 @@ export function postMetadata(slug: string) {
     published: post.date,
     modified: post.updated ?? post.date,
     image: post.shareImage?.src,
-    imageAlt: post.shareImage ? post.image?.alt : undefined,
+    imageAlt: post.shareImage ? (post.shareImage.alt ?? post.image?.alt) : undefined,
     imageWidth: post.shareImage?.width,
     imageHeight: post.shareImage?.height,
     imageType: post.shareImage?.type,
