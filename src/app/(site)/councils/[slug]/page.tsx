@@ -1,4 +1,5 @@
 import Link from "@/components/IntentLink";
+import { councilTaxPath } from "@/lib/routeMap";
 import { notFound } from "next/navigation";
 import { G, PlainText } from "@/components/Glossary";
 import Faq from "@/components/Faq";
@@ -297,6 +298,11 @@ export default async function CouncilAccountabilityPage({
                   break between text and an element, which rendered "Arevenue". */}
               A <G t="revenue-budget">revenue budget</G> pays for everyday services.{" "}
               A <G t="capital-programme">capital programme</G> pays for big, long term things.
+            </p>
+            <p className="mt-3 max-w-[68ch] text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
+              What it means on a bill: see{" "}
+              <Link href={councilTaxPath(council.slug)}>{council.name} council tax bands</Link>, or
+              compare <Link href="/council-tax-bands-scotland">council tax bands across Scotland</Link>.
             </p>
             <div className={`mt-7 grid gap-5 ${budgetGridClass}`}>
               {record.budgetContext.length > 0 ? record.budgetContext.map((figure, index) => (

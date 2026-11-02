@@ -146,7 +146,8 @@ export default function Post() {
         <LI>
           <strong>Take off your housing costs.</strong> That means rent (before any housing
           benefit), water charges, and for owners the interest part of the mortgage. In Scotland
-          water charges come on your council tax bill, see{" "}
+          water charges come on your{" "}
+          <Link href="/council-tax-bands-scotland">council tax bill</Link>, see{" "}
           <Link href="/water-rates-scotland">water rates in Scotland</Link>.
         </LI>
         <LI>

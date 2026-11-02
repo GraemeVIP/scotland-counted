@@ -11,6 +11,9 @@ import {
 } from "@/lib/data/councilTax";
 import { councils } from "@/lib/data/councils";
 import { bandShares, DWELLINGS_YEAR } from "@/lib/data/dwellings";
+import { trackEvent } from "@/lib/analytics";
+import EnergyPaymentNote from "@/components/EnergyPaymentNote";
+import { councilTaxPath, postPath } from "@/lib/routeMap";
 
 /**
  * Postcode to council tax charges.
@@ -46,17 +49,19 @@ export default function CouncilTaxLookup() {
     if (result) resultHeading.current?.focus({ preventScroll: true });
   }, [result]);
 
-  function show(slug: string, councilName: string) {
+  function show(slug: string, councilName: string, method: "postcode" | "council_list") {
     const charges = chargesFor(slug);
     if (!charges) {
       setState("error");
       setMessage("There are no charges listed for that council yet.");
+      trackEvent("council_tax_lookup_error", { method });
       return;
     }
     setResult({ councilName, slug, charges });
     setOpenBand(null);
     setMessage("");
     setState("idle");
+    trackEvent("council_tax_lookup_success", { council: slug, method });
   }
 
   async function lookup(event: React.FormEvent<HTMLFormElement>) {
@@ -79,10 +84,11 @@ export default function CouncilTaxLookup() {
       if (!response.ok || !("council" in data)) {
         throw new Error("error" in data && data.error ? data.error : "That lookup failed.");
       }
-      show(data.council.slug, data.council.name);
+      show(data.council.slug, data.council.name, "postcode");
     } catch (caught) {
       setState("error");
       setMessage(caught instanceof Error ? caught.message : "That lookup failed.");
+      trackEvent("council_tax_lookup_error", { method: "postcode" });
     }
   }
 
@@ -128,7 +134,7 @@ export default function CouncilTaxLookup() {
         <label htmlFor="ct-council" className="ui mt-4 block text-[15px] font-semibold">Or choose your council</label>
         <select id="ct-council" value={result?.slug ?? ""} onChange={(event) => {
           const council = councils.find((c) => c.slug === event.target.value);
-          if (council) show(council.slug, council.name);
+          if (council) show(council.slug, council.name, "council_list");
         }} className="ui mt-2 min-h-12 w-full max-w-[440px] rounded-[var(--r-s)] border border-[var(--rule-strong)] bg-[var(--paper)] px-3 text-[16px]">
           <option value="" disabled>Select a council</option>
           {councils.map((c) => <option key={c.slug} value={c.slug}>{c.name}</option>)}
@@ -137,6 +143,8 @@ export default function CouncilTaxLookup() {
           Your postcode finds the council, not your property’s band. <a href="https://www.saa.gov.uk/" target="_blank" rel="noopener noreferrer">Find your exact band with the Scottish Assessors ↗</a>.
         </p>
       </div>
+
+      {!result && <EnergyPaymentNote />}
 
       {result && (
         <div className="mt-8">
@@ -214,6 +222,8 @@ export default function CouncilTaxLookup() {
             })}
           </div>
 
+          <EnergyPaymentNote />
+
           <details className="mt-5"><summary className="cursor-pointer text-[16px] font-semibold">How common is each band in this area?</summary>          {(() => {
             const shares = bandShares(result.slug);
             if (!shares) return null;
@@ -260,22 +270,49 @@ export default function CouncilTaxLookup() {
             );
           })()}</details>
 
-          <div className="mt-5 rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface-2)] px-5 py-4">
-            <p className="ui text-[15px] font-[600] mb-1.5">Which band is my house?</p>
-            <p className="text-[15px] leading-[1.55] text-[var(--ink-2)]">
-              The band belongs to the property, not the postcode, and only the Scottish Assessors
-              hold it. Look yours up free on the{" "}
-              <a href="https://www.saa.gov.uk/" target="_blank" rel="noopener noreferrer">
-                Scottish Assessors Association
-              </a>{" "}
-              site, then find it above. Most flats and smaller homes are Band A to C.
-            </p>
-            <p className="mt-3 text-[15px] leading-[1.55] text-[var(--ink-2)]">
-              On a low income you may pay less.{" "}
-              <strong className="text-[var(--ink)]">Council Tax Reduction</strong> can cut the bill,
-              and people who get it can have up to 35% off the water charges too. Single adults
-              living alone get 25% off. Apply through your council. It is free.
-            </p>
+          {/* Most people who land on this page leave from it. These are the
+              questions a bill raises next, so the answer is one tap away. */}
+          <div className="mt-8">
+            <h3 className="h3">What to do next</h3>
+            <ul className="mt-4 grid gap-2.5 sm:grid-cols-2">
+              {[
+                {
+                  href: postPath("check-council-tax-band"),
+                  label: "Which band is my home?",
+                  blurb: "The band belongs to the property, not the postcode. Check yours free in about a minute.",
+                },
+                {
+                  href: postPath("council-tax-reduction-scotland"),
+                  label: "Can I pay less on a low income?",
+                  blurb: "Council Tax Reduction can cut the bill, and up to 35% off the water charges too.",
+                },
+                {
+                  href: postPath("single-person-discount-council-tax-scotland"),
+                  label: "Do I live alone?",
+                  blurb: "Single adults living alone get 25% off. Apply through your council. It is free.",
+                },
+                {
+                  href: councilTaxPath(result.slug),
+                  label: `${result.councilName} council tax in full`,
+                  blurb: "Every band explained, and how your council compares with the rest of Scotland.",
+                },
+              ].map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="block h-full rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] p-4 no-underline transition-colors hover:border-[var(--brand)]"
+                  >
+                    <span className="ui block text-[16px] font-[600] leading-[1.35] text-[var(--ink)]">
+                      {link.label}
+                      <span aria-hidden="true" className="text-[var(--brand)]"> →</span>
+                    </span>
+                    <span className="mt-1 block text-[15px] leading-[1.45] text-[var(--ink-2)]">
+                      {link.blurb}
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
           <p className="mt-5 text-[15px] leading-[1.55] text-[var(--muted)]">

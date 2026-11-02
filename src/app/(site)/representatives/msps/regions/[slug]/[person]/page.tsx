@@ -196,10 +196,10 @@ export default async function RegionalMspPage({
 
           <Faq items={faq} className="pt-12" />
           <CTA
-            title="Find every person who represents you"
-            body="Enter your postcode. I find your MP, constituency MSP and seven regional MSPs, then prepare the right emails automatically."
+            title={`Want to write to ${msp.name}?`}
+            body="Enter your postcode. I find everyone who represents you, then prepare the right emails with your local facts in them. You still read and approve everything."
             href="/email-your-mp-and-msp"
-            cta="Use my postcode"
+            cta="Start my email"
             secondaryHref={`/representatives/msps/regions/${region.regionSlug}`}
             secondaryCta={`See all 7 MSPs for ${region.region}`}
           />
