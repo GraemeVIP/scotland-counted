@@ -24,9 +24,13 @@ function isDialablePhone(phone: string) {
 function ContactCard({
   representative,
   label,
+  writeLabel,
+  onWrite,
 }: {
   representative: Representative;
   label: string;
+  writeLabel: string;
+  onWrite: () => void;
 }) {
   return (
     <article className="rounded-[var(--r-m)] border border-[var(--rule)] border-t-[3px] border-t-[var(--brand)] bg-[var(--surface)] p-5 sm:p-6">
@@ -80,6 +84,9 @@ function ContactCard({
       </dl>
 
       <div className="mt-6 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap">
+        <button type="button" onClick={onWrite} className="btn btn-primary justify-center text-center">
+          {writeLabel}
+        </button>
         <Link
           href={representativePagePath(representative)}
           className="btn btn-ghost justify-center text-center"
@@ -246,11 +253,18 @@ export default function RepresentativeLookup() {
             </div>
 
             <div className="grid gap-4 lg:grid-cols-2">
-              <ContactCard representative={lookup.mp} label="Your MP at Westminster" />
+              <ContactCard
+                representative={lookup.mp}
+                label="Your MP at Westminster"
+                writeLabel="Write to your MP"
+                onWrite={openLetterBuilder}
+              />
               {lookup.constituencyMsp ? (
                 <ContactCard
                   representative={lookup.constituencyMsp}
                   label="Your constituency MSP at Holyrood"
+                  writeLabel="Write to your MSP"
+                  onWrite={openLetterBuilder}
                 />
               ) : (
                 <div className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5 sm:p-6">
@@ -260,6 +274,23 @@ export default function RepresentativeLookup() {
                   </p>
                 </div>
               )}
+            </div>
+
+            <div className="mt-5 rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--paper)] p-5 sm:flex sm:items-center sm:justify-between sm:gap-6">
+              <div>
+                <h3 className="h3">Want them to hear from you?</h3>
+                <p className="mt-2 text-[15.5px] leading-[1.55] text-[var(--ink-2)]">
+                  I can add your local facts and prepare separate emails for your MP and MSP. You
+                  still read and approve everything.
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={openLetterBuilder}
+                className="btn btn-primary mt-4 w-full shrink-0 justify-center sm:mt-0 sm:w-auto"
+              >
+                Write the emails for me
+              </button>
             </div>
 
             {lookup.regionalMsps.length > 0 && (
@@ -304,23 +335,6 @@ export default function RepresentativeLookup() {
                 </div>
               </details>
             )}
-
-            <div className="mt-5 rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--paper)] p-5 sm:flex sm:items-center sm:justify-between sm:gap-6">
-              <div>
-                <h3 className="h3">Want help writing to them?</h3>
-                <p className="mt-2 text-[15.5px] leading-[1.55] text-[var(--ink-2)]">
-                  I can add your local facts and prepare separate emails for your MP and MSP. You
-                  still read and approve everything.
-                </p>
-              </div>
-              <button
-                type="button"
-                onClick={openLetterBuilder}
-                className="btn btn-primary mt-4 w-full shrink-0 justify-center sm:mt-0 sm:w-auto"
-              >
-                Write the emails for me
-              </button>
-            </div>
 
             {/*
               The rest of the local record.

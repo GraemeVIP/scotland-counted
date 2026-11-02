@@ -89,7 +89,7 @@ export default function Post() {
         <LI>Roads, pavements, potholes and street lights</LI>
         <LI>School places and catchment areas</LI>
         <LI>Social care and care at home</LI>
-        <LI>Council tax bills, discounts and reductions</LI>
+        <LI><Link href="/council-tax-bands-scotland">Council tax bills</Link>, discounts and reductions</LI>
         <LI>Planning applications and licensing</LI>
       </UL>
       <P>

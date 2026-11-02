@@ -4,17 +4,21 @@ import { JsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
 import CouncilTaxLookup from "./CouncilTaxLookup";
 import WaterCharge from "@/components/WaterCharge";
 import ToolCTA from "@/components/ToolCTA";
+import { GuideTable } from "@/components/GuideTable";
 import {
+  BAND_LETTERS,
   councilTaxByBand,
   chargesFor,
   COUNCIL_TAX_YEAR,
   PREVIOUS_COUNCIL_TAX_YEAR,
   WATER_YEAR,
 } from "@/lib/data/councilTax";
+import { SCOTTISH_ASSESSORS, bandValueLabel } from "@/lib/data/councilTaxHelp";
+import { pounds } from "@/lib/data/quickAnswers";
 import { councils } from "@/lib/data/councils";
 import { getSources } from "@/lib/data/sources";
 import Faq from "@/components/Faq";
-import { councilTaxPath } from "@/lib/routeMap";
+import { councilTaxBandPath, councilTaxPath, postPath } from "@/lib/routeMap";
 
 export const metadata = meta({
   title: "Council Tax Bands Scotland 2026/27: Prices A to H for Every Council",
@@ -84,6 +88,14 @@ export default function CouncilTaxPage() {
     },
   ];
   const cited = getSources(["council-tax-scotland", "scottish-water-2026"]);
+  const bandRows = BAND_LETTERS.map((band, i) => {
+    const totals = withData.map((c) => chargesFor(c.slug)![i].total);
+    return [
+      <Link key={band} href={councilTaxBandPath(band)}>Band {band}</Link>,
+      bandValueLabel(band),
+      `${pounds(Math.min(...totals))} to ${pounds(Math.max(...totals))}`,
+    ];
+  });
 
   return (
     <>
@@ -103,15 +115,6 @@ export default function CouncilTaxPage() {
         />
 
         <CouncilTaxLookup />
-
-        <p className="mt-6 max-w-[760px] rounded-[var(--r-s)] border-l-[4px] border-[var(--action)] bg-[var(--surface-2)] px-5 py-4 text-[16px] leading-[1.6] text-[var(--ink-2)]">
-          <strong className="text-[var(--ink)]">In band A, B, C or D?</strong> You&apos;re in line
-          for the £100 energy payment announced in the UK Budget.{" "}
-          <Link href="/100-energy-payment-scotland">
-            Who gets the £100 in Scotland, and when it&apos;s paid
-          </Link>
-          .
-        </p>
 
         <div className="mt-10 mb-9">
           <InShort>
@@ -133,6 +136,29 @@ export default function CouncilTaxPage() {
             </Link>.
           </p>
         </div>
+
+        <section id="what-is-my-band" className="mb-10 scroll-mt-24">
+          <h2 className="h2 mb-3">What is my council tax band?</h2>
+          <p className="max-w-[62ch] text-[17px] leading-[1.6] text-[var(--ink-2)]">
+            Your band depends on what your home would have sold for on 1 April 1991, not what it is
+            worth now. It belongs to the property, not the postcode, and the{" "}
+            <a href={SCOTTISH_ASSESSORS.url} target="_blank" rel="noopener noreferrer">
+              Scottish Assessors
+            </a>{" "}
+            hold the list.{" "}
+            <Link href={postPath("check-council-tax-band")}>
+              Here&apos;s how to check your council tax band for free
+            </Link>
+            .
+          </p>
+          <GuideTable
+            kicker={`${COUNCIL_TAX_YEAR}, water included`}
+            title="The eight council tax bands in Scotland"
+            columns={["Band", "Value on 1 April 1991", "A year, cheapest to dearest council"]}
+            rows={bandRows}
+            align={["left", "left", "right"]}
+          />
+        </section>
 
         <WaterCharge className="mb-10" />
 

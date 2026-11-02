@@ -167,7 +167,9 @@ export default function Post() {
 
       <P>
         Check your own figures: <Link href="/check-council-tax-band">find your council tax
-        band</Link>, see <Link href="/water-rates-scotland">water rates in Scotland</Link>, or
+        band</Link>, see the{" "}
+        <Link href="/council-tax-bands-scotland">council tax bands in Scotland</Link> and{" "}
+        <Link href="/water-rates-scotland">water rates in Scotland</Link>, or
         compare with the <Link href="/average-salary-scotland">average salary in Scotland</Link>.
       </P>
 

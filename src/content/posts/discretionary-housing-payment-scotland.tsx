@@ -156,7 +156,8 @@ export default function Post() {
         When the immediate problem is food or heating rather than rent, the right route may be a{" "}
         <Link href="/crisis-grant-scotland">Scottish Welfare Fund crisis grant</Link> instead. If
         council tax is adding to the pressure, check{" "}
-        <Link href="/council-tax-reduction-scotland">Council Tax Reduction</Link>.
+        <Link href="/council-tax-reduction-scotland">Council Tax Reduction</Link> and{" "}
+        <Link href="/council-tax-bands-scotland">what your council tax band costs</Link>.
       </P>
 
       <PostCTA

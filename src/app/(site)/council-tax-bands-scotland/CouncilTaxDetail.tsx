@@ -13,9 +13,10 @@ import {
   type BandCharge,
 } from "@/lib/data/councilTax";
 import { councils } from "@/lib/data/councils";
-import { COUNCIL_SEARCH_NAMES, councilTaxBandPath, councilTaxPath } from "@/lib/routeMap";
+import { COUNCIL_SEARCH_NAMES, councilTaxBandPath, councilTaxPath, postPath } from "@/lib/routeMap";
 import { getSources } from "@/lib/data/sources";
 import WaterCharge from "@/components/WaterCharge";
+import EnergyPaymentNote from "@/components/EnergyPaymentNote";
 import Faq from "@/components/Faq";
 
 /**
@@ -186,6 +187,7 @@ export function CouncilTaxDetail({ slug }: { slug: string }) {
               </p>
               <p>On a low income you may pay considerably less. See below.</p>
             </InShort>
+            <EnergyPaymentNote className="mt-4" />
           </div>
 
           <section>
@@ -244,8 +246,8 @@ export function CouncilTaxDetail({ slug }: { slug: string }) {
               ))}
             </div>
             <p className="mt-5 text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
-              <Link href={`/areas/${v.slug}`}>See poverty and pay in {placeName}</Link>, or{" "}
-              <Link href="/council-tax-bands-scotland">check another postcode</Link>.
+              <Link href={`/areas/${v.slug}`}>See poverty and pay in {placeName}</Link>, or compare{" "}
+              <Link href="/council-tax-bands-scotland">council tax bands across Scotland</Link>.
             </p>
           </section>
 
@@ -321,6 +323,7 @@ export function CouncilTaxDetail({ slug }: { slug: string }) {
             </p>
             <p>Scotland only. Bands and rates work differently in England and Wales.</p>
           </InShort>
+          <EnergyPaymentNote band={letter} className="mt-4" />
         </div>
 
         <section>
@@ -382,12 +385,13 @@ export function CouncilTaxDetail({ slug }: { slug: string }) {
           </div>
           <p className="mt-5 text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
             Not sure which band you are?{" "}
-            <Link href="/council-tax-bands-scotland">Check with your postcode</Link>, or look the
-            property up free on the{" "}
+            <Link href={postPath("check-council-tax-band")}>Check your council tax band</Link> free
+            on the{" "}
             <a href="https://www.saa.gov.uk/" target="_blank" rel="noopener noreferrer">
               Scottish Assessors
             </a>{" "}
-            site.
+            site, or find your council&apos;s prices for every one of the{" "}
+            <Link href="/council-tax-bands-scotland">council tax bands in Scotland</Link>.
           </p>
         </section>
 
