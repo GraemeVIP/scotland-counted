@@ -24,6 +24,12 @@ export default function AuthorBio({ className = "" }: { className?: string }) {
       </div>
 
       <p className="text-[16.5px] leading-[1.6] text-[var(--ink-2)] mt-3 max-w-[60ch]">
+        I struggled at school and worked hard to turn things around afterwards. This site is my way
+        of giving back: complicated subjects, broken down so anyone can follow them.{" "}
+        <Link href="/about#why-i-built-it">Why I built it</Link>.
+      </p>
+
+      <p className="text-[16.5px] leading-[1.6] text-[var(--ink-2)] mt-3 max-w-[60ch]">
         <ExplainText>
         Scotland Counted is an independent record of poverty, work and living costs in Scotland. It is
         not a newspaper and not a campaign group. Every
