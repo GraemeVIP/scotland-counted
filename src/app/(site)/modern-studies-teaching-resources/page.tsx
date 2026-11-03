@@ -146,6 +146,12 @@ export default function TeachingResourcesPage() {
             <SectionHead eyebrow="Trust" title="Balance, accuracy and your pupils" />
             <div className="mt-6 grid gap-4 text-[16.5px] leading-[1.65] text-[var(--ink-2)]">
               <p>
+                <strong className="text-[var(--ink)]">Who is behind it.</strong> Me, {site.author.name}.
+                I struggled at school, worked hard to turn things around afterwards, and built this as
+                my way of giving back, so complicated subjects are easy to follow.{" "}
+                <Link href="/about#why-i-built-it">Read why I built it</Link>.
+              </p>
+              <p>
                 <strong className="text-[var(--ink)]">Balance.</strong> Scotland Counted is independent
                 and has no party, campaign or funder behind it. Pages keep official figures separate from
                 interpretation, and where responsibility is described it is about which government holds
