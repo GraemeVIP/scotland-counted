@@ -32,19 +32,22 @@ const COMPARE_POSTS: Record<string, string | null> = {
 export function postMetadata(slug: string) {
   const post = getPost(slug);
   if (!post) return {};
+  const path = postPath(slug);
+  // Posts moved out of /blog no longer inherit that route's image file.
+  const movedPostImage = !post.shareImage && !path.startsWith("/blog/");
   return meta({
     title: post.seoTitle ?? post.title,
     description: post.description,
-    path: postPath(slug),
+    path,
     type: "article",
     published: post.date,
     modified: post.updated ?? post.date,
-    image: post.shareImage?.src,
+    image: post.shareImage?.src ?? (movedPostImage ? `/share-card/${slug}` : undefined),
     imageAlt: post.shareImage ? (post.shareImage.alt ?? post.image?.alt) : undefined,
-    imageWidth: post.shareImage?.width,
-    imageHeight: post.shareImage?.height,
-    imageType: post.shareImage?.type,
-    ownImage: !post.shareImage,
+    imageWidth: post.shareImage?.width ?? (movedPostImage ? 1200 : undefined),
+    imageHeight: post.shareImage?.height ?? (movedPostImage ? 630 : undefined),
+    imageType: post.shareImage?.type ?? (movedPostImage ? "image/png" : undefined),
+    ownImage: !post.shareImage && !movedPostImage,
   });
 }
 
