@@ -411,21 +411,23 @@ export const posts: Post[] = [
     standfirst:
       "Use this Operation Branchform timeline to follow every major event from the SNP fundraisers to Peter Murrell's conviction. Nicola Sturgeon and Colin Beattie were not charged.",
     date: "2026-08-02",
-    updated: "2026-08-02",
+    checked: "2026-11-19",
+    updated: "2026-11-19",
     category: "politics-explained",
     tags: [
       "Operation Branchform",
       "Operation Branchform timeline",
       "Nicola Sturgeon",
       "Peter Murrell",
+      "Proceeds of Crime",
       "SNP finances",
       "Scottish politics",
       "Indyref2 fundraiser",
     ],
-    readingMinutes: 26,
+    readingMinutes: 27,
     image: {
       src: "/images/editorial/refresh-snp-finances.webp",
-      alt: "A stack of paper records and a folder on a desk overlooking a city",
+      alt: "Paper records and folder on a desk for the Operation Branchform timeline",
       caption:
         "The story began with questions about referendum donations. The court case ultimately proved a different, 12 year course of embezzlement from the SNP's main account.",
       objectPosition: "center 48%",
@@ -460,11 +462,19 @@ export const posts: Post[] = [
       },
       {
         q: "Is Operation Branchform finished?",
-        a: "Murrell's criminal prosecution and sentence are complete. However, court action to recover money gained through the crime and decide what happens to seized property remained, and the Electoral Commission was reviewing earlier filings at its latest update. It is therefore too broad to say every part is closed.",
+        a: "Murrell's criminal prosecution and five year three month sentence are complete. However, a Proceeds of Crime Act hearing is set for 7 December 2026 at the High Court in Edinburgh to deal with asset confiscation and recovery, and the Electoral Commission is still reviewing earlier party filings.",
+      },
+      {
+        q: "Has Operation Branchform been reopened into Nicola Sturgeon?",
+        a: "No. In late October 2026 COPFS rejected a formal Victims' Right to Review request from three former SNP donors. After an erroneous automated email briefly claimed there was an active criminal investigation, the Crown Office clarified in November 2026 that it was an administrative mistake and Operation Branchform has not been reopened.",
+      },
+      {
+        q: "When is Peter Murrell's Proceeds of Crime hearing?",
+        a: "Murrell is scheduled to return to the High Court in Edinburgh on 7 December 2026 for a Proceeds of Crime Act procedural hearing, postponed from September at the joint request of Crown and defence lawyers.",
       },
       {
         q: "Is Nicola Sturgeon under investigation again over Yes Scotland?",
-        a: "Police confirmed in July 2026 that they were making inquiries after a separate complaint about Yes Scotland's finances. As at 2 August, police had not publicly named Sturgeon or anyone else as a suspect. Yes Scotland denied money was missing and provided its accounts.",
+        a: "Police confirmed in July 2026 that they were making inquiries after a separate complaint about Yes Scotland's finances. Police have not publicly named Sturgeon or anyone else as a suspect. Yes Scotland denied money was missing and provided its accounts.",
       },
     ],
     sourceIds: snpMoneyTimelineSources.map((source) => source.id),

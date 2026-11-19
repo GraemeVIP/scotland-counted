@@ -55,11 +55,16 @@ export default function Post() {
 
       <div className="not-prose rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--deep)] p-6 text-[var(--deep-ink)] sm:p-8">
         <p className="ui text-[15px] font-[620] text-[var(--action-text)]">Living timeline</p>
-        <p className="mt-2 text-[22px] font-[620] leading-[1.3]">Last independently checked: 2 August 2026</p>
+        <p className="mt-2 text-[22px] font-[620] leading-[1.3]">
+          Last updated: 19 November 2026
+        </p>
+        <p className="ui mt-1 text-[14.5px] opacity-80">
+          First published: 2 August 2026 · Next scheduled court date: 7 December 2026 (Proceeds of Crime hearing)
+        </p>
         <p className="mt-3 max-w-[58ch] text-[16px] leading-[1.6] opacity-80">
-          The event date and the date a fact became known are not always the same. Purchases from
-          2010 onward are marked “Established in court” because the public learned the proved
-          detail only in 2026.
+          Updated with the postponed 7 December 2026 High Court Proceeds of Crime hearing and the
+          November 2026 Crown Office clarification confirming Operation Branchform has not been
+          reopened. Event dates and the dates facts became public are kept distinct throughout.
         </p>
       </div>
 
@@ -205,7 +210,7 @@ export default function Post() {
 
       <EditorialImage
         src="/images/editorial/refresh-court-records.webp"
-        alt="Paper receipts and a closed ledger on a desk"
+        alt="Paper receipts and closed ledger representing Operation Branchform court records"
         caption="The agreed court narrative sets out the purchase categories and how they were recorded."
         className="my-8"
       />
@@ -299,16 +304,25 @@ export default function Post() {
         </p>
       </Aside>
 
-      <H2 id="what-is-live">What is still live now</H2>
+      <H2 id="what-is-live">What is still live now (November 2026 update)</H2>
       <P>
         The guilt and sentence part of Murrell&apos;s case is complete. Three connected but
-        distinct processes were unfinished at the latest check.
+        distinct processes remain live, alongside a November 2026 Crown Office clarification.
       </P>
       <UL>
         <LI>
-          <strong>Recovery:</strong> court action continues to recover money gained through the
-          crime and decide what happens to seized property. The SNP has also said it is seeking
-          the return of its loss. Neither statement means the full amount has already been recovered.
+          <strong>7 December 2026 Proceeds of Crime hearing:</strong> Murrell is scheduled to
+          return to the High Court in Edinburgh on 7 December 2026 for a Proceeds of Crime Act
+          (POCA) procedural hearing, postponed from September at the joint request of Crown and
+          defence lawyers. This stage deals with confiscation and recovery of criminal benefit and
+          seized property.
+        </LI>
+        <LI>
+          <strong>Crown Office email clarification (November 2026):</strong> In late October 2026,
+          COPFS rejected a formal Victims&apos; Right to Review request from three former SNP donors
+          into why Nicola Sturgeon was not prosecuted. After an erroneous follow-up email mentioned
+          an ongoing criminal investigation, COPFS confirmed it was an administrative mistake and
+          that Operation Branchform has not been reopened.
         </LI>
         <LI>
           <strong>Electoral Commission:</strong> the regulator is reviewing earlier accounts,

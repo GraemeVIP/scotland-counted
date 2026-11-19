@@ -494,6 +494,38 @@ export const snpMoneyTimelineSources: SnpTimelineSource[] = [
     used:
       "Yes Scotland's provision of accounts to police and its response that the money was accounted for and no wrongdoing occurred.",
   },
+  {
+    id: "scotsman-poca-postponed-2026",
+    title: "Peter Murrell's proceeds of crime hearing for SNP embezzlement postponed",
+    publisher: "The Scotsman",
+    url: "https://www.scotsman.com/news/politics/peter-murrells-proceeds-of-crime-hearing-for-snp-embezzlement-postponed-9019809",
+    used:
+      "Postponement of Murrell's Proceeds of Crime Act procedural hearing from September to 7 December 2026 following a joint Crown and defence request.",
+  },
+  {
+    id: "standard-poca-december-2026",
+    title: "Peter Murrell Proceeds of Crime hearing set for High Court in Edinburgh",
+    publisher: "Evening Standard / PA Media",
+    url: "https://www.standard.co.uk/news/crime/peter-murrell-snp-high-court-edinburgh-mps-b1296579.html",
+    used:
+      "Confirmation of the 7 December 2026 High Court in Edinburgh Proceeds of Crime procedural hearing date.",
+  },
+  {
+    id: "dailyrecord-sturgeon-review-rejected-2026",
+    title: "Crown Office rejects Nicola Sturgeon prosecution review request",
+    publisher: "Daily Record",
+    url: "https://www.dailyrecord.co.uk/news/politics/nicola-sturgeon-prosecution-review-request-37807119",
+    used:
+      "COPFS rejection of former SNP donors' Victims' Right to Review request because Police Scotland never formally reported Sturgeon for prosecution.",
+  },
+  {
+    id: "dailyrecord-copfs-email-error-2026",
+    title: "Prosecutors forced to deny reopening Operation Branchform after erroneous email",
+    publisher: "Daily Record",
+    url: "https://www.dailyrecord.co.uk/news/politics/bungling-prosecutors-forced-deny-reopening-37829899",
+    used:
+      "Crown Office clarification that an automated email referencing an active criminal investigation was an administrative error and Operation Branchform has not been reopened.",
+  },
 ];
 
 export const snpMoneyTimelineSourcesById = Object.fromEntries(
@@ -1557,24 +1589,67 @@ export const snpMoneyTimelineEvents: SnpTimelineEvent[] = [
     sourceIds: ["police-foi-court-orders-2026", "police-foi-advice-request-2026"],
   },
   {
+    id: "murrell-poca-postponed",
+    date: "September 2026",
+    dateTime: "2026-09-01",
+    group: "2026-after",
+    groupLabel: "After sentence · the parts that remain live",
+    phase: "aftermath",
+    status: "official",
+    title: "Proceeds of Crime hearing postponed to 7 December 2026",
+    summary:
+      "A Proceeds of Crime Act procedural hearing at the High Court in Edinburgh was postponed from September to 7 December 2026 following a joint request by Crown and defence lawyers to allow time to work on asset recovery and confiscation figures.",
+    explainer:
+      "Proceeds of Crime proceedings are separate from the prison sentence and focus on quantifying criminal benefit and recoverable assets.",
+    sourceIds: ["scotsman-poca-postponed-2026", "standard-poca-december-2026"],
+  },
+  {
+    id: "copfs-rejects-sturgeon-review",
+    date: "October 2026",
+    dateTime: "2026-10-28",
+    group: "2026-after",
+    groupLabel: "After sentence · the parts that remain live",
+    phase: "aftermath",
+    status: "reported",
+    title: "Crown Office rejects donors' review request over Nicola Sturgeon",
+    summary:
+      "Prosecutors turned down a request from three former SNP donors for a formal Victims' Right to Review into why Nicola Sturgeon was not prosecuted. COPFS stated the scheme criteria were not met because Police Scotland never formally reported Sturgeon for prosecution.",
+    sourceIds: ["dailyrecord-sturgeon-review-rejected-2026"],
+  },
+  {
+    id: "copfs-rogue-email-clarification",
+    date: "November 2026",
+    dateTime: "2026-11-08",
+    group: "2026-after",
+    groupLabel: "After sentence · the parts that remain live",
+    phase: "aftermath",
+    status: "official",
+    title: "Crown Office clarifies erroneous email: Branchform not reopened",
+    summary:
+      "After an erroneous follow-up email told a complainer there was an ongoing Crown directed criminal investigation, COPFS confirmed it was an administrative error. Prosecutors reiterated that Operation Branchform has not been reopened and no criminal investigation into Nicola Sturgeon is under way.",
+    explainer:
+      "This administrative mistake briefly triggered fresh headlines, though the underlying legal position for Sturgeon did not change.",
+    sourceIds: ["dailyrecord-copfs-email-error-2026"],
+  },
+  {
     id: "latest-status",
-    date: "2 August 2026",
-    dateTime: "2026-08-02",
+    date: "19 November 2026",
+    dateTime: "2026-11-19",
     group: "2026-after",
     groupLabel: "After sentence · the parts that remain live",
     phase: "aftermath",
     status: "ongoing",
     title: "The latest verified position",
     summary:
-      "Murrell is serving a five year three month sentence. Sturgeon and Beattie were not charged and are no longer under investigation in Operation Branchform. Asset recovery, the Electoral Commission review and police inquiries into the separate Yes Scotland complaint remain unfinished.",
+      "Murrell is serving a five year three month prison sentence and is scheduled to return to the High Court in Edinburgh on 7 December 2026 for a Proceeds of Crime Act procedural hearing. Sturgeon and Beattie were not charged, remain cleared in Operation Branchform, and COPFS confirmed in November that the inquiry has not been reopened. The Electoral Commission review and police inquiries into the separate Yes Scotland complaint remain unfinished.",
     explainer:
-      "This page will change when an official source changes that position, not simply when a new allegation or anonymous claim appears.",
+      "This page will update again after the 7 December 2026 Proceeds of Crime hearing or whenever an official source changes the verified position.",
     sourceIds: [
       "murrell-sentencing-judiciary",
       "police-branchform-update-2025",
-      "copfs-murrell-sentence-2026",
+      "scotsman-poca-postponed-2026",
+      "dailyrecord-copfs-email-error-2026",
       "ec-snp-review-2026",
-      "stv-yes-scotland-complaint-2026",
     ],
   },
 ];
