@@ -330,8 +330,8 @@ export function Footer() {
       </div>
       <div className="max-w-[1232px] mx-auto px-5 sm:px-8 lg:px-14 pt-14 pb-10">
         <div className="grid gap-10">
-          <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
-            <div>
+          <div className="grid gap-6 lg:grid-cols-[minmax(360px,1fr)_minmax(0,1.15fr)] lg:items-end">
+            <div className="min-w-0">
             <Link href="/" className="text-white" aria-label="Scotland Counted home">
               <Wordmark height={34} />
             </Link>
