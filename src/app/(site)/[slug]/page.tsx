@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { resolveTopLevel, topLevelSegments } from "@/lib/routeMap";
 import { CouncilTaxDetail, councilTaxMetadata } from "../council-tax-bands-scotland/CouncilTaxDetail";
 import { PostView, postMetadata } from "../blog/PostView";
-import { SalaryAfterTax, SalaryHub, salaryHubMetadata, salaryMetadata } from "@/components/salary/SalaryAfterTax";
+import { SalaryAfterTax, salaryMetadata } from "@/components/salary/SalaryAfterTax";
 
 /**
  * Exact match addresses at the top level: /glasgow-council-tax-bands,
@@ -25,7 +25,6 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
   if (target.kind === "council-tax") return councilTaxMetadata(target.councilSlug);
   if (target.kind === "council-tax-band") return councilTaxMetadata(`band-${target.letter}`);
   if (target.kind === "salary") return salaryMetadata(target.amount);
-  if (target.kind === "salary-hub") return salaryHubMetadata();
   return postMetadata(target.postSlug);
 }
 
@@ -36,6 +35,5 @@ export default async function TopLevelPage(props: { params: Promise<{ slug: stri
   if (target.kind === "council-tax") return <CouncilTaxDetail slug={target.councilSlug} />;
   if (target.kind === "council-tax-band") return <CouncilTaxDetail slug={`band-${target.letter}`} />;
   if (target.kind === "salary") return <SalaryAfterTax amount={target.amount} />;
-  if (target.kind === "salary-hub") return <SalaryHub />;
   return <PostView slug={target.postSlug} />;
 }

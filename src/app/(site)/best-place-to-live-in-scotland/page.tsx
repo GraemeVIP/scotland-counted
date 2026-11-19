@@ -4,6 +4,7 @@ import QuickAnswer from "@/components/QuickAnswer";
 import Faq from "@/components/Faq";
 import ComparePromo from "@/components/ComparePromo";
 import { RankedList, Freshness, RankingLinks, areaName } from "@/components/AreaRanking";
+import SharePage from "@/components/SharePage";
 import { JsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
 import {
   CITY_SLUGS,
@@ -30,7 +31,7 @@ const UPDATED = "2026-10-29";
 const CHECKED = "2026-10-29";
 
 export const metadata = meta({
-  title: "Best Place to Live in Scotland: All 32 Areas Ranked on Official Data",
+  title: "Best Place to Live in Scotland: All 32 Areas Ranked",
   description:
     "The best place to live in Scotland, ranked on official figures for pay, jobs, poverty, crime, health and schools across all 32 council areas. See where your area comes, and why.",
   path: "/best-place-to-live-in-scotland",
@@ -125,6 +126,13 @@ export default function BestPlaceToLivePage() {
           lede={`${areaName(first.slug)} comes out top on the official figures, followed by ${areaName(second.slug)} and ${areaName(third.slug)}. Here is every council area in Scotland ranked on pay, jobs, poverty, crime, health and schools.`}
         >
           <Freshness updated={UPDATED} checked={CHECKED} />
+          <SharePage
+            title="Best place to live in Scotland: all 32 councils ranked"
+            text={`${areaName(first.slug)} ranks #1 in Scotland on official figures for pay, jobs, crime, health and schools. See where your council comes.`}
+            path="/best-place-to-live-in-scotland"
+            label="Share this ranking"
+            className="mt-4"
+          />
         </PageHeader>
         <ContentFrame>
           <QuickAnswer

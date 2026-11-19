@@ -63,7 +63,7 @@ export const HUBS: Hub[] = [
         heading: "Pay and tax",
         items: [
           { href: "/take-home-pay-calculator-scotland", label: "Take home pay calculator", tag: "Tool" },
-          { href: "/salary-after-tax-scotland", label: "Salary after tax, every amount" },
+          { href: "/tax-bands-scotland", label: "Scottish income tax bands" },
           { href: "/30000-after-tax-scotland", label: "£30,000 after tax" },
           { href: "/average-salary-scotland", label: "Average salary in Scotland" },
         ],
@@ -83,6 +83,8 @@ export const HUBS: Hub[] = [
       {
         heading: "Bills and prices",
         items: [
+          { href: "/lbtt-calculator-scotland", label: "LBTT calculator (Stamp Duty)", tag: "Tool" },
+          { href: "/scotland-bank-holidays", label: "Scotland bank holidays" },
           { href: "/energy-price-cap-scotland", label: "Energy price cap" },
           { href: "/cost-of-living-scotland", label: "Why the cost of living is so high" },
           { href: "/blog/why-food-prices-stay-high-when-inflation-falls", label: "Why food prices stay high" },
@@ -222,6 +224,7 @@ export const HUBS: Hub[] = [
       {
         heading: "Local figures",
         items: [
+          { href: "/simd-postcode-checker", label: "SIMD postcode checker", tag: "Tool" },
           { href: "/poverty-in-scotland", label: "Poverty in Scotland" },
           { href: "/unemployment-scotland", label: "Unemployment in Scotland" },
           { href: "/life-expectancy-glasgow", label: "Life expectancy in Glasgow" },
@@ -352,9 +355,8 @@ export const EVIDENCE: NavItem[] = [
   { href: "/accessibility", label: "Accessibility" },
 ];
 
-/** About the project. Footer and phone menu. */
+/** Footer and phone menu links. */
 export const ABOUT: NavItem[] = [
-  { href: "/about", label: "About the project" },
   { href: "/contact", label: "Feedback and contact" },
   { href: "/for-organisations", label: "For organisations" },
   { href: "/privacy", label: "Privacy" },

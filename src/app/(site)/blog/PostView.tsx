@@ -90,6 +90,7 @@ export function PostView({ slug }: { slug: string }) {
           image: post.image?.src,
           section: category?.name,
           keywords: post.tags,
+          schemaType: "BlogPosting",
         })}
       />
       {post.faq.length > 0 && <JsonLd data={faqJsonLd(post.faq)} />}
@@ -114,8 +115,7 @@ export function PostView({ slug }: { slug: string }) {
             <div className="flex flex-wrap items-center justify-between gap-4 mt-8 pt-5 border-t border-[var(--rule)]">
               <div className="grid gap-2">
                 <p className="text-[15px] text-[var(--muted)]">
-                  By <Link href="/about" className="font-[580] text-[var(--ink-2)]">Graeme</Link>
-                  {" · "}Published {fmtDate(post.date)} · {post.readingMinutes} min read
+                  Scotland Counted · Published {fmtDate(post.date)} · {post.readingMinutes} min read
                 </p>
                 {/* Freshness, shown to readers and given to search engines as dateModified. */}
                 <p className="ui inline-flex flex-wrap items-center gap-x-2 gap-y-1 text-[14.5px] font-[560] text-[var(--ink-2)]">

@@ -4,6 +4,7 @@ import QuickAnswer from "@/components/QuickAnswer";
 import Faq from "@/components/Faq";
 import ComparePromo from "@/components/ComparePromo";
 import { RankedList, Freshness, RankingLinks, areaName } from "@/components/AreaRanking";
+import SharePage from "@/components/SharePage";
 import { JsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
 import { CITY_SLUGS, metricById, rankAreas } from "@/lib/data/compareAreas";
 import { COMPARE_EXTRA } from "@/lib/data/compareAreasData";
@@ -94,6 +95,13 @@ export default function SafestPlacePage() {
           lede={`${areaName(safest.slug)} is the safest place to live in Scotland on police figures: ${whole(safest.value)} recorded crimes for every 10,000 people in ${crime.period}, against ${whole(scotland)} across Scotland. Here is every council area, with violent crime, break ins and the change on last year.`}
         >
           <Freshness updated={UPDATED} checked={CHECKED} />
+          <SharePage
+            title="Safest place to live in Scotland: all 32 councils ranked by crime"
+            text={`Every Scottish council ranked by police-recorded crime per 10,000 people. ${areaName(safest.slug)} is safest (${whole(safest.value)} per 10,000).`}
+            path="/safest-place-to-live-in-scotland"
+            label="Share this ranking"
+            className="mt-4"
+          />
         </PageHeader>
         <ContentFrame>
           <QuickAnswer

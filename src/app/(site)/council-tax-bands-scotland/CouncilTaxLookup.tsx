@@ -189,8 +189,13 @@ export default function CouncilTaxLookup() {
                         {" "}({risePct.format(c.councilTaxRisePct)}%)
                       </span>
                     </span>
-                    <span className="display-stat text-[19px] sm:text-[22px] tnum text-[var(--ink)]">
-                      {period === "year" ? exact.format(c.total) : exact.format(c.total / Number(period))}
+                    <span className="text-right">
+                      <span className="display-stat block text-[19px] sm:text-[22px] tnum text-[var(--ink)]">
+                        {period === "year" ? exact.format(c.total) : exact.format(c.total / Number(period))}
+                      </span>
+                      <span className="ui block text-[13px] font-[560] text-[var(--brand)]">
+                        {open ? "Hide breakdown −" : "See breakdown +"}
+                      </span>
                     </span>
                   </button>
                   {open && (

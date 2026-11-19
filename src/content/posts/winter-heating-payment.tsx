@@ -7,12 +7,13 @@ export default function Post() {
   return (
     <Prose>
       <Lead>
-        Winter Heating Payment is a single payment of {pounds(WHP.amount, true)} from Social
-        Security Scotland to help people on certain low income benefits heat their home. You
-        don&apos;t apply. If you get the right benefit in the qualifying week, it just arrives.
+        Winter Heating Payment in Scotland is a single payment of {pounds(WHP.amount, true)} from
+        Social Security Scotland to help people on certain low income benefits heat their home. It
+        replaced Cold Weather Payment in Scotland, and you don&apos;t need to apply. If you get a
+        qualifying benefit in the qualifying week, it arrives automatically.
       </Lead>
 
-      <H2 id="who">Who gets winter heating payment</H2>
+      <H2 id="who">Who gets Winter Heating Payment in Scotland</H2>
       <P>
         The qualifying week this year is {WHP.qualifyingWeek}. If you got one of these at any point
         that week, you should be paid:
@@ -45,6 +46,18 @@ export default function Post() {
         It doesn&apos;t affect any other benefit you get.
       </P>
 
+      <H2 id="cold-weather">What happened to Cold Weather Payment in Scotland?</H2>
+      <P>
+        Cold Weather Payment ended in Scotland and was replaced by Winter Heating Payment. In
+        England, Wales and Northern Ireland, Cold Weather Payment still pays £25 only when the local
+        temperature stays at or below zero for seven days in a row.
+      </P>
+      <P>
+        In Scotland, Winter Heating Payment pays a guaranteed {pounds(WHP.amount, true)} every
+        winter to everyone who qualifies, no matter what the weather does. You do not need to check
+        postcode temperatures or wait for a cold snap.
+      </P>
+
       <H2 id="allowance">Winter heating allowance and the other winter payments</H2>
       <P>
         People search for winter heating allowance, but there are really three different payments
@@ -65,7 +78,13 @@ export default function Post() {
           care rate of a disability benefit.
         </LI>
       </UL>
-      <P>You can get more than one if you qualify for each.</P>
+      <P>
+        You can get more than one if you qualify for each. Homes in council tax bands A to D can
+        also check the <Link href="/100-energy-payment-scotland">£100 energy payment in Scotland</Link>,
+        see <Link href="/social-security-scotland-payment-dates">Social Security Scotland payment dates</Link>{" "}
+        around <Link href="/scotland-bank-holidays">Scottish bank holidays</Link>, or read how the{" "}
+        <Link href="/energy-price-cap-scotland">energy price cap in Scotland</Link> affects winter bills.
+      </P>
 
       <Aside title="If you think you missed it">
         <p>

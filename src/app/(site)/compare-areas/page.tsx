@@ -2,6 +2,7 @@ import { Page, ContentFrame, PageHeader, SectionHead } from "@/components/Blocks
 import { RankingLinks } from "@/components/AreaRanking";
 import AreaComparePicker from "@/components/AreaComparePicker";
 import AreaComparison from "@/components/AreaComparison";
+import SharePage from "@/components/SharePage";
 import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
 import { councils } from "@/lib/data/councils";
 import { COMPARE_DEFAULTS } from "@/lib/data/compareAreas";
@@ -47,7 +48,15 @@ export default async function CompareAreasPage({
           eyebrow="Your area · Compare"
           title="Compare areas in Scotland"
           lede="Pick any two council areas, or type two postcodes, and see them side by side: pay, homes, jobs, crime, poverty, health, schools and how the council performs. Every figure is the latest official one, with its source."
-        />
+        >
+          <SharePage
+            title={`${councils.find((c) => c.slug === a)?.name ?? a} vs ${councils.find((c) => c.slug === b)?.name ?? b}`}
+            text={`Side by side official figures for ${councils.find((c) => c.slug === a)?.name ?? a} vs ${councils.find((c) => c.slug === b)?.name ?? b}: pay, house prices, council tax, crime and schools.`}
+            path={`/compare-areas?a=${a}&b=${b}`}
+            label="Share this comparison"
+            className="mt-4"
+          />
+        </PageHeader>
         <ContentFrame>
           <div className="pb-10">
             <AreaComparePicker key={`${a}-${b}`} a={a} b={b} />

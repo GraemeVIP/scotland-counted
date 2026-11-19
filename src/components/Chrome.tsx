@@ -255,17 +255,69 @@ export function Header() {
 export function Footer() {
   const tools = [
     { href: "/take-home-pay-calculator-scotland", label: "Take home pay calculator" },
+    { href: "/tax-bands-scotland", label: "Scottish tax bands" },
+    { href: "/lbtt-calculator-scotland", label: "LBTT calculator" },
     { href: "/council-tax-bands-scotland", label: "Council tax by band" },
-    { href: "/email-your-mp-and-msp", label: "Email your MP and MSP" },
-    { href: "/poverty-in-scotland-quiz", label: "Guess the figure" },
+    { href: "/simd-postcode-checker", label: "SIMD postcode checker" },
+    { href: "/scotland-bank-holidays", label: "Scotland bank holidays" },
   ];
-  /* Each section's first links, then the pages that make the site checkable. */
+  /* Curated high-demand destinations per hub so internal authority flows to top money, winter, council, area and school pages. */
+  const footerByHub: Record<string, { href: string; label: string }[]> = {
+    money: [
+      { href: "/take-home-pay-calculator-scotland", label: "Take home pay calculator" },
+      { href: "/tax-bands-scotland", label: "Scottish income tax bands" },
+      { href: "/lbtt-calculator-scotland", label: "LBTT calculator (Stamp Duty)" },
+      { href: "/minimum-wage-scotland", label: "Minimum wage Scotland" },
+      { href: "/real-living-wage-scotland", label: "Real Living Wage" },
+      { href: "/scotland-bank-holidays", label: "Scotland bank holidays" },
+    ],
+    benefits: [
+      { href: "/100-energy-payment-scotland", label: "£100 energy payment" },
+      { href: "/winter-fuel-payment-scotland", label: "Winter fuel payment" },
+      { href: "/winter-heating-payment", label: "Winter Heating Payment" },
+      { href: "/adult-disability-payment", label: "Adult Disability Payment" },
+      { href: "/social-security-scotland-payment-dates", label: "Payment dates" },
+      { href: "/crisis-grant-phone-number", label: "Crisis grant phone numbers" },
+    ],
+    tax: [
+      { href: "/council-tax-bands-scotland", label: "Bands for every council" },
+      { href: "/glasgow-council-tax-bands", label: "Glasgow council tax bands" },
+      { href: "/edinburgh-council-tax-bands", label: "Edinburgh council tax bands" },
+      { href: "/check-council-tax-band", label: "Check your band" },
+      { href: "/single-person-discount-council-tax-scotland", label: "Single person discount" },
+      { href: "/council-tax-reduction-scotland", label: "Council tax reduction" },
+    ],
+    area: [
+      { href: "/compare-areas", label: "Compare two areas" },
+      { href: "/simd-postcode-checker", label: "SIMD postcode checker" },
+      { href: "/best-place-to-live-in-scotland", label: "Best places to live" },
+      { href: "/safest-place-to-live-in-scotland", label: "Safest places to live" },
+      { href: "/cheapest-place-to-live-in-scotland", label: "Cheapest places to live" },
+      { href: "/glasgow-vs-edinburgh", label: "Glasgow vs Edinburgh" },
+    ],
+    reps: [
+      { href: "/who-is-my-msp", label: "Who is my MSP" },
+      { href: "/representatives/msps", label: "All 129 MSPs" },
+      { href: "/representatives", label: "All 57 MPs" },
+      { href: "/councils", label: "All 32 council records" },
+      { href: "/msp-reviews", label: "Review your MSP" },
+      { href: "/blog/operation-branchform-snp-money-timeline", label: "Operation Branchform timeline" },
+    ],
+    schools: [
+      { href: "/national-5-modern-studies", label: "National 5 Modern Studies" },
+      { href: "/higher-modern-studies", label: "Higher Modern Studies" },
+      { href: "/nat-5-modern-studies-past-papers", label: "Nat 5 past papers" },
+      { href: "/higher-modern-studies-past-papers", label: "Higher past papers" },
+      { href: "/modern-studies-teaching-resources", label: "For teachers" },
+      { href: "/poverty-in-scotland-quiz", label: "Poverty quiz" },
+    ],
+  };
   const columns = [
     ...HUBS.map((hub) => ({
       title: hub.label,
       color: hubBarColor(hub.id),
       href: hub.href,
-      items: hub.groups.flatMap((group) => group.items).slice(0, 5),
+      items: footerByHub[hub.id] ?? hub.groups.flatMap((group) => group.items).slice(0, 5),
     })),
     { title: "Evidence", color: undefined, href: "/methods", items: EVIDENCE },
   ];
@@ -338,12 +390,6 @@ export function Footer() {
             </li>
           </ul>
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
-            <p>
-              Published independently by {site.author.name} ·{" "}
-              <a href={site.organisation.url} className="text-white/90 underline underline-offset-3 decoration-white/30 hover:text-white">
-                {site.organisation.name}
-              </a>
-            </p>
             {site.social.x && (
               <a
                 href={`https://x.com/${site.social.x}`}

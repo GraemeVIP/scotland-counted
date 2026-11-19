@@ -140,13 +140,22 @@ function readFileAtRevision(revision, file, projectRoot) {
   return git(["show", `${revision}:${file}`], { cwd: projectRoot, allowFailure: true }) ?? "";
 }
 
-export function deriveChangedPaths({ changes, currentPosts, previousPosts = new Map() }) {
+export function parsePostPaths(routeMapSource) {
+  const map = new Map();
+  const block = routeMapSource.match(/export const POST_PATHS[\s\S]*?=\s*\{([\s\S]*?)\};/)?.[1] ?? "";
+  for (const match of block.matchAll(/"([^"]+)":\s*"(\/[^"]+)"/g)) {
+    map.set(match[1], match[2]);
+  }
+  return map;
+}
+
+export function deriveChangedPaths({ changes, currentPosts, previousPosts = new Map(), postPaths = new Map() }) {
   const candidates = new Map();
   const unmapped = new Set();
   const currentCounts = categoryCounts(currentPosts);
 
   const mapPost = (slug, action, reason) => {
-    addCandidate(candidates, `/blog/${slug}`, action, reason);
+    addCandidate(candidates, postPaths.get(slug) ?? `/blog/${slug}`, action, reason);
     addCandidate(candidates, "/blog", "changed", `${reason}; article listing changed`);
     const category = currentPosts.get(slug)?.category ?? previousPosts.get(slug)?.category;
     if (category && (currentCounts.get(category) ?? 0) >= 3) {
@@ -379,10 +388,12 @@ async function main() {
     const changes = parseNameStatus(output);
     const currentSource = readFileSync(resolve(PROJECT_ROOT, "src/lib/data/posts.ts"), "utf8");
     const previousSource = readFileAtRevision(options.base, "src/lib/data/posts.ts", PROJECT_ROOT);
+    const routeMapSource = readFileSync(resolve(PROJECT_ROOT, "src/lib/routeMap.ts"), "utf8");
     const result = deriveChangedPaths({
       changes,
       currentPosts: parsePostCatalog(currentSource),
       previousPosts: parsePostCatalog(previousSource),
+      postPaths: parsePostPaths(routeMapSource),
     });
     unmapped = result.unmapped;
     planned = result.candidates.map((candidate) => ({

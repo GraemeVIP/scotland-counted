@@ -15,7 +15,7 @@ import { N5_PAST_PAPER_FILES } from "@/lib/data/schools";
  */
 
 export const metadata = meta({
-  title: "Modern Studies Teaching Resources: Free Scottish Data for Class",
+  title: "Modern Studies Teaching Resources: Free Scottish Data",
   description:
     "Free Modern Studies teaching resources: current Scottish data mapped to the National 5 and Higher course, past papers to download, model answers and practice questions.",
   path: "/modern-studies-teaching-resources",
@@ -43,6 +43,7 @@ const COURSE_MAP: Array<[string, Array<[string, string]>]> = [
       ["Minimum wage and Real Living Wage", "/minimum-wage-scotland"],
       ["Life expectancy in Glasgow", "/life-expectancy-glasgow"],
       ["Drug deaths and deprivation", "/blog/drug-deaths-scotland-deprivation"],
+      ["SIMD postcode checker and council rankings", "/simd-postcode-checker"],
       ["Every council area compared", "/areas"],
     ],
   ],
@@ -180,8 +181,8 @@ export default function TeachingResourcesPage() {
           </section>
 
           <CTA
-            title="Tell me what would help your classes"
-            body={`A topic you need data for, a mistake, or an idea for a resource. I read everything sent to ${site.contactEmail}.`}
+            title="Tell us what would help your classes"
+            body="A topic you need data for, a mistake, or an idea for a resource. Send a note through the contact page."
             href="/contact"
             cta="Get in touch"
           />

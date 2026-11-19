@@ -229,8 +229,11 @@ export default function Post() {
       </P>
       <P>
         What it can&apos;t do is keep every figure current, and markers reward recent examples. So use
-        Bitesize to learn the topic, then swap in the latest Scottish figures from this site and from
-        official sources. The other free essentials are on the{" "}
+        Bitesize to learn the topic, then swap in the latest Scottish figures from this site, look up
+        local deprivation deciles with the{" "}
+        <Link href="/simd-postcode-checker">SIMD postcode checker</Link>, or use our{" "}
+        <Link href="/modern-studies-teaching-resources">Modern Studies teaching resources</Link>. The
+        other free essentials are on the{" "}
         <a href={LINKS.higher}>Higher Modern Studies course page</a>: the course specification, the
         specimen papers, the coursework task and the course reports, which tell you exactly where
         pupils lost marks last year.

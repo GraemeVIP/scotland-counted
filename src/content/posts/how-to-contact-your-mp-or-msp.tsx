@@ -153,7 +153,7 @@ export default function Post() {
         MPs normally only take up cases for people who live in their constituency, so check you
         have the right one first. The <Link href="/who-is-my-msp">postcode lookup</Link> shows
         your MP as well as your MSPs, or you can browse{" "}
-        <Link href="/representatives/mps">every Scottish MP</Link>.
+        <Link href="/representatives">every Scottish MP and MSP</Link>.
       </P>
 
       <GuideTable

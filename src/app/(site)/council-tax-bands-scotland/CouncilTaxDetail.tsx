@@ -3,6 +3,7 @@ import ComparePromo from "@/components/ComparePromo";
 import { notFound } from "next/navigation";
 import { Page, PageHeader, InShort } from "@/components/Blocks";
 import { JsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
+import SharePage from "@/components/SharePage";
 import {
   BAND_LETTERS,
   chargesFor,
@@ -89,7 +90,7 @@ export function councilTaxMetadata(slug: string) {
     const cheap = v.rows[v.rows.length - 1];
     const dear = v.rows[0];
     return meta({
-      title: `Council Tax Band ${v.letter} Scotland 2026/27: Monthly Cost by Council`,
+      title: `Council Tax Band ${v.letter} Scotland 2026/27: Monthly Cost`,
       description: `Compare 2026/27 Band ${v.letter} council tax in all 32 Scottish councils, from ${pounds.format(cheap.total)} in ${cheap.name} to ${pounds.format(dear.total)} in ${dear.name}, water included.`,
       path: councilTaxBandPath(v.letter),
       type: "website",
@@ -99,8 +100,8 @@ export function councilTaxMetadata(slug: string) {
   const d = v.charges[3];
   const placeName = councilSearchName(v.slug, v.name);
   return meta({
-    title: `${placeName} Council Tax Bands 2026/27: Band A to H Prices`,
-    description: `2026/27 ${placeName} council tax by band. Band D rose ${percent.format(d.councilTaxRisePct)}% to ${pounds.format(d.councilTax)} before water. See A to H, last year's price and current totals.`,
+    title: `${placeName} Council Tax Bands 2026/27: A to H Prices`,
+    description: `Council tax in ${placeName} for 2026/27 by band, with water included. Band D rose ${percent.format(d.councilTaxRisePct)}% to ${pounds.format(d.councilTax)} before water. See A to H monthly and yearly bills.`,
     path: councilTaxPath(v.slug),
     type: "website",
   });
@@ -188,6 +189,24 @@ export function CouncilTaxDetail({ slug }: { slug: string }) {
               <p>On a low income you may pay considerably less. See below.</p>
             </InShort>
             <EnergyPaymentNote className="mt-4" />
+            <div className="mt-4 flex flex-wrap gap-2">
+              <Link href={postPath("check-council-tax-band")} className="ui rounded-full border border-[var(--rule-strong)] bg-[var(--surface)] px-3.5 py-1.5 text-[14.5px] font-[580] text-[var(--ink)] no-underline hover:border-[var(--brand)]">
+                Check your {placeName} band →
+              </Link>
+              <Link href={postPath("single-person-discount-council-tax-scotland")} className="ui rounded-full border border-[var(--rule-strong)] bg-[var(--surface)] px-3.5 py-1.5 text-[14.5px] font-[580] text-[var(--ink)] no-underline hover:border-[var(--brand)]">
+                25% single person discount →
+              </Link>
+              <Link href={postPath("council-tax-reduction-scotland")} className="ui rounded-full border border-[var(--rule-strong)] bg-[var(--surface)] px-3.5 py-1.5 text-[14.5px] font-[580] text-[var(--ink)] no-underline hover:border-[var(--brand)]">
+                Council Tax Reduction →
+              </Link>
+            </div>
+            <SharePage
+              title={`${placeName} council tax bands 2026/27`}
+              text={`${placeName} Band D council tax rose ${percent.format(d.councilTaxRisePct)}% to ${exact.format(d.councilTax)} (${pounds.format(d.total)} with Scottish Water).`}
+              path={councilTaxPath(v.slug)}
+              label={`Share ${placeName} rates`}
+              className="mt-4"
+            />
           </div>
 
           <section>

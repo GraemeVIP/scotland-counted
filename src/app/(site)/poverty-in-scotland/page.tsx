@@ -26,7 +26,7 @@ import { explainerVideo } from "@/lib/data/video";
  */
 
 export const metadata = meta({
-  title: "Poverty in Scotland: The Figures, the Causes and Who Can Fix It",
+  title: "Poverty in Scotland: Figures, Causes & Solutions",
   description:
     "See Scotland's poverty figures, how work and housing costs affect them, why Glasgow stands out, and who has the power to act.",
   path: "/poverty-in-scotland",

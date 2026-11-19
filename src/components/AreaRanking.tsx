@@ -131,6 +131,9 @@ export function RankingLinks({ current }: { current?: string }) {
     { href: "/safest-place-to-live-in-scotland", title: "Safest places to live", body: "Recorded crime, violence and break ins in every area" },
     { href: "/glasgow-vs-edinburgh", title: "Glasgow vs Edinburgh", body: "Scotland's two biggest cities, side by side" },
     { href: "/compare-areas", title: "Compare any two areas", body: "Pick two councils, or type two postcodes" },
+    { href: "/simd-postcode-checker", title: "SIMD postcode checker", body: "Check any Scottish postcode's official deprivation decile (1 to 10)" },
+    { href: "/lbtt-calculator-scotland", title: "LBTT calculator Scotland", body: "Work out Scottish Stamp Duty, first-time buyer relief and 8% ADS" },
+    { href: "/council-tax-bands-scotland", title: "Council tax bands Scotland", body: "Compare Band A to H bills across all 32 Scottish councils" },
   ].filter((l) => l.href !== current);
   return (
     <ul className="grid gap-3 sm:grid-cols-2">

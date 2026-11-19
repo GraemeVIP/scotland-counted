@@ -67,7 +67,7 @@ const EVIDENCE = [
   { href: "/methods", label: "Methods and sources", body: "Exactly how every figure was counted" },
   { href: "/data", label: "Download the data", body: "Source files, and the rules for reusing them" },
   { href: "/corrections", label: "Corrections", body: "Errors, dated, and what was done about them" },
-  { href: "/about", label: "Who publishes this", body: "One person, named, with no funding or party" },
+  { href: "/press", label: "Press and reuse", body: "Free to quote and republish with credit" },
 ];
 
 const FAQ = [
@@ -77,7 +77,7 @@ const FAQ = [
   },
   {
     q: "Who runs it and who pays for it?",
-    a: "It is written and published by one person, and named on the about page. There is no funding, no advertising, no donations and no party affiliation.",
+    a: "Scotland Counted is an independent public data project with no political party affiliation, no donations, and no paywall. Every figure is linked back to its official publisher.",
   },
   {
     q: "What happens to the postcode I enter?",

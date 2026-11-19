@@ -15,39 +15,68 @@ import { representativeSlug } from "@/lib/representatives";
 import { councilAccountabilityRecords } from "@/lib/data/councilAccountability";
 import { mspReviewProfiles } from "@/lib/data/mspReviews";
 import { listApprovedMspReviews } from "@/lib/mspReviewsDb";
-import { SALARIES, councilTaxBandPath, councilTaxPath, postPath, salaryHubPath, salaryPath } from "@/lib/routeMap";
+import { SALARIES, councilTaxBandPath, councilTaxPath, postPath, salaryPath } from "@/lib/routeMap";
 
 export const revalidate = 3600;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const dataChecked = new Date(`${site.dataCheckedISO}T00:00:00Z`);
   const seoRelease = new Date("2026-08-02T00:00:00Z");
+  const seoRefresh = new Date("2026-11-19T00:00:00Z");
   const repositioning = new Date("2026-08-03T00:00:00Z");
   const latestPostDate = new Date(
     Math.max(...posts.map((post) => new Date(post.updated ?? post.date).getTime())),
   );
 
   const core: MetadataRoute.Sitemap = [
-    { url: site.url, changeFrequency: "monthly", priority: 1, lastModified: seoRelease },
+    { url: site.url, changeFrequency: "monthly", priority: 1, lastModified: seoRefresh },
     { url: `${site.url}/areas`, changeFrequency: "monthly", priority: 0.95, lastModified: seoRelease },
-    { url: `${site.url}/money`, changeFrequency: "monthly", priority: 0.95, lastModified: repositioning },
-    { url: `${site.url}/benefits`, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${site.url}/modern-studies-teaching-resources`, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${site.url}/money`, changeFrequency: "monthly", priority: 0.95, lastModified: seoRefresh },
+    { url: `${site.url}/benefits`, changeFrequency: "monthly", priority: 0.9, lastModified: seoRefresh },
+    { url: `${site.url}/modern-studies-teaching-resources`, changeFrequency: "monthly", priority: 0.8, lastModified: seoRefresh },
     { url: `${site.url}/councils`, changeFrequency: "monthly", priority: 0.85, lastModified: seoRelease },
     { url: `${site.url}/who-decides`, changeFrequency: "monthly", priority: 0.9, lastModified: repositioning },
     { url: `${site.url}/compare-areas`, changeFrequency: "monthly", priority: 0.9, lastModified: new Date("2026-10-29") },
-    { url: `${site.url}/best-place-to-live-in-scotland`, changeFrequency: "monthly", priority: 0.9, lastModified: new Date("2026-10-29") },
-    { url: `${site.url}/cheapest-place-to-live-in-scotland`, changeFrequency: "monthly", priority: 0.8, lastModified: new Date("2026-10-29") },
+    { url: `${site.url}/best-place-to-live-in-scotland`, changeFrequency: "monthly", priority: 0.9, lastModified: seoRefresh },
+    { url: `${site.url}/cheapest-place-to-live-in-scotland`, changeFrequency: "monthly", priority: 0.8, lastModified: seoRefresh },
     { url: `${site.url}/safest-place-to-live-in-scotland`, changeFrequency: "monthly", priority: 0.8, lastModified: new Date("2026-10-29") },
-    { url: `${site.url}/glasgow-vs-edinburgh`, changeFrequency: "monthly", priority: 0.9, lastModified: new Date("2026-10-29") },
-    { url: `${site.url}/poverty-in-scotland`, changeFrequency: "monthly", priority: 0.9, lastModified: repositioning },
+    { url: `${site.url}/glasgow-vs-edinburgh`, changeFrequency: "monthly", priority: 0.9, lastModified: seoRefresh },
+    { url: `${site.url}/poverty-in-scotland`, changeFrequency: "monthly", priority: 0.9, lastModified: seoRefresh },
     { url: `${site.url}/email-your-mp-and-msp`, changeFrequency: "monthly", priority: 0.95, lastModified: seoRelease },
     { url: `${site.url}/blog`, changeFrequency: "weekly", priority: 0.9, lastModified: latestPostDate },
     { url: `${site.url}/faq`, changeFrequency: "monthly", priority: 0.85 },
     { url: `${site.url}/what-happens-when-you-email-your-mp`, changeFrequency: "monthly", priority: 0.95, lastModified: seoRelease },
-    { url: `${site.url}/council-tax-bands-scotland`, changeFrequency: "yearly", priority: 0.9, lastModified: seoRelease },
-    { url: `${site.url}/take-home-pay-calculator-scotland`, changeFrequency: "yearly", priority: 0.9, lastModified: seoRelease },
-    { url: `${site.url}/poverty-in-scotland-quiz`, changeFrequency: "monthly", priority: 0.85, lastModified: seoRelease },
+    { url: `${site.url}/council-tax-bands-scotland`, changeFrequency: "yearly", priority: 0.9, lastModified: seoRefresh },
+    { url: `${site.url}/take-home-pay-calculator-scotland`, changeFrequency: "yearly", priority: 0.9, lastModified: seoRefresh },
+    {
+      url: `${site.url}/tax-bands-scotland`,
+      changeFrequency: "yearly",
+      priority: 0.9,
+      lastModified: seoRefresh,
+      images: [`${site.url}/images/editorial/tax-bands-scotland-2026-27.webp`],
+    },
+    {
+      url: `${site.url}/lbtt-calculator-scotland`,
+      changeFrequency: "yearly",
+      priority: 0.9,
+      lastModified: seoRefresh,
+      images: [`${site.url}/images/editorial/lbtt-calculator-scotland-stamp-duty.webp`],
+    },
+    {
+      url: `${site.url}/simd-postcode-checker`,
+      changeFrequency: "yearly",
+      priority: 0.9,
+      lastModified: seoRefresh,
+      images: [`${site.url}/images/editorial/simd-postcode-checker-scotland.webp`],
+    },
+    {
+      url: `${site.url}/scotland-bank-holidays`,
+      changeFrequency: "yearly",
+      priority: 0.9,
+      lastModified: seoRefresh,
+      images: [`${site.url}/images/editorial/scotland-bank-holidays-calendar.webp`],
+    },
+    { url: `${site.url}/poverty-in-scotland-quiz`, changeFrequency: "monthly", priority: 0.85, lastModified: seoRefresh },
     { url: `${site.url}/browse`, changeFrequency: "weekly", priority: 0.7 },
     { url: `${site.url}/constituencies`, changeFrequency: "yearly", priority: 0.9 },
     {
@@ -72,7 +101,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${site.url}/methods`, changeFrequency: "yearly", priority: 0.6 },
     { url: `${site.url}/glossary`, changeFrequency: "yearly", priority: 0.6 },
     { url: `${site.url}/data`, changeFrequency: "yearly", priority: 0.6 },
-    { url: `${site.url}/about`, changeFrequency: "yearly", priority: 0.5 },
     { url: `${site.url}/corrections`, changeFrequency: "monthly", priority: 0.3 },
     { url: `${site.url}/accessibility`, changeFrequency: "yearly", priority: 0.3, lastModified: repositioning },
     { url: `${site.url}/for-organisations`, changeFrequency: "monthly", priority: 0.6, lastModified: new Date("2026-10-13T00:00:00Z") },
@@ -135,12 +163,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: new Date(HOLYROOD_DATA_CHECKED_AT),
   }));
 
-  const salaryPages: MetadataRoute.Sitemap = [salaryHubPath(), ...SALARIES.map((amount) => salaryPath(amount))].map(
+  const salaryPages: MetadataRoute.Sitemap = SALARIES.map((amount) => salaryPath(amount)).map(
     (path) => ({
       url: `${site.url}${path}`,
       changeFrequency: "yearly" as const,
       priority: 0.7,
-      lastModified: new Date("2026-10-29T00:00:00Z"),
+      lastModified: seoRefresh,
     }),
   );
 
@@ -151,7 +179,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     url: `${site.url}${slug.startsWith("band-") ? councilTaxBandPath(slug.slice(5)) : councilTaxPath(slug)}`,
     changeFrequency: "yearly" as const,
     priority: 0.8,
-    lastModified: seoRelease,
+    lastModified: seoRefresh,
   }));
 
   const approvedMspReviews = await listApprovedMspReviews().catch(() => {
@@ -178,6 +206,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     changeFrequency: "monthly" as const,
     priority: 0.85,
     lastModified: new Date(p.updated ?? p.date),
+    ...(p.image?.src ? { images: [`${site.url}${p.image.src}`] } : {}),
   }));
 
   const categoryPages: MetadataRoute.Sitemap = postCategories

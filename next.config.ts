@@ -110,7 +110,7 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       /* Old addresses to their exact match replacements. See src/lib/routeMap.ts. */
-      ...exactMatchRedirects().map((r) => ({ ...r, permanent: true })),
+      ...exactMatchRedirects().map((r) => ({ ...r, statusCode: 301 as const })),
       {
         /*
          * This URL promised a finder and served a letter writer for months.
@@ -120,7 +120,19 @@ const nextConfig: NextConfig = {
          */
         source: "/find-my-mp-and-msp",
         destination: "/who-is-my-msp",
-        permanent: true,
+        statusCode: 301 as const,
+      },
+      {
+        /* Screaming Frog caught an old internal link pointing here. */
+        source: "/representatives/mps",
+        destination: "/representatives",
+        statusCode: 301 as const,
+      },
+      {
+        /* Malformed slash variant observed in Search Console. */
+        source: "/blog/council-tax-rises-scotland-2026/27",
+        destination: "/council-tax-increase-scotland",
+        statusCode: 301 as const,
       },
     ];
   },

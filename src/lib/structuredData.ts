@@ -26,15 +26,11 @@ export function serialiseJsonLd(data: object) {
  * imports from "@/lib/seo" needs to change.
  */
 
-/** The three identities the site publishes under, as stable node ids. */
+/** Stable JSON-LD node ids for the site and publisher. */
 export const ENTITY = {
   website: `${site.url}/#website`,
   /** Scotland Counted, the publisher. */
   org: `${site.url}/#org`,
-  /** The person who writes it. */
-  author: `${site.url}/#author`,
-  /** That person's consultancy. Linked from the person, never from content. */
-  consultancy: `${site.url}/#consultancy`,
 } as const;
 
 /**
@@ -58,19 +54,8 @@ function publisherRef() {
 }
 
 /**
- * JSON-LD for the site, its publisher and its author. Emitted once in the root
- * layout, so it is on every page and every @id below resolves everywhere.
- *
- * Three entities, kept apart on purpose:
- *
- *   #org          Scotland Counted. Publishes the site.
- *   #author       the person who writes it, named so the work is accountable.
- *   #consultancy  that person's employer, which publishes none of this.
- *
- * The previous version collapsed the first and third into one node, which
- * told every search engine that a consultancy published the site's findings
- * about councils. Nothing here asserts a legal form, a qualification, an award
- * or a reviewer. It is a personal project and this says that and no more.
+ * JSON-LD for the site and its publisher. Emitted once in the root layout so
+ * every @id reference resolves cleanly across every page.
  */
 export function orgJsonLd() {
   return {
@@ -97,25 +82,10 @@ export function orgJsonLd() {
           width: site.publisher.logoWidth,
           height: site.publisher.logoHeight,
         },
-        founder: { "@id": ENTITY.author },
         /* Both are real pages. A test fails if either stops being one. */
         publishingPrinciples: `${site.url}${site.publisher.publishingPrinciples}`,
         correctionsPolicy: `${site.url}${site.publisher.correctionsPolicy}`,
         ...(site.social.x ? { sameAs: [`https://x.com/${site.social.x}`] } : {}),
-      },
-      {
-        "@type": "Person",
-        "@id": ENTITY.author,
-        name: site.author.name,
-        url: site.author.url,
-        jobTitle: site.author.role,
-        worksFor: { "@id": ENTITY.consultancy },
-      },
-      {
-        "@type": "Organization",
-        "@id": ENTITY.consultancy,
-        name: site.organisation.name,
-        url: site.organisation.url,
       },
     ],
   };
@@ -162,7 +132,7 @@ export function articleJsonLd({
     ...(image ? { image: image.startsWith("http") ? image : `${site.url}${image}` } : {}),
     ...(isArticle && section ? { articleSection: section } : {}),
     ...(keywords ? { keywords: keywords.join(", ") } : {}),
-    author: { "@id": ENTITY.author, "@type": "Person", name: site.author.name, url: site.author.url },
+    author: publisherRef(),
     publisher: publisherRef(),
   };
 }

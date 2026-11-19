@@ -6,14 +6,16 @@ import { getSources } from "@/lib/data/sources";
 import { TAX_DATA, calculate } from "@/lib/tax/engine";
 import { minimumWage, minimumWageTakeHome } from "@/lib/data/livingCosts";
 import ToolCTA from "@/components/ToolCTA";
+import SharePage from "@/components/SharePage";
 import Calculator from "./Calculator";
 import Faq from "@/components/Faq";
 import { ExplainText } from "@/components/Glossary";
+import { SALARIES, salaryPath } from "@/lib/routeMap";
 
 export const metadata = meta({
-  title: "Take Home Pay Calculator Scotland 2026/27",
+  title: "Take Home Pay Calculator Scotland 2026/27: Salary & Tax",
   description:
-    "Calculate take home pay with Scotland's 2026/27 tax bands. Enter a salary or hourly wage, then include pension and student loan deductions.",
+    "Calculate take home pay with Scotland's six 2026/27 income tax bands. Enter a salary or hourly wage, compare against England, and include pension or student loan.",
   path: "/take-home-pay-calculator-scotland",
   type: "website",
 });
@@ -87,7 +89,15 @@ export default function TakeHomePayCalculator() {
           eyebrow={`Scotland · ${TAX_DATA.taxYear} rates`}
           title="Take home pay calculator Scotland 2026/27"
           lede="Enter what you earn and see what actually reaches your bank account, on Scotland's six income tax bands. Or work backwards from the pay you need to live on."
-        />
+        >
+          <SharePage
+            title="Scottish take home pay calculator 2026/27"
+            text="Work out your take home pay on Scotland's six 2026/27 income tax bands and compare with England."
+            path="/take-home-pay-calculator-scotland"
+            label="Share this calculator"
+            className="mt-4"
+          />
+        </PageHeader>
 
         <InShort>
           <p>
@@ -125,27 +135,85 @@ export default function TakeHomePayCalculator() {
           </p>
 
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 max-w-[1000px]">
-            {EXAMPLES.map((e) => (
-              <div
-                key={e.gross}
-                className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] px-5 py-5"
-              >
-                <p className="ui text-[14.5px] font-[600] text-[var(--muted)] tnum">
-                  {pounds.format(e.gross)} a year
-                </p>
-                <p className="display-stat mt-1.5 text-[clamp(24px,2.6vw,30px)] tnum">
-                  {pounds.format(e.monthly)}
-                </p>
-                <p className="ui text-[14.5px] text-[var(--muted)]">a month, after tax and NI</p>
-                <p className="mt-3 border-t border-[var(--rule)] pt-3 text-[14.5px] leading-[1.5] text-[var(--ink-2)] tnum">
-                  {e.diff >= 1
-                    ? `${pounds.format(e.diff)} a year more than the rest of the UK`
-                    : e.diff <= -1
-                      ? `${pounds.format(-e.diff)} a year less than the rest of the UK`
-                      : "The same as the rest of the UK"}
-                </p>
-              </div>
-            ))}
+            {EXAMPLES.map((e) => {
+              const href = SALARIES.includes(e.gross) ? salaryPath(e.gross) : "/minimum-wage-scotland";
+              return (
+                <Link
+                  key={e.gross}
+                  href={href}
+                  className="block rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] px-5 py-5 no-underline transition-colors hover:border-[var(--brand)]"
+                >
+                  <p className="ui text-[14.5px] font-[600] text-[var(--muted)] tnum">
+                    {pounds.format(e.gross)} a year
+                  </p>
+                  <p className="display-stat mt-1.5 text-[clamp(24px,2.6vw,30px)] text-[var(--ink)] tnum">
+                    {pounds.format(e.monthly)}
+                  </p>
+                  <p className="ui text-[14.5px] text-[var(--muted)]">a month, after tax and NI</p>
+                  <p className="mt-3 border-t border-[var(--rule)] pt-3 text-[14.5px] leading-[1.5] text-[var(--ink-2)] tnum">
+                    {e.diff >= 1
+                      ? `${pounds.format(e.diff)} a year more than the rest of the UK`
+                      : e.diff <= -1
+                        ? `${pounds.format(-e.diff)} a year less than the rest of the UK`
+                        : "The same as the rest of the UK"}
+                  </p>
+                  <p className="ui mt-2.5 text-[14px] font-[600] text-[var(--brand)]">
+                    Full breakdown <span aria-hidden="true">→</span>
+                  </p>
+                </Link>
+              );
+            })}
+          </div>
+
+          <div id="all-salaries" className="mt-12 max-w-[1000px]">
+            <h3 className="h3 mb-2">Salary after tax in Scotland ({TAX_DATA.taxYear}): £15,000 to £150,000</h3>
+            <p className="text-[15.5px] leading-[1.55] text-[var(--ink-2)]">
+              Every common Scottish salary on a standard S1257L tax code, with no pension or student loan.
+              Click any salary for the full band-by-band breakdown, or check{" "}
+              <Link href="/tax-bands-scotland">all six Scottish income tax bands for 2026/27</Link>.
+            </p>
+            <div className="tile mt-5 overflow-x-auto">
+              <table className="w-full min-w-[600px] text-[15px]">
+                <thead>
+                  <tr className="text-left">
+                    {["Salary", "Take home / year", "Take home / month", "Income tax", "NI", "vs England"].map(
+                      (head) => (
+                        <th key={head} className="kicker px-4 py-3.5 font-[500] text-[var(--muted)]">
+                          {head}
+                        </th>
+                      ),
+                    )}
+                  </tr>
+                </thead>
+                <tbody>
+                  {SALARIES.map((amount) => {
+                    const scot = calculate(amount, "scotland");
+                    const ruk = calculate(amount, "ruk");
+                    const diff = Math.round(scot.net - ruk.net);
+                    return (
+                      <tr key={amount} className="border-t border-[var(--rule)]">
+                        <td className="px-4 py-3 font-[600] tnum">
+                          <Link href={salaryPath(amount)} className="text-[var(--action-text)]">
+                            {pounds.format(amount)}
+                          </Link>
+                        </td>
+                        <td className="px-4 py-3 font-[580] tnum">{pounds.format(scot.net)}</td>
+                        <td className="px-4 py-3 tnum">{pounds.format(scot.net / 12)}</td>
+                        <td className="px-4 py-3 tnum">{pounds.format(scot.tax.total)}</td>
+                        <td className="px-4 py-3 tnum">{pounds.format(scot.ni.total)}</td>
+                        <td
+                          className={`px-4 py-3 font-[560] tnum ${
+                            diff >= 0 ? "text-[var(--good-text)]" : "text-[var(--bad-text)]"
+                          }`}
+                        >
+                          {diff > 0 ? `+${pounds.format(diff)}` : diff < 0 ? `-${pounds.format(-diff)}` : "Same"}
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
           </div>
 
           <p className="mt-7 text-[18px] leading-[1.6] text-[var(--ink-2)] max-w-[66ch]">

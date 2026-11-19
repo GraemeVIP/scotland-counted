@@ -41,7 +41,7 @@ export default function Corrections() {
           <Col className="pt-11">
           <h2 className="h2 mb-4">Report an error</h2>
           <p>
-            <Link href="/contact?reason=error">Use the contact form</Link> with the page, the
+            <Link href="/contact?reason=error" rel="nofollow">Use the contact form</Link> with the page, the
             figure and what you believe it should be. If you can point at the source, better
             still.
           </p>

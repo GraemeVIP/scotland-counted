@@ -16,7 +16,7 @@ export function Page({ children }: { children: ReactNode }) {
   // outer and inner frames separate lets the mobile gutters stay fluid.
   return (
     <div className="max-w-[1232px] mx-auto px-5 sm:px-8 lg:px-14">
-      <ExplainText>{children}</ExplainText>
+      {children}
     </div>
   );
 }

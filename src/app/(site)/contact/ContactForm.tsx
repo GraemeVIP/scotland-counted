@@ -137,7 +137,7 @@ export default function ContactForm() {
             ? "Thank you, corrections outrank everything else here. If the figure is wrong it will be fixed and logged publicly."
             : reason === "press"
               ? "Thanks, deadline enquiries get read first. The press kit at /press has charts and sourced lines in the meantime."
-              : "Your message has been sent to me. Thank you for taking the time to write. Graeme."}
+              : "Your message has been sent. Thank you for taking the time to write."}
           {email.trim() && " If a reply is needed, I usually get back to you within a few days."}
         </p>
       </div>
@@ -253,7 +253,7 @@ export default function ContactForm() {
         disabled={state === "sending" || !message.trim()}
         className="btn bg-[var(--ink)] text-[var(--paper)] hover:opacity-90 w-full justify-center disabled:opacity-60"
       >
-        {state === "sending" ? "Sending…" : "Send Graeme a message"}
+        {state === "sending" ? "Sending…" : "Send message"}
       </button>
 
       <p aria-live="polite" className="text-[15px] text-[var(--ink-2)] leading-[1.55] mt-3.5">

@@ -20,6 +20,7 @@ import BudgetGapExplainer from "@/components/BudgetGapExplainer";
 import CouncilWatch from "@/components/CouncilWatch";
 import AccountabilityMethodNote from "@/components/AccountabilityMethodNote";
 import { JsonLd, articleJsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
+import SharePage from "@/components/SharePage";
 import { crisisGrantScotland, getCrisisGrantCouncil } from "@/lib/data/crisisGrants";
 import { councilPerformanceBySlug } from "@/lib/data/councilPerformanceIndex";
 import CouncilPerformanceSnapshot from "@/components/CouncilPerformanceSnapshot";
@@ -211,7 +212,19 @@ export default async function CouncilAccountabilityPage({
           eyebrow={`Holding the council to account · Checked ${record.lastReviewedOn}`}
           title={`${record.councilName}: what was promised and what happened`}
           lede={<PlainText text={record.summary} />}
-        />
+        >
+          <SharePage
+            title={`${record.councilName}: budget and performance`}
+            text={
+              performanceIndex
+                ? `${record.councilName} ranks ${performanceIndex.overallRank} of 32 Scottish councils on official data.`
+                : `${record.councilName}: budget, audit findings and missed targets on official data.`
+            }
+            path={pagePath}
+            label="Share this council record"
+            className="mt-4"
+          />
+        </PageHeader>
 
         <ContentFrame>
           <InShort expert={false}>

@@ -41,7 +41,7 @@ function figures(amount: number) {
 export function salaryMetadata(amount: number) {
   const { scotland } = figures(amount);
   return meta({
-    title: `${amount} After Tax Scotland 2026/27: Monthly, Weekly and Yearly`,
+    title: `${amount} After Tax Scotland 2026/27: Monthly & Yearly`,
     description: `On £${amount.toLocaleString("en-GB")} a year in Scotland you take home ${money(scotland.net)} in 2026/27, or ${money(scotland.net / 12)} a month, after Scottish income tax and National Insurance.`,
     path: salaryPath(amount),
     type: "article",
@@ -123,6 +123,7 @@ export function SalaryAfterTax({ amount }: { amount: number }) {
               ],
               asOf: `Tax year ${TAX_DATA.taxYear}, from 6 April 2026`,
               source: { publisher: "Scottish Government and GOV.UK rates", url: sources[0]?.url ?? "https://www.gov.scot" },
+              nextStep: { label: "Add pension or student loan", href: "/take-home-pay-calculator-scotland" },
             }}
           />
 
@@ -251,13 +252,38 @@ export function SalaryAfterTax({ amount }: { amount: number }) {
 
 export function salaryHubMetadata() {
   return meta({
-    title: "Salary After Tax Scotland 2026/27: Every Salary From £15,000 to £150,000",
+    title: "Salary After Tax Scotland 2026/27: £15,000 to £150,000",
     description:
       "Take home pay in Scotland for every common salary from £15,000 to £150,000, worked out on the 2026/27 Scottish income tax bands and National Insurance.",
     path: salaryHubPath(),
     type: "website",
   });
 }
+
+const HUB_BAND_ROWS = [
+  ["Personal Allowance", "Up to £12,570", "0%"],
+  ["Starter rate", "£12,571 to £16,537", "19%"],
+  ["Basic rate", "£16,538 to £29,526", "20%"],
+  ["Intermediate rate", "£29,527 to £43,662", "21%"],
+  ["Higher rate", "£43,663 to £75,000", "42%"],
+  ["Advanced rate", "£75,001 to £125,140", "45%"],
+  ["Top rate", "Over £125,140", "48%"],
+];
+
+const HUB_FAQ = [
+  {
+    q: "What are the Scottish income tax bands for 2026/27?",
+    a: "After the £12,570 Personal Allowance, Scotland has six income tax bands: Starter 19% (£12,571 to £16,537), Basic 20% (£16,538 to £29,526), Intermediate 21% (£29,527 to £43,662), Higher 42% (£43,663 to £75,000), Advanced 45% (£75,001 to £125,140), and Top 48% over £125,140.",
+  },
+  {
+    q: "At what salary do you pay more tax in Scotland than England?",
+    a: "The crossover point is around £30,000 a year. Below roughly £30,000, Scottish taxpayers pay slightly less income tax than people on the same salary in England, Wales or Northern Ireland. Above £30,000, Scottish rates take more, and the gap grows sharply above £43,662 where Scotland's 42% higher rate begins.",
+  },
+  {
+    q: "Does this include pension contributions or student loans?",
+    a: "The table shows the standard 1257L tax code with no pension and no student loan so every salary can be compared on the same basis. Click any salary for a 5% pension and Plan 4 student loan example, or use the Scottish take home pay calculator for your own figures.",
+  },
+];
 
 export function SalaryHub() {
   const rows = SALARIES.map((amount) => ({ amount, ...figures(amount) }));
@@ -269,6 +295,7 @@ export function SalaryHub() {
           { name: "Salary after tax Scotland", path: salaryHubPath() },
         ])}
       />
+      <JsonLd data={faqJsonLd(HUB_FAQ)} />
       <Page>
         <article className="max-w-[1120px] mx-auto pt-8 sm:pt-12">
           <header>
@@ -278,45 +305,109 @@ export function SalaryHub() {
             </h1>
             <p className="lede mt-6 max-w-[60ch]">
               What you actually keep on every common salary, worked out on Scotland&rsquo;s six income tax bands and
-              National Insurance. Pick yours for the full breakdown.
+              National Insurance. Pick yours for the full breakdown, or enter any figure in the{" "}
+              <Link href="/take-home-pay-calculator-scotland">Scottish take home pay calculator</Link>.
             </p>
           </header>
 
-          <div className="tile mt-10 overflow-x-auto">
-            <table className="w-full min-w-[560px] text-[15.5px]">
-              <thead>
-                <tr className="text-left">
-                  {["Salary", "Take home a year", "A month", "A week", "Against England"].map((head) => (
-                    <th key={head} className="kicker px-5 py-4 font-[500] text-[var(--muted)]">{head}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {rows.map(({ amount, scotland, england }) => {
-                  const gap = scotland.net - england.net;
-                  return (
-                    <tr key={amount} className="border-t border-[var(--rule)]">
-                      <td className="px-5 py-3.5">
-                        <Link href={salaryPath(amount)} className="font-[580] text-[var(--action-text)]">
-                          {money(amount)}
-                        </Link>
-                      </td>
-                      <td className="px-5 py-3.5 tnum">{money(scotland.net)}</td>
-                      <td className="px-5 py-3.5 tnum">{money(scotland.net / 12)}</td>
-                      <td className="px-5 py-3.5 tnum">{money(scotland.net / 52)}</td>
-                      <td className={`px-5 py-3.5 tnum ${gap >= 0 ? "text-[var(--good-text)]" : "text-[var(--bad-text)]"}`}>
-                        {Math.abs(gap) < 1 ? "the same" : `${gap > 0 ? "+" : "−"}${money(Math.abs(gap))}`}
-                      </td>
+          <section className="mt-10" aria-labelledby="salary-table-heading">
+            <h2 id="salary-table-heading" className="h2 mb-4">
+              Take home pay table for Scotland ({TAX_DATA.taxYear})
+            </h2>
+            <div className="tile overflow-x-auto">
+              <table className="w-full min-w-[560px] text-[15.5px]">
+                <thead>
+                  <tr className="text-left">
+                    {["Salary", "Take home a year", "A month", "A week", "Against England"].map((head) => (
+                      <th key={head} className="kicker px-5 py-4 font-[500] text-[var(--muted)]">{head}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {rows.map(({ amount, scotland, england }) => {
+                    const gap = scotland.net - england.net;
+                    return (
+                      <tr key={amount} className="border-t border-[var(--rule)]">
+                        <td className="px-5 py-3.5">
+                          <Link href={salaryPath(amount)} className="font-[580] text-[var(--action-text)]">
+                            {money(amount)}
+                          </Link>
+                        </td>
+                        <td className="px-5 py-3.5 tnum">{money(scotland.net)}</td>
+                        <td className="px-5 py-3.5 tnum">{money(scotland.net / 12)}</td>
+                        <td className="px-5 py-3.5 tnum">{money(scotland.net / 52)}</td>
+                        <td className={`px-5 py-3.5 tnum ${gap >= 0 ? "text-[var(--good-text)]" : "text-[var(--bad-text)]"}`}>
+                          {Math.abs(gap) < 1 ? "the same" : `${gap > 0 ? "+" : "−"}${money(Math.abs(gap))}`}
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+            <p className="mt-4 text-[14.5px] text-[var(--muted)]">
+              Standard 1257L tax code, no pension, no student loan. For anything else use the{" "}
+              <Link href="/take-home-pay-calculator-scotland">take home pay calculator</Link>.
+            </p>
+          </section>
+
+          <section className="mt-14 max-w-[760px]" aria-labelledby="scottish-tax-bands-heading">
+            <h2 id="scottish-tax-bands-heading" className="h2 mb-4">
+              Scottish income tax bands for {TAX_DATA.taxYear}
+            </h2>
+            <p className="text-[17px] leading-[1.6] text-[var(--ink-2)]">
+              Every figure in the table above uses Scotland&rsquo;s six income tax bands set by the Scottish Parliament.
+              You only pay each higher rate on the slice of income inside that band, never on your whole salary.
+            </p>
+            <div className="tile mt-6 overflow-x-auto">
+              <table className="w-full min-w-[420px] text-[15.5px]">
+                <thead>
+                  <tr className="text-left">
+                    {["Band", "Annual earnings", "Tax rate"].map((head) => (
+                      <th key={head} className="kicker px-5 py-3.5 font-[500] text-[var(--muted)]">{head}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {HUB_BAND_ROWS.map(([band, range, rate]) => (
+                    <tr key={band} className="border-t border-[var(--rule)]">
+                      <td className="px-5 py-3 font-[560]">{band}</td>
+                      <td className="px-5 py-3 tnum text-[var(--ink-2)]">{range}</td>
+                      <td className="px-5 py-3 tnum font-[600]">{rate}</td>
                     </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
-          <p className="mt-4 text-[14.5px] text-[var(--muted)]">
-            Standard 1257L tax code, no pension, no student loan. For anything else use the{" "}
-            <Link href="/take-home-pay-calculator-scotland">take home pay calculator</Link>.
-          </p>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="mt-4 text-[15.5px] leading-[1.6] text-[var(--ink-2)]">
+              Once income goes over £100,000, the £12,570 Personal Allowance drops by £1 for every £2 earned, which
+              creates an effective marginal tax rate above 67% between £100,000 and £125,140.
+            </p>
+          </section>
+
+          <section className="mt-14 max-w-[760px]" aria-labelledby="scotland-vs-england-heading">
+            <h2 id="scotland-vs-england-heading" className="h2 mb-4">
+              Scotland vs England take home pay
+            </h2>
+            <p className="text-[17px] leading-[1.6] text-[var(--ink-2)]">
+              National Insurance is identical across the whole UK: 8% between £12,570 and £50,270, then 2% above that.
+              The entire difference between Scotland and England comes from income tax. Below roughly £30,000 a year,
+              Scotland&rsquo;s 19% starter rate leaves you slightly better off. Above £30,000, the 21% intermediate rate
+              and the lower £43,663 threshold for the 42% higher rate mean Scottish earners pay more tax than someone on
+              the same salary in England, Wales or Northern Ireland.
+            </p>
+            <p className="mt-4 text-[17px] leading-[1.6] text-[var(--ink-2)]">
+              Compare how typical pay stacks up in{" "}
+              <Link href="/average-salary-scotland">average salary Scotland</Link>, check legal hourly rates in{" "}
+              <Link href="/minimum-wage-scotland">minimum wage Scotland</Link>, or calculate your exact pay with pension
+              and Plan 4 student loan in the{" "}
+              <Link href="/take-home-pay-calculator-scotland">take home pay calculator Scotland</Link>.
+            </p>
+          </section>
+
+          <section className="mt-14" aria-labelledby="salary-hub-faq">
+            <Faq items={HUB_FAQ} id="salary-hub-faq" kicker="Quick answers" />
+          </section>
         </article>
       </Page>
     </>

@@ -345,7 +345,7 @@ export default function Press() {
             </p>
             <p>
               Interviews, data requests or a series in a different shape:{" "}
-              <Link href="/contact?reason=press">the contact form</Link>. If you are on a deadline,
+              <Link href="/contact?reason=press" rel="nofollow">the contact form</Link>. If you are on a deadline,
               say so in the first line, those get read first.
             </p>
           </Col>

@@ -369,10 +369,10 @@ export const faqSections: FaqSection[] = [
       {
         id: "political-party",
         q: "Is Scotland Counted run by a political party or campaign?",
-        a: "No. It is a personal, independent public interest project. It has no party affiliation, funder, sponsor, adverts or paywall.",
+        a: "No. It is an independent public data project with no party affiliation, funder, sponsor or paywall.",
         keywords: "independent bias party funding sponsor ads",
-        href: "/about",
-        linkLabel: "See who made the project",
+        href: "/methods",
+        linkLabel: "Read the methods and sources",
       },
       {
         id: "minimum-wage-enough",

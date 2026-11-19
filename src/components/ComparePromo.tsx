@@ -85,20 +85,24 @@ export default function ComparePromo({ slug, className = "" }: { slug?: string; 
             words with the official figures.
           </p>
           <ul className="mt-5 flex flex-wrap gap-2.5">
-            {pairs.map(([x, y]) => (
-              <li key={`${x}-${y}`}>
-                <Link
-                  href={compareHref(x, y)}
-                  className="group ui inline-flex items-center gap-2 rounded-full border border-[var(--rule-strong)] bg-[var(--surface)] px-3.5 py-2 text-[15px] font-[600] text-[var(--ink)] no-underline hover:border-[var(--brand)]"
-                >
-                  <span className="h-2.5 w-2.5 rounded-full bg-[var(--brand)]" aria-hidden="true" />
-                  {name(x)}
-                  <span className="font-[500] text-[var(--muted)]">vs</span>
-                  <span className="h-2.5 w-2.5 rounded-full bg-[var(--hub-area)]" aria-hidden="true" />
-                  {name(y)}
-                </Link>
-              </li>
-            ))}
+            {pairs.map(([x, y]) => {
+              const href = compareHref(x, y);
+              return (
+                <li key={`${x}-${y}`}>
+                  <Link
+                    href={href}
+                    rel={href.includes("?") ? "nofollow" : undefined}
+                    className="group ui inline-flex items-center gap-2 rounded-full border border-[var(--rule-strong)] bg-[var(--surface)] px-3.5 py-2 text-[15px] font-[600] text-[var(--ink)] no-underline hover:border-[var(--brand)]"
+                  >
+                    <span className="h-2.5 w-2.5 rounded-full bg-[var(--brand)]" aria-hidden="true" />
+                    {name(x)}
+                    <span className="font-[500] text-[var(--muted)]">vs</span>
+                    <span className="h-2.5 w-2.5 rounded-full bg-[var(--hub-area)]" aria-hidden="true" />
+                    {name(y)}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
           <p className="ui mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-[15px] text-[var(--ink-2)]">
             <span>{slug ? `${name(slug)} ranks:` : "Rankings:"}</span>
@@ -109,7 +113,11 @@ export default function ComparePromo({ slug, className = "" }: { slug?: string; 
             ))}
           </p>
         </div>
-        <Link href={slug ? compareHref(slug) : "/compare-areas"} className="btn btn-primary group justify-center max-lg:self-start">
+        <Link
+          href={slug ? compareHref(slug) : "/compare-areas"}
+          rel={slug ? "nofollow" : undefined}
+          className="btn btn-primary group justify-center max-lg:self-start"
+        >
           {slug ? `Compare ${name(slug)}` : "Compare two areas"} <Arrow />
         </Link>
       </div>

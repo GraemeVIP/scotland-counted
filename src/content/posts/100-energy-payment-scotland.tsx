@@ -138,12 +138,16 @@ export default function Post() {
         </LI>
         <LI>
           <Link href={postPath("council-tax-reduction-scotland")}>Council Tax Reduction</Link>,
-          which cuts the bill itself if you&apos;re on a low income.
+          which cuts the bill itself if you&apos;re on a low income, plus the{" "}
+          <Link href={postPath("single-person-discount-council-tax-scotland")}>
+            25% single person discount
+          </Link>{" "}
+          if you live alone.
         </LI>
         <LI>
           <Link href={postPath("crisis-grant-scotland-how-to-apply")}>A crisis grant</Link> from
-          your council if you can&apos;t afford to heat your home right now. You don&apos;t pay it
-          back.
+          your council if you can&apos;t afford to heat your home right now, or see all{" "}
+          <Link href={postPath("crisis-grant-phone-number")}>32 council crisis grant phone numbers</Link>.
         </LI>
       </UL>
       <P>
@@ -151,7 +155,15 @@ export default function Post() {
         <Link href={postPath("energy-price-cap-scotland-2026-explained")}>
           energy price cap in Scotland
         </Link>
-        .
+        , check upcoming{" "}
+        <Link href={postPath("social-security-scotland-payment-dates")}>
+          Social Security Scotland payment dates
+        </Link>{" "}
+        and <Link href="/scotland-bank-holidays">Scotland bank holidays</Link>, or compare local bills
+        in <Link href="/glasgow-council-tax-bands">Glasgow</Link>,{" "}
+        <Link href="/edinburgh-council-tax-bands">Edinburgh</Link>,{" "}
+        <Link href="/fife-council-tax-bands">Fife</Link> and{" "}
+        <Link href="/council-tax-bands-scotland">all 32 Scottish councils</Link>.
       </P>
 
       <PostCTA

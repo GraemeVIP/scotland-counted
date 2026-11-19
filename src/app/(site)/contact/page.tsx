@@ -3,12 +3,11 @@ import { Suspense } from "react";
 import { Page, ContentFrame, PageHeader, SectionHead } from "@/components/Blocks";
 import ContactForm from "./ContactForm";
 import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
-import { site } from "@/lib/site";
 
 export const metadata = meta({
   title: "Feedback and contact",
   description:
-    "Send Graeme feedback, share how you used Scotland Counted in teaching, say thanks, ask a question or report an error. A short message is welcome; email is optional.",
+    "Send feedback, share how you used Scotland Counted in teaching, ask a question or report an error. A short message is welcome; email is optional.",
   path: "/contact",
 });
 
@@ -26,14 +25,6 @@ export const metadata = meta({
  * reply in a few days is no use to somebody being evicted on Friday, and the
  * honest thing is to say so on the page rather than in a reply they may not
  * read in time.
- *
- * The block naming Strathmark answers the question every serious reader and
- * every journalist asks of a site making claims about public figures: who is
- * behind this and who pays for it. Answering it plainly is a trust signal
- * first. That it also tells people what the author does for a living is a
- * consequence of the answer being honest, and it only works while it stays
- * that way. The moment this page sells something, the impartiality the whole
- * site rests on is worth less than whatever it sold.
  */
 
 /*
@@ -75,9 +66,9 @@ export default function Contact() {
 
       <Page>
         <PageHeader
-          eyebrow="A real person reads these"
-          title="Send Graeme a message"
-          lede="I’m Graeme, the person behind Scotland Counted. I build this as a free, independent resource. Tell me what you liked, what you didn’t, or what would make it more useful. Questions and a quick thank you are welcome too."
+          eyebrow="Feedback, questions and corrections"
+          title="Send a message"
+          lede="Scotland Counted is a free, independent public data resource. Tell us what worked, what was confusing, or what would make it more useful. Questions and corrections are always welcome."
         />
 
         <ContentFrame className="grid gap-x-14 gap-y-10 lg:grid-cols-2 items-start pt-2">
@@ -150,39 +141,10 @@ export default function Contact() {
         </ContentFrame>
 
         <ContentFrame as="section" className="pt-16 sm:pt-20">
-          <SectionHead eyebrow="No mystery about it" title="Who you are writing to" />
+          <SectionHead eyebrow="How the site works" title="Evidence first, no spin" />
           <div className="mt-7 grid gap-5 lg:grid-cols-[1.25fr_1fr] items-start max-w-[1000px]">
             <div>
-              <p className="text-[18px] leading-[1.65] text-[var(--ink-2)] max-w-[62ch]">
-                Scotland Counted is written and published by{" "}
-                <strong className="text-[var(--ink)]">{site.author.name}</strong>, who runs{" "}
-                <a href={site.organisation.url} rel="noopener noreferrer" target="_blank">
-                  {site.organisation.name}
-                </a>{" "}
-                in Edinburgh, independent AI and digital advisory for engineering, manufacturing
-                and specialist technical businesses, working internationally.
-              </p>
-              <p className="mt-4 text-[18px] leading-[1.65] text-[var(--ink-2)] max-w-[62ch]">
-                That work runs on evidence before commitment, no vendor agenda, and decisions that
-                stay with the client rather than the adviser.{" "}
-                <strong className="text-[var(--ink)]">This site is built the same way</strong>, and
-                for the same reason: every source is named, every method is published, and every
-                correction is logged where you can see it.
-              </p>
-              <p className="mt-4 text-[18px] leading-[1.65] text-[var(--ink-2)] max-w-[62ch]">
-                A site making claims about councils and elected members should say who is behind it
-                and who pays for it, so you can weigh what you are reading.
-              </p>
-              {/*
-                Deliberately narrower than "this site has no opinions". It runs
-                a letter builder that asks MPs to back a higher minimum wage and
-                a page of costed options for change. That is a position, and
-                claiming otherwise hands anyone hostile an easy contradiction.
-                What is actually promised is the part that matters and can be
-                defended: the numbers are never bent, and it never tells anyone
-                how to vote.
-              */}
-              <div className="mt-6 rounded-[var(--r-m)] border-l-[3px] border-[var(--brand)] bg-[var(--surface-2)] px-6 py-5">
+              <div className="rounded-[var(--r-m)] border-l-[3px] border-[var(--brand)] bg-[var(--surface-2)] px-6 py-5">
                 <p className="ui text-[15px] font-[600] mb-2">Figures, not spin</p>
                 <p className="text-[16px] leading-[1.6] text-[var(--ink-2)] max-w-[58ch]">
                   Every number here is taken from the body that published it, the Scottish
@@ -201,7 +163,6 @@ export default function Contact() {
               </div>
 
               <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-[16px]">
-                <Link href="/about">More about Scotland Counted</Link>
                 <Link href="/methods">How every figure was counted</Link>
                 <Link href="/corrections">Corrections policy</Link>
               </div>

@@ -15,7 +15,7 @@ import { SOCIAL_SECURITY_SCOTLAND as SSS } from "@/lib/data/benefits";
  */
 
 export const metadata = meta({
-  title: "Benefits in Scotland: What You Can Claim, How Much and When",
+  title: "Benefits in Scotland 2026/27: Rates & How to Claim",
   description:
     "Adult Disability Payment, Carer Support Payment, Scottish Child Payment, Best Start Grant, winter payments and crisis grants, with this year's rates and how to apply.",
   path: "/benefits",

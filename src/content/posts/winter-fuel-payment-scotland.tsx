@@ -61,6 +61,9 @@ export default function Post() {
       <P>
         If you haven&apos;t been paid by {PA.chaseBy}, contact Social Security Scotland. A small
         number of people do have to apply, and the checker on mygov.scot tells you if that&apos;s you.
+        See every winter holiday change on{" "}
+        <Link href="/social-security-scotland-payment-dates">Social Security Scotland payment dates</Link>{" "}
+        and <Link href="/scotland-bank-holidays">Scotland bank holidays</Link>.
       </P>
 
       <H2 id="pip">Winter fuel payment and PIP</H2>
@@ -69,7 +72,9 @@ export default function Post() {
         doesn&apos;t change this payment. It&apos;s based on age and where you live. Disability can
         matter for a different payment though. If you&apos;re under pension age and on certain
         benefits, look at <Link href="/winter-heating-payment">Winter Heating Payment</Link>, which
-        is {pounds(WHP.amount, true)} and also automatic.
+        is {pounds(WHP.amount, true)} and also automatic. Homes in council tax bands A to D should
+        also check the <Link href="/100-energy-payment-scotland">£100 energy payment in Scotland</Link>{" "}
+        and <Link href="/energy-price-cap-scotland">energy price cap</Link>.
       </P>
 
       <Aside title="Why Scotland's is different">

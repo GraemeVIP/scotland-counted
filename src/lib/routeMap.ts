@@ -124,12 +124,14 @@ export function salaryPath(amount: number) {
 }
 
 export function salaryHubPath() {
-  return "/salary-after-tax-scotland";
+  return "/take-home-pay-calculator-scotland";
 }
 
 /** Whole pages that moved. */
 export const PAGE_PATHS: Record<string, string> = {
   "/poverty": "/poverty-in-scotland",
+  "/salary-after-tax-scotland": "/take-home-pay-calculator-scotland",
+  "/about": "/methods",
 };
 
 /** Every permanent redirect from an old address to its exact match one. */
@@ -153,8 +155,7 @@ export type TopLevel =
   | { kind: "council-tax"; councilSlug: string }
   | { kind: "council-tax-band"; letter: string }
   | { kind: "post"; postSlug: string }
-  | { kind: "salary"; amount: number }
-  | { kind: "salary-hub" };
+  | { kind: "salary"; amount: number };
 
 export function resolveTopLevel(segment: string): TopLevel | null {
   const path = `/${segment}`;
@@ -166,7 +167,6 @@ export function resolveTopLevel(segment: string): TopLevel | null {
   for (const [postSlug, target] of Object.entries(POST_PATHS)) {
     if (target === path) return { kind: "post", postSlug };
   }
-  if (path === salaryHubPath()) return { kind: "salary-hub" };
   const salary = /^\/(\d+)-after-tax-scotland$/.exec(path);
   if (salary && SALARIES.includes(Number(salary[1]))) return { kind: "salary", amount: Number(salary[1]) };
   return null;
@@ -177,7 +177,6 @@ export function topLevelSegments() {
     ...Object.keys(COUNCIL_SEARCH_NAMES).map((slug) => councilTaxPath(slug).slice(1)),
     ...BAND_KEYS.map((letter) => councilTaxBandPath(letter).slice(1)),
     ...Object.values(POST_PATHS).map((path) => path.slice(1)),
-    salaryHubPath().slice(1),
     ...SALARIES.map((amount) => salaryPath(amount).slice(1)),
   ];
 }

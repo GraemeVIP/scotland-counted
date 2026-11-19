@@ -144,7 +144,7 @@ export const posts: Post[] = [
   {
     slug: "shoplifting-scotland-record-high",
     title: "Shoplifting in Scotland: the rate overtakes England and Wales as convictions nearly halve",
-    seoTitle: "Shoplifting in Scotland: Record High, Above England and Wales",
+    seoTitle: "Shoplifting in Scotland: Record High Figures Explained",
     description: "Shoplifting in Scotland hit a record 53,369 crimes in 2025/26: 9.6 per 1,000 people against 8.2 in England and Wales. Convictions nearly halved.",
     standfirst:
       "Shoplifting in Scotland is at its highest since 1971 and now higher per person than in England and Wales. Convictions have nearly halved. Food prices explain much of the surge, but not the last two years.",
@@ -472,7 +472,7 @@ export const posts: Post[] = [
   {
     slug: "east-vs-west-dunbartonshire",
     title: "East vs West Dunbartonshire: next door, worlds apart",
-    seoTitle: "East vs West Dunbartonshire: Why Two Neighbours Are Worlds Apart",
+    seoTitle: "East vs West Dunbartonshire: Pay, Health & Poverty",
     description:
       "East Dunbartonshire is the 2nd best place to live in Scotland on the official figures. West Dunbartonshire, next door, is 30th. Here is what happened, in the numbers and the history.",
     standfirst:
@@ -747,7 +747,7 @@ export const posts: Post[] = [
   {
     slug: "council-tax-rises-scotland-2026-27",
     title: "Council tax increase Scotland: every council's rise in 2026/27",
-    seoTitle: "Council Tax Increase Scotland 2026/27: Every Council's Rise",
+    seoTitle: "Council Tax Increase Scotland 2026/27: All 32 Rises",
     description: "Every Scottish council raised council tax in 2026/27. Band D rose by 4% in Edinburgh up to 10% in Aberdeenshire and Moray. See every council and every band.",
     standfirst: "Every council raised its rate, but not by the same amount: from 4% to 10% at Band D. This compares last year's council tax with this year's, and keeps Scottish Water's separate charge out of the figures.",
     date: "2026-08-02",
@@ -836,6 +836,7 @@ export const posts: Post[] = [
       ],
       asOf: "2026/27 rates, then the rates from 1 April 2027",
       source: MINIMUM_WAGE.source,
+      nextStep: { label: "Calculate your take home pay", href: "/take-home-pay-calculator-scotland" },
     },
     readingMinutes: 6,
     image: {
@@ -892,6 +893,7 @@ export const posts: Post[] = [
       ],
       asOf: "Rates announced 15 October 2026",
       source: REAL_LIVING_WAGE.source,
+      nextStep: { label: "Calculate take home pay on £14.10/hr", href: "/take-home-pay-calculator-scotland" },
     },
     readingMinutes: 5,
     image: {
@@ -1382,7 +1384,7 @@ export const posts: Post[] = [
   {
     slug: "what-does-poverty-mean",
     title: "What does poverty mean? The UK poverty line explained",
-    seoTitle: "UK Poverty Line 2024/25: What Poverty Means in Pounds a Week",
+    seoTitle: "UK Poverty Line 2024/25: What Poverty Means in Pounds",
     description: "The UK poverty line is 60% of typical income after rent. In 2024/25 that was £212 a week for a single adult and £519 for a couple with two children.",
     standfirst: "The word gets used loosely. The measure behind it is precise, and it comes down to a sum in pounds a week that you can check your own household against.",
     date: "2026-07-31",
@@ -1449,7 +1451,7 @@ export const posts: Post[] = [
   {
     slug: "what-is-the-scottish-child-payment",
     title: "Scottish Child Payment: how much it is and how to apply",
-    seoTitle: "Scottish Child Payment 2026/27: £28.20 a Week, Who Qualifies",
+    seoTitle: "Scottish Child Payment 2026/27: £28.20/Week & Apply",
     description: "Scottish Child Payment is £28.20 a week for each child under 16, paid every four weeks to families on Universal Credit or Pension Credit. How to apply.",
     standfirst: "£28.20 a week for every child, on top of other benefits. It does not exist anywhere else in the UK, and some families who are entitled to it have never claimed.",
     date: "2026-07-31",
@@ -1555,22 +1557,23 @@ export const posts: Post[] = [
     guideImage: true,
     image: {
       src: "/images/editorial/guide-adult-disability-payment.webp",
-      alt: "Disability support, a wheelchair beside a welcoming home entrance",
+      alt: "Accessible Scottish home entrance representing Adult Disability Payment Scotland",
       caption: "Disability support, a wheelchair beside a welcoming home entrance.",
     },
     title: "Adult disability payment: rates, eligibility and how to apply",
-    seoTitle: "Adult Disability Payment 2026/27: Rates, Who Qualifies, How to Apply",
+    seoTitle: "Adult Disability Payment Scotland (ADP) 2026/27 Rates",
     description:
-      "Adult Disability Payment pays £30.30 to £194.60 a week in 2026/27. The rates, who qualifies, how to apply in two parts, and how the myaccount login works.",
+      "Adult Disability Payment (ADP) in Scotland pays £30.30 to £194.60 a week in 2026/27. See ADP Scotland rates, who qualifies, how to apply and the phone number.",
     standfirst:
       "Scotland's replacement for PIP. Not means tested, backdated to the day you start, and simpler to apply for than most people expect.",
     date: "2026-10-29",
     checked: "2026-10-29",
+    updated: "2026-11-19",
     category: "money-and-bills",
-    tags: ["Adult Disability Payment", "Social Security Scotland", "Disability benefits", "PIP"],
+    tags: ["Adult Disability Payment", "ADP Scotland", "Social Security Scotland", "Disability benefits", "PIP"],
     readingMinutes: 6,
     quickAnswer: {
-      label: "Adult Disability Payment rates 2026/27",
+      label: "Adult Disability Payment Scotland (ADP) 2026/27",
       value: pounds(ADULT_DISABILITY_PAYMENT.dailyLiving.enhanced + ADULT_DISABILITY_PAYMENT.mobility.enhanced, true),
       unit: "a week at most",
       detail: "There are two parts, daily living and mobility, each with a standard and an enhanced rate. You can get one part or both. Income and savings don't count.",
@@ -1582,6 +1585,7 @@ export const posts: Post[] = [
       ],
       asOf: "2026/27 rates",
       source: ADULT_DISABILITY_PAYMENT.source,
+      nextStep: { label: "ADP phone number & call times", href: "/adult-disability-payment-phone-number" },
     },
     toc: [
       { id: "rates", label: "Rates for 2026/27" },
@@ -1616,11 +1620,11 @@ export const posts: Post[] = [
     guideImage: true,
     image: {
       src: "/images/editorial/guide-adult-disability-payment-phone-number.webp",
-      alt: "A telephone handset beside a blank notepad",
+      alt: "Telephone and notepad for calling the Adult Disability Payment Scotland helpline",
       caption: "A telephone handset beside a blank notepad.",
     },
     title: "Adult disability payment phone number",
-    seoTitle: "Adult Disability Payment Phone Number: Call Times and What to Have Ready",
+    seoTitle: "Adult Disability Payment Phone Number & Opening Times",
     description:
       "The Adult Disability Payment phone number is 0800 182 2222, free, 8am to 5pm on weekdays. Webchat, the number from abroad, the postal address and what to have ready.",
     standfirst:
@@ -1665,11 +1669,11 @@ export const posts: Post[] = [
     guideImage: true,
     image: {
       src: "/images/editorial/guide-carer-support-payment.webp",
-      alt: "Two hands gently holding a warm mug together",
+      alt: "Hands sharing a warm mug representing Carer Support Payment in Scotland",
       caption: "Two hands gently holding a warm mug together.",
     },
     title: "Carer support payment: rates, eligibility and how to apply",
-    seoTitle: "Carer Support Payment 2026/27: Rates, Who Qualifies, How to Apply",
+    seoTitle: "Carer Support Payment Scotland 2026/27: Rates & Apply",
     description:
       "Carer Support Payment is £86.45 a week in 2026/27, plus an £11.70 Scottish Carer Supplement. Who qualifies, the £204 earnings limit and how to apply.",
     standfirst:
@@ -1720,11 +1724,11 @@ export const posts: Post[] = [
     guideImage: true,
     image: {
       src: "/images/editorial/guide-best-start-grant.webp",
-      alt: "A baby blanket and small knitted baby shoes",
+      alt: "Baby blanket and knitted shoes representing Scotland's Best Start Grant",
       caption: "A baby blanket and small knitted baby shoes.",
     },
     title: "Best start grant: what you get and how to apply",
-    seoTitle: "Best Start Grant 2026/27: Pregnancy, Early Learning and School Payments",
+    seoTitle: "Best Start Grant Scotland 2026/27: Payments & Apply",
     description:
       "Best Start Grant pays £796.65 for a first baby, then £331.95 for early learning and £331.95 for school. Who qualifies, when to apply and how.",
     standfirst:
@@ -1816,6 +1820,7 @@ export const posts: Post[] = [
         publisher: "BBC Scotland",
         url: "https://www.yahoo.com/news/politics/articles/scottish-ministers-councils-100-energy-115428442.html",
       },
+      nextStep: { label: "Check your council tax band", href: "/check-council-tax-band" },
     },
     toc: [
       { id: "who", label: "Who gets it" },
@@ -1852,7 +1857,7 @@ export const posts: Post[] = [
   {
     slug: "buchanan-galleries-man-council-houses",
     title: "The man on the Buchanan Galleries steps: was he right about council houses?",
-    seoTitle: "Buchanan Galleries Man Video: Was He Right About Council Houses?",
+    seoTitle: "Buchanan Galleries Man Video: Council House Facts",
     description:
       "A Glasgow man's 86 second rant says Scotland's council houses were sold off and rented back at fortunes. The full transcript, checked against official figures.",
     standfirst:
@@ -1956,11 +1961,11 @@ export const posts: Post[] = [
     guideImage: true,
     image: {
       src: "/images/editorial/guide-winter-fuel-payment-scotland.webp",
-      alt: "A warm Scottish home in winter, snow outside",
+      alt: "Warm Scottish home in winter snow for the Winter Fuel Payment Scotland guide",
       caption: "A warm Scottish home in winter, snow outside.",
     },
     title: "Winter fuel payment in Scotland: who gets it, how much and when",
-    seoTitle: "Winter Fuel Payment Scotland 2026: Who Gets It, How Much and When",
+    seoTitle: "Winter Fuel Payment Scotland 2026: Amounts & Dates",
     description:
       "In Scotland, Winter Fuel Payment is now Pension Age Winter Heating Payment: £105.55 to £316.70 this winter. Who gets it, the £35,000 rule and payment dates.",
     standfirst:
@@ -1982,6 +1987,7 @@ export const posts: Post[] = [
       ],
       asOf: "Winter 2026 to 2027",
       source: PENSION_AGE_WINTER_HEATING.source,
+      nextStep: { label: "Check the £100 energy payment", href: "/100-energy-payment-scotland" },
     },
     toc: [
       { id: "who", label: "Who gets it" },
@@ -2011,36 +2017,43 @@ export const posts: Post[] = [
     guideImage: true,
     image: {
       src: "/images/editorial/guide-winter-heating-payment.webp",
-      alt: "A radiator beside a window on a cold Scottish day",
+      alt: "Home radiator on a cold day for the Winter Heating Payment Scotland guide",
       caption: "A radiator beside a window on a cold Scottish day.",
     },
-    title: "Winter heating payment: who gets it and when",
-    seoTitle: "Winter Heating Payment 2026: Who Gets It and When It Is Paid",
+    title: "Winter heating payment Scotland: who gets it and when",
+    seoTitle: "Winter Heating Payment Scotland 2026: Dates & Eligibility",
     description:
-      "Winter Heating Payment is £62.00, paid automatically from December to people on certain low income benefits in Scotland. Who qualifies and when it lands.",
+      "Winter Heating Payment in Scotland pays £62.00 automatically from December, replacing Cold Weather Payment. See who qualifies, dates and bank reference.",
     standfirst:
-      "A single payment every winter, whatever the weather, if you get the right benefit in the qualifying week.",
+      "Scotland's replacement for Cold Weather Payment: a guaranteed £62.00 every winter, whatever the weather, if you get a qualifying benefit.",
     date: "2026-10-29",
     checked: "2026-10-29",
+    updated: "2026-11-19",
     category: "money-and-bills",
-    tags: ["Winter Heating Payment", "Energy bills", "Social Security Scotland"],
+    tags: ["Winter Heating Payment", "Cold Weather Payment Scotland", "Energy bills", "Social Security Scotland"],
     readingMinutes: 4,
     quickAnswer: {
-      label: "Winter Heating Payment",
+      label: "Winter Heating Payment Scotland",
       value: pounds(WINTER_HEATING_PAYMENT.amount, true),
       unit: "once a winter",
-      detail: `Paid automatically from ${WINTER_HEATING_PAYMENT.paidFrom} if you got a qualifying benefit in the week of ${WINTER_HEATING_PAYMENT.qualifyingWeek}. It shows as WHP on your statement.`,
+      detail: `Paid automatically from ${WINTER_HEATING_PAYMENT.paidFrom} if you got a qualifying benefit in the week of ${WINTER_HEATING_PAYMENT.qualifyingWeek}. Replaces Cold Weather Payment in Scotland and shows as WHP on your statement.`,
       source: WINTER_HEATING_PAYMENT.source,
+      nextStep: { label: "See £100 energy payment (Bands A to D)", href: "/100-energy-payment-scotland" },
     },
     toc: [
       { id: "who", label: "Who gets it" },
       { id: "when", label: "When it's paid" },
+      { id: "cold-weather", label: "Cold Weather Payment Scotland" },
       { id: "allowance", label: "Winter heating allowance" },
     ],
     faq: [
       {
-        q: "Do I need to apply for Winter Heating Payment?",
+        q: "Do I need to apply for Winter Heating Payment in Scotland?",
         a: "No. It's paid automatically if you get a qualifying benefit during the qualifying week. You can send a request if you think you've been missed.",
+      },
+      {
+        q: "Is there a Cold Weather Payment in Scotland?",
+        a: "No. Cold Weather Payment ended in Scotland and was replaced by Winter Heating Payment, which pays a guaranteed £62.00 every winter regardless of temperature.",
       },
       {
         q: "Does Winter Heating Payment depend on the weather?",
@@ -2054,11 +2067,11 @@ export const posts: Post[] = [
     guideImage: true,
     image: {
       src: "/images/editorial/guide-social-security-scotland-payment-dates.webp",
-      alt: "A plain calendar and a coin on a kitchen table",
+      alt: "Kitchen table calendar and coin for Social Security Scotland payment dates",
       caption: "A plain calendar and a coin on a kitchen table.",
     },
     title: "Social security Scotland payment dates for 2026",
-    seoTitle: "Social Security Scotland Payment Dates 2026 Including Christmas",
+    seoTitle: "Social Security Scotland Payment Dates 2026 & Christmas",
     description:
       "Social Security Scotland payment dates over Christmas 2026: payments due 24 to 28 December come on 23 December. Every bank holiday change to 2028.",
     standfirst:
@@ -2106,7 +2119,7 @@ export const posts: Post[] = [
       caption: "A school backpack and a cup of tea on a kitchen table.",
     },
     title: "Young carers allowance in Scotland: the Young Carer Grant",
-    seoTitle: "Young Carers Allowance Scotland: The Young Carer Grant Explained",
+    seoTitle: "Young Carers Allowance Scotland: Young Carer Grant",
     description:
       "Scotland's young carers allowance is the Young Carer Grant: £405.10 a year for carers aged 16 to 19 who care 16 hours a week. Who qualifies and how to apply.",
     standfirst:
@@ -2146,7 +2159,7 @@ export const posts: Post[] = [
     guideImage: true,
     image: {
       src: "/images/editorial/guide-crisis-grant-phone-number.webp",
-      alt: "A phone and simple map outline of Scotland",
+      alt: "Phone and map of Scotland for council Crisis Grant phone numbers",
       caption: "A phone and simple map outline of Scotland.",
     },
     title: "Crisis grant phone number: every council in Scotland",
@@ -2195,11 +2208,11 @@ export const posts: Post[] = [
     guideImage: true,
     image: {
       src: "/images/editorial/guide-minimum-wage-2027.webp",
-      alt: "A payslip and coins on a table",
+      alt: "Payslip and coins illustrating the April 2027 Scotland minimum wage rise",
       caption: "A payslip and coins on a table.",
     },
     title: "Minimum wage 2027: every rate from 1 April",
-    seoTitle: `Minimum Wage 2027: ${pounds(MINIMUM_WAGE.next.over21, true)} From April, What It Means in Scotland`,
+    seoTitle: `Minimum Wage 2027 Scotland: ${pounds(MINIMUM_WAGE.next.over21, true)} From April`,
     description: `The minimum wage rises to ${pounds(MINIMUM_WAGE.next.over21, true)} an hour on 1 April 2027 for workers 21 and over. Every age rate, the yearly pay and take home pay in Scotland.`,
     standfirst: `A ${Math.round((MINIMUM_WAGE.next.over21 - MINIMUM_WAGE.current.over21) * 100)}p rise for anyone 21 or over, and every other rate up too. Here's what it adds up to over a year, and what actually reaches the bank in Scotland.`,
     date: "2026-10-29",
@@ -2254,11 +2267,11 @@ export const posts: Post[] = [
     guideImage: true,
     image: {
       src: "/images/editorial/guide-average-salary-scotland.webp",
-      alt: "A plain payslip beside coins and a calculator without numbers",
+      alt: "Payslip, coins and calculator illustrating average salary in Scotland",
       caption: "A plain payslip beside coins and a calculator without numbers.",
     },
     title: "Average salary Scotland: what full time workers earn",
-    seoTitle: "Average Salary Scotland 2026: What Full Time Workers Earn by Council",
+    seoTitle: "Average Salary Scotland 2026: Full-Time Pay by Council",
     description: `The average full time salary in Scotland is ${pounds(ASHE_2026.scotland.annual)} a year, the April 2026 median. The weekly and hourly figures, and what workers earn in all 32 councils.`,
     standfirst: `The latest official figures, published on ${ASHE_2026.released}, for Scotland and every council. Plus what the middle salary takes home, and how wide the spread really is.`,
     date: "2026-10-29",
@@ -2323,7 +2336,7 @@ export const posts: Post[] = [
       caption: "Glasgow tenement street and an ordinary worker's lunch bag.",
     },
     title: "Minimum wage in Glasgow Scotland: the legal rate and what local jobs pay",
-    seoTitle: "Minimum Wage in Glasgow Scotland 2026: Rates and Local Pay",
+    seoTitle: "Minimum Wage in Glasgow Scotland 2026: Local Pay",
     description: `The minimum wage in Glasgow is ${pounds(MINIMUM_WAGE.current.over21, true)} an hour, ${pounds(MINIMUM_WAGE.next.over21, true)} from April 2027. What local jobs pay, Glasgow rent, and what's left each month on a full time wage.`,
     standfirst: "The legal rate is the same as anywhere in the UK. What isn't the same is Glasgow's rent, its council tax and what the jobs around you pay.",
     date: "2026-10-29",
@@ -2382,7 +2395,7 @@ export const posts: Post[] = [
       caption: "Edinburgh street with ordinary shops and a worker's lunch bag.",
     },
     title: "Minimum wage in Edinburgh Scotland: the legal rate and what local jobs pay",
-    seoTitle: "Minimum Wage in Edinburgh Scotland 2026: Rates and Local Pay",
+    seoTitle: "Minimum Wage in Edinburgh Scotland 2026: Local Pay",
     description: `The minimum wage in Edinburgh is ${pounds(MINIMUM_WAGE.current.over21, true)} an hour, the same as the rest of the UK. With rents at ${pounds(CITY_PAY["city-of-edinburgh"].rent.oneBed)} a month, here's what it leaves you.`,
     standfirst: "Same legal rate as Dundee or London. Edinburgh's rents are what make it go less far, and I've done the sums to show by how much.",
     date: "2026-10-29",
@@ -2558,11 +2571,11 @@ export const posts: Post[] = [
     guideImage: true,
     image: {
       src: "/images/editorial/guide-check-council-tax-band.webp",
-      alt: "Scottish terraced houses with a plain letter and a magnifying glass",
+      alt: "Scottish terraced homes and letter for checking a council tax band in Scotland",
       caption: "Scottish terraced houses with a plain letter and a magnifying glass.",
     },
     title: "Check council tax band: find your band in Scotland",
-    seoTitle: "Check Council Tax Band in Scotland: Find My Council Tax Band",
+    seoTitle: "Check Council Tax Band Scotland: Find Your Band Free",
     description: `Check your council tax band free on the Scottish Assessors site by postcode. Band A means a 1991 value ${bandValueLabel("A").toLowerCase()}. What each band means and how to appeal.`,
     standfirst:
       "Your band is on a public list anyone can search. Here's how to find it in a minute, what the letter means, and when you can ask for it to change.",
@@ -2629,11 +2642,11 @@ export const posts: Post[] = [
     guideImage: true,
     image: {
       src: "/images/editorial/guide-council-tax-reduction-scotland.webp",
-      alt: "A modest Scottish home and household bills",
+      alt: "Scottish home and household bills illustrating Council Tax Reduction Scotland",
       caption: "A modest Scottish home and household bills.",
     },
     title: "Council tax reduction Scotland: who qualifies and how much",
-    seoTitle: "Council Tax Reduction Scotland: Who Qualifies and How to Apply",
+    seoTitle: "Council Tax Reduction Scotland: Who Qualifies & Apply",
     description: `Council Tax Reduction takes up to ${COUNCIL_TAX_REDUCTION.maxPercent}% off council tax if your income is low and savings are under ${pounds(COUNCIL_TAX_REDUCTION.savingsLimit)}. Who qualifies, how much and how to apply.`,
     standfirst:
       "Help from your council when money is tight, whether you work, rent, own or claim Universal Credit. Who gets it, how it's worked out, and how to claim in Edinburgh, South Lanarkshire and North Lanarkshire.",
@@ -2703,11 +2716,11 @@ export const posts: Post[] = [
     guideImage: true,
     image: {
       src: "/images/editorial/guide-single-person-discount-council-tax-scotland.webp",
-      alt: "One cup and a plain household bill on a kitchen table",
+      alt: "Single mug and bill illustrating the 25% single person council tax discount",
       caption: "One cup and a plain household bill on a kitchen table.",
     },
     title: "Single person discount council tax Scotland: how to claim 25% off",
-    seoTitle: "Single Person Discount Council Tax Scotland: 25% Off and How to Claim",
+    seoTitle: "Single Person Discount Council Tax Scotland: 25% Off",
     description: `Live alone? You get ${SINGLE_PERSON_DISCOUNT.percent}% off council tax and water. That's ${pounds((bandFor("glasgow-city", "D").total * SINGLE_PERSON_DISCOUNT.percent) / 100)} a year on a Band D home in Glasgow. Who counts as an adult and how to claim.`,
     standfirst:
       "A quarter off the whole bill, water included, if you're the only adult who counts. Who's disregarded, how to claim, and what to do when someone moves in.",
@@ -2849,7 +2862,7 @@ export const posts: Post[] = [
       caption: "Open textbook and pencil beside a Scottish Parliament exterior silhouette.",
     },
     title: "Modern studies: free resources for pupils and teachers",
-    seoTitle: "Modern Studies: Free Resources for Pupils and Teachers in Scotland",
+    seoTitle: "Modern Studies Scotland: Free Revision & Real Data",
     description: `Free Modern Studies resources: N5 is ${N5_MODERN_STUDIES.totalMarks} marks, Higher ${HIGHER_MODERN_STUDIES.totalMarks}, Advanced Higher ${ADVANCED_HIGHER_MODERN_STUDIES.totalMarks}. Course guides, past paper help and real Scottish data.`,
     standfirst:
       "Course facts from the people who set the exams, and up to date Scottish figures you can drop into an answer. All free, all sourced.",
@@ -2924,7 +2937,7 @@ export const posts: Post[] = [
       caption: "School exercise books, pencil and an abstract Scottish Parliament silhouette.",
     },
     title: "National 5 modern studies: the course in plain English",
-    seoTitle: "National 5 Modern Studies: Course Guide, Notes and Real Data",
+    seoTitle: "National 5 Modern Studies: Guide, Notes & Real Data",
     description: `National 5 Modern Studies is ${N5_MODERN_STUDIES.totalMarks} marks: an ${N5_MODERN_STUDIES.paper.marks} mark exam and a ${N5_MODERN_STUDIES.assignment.marks} mark assignment. The course in plain English, revision notes and model answers.`,
     standfirst:
       "What is in the exam, how the assignment is marked, and revision notes built on real Scottish figures you can quote.",
@@ -2946,6 +2959,7 @@ export const posts: Post[] = [
       ],
       asOf: `Course specification ${N5_MODERN_STUDIES.specVersion}`,
       source: N5_MODERN_STUDIES.source,
+      nextStep: { label: "Download Nat 5 past papers", href: "/nat-5-modern-studies-past-papers" },
     },
     toc: [
       { id: "course", label: "How it is assessed" },
@@ -3073,11 +3087,11 @@ export const posts: Post[] = [
     guideImage: true,
     image: {
       src: "/images/editorial/guide-higher-modern-studies-past-papers.webp",
-      alt: "Unmarked exam papers, pencils and a desk",
+      alt: "Exam papers and pencils on a desk for Higher Modern Studies past papers",
       caption: "Unmarked exam papers, pencils and a desk.",
     },
     title: "Higher modern studies past papers and practice questions",
-    seoTitle: "Higher Modern Studies Past Papers and Practice Questions With Real Data",
+    seoTitle: "Higher Modern Studies Past Papers & Practice Questions",
     description: `Higher Modern Studies past papers for ${MODERN_STUDIES_PAST_PAPERS.firstYear} to ${MODERN_STUDIES_PAST_PAPERS.lastYear} are free from Qualifications Scotland. Where they are, how to use them, and practice with real data.`,
     standfirst:
       "Where the official papers and marking instructions live now, how to use them properly, and three Paper 2 style questions built on real Scottish figures.",
@@ -3143,7 +3157,7 @@ export const posts: Post[] = [
     guideImage: true,
     image: {
       src: "/images/editorial/guide-nat-5-modern-studies-past-papers.webp",
-      alt: "Unmarked exam papers and a pencil on a school desk",
+      alt: "Exam papers and pencil on a desk for National 5 Modern Studies past papers",
       caption: "Unmarked exam papers and a pencil on a school desk.",
     },
     title: "Nat 5 modern studies past papers and practice questions",
@@ -3217,7 +3231,7 @@ export const posts: Post[] = [
       caption: "Unmarked research papers and a simple chart with no labels.",
     },
     title: "Advanced higher modern studies: the course and where to find data",
-    seoTitle: "Advanced Higher Modern Studies: Course Guide and Data Sources",
+    seoTitle: "Advanced Higher Modern Studies: Guide & Real Data",
     description: `Advanced Higher Modern Studies is ${ADVANCED_HIGHER_MODERN_STUDIES.totalMarks} marks: a ${ADVANCED_HIGHER_MODERN_STUDIES.paper.marks} mark exam and a ${ADVANCED_HIGHER_MODERN_STUDIES.dissertation.words.toLocaleString("en-GB")} word dissertation worth ${ADVANCED_HIGHER_MODERN_STUDIES.dissertation.marks}. The course, and data that holds up.`,
     standfirst:
       "How the exam and the dissertation are marked, and the official Scottish data worth using, with the weakness of each source spelled out.",
@@ -3362,7 +3376,7 @@ export const posts: Post[] = [
     guideImage: true,
     image: {
       src: "/images/editorial/guide-who-is-my-msp.webp",
-      alt: "Scottish Parliament exterior and an unmarked folded map of Scotland",
+      alt: "Scottish Parliament building and map of Scotland for finding your MSP",
       caption: "Scottish Parliament exterior and an unmarked folded map of Scotland.",
     },
     title: "Who is my MSP? Find your MSP and MP by postcode",
@@ -3430,7 +3444,7 @@ export const posts: Post[] = [
       caption: "A Scottish local council building and an unmarked street map.",
     },
     title: "Who is my local councillor by postcode?",
-    seoTitle: "Who Is My Local Councillor by Postcode? Find Your Councillors",
+    seoTitle: "Who Is My Local Councillor by Postcode? Find Yours",
     description: `Most homes in Scotland have 3 or 4 councillors, not 1. Use your postcode to find your council, then every councillor for your ward. All ${COUNCILLOR_TOTALS.councils} councils listed.`,
     standfirst:
       "Scotland elects councillors in groups, so you almost certainly have more than one. Here's how to find them all from your postcode, and what they can help with.",
@@ -3495,7 +3509,7 @@ export const posts: Post[] = [
       caption: "Two contrasting Glasgow residential streets.",
     },
     title: "Life expectancy Glasgow: the figures and the gap",
-    seoTitle: "Life Expectancy Glasgow: How Long People Live, Area by Area",
+    seoTitle: "Life Expectancy Glasgow: Figures by Area & Gap",
     description: `Life expectancy in Glasgow is ${years(LIFE_EXPECTANCY_LATEST.glasgow.men)} years for men and ${years(LIFE_EXPECTANCY_LATEST.glasgow.women)} for women (${LIFE_EXPECTANCY_LATEST.period}), the lowest in Scotland. Inside the city, the gap for men is ${years(LIFE_EXPECTANCY.glasgowByDeprivation.rows[4].men - LIFE_EXPECTANCY.glasgowByDeprivation.rows[0].men)} years.`,
     standfirst:
       "Glasgow has the lowest life expectancy of any council in Scotland. But where you live inside the city matters far more than living in Glasgow at all.",
@@ -3554,7 +3568,7 @@ export const posts: Post[] = [
       caption: "A quiet Scottish high street with a closed shop and unmarked job application.",
     },
     title: "Unemployment Scotland: the rate, the trend and your council",
-    seoTitle: "Unemployment Scotland 2026: Rate, Trend and Council Figures",
+    seoTitle: "Unemployment Scotland 2026: Rate & Council Figures",
     description: `Scotland's unemployment rate was ${pct(LABOUR_MARKET_LATEST.rate)} in ${LABOUR_MARKET_LATEST.period}, against ${pct(LABOUR_MARKET.uk.rate)} for the UK. The trend, youth unemployment and the rate for all 32 councils.`,
     standfirst:
       "The latest official rate, what it actually counts, how it has moved since 2008, and the estimate for every council in Scotland.",

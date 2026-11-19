@@ -185,8 +185,8 @@ export default function Privacy() {
               <p className="text-[15.5px] leading-[1.55] text-[var(--muted)] max-w-[68ch]">
                 This is measurement, not identification. There is no attempt to work out who
                 you are, nothing is combined with the mailing list, and none of it is sold or
-                shared. If you would like your data removed, email{" "}
-                <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>.
+                shared. If you would like your data removed, use{" "}
+                <Link href="/contact">the contact page</Link>.
               </p>
             </div>
           </ContentFrame>

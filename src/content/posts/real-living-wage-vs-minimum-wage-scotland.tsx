@@ -188,8 +188,10 @@ export default function Post() {
       </P>
       <P>
         See <Link href="/minimum-wage-scotland">what the legal minimum
-        becomes after Scottish tax and National Insurance</Link> before comparing it with rent and
-        bills, or work out your own pay with the{" "}
+        becomes after Scottish tax and National Insurance</Link>, what changes with the{" "}
+        <Link href="/minimum-wage-2027">April 2027 minimum wage rise</Link>, and how all six{" "}
+        <Link href="/tax-bands-scotland">Scottish income tax bands</Link> affect your payslip, or
+        work out your own pay with the{" "}
         <Link href="/take-home-pay-calculator-scotland">take home pay calculator</Link>.
       </P>
 

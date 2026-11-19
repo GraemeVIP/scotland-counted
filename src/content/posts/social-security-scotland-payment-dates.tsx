@@ -35,6 +35,10 @@ export default function Post() {
       </P>
 
       <H2 id="all">Every bank holiday change to 2028</H2>
+      <P>
+        For the full list of official Scottish statutory dates and substitute days, see{" "}
+        <Link href="/scotland-bank-holidays">Scotland bank holidays 2026, 2027 and 2028</Link>.
+      </P>
       <GuideTable
         title="All published bank holiday dates"
         columns={["Due on", "Paid on"]}

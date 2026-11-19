@@ -23,37 +23,18 @@ export const site = {
   themeColor: "#2a78d6",
 
   /**
-   * Three separate things live below, and keeping them separate is the whole
-   * point of this block.
-   *
-   *   author        the public byline. Intentionally first name only, so the
-   *                 site can identify its writer without exposing a full
-   *                 personal name throughout the repository.
-   *   organisation  that person's consultancy. Where he works. It does not
-   *                 publish this site and nothing here is sold through it.
-   *   publisher     the site itself. What every page, article and dataset
-   *                 names as its publisher.
+   * Site publisher identity. All pages, articles and datasets publish under
+   * Scotland Counted directly.
    */
   author: {
-    name: "Graeme",
-    role: "Founder, Strathmark Consulting",
-    /** CHANGE ME, used in the byline and structured data. */
-    url: "https://strathmarkconsulting.com",
+    name: "Scotland Counted",
+    role: "Independent public data",
+    url: "https://scotlandcounted.org.uk/methods",
   },
 
-  /**
-   * The author's employer, and deliberately not the publisher.
-   *
-   * The visible copy always had this right: "a personal, independent project
-   * by Graeme at Strathmark Consulting". The structured data did not.
-   * It named the consultancy as the publisher of every article and every
-   * dataset, so anything reading the machine-readable version of this site saw
-   * a consultancy publishing public-interest data about councils it could sell
-   * to. That contradicted the one claim everything else rests on.
-   */
   organisation: {
-    name: "Strathmark Consulting",
-    url: "https://strathmarkconsulting.com",
+    name: "Scotland Counted",
+    url: "https://scotlandcounted.org.uk",
   },
 
   /**
@@ -76,8 +57,8 @@ export const site = {
       "Independent public data for Scotland. Scotland Counted publishes what the official record shows about poverty, work, pay and living costs in every Scottish council area, with the source and the working set out beside each figure.",
   },
 
-  /** CHANGE ME, shown on the about page and used for corrections. */
-  contactEmail: "graeme@strathmarkconsulting.com",
+  /** Contact is handled through /contact rather than a published personal inbox. */
+  contactEmail: "",
 
   /**
    * Handles only, no @ and no URL, the code adds both.

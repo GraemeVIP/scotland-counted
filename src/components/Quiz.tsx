@@ -192,12 +192,12 @@ export default function Quiz({
                 aria-pressed={isPicked}
                 className={`ui flex items-center gap-3.5 rounded-[var(--r-s)] border-2 px-5 py-4 text-left text-[16.5px] font-[540] transition-all ${
                   state === "idle"
-                    ? "border-[var(--rule)] bg-[var(--paper)] hover:border-[var(--brand)] hover:-translate-y-px"
+                    ? "cursor-pointer border-[var(--rule)] bg-[var(--paper)] hover:border-[var(--brand)] hover:-translate-y-px"
                     : state === "right"
-                      ? "border-[var(--good)] bg-[var(--good)]/10"
+                      ? "pointer-events-none cursor-default border-[var(--good)] bg-[var(--good)]/10"
                       : state === "wrong"
-                        ? "border-[var(--bad)] bg-[var(--bad)]/10"
-                        : "border-[var(--rule)] bg-[var(--paper)] opacity-45"
+                        ? "pointer-events-none cursor-default border-[var(--bad)] bg-[var(--bad)]/10"
+                        : "pointer-events-none cursor-default border-[var(--rule)] bg-[var(--paper)] opacity-45"
                 }`}
               >
                 <span

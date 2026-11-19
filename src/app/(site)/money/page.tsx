@@ -71,7 +71,8 @@ const GROUPS = [
     title: "Pay and wages",
     intro: "What you earn, what you keep, and how the two differ.",
     items: [
-      { href: "/take-home-pay-calculator-scotland", label: "Take home pay calculator", blurb: "What you keep on Scottish tax rates" },
+      { href: "/take-home-pay-calculator-scotland", label: "Take home pay calculator & salary table", blurb: "Calculate your pay on Scottish tax rates, plus every salary from £15,000 to £150,000" },
+      { href: "/tax-bands-scotland", label: "Scottish income tax bands 2026/27", blurb: "All six bands from 19% to 48%, compared with England" },
       { href: "/minimum-wage-scotland", label: "Minimum wage in Scotland", blurb: "What full time work at the legal minimum actually pays" },
       { href: "/real-living-wage-scotland", label: "Real Living Wage versus minimum wage", blurb: "One is the law, one is voluntary. What separates them" },
       { href: "/blog/universal-credit-when-you-work-more-hours", label: "Universal Credit and extra hours", blurb: "Why more work does not always mean more money" },
@@ -83,10 +84,12 @@ const GROUPS = [
     intro: "The costs that arrive whether or not the money is there.",
     items: [
       { href: "/council-tax-bands-scotland", label: "Council tax by band", blurb: "All 32 councils, water charges shown separately" },
+      { href: "/lbtt-calculator-scotland", label: "LBTT calculator Scotland (Stamp Duty)", blurb: "Work out residential LBTT, first-time buyer relief and 8% ADS" },
       { href: "/blog/how-council-tax-works-scotland", label: "How council tax works", blurb: "Bands, discounts and the help most people miss" },
       { href: "/council-tax-increase-scotland", label: "What council tax rose by this year", blurb: "Every council, and what it means for a Band D bill" },
       { href: "/blog/local-housing-allowance-rent-shortfall-scotland", label: "Local Housing Allowance", blurb: "Why rent help often falls short of the rent" },
       { href: "/energy-price-cap-scotland", label: "The energy price cap", blurb: "What the cap is, and what it does not cap" },
+      { href: "/scotland-bank-holidays", label: "Scotland bank holidays 2026 to 2028", blurb: "Every official date and when benefit payments move early" },
     ],
   },
   {

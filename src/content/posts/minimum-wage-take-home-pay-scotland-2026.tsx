@@ -189,7 +189,8 @@ export default function Post() {
       <P>
         Scotland&apos;s 19% starter rate means a full time worker on the minimum wage pays about{" "}
         {money.format(scottishSaving)} a year less income tax than the same worker in England.
-        National Insurance is the same everywhere in the UK.
+        National Insurance is the same everywhere in the UK. See all six rates on{" "}
+        <Link href="/tax-bands-scotland">Scottish income tax bands 2026/27</Link>.
       </P>
       <Aside title="This is an illustration, not a payslip promise">
         <p>

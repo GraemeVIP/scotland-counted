@@ -4,6 +4,7 @@ import { JsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
 import CouncilTaxLookup from "./CouncilTaxLookup";
 import WaterCharge from "@/components/WaterCharge";
 import ToolCTA from "@/components/ToolCTA";
+import SharePage from "@/components/SharePage";
 import { GuideTable } from "@/components/GuideTable";
 import {
   BAND_LETTERS,
@@ -21,7 +22,7 @@ import Faq from "@/components/Faq";
 import { councilTaxBandPath, councilTaxPath, postPath } from "@/lib/routeMap";
 
 export const metadata = meta({
-  title: "Council Tax Bands Scotland 2026/27: Prices A to H for Every Council",
+  title: "Council Tax Bands Scotland 2026/27: All 32 Councils",
   description:
     "Check 2026/27 council tax bands in every Scottish council. Compare Band A to H yearly and monthly prices with water and waste water charges included.",
   path: "/council-tax-bands-scotland",
@@ -112,7 +113,15 @@ export default function CouncilTaxPage() {
           eyebrow="Scotland · all 32 councils · bands A to H"
           title="Council tax bands Scotland 2026/27"
           lede="Find your council’s 2026/27 charges, including Scottish Water. Enter a Scottish postcode or choose your council."
-        />
+        >
+          <SharePage
+            title="Council tax bands Scotland 2026/27: all 32 councils"
+            text="Compare 2026/27 Scottish council tax bills across all 32 councils, with Scottish Water included."
+            path="/council-tax-bands-scotland"
+            label="Share Scottish council tax rates"
+            className="mt-4"
+          />
+        </PageHeader>
 
         <CouncilTaxLookup />
 

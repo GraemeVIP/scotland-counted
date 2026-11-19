@@ -1,3 +1,5 @@
+import Link from "@/components/IntentLink";
+
 export type QuickAnswerData = {
   /** The question in the searcher's words, e.g. "Minimum wage Scotland, 21 and over". */
   label: string;
@@ -12,6 +14,8 @@ export type QuickAnswerData = {
   /** When the answer applies, e.g. "From 1 April 2026". */
   asOf?: string;
   source?: { publisher: string; url: string };
+  /** One high-relevance next page shown above the fold so readers do not hit a dead end. */
+  nextStep?: { label: string; href: string };
 };
 
 /**
@@ -66,18 +70,28 @@ export default function QuickAnswer({ answer, className = "" }: { answer: QuickA
           </dl>
         )}
       </div>
-      {(answer.asOf || answer.source) && (
-        <p className="mt-6 flex flex-wrap gap-x-5 gap-y-1 border-t border-white/15 pt-4 text-[14px] text-[var(--hero-muted)]">
-          {answer.asOf && <span>{answer.asOf}</span>}
-          {answer.source && (
-            <span>
-              Source{" "}
-              <a href={answer.source.url} target="_blank" rel="noopener noreferrer" className="font-[560] text-white underline underline-offset-4">
-                {answer.source.publisher}
-              </a>
-            </span>
+      {(answer.asOf || answer.source || answer.nextStep) && (
+        <div className="mt-6 flex flex-wrap items-center justify-between gap-x-6 gap-y-3 border-t border-white/15 pt-4 text-[14px] text-[var(--hero-muted)]">
+          <p className="m-0 flex flex-wrap gap-x-5 gap-y-1">
+            {answer.asOf && <span>{answer.asOf}</span>}
+            {answer.source && (
+              <span>
+                Source{" "}
+                <a href={answer.source.url} target="_blank" rel="noopener noreferrer" className="font-[560] text-white underline underline-offset-4">
+                  {answer.source.publisher}
+                </a>
+              </span>
+            )}
+          </p>
+          {answer.nextStep && (
+            <Link
+              href={answer.nextStep.href}
+              className="ui inline-flex items-center gap-1.5 rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-[14.5px] font-[600] text-white no-underline transition-colors hover:bg-white/20"
+            >
+              {answer.nextStep.label} <span aria-hidden="true">→</span>
+            </Link>
           )}
-        </p>
+        </div>
       )}
     </section>
   );

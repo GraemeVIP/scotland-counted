@@ -123,7 +123,10 @@ export default function Post() {
         For bins, potholes, council housing and council tax, your councillors are usually quicker.
         My guide to{" "}
         <Link href="/who-is-my-local-councillor-by-postcode">who is my local councillor by postcode</Link>{" "}
-        links to every council&apos;s councillor finder.
+        links to every council&apos;s councillor finder. You can also check{" "}
+        <Link href="/councils">all 32 Scottish council budgets and performance records</Link>, read{" "}
+        <Link href="/msp-reviews">Scottish MSP reviews</Link>, or follow the full{" "}
+        <Link href="/blog/operation-branchform-snp-money-timeline">Operation Branchform timeline</Link>.
       </P>
 
       <PostCTA

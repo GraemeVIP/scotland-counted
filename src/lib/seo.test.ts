@@ -30,27 +30,16 @@ type Node = Record<string, unknown>;
 const graph = () => orgJsonLd()["@graph"] as unknown as Node[];
 const byId = (id: string) => graph().find((n) => n["@id"] === id);
 
-test("the publisher is the site, not the author's consultancy", () => {
+test("the publisher is Scotland Counted with no personal or consultancy entity", () => {
   const org = byId(ENTITY.org);
   assert.ok(org, "no organisation node");
   assert.equal(org["name"], site.name);
   assert.equal(org["url"], site.url);
-  assert.notEqual(
-    org["name"],
-    site.organisation.name,
-    "the consultancy is being published as the site again",
-  );
-});
 
-test("the consultancy exists, separately, and only the person links to it", () => {
-  const consultancy = byId(ENTITY.consultancy);
-  assert.ok(consultancy, "no consultancy node");
-  assert.equal(consultancy["name"], site.organisation.name);
+  const wholeGraph = JSON.stringify(orgJsonLd());
+  assert.ok(!/strathmark/i.test(wholeGraph), "graph should not mention Strathmark");
+  assert.ok(!/graeme/i.test(wholeGraph), "graph should not mention Graeme");
 
-  const person = byId(ENTITY.author) as Node;
-  assert.deepEqual(person["worksFor"], { "@id": ENTITY.consultancy });
-
-  // Nothing the site publishes may point at the consultancy.
   const published = JSON.stringify([
     articleJsonLd({ headline: "H", description: "D", path: "/blog/x" }),
     datasetJsonLd({
@@ -69,14 +58,8 @@ test("the consultancy exists, separately, and only the person links to it", () =
     }),
     imageJsonLd({ src: "/i.png", alt: "a", title: "t", width: 1, height: 1 }),
   ]);
-  assert.ok(
-    !published.includes(site.organisation.name),
-    "published content names the consultancy",
-  );
-  assert.ok(
-    !published.includes(ENTITY.consultancy),
-    "published content links the consultancy",
-  );
+  assert.ok(!/strathmark/i.test(published), "published content names Strathmark");
+  assert.ok(!/graeme/i.test(published), "published content names Graeme");
 });
 
 test("every published thing points at the one publisher node", () => {
@@ -109,7 +92,19 @@ test("every published thing points at the one publisher node", () => {
 
   // A dataset built from someone else's numbers must not claim to have made them.
   assert.equal(dataset["creator"], undefined, "the site is claiming it created the data");
-  assert.equal(article["author"] && (article["author"] as Node)["@id"], ENTITY.author);
+  assert.equal(article["author"] && (article["author"] as Node)["@id"], ENTITY.org);
+
+  // Moved top-level guides pass schemaType: "BlogPosting" explicitly so they keep headline and section.
+  const movedGuide = articleJsonLd({
+    headline: "Minimum wage Scotland",
+    description: "D",
+    path: "/minimum-wage-scotland",
+    section: "Money and bills",
+    schemaType: "BlogPosting",
+  }) as Node;
+  assert.equal(movedGuide["@type"], "BlogPosting");
+  assert.equal(movedGuide["headline"], "Minimum wage Scotland");
+  assert.equal(movedGuide["articleSection"], "Money and bills");
 });
 
 test("every @id in the graph is unique and every reference resolves", () => {

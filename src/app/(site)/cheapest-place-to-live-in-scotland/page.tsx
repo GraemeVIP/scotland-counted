@@ -4,6 +4,7 @@ import QuickAnswer from "@/components/QuickAnswer";
 import Faq from "@/components/Faq";
 import ComparePromo from "@/components/ComparePromo";
 import { RankedList, Freshness, RankingLinks, areaName } from "@/components/AreaRanking";
+import SharePage from "@/components/SharePage";
 import { JsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
 import { CITY_SLUGS, metricById, rankAreas } from "@/lib/data/compareAreas";
 
@@ -18,7 +19,7 @@ const UPDATED = "2026-10-29";
 const CHECKED = "2026-10-29";
 
 export const metadata = meta({
-  title: "Cheapest Place to Live in Scotland: All 32 Areas by House Price and Rent",
+  title: "Cheapest Place to Live in Scotland: All 32 Areas Ranked",
   description:
     "The cheapest place to live in Scotland, with every council area ranked by average house price, plus private rent, council tax and how many years of local pay the average home costs.",
   path: "/cheapest-place-to-live-in-scotland",
@@ -106,6 +107,13 @@ export default function CheapestPlacePage() {
           lede={`${areaName(cheapest.slug)} is the cheapest place to live in Scotland for buying a home: ${pounds(cheapest.value)} on average, against ${pounds(scotlandHouse)} across Scotland. Here is every council area, with rent, council tax and how many years of local pay a home costs.`}
         >
           <Freshness updated={UPDATED} checked={CHECKED} />
+          <SharePage
+            title="Cheapest place to live in Scotland: all 32 councils ranked"
+            text={`Average house prices, private rents and council tax across all 32 Scottish councils. ${areaName(cheapest.slug)} is cheapest at ${pounds(cheapest.value)}.`}
+            path="/cheapest-place-to-live-in-scotland"
+            label="Share this ranking"
+            className="mt-4"
+          />
         </PageHeader>
         <ContentFrame>
           <QuickAnswer

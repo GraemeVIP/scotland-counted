@@ -230,9 +230,13 @@ export default function Post() {
       <P>
         For the causes, the evidence points to three things: pay from work, the cost of living, and
         social security. The <Link href="/causes-of-poverty">causes of poverty</Link> guide takes each
-        in turn with Scottish figures. Government responses you can describe include the{" "}
+        in turn with Scottish figures, and you can look up any postcode&apos;s deprivation decile
+        using the <Link href="/simd-postcode-checker">SIMD postcode checker</Link>. Government
+        responses you can describe include the{" "}
         <Link href="/scottish-child-payment">Scottish Child Payment</Link>, which only exists in
-        Scotland, and free school meals for every pupil in primary 1 to 5.
+        Scotland, and free school meals for every pupil in primary 1 to 5. Teachers can grab ready
+        to use data sets on{" "}
+        <Link href="/modern-studies-teaching-resources">Modern Studies teaching resources</Link>.
       </P>
 
       <H3>Crime and the law</H3>

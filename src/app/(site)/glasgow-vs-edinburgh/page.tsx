@@ -4,6 +4,7 @@ import Faq from "@/components/Faq";
 import AreaComparePicker from "@/components/AreaComparePicker";
 import AreaComparison from "@/components/AreaComparison";
 import { Freshness, RankingLinks } from "@/components/AreaRanking";
+import SharePage from "@/components/SharePage";
 import { JsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
 import { COMPARE_METRICS, metricById, winner } from "@/lib/data/compareAreas";
 
@@ -22,7 +23,7 @@ const G = "glasgow-city";
 const E = "city-of-edinburgh";
 
 export const metadata = meta({
-  title: "Glasgow vs Edinburgh: Which Is Better to Live In? The Official Figures",
+  title: "Glasgow vs Edinburgh: Pay, Housing, Crime & Cost",
   description:
     "Glasgow vs Edinburgh side by side: pay, house prices, rent, council tax, crime, poverty, health and schools, from the latest official figures, in plain words.",
   path: "/glasgow-vs-edinburgh",
@@ -122,6 +123,13 @@ export default function GlasgowVsEdinburghPage() {
       <Page>
         <PageHeader eyebrow="Compare areas" title="Glasgow vs Edinburgh" lede={`${verdict} ${cost}`}>
           <Freshness updated={UPDATED} checked={CHECKED} />
+          <SharePage
+            title="Glasgow vs Edinburgh on official figures"
+            text={`Glasgow vs Edinburgh: ${verdict} ${cost}`}
+            path="/glasgow-vs-edinburgh"
+            label="Share Glasgow vs Edinburgh"
+            className="mt-4"
+          />
         </PageHeader>
         <ContentFrame>
           <QuickAnswer

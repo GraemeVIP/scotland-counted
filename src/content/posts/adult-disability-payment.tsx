@@ -16,12 +16,13 @@ export default function Post() {
   return (
     <Prose>
       <Lead>
-        Adult Disability Payment is Scotland&apos;s replacement for PIP. It&apos;s extra money if
-        you have a disability or a long term health condition that makes everyday life harder. It
-        isn&apos;t means tested, so your wages and your savings don&apos;t come into it.
+        Adult Disability Payment (ADP) is Scotland&apos;s replacement for Personal Independence
+        Payment (PIP). Paid by Social Security Scotland, it gives extra money if you have a
+        disability or a long term health condition that makes everyday life harder. It isn&apos;t
+        means tested, so your wages and savings don&apos;t affect it.
       </Lead>
 
-      <H2 id="rates">Adult disability payment rates for 2026/27</H2>
+      <H2 id="rates">Adult Disability Payment (ADP) Scotland rates for 2026/27</H2>
       <P>
         There are two parts. Daily living covers things like cooking, eating, washing and dressing.
         Mobility covers planning a journey and getting about. You can get one part or both, and
