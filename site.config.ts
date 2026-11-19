@@ -72,18 +72,15 @@ export const site = {
    * Leave any of these blank and the link and its tags disappear.
    */
   social: {
-    x: "scotlandcounted",
+    x: "",
     bluesky: "",
     linkedin: "",
   },
 
   /**
-   * The Count, the email list. Create a free access key at
-   * web3forms.com (submissions arrive in your inbox), paste it here
-   * and redeploy: every sign-up form on the site goes live. While it
-   * is empty the forms stay hidden, so nothing broken ever ships.
+   * Email signup is intentionally disabled so the site collects no mailing list.
    */
-  web3formsKey: "4bcc9b22-6c82-45cc-ab20-0882fc8144d5",
+  web3formsKey: "",
 
   /**
    * Analytics. Every field is off until you paste an ID in, and each one is

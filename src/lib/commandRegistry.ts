@@ -101,8 +101,8 @@ const CORE: Item[] = [
   { label: "What changed", href: "/updates", group: "More", keywords: "changelog rss updates news" },
   { label: "Words explained", href: "/glossary", group: "Check the proof" },
   { label: "Questions and straight answers", href: "/faq", group: "Main pages", keywords: "faq help search question answer" },
+  { label: "About Scotland Counted", href: "/about", group: "More", keywords: "about non profit mission independent data" },
   { label: "Report or see corrections", href: "/corrections", group: "More" },
-  { label: "Feedback and contact", href: "/contact", group: "More", keywords: "feedback thanks thank you teaching classroom email press error report message" },
   { label: "Privacy", href: "/privacy", group: "More", keywords: "data cookies tracking gdpr postcode stored" },
 ];
 

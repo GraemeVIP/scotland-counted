@@ -32,12 +32,12 @@ export default function FaqPage() {
           <FaqSearch />
 
           <CTA
-            title="Still cannot find the answer?"
-            body="Ask a real question, suggest one I should add, or tell me when an answer is unclear. Corrections and confusing explanations are taken seriously."
-            href="/contact"
-            cta="Ask a question"
-            secondaryHref="/methods"
-            secondaryCta="Check the sources"
+            title="Check the original figures yourself"
+            body="Every answer on Scotland Counted links straight back to official Scottish Government, ONS, DWP and council datasets."
+            href="/methods"
+            cta="Methods and sources"
+            secondaryHref="/about"
+            secondaryCta="About Scotland Counted"
           />
         </ContentFrame>
       </Page>

@@ -532,9 +532,8 @@ export default async function CouncilAccountabilityPage({
             </EvidenceDetails>
 
             <p className="mt-7 text-[15px] leading-[1.6] text-[var(--ink-2)]">
-              Council officers and elected members can send corrections or a response through the
-              <Link href="/contact"> contact page</Link>. Confirmed changes will be dated and
-              recorded here.
+              Confirmed changes to official published records are dated and recorded in the{" "}
+              <Link href="/corrections">corrections log</Link>.
             </p>
           </section>
 

@@ -290,8 +290,9 @@ export default async function MpPage({ params }: { params: Promise<{ slug: strin
               is used so the page remains dependable when the official site is busy.
             </p>
             <p className="mt-4 text-[15px] leading-[1.55] text-[var(--ink-2)]">
-              MPs can change after an election, resignation or by election. If this record is out
-              of date, <Link href="/contact">tell me and I will check it</Link>.
+              MPs can change after an election, resignation or by election. Checked dates are shown
+              on every profile and updates are tracked in the{" "}
+              <Link href="/updates">public update log</Link>.
             </p>
             <EvidenceDetails className="mt-6" summary="See the exact official data source">
               <p>

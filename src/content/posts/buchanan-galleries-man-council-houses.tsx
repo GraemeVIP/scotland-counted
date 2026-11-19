@@ -84,8 +84,7 @@ export default function Post() {
         <a href="https://x.com/i/status/2116258588318461952" target="_blank" rel="noopener noreferrer">
           on X
         </a>
-        . Strong language. If this is your video and you want it credited differently or taken
-        down, <Link href="/contact">get in touch</Link>.
+        . Strong language. Credited to the original public post.
       </ClipPlayer>
       <blockquote className="my-8 rounded-[var(--r-m)] border border-[var(--rule)] border-l-[5px] border-l-[var(--brand)] bg-[var(--surface)] px-6 py-6 sm:px-8">
         <p className="ui mb-3 text-[14px] font-[600] uppercase tracking-[0.06em] text-[var(--brand)]">

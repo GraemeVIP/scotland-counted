@@ -101,10 +101,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${site.url}/methods`, changeFrequency: "yearly", priority: 0.6 },
     { url: `${site.url}/glossary`, changeFrequency: "yearly", priority: 0.6 },
     { url: `${site.url}/data`, changeFrequency: "yearly", priority: 0.6 },
+    { url: `${site.url}/about`, changeFrequency: "monthly", priority: 0.6, lastModified: seoRefresh },
     { url: `${site.url}/corrections`, changeFrequency: "monthly", priority: 0.3 },
     { url: `${site.url}/accessibility`, changeFrequency: "yearly", priority: 0.3, lastModified: repositioning },
     { url: `${site.url}/for-organisations`, changeFrequency: "monthly", priority: 0.6, lastModified: new Date("2026-10-13T00:00:00Z") },
-    { url: `${site.url}/contact`, changeFrequency: "yearly", priority: 0.4 },
     { url: `${site.url}/privacy`, changeFrequency: "yearly", priority: 0.3 },
   ];
 

@@ -357,7 +357,7 @@ export const EVIDENCE: NavItem[] = [
 
 /** Footer and phone menu links. */
 export const ABOUT: NavItem[] = [
-  { href: "/contact", label: "Feedback and contact" },
+  { href: "/about", label: "About Scotland Counted" },
   { href: "/for-organisations", label: "For organisations" },
   { href: "/privacy", label: "Privacy" },
 ];

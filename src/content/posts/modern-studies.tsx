@@ -229,9 +229,9 @@ export default function Post() {
         </LI>
       </UL>
       <P>
-        If you use any of this in class, I&apos;d really like to hear how it went and what would
-        help. Use the <Link href="/contact?reason=teaching" rel="nofollow">teaching option on the contact form</Link>.
-        No pupil names needed.
+        Every classroom dataset and past paper guide is free to reuse in lessons. See our{" "}
+        <Link href="/methods">methods and sources</Link> for the exact official tables behind each
+        figure.
       </P>
 
       <H2 id="official">Official links worth bookmarking</H2>

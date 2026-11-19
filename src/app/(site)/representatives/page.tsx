@@ -103,23 +103,6 @@ export default function RepresentativesPage() {
           </div>
           <RepresentativeDirectorySearch entries={directoryEntries} />
 
-          <section aria-labelledby="feedback-heading" className="my-8 rounded-[var(--r-m)] border border-[var(--rule)] border-l-4 border-l-[var(--brand)] bg-[var(--surface-2)] p-6 sm:p-8">
-            <p className="ui text-[15px] font-[600] text-[var(--brand)] mb-2">Feedback</p>
-            <h2 id="feedback-heading" className="h3">Did this help? Let us know.</h2>
-            <p className="mt-3 max-w-[70ch] text-[17px] leading-[1.65] text-[var(--ink-2)]">
-              Scotland Counted is a free, independent public data resource. Tell us what worked,
-              what was confusing, or what would make it more useful.
-            </p>
-            <p className="mt-3 max-w-[70ch] text-[17px] leading-[1.65] text-[var(--ink-2)]">
-              Using it with a class? Share how you used it and what would help your learners.
-            </p>
-            <div className="mt-5 flex flex-wrap items-center gap-4">
-              <Link href="/contact?reason=feedback" rel="nofollow" className="btn bg-[var(--ink)] text-[var(--paper)] hover:opacity-90">Send feedback</Link>
-              <Link href="/contact?reason=teaching" rel="nofollow" className="ui text-[16px] font-[540] underline underline-offset-4">Used this in teaching?</Link>
-            </div>
-            <p className="mt-3 text-[15px] leading-[1.5] text-[var(--ink-2)]">A sentence or two is plenty. Leave an email only if you’d like a reply.</p>
-          </section>
-
           <InShort expert={false}>
             <p>
               <strong>Most people do not know their political boundaries.</strong> That is normal.

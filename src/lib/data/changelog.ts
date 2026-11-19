@@ -48,7 +48,7 @@ export const changelog: ChangeEntry[] = [
     date: "2026-07-31",
     title: "The Count opens, and a contact form",
     body: "The email list is live, one email when the data changes, nothing else. And a contact form replaces the published email address: report an error, make a press enquiry, request data, or suggest an improvement, presorted by reason.",
-    href: "/contact",
+    href: "/about",
     kind: "feature",
   },
   {

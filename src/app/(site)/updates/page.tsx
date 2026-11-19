@@ -2,7 +2,6 @@ import Link from "@/components/IntentLink";
 import { Page, ContentFrame, Col, PageHeader } from "@/components/Blocks";
 import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
 import { changelog } from "@/lib/data/changelog";
-import NewsletterSignup from "@/components/NewsletterSignup";
 import { site } from "@/lib/site";
 
 export const metadata = meta({
@@ -43,19 +42,12 @@ export default function Updates() {
           title="What changed"
           lede="Every new figure, new page and correction is dated here. Out of work benefit figures change monthly. Child poverty and pay normally change once a year."
         >
-          <div className="mt-8 flex flex-wrap items-end gap-x-10 gap-y-5">
-            {site.web3formsKey ? (
-              <NewsletterSignup />
-            ) : (
-              <p className="text-[15px] text-[var(--ink-2)] max-w-[46ch]">
-                The email list opens with the first data refresh after launch.
-              </p>
-            )}
+          <div className="mt-6">
             <a
               href="/feed.xml"
               className="ui inline-flex items-center gap-2 text-[15px] font-[540] text-[var(--brand)] underline decoration-[var(--rule-strong)] underline-offset-3 hover:decoration-current pb-1"
             >
-              Or subscribe by RSS
+              Subscribe by RSS
             </a>
           </div>
         </PageHeader>

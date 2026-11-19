@@ -104,8 +104,8 @@ export default function NotFound() {
         </nav>
 
         <p className="mt-8 text-[15.5px] leading-[1.6] text-[var(--ink-2)] max-w-[62ch]">
-          If you followed a link from somewhere on this site and it brought you here,{" "}
-          <Link href="/contact">tell me</Link> and I will fix it.
+          Try the <Link href="/browse">full page directory</Link> or learn more on the{" "}
+          <Link href="/about">about page</Link>.
         </p>
       </div>
     </div>

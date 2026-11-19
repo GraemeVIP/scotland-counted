@@ -24,7 +24,7 @@ export default function Organisations() {
           <p className="kicker text-[var(--brand)] mb-3">Commissioned work · by agreement</p>
           <h2 className="h2">Ask for a local evidence brief</h2>
           <p className="mt-4 text-[17px] leading-relaxed text-[var(--ink-2)]">A clearly sourced brief for a funding application, community presentation or service planning discussion. Tell me the place, the question and what you need to do with the answer.</p>
-          <Link href="/contact?reason=commission" rel="nofollow" className="btn btn-primary mt-5">Discuss a brief →</Link>
+          <Link href="/methods" className="btn btn-primary mt-5">Read our methods →</Link>
           <p className="mt-3 text-[15px] leading-relaxed text-[var(--muted)]">Scope, price and timing are agreed before any paid work starts.</p>
         </section>
       </div>

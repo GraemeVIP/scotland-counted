@@ -181,10 +181,12 @@ export default function TeachingResourcesPage() {
           </section>
 
           <CTA
-            title="Tell us what would help your classes"
-            body="A topic you need data for, a mistake, or an idea for a resource. Send a note through the contact page."
-            href="/contact"
-            cta="Get in touch"
+            title="Check every official dataset behind these lessons"
+            body="Download clean CSV tables, verify the primary Scottish Government and ONS sources, or explore our full methods."
+            href="/data"
+            cta="Browse open data"
+            secondaryHref="/methods"
+            secondaryCta="Methods and sources"
           />
         </ContentFrame>
       </Page>

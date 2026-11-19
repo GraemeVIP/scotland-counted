@@ -39,15 +39,11 @@ export default function Corrections() {
 
         <ContentFrame>
           <Col className="pt-11">
-          <h2 className="h2 mb-4">Report an error</h2>
+          <h2 className="h2 mb-4">How corrections are handled</h2>
           <p>
-            <Link href="/contact?reason=error" rel="nofollow">Use the contact form</Link> with the page, the
-            figure and what you believe it should be. If you can point at the source, better
-            still.
-          </p>
-          <p>
-            I fix confirmed errors as soon as I can and list them below. You can also tell me if
-            the number is right but you think I have explained it unfairly.
+            Every figure on Scotland Counted links to its original publisher. When an official body
+            revises a release or a transcription error is found, the page is updated and the change
+            is logged publicly below with the date and original source.
           </p>
         </Col>
 

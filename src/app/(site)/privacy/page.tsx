@@ -184,9 +184,7 @@ export default function Privacy() {
 
               <p className="text-[15.5px] leading-[1.55] text-[var(--muted)] max-w-[68ch]">
                 This is measurement, not identification. There is no attempt to work out who
-                you are, nothing is combined with the mailing list, and none of it is sold or
-                shared. If you would like your data removed, use{" "}
-                <Link href="/contact">the contact page</Link>.
+                you are, no mailing list, and none of it is sold or shared.
               </p>
             </div>
           </ContentFrame>
@@ -285,19 +283,18 @@ export default function Privacy() {
                 be found without collecting anything new.
               </p>
               <p>
-                To stop updates, reply “stop” to an email or contact me. You can also ask for
-                a contact message, subscriber address or review to be deleted. You do not
-                have to give a reason.
+                Scotland Counted does not run a mailing list or contact form and collects no
+                personal account details.
               </p>
             </div>
             <div className="space-y-4 text-[17px] leading-[1.6] text-[var(--ink-2)]">
               <p>
-                To ask for anything, use <Link href="/contact">the contact form</Link>{" "}
-                and pick &ldquo;Something else&rdquo;, or write to the address on that page.
+                Read more about how the site works on the <Link href="/about">about page</Link> and{" "}
+                <Link href="/methods">methods page</Link>.
               </p>
               <p>
-                If you are not happy with how a request is handled you can complain to the
-                Information Commissioner&apos;s Office at{" "}
+                If you have concerns about privacy or data rights in the UK you can check guidance
+                from the Information Commissioner&apos;s Office at{" "}
                 <a href="https://ico.org.uk" target="_blank" rel="noopener noreferrer">
                   ico.org.uk
                 </a>
@@ -309,10 +306,9 @@ export default function Privacy() {
 
         <ContentFrame as="section" className="mt-16 border-t-2 border-[var(--ink)] pt-8">
           <p className="max-w-[70ch] text-[15.5px] leading-[1.6] text-[var(--ink-2)]">
-            {site.name} is a personal, independent project by {site.author.name} at{" "}
-            {site.organisation.name}. There is no advertising on the public site. If anything here does not
-            match what the site actually does,{" "}
-            <Link href="/contact">tell me and it will be corrected</Link>.
+            {site.name} is an independent non-profit public data organisation. Every figure links to
+            its official source, and any updates are logged on the{" "}
+            <Link href="/corrections">corrections page</Link>.
           </p>
         </ContentFrame>
       </Page>

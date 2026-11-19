@@ -1,6 +1,4 @@
-import Link from "@/components/IntentLink";
 import { Page, ContentFrame, PageHeader } from "@/components/Blocks";
-import NewsletterSignup from "@/components/NewsletterSignup";
 import AuthorBio from "@/components/AuthorBio";
 import BlogList from "./BlogList";
 import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
@@ -42,7 +40,7 @@ export default function Blog() {
             image: p.image ? `${site.url}${p.image.src}` : undefined,
             articleSection: p.category,
             keywords: p.tags.join(", "),
-            author: { "@id": `${site.url}/#author` },
+            author: { "@id": `${site.url}/#org` },
             url: `${site.url}${postPath(p.slug)}`,
           })),
         }}
@@ -59,23 +57,6 @@ export default function Blog() {
           <BlogList posts={all} />
 
         <AuthorBio className="mt-16" />
-
-        <section className="pt-16">
-          <div className="rounded-[var(--r-m)] bg-[var(--surface-2)] border border-[var(--rule)] p-6 sm:p-8">
-            <h2 className="h2 mb-2">Get the next one</h2>
-            <p className="text-[17px] text-[var(--ink-2)] leading-[1.6] max-w-[58ch] mb-5">
-              I publish when the official figures change, and when something is worth explaining
-              properly. No spam, and you can leave whenever you like.
-            </p>
-            {site.web3formsKey ? (
-              <NewsletterSignup />
-            ) : (
-              <p className="text-[16px] text-[var(--ink-2)]">
-                <Link href="/updates">Follow the public log</Link> for every data change.
-              </p>
-            )}
-          </div>
-        </section>
         </ContentFrame>
       </Page>
     </>

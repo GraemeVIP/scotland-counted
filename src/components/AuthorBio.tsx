@@ -30,9 +30,9 @@ export default function AuthorBio({ className = "" }: { className?: string }) {
       </p>
 
       <div className="flex flex-wrap gap-x-5 gap-y-2 mt-4 pt-4 border-t border-[var(--rule)] text-[15px]">
+        <Link href="/about">About Scotland Counted</Link>
         <Link href="/methods">How every figure was counted</Link>
         <Link href="/corrections">Corrections</Link>
-        <Link href="/contact">Ask a question</Link>
       </div>
     </aside>
   );

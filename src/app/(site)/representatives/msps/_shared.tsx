@@ -369,8 +369,8 @@ export function HolyroodSourceNote() {
       Names, parties and public contact details come from the Scottish Parliament’s official open
       data. Portraits come from the member records and are covered by the Parliament&apos;s {" "}
       <a href="https://www.parliament.scot/about/copyright">copyright licence</a>. The checked date
-      is shown on every page. MSPs can change, so if something looks wrong, {" "}
-      <Link href="/contact">tell me and I will check it</Link>.
+      is shown on every page, and changes are logged on the{" "}
+      <Link href="/updates">public update log</Link>.
     </p>
   );
 }

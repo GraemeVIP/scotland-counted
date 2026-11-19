@@ -177,14 +177,9 @@ export default function Accessibility() {
             <h2 className="h2 mb-3">Reporting a problem</h2>
             <Col>
               <p>
-                If any part of this site is unusable for you, please{" "}
-                <Link href="/contact">get in touch</Link> and say what you were trying to do and
-                what happened. A description of the barrier is more useful than a technical
-                report, and you do not need to know the standard to report a problem with it.
-              </p>
-              <p>
-                Accessibility problems are treated the same way as factual errors: fixed, then
-                recorded in the public <Link href="/corrections">corrections log</Link>.
+                Accessibility improvements are treated the same way as factual updates: fixed and
+                recorded in the public <Link href="/corrections">corrections log</Link> and{" "}
+                <Link href="/updates">update log</Link>.
               </p>
             </Col>
           </section>

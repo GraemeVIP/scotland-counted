@@ -6,7 +6,6 @@ import { postsByDate, type Post } from "@/lib/data/posts";
 import { current as flagship } from "@/lib/data/flagship";
 import Hero from "./Hero";
 import { buildLocalFacts, responsibilitySplit } from "@/lib/localFacts";
-import NewsletterSignup from "@/components/NewsletterSignup";
 import { site } from "@/lib/site";
 import { MINIMUM_WAGE, REAL_LIVING_WAGE, bandDRange, bandFor, pounds } from "@/lib/data/quickAnswers";
 import { COUNCIL_SEARCH_NAMES, councilTaxBandPath, councilTaxPath } from "@/lib/routeMap";
@@ -339,34 +338,21 @@ export default function Home() {
 
       </Page>
 
-      {/* ---------- Keep in touch ---------- */}
+      {/* ---------- Keep up to date ---------- */}
       <FullBleed className="bg-transparent">
         <Page>
           <section className="pt-16" aria-labelledby="updates">
-            <div className="tile relative overflow-hidden">
-              <div className="grid gap-8 p-7 sm:p-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(420px,1.1fr)] lg:items-center lg:gap-12 lg:p-12">
-                <div>
-                  <p className="eyebrow">When the numbers move</p>
-                  <h2 id="updates" className="h2 mt-4 max-w-[16ch] text-[clamp(32px,4vw,50px)]">
-                    Councils publish. <span className="serif-accent text-[var(--action-text)]">Nobody tells you.</span>
-                  </h2>
-                  <p className="mt-4 max-w-[40ch] text-[17px] leading-[1.55] text-[var(--ink-2)]">
-                    Audits, budgets and benchmarking land quietly through the year. I read them and
-                    send one email when something changes.
-                  </p>
-                </div>
-                <div className="rounded-[var(--r-m)] bg-[var(--deep)] p-6 text-white shadow-[var(--shadow-2)] sm:p-8">
-                  <NewsletterSignup variant="feature" />
-                  <p className="mt-6 max-w-[54ch] border-t border-white/15 pt-5 text-[15px] leading-[1.6] text-[#cbd3e2]">
-                    Alerts for one council area in particular are planned but not built yet. For now
-                    every update covers all 32. You can also{" "}
-                    <Link href="/updates" className="text-white underline decoration-white/50 underline-offset-4 hover:decoration-white">
-                      follow the public log
-                    </Link>
-                    , which has an RSS feed.
-                  </p>
-                </div>
-              </div>
+            <div className="tile relative overflow-hidden p-7 sm:p-10 lg:p-12">
+              <p className="eyebrow">When the numbers move</p>
+              <h2 id="updates" className="h2 mt-4 max-w-[20ch] text-[clamp(32px,4vw,50px)]">
+                Councils publish. <span className="serif-accent text-[var(--action-text)]">Nobody tells you.</span>
+              </h2>
+              <p className="mt-4 max-w-[56ch] text-[17px] leading-[1.55] text-[var(--ink-2)]">
+                Audits, budgets, tax changes and official data releases land quietly through the
+                year. Every update and data refresh is logged in the{" "}
+                <Link href="/updates">public update log</Link> (with an RSS feed) alongside our{" "}
+                <Link href="/about">mission and standards</Link>.
+              </p>
             </div>
           </section>
         </Page>

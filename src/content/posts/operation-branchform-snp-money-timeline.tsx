@@ -1,6 +1,5 @@
 import Link from "@/components/IntentLink";
 import EditorialImage from "@/components/EditorialImage";
-import NewsletterSignup from "@/components/NewsletterSignup";
 import SnpMoneyTimeline from "@/components/SnpMoneyTimeline";
 import { ExplainText, G } from "@/components/Glossary";
 import { Aside, BigStat, H2, H3, Lead, LI, P, Prose, UL } from "@/components/Prose";
@@ -344,23 +343,10 @@ export default function Post() {
 
       <H2 id="updates">Bookmark this living record</H2>
       <P>
-        Bookmark this page with <strong>⌘D on a Mac</strong> or <strong>Ctrl+D on Windows</strong>.
-        Updates will also be posted on{" "}
-        <a href="https://x.com/scotlandcounted" target="_blank" rel="noopener noreferrer">
-          Scotland Counted on X
-        </a>
-        . The email list sends a short note when the evidence changes.
+        Bookmark this page with <strong>⌘D on a Mac</strong> or <strong>Ctrl+D on Windows</strong>,
+        or follow all site updates on the <Link href="/updates">public update log</Link> (including
+        the RSS feed).
       </P>
-
-      <div className="not-prose my-8 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] p-6 sm:p-8">
-        <p className="label mb-2">Follow the evidence</p>
-        <h3 className="text-[25px] font-[620] leading-[1.2]">One email when this timeline changes</h3>
-        <p className="mb-5 mt-2 max-w-[58ch] text-[16px] leading-[1.55] text-[var(--ink-2)]">
-          No daily political newsletter. Just an update when a court, police, prosecutor,
-          regulator or official inquiry changes the verified position.
-        </p>
-        <NewsletterSignup />
-      </div>
 
       <H3>How updates and corrections work</H3>
       <P>

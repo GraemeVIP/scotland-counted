@@ -11,7 +11,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/compare-areas?*", "/contact?*"],
+        disallow: ["/compare-areas?*"],
       },
       ...BLOCKED_CRAWLERS.map((userAgent) => ({ userAgent, disallow: "/" })),
     ],
