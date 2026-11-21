@@ -26,7 +26,7 @@ const IPSA_YOUR_MP = "https://www.theipsa.org.uk/mp-staffing-business-costs/your
 const IPSA_DOWNLOADS = "https://www.theipsa.org.uk/mp-staffing-business-costs/annual-publications";
 
 export const metadata = meta({
-  title: "Strangest Scottish MP Expenses: The Receipts (2025/26)",
+  title: "Strangest Scottish MP Expenses: The Receipts, 2022 to 2026",
   description:
     "£3,000 for a speech coach, £546 to jet wash a second home's drains, a £1,248 iPhone, DFS and IKEA furniture. The real IPSA receipts behind Scottish MPs' expenses.",
   path: PATH,
