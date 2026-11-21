@@ -27,9 +27,14 @@ function VoteCard({ vote, name }: { vote: VoteRecord; name: string }) {
             {explainer && <span>· {explainer.kind}</span>}
             {vote.result && <span>· {plainResult(vote.result)}</span>}
           </div>
-          <h3 className="ui text-[16px] font-[620] leading-[1.35] text-[var(--ink)]">
-            {vote.title}
+          <h3 className="ui text-[16.5px] font-[660] leading-[1.35] text-[var(--ink)]">
+            {substance?.title ?? vote.title}
           </h3>
+          {substance && (
+            <p className="ui mt-0.5 text-[12.5px] leading-[1.4] text-[var(--muted)]">
+              Official name: {vote.title}
+            </p>
+          )}
         </div>
         <span
           className={`ui shrink-0 rounded-full border px-3 py-1 text-[14.5px] font-[620] ${

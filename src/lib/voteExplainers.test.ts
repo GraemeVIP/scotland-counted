@@ -1,5 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
 import { explainVote, plainResult, plainVoteLabel, voteSubstance, SUBSTANCE } from "./voteExplainers.ts";
 
 test("a reasoned amendment is not mistaken for a plain second reading", () => {
@@ -67,6 +69,21 @@ test("every division currently on the site has a substance entry", () => {
   for (const title of LIVE_TITLES) {
     assert.ok(voteSubstance(title), `no substance entry matches: ${title}`);
   }
+});
+
+test("every vote in the live MP data has a plain summary", () => {
+  // Fails after a data refresh brings in a vote nobody has explained yet.
+  const raw = JSON.parse(
+    readFileSync(fileURLToPath(new URL("./data/mps.json", import.meta.url)), "utf8"),
+  );
+  const mps = Array.isArray(raw) ? raw : raw.records;
+  const missing = new Set<string>();
+  for (const mp of mps) {
+    for (const vote of mp.votes ?? []) {
+      if (!voteSubstance(vote.title)) missing.add(vote.title);
+    }
+  }
+  assert.deepEqual([...missing], [], "write a SUBSTANCE entry for each new vote");
 });
 
 test("every substance entry keeps tabloid-length sentences", () => {
