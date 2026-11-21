@@ -197,6 +197,73 @@ export const posts: Post[] = [
     sourceIds: ["ipsa-claims-2022-2027", "ofcom-connected-nations-2022", "ispreview-starlink-2022"],
   },
   {
+    slug: "mp-websites-copy-and-paste-template",
+    title:
+      "MPs paid £4,800 of your money for websites. Slide across and see the copy and paste job",
+    seoTitle: "MP Websites: £4,800 of Expenses for a Copy and Paste Template",
+    description:
+      'MPs paid Causeway Creative £4,800 each for websites. Slide across the screenshots: one template, copied site to site, with "Hipster East, Zombie East" left on show.',
+    standfirst:
+      "MPs paid a Labour councillor's firm £4,800 each of public money for websites. They're one template, copied from MP to MP, and the leftovers are still online. Slide across and see for yourself.",
+    date: "2026-11-21",
+    updated: "2026-11-21",
+    checked: "2026-11-21",
+    category: "politics-explained",
+    tags: ["MP expenses Scotland", "IPSA", "Joani Reid", "Scottish Labour", "Westminster"],
+    readingMinutes: 5,
+    image: {
+      src: "/images/blog/causeway-template/share-card.webp",
+      alt: "Causeway Creative's template next to Natasha Irons MP's website: the same filler text, with Lorem Ipsum swapped for Croydon East and Hipster Ipsum for Hipster East",
+      caption:
+        "Left, Causeway Creative's demo template. Right, Natasha Irons MP's website, live on 21 November 2026. Highlights are ours.",
+      aspect: "wide",
+      objectPosition: "top",
+    },
+    shareImage: {
+      src: "/images/blog/causeway-template/share-card.webp",
+      width: 1500,
+      height: 1000,
+      type: "image/webp",
+    },
+    toc: [
+      { id: "see-for-yourself", label: "The template and an MP's website" },
+      { id: "naish", label: "And again on another MP's site" },
+      { id: "same-site", label: "Same words, same photos" },
+      { id: "survey", label: "Two MPs, one survey" },
+      { id: "test-pages", label: "Test pages left online" },
+      { id: "plain-english", label: "What the web words mean" },
+      { id: "how-long", label: "How long a site like this takes" },
+      { id: "the-money", label: "What it cost you" },
+      { id: "who-is-he", label: "Who is behind Causeway Creative" },
+      { id: "why-pay", label: "Why are MPs paying him?" },
+    ],
+    faq: [
+      {
+        q: "What did MPs get for £4,800 from Causeway Creative?",
+        a: "A website of about 15 pages built with WordPress, free website software, from the firm's own MP template. The MP sites we checked copy the template's design, wording and stock photos. Two still had the template's filler page and test page online on 21 November 2026.",
+      },
+      {
+        q: "Who owns Causeway Creative?",
+        a: "Tom Jennings, a Labour and Co-operative councillor on Warrington Borough Council. He is not an MP. Companies House lists him as the only director and the owner of more than 75% of the company, which was set up on 8 July 2024.",
+      },
+      {
+        q: "What is Lorem Ipsum?",
+        a: "Made up Latin text that designers use as filler while they wait for the real words. It means nothing and is meant to be replaced before a website goes live.",
+      },
+      {
+        q: "Was this allowed?",
+        a: "Yes. IPSA, which runs MPs' expenses, approved the payments and we found no broken rules. MPs can buy services from firms run by councillors. Making sure a purchase is good value is left to the MP.",
+      },
+    ],
+    sourceIds: [
+      "ipsa-causeway-creative-2023-2027",
+      "mp-websites-causeway-template-2026",
+      "companies-house-causeway-creative",
+      "warrington-council-tom-jennings",
+      "causeway-creative-archive",
+    ],
+  },
+  {
     slug: "causeway-creative-labour-councillor-mp-expenses",
     title:
       "A Labour councillor set up a PR firm the week Labour won. MPs have since paid it £270,033 of public money",

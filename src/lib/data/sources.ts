@@ -2056,6 +2056,13 @@ export const sources: Source[] = [
     used: "Tom Jennings's earlier political web and campaign work, including websites for Labour MPs and work for mayoral campaigns.",
   },
   {
+    id: "mp-websites-causeway-template-2026",
+    title: "Causeway Creative's MP website demo and the websites of Natasha Irons, James Naish, Dan Carden and Joani Reid",
+    publisher: "Causeway Creative and the MPs' own websites",
+    url: "https://mpwebsites.uk/",
+    used: "Screenshots of the demo template and the MP sites, captured live on 21 November 2026: the filler page, the Front Form Test page, the copied survey and the copied home page section. Full dated copies are kept on file.",
+  },
+  {
     id: "causeway-creative-archive",
     title: "Causeway Creative website and terms and conditions, archived 2024 to 2026",
     publisher: "Internet Archive (Wayback Machine)",

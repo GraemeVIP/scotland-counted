@@ -58,6 +58,7 @@ import CrimeRateGlasgow from "./crime-rate-glasgow";
 import ScottishMpExpensesAndFreebiesInvestigation from "./scottish-mp-expenses-and-freebies-investigation";
 import CausewayCreativeLabourCouncillorMpExpenses from "./causeway-creative-labour-councillor-mp-expenses";
 import WorstScottishMpExpenses from "./worst-scottish-mp-expenses";
+import MpWebsitesCopyAndPasteTemplate from "./mp-websites-copy-and-paste-template";
 
 /**
  * Slug to post body. Statically imported so every post is prerendered and no
@@ -65,6 +66,7 @@ import WorstScottishMpExpenses from "./worst-scottish-mp-expenses";
  * to src/lib/data/posts.ts.
  */
 export const postBodies: Record<string, ComponentType> = {
+  "mp-websites-copy-and-paste-template": MpWebsitesCopyAndPasteTemplate,
   "worst-scottish-mp-expenses": WorstScottishMpExpenses,
   "causeway-creative-labour-councillor-mp-expenses": CausewayCreativeLabourCouncillorMpExpenses,
   "scottish-mp-expenses-and-freebies-investigation": ScottishMpExpensesAndFreebiesInvestigation,

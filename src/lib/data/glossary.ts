@@ -1035,6 +1035,26 @@ export const terms: Term[] = [
     def: "A tax paid on the money, house or land someone leaves behind when they die, if their estate is worth more than the tax free limit.",
     tech: "Reserved to Westminster across the whole UK, with a standard nil rate band of £325,000.",
   },  {
+    id: "wordpress",
+    term: "WordPress",
+    def: "Free software for building a website. You don't need to know any code, so people with no technical skills can use it to make their own site.",
+  },
+  {
+    id: "lorem-ipsum",
+    term: "Lorem Ipsum",
+    def: "Made up Latin that designers use as filler text while they wait for the real words. It means nothing and is meant to be replaced before a website goes live.",
+  },
+  {
+    id: "page-builder",
+    term: "page builder",
+    def: "A tool for laying out web pages by dragging boxes around the screen, a bit like making a PowerPoint slide. No skill with code needed.",
+  },
+  {
+    id: "find-and-replace",
+    term: "find and replace",
+    def: "A button, like the one in Word, that swaps every copy of one word for another in one go.",
+  },
+  {
     id: "second-home",
     term: "Second home",
     def: "For an MP, the home they do not count as their main one. MPs from outside London can claim rent, council tax and bills on a second home from the taxpayer: either a London flat, or their home back in their constituency.",
