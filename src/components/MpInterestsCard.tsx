@@ -100,7 +100,7 @@ export default function MpInterestsCard({
             <ExplainText>
               Every pound {interests.name} billed to the taxpayer via IPSA in 2025/26 on top of
               their £91,346 salary, plus private donations, free tickets, hospitality, paid foreign
-              trips, rental properties and lobbying links on the Register of Interests (checked{" "}
+              trips, rental properties and family members paid to sway politicians on the Register of Interests (checked{" "}
               {formatDate(checkedDate) ?? checkedDate}).
             </ExplainText>
           </p>
@@ -455,7 +455,7 @@ export default function MpInterestsCard({
                         </strong>
                         :{" "}
                         {f.kind === "lobbying"
-                          ? `Lobbyist (${f.jobTitle} at ${f.employer})`
+                          ? `Paid to persuade politicians for clients (${f.jobTitle} at ${f.employer})`
                           : `Employed as ${f.jobTitle}`}
                       </li>
                     ))}

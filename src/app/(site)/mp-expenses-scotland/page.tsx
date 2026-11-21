@@ -177,15 +177,15 @@ const MORE_SPOTLIGHT_LEADERS: SpotlightEntry[] = [
   },
   {
     slug: "east-kilbride-and-strathaven",
-    badge: "Free Media Training From Lobbyist Husband's Firm",
+    badge: "£2,400 Freebie From Her Husband's Firm",
     headlineStat: "£85,563",
-    headlineLabel: "in non-staff expenses + spouse is a commercial lobbyist",
+    headlineLabel: "in expenses (not counting staff) + husband is paid to sway politicians",
     taxpayerSummary:
       "£31,366 for London flat rent (£2,614/month), £1,791 for 12 London hotel nights on top of that flat, £9,906 for flights and £3,941 for family flights (£348,096 total including staff). Also declares rental property income.",
     freebiesSummary:
-      "Declared £2,400 of free media training from Earthcott Ltd. On the same register she declares that her husband, David Taylor, works in lobbying and is a director of Earthcott. The rules allow it because it was declared. The question is whether an MP should take free services from a company run by a lobbyist, even when that lobbyist is her husband.",
+      "Declared £2,400 of free media training from Earthcott Ltd. On the same register she declares that her husband, David Taylor, is a director of Earthcott and is paid by clients to persuade politicians and officials to back what those clients want (the job is called lobbying). The rules allow the freebie because it was declared. The question is whether an MP should take free services from a firm whose director is paid to sway politicians, even when he is her husband.",
     emailReason:
-      "claiming £85,563.46 in non-staff expenses (including £31,366 for flat rent and £3,941 for family flights) while accepting £2,400 of free media training from Earthcott Ltd, the company where your husband, who works in lobbying, is a director",
+      "claiming £85,563.46 in non-staff expenses (including £31,366 for flat rent and £3,941 for family flights) while accepting £2,400 of free media training from Earthcott Ltd, the company where your husband, who is paid by clients to persuade politicians, is a director",
   },
 ];
 
@@ -847,7 +847,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
                 account for <strong>73% of all second home council tax</strong> billed to taxpayers
                 (£59,231), <strong>71% of all London hotel spending</strong> (£152,908),{" "}
                 <strong>75% of all funded foreign trips</strong> (£57,288, including trips to Qatar,
-                China, Taiwan and Syria), and <strong>both commercial lobbying spouse links</strong>.
+                China, Taiwan and Syria), and <strong>both MPs whose husbands are paid to sway politicians</strong>.
               </p>
               <p>
                 Meanwhile, the <strong>Scottish Conservatives</strong> took the highest private
@@ -943,8 +943,8 @@ export default function MpRegisterOfInterestsScotlandPage() {
           <details className="group tile mt-5 overflow-hidden">
             <summary className="ui flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-[15.5px] font-[640] text-[var(--action-text)] transition-colors hover:bg-[var(--surface-2)] sm:px-6 [&::-webkit-details-marker]:hidden">
               <span>
-                Show 3 more spotlight profiles (£42k flat + Qatar trip, spouse on the payroll &
-                lobbyist spouse)
+                Show 3 more spotlight profiles (£42k flat + Qatar trip, a wife on the payroll & a
+                husband paid to sway politicians)
               </span>
               <span
                 aria-hidden="true"
@@ -979,13 +979,13 @@ export default function MpRegisterOfInterestsScotlandPage() {
         <ContentFrame as="section" id="full-lists" className="pt-16 scroll-mt-20">
           <SectionHead
             eyebrow="Dig into the raw receipts"
-            title="Open the full lists: 2nd home council tax, Qatar/China trips, F1 tickets, donors & lobbyist spouses"
+            title="Open the full lists: 2nd home council tax, Qatar/China trips, F1 tickets, donors & husbands paid to sway MPs"
           />
           <p className="mt-3 max-w-[66ch] text-[17px] leading-[1.6] text-[var(--ink-2)]">
             <ExplainText>
               Click any drawer below to open the 8 taxpayer expense categories (£4.97m), all 33
               funded foreign trips (£76,557), all 23 private donations (£205,242), all 22 VIP
-              hospitality gifts (£15,096), and the MPs with lobbyist spouses or rental properties.
+              hospitality gifts (£15,096), and the MPs whose husbands are paid to sway politicians or who rent out property.
             </ExplainText>
           </p>
 
@@ -1133,7 +1133,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
               <div className="space-y-4 border-t border-[var(--rule)] p-5 sm:p-6">
                 <p className="text-[16px] leading-[1.55] text-[var(--ink-2)]">
                   Nineteen Scottish MPs declared 33 overseas trips paid for by foreign governments,
-                  think tanks or lobby groups, including the{" "}
+                  think tanks or campaign groups trying to win MPs over, including the{" "}
                   <strong>Ministry of Foreign Affairs of Qatar</strong> (£7,000 for John Grady MP),
                   the <strong>Doha Forum</strong> (£5,957 for Melanie Ward MP), the{" "}
                   <strong>Great Britain China Centre</strong> (£6,421 for Elaine Stewart MP and
@@ -1170,7 +1170,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
                   <span className="tnum mt-px inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--ink)] text-[13px] font-[700] text-[var(--paper)]">
                     3
                   </span>
-                  <span>All 23 private donations & free office staff (£205,242): wealthy donors, lobby firms & campaign groups</span>
+                  <span>All 23 private donations & free office staff (£205,242): wealthy donors, companies & campaign groups</span>
                 </span>
                 <span
                   aria-hidden="true"
@@ -1187,8 +1187,8 @@ export default function MpRegisterOfInterestsScotlandPage() {
                   MP, <strong>£20,000</strong> from oil businessman Alasdair Locke to Andrew Bowie
                   MP, <strong>£19,500</strong> in migration policy staff from RAMP to Chris Murray
                   MP, and <strong>£2,400</strong> of free media training to Joani Reid MP from{" "}
-                  <strong>Earthcott Ltd</strong>, a company where her husband, who works in
-                  lobbying, is a director.
+                  <strong>Earthcott Ltd</strong>, a firm where her husband is a director. He is
+                  paid by clients to persuade politicians.
                 </p>
                 <GuideTable
                   kicker="All 23 declared donations"
@@ -1258,14 +1258,14 @@ export default function MpRegisterOfInterestsScotlandPage() {
               </div>
             </details>
 
-            {/* Drawer 5: Lobbyist spouses, second jobs & landlords */}
+            {/* Drawer 5: Husbands paid to sway politicians, wife on payroll & landlords */}
             <details className="group tile overflow-hidden">
               <summary className="ui flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-[16.5px] font-[640] leading-[1.35] text-[var(--ink)] transition-colors hover:bg-[var(--surface-2)] sm:px-6 sm:py-5 [&::-webkit-details-marker]:hidden">
                 <span className="flex items-start gap-3.5">
                   <span className="tnum mt-px inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--ink)] text-[13px] font-[700] text-[var(--paper)]">
                     5
                   </span>
-                  <span>Spouses working as lobbyists, spouses on the payroll, MP landlords & second jobs</span>
+                  <span>Husbands paid to sway politicians, a wife on the payroll, MP landlords & second jobs</span>
                 </span>
                 <span
                   aria-hidden="true"
@@ -1277,20 +1277,23 @@ export default function MpRegisterOfInterestsScotlandPage() {
               <div className="border-t border-[var(--rule)] p-5 sm:p-6">
                 <ul className="list-disc space-y-3 pl-6 text-[16px] leading-[1.6] text-[var(--ink-2)] marker:text-[var(--bad)]">
                   <li>
-                    <strong>Spouses working as commercial lobbyists:</strong> East Kilbride Labour
+                    <strong>Husbands paid to sway politicians (known as lobbyists):</strong> these
+                    are people paid by companies and other clients to persuade MPs, ministers and
+                    officials to back what the client wants. East Kilbride Labour
                     MP{" "}
                     <Link href="/representatives/mps/east-kilbride-and-strathaven#donations-and-interests">
                       Joani Reid
                     </Link>{" "}
-                    declares her husband David Taylor works in lobbying and is a director of{" "}
+                    declares her husband David Taylor does this work and is a director of{" "}
                     <strong>Earthcott Limited</strong>, which also gave her £2,400 of free media
                     training. Paisley
                     South Labour MP{" "}
                     <Link href="/representatives/mps/paisley-and-renfrewshire-south#donations-and-interests">
                       Johanna Baxter
                     </Link>{" "}
-                    declares her spouse Mark Henry Glover is Executive Chairman of lobbying agency{" "}
-                    <strong>SEC Newgate UK</strong>.
+                    declares her husband Mark Henry Glover is Executive Chairman of{" "}
+                    <strong>SEC Newgate UK</strong>, a firm companies pay to influence politicians
+                    and the press.
                   </li>
                   <li>
                     <strong>Spouse employed on the taxpayer payroll:</strong> Argyll and Bute SNP MP{" "}
@@ -1372,7 +1375,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
             All expense figures come from the official{" "}
             <strong>Independent Parliamentary Standards Authority (IPSA)</strong> 2025/26 annual
             dataset (7,268 individual Scottish MP claim lines totalling £18,543,803.31). All
-            donations, overseas trips, gifts, properties and family lobbying declarations come from
+            donations, overseas trips, gifts, properties and family members paid to sway politicians come from
             the official{" "}
             <strong>House of Commons Register of Members&apos; Financial Interests API</strong> (210
             registered entries across Scotland&apos;s 57 MPs). Constituency child poverty after
