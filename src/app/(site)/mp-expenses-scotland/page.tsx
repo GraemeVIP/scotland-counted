@@ -179,7 +179,7 @@ const MORE_SPOTLIGHT_LEADERS: SpotlightEntry[] = [
     taxpayerSummary:
       "£31,366 for London flat rent (£2,614/month), £1,791 for 12 London hotel nights on top of that flat, £9,906 for flights and £3,941 for family flights (£348,096 total including staff). Also declares rental property income.",
     freebiesSummary:
-      "Declared £2,400 of free media training (coaching on how to handle TV and press interviews) from Earthcott Ltd. Companies House shows Earthcott is her husband David Taylor's own firm: he is its only director and owns over 75% of it. She also declares that he is a lobbyist. So a perk worth £2,400 came from her husband's business, on top of £3,500 she billed taxpayers for PR from Causeway Creative.",
+      "Declared £2,400 of free media training (coaching on how to handle TV and press interviews) from Earthcott Ltd. Companies House shows Earthcott is her husband David Taylor's own firm: he is its only director and owns over 75% of it. She also declares that he is a lobbyist. So a perk worth £2,400 came from her husband's business, on top of £4,700 she billed taxpayers in 2025/26 for PR and website work from Causeway Creative (£24,664 since 2024, more than any other MP in the UK).",
     emailReason:
       "claiming £85,563.46 in non-staff expenses (including £31,366 for flat rent and £3,941 for family flights) while accepting £2,400 of free media training from Earthcott Ltd, the PR firm owned and run by your husband, a lobbyist",
   },
@@ -201,6 +201,10 @@ const FAQ = [
   {
     q: "Who pays for Scottish MPs' overseas trips and VIP hospitality?",
     a: "On the Register of Interests, Scottish MPs declared 33 funded overseas visits worth £76,556.68, paid for by the Ministry of Foreign Affairs of Qatar (£7,000 for John Grady MP), the Doha Forum (£5,957 for Melanie Ward MP), the Great Britain China Centre (£6,421 for Elaine Stewart MP and £4,763 for Alan Gemmell MP), the Ministry of Foreign Affairs of Taiwan (£5,669 for Graeme Downie MP), Yachad (£2,169 for Patricia Ferguson MP to visit Palestine), and the Embassy of Jordan (£2,678 for Andrew Bowie MP). Declared hospitality includes Silverstone Formula 1 tickets (£1,860 for Dave Doogan MP and £1,100 for Andrew Bowie MP), Champions League and Hampden boxes (£1,525 for Brendan O'Hara MP) and Murrayfield rugby boxes (£1,298 for Christine Jardine MP).",
+  },
+  {
+    q: "Which Scottish MPs are married to a lobbyist?",
+    a: "Two of Scotland's 57 MPs declare a husband who works as a lobbyist, and both are Scottish Labour. Joani Reid MP (East Kilbride and Strathaven) declares her husband David Taylor, who owns and runs Earthcott Ltd. Earthcott gave her £2,400 of free media training in February 2026 and is not on the official Register of Consultant Lobbyists, so his clients are not public. Johanna Baxter MP (Paisley and Renfrewshire South) declares her husband Mark Henry Glover, Executive Chairman of SEC Newgate UK, whose lobbying clients in July to September 2026 included gas network Cadent and Infinis Energy. MPs must declare close family members who lobby, so this is the full official list.",
   },
   {
     q: "Can I write to my MP and ask them to explain their expense claims?",
@@ -1412,13 +1416,41 @@ export default function MpRegisterOfInterestsScotlandPage() {
                       who gave it. The questions it leaves: what was she trained for, who did the
                       training, and does Earthcott work for any clients who want something from
                       Parliament? MPs must declare gifts like this, but declaring a perk from your
-                      husband&apos;s business does not answer why it was given. Paisley South Labour
-                      MP{" "}
-                      <Link href="/representatives/mps/paisley-and-renfrewshire-south#donations-and-interests">
-                        Johanna Baxter
-                      </Link>{" "}
-                      declares her husband Mark Henry Glover is Executive Chairman of lobbying and
-                      PR agency <strong>SEC Newgate UK</strong>.
+                      husband&apos;s business does not answer why it was given.
+                      <span className="mt-3 block rounded-[var(--r-s)] border-l-[3px] border-[var(--brand)] bg-[var(--surface-2)] px-4 py-3 text-[15px]">
+                        <strong>What we checked:</strong> none of her taxpayer expense claims from
+                        2024 to 2027 went to Earthcott. Earthcott is not on the official{" "}
+                        <a href="https://orcl.my.site.com/CLR_Search">
+                          Register of Consultant Lobbyists
+                        </a>
+                        . That register only covers lobbying of government ministers and their top
+                        civil servants, so this does not mean any rule was broken. It does mean the
+                        public cannot see who pays her husband to lobby. Separately, she billed
+                        taxpayers <strong>£24,664</strong> since 2024 for PR, social media and
+                        website work from Causeway Creative, more than any other MP in the UK.
+                      </span>
+                      <span className="mt-4 block">
+                        Paisley South Labour MP{" "}
+                        <Link href="/representatives/mps/paisley-and-renfrewshire-south#donations-and-interests">
+                          Johanna Baxter
+                        </Link>{" "}
+                        declares her husband Mark Henry Glover is Executive Chairman of lobbying and
+                        PR agency <strong>SEC Newgate UK</strong>. Unlike Earthcott, SEC Newgate is
+                        on the{" "}
+                        <a href="https://orcl.my.site.com/CLR_Public_Profile?id=00124000009RJrJAAW">
+                          official lobbying register
+                        </a>
+                        . Its clients for July to September 2026 were gas network Cadent, Infinis
+                        Energy, the Independent Renewable Energy Generators Group, Environment Bank,
+                        Kingston University, THCT and the Venture Capital Trust Association.
+                      </span>
+                      <span className="mt-3 block rounded-[var(--r-s)] border-l-[3px] border-[var(--brand)] bg-[var(--surface-2)] px-4 py-3 text-[15px]">
+                        <strong>What we checked:</strong> we searched every speech she has made in
+                        the Commons (Hansard). She has not mentioned any of those clients. None of
+                        her taxpayer expense claims went to SEC Newgate either. The link to watch is
+                        energy: if she speaks or votes on gas networks or renewable energy, her
+                        husband&apos;s firm is paid by companies with a stake in the result.
+                      </span>
                     </li>
                     <li>
                       <strong>Spouse employed on the taxpayer payroll:</strong> Argyll and Bute SNP
