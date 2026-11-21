@@ -5,11 +5,12 @@ import SharePage from "@/components/SharePage";
 import QuickAnswer from "@/components/QuickAnswer";
 import Faq from "@/components/Faq";
 import { GuideTable } from "@/components/GuideTable";
-import { JsonLd, breadcrumbJsonLd, faqJsonLd, imageJsonLd, meta } from "@/lib/seo";
+import { JsonLd, faqJsonLd, imageJsonLd, meta } from "@/lib/seo";
 import { rankAreas } from "@/lib/data/compareAreas";
 import { councils } from "@/lib/data/councils";
 import { SIMD_TOTAL_DATA_ZONES } from "@/lib/simd";
 import SimdLookup from "./SimdLookup";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 const HERO_IMAGE = {
   src: "/images/editorial/simd-postcode-checker-scotland.webp",
@@ -62,13 +63,11 @@ export default function SimdPostcodeCheckerPage() {
 
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
           { name: "Your area", path: "/areas" },
           { name: "SIMD postcode checker", path: "/simd-postcode-checker" },
-        ])}
-      />
+        ]} />
       <JsonLd data={faqJsonLd(FAQ)} />
       <JsonLd
         data={imageJsonLd({

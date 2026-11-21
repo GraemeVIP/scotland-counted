@@ -1,10 +1,11 @@
 import Link from "@/components/IntentLink";
 import { Page, ContentFrame, PageHeader, SectionHead } from "@/components/Blocks";
-import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
+import { meta } from "@/lib/seo";
 import { HUBS, hubColor } from "@/lib/data/navigation";
 import { posts } from "@/lib/data/posts";
 import { postPath } from "@/lib/routeMap";
 import { SOCIAL_SECURITY_SCOTLAND as SSS } from "@/lib/data/benefits";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 /**
  * The benefits front door.
@@ -36,12 +37,10 @@ export default function BenefitsPage() {
   const color = hubColor(hub.id);
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
           { name: "Benefits", path: "/benefits" },
-        ])}
-      />
+        ]} />
       <Page>
         <PageHeader
           eyebrow="Benefits in Scotland"

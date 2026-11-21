@@ -3,7 +3,8 @@ import { Page, ContentFrame, Col, PageHeader } from "@/components/Blocks";
 import WhoDoesWhat from "@/components/WhoDoesWhat";
 import FindCouncillors from "@/components/FindCouncillors";
 import LetterBuilder from "./LetterBuilder";
-import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
+import { meta } from "@/lib/seo";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata = meta({
   title: "Email Your MP and MSP: Letters Written For You",
@@ -34,12 +35,10 @@ const OTHER = [
 export default function TakeAction() {
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
           { name: "Take action", path: "/email-your-mp-and-msp" },
-        ])}
-      />
+        ]} />
 
       <Page>
         <PageHeader

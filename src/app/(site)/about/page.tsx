@@ -1,6 +1,7 @@
 import Link from "@/components/IntentLink";
 import { Page, ContentFrame, PageHeader, SectionHead } from "@/components/Blocks";
-import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
+import { meta } from "@/lib/seo";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata = meta({
   title: "About Scotland Counted: Independent Scottish Public Data",
@@ -98,12 +99,10 @@ const PRINCIPLES = [
 export default function AboutPage() {
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
           { name: "About", path: "/about" },
-        ])}
-      />
+        ]} />
 
       <Page>
         <PageHeader

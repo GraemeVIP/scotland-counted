@@ -5,7 +5,8 @@ import SharePage from "@/components/SharePage";
 import QuickAnswer from "@/components/QuickAnswer";
 import Faq from "@/components/Faq";
 import { GuideTable } from "@/components/GuideTable";
-import { JsonLd, breadcrumbJsonLd, faqJsonLd, imageJsonLd, meta } from "@/lib/seo";
+import { JsonLd, faqJsonLd, imageJsonLd, meta } from "@/lib/seo";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 const HERO_IMAGE = {
   src: "/images/editorial/scotland-bank-holidays-calendar.webp",
@@ -92,12 +93,10 @@ const FAQ = [
 export default function ScotlandBankHolidaysPage() {
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
           { name: "Scotland bank holidays", path: "/scotland-bank-holidays" },
-        ])}
-      />
+        ]} />
       <JsonLd data={faqJsonLd(FAQ)} />
       <JsonLd
         data={imageJsonLd({

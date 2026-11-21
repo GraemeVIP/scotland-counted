@@ -19,11 +19,12 @@ import FamilyGroupComparison from "@/components/FamilyGroupComparison";
 import BudgetGapExplainer from "@/components/BudgetGapExplainer";
 import CouncilWatch from "@/components/CouncilWatch";
 import AccountabilityMethodNote from "@/components/AccountabilityMethodNote";
-import { JsonLd, articleJsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
+import { JsonLd, articleJsonLd, faqJsonLd, meta } from "@/lib/seo";
 import SharePage from "@/components/SharePage";
 import { crisisGrantScotland, getCrisisGrantCouncil } from "@/lib/data/crisisGrants";
 import { councilPerformanceBySlug } from "@/lib/data/councilPerformanceIndex";
 import CouncilPerformanceSnapshot from "@/components/CouncilPerformanceSnapshot";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export function generateStaticParams() {
   return councilAccountabilityRecords.map((record) => ({ slug: record.councilSlug }));
@@ -188,13 +189,11 @@ export default async function CouncilAccountabilityPage({
 
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
           { name: "Council budgets and performance", path: "/councils" },
           { name: record.councilName, path: pagePath },
-        ])}
-      />
+        ]} />
       <JsonLd
         data={articleJsonLd({
           headline: `${record.councilName}: budget and performance`,

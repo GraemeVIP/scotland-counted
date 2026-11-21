@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import AuthorBio from "@/components/AuthorBio";
 import { Page, ContentFrame, PageHeader } from "@/components/Blocks";
-import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
+import { JsonLd, meta } from "@/lib/seo";
 import {
   getPostCategory,
   isPostCategoryIndexable,
@@ -12,6 +12,7 @@ import {
 import { site } from "@/lib/site";
 import BlogList from "../../BlogList";
 import { postPath } from "@/lib/routeMap";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 const CATEGORY_SEO = {
   "money-and-bills": {
@@ -73,13 +74,11 @@ export default async function BlogCategory(props: { params: Promise<{ category: 
 
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
-          { name: "Explained", path: "/blog" },
+          { name: "Explainers", path: "/blog" },
           { name: category.name, path: `/blog/category/${category.slug}` },
-        ])}
-      />
+        ]} />
       <JsonLd
         data={{
           "@context": "https://schema.org",

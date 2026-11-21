@@ -1,8 +1,9 @@
 import Link from "@/components/IntentLink";
 import { Page, ContentFrame, Col, PageHeader } from "@/components/Blocks";
-import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
+import { meta } from "@/lib/seo";
 import { changelog } from "@/lib/data/changelog";
 import { site } from "@/lib/site";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata = meta({
   title: "What changed",
@@ -29,12 +30,10 @@ function fmtDate(iso: string) {
 export default function Updates() {
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
           { name: "Updates", path: "/updates" },
-        ])}
-      />
+        ]} />
 
       <Page>
         <PageHeader

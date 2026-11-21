@@ -2,8 +2,9 @@ import Link from "@/components/IntentLink";
 import ComparePromo from "@/components/ComparePromo";
 import { Page, Col, PageHeader, DirectionChip, CTA, InShort, Reveal } from "@/components/Blocks";
 import Spark from "@/components/charts/Spark";
-import { JsonLd, breadcrumbJsonLd, datasetJsonLd, meta } from "@/lib/seo";
+import { JsonLd, datasetJsonLd, meta } from "@/lib/seo";
 import { indicators, lifeExpectancy, deprivation } from "@/lib/data/indicators";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata = meta({
   title: "Glasgow Poverty Statistics: Work, Pay and Health",
@@ -46,12 +47,10 @@ const CARDS = [
 export default function TheNumbers() {
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
           { name: "The Glasgow record", path: "/glasgow-poverty-statistics" },
-        ])}
-      />
+        ]} />
       <JsonLd
         data={datasetJsonLd({
           name: "Poverty indicators for Glasgow, 2000–2026",

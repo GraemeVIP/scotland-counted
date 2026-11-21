@@ -8,10 +8,11 @@ import {
   holyroodConstituencies,
   holyroodRegions,
 } from "@/lib/data/holyrood";
-import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
+import { JsonLd, meta } from "@/lib/seo";
 import { site } from "@/lib/site";
 import { representativeSlug } from "@/lib/representatives";
 import { HolyroodSourceNote } from "./_shared";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata = meta({
   title: "Scottish MSPs: Names, Areas and Contact Details",
@@ -25,13 +26,11 @@ export default function MspsDirectoryPage() {
 
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
           { name: "Representatives", path: "/representatives" },
           { name: "Scottish MSPs", path: "/representatives/msps" },
-        ])}
-      />
+        ]} />
       <JsonLd
         data={{
           "@context": "https://schema.org",

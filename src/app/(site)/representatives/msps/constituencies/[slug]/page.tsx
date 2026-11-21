@@ -10,10 +10,11 @@ import {
   HOLYROOD_DATA_SOURCE_NAME,
   holyroodConstituencies,
 } from "@/lib/data/holyrood";
-import { JsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
+import { JsonLd, faqJsonLd, meta } from "@/lib/seo";
 import { site } from "@/lib/site";
 import { listApprovedMspReviews } from "@/lib/mspReviewsDb";
 import { HolyroodSourceNote, MspProfileCard, MspProfileReviews, MspVotingRecord, holyroodPersonJsonLd } from "../../_shared";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 /*
  * A day, not a minute. Approving a review refreshes this page straight away
@@ -72,13 +73,11 @@ export default async function HolyroodConstituencyPage({
 
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
           { name: "Scottish MSPs", path: "/representatives/msps" },
           { name: record.constituency, path: pagePath },
-        ])}
-      />
+        ]} />
       <JsonLd data={faqJsonLd(faq)} />
       <JsonLd
         data={{

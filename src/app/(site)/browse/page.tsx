@@ -1,6 +1,6 @@
 import Link from "@/components/IntentLink";
 import { Page, ContentFrame, PageHeader } from "@/components/Blocks";
-import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
+import { meta } from "@/lib/seo";
 import { ABOUT, EVIDENCE, HUBS, hubColor } from "@/lib/data/navigation";
 import { councilsByLevel } from "@/lib/data/councils";
 import { constituencies } from "@/lib/data/constituencies";
@@ -9,6 +9,7 @@ import { indicators } from "@/lib/data/indicators";
 import { mps } from "@/lib/data/mps";
 import { holyroodConstituencies, holyroodRegions } from "@/lib/data/holyrood";
 import { postPath } from "@/lib/routeMap";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata = meta({
   title: "Every page on this site",
@@ -23,12 +24,10 @@ export default function Browse() {
 
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
           { name: "Everything", path: "/browse" },
-        ])}
-      />
+        ]} />
 
       <Page>
         <PageHeader

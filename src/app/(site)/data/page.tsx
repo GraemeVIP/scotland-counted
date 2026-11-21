@@ -1,7 +1,8 @@
 import Link from "@/components/IntentLink";
 import { Page, ContentFrame, Col, PageHeader, CTA } from "@/components/Blocks";
-import { JsonLd, breadcrumbJsonLd, datasetJsonLd, meta } from "@/lib/seo";
+import { JsonLd, datasetJsonLd, meta } from "@/lib/seo";
 import { site } from "@/lib/site";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata = meta({
   title: "Download Scotland Data: Councils, Poverty and Services",
@@ -282,12 +283,10 @@ const GROUPS = [
 export default function Data() {
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
           { name: "Data", path: "/data" },
-        ])}
-      />
+        ]} />
       <JsonLd
         data={datasetJsonLd({
           name: "Scotland Counted, full dataset",

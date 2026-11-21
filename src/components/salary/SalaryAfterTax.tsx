@@ -2,10 +2,11 @@ import Link from "@/components/IntentLink";
 import { Page } from "@/components/Blocks";
 import Faq from "@/components/Faq";
 import QuickAnswer from "@/components/QuickAnswer";
-import { JsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
+import { JsonLd, faqJsonLd, meta } from "@/lib/seo";
 import { getSources } from "@/lib/data/sources";
 import { calculate, TAX_DATA } from "@/lib/tax/engine";
 import { SALARIES, salaryHubPath, salaryPath } from "@/lib/routeMap";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 /**
  * "30000 after tax scotland" and its neighbours.
@@ -82,13 +83,11 @@ export function SalaryAfterTax({ amount }: { amount: number }) {
 
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
           { name: "Salary after tax Scotland", path: salaryHubPath() },
           { name: `${pretty} after tax`, path: salaryPath(amount) },
-        ])}
-      />
+        ]} />
       <JsonLd data={faqJsonLd(faq)} />
 
       <Page>
@@ -289,12 +288,10 @@ export function SalaryHub() {
   const rows = SALARIES.map((amount) => ({ amount, ...figures(amount) }));
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
           { name: "Salary after tax Scotland", path: salaryHubPath() },
-        ])}
-      />
+        ]} />
       <JsonLd data={faqJsonLd(HUB_FAQ)} />
       <Page>
         <article className="max-w-[1120px] mx-auto pt-8 sm:pt-12">

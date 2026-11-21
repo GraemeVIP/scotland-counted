@@ -3,7 +3,7 @@ import { Page, ContentFrame, Col, PageHeader, CTA } from "@/components/Blocks";
 import CopyLine from "./CopyLine";
 import PressPackPicker from "./PressPackPicker";
 import { pressPackFor, pressPackCouncils } from "@/lib/pressPack";
-import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
+import { meta } from "@/lib/seo";
 import { indicators } from "@/lib/data/indicators";
 import { site } from "@/lib/site";
 import Image from "next/image";
@@ -17,6 +17,7 @@ import {
   supersededNotes,
   worstInScotlandLines,
 } from "@/lib/pressLines";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata = meta({
   title: "Scotland Poverty Data for Journalists and Reuse",
@@ -50,12 +51,10 @@ export default function Press() {
 
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
           { name: "Press", path: "/press" },
-        ])}
-      />
+        ]} />
 
       <Page>
         <PageHeader

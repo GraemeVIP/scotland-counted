@@ -5,8 +5,9 @@ import Faq from "@/components/Faq";
 import ComparePromo from "@/components/ComparePromo";
 import { RankedList, Freshness, RankingLinks, areaName } from "@/components/AreaRanking";
 import SharePage from "@/components/SharePage";
-import { JsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
+import { JsonLd, faqJsonLd, meta } from "@/lib/seo";
 import { CITY_SLUGS, metricById, rankAreas } from "@/lib/data/compareAreas";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 /**
  * "Cheapest place to live in Scotland": every council area ranked by what a
@@ -92,13 +93,11 @@ const FAQ = [
 export default function CheapestPlacePage() {
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
           { name: "Your area", path: "/areas" },
           { name: "Cheapest place to live in Scotland", path: "/cheapest-place-to-live-in-scotland" },
-        ])}
-      />
+        ]} />
       <JsonLd data={faqJsonLd(FAQ)} />
       <Page>
         <PageHeader

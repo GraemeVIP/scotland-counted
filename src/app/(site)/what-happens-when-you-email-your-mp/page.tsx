@@ -8,10 +8,11 @@ import {
   CTA,
 } from "@/components/Blocks";
 import WhoDoesWhat from "@/components/WhoDoesWhat";
-import { JsonLd, articleJsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
+import { JsonLd, articleJsonLd, faqJsonLd, meta } from "@/lib/seo";
 import { pay, whatHappens, paperTrail, friction } from "@/lib/data/power";
 import { getSources } from "@/lib/data/sources";
 import Faq from "@/components/Faq";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata = meta({
   title: "What Happens When You Email Your MP or MSP?",
@@ -48,12 +49,10 @@ export default function YourPower() {
 
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
           { name: "Your power", path: "/what-happens-when-you-email-your-mp" },
-        ])}
-      />
+        ]} />
       <JsonLd
         data={articleJsonLd({
           headline: "What happens when you email your MP or MSP",

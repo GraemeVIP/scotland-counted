@@ -3,9 +3,10 @@ import { RankingLinks } from "@/components/AreaRanking";
 import AreaComparePicker from "@/components/AreaComparePicker";
 import AreaComparison from "@/components/AreaComparison";
 import SharePage from "@/components/SharePage";
-import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
+import { meta } from "@/lib/seo";
 import { councils } from "@/lib/data/councils";
 import { COMPARE_DEFAULTS } from "@/lib/data/compareAreas";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 /**
  * Compare any two of Scotland's 32 council areas.
@@ -36,13 +37,11 @@ export default async function CompareAreasPage({
 
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
           { name: "Your area", path: "/areas" },
           { name: "Compare areas", path: "/compare-areas" },
-        ])}
-      />
+        ]} />
       <Page>
         <PageHeader
           eyebrow="Your area · Compare"

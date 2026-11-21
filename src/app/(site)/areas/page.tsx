@@ -5,13 +5,14 @@ import AreaDumbbell from "./AreaDumbbell";
 import RankTable from "@/components/RankTable";
 import AreaGrid from "@/components/AreaGrid";
 import ComparePromo from "@/components/ComparePromo";
-import { JsonLd, breadcrumbJsonLd, datasetJsonLd, meta } from "@/lib/seo";
+import { JsonLd, datasetJsonLd, meta } from "@/lib/seo";
 import {
   councilsByLevel,
   councilsByChange,
   COUNCIL_YEARS,
   COUNCIL_COUNT,
 } from "@/lib/data/councils";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata = meta({
   title: "Poverty in Scotland by Council Area: Local Statistics",
@@ -29,12 +30,10 @@ export default function Areas() {
 
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
           { name: "Your area", path: "/areas" },
-        ])}
-      />
+        ]} />
       <JsonLd
         data={datasetJsonLd({
           name: "Poverty, claimant count and pay by Scottish council area, 2000–2026",

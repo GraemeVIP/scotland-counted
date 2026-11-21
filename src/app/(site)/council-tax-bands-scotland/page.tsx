@@ -1,6 +1,6 @@
 import Link from "@/components/IntentLink";
 import { Page, PageHeader, InShort } from "@/components/Blocks";
-import { JsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
+import { JsonLd, faqJsonLd, meta } from "@/lib/seo";
 import CouncilTaxLookup from "./CouncilTaxLookup";
 import WaterCharge from "@/components/WaterCharge";
 import ToolCTA from "@/components/ToolCTA";
@@ -20,6 +20,7 @@ import { councils } from "@/lib/data/councils";
 import { getSources } from "@/lib/data/sources";
 import Faq from "@/components/Faq";
 import { councilTaxBandPath, councilTaxPath, postPath } from "@/lib/routeMap";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata = meta({
   title: "Council Tax Bands Scotland 2026/27: All 32 Councils",
@@ -100,12 +101,10 @@ export default function CouncilTaxPage() {
 
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
           { name: "Council tax bands", path: "/council-tax-bands-scotland" },
-        ])}
-      />
+        ]} />
       <JsonLd data={faqJsonLd(faq)} />
 
       <Page>

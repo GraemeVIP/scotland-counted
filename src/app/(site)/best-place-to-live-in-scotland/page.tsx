@@ -5,7 +5,7 @@ import Faq from "@/components/Faq";
 import ComparePromo from "@/components/ComparePromo";
 import { RankedList, Freshness, RankingLinks, areaName } from "@/components/AreaRanking";
 import SharePage from "@/components/SharePage";
-import { JsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
+import { JsonLd, faqJsonLd, meta } from "@/lib/seo";
 import {
   CITY_SLUGS,
   FAMILY_THEMES,
@@ -16,6 +16,7 @@ import {
   rankAreas,
   type ThemeId,
 } from "@/lib/data/compareAreas";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 /**
  * "Best place to live in Scotland": all 32 council areas ranked on the
@@ -111,13 +112,11 @@ function ordinal(n: number) {
 export default function BestPlaceToLivePage() {
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
           { name: "Your area", path: "/areas" },
           { name: "Best place to live in Scotland", path: "/best-place-to-live-in-scotland" },
-        ])}
-      />
+        ]} />
       <JsonLd data={faqJsonLd(FAQ)} />
       <Page>
         <PageHeader

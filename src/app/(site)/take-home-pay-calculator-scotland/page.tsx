@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import Link from "@/components/IntentLink";
 import { Page, ContentFrame, PageHeader, InShort, CTA, SectionHead } from "@/components/Blocks";
-import { JsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
+import { JsonLd, faqJsonLd, meta } from "@/lib/seo";
 import { getSources } from "@/lib/data/sources";
 import { TAX_DATA, calculate } from "@/lib/tax/engine";
 import { minimumWage, minimumWageTakeHome } from "@/lib/data/livingCosts";
@@ -11,6 +11,7 @@ import Calculator from "./Calculator";
 import Faq from "@/components/Faq";
 import { ExplainText } from "@/components/ExplainServer";
 import { SALARIES, salaryPath } from "@/lib/routeMap";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata = meta({
   title: "Take Home Pay Calculator Scotland 2026/27: Salary & Tax",
@@ -76,12 +77,10 @@ const EXAMPLES = [24_785, 30_000, 40_000, 50_000].map((gross) => {
 export default function TakeHomePayCalculator() {
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
           { name: "Take home pay calculator", path: "/take-home-pay-calculator-scotland" },
-        ])}
-      />
+        ]} />
       <JsonLd data={faqJsonLd(FAQ)} />
 
       <Page>

@@ -1,10 +1,11 @@
 import { Page, ContentFrame, PageHeader } from "@/components/Blocks";
 import AuthorBio from "@/components/AuthorBio";
 import BlogList from "./BlogList";
-import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
+import { JsonLd, meta } from "@/lib/seo";
 import { postsByDate } from "@/lib/data/posts";
 import { site } from "@/lib/site";
 import { postPath } from "@/lib/routeMap";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata = meta({
   title: "Scotland Counted Explained | Poverty Evidence Hub",
@@ -19,12 +20,10 @@ export default function Blog() {
 
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
-          { name: "Explained", path: "/blog" },
-        ])}
-      />
+          { name: "Explainers", path: "/blog" },
+        ]} />
       <JsonLd
         data={{
           "@context": "https://schema.org",

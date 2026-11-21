@@ -1,7 +1,7 @@
 import Link from "@/components/IntentLink";
 import { Page, ContentFrame, PageHeader, InShort, CTA } from "@/components/Blocks";
 import Faq from "@/components/Faq";
-import { JsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
+import { JsonLd, faqJsonLd, meta } from "@/lib/seo";
 import {
   LEVELS,
   RESPONSIBILITIES,
@@ -9,6 +9,7 @@ import {
   responsibilitiesFor,
   type ControlLevel,
 } from "@/lib/data/responsibilities";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 /**
  * Who decides what.
@@ -58,12 +59,10 @@ const FAQ = [
 export default function WhoDecides() {
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
           { name: "Who decides", path: "/who-decides" },
-        ])}
-      />
+        ]} />
       <JsonLd data={faqJsonLd(FAQ)} />
 
       <Page>

@@ -12,10 +12,11 @@ import {
 } from "@/components/Blocks";
 import { G } from "@/components/Glossary";
 import { ExplainText } from "@/components/ExplainServer";
-import { JsonLd, articleJsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
+import { JsonLd, articleJsonLd, faqJsonLd, meta } from "@/lib/seo";
 import { fixes, type FixStatus } from "@/lib/data/policy";
 import { getSources } from "@/lib/data/sources";
 import Faq from "@/components/Faq";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata = meta({
   title: "Solutions to Poverty in Scotland: What Would Help",
@@ -126,12 +127,10 @@ export default function WhatWouldFixIt() {
 
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
           { name: "What would fix it", path: "/solutions-to-poverty-in-scotland" },
-        ])}
-      />
+        ]} />
       <JsonLd
         data={articleJsonLd({
           headline: "What would help cut poverty in Scotland",

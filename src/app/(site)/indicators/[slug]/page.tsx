@@ -17,7 +17,8 @@ import {
 } from "@/lib/data/indicators";
 import { getSources } from "@/lib/data/sources";
 import { LIFE_EXPECTANCY } from "@/lib/data/local";
-import { JsonLd, articleJsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
+import { JsonLd, articleJsonLd, meta } from "@/lib/seo";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export function generateStaticParams() {
   return [
@@ -227,13 +228,11 @@ export default async function IndicatorPage(props: PageProps<"/indicators/[slug]
   if (!m) notFound();
 
   const crumbs = (
-    <JsonLd
-      data={breadcrumbJsonLd([
+    <Breadcrumbs crumbs={[
         { name: "Home", path: "/" },
         { name: "The Glasgow record", path: "/glasgow-poverty-statistics" },
         { name: m.title, path: `/indicators/${slug}` },
-      ])}
-    />
+      ]} />
   );
   const article = (
     <JsonLd

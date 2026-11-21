@@ -1,7 +1,8 @@
 import Link from "@/components/IntentLink";
 import { Page, ContentFrame, PageHeader, InShort, SectionHead } from "@/components/Blocks";
-import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
+import { meta } from "@/lib/seo";
 import { site } from "@/lib/site";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 /**
  * Written to describe what the code actually does, not what would be
@@ -37,12 +38,10 @@ export const metadata = meta({
 export default function Privacy() {
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
           { name: "Privacy", path: "/privacy" },
-        ])}
-      />
+        ]} />
 
       <Page>
         <PageHeader

@@ -11,10 +11,11 @@ import {
   holyroodConstituencies,
   holyroodRegions,
 } from "@/lib/data/holyrood";
-import { JsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
+import { JsonLd, faqJsonLd, meta } from "@/lib/seo";
 import { site } from "@/lib/site";
 import { representativeSlug } from "@/lib/representatives";
 import { HolyroodSourceNote, MspContactCard, holyroodPersonJsonLd } from "../../_shared";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export function generateStaticParams() {
   return holyroodRegions.map((item) => ({ slug: item.regionSlug }));
@@ -68,13 +69,11 @@ export default async function HolyroodRegionPage({
 
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
           { name: "Scottish MSPs", path: "/representatives/msps" },
           { name: record.region, path: pagePath },
-        ])}
-      />
+        ]} />
       <JsonLd data={faqJsonLd(faq)} />
       <JsonLd
         data={{

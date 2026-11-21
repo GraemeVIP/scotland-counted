@@ -11,7 +11,7 @@ import {
   MP_DATA_SOURCE_NAME,
   mps,
 } from "@/lib/data/mps";
-import { JsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
+import { JsonLd, faqJsonLd, meta } from "@/lib/seo";
 import { site } from "@/lib/site";
 import MemberVoteList from "@/components/MemberVoteList";
 import MpInterestsCard from "@/components/MpInterestsCard";
@@ -22,6 +22,7 @@ import {
   getMpInterestsByConstituencySlug,
   MP_INTERESTS_CHECKED_ISO,
 } from "@/lib/data/mpInterests";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export function generateStaticParams() {
   return mps.map((mp) => ({ slug: mp.constituencySlug }));
@@ -89,13 +90,11 @@ export default async function MpPage({ params }: { params: Promise<{ slug: strin
 
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
           { name: "Scottish MPs", path: "/representatives" },
           { name: mp.constituency, path: pagePath },
-        ])}
-      />
+        ]} />
       <JsonLd data={faqJsonLd(faq)} />
       <JsonLd
         data={{

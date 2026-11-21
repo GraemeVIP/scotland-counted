@@ -13,7 +13,7 @@ import {
   holyroodRegions,
 } from "@/lib/data/holyrood";
 import { representativeSlug } from "@/lib/representatives";
-import { JsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
+import { JsonLd, faqJsonLd, meta } from "@/lib/seo";
 import { site } from "@/lib/site";
 import { listApprovedMspReviews } from "@/lib/mspReviewsDb";
 import {
@@ -22,6 +22,7 @@ import {
   MspProfileReviews,
   MspVotingRecord,
 } from "../../../_shared";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 /*
  * A day, not a minute. Approving a review refreshes this page straight away
@@ -90,12 +91,12 @@ export default async function RegionalMspPage({
 
   return (
     <>
-      <JsonLd data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
         { name: "Home", path: "/" },
         { name: "Scottish MSPs", path: "/representatives/msps" },
         { name: region.region, path: `/representatives/msps/regions/${region.regionSlug}` },
         { name: msp.name, path: pagePath },
-      ])} />
+      ]} />
       <JsonLd data={faqJsonLd(faq)} />
       <JsonLd
         data={{

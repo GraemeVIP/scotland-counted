@@ -5,7 +5,8 @@ import SharePage from "@/components/SharePage";
 import QuickAnswer from "@/components/QuickAnswer";
 import Faq from "@/components/Faq";
 import { GuideTable } from "@/components/GuideTable";
-import { JsonLd, articleJsonLd, breadcrumbJsonLd, faqJsonLd, imageJsonLd, meta } from "@/lib/seo";
+import { JsonLd, articleJsonLd, faqJsonLd, imageJsonLd, meta } from "@/lib/seo";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 const HERO_IMAGE = {
   src: "/images/editorial/warm-home-discount-scotland-150.webp",
@@ -190,13 +191,11 @@ const FAQ = [
 export default function WarmHomeDiscountScotlandPage() {
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
           { name: "Benefits", path: "/benefits" },
           { name: "Warm Home Discount Scotland", path: "/warm-home-discount-scotland" },
-        ])}
-      />
+        ]} />
       <JsonLd data={faqJsonLd(FAQ)} />
       <JsonLd
         data={imageJsonLd({

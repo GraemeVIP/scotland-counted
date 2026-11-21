@@ -1,9 +1,10 @@
 import Link from "@/components/IntentLink";
 import { Page, ContentFrame, PageHeader, CTA, SectionHead } from "@/components/Blocks";
-import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
+import { meta } from "@/lib/seo";
 import { getSources } from "@/lib/data/sources";
 import { quiz } from "@/lib/data/quiz";
 import Quiz from "@/components/Quiz";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata = meta({
   title: "Poverty in Scotland Quiz: Guess the Real Figures",
@@ -16,12 +17,10 @@ export const metadata = meta({
 export default function QuizPage() {
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
           { name: "Quiz", path: "/poverty-in-scotland-quiz" },
-        ])}
-      />
+        ]} />
 
       <Page>
         <PageHeader

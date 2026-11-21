@@ -1,6 +1,7 @@
 import Link from "@/components/IntentLink";
 import { Page, ContentFrame, Col, PageHeader, InShort } from "@/components/Blocks";
-import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
+import { meta } from "@/lib/seo";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 /**
  * The accessibility statement.
@@ -82,12 +83,10 @@ const KNOWN = [
 export default function Accessibility() {
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
           { name: "Accessibility", path: "/accessibility" },
-        ])}
-      />
+        ]} />
 
       <Page>
         <PageHeader

@@ -1,12 +1,13 @@
 import Link from "@/components/IntentLink";
 import ComparePromo from "@/components/ComparePromo";
 import { Page, ContentFrame, PageHeader, InShort, CTA, Card } from "@/components/Blocks";
-import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
+import { meta } from "@/lib/seo";
 import { scotlandPoverty } from "@/lib/data/scotland";
 import { getSources } from "@/lib/data/sources";
 import VideoEmbed from "@/components/VideoEmbed";
 import ShareGraphic from "@/components/ShareGraphic";
 import { explainerVideo } from "@/lib/data/video";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 /**
  * The poverty hub.
@@ -45,12 +46,10 @@ export default function PovertyHub() {
 
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
           { name: "Poverty", path: "/poverty-in-scotland" },
-        ])}
-      />
+        ]} />
 
       <Page>
         <PageHeader

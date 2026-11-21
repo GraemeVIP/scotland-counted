@@ -1,7 +1,8 @@
 import { Page, ContentFrame, Col, PageHeader, CTA } from "@/components/Blocks";
-import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
+import { JsonLd, meta } from "@/lib/seo";
 import { terms } from "@/lib/data/glossary";
 import { site } from "@/lib/site";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata = meta({
   title: "Poverty Terms in Scotland: Plain English Glossary",
@@ -28,12 +29,10 @@ function glossaryJsonLd() {
 export default function Glossary() {
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
           { name: "Glossary", path: "/glossary" },
-        ])}
-      />
+        ]} />
       <JsonLd data={glossaryJsonLd()} />
 
       <Page>

@@ -16,9 +16,10 @@ import LineChart from "@/components/charts/LineChart";
 import { G } from "@/components/Glossary";
 import { ExplainText } from "@/components/ExplainServer";
 import DecadeScroll from "../DecadeScroll";
-import { JsonLd, articleJsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
+import { JsonLd, articleJsonLd, meta } from "@/lib/seo";
 import { getIndicator, jobsDensity } from "@/lib/data/indicators";
 import { getSources } from "@/lib/data/sources";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata = meta({
   title: "Why Is Poverty Worse in Glasgow?",
@@ -58,12 +59,10 @@ export default function WhyGlasgow() {
 
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
           { name: "Glasgow deep dive", path: "/why-poverty-is-worse-in-glasgow" },
-        ])}
-      />
+        ]} />
       <JsonLd
         data={articleJsonLd({
           headline: "Why poverty is worse in Glasgow",

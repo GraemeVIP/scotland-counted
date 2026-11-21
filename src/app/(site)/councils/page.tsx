@@ -2,12 +2,13 @@ import Link from "@/components/IntentLink";
 import { CTA, ContentFrame, InShort, Page, PageHeader } from "@/components/Blocks";
 import { councilsByLevel } from "@/lib/data/councils";
 import { councilAccountabilityRecords } from "@/lib/data/councilAccountability";
-import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
+import { JsonLd, meta } from "@/lib/seo";
 import { site } from "@/lib/site";
 import AccountabilityMethodNote from "@/components/AccountabilityMethodNote";
 import { COUNCIL_TAX, NATIONAL } from "@/lib/data/councilBudgetMechanics";
 import CouncilWatch from "@/components/CouncilWatch";
 import CouncilDirectory from "./CouncilDirectory";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata = meta({
   title: "Scottish council budgets and performance | Scotland Counted",
@@ -31,12 +32,10 @@ export default function CouncilsPage() {
 
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
           { name: "Council budgets and performance", path: "/councils" },
-        ])}
-      />
+        ]} />
       <JsonLd
         data={{
           "@context": "https://schema.org",

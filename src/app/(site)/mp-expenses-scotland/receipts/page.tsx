@@ -4,7 +4,8 @@ import { ExplainText } from "@/components/ExplainServer";
 import SharePage from "@/components/SharePage";
 import Faq from "@/components/Faq";
 import FindMpEmail from "@/components/FindMpEmail";
-import { JsonLd, articleJsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
+import { JsonLd, articleJsonLd, faqJsonLd, meta } from "@/lib/seo";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 /*
  * The receipts: single IPSA claim lines by Scottish MPs that most people would
@@ -392,14 +393,12 @@ const FAQ = [
 export default function MpExpenseReceiptsPage() {
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
           { name: "Scottish MPs", path: "/representatives" },
           { name: "MP Expenses & Register of Interests", path: "/mp-expenses-scotland" },
           { name: "The receipts", path: PATH },
-        ])}
-      />
+        ]} />
       <JsonLd data={faqJsonLd(FAQ)} />
       <JsonLd
         data={articleJsonLd({

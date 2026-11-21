@@ -5,8 +5,9 @@ import AreaComparePicker from "@/components/AreaComparePicker";
 import AreaComparison from "@/components/AreaComparison";
 import { Freshness, RankingLinks } from "@/components/AreaRanking";
 import SharePage from "@/components/SharePage";
-import { JsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
+import { JsonLd, faqJsonLd, meta } from "@/lib/seo";
 import { COMPARE_METRICS, metricById, winner } from "@/lib/data/compareAreas";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 /**
  * Glasgow vs Edinburgh: the most searched pairing, with a page of its own.
@@ -112,13 +113,11 @@ const FAQ = [
 export default function GlasgowVsEdinburghPage() {
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
           { name: "Compare areas", path: "/compare-areas" },
           { name: "Glasgow vs Edinburgh", path: "/glasgow-vs-edinburgh" },
-        ])}
-      />
+        ]} />
       <JsonLd data={faqJsonLd(FAQ)} />
       <Page>
         <PageHeader eyebrow="Compare areas" title="Glasgow vs Edinburgh" lede={`${verdict} ${cost}`}>

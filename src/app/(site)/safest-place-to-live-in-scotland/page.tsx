@@ -5,9 +5,10 @@ import Faq from "@/components/Faq";
 import ComparePromo from "@/components/ComparePromo";
 import { RankedList, Freshness, RankingLinks, areaName } from "@/components/AreaRanking";
 import SharePage from "@/components/SharePage";
-import { JsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
+import { JsonLd, faqJsonLd, meta } from "@/lib/seo";
 import { CITY_SLUGS, metricById, rankAreas } from "@/lib/data/compareAreas";
 import { COMPARE_EXTRA } from "@/lib/data/compareAreasData";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 /**
  * "Safest place to live in Scotland": every council area ranked by crime
@@ -80,13 +81,11 @@ const FAQ = [
 export default function SafestPlacePage() {
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
           { name: "Your area", path: "/areas" },
           { name: "Safest place to live in Scotland", path: "/safest-place-to-live-in-scotland" },
-        ])}
-      />
+        ]} />
       <JsonLd data={faqJsonLd(FAQ)} />
       <Page>
         <PageHeader

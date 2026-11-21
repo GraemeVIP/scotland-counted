@@ -5,10 +5,11 @@ import SharePage from "@/components/SharePage";
 import QuickAnswer from "@/components/QuickAnswer";
 import Faq from "@/components/Faq";
 import { GuideTable } from "@/components/GuideTable";
-import { JsonLd, articleJsonLd, breadcrumbJsonLd, faqJsonLd, imageJsonLd, meta } from "@/lib/seo";
+import { JsonLd, articleJsonLd, faqJsonLd, imageJsonLd, meta } from "@/lib/seo";
 import { chargesFor } from "@/lib/data/councilTax";
 import { councils } from "@/lib/data/councils";
 import { councilTaxPath } from "@/lib/routeMap";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 const HERO_IMAGE = {
   src: "/images/editorial/mansion-tax-scotland-council-tax-bands.webp",
@@ -117,13 +118,11 @@ export default function MansionTaxScotlandPage() {
 
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
           { name: "Council tax bands", path: "/council-tax-bands-scotland" },
           { name: "Mansion tax Scotland", path: "/mansion-tax-scotland" },
-        ])}
-      />
+        ]} />
       <JsonLd data={faqJsonLd(FAQ)} />
       <JsonLd
         data={imageJsonLd({

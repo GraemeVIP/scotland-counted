@@ -1,7 +1,8 @@
 import { Page, ContentFrame, PageHeader, CTA } from "@/components/Blocks";
-import { JsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
+import { JsonLd, faqJsonLd, meta } from "@/lib/seo";
 import { faqItems } from "@/lib/data/faqs";
 import FaqSearch from "./FaqSearch";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata = meta({
   title: "Poverty in Scotland FAQs: Clear Answers",
@@ -13,12 +14,10 @@ export const metadata = meta({
 export default function FaqPage() {
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
           { name: "Questions and answers", path: "/faq" },
-        ])}
-      />
+        ]} />
       <JsonLd data={faqJsonLd(faqItems)} />
 
       <Page>

@@ -9,7 +9,6 @@ import { GuideTable } from "@/components/GuideTable";
 import {
   JsonLd,
   articleJsonLd,
-  breadcrumbJsonLd,
   datasetJsonLd,
   faqJsonLd,
   imageJsonLd,
@@ -20,6 +19,7 @@ import { mps } from "@/lib/data/mps";
 import { CONSTITUENCY_YEARS, getConstituency } from "@/lib/data/constituencies";
 import MpInterestsExplorer from "./MpInterestsExplorer";
 import FindMpClaims from "@/components/FindMpClaims";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 const HERO_IMAGE = {
   src: "/images/editorial/refresh-court-records.webp",
@@ -611,16 +611,14 @@ export default function MpRegisterOfInterestsScotlandPage() {
 
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
           { name: "Scottish MPs", path: "/representatives" },
           {
             name: "MP Expenses & Register of Interests",
             path: "/mp-expenses-scotland",
           },
-        ])}
-      />
+        ]} />
       <JsonLd data={faqJsonLd(FAQ)} />
       <JsonLd
         data={imageJsonLd({

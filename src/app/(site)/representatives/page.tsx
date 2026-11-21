@@ -1,7 +1,7 @@
 import Link from "@/components/IntentLink";
 import { CTA, ContentFrame, InShort, Page, PageHeader } from "@/components/Blocks";
 import PortraitLightbox from "@/components/PortraitLightbox";
-import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
+import { JsonLd, meta } from "@/lib/seo";
 import {
   formatMpCheckedDate,
   MP_DATA_CHECKED_ISO,
@@ -13,6 +13,7 @@ import { representativeSlug } from "@/lib/representatives";
 import { site } from "@/lib/site";
 import RepresentativeLookup from "./RepresentativeLookup";
 import RepresentativeDirectorySearch, { type DirectoryEntry } from "./RepresentativeDirectorySearch";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata = meta({
   title: "Scottish MPs and MSPs: Find & Contact Yours",
@@ -55,12 +56,10 @@ export default function RepresentativesPage() {
 
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
           { name: "Scottish MPs and MSPs", path: "/representatives" },
-        ])}
-      />
+        ]} />
       <JsonLd
         data={{
           "@context": "https://schema.org",

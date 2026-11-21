@@ -3,7 +3,8 @@ import MspReviewDirectory from "@/components/MspReviewDirectory";
 import MspReviewForm from "@/components/MspReviewForm";
 import { getMspRating, mspReviewProfiles } from "@/lib/data/mspReviews";
 import { listApprovedMspReviews } from "@/lib/mspReviewsDb";
-import { JsonLd, articleJsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
+import { JsonLd, articleJsonLd, meta } from "@/lib/seo";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 const pageDescription = "Read moderated Scottish MSP reviews, rate your MSP without an account, or find the official route for a formal complaint. Email is optional.";
 
@@ -50,7 +51,7 @@ export default async function MspReviewsPage() {
 
   return (
     <>
-      <JsonLd data={breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Scottish MSP reviews", path: "/msp-reviews" }])} />
+      <Breadcrumbs crumbs={[{ name: "Home", path: "/" }, { name: "Scottish MSP reviews", path: "/msp-reviews" }]} />
       <JsonLd data={articleJsonLd({
         headline: "Rate my MSP: Scottish MSP reviews",
         description: pageDescription,

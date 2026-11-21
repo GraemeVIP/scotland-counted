@@ -8,7 +8,7 @@ import MinimumWageReality from "@/components/MinimumWageReality";
 import SharePage from "@/components/SharePage";
 import ComparePromo from "@/components/ComparePromo";
 import WhyBother from "@/components/WhyBother";
-import { JsonLd, articleJsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
+import { JsonLd, articleJsonLd, faqJsonLd, meta } from "@/lib/seo";
 import {
   councils,
   getCouncil,
@@ -26,6 +26,7 @@ import {
 import { asOneIn, changeInWords } from "@/lib/plain-language";
 import Faq from "@/components/Faq";
 import { councilTaxPath } from "@/lib/routeMap";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 const SEARCH_PLACE_NAMES: Record<string, string> = {
   "aberdeen-city": "Aberdeen",
@@ -112,13 +113,11 @@ export default async function AreaPage(props: PageProps<"/areas/[slug]">) {
 
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
           { name: "Your area", path: "/areas" },
           { name: c.name, path: `/areas/${c.slug}` },
-        ])}
-      />
+        ]} />
       <JsonLd
         data={articleJsonLd({
           headline: seo.h1,

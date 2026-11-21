@@ -6,7 +6,7 @@ import AuthorBio from "@/components/AuthorBio";
 import { Page } from "@/components/Blocks";
 import EditorialImage from "@/components/EditorialImage";
 import SharePage from "@/components/SharePage";
-import { JsonLd, articleJsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
+import { JsonLd, articleJsonLd, faqJsonLd, meta } from "@/lib/seo";
 import { getPost, getPostCategory, relatedPosts } from "@/lib/data/posts";
 import { sourcesById, type Source } from "@/lib/data/sources";
 import { postBodies } from "@/content/posts";
@@ -14,6 +14,7 @@ import Faq from "@/components/Faq";
 import QuickAnswer from "@/components/QuickAnswer";
 import { postPath } from "@/lib/routeMap";
 import ComparePromo from "@/components/ComparePromo";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 /**
  * Posts that end with a pointer to the compare tool, and the area each one is
@@ -72,14 +73,12 @@ export function PostView({ slug }: { slug: string }) {
 
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
-          { name: "Explained", path: "/blog" },
+          { name: "Explainers", path: "/blog" },
           { name: category?.name ?? "Article", path: `/blog/category/${post.category}` },
           { name: post.title, path: postPath(post.slug) },
-        ])}
-      />
+        ]} />
       <JsonLd
         data={articleJsonLd({
           headline: post.title,
@@ -97,11 +96,7 @@ export function PostView({ slug }: { slug: string }) {
 
       <Page>
         <article className="max-w-[1240px] mx-auto">
-          <div className="pt-8 sm:pt-12 max-w-[1120px] mx-auto">
-            <Link href="/blog" className="ui inline-flex items-center gap-2 text-[14.5px] font-[540] text-[var(--muted)] hover:text-[var(--ink)]">
-              <span aria-hidden="true">←</span> All guides and explainers
-            </Link>
-          </div>
+          <div className="pt-2 sm:pt-4" />
 
           <header className="mt-8 max-w-[1120px] mx-auto">
             <Link href={`/blog/category/${post.category}`} className="chip no-underline">

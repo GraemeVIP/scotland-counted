@@ -1,7 +1,8 @@
 import Link from "@/components/IntentLink";
 import { Page, ContentFrame, PageHeader, InShort, SectionHead, CTA, Card } from "@/components/Blocks";
-import { JsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
+import { JsonLd, faqJsonLd, meta } from "@/lib/seo";
 import Faq from "@/components/Faq";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 /**
  * The money hub.
@@ -136,12 +137,10 @@ const FAQ = [
 export default function MoneyHub() {
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
           { name: "Your money", path: "/money" },
-        ])}
-      />
+        ]} />
       <JsonLd data={faqJsonLd(FAQ)} />
 
       <Page>

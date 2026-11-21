@@ -1,6 +1,7 @@
 import Link from "@/components/IntentLink";
 import { Page, PageHeader, SectionHead } from "@/components/Blocks";
-import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
+import { meta } from "@/lib/seo";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata = meta({
   title: "Scottish local data briefs for organisations",
@@ -10,7 +11,7 @@ export const metadata = meta({
 
 export default function Organisations() {
   return <>
-    <JsonLd data={breadcrumbJsonLd([{name:"Home",path:"/"},{name:"For organisations",path:"/for-organisations"}])} />
+    <Breadcrumbs crumbs={[{name:"Home",path:"/"},{name:"For organisations",path:"/for-organisations"}]} />
     <Page>
       <PageHeader eyebrow="For charities, housing teams and community organisations" title="Local evidence you can put to work." lede="Need to explain what is happening in a Scottish community? Start with the free data here, or ask me about a focused piece of research for your project." />
       <div className="grid gap-5 md:grid-cols-2">

@@ -1,9 +1,10 @@
 import Link from "@/components/IntentLink";
 import { Page, ContentFrame, PageHeader, SectionHead, CTA } from "@/components/Blocks";
 import { GuideTable } from "@/components/GuideTable";
-import { JsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
+import { meta } from "@/lib/seo";
 import { site } from "@/lib/site";
 import { N5_PAST_PAPER_FILES } from "@/lib/data/schools";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 /**
  * The page for teachers: the one link the school outreach email points at.
@@ -61,13 +62,11 @@ export default function TeachingResourcesPage() {
   const years = N5_PAST_PAPER_FILES.map((p) => p.year);
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
           { name: "Modern Studies", path: "/modern-studies" },
           { name: "Teaching resources", path: "/modern-studies-teaching-resources" },
-        ])}
-      />
+        ]} />
       <Page>
         <PageHeader
           eyebrow="For teachers"

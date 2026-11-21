@@ -1,6 +1,6 @@
 import Link from "@/components/IntentLink";
 import { Page, Col, PageHeader, CTA, InShort } from "@/components/Blocks";
-import { JsonLd, breadcrumbJsonLd, datasetJsonLd, meta } from "@/lib/seo";
+import { JsonLd, datasetJsonLd, meta } from "@/lib/seo";
 import RankTable from "@/components/RankTable";
 import {
   constituenciesByLevel,
@@ -8,6 +8,7 @@ import {
   CONSTITUENCY_COUNT,
 } from "@/lib/data/constituencies";
 import { asOneIn } from "@/lib/plain-language";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata = meta({
   title: "Child Poverty by Scottish Constituency and MP Area",
@@ -25,12 +26,10 @@ export default function Constituencies() {
 
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
           { name: "Constituencies", path: "/constituencies" },
-        ])}
-      />
+        ]} />
       <JsonLd
         data={datasetJsonLd({
           name: "Child poverty by Scottish UK Parliament constituency",

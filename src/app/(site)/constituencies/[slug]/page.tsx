@@ -9,7 +9,7 @@ import WhoDoesWhat from "@/components/WhoDoesWhat";
 import WhyBother from "@/components/WhyBother";
 import VotingRecord from "@/components/VotingRecord";
 import ConstituencyLetter from "./ConstituencyLetter";
-import { JsonLd, articleJsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
+import { JsonLd, articleJsonLd, faqJsonLd, meta } from "@/lib/seo";
 import {
   constituencies,
   getConstituency,
@@ -19,6 +19,7 @@ import {
 import { SCOTLAND_PCTS } from "@/lib/data/councils";
 import { asOneIn, changeInWords } from "@/lib/plain-language";
 import Faq from "@/components/Faq";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export function generateStaticParams() {
   return constituencies.map((c) => ({ slug: c.slug }));
@@ -71,13 +72,11 @@ export default async function ConstituencyPage(props: { params: Promise<{ slug: 
 
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
           { name: "Constituencies", path: "/constituencies" },
           { name: c.name, path: `/constituencies/${c.slug}` },
-        ])}
-      />
+        ]} />
       <JsonLd
         data={articleJsonLd({
           headline: `Child poverty in ${c.name}`,

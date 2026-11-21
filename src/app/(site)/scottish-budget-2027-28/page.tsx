@@ -5,8 +5,9 @@ import SharePage from "@/components/SharePage";
 import QuickAnswer from "@/components/QuickAnswer";
 import Faq from "@/components/Faq";
 import { GuideTable } from "@/components/GuideTable";
-import { JsonLd, articleJsonLd, breadcrumbJsonLd, faqJsonLd, imageJsonLd, meta } from "@/lib/seo";
+import { JsonLd, articleJsonLd, faqJsonLd, imageJsonLd, meta } from "@/lib/seo";
 import { TAX_DATA } from "@/lib/tax/engine";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 const HERO_IMAGE = {
   src: "/images/editorial/scottish-budget-2027-28-holyrood.webp",
@@ -109,13 +110,11 @@ const FAQ = [
 export default function ScottishBudgetPage() {
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
           { name: "Your money", path: "/money" },
           { name: "Scottish Budget 2027/28", path: "/scottish-budget-2027-28" },
-        ])}
-      />
+        ]} />
       <JsonLd data={faqJsonLd(FAQ)} />
       <JsonLd
         data={imageJsonLd({

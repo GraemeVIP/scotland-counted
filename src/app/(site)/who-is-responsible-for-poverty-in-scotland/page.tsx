@@ -12,9 +12,10 @@ import {
 import { G } from "@/components/Glossary";
 import { ExplainText } from "@/components/ExplainServer";
 import VoteRoundup from "@/components/VoteRoundup";
-import { JsonLd, articleJsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
+import { JsonLd, articleJsonLd, meta } from "@/lib/seo";
 import { tiers, statutoryTargets } from "@/lib/data/policy";
 import { getSources } from "@/lib/data/sources";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 /**
  * Each tier gets its own colour and its own "who you write to", so the split of
@@ -67,12 +68,10 @@ export const metadata = meta({
 export default function Accountability() {
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
           { name: "Accountability", path: "/who-is-responsible-for-poverty-in-scotland" },
-        ])}
-      />
+        ]} />
       <JsonLd
         data={articleJsonLd({
           headline: "Who is responsible for poverty policy in Scotland?",

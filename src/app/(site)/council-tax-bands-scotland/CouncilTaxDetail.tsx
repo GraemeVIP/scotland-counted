@@ -2,7 +2,7 @@ import Link from "@/components/IntentLink";
 import ComparePromo from "@/components/ComparePromo";
 import { notFound } from "next/navigation";
 import { Page, PageHeader, InShort } from "@/components/Blocks";
-import { JsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
+import { JsonLd, faqJsonLd, meta } from "@/lib/seo";
 import SharePage from "@/components/SharePage";
 import {
   BAND_LETTERS,
@@ -19,6 +19,7 @@ import { getSources } from "@/lib/data/sources";
 import WaterCharge from "@/components/WaterCharge";
 import EnergyPaymentNote from "@/components/EnergyPaymentNote";
 import Faq from "@/components/Faq";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 /**
  * Two kinds of page behind one dynamic segment.
@@ -156,11 +157,11 @@ export function CouncilTaxDetail({ slug }: { slug: string }) {
 
     return (
       <>
-        <JsonLd data={breadcrumbJsonLd([
+        <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
           { name: "Council tax bands", path: "/council-tax-bands-scotland" },
           { name: placeName, path: councilTaxPath(v.slug) },
-        ])} />
+        ]} />
         <JsonLd data={faqJsonLd(faq)} />
 
         <Page>
@@ -309,11 +310,11 @@ export function CouncilTaxDetail({ slug }: { slug: string }) {
 
   return (
     <>
-      <JsonLd data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
         { name: "Home", path: "/" },
         { name: "Council tax bands", path: "/council-tax-bands-scotland" },
         { name: `Band ${letter}`, path: councilTaxBandPath(letter) },
-      ])} />
+      ]} />
       <JsonLd data={faqJsonLd(faq)} />
 
       <Page>

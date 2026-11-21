@@ -4,7 +4,8 @@ import { ContentFrame, InShort, Page, PageHeader } from "@/components/Blocks";
 import MspReviewForm from "@/components/MspReviewForm";
 import { getMspRating, getMspReviewProfile, mspReviewProfiles } from "@/lib/data/mspReviews";
 import { listApprovedMspReviews } from "@/lib/mspReviewsDb";
-import { JsonLd, breadcrumbJsonLd, meta, mspReviewsJsonLd } from "@/lib/seo";
+import { JsonLd, meta, mspReviewsJsonLd } from "@/lib/seo";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 const publishedDate = new Intl.DateTimeFormat("en-GB", { dateStyle: "medium" });
 const interactionMonth = new Intl.DateTimeFormat("en-GB", { month: "long", year: "numeric", timeZone: "UTC" });
@@ -50,7 +51,7 @@ export default async function MspReviewPage({ params }: { params: Promise<{ slug
 
   return (
     <>
-      <JsonLd data={breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "MSP reviews", path: "/msp-reviews" }, { name: profile.msp.name, path: `/msp-reviews/${profile.slug}` }])} />
+      <Breadcrumbs crumbs={[{ name: "Home", path: "/" }, { name: "MSP reviews", path: "/msp-reviews" }, { name: profile.msp.name, path: `/msp-reviews/${profile.slug}` }]} />
       <JsonLd data={mspReviewsJsonLd({
         name: profile.msp.name,
         pagePath: `/msp-reviews/${profile.slug}`,

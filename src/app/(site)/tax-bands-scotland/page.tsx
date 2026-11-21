@@ -5,10 +5,11 @@ import SharePage from "@/components/SharePage";
 import QuickAnswer from "@/components/QuickAnswer";
 import Faq from "@/components/Faq";
 import { GuideTable } from "@/components/GuideTable";
-import { JsonLd, breadcrumbJsonLd, faqJsonLd, imageJsonLd, meta } from "@/lib/seo";
+import { JsonLd, faqJsonLd, imageJsonLd, meta } from "@/lib/seo";
 import { calculate, TAX_DATA } from "@/lib/tax/engine";
 import { getSources } from "@/lib/data/sources";
 import { salaryPath } from "@/lib/routeMap";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 const HERO_IMAGE = {
   src: "/images/editorial/tax-bands-scotland-2026-27.webp",
@@ -84,13 +85,11 @@ export default function TaxBandsScotlandPage() {
 
   return (
     <>
-      <JsonLd
-        data={breadcrumbJsonLd([
+      <Breadcrumbs crumbs={[
           { name: "Home", path: "/" },
           { name: "Your money", path: "/money" },
           { name: "Tax bands Scotland", path: "/tax-bands-scotland" },
-        ])}
-      />
+        ]} />
       <JsonLd data={faqJsonLd(FAQ)} />
       <JsonLd
         data={imageJsonLd({
