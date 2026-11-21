@@ -256,12 +256,12 @@ export default function Post() {
       <H3>And what&apos;s the £1,200 for?</H3>
       <P>
         Nobody says. IPSA files it as &quot;Website hosting and design&quot;, and that&apos;s all.
-        Joani Reid, James Asser, Jas Athwal, Damien Egan and Sam Rushworth each paid £1,200 about a
-        year after the £4,800 build. It looks like a yearly fee to keep the site online.
+        Joani Reid, James Asser, Jas Athwal and Damien Egan each paid £1,200 about a year after the
+        £4,800 build. It looks like a yearly fee to keep the site online.
       </P>
       <P>
-        Ordinary hosting for a small WordPress site is sold for a few pounds a month. So that&apos;s
-        £6,000 per MP in the first two years, for a copied template, paid for by you.
+        Ordinary hosting for a small WordPress site is sold for a few pounds a month. So for those
+        four MPs, that&apos;s £6,000 each over two years, for a copied template, paid for by you.
       </P>
       <P>
         To be fair, agencies use templates all the time. That&apos;s not the point. The point is one
@@ -309,8 +309,8 @@ export default function Post() {
       <P>
         She also told the paper the money mostly went on &quot;creating and building a website,
         advertising surgeries and communicating with my constituents&quot;.{" "}
-        <strong>But only £6,000 of her £24,664 was for the website.</strong> That&apos;s less than a
-        quarter. And the website is the copied template, survey and all. The other £18,664 is filed
+        <strong>But only £6,000 of her £24,664 was for the website.</strong> That&apos;s £4,800 to
+        build it in March 2025, then £1,200 a year later. Less than a quarter of the total. And the website is the copied template, survey and all. The other £18,664 is filed
         as bought in comms and media, paid in five chunks between March and April 2025.
       </P>
       <P>
