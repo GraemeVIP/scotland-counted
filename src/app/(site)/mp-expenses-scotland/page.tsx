@@ -177,15 +177,15 @@ const MORE_SPOTLIGHT_LEADERS: SpotlightEntry[] = [
   },
   {
     slug: "east-kilbride-and-strathaven",
-    badge: "Lobbyist Spouse Donated to Her Office",
+    badge: "Free Media Training From Lobbyist Husband's Firm",
     headlineStat: "£85,563",
     headlineLabel: "in non-staff expenses + spouse is a commercial lobbyist",
     taxpayerSummary:
       "£31,366 for London flat rent (£2,614/month), £1,791 for 12 London hotel nights on top of that flat, £9,906 for flights and £3,941 for family flights (£348,096 total including staff). Also declares rental property income.",
     freebiesSummary:
-      "Declared a £2,400 donation from Earthcott Ltd. In Category 9 of the same register, she declares her spouse David Taylor is a commercial lobbyist and Director of Earthcott Limited.",
+      "Declared £2,400 of free media training from Earthcott Ltd. On the same register she declares that her husband, David Taylor, works in lobbying and is a director of Earthcott. The rules allow it because it was declared. The question is whether an MP should take free services from a company run by a lobbyist, even when that lobbyist is her husband.",
     emailReason:
-      "claiming £85,563.46 in non-staff expenses (including £31,366 for flat rent and £3,941 for family flights) while accepting a donation from Earthcott Ltd, the lobbying firm where your spouse is a Director",
+      "claiming £85,563.46 in non-staff expenses (including £31,366 for flat rent and £3,941 for family flights) while accepting £2,400 of free media training from Earthcott Ltd, the company where your husband, who works in lobbying, is a director",
   },
 ];
 
@@ -811,12 +811,12 @@ export default function MpRegisterOfInterestsScotlandPage() {
             <div className="tile p-6">
               <span className="chip mb-3">04 · £1.17m in flights</span>
               <h3 className="ui text-[18px] font-[660] leading-[1.3] text-[var(--ink)]">
-                Voting for Net Zero taxes while billing £1.17m for MP, staff & family flights
+                Climate targets for everyone else, £1.17m in flights for MPs, staff and family
               </h3>
               <p className="mt-2.5 text-[15px] leading-[1.6] text-[var(--ink-2)]">
-                The same MPs who vote for strict{" "}
-                Carbon Budget Orders and low
-                emission driving rules for the public billed taxpayers{" "}
+                Westminster sets the carbon budgets and net zero targets that shape what
+                households pay for fuel, heating and travel. In the same year, Scottish MPs billed
+                taxpayers{" "}
                 <strong>£912,654.62 for their own flights</strong>,{" "}
                 <strong>£188,478.04 for staff flights</strong> and{" "}
                 <strong>£73,647.56 for family flights</strong> (£1.17m in total air travel), plus{" "}
@@ -826,7 +826,9 @@ export default function MpRegisterOfInterestsScotlandPage() {
                 <Link href="/representatives/mps/dunfermline-and-dollar#donations-and-interests">
                   Graeme Downie
                 </Link>{" "}
-                (£29,820 MP flights + £11,065 staff flights).
+                (£29,820 on his own flights and £11,065 on staff flights, against £3,935 on rail).
+                The rules ask households to cut their emissions. They do not ask the same of MPs
+                travelling at public expense.
               </p>
             </div>
           </div>
@@ -1184,9 +1186,9 @@ export default function MpRegisterOfInterestsScotlandPage() {
                   Zubir Ahmed MP, <strong>£27,564</strong> from Best for Britain to Lillian Jones
                   MP, <strong>£20,000</strong> from oil businessman Alasdair Locke to Andrew Bowie
                   MP, <strong>£19,500</strong> in migration policy staff from RAMP to Chris Murray
-                  MP, and <strong>£2,400</strong> to Joani Reid MP from{" "}
-                  <strong>Earthcott Ltd</strong> (the lobbying company where her husband is a
-                  Director).
+                  MP, and <strong>£2,400</strong> of free media training to Joani Reid MP from{" "}
+                  <strong>Earthcott Ltd</strong>, a company where her husband, who works in
+                  lobbying, is a director.
                 </p>
                 <GuideTable
                   kicker="All 23 declared donations"
@@ -1280,8 +1282,9 @@ export default function MpRegisterOfInterestsScotlandPage() {
                     <Link href="/representatives/mps/east-kilbride-and-strathaven#donations-and-interests">
                       Joani Reid
                     </Link>{" "}
-                    declares her spouse David Taylor is a Director at lobbying firm{" "}
-                    <strong>Earthcott Limited</strong> (which also donated £2,400 to her). Paisley
+                    declares her husband David Taylor works in lobbying and is a director of{" "}
+                    <strong>Earthcott Limited</strong>, which also gave her £2,400 of free media
+                    training. Paisley
                     South Labour MP{" "}
                     <Link href="/representatives/mps/paisley-and-renfrewshire-south#donations-and-interests">
                       Johanna Baxter

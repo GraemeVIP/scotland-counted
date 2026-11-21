@@ -411,7 +411,7 @@ export default function Post() {
       </UL>
 
       <H2 id="remote-voting-and-carbon">
-        4. The 145-day Westminster week, remote voting, and £912,655 in domestic flights
+        4. The 145-day Westminster week, remote voting, and £912,655 in flights
       </H2>
       <P>
         Two questions come up every time regular workers look at these numbers. First, why do MPs
@@ -429,10 +429,10 @@ export default function Post() {
         <strong>£89,111</strong> in spouse and child travel for Scottish MPs alone.
       </P>
       <P>
-        Second is the climate contradiction. This year, Scottish MPs voted through strict{" "}
-        <Link href="/mp-expenses-scotland">Carbon Budget Orders</Link> and carbon border taxes while
-        lecturing households on cutting emissions. Yet in 2025/26, Scotland&apos;s 55 MPs billed
-        taxpayers <strong>£912,654.62 for domestic flights</strong> between Scotland and London,
+        Second is the climate contradiction. Westminster sets the carbon budgets and net zero
+        targets that households are asked to live within, and that shape what families pay for
+        fuel, heating and travel. Yet in 2025/26, Scotland&apos;s 55 MPs billed taxpayers{" "}
+        <strong>£912,654.62 for their own flights</strong>,
         plus <strong>£58,237.33 for airport and station car parking</strong>. That includes Central
         Belt MPs sitting right on the direct 4.5 hour East Coast main rail line to King&apos;s
         Cross, such as Dunfermline and Dollar MP{" "}
@@ -523,8 +523,8 @@ export default function Post() {
         <Link href="/representatives/mps/east-kilbride-and-strathaven#donations-and-interests">
           Joani Reid
         </Link>
-        , whose husband is a Director at lobbying firm Earthcott Ltd, which also donated £2,400 to
-        her, and{" "}
+        , whose husband works in lobbying and is a director of Earthcott Ltd, a company that also
+        gave her £2,400 of free media training, and{" "}
         <Link href="/representatives/mps/paisley-and-renfrewshire-south#donations-and-interests">
           Johanna Baxter
         </Link>
