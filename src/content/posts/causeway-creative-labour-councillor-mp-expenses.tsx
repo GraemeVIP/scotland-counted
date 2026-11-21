@@ -136,7 +136,49 @@ export default function Post() {
         MPs made 42 payments to the firm. The budget year ends on 31 March.
       </P>
 
-      <H2 id="joani-reid">3. Joani Reid: £24,664, the most of any MP in the UK</H2>
+      <H2 id="websites">3. What £4,800 actually bought</H2>
+      <P>
+        Fifteen MPs paid Causeway Creative for a website. Most paid the same thing: £4,800 to build
+        it, then around £1,200 a year after that. So we went and looked at what they got.
+      </P>
+      <P>
+        It&apos;s a template. Every MP site we could read is built on WordPress, free website
+        software, with a free theme called Hello Elementor and a drag and drop page builder.
+        They all run the same add ons, including three made for MPs: one for visits, one for
+        voting records and one for page snippets.
+      </P>
+      <P>
+        Those are exactly the add ons on Causeway&apos;s own &quot;MP website demo&quot; site,
+        mpwebsites.uk. The demo still has &quot;Lorem Ipsum&quot; filler text on it. The MP sites
+        are copies of that demo with the name and seat swapped in.
+      </P>
+      <div className="my-7 overflow-hidden rounded-[var(--r-m)] border border-[var(--rule-strong)]">
+        <p className="tile-key bg-[var(--surface-2)] px-5 py-2.5">Same words, site after site</p>
+        <div className="px-5 py-4">
+          <p className="text-[16px] font-[600] leading-[1.55] text-[var(--ink)]">
+            &quot;As your MP, I want to ensure I represent you in any way I can. If you need my help,
+            please visit my help pages below to learn more about how I can help you.&quot;
+          </p>
+          <p className="ui mt-3 text-[14.5px] leading-[1.5] text-[var(--ink-2)]">
+            Word for word on Causeway&apos;s demo, and on the sites of Joani Reid, James Asser, Dan
+            Carden, James Naish and Damien Egan. On Dan Carden&apos;s site, every one of the 13
+            building blocks on the home page comes straight from the demo.
+          </p>
+        </div>
+      </div>
+      <P>
+        To be fair, agencies use templates all the time, and £4,800 for a small agency website
+        isn&apos;t unheard of. That&apos;s not really the point. The point is one template being
+        sold to MP after MP at full price, and paid for with public money every time.
+      </P>
+      <P>
+        And a couple of things don&apos;t add up. Sam Rushworth and Dan Aldridge paid Causeway for
+        websites, but their sites today are built on Squarespace. Lauren Edwards paid £4,800 in
+        August 2024, yet by December 2024 her site was running on a Labour Party theme. What did
+        those payments buy? We don&apos;t know. They should say.
+      </P>
+
+      <H2 id="joani-reid">4. Joani Reid: £24,664, the most of any MP in the UK</H2>
       <P>
         Joani Reid, Labour MP for East Kilbride and Strathaven, has paid Causeway Creative £24,664
         since 2024. No other MP in the UK has paid it more. IPSA files £18,664 of that as
@@ -185,7 +227,7 @@ export default function Post() {
         </p>
       </Aside>
 
-      <H2 id="scottish-mps">4. The Scottish MPs who paid Causeway Creative</H2>
+      <H2 id="scottish-mps">5. The Scottish MPs who paid Causeway Creative</H2>
       <div className="my-7">
         <GuideTable
           kicker="IPSA claim files · since August 2024"
@@ -197,7 +239,7 @@ export default function Post() {
         />
       </div>
 
-      <H2 id="the-company">5. What the company&apos;s own records show</H2>
+      <H2 id="the-company">6. What the company&apos;s own records show</H2>
       <UL>
         <LI>
           <strong>Its first accounts</strong>, covering July 2024 to December 2025, show an average
@@ -214,7 +256,7 @@ export default function Post() {
         </LI>
       </UL>
 
-      <H2 id="what-we-did-not-find">6. What we did not find</H2>
+      <H2 id="what-we-did-not-find">7. What we did not find</H2>
       <UL>
         <LI>
           <strong>No overseas links.</strong> The only owner is British and based in England.
@@ -229,15 +271,14 @@ export default function Post() {
         </LI>
       </UL>
 
-      <H2 id="questions">7. The questions that need answers</H2>
+      <H2 id="questions">8. The questions that need answers</H2>
       <UL>
         <LI>
           Why did so many Labour MPs choose a firm run by a Labour councillor? Did any of them ask
           other firms for a price first?
         </LI>
         <LI>
-          Why did ten MPs each pay exactly £4,800 for a website? Is that a fixed price, and is it
-          good value for public money?
+          Why did ten MPs each pay exactly £4,800 for what is, in effect, the same template website?
         </LI>
         <LI>
           Does IPSA check whether a supplier has political links to the MP paying it?

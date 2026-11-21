@@ -149,7 +149,8 @@ export default function WorstScottishMpExpenses() {
           Advisory Ltd, a PR firm in Crawley, for &quot;Comms and Media Support&quot;.
         </LI>
         <LI>
-          53 MPs paid £270,033 to one firm run by a Labour councillor.{" "}
+          53 MPs paid £270,033 to one firm run by a Labour councillor. Fifteen paid it for websites,
+          most £4,800 each, and the ones we checked are copies of the same template.{" "}
           <Link href="/blog/causeway-creative-labour-councillor-mp-expenses">
             Read our Causeway Creative investigation
           </Link>

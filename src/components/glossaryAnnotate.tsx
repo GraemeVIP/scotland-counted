@@ -241,7 +241,14 @@ function annotateString(value: string, keyPrefix: string, G: TermComponent): Rea
     const after = parts[index + 1] ?? "";
     const found = autoTerms.find((candidate) => normaliseTermText(candidate.term) === normaliseTermText(part));
     // Some terms are also surnames ("Melanie Ward"). Only explain those in lower case.
-    const term = found && LOWER_CASE_ONLY.has(found.id) && /^[A-Z]/.test(part) ? undefined : found;
+    // Acronyms like ONS or DWP only count in capitals, so "add ons" is left alone.
+    const isAcronym = found ? /^[A-Z0-9]{2,6}$/.test(found.term) : false;
+    const term =
+      found &&
+      ((LOWER_CASE_ONLY.has(found.id) && /^[A-Z]/.test(part)) ||
+        (isAcronym && part !== part.toUpperCase()))
+        ? undefined
+        : found;
     if (!term) {
       text += part + after;
       continue;
