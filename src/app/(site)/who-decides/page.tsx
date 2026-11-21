@@ -89,7 +89,7 @@ export default function WhoDecides() {
             const items = responsibilitiesFor(level);
             const meta = LEVELS[level];
             return (
-              <section key={level} id={level} className="pt-14 scroll-mt-24">
+              <section key={level} id={level} className="pt-14">
                 <div
                   className="rounded-[var(--r-m)] border border-[var(--rule)] border-t-[3px] bg-[var(--surface)] p-6 sm:p-7"
                   style={{ borderTopColor: ACCENT[level] }}

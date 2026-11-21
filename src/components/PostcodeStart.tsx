@@ -123,7 +123,7 @@ export default function PostcodeStart({
       tabIndex={-1}
       data-testid="local-result"
       aria-labelledby="local-council-name"
-      className="scroll-mt-24 text-left outline-none"
+      className="text-left outline-none"
     >
       <div className={slot ? "mx-auto max-w-[1232px] px-5 pt-10 sm:px-8 sm:pt-14 lg:px-14" : "mt-7"}>
         <div className="tile p-5 sm:p-8 lg:p-10">

@@ -235,7 +235,7 @@ export default async function MpPage({ params }: { params: Promise<{ slug: strin
           </section>
 
           {interests && (
-            <section id="donations-and-interests" className="pt-10 scroll-mt-24">
+            <section id="donations-and-interests" className="pt-10">
               <MpInterestsCard
                 interests={interests}
                 checkedDate={MP_INTERESTS_CHECKED_ISO}

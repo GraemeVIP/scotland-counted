@@ -38,7 +38,7 @@ export default function CrisisGrantAccountability({
       : `${councilName}'s published award rate is ${signedDifference(stat.differenceFromScotland)}. That does not remove the need for scrutiny: the council should still publish enough information to show how decisions are made consistently and whether rejected applicants can use the review process.`;
 
   return (
-    <section id="crisis-grants" className="scroll-mt-24 pt-14">
+    <section id="crisis-grants" className="pt-14">
       <p className="kicker mb-2 text-[var(--bad-text)]">Emergency help, local decisions</p>
       <h2 className="h2 mb-3">The Crisis Grant gap in {councilName}</h2>
       <p className="max-w-[68ch] text-[16.5px] leading-[1.6] text-[var(--ink-2)]">

@@ -101,7 +101,7 @@ export default async function MspReviewsPage() {
             </div>
           </section>
 
-          <section id="leave-an-msp-review" className="scroll-mt-28 pt-14 sm:pt-18">
+          <section id="leave-an-msp-review" className="pt-14 sm:pt-18">
             <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_340px] lg:items-start">
               <div>
                 <p className="kicker mb-3 text-[var(--action-text)]">Submit an experience</p>
@@ -122,7 +122,7 @@ export default async function MspReviewsPage() {
             </div>
           </section>
 
-          <section id="find-an-msp" className="scroll-mt-28 pt-16 sm:pt-20">
+          <section id="find-an-msp" className="pt-16 sm:pt-20">
             <p className="kicker mb-3 text-[var(--brand)]">Browse the directory</p>
             <h2 className="h2">Scottish MSP reviews and ratings</h2>
             <p className="mb-7 mt-4 max-w-[72ch] text-[17px] leading-[1.65] text-[var(--ink-2)]">Find any current constituency or regional MSP. A blank record means no review has passed moderation; it is never turned into a made up zero rating.</p>

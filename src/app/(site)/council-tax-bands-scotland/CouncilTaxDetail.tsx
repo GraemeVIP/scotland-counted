@@ -223,7 +223,7 @@ export function CouncilTaxDetail({ slug }: { slug: string }) {
                 <div
                   key={c.band}
                   id={`band-${c.band.toLowerCase()}`}
-                  className="scroll-mt-24 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5 sm:p-6"
+                  className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5 sm:p-6"
                 >
                   <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
                     <h3 className="text-[19px] font-[600]">

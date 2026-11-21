@@ -82,7 +82,7 @@ export default function Press() {
             part with a story attached to a specific newsroom's patch, so it
             gets its own lines, its own spreadsheet and a citation a reporter
             can paste without emailing first. */}
-        <section id="councils" className="scroll-mt-24 pt-16">
+        <section id="councils" className="pt-16">
           <h2 className="h2 mb-3">Councils: worst in Scotland</h2>
           <p className="text-[15.5px] text-[var(--ink-2)] mb-7 max-w-[65ch]">
             One line for each measure every Scottish council reports the same way, naming the
@@ -333,7 +333,7 @@ export default function Press() {
         </section>
 
         {/* ---------- Terms ---------- */}
-        <section id="reuse-terms" className="scroll-mt-24 pt-16">
+        <section id="reuse-terms" className="pt-16">
           <h2 className="h2 mb-4">Reuse terms</h2>
           <Col>
             <p>

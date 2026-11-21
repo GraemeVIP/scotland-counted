@@ -89,7 +89,7 @@ export default function MspsDirectoryPage() {
             </p>
           </InShort>
 
-          <section id="holyrood-regions" className="pt-12 scroll-mt-24">
+          <section id="holyrood-regions" className="pt-12">
             <div className="flex flex-wrap items-end justify-between gap-4 mb-6">
               <div>
                 <p className="kicker mb-2 text-[var(--brand)]">Seven MSPs in each</p>

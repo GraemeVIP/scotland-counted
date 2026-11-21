@@ -702,7 +702,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
           />
         </PageHeader>
 
-        <ContentFrame as="section" id="your-mp" className="scroll-mt-24 mb-8">
+        <ContentFrame as="section" id="your-mp" className="mb-8">
           <div className="rounded-[var(--r-m)] border-2 border-[var(--brand)] bg-[var(--surface)] p-5 sm:p-6">
             <h2 className="text-[22px] font-[700] leading-[1.2] text-[var(--ink)] sm:text-[26px]">
               See what your MP claimed
@@ -766,7 +766,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
         </ContentFrame>
 
         {/* FROM THE RECEIPTS: front and centre */}
-        <ContentFrame as="section" id="receipts" className="pt-12 scroll-mt-20">
+        <ContentFrame as="section" id="receipts" className="pt-12">
           <div className="tile-night tile overflow-hidden p-6 sm:p-8">
             <div className="flex flex-wrap items-end justify-between gap-4">
               <div className="max-w-[56ch]">
@@ -807,7 +807,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
         </ContentFrame>
 
         {/* THE JUXTAPOSITION: WHAT MPS CLAIM VS WHAT CONSTITUENTS GET */}
-        <ContentFrame as="section" id="two-sets-of-rules" className="pt-16 scroll-mt-20">
+        <ContentFrame as="section" id="two-sets-of-rules" className="pt-16">
           <SectionHead
             eyebrow="Two sets of rules · Westminster vs Scottish households"
             title="What MPs can bill to the taxpayer vs what ordinary families face"
@@ -870,7 +870,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
           </h3>
           <ExplainText>
             <div className="mt-5 grid gap-4 md:grid-cols-2">
-              <div id="why-second-homes" className="tile scroll-mt-24 p-6">
+              <div id="why-second-homes" className="tile p-6">
                 <span className="chip mb-3">01 · Why do they get 2nd homes?</span>
                 <h3 className="ui text-[18px] font-[660] leading-[1.3] text-[var(--ink)]">
                   Why taxpayers pay for two properties (and bills on homes MPs already own)
@@ -968,7 +968,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
         </ContentFrame>
 
         {/* THE PARTY TALLY */}
-        <ContentFrame as="section" id="staff-travel" className="pt-16 scroll-mt-20">
+        <ContentFrame as="section" id="staff-travel" className="pt-16">
           <SectionHead
             eyebrow="Staff travel · IPSA 2025/26"
             title="£565,753 to move MPs' staff around, including £169,523 in London hotels"
@@ -1015,7 +1015,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
           </div>
         </ContentFrame>
 
-        <ContentFrame as="section" id="party-tally" className="pt-16 scroll-mt-20">
+        <ContentFrame as="section" id="party-tally" className="pt-16">
           <SectionHead
             eyebrow="The Party Tally · Labour vs SNP vs Conservatives vs Lib Dems"
             title="Which party claims the most in expenses, second home bills, foreign trips and donations?"
@@ -1102,7 +1102,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
         </ContentFrame>
 
         {/* SPOTLIGHT PHOTO CARDS */}
-        <ContentFrame as="section" id="top-claimants" className="pt-16 scroll-mt-20">
+        <ContentFrame as="section" id="top-claimants" className="pt-16">
           <SectionHead
             eyebrow="The public record · Photos, receipts & local poverty contrast"
             title="Spotlight on the highest expense claims and private donations in Scotland"
@@ -1150,7 +1150,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
         </ContentFrame>
 
         {/* INTERACTIVE LEADERBOARD (COLLAPSED TO TOP 10 BY DEFAULT) */}
-        <ContentFrame as="section" id="leaderboard" className="pt-16 scroll-mt-20">
+        <ContentFrame as="section" id="leaderboard" className="pt-16">
           <SectionHead
             eyebrow="Full 57-MP Leaderboard · Search & filter"
             title="Check any Scottish MP: switch between Taxpayer Expenses and Private Donations"
@@ -1166,7 +1166,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
         </ContentFrame>
 
         {/* COMPACT COLLAPSIBLE DRAWERS FOR ALL RAW CATEGORIES, DONATIONS, FOREIGN TRIPS & GIFTS */}
-        <ContentFrame as="section" id="full-lists" className="pt-16 scroll-mt-20">
+        <ContentFrame as="section" id="full-lists" className="pt-16">
           <SectionHead
             eyebrow="Dig into the raw receipts"
             title="Open the full lists: 2nd home council tax, Qatar/China trips, F1 tickets, donors & lobbyist husbands"
@@ -1699,7 +1699,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
           </div>
         </ContentFrame>
 
-        <ContentFrame as="section" id="faq" className="pt-16 scroll-mt-20">
+        <ContentFrame as="section" id="faq" className="pt-16">
           <Faq
             items={FAQ}
             kicker="Questions"

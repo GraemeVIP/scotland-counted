@@ -211,7 +211,7 @@ export function MspProfileReviews({
   const reviewPath = `/msp-reviews/${representativeSlug(msp.name)}`;
 
   return (
-    <section id="reviews" className="scroll-mt-28 pt-10" aria-labelledby="profile-reviews-heading">
+    <section id="reviews" className="pt-10" aria-labelledby="profile-reviews-heading">
       <div className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-6 sm:p-8">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>

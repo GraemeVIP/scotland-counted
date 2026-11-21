@@ -299,7 +299,7 @@ export default async function CouncilAccountabilityPage({
             ))}
           </nav>
 
-          <section id="money" className="pt-12 scroll-mt-24">
+          <section id="money" className="pt-12">
             <p className="kicker mb-2 text-[var(--brand)]">Follow the money</p>
             <h2 className="h2 mb-3">What the published figures say</h2>
             <p className="max-w-[68ch] text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
@@ -346,7 +346,7 @@ export default async function CouncilAccountabilityPage({
           */}
           <BudgetGapExplainer slug={record.councilSlug} councilName={record.councilName} />
 
-          <section id="performance" className="pt-14 scroll-mt-24">
+          <section id="performance" className="pt-14">
             <p className="kicker mb-2 text-[var(--action-text)]">
               {reportedOutcomes.length > 0 ? "Promises versus results" : "The missing evidence"}
             </p>
@@ -418,7 +418,7 @@ export default async function CouncilAccountabilityPage({
 
           <FamilyGroupComparison slug={record.councilSlug} councilName={record.councilName} />
 
-          <section id="audit-trail" className="pt-14 scroll-mt-24">
+          <section id="audit-trail" className="pt-14">
             <p className="kicker mb-2 text-[var(--bad-text)]">Outside checks</p>
             <h2 className="h2 mb-3">What the auditors found</h2>
             <p className="max-w-[68ch] text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
@@ -470,7 +470,7 @@ export default async function CouncilAccountabilityPage({
             )}
           </section>
 
-          <section id="promises" className="pt-14 scroll-mt-24">
+          <section id="promises" className="pt-14">
             <p className="kicker mb-2 text-[var(--brand)]">What your council said it would do</p>
             <h2 className="h2 mb-3">Promises and deadlines</h2>
             <p className="max-w-[68ch] text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
@@ -502,7 +502,7 @@ export default async function CouncilAccountabilityPage({
             </div>
           </section>
 
-          <section id="sources" className="pt-14 scroll-mt-24 max-w-[820px]">
+          <section id="sources" className="pt-14 max-w-[820px]">
             <h2 className="h2 mb-3">What we still do not know</h2>
             <p className="text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
               This is a first, fully sourced record, not a claim that every council decision is

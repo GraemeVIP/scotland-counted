@@ -38,7 +38,7 @@ export default function FamilyGroupComparison({
   const place = councilName.replace(/ Council$/, "");
 
   return (
-    <section id="similar-councils" className="pt-14 scroll-mt-24">
+    <section id="similar-councils" className="pt-14">
       <p className="kicker mb-2 text-[var(--brand)]">Councils like yours</p>
       <h2 className="h2 mb-3">How {place} compares with similar councils</h2>
       <p className="max-w-[68ch] text-[16.5px] leading-[1.6] text-[var(--ink-2)]">

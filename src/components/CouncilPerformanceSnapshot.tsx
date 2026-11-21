@@ -14,7 +14,7 @@ export default function CouncilPerformanceSnapshot({ slug }: { slug: string }) {
     <section
       id="council-index"
       aria-labelledby="council-index-title"
-      className="mt-10 scroll-mt-24 overflow-hidden rounded-[var(--r-l)] border border-[var(--rule)] bg-[var(--surface)]"
+      className="mt-10 overflow-hidden rounded-[var(--r-l)] border border-[var(--rule)] bg-[var(--surface)]"
     >
       <div className="bg-[var(--deep)] p-5 text-[var(--deep-ink)] sm:p-7">
         <div className="flex flex-wrap items-start justify-between gap-6">

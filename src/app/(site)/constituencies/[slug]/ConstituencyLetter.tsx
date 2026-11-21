@@ -85,7 +85,7 @@ export default function ConstituencyLetter({
   return (
     <section
       id="email-your-mp"
-      className="scroll-mt-24 rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] border-t-[3px] border-t-[var(--action)] p-6 sm:p-8"
+      className="rounded-[var(--r-m)] bg-[var(--surface)] border border-[var(--rule)] border-t-[3px] border-t-[var(--action)] p-6 sm:p-8"
       style={{ boxShadow: "var(--shadow-2)" }}
     >
       <h2 className="h2 mb-2">Email the MP for {area.name}</h2>

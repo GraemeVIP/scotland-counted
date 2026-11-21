@@ -140,7 +140,7 @@ export default function RepresentativesPage() {
             </Link>
           </section>
 
-          <section id="every-scottish-mp" className="pt-12 scroll-mt-24">
+          <section id="every-scottish-mp" className="pt-12">
             <div className="flex flex-wrap items-end justify-between gap-4 mb-6">
               <div>
                 <p className="kicker mb-2 text-[var(--brand)]">Current representatives</p>

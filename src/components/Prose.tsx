@@ -30,7 +30,7 @@ export function Lead({ children }: { children: ReactNode }) {
 
 export function H2({ children, id }: { children: ReactNode; id?: string }) {
   return (
-    <h2 id={id} className="h2 pt-6 scroll-mt-24">
+    <h2 id={id} className="h2 pt-6">
       {children}
     </h2>
   );
@@ -38,7 +38,7 @@ export function H2({ children, id }: { children: ReactNode; id?: string }) {
 
 export function H3({ children, id }: { children: ReactNode; id?: string }) {
   return (
-    <h3 id={id} className="h3 pt-3 scroll-mt-24">
+    <h3 id={id} className="h3 pt-3">
       {children}
     </h3>
   );

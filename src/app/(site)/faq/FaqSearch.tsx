@@ -143,7 +143,7 @@ export default function FaqSearch() {
       {visibleSections.length > 0 ? (
         <div className="mt-4 divide-y-2 divide-[var(--ink)]">
           {visibleSections.map((section) => (
-            <section key={section.id} id={section.id} className="scroll-mt-24 py-10 sm:py-12">
+            <section key={section.id} id={section.id} className="py-10 sm:py-12">
               <div className="grid gap-x-12 gap-y-7 lg:grid-cols-[280px_minmax(0,1fr)]">
                 <div>
                   <p className="label mb-3">{section.items.length} answers</p>
@@ -159,7 +159,7 @@ export default function FaqSearch() {
                       key={item.id}
                       id={item.id}
                       open={deferredQuery ? true : undefined}
-                      className="group scroll-mt-24 rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] open:border-[var(--brand)]"
+                      className="group rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] open:border-[var(--brand)]"
                     >
                       <summary className="ui flex min-h-14 cursor-pointer list-none items-center justify-between gap-5 px-5 py-4 text-[17px] font-[600] leading-[1.4] sm:px-6">
                         <span>{item.q}</span>

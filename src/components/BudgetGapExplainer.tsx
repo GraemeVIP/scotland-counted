@@ -42,7 +42,7 @@ export default function BudgetGapExplainer({
   const biggest = BRIDGING_ACTIONS[0];
 
   return (
-    <section id="why-more-money" className="pt-14 scroll-mt-24">
+    <section id="why-more-money" className="pt-14">
       <p className="kicker mb-2 text-[var(--action-text)]">The bit nobody explains</p>
       <h2 className="h2 mb-3">Why your council says it needs more money</h2>
       <p className="max-w-[68ch] text-[16.5px] leading-[1.6] text-[var(--ink-2)]">

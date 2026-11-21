@@ -150,7 +150,7 @@ export default function CouncilTaxPage() {
           </p>
         </div>
 
-        <section id="what-is-my-band" className="mb-10 scroll-mt-24">
+        <section id="what-is-my-band" className="mb-10">
           <h2 className="h2 mb-3">What is my council tax band?</h2>
           <p className="max-w-[62ch] text-[17px] leading-[1.6] text-[var(--ink-2)]">
             Your band depends on what your home would have sold for on 1 April 1991, not what it is

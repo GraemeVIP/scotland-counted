@@ -93,7 +93,7 @@ export default function CouncilTaxLookup() {
   }
 
   return (
-    <div id="find-charges" className="scroll-mt-24">
+    <div id="find-charges">
       <div className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] p-5 sm:p-6">
         <h2 className="h3 mb-4">What will my bill be?</h2>
         <form onSubmit={lookup} className="grid gap-2.5 sm:grid-cols-[minmax(0,320px)_auto] sm:justify-start">
@@ -148,7 +148,7 @@ export default function CouncilTaxLookup() {
 
       {result && (
         <div className="mt-8">
-          <h2 ref={resultHeading} tabIndex={-1} className="h2 mb-2 scroll-mt-24">{result.councilName}</h2>
+          <h2 ref={resultHeading} tabIndex={-1} className="h2 mb-2">{result.councilName}</h2>
           <p className="max-w-[62ch] text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
             Every band, with water and waste water included. Those are on the same bill and are
             usually missing from figures you find elsewhere.

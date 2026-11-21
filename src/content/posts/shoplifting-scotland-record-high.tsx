@@ -113,7 +113,7 @@ function CouncilChart() {
   const topTen = councilShoplifting.slice(0, 10);
   const scotland = scotlandVsEnglandWales.at(-1)!;
   return (
-    <figure id="find-your-council" className="not-prose my-8 scroll-mt-24 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5 sm:p-7">
+    <figure id="find-your-council" className="not-prose my-8 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5 sm:p-7">
       <div className="flex flex-wrap items-end justify-between gap-3 border-b border-[var(--rule)] pb-4">
         <div>
           <p className="ui text-[15px] font-[620] text-[var(--brand)]">Figure 6 · Find your council</p>

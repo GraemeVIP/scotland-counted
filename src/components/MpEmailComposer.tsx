@@ -53,9 +53,9 @@ export default function MpEmailComposer({
   }
 
   return (
-    <div id="write-to-your-mp" className="scroll-mt-24">
+    <div id="write-to-your-mp">
       {issues.map((i) => (
-        <span key={i.id} id={`ask-${i.id}`} className="block scroll-mt-24" aria-hidden="true" />
+        <span key={i.id} id={`ask-${i.id}`} className="block" aria-hidden="true" />
       ))}
       <label htmlFor="email-issue" className="ui block text-[17px] font-[660] text-[var(--ink)]">
         Email {name} in one minute

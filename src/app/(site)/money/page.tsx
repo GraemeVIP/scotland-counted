@@ -179,7 +179,7 @@ export default function MoneyHub() {
           </section>
 
           {GROUPS.map((group) => (
-            <section key={group.id} id={group.id} className="pt-14 scroll-mt-24">
+            <section key={group.id} id={group.id} className="pt-14">
               <h2 className="h2 mb-2">{group.title}</h2>
               <p className="max-w-[64ch] text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
                 {group.intro}

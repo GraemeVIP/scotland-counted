@@ -447,7 +447,7 @@ export default function MpExpenseReceiptsPage() {
         </PageHeader>
 
         {/* THE SINGLE RECEIPTS */}
-        <ContentFrame as="section" id="receipts" className="scroll-mt-20">
+        <ContentFrame as="section" id="receipts">
           <SectionHead eyebrow="Single claims · in IPSA's own words" title={`${RECEIPTS.length} receipts you paid for`} />
           <ExplainText>
             <p className="mt-3 max-w-[66ch] text-[17px] leading-[1.6] text-[var(--ink-2)]">
@@ -534,7 +534,7 @@ export default function MpExpenseReceiptsPage() {
         </ContentFrame>
 
         {/* BIGGEST YEARLY TABS */}
-        <ContentFrame as="section" id="biggest-tabs" className="pt-16 scroll-mt-20">
+        <ContentFrame as="section" id="biggest-tabs" className="pt-16">
           <SectionHead
             eyebrow="Yearly totals · one MP each"
             title="The biggest tabs run up by a single Scottish MP"
@@ -587,7 +587,7 @@ export default function MpExpenseReceiptsPage() {
         </ContentFrame>
 
         {/* WHY YOU'VE NEVER SEEN THIS */}
-        <ContentFrame as="section" id="why-hidden" className="pt-16 scroll-mt-20">
+        <ContentFrame as="section" id="why-hidden" className="pt-16">
           <SectionHead
             eyebrow="Published, but hard to find"
             title="Why you have never seen these receipts"
@@ -667,7 +667,7 @@ export default function MpExpenseReceiptsPage() {
         </ContentFrame>
 
         {/* PUT IT TO THEM */}
-        <ContentFrame as="section" id="put-it-to-them" className="pt-16 scroll-mt-20">
+        <ContentFrame as="section" id="put-it-to-them" className="pt-16">
           <SectionHead eyebrow="Hidden in plain sight" title="Put it to them" />
           <ExplainText>
             <p className="mt-3 max-w-[66ch] text-[17px] leading-[1.6] text-[var(--ink-2)]">
@@ -705,7 +705,7 @@ export default function MpExpenseReceiptsPage() {
           </div>
         </ContentFrame>
 
-        <ContentFrame as="section" id="faq" className="pt-16 scroll-mt-20">
+        <ContentFrame as="section" id="faq" className="pt-16">
           <Faq items={FAQ} kicker="Questions" title="Common questions about these receipts" />
         </ContentFrame>
 

@@ -44,7 +44,7 @@ export default function CouncilCompare({ slug }: { slug: string }) {
   if (!rows || rows.length === 0) return null;
 
   return (
-    <section id="compare" className="pt-14 scroll-mt-24">
+    <section id="compare" className="pt-14">
       <p className="kicker mb-2 text-[var(--brand)]">Same ruler for all 32 councils</p>
       <h2 className="h2 mb-3">How your council compares</h2>
       <p className="max-w-[68ch] text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
