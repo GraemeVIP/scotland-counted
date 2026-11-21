@@ -1518,17 +1518,8 @@ export default function MpRegisterOfInterestsScotlandPage() {
                           <strong>Put side by side, they don&apos;t match.</strong>
                         </div>
                         <div className="mt-2 block">
-                          She also said the money mostly went on a website. Only £6,000 of it did,
-                          and that website is a copy of the firm&apos;s template, down to a survey
-                          shared word for word with a Liverpool MP&apos;s site.
-                        </div>
-                        <div className="mt-2 block">
-                          <Link
-                            href="/blog/causeway-creative-labour-councillor-mp-expenses#websites"
-                            className="font-[640]"
-                          >
-                            Who runs Causeway Creative, and why 53 MPs paid it £270,033 →
-                          </Link>
+                          She also said the money mostly went on a website. IPSA&apos;s records show
+                          only £6,000 of it as website work.
                         </div>
                       </div>
                       <div className="mt-4 block">

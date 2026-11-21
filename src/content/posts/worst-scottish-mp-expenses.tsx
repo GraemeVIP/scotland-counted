@@ -149,19 +149,8 @@ export default function WorstScottishMpExpenses() {
           Advisory Ltd, a PR firm in Crawley, for &quot;Comms and Media Support&quot;.
         </LI>
         <LI>
-          53 MPs paid £270,033 to one firm run by a Labour councillor. Fifteen paid it for websites,
-          most £4,800 each plus £1,200 the year after. The ones we checked are copies of one
-          template. One MP&apos;s site even says &quot;Traditionally our industry has used Croydon
-          East, which is placeholder text written in Latin.&quot; That&apos;s a find and replace
-          nobody checked.{" "}
-          <Link href="/blog/causeway-creative-labour-councillor-mp-expenses">
-            Read our Causeway Creative investigation
-          </Link>
-          .
-        </LI>
-        <LI>
-          <Link href={mp("east-kilbride-and-strathaven")}>Joani Reid</Link> (Labour) paid that firm
-          £24,664, more than any other MP in the UK. She told The Scotsman she had &quot;not used any
+          <Link href={mp("east-kilbride-and-strathaven")}>Joani Reid</Link> (Labour) paid Causeway
+          Creative, a PR and web firm, £24,664, more than any other MP in the UK. She told The Scotsman she had &quot;not used any
           public money to hire any consultant or consultancy services for public or media
           relations&quot;. IPSA&apos;s records show £18,664 of it filed as &quot;Comms &amp;
           Media&quot;. Put side by side, they don&apos;t match.

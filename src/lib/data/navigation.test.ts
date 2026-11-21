@@ -172,9 +172,7 @@ test("only evidence-led investigations are filed under the investigations catego
    */
   const INVESTIGATIONS = [
     "scottish-mp-expenses-and-freebies-investigation",
-    "causeway-creative-labour-councillor-mp-expenses",
     "worst-scottish-mp-expenses",
-    "mp-websites-copy-and-paste-template",
     "operation-branchform-snp-money-timeline",
     "crisis-grant-acceptance-rates-scotland-councils",
     "glasgow-sex-crime-rise-migrants",

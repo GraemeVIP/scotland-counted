@@ -17,10 +17,6 @@ type TermComponent = ComponentType<{ t: string; children: ReactNode }>;
  * from help; ordinary words and proper names are left alone.
  */
 const AUTO_GLOSSARY_IDS = [
-  "wordpress",
-  "lorem-ipsum",
-  "page-builder",
-  "find-and-replace",
   "ahc",
   "pp",
   "relative-poverty",
