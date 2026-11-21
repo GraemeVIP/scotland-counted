@@ -478,7 +478,10 @@ export default function MpExpenseReceiptsPage() {
           lede="Speech coaching. Drain cleaning at a second home. An iPhone. Furniture from DFS and IKEA. A staff Christmas lunch. A billboard advertising the MP. Every item on this page is a real claim paid with public money since 2022, copied word for word from IPSA's own records. All of them were within the rules."
         >
           <div className="mt-5 flex flex-wrap items-center gap-3">
-            <Link href="/email-your-mp-and-msp" className="btn btn-primary">
+            <Link href="/mp-expenses-scotland/search" className="btn btn-primary">
+              Search all 20,879 receipts yourself →
+            </Link>
+            <Link href="/email-your-mp-and-msp" className="btn btn-ghost">
               Ask your own MP to explain →
             </Link>
             <Link href="/mp-expenses-scotland" className="btn btn-ghost">
@@ -680,15 +683,15 @@ export default function MpExpenseReceiptsPage() {
             <h4 className="ui mt-10 text-[19px] font-[680] leading-[1.3] text-[var(--ink)]">
               How often was he needed in London?
             </h4>
-            <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4">
+            <div className="mt-4 grid grid-cols-3 gap-2 sm:gap-4">
               {[
                 [`${COMMONS_SITTING_DAYS}`, "days the Commons sat in 2025/26"],
                 [`${ZUBIR_NIGHT_COUNT}`, "London nights the taxpayer paid for"],
                 [gbp(ZUBIR_TOTAL / COMMONS_SITTING_DAYS, false), "for every day the Commons sat"],
               ].map(([n, label]) => (
-                <div key={label} className="tile p-4 sm:p-5">
-                  <p className="figure-num tnum text-[26px] leading-none text-[var(--bad-text)] sm:text-[30px]">{n}</p>
-                  <p className="ui mt-2 text-[14px] leading-[1.4] text-[var(--ink-2)]">{label}</p>
+                <div key={label} className="tile p-3 sm:p-5">
+                  <p className="figure-num tnum text-[23px] leading-none text-[var(--bad-text)] sm:text-[30px]">{n}</p>
+                  <p className="ui mt-2 text-[13px] leading-[1.35] text-[var(--ink-2)] sm:text-[14px]">{label}</p>
                 </div>
               ))}
             </div>
