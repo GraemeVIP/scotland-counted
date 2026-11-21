@@ -204,13 +204,13 @@ export const posts: Post[] = [
   {
     slug: "scottish-mp-expenses-and-freebies-investigation",
     title:
-      "£81,647 for second home council tax, £43,475 for hotel rooms and free F1 tickets: inside Scottish MPs' 2025/26 expenses and freebies",
+      "£81,647 for second home council tax, £37,359 for hotel rooms and free F1 tickets: inside Scottish MPs' 2025/26 expenses and freebies",
     seoTitle:
       "Scottish MP Expenses & Freebies Investigation: 2nd Home Bills, Hotels & Qatar Trips",
     description:
-      "47 Scottish MPs billed taxpayers £81,647 for 2nd home council tax and £39,218 for energy bills on top of £93,904 salaries, plus £43k on hotels and Qatar trips.",
+      "47 Scottish MPs billed taxpayers £81,647 for 2nd home council tax and £39,218 for energy bills on top of £93,904 salaries, plus £37k on hotels and Qatar trips.",
     standfirst:
-      "Scottish MPs were paid £93,904 in 2025/26. Yet that year, 47 of them billed the taxpayer £81,647 to pay the council tax on their second homes and £39,218 to heat and light them, alongside £43,475 for one MP's London hotel stays, £6,292 for one MP's car parking, and £296,895 in private donations, Qatar and China trips, and Silverstone F1 tickets.",
+      "Scottish MPs were paid £93,904 in 2025/26. Yet that year, 47 of them billed the taxpayer £81,647 to pay the council tax on their second homes and £39,218 to heat and light them, alongside £37,359 for one MP's London hotel stays, £6,292 for one MP's car parking, and £296,895 in private donations, Qatar and China trips, and Silverstone F1 tickets.",
     date: "2026-11-21",
     updated: "2026-11-21",
     checked: "2026-11-21",
@@ -241,8 +241,8 @@ export const posts: Post[] = [
     },
     toc: [
       { id: "second-home-bills", label: "£81,647 for 2nd home council tax & £39k for heating" },
-      { id: "flats-and-hotels", label: "£3,500/month flats & £43,475 hotel tabs" },
-      { id: "family-parking-taxis", label: "£7,932 family flights, £6,292 parking & £5,233 taxis" },
+      { id: "flats-and-hotels", label: "£3,500/month flats & a £37,359 hotel tab" },
+      { id: "family-parking-taxis", label: "£7,932 family flights, £6,292 parking & £5,059 taxis" },
       { id: "remote-voting-and-carbon", label: "145 sitting days, remote voting & £912k in flights" },
       { id: "voting-against-help", label: "Voting against child support while claiming £497k" },
       { id: "party-tally", label: "The Party Tally: Labour vs SNP vs Tories vs Lib Dems" },
@@ -260,7 +260,7 @@ export const posts: Post[] = [
       },
       {
         q: "Which party claimed the most in second home council tax, London hotels and foreign trips?",
-        a: "Scottish Labour holds 37 of Scotland's 57 seats (65%), yet its MPs accounted for 73% of all second home council tax billed to taxpayers (£59,231), 71% of all London hotel spending (£152,908), 75% of all funded foreign trips (£57,288), and £105,589 in private donations.",
+        a: "Scottish Labour holds 37 of Scotland's 57 seats (65%), yet its MPs accounted for 73% of all second home council tax billed to taxpayers (£59,231), 75% of all funded foreign trips (£57,288), and £105,589 in private donations.",
       },
     ],
     sourceIds: [

@@ -44,9 +44,9 @@ export default function AnnouncementBar() {
             New
           </span>
           <span className="ui min-w-0 text-[14px] font-[600] leading-[1.3] sm:text-[15.5px]">
-            <span className="sm:hidden">One MP claimed £43,475 for hotels. See your MP&apos;s expenses</span>
+            <span className="sm:hidden">One MP claimed £37,359 for hotels. See your MP&apos;s expenses</span>
             <span className="hidden sm:inline">
-              Scottish MPs&apos; expenses: one claimed £43,475 for London hotels, another £6,292 for
+              Scottish MPs&apos; expenses: one claimed £37,359 for London hotels, another £6,292 for
               parking. <span className="font-[800]">See your MP&apos;s expenses</span>
             </span>
           </span>

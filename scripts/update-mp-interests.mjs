@@ -171,6 +171,9 @@ async function fetchIpsaData(memberIds) {
       taxis: 0,
       dependantTravel: 0,
       parking: 0,
+      // The MP's own travel and their staff's travel are separate IPSA categories.
+      mpTravel: 0,
+      staffTravel: 0,
     });
   }
 
@@ -183,19 +186,27 @@ async function fetchIpsaData(memberIds) {
     const paid = parseGbp(row["Amount Paid"]);
     if (paid === 0) continue;
 
+    if (cat === "MP Travel") rec.mpTravel = Math.round((rec.mpTravel + paid) * 100) / 100;
+    // Staff travel (including staff hotel stays and taxis) is kept apart, so
+    // hotel and taxi figures below are the MP's own, never their staff's.
+    if (cat === "Staff Travel") {
+      rec.staffTravel = Math.round((rec.staffTravel + paid) * 100) / 100;
+      continue;
+    }
+
     if (cat === "Accommodation" && costType === "Rent") {
       rec.secondHomeRent = Math.round((rec.secondHomeRent + paid) * 100) / 100;
     } else if (cat === "Accommodation" && costType === "Council tax") {
       rec.secondHomeCouncilTax = Math.round((rec.secondHomeCouncilTax + paid) * 100) / 100;
     } else if (cat === "Accommodation" && costType === "Utilities") {
       rec.secondHomeUtilities = Math.round((rec.secondHomeUtilities + paid) * 100) / 100;
-    } else if (costType.includes("Hotel - London")) {
+    } else if (costType.includes("Hotel - London") && (cat === "Accommodation" || cat === "MP Travel")) {
       rec.londonHotels = Math.round((rec.londonHotels + paid) * 100) / 100;
     } else if (cat === "MP Travel" && costType === "Air travel") {
       rec.flights = Math.round((rec.flights + paid) * 100) / 100;
     } else if (cat === "MP Travel" && costType === "Rail") {
       rec.rail = Math.round((rec.rail + paid) * 100) / 100;
-    } else if (costType === "Taxi") {
+    } else if (cat === "MP Travel" && costType === "Taxi") {
       rec.taxis = Math.round((rec.taxis + paid) * 100) / 100;
     } else if (cat === "Dependant Travel") {
       rec.dependantTravel = Math.round((rec.dependantTravel + paid) * 100) / 100;

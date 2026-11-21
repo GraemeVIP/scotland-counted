@@ -76,6 +76,10 @@ export type MpExpensesSummary = {
   flights: number;
   rail: number;
   taxis: number;
+  /** All MP Travel claims (the MP's own journeys). */
+  mpTravel: number;
+  /** All Staff Travel claims, including staff hotels and taxis. */
+  staffTravel: number;
   dependantTravel: number;
   parking: number;
 };

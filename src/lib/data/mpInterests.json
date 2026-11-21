@@ -28,12 +28,14 @@
         "secondHomeRent": 26999.99,
         "secondHomeCouncilTax": 1791.12,
         "secondHomeUtilities": 983.55,
-        "londonHotels": 2358,
+        "londonHotels": 0,
         "flights": 6322.41,
         "rail": 4979.5,
-        "taxis": 335.74,
+        "taxis": 234.34,
         "dependantTravel": 421.16,
-        "parking": 0
+        "parking": 0,
+        "mpTravel": 12866.49,
+        "staffTravel": 9038.53
       },
       "donations": [
         {
@@ -107,12 +109,14 @@
         "secondHomeRent": 0,
         "secondHomeCouncilTax": 0,
         "secondHomeUtilities": 0,
-        "londonHotels": 43475.49,
+        "londonHotels": 37358.58,
         "flights": 8351.26,
         "rail": 55,
-        "taxis": 1027.96,
+        "taxis": 80.96,
         "dependantTravel": 4204.44,
-        "parking": 60
+        "parking": 60,
+        "mpTravel": 8769.97,
+        "staffTravel": 25897.36
       },
       "donations": [
         {
@@ -187,12 +191,14 @@
         "secondHomeRent": 28816.74,
         "secondHomeCouncilTax": 2442.43,
         "secondHomeUtilities": 0,
-        "londonHotels": 1807.04,
+        "londonHotels": 0,
         "flights": 6424.3,
         "rail": 5363.47,
-        "taxis": 35,
+        "taxis": 35.0,
         "dependantTravel": 245.07,
-        "parking": 11
+        "parking": 11,
+        "mpTravel": 14572.47,
+        "staffTravel": 3815.09
       },
       "donations": [
         {
@@ -265,7 +271,9 @@
         "rail": 1028.47,
         "taxis": 133.37,
         "dependantTravel": 0,
-        "parking": 2874.63
+        "parking": 2874.63,
+        "mpTravel": 26052.95,
+        "staffTravel": 14489.44
       },
       "donations": [
         {
@@ -398,12 +406,14 @@
         "secondHomeRent": 32480.29,
         "secondHomeCouncilTax": 1540.85,
         "secondHomeUtilities": 433.79,
-        "londonHotels": 2996,
+        "londonHotels": 0,
         "flights": 33100.15,
         "rail": 1770.51,
-        "taxis": 1330.1,
+        "taxis": 1293.0,
         "dependantTravel": 1501.42,
-        "parking": 5.5
+        "parking": 5.5,
+        "mpTravel": 38028.92,
+        "staffTravel": 16087.31
       },
       "donations": [
         {
@@ -479,12 +489,14 @@
         "secondHomeRent": 25799.99,
         "secondHomeCouncilTax": 0,
         "secondHomeUtilities": 0,
-        "londonHotels": 2910,
+        "londonHotels": 0,
         "flights": 6459.55,
         "rail": 6933.88,
-        "taxis": 1464,
+        "taxis": 1435.97,
         "dependantTravel": 0,
-        "parking": 0
+        "parking": 0,
+        "mpTravel": 15393.72,
+        "staffTravel": 7079.32
       },
       "donations": [
         {
@@ -552,12 +564,14 @@
         "secondHomeRent": 30635.02,
         "secondHomeCouncilTax": 618.62,
         "secondHomeUtilities": 562.46,
-        "londonHotels": 2182.9,
+        "londonHotels": 294.0,
         "flights": 24402.53,
         "rail": 230.15,
-        "taxis": 269,
+        "taxis": 269.0,
         "dependantTravel": 0,
-        "parking": 2936.83
+        "parking": 2936.83,
+        "mpTravel": 29301.45,
+        "staffTravel": 8300.06
       },
       "donations": [
         {
@@ -641,12 +655,14 @@
         "secondHomeRent": 29900,
         "secondHomeCouncilTax": 996.18,
         "secondHomeUtilities": 80.26,
-        "londonHotels": 4701.72,
+        "londonHotels": 0,
         "flights": 10001.79,
         "rail": 872.19,
-        "taxis": 1784.51,
+        "taxis": 796.69,
         "dependantTravel": 0,
-        "parking": 0
+        "parking": 0,
+        "mpTravel": 11771.81,
+        "staffTravel": 15069.0
       },
       "donations": [
         {
@@ -720,12 +736,14 @@
         "secondHomeRent": 28573.66,
         "secondHomeCouncilTax": 1307.89,
         "secondHomeUtilities": 1722.16,
-        "londonHotels": 1306,
+        "londonHotels": 0,
         "flights": 21807.66,
         "rail": 4966.85,
-        "taxis": 173.67,
+        "taxis": 133.67,
         "dependantTravel": 0,
-        "parking": 3196.71
+        "parking": 3196.71,
+        "mpTravel": 36472.92,
+        "staffTravel": 8180.9
       },
       "donations": [
         {
@@ -782,12 +800,14 @@
         "secondHomeRent": 20799.92,
         "secondHomeCouncilTax": 3629.54,
         "secondHomeUtilities": 1611.21,
-        "londonHotels": 5259.68,
+        "londonHotels": 103.55,
         "flights": 24290.75,
         "rail": 2414.77,
-        "taxis": 5232.79,
+        "taxis": 5059.35,
         "dependantTravel": 6232.41,
-        "parking": 1524.89
+        "parking": 1524.89,
+        "mpTravel": 36299.75,
+        "staffTravel": 12498.88
       },
       "donations": [
         {
@@ -865,12 +885,14 @@
         "secondHomeRent": 41434.53,
         "secondHomeCouncilTax": 1695.3,
         "secondHomeUtilities": 372.78,
-        "londonHotels": 8539,
+        "londonHotels": 0,
         "flights": 29819.74,
         "rail": 3935.04,
-        "taxis": 815.67,
+        "taxis": 514.78,
         "dependantTravel": 1972.2,
-        "parking": 3308.3
+        "parking": 3308.3,
+        "mpTravel": 39215.72,
+        "staffTravel": 31097.6
       },
       "donations": [],
       "gifts": [],
@@ -959,12 +981,14 @@
         "secondHomeRent": 25534.6,
         "secondHomeCouncilTax": 1256,
         "secondHomeUtilities": 376.65,
-        "londonHotels": 2361.35,
+        "londonHotels": 1565.35,
         "flights": 16544.06,
         "rail": 6933.9,
-        "taxis": 2987.63,
+        "taxis": 2468.09,
         "dependantTravel": 427.68,
-        "parking": 0
+        "parking": 0,
+        "mpTravel": 26956.55,
+        "staffTravel": 11624.31
       },
       "donations": [],
       "gifts": [
@@ -1083,12 +1107,14 @@
         "secondHomeRent": 19140.03,
         "secondHomeCouncilTax": 3302.72,
         "secondHomeUtilities": 1038.75,
-        "londonHotels": 2470.1,
+        "londonHotels": 207.1,
         "flights": 15927.98,
         "rail": 2715.4,
         "taxis": 353.3,
         "dependantTravel": 7932.47,
-        "parking": 1278.82
+        "parking": 1278.82,
+        "mpTravel": 20701.84,
+        "staffTravel": 16041.53
       },
       "donations": [],
       "gifts": [
@@ -1171,9 +1197,11 @@
         "londonHotels": 0,
         "flights": 2781.71,
         "rail": 9424.89,
-        "taxis": 1080.58,
+        "taxis": 1041.99,
         "dependantTravel": 1379.06,
-        "parking": 66.05
+        "parking": 66.05,
+        "mpTravel": 13551.12,
+        "staffTravel": 2295.85
       },
       "donations": [],
       "gifts": [
@@ -1239,12 +1267,14 @@
         "secondHomeRent": 29082.71,
         "secondHomeCouncilTax": 0,
         "secondHomeUtilities": 0,
-        "londonHotels": 1722,
+        "londonHotels": 0,
         "flights": 18689.27,
         "rail": 713.89,
         "taxis": 601.13,
         "dependantTravel": 0,
-        "parking": 2747.89
+        "parking": 2747.89,
+        "mpTravel": 28051.8,
+        "staffTravel": 6695.33
       },
       "donations": [],
       "gifts": [
@@ -1310,12 +1340,14 @@
         "secondHomeRent": 28799.99,
         "secondHomeCouncilTax": 2938.52,
         "secondHomeUtilities": 0,
-        "londonHotels": 450,
+        "londonHotels": 0,
         "flights": 21199.34,
         "rail": 700.87,
         "taxis": 0,
         "dependantTravel": 2109.47,
-        "parking": 0
+        "parking": 0,
+        "mpTravel": 23531.89,
+        "staffTravel": 3116.5
       },
       "donations": [],
       "gifts": [],
@@ -1412,12 +1444,14 @@
         "secondHomeRent": 29321.87,
         "secondHomeCouncilTax": 990.07,
         "secondHomeUtilities": 943.24,
-        "londonHotels": 4979,
+        "londonHotels": 0,
         "flights": 24960.81,
         "rail": 27,
-        "taxis": 1219.98,
+        "taxis": 861.72,
         "dependantTravel": 2010.34,
-        "parking": 3109.46
+        "parking": 3109.46,
+        "mpTravel": 35295.27,
+        "staffTravel": 25470.53
       },
       "donations": [],
       "gifts": [
@@ -1526,12 +1560,14 @@
         "secondHomeRent": 25971.35,
         "secondHomeCouncilTax": 1243.22,
         "secondHomeUtilities": 1409.97,
-        "londonHotels": 597,
+        "londonHotels": 0,
         "flights": 18972.37,
         "rail": 9220.2,
-        "taxis": 2304.42,
+        "taxis": 2255.03,
         "dependantTravel": 1346.12,
-        "parking": 1969.9
+        "parking": 1969.9,
+        "mpTravel": 37779.37,
+        "staffTravel": 7654.42
       },
       "donations": [],
       "gifts": [],
@@ -1619,12 +1655,14 @@
         "secondHomeRent": 26588.52,
         "secondHomeCouncilTax": 904.16,
         "secondHomeUtilities": 1171.78,
-        "londonHotels": 1592,
+        "londonHotels": 0,
         "flights": 20457.99,
         "rail": 543.99,
         "taxis": 122.98,
         "dependantTravel": 0,
-        "parking": 2000.71
+        "parking": 2000.71,
+        "mpTravel": 23949.63,
+        "staffTravel": 5544.37
       },
       "donations": [],
       "gifts": [
@@ -1708,12 +1746,14 @@
         "secondHomeRent": 26382.39,
         "secondHomeCouncilTax": 1791.12,
         "secondHomeUtilities": 1663.98,
-        "londonHotels": 6101.19,
+        "londonHotels": 93.19,
         "flights": 20852.55,
         "rail": 2435.81,
-        "taxis": 1298.89,
+        "taxis": 1275.29,
         "dependantTravel": 2899.7,
-        "parking": 1580.1
+        "parking": 1580.1,
+        "mpTravel": 30007.04,
+        "staffTravel": 10493.39
       },
       "donations": [],
       "gifts": [],
@@ -1784,12 +1824,14 @@
         "secondHomeRent": 31365.72,
         "secondHomeCouncilTax": 0,
         "secondHomeUtilities": 0,
-        "londonHotels": 1791,
+        "londonHotels": 0,
         "flights": 9906.03,
         "rail": 692.17,
-        "taxis": 20,
+        "taxis": 0,
         "dependantTravel": 3941.01,
-        "parking": 0
+        "parking": 0,
+        "mpTravel": 13348.2,
+        "staffTravel": 3380.83
       },
       "donations": [
         {
@@ -1868,12 +1910,14 @@
         "secondHomeRent": 22199.96,
         "secondHomeCouncilTax": 762.88,
         "secondHomeUtilities": 1950.42,
-        "londonHotels": 2106.5,
+        "londonHotels": 0,
         "flights": 21734.68,
         "rail": 965.77,
-        "taxis": 2759.87,
+        "taxis": 2410.85,
         "dependantTravel": 0,
-        "parking": 12.3
+        "parking": 12.3,
+        "mpTravel": 25304.95,
+        "staffTravel": 12903.42
       },
       "donations": [],
       "gifts": [
@@ -1947,12 +1991,14 @@
         "secondHomeRent": 27299.87,
         "secondHomeCouncilTax": 2144.28,
         "secondHomeUtilities": 978.76,
-        "londonHotels": 1760,
+        "londonHotels": 0,
         "flights": 20007.35,
         "rail": 0,
         "taxis": 0,
         "dependantTravel": 1089.03,
-        "parking": 0
+        "parking": 0,
+        "mpTravel": 20007.35,
+        "staffTravel": 5728.45
       },
       "donations": [],
       "gifts": [],
@@ -2007,12 +2053,14 @@
         "secondHomeRent": 28200,
         "secondHomeCouncilTax": 762.88,
         "secondHomeUtilities": 1260.25,
-        "londonHotels": 11618.57,
+        "londonHotels": 623.0,
         "flights": 26580.76,
         "rail": 877.96,
-        "taxis": 331.39,
+        "taxis": 282.57,
         "dependantTravel": 1999.75,
-        "parking": 6292.29
+        "parking": 6292.29,
+        "mpTravel": 41009.67,
+        "staffTravel": 25034.95
       },
       "donations": [],
       "gifts": [],
@@ -2107,12 +2155,14 @@
         "secondHomeRent": 27600.05,
         "secondHomeCouncilTax": 1451.22,
         "secondHomeUtilities": 798.46,
-        "londonHotels": 8258.45,
+        "londonHotels": 0,
         "flights": 26216.87,
         "rail": 1090.12,
-        "taxis": 684.7,
+        "taxis": 668.86,
         "dependantTravel": 403.64,
-        "parking": 2458.17
+        "parking": 2458.17,
+        "mpTravel": 34202.41,
+        "staffTravel": 22643.08
       },
       "donations": [],
       "gifts": [
@@ -2159,12 +2209,14 @@
         "secondHomeRent": 30100,
         "secondHomeCouncilTax": 2822.38,
         "secondHomeUtilities": 0,
-        "londonHotels": 8022,
+        "londonHotels": 0,
         "flights": 5220.46,
         "rail": 3295.13,
-        "taxis": 99.89,
+        "taxis": 27.8,
         "dependantTravel": 0,
-        "parking": 0
+        "parking": 0,
+        "mpTravel": 8543.39,
+        "staffTravel": 15719.1
       },
       "donations": [
         {
@@ -2216,7 +2268,9 @@
         "rail": 604.97,
         "taxis": 709.21,
         "dependantTravel": 0,
-        "parking": 459.1
+        "parking": 459.1,
+        "mpTravel": 24798.21,
+        "staffTravel": 3058.73
       },
       "donations": [],
       "gifts": [
@@ -2263,12 +2317,14 @@
         "secondHomeRent": 28499.99,
         "secondHomeCouncilTax": 932.41,
         "secondHomeUtilities": 1646.65,
-        "londonHotels": 398,
+        "londonHotels": 0,
         "flights": 24390.68,
         "rail": 797,
-        "taxis": 339.6,
+        "taxis": 255.6,
         "dependantTravel": 1907.5,
-        "parking": 3047.72
+        "parking": 3047.72,
+        "mpTravel": 28973.0,
+        "staffTravel": 1945.9
       },
       "donations": [],
       "gifts": [
@@ -2334,12 +2390,14 @@
         "secondHomeRent": 24241.2,
         "secondHomeCouncilTax": 1818.44,
         "secondHomeUtilities": 215.24,
-        "londonHotels": 2963,
+        "londonHotels": 0,
         "flights": 20161.31,
         "rail": 170.52,
-        "taxis": 201.44,
+        "taxis": 132.44,
         "dependantTravel": 0,
-        "parking": 3192.83
+        "parking": 3192.83,
+        "mpTravel": 25141.9,
+        "staffTravel": 9309.27
       },
       "donations": [],
       "gifts": [],
@@ -2394,12 +2452,14 @@
         "secondHomeRent": 23324.01,
         "secondHomeCouncilTax": 2388.16,
         "secondHomeUtilities": 414,
-        "londonHotels": 8291.2,
+        "londonHotels": 0,
         "flights": 680.39,
         "rail": 9466.83,
-        "taxis": 942.6,
+        "taxis": 922.3,
         "dependantTravel": 541,
-        "parking": 106.3
+        "parking": 106.3,
+        "mpTravel": 11183.82,
+        "staffTravel": 18251.16
       },
       "donations": [],
       "gifts": [
@@ -2446,12 +2506,14 @@
         "secondHomeRent": 27872.81,
         "secondHomeCouncilTax": 901.06,
         "secondHomeUtilities": 470.22,
-        "londonHotels": 1810,
+        "londonHotels": 0,
         "flights": 21853.56,
         "rail": 2761.65,
         "taxis": 284.28,
         "dependantTravel": 3220.18,
-        "parking": 544.8
+        "parking": 544.8,
+        "mpTravel": 30096.95,
+        "staffTravel": 6089.16
       },
       "donations": [],
       "gifts": [],
@@ -2506,12 +2568,14 @@
         "secondHomeRent": 21600.03,
         "secondHomeCouncilTax": 1088.56,
         "secondHomeUtilities": 428.88,
-        "londonHotels": 3691,
+        "londonHotels": 0,
         "flights": 23607.96,
         "rail": 703.56,
-        "taxis": 773.92,
+        "taxis": 675.58,
         "dependantTravel": 759.2,
-        "parking": 0
+        "parking": 0,
+        "mpTravel": 26324.92,
+        "staffTravel": 16273.71
       },
       "donations": [],
       "gifts": [
@@ -2558,12 +2622,14 @@
         "secondHomeRent": 22839.46,
         "secondHomeCouncilTax": 1582.28,
         "secondHomeUtilities": 1127.56,
-        "londonHotels": 7597.39,
+        "londonHotels": 0,
         "flights": 6663.52,
         "rail": 7110.25,
         "taxis": 0,
         "dependantTravel": 0,
-        "parking": 0
+        "parking": 0,
+        "mpTravel": 13773.77,
+        "staffTravel": 17233.27
       },
       "donations": [],
       "gifts": [
@@ -2610,12 +2676,14 @@
         "secondHomeRent": 39951.21,
         "secondHomeCouncilTax": 932.41,
         "secondHomeUtilities": 951.15,
-        "londonHotels": 5473,
+        "londonHotels": 0,
         "flights": 27471.86,
         "rail": 383.74,
-        "taxis": 2910.23,
+        "taxis": 2395.18,
         "dependantTravel": 7307.88,
-        "parking": 0
+        "parking": 0,
+        "mpTravel": 31078.96,
+        "staffTravel": 15749.46
       },
       "donations": [],
       "gifts": [],
@@ -2651,12 +2719,14 @@
         "secondHomeRent": 31200.01,
         "secondHomeCouncilTax": 2442.43,
         "secondHomeUtilities": 762.82,
-        "londonHotels": 5025.97,
+        "londonHotels": 0,
         "flights": 20661.98,
         "rail": 1519.37,
         "taxis": 225.75,
         "dependantTravel": 5832.99,
-        "parking": 2651.2
+        "parking": 2651.2,
+        "mpTravel": 27976.88,
+        "staffTravel": 18844.64
       },
       "donations": [],
       "gifts": [],
@@ -2699,12 +2769,14 @@
         "secondHomeRent": 28024,
         "secondHomeCouncilTax": 2034.36,
         "secondHomeUtilities": 0,
-        "londonHotels": 7557,
+        "londonHotels": 0,
         "flights": 529.1,
         "rail": 11268.02,
-        "taxis": 1274.36,
+        "taxis": 1072.94,
         "dependantTravel": 4946.86,
-        "parking": 6
+        "parking": 6,
+        "mpTravel": 13243.78,
+        "staffTravel": 17230.28
       },
       "donations": [],
       "gifts": [],
@@ -2740,12 +2812,14 @@
         "secondHomeRent": 38782.11,
         "secondHomeCouncilTax": 1425.26,
         "secondHomeUtilities": 1470.5,
-        "londonHotels": 5407,
+        "londonHotels": 0,
         "flights": 6520.35,
         "rail": 4761.77,
-        "taxis": 1340.9,
+        "taxis": 995.8,
         "dependantTravel": 1591.78,
-        "parking": 0
+        "parking": 0,
+        "mpTravel": 12277.92,
+        "staffTravel": 9211.9
       },
       "donations": [],
       "gifts": [],
@@ -2781,12 +2855,14 @@
         "secondHomeRent": 14796.11,
         "secondHomeCouncilTax": 165.95,
         "secondHomeUtilities": 130.69,
-        "londonHotels": 989,
+        "londonHotels": 0,
         "flights": 35437.22,
         "rail": 1632.03,
-        "taxis": 713.17,
+        "taxis": 687.57,
         "dependantTravel": 6301.65,
-        "parking": 937.9
+        "parking": 937.9,
+        "mpTravel": 47087.77,
+        "staffTravel": 12212.25
       },
       "donations": [],
       "gifts": [],
@@ -2849,12 +2925,14 @@
         "secondHomeRent": 0,
         "secondHomeCouncilTax": 0,
         "secondHomeUtilities": 3314.09,
-        "londonHotels": 3266.37,
+        "londonHotels": 0,
         "flights": 136.97,
         "rail": 19942.16,
-        "taxis": 509.52,
+        "taxis": 402.42,
         "dependantTravel": 761.11,
-        "parking": 70.9
+        "parking": 70.9,
+        "mpTravel": 24807.75,
+        "staffTravel": 9394.65
       },
       "donations": [],
       "gifts": [],
@@ -2940,12 +3018,14 @@
         "secondHomeRent": 23773,
         "secondHomeCouncilTax": 1808.32,
         "secondHomeUtilities": 990.26,
-        "londonHotels": 883,
+        "londonHotels": 0,
         "flights": 15167.72,
         "rail": 526.74,
-        "taxis": 610.05,
+        "taxis": 559.43,
         "dependantTravel": 0,
-        "parking": 0
+        "parking": 0,
+        "mpTravel": 16253.89,
+        "staffTravel": 5692.11
       },
       "donations": [],
       "gifts": [],
@@ -2981,12 +3061,14 @@
         "secondHomeRent": 29400,
         "secondHomeCouncilTax": 1017.18,
         "secondHomeUtilities": 132.29,
-        "londonHotels": 572,
+        "londonHotels": 0,
         "flights": 15832.98,
         "rail": 1545.28,
-        "taxis": 2917.01,
+        "taxis": 2895.01,
         "dependantTravel": 2272.16,
-        "parking": 0
+        "parking": 0,
+        "mpTravel": 20356.37,
+        "staffTravel": 1244.09
       },
       "donations": [],
       "gifts": [],
@@ -3022,12 +3104,14 @@
         "secondHomeRent": 27600,
         "secondHomeCouncilTax": 2034.36,
         "secondHomeUtilities": 0,
-        "londonHotels": 4358,
+        "londonHotels": 0,
         "flights": 16218.16,
         "rail": 407.61,
         "taxis": 41.97,
         "dependantTravel": 0,
-        "parking": 226.5
+        "parking": 226.5,
+        "mpTravel": 16894.24,
+        "staffTravel": 8225.13
       },
       "donations": [],
       "gifts": [],
@@ -3063,12 +3147,14 @@
         "secondHomeRent": 39523.03,
         "secondHomeCouncilTax": 2442,
         "secondHomeUtilities": 1368,
-        "londonHotels": 1718,
+        "londonHotels": 0,
         "flights": 18342.27,
         "rail": 0,
-        "taxis": 110,
+        "taxis": 110.0,
         "dependantTravel": 0,
-        "parking": 0
+        "parking": 0,
+        "mpTravel": 18452.27,
+        "staffTravel": 7045.46
       },
       "donations": [],
       "gifts": [],
@@ -3121,12 +3207,14 @@
         "secondHomeRent": 26999.96,
         "secondHomeCouncilTax": 1584,
         "secondHomeUtilities": 1316.05,
-        "londonHotels": 3708,
+        "londonHotels": 0,
         "flights": 11947.19,
         "rail": 955.04,
         "taxis": 563.81,
         "dependantTravel": 0,
-        "parking": 1082.9
+        "parking": 1082.9,
+        "mpTravel": 14651.54,
+        "staffTravel": 7575.19
       },
       "donations": [],
       "gifts": [],
@@ -3162,12 +3250,14 @@
         "secondHomeRent": 36958.46,
         "secondHomeCouncilTax": 1695.3,
         "secondHomeUtilities": 0,
-        "londonHotels": 1329,
+        "londonHotels": 0,
         "flights": 25315.74,
         "rail": 268.57,
         "taxis": 351.52,
         "dependantTravel": 4450.68,
-        "parking": 1762.69
+        "parking": 1762.69,
+        "mpTravel": 27698.52,
+        "staffTravel": 3386.81
       },
       "donations": [],
       "gifts": [],
@@ -3222,12 +3312,14 @@
         "secondHomeRent": 0,
         "secondHomeCouncilTax": 0,
         "secondHomeUtilities": 0,
-        "londonHotels": 7879,
+        "londonHotels": 5370.0,
         "flights": 22066.81,
         "rail": 842.44,
-        "taxis": 1065.26,
+        "taxis": 881.97,
         "dependantTravel": 1373.7,
-        "parking": 1986.18
+        "parking": 1986.18,
+        "mpTravel": 30296.7,
+        "staffTravel": 9849.29
       },
       "donations": [],
       "gifts": [],
@@ -3301,12 +3393,14 @@
         "secondHomeRent": 24480,
         "secondHomeCouncilTax": 1627.32,
         "secondHomeUtilities": 278.2,
-        "londonHotels": 1498,
+        "londonHotels": 0,
         "flights": 1070.05,
         "rail": 6773.25,
         "taxis": 0,
         "dependantTravel": 0,
-        "parking": 0
+        "parking": 0,
+        "mpTravel": 7971.95,
+        "staffTravel": 4794.88
       },
       "donations": [],
       "gifts": [],
@@ -3342,12 +3436,14 @@
         "secondHomeRent": 27272.95,
         "secondHomeCouncilTax": 1302.63,
         "secondHomeUtilities": 696.64,
-        "londonHotels": 4166.64,
+        "londonHotels": 0,
         "flights": 18932.47,
         "rail": 1834.71,
         "taxis": 0,
         "dependantTravel": 574.86,
-        "parking": 2446.68
+        "parking": 2446.68,
+        "mpTravel": 23413.86,
+        "staffTravel": 12681.66
       },
       "donations": [],
       "gifts": [],
@@ -3388,7 +3484,9 @@
         "rail": 131.47,
         "taxis": 0,
         "dependantTravel": 1701.2,
-        "parking": 0
+        "parking": 0,
+        "mpTravel": 23049.28,
+        "staffTravel": 18.45
       },
       "donations": [],
       "gifts": [],
@@ -3424,12 +3522,14 @@
         "secondHomeRent": 22685.49,
         "secondHomeCouncilTax": 2279.6,
         "secondHomeUtilities": 0,
-        "londonHotels": 1408,
+        "londonHotels": 0,
         "flights": 13754.16,
         "rail": 1487.57,
-        "taxis": 2108.96,
+        "taxis": 2004.56,
         "dependantTravel": 0,
-        "parking": 58
+        "parking": 58,
+        "mpTravel": 17304.29,
+        "staffTravel": 6501.12
       },
       "donations": [],
       "gifts": [],
@@ -3475,12 +3575,14 @@
         "secondHomeRent": 28599.97,
         "secondHomeCouncilTax": 1716,
         "secondHomeUtilities": 0,
-        "londonHotels": 597,
+        "londonHotels": 0,
         "flights": 22106.74,
         "rail": 1539.92,
         "taxis": 606.62,
         "dependantTravel": 0,
-        "parking": 1694.14
+        "parking": 1694.14,
+        "mpTravel": 27958.44,
+        "staffTravel": 2457.56
       },
       "donations": [],
       "gifts": [],
@@ -3516,12 +3618,14 @@
         "secondHomeRent": 0,
         "secondHomeCouncilTax": 2822.38,
         "secondHomeUtilities": 3197.22,
-        "londonHotels": 844.2,
+        "londonHotels": 0,
         "flights": 8385.46,
         "rail": 338.6,
-        "taxis": 136.41,
+        "taxis": 80.99,
         "dependantTravel": 2543.4,
-        "parking": 0
+        "parking": 0,
+        "mpTravel": 8844.95,
+        "staffTravel": 3002.51
       },
       "donations": [],
       "gifts": [],
@@ -3574,12 +3678,14 @@
         "secondHomeRent": 24458,
         "secondHomeCouncilTax": 810,
         "secondHomeUtilities": 0,
-        "londonHotels": 3951,
+        "londonHotels": 0,
         "flights": 1243.88,
         "rail": 5523.18,
         "taxis": 42.84,
         "dependantTravel": 1386.86,
-        "parking": 0
+        "parking": 0,
+        "mpTravel": 6809.9,
+        "staffTravel": 6954.42
       },
       "donations": [],
       "gifts": [],
@@ -3643,12 +3749,14 @@
         "secondHomeRent": 0,
         "secondHomeCouncilTax": 0,
         "secondHomeUtilities": 0,
-        "londonHotels": 670,
+        "londonHotels": 0,
         "flights": 24821.49,
         "rail": 416.74,
-        "taxis": 74.45,
+        "taxis": 0,
         "dependantTravel": 0,
-        "parking": 2529.94
+        "parking": 2529.94,
+        "mpTravel": 29057.83,
+        "staffTravel": 5444.08
       },
       "donations": [],
       "gifts": [],
@@ -3698,7 +3806,9 @@
         "rail": 5222.9,
         "taxis": 0,
         "dependantTravel": 1221.82,
-        "parking": 0
+        "parking": 0,
+        "mpTravel": 9031.15,
+        "staffTravel": 175.88
       },
       "donations": [],
       "gifts": [],

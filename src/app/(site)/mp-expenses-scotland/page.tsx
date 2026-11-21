@@ -36,7 +36,7 @@ const MODIFIED_ISO = "2026-11-21";
 export const metadata = meta({
   title: "MP Expenses Scotland & Register of Interests: All 57 Ranked",
   description:
-    "See which Scottish MPs billed taxpayers £43k for London hotels, £6k for car parking, and £4k for 2nd home council tax while local families face rising bills.",
+    "See which Scottish MPs billed taxpayers £37k for London hotels, £6k for car parking, and £4k for 2nd home council tax while local families face rising bills.",
   path: "/mp-expenses-scotland",
   type: "article",
   published: PUBLISHED_ISO,
@@ -78,35 +78,35 @@ const SPOTLIGHT_LEADERS: SpotlightEntry[] = [
     headlineStat: "£151,954",
     headlineLabel: "billed to taxpayers on top of staff wages (£410,253 total)",
     taxpayerSummary:
-      "£41,435 London flat rent (£3,453/month, triple a typical £1,050/month Scottish rent), £8,539 for 39 London hotel nights on top of that flat, £1,695 second home council tax, £29,820 for flights and £3,308 for airport parking.",
+      "£41,435 London flat rent (£3,453/month, triple a typical £1,050/month Scottish rent), £1,695 second home council tax, £29,820 for flights and £3,308 for airport parking.",
     freebiesSummary:
       "Declared £11,882 in funded foreign trips to Taiwan (£5,669), the USA (£4,077) and Spain (£2,137).",
     emailReason:
-      "claiming £151,953.90 in personal rent, flights, hotels, car parking and second home council tax on top of your £93,904 salary (including £41,435 for a London flat plus £8,539 for 39 hotel nights), alongside £11,882 in funded trips to Taiwan, Spain and the US",
+      "claiming £151,953.90 in non-staff expenses, including £41,435 for a London flat, £29,820 for flights and £3,308 for airport parking, on top of your £93,904 salary, alongside £11,882 in funded trips to Taiwan, Spain and the US",
   },
   {
     slug: "glasgow-south-west",
-    badge: "#1 Hotel Bill (£43,475) + £30k Donation",
-    headlineStat: "£43,475",
-    headlineLabel: "billed to taxpayers across 323 London hotel nights in one year",
+    badge: "#1 Hotel Bill (£37,359) + £30k Donation",
+    headlineStat: "£37,359",
+    headlineLabel: "billed to taxpayers for 295 nights in London hotels in one year",
     taxpayerSummary:
-      "Instead of renting a flat, billed taxpayers £43,475.49 across 323 London hotel nights (equivalent to double the entire £20,850 annual take-home pay of a Minimum Wage worker), plus £8,351 for flights, £4,204 for family travel and £1,028 for taxis.",
+      "Instead of renting a flat, billed taxpayers £37,358.58 for 295 nights in London hotels (nearly double the £20,850 a full time Minimum Wage worker takes home in a year), plus £8,351 for flights and £4,204 for family travel.",
     freebiesSummary:
       "Declared a £30,000 private donation from Francesca Sainsbury Perrin plus £13,890 in outside surgeon payments.",
     emailReason:
-      "charging taxpayers £43,475.49 for 323 London hotel nights and £4,204.44 for family travel in a single year, while also receiving £30,000 in private donor funding",
+      "charging taxpayers £37,358.58 for 295 nights in London hotels and £4,204.44 for family travel in a single year, while also receiving £30,000 in private donor funding",
   },
   {
     slug: "dundee-central",
     badge: "#1 Car Parking Bill (£6,292) & #2 Overall",
     headlineStat: "£129,066",
-    headlineLabel: "in rent, travel, hotels & £6,292 just for car parking",
+    headlineLabel: "in non-staff expenses, including £6,292 just for car parking",
     taxpayerSummary:
-      "£6,292.29 for car parking alone (£121 every week of the year), PLUS £11,619 for 77 London hotel nights on top of already charging taxpayers £28,200 (£2,350/month) for a rented London flat, £1,260 for his flat energy bills and £26,581 for flights.",
+      "£6,292.29 for car parking alone (£121 every week of the year), on top of £28,200 (£2,350/month) for a rented London flat, £1,260 for his flat energy bills, £2,822 for hotels in Europe and £26,581 for flights.",
     freebiesSummary:
       "Declared two funded overseas trips to India worth £1,898 paid for by the Office of Tibet and the International Buddhist Confederation.",
     emailReason:
-      "billing taxpayers £6,292.29 for car parking alone, plus £11,618.57 for 77 London hotel nights on top of already claiming £28,200 a year for a rented London flat and £1,260.25 for your second home energy bills",
+      "billing taxpayers £6,292.29 for car parking alone, on top of £28,200 a year for a rented London flat and £1,260.25 for your second home energy bills",
   },
   {
     slug: "west-aberdeenshire-and-kincardine",
@@ -114,7 +114,7 @@ const SPOTLIGHT_LEADERS: SpotlightEntry[] = [
     headlineStat: "£121,471",
     headlineLabel: "in non-staff expenses + £20k donor & Silverstone F1 VIP box",
     taxpayerSummary:
-      "£32,480 for London flat rent (£2,707/month), £2,996 for 17 London hotel nights on top of that flat, £1,541 for second home council tax, £33,100 for flights, £1,501 for family flights and £1,330 for taxis.",
+      "£32,480 for London flat rent (£2,707/month), £1,541 for second home council tax, £33,100 for flights, £1,501 for family flights and £1,293 for taxis.",
     freebiesSummary:
       "Voted against scrapping the two child benefit cap, while taking £20,000 from businessman Alasdair Locke, £1,100 in Silverstone F1 VIP tickets, and a £2,678 Jordan trip.",
     localContrastNote: "Voted No to removing the two child benefit limit on Universal Credit.",
@@ -123,15 +123,15 @@ const SPOTLIGHT_LEADERS: SpotlightEntry[] = [
   },
   {
     slug: "livingston",
-    badge: "#1 Taxi Tab (£5,233) + £3,630 Council Tax",
+    badge: "#1 Taxi Tab (£5,059) + £3,630 Council Tax",
     headlineStat: "£115,008",
     headlineLabel: "in rent, travel & Scotland's highest MP taxi tab",
     taxpayerSummary:
-      "£5,232.79 for taxis (more than £100 a week on cabs), £3,629.54 for his second home council tax (nearly double a typical Scottish Band D bill), £1,611 for second home energy bills, £5,260 for 36 hotel nights on top of £20,800 flat rent, and £6,232 for family flights.",
+      "£5,059.35 for taxis (nearly £100 a week on cabs), £3,629.54 for his second home council tax (nearly double a typical Scottish Band D bill), £1,611 for second home energy bills, £20,800 for flat rent, and £6,232 for family flights.",
     freebiesSummary:
       "Declared £11,000 in private donations plus £1,110 in free VIP tickets to Lord's Cricket Ground and the Carabao Cup Final at Wembley.",
     emailReason:
-      "billing taxpayers £5,232.79 for taxi fares, £3,629.54 for your second home council tax, £1,611.21 for your second home utility bills and £6,232.41 for family flights, while accepting £1,110 in free Lord's cricket and Wembley football tickets",
+      "billing taxpayers £5,059.35 for taxi fares, £3,629.54 for your second home council tax, £1,611.21 for your second home utility bills and £6,232.41 for family flights, while accepting £1,110 in free Lord's cricket and Wembley football tickets",
   },
   {
     slug: "cowdenbeath-and-kirkcaldy",
@@ -139,7 +139,7 @@ const SPOTLIGHT_LEADERS: SpotlightEntry[] = [
     headlineStat: "£101,035",
     headlineLabel: "in non-staff expenses + £9,259 in foreign trips & courses",
     taxpayerSummary:
-      "£7,932.47 for family travel (including £7,607.27 for family flights, highest in Scotland), £3,302.72 for second home council tax, £1,039 for second home energy bills, and £2,470 for 12 hotel nights on top of £19,140 in flat rent (£1,595/month vs ~£795/month Fife average).",
+      "£7,932.47 for family travel (including £7,607.27 for family flights, highest in Scotland), £3,302.72 for second home council tax, £1,039 for second home energy bills, and £19,140 in flat rent (£1,595/month vs ~£795/month Fife average).",
     freebiesSummary:
       "Declared a £5,957 trip to Qatar funded by the Doha Forum, a £2,202 trip to Syria, and a £1,100 Great Britain China Centre course.",
     emailReason:
@@ -166,11 +166,11 @@ const MORE_SPOTLIGHT_LEADERS: SpotlightEntry[] = [
     headlineStat: "£114,985",
     headlineLabel: "in non-staff expenses + spouse employed as Office Manager",
     taxpayerSummary:
-      "£29,322 for London flat rent (£2,443/month), £4,979 for 23 hotel nights on top of that flat, £990 for council tax, £943 for energy bills, £2,010 for family flights and £3,109 for car parking, plus employs his spouse full time as Office Manager.",
+      "£29,322 for London flat rent (£2,443/month), £990 for council tax, £943 for energy bills, £2,010 for family flights and £3,109 for car parking, plus employs his spouse full time as Office Manager.",
     freebiesSummary:
       "Declared £1,525 in VIP football hospitality from Enersoft International (Tottenham v Dortmund Champions League + Hampden Cup Final) and £2,541 in foreign trips.",
     emailReason:
-      "claiming £114,984.88 in non-staff expenses (including £3,109 for car parking and £4,979 for hotels on top of £29,322 flat rent), employing your spouse on the public payroll, and accepting £1,525 in Champions League and Hampden football hospitality",
+      "claiming £114,984.88 in non-staff expenses (including £29,322 flat rent and £3,109 for car parking), employing your spouse on the public payroll, and accepting £1,525 in Champions League and Hampden football hospitality",
   },
   {
     slug: "east-kilbride-and-strathaven",
@@ -178,7 +178,7 @@ const MORE_SPOTLIGHT_LEADERS: SpotlightEntry[] = [
     headlineStat: "£85,563",
     headlineLabel: "in non-staff expenses + husband is a lobbyist",
     taxpayerSummary:
-      "£31,366 for London flat rent (£2,614/month), £1,791 for 12 London hotel nights on top of that flat, £9,906 for flights and £3,941 for family flights (£348,096 total including staff). Also declares rental property income.",
+      "£31,366 for London flat rent (£2,614/month), £9,906 for flights and £3,941 for family flights (£348,096 total including staff). Also declares rental property income.",
     freebiesSummary:
       "Declared £2,400 of free media training (coaching on how to handle TV and press interviews) from Earthcott Ltd. Companies House shows Earthcott is her husband David Taylor's own firm: he is its only director and owns over 75% of it. She also declares that he is a lobbyist. So a perk worth £2,400 came from her husband's business, on top of £4,700 she billed taxpayers in 2025/26 for PR and website work from Causeway Creative (£24,664 since 2024, more than any other MP in the UK).",
     emailReason:
@@ -367,10 +367,10 @@ export default function MpRegisterOfInterestsScotlandPage() {
       "Alistair Carmichael (£35,437.22), Andrew Bowie (£33,100.15), Graeme Downie (£29,819.74)",
     ],
     [
-      "London hotel rooms",
+      "London hotel rooms (the MP's own)",
       poundsExact.format(MP_INTERESTS_TOTALS.londonHotels),
-      "50 of 55 MPs",
-      "Dr Zubir Ahmed (£43,475.49), Chris Law (£11,618.57), Graeme Downie (£8,539.00)",
+      "8 of 55 MPs",
+      "Dr Zubir Ahmed (£37,358.58), Alison Taylor (£5,370.00), Alan Gemmell (£1,565.35)",
     ],
     [
       "Family & spouse flights / trains",
@@ -391,10 +391,10 @@ export default function MpRegisterOfInterestsScotlandPage() {
       "Chris Law (£6,292.29), Graeme Downie (£3,308.30), John Lamont (£3,196.71)",
     ],
     [
-      "Taxis & cab fares",
+      "Taxis & cab fares (the MP's own)",
       poundsExact.format(MP_INTERESTS_TOTALS.taxis),
-      "48 of 55 MPs",
-      "Gregor Poynton (£5,232.79), Alan Gemmell (£2,987.63), Blair McDougall (£2,917.01)",
+      "46 of 55 MPs",
+      "Gregor Poynton (£5,059.35), Blair McDougall (£2,895.01), Alan Gemmell (£2,468.09)",
     ],
     [
       "Second home heating & electricity bills",
@@ -468,8 +468,8 @@ export default function MpRegisterOfInterestsScotlandPage() {
       "Personal cash & housing",
       <>
         49 MPs claimed <strong>£1,383,619.92</strong> for London flat rent (up to{" "}
-        <strong>£42,000 a year</strong>), 50 MPs claimed <strong>£215,415.76</strong> for London
-        hotels (up to <strong>£43,475</strong> for Dr Zubir Ahmed MP), and 10 MPs received{" "}
+        <strong>£42,000 a year</strong>), 8 MPs claimed <strong>£45,614.77</strong> for their own London
+        hotel stays (up to <strong>£37,359</strong> for Dr Zubir Ahmed MP), and 10 MPs received{" "}
         <strong>£205,242.29</strong> in private donor funding (up to <strong>£30,000</strong> each).
       </>,
       <>
@@ -487,8 +487,8 @@ export default function MpRegisterOfInterestsScotlandPage() {
       "37 MPs (65% of seats)",
       "£3,343,933 (£90,377/MP)",
       "£59,231 (73% of total)",
-      "£152,908 (71% of total)",
-      "£29,317 taxis · £58,905 family",
+      "£44,605 (98% of total, mostly one MP)",
+      "£24,976 taxis · £58,905 family",
       <strong key="lab-free" className="text-[var(--bad-text)]">
         £169,931 (£105.6k donors · £57.3k trips)
       </strong>,
@@ -498,8 +498,8 @@ export default function MpRegisterOfInterestsScotlandPage() {
       "8 MPs (7 in 2025/26 IPSA)",
       "£778,624 (£111,232/MP)",
       "£7,761",
-      "£38,638",
-      "£7,069 taxis · £19,749 family",
+      "£716",
+      "£6,024 taxis · £19,749 family",
       "£11,902 (£0 donors · £7.5k trips · £4.4k gifts)",
     ],
     [
@@ -507,8 +507,8 @@ export default function MpRegisterOfInterestsScotlandPage() {
       "6 MPs (5 in 2025/26 IPSA)",
       "£523,512 (£104,702/MP)",
       "£7,218",
-      "£7,082",
-      "£2,513 taxis · £1,501 family",
+      "£294",
+      "£2,436 taxis · £1,501 family",
       <strong key="con-free">£80,001 (£71.1k donors · £6.9k trips)</strong>,
     ],
     [
@@ -516,8 +516,8 @@ export default function MpRegisterOfInterestsScotlandPage() {
       "6 MPs",
       "£564,881 (£94,147/MP)",
       "£7,437",
-      "£16,788",
-      "£6,422 taxis · £8,654 family",
+      "£0",
+      "£5,819 taxis · £8,654 family",
       "£35,061 (£28.6k donors · £4.9k trips)",
     ],
   ];
@@ -656,7 +656,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
           stat={{
             value: "£5.21m",
             label:
-              "billed by Scotland's MPs in 2025/26 for their own flats, travel, hotels and offices, on top of a £93,904 salary and £13.11m in staffing costs.",
+              "billed by Scotland's MPs in 2025/26 for flats, travel, hotels and offices, on top of a £93,904 salary and £13.11m in staffing costs.",
             tone: "bad",
           }}
           lede="MPs were paid a basic salary of £93,904 in 2025/26, rising to £98,599 from April 2026. Yet in 2025/26, 47 Scottish MPs billed the taxpayer £81,647 to pay the council tax on their second homes and £39,218 to heat and light them, part of £18.32 million in total expense claims. Alongside taxpayer expenses, Scottish MPs declared £296,895 in private donations, funded trips to Qatar, China and Taiwan, and VIP hospitality at Silverstone, Murrayfield and Hampden."
@@ -674,7 +674,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
           </div>
           <SharePage
             title="Scottish MP expenses, donations & freebies: all 57 ranked"
-            text="47 Scottish MPs billed taxpayers £81,647 for their 2nd home council tax and £39,218 for their energy bills, plus £43k on hotels and £297k in private donations and trips:"
+            text="47 Scottish MPs billed taxpayers £81,647 for their 2nd home council tax and £39,218 for their energy bills, plus £37k on hotels and £297k in private donations and trips:"
             path="/mp-expenses-scotland"
             label="Share this investigation"
             className="mt-4"
@@ -699,9 +699,9 @@ export default function MpRegisterOfInterestsScotlandPage() {
             answer={{
               label: "What Scotland's 57 MPs claimed & declared",
               value: pounds.format(MP_INTERESTS_TOTALS.expensesNonStaff),
-              unit: "in personal rent, travel, hotels & offices (+£13.11m staff & £297k donations/trips)",
+              unit: "in rent, travel, hotels & offices (+£13.11m staff & £297k donations/trips)",
               detail:
-                "Every MP received a £93,904 salary in 2025/26. On top of that pay, Scottish MPs billed taxpayers £5.21 million in 2025/26 for their own London flats, council tax, energy bills, hotels, flights, car parking, family travel and offices (plus £13.11m for staff wages). Separately, 26 MPs declared £296,895 in private donations, funded overseas trips and VIP hospitality.",
+                "Every MP received a £93,904 salary in 2025/26. On top of that pay, Scottish MPs billed taxpayers £5.21 million in 2025/26 for London flats, council tax, energy bills, hotels, flights, car parking, family travel, staff travel and offices (plus £13.11m for staff wages). Separately, 26 MPs declared £296,895 in private donations, funded overseas trips and VIP hospitality.",
               rows: [
                 {
                   label: "2nd home rent, council tax & heating billed to public",
@@ -884,7 +884,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
               <div className="tile p-6">
                 <span className="chip mb-3">02 · 145 days a year in Westminster</span>
                 <h3 className="ui text-[18px] font-[660] leading-[1.3] text-[var(--ink)]">
-                  £3,500/month flats + hotel bills on top for a 3-day London week
+                  £3,500 a month London flats for a 3-day week in Westminster
                 </h3>
                 <p className="mt-2.5 text-[15px] leading-[1.6] text-[var(--ink-2)]">
                   The House of Commons only sits for around <strong>145 days a year</strong>{" "}
@@ -894,13 +894,13 @@ export default function MpRegisterOfInterestsScotlandPage() {
                   <Link href="/representatives/mps/dundee-central#donations-and-interests">
                     Chris Law
                   </Link>{" "}
-                  (£11,619 in London hotels + £2,822 in European hotels on top of £28,200 flat rent)
+                  (£6,292 in car parking and £2,822 in European hotels on top of £28,200 flat rent)
                   and{" "}
                   <Link href="/representatives/mps/dunfermline-and-dollar#donations-and-interests">
                     Graeme Downie
                   </Link>{" "}
-                  (£8,539 in hotels on top of £41,435 flat rent) billed thousands for hotels{" "}
-                  <em>as well as</em> a rented flat.
+                  (£29,820 in flights and £3,308 in airport parking on top of £41,435 flat rent)
+                  billed thousands more <em>on top of</em> a rented flat.
                 </p>
               </div>
 
@@ -915,7 +915,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
                   MPs could debate via video link and cast votes remotely on their phones, a digital
                   voting system the <strong>Scottish Parliament at Holyrood still uses</strong>.
                   Westminster scrapped remote voting, locking in <strong>£1.38m a year</strong> in
-                  London rents, <strong>£215k</strong> in hotels and{" "}
+                  London rents, <strong>£46k</strong> in their own London hotels and{" "}
                   <strong>£89k in spouse and child travel</strong>.
                 </p>
               </div>
@@ -932,7 +932,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
                   <strong>£188,478.04 for staff flights</strong> and{" "}
                   <strong>£73,647.56 for family flights</strong> (£1.17m in total air travel), plus{" "}
                   <strong>£58,237.33 for airport parking</strong> and{" "}
-                  <strong>£45,320.45 for taxis</strong>, including Central Belt MPs on the direct
+                  <strong>£39,253.53 for their own taxis</strong>, including Central Belt MPs on the direct
                   East Coast rail line like{" "}
                   <Link href="/representatives/mps/dunfermline-and-dollar#donations-and-interests">
                     Graeme Downie
@@ -957,7 +957,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
               <p>
                 Scottish Labour holds 37 of Scotland&apos;s 57 Westminster seats (65%), yet its MPs
                 account for <strong>73% of all second home council tax</strong> billed to taxpayers
-                (£59,231), <strong>71% of all London hotel spending</strong> (£152,908),{" "}
+                (£59,231),{" "}
                 <strong>75% of all funded foreign trips</strong> (£57,288, including trips to Qatar,
                 China, Taiwan and Syria), and <strong>both MPs married to lobbyists</strong>.
               </p>

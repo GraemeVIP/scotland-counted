@@ -27,13 +27,13 @@ const REPEAT_NAMES = [
     <Link key="gd" href={mp("dunfermline-and-dollar")} className="font-[600]">
       Graeme Downie (Labour)
     </Link>,
-    "The highest non staff expenses in Scotland (£151,954), 39 hotel nights on top of a £41,435 flat, a £963 business dinner and a £2,936 letter folding machine",
+    "The highest non staff expenses in Scotland (£151,954), a £41,435 London flat, a £963 business dinner and a £2,936 letter folding machine",
   ],
   [
     <Link key="cl" href={mp("dundee-central")} className="font-[600]">
       Chris Law (SNP)
     </Link>,
-    "A £3,090 broadband setup, £6,292 on car parking in one year, £11,619 on hotels on top of a £28,200 flat, and the most of any Scottish MP on hotels in Europe",
+    "A £3,090 broadband setup, £6,292 on car parking in one year, a £28,200 London flat, and the most of any Scottish MP on hotels in Europe (£2,822)",
   ],
   [
     <Link key="am" href={mp("inverness-skye-and-west-ross-shire")} className="font-[600]">
@@ -190,8 +190,8 @@ export default function WorstScottishMpExpenses() {
         cover charges like that, so you pick up the extra too.
       </P>
       <P>
-        <Link href={mp("glasgow-south-west")}>Dr Zubir Ahmed</Link> billed £43,475 for 323 nights in
-        London hotels in a single year. <Link href={mp("glasgow-east")}>John Grady</Link> billed
+        <Link href={mp("glasgow-south-west")}>Dr Zubir Ahmed</Link> billed £37,359 for 295 nights in
+        London hotels in a single year, instead of renting a flat. <Link href={mp("glasgow-east")}>John Grady</Link> billed
         £42,000 in London rent. That&apos;s £3,500 a month.
       </P>
 

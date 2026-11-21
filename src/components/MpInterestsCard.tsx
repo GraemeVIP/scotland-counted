@@ -183,64 +183,76 @@ export default function MpInterestsCard({
                 <strong className="text-[var(--ink)]">{money.format(exp.nonStaffSpend)}</strong>
               </span>
             </div>
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-              <div className="relative overflow-hidden rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface-2)] p-4 pt-5">
-                <span
-                  aria-hidden="true"
-                  className="absolute inset-x-0 top-0 h-[3px] bg-[var(--bad)]"
-                />
-                <p className="tile-key">London accommodation</p>
-                <p className="figure-num tnum mt-1.5 text-[24px] leading-none text-[var(--ink)]">
-                  {moneyWhole.format(exp.accommodationSpend)}
-                </p>
-                <p className="ui mt-2 text-[12.5px] leading-[1.4] text-[var(--ink-2)]">
-                  Rent: {moneyWhole.format(exp.secondHomeRent)} · Council tax:{" "}
-                  {moneyWhole.format(exp.secondHomeCouncilTax)}
-                </p>
-              </div>
-              <div className="relative overflow-hidden rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface-2)] p-4 pt-5">
-                <span
-                  aria-hidden="true"
-                  className="absolute inset-x-0 top-0 h-[3px] bg-[var(--bad)]"
-                />
-                <p className="tile-key">Travel & hotels</p>
-                <p className="figure-num tnum mt-1.5 text-[24px] leading-none text-[var(--ink)]">
-                  {moneyWhole.format(exp.travelSpend)}
-                </p>
-                <p className="ui mt-2 text-[12.5px] leading-[1.4] text-[var(--ink-2)]">
-                  Flights: {moneyWhole.format(exp.flights)} · Hotels:{" "}
-                  {moneyWhole.format(exp.londonHotels)}
-                </p>
-              </div>
-              <div className="relative overflow-hidden rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface-2)] p-4 pt-5">
-                <span
-                  aria-hidden="true"
-                  className="absolute inset-x-0 top-0 h-[3px] bg-[var(--bad)]"
-                />
-                <p className="tile-key">Taxis, parking & family</p>
-                <p className="figure-num tnum mt-1.5 text-[24px] leading-none text-[var(--ink)]">
-                  {moneyWhole.format(exp.taxis + exp.parking + exp.dependantTravel)}
-                </p>
-                <p className="ui mt-2 text-[12.5px] leading-[1.4] text-[var(--ink-2)]">
-                  Taxis: {moneyWhole.format(exp.taxis)} · Family travel:{" "}
-                  {moneyWhole.format(exp.dependantTravel)}
-                </p>
-              </div>
-              <div className="relative overflow-hidden rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface-2)] p-4 pt-5">
-                <span
-                  aria-hidden="true"
-                  className="absolute inset-x-0 top-0 h-[3px] bg-[var(--bad)]"
-                />
-                <p className="tile-key">Office & staffing</p>
-                <p className="figure-num tnum mt-1.5 text-[24px] leading-none text-[var(--ink)]">
-                  {moneyWhole.format(exp.officeSpend + exp.staffingSpend)}
-                </p>
-                <p className="ui mt-2 text-[12.5px] leading-[1.4] text-[var(--ink-2)]">
-                  Office: {moneyWhole.format(exp.officeSpend)} · Staff:{" "}
-                  {moneyWhole.format(exp.staffingSpend)}
-                </p>
-              </div>
-            </div>
+            {(() => {
+              // Four tiles that add up exactly to the MP's IPSA total: second home,
+              // their own and family travel, office plus staff travel, staff wages.
+              const ownTravel = exp.travelSpend - exp.staffTravel;
+              const officeAndStaffTravel = exp.officeSpend + exp.otherSpend + exp.staffTravel;
+              const parts = (items: [string, number][]) =>
+                items
+                  .filter(([, v]) => v > 0.5)
+                  .map(([k, v]) => `${k}: ${moneyWhole.format(v)}`)
+                  .join(" · ");
+              const tiles: { key: string; value: number; detail: string }[] = [
+                {
+                  key: "Second home",
+                  value: exp.accommodationSpend,
+                  detail: parts([
+                    ["Rent", exp.secondHomeRent],
+                    ["Council tax", exp.secondHomeCouncilTax],
+                    ["Energy bills", exp.secondHomeUtilities],
+                    ["London hotels", exp.londonHotels],
+                  ]),
+                },
+                {
+                  key: "Their own travel",
+                  value: ownTravel,
+                  detail: parts([
+                    ["Flights", exp.flights],
+                    ["Rail", exp.rail],
+                    ["Taxis", exp.taxis],
+                    ["Parking", exp.parking],
+                    ["Family", exp.dependantTravel],
+                  ]),
+                },
+                {
+                  key: "Office & staff travel",
+                  value: officeAndStaffTravel,
+                  detail: parts([
+                    ["Office", exp.officeSpend + exp.otherSpend],
+                    ["Staff travel", exp.staffTravel],
+                  ]),
+                },
+                {
+                  key: "Staff wages",
+                  value: exp.staffingSpend,
+                  detail: "Pay for the MP's office staff",
+                },
+              ];
+              return (
+                <>
+                  <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+                    {tiles.map((t) => (
+                      <div
+                        key={t.key}
+                        className="relative overflow-hidden rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface-2)] p-4 pt-5"
+                      >
+                        <span aria-hidden="true" className="absolute inset-x-0 top-0 h-[3px] bg-[var(--bad)]" />
+                        <p className="tile-key">{t.key}</p>
+                        <p className="figure-num tnum mt-1.5 text-[24px] leading-none text-[var(--ink)]">
+                          {moneyWhole.format(t.value)}
+                        </p>
+                        <p className="ui mt-2 text-[12.5px] leading-[1.4] text-[var(--ink-2)]">{t.detail}</p>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="ui mt-2.5 text-[13.5px] text-[var(--ink-2)]">
+                    These four add up to {money.format(exp.totalSpend)}. Hotels and taxis are the
+                    MP&apos;s own; their staff&apos;s trips are under staff travel.
+                  </p>
+                </>
+              );
+            })()}
           </div>
         )}
 

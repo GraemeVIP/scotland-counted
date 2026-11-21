@@ -275,8 +275,8 @@ const BIG_TABS: { mp: string; slug: string; party: string; what: string; amount:
     slug: "glasgow-south-west",
     party: "Labour",
     what: "London hotels",
-    amount: "£43,475",
-    note: "323 nights in one year, instead of renting a flat",
+    amount: "£37,359",
+    note: "295 nights in one year, instead of renting a flat",
   },
   {
     mp: "John Grady",
@@ -307,8 +307,8 @@ const BIG_TABS: { mp: string; slug: string; party: string; what: string; amount:
     slug: "livingston",
     party: "Labour",
     what: "Taxis",
-    amount: "£5,233",
-    note: "More than £100 a week",
+    amount: "£5,059",
+    note: "Nearly £100 a week",
   },
   {
     mp: "Douglas Alexander",
@@ -607,7 +607,7 @@ export default function MpExpenseReceiptsPage() {
                 head: "Lumped into one yearly total",
                 big: "2,009",
                 unit: "Scottish claims",
-                body: "These are a single figure for the whole year. You can see an MP spent £5,233 on taxis. You cannot see one journey: where it went, when, or why.",
+                body: "These are a single figure for the whole year. You can see an MP spent £5,059 on taxis. You cannot see one journey: where it went, when, or why.",
               },
               {
                 n: "Reason 3",

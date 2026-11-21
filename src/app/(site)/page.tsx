@@ -203,7 +203,7 @@ export default function Home() {
             <div>
               <span className="tile-key">New · MP expenses in Scotland</span>
               <p className="mt-2 max-w-[60ch] text-[17px] leading-[1.5] text-white">
-                One Scottish MP claimed £43,475 for London hotels in a year. Another claimed £6,292
+                One Scottish MP claimed £37,359 for London hotels in a year. Another claimed £6,292
                 for parking. See every expense, donation and free trip for all 57 MPs.
               </p>
               <p className="ui mt-3 flex flex-wrap gap-x-5 gap-y-2 text-[15px]">
