@@ -481,6 +481,28 @@ export default function MpRegisterOfInterestsScotlandPage() {
     ],
   ];
 
+  /** IPSA 2025/26 "Staff Travel" claims for Scotland's current MPs (individual claim files). */
+  const mpLink = (slug: string, name: string) => (
+    <Link key={slug} href={`/representatives/mps/${slug}#donations-and-interests`} className="font-[600]">
+      {name}
+    </Link>
+  );
+  const STAFF_HOTEL_ROWS = [
+    [mpLink("dundee-central", "Chris Law (SNP)"), "£10,996", "73"],
+    [mpLink("dunfermline-and-dollar", "Graeme Downie (Labour)"), "£8,539", "39"],
+    [mpLink("edinburgh-south-west", "Dr Scott Arthur (Labour)"), "£8,291", "47"],
+    [mpLink("angus-and-perthshire-glens", "Dave Doogan (SNP)"), "£8,258", "56"],
+    [mpLink("mid-dunbartonshire", "Susan Murray (Lib Dem)"), "£8,022", "38"],
+    [mpLink("edinburgh-north-and-leith", "Tracy Gilbert (Labour)"), "£7,557", "49"],
+  ];
+  const STAFF_TRAVEL_ROWS = [
+    [mpLink("dunfermline-and-dollar", "Graeme Downie (Labour)"), "£31,098", "£41,240"],
+    [mpLink("glasgow-south-west", "Dr Zubir Ahmed (Labour)"), "£25,897", "£13,080"],
+    [mpLink("argyll-bute-and-south-lochaber", "Brendan O'Hara (SNP)"), "£25,471", "£37,312"],
+    [mpLink("dundee-central", "Chris Law (SNP)"), "£25,035", "£43,009"],
+    [mpLink("angus-and-perthshire-glens", "Dave Doogan (SNP)"), "£22,643", "£34,622"],
+  ];
+
   const PARTY_TALLY_ROWS = [
     [
       <strong key="lab">Scottish Labour</strong>,
@@ -579,6 +601,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
   const JUMP_LINKS = [
     { href: "/mp-expenses-scotland/receipts", label: "The receipts" },
     { href: "#two-sets-of-rules", label: "MPs vs families" },
+    { href: "#staff-travel", label: "Staff travel" },
     { href: "#party-tally", label: "By party" },
     { href: "#top-claimants", label: "Spotlight" },
     { href: "#leaderboard", label: "All 57 MPs" },
@@ -947,6 +970,53 @@ export default function MpRegisterOfInterestsScotlandPage() {
         </ContentFrame>
 
         {/* THE PARTY TALLY */}
+        <ContentFrame as="section" id="staff-travel" className="pt-16 scroll-mt-20">
+          <SectionHead
+            eyebrow="Staff travel · IPSA 2025/26"
+            title="£565,753 to move MPs' staff around, including £169,523 in London hotels"
+          />
+          <div className="mt-3 max-w-[66ch] space-y-3 text-[17px] leading-[1.6] text-[var(--ink-2)]">
+            <ExplainText>
+              <p>
+                Most of what an MP&apos;s staff do is constituents&apos; problems: benefits,
+                housing, immigration cases. That work happens in Scotland, by phone and email. Yet
+                in 2025/26 Scotland&apos;s MPs billed taxpayers <strong>£565,753</strong> for their
+                staff to travel.
+              </p>
+              <p>
+                That includes <strong>£188,478 on staff flights</strong> and{" "}
+                <strong>£169,523 on staff London hotel stays</strong>: nearly four times what the
+                MPs spent on London hotels for themselves (£45,615). The rest is trains, mileage
+                and hotels elsewhere in the UK.
+              </p>
+              <p>
+                IPSA lets MPs claim staff travel for &quot;parliamentary business&quot;. Its
+                records don&apos;t say what any trip was for. Parliament ran remotely through 2020
+                and 2021. So why are constituency staff spending up to 73 nights a year in London
+                hotels?
+              </p>
+            </ExplainText>
+          </div>
+          <div className="mt-6 grid gap-5 lg:grid-cols-2">
+            <GuideTable
+              kicker="Biggest staff hotel bills"
+              title="Staff London hotel stays, by MP"
+              columns={["MP", "Staff London hotels", "Nights"]}
+              align={["left", "right", "right"]}
+              rows={STAFF_HOTEL_ROWS}
+              caption="Source: IPSA individual claims 2025/26, cost type Hotel - London under Staff Travel."
+            />
+            <GuideTable
+              kicker="The same names again"
+              title="All staff travel, and the MP's own travel"
+              columns={["MP", "Staff travel", "Their own travel"]}
+              align={["left", "right", "right"]}
+              rows={STAFF_TRAVEL_ROWS}
+              caption="Source: IPSA 2025/26. Graeme Downie and Chris Law are also No. 1 and No. 2 in Scotland for total non-staff expenses."
+            />
+          </div>
+        </ContentFrame>
+
         <ContentFrame as="section" id="party-tally" className="pt-16 scroll-mt-20">
           <SectionHead
             eyebrow="The Party Tally · Labour vs SNP vs Conservatives vs Lib Dems"
