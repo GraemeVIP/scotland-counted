@@ -177,15 +177,15 @@ const MORE_SPOTLIGHT_LEADERS: SpotlightEntry[] = [
   },
   {
     slug: "east-kilbride-and-strathaven",
-    badge: "£2,400 Freebie From Her Husband's Firm",
+    badge: "£2,400 Freebie From Her Husband's Own Firm",
     headlineStat: "£85,563",
     headlineLabel: "in expenses (not counting staff) + husband is paid to sway politicians",
     taxpayerSummary:
       "£31,366 for London flat rent (£2,614/month), £1,791 for 12 London hotel nights on top of that flat, £9,906 for flights and £3,941 for family flights (£348,096 total including staff). Also declares rental property income.",
     freebiesSummary:
-      "Declared £2,400 of free media training from Earthcott Ltd. On the same register she declares that her husband, David Taylor, is a director of Earthcott and is paid by clients to persuade politicians and officials to back what those clients want (the job is called lobbying). The rules allow the freebie because it was declared. The question is whether an MP should take free services from a firm whose director is paid to sway politicians, even when he is her husband.",
+      "Declared £2,400 of free media training (coaching on how to handle TV and press interviews) from Earthcott Ltd. Companies House shows Earthcott is her husband David Taylor's own firm: he is its only director and owns over 75% of it. She also declares that he is paid by clients to persuade politicians (lobbying). So a perk worth £2,400 came from her husband's business, on top of £3,500 she billed taxpayers for PR from Causeway Creative.",
     emailReason:
-      "claiming £85,563.46 in non-staff expenses (including £31,366 for flat rent and £3,941 for family flights) while accepting £2,400 of free media training from Earthcott Ltd, the company where your husband, who is paid by clients to persuade politicians, is a director",
+      "claiming £85,563.46 in non-staff expenses (including £31,366 for flat rent and £3,941 for family flights) while accepting £2,400 of free media training from Earthcott Ltd, the PR firm your husband owns and runs while being paid by clients to persuade politicians",
   },
 ];
 
@@ -1284,9 +1284,18 @@ export default function MpRegisterOfInterestsScotlandPage() {
                     <Link href="/representatives/mps/east-kilbride-and-strathaven#donations-and-interests">
                       Joani Reid
                     </Link>{" "}
-                    declares her husband David Taylor does this work and is a director of{" "}
-                    <strong>Earthcott Limited</strong>, which also gave her £2,400 of free media
-                    training. Paisley
+                    declares her husband David Taylor does this work. Companies House shows he is
+                    the{" "}
+                    <a href="https://find-and-update.company-information.service.gov.uk/company/13598010">
+                      only director and owner of over 75%
+                    </a>{" "}
+                    of <strong>Earthcott Ltd</strong>, a PR and consultancy firm. In February 2026
+                    Earthcott gave her <strong>£2,400 of free media training</strong>, which she
+                    declared as a donation. The register does not say what the training covered or
+                    who gave it. The questions it leaves: what was she trained for, who did the
+                    training, and does Earthcott work for any clients who want something from
+                    Parliament? MPs must declare gifts like this, but declaring a perk from your
+                    husband&apos;s business does not answer why it was given. Paisley
                     South Labour MP{" "}
                     <Link href="/representatives/mps/paisley-and-renfrewshire-south#donations-and-interests">
                       Johanna Baxter
@@ -1378,7 +1387,8 @@ export default function MpRegisterOfInterestsScotlandPage() {
             donations, overseas trips, gifts, properties and family members paid to sway politicians come from
             the official{" "}
             <strong>House of Commons Register of Members&apos; Financial Interests API</strong> (210
-            registered entries across Scotland&apos;s 57 MPs). Constituency child poverty after
+            registered entries across Scotland&apos;s 57 MPs). Company ownership comes from{" "}
+            <strong>Companies House</strong> (checked 21 November 2026). Constituency child poverty after
             housing costs figures come from the{" "}
             <strong>End Child Poverty / Loughborough University</strong> dataset.
           </p>

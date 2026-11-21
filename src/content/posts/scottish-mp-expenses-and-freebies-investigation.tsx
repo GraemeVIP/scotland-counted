@@ -523,8 +523,9 @@ export default function Post() {
         <Link href="/representatives/mps/east-kilbride-and-strathaven#donations-and-interests">
           Joani Reid
         </Link>
-        , whose husband is a director of Earthcott Ltd, the firm that gave her £2,400 of free media
-        training, and is paid by clients to persuade politicians, and{" "}
+        , whose husband is paid by clients to persuade politicians and, according to Companies
+        House, is the only director and owner of over 75% of Earthcott Ltd, the PR firm that gave
+        her £2,400 of free media training, and{" "}
         <Link href="/representatives/mps/paisley-and-renfrewshire-south#donations-and-interests">
           Johanna Baxter
         </Link>
