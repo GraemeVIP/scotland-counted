@@ -262,8 +262,14 @@ export default function Post() {
       <P>
         Using our own specialist checks, we traced the MP sites back to where they really live.
         Every one we tested, and Causeway&apos;s own website, sits on one shared server at Krystal
-        Hosting, a UK web host. Krystal&apos;s price list says £19 a month hosts unlimited sites, so
-        that&apos;s <strong>roughly £10 to £20 a year per MP site</strong>.
+        Hosting, a UK web host. Krystal&apos;s{" "}
+        <a href="https://krystal.io/hosting" target="_blank" rel="noopener noreferrer">
+          Emerald
+        </a>{" "}
+        plan hosts
+        <strong>unlimited websites for £19 a month</strong>, or £273.60 a year with VAT. Not per
+        site. For all of them. So £1,200 is more than four times the cost of hosting unlimited
+        websites for a year.
       </P>
       <P>
         Nor was anything redesigned. Joani Reid&apos;s home page is the same layout in November

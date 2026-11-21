@@ -296,9 +296,24 @@ export default function Post() {
         host. Causeway&apos;s own website and its demo site are on the very same server.
       </P>
       <P>
-        Krystal&apos;s own price list says £19 a month hosts unlimited websites. Its plan for
-        agencies hosts 25 client sites for £20 a month. Shared out, that&apos;s{" "}
-        <strong>roughly £10 to £20 a year per MP site</strong>.
+        Krystal sells a plan called{" "}
+        <a href="https://krystal.io/hosting" target="_blank" rel="noopener noreferrer">
+          Emerald
+        </a>{" "}
+        that hosts
+        <strong>unlimited websites for £19 a month</strong>. That&apos;s £228 a year, or £273.60
+        with VAT. Not per site. For every site on the plan.
+      </P>
+      <P>
+        We can&apos;t see which plan Causeway uses. But say every MP site had a whole Emerald plan
+        to itself, which it wouldn&apos;t. Hosting would still only cost £273.60 a year. Joani Reid
+        paid £1,200.{" "}
+        <strong>
+          That&apos;s more than four times what Krystal charges to host unlimited websites for a
+          whole year.
+        </strong>{" "}
+        Shared across the sites Causeway hosts, each MP site works out at around a pound a month,
+        and less with every site he adds.
       </P>
 
       <H3 id="no-redesign">Was anything redesigned for the £1,200?</H3>
@@ -310,8 +325,8 @@ export default function Post() {
       </P>
       <P>
         To be clear, &quot;Website hosting and design&quot; is IPSA&apos;s own label for all MP
-        website spending, and IPSA doesn&apos;t publish what the invoice said. But hosting costs
-        about £10 to £20 a year, and nothing was redesigned.{" "}
+        website spending, and IPSA doesn&apos;t publish what the invoice said. But hosting unlimited
+        sites costs £273.60 a year on Krystal&apos;s own price list, and nothing was redesigned.{" "}
         <strong>So what did £1,200 pay for?</strong>
       </P>
 

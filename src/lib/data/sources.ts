@@ -2061,7 +2061,7 @@ export const sources: Source[] = [
     publisher: "Krystal Hosting",
     url: "https://krystal.io/hosting",
     used: "Prices checked 21 November 2026, before VAT: £19 a month for unlimited sites (Emerald), £20 a month for up to 25 client sites (reseller Unity), £7 a month for one site (Amethyst).",
-    derivation: "We divided the plan prices across the client sites they host to give a rough yearly cost per site. Which plan Causeway Creative uses is not public.",
+    derivation: "We added 20% VAT to the Emerald price (£19 x 12 x 1.2 = £273.60 a year) and compared it with the £1,200 payments. Which plan Causeway Creative uses is not public.",
   },
   {
     id: "mp-websites-causeway-template-2026",
