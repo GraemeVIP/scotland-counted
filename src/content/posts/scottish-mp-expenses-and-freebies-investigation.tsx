@@ -176,7 +176,7 @@ export default function Post() {
       <Lead>
         Every Scottish MP gets paid a basic salary of £91,346 a year. That puts them comfortably in
         the top 5% of earners in the country before a single penny of expenses is claimed. Yet when
-        you open the 7,268 individual receipt lines published by IPSA for 2025/26 alongside the
+        you open the 6,101 individual receipt lines published by IPSA for 2025/26 alongside the
         House of Commons Register of Financial Interests, you find 47 of Scotland&apos;s MPs billing
         the taxpayer £81,646.92 to pay the council tax on their second homes, 38 MPs billing
         £39,218.00 for their second home gas, electricity and water bills, £43,475.49 for a single
@@ -550,7 +550,7 @@ export default function Post() {
       </div>
 
       <H2 id="buried-receipts">
-        7. What else is buried in the 7,268 receipts: £3,000 speech coaches, European hotels, PR
+        7. What else is buried in the 6,101 receipts: £3,000 speech coaches, European hotels, PR
         agencies, £1,248 iPhones and duplicate claims
       </H2>
       <P>
@@ -701,7 +701,7 @@ export default function Post() {
           Every figure in this article and on our{" "}
           <Link href="/mp-expenses-scotland">Scottish MP Expenses and Freebies hub</Link> comes
           directly from the official IPSA 2025/26 <code>totalSpend</code> and{" "}
-          <code>individualBusinessCosts</code> CSV files (7,268 individual Scottish claim lines) and
+          <code>individualBusinessCosts</code> CSV files (6,101 individual Scottish claim lines) and
           the UK Parliament Register of Members&apos; Financial Interests API (210 registered
           entries across all 57 Scottish MPs, checked 21 November 2026). You are welcome to quote or
           reproduce these tables with attribution and a link to{" "}

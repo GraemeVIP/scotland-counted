@@ -572,6 +572,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
   ];
 
   const JUMP_LINKS = [
+    { href: "/mp-expenses-scotland/receipts", label: "The receipts" },
     { href: "#two-sets-of-rules", label: "MPs vs families" },
     { href: "#party-tally", label: "By party" },
     { href: "#top-claimants", label: "Spotlight" },
@@ -723,6 +724,42 @@ export default function MpRegisterOfInterestsScotlandPage() {
               ))}
             </ul>
           </nav>
+        </ContentFrame>
+
+        {/* FROM THE RECEIPTS: front and centre */}
+        <ContentFrame as="section" id="receipts" className="pt-12 scroll-mt-20">
+          <div className="tile-night tile overflow-hidden p-6 sm:p-8">
+            <div className="flex flex-wrap items-end justify-between gap-4">
+              <div className="max-w-[56ch]">
+                <p className="tile-key">From the receipts · IPSA 2025/26</p>
+                <h2 className="display-stat mt-2 text-[clamp(26px,3vw,38px)] text-white">
+                  Things you paid for and never knew about
+                </h2>
+              </div>
+              <Link
+                href="/mp-expenses-scotland/receipts"
+                className="btn btn-primary shrink-0"
+              >
+                See all the receipts →
+              </Link>
+            </div>
+            <ul className="mt-6 grid gap-3 sm:grid-cols-3">
+              {[
+                ["£3,000", "a speech and presentation skills workshop", "Angus MacDonald"],
+                ["£546", "jet-washing the drains at a second home", "Angus MacDonald"],
+                ["£1,248", "an iPhone and a case", "John Lamont"],
+              ].map(([amount, what, who]) => (
+                <li
+                  key={what}
+                  className="rounded-[var(--r-m)] border border-white/10 bg-white/[0.06] px-4 py-4"
+                >
+                  <p className="figure-num tnum text-[32px] leading-none text-white">{amount}</p>
+                  <p className="mt-2 text-[15px] leading-[1.45] text-white/90">{what}</p>
+                  <p className="tile-key mt-2">{who}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
         </ContentFrame>
 
         {/* THE JUXTAPOSITION: WHAT MPS CLAIM VS WHAT CONSTITUENTS GET */}
@@ -1079,7 +1116,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
                 </summary>
                 <div className="space-y-5 border-t border-[var(--rule)] p-5 sm:p-6">
                   <GuideTable
-                    kicker="2025/26 Official IPSA Receipts · 7,268 claims"
+                    kicker="2025/26 Official IPSA Receipts · 6,101 claims"
                     title="Eight things Scottish MPs charged to taxpayers on top of their £91,346 salary"
                     columns={[
                       "What was billed to taxpayers",
@@ -1093,7 +1130,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
                   />
                   <div className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] p-5 text-[15px] leading-[1.6] text-[var(--ink-2)]">
                     <p className="font-[630] text-[var(--ink)] mb-2">
-                      Buried in the 7,268 receipts: what else Scottish MPs billed to taxpayers in
+                      Buried in the 6,101 receipts: what else Scottish MPs billed to taxpayers in
                       2025/26
                     </p>
                     <ul className="list-disc space-y-2.5 pl-5 marker:text-[var(--bad)]">
@@ -1566,7 +1603,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
             <ExplainText>
               All expense figures come from the official{" "}
               <strong>Independent Parliamentary Standards Authority (IPSA)</strong> 2025/26 annual
-              dataset (7,268 individual Scottish MP claim lines totalling £18,543,803.31). All
+              dataset (6,101 individual Scottish MP claim lines totalling £18,543,803.31). All
               donations, overseas trips, gifts, properties and family lobbying declarations come
               from the official{" "}
               <strong>House of Commons Register of Members&apos; Financial Interests API</strong>{" "}

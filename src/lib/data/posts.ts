@@ -169,7 +169,7 @@ export const posts: Post[] = [
       src: "/images/editorial/refresh-court-records.webp",
       alt: "Open official parliamentary folders and financial ledgers on a wooden desk for the Scottish MP Register of Interests and IPSA Expenses",
       caption:
-        "Across 7,268 individual IPSA expense claim lines in 2025/26, Scottish MPs billed taxpayers £4.97 million in non-staff expenses (£18.54m including staff), plus £296,895 in private donations, foreign visits and VIP hospitality.",
+        "Across 6,101 individual IPSA expense claim lines in 2025/26, Scottish MPs billed taxpayers £4.97 million in non-staff expenses (£18.54m including staff), plus £296,895 in private donations, foreign visits and VIP hospitality.",
       aspect: "wide",
       objectPosition: "center",
     },
