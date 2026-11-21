@@ -463,30 +463,41 @@ export default function MpExpenseReceiptsPage() {
             title="Why you have never seen these receipts"
           />
           <div className="mt-7 grid gap-4 md:grid-cols-3">
-            <div className="tile-night tile p-6">
-              <p className="tile-key">The file</p>
-              <p className="figure-num tnum mt-2 text-[40px] leading-none text-white">59,503</p>
-              <p className="mt-3 text-[15px] leading-[1.55] text-[var(--deep-muted)]">
-                lines in IPSA&apos;s 2025/26 spreadsheet, covering 658 MPs. Scotland&apos;s MPs
-                alone take up 6,101 of them.
-              </p>
-            </div>
-            <div className="tile-night tile p-6">
-              <p className="tile-key">Lumped together</p>
-              <p className="figure-num tnum mt-2 text-[40px] leading-none text-white">2,009</p>
-              <p className="mt-3 text-[15px] leading-[1.55] text-[var(--deep-muted)]">
-                Scottish lines are one yearly total, like &ldquo;Aggregated figure for travel&rdquo;.
-                You see the taxi bill, never the journeys.
-              </p>
-            </div>
-            <div className="tile-night tile p-6">
-              <p className="tile-key">Blanked out</p>
-              <p className="figure-num tnum mt-2 text-[40px] leading-none text-white">199</p>
-              <p className="mt-3 text-[15px] leading-[1.55] text-[var(--deep-muted)]">
-                more Scottish lines hide the supplier&apos;s name behind [***], so you cannot see
-                who was paid.
-              </p>
-            </div>
+            {[
+              {
+                n: "Reason 1",
+                head: "Buried in a giant spreadsheet",
+                big: "59,503",
+                unit: "rows",
+                body: "That is IPSA's file for one year. Printed out, it would run to about 1,000 pages. A £3,000 speech coach is one row in there. Nobody finds it unless they go looking.",
+              },
+              {
+                n: "Reason 2",
+                head: "Lumped into one yearly total",
+                big: "2,009",
+                unit: "Scottish claims",
+                body: "These are a single figure for the whole year. You can see an MP spent £5,233 on taxis. You cannot see one journey: where it went, when, or why.",
+              },
+              {
+                n: "Reason 3",
+                head: "The name is blanked out",
+                big: "199",
+                unit: "Scottish claims",
+                body: "These hide who was paid behind [***]. You can see public money went out. You cannot see who got it.",
+              },
+            ].map((c) => (
+              <div key={c.n} className="tile-night tile p-6">
+                <p className="tile-key">{c.n}</p>
+                <h3 className="ui mt-1.5 text-[19px] font-[680] leading-[1.25] text-white">
+                  {c.head}
+                </h3>
+                <p className="mt-3 flex items-baseline gap-2">
+                  <span className="figure-num tnum text-[40px] leading-none text-white">{c.big}</span>
+                  <span className="ui text-[14px] font-[600] text-[var(--deep-muted)]">{c.unit}</span>
+                </p>
+                <p className="mt-3 text-[15px] leading-[1.55] text-[var(--deep-muted)]">{c.body}</p>
+              </div>
+            ))}
           </div>
           <ExplainText>
             <div className="mt-7 max-w-[66ch] space-y-4 text-[17px] leading-[1.65] text-[var(--ink-2)]">
