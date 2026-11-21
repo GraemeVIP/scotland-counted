@@ -155,6 +155,13 @@ export default function WorstScottishMpExpenses() {
           </Link>
           .
         </LI>
+        <LI>
+          <Link href={mp("east-kilbride-and-strathaven")}>Joani Reid</Link> (Labour) paid that firm
+          £24,664, more than any other MP in the UK. She told The Scotsman she had &quot;not used any
+          public money to hire any consultant or consultancy services for public or media
+          relations&quot;. IPSA&apos;s records show £18,664 of it filed as &quot;Comms &amp;
+          Media&quot;. Put side by side, they don&apos;t match.
+        </LI>
       </UL>
 
       <H2 id="perks">5. Dinners, a Christmas lunch, sofas and phones</H2>

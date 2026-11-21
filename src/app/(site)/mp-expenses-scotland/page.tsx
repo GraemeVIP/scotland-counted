@@ -1507,6 +1507,16 @@ export default function MpRegisterOfInterestsScotlandPage() {
                           £18,664, were made between 31 March and 24 April 2025. 31 March is the
                           last day of IPSA&apos;s budget year.
                         </div>
+                        <div className="mt-3 block rounded-[var(--r-s)] border-2 border-[var(--bad-text)] bg-[var(--surface)] px-4 py-3">
+                          <strong className="text-[var(--bad-text)]">
+                            What she said vs what the receipts show:
+                          </strong>{" "}
+                          In December 2025 she told The Scotsman she had &quot;not used any public
+                          money to hire any consultant or consultancy services for public or media
+                          relations&quot;. IPSA&apos;s records show £18,664 of public money paid to
+                          this outside firm, filed as &quot;Comms &amp; Media&quot;.{" "}
+                          <strong>Put side by side, they don&apos;t match.</strong>
+                        </div>
                         <div className="mt-2 block">
                           <Link
                             href="/blog/causeway-creative-labour-councillor-mp-expenses"

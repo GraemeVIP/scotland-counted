@@ -142,19 +142,39 @@ export default function Post() {
         since 2024. No other MP in the UK has paid it more. IPSA files £18,664 of that as
         &quot;Staffing: Bought-in services, Comms &amp; Media&quot;.
       </P>
+      <div className="my-7 overflow-hidden rounded-[var(--r-m)] border-2 border-[var(--bad-text)]">
+        <p className="ui bg-[var(--bad-text)] px-5 py-2.5 text-[15px] font-[700] uppercase tracking-[0.04em] text-white">
+          What she said vs what the receipts show
+        </p>
+        <div className="grid md:grid-cols-2">
+          <div className="border-b border-[var(--rule)] bg-[var(--surface)] p-5 md:border-b-0 md:border-r">
+            <p className="tile-key">What Joani Reid told The Scotsman, December 2025</p>
+            <p className="mt-2 text-[17px] font-[600] leading-[1.5] text-[var(--ink)]">
+              &quot;Not used any public money to hire any consultant or consultancy services for
+              public or media relations.&quot;
+            </p>
+          </div>
+          <div className="bg-[color-mix(in_srgb,var(--bad)_8%,transparent)] p-5">
+            <p className="tile-key">What IPSA&apos;s own records show</p>
+            <p className="mt-2 text-[17px] font-[600] leading-[1.5] text-[var(--ink)]">
+              £18,664 of public money paid to Causeway Creative, an outside firm, filed as
+              &quot;Bought-in services, Comms &amp; Media&quot;.
+            </p>
+          </div>
+        </div>
+        <p className="ui border-t border-[var(--rule)] bg-[var(--surface-2)] px-5 py-3.5 text-[16px] font-[650] text-[var(--ink)]">
+          Put side by side, they don&apos;t match. An outside firm was paid public money, and
+          IPSA&apos;s record calls the work comms and media.
+        </p>
+      </div>
       <P>
-        In December 2025, The Scotsman reported on Scottish Labour MPs&apos; spending on outside
-        media firms. Ms Reid told the paper she had &quot;not used any public money to hire any
-        consultant or consultancy services for public or media relations&quot;.
+        To be fair to her, she also told the paper the money mostly went on &quot;creating and
+        building a website, advertising surgeries and communicating with my constituents&quot;.
+        But IPSA&apos;s records only show £6,000 of it as website work. The other £18,664 is filed
+        as bought in comms and media, paid in five chunks between March and April 2025.
       </P>
       <P>
-        She said most of the money went on &quot;creating and building a website, advertising
-        surgeries and communicating with my constituents&quot;. IPSA&apos;s own records list
-        £6,000 for website work and £18,664 as bought-in comms and media.
-      </P>
-      <P>
-        Readers can judge for themselves whether those two accounts match. You can see all seven
-        payments, with dates, on our{" "}
+        Read it for yourself and make your own mind up. All seven payments, with dates, are on our{" "}
         <Link href="/mp-expenses-scotland#full-lists">MP expenses page</Link>.
       </P>
       <Aside title="A separate issue: her husband's firm">
