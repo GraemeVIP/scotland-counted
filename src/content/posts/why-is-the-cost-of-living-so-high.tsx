@@ -1,7 +1,7 @@
 import Link from "@/components/IntentLink";
 import type { ReactNode } from "react";
 import { Prose, Lead, P, H2, H3, UL, LI, BigStat, Aside, PostCTA } from "@/components/Prose";
-import { ExplainText } from "@/components/Glossary";
+import { ExplainText } from "@/components/ExplainServer";
 import VideoEmbed from "@/components/VideoEmbed";
 import { JsonLd, videoJsonLd } from "@/lib/seo";
 import { GuideTable } from "@/components/GuideTable";

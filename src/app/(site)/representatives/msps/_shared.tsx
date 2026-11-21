@@ -3,7 +3,7 @@ import type { HolyroodMspContact } from "@/lib/data/holyrood";
 import { site } from "@/lib/site";
 import { formatVoteDate } from "@/lib/voting";
 import PortraitLightbox from "@/components/PortraitLightbox";
-import { ExplainText } from "@/components/Glossary";
+import { ExplainText } from "@/components/ExplainServer";
 import { representativeSlug } from "@/lib/representatives";
 import { getMspRating, type ApprovedMspReview } from "@/lib/data/mspReviews";
 

@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import Link from "@/components/IntentLink";
-import { ExplainText } from "@/components/Glossary";
+import { ExplainText } from "@/components/ExplainServer";
 
 /**
  * Typographic primitives for blog posts.

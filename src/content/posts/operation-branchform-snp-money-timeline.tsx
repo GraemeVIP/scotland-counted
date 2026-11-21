@@ -1,7 +1,8 @@
 import Link from "@/components/IntentLink";
 import EditorialImage from "@/components/EditorialImage";
 import SnpMoneyTimeline from "@/components/SnpMoneyTimeline";
-import { ExplainText, G } from "@/components/Glossary";
+import { G } from "@/components/Glossary";
+import { ExplainText } from "@/components/ExplainServer";
 import { Aside, BigStat, H2, H3, Lead, LI, P, Prose, UL } from "@/components/Prose";
 import {
   snpMoneyTimelineEvents,

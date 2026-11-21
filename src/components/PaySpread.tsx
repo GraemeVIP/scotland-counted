@@ -4,7 +4,8 @@ import {
   rtiCrossCheck,
   asheFullTimeUk,
 } from "@/lib/data/payDistribution";
-import { ExplainText, G } from "@/components/Glossary";
+import { G } from "@/components/Glossary";
+import { ExplainText } from "@/components/ExplainServer";
 
 /**
  * The spread of pay, and an independent check on it.

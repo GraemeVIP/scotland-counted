@@ -1,5 +1,5 @@
 import Link from "@/components/IntentLink";
-import { ExplainText } from "@/components/Glossary";
+import { ExplainText } from "@/components/ExplainServer";
 
 /**
  * Editorial standard note shown at the end of articles so readers can verify

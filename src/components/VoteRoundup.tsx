@@ -1,7 +1,7 @@
 import Link from "@/components/IntentLink";
 import { divisions, scottishTally } from "@/lib/data/votes";
 import Reveal from "@/components/Reveal";
-import { ExplainText } from "@/components/Glossary";
+import { ExplainText } from "@/components/ExplainServer";
 
 /**
  * How Scotland's 57 MPs voted, division by division.

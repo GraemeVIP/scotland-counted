@@ -2,7 +2,7 @@ import Link from "@/components/IntentLink";
 import { pay } from "@/lib/data/power";
 import PostcodeStart from "@/components/PostcodeStart";
 import { buildLocalFacts, responsibilitySplit } from "@/lib/localFacts";
-import { ExplainText } from "@/components/Glossary";
+import { ExplainText } from "@/components/ExplainServer";
 
 const HOW_IT_WORKS = [
   {

@@ -1,6 +1,6 @@
 import Link from "@/components/IntentLink";
 import { councilsByLevel, COUNCIL_YEARS } from "@/lib/data/councils";
-import { ExplainText } from "@/components/Glossary";
+import { ExplainText } from "@/components/ExplainServer";
 
 /** "1 of 32" read as a count. "1st of 32" reads as the rank it actually is. */
 function ordinal(n: number) {

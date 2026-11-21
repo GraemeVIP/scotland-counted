@@ -1,7 +1,7 @@
 import Link from "@/components/IntentLink";
 import { votesForConstituency, scottishTally, type Side } from "@/lib/data/votes";
 import Reveal from "@/components/Reveal";
-import { ExplainText } from "@/components/Glossary";
+import { ExplainText } from "@/components/ExplainServer";
 
 /**
  * How this constituency's MP actually voted.

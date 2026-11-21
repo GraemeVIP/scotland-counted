@@ -1,5 +1,5 @@
 import { EvidenceDetails } from "@/components/Blocks";
-import { ExplainText } from "@/components/Glossary";
+import { ExplainText } from "@/components/ExplainServer";
 
 /**
  * Plain-English explainer of MP vs MSP.
