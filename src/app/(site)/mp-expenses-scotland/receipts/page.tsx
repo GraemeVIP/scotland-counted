@@ -562,7 +562,11 @@ export default function MpExpenseReceiptsPage() {
               IPSA 2025/26 individualBusinessCosts file, checked 21 November 2026. Descriptions are
               copied exactly as IPSA publishes them. Yearly totals match our{" "}
               <Link href="/mp-expenses-scotland">full MP expenses page</Link>. Every claim shown was
-              approved and paid by IPSA.
+              approved and paid by IPSA. Read next:{" "}
+              <Link href="/blog/causeway-creative-labour-councillor-mp-expenses">
+                the Labour councillor&apos;s firm that MPs paid £270,033
+              </Link>
+              .
             </ExplainText>
           </p>
         </ContentFrame>

@@ -1497,6 +1497,14 @@ export default function MpRegisterOfInterestsScotlandPage() {
                           £18,664, were made between 31 March and 24 April 2025. 31 March is the
                           last day of IPSA&apos;s budget year.
                         </div>
+                        <div className="mt-2 block">
+                          <Link
+                            href="/blog/causeway-creative-labour-councillor-mp-expenses"
+                            className="font-[640]"
+                          >
+                            Who runs Causeway Creative, and why 53 MPs paid it £270,033 →
+                          </Link>
+                        </div>
                       </div>
                       <div className="mt-4 block">
                         Paisley South Labour MP{" "}

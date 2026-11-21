@@ -56,6 +56,7 @@ import LifeExpectancyGlasgow from "./life-expectancy-glasgow";
 import UnemploymentScotland from "./unemployment-scotland";
 import CrimeRateGlasgow from "./crime-rate-glasgow";
 import ScottishMpExpensesAndFreebiesInvestigation from "./scottish-mp-expenses-and-freebies-investigation";
+import CausewayCreativeLabourCouncillorMpExpenses from "./causeway-creative-labour-councillor-mp-expenses";
 
 /**
  * Slug to post body. Statically imported so every post is prerendered and no
@@ -63,6 +64,7 @@ import ScottishMpExpensesAndFreebiesInvestigation from "./scottish-mp-expenses-a
  * to src/lib/data/posts.ts.
  */
 export const postBodies: Record<string, ComponentType> = {
+  "causeway-creative-labour-councillor-mp-expenses": CausewayCreativeLabourCouncillorMpExpenses,
   "scottish-mp-expenses-and-freebies-investigation": ScottishMpExpensesAndFreebiesInvestigation,
   "shoplifting-scotland-record-high": ShopliftingScotlandRecordHigh,
   "glasgow-sex-crime-rise-migrants": GlasgowSexCrimeRiseMigrants,

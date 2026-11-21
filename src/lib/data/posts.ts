@@ -142,6 +142,68 @@ export type Post = {
 
 export const posts: Post[] = [
   {
+    slug: "causeway-creative-labour-councillor-mp-expenses",
+    title:
+      "A Labour councillor set up a PR firm the week Labour won. MPs have since paid it £270,033 of public money",
+    seoTitle: "Causeway Creative: £270,033 of MP Expenses Paid to a Labour Councillor's Firm",
+    description:
+      "53 MPs, 49 of them Labour, paid Causeway Creative £270,033 of public money since 2024. The firm is run by a Labour councillor. Joani Reid paid the most.",
+    standfirst:
+      "Causeway Creative was set up four days after the 2024 election by a sitting Labour councillor. Since then, 53 MPs have paid it £270,033 through their expenses. Scotland's Joani Reid paid more than any other MP.",
+    date: "2026-11-21",
+    updated: "2026-11-21",
+    checked: "2026-11-21",
+    category: "politics-explained",
+    tags: ["MP expenses Scotland", "Scottish Labour", "IPSA", "Joani Reid", "Westminster"],
+    readingMinutes: 6,
+    image: {
+      src: "/images/editorial/refresh-court-records.webp",
+      alt: "Official folders and financial ledgers on a desk, for the IPSA expense claims paid to Causeway Creative",
+      caption:
+        "53 MPs paid Causeway Creative £270,033 of public money between August 2024 and November 2026, according to IPSA's published claim files.",
+      aspect: "wide",
+      objectPosition: "center",
+    },
+    shareImage: {
+      src: "/images/editorial/refresh-court-records.webp",
+      width: 1500,
+      height: 1000,
+      type: "image/webp",
+    },
+    toc: [
+      { id: "who-runs-it", label: "Who runs Causeway Creative" },
+      { id: "what-mps-paid-for", label: "What MPs paid for" },
+      { id: "joani-reid", label: "Joani Reid: £24,664, the most in the UK" },
+      { id: "scottish-mps", label: "The Scottish MPs who paid it" },
+      { id: "the-company", label: "What the company's records show" },
+      { id: "what-we-did-not-find", label: "What we did not find" },
+      { id: "questions", label: "The questions that need answers" },
+    ],
+    faq: [
+      {
+        q: "Who owns Causeway Creative?",
+        a: "Companies House lists Thomas Michael Jennings as the only director and the owner of more than 75% of Causeway Creative Ltd. Tom Jennings is a Labour and Co-operative councillor on Warrington Borough Council. The company was set up on 8 July 2024.",
+      },
+      {
+        q: "How much have MPs paid Causeway Creative?",
+        a: "IPSA's published claim files show 53 MPs paid Causeway Creative £270,033 between August 2024 and November 2026. 49 of them are Labour or Labour Co-op MPs. Most of the money was for bought-in comms and media work and websites.",
+      },
+      {
+        q: "Did any rules get broken?",
+        a: "We found no broken rules. IPSA, which runs MPs' expenses, approved every payment, and MPs are allowed to buy services from firms run by councillors. We also found no overseas links and no political donations from the firm or its owner.",
+      },
+    ],
+    sourceIds: [
+      "ipsa-causeway-creative-2023-2027",
+      "companies-house-causeway-creative",
+      "warrington-council-tom-jennings",
+      "nation-cymru-causeway-2025",
+      "scotsman-labour-mps-media-spend-2025",
+      "we-are-civitas-archive",
+      "causeway-creative-archive",
+    ],
+  },
+  {
     slug: "scottish-mp-expenses-and-freebies-investigation",
     title:
       "£81,647 for second home council tax, £43,475 for hotel rooms and free F1 tickets: inside Scottish MPs' 2025/26 expenses and freebies",
