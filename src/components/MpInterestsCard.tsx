@@ -538,13 +538,11 @@ export default function MpInterestsCard({
                   Ask {interests.name} to explain these claims
                 </h3>
                 <p className="mt-1 text-[15px] leading-[1.5] text-[var(--ink-2)]">
-                  We have drafted an email setting {interests.name}&apos;s 2025/26 expense claims
-                  and registered interests alongside the cost of living and child poverty figures in{" "}
-                  {interests.constituency}. It opens in your email app so you can edit it and add
-                  your address.
+                  The email box at the top of this page has a ready written email about these
+                  claims. Pick &ldquo;Your expenses&rdquo;, read it, then send it.
                 </p>
               </div>
-              <a href={askMailto} className="btn btn-primary shrink-0 justify-center text-center">
+              <a href="#ask-expenses" className="btn btn-primary shrink-0 justify-center text-center">
                 Ask {interests.name} to explain →
               </a>
             </div>

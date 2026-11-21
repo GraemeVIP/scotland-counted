@@ -15,6 +15,8 @@ import { JsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
 import { site } from "@/lib/site";
 import MemberVoteList from "@/components/MemberVoteList";
 import MpInterestsCard from "@/components/MpInterestsCard";
+import MpEmailComposer from "@/components/MpEmailComposer";
+import { buildMpEmailIssues } from "@/lib/mpEmails";
 import PortraitLightbox from "@/components/PortraitLightbox";
 import {
   getMpInterestsByConstituencySlug,
@@ -37,25 +39,6 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   });
 }
 
-function emailHref({
-  email,
-  name,
-  constituency,
-  povertyRate,
-  povertyCount,
-  povertyYear,
-}: {
-  email: string;
-  name: string;
-  constituency: string;
-  povertyRate: number;
-  povertyCount: number;
-  povertyYear: string;
-}) {
-  const subject = `Question from a constituent in ${constituency}`;
-  const body = `Dear ${name},\n\nI live in the ${constituency} constituency.\n\nThe latest constituency estimate says ${povertyCount.toLocaleString("en-GB")} children here were living in poverty after housing costs in ${povertyYear}, which is ${povertyRate}%.\n\nWhat action will you take in Parliament to bring that figure down, and what do you expect it to be in five years?\n\nYours sincerely,\n[Your name]\n[Your address]`;
-  return `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-}
 
 function isDialablePhone(phone: string) {
   return /^\+?[\d\s()\-]+$/.test(phone);
@@ -75,13 +58,14 @@ export default async function MpPage({ params }: { params: Promise<{ slug: strin
   const povertyCount = constituency.counts[latestIndex];
   const pagePath = `/representatives/mps/${mp.constituencySlug}`;
   const pageUrl = `${site.url}${pagePath}`;
-  const preparedEmail = emailHref({
-    email: mp.email,
+  const emailIssues = buildMpEmailIssues({
     name: mp.name,
     constituency: mp.constituency,
-    povertyRate,
     povertyCount,
+    povertyRate,
     povertyYear,
+    interests,
+    votes: mp.votes ?? [],
   });
 
   const faq = [
@@ -227,21 +211,9 @@ export default async function MpPage({ params }: { params: Promise<{ slug: strin
                   </div>
                 </dl>
 
-                <div className="mt-7 flex flex-col sm:flex-row gap-3">
-                  <a href={preparedEmail} className="btn btn-primary justify-center text-center">
-                    Open a ready written email
-                  </a>
-                  <Link
-                    href="/mp-expenses-scotland"
-                    className="btn btn-ghost justify-center text-center"
-                  >
-                    Compare all 57 MPs&apos; expenses
-                  </Link>
+                <div className="mt-7 border-t border-[var(--rule)] pt-6">
+                  <MpEmailComposer name={mp.name} email={mp.email} issues={emailIssues} />
                 </div>
-                <p className="ui mt-4 text-[15px] leading-[1.5] text-[var(--ink-2)]">
-                  The draft opens in your own email app. Read it, add your address and change
-                  anything you want before sending.
-                </p>
               </div>
 
               <aside className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] p-6 sm:p-7">
