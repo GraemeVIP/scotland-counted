@@ -23,6 +23,14 @@ export const metadata = meta({
 
 const hub = HUBS.find((h) => h.id === "benefits")!;
 const byPath = new Map(posts.map((post) => [postPath(post.slug), post]));
+const STATIC_GUIDES: Record<string, { value: string; unit: string; standfirst: string }> = {
+  "/warm-home-discount-scotland": {
+    value: "£150",
+    unit: "off electricity bill",
+    standfirst:
+      "Automatic in Scotland for Pension Credit and certain disability or under 5 benefit elements, or apply directly to your supplier in the Broader Group.",
+  },
+};
 
 export default function BenefitsPage() {
   const color = hubColor(hub.id);
@@ -47,7 +55,9 @@ export default function BenefitsPage() {
               <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3 mt-5">
                 {group.items.map((item) => {
                   const post = byPath.get(item.href);
-                  const answer = post?.quickAnswer;
+                  const staticGuide = STATIC_GUIDES[item.href];
+                  const answer = post?.quickAnswer ?? staticGuide;
+                  const summary = post?.standfirst ?? staticGuide?.standfirst;
                   return (
                     <Link
                       key={item.href}
@@ -65,7 +75,7 @@ export default function BenefitsPage() {
                           {answer.unit ? ` ${answer.unit}` : ""}
                         </span>
                       )}
-                      {post && <span className="text-[15px] leading-[1.5] text-[var(--ink-2)]">{post.standfirst}</span>}
+                      {summary && <span className="text-[15px] leading-[1.5] text-[var(--ink-2)]">{summary}</span>}
                     </Link>
                   );
                 })}

@@ -187,8 +187,16 @@ export default function Post() {
       <H2 id="next-year">Council tax 2027/28: when the next rise is set</H2>
       <P>
         Councils set their 2027/28 council tax at budget meetings in February and early March 2027,
-        once the Scottish Budget has set their funding. Bills for the new year arrive from March. I
-        will add every council&apos;s 2027/28 rise here once the national figures are published.
+        once the{" "}
+        <Link href="/scottish-budget-2027-28">
+          2027/28 Scottish Budget on Thursday 3 December 2026
+        </Link>{" "}
+        has set their funding. Meanwhile, the Scottish Government has introduced its{" "}
+        <Link href="/mansion-tax-scotland">
+          Council Tax (High Value Dwellings etc.) Bill (Bands I and J)
+        </Link>{" "}
+        for homes worth over £1 million from April 2028. Bills for the new year arrive from March,
+        and every council&apos;s 2027/28 rise will be added here once published.
       </P>
 
       <H2 id="help">Help if the increase is hard to pay</H2>

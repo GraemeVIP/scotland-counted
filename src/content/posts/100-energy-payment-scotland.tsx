@@ -127,6 +127,12 @@ export default function Post() {
       <P>The £100 comes on top of anything else you get. In Scotland, check these too:</P>
       <UL>
         <LI>
+          <Link href="/warm-home-discount-scotland">Warm Home Discount Scotland (£150)</Link>, taken
+          off your winter electricity bill. It is automatic for the expanded Core Group (including
+          Pension Credit and certain disability or child under 5 elements), while other low income
+          households in Scotland&apos;s Broader Group must apply directly to their energy supplier.
+        </LI>
+        <LI>
           <Link href={postPath("winter-heating-payment")}>Winter Heating Payment</Link>, paid
           automatically if you get certain low income benefits.
         </LI>
@@ -154,8 +160,10 @@ export default function Post() {
         For what energy bills are doing, see the{" "}
         <Link href={postPath("energy-price-cap-scotland-2026-explained")}>
           energy price cap in Scotland
-        </Link>
-        , check upcoming{" "}
+        </Link>{" "}
+        and the{" "}
+        <Link href="/scottish-budget-2027-28">Scottish Budget on 3 December 2026</Link>, check
+        upcoming{" "}
         <Link href={postPath("social-security-scotland-payment-dates")}>
           Social Security Scotland payment dates
         </Link>{" "}

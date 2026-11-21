@@ -79,10 +79,13 @@ export default function Post() {
         </LI>
       </UL>
       <P>
-        You can get more than one if you qualify for each. Homes in council tax bands A to D can
-        also check the <Link href="/100-energy-payment-scotland">£100 energy payment in Scotland</Link>,
-        see <Link href="/social-security-scotland-payment-dates">Social Security Scotland payment dates</Link>{" "}
-        around <Link href="/scotland-bank-holidays">Scottish bank holidays</Link>, or read how the{" "}
+        You can get more than one if you qualify for each. You should also check the{" "}
+        <Link href="/warm-home-discount-scotland">£150 Warm Home Discount in Scotland</Link> (which
+        requires a direct supplier application for Scotland&apos;s Broader Group), the{" "}
+        <Link href="/100-energy-payment-scotland">£100 energy payment in Scotland</Link> for homes in
+        council tax bands A to D,{" "}
+        <Link href="/social-security-scotland-payment-dates">Social Security Scotland payment dates</Link>{" "}
+        around <Link href="/scotland-bank-holidays">Scottish bank holidays</Link>, and how the{" "}
         <Link href="/energy-price-cap-scotland">energy price cap in Scotland</Link> affects winter bills.
       </P>
 

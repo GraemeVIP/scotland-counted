@@ -160,7 +160,12 @@ export default function TaxBandsScotlandPage() {
           <p className="mt-4 max-w-[66ch] text-[17.5px] leading-[1.6] text-[var(--ink-2)]">
             You only pay each rate on the slice of income inside that band, never on your full salary.
             These rates apply to wages, pensions and self-employed profits if HMRC marks you as a
-            Scottish taxpayer (a tax code starting with <strong>S</strong>, such as S1257L).
+            Scottish taxpayer (a tax code starting with <strong>S</strong>, such as S1257L). Next
+            year&apos;s 2027/28 thresholds will be set in the{" "}
+            <Link href="/scottish-budget-2027-28">
+              Scottish Budget on Thursday 3 December 2026
+            </Link>
+            .
           </p>
           <div className="mt-6">
             <GuideTable

@@ -142,7 +142,12 @@ export default function CouncilTaxPage() {
             Need the rules as well as the price? Read the{" "}
             <Link href="/blog/how-council-tax-works-scotland">
               plain English guide to bands, discounts, reductions, appeals and arrears
-            </Link>.
+            </Link>
+            , or see how the new{" "}
+            <Link href="/mansion-tax-scotland">
+              Scottish mansion tax (Council Tax Bands I and J) and backdated dementia exemption
+            </Link>{" "}
+            bill works.
           </p>
         </div>
 

@@ -73,6 +73,7 @@ const GROUPS = [
     items: [
       { href: "/take-home-pay-calculator-scotland", label: "Take home pay calculator & salary table", blurb: "Calculate your pay on Scottish tax rates, plus every salary from £15,000 to £150,000" },
       { href: "/tax-bands-scotland", label: "Scottish income tax bands 2026/27", blurb: "All six bands from 19% to 48%, compared with England" },
+      { href: "/scottish-budget-2027-28", label: "Scottish Budget 2027/28 (3 December 2026)", blurb: "What Jenny Gilruth could change on Scottish income tax bands, council tax and winter help" },
       { href: "/minimum-wage-scotland", label: "Minimum wage in Scotland", blurb: "What full time work at the legal minimum actually pays" },
       { href: "/real-living-wage-scotland", label: "Real Living Wage versus minimum wage", blurb: "One is the law, one is voluntary. What separates them" },
       { href: "/blog/universal-credit-when-you-work-more-hours", label: "Universal Credit and extra hours", blurb: "Why more work does not always mean more money" },
@@ -84,11 +85,12 @@ const GROUPS = [
     intro: "The costs that arrive whether or not the money is there.",
     items: [
       { href: "/council-tax-bands-scotland", label: "Council tax by band", blurb: "All 32 councils, water charges shown separately" },
+      { href: "/mansion-tax-scotland", label: "Mansion tax Scotland: Bands I and J", blurb: "How the new £1m and £2m council tax bands and backdated dementia discounts work" },
       { href: "/lbtt-calculator-scotland", label: "LBTT calculator Scotland (Stamp Duty)", blurb: "Work out residential LBTT, first-time buyer relief and 8% ADS" },
       { href: "/blog/how-council-tax-works-scotland", label: "How council tax works", blurb: "Bands, discounts and the help most people miss" },
       { href: "/council-tax-increase-scotland", label: "What council tax rose by this year", blurb: "Every council, and what it means for a Band D bill" },
       { href: "/blog/local-housing-allowance-rent-shortfall-scotland", label: "Local Housing Allowance", blurb: "Why rent help often falls short of the rent" },
-      { href: "/energy-price-cap-scotland", label: "The energy price cap", blurb: "What the cap is, and what it does not cap" },
+      { href: "/energy-price-cap-scotland", label: "Energy price cap Scotland & Jan 2027 forecast", blurb: "Current £1,723 cap, North & South Scotland rates, and the +26% (£2,166) January forecast" },
       { href: "/scotland-bank-holidays", label: "Scotland bank holidays 2026 to 2028", blurb: "Every official date and when benefit payments move early" },
     ],
   },
@@ -97,6 +99,8 @@ const GROUPS = [
     title: "Help you may be entitled to",
     intro: "Payments and grants that exist, and how to apply for them.",
     items: [
+      { href: "/warm-home-discount-scotland", label: "Warm Home Discount Scotland (£150)", blurb: "Who gets £150 automatically in the Core Group and who must apply directly to their supplier" },
+      { href: "/100-energy-payment-scotland", label: "£100 energy payment Scotland", blurb: "Which council tax bands A to D qualify and when councils will pay it" },
       { href: "/scottish-child-payment", label: "Scottish Child Payment", blurb: "How much it is and who can get it" },
       { href: "/crisis-grant-scotland", label: "Crisis Grants", blurb: "Emergency money, and how to apply" },
       { href: "/blog/discretionary-housing-payment-scotland", label: "Discretionary Housing Payments", blurb: "Help with a rent shortfall" },

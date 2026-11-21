@@ -23,6 +23,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const dataChecked = new Date(`${site.dataCheckedISO}T00:00:00Z`);
   const seoRelease = new Date("2026-08-02T00:00:00Z");
   const seoRefresh = new Date("2026-11-19T00:00:00Z");
+  const spikeRelease = new Date("2026-11-21T00:00:00Z");
   const repositioning = new Date("2026-08-03T00:00:00Z");
   const latestPostDate = new Date(
     Math.max(...posts.map((post) => new Date(post.updated ?? post.date).getTime())),
@@ -75,6 +76,27 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.9,
       lastModified: seoRefresh,
       images: [`${site.url}/images/editorial/scotland-bank-holidays-calendar.webp`],
+    },
+    {
+      url: `${site.url}/warm-home-discount-scotland`,
+      changeFrequency: "monthly",
+      priority: 0.95,
+      lastModified: spikeRelease,
+      images: [`${site.url}/images/editorial/warm-home-discount-scotland-150.webp`],
+    },
+    {
+      url: `${site.url}/mansion-tax-scotland`,
+      changeFrequency: "monthly",
+      priority: 0.9,
+      lastModified: spikeRelease,
+      images: [`${site.url}/images/editorial/mansion-tax-scotland-council-tax-bands.webp`],
+    },
+    {
+      url: `${site.url}/scottish-budget-2027-28`,
+      changeFrequency: "weekly",
+      priority: 0.95,
+      lastModified: spikeRelease,
+      images: [`${site.url}/images/editorial/scottish-budget-2027-28-holyrood.webp`],
     },
     { url: `${site.url}/poverty-in-scotland-quiz`, changeFrequency: "monthly", priority: 0.85, lastModified: seoRefresh },
     { url: `${site.url}/browse`, changeFrequency: "weekly", priority: 0.7 },

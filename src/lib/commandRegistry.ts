@@ -84,6 +84,48 @@ const CORE: Item[] = [
     keywords: "salary wage tax national insurance pension student loan net pay after tax scottish rates",
   },
   {
+    label: "Scottish income tax bands 2026/27",
+    href: "/tax-bands-scotland",
+    group: "Main pages",
+    keywords: "scottish income tax bands rates 19 20 21 42 45 48 scotland vs england crossover",
+  },
+  {
+    label: "Scottish Budget 2027/28 (3 December 2026)",
+    href: "/scottish-budget-2027-28",
+    group: "Main pages",
+    keywords: "scottish budget 2027 28 date 3 december 2026 jenny gilruth holyrood income tax council tax",
+  },
+  {
+    label: "Warm Home Discount Scotland (£150)",
+    href: "/warm-home-discount-scotland",
+    group: "Main pages",
+    keywords: "warm home discount scotland 150 apply broader group core group scottishpower british gas octopus ovo",
+  },
+  {
+    label: "Mansion tax Scotland: Council Tax Bands I and J",
+    href: "/mansion-tax-scotland",
+    group: "Main pages",
+    keywords: "mansion tax scotland council tax band i band j high value dwellings bill dementia exemption",
+  },
+  {
+    label: "LBTT calculator Scotland (Stamp Duty)",
+    href: "/lbtt-calculator-scotland",
+    group: "Free tools",
+    keywords: "lbtt calculator stamp duty scotland ads additional dwelling supplement first time buyer",
+  },
+  {
+    label: "SIMD postcode checker",
+    href: "/simd-postcode-checker",
+    group: "Free tools",
+    keywords: "simd postcode checker deprivation decile quintile datazone lookup",
+  },
+  {
+    label: "Scotland bank holidays 2026 to 2028",
+    href: "/scotland-bank-holidays",
+    group: "Main pages",
+    keywords: "scotland bank holidays 2026 2027 2028 public holidays substitute days st andrews day",
+  },
+  {
     label: "Council tax by band",
     href: "/council-tax-bands-scotland",
     group: "Free tools",

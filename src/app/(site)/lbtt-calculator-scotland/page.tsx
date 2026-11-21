@@ -190,8 +190,13 @@ export default function LbttCalculatorPage() {
           <p className="mt-5 max-w-[66ch] text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
             Comparing places to buy? Check{" "}
             <Link href="/cheapest-place-to-live-in-scotland">the cheapest places to live in Scotland</Link>,{" "}
-            <Link href="/safest-place-to-live-in-scotland">the safest places in Scotland</Link>, or{" "}
-            <Link href="/council-tax-bands-scotland">council tax bands for all 32 Scottish councils</Link>.
+            <Link href="/safest-place-to-live-in-scotland">the safest places in Scotland</Link>,{" "}
+            <Link href="/council-tax-bands-scotland">council tax bands for all 32 Scottish councils</Link>, or how
+            Scotland&apos;s new{" "}
+            <Link href="/mansion-tax-scotland">
+              Council Tax Bands I and J (mansion tax)
+            </Link>{" "}
+            work for homes worth over £1 million.
           </p>
         </ContentFrame>
 

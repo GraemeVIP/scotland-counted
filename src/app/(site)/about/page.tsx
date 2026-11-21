@@ -16,15 +16,17 @@ const WHAT_IT_DOES = [
     links: [
       { href: "/take-home-pay-calculator-scotland", label: "Take home pay calculator" },
       { href: "/tax-bands-scotland", label: "Scottish tax bands" },
+      { href: "/scottish-budget-2027-28", label: "Scottish Budget 2027/28" },
       { href: "/lbtt-calculator-scotland", label: "LBTT calculator" },
       { href: "/scotland-bank-holidays", label: "Scotland bank holidays" },
     ],
   },
   {
     title: "Council tax across all 32 councils",
-    body: "Every council sets its own rates, and Scottish Water charges arrive on the same bill even though most tables leave them out. Scotland Counted shows Band A to H monthly and yearly totals with water included, plus discounts and reductions.",
+    body: "Every council sets its own rates, and Scottish Water charges arrive on the same bill even though most tables leave them out. Scotland Counted shows Band A to H monthly and yearly totals with water included, plus discounts, reductions and the proposed Band I and J mansion tax reforms.",
     links: [
       { href: "/council-tax-bands-scotland", label: "All 32 councils" },
+      { href: "/mansion-tax-scotland", label: "Mansion tax (Bands I & J)" },
       { href: "/glasgow-council-tax-bands", label: "Glasgow bands" },
       { href: "/edinburgh-council-tax-bands", label: "Edinburgh bands" },
       { href: "/single-person-discount-council-tax-scotland", label: "Single person discount" },
@@ -32,9 +34,10 @@ const WHAT_IT_DOES = [
   },
   {
     title: "Scottish benefits and winter support",
-    body: "Plain English guides to devolved Scottish payments, eligibility rules, helpline numbers and early bank holiday payment dates, covering Adult Disability Payment, Carer Support Payment, Scottish Child Payment, Winter Heating Payment and Crisis Grants.",
+    body: "Plain English guides to devolved Scottish payments, eligibility rules, helpline numbers and early bank holiday payment dates, covering Adult Disability Payment, Carer Support Payment, Scottish Child Payment, the £150 Warm Home Discount, Winter Heating Payment and Crisis Grants.",
     links: [
       { href: "/benefits", label: "All Scottish benefits" },
+      { href: "/warm-home-discount-scotland", label: "Warm Home Discount (£150)" },
       { href: "/winter-heating-payment", label: "Winter Heating Payment" },
       { href: "/social-security-scotland-payment-dates", label: "Payment dates" },
       { href: "/crisis-grant-phone-number", label: "Crisis grant numbers" },

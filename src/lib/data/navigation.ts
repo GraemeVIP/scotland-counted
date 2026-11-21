@@ -64,6 +64,7 @@ export const HUBS: Hub[] = [
         items: [
           { href: "/take-home-pay-calculator-scotland", label: "Take home pay calculator", tag: "Tool" },
           { href: "/tax-bands-scotland", label: "Scottish income tax bands" },
+          { href: "/scottish-budget-2027-28", label: "Scottish Budget 2027/28", tag: "3 Dec" },
           { href: "/30000-after-tax-scotland", label: "£30,000 after tax" },
           { href: "/average-salary-scotland", label: "Average salary in Scotland" },
         ],
@@ -126,6 +127,7 @@ export const HUBS: Hub[] = [
           { href: "/scottish-child-payment", label: "Scottish Child Payment" },
           { href: "/best-start-grant", label: "Best Start Grant" },
           { href: "/blog/free-school-meals-clothing-grant-scotland", label: "Free school meals and clothing" },
+          { href: "/warm-home-discount-scotland", label: "Warm Home Discount (£150)", tag: "New" },
           { href: "/winter-fuel-payment-scotland", label: "Winter fuel payment" },
           { href: "/winter-heating-payment", label: "Winter Heating Payment" },
           { href: "/100-energy-payment-scotland", label: "£100 energy payment", tag: "New" },
@@ -169,6 +171,7 @@ export const HUBS: Hub[] = [
           { href: "/check-council-tax-band", label: "Check your council tax band" },
           { href: "/council-tax-band-d-scotland", label: "Band D across Scotland" },
           { href: "/council-tax-increase-scotland", label: "This year’s rises" },
+          { href: "/mansion-tax-scotland", label: "Mansion tax (Bands I and J)", tag: "New" },
         ],
       },
       {

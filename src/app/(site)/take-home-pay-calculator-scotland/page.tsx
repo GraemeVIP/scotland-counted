@@ -169,8 +169,13 @@ export default function TakeHomePayCalculator() {
             <h3 className="h3 mb-2">Salary after tax in Scotland ({TAX_DATA.taxYear}): £15,000 to £150,000</h3>
             <p className="text-[15.5px] leading-[1.55] text-[var(--ink-2)]">
               Every common Scottish salary on a standard S1257L tax code, with no pension or student loan.
-              Click any salary for the full band-by-band breakdown, or check{" "}
-              <Link href="/tax-bands-scotland">all six Scottish income tax bands for 2026/27</Link>.
+              Click any salary for the full band-by-band breakdown, check{" "}
+              <Link href="/tax-bands-scotland">all six Scottish income tax bands for 2026/27</Link>,
+              or see what could change in the{" "}
+              <Link href="/scottish-budget-2027-28">
+                2027/28 Scottish Budget on 3 December 2026
+              </Link>
+              .
             </p>
             <div className="tile mt-5 overflow-x-auto">
               <table className="w-full min-w-[600px] text-[15px]">

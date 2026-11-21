@@ -1415,6 +1415,13 @@ export const sources: Source[] = [
       "The North and South Scotland yearly bills (about £1,717 and £1,734) apply each region's Direct Debit rates to Ofgem's typical use of 2,500 kWh of electricity and 9,500 kWh of gas, plus 365 days of standing charges. Yearly standing charges are the daily rate times 365.",
   },
   {
+    id: "cornwall-insight-jan-2027-cap",
+    title: "Energy bills set for steep rise in January 2027",
+    publisher: "Cornwall Insight",
+    url: "https://www.cornwall-insight.com/press-releases/energy-bills-set-for-steep-rise-in-january/",
+    used: "Final November 2026 forecast for the 1 January to 31 March 2027 Ofgem energy price cap: a 26% increase (+£443 a year) taking a typical Direct Debit dual fuel bill from £1,723 to £2,166 a year, with forecast Great Britain average Direct Debit unit rates of roughly 32.54p per kWh for electricity and 10.90p per kWh for gas ahead of Ofgem's 25 November 2026 announcement.",
+  },
+  {
     id: "uc-expected-hours",
     title: "The Universal Credit Regulations 2013, regulations 88 and 90",
     publisher: "legislation.gov.uk",
