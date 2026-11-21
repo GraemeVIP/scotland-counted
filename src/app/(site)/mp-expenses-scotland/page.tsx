@@ -1417,7 +1417,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
                       training, and does Earthcott work for any clients who want something from
                       Parliament? MPs must declare gifts like this, but declaring a perk from your
                       husband&apos;s business does not answer why it was given.
-                      <span className="mt-3 block rounded-[var(--r-s)] border-l-[3px] border-[var(--brand)] bg-[var(--surface-2)] px-4 py-3 text-[15px]">
+                      <div className="mt-3 block rounded-[var(--r-s)] border-l-[3px] border-[var(--brand)] bg-[var(--surface-2)] px-4 py-3 text-[15px]">
                         <strong>What we checked:</strong> none of her taxpayer expense claims from
                         2024 to 2027 went to Earthcott. Earthcott is not on the official{" "}
                         <a href="https://orcl.my.site.com/CLR_Search">
@@ -1425,11 +1425,43 @@ export default function MpRegisterOfInterestsScotlandPage() {
                         </a>
                         . That register only covers lobbying of government ministers and their top
                         civil servants, so this does not mean any rule was broken. It does mean the
-                        public cannot see who pays her husband to lobby. Separately, she billed
-                        taxpayers <strong>£24,664</strong> since 2024 for PR, social media and
-                        website work from Causeway Creative, more than any other MP in the UK.
-                      </span>
-                      <span className="mt-4 block">
+                        public cannot see who pays her husband to lobby.
+                      </div>
+                      <div className="mt-3 block rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] px-4 py-3 text-[15px]">
+                        <strong>A separate firm, Causeway Creative:</strong> nothing links it to her
+                        husband. It is a design and communications agency used by dozens of Labour
+                        MPs. But since 2024 she has billed taxpayers <strong>£24,664</strong> for its
+                        work, more than any other MP in the UK. IPSA records list seven payments:
+                        <div className="mt-2 block overflow-x-auto">
+                          <table className="w-full min-w-[420px] border-collapse text-[14px]">
+                            <thead>
+                              <tr className="border-b border-[var(--rule-strong)] text-left">
+                                <th className="py-1.5 pr-3 font-[600]">Date</th>
+                                <th className="py-1.5 pr-3 font-[600]">What IPSA records</th>
+                                <th className="py-1.5 text-right font-[600]">Amount</th>
+                              </tr>
+                            </thead>
+                            <tbody className="tnum divide-y divide-[var(--rule)]">
+                              <tr><td className="py-1.5 pr-3">14 Mar 2025</td><td className="py-1.5 pr-3">Website hosting and design</td><td className="py-1.5 text-right">£4,800</td></tr>
+                              <tr><td className="py-1.5 pr-3">31 Mar 2025</td><td className="py-1.5 pr-3">Bought-in comms and media</td><td className="py-1.5 text-right">£3,582</td></tr>
+                              <tr><td className="py-1.5 pr-3">31 Mar 2025</td><td className="py-1.5 pr-3">Bought-in comms and media</td><td className="py-1.5 text-right">£3,582</td></tr>
+                              <tr><td className="py-1.5 pr-3">31 Mar 2025</td><td className="py-1.5 pr-3">Bought-in comms and media</td><td className="py-1.5 text-right">£3,500</td></tr>
+                              <tr><td className="py-1.5 pr-3">24 Apr 2025</td><td className="py-1.5 pr-3">Bought-in comms and media</td><td className="py-1.5 text-right">£4,500</td></tr>
+                              <tr><td className="py-1.5 pr-3">24 Apr 2025</td><td className="py-1.5 pr-3">Bought-in comms and media</td><td className="py-1.5 text-right">£3,500</td></tr>
+                              <tr><td className="py-1.5 pr-3">12 Mar 2026</td><td className="py-1.5 pr-3">Website hosting and design</td><td className="py-1.5 text-right">£1,200</td></tr>
+                              <tr className="font-[650]"><td className="py-1.5 pr-3" colSpan={2}>Total: £18,664 comms and media, £6,000 website</td><td className="py-1.5 text-right">£24,664</td></tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <div className="mt-2 block">
+                          &ldquo;Bought-in comms and media&rdquo; means paying an outside firm to do
+                          press, social media or newsletter work instead of her own staff. IPSA
+                          does not publish what each invoice covered. Five of the payments, worth
+                          £18,664, were made between 31 March and 24 April 2025. 31 March is the
+                          last day of IPSA&apos;s budget year.
+                        </div>
+                      </div>
+                      <div className="mt-4 block">
                         Paisley South Labour MP{" "}
                         <Link href="/representatives/mps/paisley-and-renfrewshire-south#donations-and-interests">
                           Johanna Baxter
@@ -1443,14 +1475,14 @@ export default function MpRegisterOfInterestsScotlandPage() {
                         . Its clients for July to September 2026 were gas network Cadent, Infinis
                         Energy, the Independent Renewable Energy Generators Group, Environment Bank,
                         Kingston University, THCT and the Venture Capital Trust Association.
-                      </span>
-                      <span className="mt-3 block rounded-[var(--r-s)] border-l-[3px] border-[var(--brand)] bg-[var(--surface-2)] px-4 py-3 text-[15px]">
+                      </div>
+                      <div className="mt-3 block rounded-[var(--r-s)] border-l-[3px] border-[var(--brand)] bg-[var(--surface-2)] px-4 py-3 text-[15px]">
                         <strong>What we checked:</strong> we searched every speech she has made in
                         the Commons (Hansard). She has not mentioned any of those clients. None of
                         her taxpayer expense claims went to SEC Newgate either. The link to watch is
                         energy: if she speaks or votes on gas networks or renewable energy, her
                         husband&apos;s firm is paid by companies with a stake in the result.
-                      </span>
+                      </div>
                     </li>
                     <li>
                       <strong>Spouse employed on the taxpayer payroll:</strong> Argyll and Bute SNP
