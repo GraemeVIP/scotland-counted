@@ -190,9 +190,12 @@ export default function Post() {
               From a page called &quot;My Page Title&quot; on Natasha Irons MP&apos;s site. The
               template&apos;s filler text talks about &quot;Lorem Ipsum&quot;, the dummy Latin
               designers use. Someone swapped &quot;Lorem Ipsum&quot; for the MP&apos;s seat across
-              the whole site in one go, and nobody checked. James Naish MP&apos;s site has the same
-              page, saying the same thing about &quot;Rushcliffe&quot;. Both pages were still live
-              on 21 November 2026.
+              the whole site in one go, and nobody checked. It even swapped &quot;Ipsum&quot; on its
+              own for &quot;East&quot;, so the page now talks about &quot;Hipster East, Zombie East,
+              Bacon East&quot;. James Naish MP&apos;s site has the same page about
+              &quot;Rushcliffe&quot;. There, &quot;Ipsum&quot; was swapped for nothing at all,
+              leaving &quot;Hipster , Zombie , Bacon&quot;. Both pages were still live on 21
+              November 2026.
             </p>
           </div>
           <div className="p-5">
