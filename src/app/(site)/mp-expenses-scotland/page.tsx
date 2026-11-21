@@ -731,7 +731,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
           <div className="tile-night tile overflow-hidden p-6 sm:p-8">
             <div className="flex flex-wrap items-end justify-between gap-4">
               <div className="max-w-[56ch]">
-                <p className="tile-key">From the receipts · IPSA 2025/26</p>
+                <p className="tile-key">From the receipts · IPSA records</p>
                 <h2 className="display-stat mt-2 text-[clamp(26px,3vw,38px)] text-white">
                   Things you paid for and never knew about
                 </h2>
@@ -747,7 +747,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
               {[
                 ["£3,000", "a speech and presentation skills workshop", "Angus MacDonald"],
                 ["£546", "jet-washing the drains at a second home", "Angus MacDonald"],
-                ["£1,248", "an iPhone and a case", "John Lamont"],
+                ["£3,090", "just to set up broadband at his home (a typical set-up claim is £90)", "Chris Law"],
               ].map(([amount, what, who]) => (
                 <li
                   key={what}

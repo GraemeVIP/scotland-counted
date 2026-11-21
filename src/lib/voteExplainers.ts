@@ -298,7 +298,7 @@ export const SUBSTANCE: SubstanceEntry[] = [
     match: /^budget\s+resolution\s+no\.\s+8:\s+capital\s+gains\s+tax\s+\(business\s+asset\s+disposal\s+relief\)$/i,
     title: "Budget: smaller tax break for selling a business",
     by: "The government",
-    proposition: "halving the amount of profit from selling a business that gets the lower 18% tax rate, from \u00a31 million to \u00a3500,000",
+    proposition: "halving the amount of profit from selling a business that gets the lower 18% tax rate, from £1 million to £500,000",
     what: "One of the tax changes from the autumn Budget. These votes are put forward by the government.",
   },
   {
@@ -324,16 +324,16 @@ export const SUBSTANCE: SubstanceEntry[] = [
   },
   {
     match: /^budget\s+resolution\s+no\.\s+86:\s+high\s+value\s+council\s+tax\s+surcharge$/i,
-    title: "Budget: extra council tax on \u00a32 million homes in England",
+    title: "Budget: extra council tax on £2 million homes in England",
     by: "The government",
-    proposition: "an extra yearly charge of \u00a32,500 to \u00a37,500 on homes worth over \u00a32 million in England, from April 2028",
-    what: "This is England only. Scotland is making its own version at Holyrood, with new council tax bands for homes over \u00a31 million.",
+    proposition: "an extra yearly charge of £2,500 to £7,500 on homes worth over £2 million in England, from April 2028",
+    what: "This is England only. Scotland is making its own version at Holyrood, with new council tax bands for homes over £1 million.",
   },
   {
     match: /^draft\s+private\s+rented\s+sector\s+database\s+regulations\s+2026$/i,
     title: "England only: a register of private landlords",
     by: "The government",
-    proposition: "making private landlords in England register every rented home on a national database, for \u00a365 a year per property",
+    proposition: "making private landlords in England register every rented home on a national database, for £65 a year per property",
     what: "This is England only. Scotland already has its own landlord register, run by councils.",
   },
   {
@@ -341,7 +341,7 @@ export const SUBSTANCE: SubstanceEntry[] = [
     title: "England only: the government taking interest on renters' deposits",
     by: "The government",
     proposition: "letting the government take a share of the interest earned on renters' protected deposits in England",
-    what: "More than \u00a32.5 billion of deposits sit in these schemes. The government says it will spend the money on help for renters. England only.",
+    what: "More than £2.5 billion of deposits sit in these schemes. The government says it will spend the money on help for renters. England only.",
   },
   {
     match: /^visitor\s+levy\s+\(england\)\s+bill\s+second\s+reading$/i,
@@ -355,7 +355,7 @@ export const SUBSTANCE: SubstanceEntry[] = [
     title: "No more cap on unfair dismissal payouts",
     by: "The government",
     proposition: "removing the cap on what workers can win for unfair dismissal, from January 2027",
-    what: "Today the cap is the lower of \u00a3123,543 or a year's pay. Employment law covers Scotland too.",
+    what: "Today the cap is the lower of £123,543 or a year's pay. Employment law covers Scotland too.",
   },
   {
     match: /^national\s+security\s+\(state\s+threats\)\s+bill\s+committee:\s+amendment\s+3$/i,

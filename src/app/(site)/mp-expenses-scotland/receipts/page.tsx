@@ -3,6 +3,7 @@ import { Page, ContentFrame, PageHeader, SectionHead, CTA } from "@/components/B
 import { ExplainText } from "@/components/ExplainServer";
 import SharePage from "@/components/SharePage";
 import Faq from "@/components/Faq";
+import FindMpEmail from "@/components/FindMpEmail";
 import { JsonLd, articleJsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
 
 /*
@@ -86,6 +87,19 @@ const RECEIPTS: Receipt[] = [
       "Filed under accommodation, the budget for MPs' second homes. The same year he also billed £3,314 for that home's energy bills.",
   },
   {
+    amount: "£3,090",
+    what: "£3,090 just to set up broadband at his home",
+    mp: "Chris Law",
+    party: "Scottish National Party",
+    seat: "Dundee Central",
+    slug: "dundee-central",
+    date: "25 July 2022",
+    budget: "Office budget",
+    ipsa: ["Home 5G mobile broadband installation"],
+    context:
+      "A one-off set-up charge, not a year of bills. Scottish MPs made 62 phone and internet set-up claims since 2022. The typical one was £90. The next biggest was £691. Home broadband usually costs about £30 a month.",
+  },
+  {
     amount: "£20,385",
     what: "One energy bill",
     mp: "Lillian Jones",
@@ -167,7 +181,7 @@ const RECEIPTS: Receipt[] = [
     context: "Food and drink for local business owners, paid from public money.",
   },
   {
-    amount: "\u00a310,000",
+    amount: "£10,000",
     what: "A \"policy and office set up\" consultant",
     mp: "Melanie Ward",
     party: "Labour",
@@ -177,10 +191,10 @@ const RECEIPTS: Receipt[] = [
     budget: "Staffing budget",
     ipsa: ["Policy and Office set up consultant"],
     context:
-      "On top of her own taxpayer-funded staff. She also claimed \u00a37,000 for \"research and writing of local industrial strategy\", then paid all \u00a37,000 back in August 2025.",
+      "On top of her own taxpayer-funded staff. She also claimed £7,000 for \"research and writing of local industrial strategy\", then paid all £7,000 back in August 2025.",
   },
   {
-    amount: "\u00a313,117",
+    amount: "£13,117",
     what: "Posting an \"annual report\" about himself to every home",
     mp: "John Grady",
     party: "Labour",
@@ -190,10 +204,10 @@ const RECEIPTS: Receipt[] = [
     budget: "Office budget",
     ipsa: ["Roderick Urquhart/ Treehouse for printing and delivery of MP Annual Report to constituents"],
     context:
-      "IPSA allows these if they contain no party politics. They still put the MP's name and face through every door. Frank McNally paid \u00a39,974 and Andrew Bowie \u00a35,898 for theirs.",
+      "IPSA allows these if they contain no party politics. They still put the MP's name and face through every door. Frank McNally paid £9,974 and Andrew Bowie £5,898 for theirs.",
   },
   {
-    amount: "\u00a39,600",
+    amount: "£9,600",
     what: "An outside PR firm for \"comms and media support\"",
     mp: "Gregor Poynton",
     party: "Labour",
@@ -206,7 +220,7 @@ const RECEIPTS: Receipt[] = [
       "BB Partners Advisory is a PR firm in Crawley, West Sussex. The claim landed ten days before IPSA's budget year closed.",
   },
   {
-    amount: "\u00a33,300",
+    amount: "£3,300",
     what: "A billboard advertising himself as the local MP",
     mp: "Euan Stainbank",
     party: "Labour",
@@ -219,20 +233,7 @@ const RECEIPTS: Receipt[] = [
       "A year of advertising for the MP, paid by the people he represents.",
   },
   {
-    amount: "\u00a33,090",
-    what: "5G broadband installed at his home",
-    mp: "Chris Law",
-    party: "Scottish National Party",
-    seat: "Dundee Central",
-    slug: "dundee-central",
-    date: "25 July 2022",
-    budget: "Office budget",
-    ipsa: ["Home 5G mobile broadband installation"],
-    context:
-      "Filed under office phone and internet costs, but the claim says it was for his home.",
-  },
-  {
-    amount: "\u00a3963",
+    amount: "£963",
     what: "A business dinner",
     mp: "Graeme Downie",
     party: "Labour",
@@ -245,7 +246,7 @@ const RECEIPTS: Receipt[] = [
       "A dinner held in his name, paid from public money, in the last weeks of IPSA's budget year.",
   },
   {
-    amount: "\u00a3893",
+    amount: "£893",
     what: "A \"newspaper column invoice\"",
     mp: "Dave Doogan",
     party: "Scottish National Party",
@@ -342,10 +343,9 @@ const PUT_IT_TO_THEM = [
   "Will you back publishing every claim in plain English, with who was paid and what for?",
 ];
 
-const PUT_IT_MAILTO = `mailto:?subject=${encodeURIComponent(
-  "Question from a constituent: why are MPs' expenses so hard to find?",
-)}&body=${encodeURIComponent(
-  `Dear [MP's name],
+const PUT_IT_SUBJECT = "Question from a constituent: why are MPs' expenses so hard to find?";
+
+const PUT_IT_BODY = `Dear [MP's name],
 
 I am writing as your constituent about how MPs' expenses are published.
 
@@ -359,8 +359,7 @@ Please could you answer:
 
 Yours sincerely,
 [Your name]
-[Your address and postcode]`,
-)}`;
+[Your address and postcode]`;
 
 const FAQ = [
   {
@@ -650,13 +649,19 @@ export default function MpExpenseReceiptsPage() {
           <div className="mt-6 rounded-[var(--r-m)] border border-[var(--rule)] border-l-[4px] border-l-[var(--action)] bg-[var(--action-tint)] p-5 sm:p-6">
             <p className="ui text-[18px] font-[660] text-[var(--ink)]">Send these questions to your MP</p>
             <p className="mt-1.5 max-w-[60ch] text-[15.5px] leading-[1.55] text-[var(--ink-2)]">
-              This opens a ready written email in your own email app. Add your MP&apos;s address (find
-              it with <Link href="/email-your-mp-and-msp">our postcode search</Link>), your name and
-              your postcode.
+              Enter your postcode. We find your MP and fill in their email address for you.
             </p>
-            <a href={PUT_IT_MAILTO} className="btn btn-primary mt-4">
-              Open the ready written email →
-            </a>
+            <details className="mt-2 max-w-[60ch] text-[14.5px] text-[var(--ink-2)]">
+              <summary className="cursor-pointer font-[600] text-[var(--action-text)]">
+                Read the email first
+              </summary>
+              <p className="mt-2 whitespace-pre-line rounded-[var(--r-s)] bg-[var(--surface)] p-3 leading-[1.55]">
+                {PUT_IT_BODY}
+              </p>
+            </details>
+            <div className="mt-4">
+              <FindMpEmail subject={PUT_IT_SUBJECT} body={PUT_IT_BODY} />
+            </div>
           </div>
         </ContentFrame>
 
