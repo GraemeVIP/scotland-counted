@@ -260,8 +260,17 @@ export default function Post() {
         £4,800 build. It looks like a yearly fee to keep the site online.
       </P>
       <P>
-        Ordinary hosting for a small WordPress site is sold for a few pounds a month. So for those
-        four MPs, that&apos;s £6,000 each over two years, for a copied template, paid for by you.
+        Using our own specialist checks, we traced the MP sites back to where they really live.
+        Every one we tested, and Causeway&apos;s own website, sits on one shared server at Krystal
+        Hosting, a UK web host. Krystal&apos;s price list says £19 a month hosts unlimited sites, so
+        that&apos;s <strong>roughly £10 to £20 a year per MP site</strong>.
+      </P>
+      <P>
+        Nor was anything redesigned. Joani Reid&apos;s home page is the same layout in November
+        2025, March 2026 and today, apart from software updates and her own news stories.
+        &quot;Website hosting and design&quot; is IPSA&apos;s own label for all MP website spending,
+        and the invoices aren&apos;t published. So what did the £1,200 pay for? For those four MPs,
+        it&apos;s £6,000 each over two years, for a copied template, paid for by you.
       </P>
       <P>
         To be fair, agencies use templates all the time. That&apos;s not the point. The point is one
@@ -310,8 +319,9 @@ export default function Post() {
         She also told the paper the money mostly went on &quot;creating and building a website,
         advertising surgeries and communicating with my constituents&quot;.{" "}
         <strong>But only £6,000 of her £24,664 was for the website.</strong> That&apos;s £4,800 to
-        build it in March 2025, then £1,200 a year later. Less than a quarter of the total. And the website is the copied template, survey and all. The other £18,664 is filed
-        as bought in comms and media, paid in five chunks between March and April 2025.
+        build it in March 2025, then £1,200 a year later. Less than a quarter of the total. And the
+        website is the copied template, survey and all. The other £18,664 is filed as bought in
+        comms and media, paid in five chunks between March and April 2025.
       </P>
       <P>
         Read it for yourself and make your own mind up. All seven payments, with dates, are on our{" "}

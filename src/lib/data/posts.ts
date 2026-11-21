@@ -234,6 +234,7 @@ export const posts: Post[] = [
       { id: "plain-english", label: "What the web words mean" },
       { id: "how-long", label: "How long a site like this takes" },
       { id: "the-money", label: "What it cost you" },
+      { id: "where-hosted", label: "Where the sites are hosted" },
       { id: "who-is-he", label: "Who is behind Causeway Creative" },
       { id: "why-pay", label: "Why are MPs paying him?" },
     ],
@@ -258,6 +259,7 @@ export const posts: Post[] = [
     sourceIds: [
       "ipsa-causeway-creative-2023-2027",
       "mp-websites-causeway-template-2026",
+      "krystal-hosting-prices-2026",
       "companies-house-causeway-creative",
       "warrington-council-tom-jennings",
       "causeway-creative-archive",
@@ -318,6 +320,7 @@ export const posts: Post[] = [
     ],
     sourceIds: [
       "ipsa-causeway-creative-2023-2027",
+      "krystal-hosting-prices-2026",
       "companies-house-causeway-creative",
       "warrington-council-tom-jennings",
       "nation-cymru-causeway-2025",

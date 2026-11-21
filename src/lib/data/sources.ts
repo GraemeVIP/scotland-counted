@@ -2056,6 +2056,14 @@ export const sources: Source[] = [
     used: "Tom Jennings's earlier political web and campaign work, including websites for Labour MPs and work for mayoral campaigns.",
   },
   {
+    id: "krystal-hosting-prices-2026",
+    title: "Web hosting and reseller hosting price lists",
+    publisher: "Krystal Hosting",
+    url: "https://krystal.io/hosting",
+    used: "Prices checked 21 November 2026, before VAT: £19 a month for unlimited sites (Emerald), £20 a month for up to 25 client sites (reseller Unity), £7 a month for one site (Amethyst).",
+    derivation: "We divided the plan prices across the client sites they host to give a rough yearly cost per site. Which plan Causeway Creative uses is not public.",
+  },
+  {
     id: "mp-websites-causeway-template-2026",
     title: "Causeway Creative's MP website demo and the websites of Natasha Irons, James Naish, Dan Carden and Joani Reid",
     publisher: "Causeway Creative and the MPs' own websites",

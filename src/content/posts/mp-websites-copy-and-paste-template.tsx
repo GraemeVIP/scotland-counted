@@ -1,5 +1,5 @@
 import Link from "@/components/IntentLink";
-import { Prose, Lead, P, H2, UL, LI, Aside, PostCTA } from "@/components/Prose";
+import { Prose, Lead, P, H2, H3, UL, LI, Aside, PostCTA } from "@/components/Prose";
 import { GuideTable } from "@/components/GuideTable";
 import RevealCompare from "@/components/RevealCompare";
 
@@ -261,9 +261,9 @@ export default function Post() {
         template. The words are the template. Even the photos are the template.
       </P>
       <P>
-        Copying a template like this onto a new web address and swapping the names in takes about
-        45 minutes. Not weeks. Not even a day. The find and replace mistakes show that&apos;s exactly how
-        it was done.
+        Copying a template like this onto a new web address and swapping the names in takes about 45
+        minutes. Not weeks. Not even a day. The find and replace mistakes show that&apos;s exactly
+        how it was done.
       </P>
 
       <H2 id="the-money">8. What it cost you</H2>
@@ -284,8 +284,35 @@ export default function Post() {
         />
       </div>
       <P>
-        £4,800 for a copied template, with the test pages still on it. Then £1,200 a year for
-        something that costs a few pounds a month. All of it public money.
+        £4,800 for a copied template, with the test pages still on it. Then, for some, £1,200 the
+        year after. All of it public money.
+      </P>
+
+      <H3 id="where-hosted">Where these sites actually live</H3>
+      <P>
+        Using our own specialist checks, we traced the MP sites back to where they really live.
+        Joani Reid, Dan Carden, Natasha Irons, James Naish, James Asser, Jas Athwal and Damien Egan:
+        every one we tested sits on <strong>one shared server at Krystal Hosting</strong>, a UK web
+        host. Causeway&apos;s own website and its demo site are on the very same server.
+      </P>
+      <P>
+        Krystal&apos;s own price list says £19 a month hosts unlimited websites. Its plan for
+        agencies hosts 25 client sites for £20 a month. Shared out, that&apos;s{" "}
+        <strong>roughly £10 to £20 a year per MP site</strong>.
+      </P>
+
+      <H3 id="no-redesign">Was anything redesigned for the £1,200?</H3>
+      <P>
+        No. We compared Joani Reid&apos;s home page in archived copies from November 2025 and March
+        2026 with the live site today. The layout, the sections, the help pages and the headings are
+        identical. The only changes are routine software updates and a news story her own office
+        added.
+      </P>
+      <P>
+        To be clear, &quot;Website hosting and design&quot; is IPSA&apos;s own label for all MP
+        website spending, and IPSA doesn&apos;t publish what the invoice said. But hosting costs
+        about £10 to £20 a year, and nothing was redesigned.{" "}
+        <strong>So what did £1,200 pay for?</strong>
       </P>
 
       <H2 id="who-is-he">9. Who is behind Causeway Creative?</H2>
