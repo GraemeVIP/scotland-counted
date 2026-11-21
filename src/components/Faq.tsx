@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { ExplainText } from "@/components/Glossary";
+import { ExplainText } from "@/components/ExplainServer";
 
 /**
  * The questions block, in one place.

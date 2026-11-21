@@ -13,7 +13,8 @@ import {
 } from "@/components/Blocks";
 import Figure, { DataTable } from "@/components/charts/Figure";
 import LineChart from "@/components/charts/LineChart";
-import { ExplainText, G } from "@/components/Glossary";
+import { G } from "@/components/Glossary";
+import { ExplainText } from "@/components/ExplainServer";
 import DecadeScroll from "../DecadeScroll";
 import { JsonLd, articleJsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
 import { getIndicator, jobsDensity } from "@/lib/data/indicators";

@@ -1,5 +1,5 @@
 import Link from "@/components/IntentLink";
-import { ExplainText } from "@/components/Glossary";
+import { ExplainText } from "@/components/ExplainServer";
 
 /**
  * An in-page pointer to one of the calculators.

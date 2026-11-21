@@ -1,5 +1,5 @@
 import Link from "@/components/IntentLink";
-import { ExplainText } from "@/components/Glossary";
+import { ExplainText } from "@/components/ExplainServer";
 import {
   minimumWage,
   minimumWageTakeHome,

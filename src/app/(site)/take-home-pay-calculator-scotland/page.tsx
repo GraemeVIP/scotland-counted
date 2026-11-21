@@ -9,7 +9,7 @@ import ToolCTA from "@/components/ToolCTA";
 import SharePage from "@/components/SharePage";
 import Calculator from "./Calculator";
 import Faq from "@/components/Faq";
-import { ExplainText } from "@/components/Glossary";
+import { ExplainText } from "@/components/ExplainServer";
 import { SALARIES, salaryPath } from "@/lib/routeMap";
 
 export const metadata = meta({

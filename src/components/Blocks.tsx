@@ -3,7 +3,7 @@ import type { HTMLAttributes, ReactNode } from "react";
 import type { Direction } from "@/lib/data/indicators";
 import Reveal from "@/components/Reveal";
 import { CountUp } from "@/components/Motion";
-import { ExplainText } from "@/components/Glossary";
+import { ExplainText } from "@/components/ExplainServer";
 
 /* ============================================================
    Containers

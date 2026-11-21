@@ -1,6 +1,6 @@
 import type { VoteRecord } from "@/lib/voting";
 import { formatVoteDate } from "@/lib/voting";
-import { ExplainText } from "@/components/Glossary";
+import { ExplainText } from "@/components/ExplainServer";
 import {
   explainVote,
   voteSubstance,

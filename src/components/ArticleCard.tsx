@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "@/components/IntentLink";
 import { getPostCategory, type Post } from "@/lib/data/posts";
-import { ExplainText } from "@/components/Glossary";
+import { ExplainText } from "@/components/ExplainServer";
 import { postPath } from "@/lib/routeMap";
 import CoverArt from "@/components/CoverArt";
 

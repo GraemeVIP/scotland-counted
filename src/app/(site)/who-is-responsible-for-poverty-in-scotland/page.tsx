@@ -9,7 +9,8 @@ import {
   CTA,
   Reveal,
 } from "@/components/Blocks";
-import { ExplainText, G } from "@/components/Glossary";
+import { G } from "@/components/Glossary";
+import { ExplainText } from "@/components/ExplainServer";
 import VoteRoundup from "@/components/VoteRoundup";
 import { JsonLd, articleJsonLd, breadcrumbJsonLd, meta } from "@/lib/seo";
 import { tiers, statutoryTargets } from "@/lib/data/policy";

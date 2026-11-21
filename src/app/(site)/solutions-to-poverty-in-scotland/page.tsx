@@ -10,7 +10,8 @@ import {
   CTA,
   Reveal,
 } from "@/components/Blocks";
-import { ExplainText, G } from "@/components/Glossary";
+import { G } from "@/components/Glossary";
+import { ExplainText } from "@/components/ExplainServer";
 import { JsonLd, articleJsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
 import { fixes, type FixStatus } from "@/lib/data/policy";
 import { getSources } from "@/lib/data/sources";

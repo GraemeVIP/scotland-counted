@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import Reveal from "@/components/Reveal";
 import EmbedButton from "@/components/charts/EmbedButton";
-import { ExplainText } from "@/components/Glossary";
+import { ExplainText } from "@/components/ExplainServer";
 
 /** The card every chart sits in: title, source line, legend, chart, caption. */
 export default function Figure({

@@ -1,4 +1,4 @@
-import { ExplainText } from "@/components/Glossary";
+import { ExplainText } from "@/components/ExplainServer";
 
 const legalHourly = 12.71;
 const realLivingHourly = 14.1;

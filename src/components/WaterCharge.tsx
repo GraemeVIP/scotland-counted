@@ -1,5 +1,5 @@
 import { waterCharges2026, WATER_YEAR } from "@/lib/data/councilTax";
-import { ExplainText } from "@/components/Glossary";
+import { ExplainText } from "@/components/ExplainServer";
 
 /**
  * The water charge, made impossible to miss.

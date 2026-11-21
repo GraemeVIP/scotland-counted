@@ -7,7 +7,7 @@ import MinimumWageReality from "@/components/MinimumWageReality";
 import PaySpread from "@/components/PaySpread";
 import WorkDoesNotPay from "@/components/WorkDoesNotPay";
 import ToolCTA from "@/components/ToolCTA";
-import { ExplainText } from "@/components/Glossary";
+import { ExplainText } from "@/components/ExplainServer";
 import {
   indicators,
   lifeExpectancy,
