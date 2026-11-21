@@ -99,7 +99,7 @@ const RECEIPTS: Receipt[] = [
     budget: "Office budget",
     ipsa: ["Home 5G mobile broadband installation"],
     context:
-      "In plain terms: home broadband that runs on a phone signal comes as a box you plug into the wall. No engineer is needed. This was a single set-up charge, paid in July 2022. At the time he was MP for Dundee West. Ofcom says 99% of homes in Dundee City could get ordinary superfast broadband that year, one of the highest rates in Scotland. We do not know where his home is.",
+      "In plain terms: home broadband that runs on a phone signal comes as a box you plug into the wall. No engineer is needed. This was a single set-up charge, paid in July 2022. The record does not say which home. He had his own home and a rented flat in Westminster, central London, paid for by taxpayers. Ofcom says 99% of homes in Dundee City, his seat then, could get ordinary superfast broadband that year.",
     compare: [
       ["Three's 5G home broadband router, July 2022", "Free with a monthly plan"],
       ["Starlink satellite broadband kit, for the remotest homes, July 2022", "£529"],
