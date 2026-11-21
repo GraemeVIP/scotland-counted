@@ -66,7 +66,7 @@ export function buildMpEmailIssues({
       id: "expenses",
       label: "Your expenses",
       subject: `Your ${exp.year} expenses`,
-      body: `${hello}\n\nIPSA's records show you claimed ${money.format(exp.nonStaffSpend)} in ${exp.year} on top of your £91,346 salary, not counting staff wages.${items.length ? ` That included ${items.join(", ")}.` : ""}\n\nPlease could you explain why these costs should be paid by taxpayers, and publish what each claim was for?\n\n${SIGN_OFF}`,
+      body: `${hello}\n\nIPSA's records show you claimed ${money.format(exp.nonStaffSpend)} in ${exp.year} on top of your £91,346 salary, not counting staff wages.${items.length ? ` That included ${items.join(", ")}.` : ""}\n\nMost people pay for their own rent, bills and travel out of their wages. Why should taxpayers pay for yours on top of your salary? And will you commit to cutting these claims?\n\n${SIGN_OFF}`,
     });
   }
 
