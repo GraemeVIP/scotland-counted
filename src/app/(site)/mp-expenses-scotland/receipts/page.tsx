@@ -52,6 +52,8 @@ type Receipt = {
   /** IPSA's own wording, copied exactly. */
   ipsa: string[];
   context: string;
+  /** Optional plain price comparison: [what, typical cost]. */
+  compare?: [string, string][];
 };
 
 const RECEIPTS: Receipt[] = [
@@ -88,7 +90,7 @@ const RECEIPTS: Receipt[] = [
   },
   {
     amount: "£3,090",
-    what: "£3,090 just to set up broadband at his home",
+    what: "Just to set up broadband at his home",
     mp: "Chris Law",
     party: "Scottish National Party",
     seat: "Dundee Central",
@@ -97,7 +99,14 @@ const RECEIPTS: Receipt[] = [
     budget: "Office budget",
     ipsa: ["Home 5G mobile broadband installation"],
     context:
-      "A one-off set-up charge, not a year of bills. Scottish MPs made 62 phone and internet set-up claims since 2022. The typical one was £90. The next biggest was £691. Home broadband usually costs about £30 a month.",
+      "In plain terms: home broadband that runs on a phone signal comes as a box you plug into the wall. No engineer is needed. This was a single set-up charge, paid in July 2022.",
+    compare: [
+      ["Three's 5G home broadband router, July 2022", "Free with a monthly plan"],
+      ["Starlink satellite broadband kit, for the remotest homes, July 2022", "£529"],
+      ["A typical phone or internet set-up claim by a Scottish MP", "£90"],
+      ["The next biggest set-up claim by any Scottish MP", "£691"],
+      ["Chris Law's claim", "£3,090"],
+    ],
   },
   {
     amount: "£20,385",
@@ -487,6 +496,35 @@ export default function MpExpenseReceiptsPage() {
                       {r.context}
                     </p>
                   </ExplainText>
+                  {r.compare && (
+                    <div className="mt-3.5 overflow-hidden rounded-[var(--r-s)] border border-[var(--rule)]">
+                      <p className="tile-key bg-[var(--surface-2)] px-3.5 py-2">What this normally costs</p>
+                      <dl className="divide-y divide-[var(--rule)] text-[14px]">
+                        {r.compare.map(([what, cost], i) => {
+                          const last = i === r.compare!.length - 1;
+                          return (
+                            <div
+                              key={what}
+                              className={`flex items-baseline justify-between gap-4 px-3.5 py-2 ${
+                                last ? "bg-[color-mix(in_srgb,var(--bad)_10%,transparent)]" : ""
+                              }`}
+                            >
+                              <dt className={last ? "font-[680] text-[var(--ink)]" : "text-[var(--ink-2)]"}>
+                                {what}
+                              </dt>
+                              <dd
+                                className={`tnum shrink-0 font-[680] ${
+                                  last ? "text-[var(--bad-text)]" : "text-[var(--ink)]"
+                                }`}
+                              >
+                                {cost}
+                              </dd>
+                            </div>
+                          );
+                        })}
+                      </dl>
+                    </div>
+                  )}
                 </div>
               </li>
             ))}
