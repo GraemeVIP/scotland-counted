@@ -190,15 +190,16 @@ export default function Post() {
               From a page called &quot;My Page Title&quot; on Natasha Irons MP&apos;s site. The
               template&apos;s filler text talks about &quot;Lorem Ipsum&quot;, the dummy Latin
               designers use. Someone swapped &quot;Lorem Ipsum&quot; for the MP&apos;s seat across
-              the whole site in one go, and nobody checked. James Naish MP&apos;s site had the same
-              page, saying the same thing about &quot;Rushcliffe&quot;.
+              the whole site in one go, and nobody checked. James Naish MP&apos;s site has the same
+              page, saying the same thing about &quot;Rushcliffe&quot;. Both pages were still live
+              on 21 November 2026.
             </p>
           </div>
           <div className="p-5">
             <p className="tile-key">2. Test pages left on the live site</p>
             <p className="ui mt-2 text-[15px] leading-[1.55] text-[var(--ink-2)]">
-              The demo has a page called &quot;Front Form Test&quot;. So did Natasha Irons&apos;s
-              and James Naish&apos;s sites, sitting there for the public to find. On Natasha
+              The demo has a page called &quot;Front Form Test&quot;. So do Natasha Irons&apos;s and
+              James Naish&apos;s sites, still sitting there for the public to find. On Natasha
               Irons&apos;s, it sits above the line &quot;Designed and Powered by Causeway
               Creative&quot;.
             </p>
@@ -210,7 +211,7 @@ export default function Post() {
               constituency.&quot;
             </p>
             <p className="ui mt-2.5 text-[15px] leading-[1.55] text-[var(--ink-2)]">
-              Joani Reid MP (East Kilbride) and Dan Carden MP (Liverpool) both ran a &quot;Small
+              Joani Reid MP (East Kilbride) and Dan Carden MP (Liverpool) both run a &quot;Small
               Business Survey&quot; in their own words. Except the words are identical, line for
               line, with only the name and seat swapped. On both sites it sits at the same web
               address: &quot;restore the 5A bus route&quot;. A bus survey&apos;s address, reused for
@@ -245,7 +246,7 @@ export default function Post() {
           columns={["MP's site", "Same as the demo"]}
           align={["left", "right"]}
           rows={DEMO_PAGES}
-          caption="Source: archived copies of each site on the Internet Archive's Wayback Machine, 2025 to 2026. The live sites block automated visits, so we read the archived copies."
+          caption="Source: archived copies of each site on the Internet Archive's Wayback Machine, 2025 to 2026, plus the live sites, checked 21 November 2026."
         />
       </div>
 
