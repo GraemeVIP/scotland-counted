@@ -40,7 +40,7 @@ const TOP_10_NON_STAFF = [
     "Angus and Perthshire Glens",
     "£127,847.30",
     "£381,362.05",
-    "£27,600 flat rent + £8,258 hotels + £26,217 flights + £2,458 parking + £1,860 Silverstone Formula 1 VIP tickets",
+    "£27,600 flat rent + £8,258 staff London hotels + £26,217 flights + £2,458 parking + £1,860 Silverstone Formula 1 VIP tickets",
   ],
   [
     <Link
@@ -66,7 +66,7 @@ const TOP_10_NON_STAFF = [
     "Aberdeen North",
     "£121,470.95",
     "£377,344.08",
-    "£39,951.21 flat rent + £5,473 hotels + £7,307.88 family travel (#2 in Scotland) + £27,472 flights + £2,910 taxis",
+    "£39,951.21 flat rent + £5,473 staff London hotels + £7,307.88 family travel (#2 in Scotland) + £27,472 flights + £2,395 taxis",
   ],
   [
     <Link
@@ -105,7 +105,7 @@ const TOP_10_NON_STAFF = [
     "Argyll, Bute and South Lochaber",
     "£114,984.88",
     "£365,343.24",
-    "£29,322 flat rent + £4,979 hotels + £3,109 parking + employs wife as Office Manager + £1,525 Champions League & Hampden VIP boxes",
+    "£29,322 flat rent + £4,979 staff London hotels + £3,109 parking + employs wife as Office Manager + £1,525 Champions League & Hampden VIP boxes",
   ],
   [
     <Link
@@ -401,7 +401,7 @@ export default function Post() {
       </H2>
       <P>
         Two questions come up every time regular workers look at these numbers. First, why do MPs
-        need full year £3,500 a month London flats and £43,000 hotel budgets when the House of
+        need full year £3,500 a month London flats and, in one case, £37,359 of London hotels when the House of
         Commons only sits for around <strong>145 days a year</strong> (typically Monday afternoon to
         Thursday)?
       </P>
