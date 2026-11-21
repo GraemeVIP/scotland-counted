@@ -562,8 +562,14 @@ export default function MpInterestsCard({
         )}
 
         <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-[var(--rule)] pt-4 text-[15px]">
+          <Link
+            href={`/mp-expenses-scotland/search?mp=${interests.constituencySlug}`}
+            className="font-[620] text-[var(--action-text)]"
+          >
+            Search every line-by-line receipt for {interests.name} (2022 to 2026) →
+          </Link>
           <Link href="/mp-expenses-scotland" className="font-[600]">
-            Compare all 57 Scottish MPs on expenses, donations & freebies →
+            Compare all 57 Scottish MPs →
           </Link>
         </div>
       </div>

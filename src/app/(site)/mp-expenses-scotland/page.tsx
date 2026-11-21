@@ -602,7 +602,8 @@ export default function MpRegisterOfInterestsScotlandPage() {
   ];
 
   const JUMP_LINKS = [
-    { href: "/mp-expenses-scotland/receipts", label: "The receipts" },
+    { href: "/mp-expenses-scotland/search", label: "Search all 20,879 receipts" },
+    { href: "/mp-expenses-scotland/receipts", label: "Top receipts" },
     { href: "#two-sets-of-rules", label: "MPs vs families" },
     { href: "#staff-travel", label: "Staff travel" },
     { href: "#party-tally", label: "By party" },
