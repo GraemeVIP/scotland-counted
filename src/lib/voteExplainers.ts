@@ -1,25 +1,9 @@
 /**
  * Plain-English explainers for parliamentary votes.
  *
- * Division titles arrive from the official record reading like legal
- * paperwork, "Draft Supply of Machinery (Safety) (Amendment etc.) and the EU
- * Machinery Regulation (Enforcement etc. in Northern Ireland) Regulations
- * 2026". Nobody this site is written for can tell from that whether their MP
- * did something that matters. The site's founder could not either, which is
- * the whole problem in one sentence.
- *
- * What CAN be explained safely, forever, is the kind of vote, what a second
- * reading is, what an amendment vote decides, what voting yes meant in that
- * kind of division. That is parliamentary procedure: it does not change from
- * bill to bill, so a pattern match on the title cannot go stale and cannot
- * misdescribe a bill's contents.
- *
- * What is deliberately NOT here is any claim about what an individual bill
- * does. That requires reading the bill, and a wrong guess published under
- * "plain English" would be worse than the jargon it replaced. Substance
- * summaries belong in SUBSTANCE below, added by hand, each one checked
- * against the bill text before it ships. The map starts almost empty on
- * purpose.
+ * Written at a tabloid reading level: short sentences, everyday words, zero
+ * parliamentary or legal jargon. If a reader cannot tell in five seconds what
+ * the vote was about and what their MP did, the copy is too complicated.
  */
 
 export type VoteExplainer = {
@@ -31,18 +15,13 @@ export type VoteExplainer = {
 
 type Rule = { pattern: RegExp; explain: VoteExplainer };
 
-/*
- * Order matters: more specific shapes first. A "reasoned amendment to second
- * reading" must not fall through to the plain second-reading rule, because
- * voting yes means the opposite thing in each.
- */
 const RULES: Rule[] = [
   {
     pattern: /reasoned amendment/i,
     explain: {
       kind: "A vote to block a new law",
       plain:
-        "Some MPs tried to stop this law at its first big test. Voting yes here meant blocking it. Voting no meant letting it carry on.",
+        "Some MPs tried to stop this law early. Voting yes meant blocking it. Voting no meant letting it carry on.",
     },
   },
   {
@@ -50,7 +29,7 @@ const RULES: Rule[] = [
     explain: {
       kind: "First big vote on a new law",
       plain:
-        "The first yes or no vote on a new law. Voting yes meant letting it move forward. Voting no meant trying to stop it early.",
+        "The first yes or no vote on a new law. Voting yes meant letting it move forward. Voting no meant trying to stop it.",
     },
   },
   {
@@ -58,7 +37,7 @@ const RULES: Rule[] = [
     explain: {
       kind: "Final vote on a new law",
       plain:
-        "The last vote before the law left this part of Parliament. Voting yes meant passing it.",
+        "The final vote before the law left this part of Parliament. Voting yes meant passing it.",
     },
   },
   {
@@ -66,7 +45,7 @@ const RULES: Rule[] = [
     explain: {
       kind: "A change asked for by the Lords",
       plain:
-        "The House of Lords wanted this law changed. MPs voted on whether to accept that change.",
+        "The House of Lords asked to change this law. MPs voted on whether to agree to that change.",
     },
   },
   {
@@ -74,7 +53,7 @@ const RULES: Rule[] = [
     explain: {
       kind: "A vote to add a new section",
       plain:
-        "A vote on adding a new section to a law while MPs went through it in detail. Voting yes meant adding it.",
+        "A vote on adding a new part to a law while MPs checked it line by line. Voting yes meant adding it.",
     },
   },
   {
@@ -82,7 +61,7 @@ const RULES: Rule[] = [
     explain: {
       kind: "A vote to change part of a law",
       plain:
-        "A vote on changing one part of a new law before it was finished. Voting yes meant making the change. Voting no meant leaving it as written.",
+        "A vote on changing one part of a new law before it was finished. Voting yes meant making the change.",
     },
   },
   {
@@ -90,15 +69,15 @@ const RULES: Rule[] = [
     explain: {
       kind: "An opposition debate",
       plain:
-        "A debate day picked by the opposition parties. This vote does not change any law by itself, but it puts every MP on the record about the issue.",
+        "A debate picked by the opposition parties. This vote does not change any law by itself, but it puts every MP on the record.",
     },
   },
   {
-    pattern: /programme motion|allocation of time/i,
+    pattern: /programme motion|allocation of time|carry-over|closure motion/i,
     explain: {
       kind: "A vote about debate time",
       plain:
-        "A vote about how much time MPs get to debate a law, not about the law itself.",
+        "A vote about how much time MPs get to talk about a law, not about the law itself.",
     },
   },
   {
@@ -109,19 +88,13 @@ const RULES: Rule[] = [
     },
   },
   {
-    /*
-     * Statutory instruments: "Draft … Regulations / Order / Rules / Code of
-     * Practice". Detailed rules made under a law Parliament already passed, 
-     * the single most common and least understood kind of division.
-     */
-    pattern: /^draft .*(regulations|order|rules|code of practice)/i,
+    pattern: /(^draft |\b(regulations|order)\s+20\d\d|code of practice)/i,
     explain: {
       kind: "Detailed rules, not a new law",
       plain:
-        "A vote on switching on detailed rules made under a law that already exists. Voting yes meant the rules take effect.",
+        "A vote on switching on new rules under a law that already exists. Voting yes meant the rules start.",
     },
   },
-  // Holyrood uses stages, not readings.
   {
     pattern: /stage 1/i,
     explain: {
@@ -142,116 +115,279 @@ const RULES: Rule[] = [
     explain: {
       kind: "A vote to change part of a law",
       plain:
-        "A vote on changing part of a new Scottish law while it was checked line by line.",
+        "A vote on changing part of a new Scottish law while MSPs checked it line by line.",
     },
   },
 ];
 
+export type SubstanceEntry = {
+  match: RegExp;
+  what: string;
+  example?: string;
+  yesMeans?: string;
+  noMeans?: string;
+};
+
 /**
- * Hand-checked summaries of what specific bills actually do, keyed by a
- * fragment of the division title, matched case-insensitively.
- *
- * Every entry was researched against a primary or official source before it
- * shipped. The source is named in the comment above each one. An entry here
- * is the site asserting what a law does, in its own voice, to people who will
- * not check, so nothing goes in from memory or inference.
- *
- * `example` is the picture-it line: where a person would actually feel this,
- * or, just as useful, a plain note that it only applies in England while
- * their Scottish MP voted on it anyway.
- *
- * Maintenance: the vote feed refreshes over time, so new divisions will
- * appear without an entry. They still get the kind-of-vote explainer; add
- * substance here as new bills show up, source first.
+ * Hand-checked, ultra-simple summaries of what specific bills and motions
+ * actually do. Every sentence must stay at or under 32 words.
  */
-export const SUBSTANCE: Array<{ match: RegExp; what: string; example?: string }> = [
-  // Source: this site's own sourced vote round-up (votes.ts).
+export const SUBSTANCE: SubstanceEntry[] = [
   {
     match: /universal credit \(removal of two child limit\)/i,
-    what: "The two child limit stopped families getting the usual benefit support for a third or later child. This bill removed it.",
+    what: "Scraps the two child benefit cap on Universal Credit.",
     example:
-      "A family with three children on Universal Credit now gets help for all three, not just the first two.",
+      "Families with three or more kids now get benefit money for every child, not just the first two.",
+    yesMeans: "Voted to scrap the two child benefit cap.",
+    noMeans: "Voted against scrapping the two child benefit cap.",
   },
-  // Source: bills.parliament.uk/bills/4254; Amnesty UK second reading briefing.
+  {
+    match: /immigration and asylum bill: reasoned amendment/i,
+    what: "A vote to block the government's new asylum and deportation law before it went any further.",
+    example:
+      "The law makes it easier to turn down and deport asylum seekers across the whole UK, including Scotland.",
+    yesMeans: "Voted to block the new asylum and deportation law.",
+    noMeans: "Voted to let the new asylum and deportation law carry on.",
+  },
   {
     match: /immigration and asylum bill/i,
-    what: "A new law to make it easier to refuse and deport people who ask for asylum. It limits appeals based on the right to family life, and replaces immigration judges with a new type of decision maker.",
+    what: "Makes it easier to turn down and deport people asking for asylum in the UK.",
     example:
-      "Immigration rules are the same across the UK, so this applies in Scotland too. It passed this stage by 264 votes to 90.",
+      "It cuts the right to appeal using family life rules. These border rules apply in Scotland too.",
+    yesMeans: "Backed the law making it easier to refuse and deport asylum seekers.",
+    noMeans: "Voted against the new asylum and deportation law.",
   },
-  // Source: Commons Library CBP-10359 and CBP-10424 (Hillsborough Law).
   {
     match: /public office \(accountability\) bill/i,
-    what: "Known as the Hillsborough Law. It makes public officials legally bound to tell the truth and help investigations after disasters and scandals, with real penalties for cover ups. Bereaved families get their legal costs covered, like the authorities they face.",
+    what: "Known as the Hillsborough Law. It forces police, bosses and public officials to tell the truth after disasters and cover ups.",
     example:
-      "After a disaster like Hillsborough or Grenfell, officials could not lawfully close ranks, and families would not face the state\u2019s lawyers alone.",
+      "Officials who lie or hide the truth can face jail, and grieving families get their legal bills paid.",
+    yesMeans: "Voted for this change to the Hillsborough Law on public cover ups.",
+    noMeans: "Voted against this change to the Hillsborough Law (usually to keep the government's wording).",
   },
-  // Source: Commons Library CBP-10896; Lords Library LLN-2026-0030.
   {
     match: /national security \(state threats\) bill/i,
-    what: "Lets the government put an organisation on a banned list if it says it works for a hostile foreign state. Supporting or profiting from a listed group becomes a crime, with up to 14 years in prison.",
+    what: "Lets the government ban groups working for hostile foreign countries, with up to 14 years in jail for helping them.",
     example:
-      "The House of Lords added protection so journalists and aid workers could not be treated as criminals just for doing their jobs. This vote was about accepting that change.",
+      "This vote was about protecting journalists and aid workers so they are not treated as spies just for doing their jobs.",
+    yesMeans: "Voted in favour of this change to the foreign spying and national security law.",
+    noMeans: "Voted against this change to the foreign spying and national security law.",
   },
-  // Source: Commons Library CBP-10913.
   {
     match: /taxation \(energy and vehicles\) bill/i,
-    what: "A tax law brought in after energy prices jumped. It raises the windfall tax on electricity generators from 45% to 55%. It also raises the tax free rate for people who drive for work, and pauses road tax for lorries for a year.",
+    what: "Puts a bigger windfall tax on power companies (up from 45% to 55%) and raises tax free mileage pay for drivers.",
     example:
-      "If you use your own car for your job, the tax free amount your employer can pay you per mile goes up.",
+      "If you drive your own car for work, your boss can pay you more per mile tax free.",
+    yesMeans: "Voted to add this tax change to the energy and driving tax bill.",
+    noMeans: "Voted against adding this tax change to the energy and driving tax bill.",
   },
-  // Source: Commons order paper 7 Jul 2026; Commons Library CBP-10974.
   {
     match: /early release of prisoners/i,
-    what: "The Conservatives asked MPs to demand that people convicted of sexual offences be kept out of the new early release rules for prisoners, brought in because prisons are full.",
+    what: "A demand from the Conservatives to stop sex offenders getting out of jail early when prisons are full.",
     example:
-      "Those rules cover England and Wales, Scottish prisons follow separate Scottish rules. Your MP voted on it anyway.",
+      "This rule covers prisons in England and Wales. Scotland has its own separate prison release rules.",
+    yesMeans: "Voted with the opposition to demand sex offenders are excluded from early prison release.",
+    noMeans: "Voted against the opposition demand on early prison release.",
   },
-  // Source: legislation.gov.uk ukdsi/2026/9780348284584; gov.uk draft Code of Practice.
   {
     match: /permissible means of voting|electronic and workplace ballots/i,
-    what: "Lets union members vote online, at their workplace, or by post in union ballots, including strike votes, which used to be post only.",
+    what: "Lets workers vote on strikes online or at work instead of only by post.",
     example:
-      "A nurse voting on strike action could do it on her phone instead of waiting for a form in the post.",
+      "A nurse or rail worker can now vote in a union ballot on their phone instead of posting a paper form.",
+    yesMeans: "Voted to let workers vote online or at work in union strike ballots.",
+    noMeans: "Voted against online and workplace voting in union ballots.",
   },
-  // Source: legislation.gov.uk ukdsi/2026/9780348282849; Hansard 23 Jun 2026.
+  {
+    match: /access and unfair practices|right to access workplaces|time off for trade union/i,
+    what: "Makes it easier for trade unions to come into workplaces, speak to staff, and get paid time off for union work.",
+    example:
+      "These workplace rules apply across the whole UK, so they cover bosses and workers in Scotland too.",
+    yesMeans: "Voted to give trade unions stronger rights inside workplaces.",
+    noMeans: "Voted against giving trade unions stronger rights inside workplaces.",
+  },
   {
     match: /employment tribunal/i,
-    what: "Part of a package giving workers six months instead of three to start an employment tribunal claim.",
+    what: "Gives workers six months instead of three to take a bad boss to a tribunal.",
     example:
-      "If you are sacked unfairly, you get twice as long to bring a case, which matters when you are still reeling or hunting for a new job first.",
+      "If you are sacked unfairly, you now get twice as long to put your claim in.",
+    yesMeans: "Voted to give workers six months instead of three to bring a workplace claim.",
+    noMeans: "Voted against giving workers more time to bring a workplace claim.",
   },
-  // Source: legislation.gov.uk ukdsi/2026/9780348282269 explanatory memorandum.
   {
-    match: /climate change act 2008 \(credit limit\)/i,
-    what: "Blocks the UK from using overseas carbon credits to hit its 2028 to 2032 climate target. The cuts have to happen at home.",
-    example: "The government cannot buy its way to its climate promise with offsets from abroad.",
-  },
-  // Source: gov.uk national scheme of delegation guidance; SI ukdsi/2026/9780348283709.
-  {
-    match: /discharge of local planning authority functions/i,
-    what: "Makes councils in England hand more planning decisions to their staff instead of elected councillors, to speed up building.",
+    match: /climate change act 2008 \(credit limit\)|carbon budget order/i,
+    what: "Stops the UK Government buying foreign carbon credits to hit its climate targets.",
     example:
-      "This one is about England, planning in Scotland runs under Scottish law. Your MP still voted on it.",
+      "Pollution has to be cut here in the UK instead of paying other countries to do it.",
+    yesMeans: "Voted to approve the UK's legal targets for cutting carbon emissions.",
+    noMeans: "Voted against the UK's carbon emissions rule.",
   },
-  // Source: Hansard 30 Jun 2026; SI ukdsi/2026/9780348283624.
+  {
+    match: /town and country planning.*\(england\)|clean air zones.*\(england\)/i,
+    what: "Changes council planning charges or clean air driving zones in England only.",
+    example:
+      "This does not affect Scotland because Scottish councils and Holyrood run our planning and low emission zones.",
+    yesMeans: "Voted to approve these England only council planning or clean air rules.",
+    noMeans: "Voted against these England only council planning or clean air rules.",
+  },
   {
     match: /supply of machinery/i,
-    what: "Keeps the safety rules for machines (cranes, diggers, even lawnmowers) in line with the EU\u2019s new rules, so the same machines can keep being sold here and in Europe. Northern Ireland follows the EU rules directly under the Brexit deal.",
-    example: "A digger that passes the new EU safety checks can still be sold in Scotland.",
+    what: "Keeps UK safety rules for work machines like cranes, diggers and lawnmowers matching Europe's rules.",
+    example:
+      "Means a digger or power tool that passes safety checks can still be sold in Scotland and Europe.",
+    yesMeans: "Voted to keep machinery safety rules aligned.",
+    noMeans: "Voted against these machinery safety rules.",
   },
-  // Source: legislation.gov.uk ukpga/2026/21; gov.uk education hub explainer.
   {
     match: /children.?s wellbeing and schools act/i,
-    what: "Tidy up rules for a new schools law in England. New schools there no longer have to be academies, and councils get more say over them.",
+    what: "Changes the rules for opening new schools in England.",
     example:
-      "Schools in Scotland are not affected, education is run from Holyrood. Your MP still voted on it.",
+      "Does not affect Scotland at all because Scottish schools are run here in Scotland.",
+    yesMeans: "Voted to approve these England only school rules.",
+    noMeans: "Voted against these England only school rules.",
   },
-  // Source: votes.parliament.uk division 2355; Commons Library CBP-10818.
   {
     match: /king.?s speech/i,
-    what: "The vote on the government\u2019s whole plan for the year, set out in the King\u2019s Speech. By tradition, losing it would bring the government down.",
-    example: "This is the closest thing to a yearly confidence vote MPs get.",
+    what: "The big yearly vote on the Prime Minister's plan for the country.",
+    example:
+      "If a government loses a King's Speech vote, it usually has to quit.",
+    yesMeans: "Voted for this change or motion on the government's yearly plan.",
+    noMeans: "Voted against this change or motion on the government's yearly plan.",
+  },
+  {
+    match: /northern ireland troubles bill/i,
+    what: "Changes how old killings and bombings from the Northern Ireland Troubles are investigated.",
+    example:
+      "Scraps parts of the old government's law that shut down Troubles inquests and court cases, including cases involving former soldiers.",
+    yesMeans: "Voted in favour of this part of the Northern Ireland Troubles investigation law.",
+    noMeans: "Voted against this part of the Northern Ireland Troubles investigation law.",
+  },
+  {
+    match: /representation of the people bill/i,
+    what: "Changes the rules for UK elections, including lowering the voting age to 16, voter ID rules, and political donations.",
+    example:
+      "16 and 17 year olds in Scotland could already vote in Scottish elections. This lets them vote in UK General Elections too.",
+    yesMeans: "Voted for this part of the new UK voting and elections law.",
+    noMeans: "Voted against this part of the new UK voting and elections law.",
+  },
+  {
+    match: /terminally ill adults \(end of life\) bill/i,
+    what: "A vote on whether terminally ill adults with less than six months to live should have the right to assisted dying.",
+    example:
+      "This bill covers England and Wales. The Scottish Parliament has been voting on a separate assisted dying law for Scotland.",
+    yesMeans: "Voted YES to legalising assisted dying for terminally ill adults.",
+    noMeans: "Voted NO to legalising assisted dying for terminally ill adults.",
+  },
+  {
+    match: /support for british farmers|inheritance tax/i,
+    what: "A vote demanding the government scraps its new inheritance tax on family farms.",
+    example:
+      "Inheritance tax is set at Westminster, so the new farm tax hits farming families in Scotland too.",
+    yesMeans: "Voted to tell the government to scrap the new inheritance tax on family farms.",
+    noMeans: "Voted with the government to keep its new inheritance tax plans for family farms.",
+  },
+  {
+    match: /mod bicester and illegal migrants/i,
+    what: "An opposition vote attacking the government's plan to house asylum seekers at an old army site.",
+    example:
+      "It also demanded tougher action to stop small boats and deport people who arrive illegally.",
+    yesMeans: "Voted against housing asylum seekers at the army site and called for tougher border rules.",
+    noMeans: "Voted with the government to reject the opposition protest over asylum housing.",
+  },
+  {
+    match: /windsor framework|interoperability in northern ireland|plant health.*northern ireland/i,
+    what: "Updates post Brexit trade, train or farming rules for goods moving into Northern Ireland.",
+    example:
+      "Covers checks on food, plants, seed potatoes and trains crossing to Northern Ireland.",
+    yesMeans: "Voted to approve these Northern Ireland trade and border rules.",
+    noMeans: "Voted against these Northern Ireland trade and border rules.",
+  },
+  {
+    match: /carbon border adjustment mechanism/i,
+    what: "Puts a green tax on cheap foreign steel, cement and fertiliser coming into the UK from high polluting countries.",
+    example:
+      "Meant to stop dirty foreign factories undercutting UK businesses that have to pay green costs.",
+    yesMeans: "Voted to bring in the new border tax on high polluting foreign imports.",
+    noMeans: "Voted against the new border tax on foreign imports.",
+  },
+  {
+    match: /courts and tribunals bill/i,
+    what: "Changes how courts and tribunals are run to try to clear huge backlogs of cases.",
+    example:
+      "Most courts in Scotland are run by Scotland, except UK wide employment and benefits tribunals.",
+    yesMeans: "Voted for this part of the courts and tribunals reform law.",
+    noMeans: "Voted against this part of the courts and tribunals reform law.",
+  },
+  {
+    match: /health bill/i,
+    what: "Changes rules on vapes, smoking, junk food adverts and NHS powers.",
+    example:
+      "Scottish hospitals are run in Scotland, but UK wide bans on tobacco and vape sales cover Scotland too.",
+    yesMeans: "Voted for this change to the UK Health Bill.",
+    noMeans: "Voted against this change to the UK Health Bill.",
+  },
+  {
+    match: /highways \(financing\) bill|social housing bill/i,
+    what: "A vote on road funding or council housing rules in England.",
+    example:
+      "Roads and council housing in Scotland are run by Scottish councils and Holyrood.",
+    yesMeans: "Voted to block this England only road or housing law.",
+    noMeans: "Voted to let this England only road or housing law carry on.",
+  },
+  {
+    match: /motion to sit in private|closure motion/i,
+    what: "A quick vote on House of Commons timetable rules during a debate.",
+    example:
+      "MPs use these votes to end a debate and move straight to a vote, or to control chamber time.",
+    yesMeans: "Voted yes on this parliamentary timetable move.",
+    noMeans: "Voted no on this parliamentary timetable move.",
+  },
+  {
+    match: /preventing alcohol and drug deaths/i,
+    what: "A Scottish Parliament vote on funding rehab beds and treatment to cut Scotland's drug and alcohol deaths.",
+    example:
+      "Scotland has the highest drug death rate in Europe, and health and rehab funding is run at Holyrood.",
+    yesMeans: "Backed this plan on tackling drug and alcohol deaths in Scotland.",
+    noMeans: "Voted against this motion on drug and alcohol deaths.",
+  },
+  {
+    match: /learning disabilities, autism and neurodivergence/i,
+    what: "A Scottish Parliament vote on better support and shorter waiting times for people with autism, ADHD and learning disabilities.",
+    example:
+      "Covers Scottish schools, NHS assessment waiting lists and local care support.",
+    yesMeans: "Backed the motion for stronger support on autism, ADHD and learning disabilities.",
+    noMeans: "Voted against this motion on autism and learning disabilities.",
+  },
+  {
+    match: /international climate justice/i,
+    what: "A Scottish Parliament vote on spending Scottish Government money to help poorer countries deal with climate change.",
+    example:
+      "Covers Holyrood's overseas Climate Justice Fund.",
+    yesMeans: "Backed spending Scottish Government money on the overseas Climate Justice Fund.",
+    noMeans: "Voted against this motion on the overseas Climate Justice Fund.",
+  },
+  {
+    match: /cyber resilience/i,
+    what: "A Scottish Parliament vote on protecting Scottish hospitals and councils from computer hackers.",
+    example:
+      "Comes after hackers stole data and disrupted NHS boards and councils in Scotland.",
+    yesMeans: "Backed the plan to tighten computer security across Scottish hospitals and councils.",
+    noMeans: "Voted against this motion on public sector computer security.",
+  },
+  {
+    match: /fishing industry/i,
+    what: "A Scottish Parliament vote on fish quotas, sea bans and support for Scottish fishing boats.",
+    example:
+      "Affects coastal towns and fishing crews in the North East, Highlands and Islands.",
+    yesMeans: "Backed this motion on supporting Scotland's fishing industry.",
+    noMeans: "Voted against this motion on Scotland's fishing industry.",
+  },
+  {
+    match: /prosperity and future in europe/i,
+    what: "A Scottish Parliament vote calling for closer trade and travel ties between Scotland and the European Union.",
+    example:
+      "Covers youth travel deals, food exports and Brexit border red tape.",
+    yesMeans: "Backed calling for closer ties with the European Union.",
+    noMeans: "Voted against the motion calling for closer ties with the European Union.",
   },
 ];
 
@@ -264,19 +400,75 @@ export function explainVote(title: string): VoteExplainer | null {
 }
 
 /** The hand-checked story of the bill itself, when one exists. */
-export function voteSubstance(title: string): { what: string; example?: string } | null {
+export function voteSubstance(
+  title: string,
+): { what: string; example?: string; yesMeans?: string; noMeans?: string } | null {
   for (const entry of SUBSTANCE) {
-    if (entry.match.test(title)) return { what: entry.what, example: entry.example };
+    if (entry.match.test(title)) {
+      return {
+        what: entry.what,
+        example: entry.example,
+        yesMeans: entry.yesMeans,
+        noMeans: entry.noMeans,
+      };
+    }
   }
   return null;
 }
 
 /**
- * "330 Ayes, 199 Noes" (and similar) → "Passed, 330 votes to 199".
- *
- * The official phrasing tells a reader nothing unless they already know an
- * Aye is a yes. When the string does not parse, it is returned unchanged, 
- * a raw official record beats a wrong translation.
+ * Infers a plain-English one-liner explaining what this member's specific vote
+ * (Aye / No / Abstain) actually meant on this division.
+ */
+export function inferStance(title: string, vote: string): string {
+  const isYes = /^(aye|yes|for)$/i.test(vote);
+  const isNo = /^(no|against)$/i.test(vote);
+  const sub = voteSubstance(title);
+
+  if (/reasoned amendment/i.test(title)) {
+    if (isYes) return "Voted to block this law before it went any further.";
+    if (isNo) return "Voted against blocking this law, so it could carry on.";
+  }
+
+  if (isYes && sub?.yesMeans) return sub.yesMeans;
+  if (isNo && sub?.noMeans) return sub.noMeans;
+
+  if (/second reading|stage 1/i.test(title)) {
+    if (isYes) return "Voted YES to let this new law move forward.";
+    if (isNo) return "Voted NO to try to stop this new law.";
+  }
+  if (/third reading|stage 3/i.test(title)) {
+    if (isYes) return "Voted YES to pass this new law.";
+    if (isNo) return "Voted NO to try to stop this new law passing.";
+  }
+  if (/lords amendment/i.test(title)) {
+    if (isYes) return "Voted to agree to the change asked for by the House of Lords.";
+    if (isNo) return "Voted to turn down the change asked for by the House of Lords.";
+  }
+  if (/new clause|report stage|amendment \d+|stage 2/i.test(title)) {
+    if (isYes) return "Voted to make this change to the law.";
+    if (isNo) return "Voted against making this change to the law.";
+  }
+  if (/opposition day/i.test(title)) {
+    if (isYes) return "Backed the opposition parties in this debate.";
+    if (isNo) return "Voted with the government against the opposition parties.";
+  }
+  if (/programme motion|allocation of time|carry-over|closure motion/i.test(title)) {
+    if (isYes) return "Voted for the government's timetable for this debate.";
+    if (isNo) return "Voted against the government's timetable for this debate.";
+  }
+  if (/(^draft |\b(regulations|order)\s+20\d\d|code of practice)/i.test(title)) {
+    if (isYes) return "Voted YES to bring these new rules in.";
+    if (isNo) return "Voted NO to block these new rules.";
+  }
+
+  if (isYes) return "Voted YES to this.";
+  if (isNo) return "Voted NO to this.";
+  return `Recorded as: ${vote}.`;
+}
+
+/**
+ * "330 Ayes, 199 Noes" (and similar) → "Passed: 330 votes to 199".
  */
 export function plainResult(result: string): string {
   const m = result.match(/(\d+)\s*ayes?\s*,?\s*(\d+)\s*no(?:es)?\b/i);

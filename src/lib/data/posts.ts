@@ -142,6 +142,75 @@ export type Post = {
 
 export const posts: Post[] = [
   {
+    slug: "scottish-mp-expenses-and-freebies-investigation",
+    title:
+      "£81,647 for second home council tax, £43,475 for hotel rooms and free F1 tickets: inside Scottish MPs' 2025/26 expenses and freebies",
+    seoTitle:
+      "Scottish MP Expenses & Freebies Investigation: 2nd Home Bills, Hotels & Qatar Trips",
+    description:
+      "47 Scottish MPs billed taxpayers £81,647 for 2nd home council tax and £39,218 for energy bills on top of £91,346 salaries, plus £43k on hotels and Qatar trips.",
+    standfirst:
+      "Scottish MPs are paid £91,346 a year. Yet in 2025/26, 47 of them billed the taxpayer £81,647 to pay the council tax on their second homes and £39,218 to heat and light them, alongside £43,475 for one MP's London hotel stays, £6,292 for one MP's car parking, and £296,895 in private donations, Qatar and China trips, and Silverstone F1 tickets.",
+    date: "2026-11-21",
+    updated: "2026-11-21",
+    checked: "2026-11-21",
+    category: "politics-explained",
+    tags: [
+      "MP expenses Scotland",
+      "MP register of interests",
+      "Scottish Labour",
+      "SNP",
+      "Scottish Conservatives",
+      "Cost of living",
+      "Westminster",
+    ],
+    readingMinutes: 9,
+    image: {
+      src: "/images/editorial/refresh-court-records.webp",
+      alt: "Open official parliamentary folders and financial ledgers on a wooden desk for the Scottish MP Register of Interests and IPSA Expenses",
+      caption:
+        "Across 7,268 individual IPSA expense claim lines in 2025/26, Scottish MPs billed taxpayers £4.97 million in non-staff expenses (£18.54m including staff), plus £296,895 in private donations, foreign visits and VIP hospitality.",
+      aspect: "wide",
+      objectPosition: "center",
+    },
+    shareImage: {
+      src: "/images/editorial/refresh-court-records.webp",
+      width: 1500,
+      height: 1000,
+      type: "image/webp",
+    },
+    toc: [
+      { id: "second-home-bills", label: "£81,647 for 2nd home council tax & £39k for heating" },
+      { id: "flats-and-hotels", label: "£3,500/month flats & £43,475 hotel tabs" },
+      { id: "family-parking-taxis", label: "£7,932 family flights, £6,292 parking & £5,233 taxis" },
+      { id: "remote-voting-and-carbon", label: "145 sitting days, remote voting & £912k in flights" },
+      { id: "voting-against-help", label: "Voting against child support while claiming £497k" },
+      { id: "party-tally", label: "The Party Tally: Labour vs SNP vs Tories vs Lib Dems" },
+      { id: "top-10-table", label: "Top 10 highest claiming Scottish MPs" },
+      { id: "ask-your-mp", label: "Put the receipts to your own MP" },
+    ],
+    faq: [
+      {
+        q: "How much did Scottish MPs claim in taxpayer expenses in 2025/26?",
+        a: "According to the official IPSA 2025/26 annual dataset, Scotland's MPs claimed £18,543,803.31 in total parliamentary expenses and staffing costs. Stripping out staff wages (£13.57m), Scottish MPs claimed £4,970,382.22 for their own London flats, second home council tax, energy bills, hotels, flights, parking, taxis, family travel and offices.",
+      },
+      {
+        q: "Which Scottish MPs claimed the most for second home council tax and energy bills?",
+        a: "Forty seven Scottish MPs billed taxpayers £81,646.92 for their second home council tax in 2025/26, led by Douglas Alexander MP (£4,093.21), Gregor Poynton MP (£3,629.54), Melanie Ward MP (£3,302.72) and Richard Baker MP (£2,938.52). Thirty eight Scottish MPs billed taxpayers £39,218.00 for their second home utilities, led by Angus MacDonald MP (£3,314.09) and Ian Murray MP (£3,197.22).",
+      },
+      {
+        q: "Which party claimed the most in second home council tax, London hotels and foreign trips?",
+        a: "Scottish Labour holds 37 of Scotland's 57 seats (65%), yet its MPs accounted for 73% of all second home council tax billed to taxpayers (£59,231), 71% of all London hotel spending (£152,908), 75% of all funded foreign trips (£57,288), and £105,589 in private donations.",
+      },
+    ],
+    sourceIds: [
+      "ipsa-annual-2025-26",
+      "uk-parliament-register-interests-2026",
+      "commons-votes-two-child-limit-2026",
+      "ecp",
+    ],
+  },
+  {
     slug: "shoplifting-scotland-record-high",
     title: "Shoplifting in Scotland: the rate overtakes England and Wales as convictions nearly halve",
     seoTitle: "Shoplifting in Scotland: Record High Figures Explained",

@@ -2005,6 +2005,27 @@ export const sources: Source[] = [
     url: "https://www.gcph.co.uk/publications/635_history_politics_and_vulnerability_explaining_excess_mortality",
     used: "Poverty, deprivation and the loss of industry as the main drivers of poor health in the west of Scotland, and Glasgow's higher death rates than Liverpool and Manchester.",
   },
+  {
+    id: "ipsa-annual-2025-26",
+    title: "Annual Publications 2025/26: Total Spend and Individual Business Costs CSV datasets",
+    publisher: "Independent Parliamentary Standards Authority (IPSA)",
+    url: "https://www.theipsa.org.uk/mp-staffing-business-costs/annual-publications",
+    used: "All 7,268 individual Scottish MP expense claim lines in 2025/26 totalling £18,543,803.31 (£4,970,382.22 excluding staff payroll), including £1,383,619.92 for second home rent, £81,646.92 for second home council tax, £39,218.00 for second home utilities, £215,415.76 for London hotels, £912,654.62 for MP flights, £89,110.80 for family/dependant travel, £58,237.33 for parking and £45,320.45 for taxis.",
+  },
+  {
+    id: "uk-parliament-register-interests-2026",
+    title: "Register of Members' Financial Interests API (Categories 1 to 10)",
+    publisher: "UK Parliament",
+    url: "https://interests-api.parliament.uk/swagger/ui/index",
+    used: "All 210 registered financial interest entries across Scotland's 57 MPs (checked 21 November 2026), totalling £296,894.97 across 23 donations (£205,242.29), 33 funded overseas visits (£76,556.68) and 22 gifts and hospitality entries (£15,096.00), plus 22 properties, 18 shareholdings and 3 family declarations.",
+  },
+  {
+    id: "commons-votes-two-child-limit-2026",
+    title: "Universal Credit (Removal of Two Child Limit) Bill: Second Reading (Division 2253) and Third Reading (Division 2265)",
+    publisher: "UK Parliament Commons Votes",
+    url: "https://votes.parliament.uk/",
+    used: "The recorded Aye and No votes of all 57 Scottish MPs on removing the two child benefit limit on Universal Credit in February 2026.",
+  },
   ...snpMoneyTimelineSources,
 ];
 

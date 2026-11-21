@@ -98,6 +98,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: spikeRelease,
       images: [`${site.url}/images/editorial/scottish-budget-2027-28-holyrood.webp`],
     },
+    {
+      url: `${site.url}/mp-expenses-scotland`,
+      changeFrequency: "weekly",
+      priority: 0.95,
+      lastModified: spikeRelease,
+      images: [`${site.url}/images/editorial/refresh-court-records.webp`],
+    },
     { url: `${site.url}/poverty-in-scotland-quiz`, changeFrequency: "monthly", priority: 0.85, lastModified: seoRefresh },
     { url: `${site.url}/browse`, changeFrequency: "weekly", priority: 0.7 },
     { url: `${site.url}/constituencies`, changeFrequency: "yearly", priority: 0.9 },

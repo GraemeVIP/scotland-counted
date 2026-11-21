@@ -1,0 +1,3807 @@
+{
+  "checkedDate": "2026-11-21",
+  "source": "https://interests-api.parliament.uk/api/v1/Interests/?MemberId={memberId} & https://www.theipsa.org.uk/api/download?type=totalSpend&year=25_26",
+  "sourceName": "UK Parliament Register of Members' Financial Interests API & IPSA Annual Publications (2025/26)",
+  "records": [
+    {
+      "memberId": 5043,
+      "name": "Lillian Jones",
+      "party": "Labour",
+      "constituency": "Kilmarnock and Loudoun",
+      "constituencySlug": "kilmarnock-and-loudoun",
+      "registerUrl": "https://members.parliament.uk/member/5043/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 30064.43,
+      "giftsTotal": 0,
+      "visitsTotal": 398.01,
+      "earningsTotal": 0,
+      "totalFinancialValue": 30462.44,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 341200.31,
+        "nonStaffSpend": 108434.86,
+        "staffingSpend": 232765.45,
+        "officeSpend": 35949.28,
+        "accommodationSpend": 29774.66,
+        "travelSpend": 22326.18,
+        "otherSpend": 20384.74,
+        "secondHomeRent": 26999.99,
+        "secondHomeCouncilTax": 1791.12,
+        "secondHomeUtilities": 983.55,
+        "londonHotels": 2358,
+        "flights": 6322.41,
+        "rail": 4979.5,
+        "taxis": 335.74,
+        "dependantTravel": 421.16,
+        "parking": 0
+      },
+      "donations": [
+        {
+          "id": 17140,
+          "donor": "Best for Britain Limited",
+          "donorStatus": "Company",
+          "value": 27564.43,
+          "date": "2026-10-05",
+          "description": "Secretariat services, meeting room and catering, research, graphic design, printing, transcription and communication services provided to the members of the UK Trade and Business Commission of which I am Chair, estimated value",
+          "address": "International House, 36-38 Cornhill, London EC3V 3NG",
+          "companyNumber": "10436078"
+        },
+        {
+          "id": 15089,
+          "donor": "John Smith Centre at Glasgow University",
+          "donorStatus": "Other",
+          "value": 2500,
+          "date": "2026-01-16",
+          "description": "As part of an undergraduate internship programme run by Glasgow University, I hosted a student for a total of 10 days, (8 Fridays in my constituency and two days in Westminster). They provided general support in the Kilmarnock office, including issue research, and policy briefings. Similarly, whilst in Westminster, they provided social media support and attended events with me to support their studies and learn more about how Parliament works",
+          "address": "42 Bute Gardens, Glasgow G12 8RT",
+          "companyNumber": null
+        }
+      ],
+      "gifts": [],
+      "visits": [
+        {
+          "id": 15117,
+          "countries": [
+            "Ukraine"
+          ],
+          "destinations": [],
+          "donors": [
+            "UK Friends of Ukraine Ltd"
+          ],
+          "value": 398.01,
+          "startDate": "2026-02-19",
+          "endDate": "2026-02-25",
+          "purpose": "To show the ongoing impact of the full scale invasion of Ukraine by Russia, the impact on the people of Ukraine, its economy, and to mark the 4th anniversary of the invasion with various political figures from around the world.",
+          "paymentDetails": "(Flights and accommodation were claimed via IPSA) group meals, bus transfers around Ukraine, and costs associated with the visits to various locations.",
+          "appg": null
+        }
+      ],
+      "earnings": [],
+      "properties": [],
+      "shareholdings": [],
+      "family": [],
+      "miscellaneousCount": 1
+    },
+    {
+      "memberId": 5213,
+      "name": "Dr Zubir Ahmed",
+      "party": "Labour",
+      "constituency": "Glasgow South West",
+      "constituencySlug": "glasgow-south-west",
+      "registerUrl": "https://members.parliament.uk/member/5213/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 30000,
+      "giftsTotal": 0,
+      "visitsTotal": 0,
+      "earningsTotal": 15955,
+      "totalFinancialValue": 30000,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 367245.39,
+        "nonStaffSpend": 111044.9,
+        "staffingSpend": 256200.49,
+        "officeSpend": 34708.73,
+        "accommodationSpend": 37358.58,
+        "travelSpend": 38977.59,
+        "otherSpend": 0,
+        "secondHomeRent": 0,
+        "secondHomeCouncilTax": 0,
+        "secondHomeUtilities": 0,
+        "londonHotels": 43475.49,
+        "flights": 8351.26,
+        "rail": 55,
+        "taxis": 1027.96,
+        "dependantTravel": 4204.44,
+        "parking": 60
+      },
+      "donations": [
+        {
+          "id": 14812,
+          "donor": "Francesca Sainsbury Perrin",
+          "donorStatus": "Individual",
+          "value": 30000,
+          "date": "2026-02-25",
+          "description": "(b) Any other support not included in Category 2(a)",
+          "address": null,
+          "companyNumber": null
+        }
+      ],
+      "gifts": [],
+      "visits": [],
+      "earnings": [
+        {
+          "id": 14813,
+          "role": "General vascular and transplant surgery",
+          "payer": null,
+          "value": 13890,
+          "regularity": null,
+          "hours": 196,
+          "description": "Amount will be used to fund costs associated with continuing professional development and medical licensing with the remainder donated to charity."
+        },
+        {
+          "id": 14814,
+          "role": "Agreement starting 06 April 2026 - £2,065.00",
+          "payer": null,
+          "value": 2065,
+          "regularity": "Monthly",
+          "hours": 28,
+          "description": "Amount will be used to fund costs associated with continuing professional development and medical licensing with the remainder donated to charity."
+        },
+        {
+          "id": 7936,
+          "role": "NHS surgeon",
+          "payer": "NHS golden jubilee",
+          "value": 0,
+          "regularity": null,
+          "hours": null,
+          "description": null
+        }
+      ],
+      "properties": [],
+      "shareholdings": [],
+      "family": [],
+      "miscellaneousCount": 1
+    },
+    {
+      "memberId": 4765,
+      "name": "Wendy Chamberlain",
+      "party": "Liberal Democrat",
+      "constituency": "North East Fife",
+      "constituencySlug": "north-east-fife",
+      "registerUrl": "https://members.parliament.uk/member/4765/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 27000,
+      "giftsTotal": 350,
+      "visitsTotal": 0,
+      "earningsTotal": 0,
+      "totalFinancialValue": 27350,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 338637.58,
+        "nonStaffSpend": 80448.56,
+        "staffingSpend": 258189.02,
+        "officeSpend": 30556.76,
+        "accommodationSpend": 31259.17,
+        "travelSpend": 18632.63,
+        "otherSpend": 0,
+        "secondHomeRent": 28816.74,
+        "secondHomeCouncilTax": 2442.43,
+        "secondHomeUtilities": 0,
+        "londonHotels": 1807.04,
+        "flights": 6424.3,
+        "rail": 5363.47,
+        "taxis": 35,
+        "dependantTravel": 245.07,
+        "parking": 11
+      },
+      "donations": [
+        {
+          "id": 13749,
+          "donor": "Patrick H Foster",
+          "donorStatus": "Individual",
+          "value": 12000,
+          "date": "2026-01-13",
+          "description": "paid in monthly instalments from 22 December 2025 to 22 November 2026",
+          "address": null,
+          "companyNumber": null
+        },
+        {
+          "id": 14288,
+          "donor": "Claire Enders",
+          "donorStatus": "Individual",
+          "value": 15000,
+          "date": "2026-01-07",
+          "description": "(a) Support linked to an MP but received by a local party organisation or indirectly via a central party organisation",
+          "address": null,
+          "companyNumber": null
+        }
+      ],
+      "gifts": [
+        {
+          "id": 15112,
+          "donor": "London Marathon Events Ltd",
+          "donorStatus": "Company",
+          "value": 350,
+          "date": "2026-04-26",
+          "description": "Access to hospitality areas at the start and finish lines of the London Marathon. (Start line: £200, finish line: £150)",
+          "address": "190 Great Dover Street, London, England, SE1 4YB",
+          "companyNumber": "01528489"
+        }
+      ],
+      "visits": [],
+      "earnings": [],
+      "properties": [],
+      "shareholdings": [],
+      "family": [],
+      "miscellaneousCount": 4
+    },
+    {
+      "memberId": 1512,
+      "name": "David Mundell",
+      "party": "Conservative",
+      "constituency": "Dumfriesshire, Clydesdale and Tweeddale",
+      "constituencySlug": "dumfriesshire-clydesdale-and-tweeddale",
+      "registerUrl": "https://members.parliament.uk/member/1512/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 22100,
+      "giftsTotal": 925,
+      "visitsTotal": 3295,
+      "earningsTotal": 0,
+      "totalFinancialValue": 26320,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 353467.54,
+        "nonStaffSpend": 106609.13,
+        "staffingSpend": 246858.41,
+        "officeSpend": 34438.7,
+        "accommodationSpend": 31614.19,
+        "travelSpend": 40556.24,
+        "otherSpend": 0,
+        "secondHomeRent": 27675,
+        "secondHomeCouncilTax": 2034.36,
+        "secondHomeUtilities": 1466.83,
+        "londonHotels": 0,
+        "flights": 18851.29,
+        "rail": 1028.47,
+        "taxis": 133.37,
+        "dependantTravel": 0,
+        "parking": 2874.63
+      },
+      "donations": [
+        {
+          "id": 16659,
+          "donor": "Scottish Unionist Association Trust",
+          "donorStatus": "Unincorporated association",
+          "value": 5000,
+          "date": "2026-07-28",
+          "description": "Donation to help with a survey project",
+          "address": "570 Mosspark Boulevard, Glasgow G52 1SD",
+          "companyNumber": null
+        },
+        {
+          "id": 16106,
+          "donor": "The Coalition for Global Prosperity (CGP)",
+          "donorStatus": "Company",
+          "value": 7500,
+          "date": "2026-07-03",
+          "description": "The services of a Senior Policy Advisor for 1 day per week from 7th July 2026 to 31st December 2026;",
+          "address": "1 Horse Guards Avenue, Westminster, London SW1A 2HU",
+          "companyNumber": "10894509"
+        },
+        {
+          "id": 15060,
+          "donor": "The Coalition for Global Prosperity (CGP)",
+          "donorStatus": "Company",
+          "value": 3600,
+          "date": "2026-04-20",
+          "description": "The services of a Senior Policy Adviser - estimated",
+          "address": "1 Horse Guards Avenue, Westminister, London SW1A 2HU",
+          "companyNumber": "10894509"
+        },
+        {
+          "id": 14411,
+          "donor": "James Stewart",
+          "donorStatus": "Individual",
+          "value": 6000,
+          "date": "2026-01-26",
+          "description": "(b) Any other support not included in Category 2(a)",
+          "address": null,
+          "companyNumber": null
+        }
+      ],
+      "gifts": [
+        {
+          "id": 16590,
+          "donor": "Lawn Tennis Association (LTA)",
+          "donorStatus": "Company",
+          "value": 750,
+          "date": "2026-06-21",
+          "description": "Two tickets and two afternoon teas",
+          "address": "100 Priory Lane, Roehampton, London SW15 5JQ",
+          "companyNumber": "07475460"
+        },
+        {
+          "id": 16591,
+          "donor": "Lawn Tennis Association 9LTA)",
+          "donorStatus": "Company",
+          "value": 175,
+          "date": "2026-07-06",
+          "description": "Wimbledon Centre Court ticket",
+          "address": "100 Priory Lane, Roehampton, London SW15 5JQ",
+          "companyNumber": "07475460"
+        }
+      ],
+      "visits": [
+        {
+          "id": 17391,
+          "countries": [
+            "Bangladesh"
+          ],
+          "destinations": [],
+          "donors": [
+            "Alliance to End Malnutrition and Hunger Limited"
+          ],
+          "value": 2000,
+          "startDate": "2026-10-02",
+          "endDate": "2026-10-08",
+          "purpose": "Travelled as Co-Chair of the All-Party Parliamentary Group on Nutrition for Development to Dhaka and Cox’s Bazar, including Rohingya refugee camps, to gain first-hand insight into nutrition in Bangladesh and to see examples of effective interventions to combat malnutrition, including nutrition development, humanitarian programmes, research, and innovation.",
+          "paymentDetails": "Flights (£945) Accommodation (£425) Visa, food, transport, and in-country expenses (£630)",
+          "appg": "Nutrition for Development"
+        },
+        {
+          "id": 15468,
+          "countries": [
+            "Italy"
+          ],
+          "destinations": [
+            "Rome"
+          ],
+          "donors": [
+            "United Against Malnutrition & Hunger"
+          ],
+          "value": 1295,
+          "startDate": "2026-05-26",
+          "endDate": "2026-05-28",
+          "purpose": "Travelled as Co-Chair of the APPG on Nutrition for Development to attend Rome Nutrition Week and meet with leaders, institutions, and civil society partners working to tackle malnutrition and hunger",
+          "paymentDetails": "Flights (£580), accommodation (£575), in country expenses (£140)",
+          "appg": "Nutrition for Development"
+        }
+      ],
+      "earnings": [],
+      "properties": [],
+      "shareholdings": [],
+      "family": [],
+      "miscellaneousCount": 3
+    },
+    {
+      "memberId": 4601,
+      "name": "Andrew Bowie",
+      "party": "Conservative",
+      "constituency": "West Aberdeenshire and Kincardine",
+      "constituencySlug": "west-aberdeenshire-and-kincardine",
+      "registerUrl": "https://members.parliament.uk/member/4601/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 20000,
+      "giftsTotal": 1100,
+      "visitsTotal": 2678.34,
+      "earningsTotal": 0,
+      "totalFinancialValue": 23778.34,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 369657.75,
+        "nonStaffSpend": 121470.92,
+        "staffingSpend": 248186.83,
+        "officeSpend": 31236.18,
+        "accommodationSpend": 34526.27,
+        "travelSpend": 55708.47,
+        "otherSpend": 0,
+        "secondHomeRent": 32480.29,
+        "secondHomeCouncilTax": 1540.85,
+        "secondHomeUtilities": 433.79,
+        "londonHotels": 2996,
+        "flights": 33100.15,
+        "rail": 1770.51,
+        "taxis": 1330.1,
+        "dependantTravel": 1501.42,
+        "parking": 5.5
+      },
+      "donations": [
+        {
+          "id": 15232,
+          "donor": "Alasdair J D Locke",
+          "donorStatus": "Individual",
+          "value": 20000,
+          "date": "2026-05-14",
+          "description": "to cover the cost of salary for a member of staff",
+          "address": null,
+          "companyNumber": null
+        }
+      ],
+      "gifts": [
+        {
+          "id": 16282,
+          "donor": "Silverstone Circuit Ltd",
+          "donorStatus": "Company",
+          "value": 1100,
+          "date": "2026-07-03",
+          "description": "Two tickets including hospitality at Silverstone Circuit for the British GP (£550 each)",
+          "address": "Silverstone Circuit, Towcester, Northamptonshire NN12 8TN",
+          "companyNumber": "00882843"
+        }
+      ],
+      "visits": [
+        {
+          "id": 17230,
+          "countries": [
+            "Jordan"
+          ],
+          "destinations": [],
+          "donors": [
+            "Embassy of the Hashemite Kingdom of Jordan in the United Kingdom",
+            "Jordanian House of Representatives"
+          ],
+          "value": 2678.34,
+          "startDate": "2026-09-26",
+          "endDate": "2026-09-30",
+          "purpose": "Fact-finding visit to Jordan organised by the Conservative Middle East Council, including meetings with Jordanian ministers, parliamentarians and other representatives to discuss UK-Jordan relations and regional developments.",
+          "paymentDetails": "Return flights to Jordan for myself and a member of my staff; Accommodation and subsistence in Jordan for myself and a member of my staff",
+          "appg": null
+        }
+      ],
+      "earnings": [],
+      "properties": [],
+      "shareholdings": [],
+      "family": [],
+      "miscellaneousCount": 2
+    },
+    {
+      "memberId": 5245,
+      "name": "Chris Murray",
+      "party": "Labour",
+      "constituency": "Edinburgh East and Musselburgh",
+      "constituencySlug": "edinburgh-east-and-musselburgh",
+      "registerUrl": "https://members.parliament.uk/member/5245/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 19500,
+      "giftsTotal": 470,
+      "visitsTotal": 0,
+      "earningsTotal": 0,
+      "totalFinancialValue": 19970,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 308740.37,
+        "nonStaffSpend": 80318.11,
+        "staffingSpend": 228422.26,
+        "officeSpend": 32005,
+        "accommodationSpend": 25799.99,
+        "travelSpend": 22513.12,
+        "otherSpend": 0,
+        "secondHomeRent": 25799.99,
+        "secondHomeCouncilTax": 0,
+        "secondHomeUtilities": 0,
+        "londonHotels": 2910,
+        "flights": 6459.55,
+        "rail": 6933.88,
+        "taxis": 1464,
+        "dependantTravel": 0,
+        "parking": 0
+      },
+      "donations": [
+        {
+          "id": 14272,
+          "donor": "Refugee, Asylum and Migration Policy Project (RAMP)",
+          "donorStatus": "Company",
+          "value": 6500,
+          "date": "2026-01-01",
+          "description": "Services of a policy adviser for two days per week (value is estimated)",
+          "address": "The Courtyard, High Street, Ascot SL5 7HP",
+          "companyNumber": "12373468"
+        },
+        {
+          "id": 13331,
+          "donor": "Refugee, Asylum and Migration Policy Project (RAMP)",
+          "donorStatus": "Company",
+          "value": 13000,
+          "date": "2025-09-01",
+          "description": "Services of a policy adviser for one day per week (value is estimated)",
+          "address": "The Courtyard, High Street, Ascot SL5 7HP",
+          "companyNumber": "12373468"
+        }
+      ],
+      "gifts": [
+        {
+          "id": 16955,
+          "donor": "The Royal Edinburgh Military Tattoo",
+          "donorStatus": "Other",
+          "value": 470,
+          "date": "2026-08-18",
+          "description": "A ticket to attend the Royal Edinburgh Military Tattoo in the Royal Gallery in my capacity as the local MP for Edinburgh East and Musselburgh",
+          "address": "Edinburgh Military Tattoo Office, 1-3 Cockburn Street, Edinburgh, Scotland EH1 1QB",
+          "companyNumber": null
+        }
+      ],
+      "visits": [],
+      "earnings": [],
+      "properties": [],
+      "shareholdings": [],
+      "family": [],
+      "miscellaneousCount": 1
+    },
+    {
+      "memberId": 5358,
+      "name": "John Cooper",
+      "party": "Conservative",
+      "constituency": "Dumfries and Galloway",
+      "constituencySlug": "dumfries-and-galloway",
+      "registerUrl": "https://members.parliament.uk/member/5358/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 16500,
+      "giftsTotal": 0,
+      "visitsTotal": 902.35,
+      "earningsTotal": 0,
+      "totalFinancialValue": 17402.35,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 342596.11,
+        "nonStaffSpend": 96739.57,
+        "staffingSpend": 245856.54,
+        "officeSpend": 27019.96,
+        "accommodationSpend": 31840,
+        "travelSpend": 37601.51,
+        "otherSpend": 278.1,
+        "secondHomeRent": 30635.02,
+        "secondHomeCouncilTax": 618.62,
+        "secondHomeUtilities": 562.46,
+        "londonHotels": 2182.9,
+        "flights": 24402.53,
+        "rail": 230.15,
+        "taxis": 269,
+        "dependantTravel": 0,
+        "parking": 2936.83
+      },
+      "donations": [
+        {
+          "id": 17262,
+          "donor": "Scottish Unionist Association Trust",
+          "donorStatus": "Unincorporated association",
+          "value": 7000,
+          "date": "2026-10-19",
+          "description": "Donation to help with a survey project",
+          "address": "570 Mosspark Boulevard, Glasgow G52 1SD",
+          "companyNumber": null
+        },
+        {
+          "id": 16962,
+          "donor": "Mr Adam Keswick",
+          "donorStatus": "Individual",
+          "value": 7500,
+          "date": "2026-09-11",
+          "description": "(b) Any other support not included in Category 2(a)",
+          "address": null,
+          "companyNumber": null
+        },
+        {
+          "id": 16961,
+          "donor": "Mr Archie Herries",
+          "donorStatus": "Individual",
+          "value": 2000,
+          "date": "2026-09-11",
+          "description": "(b) Any other support not included in Category 2(a)",
+          "address": null,
+          "companyNumber": null
+        }
+      ],
+      "gifts": [],
+      "visits": [
+        {
+          "id": 15139,
+          "countries": [
+            "Italy"
+          ],
+          "destinations": [],
+          "donors": [
+            "Konrad Adenauer Stiftung"
+          ],
+          "value": 902.35,
+          "startDate": "2026-04-17",
+          "endDate": "2026-04-19",
+          "purpose": "Participation in the German British Dialogue",
+          "paymentDetails": "Flights and transportation (£467.35), Accommodation (£330), Meals (£105)",
+          "appg": null
+        }
+      ],
+      "earnings": [],
+      "properties": [],
+      "shareholdings": [],
+      "family": [],
+      "miscellaneousCount": 0
+    },
+    {
+      "memberId": 5189,
+      "name": "Gordon McKee",
+      "party": "Labour",
+      "constituency": "Glasgow South",
+      "constituencySlug": "glasgow-south",
+      "registerUrl": "https://members.parliament.uk/member/5189/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 12625,
+      "giftsTotal": 0,
+      "visitsTotal": 1998.17,
+      "earningsTotal": 0,
+      "totalFinancialValue": 14623.17,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 342905.77,
+        "nonStaffSpend": 85580.03,
+        "staffingSpend": 257325.74,
+        "officeSpend": 27644.45,
+        "accommodationSpend": 31094.77,
+        "travelSpend": 26840.81,
+        "otherSpend": 0,
+        "secondHomeRent": 29900,
+        "secondHomeCouncilTax": 996.18,
+        "secondHomeUtilities": 80.26,
+        "londonHotels": 4701.72,
+        "flights": 10001.79,
+        "rail": 872.19,
+        "taxis": 1784.51,
+        "dependantTravel": 0,
+        "parking": 0
+      },
+      "donations": [
+        {
+          "id": 17292,
+          "donor": "August Ltd.",
+          "donorStatus": "Company",
+          "value": 9625,
+          "date": "2026-10-07",
+          "description": "A 12 month leadership programme including all sessions, materials, coaching, accommodation, transport, meals and refreshments.",
+          "address": "19 St Clements Grove, York, YO23 1JZ",
+          "companyNumber": "17022347"
+        },
+        {
+          "id": 14158,
+          "donor": "George James McGowan",
+          "donorStatus": "Individual",
+          "value": 3000,
+          "date": "2025-12-05",
+          "description": "(b) Any other support not included in Category 2(a)",
+          "address": null,
+          "companyNumber": null
+        }
+      ],
+      "gifts": [],
+      "visits": [
+        {
+          "id": 16855,
+          "countries": [
+            "Egypt"
+          ],
+          "destinations": [],
+          "donors": [
+            "Coalition for Global Prosperity (CGP)"
+          ],
+          "value": 1998.17,
+          "startDate": "2026-08-16",
+          "endDate": "2026-08-21",
+          "purpose": "Cross-party visit to Egypt to meet with international aid organisations and political and civil society stakeholders on shared UK-Egypt priorities, including meeting with organisations supplying aid to Gaza.",
+          "paymentDetails": "Flights and visas (£965.88), transport (£171.37), accommodation (£690.28) and food and miscellaneous (£170.64)",
+          "appg": null
+        }
+      ],
+      "earnings": [],
+      "properties": [],
+      "shareholdings": [],
+      "family": [],
+      "miscellaneousCount": 0
+    },
+    {
+      "memberId": 4608,
+      "name": "John Lamont",
+      "party": "Conservative",
+      "constituency": "Berwickshire, Roxburgh and Selkirk",
+      "constituencySlug": "berwickshire-roxburgh-and-selkirk",
+      "registerUrl": "https://members.parliament.uk/member/4608/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 12500,
+      "giftsTotal": 0,
+      "visitsTotal": 0,
+      "earningsTotal": 0,
+      "totalFinancialValue": 12500,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 370136.23,
+        "nonStaffSpend": 111341.56,
+        "staffingSpend": 258794.67,
+        "officeSpend": 34974.03,
+        "accommodationSpend": 31713.71,
+        "travelSpend": 44653.82,
+        "otherSpend": 0,
+        "secondHomeRent": 28573.66,
+        "secondHomeCouncilTax": 1307.89,
+        "secondHomeUtilities": 1722.16,
+        "londonHotels": 1306,
+        "flights": 21807.66,
+        "rail": 4966.85,
+        "taxis": 173.67,
+        "dependantTravel": 0,
+        "parking": 3196.71
+      },
+      "donations": [
+        {
+          "id": 15291,
+          "donor": "Ian McVeigh",
+          "donorStatus": "Individual",
+          "value": 10000,
+          "date": "2026-05-26",
+          "description": "(a) Support linked to an MP but received by a local party organisation or indirectly via a central party organisation",
+          "address": null,
+          "companyNumber": null
+        },
+        {
+          "id": 14063,
+          "donor": "John James",
+          "donorStatus": "Individual",
+          "value": 2500,
+          "date": "2025-12-03",
+          "description": "(a) Support linked to an MP but received by a local party organisation or indirectly via a central party organisation",
+          "address": null,
+          "companyNumber": null
+        }
+      ],
+      "gifts": [],
+      "visits": [],
+      "earnings": [],
+      "properties": [],
+      "shareholdings": [],
+      "family": [],
+      "miscellaneousCount": 4
+    },
+    {
+      "memberId": 5167,
+      "name": "Gregor Poynton",
+      "party": "Labour",
+      "constituency": "Livingston",
+      "constituencySlug": "livingston",
+      "registerUrl": "https://members.parliament.uk/member/5167/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 11000,
+      "giftsTotal": 1110,
+      "visitsTotal": 0,
+      "earningsTotal": 0,
+      "totalFinancialValue": 12110,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 372851.44,
+        "nonStaffSpend": 115007.84,
+        "staffingSpend": 257843.6,
+        "officeSpend": 33332.49,
+        "accommodationSpend": 26639.99,
+        "travelSpend": 55035.36,
+        "otherSpend": 0,
+        "secondHomeRent": 20799.92,
+        "secondHomeCouncilTax": 3629.54,
+        "secondHomeUtilities": 1611.21,
+        "londonHotels": 5259.68,
+        "flights": 24290.75,
+        "rail": 2414.77,
+        "taxis": 5232.79,
+        "dependantTravel": 6232.41,
+        "parking": 1524.89
+      },
+      "donations": [
+        {
+          "id": 14614,
+          "donor": "Community Union",
+          "donorStatus": "Trade Union",
+          "value": 1000,
+          "date": "2026-02-10",
+          "description": "(b) Any other support not included in Category 2(a)",
+          "address": "465c Caledonian Road, London N7 9GX",
+          "companyNumber": null
+        },
+        {
+          "id": 13867,
+          "donor": "Daniel Luhde-Thompson",
+          "donorStatus": "Individual",
+          "value": 10000,
+          "date": "2025-11-10",
+          "description": "(b) Any other support not included in Category 2(a)",
+          "address": null,
+          "companyNumber": null
+        }
+      ],
+      "gifts": [
+        {
+          "id": 15394,
+          "donor": "Hanbury Strategy and Communications Limited",
+          "donorStatus": "Company",
+          "value": 750,
+          "date": "2026-06-04",
+          "description": "Tickets and hospitality at Lords Cricket Ground",
+          "address": "2 London Bridge, London SE1 9RA",
+          "companyNumber": "10361418"
+        },
+        {
+          "id": 14936,
+          "donor": "Football Association Limited",
+          "donorStatus": "Company",
+          "value": 360,
+          "date": "2026-03-22",
+          "description": "Four tickets (two adults and two children) to the Carabao Cup final",
+          "address": "Wembley Stadium, Wembley, London HA9 0WS",
+          "companyNumber": "00077797"
+        }
+      ],
+      "visits": [],
+      "earnings": [],
+      "properties": [],
+      "shareholdings": [],
+      "family": [],
+      "miscellaneousCount": 1
+    },
+    {
+      "memberId": 5275,
+      "name": "Graeme Downie",
+      "party": "Labour",
+      "constituency": "Dunfermline and Dollar",
+      "constituencySlug": "dunfermline-and-dollar",
+      "registerUrl": "https://members.parliament.uk/member/5275/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 0,
+      "giftsTotal": 0,
+      "visitsTotal": 11882.23,
+      "earningsTotal": 0,
+      "totalFinancialValue": 11882.23,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 410253.24,
+        "nonStaffSpend": 151953.9,
+        "staffingSpend": 258299.34,
+        "officeSpend": 35811.32,
+        "accommodationSpend": 43804.53,
+        "travelSpend": 72338.05,
+        "otherSpend": 0,
+        "secondHomeRent": 41434.53,
+        "secondHomeCouncilTax": 1695.3,
+        "secondHomeUtilities": 372.78,
+        "londonHotels": 8539,
+        "flights": 29819.74,
+        "rail": 3935.04,
+        "taxis": 815.67,
+        "dependantTravel": 1972.2,
+        "parking": 3308.3
+      },
+      "donations": [],
+      "gifts": [],
+      "visits": [
+        {
+          "id": 15096,
+          "countries": [
+            "Taiwan"
+          ],
+          "destinations": [],
+          "donors": [
+            "Ministry of Foreign Affairs (MOFA) of the Republic of China (Taiwan)"
+          ],
+          "value": 5669,
+          "startDate": "2026-03-28",
+          "endDate": "2026-04-03",
+          "purpose": "As member of the British/Taiwanese APPG to meet the President, cabinet ministers and opposition members of parliament.",
+          "paymentDetails": "Flights, accomodation and meals paid for by the Taiwan Ministry of Foreign Affairs",
+          "appg": "APPG on Taiwan"
+        },
+        {
+          "id": 15076,
+          "countries": [
+            "Spain"
+          ],
+          "destinations": [
+            "Madrid"
+          ],
+          "donors": [
+            "El Espanol"
+          ],
+          "value": 2136.61,
+          "startDate": "2026-04-14",
+          "endDate": "2026-04-15",
+          "purpose": "Invited to speak at \"Wake Up Spain!\" Defence Conference in Madrid organised by El Espanol",
+          "paymentDetails": "Flights, transport and accommodation",
+          "appg": null
+        },
+        {
+          "id": 14150,
+          "countries": [
+            "United States"
+          ],
+          "destinations": [
+            "Washington DC"
+          ],
+          "donors": [
+            "Coalition for Global Prosperity"
+          ],
+          "value": 4076.62,
+          "startDate": "2025-11-30",
+          "endDate": "2025-12-05",
+          "purpose": "Cross-party delegation to strengthen transatlantic relations and to discuss UK-US foreign policy priorities, challenges and opportunities with members of Congress and policymakers",
+          "paymentDetails": "Flights (£1,968.73), accommodation (£1,056.86), local transport (£519.47) and food/miscellaneous (£531.56)",
+          "appg": null
+        }
+      ],
+      "earnings": [],
+      "properties": [],
+      "shareholdings": [],
+      "family": [],
+      "miscellaneousCount": 1
+    },
+    {
+      "memberId": 5185,
+      "name": "Alan Gemmell",
+      "party": "Labour",
+      "constituency": "Central Ayrshire",
+      "constituencySlug": "central-ayrshire",
+      "registerUrl": "https://members.parliament.uk/member/5185/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 0,
+      "giftsTotal": 500,
+      "visitsTotal": 11183.6,
+      "earningsTotal": 0,
+      "totalFinancialValue": 11683.6,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 330862.46,
+        "nonStaffSpend": 102911.21,
+        "staffingSpend": 227951.25,
+        "officeSpend": 34362.12,
+        "accommodationSpend": 28760.55,
+        "travelSpend": 39008.54,
+        "otherSpend": 780,
+        "secondHomeRent": 25534.6,
+        "secondHomeCouncilTax": 1256,
+        "secondHomeUtilities": 376.65,
+        "londonHotels": 2361.35,
+        "flights": 16544.06,
+        "rail": 6933.9,
+        "taxis": 2987.63,
+        "dependantTravel": 427.68,
+        "parking": 0
+      },
+      "donations": [],
+      "gifts": [
+        {
+          "id": 14180,
+          "donor": "Global Media & Entertainment Limited",
+          "donorStatus": "Company",
+          "value": 500,
+          "date": "2025-12-07",
+          "description": "Two tickets for the Capital Jingle Bell Ball",
+          "address": "30 Leicester Square, London WC2H 7LA",
+          "companyNumber": "06251684"
+        }
+      ],
+      "visits": [
+        {
+          "id": 17316,
+          "countries": [
+            "Bangladesh"
+          ],
+          "destinations": [],
+          "donors": [
+            "Alliance to End Malnutrition and Hunger Limited (knows as United Against Malnutrition & Hunger)"
+          ],
+          "value": 1880,
+          "startDate": "2026-10-02",
+          "endDate": "2026-10-08",
+          "purpose": "All Party Group on Nutrition for Development visit to Dhaka and Cox's Bazar, including Rohingya refugee camps, to gain first-hand insight into nutrition in Bangladesh and to see examples of effective interventions to combat malnutrition, including nutrition development, humanitarian programmes, research and innovation.",
+          "paymentDetails": "Flights (£825), accommodation (£425), visa, food and in-country expenses (£630)",
+          "appg": "All Party Group on Nutrition for Development"
+        },
+        {
+          "id": 16184,
+          "countries": [
+            "Syria"
+          ],
+          "destinations": [],
+          "donors": [
+            "Syria Britain Business Council"
+          ],
+          "value": 2202.27,
+          "startDate": "2026-06-29",
+          "endDate": "2026-07-02",
+          "purpose": "Attendance at the first conference of the Syria Britain Business Council in Damascus.",
+          "paymentDetails": "Flights (£1481.79), accommodation (£708.48) and travel insurance (£12.00)",
+          "appg": null
+        },
+        {
+          "id": 15454,
+          "countries": [
+            "China"
+          ],
+          "destinations": [],
+          "donors": [
+            "Great Britain China Centre"
+          ],
+          "value": 4763,
+          "startDate": "2026-05-24",
+          "endDate": "2026-05-29",
+          "purpose": "To attend the 14th Senior Leadership Forum with the Great Britain China Centre.",
+          "paymentDetails": "Hotel, flight, food and transport",
+          "appg": null
+        },
+        {
+          "id": 15028,
+          "countries": [
+            "Angola"
+          ],
+          "destinations": [],
+          "donors": [
+            "The Eleanor Crook Foundation"
+          ],
+          "value": 2338.33,
+          "startDate": "2026-02-15",
+          "endDate": "2026-03-20",
+          "purpose": "To see the land-mine clearance work of the Halo Trust in Angola and meet representatives of national and federal governments.",
+          "paymentDetails": "International flight (£1278.30), internal flight (£80.00), local transport (£373.33), accommodation (£420.00), travel insurance (£36.70), and subsistence (£150.00)",
+          "appg": null
+        }
+      ],
+      "earnings": [],
+      "properties": [],
+      "shareholdings": [
+        {
+          "id": 8797,
+          "organisation": "30th State Productions Limited",
+          "description": "It has rights to a book I have written and am publishing.",
+          "threshold": "(i) Shareholdings: over 15% of issued share capital"
+        }
+      ],
+      "family": [],
+      "miscellaneousCount": 1
+    },
+    {
+      "memberId": 5240,
+      "name": "Melanie Ward",
+      "party": "Labour",
+      "constituency": "Cowdenbeath and Kirkcaldy",
+      "constituencySlug": "cowdenbeath-and-kirkcaldy",
+      "registerUrl": "https://members.parliament.uk/member/5240/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 0,
+      "giftsTotal": 1100,
+      "visitsTotal": 8159.27,
+      "earningsTotal": 0,
+      "totalFinancialValue": 9259.27,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 346629.85,
+        "nonStaffSpend": 101035.36,
+        "staffingSpend": 245594.49,
+        "officeSpend": 32452.43,
+        "accommodationSpend": 23883.31,
+        "travelSpend": 44699.62,
+        "otherSpend": 0,
+        "secondHomeRent": 19140.03,
+        "secondHomeCouncilTax": 3302.72,
+        "secondHomeUtilities": 1038.75,
+        "londonHotels": 2470.1,
+        "flights": 15927.98,
+        "rail": 2715.4,
+        "taxis": 353.3,
+        "dependantTravel": 7932.47,
+        "parking": 1278.82
+      },
+      "donations": [],
+      "gifts": [
+        {
+          "id": 13949,
+          "donor": "Great Britain China Centre",
+          "donorStatus": "Company",
+          "value": 1100,
+          "date": "2025-11-06",
+          "description": "Cost of a two-day non-residential course in London attended by a member of staff (Great Britain China Centre is a non-departmental body of the Foreign, Commonwealth and Development Office)",
+          "address": "Kings Buildings, Smith Square, London SW1P 3HQ",
+          "companyNumber": "01196043"
+        }
+      ],
+      "visits": [
+        {
+          "id": 16180,
+          "countries": [
+            "Syria"
+          ],
+          "destinations": [],
+          "donors": [
+            "Syria Britain Business Council"
+          ],
+          "value": 2202.27,
+          "startDate": "2026-06-29",
+          "endDate": "2026-07-02",
+          "purpose": "Attendance at the first conference of the Syria Britain Business Council; meetings with Syrian transitional government ministers, church leaders and NGOs to discuss post-war recovery and reconstruction in Syria.",
+          "paymentDetails": "Flights (£1481.79), accommodation with meals (£708.48) and travel insurance (£12.00)",
+          "appg": null
+        },
+        {
+          "id": 14196,
+          "countries": [
+            "Qatar"
+          ],
+          "destinations": [],
+          "donors": [
+            "Doha Forum"
+          ],
+          "value": 5957,
+          "startDate": "2025-12-05",
+          "endDate": "2025-12-08",
+          "purpose": "To participate in the Doha Forum 2025 on diplomacy, dialogue and diversity, including meetings with fellow cross-party parliamentarians, political representations of other countries and Qatari ministers to discuss Qatar’s role in seeking to resolve current regional conflicts.",
+          "paymentDetails": "Flights (£5,555), accommodation and meals (£402)",
+          "appg": null
+        }
+      ],
+      "earnings": [],
+      "properties": [],
+      "shareholdings": [],
+      "family": [],
+      "miscellaneousCount": 0
+    },
+    {
+      "memberId": 5170,
+      "name": "John Grady",
+      "party": "Labour",
+      "constituency": "Glasgow East",
+      "constituencySlug": "glasgow-east",
+      "registerUrl": "https://members.parliament.uk/member/5170/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 0,
+      "giftsTotal": 330,
+      "visitsTotal": 7000,
+      "earningsTotal": 0,
+      "totalFinancialValue": 7330,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 328220.92,
+        "nonStaffSpend": 96186.62,
+        "staffingSpend": 232034.3,
+        "officeSpend": 33387.25,
+        "accommodationSpend": 45573.34,
+        "travelSpend": 17226.03,
+        "otherSpend": 0,
+        "secondHomeRent": 42000,
+        "secondHomeCouncilTax": 2486.44,
+        "secondHomeUtilities": 949.42,
+        "londonHotels": 0,
+        "flights": 2781.71,
+        "rail": 9424.89,
+        "taxis": 1080.58,
+        "dependantTravel": 1379.06,
+        "parking": 66.05
+      },
+      "donations": [],
+      "gifts": [
+        {
+          "id": 15287,
+          "donor": "Royal Aeronautical Society",
+          "donorStatus": "Other",
+          "value": 330,
+          "date": "2026-05-14",
+          "description": "I was a guest of the Royal Aeronautical Society, at the RAeS Annual Banquet. Its president is Prof Malcolm Macdonald FRAeS, a Professor as Strathclyde University, Glasgow",
+          "address": "Royal Aeronautical Society, 4 Hamilton Place, London W1J 7BQ",
+          "companyNumber": null
+        }
+      ],
+      "visits": [
+        {
+          "id": 14214,
+          "countries": [
+            "Qatar"
+          ],
+          "destinations": [
+            "Doha"
+          ],
+          "donors": [
+            "Ministry of Foreign Affairs, Qatar"
+          ],
+          "value": 7000,
+          "startDate": "2025-12-05",
+          "endDate": "2025-12-08",
+          "purpose": "To attend the annual Doha Forum 2025, to participate at the Doha Forum 2025 on Diplomacy, Dialogue and Diversity, including meetings with fellow cross-party Parliamentarians, political representatives of other countries and Qatari Ministers to discuss Qatar’s role in seeking to resolve current regional conflicts and Qatar's role as a diplomatic and trading partner of the UK.",
+          "paymentDetails": "Flights, accommodation and food",
+          "appg": null
+        }
+      ],
+      "earnings": [],
+      "properties": [],
+      "shareholdings": [],
+      "family": [],
+      "miscellaneousCount": 1
+    },
+    {
+      "memberId": 5206,
+      "name": "Elaine Stewart",
+      "party": "Labour",
+      "constituency": "Ayr, Carrick and Cumnock",
+      "constituencySlug": "ayr-carrick-and-cumnock",
+      "registerUrl": "https://members.parliament.uk/member/5206/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 0,
+      "giftsTotal": 450,
+      "visitsTotal": 6421,
+      "earningsTotal": 0,
+      "totalFinancialValue": 6871,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 355594.61,
+        "nonStaffSpend": 96499.48,
+        "staffingSpend": 259095.13,
+        "officeSpend": 32470.36,
+        "accommodationSpend": 29107.71,
+        "travelSpend": 34748.31,
+        "otherSpend": 173.1,
+        "secondHomeRent": 29082.71,
+        "secondHomeCouncilTax": 0,
+        "secondHomeUtilities": 0,
+        "londonHotels": 1722,
+        "flights": 18689.27,
+        "rail": 713.89,
+        "taxis": 601.13,
+        "dependantTravel": 0,
+        "parking": 2747.89
+      },
+      "donations": [],
+      "gifts": [
+        {
+          "id": 13656,
+          "donor": "Alex Begg & Co",
+          "donorStatus": "Company",
+          "value": 450,
+          "date": "2024-08-11",
+          "description": "I was gifted a cashmere scarf on a visit to the company",
+          "address": "17 Viewfield Road, Ayr KA88HJ",
+          "companyNumber": "SCO27139"
+        }
+      ],
+      "visits": [
+        {
+          "id": 15387,
+          "countries": [
+            "China"
+          ],
+          "destinations": [
+            "Shanghi, Bejing and Nanjing"
+          ],
+          "donors": [
+            "Great Britain China Centre"
+          ],
+          "value": 6421,
+          "startDate": "2026-05-24",
+          "endDate": "2026-05-29",
+          "purpose": "A part of the senior leadership forum the purpose was to build relationships",
+          "paymentDetails": "Hotel, flights, food and transport",
+          "appg": null
+        }
+      ],
+      "earnings": [],
+      "properties": [],
+      "shareholdings": [],
+      "family": [],
+      "miscellaneousCount": 3
+    },
+    {
+      "memberId": 5253,
+      "name": "Richard Baker",
+      "party": "Labour",
+      "constituency": "Glenrothes and Mid Fife",
+      "constituencySlug": "glenrothes-and-mid-fife",
+      "registerUrl": "https://members.parliament.uk/member/5253/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 0,
+      "giftsTotal": 0,
+      "visitsTotal": 4583.17,
+      "earningsTotal": 0,
+      "totalFinancialValue": 4583.17,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 341028.83,
+        "nonStaffSpend": 91877.47,
+        "staffingSpend": 249151.36,
+        "officeSpend": 31362.83,
+        "accommodationSpend": 31738.51,
+        "travelSpend": 28776.13,
+        "otherSpend": 0,
+        "secondHomeRent": 28799.99,
+        "secondHomeCouncilTax": 2938.52,
+        "secondHomeUtilities": 0,
+        "londonHotels": 450,
+        "flights": 21199.34,
+        "rail": 700.87,
+        "taxis": 0,
+        "dependantTravel": 2109.47,
+        "parking": 0
+      },
+      "donations": [],
+      "gifts": [],
+      "visits": [
+        {
+          "id": 11922,
+          "countries": [
+            "Falkland Islands"
+          ],
+          "destinations": [],
+          "donors": [
+            "Falkland Islands Government"
+          ],
+          "value": 3102.02,
+          "startDate": "2025-02-17",
+          "endDate": "2025-02-21",
+          "purpose": "Study trip; meeting with Parliamentarians from the Falkland Islands; visit Ascension Island and its facilities.",
+          "paymentDetails": "Flights (£,1572), accommodation (£636.00), UK taxis (£288.68), GI transport (£218.68) and meals and hospitality (£386.66)",
+          "appg": null
+        },
+        {
+          "id": 13158,
+          "countries": [
+            "Jordan"
+          ],
+          "destinations": [],
+          "donors": [
+            "Coalition for Global Prosperity"
+          ],
+          "value": 1481.15,
+          "startDate": "2025-07-20",
+          "endDate": "2025-07-25",
+          "purpose": "Overseas visit to Jordan to see UK Development programmes ‘in-action’ and meet with development experts and partners.",
+          "paymentDetails": "Flights (£561.02), accommodation (£649.90) and food and refreshments (£270.23)",
+          "appg": null
+        }
+      ],
+      "earnings": [],
+      "properties": [
+        {
+          "id": 12916,
+          "location": "Val de Louyre",
+          "country": "France",
+          "type": "Residential",
+          "description": "House",
+          "rentalIncome": false,
+          "ownerDetails": "Co-owned with a family member."
+        },
+        {
+          "id": 12803,
+          "location": "Aberdeen",
+          "country": "United Kingdom",
+          "type": "Residential",
+          "description": "Flat",
+          "rentalIncome": false,
+          "ownerDetails": "Co-owned with a family member."
+        },
+        {
+          "id": 7628,
+          "location": "Edinburgh",
+          "country": "United Kingdom",
+          "type": "Residential",
+          "description": "Flat",
+          "rentalIncome": true,
+          "ownerDetails": null
+        }
+      ],
+      "shareholdings": [],
+      "family": [],
+      "miscellaneousCount": 0
+    },
+    {
+      "memberId": 4371,
+      "name": "Brendan O'Hara",
+      "party": "Scottish National Party",
+      "constituency": "Argyll, Bute and South Lochaber",
+      "constituencySlug": "argyll-bute-and-south-lochaber",
+      "registerUrl": "https://members.parliament.uk/member/4371/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 0,
+      "giftsTotal": 1525,
+      "visitsTotal": 2541,
+      "earningsTotal": 0,
+      "totalFinancialValue": 4066,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 365343.24,
+        "nonStaffSpend": 114984.88,
+        "staffingSpend": 250358.36,
+        "officeSpend": 20947.46,
+        "accommodationSpend": 31255.18,
+        "travelSpend": 62782.24,
+        "otherSpend": 0,
+        "secondHomeRent": 29321.87,
+        "secondHomeCouncilTax": 990.07,
+        "secondHomeUtilities": 943.24,
+        "londonHotels": 4979,
+        "flights": 24960.81,
+        "rail": 27,
+        "taxis": 1219.98,
+        "dependantTravel": 2010.34,
+        "parking": 3109.46
+      },
+      "donations": [],
+      "gifts": [
+        {
+          "id": 14518,
+          "donor": "Enersoft International Limited",
+          "donorStatus": "Company",
+          "value": 900,
+          "date": "2026-01-20",
+          "description": "Single ticket and matchday hospitality at Tottenham Hotspur v Borussia Dortmund",
+          "address": "74 York Street, Suite 7-4, Glasgow G2 8JX",
+          "companyNumber": "SC621728"
+        },
+        {
+          "id": 14296,
+          "donor": "Enersoft International Ltd",
+          "donorStatus": "Company",
+          "value": 625,
+          "date": "2025-12-14",
+          "description": "Two tickets and hospitality for myself and a guest to attend the League Cup Final at Hampden Park",
+          "address": "74 York Street, Suite 7-4, Glasgow, G2 8JX",
+          "companyNumber": "SC621728"
+        }
+      ],
+      "visits": [
+        {
+          "id": 15711,
+          "countries": [
+            "Germany"
+          ],
+          "destinations": [
+            "Neuhardenberg"
+          ],
+          "donors": [
+            "Korber-Stiftung"
+          ],
+          "value": 1167,
+          "startDate": "2026-06-03",
+          "endDate": "2026-06-05",
+          "purpose": "As chair of the APPG on Greenland I was invited by the Korber Stifung to attend their annual Korber Policy Game in Neuhardenberg, Germany. Along with politicians, security experts, diplomats and academics from the UK, Denmark/Greenland, Norway and Germany, we were there to discuss and scenario-plan a European response to a potential crisis in the Arctic.",
+          "paymentDetails": "Two nights hotel accommodation at Schloss Neuhardenberg incl. breakfast (£240), meals (£213), return flights from London (£431), airport transfers(£283)",
+          "appg": "APPG Greenland"
+        },
+        {
+          "id": 14295,
+          "countries": [
+            "Thailand",
+            "Malaysia"
+          ],
+          "destinations": [],
+          "donors": [
+            "International Human Rights Committee"
+          ],
+          "value": 1374,
+          "startDate": "2025-11-30",
+          "endDate": "2025-12-06",
+          "purpose": "The purpose of the trip was ascertain the progress for refugees, including a lack of recognised refugee status, limited access to adequate healthcare and education, and restrictions on free religious worship.",
+          "paymentDetails": "Flights (£885), hotels including breakfast in Thailand (£99), hotels including breakfast in Malaysia (£390)",
+          "appg": "APPG Freedom of Religion or Belief"
+        }
+      ],
+      "earnings": [],
+      "properties": [],
+      "shareholdings": [
+        {
+          "id": 2573,
+          "organisation": "Oh! Television (not trading)",
+          "description": "Television production company",
+          "threshold": "(i) Shareholdings: over 15% of issued share capital"
+        }
+      ],
+      "family": [
+        {
+          "id": 2732,
+          "kind": "employed",
+          "personName": "Catherine O'Hara",
+          "relation": "Spouse",
+          "jobTitle": "Office Manager",
+          "employer": "MP's parliamentary office (IPSA)"
+        }
+      ],
+      "miscellaneousCount": 1
+    },
+    {
+      "memberId": 4612,
+      "name": "Jamie Stone",
+      "party": "Liberal Democrat",
+      "constituency": "Caithness, Sutherland and Easter Ross",
+      "constituencySlug": "caithness-sutherland-and-easter-ross",
+      "registerUrl": "https://members.parliament.uk/member/4612/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 0,
+      "giftsTotal": 0,
+      "visitsTotal": 3959.49,
+      "earningsTotal": 0,
+      "totalFinancialValue": 3959.49,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 373076.86,
+        "nonStaffSpend": 110769.01,
+        "staffingSpend": 262307.85,
+        "officeSpend": 35364.56,
+        "accommodationSpend": 28624.54,
+        "travelSpend": 46779.91,
+        "otherSpend": 0,
+        "secondHomeRent": 25971.35,
+        "secondHomeCouncilTax": 1243.22,
+        "secondHomeUtilities": 1409.97,
+        "londonHotels": 597,
+        "flights": 18972.37,
+        "rail": 9220.2,
+        "taxis": 2304.42,
+        "dependantTravel": 1346.12,
+        "parking": 1969.9
+      },
+      "donations": [],
+      "gifts": [],
+      "visits": [
+        {
+          "id": 15391,
+          "countries": [
+            "Finland"
+          ],
+          "destinations": [
+            "Helsinki and Rauma"
+          ],
+          "donors": [
+            "Nuclear Industry Association"
+          ],
+          "value": 882,
+          "startDate": "2025-10-27",
+          "endDate": "2025-10-29",
+          "purpose": "To visit the Olkiluoto 3 Nuclear Power Plant, Onkalo Geological Disposal Facility and Radiation and Nuclear Safety Authority (STUK) as part of a Nuclear Energy APPG Visit.",
+          "paymentDetails": "Return flights to Helsinki, hotel accommodation, transport and meals",
+          "appg": "Nuclear Energy APPG"
+        },
+        {
+          "id": 12253,
+          "countries": [
+            "Falkland Islands"
+          ],
+          "destinations": [],
+          "donors": [
+            "Falkland Isles Government"
+          ],
+          "value": 3077.49,
+          "startDate": "2025-02-16",
+          "endDate": "2025-02-21",
+          "purpose": "Strengthen relationship between Falkland Isles and UK",
+          "paymentDetails": "Flights (£1,572.00), accommodation (£589.35), UK taxis (£310.80), FI transport (£218.68), meals (£235.28), wreaths (£28.08), insurance (£25.00), Wi-Fi (£56.00), gifts (£37.30) and museum (£5.00)",
+          "appg": null
+        }
+      ],
+      "earnings": [],
+      "properties": [
+        {
+          "id": 2196,
+          "location": "Edinburgh",
+          "country": "United Kingdom",
+          "type": "Residential",
+          "description": "flat",
+          "rentalIncome": true,
+          "ownerDetails": null
+        }
+      ],
+      "shareholdings": [
+        {
+          "id": 2542,
+          "organisation": "Highland Fine Houses Ltd",
+          "description": "Property company",
+          "threshold": "(i) Shareholdings: over 15% of issued share capital"
+        }
+      ],
+      "family": [],
+      "miscellaneousCount": 1
+    },
+    {
+      "memberId": 5309,
+      "name": "Katrina Murray",
+      "party": "Labour",
+      "constituency": "Cumbernauld and Kirkintilloch",
+      "constituencySlug": "cumbernauld-and-kirkintilloch",
+      "registerUrl": "https://members.parliament.uk/member/5309/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 0,
+      "giftsTotal": 330,
+      "visitsTotal": 2818,
+      "earningsTotal": 0,
+      "totalFinancialValue": 3148,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 343340.93,
+        "nonStaffSpend": 83666.29,
+        "staffingSpend": 259674.64,
+        "officeSpend": 24985.96,
+        "accommodationSpend": 29186.33,
+        "travelSpend": 29494,
+        "otherSpend": 0,
+        "secondHomeRent": 26588.52,
+        "secondHomeCouncilTax": 904.16,
+        "secondHomeUtilities": 1171.78,
+        "londonHotels": 1592,
+        "flights": 20457.99,
+        "rail": 543.99,
+        "taxis": 122.98,
+        "dependantTravel": 0,
+        "parking": 2000.71
+      },
+      "donations": [],
+      "gifts": [
+        {
+          "id": 17299,
+          "donor": "British Soft Drinks Association",
+          "donorStatus": "Company",
+          "value": 330,
+          "date": "2026-10-08",
+          "description": "Attendance at the industry lunch held on 8 October 2026 in London. Cost of ticket (including VAT) £330",
+          "address": "20-22 Bedford Row, London WC1R 4ER",
+          "companyNumber": "500979"
+        }
+      ],
+      "visits": [
+        {
+          "id": 16875,
+          "countries": [
+            "United States"
+          ],
+          "destinations": [
+            "Washington DC"
+          ],
+          "donors": [
+            "Elected Officials to Protect America (EOPA)"
+          ],
+          "value": 1248,
+          "startDate": "2026-08-06",
+          "endDate": "2026-08-10",
+          "purpose": "Participation in the 2026 Public Leadership Certificate in partnership with the University of San Francisco and Elected Officials to Protect America! Access to the programme was given through the Parliamentary Knowledge Scheme",
+          "paymentDetails": "Flights, accommodation and tuition on the EOPA Certificate in Public Leadership Programme organised through the Parliamentary Knowledge Scheme: flights (£840), hotel accommodation (£408)",
+          "appg": null
+        },
+        {
+          "id": 13900,
+          "countries": [
+            "Switzerland"
+          ],
+          "destinations": [
+            "Zurich and Berne"
+          ],
+          "donors": [
+            "Federal Department of Foreign Affairs, Switzerland"
+          ],
+          "value": 1570,
+          "startDate": "2025-11-05",
+          "endDate": "2025-11-07",
+          "purpose": "MP delegation visit with focus on Switzerland’s rail/transport network and Vocational and Professional Education and Training (VPET) system.",
+          "paymentDetails": "Travel (£380), Accommodation (£660), In-Country Travel (£290), Meals (£240)",
+          "appg": null
+        }
+      ],
+      "earnings": [],
+      "properties": [],
+      "shareholdings": [],
+      "family": [],
+      "miscellaneousCount": 2
+    },
+    {
+      "memberId": 5277,
+      "name": "Graham Leadbitter",
+      "party": "Scottish National Party",
+      "constituency": "Moray West, Nairn and Strathspey",
+      "constituencySlug": "moray-west-nairn-and-strathspey",
+      "registerUrl": "https://members.parliament.uk/member/5277/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 0,
+      "giftsTotal": 0,
+      "visitsTotal": 2708,
+      "earningsTotal": 0,
+      "totalFinancialValue": 2708,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 356797.26,
+        "nonStaffSpend": 98059.91,
+        "staffingSpend": 258737.35,
+        "officeSpend": 24563.11,
+        "accommodationSpend": 30096.67,
+        "travelSpend": 43400.13,
+        "otherSpend": 0,
+        "secondHomeRent": 26382.39,
+        "secondHomeCouncilTax": 1791.12,
+        "secondHomeUtilities": 1663.98,
+        "londonHotels": 6101.19,
+        "flights": 20852.55,
+        "rail": 2435.81,
+        "taxis": 1298.89,
+        "dependantTravel": 2899.7,
+        "parking": 1580.1
+      },
+      "donations": [],
+      "gifts": [],
+      "visits": [
+        {
+          "id": 13887,
+          "countries": [
+            "Switzerland"
+          ],
+          "destinations": [
+            "Berne & Zurich"
+          ],
+          "donors": [
+            "Federal Department of Foreign Affairs, Switzerland"
+          ],
+          "value": 1900,
+          "startDate": "2025-11-05",
+          "endDate": "2025-11-08",
+          "purpose": "Cross Party MP delegation visit with focus on Switzerland’s rail and transport network and Vocational and Professional Education and Training (VPET) system.",
+          "paymentDetails": "Travel (£380), accommodation (£990), in-country travel (£290) and meals (£240)",
+          "appg": null
+        },
+        {
+          "id": 13721,
+          "countries": [
+            "Denmark"
+          ],
+          "destinations": [],
+          "donors": [
+            "Parliamentary Renewable & Sustainable Energy Group (PRASEG) Secretariat for the APPG for Renewable & Sustainable Energy"
+          ],
+          "value": 808,
+          "startDate": "2025-10-23",
+          "endDate": "2025-10-24",
+          "purpose": "APPG visit to high-level meetings and site visits in Copenhagen cross-channel cooperation for decarbonising heat and energy.",
+          "paymentDetails": "Accommodation, return flights and subsistence",
+          "appg": "Parliamentary Renewable & Sustainable Energy Group"
+        }
+      ],
+      "earnings": [],
+      "properties": [],
+      "shareholdings": [],
+      "family": [],
+      "miscellaneousCount": 0
+    },
+    {
+      "memberId": 5079,
+      "name": "Joani Reid",
+      "party": "Labour",
+      "constituency": "East Kilbride and Strathaven",
+      "constituencySlug": "east-kilbride-and-strathaven",
+      "registerUrl": "https://members.parliament.uk/member/5079/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 2400,
+      "giftsTotal": 0,
+      "visitsTotal": 0,
+      "earningsTotal": 0,
+      "totalFinancialValue": 2400,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 348096.16,
+        "nonStaffSpend": 85563.46,
+        "staffingSpend": 262532.7,
+        "officeSpend": 33474.81,
+        "accommodationSpend": 31365.72,
+        "travelSpend": 20722.93,
+        "otherSpend": 0,
+        "secondHomeRent": 31365.72,
+        "secondHomeCouncilTax": 0,
+        "secondHomeUtilities": 0,
+        "londonHotels": 1791,
+        "flights": 9906.03,
+        "rail": 692.17,
+        "taxis": 20,
+        "dependantTravel": 3941.01,
+        "parking": 0
+      },
+      "donations": [
+        {
+          "id": 14717,
+          "donor": "Earthcott Ltd",
+          "donorStatus": "Company",
+          "value": 2400,
+          "date": "2026-02-12",
+          "description": "media training",
+          "address": "102 Fulham Palace Road, London W6 9PL",
+          "companyNumber": "13598010"
+        }
+      ],
+      "gifts": [],
+      "visits": [],
+      "earnings": [],
+      "properties": [
+        {
+          "id": 9251,
+          "location": "London",
+          "country": "United Kingdom",
+          "type": "Residential",
+          "description": "Flat",
+          "rentalIncome": true,
+          "ownerDetails": null
+        }
+      ],
+      "shareholdings": [
+        {
+          "id": 9255,
+          "organisation": "Reid Strategy Limited",
+          "description": "Personal service company (no longer trading), in the process of being wound up.",
+          "threshold": "(i) Shareholdings: over 15% of issued share capital"
+        },
+        {
+          "id": 9253,
+          "organisation": "[redacted] RTM Company Limited",
+          "description": "Residents property management company",
+          "threshold": "(i) Shareholdings: over 15% of issued share capital"
+        }
+      ],
+      "family": [
+        {
+          "id": 9266,
+          "kind": "lobbying",
+          "personName": "David Taylor",
+          "relation": "Spouse",
+          "jobTitle": "Director",
+          "employer": "Earthcott Limited"
+        }
+      ],
+      "miscellaneousCount": 2
+    },
+    {
+      "memberId": 4634,
+      "name": "Christine Jardine",
+      "party": "Liberal Democrat",
+      "constituency": "Edinburgh West",
+      "constituencySlug": "edinburgh-west",
+      "registerUrl": "https://members.parliament.uk/member/4634/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 0,
+      "giftsTotal": 1298,
+      "visitsTotal": 900.94,
+      "earningsTotal": 0,
+      "totalFinancialValue": 2198.94,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 349031.9,
+        "nonStaffSpend": 92932.11,
+        "staffingSpend": 256099.79,
+        "officeSpend": 29167.45,
+        "accommodationSpend": 25500.66,
+        "travelSpend": 38264,
+        "otherSpend": 0,
+        "secondHomeRent": 22199.96,
+        "secondHomeCouncilTax": 762.88,
+        "secondHomeUtilities": 1950.42,
+        "londonHotels": 2106.5,
+        "flights": 21734.68,
+        "rail": 965.77,
+        "taxis": 2759.87,
+        "dependantTravel": 0,
+        "parking": 12.3
+      },
+      "donations": [],
+      "gifts": [
+        {
+          "id": 15220,
+          "donor": "Scottish Rugby Union",
+          "donorStatus": "Company",
+          "value": 500,
+          "date": "2026-04-18",
+          "description": "A ticket including hospitality for Scotland v England Women's Rugby match",
+          "address": "Scottish Rugby Union Murrayfield Edinburgh EH12 5PJ",
+          "companyNumber": "SC748672"
+        },
+        {
+          "id": 13990,
+          "donor": "Scottish Rugby Limited",
+          "donorStatus": "Company",
+          "value": 798,
+          "date": "2025-11-08",
+          "description": "Two tickets and hospitality for the Scotland v New Zealand game as part of the Autumn International series",
+          "address": "Murrayfield, Edinburgh EH12 5PJ",
+          "companyNumber": "SC132061"
+        }
+      ],
+      "visits": [
+        {
+          "id": 13826,
+          "countries": [
+            "Vatican City"
+          ],
+          "destinations": [],
+          "donors": [
+            "Consulate of San Marino"
+          ],
+          "value": 900.94,
+          "startDate": "2025-10-21",
+          "endDate": "2025-10-23",
+          "purpose": "Meetings with business people, parliamentarians and faith leaders in the Vatican City and San Marino to foster links between communities, parliaments and countries.",
+          "paymentDetails": "Airfare and transfers (£534.36), accommodation (£193), subsistence (£173.38)",
+          "appg": "San Marino"
+        }
+      ],
+      "earnings": [],
+      "properties": [],
+      "shareholdings": [],
+      "family": [],
+      "miscellaneousCount": 2
+    },
+    {
+      "memberId": 5190,
+      "name": "Patricia Ferguson",
+      "party": "Labour",
+      "constituency": "Glasgow West",
+      "constituencySlug": "glasgow-west",
+      "registerUrl": "https://members.parliament.uk/member/5190/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 0,
+      "giftsTotal": 0,
+      "visitsTotal": 2169,
+      "earningsTotal": 0,
+      "totalFinancialValue": 2169,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 298234.11,
+        "nonStaffSpend": 78963.56,
+        "staffingSpend": 219270.55,
+        "officeSpend": 21373.66,
+        "accommodationSpend": 30765.07,
+        "travelSpend": 26824.83,
+        "otherSpend": 0,
+        "secondHomeRent": 27299.87,
+        "secondHomeCouncilTax": 2144.28,
+        "secondHomeUtilities": 978.76,
+        "londonHotels": 1760,
+        "flights": 20007.35,
+        "rail": 0,
+        "taxis": 0,
+        "dependantTravel": 1089.03,
+        "parking": 0
+      },
+      "donations": [],
+      "gifts": [],
+      "visits": [
+        {
+          "id": 15495,
+          "countries": [
+            "Palestine"
+          ],
+          "destinations": [
+            "Israel & Palestine"
+          ],
+          "donors": [
+            "Yachad"
+          ],
+          "value": 2169,
+          "startDate": "2026-05-24",
+          "endDate": "2026-05-28",
+          "purpose": "To meet with a wide range of indivduals, public officials and organisations as well as to visit locations where violence has taken place, to understand the steps needed to achieve a resolution to the Israel-Palestine conflict and to adequately respond to the humanitarian situation in Gaza.",
+          "paymentDetails": "Flights ,accommodation,hospitality and travel",
+          "appg": null
+        }
+      ],
+      "earnings": [],
+      "properties": [],
+      "shareholdings": [],
+      "family": [],
+      "miscellaneousCount": 0
+    },
+    {
+      "memberId": 4403,
+      "name": "Chris Law",
+      "party": "Scottish National Party",
+      "constituency": "Dundee Central",
+      "constituencySlug": "dundee-central",
+      "registerUrl": "https://members.parliament.uk/member/4403/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 0,
+      "giftsTotal": 0,
+      "visitsTotal": 1898,
+      "earningsTotal": 0,
+      "totalFinancialValue": 1898,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 386082.24,
+        "nonStaffSpend": 129065.55,
+        "staffingSpend": 257016.69,
+        "officeSpend": 30676.05,
+        "accommodationSpend": 30345.13,
+        "travelSpend": 68044.37,
+        "otherSpend": 0,
+        "secondHomeRent": 28200,
+        "secondHomeCouncilTax": 762.88,
+        "secondHomeUtilities": 1260.25,
+        "londonHotels": 11618.57,
+        "flights": 26580.76,
+        "rail": 877.96,
+        "taxis": 331.39,
+        "dependantTravel": 1999.75,
+        "parking": 6292.29
+      },
+      "donations": [],
+      "gifts": [],
+      "visits": [
+        {
+          "id": 15785,
+          "countries": [
+            "India"
+          ],
+          "destinations": [],
+          "donors": [
+            "Office of Tibet - London"
+          ],
+          "value": 1000,
+          "startDate": "2026-05-24",
+          "endDate": "2026-05-30",
+          "purpose": "To visit Dharamshala, abode of His Holiness the Dalai Lama and seat of the Tibetan government-in-exile, to attend the inauguration of Sikyong Penpa Tsering and meet with representatives of the Central Tibetan Administration.",
+          "paymentDetails": "Flights, accommodation, meals, and local transportation. My partner shared the hotel accommodation provided for me",
+          "appg": "APPG for Tibet"
+        },
+        {
+          "id": 14591,
+          "countries": [
+            "India"
+          ],
+          "destinations": [],
+          "donors": [
+            "International Buddhist Confederation"
+          ],
+          "value": 898,
+          "startDate": "2026-01-23",
+          "endDate": "2026-01-26",
+          "purpose": "To attend the Global Buddhist Summit",
+          "paymentDetails": "Flights (INR 72,417/£580.10), accommodation including meals (INR 31,800/£254.74), and visa ($81.00/£62.71)",
+          "appg": null
+        }
+      ],
+      "earnings": [],
+      "properties": [
+        {
+          "id": 2870,
+          "location": "Dundee",
+          "country": "United Kingdom",
+          "type": "Residential",
+          "description": "flat",
+          "rentalIncome": false,
+          "ownerDetails": null
+        },
+        {
+          "id": 2871,
+          "location": "Aberdeen",
+          "country": "United Kingdom",
+          "type": "Residential",
+          "description": "flat",
+          "rentalIncome": false,
+          "ownerDetails": "owned by CMAL Ltd"
+        }
+      ],
+      "shareholdings": [
+        {
+          "id": 2502,
+          "organisation": "CMAL Limited",
+          "description": "Financial services company",
+          "threshold": "(i) Shareholdings: over 15% of issued share capital"
+        }
+      ],
+      "family": [],
+      "miscellaneousCount": 3
+    },
+    {
+      "memberId": 4736,
+      "name": "Dave Doogan",
+      "party": "Scottish National Party",
+      "constituency": "Angus and Perthshire Glens",
+      "constituencySlug": "angus-and-perthshire-glens",
+      "registerUrl": "https://members.parliament.uk/member/4736/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 0,
+      "giftsTotal": 1860,
+      "visitsTotal": 0,
+      "earningsTotal": 0,
+      "totalFinancialValue": 1860,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 381362.05,
+        "nonStaffSpend": 127847.3,
+        "staffingSpend": 253514.75,
+        "officeSpend": 40732.24,
+        "accommodationSpend": 29849.73,
+        "travelSpend": 57265.33,
+        "otherSpend": 0,
+        "secondHomeRent": 27600.05,
+        "secondHomeCouncilTax": 1451.22,
+        "secondHomeUtilities": 798.46,
+        "londonHotels": 8258.45,
+        "flights": 26216.87,
+        "rail": 1090.12,
+        "taxis": 684.7,
+        "dependantTravel": 403.64,
+        "parking": 2458.17
+      },
+      "donations": [],
+      "gifts": [
+        {
+          "id": 16903,
+          "donor": "Silverstone Circuit",
+          "donorStatus": "Company",
+          "value": 1860,
+          "date": "2026-07-04",
+          "description": "two tickets for the Sprint Race at Silverstone, including hospitality",
+          "address": "Silverstone Circuit, Towcester NN12 8TN",
+          "companyNumber": "882843"
+        }
+      ],
+      "visits": [],
+      "earnings": [],
+      "properties": [],
+      "shareholdings": [],
+      "family": [],
+      "miscellaneousCount": 1
+    },
+    {
+      "memberId": 5157,
+      "name": "Susan Murray",
+      "party": "Liberal Democrat",
+      "constituency": "Mid Dunbartonshire",
+      "constituencySlug": "mid-dunbartonshire",
+      "registerUrl": "https://members.parliament.uk/member/5157/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 1552.86,
+      "giftsTotal": 0,
+      "visitsTotal": 0,
+      "earningsTotal": 0,
+      "totalFinancialValue": 1552.86,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 323407.97,
+        "nonStaffSpend": 89418.29,
+        "staffingSpend": 233989.68,
+        "officeSpend": 32222.59,
+        "accommodationSpend": 32922.38,
+        "travelSpend": 24273.32,
+        "otherSpend": 0,
+        "secondHomeRent": 30100,
+        "secondHomeCouncilTax": 2822.38,
+        "secondHomeUtilities": 0,
+        "londonHotels": 8022,
+        "flights": 5220.46,
+        "rail": 3295.13,
+        "taxis": 99.89,
+        "dependantTravel": 0,
+        "parking": 0
+      },
+      "donations": [
+        {
+          "id": 10895,
+          "donor": "National Liberal Club",
+          "donorStatus": "Unincorporated association",
+          "value": 1552.86,
+          "date": "2024-08-14",
+          "description": "Complimentary membership of the National Liberal Club from 14 August 2024 to 31 December 2025",
+          "address": "1 Whitehall Place, London, SW1A 2HE",
+          "companyNumber": null
+        }
+      ],
+      "gifts": [],
+      "visits": [],
+      "earnings": [],
+      "properties": [],
+      "shareholdings": [],
+      "family": [],
+      "miscellaneousCount": 0
+    },
+    {
+      "memberId": 3909,
+      "name": "Pamela Nash",
+      "party": "Labour",
+      "constituency": "Motherwell, Wishaw and Carluke",
+      "constituencySlug": "motherwell-wishaw-and-carluke",
+      "registerUrl": "https://members.parliament.uk/member/3909/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 0,
+      "giftsTotal": 1544,
+      "visitsTotal": 0,
+      "earningsTotal": 0,
+      "totalFinancialValue": 1544,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 241356.75,
+        "nonStaffSpend": 84680.17,
+        "staffingSpend": 156676.58,
+        "officeSpend": 26485.16,
+        "accommodationSpend": 30338.07,
+        "travelSpend": 27856.94,
+        "otherSpend": 0,
+        "secondHomeRent": 28546.95,
+        "secondHomeCouncilTax": 1791.12,
+        "secondHomeUtilities": 0,
+        "londonHotels": 0,
+        "flights": 22863.83,
+        "rail": 604.97,
+        "taxis": 709.21,
+        "dependantTravel": 0,
+        "parking": 459.1
+      },
+      "donations": [],
+      "gifts": [
+        {
+          "id": 17179,
+          "donor": "Royal Navy",
+          "donorStatus": "Other",
+          "value": 1544,
+          "date": "2026-08-17",
+          "description": "Two tickets for Edinburgh Military Tattoo plus hospitality onboard Royal Yacht Britannia",
+          "address": "MOD Main Building, Whitehall, London SW1A 2HB",
+          "companyNumber": null
+        }
+      ],
+      "visits": [],
+      "earnings": [],
+      "properties": [],
+      "shareholdings": [],
+      "family": [],
+      "miscellaneousCount": 0
+    },
+    {
+      "memberId": 1440,
+      "name": "Pete Wishart",
+      "party": "Scottish National Party",
+      "constituency": "Perth and Kinross-shire",
+      "constituencySlug": "perth-and-kinross-shire",
+      "registerUrl": "https://members.parliament.uk/member/1440/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 0,
+      "giftsTotal": 984,
+      "visitsTotal": 0,
+      "earningsTotal": 0,
+      "totalFinancialValue": 984,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 314437.93,
+        "nonStaffSpend": 91006.81,
+        "staffingSpend": 223431.12,
+        "officeSpend": 27011.44,
+        "accommodationSpend": 31079.05,
+        "travelSpend": 32916.32,
+        "otherSpend": 0,
+        "secondHomeRent": 28499.99,
+        "secondHomeCouncilTax": 932.41,
+        "secondHomeUtilities": 1646.65,
+        "londonHotels": 398,
+        "flights": 24390.68,
+        "rail": 797,
+        "taxis": 339.6,
+        "dependantTravel": 1907.5,
+        "parking": 3047.72
+      },
+      "donations": [],
+      "gifts": [
+        {
+          "id": 15789,
+          "donor": "British Academy of Songwriters, Composers and Authors, trading as The Ivors Academy",
+          "donorStatus": "Company",
+          "value": 984,
+          "date": "2026-05-21",
+          "description": "The Ivors Academy provided a ticket and hospitality for the Ivor Novello Awards on 21 May 2026",
+          "address": "Prager Metis LLP, 5A Bear Lane, Southwark, London SE1 0UH (Office address: 1 Upper James St, London W1F 9DE)",
+          "companyNumber": "03643088"
+        }
+      ],
+      "visits": [],
+      "earnings": [
+        {
+          "id": 5019,
+          "role": "EMI - Royalty payments",
+          "payer": "EMI",
+          "value": 0,
+          "regularity": null,
+          "hours": null,
+          "description": null
+        },
+        {
+          "id": 5020,
+          "role": "Ridge Records - Royalty payments",
+          "payer": "Ridge Records Limited",
+          "value": 0,
+          "regularity": null,
+          "hours": null,
+          "description": null
+        }
+      ],
+      "properties": [],
+      "shareholdings": [],
+      "family": [],
+      "miscellaneousCount": 0
+    },
+    {
+      "memberId": 5145,
+      "name": "Irene Campbell",
+      "party": "Labour",
+      "constituency": "North Ayrshire and Arran",
+      "constituencySlug": "north-ayrshire-and-arran",
+      "registerUrl": "https://members.parliament.uk/member/5145/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 0,
+      "giftsTotal": 0,
+      "visitsTotal": 675.25,
+      "earningsTotal": 0,
+      "totalFinancialValue": 675.25,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 325671.98,
+        "nonStaffSpend": 96074.45,
+        "staffingSpend": 229597.53,
+        "officeSpend": 34720.4,
+        "accommodationSpend": 26902.88,
+        "travelSpend": 34451.17,
+        "otherSpend": 0,
+        "secondHomeRent": 24241.2,
+        "secondHomeCouncilTax": 1818.44,
+        "secondHomeUtilities": 215.24,
+        "londonHotels": 2963,
+        "flights": 20161.31,
+        "rail": 170.52,
+        "taxis": 201.44,
+        "dependantTravel": 0,
+        "parking": 3192.83
+      },
+      "donations": [],
+      "gifts": [],
+      "visits": [
+        {
+          "id": 14496,
+          "countries": [
+            "Netherlands"
+          ],
+          "destinations": [
+            "Amsterdam and Eindhoven"
+          ],
+          "donors": [
+            "The Vegetarian Society"
+          ],
+          "value": 675.25,
+          "startDate": "2026-01-18",
+          "endDate": "2026-01-19",
+          "purpose": "As part of the Vegetarian Society Hatch and Despatch campaign I visited a facility to see how in ovo sexing in eggs works to avoid killing male chicks at birth.",
+          "paymentDetails": "Flights to and from Amsterdam (£489.78), train tickets between Schipol airport and Amsterdam, Amsterdam and Eindhoven, Eindhoven and Schipol airport (£54.98), hotel accommodation (£129.03) and travel insurance (£1.46)",
+          "appg": null
+        }
+      ],
+      "earnings": [],
+      "properties": [],
+      "shareholdings": [],
+      "family": [],
+      "miscellaneousCount": 1
+    },
+    {
+      "memberId": 5212,
+      "name": "Dr Scott Arthur",
+      "party": "Labour",
+      "constituency": "Edinburgh South West",
+      "constituencySlug": "edinburgh-south-west",
+      "registerUrl": "https://members.parliament.uk/member/5212/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 0,
+      "giftsTotal": 500,
+      "visitsTotal": 0,
+      "earningsTotal": 0,
+      "totalFinancialValue": 500,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 356158.16,
+        "nonStaffSpend": 92788.16,
+        "staffingSpend": 263370,
+        "officeSpend": 35633.19,
+        "accommodationSpend": 26434.17,
+        "travelSpend": 29975.98,
+        "otherSpend": 744.82,
+        "secondHomeRent": 23324.01,
+        "secondHomeCouncilTax": 2388.16,
+        "secondHomeUtilities": 414,
+        "londonHotels": 8291.2,
+        "flights": 680.39,
+        "rail": 9466.83,
+        "taxis": 942.6,
+        "dependantTravel": 541,
+        "parking": 106.3
+      },
+      "donations": [],
+      "gifts": [
+        {
+          "id": 16459,
+          "donor": "East Coast Trains Ltd (Lumo)",
+          "donorStatus": "Company",
+          "value": 500,
+          "date": "2026-06-25",
+          "description": "Five return train tickets (to London from Edinburgh) for five young people from Edinburgh South West to take part in a work experience programme, which included a trip to Westminster to meet the Prime Minister and Mr Speaker",
+          "address": "Central Square South, Orchard Street, Newcastle upon Tyne NE1 3AZ",
+          "companyNumber": "08765536"
+        }
+      ],
+      "visits": [],
+      "earnings": [],
+      "properties": [],
+      "shareholdings": [],
+      "family": [],
+      "miscellaneousCount": 3
+    },
+    {
+      "memberId": 5280,
+      "name": "Seamus Logan",
+      "party": "Scottish National Party",
+      "constituency": "Aberdeenshire North and Moray East",
+      "constituencySlug": "aberdeenshire-north-and-moray-east",
+      "registerUrl": "https://members.parliament.uk/member/5280/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 0,
+      "giftsTotal": 0,
+      "visitsTotal": 385.86,
+      "earningsTotal": 0,
+      "totalFinancialValue": 385.86,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 353887.33,
+        "nonStaffSpend": 96188.95,
+        "staffingSpend": 257698.38,
+        "officeSpend": 27210.9,
+        "accommodationSpend": 29571.76,
+        "travelSpend": 39406.29,
+        "otherSpend": 0,
+        "secondHomeRent": 27872.81,
+        "secondHomeCouncilTax": 901.06,
+        "secondHomeUtilities": 470.22,
+        "londonHotels": 1810,
+        "flights": 21853.56,
+        "rail": 2761.65,
+        "taxis": 284.28,
+        "dependantTravel": 3220.18,
+        "parking": 544.8
+      },
+      "donations": [],
+      "gifts": [],
+      "visits": [
+        {
+          "id": 14356,
+          "countries": [
+            "Ireland"
+          ],
+          "destinations": [
+            "Dublin"
+          ],
+          "donors": [
+            "Artsawonder"
+          ],
+          "value": 385.86,
+          "startDate": "2026-01-08",
+          "endDate": "2026-01-11",
+          "purpose": "Peace and Reconciliation Conference",
+          "paymentDetails": "Accommodation ( bed and breakfast), two meals and two taxi's",
+          "appg": null
+        }
+      ],
+      "earnings": [],
+      "properties": [],
+      "shareholdings": [],
+      "family": [],
+      "miscellaneousCount": 1
+    },
+    {
+      "memberId": 5246,
+      "name": "Torcuil Crichton",
+      "party": "Labour",
+      "constituency": "Na h-Eileanan an Iar",
+      "constituencySlug": "na-h-eileanan-an-iar",
+      "registerUrl": "https://members.parliament.uk/member/5246/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 0,
+      "giftsTotal": 370,
+      "visitsTotal": 0,
+      "earningsTotal": 0,
+      "totalFinancialValue": 370,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 313105.81,
+        "nonStaffSpend": 100933.19,
+        "staffingSpend": 212172.62,
+        "officeSpend": 34259.23,
+        "accommodationSpend": 23279.87,
+        "travelSpend": 43394.09,
+        "otherSpend": 0,
+        "secondHomeRent": 21600.03,
+        "secondHomeCouncilTax": 1088.56,
+        "secondHomeUtilities": 428.88,
+        "londonHotels": 3691,
+        "flights": 23607.96,
+        "rail": 703.56,
+        "taxis": 773.92,
+        "dependantTravel": 759.2,
+        "parking": 0
+      },
+      "donations": [],
+      "gifts": [
+        {
+          "id": 15258,
+          "donor": "Diagio",
+          "donorStatus": "Company",
+          "value": 370,
+          "date": "2026-05-13",
+          "description": "Two tickets with hospitality for a Paul Simon concert",
+          "address": "16 Great Marlborough Street, London W1F 7HS",
+          "companyNumber": "00023307"
+        }
+      ],
+      "visits": [],
+      "earnings": [],
+      "properties": [],
+      "shareholdings": [],
+      "family": [],
+      "miscellaneousCount": 0
+    },
+    {
+      "memberId": 5251,
+      "name": "Martin Rhodes",
+      "party": "Labour",
+      "constituency": "Glasgow North",
+      "constituencySlug": "glasgow-north",
+      "registerUrl": "https://members.parliament.uk/member/5251/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 0,
+      "giftsTotal": 350,
+      "visitsTotal": 0,
+      "earningsTotal": 0,
+      "totalFinancialValue": 350,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 346188.85,
+        "nonStaffSpend": 85888.76,
+        "staffingSpend": 260300.09,
+        "officeSpend": 29310.56,
+        "accommodationSpend": 25549.3,
+        "travelSpend": 31028.9,
+        "otherSpend": 0,
+        "secondHomeRent": 22839.46,
+        "secondHomeCouncilTax": 1582.28,
+        "secondHomeUtilities": 1127.56,
+        "londonHotels": 7597.39,
+        "flights": 6663.52,
+        "rail": 7110.25,
+        "taxis": 0,
+        "dependantTravel": 0,
+        "parking": 0
+      },
+      "donations": [],
+      "gifts": [
+        {
+          "id": 17425,
+          "donor": "International Convention Centre Wales Ltd",
+          "donorStatus": "Company",
+          "value": 350,
+          "date": "2026-10-29",
+          "description": "Overnight accommodation, breakfast and evening meal at the Celtic Manor to facilitate a roundtable discussion with the Welsh Events Sector at the ICC Wales.",
+          "address": "Coldra Woods, Newport, Gwent NP18 1HQ",
+          "companyNumber": "08829779"
+        }
+      ],
+      "visits": [],
+      "earnings": [],
+      "properties": [],
+      "shareholdings": [],
+      "family": [],
+      "miscellaneousCount": 1
+    },
+    {
+      "memberId": 4357,
+      "name": "Kirsty Blackman",
+      "party": "Scottish National Party",
+      "constituency": "Aberdeen North",
+      "constituencySlug": "aberdeen-north",
+      "registerUrl": "https://members.parliament.uk/member/4357/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 0,
+      "giftsTotal": 0,
+      "visitsTotal": 0,
+      "earningsTotal": 0,
+      "totalFinancialValue": 0,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 377344.08,
+        "nonStaffSpend": 121470.95,
+        "staffingSpend": 255873.13,
+        "officeSpend": 25499.88,
+        "accommodationSpend": 41834.77,
+        "travelSpend": 54136.3,
+        "otherSpend": 0,
+        "secondHomeRent": 39951.21,
+        "secondHomeCouncilTax": 932.41,
+        "secondHomeUtilities": 951.15,
+        "londonHotels": 5473,
+        "flights": 27471.86,
+        "rail": 383.74,
+        "taxis": 2910.23,
+        "dependantTravel": 7307.88,
+        "parking": 0
+      },
+      "donations": [],
+      "gifts": [],
+      "visits": [],
+      "earnings": [],
+      "properties": [],
+      "shareholdings": [],
+      "family": [],
+      "miscellaneousCount": 1
+    },
+    {
+      "memberId": 5155,
+      "name": "Chris Kane",
+      "party": "Labour",
+      "constituency": "Stirling and Strathallan",
+      "constituencySlug": "stirling-and-strathallan",
+      "registerUrl": "https://members.parliament.uk/member/5155/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 0,
+      "giftsTotal": 0,
+      "visitsTotal": 0,
+      "earningsTotal": 0,
+      "totalFinancialValue": 0,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 376776.99,
+        "nonStaffSpend": 122040.57,
+        "staffingSpend": 254736.42,
+        "officeSpend": 34889.84,
+        "accommodationSpend": 34493.26,
+        "travelSpend": 52657.47,
+        "otherSpend": 0,
+        "secondHomeRent": 31200.01,
+        "secondHomeCouncilTax": 2442.43,
+        "secondHomeUtilities": 762.82,
+        "londonHotels": 5025.97,
+        "flights": 20661.98,
+        "rail": 1519.37,
+        "taxis": 225.75,
+        "dependantTravel": 5832.99,
+        "parking": 2651.2
+      },
+      "donations": [],
+      "gifts": [],
+      "visits": [],
+      "earnings": [],
+      "properties": [],
+      "shareholdings": [
+        {
+          "id": 6561,
+          "organisation": "Bee Herd Media Ltd",
+          "description": "marketing consultancy and digital content creation",
+          "threshold": "(i) Shareholdings: over 15% of issued share capital"
+        }
+      ],
+      "family": [],
+      "miscellaneousCount": 1
+    },
+    {
+      "memberId": 5188,
+      "name": "Tracy Gilbert",
+      "party": "Labour",
+      "constituency": "Edinburgh North and Leith",
+      "constituencySlug": "edinburgh-north-and-leith",
+      "registerUrl": "https://members.parliament.uk/member/5188/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 0,
+      "giftsTotal": 0,
+      "visitsTotal": 0,
+      "earningsTotal": 0,
+      "totalFinancialValue": 0,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 370695.28,
+        "nonStaffSpend": 107850.03,
+        "staffingSpend": 262845.25,
+        "officeSpend": 41919.64,
+        "accommodationSpend": 30058.36,
+        "travelSpend": 35429.83,
+        "otherSpend": 442.2,
+        "secondHomeRent": 28024,
+        "secondHomeCouncilTax": 2034.36,
+        "secondHomeUtilities": 0,
+        "londonHotels": 7557,
+        "flights": 529.1,
+        "rail": 11268.02,
+        "taxis": 1274.36,
+        "dependantTravel": 4946.86,
+        "parking": 6
+      },
+      "donations": [],
+      "gifts": [],
+      "visits": [],
+      "earnings": [],
+      "properties": [],
+      "shareholdings": [],
+      "family": [],
+      "miscellaneousCount": 0
+    },
+    {
+      "memberId": 5114,
+      "name": "Kirsty McNeill",
+      "party": "Labour (Co-op)",
+      "constituency": "Midlothian",
+      "constituencySlug": "midlothian",
+      "registerUrl": "https://members.parliament.uk/member/5114/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 0,
+      "giftsTotal": 0,
+      "visitsTotal": 0,
+      "earningsTotal": 0,
+      "totalFinancialValue": 0,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 360783.03,
+        "nonStaffSpend": 98562.49,
+        "staffingSpend": 262220.54,
+        "officeSpend": 33803.02,
+        "accommodationSpend": 41677.87,
+        "travelSpend": 23081.6,
+        "otherSpend": 0,
+        "secondHomeRent": 38782.11,
+        "secondHomeCouncilTax": 1425.26,
+        "secondHomeUtilities": 1470.5,
+        "londonHotels": 5407,
+        "flights": 6520.35,
+        "rail": 4761.77,
+        "taxis": 1340.9,
+        "dependantTravel": 1591.78,
+        "parking": 0
+      },
+      "donations": [],
+      "gifts": [],
+      "visits": [],
+      "earnings": [],
+      "properties": [],
+      "shareholdings": [],
+      "family": [],
+      "miscellaneousCount": 0
+    },
+    {
+      "memberId": 1442,
+      "name": "Mr Alistair Carmichael",
+      "party": "Liberal Democrat",
+      "constituency": "Orkney and Shetland",
+      "constituencySlug": "orkney-and-shetland",
+      "registerUrl": "https://members.parliament.uk/member/1442/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 0,
+      "giftsTotal": 0,
+      "visitsTotal": 0,
+      "earningsTotal": 0,
+      "totalFinancialValue": 0,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 345422.62,
+        "nonStaffSpend": 116334.7,
+        "staffingSpend": 229087.92,
+        "officeSpend": 35640.28,
+        "accommodationSpend": 15092.75,
+        "travelSpend": 65601.67,
+        "otherSpend": 0,
+        "secondHomeRent": 14796.11,
+        "secondHomeCouncilTax": 165.95,
+        "secondHomeUtilities": 130.69,
+        "londonHotels": 989,
+        "flights": 35437.22,
+        "rail": 1632.03,
+        "taxis": 713.17,
+        "dependantTravel": 6301.65,
+        "parking": 937.9
+      },
+      "donations": [],
+      "gifts": [],
+      "visits": [],
+      "earnings": [
+        {
+          "id": 4138,
+          "role": "Member of the Advisory Board of the House Magazine",
+          "payer": "Dods Group Ltd",
+          "value": 0,
+          "regularity": null,
+          "hours": null,
+          "description": null
+        }
+      ],
+      "properties": [
+        {
+          "id": 2609,
+          "location": "Islay, Argyll",
+          "country": "United Kingdom",
+          "type": "Agricultural",
+          "description": "Farmland including farm buildings and one house let as holiday accommodation, managed through Coillabus Farms",
+          "rentalIncome": true,
+          "ownerDetails": null
+        }
+      ],
+      "shareholdings": [
+        {
+          "id": 2454,
+          "organisation": "Coillabus Farms",
+          "description": "A firm which manages two farms and the letting of self-catering holiday accommodation on Islay.",
+          "threshold": "(i) Shareholdings: over 15% of issued share capital"
+        }
+      ],
+      "family": [],
+      "miscellaneousCount": 2
+    },
+    {
+      "memberId": 5362,
+      "name": "Mr Angus MacDonald",
+      "party": "Liberal Democrat",
+      "constituency": "Inverness, Skye and West Ross-shire",
+      "constituencySlug": "inverness-skye-and-west-ross-shire",
+      "registerUrl": "https://members.parliament.uk/member/5362/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 0,
+      "giftsTotal": 0,
+      "visitsTotal": 0,
+      "earningsTotal": 0,
+      "totalFinancialValue": 0,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 335246.35,
+        "nonStaffSpend": 74978.52,
+        "staffingSpend": 260267.83,
+        "officeSpend": 33915.63,
+        "accommodationSpend": 6075.8,
+        "travelSpend": 34987.09,
+        "otherSpend": 0,
+        "secondHomeRent": 0,
+        "secondHomeCouncilTax": 0,
+        "secondHomeUtilities": 3314.09,
+        "londonHotels": 3266.37,
+        "flights": 136.97,
+        "rail": 19942.16,
+        "taxis": 509.52,
+        "dependantTravel": 761.11,
+        "parking": 70.9
+      },
+      "donations": [],
+      "gifts": [],
+      "visits": [],
+      "earnings": [],
+      "properties": [
+        {
+          "id": 6234,
+          "location": "Stirling",
+          "country": "United Kingdom",
+          "type": "Commercial",
+          "description": "Office building",
+          "rentalIncome": true,
+          "ownerDetails": null
+        },
+        {
+          "id": 6233,
+          "location": "Ayr",
+          "country": "United Kingdom",
+          "type": "Agricultural",
+          "description": "forest",
+          "rentalIncome": false,
+          "ownerDetails": "leased from family members"
+        }
+      ],
+      "shareholdings": [
+        {
+          "id": 11090,
+          "organisation": "Highland Bookshop Ltd",
+          "description": null,
+          "threshold": "(i) Shareholdings: over 15% of issued share capital"
+        },
+        {
+          "id": 11083,
+          "organisation": "Highland Cinema Ltd",
+          "description": null,
+          "threshold": "(i) Shareholdings: over 15% of issued share capital"
+        },
+        {
+          "id": 6237,
+          "organisation": "Inverleith Partnership",
+          "description": "Partnership with two holdings, Artisan Spirit Company and Montane (outdoor clothing)",
+          "threshold": "(ii) Other shareholdings, valued at more than £70,000"
+        },
+        {
+          "id": 6236,
+          "organisation": "Renewable Parts Ltd",
+          "description": "Supply of parts for wind turbines",
+          "threshold": "(i) Shareholdings: over 15% of issued share capital"
+        },
+        {
+          "id": 6235,
+          "organisation": "Hampden and Co",
+          "description": "Bank",
+          "threshold": "(ii) Other shareholdings, valued at more than £70,000"
+        }
+      ],
+      "family": [],
+      "miscellaneousCount": 0
+    },
+    {
+      "memberId": 5137,
+      "name": "Maureen Burke",
+      "party": "Labour",
+      "constituency": "Glasgow North East",
+      "constituencySlug": "glasgow-north-east",
+      "registerUrl": "https://members.parliament.uk/member/5137/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 0,
+      "giftsTotal": 0,
+      "visitsTotal": 0,
+      "earningsTotal": 0,
+      "totalFinancialValue": 0,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 332930.32,
+        "nonStaffSpend": 77223.73,
+        "staffingSpend": 255706.59,
+        "officeSpend": 28706.15,
+        "accommodationSpend": 26571.58,
+        "travelSpend": 21946,
+        "otherSpend": 0,
+        "secondHomeRent": 23773,
+        "secondHomeCouncilTax": 1808.32,
+        "secondHomeUtilities": 990.26,
+        "londonHotels": 883,
+        "flights": 15167.72,
+        "rail": 526.74,
+        "taxis": 610.05,
+        "dependantTravel": 0,
+        "parking": 0
+      },
+      "donations": [],
+      "gifts": [],
+      "visits": [],
+      "earnings": [],
+      "properties": [],
+      "shareholdings": [],
+      "family": [],
+      "miscellaneousCount": 1
+    },
+    {
+      "memberId": 5076,
+      "name": "Blair McDougall",
+      "party": "Labour",
+      "constituency": "East Renfrewshire",
+      "constituencySlug": "east-renfrewshire",
+      "registerUrl": "https://members.parliament.uk/member/5076/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 0,
+      "giftsTotal": 0,
+      "visitsTotal": 0,
+      "earningsTotal": 0,
+      "totalFinancialValue": 0,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 330939.99,
+        "nonStaffSpend": 78401.84,
+        "staffingSpend": 252538.15,
+        "officeSpend": 23689.64,
+        "accommodationSpend": 30800.84,
+        "travelSpend": 23872.62,
+        "otherSpend": 38.74,
+        "secondHomeRent": 29400,
+        "secondHomeCouncilTax": 1017.18,
+        "secondHomeUtilities": 132.29,
+        "londonHotels": 572,
+        "flights": 15832.98,
+        "rail": 1545.28,
+        "taxis": 2917.01,
+        "dependantTravel": 2272.16,
+        "parking": 0
+      },
+      "donations": [],
+      "gifts": [],
+      "visits": [],
+      "earnings": [],
+      "properties": [],
+      "shareholdings": [],
+      "family": [],
+      "miscellaneousCount": 7
+    },
+    {
+      "memberId": 5183,
+      "name": "Frank McNally",
+      "party": "Labour",
+      "constituency": "Coatbridge and Bellshill",
+      "constituencySlug": "coatbridge-and-bellshill",
+      "registerUrl": "https://members.parliament.uk/member/5183/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 0,
+      "giftsTotal": 0,
+      "visitsTotal": 0,
+      "earningsTotal": 0,
+      "totalFinancialValue": 0,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 324816.1,
+        "nonStaffSpend": 88789.74,
+        "staffingSpend": 236026.36,
+        "officeSpend": 33649.81,
+        "accommodationSpend": 29967.58,
+        "travelSpend": 25172.35,
+        "otherSpend": 0,
+        "secondHomeRent": 27600,
+        "secondHomeCouncilTax": 2034.36,
+        "secondHomeUtilities": 0,
+        "londonHotels": 4358,
+        "flights": 16218.16,
+        "rail": 407.61,
+        "taxis": 41.97,
+        "dependantTravel": 0,
+        "parking": 226.5
+      },
+      "donations": [],
+      "gifts": [],
+      "visits": [],
+      "earnings": [],
+      "properties": [],
+      "shareholdings": [],
+      "family": [],
+      "miscellaneousCount": 0
+    },
+    {
+      "memberId": 5179,
+      "name": "Kirsteen Sullivan",
+      "party": "Labour (Co-op)",
+      "constituency": "Bathgate and Linlithgow",
+      "constituencySlug": "bathgate-and-linlithgow",
+      "registerUrl": "https://members.parliament.uk/member/5179/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 0,
+      "giftsTotal": 0,
+      "visitsTotal": 0,
+      "earningsTotal": 0,
+      "totalFinancialValue": 0,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 323294.61,
+        "nonStaffSpend": 96290.71,
+        "staffingSpend": 227003.9,
+        "officeSpend": 27459.95,
+        "accommodationSpend": 43333.03,
+        "travelSpend": 25497.73,
+        "otherSpend": 0,
+        "secondHomeRent": 39523.03,
+        "secondHomeCouncilTax": 2442,
+        "secondHomeUtilities": 1368,
+        "londonHotels": 1718,
+        "flights": 18342.27,
+        "rail": 0,
+        "taxis": 110,
+        "dependantTravel": 0,
+        "parking": 0
+      },
+      "donations": [],
+      "gifts": [],
+      "visits": [],
+      "earnings": [],
+      "properties": [
+        {
+          "id": 7908,
+          "location": "Alicante province",
+          "country": "Spain",
+          "type": "Residential",
+          "description": "House",
+          "rentalIncome": false,
+          "ownerDetails": "co-owned with family member"
+        }
+      ],
+      "shareholdings": [
+        {
+          "id": 8787,
+          "organisation": "Yardley Programme Management Limited",
+          "description": "IT & Business management and consultancy service",
+          "threshold": "(i) Shareholdings: over 15% of issued share capital"
+        }
+      ],
+      "family": [],
+      "miscellaneousCount": 2
+    },
+    {
+      "memberId": 4998,
+      "name": "Michael Shanks",
+      "party": "Labour",
+      "constituency": "Rutherglen",
+      "constituencySlug": "rutherglen",
+      "registerUrl": "https://members.parliament.uk/member/4998/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 0,
+      "giftsTotal": 0,
+      "visitsTotal": 0,
+      "earningsTotal": 0,
+      "totalFinancialValue": 0,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 322522.05,
+        "nonStaffSpend": 81168.51,
+        "staffingSpend": 241353.54,
+        "officeSpend": 28627.26,
+        "accommodationSpend": 30314.52,
+        "travelSpend": 22226.73,
+        "otherSpend": 0,
+        "secondHomeRent": 26999.96,
+        "secondHomeCouncilTax": 1584,
+        "secondHomeUtilities": 1316.05,
+        "londonHotels": 3708,
+        "flights": 11947.19,
+        "rail": 955.04,
+        "taxis": 563.81,
+        "dependantTravel": 0,
+        "parking": 1082.9
+      },
+      "donations": [],
+      "gifts": [],
+      "visits": [],
+      "earnings": [],
+      "properties": [],
+      "shareholdings": [],
+      "family": [],
+      "miscellaneousCount": 4
+    },
+    {
+      "memberId": 5136,
+      "name": "Imogen Walker",
+      "party": "Labour",
+      "constituency": "Hamilton and Clyde Valley",
+      "constituencySlug": "hamilton-and-clyde-valley",
+      "registerUrl": "https://members.parliament.uk/member/5136/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 0,
+      "giftsTotal": 0,
+      "visitsTotal": 0,
+      "earningsTotal": 0,
+      "totalFinancialValue": 0,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 317639.94,
+        "nonStaffSpend": 96463.09,
+        "staffingSpend": 221176.85,
+        "officeSpend": 22255.25,
+        "accommodationSpend": 38653.76,
+        "travelSpend": 35554.08,
+        "otherSpend": 0,
+        "secondHomeRent": 36958.46,
+        "secondHomeCouncilTax": 1695.3,
+        "secondHomeUtilities": 0,
+        "londonHotels": 1329,
+        "flights": 25315.74,
+        "rail": 268.57,
+        "taxis": 351.52,
+        "dependantTravel": 4450.68,
+        "parking": 1762.69
+      },
+      "donations": [],
+      "gifts": [],
+      "visits": [],
+      "earnings": [],
+      "properties": [
+        {
+          "id": 7411,
+          "location": "Edinburgh",
+          "country": "United Kingdom",
+          "type": "Residential",
+          "description": null,
+          "rentalIncome": true,
+          "ownerDetails": null
+        },
+        {
+          "id": 7661,
+          "location": "Edinburgh",
+          "country": "United Kingdom",
+          "type": "Residential",
+          "description": null,
+          "rentalIncome": true,
+          "ownerDetails": null
+        }
+      ],
+      "shareholdings": [],
+      "family": [],
+      "miscellaneousCount": 1
+    },
+    {
+      "memberId": 5093,
+      "name": "Alison Taylor",
+      "party": "Labour",
+      "constituency": "Paisley and Renfrewshire North",
+      "constituencySlug": "paisley-and-renfrewshire-north",
+      "registerUrl": "https://members.parliament.uk/member/5093/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 0,
+      "giftsTotal": 0,
+      "visitsTotal": 0,
+      "earningsTotal": 0,
+      "totalFinancialValue": 0,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 317158.38,
+        "nonStaffSpend": 81272.02,
+        "staffingSpend": 235886.36,
+        "officeSpend": 35121.34,
+        "accommodationSpend": 3085,
+        "travelSpend": 41599.69,
+        "otherSpend": 1465.99,
+        "secondHomeRent": 0,
+        "secondHomeCouncilTax": 0,
+        "secondHomeUtilities": 0,
+        "londonHotels": 7879,
+        "flights": 22066.81,
+        "rail": 842.44,
+        "taxis": 1065.26,
+        "dependantTravel": 1373.7,
+        "parking": 1986.18
+      },
+      "donations": [],
+      "gifts": [],
+      "visits": [],
+      "earnings": [],
+      "properties": [
+        {
+          "id": 7747,
+          "location": "Isle of Arran",
+          "country": "United Kingdom",
+          "type": "Residential",
+          "description": "Semi- detached cottage",
+          "rentalIncome": true,
+          "ownerDetails": "Co-owned with two family members"
+        },
+        {
+          "id": 7749,
+          "location": "Andulucia",
+          "country": "Spain",
+          "type": "Residential",
+          "description": "Apartment",
+          "rentalIncome": false,
+          "ownerDetails": "Co-owned with two other family members."
+        }
+      ],
+      "shareholdings": [
+        {
+          "id": 9715,
+          "organisation": "Rubicon Land Ltd",
+          "description": "Commercial property development company, land trading ( including residential), energy storage projects, asset management and property investment in various sectors.",
+          "threshold": "(ii) Other shareholdings, valued at more than £70,000"
+        },
+        {
+          "id": 9712,
+          "organisation": "Orion Estates and Investments Ltd",
+          "description": "Investment and development of commercial property and asset management",
+          "threshold": "(i) Shareholdings: over 15% of issued share capital"
+        },
+        {
+          "id": 9709,
+          "organisation": "Orion Developments and Investments Ltd",
+          "description": "Commercial Property and development company/asset management activities",
+          "threshold": "(i) Shareholdings: over 15% of issued share capital"
+        }
+      ],
+      "family": [],
+      "miscellaneousCount": 3
+    },
+    {
+      "memberId": 5110,
+      "name": "Euan Stainbank",
+      "party": "Labour",
+      "constituency": "Falkirk",
+      "constituencySlug": "falkirk",
+      "registerUrl": "https://members.parliament.uk/member/5110/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 0,
+      "giftsTotal": 0,
+      "visitsTotal": 0,
+      "earningsTotal": 0,
+      "totalFinancialValue": 0,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 313133.97,
+        "nonStaffSpend": 71462.7,
+        "staffingSpend": 241671.27,
+        "officeSpend": 32009.15,
+        "accommodationSpend": 26686.72,
+        "travelSpend": 12766.83,
+        "otherSpend": 0,
+        "secondHomeRent": 24480,
+        "secondHomeCouncilTax": 1627.32,
+        "secondHomeUtilities": 278.2,
+        "londonHotels": 1498,
+        "flights": 1070.05,
+        "rail": 6773.25,
+        "taxis": 0,
+        "dependantTravel": 0,
+        "parking": 0
+      },
+      "donations": [],
+      "gifts": [],
+      "visits": [],
+      "earnings": [],
+      "properties": [],
+      "shareholdings": [],
+      "family": [],
+      "miscellaneousCount": 4
+    },
+    {
+      "memberId": 5196,
+      "name": "Brian Leishman",
+      "party": "Labour",
+      "constituency": "Alloa and Grangemouth",
+      "constituencySlug": "alloa-and-grangemouth",
+      "registerUrl": "https://members.parliament.uk/member/5196/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 0,
+      "giftsTotal": 0,
+      "visitsTotal": 0,
+      "earningsTotal": 0,
+      "totalFinancialValue": 0,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 306318.67,
+        "nonStaffSpend": 86488.2,
+        "staffingSpend": 219830.47,
+        "officeSpend": 20287.6,
+        "accommodationSpend": 29530.22,
+        "travelSpend": 36670.38,
+        "otherSpend": 0,
+        "secondHomeRent": 27272.95,
+        "secondHomeCouncilTax": 1302.63,
+        "secondHomeUtilities": 696.64,
+        "londonHotels": 4166.64,
+        "flights": 18932.47,
+        "rail": 1834.71,
+        "taxis": 0,
+        "dependantTravel": 574.86,
+        "parking": 2446.68
+      },
+      "donations": [],
+      "gifts": [],
+      "visits": [],
+      "earnings": [],
+      "properties": [],
+      "shareholdings": [],
+      "family": [],
+      "miscellaneousCount": 2
+    },
+    {
+      "memberId": 5057,
+      "name": "Douglas McAllister",
+      "party": "Labour",
+      "constituency": "West Dunbartonshire",
+      "constituencySlug": "west-dunbartonshire",
+      "registerUrl": "https://members.parliament.uk/member/5057/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 0,
+      "giftsTotal": 0,
+      "visitsTotal": 0,
+      "earningsTotal": 0,
+      "totalFinancialValue": 0,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 305140.4,
+        "nonStaffSpend": 90691.49,
+        "staffingSpend": 214448.91,
+        "officeSpend": 35900.77,
+        "accommodationSpend": 30021.79,
+        "travelSpend": 24768.93,
+        "otherSpend": 0,
+        "secondHomeRent": 29488.97,
+        "secondHomeCouncilTax": 0,
+        "secondHomeUtilities": 532.82,
+        "londonHotels": 0,
+        "flights": 22917.81,
+        "rail": 131.47,
+        "taxis": 0,
+        "dependantTravel": 1701.2,
+        "parking": 0
+      },
+      "donations": [],
+      "gifts": [],
+      "visits": [],
+      "earnings": [],
+      "properties": [],
+      "shareholdings": [],
+      "family": [],
+      "miscellaneousCount": 5
+    },
+    {
+      "memberId": 5129,
+      "name": "Martin McCluskey",
+      "party": "Labour",
+      "constituency": "Inverclyde and Renfrewshire West",
+      "constituencySlug": "inverclyde-and-renfrewshire-west",
+      "registerUrl": "https://members.parliament.uk/member/5129/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 0,
+      "giftsTotal": 0,
+      "visitsTotal": 0,
+      "earningsTotal": 0,
+      "totalFinancialValue": 0,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 303567.29,
+        "nonStaffSpend": 72414.32,
+        "staffingSpend": 231152.97,
+        "officeSpend": 23523.82,
+        "accommodationSpend": 25085.09,
+        "travelSpend": 23805.41,
+        "otherSpend": 0,
+        "secondHomeRent": 22685.49,
+        "secondHomeCouncilTax": 2279.6,
+        "secondHomeUtilities": 0,
+        "londonHotels": 1408,
+        "flights": 13754.16,
+        "rail": 1487.57,
+        "taxis": 2108.96,
+        "dependantTravel": 0,
+        "parking": 58
+      },
+      "donations": [],
+      "gifts": [],
+      "visits": [],
+      "earnings": [],
+      "properties": [
+        {
+          "id": 14471,
+          "location": "Greenock",
+          "country": "United Kingdom",
+          "type": "Residential",
+          "description": "Flat",
+          "rentalIncome": false,
+          "ownerDetails": null
+        }
+      ],
+      "shareholdings": [],
+      "family": [],
+      "miscellaneousCount": 0
+    },
+    {
+      "memberId": 5311,
+      "name": "Harriet Cross",
+      "party": "Conservative",
+      "constituency": "Gordon and Buchan",
+      "constituencySlug": "gordon-and-buchan",
+      "registerUrl": "https://members.parliament.uk/member/5311/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 0,
+      "giftsTotal": 0,
+      "visitsTotal": 0,
+      "earningsTotal": 0,
+      "totalFinancialValue": 0,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 291343.61,
+        "nonStaffSpend": 87350.88,
+        "staffingSpend": 203992.73,
+        "officeSpend": 26618.91,
+        "accommodationSpend": 30315.97,
+        "travelSpend": 30416,
+        "otherSpend": 0,
+        "secondHomeRent": 28599.97,
+        "secondHomeCouncilTax": 1716,
+        "secondHomeUtilities": 0,
+        "londonHotels": 597,
+        "flights": 22106.74,
+        "rail": 1539.92,
+        "taxis": 606.62,
+        "dependantTravel": 0,
+        "parking": 1694.14
+      },
+      "donations": [],
+      "gifts": [],
+      "visits": [],
+      "earnings": [],
+      "properties": [],
+      "shareholdings": [],
+      "family": [],
+      "miscellaneousCount": 0
+    },
+    {
+      "memberId": 3966,
+      "name": "Ian Murray",
+      "party": "Labour",
+      "constituency": "Edinburgh South",
+      "constituencySlug": "edinburgh-south",
+      "registerUrl": "https://members.parliament.uk/member/3966/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 0,
+      "giftsTotal": 0,
+      "visitsTotal": 0,
+      "earningsTotal": 0,
+      "totalFinancialValue": 0,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 279702.56,
+        "nonStaffSpend": 54327.16,
+        "staffingSpend": 225375.4,
+        "officeSpend": 33465.16,
+        "accommodationSpend": 6394.33,
+        "travelSpend": 14467.67,
+        "otherSpend": 0,
+        "secondHomeRent": 0,
+        "secondHomeCouncilTax": 2822.38,
+        "secondHomeUtilities": 3197.22,
+        "londonHotels": 844.2,
+        "flights": 8385.46,
+        "rail": 338.6,
+        "taxis": 136.41,
+        "dependantTravel": 2543.4,
+        "parking": 0
+      },
+      "donations": [],
+      "gifts": [],
+      "visits": [],
+      "earnings": [],
+      "properties": [
+        {
+          "id": 2189,
+          "location": "Edinburgh",
+          "country": "United Kingdom",
+          "type": "Residential",
+          "description": "flat",
+          "rentalIncome": true,
+          "ownerDetails": null
+        }
+      ],
+      "shareholdings": [
+        {
+          "id": 2572,
+          "organisation": "100MPH Events Limited (dormant)",
+          "description": "Event management",
+          "threshold": "(i) Shareholdings: over 15% of issued share capital"
+        }
+      ],
+      "family": [],
+      "miscellaneousCount": 5
+    },
+    {
+      "memberId": 5200,
+      "name": "Kenneth Stevenson",
+      "party": "Labour",
+      "constituency": "Airdrie and Shotts",
+      "constituencySlug": "airdrie-and-shotts",
+      "registerUrl": "https://members.parliament.uk/member/5200/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 0,
+      "giftsTotal": 0,
+      "visitsTotal": 0,
+      "earningsTotal": 0,
+      "totalFinancialValue": 0,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 258396.22,
+        "nonStaffSpend": 74954.32,
+        "staffingSpend": 183441.9,
+        "officeSpend": 34535.14,
+        "accommodationSpend": 25268,
+        "travelSpend": 15151.18,
+        "otherSpend": 0,
+        "secondHomeRent": 24458,
+        "secondHomeCouncilTax": 810,
+        "secondHomeUtilities": 0,
+        "londonHotels": 3951,
+        "flights": 1243.88,
+        "rail": 5523.18,
+        "taxis": 42.84,
+        "dependantTravel": 1386.86,
+        "parking": 0
+      },
+      "donations": [],
+      "gifts": [],
+      "visits": [],
+      "earnings": [],
+      "properties": [
+        {
+          "id": 10034,
+          "location": "Shotts",
+          "country": "United Kingdom",
+          "type": "Residential",
+          "description": "End terraced house",
+          "rentalIncome": false,
+          "ownerDetails": "Co-owned with my wife."
+        },
+        {
+          "id": 6420,
+          "location": "Glasgow",
+          "country": "United Kingdom",
+          "type": "Residential",
+          "description": "flat",
+          "rentalIncome": false,
+          "ownerDetails": "Co-owned with my wife."
+        },
+        {
+          "id": 6422,
+          "location": "Gran Alacant",
+          "country": "Spain",
+          "type": "Residential",
+          "description": "Flat",
+          "rentalIncome": false,
+          "ownerDetails": "Co-owned with my wife"
+        }
+      ],
+      "shareholdings": [],
+      "family": [],
+      "miscellaneousCount": 0
+    },
+    {
+      "memberId": 5063,
+      "name": "Johanna Baxter",
+      "party": "Labour",
+      "constituency": "Paisley and Renfrewshire South",
+      "constituencySlug": "paisley-and-renfrewshire-south",
+      "registerUrl": "https://members.parliament.uk/member/5063/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 0,
+      "giftsTotal": 0,
+      "visitsTotal": 0,
+      "earningsTotal": 0,
+      "totalFinancialValue": 0,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 236810.61,
+        "nonStaffSpend": 67701.57,
+        "staffingSpend": 169109.04,
+        "officeSpend": 33192.43,
+        "accommodationSpend": 0,
+        "travelSpend": 34509.14,
+        "otherSpend": 0,
+        "secondHomeRent": 0,
+        "secondHomeCouncilTax": 0,
+        "secondHomeUtilities": 0,
+        "londonHotels": 670,
+        "flights": 24821.49,
+        "rail": 416.74,
+        "taxis": 74.45,
+        "dependantTravel": 0,
+        "parking": 2529.94
+      },
+      "donations": [],
+      "gifts": [],
+      "visits": [],
+      "earnings": [],
+      "properties": [],
+      "shareholdings": [],
+      "family": [
+        {
+          "id": 6610,
+          "kind": "lobbying",
+          "personName": "Mark Henry Glover",
+          "relation": "Spouse",
+          "jobTitle": "Executive Chairman",
+          "employer": "SEC Newgate UK"
+        }
+      ],
+      "miscellaneousCount": 0
+    },
+    {
+      "memberId": 632,
+      "name": "Mr Douglas Alexander",
+      "party": "Labour (Co-op)",
+      "constituency": "Lothian East",
+      "constituencySlug": "lothian-east",
+      "registerUrl": "https://members.parliament.uk/member/632/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 0,
+      "giftsTotal": 0,
+      "visitsTotal": 0,
+      "earningsTotal": 0,
+      "totalFinancialValue": 0,
+      "expenses": {
+        "year": "2025/26",
+        "totalSpend": 197913.06,
+        "nonStaffSpend": 48422.47,
+        "staffingSpend": 149490.59,
+        "officeSpend": 31501.1,
+        "accommodationSpend": 6492.52,
+        "travelSpend": 10428.85,
+        "otherSpend": 0,
+        "secondHomeRent": 0,
+        "secondHomeCouncilTax": 4093.21,
+        "secondHomeUtilities": 0,
+        "londonHotels": 0,
+        "flights": 3669.3,
+        "rail": 5222.9,
+        "taxis": 0,
+        "dependantTravel": 1221.82,
+        "parking": 0
+      },
+      "donations": [],
+      "gifts": [],
+      "visits": [],
+      "earnings": [],
+      "properties": [
+        {
+          "id": 7223,
+          "location": "Argyll",
+          "country": "United Kingdom",
+          "type": "Residential",
+          "description": null,
+          "rentalIncome": false,
+          "ownerDetails": "Co-owned with sibling"
+        },
+        {
+          "id": 7222,
+          "location": "East Lothian",
+          "country": "United Kingdom",
+          "type": "Residential",
+          "description": null,
+          "rentalIncome": false,
+          "ownerDetails": "Co-owned with my wife"
+        }
+      ],
+      "shareholdings": [],
+      "family": [],
+      "miscellaneousCount": 1
+    },
+    {
+      "memberId": 5450,
+      "name": "Douglas Lumsden",
+      "party": "Conservative",
+      "constituency": "Aberdeen South",
+      "constituencySlug": "aberdeen-south",
+      "registerUrl": "https://members.parliament.uk/member/5450/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 0,
+      "giftsTotal": 0,
+      "visitsTotal": 0,
+      "earningsTotal": 0,
+      "totalFinancialValue": 0,
+      "expenses": null,
+      "donations": [],
+      "gifts": [],
+      "visits": [],
+      "earnings": [
+        {
+          "id": 16162,
+          "role": "Member of the Scottish Parliament for North East Scotland (Region)",
+          "payer": "Scottish Parliament",
+          "value": 0,
+          "regularity": null,
+          "hours": null,
+          "description": null
+        }
+      ],
+      "properties": [],
+      "shareholdings": [],
+      "family": [],
+      "miscellaneousCount": 0
+    },
+    {
+      "memberId": 5449,
+      "name": "Lara Bird",
+      "party": "Scottish National Party",
+      "constituency": "Arbroath and Broughty Ferry",
+      "constituencySlug": "arbroath-and-broughty-ferry",
+      "registerUrl": "https://members.parliament.uk/member/5449/registeredinterests",
+      "ipsaUrl": "https://www.theipsa.org.uk/mp-staffing-business-costs/your-mp",
+      "donationsTotal": 0,
+      "giftsTotal": 0,
+      "visitsTotal": 0,
+      "earningsTotal": 4556.33,
+      "totalFinancialValue": 0,
+      "expenses": null,
+      "donations": [],
+      "gifts": [],
+      "visits": [],
+      "earnings": [
+        {
+          "id": 16312,
+          "role": "Agreement - £4,556.33",
+          "payer": null,
+          "value": 4556.33,
+          "regularity": "Monthly",
+          "hours": 40,
+          "description": null
+        },
+        {
+          "id": 16306,
+          "role": "Senior Parliamentary Researcher",
+          "payer": "IPSA",
+          "value": 0,
+          "regularity": null,
+          "hours": null,
+          "description": null
+        }
+      ],
+      "properties": [],
+      "shareholdings": [],
+      "family": [],
+      "miscellaneousCount": 0
+    }
+  ]
+}

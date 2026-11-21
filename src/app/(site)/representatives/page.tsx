@@ -99,6 +99,9 @@ export default function RepresentativesPage() {
           <RepresentativeLookup />
           <div className="my-6 flex flex-wrap gap-4 text-[16px] font-semibold">
             <Link href="/representatives/msps">Browse all 129 MSPs →</Link>
+            <Link href="/mp-expenses-scotland">
+              See MP donations, foreign trips & gifts (£297k declared) →
+            </Link>
             <Link href="/msp-reviews">Read or leave MSP reviews →</Link>
           </div>
           <RepresentativeDirectorySearch entries={directoryEntries} />

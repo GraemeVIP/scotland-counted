@@ -44,6 +44,12 @@ const CORE: Item[] = [
     keywords: "who is my mp names contact email phone westminster representatives",
   },
   {
+    label: "MP Register of Interests Scotland: Donations, Trips & Freebies",
+    href: "/mp-expenses-scotland",
+    group: "Main pages",
+    keywords: "mp register of interests donations gifts hospitality foreign trips second jobs landlords lobbying scotland",
+  },
+  {
     label: "Every current Scottish MSP",
     href: "/representatives/msps",
     group: "Main pages",

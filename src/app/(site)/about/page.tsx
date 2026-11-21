@@ -59,6 +59,7 @@ const WHAT_IT_DOES = [
     links: [
       { href: "/who-is-my-msp", label: "Who is my MSP" },
       { href: "/representatives", label: "MPs and MSPs directory" },
+      { href: "/mp-expenses-scotland", label: "MP donations & interests" },
       { href: "/who-decides", label: "Who decides what" },
       { href: "/blog/operation-branchform-snp-money-timeline", label: "Operation Branchform timeline" },
     ],

@@ -14,7 +14,12 @@ import {
 import { JsonLd, breadcrumbJsonLd, faqJsonLd, meta } from "@/lib/seo";
 import { site } from "@/lib/site";
 import MemberVoteList from "@/components/MemberVoteList";
+import MpInterestsCard from "@/components/MpInterestsCard";
 import PortraitLightbox from "@/components/PortraitLightbox";
+import {
+  getMpInterestsByConstituencySlug,
+  MP_INTERESTS_CHECKED_ISO,
+} from "@/lib/data/mpInterests";
 
 export function generateStaticParams() {
   return mps.map((mp) => ({ slug: mp.constituencySlug }));
@@ -27,7 +32,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   return meta({
     title: `MP for ${mp.constituency}: ${mp.name}`,
-    description: `${mp.name} is the MP for ${mp.constituency}. See their party, email, phone, address and official UK Parliament profile.`,
+    description: `${mp.name} is the MP for ${mp.constituency}. See their party, email, phone, voting record, declared donations, foreign trips and official UK Parliament profile.`,
     path: `/representatives/mps/${slug}`,
   });
 }
@@ -61,6 +66,7 @@ export default async function MpPage({ params }: { params: Promise<{ slug: strin
   const mp = getMpByConstituencySlug(slug);
   const constituency = getConstituency(slug);
   if (!mp || !constituency) notFound();
+  const interests = getMpInterestsByConstituencySlug(slug);
 
   const checked = formatMpCheckedDate();
   const latestIndex = CONSTITUENCY_YEARS.length - 1;
@@ -225,9 +231,12 @@ export default async function MpPage({ params }: { params: Promise<{ slug: strin
                   <a href={preparedEmail} className="btn btn-primary justify-center text-center">
                     Open a ready written email
                   </a>
-                  <a href={mp.profileUrl} className="btn btn-ghost justify-center text-center">
-                    Official Parliament profile
-                  </a>
+                  <Link
+                    href="/mp-expenses-scotland"
+                    className="btn btn-ghost justify-center text-center"
+                  >
+                    Compare all 57 MPs&apos; expenses
+                  </Link>
                 </div>
                 <p className="ui mt-4 text-[15px] leading-[1.5] text-[var(--ink-2)]">
                   The draft opens in your own email app. Read it, add your address and change
@@ -253,6 +262,19 @@ export default async function MpPage({ params }: { params: Promise<{ slug: strin
               </aside>
             </div>
           </section>
+
+          {interests && (
+            <section id="donations-and-interests" className="pt-10 scroll-mt-24">
+              <MpInterestsCard
+                interests={interests}
+                checkedDate={MP_INTERESTS_CHECKED_ISO}
+                email={mp.email}
+                povertyCount={povertyCount}
+                povertyRate={povertyRate}
+                povertyYear={povertyYear}
+              />
+            </section>
+          )}
 
           <section className="pt-10">
             <MemberVoteList name={mp.name} votes={mp.votes ?? []} parliament="Commons" />
@@ -280,14 +302,14 @@ export default async function MpPage({ params }: { params: Promise<{ slug: strin
           <section className="pt-12 max-w-[760px]">
             <h2 className="h2 mb-4">Where this information comes from</h2>
             <p className="text-[17px] leading-[1.65] text-[var(--ink-2)]">
-              The name, party and public contact details came from {" "}
-              <a href={mp.profileUrl}>UK Parliament&apos;s official record</a>. I checked them on {" "}
-              <time dateTime={MP_DATA_CHECKED_ISO}>{checked}</time>. The page keeps a checked copy,
-              so it still works if Parliament&apos;s website is temporarily unavailable.
+              The name, party and public contact details came from UK Parliament&apos;s official
+              member record, checked on <time dateTime={MP_DATA_CHECKED_ISO}>{checked}</time>. The
+              page keeps a checked copy, so it still works if Parliament&apos;s website is
+              temporarily unavailable.
             </p>
             <p className="mt-4 text-[15px] leading-[1.55] text-[var(--ink-2)]">
-              Portrait: <a href={mp.photoSourceUrl}>UK Parliament member record</a>. The local copy
-              is used so the page remains dependable when the official site is busy.
+              Portrait: UK Parliament member record. The local copy is used so the page remains
+              dependable when the official site is busy.
             </p>
             <p className="mt-4 text-[15px] leading-[1.55] text-[var(--ink-2)]">
               MPs can change after an election, resignation or by election. Checked dates are shown

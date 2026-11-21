@@ -271,6 +271,7 @@ export const HUBS: Hub[] = [
           { href: "/who-is-my-local-councillor-by-postcode", label: "Who is my local councillor" },
           { href: "/representatives/msps", label: "All 129 MSPs" },
           { href: "/representatives", label: "All 57 MPs" },
+          { href: "/mp-expenses-scotland", label: "MP expenses and donations", tag: "New" },
         ],
       },
       {
