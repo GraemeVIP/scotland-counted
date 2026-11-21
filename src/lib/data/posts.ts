@@ -142,6 +142,61 @@ export type Post = {
 
 export const posts: Post[] = [
   {
+    slug: "worst-scottish-mp-expenses",
+    title:
+      "£3,090 to set up broadband, £3,000 for a speech coach and £546 to clean the drains: the worst Scottish MP expenses",
+    seoTitle: "Worst Scottish MP Expenses: £3,090 Broadband, Speech Coach & More",
+    description:
+      "£3,090 to set up home broadband, £3,000 for a speech coach, £13,117 for a glossy report about the MP. The worst Scottish MP expenses, all paid by you.",
+    standfirst:
+      "We went through all 21,017 expense lines filed by Scotland's MPs since 2022. Here are the claims that made us stop and read them twice. Every one was approved. Every one was paid by you.",
+    date: "2026-11-21",
+    updated: "2026-11-21",
+    checked: "2026-11-21",
+    category: "politics-explained",
+    tags: ["MP expenses Scotland", "IPSA", "Westminster", "Scottish Labour", "SNP"],
+    readingMinutes: 5,
+    image: {
+      src: "/images/editorial/refresh-court-records.webp",
+      alt: "Official folders and financial ledgers on a desk, for the worst expense claims by Scottish MPs",
+      caption:
+        "Every claim in this article comes from IPSA's own published records, 2022/23 to 2026/27.",
+      aspect: "wide",
+      objectPosition: "center",
+    },
+    shareImage: {
+      src: "/images/editorial/refresh-court-records.webp",
+      width: 1500,
+      height: 1000,
+      type: "image/webp",
+    },
+    toc: [
+      { id: "broadband", label: "£3,090 to set up broadband" },
+      { id: "speech-coach", label: "A speech coach and drain cleaning" },
+      { id: "self-promotion", label: "Paying to promote themselves" },
+      { id: "consultants", label: "Consultants and PR firms" },
+      { id: "perks", label: "Dinners, Christmas lunch, sofas and phones" },
+      { id: "second-homes", label: "Second homes, paid for by you" },
+      { id: "repeat-names", label: "The names that keep coming up" },
+      { id: "why-hidden", label: "Why you've never heard about this" },
+    ],
+    faq: [
+      {
+        q: "Which Scottish MP claimed £3,090 for broadband?",
+        a: "Chris Law, then the SNP MP for Dundee West, claimed £3,090 in July 2022 for a \"Home 5G mobile broadband installation\", according to IPSA's records. A typical phone or internet setup claim by a Scottish MP is £90. The record does not say which home it was for or who was paid.",
+      },
+      {
+        q: "Were these expense claims allowed?",
+        a: "Yes. IPSA, the body that runs MPs' expenses, approved and paid every claim in this article. We found no broken rules. The question is whether the rules should allow them.",
+      },
+      {
+        q: "Where do these figures come from?",
+        a: "From IPSA's own published claim files for 2022/23 to 2026/27. We read all 21,017 lines filed by Scotland's current MPs. Descriptions in quotes are IPSA's own wording.",
+      },
+    ],
+    sourceIds: ["ipsa-claims-2022-2027", "ofcom-connected-nations-2022", "ispreview-starlink-2022"],
+  },
+  {
     slug: "causeway-creative-labour-councillor-mp-expenses",
     title:
       "A Labour councillor set up a PR firm the week Labour won. MPs have since paid it £270,033 of public money",

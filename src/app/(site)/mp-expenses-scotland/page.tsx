@@ -736,18 +736,23 @@ export default function MpRegisterOfInterestsScotlandPage() {
                   Things you paid for and never knew about
                 </h2>
               </div>
-              <Link
-                href="/mp-expenses-scotland/receipts"
-                className="btn btn-primary shrink-0"
-              >
-                See all the receipts →
-              </Link>
+              <div className="flex shrink-0 flex-wrap gap-2.5">
+                <Link href="/mp-expenses-scotland/receipts" className="btn btn-primary">
+                  See all the receipts →
+                </Link>
+                <Link
+                  href="/blog/worst-scottish-mp-expenses"
+                  className="btn border border-white/30 bg-white/10 text-white hover:bg-white/20"
+                >
+                  Read the worst of them
+                </Link>
+              </div>
             </div>
             <ul className="mt-6 grid gap-3 sm:grid-cols-3">
               {[
                 ["£3,000", "a speech and presentation skills workshop", "Angus MacDonald"],
-                ["£546", "jet-washing the drains at a second home", "Angus MacDonald"],
-                ["£3,090", "just to set up broadband at his home (a typical set-up claim is £90)", "Chris Law"],
+                ["£546", "jet washing the drains at a second home", "Angus MacDonald"],
+                ["£3,090", "just to set up broadband at his home (a typical setup claim is £90)", "Chris Law"],
               ].map(([amount, what, who]) => (
                 <li
                   key={what}

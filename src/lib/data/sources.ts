@@ -2076,6 +2076,27 @@ export const sources: Source[] = [
     url: "https://votes.parliament.uk/",
     used: "The recorded Aye and No votes of all 57 Scottish MPs on removing the two child benefit limit on Universal Credit in February 2026.",
   },
+  {
+    id: "ipsa-claims-2022-2027",
+    title: "Individual Business Costs: 2022/23 to 2026/27 claim files",
+    publisher: "Independent Parliamentary Standards Authority (IPSA)",
+    url: "https://www.theipsa.org.uk/mp-staffing-business-costs/annual-publications",
+    used: "Every expense line filed by Scotland's current MPs from 2022/23 to 2026/27 so far (21,017 lines), read line by line. Claim descriptions are quoted exactly.",
+  },
+  {
+    id: "ofcom-connected-nations-2022",
+    title: "Connected Nations 2022: Scotland and England reports",
+    publisher: "Ofcom",
+    url: "https://www.ofcom.org.uk/research-and-data/telecoms-research/connected-nations/connected-nations-2022",
+    used: "Superfast broadband coverage of 99% in Dundee City and 98% in urban England, and about 80,000 UK premises without decent broadband (September 2022).",
+  },
+  {
+    id: "ispreview-starlink-2022",
+    title: "Starlink cuts UK ultrafast LEO satellite home broadband prices",
+    publisher: "ISPreview",
+    url: "https://www.ispreview.co.uk/index.php/2022/08/starlink-cuts-uk-ultrafast-leo-satellite-home-broadband-prices.html",
+    used: "Starlink's UK kit price of £529 before 24 August 2022.",
+  },
   ...snpMoneyTimelineSources,
 ];
 

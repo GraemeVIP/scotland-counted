@@ -74,7 +74,7 @@ const RECEIPTS: Receipt[] = [
   },
   {
     amount: "£546",
-    what: "Jet-washing the drains at his second home",
+    what: "Jet washing the drains at his second home",
     mp: "Angus MacDonald",
     party: "Liberal Democrat",
     seat: "Inverness, Skye and West Ross-shire",
@@ -99,12 +99,12 @@ const RECEIPTS: Receipt[] = [
     budget: "Office budget",
     ipsa: ["Home 5G mobile broadband installation"],
     context:
-      "In plain terms: home broadband that runs on a phone signal comes as a box you plug into the wall. No engineer is needed. This was a single set-up charge, paid in July 2022. The record does not say which home. He had his own home and a rented flat in Westminster, central London, paid for by taxpayers. Ofcom says 99% of homes in Dundee City, his seat then, could get ordinary superfast broadband that year.",
+      "In plain terms: home broadband that runs on a phone signal comes as a box you plug into the wall. No engineer is needed. This was a single setup charge, paid in July 2022. The record does not say which home. He had his own home and a rented flat in Westminster, central London, paid for by taxpayers. Ofcom says 99% of homes in Dundee City, his seat then, could get superfast broadband that year, and basic broadband reached even more. Many people simply use their phone as a hotspot.",
     compare: [
       ["Three's 5G home broadband router, July 2022", "Free with a monthly plan"],
       ["Starlink satellite broadband kit, for the remotest homes, July 2022", "£529"],
-      ["A typical phone or internet set-up claim by a Scottish MP", "£90"],
-      ["The next biggest set-up claim by any Scottish MP", "£691"],
+      ["A typical phone or internet setup claim by a Scottish MP", "£90"],
+      ["The next biggest setup claim by any Scottish MP", "£691"],
       ["Chris Law's claim", "£3,090"],
     ],
   },
@@ -433,6 +433,9 @@ export default function MpExpenseReceiptsPage() {
             </Link>
             <Link href="/mp-expenses-scotland" className="btn btn-ghost">
               All 57 MPs ranked →
+            </Link>
+            <Link href="/blog/worst-scottish-mp-expenses" className="btn btn-ghost">
+              Read the worst of them →
             </Link>
           </div>
           <SharePage
