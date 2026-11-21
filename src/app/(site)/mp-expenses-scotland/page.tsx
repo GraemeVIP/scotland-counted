@@ -90,7 +90,7 @@ const SPOTLIGHT_LEADERS: SpotlightEntry[] = [
     headlineStat: "£37,359",
     headlineLabel: "billed to taxpayers for 295 nights in London hotels in one year",
     taxpayerSummary:
-      "Instead of renting a flat, billed taxpayers £37,358.58 for 295 nights in London hotels (nearly double the £20,850 a full time Minimum Wage worker takes home in a year), plus £8,351 for flights and £4,204 for family travel.",
+      "Claimed no London rent but billed taxpayers £37,358.58 for 295 nights in London hotels, about £127 a night and mostly month-long block bookings of a flat (nearly double the £20,850 a full time Minimum Wage worker takes home in a year), plus £8,351 for flights and £4,204 for family travel.",
     freebiesSummary:
       "Declared a £30,000 private donation from Francesca Sainsbury Perrin plus £13,890 in outside surgeon payments.",
     emailReason:
@@ -469,7 +469,8 @@ export default function MpRegisterOfInterestsScotlandPage() {
       <>
         49 MPs claimed <strong>£1,383,619.92</strong> for London flat rent (up to{" "}
         <strong>£42,000 a year</strong>), 8 MPs claimed <strong>£45,614.77</strong> for their own London
-        hotel stays (up to <strong>£37,359</strong> for Dr Zubir Ahmed MP), and 10 MPs received{" "}
+        hotel stays (up to <strong>£37,359</strong> for Dr Zubir Ahmed MP,{" "}
+        <Link href="/mp-expenses-scotland/receipts#hotel-nights">night by night</Link>), and 10 MPs received{" "}
         <strong>£205,242.29</strong> in private donor funding (up to <strong>£30,000</strong> each).
       </>,
       <>

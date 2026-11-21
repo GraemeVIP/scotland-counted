@@ -302,9 +302,11 @@ export default function Post() {
           <Link href="/representatives/mps/glasgow-south-west#donations-and-interests">
             Dr Zubir Ahmed
           </Link>{" "}
-          did not rent a London flat in 2025/26. Instead, he billed taxpayers{" "}
-          <strong>£37,358.58 for 295 nights in London hotels</strong>, plus{" "}
-          <strong>£4,204.44</strong> for family travel. To put £37,359 for hotel rooms in
+          claimed no London rent in 2025/26. Instead, he billed taxpayers{" "}
+          <strong>£37,358.58 for 295 nights in London hotels</strong>, about £127 a night. Most of
+          the claims are month-long block bookings of a flat, which IPSA files as hotels (
+          <Link href="/mp-expenses-scotland/receipts#hotel-nights">see every claim</Link>). He also
+          claimed <strong>£4,204.44</strong> for family travel. To put £37,359 in
           perspective, a full time worker on the{" "}
           <Link href="/minimum-wage-scotland">Minimum Wage in Scotland</Link> takes home roughly
           £20,850 for a whole year&apos;s work after tax. In Dr Ahmed&apos;s{" "}

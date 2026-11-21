@@ -277,7 +277,7 @@ const BIG_TABS: { mp: string; slug: string; party: string; what: string; amount:
     party: "Labour",
     what: "London hotels",
     amount: "£37,359",
-    note: "295 nights in one year, instead of renting a flat",
+    note: "295 nights in one year, about £127 a night, booked by the month",
   },
   {
     mp: "John Grady",
@@ -337,6 +337,35 @@ const BIG_TABS: { mp: string; slug: string; party: string; what: string; amount:
   },
 ];
 
+/*
+ * Dr Zubir Ahmed's 14 London accommodation claims for 2025/26, exactly as IPSA
+ * lists them (date, nights, amount paid, IPSA's own description with reference
+ * codes removed). IPSA files every one under "Accommodation · Hotel - London".
+ */
+const ZUBIR_NIGHTS: [date: string, nights: number, paid: number, ipsa: string][] = [
+  ["1 Mar 2025", 1, 91.8, "accommodation hire for parliament"],
+  ["27 Mar 2025", 29, 3230.0, "airbnb block booking for 29 nights"],
+  ["29 Apr 2025", 30, 3490.0, "Accommodation london 30 night block booking"],
+  ["30 Apr 2025", 1, 184.8, "hotel stay while in parliament 30 April"],
+  ["27 May 2025", 25, 3615.0, "Accommodation london 25 night block booking"],
+  ["21 Jun 2025", 28, 4840.0, "Accommodation london 28 night block booking"],
+  ["20 Jul 2025", 10, 1113.0, "block booked london accommodation"],
+  ["1 Sep 2025", 10, 1124.26, "MP Accommodation - Block Booking of flat, charging for 10 nights"],
+  ["1 Oct 2025", 30, 3537.98, "MP Accommodation - Block Booking of flat"],
+  ["1 Nov 2025", 28, 2794.56, "MP Accommodation - Block Booking of flat"],
+  ["1 Dec 2025", 19, 3315.5, "Mp Accommodation - Block Booking of flat"],
+  ["1 Jan 2026", 28, 3270.06, "MP Accommodation - Block Booking of flat"],
+  ["1 Feb 2026", 28, 3323.61, "MP Accommodation - Block Booking of flat"],
+  ["1 Mar 2026", 28, 3428.01, "MP Accommodation - Block Booking of flat"],
+];
+const ZUBIR_TOTAL = ZUBIR_NIGHTS.reduce((sum, r) => sum + r[2], 0);
+const ZUBIR_NIGHT_COUNT = ZUBIR_NIGHTS.reduce((sum, r) => sum + r[1], 0);
+const gbp = (n: number, pence = true) =>
+  `£${n.toLocaleString("en-GB", { minimumFractionDigits: pence ? 2 : 0, maximumFractionDigits: pence ? 2 : 0 })}`;
+const ONS_EARNINGS_2026 =
+  "https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/bulletins/annualsurveyofhoursandearnings/2026";
+const IPSA_ACCOMMODATION = "https://information.ipsaonline.org.uk/guidance/accommodation-costs";
+
 const ALL_MPS: [string, string][] = [
   ["£9,160", "newspaper and magazine subscriptions (72 claims)"],
   ["£3,863", "TV licences (32 claims)"],
@@ -383,6 +412,10 @@ const FAQ = [
   {
     q: "Why can't I see every taxi or flight?",
     a: "IPSA rolls most travel into one yearly total per MP, labelled 'Aggregated figure for travel'. Of the 6,101 Scottish lines in 2025/26, 2,009 are totals like this, and 199 more have the supplier blanked out with [***]. You can see how much was spent, but not on which journeys.",
+  },
+  {
+    q: "How much does Zubir Ahmed spend a night on London hotels?",
+    a: "About £127 a night on average in 2025/26. IPSA paid £37,358.58 for 295 nights across 14 claims, which works out at roughly £3,113 a month. Most claims are month-long block bookings of a flat, which IPSA files under London hotels. Every claim averaged below IPSA's £230 London limit.",
   },
   {
     q: "How do I check my own MP's expenses?",
@@ -566,7 +599,90 @@ export default function MpExpenseReceiptsPage() {
             </ul>
           </div>
 
-          <p className="ui mt-4 text-[15px] leading-[1.55] text-[var(--ink-2)]">
+          {/* ONE MP'S LONDON NIGHTS, CLAIM BY CLAIM */}
+          <div id="hotel-nights" className="mt-12">
+            <h3 className="ui text-[22px] font-[680] leading-[1.25] text-[var(--ink)]">
+              {gbp(ZUBIR_TOTAL, false)} of London nights, claim by claim
+            </h3>
+            <p className="ui mt-3 max-w-[68ch] text-[15.5px] leading-[1.6] text-[var(--ink-2)]">
+              Dr Zubir Ahmed&apos;s London accommodation is not one yearly bill. IPSA lists{" "}
+              {ZUBIR_NIGHTS.length} separate claims for 2025/26, each with the number of nights. Most
+              are month-long block bookings, eight of them for a flat, one through Airbnb. IPSA files
+              them all under &ldquo;Hotel - London&rdquo;.
+            </p>
+
+            <div className="mt-6 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
+              {[
+                [gbp(ZUBIR_TOTAL / ZUBIR_NIGHT_COUNT), "a night, on average"],
+                [`${ZUBIR_NIGHT_COUNT}`, "nights paid for in one year, about 42 weeks"],
+                [gbp(ZUBIR_TOTAL / 12, false), "a month, on average"],
+                [`${ZUBIR_NIGHTS.length}`, "separate claims in one year"],
+              ].map(([n, label]) => (
+                <div key={label} className="tile p-4 sm:p-5">
+                  <p className="figure-num tnum text-[26px] leading-none text-[var(--bad-text)] sm:text-[30px]">{n}</p>
+                  <p className="ui mt-2 text-[14px] leading-[1.4] text-[var(--ink-2)]">{label}</p>
+                </div>
+              ))}
+            </div>
+
+            <p className="ui mt-5 max-w-[68ch] text-[15.5px] leading-[1.6] text-[var(--ink-2)]">
+              <strong className="text-[var(--ink)]">{gbp(ZUBIR_TOTAL, false)} is close to a typical full-time salary.</strong>{" "}
+              The middle UK full-time worker earned{" "}
+              <a href={ONS_EARNINGS_2026} target="_blank" rel="noopener noreferrer">
+                £39,157 a year before tax
+              </a>{" "}
+              in April 2025, according to the Office for National Statistics.
+            </p>
+
+            <div className="tile mt-6 overflow-hidden">
+              <ul className="divide-y divide-[var(--rule)]">
+                {ZUBIR_NIGHTS.map(([date, nights, paid, ipsa]) => (
+                  <li
+                    key={date + ipsa}
+                    className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-x-4 px-4 py-3 sm:px-6"
+                  >
+                    <div className="min-w-0">
+                      <p className="ui text-[15.5px] font-[660] text-[var(--ink)]">
+                        {date} · {nights} {nights === 1 ? "night" : "nights"}
+                      </p>
+                      <p className="ui mt-0.5 text-[13.5px] leading-[1.4] text-[var(--muted)]">&ldquo;{ipsa}&rdquo;</p>
+                    </div>
+                    <div className="text-right">
+                      <p className="figure-num tnum text-[19px] leading-none text-[var(--ink)]">{gbp(paid)}</p>
+                      <p className="ui tnum mt-1 text-[13px] text-[var(--muted)]">{gbp(paid / nights)} a night</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <p className="ui mt-2 text-[13px] text-[var(--muted)]">
+              Dates and wording exactly as IPSA prints them, with reference codes removed.
+            </p>
+
+            <p className="ui mt-5 max-w-[68ch] text-[15.5px] leading-[1.6] text-[var(--ink-2)]">
+              <strong className="text-[var(--ink)]">Is it allowed?</strong> Yes. MPs can use hotels
+              instead of renting, paid from their accommodation budget, and IPSA lets them group nights
+              into one booking.{" "}
+              <a href={IPSA_ACCOMMODATION} target="_blank" rel="noopener noreferrer">
+                IPSA&apos;s London limit is £230 a night
+              </a>
+              , and every claim here averages less than that. Most bookings run for a whole month,
+              weekends included, though the Commons usually sits Monday to Thursday.
+            </p>
+            <p className="ui mt-3 max-w-[68ch] text-[15.5px] leading-[1.6] text-[var(--ink-2)]">
+              <strong className="text-[var(--ink)]">How does it compare?</strong> It is more than the
+              £27,873 rent paid by the middle Scottish MP who rents a second home. But six Scottish MPs
+              cost more in total for their second homes once bills are added, led by John Grady at
+              £45,573.
+            </p>
+            <p className="ui mt-3 max-w-[68ch] text-[15.5px] leading-[1.6] text-[var(--ink-2)]">
+              <strong className="text-[var(--ink)]">Since the election:</strong> 548 nights and
+              £67,519 from July 2024 to his latest published claim, dated April 2026. The three claims
+              so far for 2026/27 cover 75 nights at about £145 a night.
+            </p>
+          </div>
+
+          <p className="ui mt-10 text-[15px] leading-[1.55] text-[var(--ink-2)]">
             <strong className="text-[var(--ink)]">Why do MPs have second homes at all?</strong> MPs
             work in two places, so the public pays for a second home. An MP can even own it and still
             claim its council tax and bills.{" "}

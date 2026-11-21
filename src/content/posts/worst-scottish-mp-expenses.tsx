@@ -191,7 +191,8 @@ export default function WorstScottishMpExpenses() {
       </P>
       <P>
         <Link href={mp("glasgow-south-west")}>Dr Zubir Ahmed</Link> billed £37,359 for 295 nights in
-        London hotels in a single year, instead of renting a flat. <Link href={mp("glasgow-east")}>John Grady</Link> billed
+        London hotels in a single year, about £127 a night, mostly month-long block bookings of a flat (
+        <Link href="/mp-expenses-scotland/receipts#hotel-nights">every claim, night by night</Link>). <Link href={mp("glasgow-east")}>John Grady</Link> billed
         £42,000 in London rent. That&apos;s £3,500 a month.
       </P>
 
