@@ -261,9 +261,9 @@ export default function Post() {
         template. The words are the template. Even the photos are the template.
       </P>
       <P>
-        Copying a template like this onto a new web address and swapping the names in is, in my
-        view, an hour or two&apos;s work. Not weeks. The find and replace mistakes show that&apos;s
-        roughly how it was done.
+        Copying a template like this onto a new web address and swapping the names in is an hour
+        or two&apos;s work. Not weeks. The find and replace mistakes show that&apos;s exactly how
+        it was done.
       </P>
 
       <H2 id="the-money">8. What it cost you</H2>
