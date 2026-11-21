@@ -826,7 +826,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
           </h3>
           <ExplainText>
             <div className="mt-5 grid gap-4 md:grid-cols-2">
-              <div className="tile p-6">
+              <div id="why-second-homes" className="tile scroll-mt-24 p-6">
                 <span className="chip mb-3">01 · Why do they get 2nd homes?</span>
                 <h3 className="ui text-[18px] font-[660] leading-[1.3] text-[var(--ink)]">
                   Why taxpayers pay for two properties (and bills on homes MPs already own)
@@ -850,6 +850,11 @@ export default function MpRegisterOfInterestsScotlandPage() {
                     Angus MacDonald
                   </Link>{" "}
                   (£3,314 utilities + £546 drain jet-washing + £3,000 speech coaching) all did.
+                </p>
+                <p className="mt-2.5 text-[15px] leading-[1.6] text-[var(--ink-2)]">
+                  It can cost double. Many Scottish councils, including East Lothian since April 2024,
+                  charge double council tax on second homes. IPSA told the Telegraph it raised
+                  MPs&apos; accommodation budgets to cover that, so taxpayers pick up the extra too.
                 </p>
               </div>
 

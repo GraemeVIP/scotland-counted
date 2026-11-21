@@ -215,7 +215,7 @@ const BIG_TABS: { mp: string; slug: string; party: string; what: string; amount:
     party: "Labour (Co-op)",
     what: "Second home council tax",
     amount: "£4,093",
-    note: "On a home where he claims no rent",
+    note: "On his own house in East Lothian, which he lists as his second home",
   },
   {
     mp: "Angus MacDonald",
@@ -435,6 +435,13 @@ export default function MpExpenseReceiptsPage() {
               ))}
             </ul>
           </div>
+
+          <p className="ui mt-4 text-[15px] leading-[1.55] text-[var(--ink-2)]">
+            <strong className="text-[var(--ink)]">Why do MPs have second homes at all?</strong> MPs
+            work in two places, so the public pays for a second home. An MP can even own it and still
+            claim its council tax and bills.{" "}
+            <Link href="/mp-expenses-scotland#why-second-homes">How the second home rules work →</Link>
+          </p>
 
           <h3 className="ui mt-12 text-[22px] font-[680] leading-[1.25] text-[var(--ink)]">
             And across all 55 Scottish MPs with claims in 2025/26
