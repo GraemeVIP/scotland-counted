@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "@/components/IntentLink";
 import { Page, ContentFrame, PageHeader, SectionHead, CTA, Callout } from "@/components/Blocks";
-import { ExplainText } from "@/components/Glossary";
+import { ExplainText } from "@/components/ExplainServer";
 import SharePage from "@/components/SharePage";
 import QuickAnswer from "@/components/QuickAnswer";
 import Faq from "@/components/Faq";
@@ -15,11 +15,7 @@ import {
   imageJsonLd,
   meta,
 } from "@/lib/seo";
-import {
-  mpInterests,
-  MP_INTERESTS_CHECKED_ISO,
-  MP_INTERESTS_TOTALS,
-} from "@/lib/data/mpInterests";
+import { mpInterests, MP_INTERESTS_CHECKED_ISO, MP_INTERESTS_TOTALS } from "@/lib/data/mpInterests";
 import { mps } from "@/lib/data/mps";
 import { CONSTITUENCY_YEARS, getConstituency } from "@/lib/data/constituencies";
 import MpInterestsExplorer from "./MpInterestsExplorer";
@@ -179,13 +175,13 @@ const MORE_SPOTLIGHT_LEADERS: SpotlightEntry[] = [
     slug: "east-kilbride-and-strathaven",
     badge: "£2,400 Freebie From Her Husband's Own Firm",
     headlineStat: "£85,563",
-    headlineLabel: "in expenses (not counting staff) + husband is paid to sway politicians",
+    headlineLabel: "in non-staff expenses + husband is a lobbyist",
     taxpayerSummary:
       "£31,366 for London flat rent (£2,614/month), £1,791 for 12 London hotel nights on top of that flat, £9,906 for flights and £3,941 for family flights (£348,096 total including staff). Also declares rental property income.",
     freebiesSummary:
-      "Declared £2,400 of free media training (coaching on how to handle TV and press interviews) from Earthcott Ltd. Companies House shows Earthcott is her husband David Taylor's own firm: he is its only director and owns over 75% of it. She also declares that he is paid by clients to persuade politicians (lobbying). So a perk worth £2,400 came from her husband's business, on top of £3,500 she billed taxpayers for PR from Causeway Creative.",
+      "Declared £2,400 of free media training (coaching on how to handle TV and press interviews) from Earthcott Ltd. Companies House shows Earthcott is her husband David Taylor's own firm: he is its only director and owns over 75% of it. She also declares that he is a lobbyist. So a perk worth £2,400 came from her husband's business, on top of £3,500 she billed taxpayers for PR from Causeway Creative.",
     emailReason:
-      "claiming £85,563.46 in non-staff expenses (including £31,366 for flat rent and £3,941 for family flights) while accepting £2,400 of free media training from Earthcott Ltd, the PR firm your husband owns and runs while being paid by clients to persuade politicians",
+      "claiming £85,563.46 in non-staff expenses (including £31,366 for flat rent and £3,941 for family flights) while accepting £2,400 of free media training from Earthcott Ltd, the PR firm owned and run by your husband, a lobbyist",
   },
 ];
 
@@ -270,32 +266,37 @@ function renderSpotlightCard(card: SpotlightEntry) {
       </div>
 
       {/* Body: the detail */}
-      <dl className="flex-1 space-y-3.5 px-5 py-5 text-[14px] leading-[1.5] text-[var(--ink-2)]">
-        <div>
-          <dt className="tile-key mb-1">Billed to taxpayers</dt>
-          <dd>{card.taxpayerSummary}</dd>
-        </div>
-        <div>
-          <dt className="tile-key mb-1">Donations & perks declared</dt>
-          <dd>{card.freebiesSummary}</dd>
-        </div>
-        <div className="rounded-[var(--r-s)] border-l-[3px] border-[var(--brand)] bg-[var(--surface-2)] px-3.5 py-2.5">
-          <dt className="tile-key mb-1">Meanwhile in {mp.constituency}</dt>
-          <dd>
-            <Link
-              href={`/constituencies/${mp.constituencySlug}`}
-              className="font-[640] text-[var(--action-text)]"
-            >
-              {povCount.toLocaleString("en-GB")} children ({povPct}%)
-            </Link>{" "}
-            live in poverty after housing costs.
-            {card.localContrastNote ? ` ${card.localContrastNote}` : ""}
-          </dd>
-        </div>
-      </dl>
+      <ExplainText>
+        <dl className="flex-1 space-y-3.5 px-5 py-5 text-[14px] leading-[1.5] text-[var(--ink-2)]">
+          <div>
+            <dt className="tile-key mb-1">Billed to taxpayers</dt>
+            <dd>{card.taxpayerSummary}</dd>
+          </div>
+          <div>
+            <dt className="tile-key mb-1">Donations & perks declared</dt>
+            <dd>{card.freebiesSummary}</dd>
+          </div>
+          <div className="rounded-[var(--r-s)] border-l-[3px] border-[var(--brand)] bg-[var(--surface-2)] px-3.5 py-2.5">
+            <dt className="tile-key mb-1">Meanwhile in {mp.constituency}</dt>
+            <dd>
+              <Link
+                href={`/constituencies/${mp.constituencySlug}`}
+                className="font-[640] text-[var(--action-text)]"
+              >
+                {povCount.toLocaleString("en-GB")} children ({povPct}%)
+              </Link>{" "}
+              live in poverty after housing costs.
+              {card.localContrastNote ? ` ${card.localContrastNote}` : ""}
+            </dd>
+          </div>
+        </dl>
+      </ExplainText>
 
       <div className="flex flex-col gap-2 border-t border-[var(--rule)] bg-[var(--surface-2)] px-5 py-4">
-        <a href={mailto} className="btn btn-primary w-full justify-center text-center text-[14.5px]">
+        <a
+          href={mailto}
+          className="btn btn-primary w-full justify-center text-center text-[14.5px]"
+        >
           Ask {mp.name.replace(/^Mr |^Dr /, "")} to explain
         </a>
         <Link
@@ -396,9 +397,15 @@ export default function MpRegisterOfInterestsScotlandPage() {
 
   /** The headline figure shown on each contrast card, keyed by its topic. */
   const JUXTAPOSITION_FIGURES: Record<string, { value: string; label: string }> = {
-    "Energy & heating bills": { value: "£39,218", label: "second home energy bills" },
+    "Energy & heating bills": {
+      value: "£39,218",
+      label: "second home energy bills",
+    },
     "Council tax bills": { value: "£81,647", label: "second home council tax" },
-    "Child support & family costs": { value: "£89,111", label: "family travel to London" },
+    "Child support & family costs": {
+      value: "£89,111",
+      label: "family travel to London",
+    },
     "Personal cash & housing": { value: "£1.38m", label: "London flat rent" },
   };
 
@@ -441,11 +448,11 @@ export default function MpRegisterOfInterestsScotlandPage() {
         <strong>£497,461</strong> in non-staff expenses between them.
       </>,
       <>
-        Around{" "}
-        <Link href="/poverty-in-scotland">240,000 children in Scotland live in poverty</Link> after
-        housing costs. Families running out of money for food or prepaid meters have to apply for an
-        emergency <Link href="/crisis-grant-scotland">Scottish Welfare Fund Crisis Grant</Link> or
-        rely on the <Link href="/scottish-child-payment">£28.20 Scottish Child Payment</Link>.
+        Around <Link href="/poverty-in-scotland">240,000 children in Scotland live in poverty</Link>{" "}
+        after housing costs. Families running out of money for food or prepaid meters have to apply
+        for an emergency{" "}
+        <Link href="/crisis-grant-scotland">Scottish Welfare Fund Crisis Grant</Link> or rely on the{" "}
+        <Link href="/scottish-child-payment">£28.20 Scottish Child Payment</Link>.
       </>,
     ],
     [
@@ -459,8 +466,8 @@ export default function MpRegisterOfInterestsScotlandPage() {
       <>
         A full-time worker on the{" "}
         <Link href="/minimum-wage-scotland">Minimum Wage in Scotland</Link> takes home roughly
-        £20,850 a year after tax and pays every penny of their rent, council tax, heating and bus
-        or train fares out of that pay packet.
+        £20,850 a year after tax and pays every penny of their rent, council tax, heating and bus or
+        train fares out of that pay packet.
       </>,
     ],
   ];
@@ -513,18 +520,48 @@ export default function MpRegisterOfInterestsScotlandPage() {
       title: "Non-staff expenses per MP (rent, travel, hotels, office)",
       rows: [
         { party: "SNP", value: 111232, display: "£111,232", colour: "#e8b500" },
-        { party: "Conservative", value: 104702, display: "£104,702", colour: "#0a7ad6" },
-        { party: "Lib Dem", value: 94147, display: "£94,147", colour: "#f39200" },
-        { party: "Labour", value: 90377, display: "£90,377", colour: "#d6202a" },
+        {
+          party: "Conservative",
+          value: 104702,
+          display: "£104,702",
+          colour: "#0a7ad6",
+        },
+        {
+          party: "Lib Dem",
+          value: 94147,
+          display: "£94,147",
+          colour: "#f39200",
+        },
+        {
+          party: "Labour",
+          value: 90377,
+          display: "£90,377",
+          colour: "#d6202a",
+        },
       ],
     },
     {
       kicker: "Register of Interests · Total",
       title: "Private donations, funded trips and gifts declared",
       rows: [
-        { party: "Labour", value: 169931, display: "£169,931", colour: "#d6202a" },
-        { party: "Conservative", value: 80001, display: "£80,001", colour: "#0a7ad6" },
-        { party: "Lib Dem", value: 35061, display: "£35,061", colour: "#f39200" },
+        {
+          party: "Labour",
+          value: 169931,
+          display: "£169,931",
+          colour: "#d6202a",
+        },
+        {
+          party: "Conservative",
+          value: 80001,
+          display: "£80,001",
+          colour: "#0a7ad6",
+        },
+        {
+          party: "Lib Dem",
+          value: 35061,
+          display: "£35,061",
+          colour: "#f39200",
+        },
         { party: "SNP", value: 11902, display: "£11,902", colour: "#e8b500" },
       ],
     },
@@ -545,7 +582,10 @@ export default function MpRegisterOfInterestsScotlandPage() {
         data={breadcrumbJsonLd([
           { name: "Home", path: "/" },
           { name: "Scottish MPs", path: "/representatives" },
-          { name: "MP Expenses & Register of Interests", path: "/mp-expenses-scotland" },
+          {
+            name: "MP Expenses & Register of Interests",
+            path: "/mp-expenses-scotland",
+          },
         ])}
       />
       <JsonLd data={faqJsonLd(FAQ)} />
@@ -719,12 +759,14 @@ export default function MpRegisterOfInterestsScotlandPage() {
                         </span>
                       </p>
                     )}
-                    <p className="mt-3 text-[15px] leading-[1.55] text-[var(--ink-2)]">{mpText}</p>
+                    <p className="mt-3 text-[15px] leading-[1.55] text-[var(--ink-2)]">
+                      <ExplainText>{mpText}</ExplainText>
+                    </p>
                   </div>
                   <div className="bg-[var(--surface-2)] p-5 sm:p-6">
                     <p className="tile-key">What families in Scotland get</p>
                     <p className="mt-3 text-[15px] leading-[1.6] text-[var(--ink-2)]">
-                      {familyText}
+                      <ExplainText>{familyText}</ExplainText>
                     </p>
                   </div>
                 </div>
@@ -741,97 +783,98 @@ export default function MpRegisterOfInterestsScotlandPage() {
           <h3 className="ui mt-12 text-[22px] font-[680] leading-[1.25] text-[var(--ink)]">
             Four questions people ask when they see these numbers
           </h3>
-          <div className="mt-5 grid gap-4 md:grid-cols-2">
-            <div className="tile p-6">
-              <span className="chip mb-3">01 · Why do they get 2nd homes?</span>
-              <h3 className="ui text-[18px] font-[660] leading-[1.3] text-[var(--ink)]">
-                Why taxpayers pay for two properties (and bills on homes MPs already own)
-              </h3>
-              <p className="mt-2.5 text-[15px] leading-[1.6] text-[var(--ink-2)]">
-                Because Scottish MPs represent a constituency in Scotland and attend Parliament in
-                London, IPSA lets them designate one property as their main home and bill taxpayers
-                for a <strong>second home</strong> (either in London or in Scotland). Even when an
-                MP <strong>already owns</strong> their second property outright and pays £0 rent,
-                IPSA still lets them bill taxpayers for its council tax, energy bills, factor fees,
-                buildings insurance and drain cleaning, as{" "}
-                <Link href="/representatives/mps/lothian-east#donations-and-interests">
-                  Douglas Alexander
-                </Link>{" "}
-                (£4,093 council tax + £1,683 factor fees),{" "}
-                <Link href="/representatives/mps/edinburgh-south#donations-and-interests">
-                  Ian Murray
-                </Link>{" "}
-                (£3,197 utilities + £2,822 council tax) and{" "}
-                <Link href="/representatives/mps/inverness-skye-and-west-ross-shire#donations-and-interests">
-                  Angus MacDonald
-                </Link>{" "}
-                (£3,314 utilities + £546 drain jet-washing + £3,000 speech coaching) all did.
-              </p>
-            </div>
+          <ExplainText>
+            <div className="mt-5 grid gap-4 md:grid-cols-2">
+              <div className="tile p-6">
+                <span className="chip mb-3">01 · Why do they get 2nd homes?</span>
+                <h3 className="ui text-[18px] font-[660] leading-[1.3] text-[var(--ink)]">
+                  Why taxpayers pay for two properties (and bills on homes MPs already own)
+                </h3>
+                <p className="mt-2.5 text-[15px] leading-[1.6] text-[var(--ink-2)]">
+                  Because Scottish MPs represent a constituency in Scotland and attend Parliament in
+                  London, IPSA lets them designate one property as their main home and bill
+                  taxpayers for a <strong>second home</strong> (either in London or in Scotland).
+                  Even when an MP <strong>already owns</strong> their second property outright and
+                  pays £0 rent, IPSA still lets them bill taxpayers for its council tax, energy
+                  bills, factor fees, buildings insurance and drain cleaning, as{" "}
+                  <Link href="/representatives/mps/lothian-east#donations-and-interests">
+                    Douglas Alexander
+                  </Link>{" "}
+                  (£4,093 council tax + £1,683 factor fees),{" "}
+                  <Link href="/representatives/mps/edinburgh-south#donations-and-interests">
+                    Ian Murray
+                  </Link>{" "}
+                  (£3,197 utilities + £2,822 council tax) and{" "}
+                  <Link href="/representatives/mps/inverness-skye-and-west-ross-shire#donations-and-interests">
+                    Angus MacDonald
+                  </Link>{" "}
+                  (£3,314 utilities + £546 drain jet-washing + £3,000 speech coaching) all did.
+                </p>
+              </div>
 
-            <div className="tile p-6">
-              <span className="chip mb-3">02 · 145 days a year in Westminster</span>
-              <h3 className="ui text-[18px] font-[660] leading-[1.3] text-[var(--ink)]">
-                £3,500/month flats + hotel bills on top for a 3-day London week
-              </h3>
-              <p className="mt-2.5 text-[15px] leading-[1.6] text-[var(--ink-2)]">
-                The House of Commons only sits for around <strong>145 days a year</strong> (usually
-                Monday afternoon to Thursday). Yet taxpayers fund full-year London leases up to{" "}
-                <strong>£42,000 a year (£3,500/month)</strong> (more than triple the average
-                Scottish private rent of ~£1,000/month), while MPs like{" "}
-                <Link href="/representatives/mps/dundee-central#donations-and-interests">
-                  Chris Law
-                </Link>{" "}
-                (£11,619 in London hotels + £2,822 in European hotels on top of £28,200 flat rent)
-                and{" "}
-                <Link href="/representatives/mps/dunfermline-and-dollar#donations-and-interests">
-                  Graeme Downie
-                </Link>{" "}
-                (£8,539 in hotels on top of £41,435 flat rent) billed thousands for hotels{" "}
-                <em>as well as</em> a rented flat.
-              </p>
-            </div>
+              <div className="tile p-6">
+                <span className="chip mb-3">02 · 145 days a year in Westminster</span>
+                <h3 className="ui text-[18px] font-[660] leading-[1.3] text-[var(--ink)]">
+                  £3,500/month flats + hotel bills on top for a 3-day London week
+                </h3>
+                <p className="mt-2.5 text-[15px] leading-[1.6] text-[var(--ink-2)]">
+                  The House of Commons only sits for around <strong>145 days a year</strong>{" "}
+                  (usually Monday afternoon to Thursday). Yet taxpayers fund full-year London leases
+                  up to <strong>£42,000 a year (£3,500/month)</strong> (more than triple the average
+                  Scottish private rent of ~£1,000/month), while MPs like{" "}
+                  <Link href="/representatives/mps/dundee-central#donations-and-interests">
+                    Chris Law
+                  </Link>{" "}
+                  (£11,619 in London hotels + £2,822 in European hotels on top of £28,200 flat rent)
+                  and{" "}
+                  <Link href="/representatives/mps/dunfermline-and-dollar#donations-and-interests">
+                    Graeme Downie
+                  </Link>{" "}
+                  (£8,539 in hotels on top of £41,435 flat rent) billed thousands for hotels{" "}
+                  <em>as well as</em> a rented flat.
+                </p>
+              </div>
 
-            <div className="tile p-6">
-              <span className="chip mb-3">03 · No normal job pays for this</span>
-              <h3 className="ui text-[18px] font-[660] leading-[1.3] text-[var(--ink)]">
-                Why can&apos;t MPs vote remotely like Holyrood (or any modern workplace)?
-              </h3>
-              <p className="mt-2.5 text-[15px] leading-[1.6] text-[var(--ink-2)]">
-                In almost every other job in Britain, commuting, parking, family train tickets and
-                council tax come out of your own salary. During 2020 and 2021, Westminster proved
-                MPs could debate via video link and cast votes remotely on their phones, a digital
-                voting system the <strong>Scottish Parliament at Holyrood still uses</strong>.
-                Westminster scrapped remote voting, locking in <strong>£1.38m a year</strong> in
-                London rents, <strong>£215k</strong> in hotels and{" "}
-                <strong>£89k in spouse and child travel</strong>.
-              </p>
-            </div>
+              <div className="tile p-6">
+                <span className="chip mb-3">03 · No normal job pays for this</span>
+                <h3 className="ui text-[18px] font-[660] leading-[1.3] text-[var(--ink)]">
+                  Why can&apos;t MPs vote remotely like Holyrood (or any modern workplace)?
+                </h3>
+                <p className="mt-2.5 text-[15px] leading-[1.6] text-[var(--ink-2)]">
+                  In almost every other job in Britain, commuting, parking, family train tickets and
+                  council tax come out of your own salary. During 2020 and 2021, Westminster proved
+                  MPs could debate via video link and cast votes remotely on their phones, a digital
+                  voting system the <strong>Scottish Parliament at Holyrood still uses</strong>.
+                  Westminster scrapped remote voting, locking in <strong>£1.38m a year</strong> in
+                  London rents, <strong>£215k</strong> in hotels and{" "}
+                  <strong>£89k in spouse and child travel</strong>.
+                </p>
+              </div>
 
-            <div className="tile p-6">
-              <span className="chip mb-3">04 · £1.17m in flights</span>
-              <h3 className="ui text-[18px] font-[660] leading-[1.3] text-[var(--ink)]">
-                Climate targets for everyone else, £1.17m in flights for MPs, staff and family
-              </h3>
-              <p className="mt-2.5 text-[15px] leading-[1.6] text-[var(--ink-2)]">
-                Westminster sets the carbon budgets and net zero targets that shape what
-                households pay for fuel, heating and travel. In the same year, Scottish MPs billed
-                taxpayers{" "}
-                <strong>£912,654.62 for their own flights</strong>,{" "}
-                <strong>£188,478.04 for staff flights</strong> and{" "}
-                <strong>£73,647.56 for family flights</strong> (£1.17m in total air travel), plus{" "}
-                <strong>£58,237.33 for airport parking</strong> and{" "}
-                <strong>£45,320.45 for taxis</strong>, including Central Belt MPs on the direct
-                East Coast rail line like{" "}
-                <Link href="/representatives/mps/dunfermline-and-dollar#donations-and-interests">
-                  Graeme Downie
-                </Link>{" "}
-                (£29,820 on his own flights and £11,065 on staff flights, against £3,935 on rail).
-                The rules ask households to cut their emissions. They do not ask the same of MPs
-                travelling at public expense.
-              </p>
+              <div className="tile p-6">
+                <span className="chip mb-3">04 · £1.17m in flights</span>
+                <h3 className="ui text-[18px] font-[660] leading-[1.3] text-[var(--ink)]">
+                  Climate targets for everyone else, £1.17m in flights for MPs, staff and family
+                </h3>
+                <p className="mt-2.5 text-[15px] leading-[1.6] text-[var(--ink-2)]">
+                  Westminster sets the carbon budgets and net zero targets that shape what
+                  households pay for fuel, heating and travel. In the same year, Scottish MPs billed
+                  taxpayers <strong>£912,654.62 for their own flights</strong>,{" "}
+                  <strong>£188,478.04 for staff flights</strong> and{" "}
+                  <strong>£73,647.56 for family flights</strong> (£1.17m in total air travel), plus{" "}
+                  <strong>£58,237.33 for airport parking</strong> and{" "}
+                  <strong>£45,320.45 for taxis</strong>, including Central Belt MPs on the direct
+                  East Coast rail line like{" "}
+                  <Link href="/representatives/mps/dunfermline-and-dollar#donations-and-interests">
+                    Graeme Downie
+                  </Link>{" "}
+                  (£29,820 on his own flights and £11,065 on staff flights, against £3,935 on rail).
+                  The rules ask households to cut their emissions. They do not ask the same of MPs
+                  travelling at public expense.
+                </p>
+              </div>
             </div>
-          </div>
+          </ExplainText>
         </ContentFrame>
 
         {/* THE PARTY TALLY */}
@@ -847,7 +890,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
                 account for <strong>73% of all second home council tax</strong> billed to taxpayers
                 (£59,231), <strong>71% of all London hotel spending</strong> (£152,908),{" "}
                 <strong>75% of all funded foreign trips</strong> (£57,288, including trips to Qatar,
-                China, Taiwan and Syria), and <strong>both MPs whose husbands are paid to sway politicians</strong>.
+                China, Taiwan and Syria), and <strong>both MPs married to lobbyists</strong>.
               </p>
               <p>
                 Meanwhile, the <strong>Scottish Conservatives</strong> took the highest private
@@ -944,13 +987,23 @@ export default function MpRegisterOfInterestsScotlandPage() {
             <summary className="ui flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-[15.5px] font-[640] text-[var(--action-text)] transition-colors hover:bg-[var(--surface-2)] sm:px-6 [&::-webkit-details-marker]:hidden">
               <span>
                 Show 3 more spotlight profiles (£42k flat + Qatar trip, a wife on the payroll & a
-                husband paid to sway politicians)
+                lobbyist husband)
               </span>
               <span
                 aria-hidden="true"
                 className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[var(--rule-strong)] bg-[var(--surface)] text-[var(--ink-2)] transition-transform duration-200 group-open:rotate-180"
               >
-                <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6" /></svg>
+                <svg
+                  viewBox="0 0 24 24"
+                  className="h-4 w-4"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.4"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="m6 9 6 6 6-6" />
+                </svg>
               </span>
             </summary>
             <div className="grid gap-5 border-t border-[var(--rule)] bg-[var(--surface-2)] p-5 sm:p-6 md:grid-cols-2 lg:grid-cols-3">
@@ -979,393 +1032,458 @@ export default function MpRegisterOfInterestsScotlandPage() {
         <ContentFrame as="section" id="full-lists" className="pt-16 scroll-mt-20">
           <SectionHead
             eyebrow="Dig into the raw receipts"
-            title="Open the full lists: 2nd home council tax, Qatar/China trips, F1 tickets, donors & husbands paid to sway MPs"
+            title="Open the full lists: 2nd home council tax, Qatar/China trips, F1 tickets, donors & lobbyist husbands"
           />
           <p className="mt-3 max-w-[66ch] text-[17px] leading-[1.6] text-[var(--ink-2)]">
             <ExplainText>
               Click any drawer below to open the 8 taxpayer expense categories (£4.97m), all 33
               funded foreign trips (£76,557), all 23 private donations (£205,242), all 22 VIP
-              hospitality gifts (£15,096), and the MPs whose husbands are paid to sway politicians or who rent out property.
+              hospitality gifts (£15,096), and the MPs with lobbyist husbands or rental properties.
             </ExplainText>
           </p>
 
-          <div className="mt-6 space-y-3.5">
-            {/* Drawer 1: 8 Taxpayer Expense Categories + Hidden Line Items */}
-            <details className="group tile overflow-hidden">
-              <summary className="ui flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-[16.5px] font-[640] leading-[1.35] text-[var(--ink)] transition-colors hover:bg-[var(--surface-2)] sm:px-6 sm:py-5 [&::-webkit-details-marker]:hidden">
-                <span className="flex items-start gap-3.5">
-                  <span className="tnum mt-px inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--ink)] text-[13px] font-[700] text-[var(--paper)]">
-                    1
+          <ExplainText>
+            <div className="mt-6 space-y-3.5">
+              {/* Drawer 1: 8 Taxpayer Expense Categories + Hidden Line Items */}
+              <details className="group tile overflow-hidden">
+                <summary className="ui flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-[16.5px] font-[640] leading-[1.35] text-[var(--ink)] transition-colors hover:bg-[var(--surface-2)] sm:px-6 sm:py-5 [&::-webkit-details-marker]:hidden">
+                  <span className="flex items-start gap-3.5">
+                    <span className="tnum mt-px inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--ink)] text-[13px] font-[700] text-[var(--paper)]">
+                      1
+                    </span>
+                    <span>
+                      Where the £4.97m in taxpayer expenses went: 2nd home council tax, energy
+                      bills, hotels, speech coaching, drain cleaning & PR
+                    </span>
                   </span>
-                  <span>Where the £4.97m in taxpayer expenses went: 2nd home council tax, energy bills, hotels, speech coaching, drain cleaning & PR</span>
-                </span>
-                <span
-                  aria-hidden="true"
-                  className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[var(--rule-strong)] bg-[var(--surface)] text-[var(--ink-2)] transition-transform duration-200 group-open:rotate-180"
-                >
-                  <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6" /></svg>
-                </span>
-              </summary>
-              <div className="space-y-5 border-t border-[var(--rule)] p-5 sm:p-6">
-                <GuideTable
-                  kicker="2025/26 Official IPSA Receipts · 7,268 claims"
-                  title="Eight things Scottish MPs charged to taxpayers on top of their £91,346 salary"
-                  columns={[
-                    "What was billed to taxpayers",
-                    "Scottish MPs total",
-                    "How many MPs claimed it",
-                    "Biggest individual claimants",
-                  ]}
-                  align={["left", "right", "left", "left"]}
-                  rows={EYE_OPENING_EXPENSES}
-                  caption="Source: IPSA 2025/26 individualBusinessCosts dataset."
-                />
-                <div className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] p-5 text-[15px] leading-[1.6] text-[var(--ink-2)]">
-                  <p className="font-[630] text-[var(--ink)] mb-2">
-                    Buried in the 7,268 receipts: what else Scottish MPs billed to taxpayers in
-                    2025/26
+                  <span
+                    aria-hidden="true"
+                    className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[var(--rule-strong)] bg-[var(--surface)] text-[var(--ink-2)] transition-transform duration-200 group-open:rotate-180"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      className="h-4 w-4"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.4"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="m6 9 6 6 6-6" />
+                    </svg>
+                  </span>
+                </summary>
+                <div className="space-y-5 border-t border-[var(--rule)] p-5 sm:p-6">
+                  <GuideTable
+                    kicker="2025/26 Official IPSA Receipts · 7,268 claims"
+                    title="Eight things Scottish MPs charged to taxpayers on top of their £91,346 salary"
+                    columns={[
+                      "What was billed to taxpayers",
+                      "Scottish MPs total",
+                      "How many MPs claimed it",
+                      "Biggest individual claimants",
+                    ]}
+                    align={["left", "right", "left", "left"]}
+                    rows={EYE_OPENING_EXPENSES}
+                    caption="Source: IPSA 2025/26 individualBusinessCosts dataset."
+                  />
+                  <div className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] p-5 text-[15px] leading-[1.6] text-[var(--ink-2)]">
+                    <p className="font-[630] text-[var(--ink)] mb-2">
+                      Buried in the 7,268 receipts: what else Scottish MPs billed to taxpayers in
+                      2025/26
+                    </p>
+                    <ul className="list-disc space-y-2.5 pl-5 marker:text-[var(--bad)]">
+                      <li>
+                        <strong>£3,000 for a personal speech & presentation skills workshop</strong>
+                        , <strong>£546 for professional drain jet-washing</strong>,{" "}
+                        <strong>£939 for London flat service charges</strong> and{" "}
+                        <strong>£746 for second home buildings insurance</strong> (claimed by
+                        Inverness, Skye and West Ross-shire Lib Dem MP{" "}
+                        <Link href="/representatives/mps/inverness-skye-and-west-ross-shire#donations-and-interests">
+                          Angus MacDonald
+                        </Link>
+                        ).
+                      </li>
+                      <li>
+                        <strong>£4,093.21 for second home council tax</strong>,{" "}
+                        <strong>£1,683 for factor service charges</strong>,{" "}
+                        <strong>£385.50 for second home broadband/landline</strong> and{" "}
+                        <strong>£330.81 for buildings insurance</strong> on a property where he pays{" "}
+                        <strong>£0 rent</strong> (claimed by Lothian East Labour Minister{" "}
+                        <Link href="/representatives/mps/lothian-east#donations-and-interests">
+                          Douglas Alexander
+                        </Link>
+                        ).
+                      </li>
+                      <li>
+                        <strong>£20,384.74 in a single electricity bill claim</strong> to Yu Energy,
+                        plus <strong>£1,500 to a digital media studio</strong> and{" "}
+                        <strong>£723.18 for European hotels</strong> (claimed by Kilmarnock and
+                        Loudoun Labour MP{" "}
+                        <Link href="/representatives/mps/kilmarnock-and-loudoun#donations-and-interests">
+                          Lillian Jones
+                        </Link>
+                        ).
+                      </li>
+                      <li>
+                        <strong>£9,193.95 for European hotels</strong> across 12 Scottish MPs (led
+                        by{" "}
+                        <Link href="/representatives/mps/dundee-central#donations-and-interests">
+                          Chris Law
+                        </Link>{" "}
+                        on £2,821.90,{" "}
+                        <Link href="/representatives/mps/paisley-and-renfrewshire-south#donations-and-interests">
+                          Johanna Baxter
+                        </Link>{" "}
+                        on £1,004.48 and{" "}
+                        <Link href="/representatives/mps/argyll-bute-and-south-lochaber#donations-and-interests">
+                          Brendan O&apos;Hara
+                        </Link>{" "}
+                        on £822.38).
+                      </li>
+                      <li>
+                        <strong>£40,449.35 for bought-in PR, media and consultancy</strong>,
+                        including <strong>£4,000</strong> for &quot;Communications Support&quot; (
+                        <Link href="/representatives/mps/cowdenbeath-and-kirkcaldy#donations-and-interests">
+                          Melanie Ward
+                        </Link>
+                        ), <strong>£3,500</strong> to Causeway Creative (
+                        <Link href="/representatives/mps/east-kilbride-and-strathaven#donations-and-interests">
+                          Joani Reid
+                        </Link>
+                        ), <strong>£1,500</strong> for website design (
+                        <Link href="/representatives/mps/central-ayrshire#donations-and-interests">
+                          Alan Gemmell
+                        </Link>
+                        ) and <strong>£1,100</strong> for social media templates (
+                        <Link href="/representatives/mps/rutherglen#donations-and-interests">
+                          Michael Shanks
+                        </Link>
+                        ).
+                      </li>
+                      <li>
+                        <strong>£1,248 for an iPhone and case</strong> (
+                        <Link href="/representatives/mps/berwickshire-roxburgh-and-selkirk#donations-and-interests">
+                          John Lamont
+                        </Link>
+                        ), <strong>£2,542 for DFS and IKEA furniture</strong> plus{" "}
+                        <strong>£5,000 for office carpet and refurbishment</strong> (
+                        <Link href="/representatives/mps/motherwell-wishaw-and-carluke#donations-and-interests">
+                          Pamela Nash
+                        </Link>
+                        ), <strong>£9,159.58 for newspaper subscriptions</strong>,{" "}
+                        <strong>£3,862.66 for 32 TV licences</strong>, and{" "}
+                        <strong>17 duplicate or overclaimed expense claims</strong> that had to be
+                        repaid (including a £1,200 duplicate claim by Graeme Downie and a £1,476
+                        repayment by Torcuil Crichton).
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </details>
+
+              {/* Drawer 2: Foreign Trips */}
+              <details className="group tile overflow-hidden">
+                <summary className="ui flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-[16.5px] font-[640] leading-[1.35] text-[var(--ink)] transition-colors hover:bg-[var(--surface-2)] sm:px-6 sm:py-5 [&::-webkit-details-marker]:hidden">
+                  <span className="flex items-start gap-3.5">
+                    <span className="tnum mt-px inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--ink)] text-[13px] font-[700] text-[var(--paper)]">
+                      2
+                    </span>
+                    <span>
+                      All 33 free foreign trips (£76,557): Qatar, China, Taiwan, Palestine, Syria &
+                      Jordan
+                    </span>
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[var(--rule-strong)] bg-[var(--surface)] text-[var(--ink-2)] transition-transform duration-200 group-open:rotate-180"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      className="h-4 w-4"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.4"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="m6 9 6 6 6-6" />
+                    </svg>
+                  </span>
+                </summary>
+                <div className="space-y-4 border-t border-[var(--rule)] p-5 sm:p-6">
+                  <p className="text-[16px] leading-[1.55] text-[var(--ink-2)]">
+                    Nineteen Scottish MPs declared 33 overseas trips paid for by foreign
+                    governments, think tanks or lobby groups, including the{" "}
+                    <strong>Ministry of Foreign Affairs of Qatar</strong> (£7,000 for John Grady
+                    MP), the <strong>Doha Forum</strong> (£5,957 for Melanie Ward MP), the{" "}
+                    <strong>Great Britain China Centre</strong> (£6,421 for Elaine Stewart MP and
+                    £4,763 for Alan Gemmell MP), <strong>Taiwan</strong> (£5,669 for Graeme Downie
+                    MP), <strong>Yachad</strong> (£2,169 for Patricia Ferguson MP to visit
+                    Palestine), and the <strong>Embassy of Jordan</strong> (£2,678 for Andrew Bowie
+                    MP).
                   </p>
-                  <ul className="list-disc space-y-2.5 pl-5 marker:text-[var(--bad)]">
+                  <GuideTable
+                    kicker="All 33 declared overseas visits"
+                    title="Every funded foreign trip taken by current Scottish MPs"
+                    columns={["MP", "Party", "Destination", "Who paid for the trip", "Value"]}
+                    align={["left", "left", "left", "left", "right"]}
+                    rows={allVisits.map((v) => [
+                      <Link
+                        key={`${v.slug}-${v.id}`}
+                        href={`/representatives/mps/${v.slug}#donations-and-interests`}
+                        className="font-[580] text-[var(--action-text)]"
+                      >
+                        {v.mpName}
+                      </Link>,
+                      v.party,
+                      v.countries.join(", "),
+                      v.donors.join(", "),
+                      poundsExact.format(v.value),
+                    ])}
+                  />
+                </div>
+              </details>
+
+              {/* Drawer 3: Donations */}
+              <details className="group tile overflow-hidden">
+                <summary className="ui flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-[16.5px] font-[640] leading-[1.35] text-[var(--ink)] transition-colors hover:bg-[var(--surface-2)] sm:px-6 sm:py-5 [&::-webkit-details-marker]:hidden">
+                  <span className="flex items-start gap-3.5">
+                    <span className="tnum mt-px inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--ink)] text-[13px] font-[700] text-[var(--paper)]">
+                      3
+                    </span>
+                    <span>
+                      All 23 private donations & free office staff (£205,242): wealthy donors,
+                      companies & campaign groups
+                    </span>
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[var(--rule-strong)] bg-[var(--surface)] text-[var(--ink-2)] transition-transform duration-200 group-open:rotate-180"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      className="h-4 w-4"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.4"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="m6 9 6 6 6-6" />
+                    </svg>
+                  </span>
+                </summary>
+                <div className="space-y-4 border-t border-[var(--rule)] p-5 sm:p-6">
+                  <p className="text-[16px] leading-[1.55] text-[var(--ink-2)]">
+                    Ten Scottish MPs declared £205,242.29 in private cash and free staff placed
+                    inside their offices: <strong>£30,000</strong> from Francesca Sainsbury Perrin
+                    to Dr Zubir Ahmed MP, <strong>£27,564</strong> from Best for Britain to Lillian
+                    Jones MP, <strong>£20,000</strong> from oil businessman Alasdair Locke to Andrew
+                    Bowie MP, <strong>£19,500</strong> in migration policy staff from RAMP to Chris
+                    Murray MP, and <strong>£2,400</strong> of free media training to Joani Reid MP
+                    from <strong>Earthcott Ltd</strong>, a firm owned and run by her husband, a
+                    lobbyist.
+                  </p>
+                  <GuideTable
+                    kicker="All 23 declared donations"
+                    title="Every cash and staffing donation declared by Scottish MPs"
+                    columns={["MP", "Party", "Donor", "Donor type", "Amount"]}
+                    align={["left", "left", "left", "left", "right"]}
+                    rows={allDonations.map((d) => [
+                      <Link
+                        key={`${d.slug}-${d.id}`}
+                        href={`/representatives/mps/${d.slug}#donations-and-interests`}
+                        className="font-[580] text-[var(--action-text)]"
+                      >
+                        {d.mpName}
+                      </Link>,
+                      d.party,
+                      d.donor,
+                      d.donorStatus,
+                      poundsExact.format(d.value),
+                    ])}
+                  />
+                </div>
+              </details>
+
+              {/* Drawer 4: VIP Tickets & Gifts */}
+              <details className="group tile overflow-hidden">
+                <summary className="ui flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-[16.5px] font-[640] leading-[1.35] text-[var(--ink)] transition-colors hover:bg-[var(--surface-2)] sm:px-6 sm:py-5 [&::-webkit-details-marker]:hidden">
+                  <span className="flex items-start gap-3.5">
+                    <span className="tnum mt-px inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--ink)] text-[13px] font-[700] text-[var(--paper)]">
+                      4
+                    </span>
+                    <span>
+                      All 22 VIP tickets & freebies (£15,096): Silverstone F1, Champions League,
+                      Murrayfield & £450 scarf
+                    </span>
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[var(--rule-strong)] bg-[var(--surface)] text-[var(--ink-2)] transition-transform duration-200 group-open:rotate-180"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      className="h-4 w-4"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.4"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="m6 9 6 6 6-6" />
+                    </svg>
+                  </span>
+                </summary>
+                <div className="space-y-4 border-t border-[var(--rule)] p-5 sm:p-6">
+                  <p className="text-[16px] leading-[1.55] text-[var(--ink-2)]">
+                    Includes Silverstone Formula 1 VIP tickets (£1,860 for Dave Doogan MP and £1,100
+                    for Andrew Bowie MP), Edinburgh Military Tattoo tickets (£1,544 for Pamela Nash
+                    MP), Champions League and Hampden Cup Final boxes (£1,525 for Brendan
+                    O&apos;Hara MP), Murrayfield rugby boxes (£1,298 for Christine Jardine MP), and
+                    a £450 cashmere scarf gifted to Elaine Stewart MP.
+                  </p>
+                  <GuideTable
+                    kicker="All 22 declared gifts and hospitality packages"
+                    title="Every free ticket, gift and hospitality package declared by Scottish MPs"
+                    columns={["MP", "Party", "Giver / Host", "What was given", "Value"]}
+                    align={["left", "left", "left", "left", "right"]}
+                    rows={allGifts.map((g) => [
+                      <Link
+                        key={`${g.slug}-${g.id}`}
+                        href={`/representatives/mps/${g.slug}#donations-and-interests`}
+                        className="font-[580] text-[var(--action-text)]"
+                      >
+                        {g.mpName}
+                      </Link>,
+                      g.party,
+                      g.donor,
+                      g.description,
+                      poundsExact.format(g.value),
+                    ])}
+                  />
+                </div>
+              </details>
+
+              {/* Drawer 5: Lobbyist husbands, wife on payroll & landlords */}
+              <details className="group tile overflow-hidden">
+                <summary className="ui flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-[16.5px] font-[640] leading-[1.35] text-[var(--ink)] transition-colors hover:bg-[var(--surface-2)] sm:px-6 sm:py-5 [&::-webkit-details-marker]:hidden">
+                  <span className="flex items-start gap-3.5">
+                    <span className="tnum mt-px inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--ink)] text-[13px] font-[700] text-[var(--paper)]">
+                      5
+                    </span>
+                    <span>
+                      Lobbyist husbands, a wife on the payroll, MP landlords & second jobs
+                    </span>
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[var(--rule-strong)] bg-[var(--surface)] text-[var(--ink-2)] transition-transform duration-200 group-open:rotate-180"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      className="h-4 w-4"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.4"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="m6 9 6 6 6-6" />
+                    </svg>
+                  </span>
+                </summary>
+                <div className="border-t border-[var(--rule)] p-5 sm:p-6">
+                  <ul className="list-disc space-y-3 pl-6 text-[16px] leading-[1.6] text-[var(--ink-2)] marker:text-[var(--bad)]">
                     <li>
-                      <strong>£3,000 for a personal speech & presentation skills workshop</strong>,{" "}
-                      <strong>£546 for professional drain jet-washing</strong>,{" "}
-                      <strong>£939 for London flat service charges</strong> and{" "}
-                      <strong>£746 for second home buildings insurance</strong> (claimed by
-                      Inverness, Skye and West Ross-shire Lib Dem MP{" "}
-                      <Link href="/representatives/mps/inverness-skye-and-west-ross-shire#donations-and-interests">
-                        Angus MacDonald
-                      </Link>
-                      ).
-                    </li>
-                    <li>
-                      <strong>£4,093.21 for second home council tax</strong>,{" "}
-                      <strong>£1,683 for factor service charges</strong>,{" "}
-                      <strong>£385.50 for second home broadband/landline</strong> and{" "}
-                      <strong>£330.81 for buildings insurance</strong> on a property where he pays{" "}
-                      <strong>£0 rent</strong> (claimed by Lothian East Labour Minister{" "}
-                      <Link href="/representatives/mps/lothian-east#donations-and-interests">
-                        Douglas Alexander
-                      </Link>
-                      ).
-                    </li>
-                    <li>
-                      <strong>£20,384.74 in a single electricity bill claim</strong> to Yu Energy,
-                      plus <strong>£1,500 to a digital media studio</strong> and{" "}
-                      <strong>£723.18 for European hotels</strong> (claimed by Kilmarnock and
-                      Loudoun Labour MP{" "}
-                      <Link href="/representatives/mps/kilmarnock-and-loudoun#donations-and-interests">
-                        Lillian Jones
-                      </Link>
-                      ).
-                    </li>
-                    <li>
-                      <strong>£9,193.95 for European hotels</strong> across 12 Scottish MPs (led by{" "}
-                      <Link href="/representatives/mps/dundee-central#donations-and-interests">
-                        Chris Law
+                      <strong>Husbands who are lobbyists:</strong> East Kilbride Labour MP{" "}
+                      <Link href="/representatives/mps/east-kilbride-and-strathaven#donations-and-interests">
+                        Joani Reid
                       </Link>{" "}
-                      on £2,821.90,{" "}
+                      declares her husband David Taylor is a lobbyist. Companies House shows he is
+                      the{" "}
+                      <a href="https://find-and-update.company-information.service.gov.uk/company/13598010">
+                        only director and owner of over 75%
+                      </a>{" "}
+                      of <strong>Earthcott Ltd</strong>, a PR and consultancy firm. In February 2026
+                      Earthcott gave her <strong>£2,400 of free media training</strong>, which she
+                      declared as a donation. The register does not say what the training covered or
+                      who gave it. The questions it leaves: what was she trained for, who did the
+                      training, and does Earthcott work for any clients who want something from
+                      Parliament? MPs must declare gifts like this, but declaring a perk from your
+                      husband&apos;s business does not answer why it was given. Paisley South Labour
+                      MP{" "}
                       <Link href="/representatives/mps/paisley-and-renfrewshire-south#donations-and-interests">
                         Johanna Baxter
                       </Link>{" "}
-                      on £1,004.48 and{" "}
+                      declares her husband Mark Henry Glover is Executive Chairman of lobbying and
+                      PR agency <strong>SEC Newgate UK</strong>.
+                    </li>
+                    <li>
+                      <strong>Spouse employed on the taxpayer payroll:</strong> Argyll and Bute SNP
+                      MP{" "}
                       <Link href="/representatives/mps/argyll-bute-and-south-lochaber#donations-and-interests">
                         Brendan O&apos;Hara
                       </Link>{" "}
-                      on £822.38).
+                      employs his wife Catherine O&apos;Hara full time as his Office Manager.
                     </li>
                     <li>
-                      <strong>£40,449.35 for bought-in PR, media and consultancy</strong>, including{" "}
-                      <strong>£4,000</strong> for &quot;Communications Support&quot; (
-                      <Link href="/representatives/mps/cowdenbeath-and-kirkcaldy#donations-and-interests">
-                        Melanie Ward
+                      <strong>MP landlords collecting rent:</strong> Thirteen Scottish MPs own 22
+                      extra properties across Scotland, London, Spain and France, including 9 rental
+                      properties declared by{" "}
+                      <Link href="/representatives/mps/caithness-sutherland-and-easter-ross#donations-and-interests">
+                        Jamie Stone
                       </Link>
-                      ), <strong>£3,500</strong> to Causeway Creative (
+                      ,{" "}
                       <Link href="/representatives/mps/east-kilbride-and-strathaven#donations-and-interests">
                         Joani Reid
                       </Link>
-                      ), <strong>£1,500</strong> for website design (
-                      <Link href="/representatives/mps/central-ayrshire#donations-and-interests">
-                        Alan Gemmell
+                      ,{" "}
+                      <Link href="/representatives/mps/edinburgh-south#donations-and-interests">
+                        Ian Murray
                       </Link>
-                      ) and <strong>£1,100</strong> for social media templates (
-                      <Link href="/representatives/mps/rutherglen#donations-and-interests">
-                        Michael Shanks
+                      ,{" "}
+                      <Link href="/representatives/mps/glenrothes-and-mid-fife#donations-and-interests">
+                        Richard Baker
                       </Link>
-                      ).
-                    </li>
-                    <li>
-                      <strong>£1,248 for an iPhone and case</strong> (
-                      <Link href="/representatives/mps/berwickshire-roxburgh-and-selkirk#donations-and-interests">
-                        John Lamont
+                      ,{" "}
+                      <Link href="/representatives/mps/hamilton-and-clyde-valley#donations-and-interests">
+                        Imogen Walker
                       </Link>
-                      ), <strong>£2,542 for DFS and IKEA furniture</strong> plus{" "}
-                      <strong>£5,000 for office carpet and refurbishment</strong> (
-                      <Link href="/representatives/mps/motherwell-wishaw-and-carluke#donations-and-interests">
-                        Pamela Nash
+                      ,{" "}
+                      <Link href="/representatives/mps/inverness-skye-and-west-ross-shire#donations-and-interests">
+                        Angus MacDonald
                       </Link>
-                      ), <strong>£9,159.58 for newspaper subscriptions</strong>,{" "}
-                      <strong>£3,862.66 for 32 TV licences</strong>, and{" "}
-                      <strong>17 duplicate or overclaimed expense claims</strong> that had to be
-                      repaid (including a £1,200 duplicate claim by Graeme Downie and a £1,476
-                      repayment by Torcuil Crichton).
+                      ,{" "}
+                      <Link href="/representatives/mps/orkney-and-shetland#donations-and-interests">
+                        Alistair Carmichael
+                      </Link>{" "}
+                      and{" "}
+                      <Link href="/representatives/mps/paisley-and-renfrewshire-north#donations-and-interests">
+                        Alison Taylor
+                      </Link>
+                      .
                     </li>
                   </ul>
                 </div>
-              </div>
-            </details>
-
-            {/* Drawer 2: Foreign Trips */}
-            <details className="group tile overflow-hidden">
-              <summary className="ui flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-[16.5px] font-[640] leading-[1.35] text-[var(--ink)] transition-colors hover:bg-[var(--surface-2)] sm:px-6 sm:py-5 [&::-webkit-details-marker]:hidden">
-                <span className="flex items-start gap-3.5">
-                  <span className="tnum mt-px inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--ink)] text-[13px] font-[700] text-[var(--paper)]">
-                    2
-                  </span>
-                  <span>All 33 free foreign trips (£76,557): Qatar, China, Taiwan, Palestine, Syria & Jordan</span>
-                </span>
-                <span
-                  aria-hidden="true"
-                  className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[var(--rule-strong)] bg-[var(--surface)] text-[var(--ink-2)] transition-transform duration-200 group-open:rotate-180"
-                >
-                  <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6" /></svg>
-                </span>
-              </summary>
-              <div className="space-y-4 border-t border-[var(--rule)] p-5 sm:p-6">
-                <p className="text-[16px] leading-[1.55] text-[var(--ink-2)]">
-                  Nineteen Scottish MPs declared 33 overseas trips paid for by foreign governments,
-                  think tanks or campaign groups trying to win MPs over, including the{" "}
-                  <strong>Ministry of Foreign Affairs of Qatar</strong> (£7,000 for John Grady MP),
-                  the <strong>Doha Forum</strong> (£5,957 for Melanie Ward MP), the{" "}
-                  <strong>Great Britain China Centre</strong> (£6,421 for Elaine Stewart MP and
-                  £4,763 for Alan Gemmell MP), <strong>Taiwan</strong> (£5,669 for Graeme Downie
-                  MP), <strong>Yachad</strong> (£2,169 for Patricia Ferguson MP to visit Palestine),
-                  and the <strong>Embassy of Jordan</strong> (£2,678 for Andrew Bowie MP).
-                </p>
-                <GuideTable
-                  kicker="All 33 declared overseas visits"
-                  title="Every funded foreign trip taken by current Scottish MPs"
-                  columns={["MP", "Party", "Destination", "Who paid for the trip", "Value"]}
-                  align={["left", "left", "left", "left", "right"]}
-                  rows={allVisits.map((v) => [
-                    <Link
-                      key={`${v.slug}-${v.id}`}
-                      href={`/representatives/mps/${v.slug}#donations-and-interests`}
-                      className="font-[580] text-[var(--action-text)]"
-                    >
-                      {v.mpName}
-                    </Link>,
-                    v.party,
-                    v.countries.join(", "),
-                    v.donors.join(", "),
-                    poundsExact.format(v.value),
-                  ])}
-                />
-              </div>
-            </details>
-
-            {/* Drawer 3: Donations */}
-            <details className="group tile overflow-hidden">
-              <summary className="ui flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-[16.5px] font-[640] leading-[1.35] text-[var(--ink)] transition-colors hover:bg-[var(--surface-2)] sm:px-6 sm:py-5 [&::-webkit-details-marker]:hidden">
-                <span className="flex items-start gap-3.5">
-                  <span className="tnum mt-px inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--ink)] text-[13px] font-[700] text-[var(--paper)]">
-                    3
-                  </span>
-                  <span>All 23 private donations & free office staff (£205,242): wealthy donors, companies & campaign groups</span>
-                </span>
-                <span
-                  aria-hidden="true"
-                  className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[var(--rule-strong)] bg-[var(--surface)] text-[var(--ink-2)] transition-transform duration-200 group-open:rotate-180"
-                >
-                  <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6" /></svg>
-                </span>
-              </summary>
-              <div className="space-y-4 border-t border-[var(--rule)] p-5 sm:p-6">
-                <p className="text-[16px] leading-[1.55] text-[var(--ink-2)]">
-                  Ten Scottish MPs declared £205,242.29 in private cash and free staff placed inside
-                  their offices: <strong>£30,000</strong> from Francesca Sainsbury Perrin to Dr
-                  Zubir Ahmed MP, <strong>£27,564</strong> from Best for Britain to Lillian Jones
-                  MP, <strong>£20,000</strong> from oil businessman Alasdair Locke to Andrew Bowie
-                  MP, <strong>£19,500</strong> in migration policy staff from RAMP to Chris Murray
-                  MP, and <strong>£2,400</strong> of free media training to Joani Reid MP from{" "}
-                  <strong>Earthcott Ltd</strong>, a firm where her husband is a director. He is
-                  paid by clients to persuade politicians.
-                </p>
-                <GuideTable
-                  kicker="All 23 declared donations"
-                  title="Every cash and staffing donation declared by Scottish MPs"
-                  columns={["MP", "Party", "Donor", "Donor type", "Amount"]}
-                  align={["left", "left", "left", "left", "right"]}
-                  rows={allDonations.map((d) => [
-                    <Link
-                      key={`${d.slug}-${d.id}`}
-                      href={`/representatives/mps/${d.slug}#donations-and-interests`}
-                      className="font-[580] text-[var(--action-text)]"
-                    >
-                      {d.mpName}
-                    </Link>,
-                    d.party,
-                    d.donor,
-                    d.donorStatus,
-                    poundsExact.format(d.value),
-                  ])}
-                />
-              </div>
-            </details>
-
-            {/* Drawer 4: VIP Tickets & Gifts */}
-            <details className="group tile overflow-hidden">
-              <summary className="ui flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-[16.5px] font-[640] leading-[1.35] text-[var(--ink)] transition-colors hover:bg-[var(--surface-2)] sm:px-6 sm:py-5 [&::-webkit-details-marker]:hidden">
-                <span className="flex items-start gap-3.5">
-                  <span className="tnum mt-px inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--ink)] text-[13px] font-[700] text-[var(--paper)]">
-                    4
-                  </span>
-                  <span>All 22 VIP tickets & freebies (£15,096): Silverstone F1, Champions League, Murrayfield & £450 scarf</span>
-                </span>
-                <span
-                  aria-hidden="true"
-                  className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[var(--rule-strong)] bg-[var(--surface)] text-[var(--ink-2)] transition-transform duration-200 group-open:rotate-180"
-                >
-                  <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6" /></svg>
-                </span>
-              </summary>
-              <div className="space-y-4 border-t border-[var(--rule)] p-5 sm:p-6">
-                <p className="text-[16px] leading-[1.55] text-[var(--ink-2)]">
-                  Includes Silverstone Formula 1 VIP tickets (£1,860 for Dave Doogan MP and £1,100
-                  for Andrew Bowie MP), Edinburgh Military Tattoo tickets (£1,544 for Pamela Nash
-                  MP), Champions League and Hampden Cup Final boxes (£1,525 for Brendan O&apos;Hara
-                  MP), Murrayfield rugby boxes (£1,298 for Christine Jardine MP), and a £450
-                  cashmere scarf gifted to Elaine Stewart MP.
-                </p>
-                <GuideTable
-                  kicker="All 22 declared gifts and hospitality packages"
-                  title="Every free ticket, gift and hospitality package declared by Scottish MPs"
-                  columns={["MP", "Party", "Giver / Host", "What was given", "Value"]}
-                  align={["left", "left", "left", "left", "right"]}
-                  rows={allGifts.map((g) => [
-                    <Link
-                      key={`${g.slug}-${g.id}`}
-                      href={`/representatives/mps/${g.slug}#donations-and-interests`}
-                      className="font-[580] text-[var(--action-text)]"
-                    >
-                      {g.mpName}
-                    </Link>,
-                    g.party,
-                    g.donor,
-                    g.description,
-                    poundsExact.format(g.value),
-                  ])}
-                />
-              </div>
-            </details>
-
-            {/* Drawer 5: Husbands paid to sway politicians, wife on payroll & landlords */}
-            <details className="group tile overflow-hidden">
-              <summary className="ui flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-[16.5px] font-[640] leading-[1.35] text-[var(--ink)] transition-colors hover:bg-[var(--surface-2)] sm:px-6 sm:py-5 [&::-webkit-details-marker]:hidden">
-                <span className="flex items-start gap-3.5">
-                  <span className="tnum mt-px inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--ink)] text-[13px] font-[700] text-[var(--paper)]">
-                    5
-                  </span>
-                  <span>Husbands paid to sway politicians, a wife on the payroll, MP landlords & second jobs</span>
-                </span>
-                <span
-                  aria-hidden="true"
-                  className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[var(--rule-strong)] bg-[var(--surface)] text-[var(--ink-2)] transition-transform duration-200 group-open:rotate-180"
-                >
-                  <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6" /></svg>
-                </span>
-              </summary>
-              <div className="border-t border-[var(--rule)] p-5 sm:p-6">
-                <ul className="list-disc space-y-3 pl-6 text-[16px] leading-[1.6] text-[var(--ink-2)] marker:text-[var(--bad)]">
-                  <li>
-                    <strong>Husbands paid to sway politicians (known as lobbyists):</strong> these
-                    are people paid by companies and other clients to persuade MPs, ministers and
-                    officials to back what the client wants. East Kilbride Labour
-                    MP{" "}
-                    <Link href="/representatives/mps/east-kilbride-and-strathaven#donations-and-interests">
-                      Joani Reid
-                    </Link>{" "}
-                    declares her husband David Taylor does this work. Companies House shows he is
-                    the{" "}
-                    <a href="https://find-and-update.company-information.service.gov.uk/company/13598010">
-                      only director and owner of over 75%
-                    </a>{" "}
-                    of <strong>Earthcott Ltd</strong>, a PR and consultancy firm. In February 2026
-                    Earthcott gave her <strong>£2,400 of free media training</strong>, which she
-                    declared as a donation. The register does not say what the training covered or
-                    who gave it. The questions it leaves: what was she trained for, who did the
-                    training, and does Earthcott work for any clients who want something from
-                    Parliament? MPs must declare gifts like this, but declaring a perk from your
-                    husband&apos;s business does not answer why it was given. Paisley
-                    South Labour MP{" "}
-                    <Link href="/representatives/mps/paisley-and-renfrewshire-south#donations-and-interests">
-                      Johanna Baxter
-                    </Link>{" "}
-                    declares her husband Mark Henry Glover is Executive Chairman of{" "}
-                    <strong>SEC Newgate UK</strong>, a firm companies pay to influence politicians
-                    and the press.
-                  </li>
-                  <li>
-                    <strong>Spouse employed on the taxpayer payroll:</strong> Argyll and Bute SNP MP{" "}
-                    <Link href="/representatives/mps/argyll-bute-and-south-lochaber#donations-and-interests">
-                      Brendan O&apos;Hara
-                    </Link>{" "}
-                    employs his wife Catherine O&apos;Hara full time as his Office Manager.
-                  </li>
-                  <li>
-                    <strong>MP landlords collecting rent:</strong> Thirteen Scottish MPs own 22
-                    extra properties across Scotland, London, Spain and France, including 9 rental
-                    properties declared by{" "}
-                    <Link href="/representatives/mps/caithness-sutherland-and-easter-ross#donations-and-interests">
-                      Jamie Stone
-                    </Link>
-                    ,{" "}
-                    <Link href="/representatives/mps/east-kilbride-and-strathaven#donations-and-interests">
-                      Joani Reid
-                    </Link>
-                    ,{" "}
-                    <Link href="/representatives/mps/edinburgh-south#donations-and-interests">
-                      Ian Murray
-                    </Link>
-                    ,{" "}
-                    <Link href="/representatives/mps/glenrothes-and-mid-fife#donations-and-interests">
-                      Richard Baker
-                    </Link>
-                    ,{" "}
-                    <Link href="/representatives/mps/hamilton-and-clyde-valley#donations-and-interests">
-                      Imogen Walker
-                    </Link>
-                    ,{" "}
-                    <Link href="/representatives/mps/inverness-skye-and-west-ross-shire#donations-and-interests">
-                      Angus MacDonald
-                    </Link>
-                    ,{" "}
-                    <Link href="/representatives/mps/orkney-and-shetland#donations-and-interests">
-                      Alistair Carmichael
-                    </Link>{" "}
-                    and{" "}
-                    <Link href="/representatives/mps/paisley-and-renfrewshire-north#donations-and-interests">
-                      Alison Taylor
-                    </Link>
-                    .
-                  </li>
-                </ul>
-              </div>
-            </details>
-          </div>
+              </details>
+            </div>
+          </ExplainText>
 
           <div className="mt-7">
             <Callout>
-              <p className="font-[640] text-[var(--ink)] mb-1">
-                Put the figures to your own MP
-              </p>
-              <p className="text-[16.5px] leading-[1.55] text-[var(--ink-2)]">
-                Every one of our <Link href="/representatives">57 Scottish MP pages</Link> pairs
-                their 2025/26 expense claims and private donations with local child poverty figures
-                and a ready drafted email. You can also check if your household qualifies for the{" "}
-                <Link href="/warm-home-discount-scotland">£150 Warm Home Discount</Link>,{" "}
-                <Link href="/council-tax-reduction-scotland">Council Tax Reduction</Link> or an
-                emergency <Link href="/crisis-grant-scotland">Crisis Grant</Link>.
-              </p>
+              <ExplainText>
+                <p className="font-[640] text-[var(--ink)] mb-1">Put the figures to your own MP</p>
+                <p className="text-[16.5px] leading-[1.55] text-[var(--ink-2)]">
+                  Every one of our <Link href="/representatives">57 Scottish MP pages</Link> pairs
+                  their 2025/26 expense claims and private donations with local child poverty
+                  figures and a ready drafted email. You can also check if your household qualifies
+                  for the <Link href="/warm-home-discount-scotland">£150 Warm Home Discount</Link>,{" "}
+                  <Link href="/council-tax-reduction-scotland">Council Tax Reduction</Link> or an
+                  emergency <Link href="/crisis-grant-scotland">Crisis Grant</Link>.
+                </p>
+              </ExplainText>
             </Callout>
           </div>
         </ContentFrame>
@@ -1381,16 +1499,18 @@ export default function MpRegisterOfInterestsScotlandPage() {
         <ContentFrame as="section" className="mt-14 pt-8 border-t-2 border-[var(--ink)]">
           <p className="label mb-3">Official data sources (checked {MP_INTERESTS_CHECKED_ISO})</p>
           <p className="text-[15px] leading-[1.55] text-[var(--ink-2)]">
-            All expense figures come from the official{" "}
-            <strong>Independent Parliamentary Standards Authority (IPSA)</strong> 2025/26 annual
-            dataset (7,268 individual Scottish MP claim lines totalling £18,543,803.31). All
-            donations, overseas trips, gifts, properties and family members paid to sway politicians come from
-            the official{" "}
-            <strong>House of Commons Register of Members&apos; Financial Interests API</strong> (210
-            registered entries across Scotland&apos;s 57 MPs). Company ownership comes from{" "}
-            <strong>Companies House</strong> (checked 21 November 2026). Constituency child poverty after
-            housing costs figures come from the{" "}
-            <strong>End Child Poverty / Loughborough University</strong> dataset.
+            <ExplainText>
+              All expense figures come from the official{" "}
+              <strong>Independent Parliamentary Standards Authority (IPSA)</strong> 2025/26 annual
+              dataset (7,268 individual Scottish MP claim lines totalling £18,543,803.31). All
+              donations, overseas trips, gifts, properties and family lobbying declarations come
+              from the official{" "}
+              <strong>House of Commons Register of Members&apos; Financial Interests API</strong>{" "}
+              (210 registered entries across Scotland&apos;s 57 MPs). Company ownership comes from{" "}
+              <strong>Companies House</strong> (checked 21 November 2026). Constituency child
+              poverty after housing costs figures come from the{" "}
+              <strong>End Child Poverty / Loughborough University</strong> dataset.
+            </ExplainText>
           </p>
         </ContentFrame>
       </Page>

@@ -1034,6 +1034,118 @@ export const terms: Term[] = [
     term: "Inheritance Tax",
     def: "A tax paid on the money, house or land someone leaves behind when they die, if their estate is worth more than the tax free limit.",
     tech: "Reserved to Westminster across the whole UK, with a standard nil rate band of £325,000.",
+  },  {
+    id: "second-home",
+    term: "Second home",
+    def: "For an MP, the home they do not count as their main one. MPs from outside London can claim rent, council tax and bills on a second home from the taxpayer: either a London flat, or their home back in their constituency.",
+    tech: "The rules are set by IPSA. An MP who already owns their second property cannot claim rent on it, but can still claim council tax, energy bills and some running costs.",
+  },
+  {
+    id: "second-homes",
+    term: "Second homes",
+    def: "For MPs, the homes they do not count as their main one. MPs from outside London can claim rent, council tax and bills on a second home from the taxpayer.",
+    tech: "The rules are set by IPSA. An MP who already owns their second property cannot claim rent on it, but can still claim council tax, energy bills and some running costs.",
+  },
+  {
+    id: "non-staff-expenses",
+    term: "Non-staff expenses",
+    def: "Everything an MP claimed apart from their staff's wages: their London flat or hotels, travel, and office costs.",
+    tech: "Worked out by Scotland Counted from IPSA's yearly figures: an MP's total spend minus their staffing costs. Staff budgets are similar for every MP, so taking them out shows the costs each MP has most say over.",
+  },
+  {
+    id: "non-staff",
+    term: "Non-staff",
+    def: "Everything an MP claimed apart from their staff's wages: their London flat or hotels, travel, and office costs.",
+    tech: "Worked out by Scotland Counted from IPSA's yearly figures: an MP's total spend minus their staffing costs.",
+  },
+  {
+    id: "dependant-travel",
+    term: "Dependant travel",
+    def: "Journeys paid for by the taxpayer so an MP's husband, wife, partner or children can travel between home and London.",
+    tech: "IPSA allows MPs to claim travel for their dependants, within limits it sets each year.",
+  },
+  {
+    id: "by-election",
+    term: "By-election",
+    def: "An election for one seat held between general elections, usually because the MP died or stood down.",
+  },
+  {
+    id: "think-tank",
+    term: "Think tank",
+    def: "A group that researches policy and tries to persuade politicians and the public to adopt its ideas. Some are funded by companies, foreign governments or wealthy donors.",
+  },
+  {
+    id: "think-tanks",
+    term: "Think tanks",
+    def: "Groups that research policy and try to persuade politicians and the public to adopt their ideas. Some are funded by companies, foreign governments or wealthy donors.",
+  },
+  {
+    id: "lobby-group",
+    term: "Lobby group",
+    def: "An organisation that campaigns to persuade politicians to back a cause, an industry or a country.",
+  },
+  {
+    id: "lobby-groups",
+    term: "Lobby groups",
+    def: "Organisations that campaign to persuade politicians to back a cause, an industry or a country.",
+  },
+  {
+    id: "carbon-budget",
+    term: "Carbon budget",
+    def: "A legal limit on how much greenhouse gas the UK can produce over five years. Parliament votes to set each one.",
+    tech: "Set under the Climate Change Act 2008, on advice from the Climate Change Committee.",
+  },
+  {
+    id: "carbon-budgets",
+    term: "Carbon budgets",
+    def: "Legal limits on how much greenhouse gas the UK can produce, each covering five years. Parliament votes to set each one.",
+    tech: "Set under the Climate Change Act 2008, on advice from the Climate Change Committee.",
+  },
+  {
+    id: "net-zero",
+    term: "Net zero",
+    def: "The legal target for the UK to cut its greenhouse gas emissions so that, by 2050, it removes as much as it produces.",
+    tech: "Scotland has its own target in Scottish law.",
+  },
+  {
+    id: "companies-house",
+    term: "Companies House",
+    def: "The official UK register of companies. It shows who runs and owns each company, and anyone can search it for free.",
+  },
+  {
+    id: "two-child-benefit-cap",
+    term: "Two child benefit cap",
+    def: "Another name for the two child limit: a rule that stopped families getting benefit support for a third or later child. It was scrapped in April 2026.",
+  },
+  {
+    id: "media-training",
+    term: "Media training",
+    def: "Coaching on how to handle TV, radio and newspaper interviews, including how to stay on message and deal with difficult questions.",
+  },
+  {
+    id: "pr",
+    term: "PR",
+    def: "Short for public relations: work to shape how the public and the press see a person, company or organisation.",
+  },
+  {
+    id: "factor-fees",
+    term: "Factor fees",
+    def: "Fees paid to a property factor, the company that looks after the shared parts of a building or estate in Scotland.",
+  },
+  {
+    id: "crisis-grant",
+    term: "Crisis Grant",
+    def: "An emergency payment from the Scottish Welfare Fund for people who cannot afford essentials like food or heating. It does not have to be paid back.",
+  },
+  {
+    id: "warm-home-discount",
+    term: "Warm Home Discount",
+    def: "A one-off £150 discount off the electricity bill in winter for some households on low incomes.",
+  },
+  {
+    id: "winter-heating-payment",
+    term: "Winter Heating Payment",
+    def: "A yearly payment from Social Security Scotland to help low income households with heating costs in winter.",
   },
 ];
 

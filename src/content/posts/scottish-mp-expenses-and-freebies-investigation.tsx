@@ -518,19 +518,17 @@ export default function Post() {
         up Westminster politics. Yet Labour MPs account for <strong>73% of all second home council
         tax</strong> billed to taxpayers (£59,231), <strong>71% of all London hotel spending</strong>{" "}
         (£152,908), <strong>75% of all funded foreign trips</strong> (£57,288, including delegations
-        to Qatar, China, Taiwan and Syria), and <strong>both MPs whose husbands are paid to sway
-        politicians</strong> ({" "}
+        to Qatar, China, Taiwan and Syria), and <strong>both MPs married to lobbyists</strong> ({" "}
         <Link href="/representatives/mps/east-kilbride-and-strathaven#donations-and-interests">
           Joani Reid
         </Link>
-        , whose husband is paid by clients to persuade politicians and, according to Companies
+        , whose husband is a lobbyist and, according to Companies
         House, is the only director and owner of over 75% of Earthcott Ltd, the PR firm that gave
         her £2,400 of free media training, and{" "}
         <Link href="/representatives/mps/paisley-and-renfrewshire-south#donations-and-interests">
           Johanna Baxter
         </Link>
-        , whose husband is Executive Chairman of SEC Newgate UK, a firm companies pay to influence
-        politicians and the press).
+        , whose husband is Executive Chairman of lobbying and PR agency SEC Newgate UK).
       </P>
 
       <div className="my-7">
