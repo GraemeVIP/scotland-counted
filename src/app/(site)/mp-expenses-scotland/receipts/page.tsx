@@ -365,6 +365,24 @@ const gbp = (n: number, pence = true) =>
 const ONS_EARNINGS_2026 =
   "https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/bulletins/annualsurveyofhoursandearnings/2026";
 const IPSA_ACCOMMODATION = "https://information.ipsaonline.org.uk/guidance/accommodation-costs";
+/*
+ * How often the Commons needed him in 2025/26 (1 April 2025 to 31 March 2026).
+ * Sitting days: Hansard calendar API. Votes: Commons Votes API. Speaking days:
+ * Hansard spoken contributions. Written questions: Parliament's written
+ * questions API. Minister dates: Members API (Parliamentary Under-Secretary,
+ * Department of Health and Social Care, 6 Sep 2025 to 12 May 2026).
+ * Checked 21 November 2026.
+ */
+const COMMONS_SITTING_DAYS = 152;
+const ZUBIR_PARLIAMENT = "https://members.parliament.uk/member/5213";
+const BACKBENCH_SCORECARD: [label: string, value: string][] = [
+  ["Days the Commons sat, April to July 2025", "60"],
+  ["London nights paid for (claims dated 27 March to 20 July 2025)", "123"],
+  ["Cost of those nights", "£16,473"],
+  ["Days he spoke in the Commons chamber", "11"],
+  ["Commons votes he took part in", "75 of 106"],
+  ["Written questions he tabled", "0"],
+];
 
 const ALL_MPS: [string, string][] = [
   ["£9,160", "newspaper and magazine subscriptions (72 claims)"],
@@ -659,15 +677,72 @@ export default function MpExpenseReceiptsPage() {
               Dates and wording exactly as IPSA prints them, with reference codes removed.
             </p>
 
-            <p className="ui mt-5 max-w-[68ch] text-[15.5px] leading-[1.6] text-[var(--ink-2)]">
+            <h4 className="ui mt-10 text-[19px] font-[680] leading-[1.3] text-[var(--ink)]">
+              How often was he needed in London?
+            </h4>
+            <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4">
+              {[
+                [`${COMMONS_SITTING_DAYS}`, "days the Commons sat in 2025/26"],
+                [`${ZUBIR_NIGHT_COUNT}`, "London nights the taxpayer paid for"],
+                [gbp(ZUBIR_TOTAL / COMMONS_SITTING_DAYS, false), "for every day the Commons sat"],
+              ].map(([n, label]) => (
+                <div key={label} className="tile p-4 sm:p-5">
+                  <p className="figure-num tnum text-[26px] leading-none text-[var(--bad-text)] sm:text-[30px]">{n}</p>
+                  <p className="ui mt-2 text-[14px] leading-[1.4] text-[var(--ink-2)]">{label}</p>
+                </div>
+              ))}
+            </div>
+            <p className="ui mt-4 max-w-[68ch] text-[15.5px] leading-[1.6] text-[var(--ink-2)]">
+              The Commons normally sits Monday to Thursday. In 2025/26 it sat on {COMMONS_SITTING_DAYS}{" "}
+              days, including six Fridays and one emergency Saturday. The taxpayer paid for{" "}
+              {ZUBIR_NIGHT_COUNT} of his London nights, {ZUBIR_NIGHT_COUNT - COMMONS_SITTING_DAYS} more
+              nights than there were sitting days.
+            </p>
+
+            <p className="ui mt-6 text-[16px] font-[660] text-[var(--ink)]">
+              Before he became a minister: April to July 2025
+            </p>
+            <div className="tile mt-3 overflow-hidden">
+              <dl className="divide-y divide-[var(--rule)]">
+                {BACKBENCH_SCORECARD.map(([label, value]) => (
+                  <div key={label} className="flex items-center justify-between gap-4 px-4 py-3 sm:px-6">
+                    <dt className="ui text-[14.5px] leading-[1.4] text-[var(--ink-2)]">{label}</dt>
+                    <dd className="figure-num tnum shrink-0 text-right text-[19px] leading-none text-[var(--ink)]">
+                      {value}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+            <p className="ui mt-4 max-w-[68ch] text-[15.5px] leading-[1.6] text-[var(--ink-2)]">
+              As a backbench MP, his London job is the chamber: votes, debates, questions and
+              committees. Over these four months he was paid for about twice as many London nights as
+              there were sitting days. Parliament's records show no committee seat for him in 2025/26, and one written
+              question tabled since his election in July 2024.
+            </p>
+            <p className="ui mt-3 max-w-[68ch] text-[15.5px] leading-[1.6] text-[var(--ink-2)]">
+              <strong className="text-[var(--ink)]">From September 2025 he was a health minister.</strong>{" "}
+              He served as a junior minister at the Department of Health and Social Care from 6
+              September 2025 to 12 May 2026. Ministers work at their department on most weekdays,
+              sitting or not, so more London nights are expected in that time. His bookings still
+              ran seven nights a week, weekends included.
+            </p>
+            <p className="ui mt-3 max-w-[68ch] text-[15.5px] leading-[1.6] text-[var(--ink-2)]">
+              Across the whole year he voted in 202 of 301 Commons votes (67%). The average MP took
+              part in 69%.{" "}
+              <a href={ZUBIR_PARLIAMENT} target="_blank" rel="noopener noreferrer">
+                His record on Parliament&apos;s website →
+              </a>
+            </p>
+
+            <p className="ui mt-8 max-w-[68ch] text-[15.5px] leading-[1.6] text-[var(--ink-2)]">
               <strong className="text-[var(--ink)]">Is it allowed?</strong> Yes. MPs can use hotels
               instead of renting, paid from their accommodation budget, and IPSA lets them group nights
               into one booking.{" "}
               <a href={IPSA_ACCOMMODATION} target="_blank" rel="noopener noreferrer">
                 IPSA&apos;s London limit is £230 a night
               </a>
-              , and every claim here averages less than that. Most bookings run for a whole month,
-              weekends included, though the Commons usually sits Monday to Thursday.
+              , and every claim here averages less than that.
             </p>
             <p className="ui mt-3 max-w-[68ch] text-[15.5px] leading-[1.6] text-[var(--ink-2)]">
               <strong className="text-[var(--ink)]">How does it compare?</strong> It is more than the
