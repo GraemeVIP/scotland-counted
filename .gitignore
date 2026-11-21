@@ -52,3 +52,6 @@ next-env.d.ts
 
 # local SEO audit evidence and handoff cache
 .seo-cache/
+
+# Raw IPSA expense downloads (large, kept local only)
+/IPSA data/

@@ -166,6 +166,97 @@ const RECEIPTS: Receipt[] = [
     ipsa: ["Hospitality event for Business owners of Mid Dunbartonshire."],
     context: "Food and drink for local business owners, paid from public money.",
   },
+  {
+    amount: "\u00a310,000",
+    what: "A \"policy and office set up\" consultant",
+    mp: "Melanie Ward",
+    party: "Labour",
+    seat: "Cowdenbeath and Kirkcaldy",
+    slug: "cowdenbeath-and-kirkcaldy",
+    date: "19 December 2024",
+    budget: "Staffing budget",
+    ipsa: ["Policy and Office set up consultant"],
+    context:
+      "On top of her own taxpayer-funded staff. She also claimed \u00a37,000 for \"research and writing of local industrial strategy\", then paid all \u00a37,000 back in August 2025.",
+  },
+  {
+    amount: "\u00a313,117",
+    what: "Posting an \"annual report\" about himself to every home",
+    mp: "John Grady",
+    party: "Labour",
+    seat: "Glasgow East",
+    slug: "glasgow-east",
+    date: "12 February 2026",
+    budget: "Office budget",
+    ipsa: ["Roderick Urquhart/ Treehouse for printing and delivery of MP Annual Report to constituents"],
+    context:
+      "IPSA allows these if they contain no party politics. They still put the MP's name and face through every door. Frank McNally paid \u00a39,974 and Andrew Bowie \u00a35,898 for theirs.",
+  },
+  {
+    amount: "\u00a39,600",
+    what: "An outside PR firm for \"comms and media support\"",
+    mp: "Gregor Poynton",
+    party: "Labour",
+    seat: "Livingston",
+    slug: "livingston",
+    date: "21 March 2025",
+    budget: "Staffing budget",
+    ipsa: ["BB Partners Advisory Ltd - Comms and Media Support"],
+    context:
+      "BB Partners Advisory is a PR firm in Crawley, West Sussex. The claim landed ten days before IPSA's budget year closed.",
+  },
+  {
+    amount: "\u00a33,300",
+    what: "A billboard advertising himself as the local MP",
+    mp: "Euan Stainbank",
+    party: "Labour",
+    seat: "Falkirk",
+    slug: "falkirk",
+    date: "31 October 2024",
+    budget: "Office budget",
+    ipsa: ["Advertising board to advertise Euan as local MP and contact details. To be advertised for 1 year."],
+    context:
+      "A year of advertising for the MP, paid by the people he represents.",
+  },
+  {
+    amount: "\u00a33,090",
+    what: "5G broadband installed at his home",
+    mp: "Chris Law",
+    party: "Scottish National Party",
+    seat: "Dundee Central",
+    slug: "dundee-central",
+    date: "25 July 2022",
+    budget: "Office budget",
+    ipsa: ["Home 5G mobile broadband installation"],
+    context:
+      "Filed under office phone and internet costs, but the claim says it was for his home.",
+  },
+  {
+    amount: "\u00a3963",
+    what: "A business dinner",
+    mp: "Graeme Downie",
+    party: "Labour",
+    seat: "Dunfermline and Dollar",
+    slug: "dunfermline-and-dollar",
+    date: "13 March 2025",
+    budget: "Office hospitality",
+    ipsa: ["Fife College hosted business dinner on behalf of Graeme Downie"],
+    context:
+      "A dinner held in his name, paid from public money, in the last weeks of IPSA's budget year.",
+  },
+  {
+    amount: "\u00a3893",
+    what: "A \"newspaper column invoice\"",
+    mp: "Dave Doogan",
+    party: "Scottish National Party",
+    seat: "Angus and Perthshire Glens",
+    slug: "angus-and-perthshire-glens",
+    date: "19 June 2026",
+    budget: "Office budget",
+    ipsa: ["Newspaper Column Invoice"],
+    context:
+      "Filed under newspapers and magazines. The record does not explain what the column was or why the public paid for it.",
+  },
 ];
 
 const BIG_TABS: { mp: string; slug: string; party: string; what: string; amount: string; note: string }[] = [
@@ -319,14 +410,14 @@ export default function MpExpenseReceiptsPage() {
 
       <Page>
         <PageHeader
-          eyebrow="The receipts · IPSA 2025/26 · Checked 21 November 2026"
+          eyebrow="The receipts · IPSA records 2022 to 2026 · Checked 21 November 2026"
           title="The receipts: what Scottish MPs billed taxpayers for"
           stat={{
             value: "£3,000",
             label: "billed by one Scottish MP for a speech and presentation skills workshop.",
             tone: "bad",
           }}
-          lede="Speech coaching. Drain cleaning at a second home. An iPhone. Furniture from DFS and IKEA. A staff Christmas lunch. Every item on this page is a real claim, paid with public money in 2025/26, copied word for word from IPSA's own records. All of them were within the rules."
+          lede="Speech coaching. Drain cleaning at a second home. An iPhone. Furniture from DFS and IKEA. A staff Christmas lunch. A billboard advertising the MP. Every item on this page is a real claim paid with public money since 2022, copied word for word from IPSA's own records. All of them were within the rules."
         >
           <div className="mt-5 flex flex-wrap items-center gap-3">
             <Link href="/email-your-mp-and-msp" className="btn btn-primary">
@@ -347,7 +438,7 @@ export default function MpExpenseReceiptsPage() {
 
         {/* THE SINGLE RECEIPTS */}
         <ContentFrame as="section" id="receipts" className="scroll-mt-20">
-          <SectionHead eyebrow="Single claims · in IPSA's own words" title="Eight receipts you paid for" />
+          <SectionHead eyebrow="Single claims · in IPSA's own words" title={`${RECEIPTS.length} receipts you paid for`} />
           <ExplainText>
             <p className="mt-3 max-w-[66ch] text-[17px] leading-[1.6] text-[var(--ink-2)]">
               Each card shows the amount, what it was for in plain words, and the description the
@@ -577,7 +668,7 @@ export default function MpExpenseReceiptsPage() {
           <p className="label mb-3">Source</p>
           <p className="text-[15px] leading-[1.55] text-[var(--ink-2)]">
             <ExplainText>
-              IPSA 2025/26 individualBusinessCosts file, checked 21 November 2026. Descriptions are
+              IPSA individualBusinessCosts files for 2022/23 to 2026/27, checked 21 November 2026. Descriptions are
               copied exactly as IPSA publishes them. Yearly totals match our{" "}
               <Link href="/mp-expenses-scotland">full MP expenses page</Link>. Every claim shown was
               approved and paid by IPSA. Read next:{" "}
