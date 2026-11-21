@@ -208,9 +208,9 @@ export const posts: Post[] = [
     seoTitle:
       "Scottish MP Expenses & Freebies Investigation: 2nd Home Bills, Hotels & Qatar Trips",
     description:
-      "47 Scottish MPs billed taxpayers £81,647 for 2nd home council tax and £39,218 for energy bills on top of £91,346 salaries, plus £43k on hotels and Qatar trips.",
+      "47 Scottish MPs billed taxpayers £81,647 for 2nd home council tax and £39,218 for energy bills on top of £93,904 salaries, plus £43k on hotels and Qatar trips.",
     standfirst:
-      "Scottish MPs are paid £91,346 a year. Yet in 2025/26, 47 of them billed the taxpayer £81,647 to pay the council tax on their second homes and £39,218 to heat and light them, alongside £43,475 for one MP's London hotel stays, £6,292 for one MP's car parking, and £296,895 in private donations, Qatar and China trips, and Silverstone F1 tickets.",
+      "Scottish MPs were paid £93,904 in 2025/26. Yet that year, 47 of them billed the taxpayer £81,647 to pay the council tax on their second homes and £39,218 to heat and light them, alongside £43,475 for one MP's London hotel stays, £6,292 for one MP's car parking, and £296,895 in private donations, Qatar and China trips, and Silverstone F1 tickets.",
     date: "2026-11-21",
     updated: "2026-11-21",
     checked: "2026-11-21",
@@ -229,7 +229,7 @@ export const posts: Post[] = [
       src: "/images/editorial/refresh-court-records.webp",
       alt: "Open official parliamentary folders and financial ledgers on a wooden desk for the Scottish MP Register of Interests and IPSA Expenses",
       caption:
-        "Across 6,101 individual IPSA expense claim lines in 2025/26, Scottish MPs billed taxpayers £4.97 million in non-staff expenses (£18.54m including staff), plus £296,895 in private donations, foreign visits and VIP hospitality.",
+        "Across 6,101 individual IPSA expense claim lines in 2025/26, Scottish MPs billed taxpayers £5.21 million in non-staff expenses (£18.32m including staff), plus £296,895 in private donations, foreign visits and VIP hospitality.",
       aspect: "wide",
       objectPosition: "center",
     },
@@ -252,7 +252,7 @@ export const posts: Post[] = [
     faq: [
       {
         q: "How much did Scottish MPs claim in taxpayer expenses in 2025/26?",
-        a: "According to the official IPSA 2025/26 annual dataset, Scotland's MPs claimed £18,543,803.31 in total parliamentary expenses and staffing costs. Stripping out staff wages (£13.57m), Scottish MPs claimed £4,970,382.22 for their own London flats, second home council tax, energy bills, hotels, flights, parking, taxis, family travel and offices.",
+        a: "According to the official IPSA 2025/26 annual dataset, Scotland's MPs claimed £18,323,504.06 in total parliamentary expenses and staffing costs. Stripping out staffing costs (£13.11m), Scottish MPs claimed £5,210,950.38 for their own London flats, second home council tax, energy bills, hotels, flights, parking, taxis, family travel and offices.",
       },
       {
         q: "Which Scottish MPs claimed the most for second home council tax and energy bills?",

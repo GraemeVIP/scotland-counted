@@ -198,6 +198,25 @@ export default function Home() {
           </div>
         </section>
 
+        <section aria-label="MP expenses" className="mt-6">
+          <div className="tile tile-blue flex flex-col gap-4 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-7">
+            <div>
+              <span className="tile-key">New · MP expenses in Scotland</span>
+              <p className="mt-2 max-w-[60ch] text-[17px] leading-[1.5] text-white">
+                One Scottish MP claimed £43,475 for London hotels in a year. Another claimed £6,292
+                for parking. See every expense, donation and free trip for all 57 MPs.
+              </p>
+              <p className="ui mt-3 flex flex-wrap gap-x-5 gap-y-2 text-[15px]">
+                <Link href="/mp-expenses-scotland/receipts" className="font-[600] text-white">The receipts →</Link>
+                <Link href="/blog/worst-scottish-mp-expenses" className="font-[600] text-white">The worst expenses →</Link>
+              </p>
+            </div>
+            <Link href="/mp-expenses-scotland#your-mp" className="btn bg-white text-[#00336f] shrink-0 self-start sm:self-center">
+              See your MP&apos;s expenses <span aria-hidden="true">→</span>
+            </Link>
+          </div>
+        </section>
+
         {/* ---------- One current finding ---------- */}
         <section className="pt-14" aria-labelledby="flagship">
           <Link

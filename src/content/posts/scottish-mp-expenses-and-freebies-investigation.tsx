@@ -174,7 +174,8 @@ export default function Post() {
   return (
     <Prose>
       <Lead>
-        Every Scottish MP gets paid a basic salary of £91,346 a year. That puts them comfortably in
+        Every Scottish MP was paid a basic salary of £93,904 in 2025/26, rising to £98,599 from April
+        2026. That puts them comfortably in
         the top 5% of earners in the country before a single penny of expenses is claimed. Yet when
         you open the 6,101 individual receipt lines published by IPSA for 2025/26 alongside the
         House of Commons Register of Financial Interests, you find 47 of Scotland&apos;s MPs billing
@@ -194,8 +195,8 @@ export default function Post() {
       </P>
 
       <BigStat
-        value="£4,970,382"
-        label="Billed to taxpayers by Scottish MPs in 2025/26 for their own London flats, council tax, heating bills, hotels, flights, parking, taxis, family travel and offices (on top of £13.57m for staff wages and a £91,346 salary)."
+        value="£5,210,950"
+        label="Billed to taxpayers by Scottish MPs in 2025/26 for their own London flats, council tax, heating bills, hotels, flights, parking, taxis, family travel and offices (on top of £13.11m for staff wages and a £93,904 salary)."
         exact="Plus £296,894.97 declared on the Register of Interests across 23 private donations (£205,242.29), 33 funded overseas visits (£76,556.68) and 22 VIP gifts and hospitality packages (£15,096.00)."
       />
 
@@ -204,7 +205,7 @@ export default function Post() {
         already own)?
       </H2>
       <P>
-        Most people assume that if you take a £91,346 job in London, you either pay your own rent or
+        Most people assume that if you take a £93,904 job in London, you either pay your own rent or
         stay in a budget hotel when you need to be there. At Westminster, IPSA rules allow Scottish
         MPs to designate one house as their &quot;main home&quot; and bill the public for a{" "}
         <strong>second home</strong> (either a rented flat in London, or their house in Scotland if
@@ -476,7 +477,7 @@ export default function Post() {
       <P>
         When you check the 2025/26 IPSA and Register of Interests files for those exact same five
         MPs, you find that between them they claimed <strong>£497,461.46 in non-staff
-        expenses</strong> on top of their £91,346 salaries:
+        expenses</strong> on top of their £93,904 salaries:
       </P>
       <UL>
         <LI>

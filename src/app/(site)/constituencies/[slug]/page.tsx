@@ -118,6 +118,9 @@ export default async function ConstituencyPage(props: { params: Promise<{ slug: 
             <p>
               <Link href={`/representatives/mps/${c.slug}`}>
                 See the current MP&apos;s name and public contact details →
+              </Link>{" "}
+              <Link href={`/representatives/mps/${c.slug}#donations-and-interests`}>
+                See their expenses →
               </Link>
             </p>
             <p>

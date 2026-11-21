@@ -912,19 +912,19 @@ export const terms: Term[] = [
   {
     id: "register-of-interests",
     term: "Register of Interests",
-    def: "The official public list where MPs have to declare any private donations, free tickets, paid foreign trips, second jobs or rental properties they get on top of their £91,346 salary.",
+    def: "The official public list where MPs have to declare any private donations, free tickets, paid foreign trips, second jobs or rental properties they get on top of their £98,599 salary.",
     tech: "Formally the Register of Members' Financial Interests, updated fortnightly while the House of Commons is sitting and overseen by the Parliamentary Commissioner for Standards.",
   },
   {
     id: "register-of-financial-interests",
     term: "Register of Financial Interests",
-    def: "The official public list where MPs have to declare any private donations, free tickets, paid foreign trips, second jobs or rental properties they get on top of their £91,346 salary.",
+    def: "The official public list where MPs have to declare any private donations, free tickets, paid foreign trips, second jobs or rental properties they get on top of their £98,599 salary.",
     tech: "Formally the Register of Members' Financial Interests, updated fortnightly while the House of Commons is sitting.",
   },
   {
     id: "register-of-members-financial-interests",
     term: "Register of Members' Financial Interests",
-    def: "The official public list where MPs have to declare any private donations, free tickets, paid foreign trips, second jobs or rental properties they get on top of their £91,346 salary.",
+    def: "The official public list where MPs have to declare any private donations, free tickets, paid foreign trips, second jobs or rental properties they get on top of their £98,599 salary.",
     tech: "Updated fortnightly while the House of Commons is sitting and overseen by the Parliamentary Commissioner for Standards.",
   },
   {

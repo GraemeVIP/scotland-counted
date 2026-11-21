@@ -2010,7 +2010,7 @@ export const sources: Source[] = [
     title: "Annual Publications 2025/26: Total Spend and Individual Business Costs CSV datasets",
     publisher: "Independent Parliamentary Standards Authority (IPSA)",
     url: "https://www.theipsa.org.uk/mp-staffing-business-costs/annual-publications",
-    used: "All 6,101 individual Scottish MP expense claim lines in 2025/26 totalling £18,543,803.31 (£4,970,382.22 excluding staff payroll), including £1,383,619.92 for second home rent, £81,646.92 for second home council tax, £39,218.00 for second home utilities, £215,415.76 for London hotels, £912,654.62 for MP flights, £89,110.80 for family/dependant travel, £58,237.33 for parking and £45,320.45 for taxis.",
+    used: "All 6,101 individual Scottish MP expense claim lines in 2025/26, and IPSA's annual totals for the same MPs: £18,323,504.06 (£5,210,950.38 excluding staffing costs), including £1,383,619.92 for second home rent, £81,646.92 for second home council tax, £39,218.00 for second home utilities, £215,415.76 for London hotels, £912,654.62 for MP flights, £89,110.80 for family/dependant travel, £58,237.33 for parking and £45,320.45 for taxis.",
   },
   {
     id: "scotsman-labour-mps-media-spend-2025",

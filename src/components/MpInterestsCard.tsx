@@ -59,7 +59,7 @@ export default function MpInterestsCard({
     const lines: string[] = [];
     if (exp) {
       lines.push(
-        `According to the 2025/26 IPSA figures, you claimed ${money.format(exp.nonStaffSpend)} in non-staff expenses on top of your £91,346 MP salary (${money.format(exp.totalSpend)} including staff wages).`,
+        `According to the 2025/26 IPSA figures, you claimed ${money.format(exp.nonStaffSpend)} in non-staff expenses on top of your £93,904 MP salary (${money.format(exp.totalSpend)} including staff wages).`,
       );
       const items: string[] = [];
       if (exp.secondHomeRent > 0)
@@ -107,7 +107,7 @@ export default function MpInterestsCard({
           <p className="mt-2 max-w-[66ch] text-[16px] leading-[1.55] text-[var(--ink-2)]">
             <ExplainText>
               Every pound {interests.name} billed to the taxpayer via IPSA in 2025/26 on top of
-              their £91,346 salary, plus private donations, free tickets, hospitality, paid foreign
+              their £93,904 salary, plus private donations, free tickets, hospitality, paid foreign
               trips, rental properties and lobbying links on the Register of Interests (checked{" "}
               {formatDate(checkedDate) ?? checkedDate}).
             </ExplainText>

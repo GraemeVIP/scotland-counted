@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { trackEvent } from "@/lib/analytics";
 
 type Mp = { name: string; party: string; constituency: string; email: string };
 
@@ -33,6 +34,7 @@ export default function FindMpEmail({ subject, body }: { subject: string; body: 
       if (!res.ok || !data.mp) throw new Error(data.error || "We could not find that postcode.");
       setMp(data.mp);
       setState("found");
+      trackEvent("mp_receipts_lookup_success", { mp_name: data.mp.name, constituency: data.mp.constituency });
     } catch (err) {
       setError(err instanceof Error ? err.message : "The postcode search is not working just now.");
       setState("error");
@@ -46,6 +48,7 @@ export default function FindMpEmail({ subject, body }: { subject: string; body: 
 
   async function copy() {
     if (!mp) return;
+    trackEvent("mp_email_copied", { mp_name: mp.name, email_issue: "receipts" });
     const all = `To: ${mp.email}\nSubject: ${subject}\n\n${text}`;
     try {
       await navigator.clipboard.writeText(all);
@@ -98,7 +101,11 @@ export default function FindMpEmail({ subject, body }: { subject: string; body: 
             Your MP is <strong>{mp.name}</strong> ({mp.party}, {mp.constituency})
           </p>
           <div className="mt-3 flex flex-col gap-2.5 sm:flex-row">
-            <a href={mailto} className="btn btn-primary justify-center text-center">
+            <a
+              href={mailto}
+              onClick={() => trackEvent("mp_email_opened", { mp_name: mp.name, email_issue: "receipts" })}
+              className="btn btn-primary justify-center text-center"
+            >
               Open email to {mp.name}
             </a>
             <button type="button" onClick={copy} className="btn btn-ghost justify-center">

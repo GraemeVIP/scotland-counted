@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import type { EmailIssue } from "@/lib/mpEmails";
+import { trackEvent } from "@/lib/analytics";
 
 /**
  * Pick an issue, read the email, then open it in a mail app or copy it.
@@ -35,6 +36,7 @@ export default function MpEmailComposer({
   const mailto = `mailto:${email}?subject=${encodeURIComponent(issue.subject)}&body=${encodeURIComponent(issue.body)}`;
 
   async function copy() {
+    trackEvent("mp_email_copied", { mp_name: name, email_issue: issue.id });
     const text = `To: ${email}\nSubject: ${issue.subject}\n\n${issue.body}`;
     try {
       await navigator.clipboard.writeText(text);
@@ -88,7 +90,11 @@ export default function MpEmailComposer({
       </div>
 
       <div className="mt-3 flex flex-col gap-2.5 sm:flex-row">
-        <a href={mailto} className="btn btn-primary justify-center text-center">
+        <a
+          href={mailto}
+          onClick={() => trackEvent("mp_email_opened", { mp_name: name, email_issue: issue.id })}
+          className="btn btn-primary justify-center text-center"
+        >
           Open in my email app
         </a>
         <button

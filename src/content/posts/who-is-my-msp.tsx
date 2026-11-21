@@ -120,6 +120,11 @@ export default function Post() {
         <Link href="/who-decides">who decides what</Link>.
       </P>
       <P>
+        Found your MP? You can also{" "}
+        <Link href="/mp-expenses-scotland">see your MP&apos;s expenses</Link>: every claim for rent,
+        hotels, travel and their office, plus the donations, gifts and free trips they declared.
+      </P>
+      <P>
         For bins, potholes, council housing and council tax, your councillors are usually quicker.
         My guide to{" "}
         <Link href="/who-is-my-local-councillor-by-postcode">who is my local councillor by postcode</Link>{" "}

@@ -25,8 +25,8 @@ type FilterTab =
   | "property";
 
 const TABS: { id: FilterTab; label: string; total: string }[] = [
-  { id: "expenses_nonstaff", label: "Rent, travel & hotels", total: "£4.97m" },
-  { id: "expenses_total", label: "All expenses incl. staff", total: "£18.54m" },
+  { id: "expenses_nonstaff", label: "Rent, travel & hotels", total: "£5.21m" },
+  { id: "expenses_total", label: "All expenses incl. staff", total: "£18.32m" },
   { id: "donations_freebies", label: "Donations & freebies", total: "£297k" },
   { id: "visits", label: "Funded foreign trips", total: "£77k" },
   { id: "gifts", label: "VIP tickets & gifts", total: "£15k" },

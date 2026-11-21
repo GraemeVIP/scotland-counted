@@ -55,7 +55,8 @@ export default function TakeAction() {
           */}
           <p className="mt-5 text-[16px] leading-[1.6] text-[var(--ink-2)]">
             Just want to see who represents you, with no email involved?{" "}
-            <Link href="/representatives">Find your MP and MSPs →</Link>
+            <Link href="/representatives">Find your MP and MSPs →</Link> Or{" "}
+            <Link href="/mp-expenses-scotland#your-mp">see your MP&apos;s expenses →</Link>
           </p>
         </PageHeader>
 

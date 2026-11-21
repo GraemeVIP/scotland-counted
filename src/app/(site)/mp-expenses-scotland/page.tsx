@@ -19,12 +19,13 @@ import { mpInterests, MP_INTERESTS_CHECKED_ISO, MP_INTERESTS_TOTALS } from "@/li
 import { mps } from "@/lib/data/mps";
 import { CONSTITUENCY_YEARS, getConstituency } from "@/lib/data/constituencies";
 import MpInterestsExplorer from "./MpInterestsExplorer";
+import FindMpClaims from "@/components/FindMpClaims";
 
 const HERO_IMAGE = {
   src: "/images/editorial/refresh-court-records.webp",
   alt: "Open official parliamentary folders and financial ledgers on a wooden desk for the Scottish MP Register of Interests and IPSA Expenses",
   caption:
-    "In 2025/26, Scottish MPs billed taxpayers £18.54 million in IPSA expenses (including £1.38m on London second home rent and £81,647 on second home council tax), on top of £296,895 in private donations, funded foreign visits and VIP hospitality.",
+    "In 2025/26, Scottish MPs billed taxpayers £18.32 million in IPSA expenses (including £1.38m on London second home rent and £81,647 on second home council tax), on top of £296,895 in private donations, funded foreign visits and VIP hospitality.",
   width: 1500,
   height: 1000,
 };
@@ -81,7 +82,7 @@ const SPOTLIGHT_LEADERS: SpotlightEntry[] = [
     freebiesSummary:
       "Declared £11,882 in funded foreign trips to Taiwan (£5,669), the USA (£4,077) and Spain (£2,137).",
     emailReason:
-      "claiming £151,953.90 in personal rent, flights, hotels, car parking and second home council tax on top of your £91,346 salary (including £41,435 for a London flat plus £8,539 for 39 hotel nights), alongside £11,882 in funded trips to Taiwan, Spain and the US",
+      "claiming £151,953.90 in personal rent, flights, hotels, car parking and second home council tax on top of your £93,904 salary (including £41,435 for a London flat plus £8,539 for 39 hotel nights), alongside £11,882 in funded trips to Taiwan, Spain and the US",
   },
   {
     slug: "glasgow-south-west",
@@ -187,12 +188,16 @@ const MORE_SPOTLIGHT_LEADERS: SpotlightEntry[] = [
 
 const FAQ = [
   {
+    q: "How much is an MP's salary?",
+    a: "An MP's basic salary is £98,599 a year from April 2026, set by IPSA, the independent body that decides MPs' pay. It was £93,904 in 2025/26 and £91,346 in 2024/25. Expenses for offices, staff, travel and second homes are paid on top of the salary, not out of it.",
+  },
+  {
     q: "How much did Scottish MPs claim in taxpayer expenses in 2025/26?",
-    a: `According to the official IPSA 2025/26 annual dataset, Scotland's MPs claimed £18,543,803.31 in total parliamentary expenses and staffing costs. Stripping out staff wages (£13.57m), Scottish MPs claimed £4,970,382.22 for their own London flats, hotels, flights, taxis, second home council tax, energy bills and offices.`,
+    a: `According to the official IPSA 2025/26 annual dataset, Scotland's MPs claimed £18,323,504.06 in total parliamentary expenses and staffing costs. Stripping out staffing costs (£13.11m), Scottish MPs claimed £5,210,950.38 for their own London flats, hotels, flights, taxis, second home council tax, energy bills and offices.`,
   },
   {
     q: "Do Scottish MPs claim their second home council tax and energy bills on expenses?",
-    a: "Yes. In addition to their £91,346 basic salary, 47 Scottish MPs billed taxpayers £81,646.92 to pay the council tax on their second homes in 2025/26, led by Douglas Alexander MP (£4,093.21), Gregor Poynton MP (£3,629.54) and Melanie Ward MP (£3,302.72). Thirty eight Scottish MPs also billed taxpayers £39,218.00 for their second home heating, electricity and water bills, led by Angus MacDonald MP (£3,314.09) and Ian Murray MP (£3,197.22).",
+    a: "Yes. In addition to their £93,904 basic salary, 47 Scottish MPs billed taxpayers £81,646.92 to pay the council tax on their second homes in 2025/26, led by Douglas Alexander MP (£4,093.21), Gregor Poynton MP (£3,629.54) and Melanie Ward MP (£3,302.72). Thirty eight Scottish MPs also billed taxpayers £39,218.00 for their second home heating, electricity and water bills, led by Angus MacDonald MP (£3,314.09) and Ian Murray MP (£3,197.22).",
   },
   {
     q: "Which Scottish MPs voted against removing the two child benefit cap while claiming second home bills and family travel?",
@@ -222,7 +227,7 @@ function renderSpotlightCard(card: SpotlightEntry) {
   const povCount = c.counts[latestIdx];
 
   const subject = `Question from a constituent: your 2025/26 expenses and registered interests (${mp.constituency})`;
-  const body = `Dear ${mp.name},\n\nI am writing as a constituent in ${mp.constituency} to ask how you explain ${card.emailReason}, according to the 2025/26 IPSA and Register of Interests records.\n\nIn ${mp.constituency}, an estimated ${povCount.toLocaleString("en-GB")} children (${povPct}%) are living in poverty after housing costs, and local households are paying rising council tax, energy bills and rent out of their own wages.\n\nCould you explain why taxpayers should pick up the bill for these costs on top of your £91,346 MP salary?\n\nYours sincerely,\n[Your name]\n[Your address and postcode in ${mp.constituency}]`;
+  const body = `Dear ${mp.name},\n\nI am writing as a constituent in ${mp.constituency} to ask how you explain ${card.emailReason}, according to the 2025/26 IPSA and Register of Interests records.\n\nIn ${mp.constituency}, an estimated ${povCount.toLocaleString("en-GB")} children (${povPct}%) are living in poverty after housing costs, and local households are paying rising council tax, energy bills and rent out of their own wages.\n\nCould you explain why taxpayers should pick up the bill for these costs on top of your £93,904 MP salary?\n\nYours sincerely,\n[Your name]\n[Your address and postcode in ${mp.constituency}]`;
   const mailto = `mailto:${mp.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
   return (
@@ -608,7 +613,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
           headline:
             "MP Expenses & Register of Interests Scotland: Every Scottish MP Ranked on Taxpayer Claims, Second Home Bills, Foreign Trips and Freebies",
           description:
-            "Search and compare all 57 Scottish MPs across £18.54 million in 2025/26 IPSA taxpayer expenses (second home rent, council tax, energy bills, hotels, taxis) and £296,895 in private donations, foreign trips and corporate gifts.",
+            "Search and compare all 57 Scottish MPs across £18.32 million in 2025/26 IPSA taxpayer expenses (second home rent, council tax, energy bills, hotels, taxis) and £296,895 in private donations, foreign trips and corporate gifts.",
           path: "/mp-expenses-scotland",
           published: PUBLISHED_ISO,
           modified: MODIFIED_ISO,
@@ -649,16 +654,16 @@ export default function MpRegisterOfInterestsScotlandPage() {
           eyebrow={`Taxpayer Expenses & Register of Interests · Checked ${MP_INTERESTS_CHECKED_ISO}`}
           title="MP expenses, donations and freebies in Scotland: all 57 MPs ranked"
           stat={{
-            value: "£4.97m",
+            value: "£5.21m",
             label:
-              "billed by Scotland's MPs in 2025/26 for their own flats, travel, hotels and offices, on top of a £91,346 salary and £13.57m in staff wages.",
+              "billed by Scotland's MPs in 2025/26 for their own flats, travel, hotels and offices, on top of a £93,904 salary and £13.11m in staffing costs.",
             tone: "bad",
           }}
-          lede="MPs are paid a basic salary of £91,346 a year. Yet in 2025/26, 47 Scottish MPs billed the taxpayer £81,647 to pay the council tax on their second homes and £39,218 to heat and light them, part of £18.54 million in total expense claims. Alongside taxpayer expenses, Scottish MPs declared £296,895 in private donations, funded trips to Qatar, China and Taiwan, and VIP hospitality at Silverstone, Murrayfield and Hampden."
+          lede="MPs were paid a basic salary of £93,904 in 2025/26, rising to £98,599 from April 2026. Yet in 2025/26, 47 Scottish MPs billed the taxpayer £81,647 to pay the council tax on their second homes and £39,218 to heat and light them, part of £18.32 million in total expense claims. Alongside taxpayer expenses, Scottish MPs declared £296,895 in private donations, funded trips to Qatar, China and Taiwan, and VIP hospitality at Silverstone, Murrayfield and Hampden."
         >
           <div className="mt-5 flex flex-wrap items-center gap-3">
-            <Link href="/email-your-mp-and-msp" className="btn btn-primary">
-              Check & email your own MP by postcode →
+            <Link href="#your-mp" className="btn btn-primary">
+              See what your MP claimed →
             </Link>
             <Link
               href="/blog/scottish-mp-expenses-and-freebies-investigation"
@@ -676,14 +681,27 @@ export default function MpRegisterOfInterestsScotlandPage() {
           />
         </PageHeader>
 
+        <ContentFrame as="section" id="your-mp" className="scroll-mt-24">
+          <div className="rounded-[var(--r-m)] border-2 border-[var(--brand)] bg-[var(--surface)] p-5 sm:p-6">
+            <h2 className="text-[22px] font-[700] leading-[1.2] text-[var(--ink)] sm:text-[26px]">
+              See what your MP claimed
+            </h2>
+            <p className="ui mt-1.5 mb-4 text-[15.5px] leading-[1.5] text-[var(--ink-2)]">
+              Put in your postcode. We&apos;ll find your MP and show you every claim they made in
+              2025/26, plus their donations, gifts and free trips.
+            </p>
+            <FindMpClaims slugs={Object.fromEntries(mps.map((m) => [m.memberId, m.constituencySlug]))} />
+          </div>
+        </ContentFrame>
+
         <ContentFrame>
           <QuickAnswer
             answer={{
               label: "What Scotland's 57 MPs claimed & declared",
               value: pounds.format(MP_INTERESTS_TOTALS.expensesNonStaff),
-              unit: "in personal rent, travel, hotels & offices (+£13.57m staff & £297k donations/trips)",
+              unit: "in personal rent, travel, hotels & offices (+£13.11m staff & £297k donations/trips)",
               detail:
-                "Every MP receives a £91,346 salary. On top of that pay, Scottish MPs billed taxpayers £4.97 million in 2025/26 for their own London flats, council tax, energy bills, hotels, flights, car parking, family travel and offices (plus £13.57m for staff wages). Separately, 26 MPs declared £296,895 in private donations, funded overseas trips and VIP hospitality.",
+                "Every MP received a £93,904 salary in 2025/26. On top of that pay, Scottish MPs billed taxpayers £5.21 million in 2025/26 for their own London flats, council tax, energy bills, hotels, flights, car parking, family travel and offices (plus £13.11m for staff wages). Separately, 26 MPs declared £296,895 in private donations, funded overseas trips and VIP hospitality.",
               rows: [
                 {
                   label: "2nd home rent, council tax & heating billed to public",
@@ -776,7 +794,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
           <p className="mt-3 max-w-[66ch] text-[17px] leading-[1.6] text-[var(--ink-2)]">
             <ExplainText>
               After the 2009 MPs&apos; expenses scandal, voters were told the system had been
-              reformed. Yet under current IPSA rules, MPs on £91,346 a year can still claim back
+              reformed. Yet under current IPSA rules, MPs on £98,599 a year can still claim back
               household bills that their own constituents have to pay out of taxed wages or cover
               through emergency grants:
             </ExplainText>
@@ -1087,7 +1105,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
           />
           <p className="mt-3 max-w-[66ch] text-[17px] leading-[1.6] text-[var(--ink-2)]">
             <ExplainText>
-              Click any drawer below to open the 8 taxpayer expense categories (£4.97m), all 33
+              Click any drawer below to open the 8 taxpayer expense categories (£5.21m), all 33
               funded foreign trips (£76,557), all 23 private donations (£205,242), all 22 VIP
               hospitality gifts (£15,096), and the MPs with lobbyist husbands or rental properties.
             </ExplainText>
@@ -1103,7 +1121,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
                       1
                     </span>
                     <span>
-                      Where the £4.97m in taxpayer expenses went: 2nd home council tax, energy
+                      Where the £5.21m in taxpayer expenses went: 2nd home council tax, energy
                       bills, hotels, speech coaching, drain cleaning & PR
                     </span>
                   </span>
@@ -1127,7 +1145,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
                 <div className="space-y-5 border-t border-[var(--rule)] p-5 sm:p-6">
                   <GuideTable
                     kicker="2025/26 Official IPSA Receipts · 6,101 claims"
-                    title="Eight things Scottish MPs charged to taxpayers on top of their £91,346 salary"
+                    title="Eight things Scottish MPs charged to taxpayers on top of their £93,904 salary"
                     columns={[
                       "What was billed to taxpayers",
                       "Scottish MPs total",
@@ -1627,14 +1645,16 @@ export default function MpRegisterOfInterestsScotlandPage() {
             <ExplainText>
               All expense figures come from the official{" "}
               <strong>Independent Parliamentary Standards Authority (IPSA)</strong> 2025/26 annual
-              dataset (6,101 individual Scottish MP claim lines totalling £18,543,803.31). All
+              dataset (6,101 individual Scottish MP claim lines, and annual totals of £18,323,504.06). All
               donations, overseas trips, gifts, properties and family lobbying declarations come
               from the official{" "}
               <strong>House of Commons Register of Members&apos; Financial Interests API</strong>{" "}
               (210 registered entries across Scotland&apos;s 57 MPs). Company ownership comes from{" "}
               <strong>Companies House</strong> (checked 21 November 2026). Constituency child
               poverty after housing costs figures come from the{" "}
-              <strong>End Child Poverty / Loughborough University</strong> dataset.
+              <strong>End Child Poverty / Loughborough University</strong> dataset. MPs&apos;
+              salaries come from IPSA&apos;s pay decisions for 2025/26 (£93,904) and 2026/27
+              (£98,599).
             </ExplainText>
           </p>
         </ContentFrame>

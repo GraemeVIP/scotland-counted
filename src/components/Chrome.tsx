@@ -299,6 +299,7 @@ export function Footer() {
       { href: "/who-is-my-msp", label: "Who is my MSP" },
       { href: "/representatives/msps", label: "All 129 MSPs" },
       { href: "/representatives", label: "All 57 MPs" },
+      { href: "/mp-expenses-scotland", label: "MP expenses" },
       { href: "/councils", label: "All 32 council records" },
       { href: "/msp-reviews", label: "Review your MSP" },
       { href: "/blog/operation-branchform-snp-money-timeline", label: "Operation Branchform timeline" },

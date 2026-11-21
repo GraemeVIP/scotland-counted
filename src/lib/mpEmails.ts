@@ -16,6 +16,14 @@ const money = new Intl.NumberFormat("en-GB", {
   maximumFractionDigits: 0,
 });
 
+/** MPs' basic salary by IPSA year, from IPSA's pay decisions. */
+const MP_SALARY: Record<string, string> = {
+  "2024/25": "£91,346",
+  "2025/26": "£93,904",
+  "2026/27": "£98,599",
+};
+const salaryFor = (year: string) => MP_SALARY[year] ?? "MP";
+
 const SIGN_OFF = `Yours sincerely,\n[Your name]\n[Your address and postcode]`;
 
 type Vote = { date: string; title: string; vote: string };
@@ -66,7 +74,7 @@ export function buildMpEmailIssues({
       id: "expenses",
       label: "Your expenses",
       subject: `Your ${exp.year} expenses`,
-      body: `${hello}\n\nIPSA's records show you claimed ${money.format(exp.nonStaffSpend)} in ${exp.year} on top of your £91,346 salary, not counting staff wages.${items.length ? ` That included ${items.join(", ")}.` : ""}\n\nMost people pay for their own rent, bills and travel out of their wages. Why should taxpayers pay for yours on top of your salary? And will you commit to cutting these claims?\n\n${SIGN_OFF}`,
+      body: `${hello}\n\nIPSA's records show you claimed ${money.format(exp.nonStaffSpend)} in ${exp.year} on top of your ${salaryFor(exp.year)} salary, not counting staff wages.${items.length ? ` That included ${items.join(", ")}.` : ""}\n\nMost people pay for their own rent, bills and travel out of their wages. Why should taxpayers pay for yours on top of your salary? And will you commit to cutting these claims?\n\n${SIGN_OFF}`,
     });
   }
 
