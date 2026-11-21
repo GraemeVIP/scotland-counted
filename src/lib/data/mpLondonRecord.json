@@ -1,0 +1,1801 @@
+{
+  "checkedDate": "2026-11-21",
+  "year": "2025/26",
+  "start": "2025-04-01",
+  "end": "2026-03-31",
+  "sittingDays": 152,
+  "fridaySittings": 6,
+  "weekendSittings": 1,
+  "divisions": 301,
+  "averageTurnoutPct": 68.5,
+  "sources": {
+    "sittingDays": "https://hansard.parliament.uk/",
+    "votes": "https://votes.parliament.uk/",
+    "writtenQuestions": "https://questions-statements.parliament.uk/",
+    "members": "https://members.parliament.uk/",
+    "ipsa": "https://www.theipsa.org.uk/mp-staffing-business-costs/annual-publications"
+  },
+  "records": [
+    {
+      "memberId": 4357,
+      "name": "Kirsty Blackman",
+      "constituencySlug": "aberdeen-north",
+      "memberSince": "2015-05-07",
+      "votes": 83,
+      "speakingDays": 58,
+      "spokenContributions": 254,
+      "writtenQuestions": 101,
+      "posts": [
+        {
+          "kind": "opposition",
+          "name": "SNP Chief Whip",
+          "start": "2024-07-10",
+          "end": null
+        },
+        {
+          "kind": "opposition",
+          "name": "Shadow SNP Spokesperson (Work and Pensions)",
+          "start": "2024-07-10",
+          "end": null
+        },
+        {
+          "kind": "opposition",
+          "name": "Shadow SNP Spokesperson (Equalities)",
+          "start": "2024-07-10",
+          "end": null
+        }
+      ],
+      "committees": [
+        {
+          "kind": "committee",
+          "name": "Speaker's Conference (2024)",
+          "start": "2024-12-18",
+          "end": null
+        },
+        {
+          "kind": "committee",
+          "name": "Pension Schemes Bill",
+          "start": "2025-07-15",
+          "end": "2025-09-11"
+        }
+      ],
+      "hotelNights": 0,
+      "hotelPaid": 0
+    },
+    {
+      "memberId": 5450,
+      "name": "Douglas Lumsden",
+      "constituencySlug": "aberdeen-south",
+      "memberSince": "2026-06-18",
+      "votes": 0,
+      "speakingDays": 0,
+      "spokenContributions": 0,
+      "writtenQuestions": 0,
+      "posts": [],
+      "committees": [],
+      "hotelNights": 0,
+      "hotelPaid": 0
+    },
+    {
+      "memberId": 5280,
+      "name": "Seamus Logan",
+      "constituencySlug": "aberdeenshire-north-and-moray-east",
+      "memberSince": "2024-07-04",
+      "votes": 60,
+      "speakingDays": 61,
+      "spokenContributions": 180,
+      "writtenQuestions": 123,
+      "posts": [
+        {
+          "kind": "opposition",
+          "name": "Shadow SNP Spokesperson (Environment, Food and Rural Affairs)",
+          "start": "2024-07-10",
+          "end": null
+        },
+        {
+          "kind": "opposition",
+          "name": "Shadow SNP Spokesperson (Health and Social Care)",
+          "start": "2024-07-10",
+          "end": null
+        }
+      ],
+      "committees": [
+        {
+          "kind": "committee",
+          "name": "Public Office (Accountability) Bill",
+          "start": "2025-11-12",
+          "end": "2025-12-04"
+        }
+      ],
+      "hotelNights": 0,
+      "hotelPaid": 0
+    },
+    {
+      "memberId": 5200,
+      "name": "Kenneth Stevenson",
+      "constituencySlug": "airdrie-and-shotts",
+      "memberSince": "2024-07-04",
+      "votes": 226,
+      "speakingDays": 16,
+      "spokenContributions": 26,
+      "writtenQuestions": 4,
+      "posts": [],
+      "committees": [
+        {
+          "kind": "committee",
+          "name": "Procedure Committee",
+          "start": "2025-12-01",
+          "end": null
+        }
+      ],
+      "hotelNights": 0,
+      "hotelPaid": 0
+    },
+    {
+      "memberId": 5196,
+      "name": "Brian Leishman",
+      "constituencySlug": "alloa-and-grangemouth",
+      "memberSince": "2024-07-04",
+      "votes": 205,
+      "speakingDays": 65,
+      "spokenContributions": 126,
+      "writtenQuestions": 54,
+      "posts": [],
+      "committees": [],
+      "hotelNights": 0,
+      "hotelPaid": 0
+    },
+    {
+      "memberId": 4736,
+      "name": "Dave Doogan",
+      "constituencySlug": "angus-and-perthshire-glens",
+      "memberSince": "2019-12-12",
+      "votes": 84,
+      "speakingDays": 57,
+      "spokenContributions": 153,
+      "writtenQuestions": 106,
+      "posts": [
+        {
+          "kind": "opposition",
+          "name": "Shadow SNP Spokesperson (Defence)",
+          "start": "2024-07-10",
+          "end": null
+        },
+        {
+          "kind": "opposition",
+          "name": "Shadow SNP Spokesperson (Economy)",
+          "start": "2024-07-10",
+          "end": null
+        },
+        {
+          "kind": "opposition",
+          "name": "Shadow SNP Spokesperson (Energy Security and Net Zero)",
+          "start": "2024-07-10",
+          "end": "2025-06-16"
+        }
+      ],
+      "committees": [
+        {
+          "kind": "committee",
+          "name": "Scottish Affairs Committee",
+          "start": "2025-06-16",
+          "end": null
+        }
+      ],
+      "hotelNights": 0,
+      "hotelPaid": 0
+    },
+    {
+      "memberId": 5449,
+      "name": "Lara Bird",
+      "constituencySlug": "arbroath-and-broughty-ferry",
+      "memberSince": "2026-06-18",
+      "votes": 0,
+      "speakingDays": 0,
+      "spokenContributions": 0,
+      "writtenQuestions": 0,
+      "posts": [],
+      "committees": [],
+      "hotelNights": 0,
+      "hotelPaid": 0
+    },
+    {
+      "memberId": 4371,
+      "name": "Brendan O'Hara",
+      "constituencySlug": "argyll-bute-and-south-lochaber",
+      "memberSince": "2015-05-07",
+      "votes": 80,
+      "speakingDays": 37,
+      "spokenContributions": 59,
+      "writtenQuestions": 55,
+      "posts": [
+        {
+          "kind": "opposition",
+          "name": "Shadow SNP Spokesperson (Cabinet Office)",
+          "start": "2024-07-10",
+          "end": null
+        },
+        {
+          "kind": "opposition",
+          "name": "Shadow SNP Spokesperson (Culture, Media and Sport)",
+          "start": "2024-07-10",
+          "end": null
+        },
+        {
+          "kind": "opposition",
+          "name": "Shadow SNP Spokesperson (Middle East)",
+          "start": "2024-07-10",
+          "end": null
+        }
+      ],
+      "committees": [],
+      "hotelNights": 0,
+      "hotelPaid": 0
+    },
+    {
+      "memberId": 5206,
+      "name": "Elaine Stewart",
+      "constituencySlug": "ayr-carrick-and-cumnock",
+      "memberSince": "2024-07-04",
+      "votes": 166,
+      "speakingDays": 19,
+      "spokenContributions": 31,
+      "writtenQuestions": 5,
+      "posts": [],
+      "committees": [
+        {
+          "kind": "committee",
+          "name": "Scottish Affairs Committee",
+          "start": "2024-10-28",
+          "end": "2026-10-26"
+        }
+      ],
+      "hotelNights": 0,
+      "hotelPaid": 0
+    },
+    {
+      "memberId": 5179,
+      "name": "Kirsteen Sullivan",
+      "constituencySlug": "bathgate-and-linlithgow",
+      "memberSince": "2024-07-04",
+      "votes": 224,
+      "speakingDays": 51,
+      "spokenContributions": 92,
+      "writtenQuestions": 56,
+      "posts": [],
+      "committees": [
+        {
+          "kind": "committee",
+          "name": "Scottish Affairs Committee",
+          "start": "2024-10-28",
+          "end": null
+        },
+        {
+          "kind": "committee",
+          "name": "Administration Committee",
+          "start": "2025-04-28",
+          "end": null
+        },
+        {
+          "kind": "committee",
+          "name": "Absent Voting (Elections in Scotland and Wales) Bill",
+          "start": "2025-06-09",
+          "end": "2025-06-11"
+        }
+      ],
+      "hotelNights": 0,
+      "hotelPaid": 0
+    },
+    {
+      "memberId": 4608,
+      "name": "John Lamont",
+      "constituencySlug": "berwickshire-roxburgh-and-selkirk",
+      "memberSince": "2017-06-08",
+      "votes": 240,
+      "speakingDays": 85,
+      "spokenContributions": 248,
+      "writtenQuestions": 91,
+      "posts": [
+        {
+          "kind": "opposition",
+          "name": "Shadow Deputy Leader of the House of Commons",
+          "start": "2025-07-22",
+          "end": null
+        }
+      ],
+      "committees": [
+        {
+          "kind": "committee",
+          "name": "Petitions Committee",
+          "start": "2024-11-25",
+          "end": null
+        },
+        {
+          "kind": "committee",
+          "name": "Public Administration and Constitutional Affairs Committee",
+          "start": "2024-12-16",
+          "end": null
+        },
+        {
+          "kind": "committee",
+          "name": "Restoration and Renewal Programme Board",
+          "start": "2025-09-15",
+          "end": null
+        },
+        {
+          "kind": "committee",
+          "name": "Modernisation Committee",
+          "start": "2025-09-15",
+          "end": null
+        },
+        {
+          "kind": "committee",
+          "name": "Procedure Committee",
+          "start": "2025-09-15",
+          "end": null
+        }
+      ],
+      "hotelNights": 0,
+      "hotelPaid": 0
+    },
+    {
+      "memberId": 4612,
+      "name": "Jamie Stone",
+      "constituencySlug": "caithness-sutherland-and-easter-ross",
+      "memberSince": "2017-06-08",
+      "votes": 197,
+      "speakingDays": 51,
+      "spokenContributions": 117,
+      "writtenQuestions": 28,
+      "posts": [],
+      "committees": [
+        {
+          "kind": "committee",
+          "name": "Petitions Committee",
+          "start": "2024-09-09",
+          "end": null
+        },
+        {
+          "kind": "committee",
+          "name": "Liaison Committee (Commons)",
+          "start": "2024-12-04",
+          "end": null
+        },
+        {
+          "kind": "committee",
+          "name": "Space Industry (Indemnities) Bill",
+          "start": "2025-06-18",
+          "end": null
+        }
+      ],
+      "hotelNights": 0,
+      "hotelPaid": 0
+    },
+    {
+      "memberId": 5185,
+      "name": "Alan Gemmell",
+      "constituencySlug": "central-ayrshire",
+      "memberSince": "2024-07-04",
+      "votes": 244,
+      "speakingDays": 24,
+      "spokenContributions": 34,
+      "writtenQuestions": 2,
+      "posts": [],
+      "committees": [],
+      "hotelNights": 6,
+      "hotelPaid": 1565.35
+    },
+    {
+      "memberId": 5183,
+      "name": "Frank McNally",
+      "constituencySlug": "coatbridge-and-bellshill",
+      "memberSince": "2024-07-04",
+      "votes": 260,
+      "speakingDays": 28,
+      "spokenContributions": 37,
+      "writtenQuestions": 6,
+      "posts": [],
+      "committees": [
+        {
+          "kind": "committee",
+          "name": "Work and Pensions Committee",
+          "start": "2024-12-16",
+          "end": "2025-10-27"
+        }
+      ],
+      "hotelNights": 0,
+      "hotelPaid": 0
+    },
+    {
+      "memberId": 5240,
+      "name": "Melanie Ward",
+      "constituencySlug": "cowdenbeath-and-kirkcaldy",
+      "memberSince": "2024-07-04",
+      "votes": 195,
+      "speakingDays": 50,
+      "spokenContributions": 117,
+      "writtenQuestions": 22,
+      "posts": [],
+      "committees": [
+        {
+          "kind": "committee",
+          "name": "Ecclesiastical Committee",
+          "start": "2025-04-03",
+          "end": "2026-07-22"
+        },
+        {
+          "kind": "committee",
+          "name": "Courts and Tribunals Bill",
+          "start": "2026-03-18",
+          "end": "2026-04-28"
+        }
+      ],
+      "hotelNights": 0,
+      "hotelPaid": 0
+    },
+    {
+      "memberId": 5309,
+      "name": "Katrina Murray",
+      "constituencySlug": "cumbernauld-and-kirkintilloch",
+      "memberSince": "2024-07-04",
+      "votes": 213,
+      "speakingDays": 49,
+      "spokenContributions": 98,
+      "writtenQuestions": 6,
+      "posts": [],
+      "committees": [
+        {
+          "kind": "committee",
+          "name": "Northern Ireland Affairs Committee",
+          "start": "2024-10-28",
+          "end": null
+        },
+        {
+          "kind": "committee",
+          "name": "Space Industry (Indemnities) Bill",
+          "start": "2025-06-18",
+          "end": null
+        },
+        {
+          "kind": "committee",
+          "name": "Controlled Drugs (Procedure for Specification) Bill",
+          "start": "2025-06-25",
+          "end": "2025-06-25"
+        },
+        {
+          "kind": "committee",
+          "name": "Rare Cancers Bill",
+          "start": "2025-06-26",
+          "end": "2025-07-02"
+        },
+        {
+          "kind": "committee",
+          "name": "Procedure Committee",
+          "start": "2025-12-01",
+          "end": null
+        },
+        {
+          "kind": "committee",
+          "name": "Representation of the People Bill",
+          "start": "2026-03-11",
+          "end": "2026-04-16"
+        }
+      ],
+      "hotelNights": 0,
+      "hotelPaid": 0
+    },
+    {
+      "memberId": 5358,
+      "name": "John Cooper",
+      "constituencySlug": "dumfries-and-galloway",
+      "memberSince": "2024-07-04",
+      "votes": 220,
+      "speakingDays": 64,
+      "spokenContributions": 141,
+      "writtenQuestions": 57,
+      "posts": [],
+      "committees": [
+        {
+          "kind": "committee",
+          "name": "Business, Innovation, Science and Trade Committee",
+          "start": "2024-10-21",
+          "end": null
+        },
+        {
+          "kind": "committee",
+          "name": "Business, Innovation, Science and Trade Sub-Committee on Economic Security, Arms and Export Controls",
+          "start": "2025-03-05",
+          "end": "2026-04-13"
+        },
+        {
+          "kind": "committee",
+          "name": "Business, Innovation, Science and Trade Sub-Committee on Economic Security, Arms and Export Controls",
+          "start": "2024-10-21",
+          "end": null
+        },
+        {
+          "kind": "committee",
+          "name": "Finance (No. 2) Bill",
+          "start": "2026-01-15",
+          "end": "2026-02-03"
+        }
+      ],
+      "hotelNights": 4,
+      "hotelPaid": 294
+    },
+    {
+      "memberId": 1512,
+      "name": "David Mundell",
+      "constituencySlug": "dumfriesshire-clydesdale-and-tweeddale",
+      "memberSince": "2005-05-05",
+      "votes": 159,
+      "speakingDays": 63,
+      "spokenContributions": 179,
+      "writtenQuestions": 38,
+      "posts": [],
+      "committees": [
+        {
+          "kind": "committee",
+          "name": "Panel of Chairs",
+          "start": "2024-07-30",
+          "end": null
+        },
+        {
+          "kind": "committee",
+          "name": "International Development Committee",
+          "start": "2024-10-21",
+          "end": null
+        }
+      ],
+      "hotelNights": 0,
+      "hotelPaid": 0
+    },
+    {
+      "memberId": 4403,
+      "name": "Chris Law",
+      "constituencySlug": "dundee-central",
+      "memberSince": "2015-05-07",
+      "votes": 77,
+      "speakingDays": 41,
+      "spokenContributions": 73,
+      "writtenQuestions": 142,
+      "posts": [
+        {
+          "kind": "opposition",
+          "name": "Shadow SNP Spokesperson (Business)",
+          "start": "2024-07-10",
+          "end": null
+        },
+        {
+          "kind": "opposition",
+          "name": "Shadow SNP Spokesperson (International Development)",
+          "start": "2024-07-10",
+          "end": null
+        },
+        {
+          "kind": "opposition",
+          "name": "Shadow SNP Spokesperson (Trade)",
+          "start": "2024-07-10",
+          "end": null
+        }
+      ],
+      "committees": [],
+      "hotelNights": 1,
+      "hotelPaid": 122
+    },
+    {
+      "memberId": 5275,
+      "name": "Graeme Downie",
+      "constituencySlug": "dunfermline-and-dollar",
+      "memberSince": "2024-07-04",
+      "votes": 214,
+      "speakingDays": 55,
+      "spokenContributions": 126,
+      "writtenQuestions": 238,
+      "posts": [],
+      "committees": [
+        {
+          "kind": "committee",
+          "name": "Procedure Committee",
+          "start": "2024-11-04",
+          "end": "2025-12-01"
+        },
+        {
+          "kind": "committee",
+          "name": "Absent Voting (Elections in Scotland and Wales) Bill",
+          "start": "2025-06-09",
+          "end": "2025-06-11"
+        },
+        {
+          "kind": "committee",
+          "name": "Sustainable Aviation Fuel Bill",
+          "start": "2025-07-10",
+          "end": "2025-07-17"
+        },
+        {
+          "kind": "committee",
+          "name": "Energy Security and Net Zero Committee",
+          "start": "2025-11-03",
+          "end": null
+        }
+      ],
+      "hotelNights": 0,
+      "hotelPaid": 0
+    },
+    {
+      "memberId": 5079,
+      "name": "Joani Reid",
+      "constituencySlug": "east-kilbride-and-strathaven",
+      "memberSince": "2024-07-04",
+      "votes": 179,
+      "speakingDays": 19,
+      "spokenContributions": 38,
+      "writtenQuestions": 5,
+      "posts": [],
+      "committees": [
+        {
+          "kind": "committee",
+          "name": "Home Affairs Committee",
+          "start": "2024-10-21",
+          "end": null
+        },
+        {
+          "kind": "committee",
+          "name": "Absent Voting (Elections in Scotland and Wales) Bill",
+          "start": "2025-06-09",
+          "end": "2025-06-11"
+        }
+      ],
+      "hotelNights": 0,
+      "hotelPaid": 0
+    },
+    {
+      "memberId": 5076,
+      "name": "Blair McDougall",
+      "constituencySlug": "east-renfrewshire",
+      "memberSince": "2024-07-04",
+      "votes": 225,
+      "speakingDays": 26,
+      "spokenContributions": 189,
+      "writtenQuestions": 16,
+      "posts": [
+        {
+          "kind": "government",
+          "name": "Parliamentary Under-Secretary of State (Department for Business and Trade)",
+          "start": "2025-09-07",
+          "end": "2026-07-22"
+        }
+      ],
+      "committees": [
+        {
+          "kind": "committee",
+          "name": "Foreign Affairs Committee",
+          "start": "2024-10-21",
+          "end": "2025-10-27"
+        }
+      ],
+      "hotelNights": 0,
+      "hotelPaid": 0
+    },
+    {
+      "memberId": 5245,
+      "name": "Chris Murray",
+      "constituencySlug": "edinburgh-east-and-musselburgh",
+      "memberSince": "2024-07-04",
+      "votes": 240,
+      "speakingDays": 39,
+      "spokenContributions": 76,
+      "writtenQuestions": 10,
+      "posts": [],
+      "committees": [
+        {
+          "kind": "committee",
+          "name": "Home Affairs Committee",
+          "start": "2024-10-21",
+          "end": "2026-10-26"
+        },
+        {
+          "kind": "committee",
+          "name": "Absent Voting (Elections in Scotland and Wales) Bill",
+          "start": "2025-06-09",
+          "end": "2025-06-11"
+        },
+        {
+          "kind": "committee",
+          "name": "Space Industry (Indemnities) Bill",
+          "start": "2025-06-18",
+          "end": null
+        }
+      ],
+      "hotelNights": 0,
+      "hotelPaid": 0
+    },
+    {
+      "memberId": 5188,
+      "name": "Tracy Gilbert",
+      "constituencySlug": "edinburgh-north-and-leith",
+      "memberSince": "2024-07-04",
+      "votes": 233,
+      "speakingDays": 40,
+      "spokenContributions": 64,
+      "writtenQuestions": 55,
+      "posts": [],
+      "committees": [
+        {
+          "kind": "committee",
+          "name": "Procedure Committee",
+          "start": "2024-11-04",
+          "end": null
+        },
+        {
+          "kind": "committee",
+          "name": "International Development Committee",
+          "start": "2025-03-24",
+          "end": null
+        },
+        {
+          "kind": "committee",
+          "name": "Absent Voting (Elections in Scotland and Wales) Bill",
+          "start": "2025-06-09",
+          "end": "2025-06-11"
+        },
+        {
+          "kind": "committee",
+          "name": "Rare Cancers Bill",
+          "start": "2025-06-26",
+          "end": "2025-07-02"
+        }
+      ],
+      "hotelNights": 0,
+      "hotelPaid": 0
+    },
+    {
+      "memberId": 3966,
+      "name": "Ian Murray",
+      "constituencySlug": "edinburgh-south",
+      "memberSince": "2010-05-06",
+      "votes": 198,
+      "speakingDays": 31,
+      "spokenContributions": 274,
+      "writtenQuestions": 0,
+      "posts": [
+        {
+          "kind": "government",
+          "name": "Minister of State (Department for Science, Innovation and Technology)",
+          "start": "2025-09-06",
+          "end": "2026-07-21"
+        },
+        {
+          "kind": "government",
+          "name": "Minister of State (Department for Culture, Media and Sport)",
+          "start": "2025-09-06",
+          "end": "2026-07-21"
+        },
+        {
+          "kind": "government",
+          "name": "Secretary of State for Scotland",
+          "start": "2024-07-05",
+          "end": "2025-09-05"
+        }
+      ],
+      "committees": [],
+      "hotelNights": 0,
+      "hotelPaid": 0
+    },
+    {
+      "memberId": 5212,
+      "name": "Dr Scott Arthur",
+      "constituencySlug": "edinburgh-south-west",
+      "memberSince": "2024-07-04",
+      "votes": 251,
+      "speakingDays": 89,
+      "spokenContributions": 260,
+      "writtenQuestions": 366,
+      "posts": [],
+      "committees": [
+        {
+          "kind": "committee",
+          "name": "Transport Committee",
+          "start": "2024-10-28",
+          "end": null
+        },
+        {
+          "kind": "committee",
+          "name": "Absent Voting (Elections in Scotland and Wales) Bill",
+          "start": "2025-06-09",
+          "end": "2025-06-11"
+        },
+        {
+          "kind": "committee",
+          "name": "Space Industry (Indemnities) Bill",
+          "start": "2025-06-18",
+          "end": null
+        },
+        {
+          "kind": "committee",
+          "name": "Rare Cancers Bill",
+          "start": "2025-06-26",
+          "end": "2025-07-02"
+        }
+      ],
+      "hotelNights": 0,
+      "hotelPaid": 0
+    },
+    {
+      "memberId": 4634,
+      "name": "Christine Jardine",
+      "constituencySlug": "edinburgh-west",
+      "memberSince": "2017-06-08",
+      "votes": 152,
+      "speakingDays": 82,
+      "spokenContributions": 187,
+      "writtenQuestions": 42,
+      "posts": [
+        {
+          "kind": "opposition",
+          "name": "Liberal Democrat Spokesperson (Women and Equalities)",
+          "start": "2022-07-11",
+          "end": "2025-07-09"
+        },
+        {
+          "kind": "opposition",
+          "name": "Liberal Democrat Spokesperson (Scotland)",
+          "start": "2022-07-11",
+          "end": "2025-07-09"
+        }
+      ],
+      "committees": [
+        {
+          "kind": "committee",
+          "name": "Women and Equalities Committee",
+          "start": "2024-10-28",
+          "end": null
+        },
+        {
+          "kind": "committee",
+          "name": "Panel of Chairs",
+          "start": "2024-11-27",
+          "end": null
+        },
+        {
+          "kind": "committee",
+          "name": "Space Industry (Indemnities) Bill",
+          "start": "2025-06-18",
+          "end": null
+        }
+      ],
+      "hotelNights": 0,
+      "hotelPaid": 0
+    },
+    {
+      "memberId": 5110,
+      "name": "Euan Stainbank",
+      "constituencySlug": "falkirk",
+      "memberSince": "2024-07-04",
+      "votes": 268,
+      "speakingDays": 70,
+      "spokenContributions": 134,
+      "writtenQuestions": 222,
+      "posts": [],
+      "committees": [
+        {
+          "kind": "committee",
+          "name": "Court of Referees",
+          "start": "2025-02-27",
+          "end": null
+        },
+        {
+          "kind": "committee",
+          "name": "Absent Voting (Elections in Scotland and Wales) Bill",
+          "start": "2025-06-09",
+          "end": "2025-06-11"
+        },
+        {
+          "kind": "committee",
+          "name": "Norwich Livestock Market Bill [HL]",
+          "start": "2025-06-25",
+          "end": null
+        },
+        {
+          "kind": "committee",
+          "name": "Rare Cancers Bill",
+          "start": "2025-06-26",
+          "end": "2025-07-02"
+        },
+        {
+          "kind": "committee",
+          "name": "Sustainable Aviation Fuel Bill",
+          "start": "2025-07-10",
+          "end": "2025-07-17"
+        },
+        {
+          "kind": "committee",
+          "name": "General Cemetery Bill [HL]",
+          "start": "2025-09-16",
+          "end": null
+        },
+        {
+          "kind": "committee",
+          "name": "Finance Committee (Commons)",
+          "start": "2025-12-01",
+          "end": null
+        },
+        {
+          "kind": "committee",
+          "name": "Royal Albert Hall Bill [HL]",
+          "start": "2025-12-17",
+          "end": null
+        }
+      ],
+      "hotelNights": 0,
+      "hotelPaid": 0
+    },
+    {
+      "memberId": 5170,
+      "name": "John Grady",
+      "constituencySlug": "glasgow-east",
+      "memberSince": "2024-07-04",
+      "votes": 247,
+      "speakingDays": 39,
+      "spokenContributions": 110,
+      "writtenQuestions": 29,
+      "posts": [],
+      "committees": [
+        {
+          "kind": "committee",
+          "name": "Treasury Committee",
+          "start": "2024-12-09",
+          "end": "2026-10-26"
+        },
+        {
+          "kind": "committee",
+          "name": "Planning and Infrastructure Bill",
+          "start": "2025-04-24",
+          "end": "2025-05-22"
+        },
+        {
+          "kind": "committee",
+          "name": "Space Industry (Indemnities) Bill",
+          "start": "2025-06-18",
+          "end": null
+        },
+        {
+          "kind": "committee",
+          "name": "Controlled Drugs (Procedure for Specification) Bill",
+          "start": "2025-06-25",
+          "end": "2025-06-25"
+        },
+        {
+          "kind": "committee",
+          "name": "Pension Schemes Bill",
+          "start": "2025-07-15",
+          "end": "2025-09-11"
+        }
+      ],
+      "hotelNights": 0,
+      "hotelPaid": 0
+    },
+    {
+      "memberId": 5251,
+      "name": "Martin Rhodes",
+      "constituencySlug": "glasgow-north",
+      "memberSince": "2024-07-04",
+      "votes": 250,
+      "speakingDays": 41,
+      "spokenContributions": 87,
+      "writtenQuestions": 33,
+      "posts": [],
+      "committees": [
+        {
+          "kind": "committee",
+          "name": "Environmental Audit Committee",
+          "start": "2024-10-28",
+          "end": null
+        },
+        {
+          "kind": "committee",
+          "name": "Absent Voting (Elections in Scotland and Wales) Bill",
+          "start": "2025-06-09",
+          "end": "2025-06-11"
+        },
+        {
+          "kind": "committee",
+          "name": "Space Industry (Indemnities) Bill",
+          "start": "2025-06-18",
+          "end": null
+        }
+      ],
+      "hotelNights": 0,
+      "hotelPaid": 0
+    },
+    {
+      "memberId": 5137,
+      "name": "Maureen Burke",
+      "constituencySlug": "glasgow-north-east",
+      "memberSince": "2024-07-04",
+      "votes": 173,
+      "speakingDays": 19,
+      "spokenContributions": 27,
+      "writtenQuestions": 26,
+      "posts": [],
+      "committees": [
+        {
+          "kind": "committee",
+          "name": "Scottish Affairs Committee",
+          "start": "2024-10-28",
+          "end": null
+        }
+      ],
+      "hotelNights": 0,
+      "hotelPaid": 0
+    },
+    {
+      "memberId": 5189,
+      "name": "Gordon McKee",
+      "constituencySlug": "glasgow-south",
+      "memberSince": "2024-07-04",
+      "votes": 217,
+      "speakingDays": 21,
+      "spokenContributions": 33,
+      "writtenQuestions": 2,
+      "posts": [],
+      "committees": [
+        {
+          "kind": "committee",
+          "name": "Speaker's Committee for the Independent Parliamentary Standards Authority",
+          "start": "2024-11-20",
+          "end": null
+        }
+      ],
+      "hotelNights": 0,
+      "hotelPaid": 0
+    },
+    {
+      "memberId": 5213,
+      "name": "Dr Zubir Ahmed",
+      "constituencySlug": "glasgow-south-west",
+      "memberSince": "2024-07-04",
+      "votes": 202,
+      "speakingDays": 34,
+      "spokenContributions": 128,
+      "writtenQuestions": 0,
+      "posts": [
+        {
+          "kind": "government",
+          "name": "Parliamentary Under-Secretary (Department of Health and Social Care)",
+          "start": "2025-09-06",
+          "end": "2026-05-12"
+        }
+      ],
+      "committees": [],
+      "hotelNights": 295,
+      "hotelPaid": 37358.58
+    },
+    {
+      "memberId": 5190,
+      "name": "Patricia Ferguson",
+      "constituencySlug": "glasgow-west",
+      "memberSince": "2024-07-04",
+      "votes": 228,
+      "speakingDays": 63,
+      "spokenContributions": 123,
+      "writtenQuestions": 65,
+      "posts": [],
+      "committees": [
+        {
+          "kind": "committee",
+          "name": "Scottish Affairs Committee",
+          "start": "2024-09-12",
+          "end": null
+        },
+        {
+          "kind": "committee",
+          "name": "Ecclesiastical Committee",
+          "start": "2024-11-05",
+          "end": "2025-04-03"
+        },
+        {
+          "kind": "committee",
+          "name": "Liaison Committee (Commons)",
+          "start": "2024-12-04",
+          "end": null
+        }
+      ],
+      "hotelNights": 0,
+      "hotelPaid": 0
+    },
+    {
+      "memberId": 5253,
+      "name": "Richard Baker",
+      "constituencySlug": "glenrothes-and-mid-fife",
+      "memberSince": "2024-07-04",
+      "votes": 218,
+      "speakingDays": 38,
+      "spokenContributions": 62,
+      "writtenQuestions": 28,
+      "posts": [],
+      "committees": [
+        {
+          "kind": "committee",
+          "name": "Public Administration and Constitutional Affairs Committee",
+          "start": "2024-10-28",
+          "end": null
+        }
+      ],
+      "hotelNights": 0,
+      "hotelPaid": 0
+    },
+    {
+      "memberId": 5311,
+      "name": "Harriet Cross",
+      "constituencySlug": "gordon-and-buchan",
+      "memberSince": "2024-07-04",
+      "votes": 196,
+      "speakingDays": 74,
+      "spokenContributions": 221,
+      "writtenQuestions": 90,
+      "posts": [
+        {
+          "kind": "opposition",
+          "name": "Opposition Assistant Whip (Commons)",
+          "start": "2024-11-18",
+          "end": "2026-08-31"
+        }
+      ],
+      "committees": [
+        {
+          "kind": "committee",
+          "name": "Scottish Affairs Committee",
+          "start": "2024-10-21",
+          "end": "2026-10-21"
+        },
+        {
+          "kind": "committee",
+          "name": "Crime and Policing Bill",
+          "start": "2025-03-20",
+          "end": "2025-05-13"
+        },
+        {
+          "kind": "committee",
+          "name": "Absent Voting (Elections in Scotland and Wales) Bill",
+          "start": "2025-06-09",
+          "end": "2025-06-11"
+        },
+        {
+          "kind": "committee",
+          "name": "Public Office (Accountability) Bill",
+          "start": "2025-11-12",
+          "end": "2025-12-04"
+        }
+      ],
+      "hotelNights": 0,
+      "hotelPaid": 0
+    },
+    {
+      "memberId": 5136,
+      "name": "Imogen Walker",
+      "constituencySlug": "hamilton-and-clyde-valley",
+      "memberSince": "2024-07-04",
+      "votes": 165,
+      "speakingDays": 6,
+      "spokenContributions": 7,
+      "writtenQuestions": 0,
+      "posts": [
+        {
+          "kind": "government",
+          "name": "Assistant Whip",
+          "start": "2025-09-07",
+          "end": "2026-07-22"
+        }
+      ],
+      "committees": [],
+      "hotelNights": 0,
+      "hotelPaid": 0
+    },
+    {
+      "memberId": 5129,
+      "name": "Martin McCluskey",
+      "constituencySlug": "inverclyde-and-renfrewshire-west",
+      "memberSince": "2024-07-04",
+      "votes": 189,
+      "speakingDays": 16,
+      "spokenContributions": 204,
+      "writtenQuestions": 0,
+      "posts": [
+        {
+          "kind": "government",
+          "name": "Parliamentary Under-Secretary of State (Department for Energy Security and Net Zero)",
+          "start": "2025-09-07",
+          "end": null
+        },
+        {
+          "kind": "government",
+          "name": "Assistant Whip",
+          "start": "2024-07-18",
+          "end": "2025-09-07"
+        }
+      ],
+      "committees": [],
+      "hotelNights": 0,
+      "hotelPaid": 0
+    },
+    {
+      "memberId": 5362,
+      "name": "Mr Angus MacDonald",
+      "constituencySlug": "inverness-skye-and-west-ross-shire",
+      "memberSince": "2024-07-04",
+      "votes": 173,
+      "speakingDays": 33,
+      "spokenContributions": 58,
+      "writtenQuestions": 603,
+      "posts": [],
+      "committees": [
+        {
+          "kind": "committee",
+          "name": "Scottish Affairs Committee",
+          "start": "2024-10-28",
+          "end": null
+        }
+      ],
+      "hotelNights": 0,
+      "hotelPaid": 147.5
+    },
+    {
+      "memberId": 5043,
+      "name": "Lillian Jones",
+      "constituencySlug": "kilmarnock-and-loudoun",
+      "memberSince": "2024-07-04",
+      "votes": 197,
+      "speakingDays": 24,
+      "spokenContributions": 38,
+      "writtenQuestions": 7,
+      "posts": [],
+      "committees": [
+        {
+          "kind": "committee",
+          "name": "Scottish Affairs Committee",
+          "start": "2024-10-28",
+          "end": null
+        },
+        {
+          "kind": "committee",
+          "name": "Finance Committee (Commons)",
+          "start": "2024-11-18",
+          "end": null
+        }
+      ],
+      "hotelNights": 0,
+      "hotelPaid": 0
+    },
+    {
+      "memberId": 5167,
+      "name": "Gregor Poynton",
+      "constituencySlug": "livingston",
+      "memberSince": "2024-07-04",
+      "votes": 228,
+      "speakingDays": 21,
+      "spokenContributions": 33,
+      "writtenQuestions": 30,
+      "posts": [
+        {
+          "kind": "government",
+          "name": "Assistant Whip",
+          "start": "2025-09-07",
+          "end": "2026-07-22"
+        }
+      ],
+      "committees": [
+        {
+          "kind": "committee",
+          "name": "Business, Innovation, Science and Trade Committee",
+          "start": "2024-10-21",
+          "end": "2025-10-27"
+        },
+        {
+          "kind": "committee",
+          "name": "Business, Innovation, Science and Trade Sub-Committee on Economic Security, Arms and Export Controls",
+          "start": "2025-03-05",
+          "end": "2025-10-27"
+        }
+      ],
+      "hotelNights": 0,
+      "hotelPaid": 0
+    },
+    {
+      "memberId": 632,
+      "name": "Mr Douglas Alexander",
+      "constituencySlug": "lothian-east",
+      "memberSince": "2024-07-04",
+      "votes": 120,
+      "speakingDays": 12,
+      "spokenContributions": 186,
+      "writtenQuestions": 0,
+      "posts": [
+        {
+          "kind": "government",
+          "name": "Secretary of State for Scotland",
+          "start": "2025-09-05",
+          "end": null
+        },
+        {
+          "kind": "government",
+          "name": "Minister of State (Cabinet Office)",
+          "start": "2025-02-10",
+          "end": "2025-09-05"
+        },
+        {
+          "kind": "government",
+          "name": "Minister of State (Department for Business and Trade)",
+          "start": "2024-07-06",
+          "end": "2025-09-05"
+        }
+      ],
+      "committees": [],
+      "hotelNights": 0,
+      "hotelPaid": 0
+    },
+    {
+      "memberId": 5157,
+      "name": "Susan Murray",
+      "constituencySlug": "mid-dunbartonshire",
+      "memberSince": "2024-07-04",
+      "votes": 191,
+      "speakingDays": 49,
+      "spokenContributions": 91,
+      "writtenQuestions": 74,
+      "posts": [
+        {
+          "kind": "opposition",
+          "name": "Liberal Democrat Spokesperson (Scotland)",
+          "start": "2025-10-01",
+          "end": null
+        }
+      ],
+      "committees": [
+        {
+          "kind": "committee",
+          "name": "Scottish Affairs Committee",
+          "start": "2024-10-28",
+          "end": null
+        },
+        {
+          "kind": "committee",
+          "name": "Speaker's Advisory Committee on Works of Art",
+          "start": "2025-02-06",
+          "end": null
+        },
+        {
+          "kind": "committee",
+          "name": "Royal Albert Hall Bill [HL]",
+          "start": "2025-12-17",
+          "end": null
+        }
+      ],
+      "hotelNights": 0,
+      "hotelPaid": 0
+    },
+    {
+      "memberId": 5114,
+      "name": "Kirsty McNeill",
+      "constituencySlug": "midlothian",
+      "memberSince": "2024-07-04",
+      "votes": 173,
+      "speakingDays": 13,
+      "spokenContributions": 98,
+      "writtenQuestions": 0,
+      "posts": [
+        {
+          "kind": "government",
+          "name": "Parliamentary Under-Secretary (Scotland Office)",
+          "start": "2024-07-09",
+          "end": "2026-07-21"
+        }
+      ],
+      "committees": [],
+      "hotelNights": 0,
+      "hotelPaid": 0
+    },
+    {
+      "memberId": 5277,
+      "name": "Graham Leadbitter",
+      "constituencySlug": "moray-west-nairn-and-strathspey",
+      "memberSince": "2024-07-04",
+      "votes": 74,
+      "speakingDays": 47,
+      "spokenContributions": 107,
+      "writtenQuestions": 138,
+      "posts": [
+        {
+          "kind": "opposition",
+          "name": "Shadow SNP Spokesperson (Energy Security and Net Zero)",
+          "start": "2025-06-16",
+          "end": null
+        },
+        {
+          "kind": "opposition",
+          "name": "Shadow SNP Spokesperson (Science, Innovation and Technology)",
+          "start": "2024-07-10",
+          "end": null
+        },
+        {
+          "kind": "opposition",
+          "name": "Shadow SNP Spokesperson (Transport)",
+          "start": "2024-07-10",
+          "end": null
+        }
+      ],
+      "committees": [
+        {
+          "kind": "committee",
+          "name": "Absent Voting (Elections in Scotland and Wales) Bill",
+          "start": "2025-06-09",
+          "end": "2025-06-11"
+        }
+      ],
+      "hotelNights": 1,
+      "hotelPaid": 231.5
+    },
+    {
+      "memberId": 3909,
+      "name": "Pamela Nash",
+      "constituencySlug": "motherwell-wishaw-and-carluke",
+      "memberSince": "2024-07-04",
+      "votes": 246,
+      "speakingDays": 8,
+      "spokenContributions": 9,
+      "writtenQuestions": 0,
+      "posts": [],
+      "committees": [],
+      "hotelNights": 0,
+      "hotelPaid": 0
+    },
+    {
+      "memberId": 5246,
+      "name": "Torcuil Crichton",
+      "constituencySlug": "na-h-eileanan-an-iar",
+      "memberSince": "2024-07-04",
+      "votes": 241,
+      "speakingDays": 60,
+      "spokenContributions": 105,
+      "writtenQuestions": 6,
+      "posts": [],
+      "committees": [
+        {
+          "kind": "committee",
+          "name": "Energy Security and Net Zero Committee",
+          "start": "2024-10-21",
+          "end": null
+        }
+      ],
+      "hotelNights": 0,
+      "hotelPaid": 0
+    },
+    {
+      "memberId": 5145,
+      "name": "Irene Campbell",
+      "constituencySlug": "north-ayrshire-and-arran",
+      "memberSince": "2024-07-04",
+      "votes": 226,
+      "speakingDays": 37,
+      "spokenContributions": 97,
+      "writtenQuestions": 22,
+      "posts": [],
+      "committees": [
+        {
+          "kind": "committee",
+          "name": "Petitions Committee",
+          "start": "2024-10-28",
+          "end": null
+        },
+        {
+          "kind": "committee",
+          "name": "Finance Committee (Commons)",
+          "start": "2024-11-18",
+          "end": null
+        },
+        {
+          "kind": "committee",
+          "name": "Animal Welfare (Import of Dogs, Cats and Ferrets) Bill",
+          "start": "2025-05-13",
+          "end": "2025-05-14"
+        },
+        {
+          "kind": "committee",
+          "name": "Absent Voting (Elections in Scotland and Wales) Bill",
+          "start": "2025-06-09",
+          "end": "2025-06-11"
+        }
+      ],
+      "hotelNights": 0,
+      "hotelPaid": 0
+    },
+    {
+      "memberId": 4765,
+      "name": "Wendy Chamberlain",
+      "constituencySlug": "north-east-fife",
+      "memberSince": "2019-12-12",
+      "votes": 173,
+      "speakingDays": 54,
+      "spokenContributions": 114,
+      "writtenQuestions": 102,
+      "posts": [
+        {
+          "kind": "opposition",
+          "name": "Liberal Democrat Chief Whip",
+          "start": "2020-09-07",
+          "end": null
+        }
+      ],
+      "committees": [
+        {
+          "kind": "committee",
+          "name": "Modernisation Committee",
+          "start": "2024-09-09",
+          "end": null
+        },
+        {
+          "kind": "committee",
+          "name": "Absent Voting (Elections in Scotland and Wales) Bill",
+          "start": "2025-06-09",
+          "end": "2025-06-11"
+        }
+      ],
+      "hotelNights": 0,
+      "hotelPaid": 0
+    },
+    {
+      "memberId": 1442,
+      "name": "Mr Alistair Carmichael",
+      "constituencySlug": "orkney-and-shetland",
+      "memberSince": "2001-06-07",
+      "votes": 162,
+      "speakingDays": 58,
+      "spokenContributions": 122,
+      "writtenQuestions": 9,
+      "posts": [],
+      "committees": [
+        {
+          "kind": "committee",
+          "name": "Environment, Food and Rural Affairs Committee",
+          "start": "2024-09-09",
+          "end": null
+        },
+        {
+          "kind": "committee",
+          "name": "Liaison Committee (Commons)",
+          "start": "2024-12-04",
+          "end": null
+        },
+        {
+          "kind": "committee",
+          "name": "Liaison Sub-Committee on National Policy Statements",
+          "start": "2025-06-11",
+          "end": null
+        }
+      ],
+      "hotelNights": 0,
+      "hotelPaid": 0
+    },
+    {
+      "memberId": 5093,
+      "name": "Alison Taylor",
+      "constituencySlug": "paisley-and-renfrewshire-north",
+      "memberSince": "2024-07-04",
+      "votes": 138,
+      "speakingDays": 22,
+      "spokenContributions": 40,
+      "writtenQuestions": 14,
+      "posts": [],
+      "committees": [
+        {
+          "kind": "committee",
+          "name": "Environmental Audit Committee",
+          "start": "2024-10-28",
+          "end": "2025-11-17"
+        }
+      ],
+      "hotelNights": 13,
+      "hotelPaid": 3085
+    },
+    {
+      "memberId": 5063,
+      "name": "Johanna Baxter",
+      "constituencySlug": "paisley-and-renfrewshire-south",
+      "memberSince": "2024-07-04",
+      "votes": 258,
+      "speakingDays": 73,
+      "spokenContributions": 136,
+      "writtenQuestions": 26,
+      "posts": [],
+      "committees": [
+        {
+          "kind": "committee",
+          "name": "Work and Pensions Committee",
+          "start": "2024-10-21",
+          "end": "2026-06-22"
+        },
+        {
+          "kind": "committee",
+          "name": "Animal Welfare (Import of Dogs, Cats and Ferrets) Bill",
+          "start": "2025-05-13",
+          "end": "2025-05-14"
+        },
+        {
+          "kind": "committee",
+          "name": "Finance (No. 2) Bill",
+          "start": "2026-01-15",
+          "end": "2026-02-03"
+        }
+      ],
+      "hotelNights": 0,
+      "hotelPaid": 0
+    },
+    {
+      "memberId": 1440,
+      "name": "Pete Wishart",
+      "constituencySlug": "perth-and-kinross-shire",
+      "memberSince": "2001-06-07",
+      "votes": 90,
+      "speakingDays": 49,
+      "spokenContributions": 148,
+      "writtenQuestions": 19,
+      "posts": [
+        {
+          "kind": "opposition",
+          "name": "SNP Deputy Westminster Leader",
+          "start": "2024-07-10",
+          "end": null
+        },
+        {
+          "kind": "opposition",
+          "name": "Shadow SNP Spokesperson (Home Affairs)",
+          "start": "2024-07-10",
+          "end": null
+        },
+        {
+          "kind": "opposition",
+          "name": "Shadow SNP Spokesperson (Constitution)",
+          "start": "2024-07-10",
+          "end": null
+        }
+      ],
+      "committees": [
+        {
+          "kind": "committee",
+          "name": "Panel of Chairs",
+          "start": "2026-03-20",
+          "end": null
+        }
+      ],
+      "hotelNights": 0,
+      "hotelPaid": 0
+    },
+    {
+      "memberId": 4998,
+      "name": "Michael Shanks",
+      "constituencySlug": "rutherglen",
+      "memberSince": "2023-10-05",
+      "votes": 166,
+      "speakingDays": 43,
+      "spokenContributions": 460,
+      "writtenQuestions": 0,
+      "posts": [
+        {
+          "kind": "government",
+          "name": "Minister of State (Department for Energy Security and Net Zero)",
+          "start": "2025-09-06",
+          "end": null
+        },
+        {
+          "kind": "government",
+          "name": "Parliamentary Under-Secretary of State (Department for Energy Security and Net Zero)",
+          "start": "2024-07-09",
+          "end": "2025-09-06"
+        }
+      ],
+      "committees": [
+        {
+          "kind": "committee",
+          "name": "Planning and Infrastructure Bill",
+          "start": "2025-04-24",
+          "end": "2025-05-22"
+        }
+      ],
+      "hotelNights": 0,
+      "hotelPaid": 0
+    },
+    {
+      "memberId": 5155,
+      "name": "Chris Kane",
+      "constituencySlug": "stirling-and-strathallan",
+      "memberSince": "2024-07-04",
+      "votes": 230,
+      "speakingDays": 25,
+      "spokenContributions": 40,
+      "writtenQuestions": 9,
+      "posts": [],
+      "committees": [
+        {
+          "kind": "committee",
+          "name": "Public Accounts Committee",
+          "start": "2024-10-28",
+          "end": null
+        },
+        {
+          "kind": "committee",
+          "name": "Product Regulation and Metrology Bill [HL]",
+          "start": "2025-05-13",
+          "end": "2025-05-15"
+        },
+        {
+          "kind": "committee",
+          "name": "Space Industry (Indemnities) Bill",
+          "start": "2025-06-18",
+          "end": null
+        },
+        {
+          "kind": "committee",
+          "name": "Rare Cancers Bill",
+          "start": "2025-06-26",
+          "end": "2025-07-02"
+        }
+      ],
+      "hotelNights": 0,
+      "hotelPaid": 0
+    },
+    {
+      "memberId": 4601,
+      "name": "Andrew Bowie",
+      "constituencySlug": "west-aberdeenshire-and-kincardine",
+      "memberSince": "2017-06-08",
+      "votes": 190,
+      "speakingDays": 41,
+      "spokenContributions": 132,
+      "writtenQuestions": 81,
+      "posts": [
+        {
+          "kind": "opposition",
+          "name": "Shadow Secretary of State for Scotland",
+          "start": "2024-11-05",
+          "end": "2026-08-31"
+        },
+        {
+          "kind": "opposition",
+          "name": "Shadow Minister (Energy Security and Net Zero)",
+          "start": "2024-07-19",
+          "end": "2026-08-31"
+        }
+      ],
+      "committees": [],
+      "hotelNights": 0,
+      "hotelPaid": 0
+    },
+    {
+      "memberId": 5057,
+      "name": "Douglas McAllister",
+      "constituencySlug": "west-dunbartonshire",
+      "memberSince": "2024-07-04",
+      "votes": 270,
+      "speakingDays": 63,
+      "spokenContributions": 106,
+      "writtenQuestions": 16,
+      "posts": [],
+      "committees": [
+        {
+          "kind": "committee",
+          "name": "Scottish Affairs Committee",
+          "start": "2024-10-28",
+          "end": null
+        },
+        {
+          "kind": "committee",
+          "name": "Public Office (Accountability) Bill",
+          "start": "2025-11-12",
+          "end": "2025-12-04"
+        }
+      ],
+      "hotelNights": 0,
+      "hotelPaid": 0
+    }
+  ]
+}

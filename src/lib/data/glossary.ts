@@ -910,6 +910,30 @@ export const terms: Term[] = [
     tech: "Created by the Parliamentary Standards Act 2009 to take control of MPs' pay, pensions, staffing budgets and business expenses away from MPs themselves.",
   },
   {
+    id: "written-question",
+    term: "Written question",
+    def: "A question an MP sends to a government department in writing. The department must publish an answer, so it is one of the main ways backbench MPs press ministers and dig out facts.",
+    tech: "Tabled through the House of Commons Table Office and answered by the relevant minister. Questions and answers are published on Parliament's written questions website.",
+  },
+  {
+    id: "westminster-hall",
+    term: "Westminster Hall",
+    def: "A second debating room in Parliament where MPs hold shorter debates, often on topics raised by backbench MPs or public petitions.",
+    tech: "Westminster Hall sittings run alongside the main Commons chamber. No votes are held there.",
+  },
+  {
+    id: "sitting-day",
+    term: "Sitting day",
+    def: "A day when the House of Commons actually meets. It normally sits Monday to Thursday, plus some Fridays, and not during recess.",
+    tech: "Sitting days are listed in Hansard, Parliament's official record of debates.",
+  },
+  {
+    id: "whip",
+    term: "Whip",
+    def: "An MP whose job is to keep their party's MPs in line and make sure they turn up to vote. By custom, whips do not speak in debates.",
+    tech: "Government whips are paid ministers. Each party also appoints its own whips, led by a chief whip.",
+  },
+  {
     id: "register-of-interests",
     term: "Register of Interests",
     def: "The official public list where MPs have to declare any private donations, free tickets, paid foreign trips, second jobs or rental properties they get on top of their £98,599 salary.",

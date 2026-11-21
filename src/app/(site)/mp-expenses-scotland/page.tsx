@@ -19,6 +19,8 @@ import { mps } from "@/lib/data/mps";
 import { CONSTITUENCY_YEARS, getConstituency } from "@/lib/data/constituencies";
 import MpInterestsExplorer from "./MpInterestsExplorer";
 import FindMpClaims from "@/components/FindMpClaims";
+import MpLondonTable from "@/components/MpLondonTable";
+import { LONDON_RECORD, londonTableRows } from "@/lib/data/mpLondonRecord";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
 const HERO_IMAGE = {
@@ -1148,6 +1150,34 @@ export default function MpRegisterOfInterestsScotlandPage() {
               {MORE_SPOTLIGHT_LEADERS.map((card) => renderSpotlightCard(card))}
             </div>
           </details>
+        </ContentFrame>
+
+        {/* HOW OFTEN WERE THEY NEEDED IN LONDON? (PARLIAMENT'S OWN RECORDS) */}
+        <ContentFrame as="section" id="london-record" className="pt-16">
+          <SectionHead
+            eyebrow="2025/26 · Parliament's own records"
+            title="How often were Scotland's MPs needed in London?"
+          />
+          <div className="mt-3 mb-6 max-w-[66ch] space-y-3 text-[17px] leading-[1.6] text-[var(--ink-2)]">
+            <ExplainText>
+              <p>
+                The Commons normally sits Monday to Thursday. In 2025/26 it sat on{" "}
+                <strong>{LONDON_RECORD.sittingDays} days</strong>. Every MP below had a second home
+                paid for by the taxpayer so they could be there. Here is what that cost for each
+                sitting day, next to what Parliament&apos;s records show they did: votes, days they
+                spoke in debates, and written questions.
+              </p>
+              <p className="text-[15.5px] text-[var(--muted)]">
+                Ministers and whips rarely speak or table questions because of their jobs, and the
+                SNP does not vote on laws that only affect England, or England and Wales. Tap any MP
+                for their full record.
+              </p>
+            </ExplainText>
+          </div>
+          <MpLondonTable
+            rows={londonTableRows(Object.fromEntries(mps.map((m) => [m.memberId, m.party])))}
+            sittingDays={LONDON_RECORD.sittingDays}
+          />
         </ContentFrame>
 
         {/* INTERACTIVE LEADERBOARD (COLLAPSED TO TOP 10 BY DEFAULT) */}

@@ -379,7 +379,7 @@ const BACKBENCH_SCORECARD: [label: string, value: string][] = [
   ["Days the Commons sat, April to July 2025", "60"],
   ["London nights paid for (claims dated 27 March to 20 July 2025)", "123"],
   ["Cost of those nights", "£16,473"],
-  ["Days he spoke in the Commons chamber", "11"],
+  ["Days he spoke in Commons debates", "11"],
   ["Commons votes he took part in", "75 of 106"],
   ["Written questions he tabled", "0"],
 ];
@@ -720,7 +720,7 @@ export default function MpExpenseReceiptsPage() {
             <p className="ui mt-4 max-w-[68ch] text-[15.5px] leading-[1.6] text-[var(--ink-2)]">
               As a backbench MP, his London job is the chamber: votes, debates, questions and
               committees. Over these four months he was paid for about twice as many London nights as
-              there were sitting days. Parliament's records show no committee seat for him in 2025/26, and one written
+              there were sitting days. Parliament&apos;s records show no committee seat for him in 2025/26, and one written
               question tabled since his election in July 2024.
             </p>
             <p className="ui mt-3 max-w-[68ch] text-[15.5px] leading-[1.6] text-[var(--ink-2)]">

@@ -15,6 +15,8 @@ import { JsonLd, faqJsonLd, meta } from "@/lib/seo";
 import { site } from "@/lib/site";
 import MemberVoteList from "@/components/MemberVoteList";
 import MpInterestsCard from "@/components/MpInterestsCard";
+import MpLondonRecord from "@/components/MpLondonRecord";
+import { getLondonRecordByConstituencySlug } from "@/lib/data/mpLondonRecord";
 import MpEmailComposer from "@/components/MpEmailComposer";
 import { buildMpEmailIssues } from "@/lib/mpEmails";
 import PortraitLightbox from "@/components/PortraitLightbox";
@@ -51,6 +53,7 @@ export default async function MpPage({ params }: { params: Promise<{ slug: strin
   const constituency = getConstituency(slug);
   if (!mp || !constituency) notFound();
   const interests = getMpInterestsByConstituencySlug(slug);
+  const londonRecord = getLondonRecordByConstituencySlug(slug);
 
   const checked = formatMpCheckedDate();
   const latestIndex = CONSTITUENCY_YEARS.length - 1;
@@ -243,6 +246,17 @@ export default async function MpPage({ params }: { params: Promise<{ slug: strin
                 povertyCount={povertyCount}
                 povertyRate={povertyRate}
                 povertyYear={povertyYear}
+              />
+            </section>
+          )}
+
+          {londonRecord && (
+            <section id="london-record" className="pt-10">
+              <MpLondonRecord
+                record={londonRecord}
+                name={mp.name}
+                party={mp.party}
+                secondHome={interests?.expenses?.accommodationSpend ?? 0}
               />
             </section>
           )}
