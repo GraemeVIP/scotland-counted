@@ -1,6 +1,7 @@
 import Link from "@/components/IntentLink";
 import { Prose, Lead, P, H2, H3, UL, LI, Aside, PostCTA } from "@/components/Prose";
 import { GuideTable } from "@/components/GuideTable";
+import Image from "next/image";
 import RevealCompare from "@/components/RevealCompare";
 
 /*
@@ -290,19 +291,30 @@ export default function Post() {
 
       <H3 id="where-hosted">Where these sites actually live</H3>
       <P>
-        Using our own specialist checks, we traced the MP sites back to where they really live.
-        Joani Reid, Dan Carden, Natasha Irons, James Naish, James Asser, Jas Athwal and Damien Egan:
-        every one we tested sits on <strong>one shared server at Krystal Hosting</strong>, a UK web
+        Using our own specialist checks, we traced the MP sites back to where they really live.{" "}
+        <strong>16 MPs&apos; websites sit on one shared server at Krystal Hosting</strong>, a UK web
         host. Causeway&apos;s own website and its demo site are on the very same server.
+      </P>
+      <P>
+        Two of the 16 are Scottish: Joani Reid and Dr Zubir Ahmed. The rest are Dan Carden, Natasha
+        Irons, James Naish, James Asser, Jas Athwal, Damien Egan, Mike Reader, Alison Hume, Luke
+        Murphy, Andrew Pakes, Lauren Edwards, Andrew Lewin, Luke Charters and Debbie Abrahams. All
+        Labour.
+      </P>
+      <P>
+        Here&apos;s the odd part. Zubir Ahmed, Alison Hume, Mike Reader and Andrew Pakes have{" "}
+        <strong>no website payments in IPSA&apos;s records at all</strong>, yet their sites are on
+        Causeway&apos;s server. Three of them carry &quot;Designed and Powered by Causeway
+        Creative&quot; at the bottom. Their payments to the firm are all filed under other headings,
+        mostly &quot;Comms &amp; Media&quot;.
       </P>
       <P>
         Krystal sells a plan called{" "}
         <a href="https://krystal.io/hosting" target="_blank" rel="noopener noreferrer">
           Emerald
         </a>{" "}
-        that hosts
-        <strong>unlimited websites for £19 a month</strong>. That&apos;s £228 a year, or £273.60
-        with VAT. Not per site. For every site on the plan.
+        that hosts <strong>unlimited websites for £19 a month</strong>. That&apos;s £228 a year, or
+        £273.60 with VAT. Not per site. For every site on the plan.
       </P>
       <P>
         We can&apos;t see which plan Causeway uses. But say every MP site had a whole Emerald plan
@@ -330,7 +342,102 @@ export default function Post() {
         <strong>So what did £1,200 pay for?</strong>
       </P>
 
-      <H2 id="who-is-he">9. Who is behind Causeway Creative?</H2>
+      <H3 id="same-bill">The same bill, three times</H3>
+      <P>
+        Joani Reid, Alison Hume and Zubir Ahmed each paid Causeway the exact same four amounts, all
+        within a month in spring 2025: <strong>£3,500, £3,500, £3,582 and £4,500</strong>.
+        That&apos;s £15,082 each, all filed as &quot;Comms &amp; Media&quot;. Joani Reid also paid a
+        second £3,582 on top. Identical bills, to the pound, for three different MPs in three
+        different seats.
+      </P>
+
+      <H2 id="your-data">9. Your personal details</H2>
+      <P>
+        These sites ask for your personal details. The contact forms ask for your name and email.
+        The small business survey asks for your name, email and home address.
+      </P>
+      <P>
+        Under UK data protection law, known as UK GDPR, any website that collects personal details
+        has to tell you who is responsible for them and what happens to them. That&apos;s what a
+        privacy policy is for. So we read them.
+      </P>
+      <UL>
+        <LI>
+          <strong>Six were completely blank.</strong> Dan Carden, Natasha Irons, James Naish, James
+          Asser, Jas Athwal and Damien Egan all have a &quot;Privacy Policy&quot; link. Click it and
+          you get an empty page.
+        </LI>
+        <LI>
+          <strong>Joani Reid&apos;s names the wrong person.</strong> It says the person legally
+          responsible for your data is &quot;Joanne Bloggs&quot;. That&apos;s the made up MP from
+          Causeway&apos;s template.
+        </LI>
+        <LI>
+          <strong>It sends your privacy questions to the agency.</strong> Under &quot;Contact
+          us&quot; for privacy concerns, it gives Causeway Creative&apos;s email address, not her
+          office&apos;s.
+        </LI>
+        <LI>
+          <strong>It was written for a shop.</strong> It says your details could go to &quot;debt
+          collectors&quot;, and be handed over if &quot;we go out of business or enter
+          bankruptcy&quot;. On an MP&apos;s website.
+        </LI>
+      </UL>
+
+      <div className="my-8 grid gap-4 sm:grid-cols-3">
+        {[
+          {
+            src: `${IMG}/privacy-reid.webp`,
+            h: 1520,
+            alt: "Joani Reid MP's privacy policy, with the line We, Joanne Bloggs, are a Data Controller highlighted",
+            label: 'Joani Reid MP: "We, Joanne Bloggs"',
+          },
+          {
+            src: `${IMG}/privacy-reid-contact.webp`,
+            h: 1280,
+            alt: "Joani Reid MP's privacy policy contact section, giving Causeway Creative and its email address, highlighted",
+            label: "Joani Reid MP: privacy questions go to Causeway",
+          },
+          {
+            src: `${IMG}/privacy-carden.webp`,
+            h: 1520,
+            alt: "Dan Carden MP's privacy policy page, which has no policy on it, only the site's menu and footer",
+            label: "Dan Carden MP: the privacy policy page, empty",
+          },
+        ].map((shot) => (
+          <figure key={shot.src}>
+            <Image
+              src={shot.src}
+              alt={shot.alt}
+              width={780}
+              height={shot.h}
+              sizes="(min-width: 640px) 220px, 100vw"
+              className="h-auto w-full rounded-[10px] border border-[var(--rule-strong)]"
+            />
+            <figcaption className="ui mt-2 text-[14px] font-[600] leading-[1.4] text-[var(--ink)]">
+              {shot.label}
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+      <p className="ui -mt-4 mb-6 text-[14px] text-[var(--ink-2)]">
+        All live on 21 November 2026. Highlights are ours.
+      </p>
+
+      <P>
+        And remember where these forms live: on a shared server, under the account of a firm run by
+        a Labour councillor. That may all be above board. But nobody visiting these sites is told.
+      </P>
+      <Aside title="Questions for the MPs">
+        <p>
+          Who is legally responsible for the details constituents type into your website? Can
+          Causeway Creative see them? Is there a written contract with the firm covering your
+          constituents&apos; data, as the law requires when someone handles it for you? And why is
+          your privacy policy blank, or signed by Joanne Bloggs?
+        </p>
+      </Aside>
+
+      <H2 id="who-is-he">10. Who is behind Causeway Creative?</H2>
       <P>
         Causeway Creative is owned and run by Tom Jennings. He&apos;s not an MP. He&apos;s a Labour
         and Co-operative councillor in Warrington, first elected in 2016. Until February 2024 he sat
@@ -348,7 +455,7 @@ export default function Post() {
         too. 49 of the 53 MPs who have paid Causeway are Labour.
       </P>
 
-      <H2 id="why-pay">10. So why are MPs paying him?</H2>
+      <H2 id="why-pay">11. So why are MPs paying him?</H2>
       <P>We can&apos;t see inside their heads, but the records show a few things.</P>
       <UL>
         <LI>

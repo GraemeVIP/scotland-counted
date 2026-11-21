@@ -235,6 +235,8 @@ export const posts: Post[] = [
       { id: "how-long", label: "How long a site like this takes" },
       { id: "the-money", label: "What it cost you" },
       { id: "where-hosted", label: "Where the sites are hosted" },
+      { id: "same-bill", label: "The same bill, three times" },
+      { id: "your-data", label: "Your personal details" },
       { id: "who-is-he", label: "Who is behind Causeway Creative" },
       { id: "why-pay", label: "Why are MPs paying him?" },
     ],

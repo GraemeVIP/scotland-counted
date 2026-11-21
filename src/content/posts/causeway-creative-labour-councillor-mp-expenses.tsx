@@ -266,7 +266,7 @@ export default function Post() {
         <a href="https://krystal.io/hosting" target="_blank" rel="noopener noreferrer">
           Emerald
         </a>{" "}
-        plan hosts
+        plan hosts{" "}
         <strong>unlimited websites for £19 a month</strong>, or £273.60 a year with VAT. Not per
         site. For all of them. So £1,200 is more than four times the cost of hosting unlimited
         websites for a year.
@@ -358,7 +358,11 @@ export default function Post() {
         <LI>
           <strong>Its first accounts</strong>, covering July 2024 to December 2025, show an average
           of four staff and net assets of £8,358. As a small company, it did not have to publish its
-          sales or profit.
+          sales or profit. In that same period, MPs&apos; expenses alone paid it £216,056.
+        </LI>
+        <LI>
+          <strong>Money to and from the director.</strong> The same accounts record £42,135 lent to
+          its director and £47,476 paid in by him, at 0% interest and with no terms attached.
         </LI>
         <LI>
           <strong>Its own terms and conditions</strong>, published in October 2024, gave the company
