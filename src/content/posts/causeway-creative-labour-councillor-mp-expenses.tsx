@@ -1,5 +1,5 @@
 import Link from "@/components/IntentLink";
-import { Prose, Lead, P, H2, UL, LI, BigStat, Aside, PostCTA } from "@/components/Prose";
+import { Prose, Lead, P, H2, H3, UL, LI, BigStat, Aside, PostCTA } from "@/components/Prose";
 import { GuideTable } from "@/components/GuideTable";
 
 /*
@@ -9,8 +9,20 @@ import { GuideTable } from "@/components/GuideTable";
  * all checked 21 November 2026. We did not contact the firm or any MP.
  */
 
+const DEMO_PAGES = [
+  ["James Naish (Rushcliffe)", "16, including both test pages"],
+  ["Natasha Irons (Croydon East)", "14, including both test pages"],
+  ["Dan Carden (Liverpool Walton)", "13"],
+  ["Damien Egan (Bristol North East)", "11"],
+  ["Joani Reid (East Kilbride and Strathaven)", "9, plus the copied survey"],
+];
+
 const SPEND_BY_TYPE = [
-  ["Bought-in comms and media", "£156,928", "Outside work on press, social media and newsletters, in place of an MP's own staff"],
+  [
+    "Bought-in comms and media",
+    "£156,928",
+    "Outside work on press, social media and newsletters, in place of an MP's own staff",
+  ],
   ["Websites", "£76,713", "15 MPs. Ten of them paid the same £4,800"],
   ["Staff training", "£24,948", "£594 a time, to 31 MPs' offices"],
   ["Everything else", "£11,444", "Software, consultancy, advertising and admin"],
@@ -19,7 +31,10 @@ const SPEND_BY_TYPE = [
 
 const SCOTTISH_MPS = [
   [
-    <Link key="reid" href="/representatives/mps/east-kilbride-and-strathaven#donations-and-interests">
+    <Link
+      key="reid"
+      href="/representatives/mps/east-kilbride-and-strathaven#donations-and-interests"
+    >
       Joani Reid
     </Link>,
     "Labour",
@@ -35,7 +50,10 @@ const SCOTTISH_MPS = [
     "£15,082",
   ],
   [
-    <Link key="sullivan" href="/representatives/mps/bathgate-and-linlithgow#donations-and-interests">
+    <Link
+      key="sullivan"
+      href="/representatives/mps/bathgate-and-linlithgow#donations-and-interests"
+    >
       Kirsteen Sullivan
     </Link>,
     "Labour (Co-op)",
@@ -51,7 +69,10 @@ const SCOTTISH_MPS = [
     "£594",
   ],
   [
-    <Link key="gilbert" href="/representatives/mps/edinburgh-north-and-leith#donations-and-interests">
+    <Link
+      key="gilbert"
+      href="/representatives/mps/edinburgh-north-and-leith#donations-and-interests"
+    >
       Tracy Gilbert
     </Link>,
     "Labour",
@@ -71,8 +92,8 @@ export default function Post() {
 
       <P>
         Nothing here breaks the rules. IPSA, the body that runs MPs&apos; expenses, approved every
-        payment. But the money is public, the firm is run by a sitting politician, and it has
-        rarely been reported. So here is what the official records show.
+        payment. But the money is public, the firm is run by a sitting politician, and it has rarely
+        been reported. So here is what the official records show.
       </P>
 
       <BigStat
@@ -113,8 +134,8 @@ export default function Post() {
 
       <H2 id="what-mps-paid-for">2. What MPs paid for</H2>
       <P>
-        IPSA publishes every claim in a huge spreadsheet. We searched every line from 2023/24 to
-        the latest 2026/27 figures for Causeway Creative. This is what the money was for.
+        IPSA publishes every claim in a huge spreadsheet. We searched every line from 2023/24 to the
+        latest 2026/27 figures for Causeway Creative. This is what the money was for.
       </P>
       <div className="my-7">
         <GuideTable
@@ -128,48 +149,120 @@ export default function Post() {
       </div>
       <P>
         The firm sells training to MPs&apos; staff as &quot;IPSA-fundable&quot;, meaning MPs can
-        claim it back from the public purse. Its website ran a competition to win a free website
-        for a Labour group, open only to people at a local government conference.
+        claim it back from the public purse. Its website ran a competition to win a free website for
+        a Labour group, open only to people at a local government conference.
       </P>
       <P>
         The payments bunch up at the end of IPSA&apos;s budget year. In March and April 2025 alone,
         MPs made 42 payments to the firm. The budget year ends on 31 March.
       </P>
 
-      <H2 id="websites">3. What £4,800 actually bought</H2>
+      <H2 id="websites">3. What £4,800 actually bought: a copy and paste job</H2>
       <P>
         Fifteen MPs paid Causeway Creative for a website. Most paid the same thing: £4,800 to build
-        it, then around £1,200 a year after that. So we went and looked at what they got.
+        it, then £1,200 the year after. So we went and looked at what they got.
       </P>
       <P>
-        It&apos;s a template. Every MP site we could read is built on WordPress, free website
-        software, with a free theme called Hello Elementor and a drag and drop page builder.
-        They all run the same add ons, including three made for MPs: one for visits, one for
-        voting records and one for page snippets.
+        <strong>It&apos;s one template, copied from MP to MP.</strong> Every MP site we could read
+        runs on WordPress, free website software, with a free theme called Hello Elementor and a
+        drag and drop page builder. They all run the same add ons, and they all match
+        Causeway&apos;s own &quot;MP website demo&quot; site, mpwebsites.uk, which still has
+        &quot;Lorem Ipsum&quot; filler text on it.
       </P>
       <P>
-        Those are exactly the add ons on Causeway&apos;s own &quot;MP website demo&quot; site,
-        mpwebsites.uk. The demo still has &quot;Lorem Ipsum&quot; filler text on it. The MP sites
-        are copies of that demo with the name and seat swapped in.
+        Anyone who builds websites for a living could copy a site like this to a new address, swap
+        the names and have it live in under an hour. That&apos;s not a guess. The sites themselves
+        show it was done exactly that way.
       </P>
-      <div className="my-7 overflow-hidden rounded-[var(--r-m)] border border-[var(--rule-strong)]">
-        <p className="tile-key bg-[var(--surface-2)] px-5 py-2.5">Same words, site after site</p>
-        <div className="px-5 py-4">
-          <p className="text-[16px] font-[600] leading-[1.55] text-[var(--ink)]">
-            &quot;As your MP, I want to ensure I represent you in any way I can. If you need my help,
-            please visit my help pages below to learn more about how I can help you.&quot;
-          </p>
-          <p className="ui mt-3 text-[14.5px] leading-[1.5] text-[var(--ink-2)]">
-            Word for word on Causeway&apos;s demo, and on the sites of Joani Reid, James Asser, Dan
-            Carden, James Naish and Damien Egan. On Dan Carden&apos;s site, every one of the 13
-            building blocks on the home page comes straight from the demo.
-          </p>
+
+      <div className="my-7 overflow-hidden rounded-[var(--r-m)] border-2 border-[var(--bad-text)]">
+        <p className="ui bg-[var(--bad-text)] px-5 py-2.5 text-[15px] font-[700] uppercase tracking-[0.04em] text-white">
+          The giveaways nobody deleted
+        </p>
+        <div className="divide-y divide-[var(--rule)]">
+          <div className="p-5">
+            <p className="tile-key">1. A find and replace that went too far</p>
+            <p className="mt-2 text-[17px] font-[600] leading-[1.5] text-[var(--ink)]">
+              &quot;Traditionally our industry has used Croydon East, which is placeholder text
+              written in Latin.&quot;
+            </p>
+            <p className="ui mt-2.5 text-[15px] leading-[1.55] text-[var(--ink-2)]">
+              From a page called &quot;My Page Title&quot; on Natasha Irons MP&apos;s site. The
+              template&apos;s filler text talks about &quot;Lorem Ipsum&quot;, the dummy Latin
+              designers use. Someone swapped &quot;Lorem Ipsum&quot; for the MP&apos;s seat across
+              the whole site in one go, and nobody checked. James Naish MP&apos;s site had the same
+              page, saying the same thing about &quot;Rushcliffe&quot;.
+            </p>
+          </div>
+          <div className="p-5">
+            <p className="tile-key">2. Test pages left on the live site</p>
+            <p className="ui mt-2 text-[15px] leading-[1.55] text-[var(--ink-2)]">
+              The demo has a page called &quot;Front Form Test&quot;. So did Natasha Irons&apos;s
+              and James Naish&apos;s sites, sitting there for the public to find. On Natasha
+              Irons&apos;s, it sits above the line &quot;Designed and Powered by Causeway
+              Creative&quot;.
+            </p>
+          </div>
+          <div className="p-5">
+            <p className="tile-key">3. Two MPs, one survey, the wrong web address</p>
+            <p className="mt-2 text-[17px] font-[600] leading-[1.5] text-[var(--ink)]">
+              &quot;I&apos;m lucky to have so many amazing small businesses in my
+              constituency.&quot;
+            </p>
+            <p className="ui mt-2.5 text-[15px] leading-[1.55] text-[var(--ink-2)]">
+              Joani Reid MP (East Kilbride) and Dan Carden MP (Liverpool) both ran a &quot;Small
+              Business Survey&quot; in their own words. Except the words are identical, line for
+              line, with only the name and seat swapped. On both sites it sits at the same web
+              address: &quot;restore the 5A bus route&quot;. A bus survey&apos;s address, reused for
+              a banking survey, on two MPs&apos; sites, one in Scotland and one in England.
+            </p>
+          </div>
+          <div className="p-5">
+            <p className="tile-key">4. The same words, site after site</p>
+            <p className="mt-2 text-[17px] font-[600] leading-[1.5] text-[var(--ink)]">
+              &quot;As your MP, I want to ensure I represent you in any way I can.&quot;
+            </p>
+            <p className="ui mt-2.5 text-[15px] leading-[1.55] text-[var(--ink-2)]">
+              Word for word on Causeway&apos;s demo, and on the sites of Joani Reid, James Asser,
+              Dan Carden, James Naish and Damien Egan. On Dan Carden&apos;s site, every one of the
+              13 building blocks on the home page comes straight from the demo.
+            </p>
+          </div>
         </div>
       </div>
+
+      <H3>How many pages did £4,800 buy?</H3>
       <P>
-        To be fair, agencies use templates all the time, and £4,800 for a small agency website
-        isn&apos;t unheard of. That&apos;s not really the point. The point is one template being
-        sold to MP after MP at full price, and paid for with public money every time.
+        About 15. A home page, an about page, a contact page, a handful of &quot;find help&quot;
+        pages (benefits, housing, education and so on), news and three standard legal pages. The
+        news stories are written by the MP&apos;s own office, not by Causeway. Here&apos;s how many
+        pages on each site carry the exact same name as a page on the demo:
+      </P>
+      <div className="my-7">
+        <GuideTable
+          kicker="Pages copied from the demo"
+          title="Pages with the same name as Causeway's demo site"
+          columns={["MP's site", "Same as the demo"]}
+          align={["left", "right"]}
+          rows={DEMO_PAGES}
+          caption="Source: archived copies of each site on the Internet Archive's Wayback Machine, 2025 to 2026. The live sites block automated visits, so we read the archived copies."
+        />
+      </div>
+
+      <H3>And what&apos;s the £1,200 for?</H3>
+      <P>
+        Nobody says. IPSA files it as &quot;Website hosting and design&quot;, and that&apos;s all.
+        Joani Reid, James Asser, Jas Athwal, Damien Egan and Sam Rushworth each paid £1,200 about a
+        year after the £4,800 build. It looks like a yearly fee to keep the site online.
+      </P>
+      <P>
+        Ordinary hosting for a small WordPress site is sold for a few pounds a month. So that&apos;s
+        £6,000 per MP in the first two years, for a copied template, paid for by you.
+      </P>
+      <P>
+        To be fair, agencies use templates all the time. That&apos;s not the point. The point is one
+        template being sold to MP after MP at full price, with the leftovers still showing, and paid
+        for with public money every time.
       </P>
       <P>
         And a couple of things don&apos;t add up. Sam Rushworth and Dan Aldridge paid Causeway for
@@ -210,9 +303,10 @@ export default function Post() {
         </p>
       </div>
       <P>
-        To be fair to her, she also told the paper the money mostly went on &quot;creating and
-        building a website, advertising surgeries and communicating with my constituents&quot;.
-        But IPSA&apos;s records only show £6,000 of it as website work. The other £18,664 is filed
+        She also told the paper the money mostly went on &quot;creating and building a website,
+        advertising surgeries and communicating with my constituents&quot;.{" "}
+        <strong>But only £6,000 of her £24,664 was for the website.</strong> That&apos;s less than a
+        quarter. And the website is the copied template, survey and all. The other £18,664 is filed
         as bought in comms and media, paid in five chunks between March and April 2025.
       </P>
       <P>
@@ -243,16 +337,22 @@ export default function Post() {
       <UL>
         <LI>
           <strong>Its first accounts</strong>, covering July 2024 to December 2025, show an average
-          of four staff and net assets of £8,358. As a small company, it did not have to publish
-          its sales or profit.
+          of four staff and net assets of £8,358. As a small company, it did not have to publish its
+          sales or profit.
         </LI>
         <LI>
-          <strong>Its own terms and conditions</strong>, published in October 2024, gave the
-          company number of We Are Civitas Ltd, his earlier firm, not Causeway Creative&apos;s.
+          <strong>Its own terms and conditions</strong>, published in October 2024, gave the company
+          number of We Are Civitas Ltd, his earlier firm, not Causeway Creative&apos;s.
         </LI>
         <LI>
-          <strong>Its website</strong> quotes praise from Labour MPs and Labour figures, and lists
-          a London office and a Warrington office.
+          <strong>Its website</strong> quotes praise from Labour MPs and Labour figures, and lists a
+          London office and a Warrington office. Its &quot;featured campaigns&quot; are a think
+          tank, a renters&apos; group and the Warrington building its head office is in. Not one of
+          the MP websites it was paid to build.
+        </LI>
+        <LI>
+          <strong>It sells an &quot;IPSA fundable&quot; course</strong> teaching MPs&apos; staff
+          graphic design, pitched so the cost can be claimed back from the public purse.
         </LI>
       </UL>
 
@@ -280,9 +380,8 @@ export default function Post() {
         <LI>
           Why did ten MPs each pay exactly £4,800 for what is, in effect, the same template website?
         </LI>
-        <LI>
-          Does IPSA check whether a supplier has political links to the MP paying it?
-        </LI>
+        <LI>What does the £1,200 a year after that actually pay for?</LI>
+        <LI>Does IPSA check whether a supplier has political links to the MP paying it?</LI>
         <LI>
           Joani Reid: what exactly did the £18,664 of &quot;bought-in comms and media&quot; pay for?
         </LI>
