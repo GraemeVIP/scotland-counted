@@ -126,7 +126,13 @@ export function PageHeader({
 
         {stat && (
           <div className="tile tile-blue min-w-0 p-7">
-            <div className="figure-num whitespace-nowrap text-[clamp(52px,6vw,88px)] text-white">
+            <div
+              className={`figure-num whitespace-nowrap text-white ${
+                stat.value.length > 5
+                  ? "text-[clamp(48px,14vw,76px)]"
+                  : "text-[clamp(52px,6vw,88px)]"
+              }`}
+            >
               {(() => {
                 const m = stat.value.match(/^(£?)(\d+(?:\.\d+)?)(%?)$/);
                 if (!m) return stat.value;
