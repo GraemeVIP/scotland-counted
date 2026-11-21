@@ -122,12 +122,26 @@ const RULES: Rule[] = [
 
 export type SubstanceEntry = {
   match: RegExp;
+  /** Only match votes on this day (YYYY-MM-DD), for titles Parliament reuses. */
+  date?: string;
   /** A plain headline shown in place of Parliament's official title. */
   title: string;
   what: string;
   example?: string;
   yesMeans?: string;
   noMeans?: string;
+  /**
+   * What a YES vote supported, written to follow "voted for" / "voted against".
+   * Example: "letting asylum seekers work after three months of waiting".
+   * When set, the card says "[MP] voted for/against [proposition]."
+   */
+  proposition?: string;
+  /** Who put the vote forward, in plain words: "The Conservatives", "The government". */
+  by?: string;
+  /** One sentence on what passing meant, when "This went ahead." would mislead. */
+  ifPassed?: string;
+  /** One sentence on what rejection meant, when "This did not happen." would mislead. */
+  ifRejected?: string;
 };
 
 /**
@@ -137,6 +151,367 @@ export type SubstanceEntry = {
  * in reader-facing words.
  */
 export const SUBSTANCE: SubstanceEntry[] = [
+  {
+    match: /^national\s+security\s+\(state\s+threats\)\s+bill\s+committee:\s+amendment\s+3$/i,
+    title: "Removing a defence for dealing with banned groups",
+    by: "The Conservatives (Alicia Kearns MP)",
+    proposition: "removing the legal defence for dealing with a banned group for allowed reasons, such as diplomacy or humanitarian aid",
+    what: "A new law letting the government ban groups that work for hostile foreign countries. Helping a banned group can mean up to 14 years in jail.",
+  },
+  {
+    match: /^national\s+security\s+\(state\s+threats\)\s+bill\s+committee:\s+amendment\s+8$/i,
+    title: "Covering plots planned in the UK but carried out abroad",
+    by: "The Conservatives (Alicia Kearns MP)",
+    proposition: "making the law cover acts carried out abroad but planned in the UK",
+    what: "A new law letting the government ban groups that work for hostile foreign countries. Helping a banned group can mean up to 14 years in jail.",
+  },
+  {
+    match: /^national\s+security\s+\(state\s+threats\)\s+bill\s+committee:\s+amendment\s+13$/i,
+    title: "A new crime of being 'inspired by' a banned group",
+    by: "The Conservatives (Alicia Kearns MP)",
+    proposition: "creating a new crime of acting \"inspired by\" a banned group, even without being directed by it",
+    what: "A new law letting the government ban groups that work for hostile foreign countries. Helping a banned group can mean up to 14 years in jail.",
+  },
+  {
+    match: /^national\s+security\s+\(state\s+threats\)\s+bill\s+committee:\s+new\s+clause\s+3$/i,
+    title: "Banning Iran's Revolutionary Guard",
+    by: "The Lib Dems (Max Wilkinson MP)",
+    proposition: "making the government move to ban Iran's Revolutionary Guard under the new law within a month",
+    what: "A new law letting the government ban groups that work for hostile foreign countries. Helping a banned group can mean up to 14 years in jail.",
+  },
+  {
+    match: /^national\s+security\s+\(state\s+threats\)\s+bill:\s+motion\s+to\s+agree\s+to\s+lords\s+amendment\s+1$/i,
+    title: "Protecting aid work under the new spying law",
+    by: "The government",
+    proposition: "protecting humanitarian aid work so it cannot count as helping a banned group",
+    what: "A new law letting the government ban groups that work for hostile foreign countries. Helping a banned group can mean up to 14 years in jail.",
+  },
+  {
+    match: /^national\s+security\s+\(state\s+threats\)\s+bill:\s+allocation\s+of\s+time\s+motion$/i,
+    title: "Setting the debate time for the spying law",
+    by: "The government",
+    proposition: "the timetable for debating the new national security law",
+    what: "A new law letting the government ban groups that work for hostile foreign countries. Helping a banned group can mean up to 14 years in jail.",
+  },
+  {
+    match: /^taxation\s+\(energy\s+and\s+vehicles\)\s+bill\s+committee:\s+new\s+clause\s+2$/i,
+    title: "A review of mileage pay for care workers",
+    by: "The Lib Dems (Daisy Cooper MP)",
+    proposition: "a review of whether 55p a mile is enough for care workers who drive to people's homes",
+    what: "A tax law. It raises the windfall tax on some electricity generators from 45% to 55%, raises tax free mileage pay from 45p to 55p a mile, and cuts lorry tax for a year.",
+  },
+  {
+    match: /^taxation\s+\(energy\s+and\s+vehicles\)\s+bill\s+committee:\s+new\s+clause\s+4$/i,
+    title: "A review of the 55% windfall tax",
+    by: "The Conservatives (James Wild MP)",
+    proposition: "a government review of the 55% windfall tax on electricity generators, reported by March 2028",
+    what: "A tax law. It raises the windfall tax on some electricity generators from 45% to 55%, raises tax free mileage pay from 45p to 55p a mile, and cuts lorry tax for a year.",
+  },
+  {
+    match: /^taxation\s+\(energy\s+and\s+vehicles\)\s+bill\s+committee:\s+new\s+clause\s+5$/i,
+    title: "A review of the lorry tax cut",
+    by: "The Conservatives (James Wild MP)",
+    proposition: "a government review of the temporary lorry tax rates, reported by June 2027",
+    what: "A tax law. It raises the windfall tax on some electricity generators from 45% to 55%, raises tax free mileage pay from 45p to 55p a mile, and cuts lorry tax for a year.",
+  },
+  {
+    match: /^public\s+office\s+\(accountability\)\s+bill\s+report\s+stage:\s+amendment\s+3$/i,
+    title: "Protecting staff who speak to inquiries",
+    by: "The Lib Dems (Jess Brown-Fuller MP)",
+    proposition: "making public bodies show their staff can safely give information to inquiries",
+    what: "The Hillsborough Law. It makes public officials tell the truth after disasters, makes misleading the public a crime, and gives bereaved families free legal help at inquests.",
+  },
+  {
+    match: /^public\s+office\s+\(accountability\)\s+bill\s+report\s+stage:\s+amendment\s+199$/i,
+    title: "Letting spy chiefs block secrets going to inquiries",
+    by: "The Conservatives (Nick Timothy MP)",
+    proposition: "letting the heads of the spy agencies, the National Crime Agency and the armed forces stop their staff handing secret information to inquiries",
+    what: "The Hillsborough Law. It makes public officials tell the truth after disasters, makes misleading the public a crime, and gives bereaved families free legal help at inquests.",
+  },
+  {
+    match: /^public\s+office\s+\(accountability\)\s+bill\s+report\s+stage:\s+amendment\s+19$/i,
+    title: "Needing the Attorney General's say-so to prosecute",
+    by: "The Conservatives (Dr Kieran Mullan MP)",
+    proposition: "needing the Attorney General's permission before anyone can be prosecuted for misleading the public",
+    what: "The Hillsborough Law. It makes public officials tell the truth after disasters, makes misleading the public a crime, and gives bereaved families free legal help at inquests.",
+  },
+  {
+    match: /^representation\s+of\s+the\s+people\s+bill:\s+report\s+stage:\s+new\s+clause\s+65$/i,
+    title: "Helping British voters abroad to vote",
+    by: "The Conservatives (Paul Holmes MP)",
+    proposition: "an independent review on getting more British voters living abroad registered and voting",
+    what: "A new law on UK elections: votes at 16, changes to voter ID and registration, and new rules on donations to parties.",
+  },
+  {
+    match: /^representation\s+of\s+the\s+people\s+bill:\s+report\s+stage:\s+new\s+clause\s+67$/i,
+    title: "Banning election leaflets in foreign languages",
+    by: "The Conservatives (Paul Holmes MP)",
+    proposition: "banning party campaign leaflets written in foreign languages during elections",
+    what: "A new law on UK elections: votes at 16, changes to voter ID and registration, and new rules on donations to parties.",
+  },
+  {
+    match: /^representation\s+of\s+the\s+people\s+bill:\s+report\s+stage:\s+new\s+clause\s+88$/i,
+    title: "A Royal Commission on capping donations to parties",
+    by: "The Lib Dems (Lisa Smart MP)",
+    proposition: "setting up a Royal Commission, a formal expert inquiry, on capping donations to political parties",
+    what: "A new law on UK elections: votes at 16, changes to voter ID and registration, and new rules on donations to parties.",
+  },
+  {
+    match: /^representation\s+of\s+the\s+people\s+bill:\s+third\s+reading$/i,
+    title: "Final vote on the new elections law, including votes at 16",
+    by: "The government",
+    proposition: "passing the new elections law, including votes at 16 in UK elections",
+    what: "A new law on UK elections: votes at 16, changes to voter ID and registration, and new rules on donations to parties.",
+  },
+  {
+    match: /^health\s+bill:\s+report\s+stage:\s+new\s+clause\s+6$/i,
+    title: "Making every maternity unit good or outstanding",
+    by: "The Lib Dems (Helen Morgan MP)",
+    proposition: "requiring every NHS maternity unit in England to be rated good or outstanding, with a support scheme to get them there",
+    what: "Scraps NHS England and the patient watchdog Healthwatch, and moves their jobs to the Health Department and local health boards. It covers the NHS in England. Scotland runs its own NHS.",
+  },
+  {
+    match: /^health\s+bill:\s+report\s+stage:\s+new\s+clause\s+145$/i,
+    title: "Answering families harmed by valproate and pelvic mesh",
+    by: "The Conservatives (Dr Caroline Johnson MP)",
+    proposition: "making the government publish its response to the Hughes Report, on payouts for people harmed by the drug valproate and pelvic mesh, within 30 days",
+    what: "Scraps NHS England and the patient watchdog Healthwatch, and moves their jobs to the Health Department and local health boards. It covers the NHS in England. Scotland runs its own NHS.",
+  },
+  {
+    match: /^health\s+bill:\s+report\s+stage:\s+new\s+clause\s+140$/i,
+    title: "Ending patients being treated in corridors",
+    by: "The Lib Dems (Helen Morgan MP)",
+    proposition: "ending corridor care in English hospitals within a year, or holding an inquiry",
+    what: "Scraps NHS England and the patient watchdog Healthwatch, and moves their jobs to the Health Department and local health boards. It covers the NHS in England. Scotland runs its own NHS.",
+  },
+  {
+    match: /^health\s+bill:\s+report\s+stage:\s+new\s+clause\s+142$/i,
+    title: "Banning puberty blockers for under 18s",
+    by: "The Conservatives (Dr Caroline Johnson MP)",
+    proposition: "banning puberty blockers for under 18s for gender treatment, including in medical trials unless Parliament agrees",
+    what: "Scraps NHS England and the patient watchdog Healthwatch, and moves their jobs to the Health Department and local health boards. It covers the NHS in England. Scotland runs its own NHS.",
+  },
+  {
+    match: /^health\s+bill:\s+report\s+stage:\s+new\s+clause\s+143$/i,
+    title: "Single sex wards, toilets and changing rooms",
+    by: "The Conservatives (Dr Caroline Johnson MP)",
+    proposition: "requiring single sex wards, toilets and changing rooms for NHS patients and staff in England",
+    what: "Scraps NHS England and the patient watchdog Healthwatch, and moves their jobs to the Health Department and local health boards. It covers the NHS in England. Scotland runs its own NHS.",
+  },
+  {
+    match: /^health\s+bill:\s+report\s+stage:\s+amendment\s+1$/i,
+    title: "Cutting a section out of the NHS law",
+    by: "The Conservatives (Dr Caroline Johnson MP)",
+    proposition: "deleting one section of the NHS law (we could not confirm exactly what that section does)",
+    what: "Scraps NHS England and the patient watchdog Healthwatch, and moves their jobs to the Health Department and local health boards. It covers the NHS in England. Scotland runs its own NHS.",
+  },
+  {
+    match: /^courts\s+and\s+tribunals\s+bill\s+report\s+stage:\s+new\s+clause\s+25$/i,
+    title: "Ending the court backlog measures once waits fall",
+    by: "The Conservatives (Nick Timothy MP)",
+    proposition: "ending the emergency court backlog measures once Crown Court waiting lists fall below pre-Covid levels",
+    what: "Cuts the right to choose a jury trial for some crimes and doubles magistrates' sentencing powers, to clear court backlogs. It covers England and Wales. Scotland has its own courts.",
+  },
+  {
+    match: /^courts\s+and\s+tribunals\s+bill\s+report\s+stage:\s+amendment\s+1$/i,
+    title: "Keeping the right to choose a jury trial",
+    by: "The Conservatives (Dr Kieran Mullan MP), backed by the Greens",
+    proposition: "keeping people's right to choose a jury trial",
+    what: "Cuts the right to choose a jury trial for some crimes and doubles magistrates' sentencing powers, to clear court backlogs. It covers England and Wales. Scotland has its own courts.",
+  },
+  {
+    match: /^courts\s+and\s+tribunals\s+bill\s+report\s+stage:\s+amendment\s+18$/i,
+    title: "Better legal aid for serious cases in magistrates' courts",
+    by: "The Lib Dems (Jess Brown-Fuller MP)",
+    proposition: "paying lawyers the higher Crown Court legal aid rate for magistrates' court cases likely to bring over a year in prison",
+    what: "Cuts the right to choose a jury trial for some crimes and doubles magistrates' sentencing powers, to clear court backlogs. It covers England and Wales. Scotland has its own courts.",
+  },
+  {
+    match: /^courts\s+and\s+tribunals\s+bill:\s+third\s+reading$/i,
+    title: "Final vote on cutting jury trials to clear court backlogs",
+    by: "The government",
+    proposition: "passing the courts law, which cuts the right to choose a jury trial for some crimes",
+    what: "Cuts the right to choose a jury trial for some crimes and doubles magistrates' sentencing powers, to clear court backlogs. It covers England and Wales. Scotland has its own courts.",
+  },
+  {
+    match: /^northern\s+ireland\s+troubles\s+bill:\s+carry\-over\s+extension\s+motion$/i,
+    title: "Giving the Troubles law more time",
+    by: "The government",
+    proposition: "giving the Troubles law more time to finish its passage",
+    what: "Replaces the last government's Legacy Act. It ends the offer of immunity from prosecution for Troubles killings and lets some court cases and inquests restart.",
+  },
+  {
+    match: /^northern\s+ireland\s+troubles\s+bill:\s+programme\s+motion$/i,
+    title: "Setting the debate time for the Troubles law",
+    by: "The government",
+    proposition: "the timetable for debating the Troubles law",
+    what: "Replaces the last government's Legacy Act. It ends the offer of immunity from prosecution for Troubles killings and lets some court cases and inquests restart.",
+  },
+  {
+    match: /^northern\s+ireland\s+troubles\s+bill\s+committee:\s+amendment\s+23$/i,
+    title: "Covering the Omagh bombing",
+    by: "The DUP (Gavin Robinson MP)",
+    proposition: "moving the official end of the Troubles to August 1998, so the Omagh bombing is covered",
+    what: "Replaces the last government's Legacy Act. It ends the offer of immunity from prosecution for Troubles killings and lets some court cases and inquests restart.",
+  },
+  {
+    match: /^northern\s+ireland\s+troubles\s+bill\s+committee:\s+amendment\s+52$/i,
+    title: "Barring people linked to paramilitary parties",
+    by: "Independent MP Alex Easton",
+    proposition: "barring members of parties linked to paramilitaries from a group set up under the law",
+    what: "Replaces the last government's Legacy Act. It ends the offer of immunity from prosecution for Troubles killings and lets some court cases and inquests restart.",
+  },
+  {
+    match: /^northern\s+ireland\s+troubles\s+bill\s+committee:\s+amendment\s+4$/i,
+    title: "Investigations for victims of Troubles sex crimes",
+    by: "The UUP (Robin Swann MP)",
+    proposition: "letting victims of sexual crimes from the Troubles ask for an investigation",
+    what: "Replaces the last government's Legacy Act. It ends the offer of immunity from prosecution for Troubles killings and lets some court cases and inquests restart.",
+  },
+  {
+    match: /^northern\s+ireland\s+troubles\s+bill\s+committee:\s+amendment\s+47$/i,
+    title: "Extra protection for veterans from prosecution",
+    by: "The Conservatives (Alex Burghart MP)",
+    proposition: "needing a senior official's written permission before army, security service or RUC veterans can be prosecuted",
+    what: "Replaces the last government's Legacy Act. It ends the offer of immunity from prosecution for Troubles killings and lets some court cases and inquests restart.",
+  },
+  {
+    match: /^northern\s+ireland\s+troubles\s+bill\s+committee:\s+new\s+clause\s+21$/i,
+    title: "Blocking cases against soldiers without new evidence",
+    by: "The Conservatives (Alex Burghart MP)",
+    proposition: "blocking investigations, prosecutions and inquests into soldiers and police unless there is new and compelling evidence",
+    what: "Replaces the last government's Legacy Act. It ends the offer of immunity from prosecution for Troubles killings and lets some court cases and inquests restart.",
+  },
+  {
+    match: /^northern\s+ireland\s+troubles\s+bill\s+committee:\s+amendment\s+51$/i,
+    title: "Stopping the Loughgall inquest",
+    by: "The Conservatives (David Davis MP)",
+    proposition: "stopping the inquest into the 1987 Loughgall shootings from restarting",
+    what: "Replaces the last government's Legacy Act. It ends the offer of immunity from prosecution for Troubles killings and lets some court cases and inquests restart.",
+  },
+  {
+    match: /^northern\s+ireland\s+troubles\s+bill\s+committee:\s+amendment\s+32$/i,
+    title: "Narrowing a test for some inquests",
+    by: "The DUP (Gavin Robinson MP)",
+    proposition: "limiting a legal test in the law to inquests involving former soldiers or RUC officers (we could not confirm the exact effect)",
+    what: "Replaces the last government's Legacy Act. It ends the offer of immunity from prosecution for Troubles killings and lets some court cases and inquests restart.",
+  },
+  {
+    match: /^northern\s+ireland\s+troubles\s+bill\s+committee:\s+new\s+clause\s+7$/i,
+    title: "Checking the law's effect on army recruitment",
+    by: "The Conservatives (Alex Burghart MP)",
+    proposition: "an independent reviewer of how the law affects armed forces recruitment",
+    what: "Replaces the last government's Legacy Act. It ends the offer of immunity from prosecution for Troubles killings and lets some court cases and inquests restart.",
+  },
+  {
+    match: /^northern\s+ireland\s+troubles\s+bill\s+committee:\s+new\s+clause\s+12$/i,
+    title: "A plan for reconciliation",
+    by: "The Lib Dems (Paul Kohler MP)",
+    proposition: "a legal duty to publish a strategy for reconciliation in Northern Ireland",
+    what: "Replaces the last government's Legacy Act. It ends the offer of immunity from prosecution for Troubles killings and lets some court cases and inquests restart.",
+  },
+  {
+    match: /^northern\s+ireland\s+troubles\s+bill:\s+third\s+reading$/i,
+    title: "Final vote on the Troubles law",
+    by: "The government",
+    proposition: "passing the Troubles law, which ends the offer of immunity from prosecution for Troubles killings",
+    what: "Replaces the last government's Legacy Act. It ends the offer of immunity from prosecution for Troubles killings and lets some court cases and inquests restart.",
+  },
+  {
+    match: /^immigration\s+and\s+asylum\s+bill:\s+reasoned\s+amendment\s+to\s+second\s+reading$/i,
+    title: "Conservative bid to block the asylum law for not going far enough",
+    by: "The Conservatives (Chris Philp MP)",
+    proposition: "blocking the asylum law for not going far enough on deportations and on leaving the European Convention on Human Rights",
+    what: "Replaces the immigration appeals tribunal with a new appeals body, narrows 'right to family life' claims and changes the protection people get after an asylum claim. Border rules cover Scotland too.",
+  },
+  {
+    match: /^immigration\s+and\s+asylum\s+bill:\s+second\s+reading$/i,
+    title: "First big vote on the new asylum law",
+    by: "The government",
+    proposition: "letting the new asylum and appeals law go ahead to its next stage",
+    what: "Replaces the immigration appeals tribunal with a new appeals body, narrows 'right to family life' claims and changes the protection people get after an asylum claim. Border rules cover Scotland too.",
+  },
+  {
+    match: /^motion to sit in private$/i,
+    title: "A move to hold up a Friday debate",
+    by: "A Labour MP",
+    proposition: "sending the public out and sitting in private, a move used to hold up Friday debates on backbench MPs' bills",
+    what: "On Fridays, MPs debate bills from backbench MPs. This vote is sometimes used as a tactic to slow things down, not to meet in secret.",
+  },
+  {
+    match: /^closure motion$/i,
+    date: "2026-09-11",
+    title: "Ending the debate on assisted dying",
+    by: "Kit Malthouse MP (Conservative), who backed the bill",
+    proposition: "ending the debate on assisted dying so MPs could vote on it",
+    what: "A vote to stop the talking and move straight to a decision.",
+  },
+  {
+    match: /^closure motion$/i,
+    date: "2026-10-16",
+    title: "Ending the debate on a pubs bill",
+    by: "Mike Wood MP (Conservative)",
+    proposition: "ending the debate on his Heritage Public Houses Bill so MPs could vote on it",
+    what: "A vote to stop the talking and move straight to a decision.",
+    ifRejected: "The debate ran out of time, so the bill could not go ahead.",
+  },
+  {
+    match: /^terminally ill adults \(end of life\) bill: second reading$/i,
+    title: "Assisted dying for terminally ill adults",
+    by: "Lauren Edwards MP (Labour)",
+    proposition: "allowing adults with six months or less to live to get help to end their life, with safeguards",
+    what: "A backbench MP's bill to allow assisted dying. It would have covered England and Wales. Holyrood votes on its own law for Scotland.",
+    ifRejected: "MPs rejected it, so assisted dying stays illegal.",
+  },
+  {
+    match: /^king.?s speech motion for an address: amendment \(l\)$/i,
+    title: "Lib Dem call for a customs union with the EU",
+    by: "The Lib Dems (James MacCleary MP)",
+    proposition: "calling on the government to negotiate a customs union with the EU, which would cut checks and charges on trade",
+    what: "A proposed addition to Parliament's reply to the King's Speech, the government's plan for the year.",
+  },
+  {
+    match: /^king.?s speech motion for an address$/i,
+    title: "Backing the government's plan for the year",
+    by: "The government",
+    proposition: "approving the government's plan for the year, read out in the King's Speech",
+    what: "The big yearly vote on the government's plan. If a government loses it, it usually has to step down.",
+  },
+  {
+    match: /^draft carbon budget order 2026$/i,
+    title: "The UK's legal cap on climate pollution for 2038 to 2042",
+    by: "The government",
+    proposition: "capping UK greenhouse gas emissions for 2038 to 2042 at 535 million tonnes, about 87% below 1990",
+    what: "The seventh legal cap on UK climate pollution. Each cap is tighter than the last.",
+  },
+  {
+    match: /^carbon border adjustment mechanism/i,
+    title: "How the new carbon tax on imports is worked out",
+    by: "The government",
+    proposition: "the rules for working out the new carbon tax on imports such as steel, aluminium and cement, with a discount if a carbon price was already paid abroad",
+    what: "The tax is meant to stop polluting foreign factories undercutting UK firms that already pay carbon costs.",
+  },
+  {
+    match: /^withdrawal agreement \(windsor framework and governance\)/i,
+    title: "How post-Brexit rules for Northern Ireland are run",
+    by: "The government",
+    proposition: "changing how post-Brexit arrangements for Northern Ireland are run and checked",
+    what: "Lets the UK agree some decisions with the EU between formal meetings, and changes deadlines for checks by the Northern Ireland Assembly.",
+  },
+  {
+    match: /^draft clean air zones central services/i,
+    title: "England only: clean air zone fees",
+    by: "The government",
+    proposition: "doubling the fee English councils pay per clean air zone payment, from £2 to £4",
+    what: "This only affects England. Low emission zones in Scotland are run by Scottish councils.",
+  },
+  {
+    match: /^draft town and country planning \(fees/i,
+    title: "England only: higher planning fees",
+    by: "The government",
+    proposition: "raising planning application fees in England",
+    what: "This only affects England. Planning in Scotland is run by Holyrood and Scottish councils.",
+  },
   {
     match: /universal credit \(removal of two child limit\)/i,
     title: "Scrapping the two child benefit cap",
@@ -252,6 +627,8 @@ export const SUBSTANCE: SubstanceEntry[] = [
   {
     match: /opposition day: employers/i,
     title: 'Conservative call to cut employer National Insurance for young workers',
+    by: "The Conservatives (Julia Lopez MP)",
+    proposition: "condemning the rise in employers' National Insurance and halving it for staff under 25",
     what: 'The Conservatives called this vote. It attacked the government for raising National Insurance on employers.',
     example: "It called for employers' National Insurance on staff under 25 to be halved.",
     yesMeans: 'Voted with the Conservatives to halve employer National Insurance for under 25s.',
@@ -260,6 +637,9 @@ export const SUBSTANCE: SubstanceEntry[] = [
   {
     match: /government amendment to opposition day debate on welfare/i,
     title: "The government's reply on welfare spending",
+    by: "The government (Sir Stephen Timms MP)",
+    proposition: "replacing the Conservatives' wording with the government's own, which blamed the last government for rising benefit costs and backed its welfare reforms",
+    ifPassed: "The government's wording replaced the Conservatives' wording.",
     what: "The government rewrote the Conservatives' welfare motion. Its version blamed the last government for rising benefit costs and backed its own welfare reforms.",
     yesMeans: "Voted for the government's version on welfare.",
     noMeans: "Voted against the government's version on welfare.",
@@ -267,6 +647,8 @@ export const SUBSTANCE: SubstanceEntry[] = [
   {
     match: /opposition day: welfare/i,
     title: 'Conservative call to cut welfare spending',
+    by: "The Conservatives (Helen Whately MP)",
+    proposition: "making the government promise to bring down spending on benefits for working age people before the next election",
     what: 'The Conservatives called this vote. It asked the government to promise to bring down benefit spending on working age people before the next election.',
     yesMeans: 'Voted with the Conservatives to cut working age welfare spending.',
     noMeans: "Voted against the Conservatives' call to cut welfare spending.",
@@ -274,6 +656,8 @@ export const SUBSTANCE: SubstanceEntry[] = [
   {
     match: /opposition day: uk-eu relations/i,
     title: 'Conservative call to keep EU rules out of the UK',
+    by: "The Conservatives (Mike Wood MP)",
+    proposition: "keeping UK taxes, product standards and migration rules set in the UK rather than by the EU, and paying no extra money to the EU",
     what: 'The Conservatives called this vote. It said UK taxes, product standards and migration rules should be set in the UK, not by the EU.',
     example: "It also opposed paying any extra money to the EU or subsidising EU students' university fees.",
     yesMeans: 'Voted with the Conservatives against closer EU rules.',
@@ -282,6 +666,9 @@ export const SUBSTANCE: SubstanceEntry[] = [
   {
     match: /government amendment to opposition day debate on rosebank/i,
     title: "The government's reply on the Rosebank oilfield",
+    by: "The government (Martin McCluskey MP)",
+    proposition: "replacing the Conservatives' wording with the government's own, which said ministers would not commit before the legal decision on Rosebank",
+    ifPassed: "The government's wording replaced the Conservatives' wording.",
     what: "The government rewrote the Conservatives' Rosebank motion. Its version said a legal decision on the oilfield is still pending, so ministers would not commit in advance.",
     yesMeans: "Voted for the government's version on Rosebank.",
     noMeans: "Voted against the government's version on Rosebank.",
@@ -289,6 +676,8 @@ export const SUBSTANCE: SubstanceEntry[] = [
   {
     match: /opposition day: rosebank/i,
     title: 'Conservative call to approve the Rosebank oilfield',
+    by: "The Conservatives (Andrew Bowie MP)",
+    proposition: "approving the Rosebank oil field west of Shetland as soon as possible, for jobs and energy security",
     what: 'The Conservatives called this vote. It asked the government to approve the Rosebank oil field, west of Shetland, as soon as possible.',
     example: 'Rosebank matters for oil and gas jobs in the North East of Scotland.',
     yesMeans: 'Voted with the Conservatives to approve Rosebank.',
@@ -345,7 +734,7 @@ export const SUBSTANCE: SubstanceEntry[] = [
   {
     match: /taxation \(energy and vehicles\) bill/i,
     title: "Taxes on energy firms and drivers",
-    what: "A tax law covering energy company profits and the tax free mileage pay people get for using their own car for work.",
+    what: "Raises the windfall tax on some electricity generators from 45% to 55%, raises tax free mileage pay from 45p to 55p a mile, and cuts lorry tax for a year.",
     yesMeans: "Voted to add this change to the energy and vehicle tax law.",
     noMeans: "Voted against adding this change to the energy and vehicle tax law.",
   },
@@ -463,6 +852,8 @@ export const SUBSTANCE: SubstanceEntry[] = [
   {
     match: /support for british farmers/i,
     title: "Lib Dem call for better farm support",
+    by: "The Lib Dems (Tim Farron MP)",
+    proposition: "criticising the government over a farm grants scheme that ran out of money within hours, and over cuts to farm budgets",
     what: "The Liberal Democrats called this vote. It criticised a farm grants scheme that ran out of money within hours of opening.",
     example: "It also criticised cuts to farm budgets and the tax changes on inherited farms.",
     yesMeans: "Voted with the Lib Dems to criticise the government on farm support.",
@@ -471,6 +862,8 @@ export const SUBSTANCE: SubstanceEntry[] = [
   {
     match: /opposition day motion: inheritance tax/i,
     title: "Conservative call to scrap inheritance tax",
+    by: "The Conservatives (Andrew Griffith MP)",
+    proposition: "cutting public spending to scrap inheritance tax on family homes, farms and businesses",
     what: "The Conservatives called this vote. It asked the government to cut public spending so it could scrap inheritance tax on family homes, farms and businesses.",
     example: "Inheritance tax is set at Westminster, so it applies in Scotland too.",
     yesMeans: "Voted with the Conservatives to scrap inheritance tax on homes, farms and businesses.",
@@ -479,6 +872,8 @@ export const SUBSTANCE: SubstanceEntry[] = [
   {
     match: /mod bicester and illegal migrants/i,
     title: "Conservative call to leave the European Convention on Human Rights",
+    by: "The Conservatives (Joy Morrissey MP)",
+    proposition: "condemning the plan to house asylum seekers at an army base in Bicester, and calling for the UK to leave the European Convention on Human Rights",
     what: "The Conservatives called this vote against the government's plan to house asylum seekers at an army base in Bicester, Oxfordshire.",
     example: "It also called for the UK to leave the European Convention on Human Rights, so people who arrive illegally can be deported.",
     yesMeans: "Voted with the Conservatives against the army base plan and for leaving the European Convention on Human Rights.",
@@ -502,17 +897,17 @@ export const SUBSTANCE: SubstanceEntry[] = [
   },
   {
     match: /courts and tribunals bill/i,
-    title: "Changes to courts to cut waiting times",
-    what: "Changes how courts and tribunals are run, to clear the huge backlog of cases.",
-    example: "Most courts in Scotland are run in Scotland. Employment and benefits tribunals are UK wide.",
+    title: "Cutting jury trials to clear court backlogs",
+    what: "Cuts the right to choose a jury trial for some crimes and doubles magistrates' sentencing powers, to clear court backlogs.",
+    example: "It covers England and Wales. Scotland has its own courts.",
     yesMeans: "Voted for this part of the courts law.",
     noMeans: "Voted against this part of the courts law.",
   },
   {
     match: /health bill/i,
-    title: "Health law: vapes, smoking and junk food adverts",
-    what: "Changes rules on vapes, smoking, junk food adverts and NHS powers.",
-    example: "Scottish hospitals are run in Scotland, but UK wide bans on tobacco and vape sales cover Scotland too.",
+    title: "Scrapping NHS England",
+    what: "Scraps NHS England and Healthwatch, and moves their jobs to the Health Department and local health boards.",
+    example: "It covers the NHS in England. Scotland runs its own NHS.",
     yesMeans: "Voted for this change to the health law.",
     noMeans: "Voted against this change to the health law.",
   },
@@ -599,21 +994,59 @@ export function explainVote(title: string): VoteExplainer | null {
 }
 
 /** The hand-checked story of the bill itself, when one exists. */
-export function voteSubstance(
-  title: string,
-): { title: string; what: string; example?: string; yesMeans?: string; noMeans?: string } | null {
+export function voteSubstance(title: string, date?: string): Omit<SubstanceEntry, "match"> | null {
   for (const entry of SUBSTANCE) {
+    if (entry.date && (!date || !date.startsWith(entry.date))) continue;
     if (entry.match.test(title)) {
-      return {
-        title: entry.title,
-        what: entry.what,
-        example: entry.example,
-        yesMeans: entry.yesMeans,
-        noMeans: entry.noMeans,
-      };
+      const { match: _match, ...rest } = entry;
+      void _match;
+      return rest;
     }
   }
   return null;
+}
+
+/** Whether the vote passed, from Parliament's "330 Aye, 199 No" style result. */
+export function votePassed(result: string | undefined): boolean | null {
+  if (!result) return null;
+  const m = result.match(/(\d+)\s*ayes?\s*,?\s*(\d+)\s*no(?:es)?\b/i);
+  if (!m) return null;
+  return parseInt(m[1], 10) > parseInt(m[2], 10);
+}
+
+/**
+ * The plain story of one MP's vote: who brought it, what they voted for or
+ * against in one sentence, and what happened as a result.
+ */
+export function voteStory(
+  title: string,
+  vote: string,
+  name: string,
+  result?: string,
+  date?: string,
+): { stance: string; by?: string; outcome?: string } {
+  const sub = voteSubstance(title, date);
+  const isYes = /^(aye|yes|for)$/i.test(vote);
+  const isNo = /^(no|against)$/i.test(vote);
+
+  let stance = inferStance(title, vote);
+  if (sub?.proposition && (isYes || isNo)) {
+    stance = `${name} voted ${isYes ? "for" : "against"} ${sub.proposition}.`;
+  } else if (isYes || isNo) {
+    stance = `${name}: ${stance.charAt(0).toLowerCase()}${stance.slice(1)}`;
+  }
+
+  const passed = votePassed(result);
+  const isPartyVote = /opposition day/i.test(title) && !/government amendment/i.test(title);
+  let outcome: string | undefined;
+  if (passed === true) {
+    outcome =
+      sub?.ifPassed ??
+      (isPartyVote ? "It is a statement only, so it does not change any law." : "This went ahead.");
+  } else if (passed === false) {
+    outcome = sub?.ifRejected ?? "This did not happen.";
+  }
+  return { stance, by: sub?.by, outcome };
 }
 
 /**
