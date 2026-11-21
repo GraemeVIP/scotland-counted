@@ -854,7 +854,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
                   <Link href="/representatives/mps/inverness-skye-and-west-ross-shire#donations-and-interests">
                     Angus MacDonald
                   </Link>{" "}
-                  (£3,314 utilities + £546 drain jet-washing + £3,000 speech coaching) all did.
+                  (£3,314 utilities + £546 drain jet washing + £3,000 speech coaching) all did.
                 </p>
                 <p className="mt-2.5 text-[15px] leading-[1.6] text-[var(--ink-2)]">
                   It can cost double. Many Scottish councils, including East Lothian since April 2024,
@@ -1146,7 +1146,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
                     <ul className="list-disc space-y-2.5 pl-5 marker:text-[var(--bad)]">
                       <li>
                         <strong>£3,000 for a personal speech & presentation skills workshop</strong>
-                        , <strong>£546 for professional drain jet-washing</strong>,{" "}
+                        , <strong>£546 for professional drain jet washing</strong>,{" "}
                         <strong>£939 for London flat service charges</strong> and{" "}
                         <strong>£746 for second home buildings insurance</strong> (claimed by
                         Inverness, Skye and West Ross-shire Lib Dem MP{" "}

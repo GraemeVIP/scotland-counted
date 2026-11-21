@@ -28,7 +28,7 @@ const IPSA_DOWNLOADS = "https://www.theipsa.org.uk/mp-staffing-business-costs/an
 export const metadata = meta({
   title: "Strangest Scottish MP Expenses: The Receipts (2025/26)",
   description:
-    "£3,000 for a speech coach, £546 to jet-wash a second home's drains, a £1,248 iPhone, DFS and IKEA furniture. The real IPSA receipts behind Scottish MPs' expenses.",
+    "£3,000 for a speech coach, £546 to jet wash a second home's drains, a £1,248 iPhone, DFS and IKEA furniture. The real IPSA receipts behind Scottish MPs' expenses.",
   path: PATH,
   type: "article",
   published: PUBLISHED_ISO,
@@ -440,7 +440,7 @@ export default function MpExpenseReceiptsPage() {
           </div>
           <SharePage
             title="The receipts: what Scottish MPs billed taxpayers for"
-            text="£3,000 for a speech coach, £546 to jet-wash a second home's drains and a £1,248 iPhone, all paid by taxpayers. The real receipts:"
+            text="£3,000 for a speech coach, £546 to jet wash a second home's drains and a £1,248 iPhone, all paid by taxpayers. The real receipts:"
             path={PATH}
             label="Share the receipts"
             className="mt-4"
