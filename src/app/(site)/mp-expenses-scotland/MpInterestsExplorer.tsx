@@ -201,7 +201,7 @@ export default function MpInterestsExplorer({ records }: { records: MpInterestRe
         <div
           role="tablist"
           aria-label="Choose what to rank Scottish MPs by"
-          className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0"
+          className="flex flex-wrap gap-2"
         >
           {TABS.map((item) => {
             const active = tab === item.id;
@@ -255,7 +255,7 @@ export default function MpInterestsExplorer({ records }: { records: MpInterestRe
               type="search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search an MP, town, donor or country (try Qatar or Silverstone)"
+              placeholder="Search an MP, town or donor"
               className="w-full rounded-full border border-[var(--rule-strong)] bg-[var(--surface)] py-2.5 pl-11 pr-4 text-[16px] text-[var(--ink)] placeholder:text-[var(--muted)] focus:border-[var(--brand)] focus:outline-none focus:ring-4 focus:ring-[var(--brand-wash)]"
             />
           </div>

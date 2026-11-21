@@ -519,7 +519,7 @@ export default function Post() {
         up Westminster politics. Yet Labour MPs account for <strong>73% of all second home council
         tax</strong> billed to taxpayers (£59,231), <strong>71% of all London hotel spending</strong>{" "}
         (£152,908), <strong>75% of all funded foreign trips</strong> (£57,288, including delegations
-        to Qatar, China, Taiwan and Syria), and <strong>both MPs married to lobbyists</strong> ({" "}
+        to Qatar, China, Taiwan and Syria), and <strong>both MPs married to lobbyists</strong> (
         <Link href="/representatives/mps/east-kilbride-and-strathaven#donations-and-interests">
           Joani Reid
         </Link>

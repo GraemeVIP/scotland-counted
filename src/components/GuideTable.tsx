@@ -30,8 +30,16 @@ export function GuideTable({
         {kicker && <p className="ui text-[15px] font-[600] text-[var(--brand)]">{kicker}</p>}
         <h3 className="mt-1 text-[21px] font-[600] leading-[1.25]">{title}</h3>
       </div>
+      {columns.length > 3 && (
+        <p className="ui mt-3 text-[13.5px] text-[var(--muted)] sm:hidden">
+          Swipe the table sideways to see every column →
+        </p>
+      )}
       <div className="mt-4 overflow-x-auto">
-        <table className="w-full min-w-[480px] border-collapse text-[15.5px] tnum">
+        <table
+          className="w-full border-collapse text-[15.5px] tnum"
+          style={{ minWidth: columns.length <= 2 ? undefined : `${Math.max(480, columns.length * 130)}px` }}
+        >
           <thead>
             <tr>
               {columns.map((column, i) => (

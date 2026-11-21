@@ -461,11 +461,11 @@ export default function MpExpenseReceiptsPage() {
           <ol className="mt-8 grid gap-5 md:grid-cols-2">
             {RECEIPTS.map((r, i) => (
               <li key={r.what} className="tile flex flex-col overflow-hidden">
-                <div className="flex items-center justify-between gap-3 border-b border-dashed border-[var(--rule-strong)] bg-[var(--surface-2)] px-5 py-2.5">
+                <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 border-b border-dashed border-[var(--rule-strong)] bg-[var(--surface-2)] px-5 py-2.5">
                   <span className="tile-key">
                     Receipt {String(i + 1).padStart(2, "0")} · {r.date}
                   </span>
-                  <span className="tile-key">{r.budget}</span>
+                  <span className="tile-key whitespace-nowrap">{r.budget}</span>
                 </div>
                 <div className="flex flex-1 flex-col px-5 pb-5 pt-4">
                   <p className="figure-num tnum text-[clamp(38px,4vw,48px)] leading-none text-[var(--bad-text)]">

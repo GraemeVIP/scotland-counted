@@ -543,7 +543,7 @@ export default function MpInterestsCard({
                 </p>
               </div>
               <a href="#ask-expenses" className="btn btn-primary shrink-0 justify-center text-center">
-                Ask {interests.name} to explain →
+                Ask {interests.name} to explain&nbsp;→
               </a>
             </div>
           </div>

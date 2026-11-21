@@ -651,7 +651,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
 
       <Page>
         <PageHeader
-          eyebrow={`Taxpayer Expenses & Register of Interests · Checked ${MP_INTERESTS_CHECKED_ISO}`}
+          eyebrow={`MP expenses · Checked ${new Date(MP_INTERESTS_CHECKED_ISO).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}`}
           title="MP expenses, donations and freebies in Scotland: all 57 MPs ranked"
           stat={{
             value: "£5.21m",
@@ -681,7 +681,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
           />
         </PageHeader>
 
-        <ContentFrame as="section" id="your-mp" className="scroll-mt-24">
+        <ContentFrame as="section" id="your-mp" className="scroll-mt-24 mb-8">
           <div className="rounded-[var(--r-m)] border-2 border-[var(--brand)] bg-[var(--surface)] p-5 sm:p-6">
             <h2 className="text-[22px] font-[700] leading-[1.2] text-[var(--ink)] sm:text-[26px]">
               See what your MP claimed
@@ -754,7 +754,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
                   Things you paid for and never knew about
                 </h2>
               </div>
-              <div className="flex shrink-0 flex-wrap gap-2.5">
+              <div className="flex flex-wrap gap-2.5 sm:shrink-0">
                 <Link href="/mp-expenses-scotland/receipts" className="btn btn-primary">
                   See all the receipts →
                 </Link>

@@ -59,10 +59,10 @@ export default function QuickAnswer({ answer, className = "" }: { answer: QuickA
         {answer.rows && answer.rows.length > 0 && (
           <dl className="grid gap-px overflow-hidden rounded-[var(--r-m)] border border-white/15 bg-white/10">
             {answer.rows.map((row) => (
-              <div key={row.label} className="flex items-baseline justify-between gap-4 bg-[rgba(2,30,80,0.55)] px-4 py-3">
+              <div key={row.label} className="flex flex-col gap-1 bg-[rgba(2,30,80,0.55)] px-4 py-3 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
                 <dt className="text-[15px] text-[var(--hero-muted)]">{row.label}</dt>
                 {/* Right aligned even when it wraps, so a long value lines up with the short ones above and below. */}
-                <dd className="m-0 text-right text-[16px] font-[600] leading-[1.4] tnum text-white [text-wrap:balance]">
+                <dd className="m-0 text-left text-[16px] sm:text-right font-[600] leading-[1.4] tnum text-white [text-wrap:balance]">
                   {row.value}
                 </dd>
               </div>

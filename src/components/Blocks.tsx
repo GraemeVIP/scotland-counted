@@ -118,7 +118,7 @@ export function PageHeader({
         }`}
       >
         <div className="min-w-0">
-          {eyebrow && <p className="eyebrow mb-6"><ExplainText>{eyebrow}</ExplainText></p>}
+          {eyebrow && <p className="eyebrow mb-6"><span><ExplainText>{eyebrow}</ExplainText></span></p>}
           <h1 className="h1 max-w-[18ch] mb-6 text-[clamp(40px,5.6vw,80px)]">{title}</h1>
           {lede && <div className="lede max-w-[56ch]"><ExplainText>{lede}</ExplainText></div>}
           {children}
@@ -287,7 +287,7 @@ export function SectionHead({
       <div className="flex flex-wrap items-baseline gap-x-4 gap-y-3">
         <h2
           id={id}
-          className="display-stat text-[clamp(28px,3.4vw,44px)] max-w-[20ch]"
+          className="display-stat text-[clamp(28px,3.4vw,44px)] max-w-[20ch] leading-[1.04]"
         >
           {title}
         </h2>

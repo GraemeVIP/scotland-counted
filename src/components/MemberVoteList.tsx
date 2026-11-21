@@ -182,8 +182,11 @@ export default function MemberVoteList({
                 <span>
                   Show {remainingVotes.length} more recorded votes for {name}
                 </span>
-                <span className="transition-transform group-open:rotate-90" aria-hidden="true">
-                  ▸
+                <span
+                  className="ml-3 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[var(--rule-strong)] text-[13px] transition-transform group-open:rotate-90"
+                  aria-hidden="true"
+                >
+                  ▶
                 </span>
               </summary>
               <div className="border-t border-[var(--rule)] p-3 sm:p-4 space-y-3 bg-[var(--surface-2)]">
