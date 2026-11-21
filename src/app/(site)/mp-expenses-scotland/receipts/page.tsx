@@ -244,6 +244,33 @@ const ALL_MPS: [string, string][] = [
   ["£73,648", "flights for MPs' husbands, wives, partners and children"],
 ];
 
+const PUT_IT_TO_THEM = [
+  "Why are MPs' expenses published as a 59,503 line spreadsheet, not a plain list anyone can search?",
+  "Why are 2,009 Scottish claim lines one yearly total, so nobody can see a single taxi ride or flight?",
+  "Why is the supplier's name blanked out on 199 Scottish claims?",
+  "Will you back publishing every claim in plain English, with who was paid and what for?",
+];
+
+const PUT_IT_MAILTO = `mailto:?subject=${encodeURIComponent(
+  "Question from a constituent: why are MPs' expenses so hard to find?",
+)}&body=${encodeURIComponent(
+  `Dear [MP's name],
+
+I am writing as your constituent about how MPs' expenses are published.
+
+IPSA publishes every claim, but as a spreadsheet of 59,503 lines for 2025/26. Of the 6,101 lines for Scottish MPs, 2,009 are single yearly totals, so nobody can see individual journeys, and 199 have the supplier's name blanked out. In practice, almost nobody can find out what their MP claimed.
+
+Please could you answer:
+
+1. Will you publish your own 2025/26 claims in plain English, with what each was for and who was paid?
+2. Will you press IPSA to publish every claim in a plain, searchable form, without yearly totals that hide individual journeys?
+3. Will you back naming every supplier paid with public money?
+
+Yours sincerely,
+[Your name]
+[Your address and postcode]`,
+)}`;
+
 const FAQ = [
   {
     q: "Are these expense claims allowed?",
@@ -488,6 +515,39 @@ export default function MpExpenseReceiptsPage() {
                 <a href={IPSA_DOWNLOADS}>IPSA&apos;s annual publications page</a>.
               </li>
             </ol>
+          </div>
+        </ContentFrame>
+
+        {/* PUT IT TO THEM */}
+        <ContentFrame as="section" id="put-it-to-them" className="pt-16 scroll-mt-20">
+          <SectionHead eyebrow="Hidden in plain sight" title="Put it to them" />
+          <ExplainText>
+            <p className="mt-3 max-w-[66ch] text-[17px] leading-[1.6] text-[var(--ink-2)]">
+              MPs can always say their expenses are published. They are, in a spreadsheet of 59,503
+              lines that almost nobody opens. Whether it is meant to or not, publishing it this way
+              keeps it out of sight. These are the questions MPs and IPSA should have to answer.
+            </p>
+          </ExplainText>
+          <ol className="mt-6 grid gap-3 md:grid-cols-2">
+            {PUT_IT_TO_THEM.map((q, i) => (
+              <li key={q} className="tile flex gap-4 p-5">
+                <span className="tnum inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[var(--bad-text)] text-[14px] font-[700] text-white">
+                  {i + 1}
+                </span>
+                <p className="ui text-[16px] font-[600] leading-[1.45] text-[var(--ink)]">{q}</p>
+              </li>
+            ))}
+          </ol>
+          <div className="mt-6 rounded-[var(--r-m)] border border-[var(--rule)] border-l-[4px] border-l-[var(--action)] bg-[var(--action-tint)] p-5 sm:p-6">
+            <p className="ui text-[18px] font-[660] text-[var(--ink)]">Send these questions to your MP</p>
+            <p className="mt-1.5 max-w-[60ch] text-[15.5px] leading-[1.55] text-[var(--ink-2)]">
+              This opens a ready written email in your own email app. Add your MP&apos;s address (find
+              it with <Link href="/email-your-mp-and-msp">our postcode search</Link>), your name and
+              your postcode.
+            </p>
+            <a href={PUT_IT_MAILTO} className="btn btn-primary mt-4">
+              Open the ready written email →
+            </a>
           </div>
         </ContentFrame>
 

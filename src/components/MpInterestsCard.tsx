@@ -51,6 +51,7 @@ export default function MpInterestsCard({
     interests.family.length > 0;
 
   const exp = interests.expenses;
+  const shortName = interests.name.replace(/^(Mr|Mrs|Ms|Miss|Dr) /, "");
 
   const askMailto = (() => {
     if (!email) return null;
@@ -112,16 +113,37 @@ export default function MpInterestsCard({
             </ExplainText>
           </p>
         </div>
-        <div className="flex flex-col items-start rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] px-5 py-4 shadow-[var(--shadow-1)] sm:items-end">
-          <span className="tile-key">
-            {exp ? "2025/26 taxpayer expenses" : "Declared donations, trips & gifts"}
-          </span>
-          <span className="figure-num tnum mt-1.5 text-[clamp(34px,4vw,44px)] leading-none text-[var(--bad-text)]">
+        <div className="w-full max-w-[360px] rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5 shadow-[var(--shadow-1)]">
+          <p className="ui text-[14px] font-[620] leading-[1.35] text-[var(--ink-2)]">
+            {exp
+              ? `${shortName}'s own claims, ${exp.year}`
+              : `${shortName}'s declared donations, trips and gifts`}
+          </p>
+          <p className="figure-num tnum mt-2 text-[38px] leading-[1.1] text-[var(--ink)]">
             {moneyWhole.format(exp ? exp.totalSpend : interests.totalFinancialValue)}
-          </span>
+          </p>
+          <p className="ui mt-1 text-[13px] text-[var(--muted)]">
+            This MP only. Not a total for all MPs.
+          </p>
+          {exp && (
+            <dl className="ui mt-3.5 space-y-1.5 border-t border-[var(--rule)] pt-3 text-[14px]">
+              <div className="flex items-baseline justify-between gap-4">
+                <dt className="text-[var(--ink-2)]">Wages for office staff</dt>
+                <dd className="tnum font-[600] text-[var(--ink)]">
+                  {moneyWhole.format(exp.staffingSpend)}
+                </dd>
+              </div>
+              <div className="flex items-baseline justify-between gap-4">
+                <dt className="text-[var(--ink-2)]">Everything else: rent, travel, office</dt>
+                <dd className="tnum font-[700] text-[var(--bad-text)]">
+                  {moneyWhole.format(exp.nonStaffSpend)}
+                </dd>
+              </div>
+            </dl>
+          )}
           <Link
             href="/mp-expenses-scotland"
-            className="ui mt-2 text-[14px] font-[600] text-[var(--action-text)] no-underline hover:underline"
+            className="ui mt-3.5 inline-block text-[14px] font-[600] text-[var(--action-text)] no-underline hover:underline"
           >
             Compare all 57 Scottish MPs →
           </Link>
@@ -153,7 +175,7 @@ export default function MpInterestsCard({
           <div className="mt-6">
             <div className="mb-3.5 flex flex-wrap items-baseline justify-between gap-2">
               <h3 className="ui text-[17px] font-[620] text-[var(--ink)]">
-                Claimed from taxpayers via <G t="ipsa">IPSA</G> ({exp.year}):{" "}
+                {shortName}&apos;s claims from taxpayers via <G t="ipsa">IPSA</G> ({exp.year}):{" "}
                 {money.format(exp.totalSpend)}
               </h3>
               <span className="ui text-[14px] text-[var(--muted)]">
