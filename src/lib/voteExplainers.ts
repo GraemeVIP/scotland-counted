@@ -69,7 +69,7 @@ const RULES: Rule[] = [
     explain: {
       kind: "A vote called by a party not in government",
       plain:
-        "Parties not in government get some days to pick the debate. This vote does not change any law by itself, but it puts every MP on the record.",
+        "Parties not in government get set days to pick what MPs debate. This vote does not change any law by itself, but it forces every MP to take a side.",
     },
   },
   {
@@ -151,6 +151,212 @@ export type SubstanceEntry = {
  * in reader-facing words.
  */
 export const SUBSTANCE: SubstanceEntry[] = [
+  {
+    match: /^draft\s+trade\s+unions\s+\(permissible\s+means\s+of\s+voting\)\s+and\s+employment\s+rights\s+\(unfair\s+dismissal\)\s+\(amendment\)\s+order\s+2026$/i,
+    title: "Letting workers vote on strikes online",
+    by: "The government",
+    proposition: "letting union members vote on strikes online, at work, by post or a mix",
+    what: "Employment law is set at Westminster, so these trade union rules cover Scotland too.",
+  },
+  {
+    match: /^draft\s+code\s+of\s+practice\s+on\s+electronic\s+and\s+workplace\s+ballots\s+for\s+statutory\s+trade\s+union\s+ballots$/i,
+    title: "Guidance for online strike votes",
+    by: "The government",
+    proposition: "official guidance on running union votes online and at work",
+    what: "Employment law is set at Westminster, so these trade union rules cover Scotland too.",
+  },
+  {
+    match: /^draft\s+acas\s+code\s+of\s+practice\s+on\s+time\s+off\s+for\s+trade\s+union\s+duties\s+and\s+activities$/i,
+    title: "Time off for union reps",
+    by: "The government",
+    proposition: "updated guidance on paid time off for workers who do union duties",
+    what: "Employment law is set at Westminster, so these trade union rules cover Scotland too.",
+  },
+  {
+    match: /^draft\s+code\s+of\s+practice\s+on\s+the\s+right\s+of\s+trade\s+unions\s+to\s+access\s+workplaces$/i,
+    title: "Guidance on unions coming into workplaces",
+    by: "The government",
+    proposition: "official guidance on trade unions' new right to enter workplaces",
+    what: "Employment law is set at Westminster, so these trade union rules cover Scotland too.",
+  },
+  {
+    match: /^draft\s+trade\s+unions\s+\(right\s+to\s+access\s+workplaces\)\s+regulations\s+2026$/i,
+    title: "Letting unions into workplaces",
+    by: "The government",
+    proposition: "the rules letting trade unions enter workplaces to meet and recruit workers",
+    what: "Employment law is set at Westminster, so these trade union rules cover Scotland too.",
+  },
+  {
+    match: /^draft\s+code\s+of\s+practice\s+on\s+access\s+and\s+unfair\s+practices\s+during\s+the\s+recognition\s+and\s+\s+derecognition\s+process$/i,
+    title: "Banning unfair tactics when unions ask to be recognised",
+    by: "The government",
+    proposition: "guidance banning unfair tactics when a union asks an employer to recognise it",
+    what: "Employment law is set at Westminster, so these trade union rules cover Scotland too.",
+  },
+  {
+    match: /^draft\s+railways\s+\(interoperability\s+in\s+northern\s+ireland\)\s+\(convention\s+on\s+international\s+\s+carriage\s+by\s+rail\)\s+\(amendment\)\s+regulations\s+2026$/i,
+    title: "Northern Ireland train standards",
+    by: "The government",
+    proposition: "using EU safety and design rules for trains in Northern Ireland",
+    what: "A post-Brexit rule for Northern Ireland only.",
+  },
+  {
+    match: /^highways\s+\(financing\)\s+bill:\s+second\s+reading:\s+reasoned\s+amendment$/i,
+    title: "Conservative bid to block the road tolls law",
+    by: "The Conservatives (Richard Holden MP)",
+    proposition: "blocking the road tolls law over doubts the government can deliver the Lower Thames Crossing",
+    what: "The law lets licensed companies charge tolls to pay for work on major roads in England, such as the Lower Thames Crossing. England only.",
+    ifRejected: "The law carried on.",
+  },
+  {
+    match: /^social\s+housing\s+bill\s+\[lords\]:\s+reasoned\s+amendment\s+to\s+second\s+reading$/i,
+    title: "Conservative bid to block the council housing law",
+    by: "The Conservatives (Gareth Bacon MP)",
+    proposition: "blocking the social housing law because, they said, it would in effect end the Right to Buy",
+    what: "The law makes council tenants wait 10 years instead of 3 to buy their home and protects new council homes from Right to Buy for 30 years. The debate was about England.",
+    ifRejected: "The law carried on.",
+  },
+  {
+    match: /^immigration\s+and\s+asylum\s+bill\s+report\s+stage:\s+new\s+clause\s+18$/i,
+    title: "Joining the EU's asylum pact",
+    by: "The Lib Dems (Max Wilkinson MP)",
+    proposition: "making the government start talks within three months to join the EU's shared asylum system, and report on progress every six months",
+    what: "Moves asylum appeals from judges to a new body staffed mostly by people who are not judges, allows one appeal only, and tightens \"right to family life\" claims. Border rules cover Scotland too.",
+  },
+  {
+    match: /^immigration\s+and\s+asylum\s+bill\s+report\s+stage:\s+new\s+clause\s+50$/i,
+    title: "Banning illegal arrivals from becoming British citizens",
+    by: "The Conservatives (Chris Philp MP)",
+    proposition: "banning anyone who entered the UK illegally from ever becoming a British citizen",
+    what: "Moves asylum appeals from judges to a new body staffed mostly by people who are not judges, allows one appeal only, and tightens \"right to family life\" claims. Border rules cover Scotland too.",
+  },
+  {
+    match: /^immigration\s+and\s+asylum\s+bill\s+report\s+stage:\s+new\s+clause\s+54$/i,
+    title: "A 10 year wait to settle in the UK",
+    by: "The Conservatives (Chris Philp MP)",
+    proposition: "making migrants wait 10 years before they can settle in the UK for good, and refusing it to anyone who has claimed benefits, earned below a set income or has a criminal record",
+    what: "Moves asylum appeals from judges to a new body staffed mostly by people who are not judges, allows one appeal only, and tightens \"right to family life\" claims. Border rules cover Scotland too.",
+  },
+  {
+    match: /^immigration\s+and\s+asylum\s+bill\s+report\s+stage:\s+new\s+clause\s+62$/i,
+    title: "Protecting skilled workers already here from tougher rules",
+    by: "A group of 52 MPs led by Neil Duncan-Jordan MP (Labour)",
+    proposition: "protecting people already in the UK on skilled worker visas from new, tougher rules on settling here for good",
+    what: "Moves asylum appeals from judges to a new body staffed mostly by people who are not judges, allows one appeal only, and tightens \"right to family life\" claims. Border rules cover Scotland too.",
+  },
+  {
+    match: /^immigration\s+and\s+asylum\s+bill:\s+third\s+reading$/i,
+    title: "Final vote on the new asylum and appeals law",
+    by: "The government",
+    proposition: "passing the new asylum law, which moves appeals from judges to a new body, allows one appeal only and makes foreign criminals easier to deport",
+    what: "Moves asylum appeals from judges to a new body staffed mostly by people who are not judges, allows one appeal only, and tightens \"right to family life\" claims. Border rules cover Scotland too.",
+    ifPassed: "The law moved on to the House of Lords.",
+  },
+  {
+    match: /^sporting\s+events\s+bill\s+\[lords\]\s+report:\s+new\s+clause\s+1$/i,
+    title: "Banning resale of sports tickets above face value",
+    by: "The Lib Dems (Anna Sabine MP)",
+    proposition: "banning resale of tickets to major sporting events above face value, capping resale site fees, and fining sites that break the rules",
+    what: "A law setting permanent rules for hosting major sporting events in the UK, including a ban on ticket touting.",
+  },
+  {
+    match: /^sporting\s+events\s+bill\s+\[lords\]\s+report:\s+amendment\s+6$/i,
+    title: "Banning transport and council strikes during big events",
+    by: "The Conservatives (Rebecca Paul MP)",
+    proposition: "banning strikes by transport and council workers during major sporting events",
+    what: "A law setting permanent rules for hosting major sporting events in the UK, including a ban on ticket touting.",
+  },
+  {
+    match: /^sporting\s+events\s+bill\s+\[lords\]\s+report:\s+amendment\s+8$/i,
+    title: "Separate sport and facilities by biological sex",
+    by: "The Conservatives (Rebecca Paul MP)",
+    proposition: "requiring major sporting events to keep competitions, changing rooms, toilets and rooms separate by biological sex, with no public money for events that do not",
+    what: "A law setting permanent rules for hosting major sporting events in the UK, including a ban on ticket touting.",
+  },
+  {
+    match: /^railways\s+bill:\s+carry\-over\s+extension\s+\(motion\)$/i,
+    title: "More time for the Great British Railways law",
+    by: "The government",
+    proposition: "giving the government until April 2027 to pass its law creating Great British Railways, instead of the law falling",
+    what: "A law to bring rail services under a new public body, Great British Railways.",
+  },
+  {
+    match: /^budget\s+resolution\s+no\.\s+3:\s+income\s+tax\s+\(default,\s+property\s+and\s+savings\s+rates\)$/i,
+    title: "Budget: higher income tax on savings and rent",
+    by: "The government",
+    proposition: "raising income tax on savings and rental income to 24%, 44% and 49% from April 2027",
+    what: "The savings rates cover Scotland. Scotland sets its own rates on wages and can set its own on rent.",
+  },
+  {
+    match: /^budget\s+resolution\s+no\.7:\s+increase\s+in\s+rate\s+of\s+banking\s+surcharge\s+for\s+temporary\s+period$/i,
+    title: "Budget: doubling the extra tax on bank profits",
+    by: "The government",
+    proposition: "doubling the extra tax on bank profits from 3% to 6% from January 2027 to March 2028",
+    what: "One of the tax changes from the autumn Budget. These votes are put forward by the government.",
+  },
+  {
+    match: /^budget\s+resolution\s+no\.\s+8:\s+capital\s+gains\s+tax\s+\(business\s+asset\s+disposal\s+relief\)$/i,
+    title: "Budget: smaller tax break for selling a business",
+    by: "The government",
+    proposition: "halving the amount of profit from selling a business that gets the lower 18% tax rate, from \u00a31 million to \u00a3500,000",
+    what: "One of the tax changes from the autumn Budget. These votes are put forward by the government.",
+  },
+  {
+    match: /^budget\s+resolution\s+no\.\s+15:\s+charges\s+in\s+connection\s+with\s+employment\s+visas$/i,
+    title: "Budget: no tax when your boss pays your visa fees",
+    by: "The government",
+    proposition: "letting workers pay no income tax when their employer pays their visa fees",
+    what: "One of the tax changes from the autumn Budget. These votes are put forward by the government.",
+  },
+  {
+    match: /^budget\s+resolution\s+no\.\s+55:\s+value\s+added\s+tax\s+\(electric\s+vehicle\s+charging\)$/i,
+    title: "Budget: keeping 20% VAT on public car chargers",
+    by: "The government",
+    proposition: "keeping full 20% VAT on public and workplace electric car chargers, while home electricity gets 0% VAT",
+    what: "This covers the whole UK, including Scotland.",
+  },
+  {
+    match: /^budget\s+resolution\s+no\.\s+76:\s+rates\s+of\s+alcohol\s+duty$/i,
+    title: "Budget: tax on alcohol up 4.55%",
+    by: "The government",
+    proposition: "raising the tax on alcohol by 4.55% from February 2027, with bigger discounts for small producers",
+    what: "One of the tax changes from the autumn Budget. These votes are put forward by the government.",
+  },
+  {
+    match: /^budget\s+resolution\s+no\.\s+86:\s+high\s+value\s+council\s+tax\s+surcharge$/i,
+    title: "Budget: extra council tax on \u00a32 million homes in England",
+    by: "The government",
+    proposition: "an extra yearly charge of \u00a32,500 to \u00a37,500 on homes worth over \u00a32 million in England, from April 2028",
+    what: "This is England only. Scotland is making its own version at Holyrood, with new council tax bands for homes over \u00a31 million.",
+  },
+  {
+    match: /^draft\s+private\s+rented\s+sector\s+database\s+regulations\s+2026$/i,
+    title: "England only: a register of private landlords",
+    by: "The government",
+    proposition: "making private landlords in England register every rented home on a national database, for \u00a365 a year per property",
+    what: "This is England only. Scotland already has its own landlord register, run by councils.",
+  },
+  {
+    match: /^draft\s+housing\s+\(tenancy\s+deposit\s+schemes\)\s+order\s+2026$/i,
+    title: "England only: the government taking interest on renters' deposits",
+    by: "The government",
+    proposition: "letting the government take a share of the interest earned on renters' protected deposits in England",
+    what: "More than \u00a32.5 billion of deposits sit in these schemes. The government says it will spend the money on help for renters. England only.",
+  },
+  {
+    match: /^visitor\s+levy\s+\(england\)\s+bill\s+second\s+reading$/i,
+    title: "England only: an overnight tourist tax",
+    by: "The government",
+    proposition: "letting mayors in England add an overnight tourist tax to hotel and holiday let bills",
+    what: "This is England only. Scotland already lets councils charge a visitor levy, under a 2024 Holyrood law.",
+  },
+  {
+    match: /^draft\s+employment\s+rights\s+act\s+2025\s+\(unfair\s+dismissal\)\s+\(removal\s+of\s+limit\s+on\s+\s+compensation\)\s+\(consequential\s+amendments\)\s+regulations\s+2026$/i,
+    title: "No more cap on unfair dismissal payouts",
+    by: "The government",
+    proposition: "removing the cap on what workers can win for unfair dismissal, from January 2027",
+    what: "Today the cap is the lower of \u00a3123,543 or a year's pay. Employment law covers Scotland too.",
+  },
   {
     match: /^national\s+security\s+\(state\s+threats\)\s+bill\s+committee:\s+amendment\s+3$/i,
     title: "Removing a defence for dealing with banned groups",
@@ -422,6 +628,7 @@ export const SUBSTANCE: SubstanceEntry[] = [
     title: "Conservative bid to block the asylum law for not going far enough",
     by: "The Conservatives (Chris Philp MP)",
     proposition: "blocking the asylum law for not going far enough on deportations and on leaving the European Convention on Human Rights",
+    ifRejected: "The law carried on.",
     what: "Replaces the immigration appeals tribunal with a new appeals body, narrows 'right to family life' claims and changes the protection people get after an asylum claim. Border rules cover Scotland too.",
   },
   {
@@ -444,6 +651,7 @@ export const SUBSTANCE: SubstanceEntry[] = [
     title: "Ending the debate on assisted dying",
     by: "Kit Malthouse MP (Conservative), who backed the bill",
     proposition: "ending the debate on assisted dying so MPs could vote on it",
+    ifPassed: "The debate ended and MPs voted on assisted dying straight away.",
     what: "A vote to stop the talking and move straight to a decision.",
   },
   {
@@ -628,9 +836,9 @@ export const SUBSTANCE: SubstanceEntry[] = [
     match: /opposition day: employers/i,
     title: 'Conservative call to cut employer National Insurance for young workers',
     by: "The Conservatives (Julia Lopez MP)",
-    proposition: "condemning the rise in employers' National Insurance and halving it for staff under 25",
-    what: 'The Conservatives called this vote. It attacked the government for raising National Insurance on employers.',
-    example: "It called for employers' National Insurance on staff under 25 to be halved.",
+    proposition: "halving the National Insurance employers pay on staff under 25, and criticising the government for raising it",
+    what: "National Insurance is a tax on wages. The government raised the part bosses pay in its first Budget.",
+    example: "The Conservatives say this broke Labour's election promise not to raise National Insurance.",
     yesMeans: 'Voted with the Conservatives to halve employer National Insurance for under 25s.',
     noMeans: "Voted against the Conservatives' call on employer National Insurance.",
   },
@@ -638,9 +846,9 @@ export const SUBSTANCE: SubstanceEntry[] = [
     match: /government amendment to opposition day debate on welfare/i,
     title: "The government's reply on welfare spending",
     by: "The government (Sir Stephen Timms MP)",
-    proposition: "replacing the Conservatives' wording with the government's own, which blamed the last government for rising benefit costs and backed its welfare reforms",
+    proposition: "swapping the Conservatives' words for the government's own, which blamed the last government for rising benefit costs and backed its welfare reforms",
     ifPassed: "The government's wording replaced the Conservatives' wording.",
-    what: "The government rewrote the Conservatives' welfare motion. Its version blamed the last government for rising benefit costs and backed its own welfare reforms.",
+    what: "When a party not in government brings a vote, the government can rewrite it. If the rewrite passes, the government's words replace theirs.",
     yesMeans: "Voted for the government's version on welfare.",
     noMeans: "Voted against the government's version on welfare.",
   },
@@ -648,8 +856,8 @@ export const SUBSTANCE: SubstanceEntry[] = [
     match: /opposition day: welfare/i,
     title: 'Conservative call to cut welfare spending',
     by: "The Conservatives (Helen Whately MP)",
-    proposition: "making the government promise to bring down spending on benefits for working age people before the next election",
-    what: 'The Conservatives called this vote. It asked the government to promise to bring down benefit spending on working age people before the next election.',
+    proposition: "making the government promise to cut spending on benefits for people of working age before the next election",
+    what: "Working age benefits include Universal Credit and disability benefits for people under pension age.",
     yesMeans: 'Voted with the Conservatives to cut working age welfare spending.',
     noMeans: "Voted against the Conservatives' call to cut welfare spending.",
   },
@@ -657,9 +865,8 @@ export const SUBSTANCE: SubstanceEntry[] = [
     match: /opposition day: uk-eu relations/i,
     title: 'Conservative call to keep EU rules out of the UK',
     by: "The Conservatives (Mike Wood MP)",
-    proposition: "keeping UK taxes, product standards and migration rules set in the UK rather than by the EU, and paying no extra money to the EU",
-    what: 'The Conservatives called this vote. It said UK taxes, product standards and migration rules should be set in the UK, not by the EU.',
-    example: "It also opposed paying any extra money to the EU or subsidising EU students' university fees.",
+    proposition: "keeping control of UK taxes, immigration and rules on goods in the UK, not the EU, and not paying the EU any extra money",
+    what: "It also opposed the UK helping pay for EU students' university fees. The government is seeking closer trade ties with the EU.",
     yesMeans: 'Voted with the Conservatives against closer EU rules.',
     noMeans: "Voted against the Conservatives' call on EU relations.",
   },
@@ -667,9 +874,9 @@ export const SUBSTANCE: SubstanceEntry[] = [
     match: /government amendment to opposition day debate on rosebank/i,
     title: "The government's reply on the Rosebank oilfield",
     by: "The government (Martin McCluskey MP)",
-    proposition: "replacing the Conservatives' wording with the government's own, which said ministers would not commit before the legal decision on Rosebank",
+    proposition: "swapping the Conservatives' words for the government's own, which said ministers would not decide in advance on Rosebank",
     ifPassed: "The government's wording replaced the Conservatives' wording.",
-    what: "The government rewrote the Conservatives' Rosebank motion. Its version said a legal decision on the oilfield is still pending, so ministers would not commit in advance.",
+    what: "When a party not in government brings a vote, the government can rewrite it. If the rewrite passes, the government's words replace theirs.",
     yesMeans: "Voted for the government's version on Rosebank.",
     noMeans: "Voted against the government's version on Rosebank.",
   },
@@ -677,9 +884,9 @@ export const SUBSTANCE: SubstanceEntry[] = [
     match: /opposition day: rosebank/i,
     title: 'Conservative call to approve the Rosebank oilfield',
     by: "The Conservatives (Andrew Bowie MP)",
-    proposition: "approving the Rosebank oil field west of Shetland as soon as possible, for jobs and energy security",
-    what: 'The Conservatives called this vote. It asked the government to approve the Rosebank oil field, west of Shetland, as soon as possible.',
-    example: 'Rosebank matters for oil and gas jobs in the North East of Scotland.',
+    proposition: "approving the Rosebank oil field west of Shetland as soon as possible, for jobs and energy supply",
+    what: "Rosebank is a large oil and gas field west of Shetland. Ministers are still making a legal decision on whether it can go ahead.",
+    example: "It matters for oil and gas jobs in the North East of Scotland.",
     yesMeans: 'Voted with the Conservatives to approve Rosebank.',
     noMeans: "Voted against the Conservatives' call to approve Rosebank.",
   },
@@ -853,9 +1060,9 @@ export const SUBSTANCE: SubstanceEntry[] = [
     match: /support for british farmers/i,
     title: "Lib Dem call for better farm support",
     by: "The Lib Dems (Tim Farron MP)",
-    proposition: "criticising the government over a farm grants scheme that ran out of money within hours, and over cuts to farm budgets",
-    what: "The Liberal Democrats called this vote. It criticised a farm grants scheme that ran out of money within hours of opening.",
-    example: "It also criticised cuts to farm budgets and the tax changes on inherited farms.",
+    proposition: "criticising the government after a farm grants scheme ran out of money within hours, and over cuts to farm budgets",
+    what: "The scheme pays farmers to look after nature and the land. It opened in September 2026.",
+    example: "Farm support in Scotland is run by the Scottish Government, so this was about England.",
     yesMeans: "Voted with the Lib Dems to criticise the government on farm support.",
     noMeans: "Voted with the government against the Lib Dems' criticism.",
   },
@@ -863,9 +1070,9 @@ export const SUBSTANCE: SubstanceEntry[] = [
     match: /opposition day motion: inheritance tax/i,
     title: "Conservative call to scrap inheritance tax",
     by: "The Conservatives (Andrew Griffith MP)",
-    proposition: "cutting public spending to scrap inheritance tax on family homes, farms and businesses",
-    what: "The Conservatives called this vote. It asked the government to cut public spending so it could scrap inheritance tax on family homes, farms and businesses.",
-    example: "Inheritance tax is set at Westminster, so it applies in Scotland too.",
+    proposition: "cutting public spending so inheritance tax can be scrapped on family homes, farms and businesses",
+    what: "Inheritance tax is paid on what people leave behind when they die, above a tax free limit.",
+    example: "It is set at Westminster, so it applies in Scotland too.",
     yesMeans: "Voted with the Conservatives to scrap inheritance tax on homes, farms and businesses.",
     noMeans: "Voted against the Conservatives' call to scrap inheritance tax.",
   },
@@ -873,9 +1080,9 @@ export const SUBSTANCE: SubstanceEntry[] = [
     match: /mod bicester and illegal migrants/i,
     title: "Conservative call to leave the European Convention on Human Rights",
     by: "The Conservatives (Joy Morrissey MP)",
-    proposition: "condemning the plan to house asylum seekers at an army base in Bicester, and calling for the UK to leave the European Convention on Human Rights",
-    what: "The Conservatives called this vote against the government's plan to house asylum seekers at an army base in Bicester, Oxfordshire.",
-    example: "It also called for the UK to leave the European Convention on Human Rights, so people who arrive illegally can be deported.",
+    proposition: "opposing the plan to house asylum seekers at an army base in Bicester, and calling for the UK to leave the European Convention on Human Rights",
+    what: "The government plans to house up to 1,300 asylum seekers at a former army base near Piddington, a village of about 350 people in Oxfordshire.",
+    example: "The European Convention on Human Rights is the treaty behind many court cases that stop deportations.",
     yesMeans: "Voted with the Conservatives against the army base plan and for leaving the European Convention on Human Rights.",
     noMeans: "Voted against the Conservatives' call, including leaving the European Convention on Human Rights.",
   },
@@ -1014,9 +1221,47 @@ export function votePassed(result: string | undefined): boolean | null {
   return parseInt(m[1], 10) > parseInt(m[2], 10);
 }
 
+/** "The Conservatives (Mike Wood MP)" -> "Conservative"; null for the government. */
+function partyWord(by?: string): string | null {
+  if (!by || /^the government/i.test(by)) return null;
+  if (/conservative/i.test(by)) return "Conservative";
+  if (/lib dem/i.test(by)) return "Lib Dem";
+  if (/\bDUP\b/.test(by)) return "DUP";
+  if (/\bUUP\b/.test(by)) return "UUP";
+  if (/labour/i.test(by)) return "Labour backbench";
+  if (/independent/i.test(by)) return "independent MP's";
+  return "backbench";
+}
+
+/** The short thing an MP voted for or against: "this Conservative plan". */
+function voteThing(title: string, by?: string): string {
+  const party = partyWord(by);
+  if (/government amendment to opposition/i.test(title)) return "the government's version";
+  if (/reasoned amendment/i.test(title)) return `this ${party ?? "party"} bid to block the law`;
+  if (/opposition day/i.test(title)) return `this ${party ?? "party"} plan`;
+  if (/king.?s speech motion for an address$/i.test(title)) return "the government's plan for the year";
+  if (/(^draft |\bregulations\b|\border\s+20\d\d|code of practice)/i.test(title) && !/bill/i.test(title))
+    return "these new rules";
+  if (/lords amendment/i.test(title)) return "this change from the House of Lords";
+  if (/new clause|amendment/i.test(title)) return party ? `this ${party} change` : "this government change";
+  if (/third reading|stage 3/i.test(title)) return "the new law at its final vote";
+  if (/second reading|stage 1/i.test(title)) return "the new law at its first big vote";
+  if (/budget resolution/i.test(title)) return "this Budget tax change";
+  if (/closure/i.test(title)) return "this move to end the debate";
+  if (/sit in private/i.test(title)) return "this delaying move";
+  if (/carry-over|programme motion|allocation of time/i.test(title)) return "this timetable move";
+  return "this";
+}
+
+function sentenceCase(text: string): string {
+  return text.charAt(0).toUpperCase() + text.slice(1);
+}
+
 /**
- * The plain story of one MP's vote: who brought it, what they voted for or
- * against in one sentence, and what happened as a result.
+ * The plain story of one MP's vote, built to read in seconds:
+ * - stance: "Seamus Logan voted against this Conservative plan."
+ * - meant: what a yes vote supported, stated positively
+ * - result: "Voted down (103 for, 274 against). Nothing changed."
  */
 export function voteStory(
   title: string,
@@ -1024,29 +1269,55 @@ export function voteStory(
   name: string,
   result?: string,
   date?: string,
-): { stance: string; by?: string; outcome?: string } {
+): { stance: string; meant?: string; by?: string; result?: string; passed: boolean | null } {
   const sub = voteSubstance(title, date);
   const isYes = /^(aye|yes|for)$/i.test(vote);
   const isNo = /^(no|against)$/i.test(vote);
 
   let stance = inferStance(title, vote);
   if (sub?.proposition && (isYes || isNo)) {
-    stance = `${name} voted ${isYes ? "for" : "against"} ${sub.proposition}.`;
+    stance = `${name} voted ${isYes ? "for" : "against"} ${voteThing(title, sub.by)}.`;
   } else if (isYes || isNo) {
     stance = `${name}: ${stance.charAt(0).toLowerCase()}${stance.slice(1)}`;
   }
 
   const passed = votePassed(result);
+  const counts = result?.match(/(\d+)\s*ayes?\s*,?\s*(\d+)\s*no(?:es)?\b/i);
+  const tally = counts ? ` (${counts[1]} for, ${counts[2]} against)` : "";
   const isPartyVote = /opposition day/i.test(title) && !/government amendment/i.test(title);
-  let outcome: string | undefined;
+
+  let line: string | undefined;
   if (passed === true) {
-    outcome =
+    const after =
       sub?.ifPassed ??
-      (isPartyVote ? "It is a statement only, so it does not change any law." : "This went ahead.");
+      (isPartyVote
+        ? "It is only a statement, so it does not change the law."
+        : /reasoned amendment/i.test(title)
+          ? "The law was blocked."
+          : /third reading/i.test(title)
+            ? "The law cleared the House of Commons."
+            : /second reading/i.test(title)
+              ? "The law moved on to its next stage."
+              : "It goes ahead.");
+    line = `Passed${tally}. ${after}`;
   } else if (passed === false) {
-    outcome = sub?.ifRejected ?? "This did not happen.";
+    const after =
+      sub?.ifRejected ??
+      (/reasoned amendment/i.test(title)
+        ? "The law carried on."
+        : /(second|third) reading/i.test(title)
+          ? "The law was stopped."
+          : "Nothing changed.");
+    line = `Voted down${tally}. ${after}`;
   }
-  return { stance, by: sub?.by, outcome };
+
+  return {
+    stance,
+    meant: sub?.proposition ? `${sentenceCase(sub.proposition)}.` : undefined,
+    by: sub?.by,
+    result: line,
+    passed,
+  };
 }
 
 /**

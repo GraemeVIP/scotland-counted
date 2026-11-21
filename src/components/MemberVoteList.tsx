@@ -5,8 +5,6 @@ import {
   explainVote,
   voteSubstance,
   voteStory,
-  votePassed,
-  plainResult,
   plainVoteLabel,
 } from "@/lib/voteExplainers";
 
@@ -16,7 +14,6 @@ function VoteCard({ vote, name }: { vote: VoteRecord; name: string }) {
   const explainer = explainVote(vote.title);
   const substance = voteSubstance(vote.title, vote.date);
   const story = voteStory(vote.title, vote.vote, name, vote.result, vote.date);
-  const passed = votePassed(vote.result);
 
   return (
     <article className="overflow-hidden rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)]">
@@ -58,21 +55,37 @@ function VoteCard({ vote, name }: { vote: VoteRecord; name: string }) {
           </p>
         </div>
 
-        {story.outcome && (
-          <p className="ui mt-3 text-[15px] leading-[1.5] text-[var(--ink-2)]">
-            <strong className="text-[var(--ink)]">What happened:</strong>{" "}
-            <span className={passed ? "text-[var(--good-text)]" : "text-[var(--bad-text)]"}>
-              {passed ? "Passed" : "Rejected"}
-            </span>
-            {vote.result ? ` (${plainResult(vote.result).replace(/^(Passed|Did not pass): /, "")})` : ""}.{" "}
-            {story.outcome}
+        {story.meant && (
+          <p className="mt-3 text-[15.5px] leading-[1.55] text-[var(--ink)]">
+            <ExplainText>
+              <strong className="text-[var(--ink)]">What a yes vote meant:</strong> {story.meant}
+            </ExplainText>
+          </p>
+        )}
+
+        {story.result && (
+          <p className="ui mt-2 text-[15px] leading-[1.5] text-[var(--ink-2)]">
+            <strong className="text-[var(--ink)]">Result:</strong>{" "}
+            <span
+              className={`font-[640] ${story.passed ? "text-[var(--good-text)]" : "text-[var(--bad-text)]"}`}
+            >
+              {story.result.split(". ")[0]}.
+            </span>{" "}
+            {story.result.split(". ").slice(1).join(". ")}
           </p>
         )}
 
         {substance && (
-          <p className="mt-2.5 text-[14.5px] leading-[1.55] text-[var(--ink-2)]">
+          <p className="mt-3 border-t border-dashed border-[var(--rule)] pt-3 text-[14.5px] leading-[1.55] text-[var(--ink-2)]">
             <ExplainText>
-              <strong className="text-[var(--ink)]">Background:</strong> {substance.what}
+              <strong className="text-[var(--ink)]">
+                {/opposition day/i.test(vote.title)
+                  ? "More detail:"
+                  : /bill/i.test(vote.title)
+                    ? "About the law:"
+                    : "Background:"}
+              </strong>{" "}
+              {substance.what}
               {substance.example ? ` ${substance.example}` : ""}
             </ExplainText>
           </p>
