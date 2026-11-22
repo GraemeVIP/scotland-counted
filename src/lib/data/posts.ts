@@ -333,13 +333,13 @@ export const posts: Post[] = [
   {
     slug: "kilmarnock-mp-23437-electricity-bill",
     title:
-      "£23,437 paid for electricity in a single day: how Kilmarnock's MP ended up with the biggest power bill in the UK Parliament",
+      "You paid £23,437 for Kilmarnock MP Lillian Jones's electricity in one day: the biggest power bill of any MP in the UK",
     seoTitle:
       "Kilmarnock MP Lillian Jones £23,437 Yu Energy Electricity Bill (UK #1 in IPSA)",
     description:
-      "On 19 May 2026 IPSA paid Yu Energy £23,436.95 across two entries for Kilmarnock and Loudoun MP Lillian Jones, more than a full year's rent for her office and the largest electricity payout for any UK MP.",
+      "Taxpayers paid a £23,437 electricity bill for Kilmarnock MP Lillian Jones on one day in May 2026. It is more than a year's rent on her office and the biggest power bill of any UK MP in five years.",
     standfirst:
-      "Families in Kilmarnock apply for a £150 Warm Home Discount to pay winter bills. On one day, IPSA paid £23,437 to Yu Energy for Labour MP Lillian Jones. That is £6,587 more than a full year's rent on her office. It is the biggest power bill for any of the 650 UK MPs in five years.",
+      "Taxpayers paid a £23,437 electricity bill for Kilmarnock's Labour MP, Lillian Jones. It was all paid on one day, 19 May 2026, to her energy company, Yu Energy. That is more than a whole year's rent on her office. No MP in the UK has had a bigger power bill in five years. Meanwhile, families in Kilmarnock have to apply for £150 off their winter bills.",
     date: "2026-11-22",
     updated: "2026-11-22",
     checked: "2026-11-22",

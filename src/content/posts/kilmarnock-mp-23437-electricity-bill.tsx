@@ -156,8 +156,9 @@ export default function KilmarnockMp23437ElectricityBill() {
       <QuickTake
         items={[
           <>
-            IPSA (the body that pays MPs&apos; expenses) paid <strong>£23,437</strong> for power in a
-            single day for Kilmarnock MP <Link href={JONES.href}>Lillian Jones</Link>.
+            <strong>Taxpayers</strong> paid a <strong>£23,437</strong> electricity bill for Kilmarnock MP{" "}
+            <Link href={JONES.href}>Lillian Jones</Link>, all on one day. IPSA, the body that pays
+            MPs&apos; expenses with public money, sent it to her energy company, Yu Energy.
           </>,
           <>
             The <strong>biggest power bill</strong> for any of the 650 UK MPs in five years. Her
