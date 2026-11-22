@@ -11,6 +11,7 @@ import {
   ABOUT,
   EVIDENCE,
   EXPLAINERS,
+  INVESTIGATIONS,
   HUBS,
   hubColor,
   hubForPath,
@@ -416,12 +417,20 @@ export function MobileMenu({
               );
             })}
             <Link
+              href={INVESTIGATIONS.href}
+              onClick={onNavigate}
+              className="ui flex min-h-14 items-center gap-3 px-4 text-[17px] font-[680] text-[var(--ink)] no-underline"
+            >
+              <span aria-hidden="true" className="h-2.5 w-2.5 shrink-0 rounded-full bg-[var(--bad)]" />
+              {INVESTIGATIONS.label}
+            </Link>
+            <Link
               href={EXPLAINERS.href}
               onClick={onNavigate}
               className="ui flex min-h-14 items-center gap-3 px-4 text-[17px] font-[600] text-[var(--ink)] no-underline"
             >
               <span aria-hidden="true" className="h-2.5 w-2.5 shrink-0 rounded-full bg-[var(--ink)]" />
-              Explainers and investigations
+              {EXPLAINERS.label}
             </Link>
           </div>
 

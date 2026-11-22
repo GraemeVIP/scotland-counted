@@ -348,7 +348,10 @@ export const HUBS: Hub[] = [
   },
 ];
 
-/** The one header link without a panel. */
+/** The one header link without a panel: the investigations (expenses and other probes). */
+export const INVESTIGATIONS: NavItem = { href: "/blog/category/politics-explained", label: "Investigations" };
+
+/** Every post: explainers, guides and investigations. Phone menu, 404 and /browse. */
 export const EXPLAINERS: NavItem = { href: "/blog", label: "Explainers" };
 
 /** The pages that make the site checkable. Footer, phone menu and /browse. */
@@ -368,8 +371,8 @@ export const ABOUT: NavItem[] = [
   { href: "/privacy", label: "Privacy" },
 ];
 
-/** Every section front door plus Explainers: the 404 and anywhere that needs the short list. */
-export const PRIMARY: NavItem[] = [...HUBS.map((hub) => ({ href: hub.href, label: hub.label })), EXPLAINERS];
+/** Every section front door plus Investigations and Explainers: the 404 and anywhere that needs the short list. */
+export const PRIMARY: NavItem[] = [...HUBS.map((hub) => ({ href: hub.href, label: hub.label })), INVESTIGATIONS, EXPLAINERS];
 
 /** CSS colour for a section, themed for the page. */
 export const hubColor = (id: HubId) => `var(--hub-${id})`;

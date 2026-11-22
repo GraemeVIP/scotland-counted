@@ -4,7 +4,7 @@ import { readdirSync, existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { topLevelSegments } from "../routeMap.ts";
-import { ABOUT, EVIDENCE, EXPLAINERS, HUBS, PRIMARY, hubForPath } from "./navigation.ts";
+import { ABOUT, EVIDENCE, EXPLAINERS, HUBS, INVESTIGATIONS, PRIMARY, hubForPath } from "./navigation.ts";
 
 /**
  * The navigation registry feeds the header, both menus, /browse and the 404,
@@ -44,6 +44,7 @@ const menuItems = [
     ...hub.groups.flatMap((group) => group.items),
     ...hub.top,
   ]),
+  INVESTIGATIONS,
   EXPLAINERS,
   ...EVIDENCE,
   ...ABOUT,
@@ -67,10 +68,10 @@ test("six sections, each with three groups of real links", () => {
   }
 });
 
-test("the header lists every section front door and Explainers", () => {
+test("the short list holds every section front door, Investigations and Explainers", () => {
   assert.deepEqual(
     PRIMARY.map((item) => item.href),
-    [...HUBS.map((hub) => hub.href), EXPLAINERS.href],
+    [...HUBS.map((hub) => hub.href), INVESTIGATIONS.href, EXPLAINERS.href],
   );
 });
 
@@ -126,14 +127,20 @@ test("the evidence pages are on every page through the footer", () => {
   }
 });
 
-test("the editorial hub is labelled for what is mostly in it", () => {
+test("Investigations points at the investigations, not the whole blog", () => {
   /*
-   * /blog is mostly explainers and guides. Calling it "Investigations" told
-   * every visitor that a minimum wage explainer was investigative journalism.
+   * /blog is mostly explainers and guides, so it keeps the Explainers label.
+   * The header's Investigations link goes to the Investigations category
+   * (slug politics-explained), which holds the expenses probes and Branchform.
    */
   assert.equal(EXPLAINERS.href, "/blog");
   assert.equal(EXPLAINERS.label, "Explainers");
-  assert.ok(!menuItems.some((item) => item.label === "Investigations"), "something is labelled Investigations as though the whole hub were one");
+  assert.equal(INVESTIGATIONS.label, "Investigations");
+  assert.equal(INVESTIGATIONS.href, "/blog/category/politics-explained");
+  assert.ok(
+    !menuItems.some((item) => item.label === "Investigations" && item.href === "/blog"),
+    "the whole blog is labelled Investigations",
+  );
 });
 
 test("Branchform is still classified as an investigation", () => {

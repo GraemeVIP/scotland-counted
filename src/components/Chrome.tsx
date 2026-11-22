@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { site } from "@/lib/site";
 import { ScrollProgress } from "@/components/Motion";
-import { ABOUT, EVIDENCE, EXPLAINERS, HUBS, PRIMARY, hubBarColor, hubForPath, type HubId } from "@/lib/data/navigation";
+import { ABOUT, EVIDENCE, INVESTIGATIONS, HUBS, PRIMARY, hubBarColor, hubForPath, type HubId } from "@/lib/data/navigation";
 import { HubPanel, MobileMenu } from "@/components/SiteMenu";
 import { BrandLogo } from "@/components/BrandLogo";
 
@@ -175,13 +175,14 @@ export function Header() {
             );
           })}
           <Link
-            href={EXPLAINERS.href}
-            aria-current={pathname === EXPLAINERS.href ? "page" : undefined}
-            className={`ui inline-flex items-center whitespace-nowrap text-[14px] font-[500] h-10 px-2 min-[1400px]:px-2.5 rounded-[var(--r-pill)] transition-colors ${
-              pathname.startsWith(EXPLAINERS.href) ? "text-white bg-white/12" : "text-white/80 hover:text-white hover:bg-white/10"
+            href={INVESTIGATIONS.href}
+            aria-current={pathname === INVESTIGATIONS.href ? "page" : undefined}
+            className={`ui inline-flex items-center gap-1.5 whitespace-nowrap text-[14px] font-[620] h-10 px-2 min-[1400px]:px-2.5 rounded-[var(--r-pill)] transition-colors ${
+              pathname.startsWith(INVESTIGATIONS.href) ? "text-white bg-white/12" : "text-white hover:bg-white/10"
             }`}
           >
-            {EXPLAINERS.label}
+            <span aria-hidden="true" className="h-[7px] w-[7px] rounded-full bg-[#ff5757]" />
+            {INVESTIGATIONS.label}
           </Link>
         </nav>
 
