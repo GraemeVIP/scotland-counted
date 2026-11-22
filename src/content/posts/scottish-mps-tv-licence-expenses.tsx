@@ -133,11 +133,10 @@ export default function ScottishMpsTvLicenceExpenses() {
           </>,
           <>
             <strong>84 claims</strong> billed <strong>£10,754</strong>. That would pay 59 homes&apos;
-            licences at today&apos;s £180 fee.
+            licences at today&apos;s £180 fee, on top of your own.
           </>,
           <>
-            <strong>21 of the 29</strong> are Scottish Labour. By share, the Lib Dems lead:{" "}
-            <strong>4 of their 6 MPs</strong> claimed.
+            <strong>21 of the 29</strong> are Scottish Labour, claiming <strong>£6,745.50</strong>.
           </>,
         ]}
       />
@@ -148,7 +147,8 @@ export default function ScottishMpsTvLicenceExpenses() {
         people={[{ name: "Gregor Poynton", href: mp("livingston"), p: "Labour", place: "Livingston" }]}
       >
         <p>
-          He billed £169.50 on 18 Dec 2024, then £169.50 again on 14 Feb 2025.
+          He also tops Scotland for MP taxi bills (£5,059) and claimed £3,630 for second home
+          council tax. He billed £169.50 on 18 Dec 2024, then £169.50 again on 14 Feb 2025.
         </p>
         <p>
           Two more followed on 4 Nov and 26 Nov 2025, worth £349 together. IPSA&apos;s files do not
@@ -158,30 +158,37 @@ export default function ScottishMpsTvLicenceExpenses() {
 
       {/* ------------------------------------------------------------ 1 */}
       <Finding n={1} of={FINDINGS} id="why-tv-licence">
-        Why do taxpayers buy MPs a TV licence?
+        Why on earth do taxpayers buy MPs a TV licence?
       </Finding>
       <P>
-        IPSA (the body that pays MPs&apos; expenses) lets MPs claim a TV licence for their local
-        office. The idea is that staff may need to watch live news or Parliament TV. MPs cannot
-        claim one for their own home or London flat.
+        Under the rules of IPSA (the body that pays MPs&apos; expenses), MPs cannot claim a TV
+        licence for a London second home or their own home. They can, though, bill the public for a
+        TV licence in their local office. The idea is that staff may need to watch live news or
+        Westminster TV.
       </P>
       <P>
-        You only need a licence for live TV or BBC iPlayer. Not for news websites, radio or YouTube.
+        Think how out of date that is in 2026. You do not need a TV licence to read BBC News online
+        or check X. You do not need one for radio, YouTube clips, or Parliamentlive.tv. You only
+        need one for live TV or BBC iPlayer.
       </P>
-      <P>The other 28 Scottish MPs claimed nothing for a TV licence in these files.</P>
+      <P>
+        Better still, the other 28 Scottish MPs claimed £0 for a TV licence. The 29 sent the bill to
+        you. They kept claiming as the fee rose from £159 to £169.50, then £174.50, and now £180.
+      </P>
 
       <Tiles
         items={[
-          { value: "29", label: "Scottish MPs who claimed a TV licence", hot: true },
-          { value: "28", label: "Scottish MPs who claimed £0" },
+          { value: "28", label: "Scottish MPs who claimed £0 for a TV licence" },
+          { value: "29", label: "Scottish MPs who sent the bill to you", hot: true },
           { value: "£180", label: "The TV licence fee from April 2026, up from £174.50" },
         ]}
       />
 
       {/* ------------------------------------------------------------ 2 */}
       <Finding n={2} of={FINDINGS} id="standout-claims">
-        The other claims that stand out
+        The claims that jump straight off the page
       </Finding>
+      <P>Look at the dates and notes on the claims. Four more names stand out right away:</P>
 
       <CaseCard
         kicker="Two licences in one year"
@@ -226,7 +233,10 @@ export default function ScottishMpsTvLicenceExpenses() {
         figure="£842"
         people={[{ name: "Christine Jardine", href: mp("edinburgh-west"), p: "Lib Dem", place: "Edinburgh West" }]}
       >
-        <p>She claimed a TV licence every year from 2022/23 to May 2026, including the new £180 fee.</p>
+        <p>
+          She claimed a TV licence every year from 2022/23 to May 2026, including the new £180 fee.
+          She also billed £510 for a staff Christmas lunch and team day.
+        </p>
       </CaseCard>
 
       {/* ------------------------------------------------------------ 3 */}
@@ -234,8 +244,9 @@ export default function ScottishMpsTvLicenceExpenses() {
         By party: Scottish Labour makes up 63% of the bill
       </Finding>
       <P>
-        Labour has the most Scottish MPs, so it tops the bill. But look at the share of each
-        party&apos;s MPs who claimed.
+        Just like second home council tax and London hotels, Labour tops the TV licence list. Of
+        Labour&apos;s 37 Scottish MPs, 21 billed a TV licence (57%). Just two of the SNP&apos;s
+        eight MPs did, and two of the six Tories.
       </P>
 
       <ChartFrame
@@ -266,11 +277,6 @@ export default function ScottishMpsTvLicenceExpenses() {
         />
       </ChartFrame>
 
-      <P>
-        <strong>Share who claimed:</strong> Lib Dems 4 of 6 MPs. Labour 21 of 37. Conservatives 2 of
-        6. SNP 2 of 8.
-      </P>
-
       {/* ------------------------------------------------------------ 4 */}
       <Finding n={4} of={FINDINGS} id="full-list">
         Every Scottish MP who billed a TV licence (2022 to 2026)
@@ -295,7 +301,7 @@ export default function ScottishMpsTvLicenceExpenses() {
         <MoreRanks max={top} rows={TV_ROWS.slice(10)} start={11} />
       </Expand>
 
-      <Aside title="Paid by IPSA, within its rules">
+      <Aside title="Paid by IPSA, and that is the problem">
         <p>
           IPSA paid every one of these 84 claims. Its rules let MPs claim a TV licence for a local
           office. See <Link href="/mp-expenses-scotland">all 57 Scottish MPs ranked</Link> or{" "}

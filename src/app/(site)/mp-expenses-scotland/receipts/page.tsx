@@ -77,7 +77,7 @@ const RECEIPTS: Receipt[] = [
       "Lillian Jones - Yu Energy Utilities - 2000294348 (£3,052.21, Other Costs)",
     ],
     context:
-      "Two payments on one day to the same Yu Energy account, with £0 paid back. IPSA paid them outside her office cap. It is the biggest single MP power payout in the UK over five years, and £6,587 more than a full year of her office rent.",
+      "Two power bills paid on one day on the same account, with £0 paid back. IPSA paid it outside her office cap. It is #1 out of all 650 UK MPs over five years. It beats a full year of her office rent (£16,850) by £6,587 and equals 156 Warm Home Discounts.",
     compare: [
       ["Her office power for 5 winter months (Clear Business)", "£1,074"],
       ["Next biggest single MP power bill in the UK", "£5,633"],
@@ -98,7 +98,7 @@ const RECEIPTS: Receipt[] = [
       "Provision of personalised presentation and speech skills workshop to assist MPs representational role in Parliament.",
     ],
     context:
-      "Paid from his staff pot, which mostly pays for the people who work for him.",
+      "Talking is the core of an MP's job. He took this cash from his staff pot, meant for folk who help local voters.",
   },
   {
     amount: "£546",
@@ -114,7 +114,7 @@ const RECEIPTS: Receipt[] = [
       "Drainage professional mechanical cable cleaning (£234)",
     ],
     context:
-      "Paid from his second home pot. That same year he billed £3,314 for power and gas there.",
+      "Put on his second home pot. That same year he billed £3,314 for power and gas there too.",
   },
   {
     amount: "£3,090",
@@ -127,7 +127,7 @@ const RECEIPTS: Receipt[] = [
     budget: "Office pot",
     ipsa: ["Home 5G mobile broadband installation"],
     context:
-      "The file does not say which home it was for or what the fee covered. Ofcom says 99% of Dundee homes could get fast broadband that year.",
+      "5G home broadband is just a box you plug in. No fitter is needed. The file does not say which home it was for. Ofcom says 99% of Dundee homes could get fast broadband that year. Many folk just use their phone.",
     compare: [
       ["Three's 5G home router, July 2022", "Free with a plan"],
       ["Starlink kit for remote homes, July 2022", "£529"],
@@ -152,7 +152,7 @@ const RECEIPTS: Receipt[] = [
       "research and writing of local industrial strategy (£7,000 across two lines, Apr 2025, repaid in full Aug 2025)",
     ],
     context:
-      "The biggest single consultant bill by any Scottish MP. IPSA hides who got the £10,000 or the £4,000 for PR help. She paid back a separate £7,000 four months later. She also billed £4,691 at IKEA.",
+      "The biggest single consultant bill by any Scottish MP. IPSA hides who got the £10,000 or the £4,000 for PR help. She also paid back £7,000 four months later, and billed £4,691 at IKEA on top.",
     compare: [
       ["Office set up consultant (who got paid is hidden)", "£10,000"],
       ["PR support (who got paid is hidden)", "£4,000"],
@@ -170,7 +170,7 @@ const RECEIPTS: Receipt[] = [
     date: "12 June 2025",
     budget: "Office pot",
     ipsa: ["Iphone and protection case"],
-    context: "One phone and its case. The file does not name the model.",
+    context: "One phone and its case, paid by taxpayers. The file does not name the model.",
   },
   {
     amount: "£3,182",
@@ -198,7 +198,7 @@ const RECEIPTS: Receipt[] = [
     date: "19 December 2025",
     budget: "Office food pot",
     ipsa: ["lunch staff team training Christmas (£250.80)", "team building event (£259.31)"],
-    context: "Both billed on the same day, paid from the office budget.",
+    context: "Both billed on one day, six days before Christmas, and paid by you.",
   },
   {
     amount: "£7,314",
@@ -225,7 +225,7 @@ const RECEIPTS: Receipt[] = [
     date: "7 July 2025",
     budget: "Office food pot",
     ipsa: ["Hospitality event for Business owners of Mid Dunbartonshire."],
-    context: "Food and drink for local business owners, billed as office hospitality.",
+    context: "Food and drink for local bosses, paid from public cash.",
   },
   {
     amount: "£13,117",
@@ -239,8 +239,8 @@ const RECEIPTS: Receipt[] = [
     ipsa: ["Roderick Urquhart/ Treehouse for printing and delivery of MP Annual Report to constituents"],
     context: (
       <>
-        IPSA allows this if there is no party badge on it.{" "}
-        <Link href="/representatives/mps/coatbridge-and-bellshill">Frank McNally</Link> paid
+        IPSA allows this if there is no party badge on it. It still puts his face through every
+        door. <Link href="/representatives/mps/coatbridge-and-bellshill">Frank McNally</Link> paid
         £9,974 and{" "}
         <Link href="/representatives/mps/west-aberdeenshire-and-kincardine">Andrew Bowie</Link>{" "}
         £5,898.
@@ -269,7 +269,7 @@ const RECEIPTS: Receipt[] = [
     date: "31 October 2024",
     budget: "Office pot",
     ipsa: ["Advertising board to advertise Euan as local MP and contact details. To be advertised for 1 year."],
-    context: "The board showed his name and contact details for one year.",
+    context: "A full year of ads for the MP, paid by the folk he serves.",
   },
   {
     amount: "£963",
@@ -281,7 +281,7 @@ const RECEIPTS: Receipt[] = [
     date: "13 March 2025",
     budget: "Office food pot",
     ipsa: ["Fife College hosted business dinner on behalf of Graeme Downie"],
-    context: "Hosted by Fife College in his name. Billed 18 days before the budget year ended.",
+    context: "A dinner in his name, paid from public cash right before the budget year ended.",
   },
   {
     amount: "£893",
@@ -293,7 +293,7 @@ const RECEIPTS: Receipt[] = [
     date: "19 June 2026",
     budget: "Office pot",
     ipsa: ["Newspaper Column Invoice"],
-    context: "Filed under newspapers. The file does not say what the column was.",
+    context: "Filed under papers. The file does not say what the piece was or why you paid.",
   },
   {
     amount: "£35,792",
@@ -499,7 +499,7 @@ Yours sincerely,
 const FAQ = [
   {
     q: "Are these claims allowed?",
-    a: "Yes. IPSA paid every claim on this page. No rule was broken.",
+    a: "Yes. IPSA paid every claim on this page. No rule was broken. That is the issue: the rules let MPs bill you for things normal folk pay themselves.",
   },
   {
     q: "Where do these numbers come from?",
@@ -666,7 +666,7 @@ export default function MpExpenseReceiptsPage() {
             label: "paid out in one day for the Kilmarnock MP's electricity. No MP in the UK has a bigger power payout.",
             tone: "bad",
           }}
-          lede="Drain cleaning at a second home. An iPhone. DFS and IKEA sofas. A staff Christmas lunch. A billboard of the MP. Every item here is a real claim paid with public money since 2022, copied word for word from IPSA (the body that pays MPs' expenses). All were within the rules."
+          lede="Drain cleaning at a second home. An iPhone. Furniture from DFS and IKEA. A staff Christmas lunch. A billboard advertising the MP. Every item on this page is a real claim paid with public money since 2022, copied word for word from the records of IPSA (the body that pays MPs' expenses). All of them were within the rules."
         >
           <div className="mt-5 flex flex-wrap items-center gap-3">
             <Link href="/mp-expenses-scotland/search" className="btn btn-primary">
@@ -773,6 +773,15 @@ export default function MpExpenseReceiptsPage() {
             </div>
 
             <p className="ui mt-5 max-w-[68ch] text-[15.5px] leading-[1.6] text-[var(--ink-2)]">
+              <strong className="text-[var(--ink)]">{gbp(ZUBIR_TOTAL, false)} is close to a normal full time wage.</strong>{" "}
+              The middle UK full time worker earned{" "}
+              <a href={ONS_EARNINGS_2026} target="_blank" rel="noopener noreferrer">
+                £39,157 a year before tax
+              </a>{" "}
+              in April 2025 (ONS).
+            </p>
+
+            <p className="ui mt-3 max-w-[68ch] text-[15.5px] leading-[1.6] text-[var(--ink-2)]">
               <strong className="text-[var(--ink)]">Is it allowed?</strong> Yes. MPs can book
               hotels instead of renting a flat.{" "}
               <a href={IPSA_ACCOMMODATION} target="_blank" rel="noopener noreferrer">
@@ -823,9 +832,9 @@ export default function MpExpenseReceiptsPage() {
               <ExplainText>
                 <p className="ui mt-4 max-w-[68ch] text-[15.5px] leading-[1.6] text-[var(--ink-2)]">
                   &ldquo;The Commons sat&rdquo; means MPs met in the House of Commons to debate and
-                  vote. That is normally Monday to Thursday. In 2025/26 it sat on{" "}
-                  {COMMONS_SITTING_DAYS} days. You paid for {ZUBIR_NIGHT_COUNT} of his London nights:{" "}
-                  {ZUBIR_NIGHT_COUNT - COMMONS_SITTING_DAYS} more nights than sitting days.
+                  vote. The Commons normally meets Monday to Thursday. In 2025/26 it had{" "}
+                  {COMMONS_SITTING_DAYS} sitting days. You paid for {ZUBIR_NIGHT_COUNT} of his London
+                  nights. That is {ZUBIR_NIGHT_COUNT - COMMONS_SITTING_DAYS} more nights than open days.
                 </p>
               </ExplainText>
 
@@ -846,14 +855,15 @@ export default function MpExpenseReceiptsPage() {
               </div>
               <ExplainText>
                 <p className="ui mt-4 max-w-[68ch] text-[15.5px] leading-[1.6] text-[var(--ink-2)]">
-                  He was then a backbencher (an MP with no job in government). His London work was
-                  votes, debates and questions. In those four months you paid for twice as many
-                  London nights as sitting days. He asked zero written questions.
+                  As a backbencher (an MP with no job in government), his London job is votes, talks
+                  and questions. In those four months you paid for twice as many London nights as
+                  sitting days. He asked zero written questions in that spell.
                 </p>
                 <p className="ui mt-3 max-w-[68ch] text-[15.5px] leading-[1.6] text-[var(--ink-2)]">
-                  <strong className="text-[var(--ink)]">From 6 Sept 2025 to 12 May 2026 he was a health minister</strong>{" "}
-                  (a job in government, running part of a department). Ministers work in London on
-                  weekdays, so more nights make sense. Even so, his stays ran seven nights a week.
+                  <strong className="text-[var(--ink)]">From Sept 2025 he was a health minister</strong>{" "}
+                  (a job in government, running part of a department). He held that post from 6
+                  Sept 2025 to 12 May 2026. A minister works in London on weekdays, so more nights
+                  make sense. Even so, his stays ran seven nights a week, weekends too.
                 </p>
                 <p className="ui mt-3 max-w-[68ch] text-[15.5px] leading-[1.6] text-[var(--ink-2)]">
                   Over the full year he voted in 202 of 301 votes (67%). The average MP voted in 69%.{" "}
@@ -865,13 +875,7 @@ export default function MpExpenseReceiptsPage() {
                   <strong className="text-[var(--ink)]">How does it compare?</strong> It beats the
                   £27,873 rent paid by the middle Scottish MP. Six Scottish MPs cost more once bills
                   are added, led by{" "}
-                  <Link href="/representatives/mps/glasgow-east">John Grady</Link> at £45,573.{" "}
-                  {gbp(ZUBIR_TOTAL, false)} is also close to a full time wage: the middle UK full
-                  time worker earned{" "}
-                  <a href={ONS_EARNINGS_2026} target="_blank" rel="noopener noreferrer">
-                    £39,157 a year before tax
-                  </a>{" "}
-                  in April 2025 (ONS).
+                  <Link href="/representatives/mps/glasgow-east">John Grady</Link> at £45,573.
                 </p>
                 <p className="ui mt-3 max-w-[68ch] text-[15.5px] leading-[1.6] text-[var(--ink-2)]">
                   <strong className="text-[var(--ink)]">Since July 2024:</strong> 548 nights and
@@ -948,13 +952,14 @@ export default function MpExpenseReceiptsPage() {
           <ExplainText>
             <div className="mt-7 max-w-[66ch] space-y-4 text-[17px] leading-[1.65] text-[var(--ink-2)]">
               <p>
-                After the 2009 expenses scandal, Parliament set up IPSA to pay and publish MPs&apos;
-                expenses. It does. IPSA puts them in huge files on a
+                After the 2009 expenses scandal (when Parliament set up IPSA), MPs had to put claims
+                online. They do. IPSA puts them in huge files on a
                 site most folk never visit. Each line is a code, a pot name, and a few words.
               </p>
               <p>
-                Nothing is secret by law. Yet almost nobody has time to read that many rows. So
-                odd claims sit unread. We read the Scottish rows so you do not have to.
+                Nothing is secret by law. Yet almost nobody has time to read that many rows. So a
+                £3,000 speech coach sits unread. We read all 6,101 Scottish rows so you do not have
+                to.
               </p>
             </div>
           </ExplainText>
@@ -994,8 +999,9 @@ export default function MpExpenseReceiptsPage() {
           <SectionHead eyebrow="Hidden in plain sight" title="Put it to them" />
           <ExplainText>
             <p className="mt-3 max-w-[66ch] text-[17px] leading-[1.6] text-[var(--ink-2)]">
-              MPs can say their bills are online, and they are: IPSA publishes them in giant files
-              that few people open. Here are four questions MPs and IPSA could answer.
+              MPs can say their bills are online. They are: IPSA publishes them, but in a giant
+              file almost nobody opens. That keeps them out of sight. Here are four questions MPs
+              and IPSA should answer.
             </p>
           </ExplainText>
           <ol className="mt-6 grid gap-3 md:grid-cols-2">

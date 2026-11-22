@@ -172,14 +172,11 @@ export default function ScottishMpsLondonHomes152SittingDays() {
             their families to London. That is <strong>£19,173</strong> for each day the Commons sat.
           </>,
           <>
-            Biggest bills: <Link href={mp("dunfermline-and-dollar")}>Graeme Downie</Link> (Labour){" "}
-            <strong>£84,992</strong>, <Link href={mp("aberdeen-north")}>Kirsty Blackman</Link> (SNP)
-            £80,222, <Link href={mp("west-aberdeenshire-and-kincardine")}>Andrew Bowie</Link>{" "}
-            (Conservative) £74,057.
+            One Scottish MP had <strong>295 London nights</strong> paid for across 152 open days.
           </>,
           <>
-            <Link href={mp("ayr-carrick-and-cumnock")}>Elaine Stewart</Link> (Labour): her own bill
-            works out at <strong>£3,007</strong> for each day she spoke in the Commons.
+            Ordinary MPs cost up to <strong>£3,007</strong> for each day they stood up and spoke.
+            Top was <Link href={mp("ayr-carrick-and-cumnock")}>Elaine Stewart</Link> (Labour).
           </>,
         ]}
       />
@@ -213,8 +210,13 @@ export default function ScottishMpsLondonHomes152SittingDays() {
         What the bill pays for
       </Finding>
       <P>
-        For Scotland&apos;s 55 full year MPs, IPSA (the body that pays MPs&apos; expenses) paid
-        all of this from public money:
+        Most folk in Scotland pay to get to work out of their own pay. If your boss wants you in
+        three days a week, nobody rents you a £3,500 a month flat all year. Nobody pays your council
+        tax, gas, taxis, car park, or flights for your kids.
+      </P>
+      <P>
+        For Scotland&apos;s 55 full year MPs, taxpayers paid every bit of that bill through IPSA
+        (the body that pays MPs&apos; expenses):
       </P>
 
       <ChartFrame
@@ -257,46 +259,43 @@ export default function ScottishMpsLondonHomes152SittingDays() {
 
       {/* ------------------------------------------------------------ 2 */}
       <Finding n={2} id="price-of-presence">
-        How often each MP spoke
+        What did we get for the money?
       </Finding>
       <P>
-        Bills for one MP ran as high as £85,000 a year. Hansard (the official record of the
-        Commons) logs every day an MP spoke.
-      </P>
-      <P>First, the biggest London bills across all four parties:</P>
-
-      <ChartFrame
-        kicker="All Parties · Flat + Own Travel + Family Travel (2025/26)"
-        title="The biggest Scottish MP London bills"
-        caption="Source: IPSA 2025/26 files. Leaves out staff pay, staff trips and Scottish offices."
-      >
-        <RankList max={BIGGEST_SHUTTLE_BILLS[0].bill} rows={BIG_BILL_ROWS.slice(0, 3)} />
-      </ChartFrame>
-
-      <Expand summary="See the other 7 biggest bills (all parties, £68k to £73k)">
-        <MoreRanks max={BIGGEST_SHUTTLE_BILLS[0].bill} rows={BIG_BILL_ROWS.slice(3)} start={4} />
-      </Expand>
-
-      <P>
-        Next, we split each MP&apos;s own bill by the days that MP spoke. We left out ministers,
-        whips (the MPs who organise their party&apos;s votes) and PPS aides (unpaid MPs who help a
-        minister). By custom, they rarely speak in debates.
+        We pay up to £85,000 a year just to house and fly one MP to London. So ask one plain thing:{" "}
+        <strong>what did they do down there?</strong>
       </P>
       <P>
-        Of the rest, these cost the most per day spoken. All of the top ten are Labour MPs. Labour
-        has 37 of the 55 Scottish MPs in this data, the most of any party.
+        Every speech is saved in Hansard (the official record of the Commons). Every written
+        question goes online. Every Aye or No vote is logged too.
+      </P>
+      <P>
+        We took each ordinary MP&apos;s London flat and travel bill. We left out ministers, whips
+        (the MPs who organise their party&apos;s votes) and unpaid PPS aides (MPs who help a
+        minister) like <Link href={mp("motherwell-wishaw-and-carluke")}>Pamela Nash</Link>. Split by
+        the days they spoke, taxpayers paid <strong>£1,554 to £3,007 each day they spoke</strong>:
       </P>
 
       <ChartFrame
-        kicker="MPs With No Minister, Whip or PPS Job · 2025/26"
-        title="Each MP's own bill split by the days they spoke"
-        caption="Source: IPSA 2025/26 flat and travel bills split by 2025/26 Hansard days spoken."
+        kicker="Ordinary MPs With No Minister, Whip or PPS Job · 2025/26"
+        title="What you paid for each day these MPs spoke in London"
+        caption="Source: IPSA 2025/26 flat and travel bills (each MP's own bill) split by 2025/26 Hansard days spoken. Leaves out ministers, whips and PPS aides."
       >
         <RankList max={COST_PER_SPOKEN_DAY[0].perDay} rows={PER_DAY_ROWS.slice(0, 3)} />
       </ChartFrame>
 
       <Expand summary="See the other 7 (£1,554 to £2,339 a day spoken)">
         <MoreRanks max={COST_PER_SPOKEN_DAY[0].perDay} rows={PER_DAY_ROWS.slice(3)} start={4} />
+      </Expand>
+
+      <Expand summary="Open the 10 biggest London bills across all four parties (£68k to £85k)">
+        <ChartFrame
+          kicker="All Parties · Flat + Own Travel + Family Travel (2025/26)"
+          title="The 10 biggest Scottish MP London bills in 2025/26"
+          caption="Counts flats, hotels, MP travel and family travel from IPSA 2025/26 files. Leaves out staff pay, staff trips and Scottish offices."
+        >
+          <RankList max={BIGGEST_SHUTTLE_BILLS[0].bill} rows={BIG_BILL_ROWS} />
+        </ChartFrame>
       </Expand>
 
       {/* ------------------------------------------------------------ 3 */}
@@ -317,18 +316,17 @@ export default function ScottishMpsLondonHomes152SittingDays() {
       />
 
       <P>
-        Most Scottish MPs rent a London flat on a 12 month lease. So you pay for all 365 nights,
-        including August, Christmas and every weekend. IPSA never says how many nights an MP slept
-        there.
+        Because most Scottish MPs rent a London flat on a 12 month lease, you pay for all 365
+        nights.
       </P>
       <P>
-        Only one Scottish MP&apos;s bills let us count each night:{" "}
-        <Link href={mp("glasgow-south-west")}>Dr Zubir Ahmed</Link> (Labour, Glasgow South West). He
-        used hotels and short flat stays instead of a yearly lease.
+        You pay in August when it is on break. You pay over Christmas. You pay every Friday,
+        Saturday and Sunday. IPSA never says how many nights an MP slept there.
       </P>
       <P>
-        His bill of £37,359 is well below the biggest bills (up to £85,000). He is shown here only
-        because his bills list the nights.
+        Only one Scottish MP lets us count each night. He used hotels and block flat stays instead
+        of a yearly lease. That is <Link href={mp("glasgow-south-west")}>Dr Zubir Ahmed</Link>{" "}
+        (Labour, Glasgow South West).
       </P>
 
       <ChartFrame
@@ -357,11 +355,21 @@ export default function ScottishMpsLondonHomes152SittingDays() {
       <PointList
         items={[
           {
-            title: "Before his government job (April to July 2025)",
+            title: "295 London nights paid for, vs 152 open days",
             children: (
               <>
-                The Commons sat on <strong>60 days</strong>. You paid for{" "}
-                <strong>123 London nights</strong>.
+                Taxpayers paid <strong>£37,359</strong> for his London stays. That is 143 more
+                nights than open days, or £246 for each open day.
+              </>
+            ),
+          },
+          {
+            title: "Before his top job (April to July 2025)",
+            children: (
+              <>
+                Westminster opened on <strong>60 days</strong>. You paid for{" "}
+                <strong>123 London nights</strong>, more than twice as many. In those four months,
+                he spoke on <strong>11 days</strong> and asked <strong>zero written questions</strong>.
               </>
             ),
           },
@@ -369,8 +377,8 @@ export default function ScottishMpsLondonHomes152SittingDays() {
             title: "After he became a health minister (6 Sept 2025)",
             children: (
               <>
-                Ministers work in London most weekdays, so more nights make sense. His bills ran{" "}
-                <strong>seven nights a week</strong> (28 to 30 a month). See{" "}
+                A minister works in London on weekdays, so more nights make sense. Even so, his
+                bills still ran <strong>seven nights a week</strong> (28 to 30 nights a month). See{" "}
                 <Link href="/mp-expenses-scotland/receipts#hotel-nights">all 14 of his hotel claims</Link>
                 .
               </>
@@ -381,27 +389,32 @@ export default function ScottishMpsLondonHomes152SittingDays() {
 
       {/* ------------------------------------------------------------ 4 */}
       <Finding n={4} id="why-not-remote">
-        Remote voting worked in Covid, then it stopped
+        They proved remote voting works in Covid, then binned it
       </Finding>
       <P>
-        In 2020 and 2021, MPs could speak and vote by video from their local office. No flight. No
-        hotel.
+        MPs say they do lots of unseen work helping local folk with housing, benefits and visas.
+        That is true. And it proves the point: <strong>helping folk in Ayr, Stirling or Glasgow
+        happens in Scotland, not from a £3,500 a month London flat.</strong>
       </P>
       <P>
-        That ended when lockdown ended. Most MPs must now be in the room to vote. So the London
-        flat and travel bills come back every year.
+        Normal staff across the UK spent five years on Teams and Zoom. Westminster itself ran remote
+        votes and video talks in 2020 and 2021. MPs voted safely from their local office in 30
+        seconds flat. No plane. No hotel.
       </P>
+      <P>Yet Westminster binned remote votes as soon as lockdown ended.</P>
       <P>
-        MPs also do a lot of unseen work for local people, on housing, benefits and visas. Much of
-        that is done from their Scottish offices.
+        So Scots keep paying £19,173 for each day the Commons sits to fly 55 MPs to London. You
+        rent flats that sit empty half the year. You pay their council tax, heat, taxis and car
+        parks. You fly their kids down too. All so some can speak on 19 days a year at £3,007 a day
+        and walk through a door to say Aye or No.
       </P>
 
-      <Aside title="Fairness notes">
+      <Aside title="Fairness notes so nobody can dodge the numbers">
         <p>
-          Ministers, whips (who organise their party&apos;s votes) and PPS aides (like{" "}
+          Ministers, whips (who organise their party&apos;s votes) and unpaid PPS aides (like{" "}
           <Link href={mp("motherwell-wishaw-and-carluke")}>Pamela Nash</Link>) are left out of the
-          cost per day spoken list, because their jobs mean they rarely speak in debates. Every
-          number comes straight from IPSA, Hansard and Commons records.
+          cost per day spoken list because their roles limit speeches. Every number comes straight from IPSA,
+          Hansard and Commons vote logs.
         </p>
       </Aside>
 

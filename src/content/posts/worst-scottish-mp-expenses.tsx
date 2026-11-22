@@ -84,7 +84,11 @@ export default function WorstScottishMpExpenses() {
 
       <P>
         We read all <strong>21,017 expense lines</strong> filed by Scotland&apos;s MPs from 2022/23 to
-        2026/27, one by one. These are the ones that stood out.
+        2026/27. Line by line. These are the claims that made us stop and look twice.
+      </P>
+      <P>
+        Here is the catch. IPSA runs MPs&apos; expenses, and it paid every one. Nobody broke the
+        rules. The rules just let them do this.
       </P>
 
       {/* ------------------------------------------------------------ 1 */}
@@ -97,8 +101,8 @@ export default function WorstScottishMpExpenses() {
           <strong>The biggest MP power bill in the UK in five years</strong>
         </p>
         <p>
-          On 19 May 2026 IPSA made two payments to Yu Energy on the same account. It is more than a
-          full year of her office rent (£16,850).
+          On 19 May 2026 IPSA made two payments to Yu Energy on the same account. It beats a full
+          year of her office rent (£16,850) by £6,587.
         </p>
       </CaseCard>
 
@@ -153,9 +157,20 @@ export default function WorstScottishMpExpenses() {
       />
 
       <P>
-        5G home broadband is a box you plug in. In July 2022, Three gave it away free with a plan.
-        Ofcom says 99% of homes in Dundee could get fast broadband that year.
+        5G home broadband is just a box you plug in. No van. No fitter. In July 2022, Three gave
+        that box away free with a plan. Many folk just use their phone.
       </P>
+      <P>
+        Why not get normal broadband like the rest of us? Ofcom says 99% of homes in Dundee could
+        get fast broadband that year. It could be his home, or the London flat you rent for him.
+      </P>
+      <P>
+        Even Starlink kit for remote farms cost £529 then. His claim was nearly six times that. And
+        IPSA will not say who got the cash.
+      </P>
+      <Aside title="Questions Chris Law should answer">
+        <p>Which home was it for? Who got paid? And what did £3,090 buy?</p>
+      </Aside>
 
       {/* ------------------------------------------------------------ 3 */}
       <Finding n={3} of={FINDINGS} id="speech-coach">
@@ -167,7 +182,8 @@ export default function WorstScottishMpExpenses() {
           <strong>Speech lessons from the staff budget, and drains at his second home</strong>
         </p>
         <p>
-          The £3,000 came from his staff budget, which is meant for people who help local voters.
+          Talking is the job. The £3,000 came from his staff pot, meant for folk who help local
+          voters.
           That year he also billed £3,314 for energy at his second home. He claims no rent there.
         </p>
       </CaseCard>
@@ -192,7 +208,8 @@ export default function WorstScottishMpExpenses() {
       </Finding>
       <P>
         These MPs paid to print and post a yearly report about their own work. IPSA allows it if
-        there is no party logo on it. £13,117 is about £250 for every week of the year.
+        there is no party badge on it. It still puts their face through every door. £13,117 is
+        about £250 for every week of the year.
       </P>
 
       <ChartFrame kicker="IPSA files · Annual report leaflets" title="Biggest bills to print and post an MP's report">
@@ -213,7 +230,7 @@ export default function WorstScottishMpExpenses() {
           {
             key: "stainbank",
             title: <Who face name="Euan Stainbank" href={mp("falkirk")} p="Labour" note="£3,300" />,
-            children: <>A year long sign with his name and details.</>,
+            children: <>A year long sign with his name and details. A billboard of himself, paid by the folk he serves.</>,
           },
         ]}
       />
@@ -228,7 +245,7 @@ export default function WorstScottishMpExpenses() {
         <p>
           <strong>The biggest single consultant bill by any Scottish MP</strong>
         </p>
-        <p>IPSA does not say who was paid. She also billed £4,000 for PR help.</p>
+        <p>IPSA hides who got paid. She also billed £4,000 for PR help.</p>
       </CaseCard>
 
       <Receipt
@@ -262,7 +279,7 @@ export default function WorstScottishMpExpenses() {
         </p>
         <p>
           That is about £2,750 a bill, for speech notes, press help and social posts. The biggest
-          was £9,125. It all came from his staff budget.
+          was £9,125. Every penny came from his staff pot.
         </p>
       </CaseCard>
 
@@ -278,11 +295,7 @@ export default function WorstScottishMpExpenses() {
       </Finding>
       <P>
         From 2022/23 to 2026/27, 29 Scottish MPs billed <strong>£10,754</strong> for TV licences. Homes
-        now pay £180 a year for their own.
-      </P>
-      <P>
-        Labour has 37 of Scotland&apos;s 57 MPs, so most names on any list will be Labour. 21 of
-        the 29 here are Labour.
+        pay £180 a year out of their own pocket.
       </P>
       <PointList
         items={[
@@ -367,15 +380,14 @@ export default function WorstScottishMpExpenses() {
 
       {/* ------------------------------------------------------------ 9 */}
       <Finding n={9} of={FINDINGS} id="second-homes">
-        Second homes and doubled council tax
+        Second homes, paid for by you
       </Finding>
       <P>
-        MPs work in London and at home, so IPSA pays for a second home. MPs can own it and still
-        claim its bills.
+        MPs work in two places, so you pay for a second home. They can own it and still bill you.
       </P>
       <P>
-        Many councils, like East Lothian, charge double council tax on second homes. IPSA raised the
-        limit on what MPs can claim, so the public pays that doubled bill too. See{" "}
+        Many councils, like East Lothian, charge double council tax on second homes. IPSA raised MP
+        caps so taxpayers pick up that extra bill too. See{" "}
         <Link href="/blog/scottish-mp-expenses-and-freebies-investigation">
           who claimed the most for second homes in 2025/26
         </Link>
@@ -386,6 +398,7 @@ export default function WorstScottishMpExpenses() {
       <Finding n={10} of={FINDINGS} id="repeat-names">
         The names that keep coming up
       </Finding>
+      <P>Read enough of these and the same names pop up again and again.</P>
       <PointList
         items={[
           {
@@ -416,17 +429,19 @@ export default function WorstScottishMpExpenses() {
       <H2 id="why-hidden">Why you have never heard of this</H2>
       <P>
         IPSA puts every claim online. But its 2025/26 file alone, for all 650 UK MPs, has 59,503
-        rows. Many rows lump a whole year into one line. Some hide who was paid.
+        rows. Many rows lump a whole year into one line, and some hide who got paid. It is not
+        secret. Just almost nobody has time to read it.
       </P>
       <P>
-        So we did the reading. <Link href="/mp-expenses-scotland/search">Search every claim</Link>{" "}
+        So we did. <Link href="/mp-expenses-scotland/search">Search every claim</Link>{" "}
         yourself, see <Link href="/mp-expenses-scotland/receipts">the oddest receipts</Link>, or
         check <Link href="/mp-expenses-scotland">all 57 Scottish MPs ranked</Link>.
       </P>
 
       <Aside title="All within the rules">
         <p>
-          IPSA paid every claim on this page. No rule was broken.
+          IPSA paid every claim on this page. No rule was broken. The real ask is why the rules let
+          any of this happen.
         </p>
       </Aside>
 

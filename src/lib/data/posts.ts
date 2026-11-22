@@ -144,13 +144,13 @@ export const posts: Post[] = [
   {
     slug: "scottish-mp-msp-expenses-what-it-could-buy",
     title:
-      "Scottish MPs and MSPs claimed £6.65m on flats, travel and perks in one year: more than Glasgow, Edinburgh and Dundee gave in Crisis Grants",
+      "£6.65 million a year on flats, flights, leaflets and perks: how Scottish MPs and MSPs burn more than Glasgow, Edinburgh and Dundee's Crisis Grant budgets combined",
     seoTitle:
       "Scottish MP & MSP Expenses Combined (£6.65m/yr): What It Could Buy Instead",
     description:
       "Scotland's 186 MPs and MSPs spent £6.65m in one year on second homes, hotels, travel, leaflets, PR firms and papers, more than Glasgow, Edinburgh and Dundee spent on Crisis Grants all year combined.",
     standfirst:
-      "We added up a full year of MP and MSP expense claims, leaving out staff pay and local offices. Scotland's 186 politicians still claimed £6.65 million.",
+      "We added up every MP and MSP expense claim for a full year. Even after taking out staff pay and local office rent, Scotland's 186 politicians burned £6.65 million. That beat what Glasgow, Edinburgh and Dundee spent on Crisis Grants all year combined (£6.41m). It is enough to hire 207 NHS nurses.",
     date: "2026-11-22",
     updated: "2026-11-22",
     checked: "2026-11-22",
@@ -180,11 +180,11 @@ export const posts: Post[] = [
       type: "image/webp",
     },
     toc: [
-      { id: "the-receipts-proof", label: "The biggest single bills, with faces" },
+      { id: "the-receipts-proof", label: "Real receipts priced up in school meals & nurses" },
       { id: "nhs-and-schools", label: "Calculator: 207 nurses or 51,155 Crisis Grants" },
       { id: "the-665m-bill", label: "Where the £6.65m goes" },
       { id: "crisis-grants-bombshell", label: "More than three cities' Crisis Grants" },
-      { id: "zero-excuse-pot", label: "The £2.81m of extras" },
+      { id: "zero-excuse-pot", label: "The £2.81m a year 'zero excuse' waste pot" },
     ],
     faq: [
       {
@@ -211,13 +211,13 @@ export const posts: Post[] = [
   {
     slug: "msp-expenses-scotland-investigation",
     title:
-      "MSP expenses in Scotland: the Greens' March leaflet rush, £161k in Edinburgh council tax and £19,800 to an ex Labour boss",
+      "The Holyrood Party Tally: Scottish Greens top leaflet spend, double council tax billed to taxpayers, and £127k on newspapers",
     seoTitle:
       "MSP Expenses Scotland Party Tally: Greens, SNP, Tories & Labour Ranked",
     description:
-      "We checked every Holyrood MSP expense claim. The Greens made 77.8% of their 2024/25 leaflet spending in March, before unspent money is lost. MSPs billed £161k in council tax on Edinburgh flats, more than double the year before.",
+      "Scottish Greens spent more per MSP than Tories, SNP and Labour in 2024/25 and blew 77.8% of their year's leaflet spending in March, while MSPs billed £161k in council tax after it doubled.",
     standfirst:
-      "Leaflet money not spent by 31 March is lost. The Scottish Greens made 77.8% of their year's leaflet spending in March. Two Labour MSPs paid £19,800 to a firm run by their party's former boss. MSPs billed £161k in council tax on Edinburgh flats, more than double the year before. We checked 242,844 Holyrood expense lines (2016 to 2025).",
+      "We checked all 242,844 MSP expense receipts and the 2026 Register of Interests. The Scottish Greens spent more per MSP than the Tories, SNP and Labour. They also blew 77.8% of their year's leaflet spending in March. MSPs billed £161k in council tax after it doubled, £127k on papers, and £19,800 to an ex Labour boss.",
     date: "2026-11-22",
     updated: "2026-11-22",
     checked: "2026-11-22",
@@ -250,12 +250,12 @@ export const posts: Post[] = [
     toc: [
       { id: "labour-firm-and-calendars", label: "£19,800 to an ex Labour boss & £36,953 on calendars" },
       { id: "top-claimers", label: "The 10 MSPs who claimed the most" },
-      { id: "party-tally", label: "Party by party: leaflets and the March rush" },
-      { id: "greens-scorecard", label: "A closer look at the seven Green MSPs" },
-      { id: "double-council-tax", label: "Double council tax: MSPs' Edinburgh claims more than doubled" },
-      { id: "newspaper-racket", label: "£127,627 on newspapers & a double claim" },
-      { id: "commuter-belt-hotels", label: "Edinburgh flats & hotels 35 to 45 miles away" },
-      { id: "landlords-and-double-jobs", label: "26 landlords & 15 MSPs who are councillors" },
+      { id: "party-tally", label: "The Holyrood Party Tally (2024/25 per MSP)" },
+      { id: "greens-scorecard", label: "The Scottish Greens' £852k four year scorecard" },
+      { id: "double-council-tax", label: "Double council tax billed straight to taxpayers (+122%)" },
+      { id: "newspaper-racket", label: "The £127,627 newspaper racket & duplicate claim" },
+      { id: "commuter-belt-hotels", label: "Edinburgh flats & £10k hotel tabs 35 to 45 miles away" },
+      { id: "landlords-and-double-jobs", label: "26 landlords & 15 double jobbing councillors" },
     ],
     faq: [
       {
@@ -281,13 +281,13 @@ export const posts: Post[] = [
   {
     slug: "scottish-mps-london-homes-152-sitting-days",
     title:
-      "£2.91 million to house and fly Scottish MPs to London when the Commons sat just 152 days: up to £3,007 for each day an MP spoke",
+      "£2.91 million to shuttle Scottish MPs to London for 152 days: up to £3,007 for every day they speak",
     seoTitle:
-      "£2.91m to Shuttle Scottish MPs to London for 152 Sitting Days (Cost Per Day Spoken)",
+      "£2.91m to Shuttle Scottish MPs to London for 152 Open Days (Cost Per Day Spoken)",
     description:
-      "The Commons sat on just 152 days in 2025/26, yet taxpayers spent £2.91m housing and flying Scotland's MPs to London: £19,173 for each sitting day, and up to £3,007 per day an MP spoke.",
+      "Parliament only opened for 152 days in 2025/26, yet taxpayers spent £2.91m housing and shuttling Scotland's MPs to London (£19,173 a day), up to £3,007 per day spoken.",
     standfirst:
-      "The House of Commons sat on just 152 days in 2025/26. Yet taxpayers paid £2.91 million to house and fly Scotland's MPs to London. That is £19,173 for each day the Commons sat.",
+      "The House of Commons was shut for 213 days in 2025/26. Yet taxpayers paid £2.91 million to house and fly Scotland's MPs to London. That is £19,173 a day, and up to £3,007 for each day an ordinary MP stood up to speak.",
     date: "2026-11-22",
     updated: "2026-11-22",
     checked: "2026-11-22",
@@ -309,10 +309,10 @@ export const posts: Post[] = [
       type: "image/webp",
     },
     toc: [
-      { id: "the-shuttle-bill", label: "What the £2.91 million pays for" },
-      { id: "price-of-presence", label: "How often each MP spoke" },
-      { id: "paid-when-shut", label: "Paid 365 nights when the Commons sat 152 days" },
-      { id: "why-not-remote", label: "Remote voting worked in Covid, then stopped" },
+      { id: "the-shuttle-bill", label: "What the £2.91 million actually pays for" },
+      { id: "price-of-presence", label: "Up to £3,007 every day an MP speaks" },
+      { id: "paid-when-shut", label: "Paid 365 nights when Parliament is shut 213 days" },
+      { id: "why-not-remote", label: "They proved remote voting works, then binned it" },
     ],
     faq: [
       {
@@ -363,8 +363,8 @@ export const posts: Post[] = [
     toc: [
       { id: "the-receipts", label: "What the official expense records show" },
       { id: "uk-number-one", label: "Number one out of all 650 UK MPs" },
-      { id: "warm-home-contrast", label: "Equal to 156 Warm Home Discounts" },
-      { id: "how-ipsa-paid-it", label: "Why it came from a separate pot" },
+      { id: "warm-home-contrast", label: "156 Warm Home Discounts & Winter Fuel vote" },
+      { id: "how-ipsa-paid-it", label: "How IPSA paid it outside her normal office limit" },
     ],
     faq: [
       {
@@ -391,7 +391,7 @@ export const posts: Post[] = [
     description:
       "More than half of Scotland's MPs put their TV licence on public expenses between 2022 and 2026, totalling £10,754 across 84 claims. See the full list of all 29 MPs.",
     standfirst:
-      "Scots pay £180 a year for a TV licence out of their own pocket. Yet 29 Scottish MPs on £98,599 a year put their TV licence on expenses. That cost taxpayers £10,754 across 84 claims. One MP claimed four in a year. Another claimed two in nine months.",
+      "Scots pay £180 a year for a TV licence out of their own pocket. Yet 29 Scottish MPs on £98,599 a year put their TV licence on expenses. That cost taxpayers £10,754 across 84 claims. One MP claimed four in a year. Another claimed two in nine months, one online and one at a Co-op.",
     date: "2026-11-21",
     updated: "2026-11-21",
     checked: "2026-11-21",
@@ -415,7 +415,7 @@ export const posts: Post[] = [
     toc: [
       { id: "why-tv-licence", label: "Why taxpayers buy MPs a TV licence" },
       { id: "standout-claims", label: "The claims that jump off the page" },
-      { id: "party-breakdown", label: "By party: how many MPs claimed" },
+      { id: "party-breakdown", label: "By party: Labour accounts for 63%" },
       { id: "full-list", label: "All 29 Scottish MPs who claimed one" },
     ],
     faq: [
@@ -442,7 +442,7 @@ export const posts: Post[] = [
     description:
       "£3,090 to set up home broadband, £3,000 for a speech coach, £13,117 for a glossy report about the MP. The worst Scottish MP expenses, all paid by you.",
     standfirst:
-      "We went through all 21,017 expense lines filed by Scotland's MPs from 2022/23 to 2026/27. Here are the claims that stand out. Every one was approved. Every one was paid by you.",
+      "We went through all 21,017 expense lines filed by Scotland's MPs from 2022/23 to 2026/27. Here are the claims that made us stop and read them twice. Every one was approved. Every one was paid by you.",
     date: "2026-11-21",
     updated: "2026-11-21",
     checked: "2026-11-21",
@@ -472,7 +472,7 @@ export const posts: Post[] = [
       { id: "tv-licences", label: "29 MPs' TV licences" },
       { id: "phones", label: "A £24,530 phone tab and gadgets" },
       { id: "perks", label: "Dinners, a Christmas lunch, sofas and a column" },
-      { id: "second-homes", label: "Second homes and doubled council tax" },
+      { id: "second-homes", label: "Second homes, paid for by you" },
       { id: "repeat-names", label: "The names that keep coming up" },
       { id: "why-hidden", label: "Why you've never heard about this" },
     ],
@@ -535,12 +535,13 @@ export const posts: Post[] = [
       type: "image/webp",
     },
     toc: [
-      { id: "flats-and-hotels", label: "£3,500 a month flats & a £37,359 hotel tab" },
-      { id: "voting-against-help", label: "How five MPs voted on the two child limit" },
+      { id: "flats-and-hotels", label: "£3,500/month flats & a £37,359 hotel tab" },
+      { id: "voting-against-help", label: "Voting against child support while claiming £523k" },
       { id: "freebies", label: "F1, golf and football tickets" },
-      { id: "second-home-bills", label: "£81,647 for second home council tax" },
-      { id: "family-parking-taxis", label: "Family flights, parking & taxis" },
-      { id: "party-tally", label: "Every party, side by side" },
+      { id: "second-home-bills", label: "£81,647 for 2nd home council tax & £39k for heating" },
+      { id: "family-parking-taxis", label: "£7,932 family flights, £6,292 parking & £5,059 taxis" },
+      { id: "remote-voting-and-carbon", label: "152 sitting days, remote voting & £912k in flights" },
+      { id: "party-tally", label: "The Party Tally: Labour vs SNP vs Tories vs Lib Dems" },
       { id: "buried-receipts", label: "More receipts" },
       { id: "top-10-table", label: "Top 10 highest claiming Scottish MPs" },
       { id: "ask-your-mp", label: "Put the receipts to your own MP" },

@@ -73,37 +73,39 @@ type SpotlightEntry = {
 const SPOTLIGHT_LEADERS: SpotlightEntry[] = [
   {
     slug: "kilmarnock-and-loudoun",
-    badge: "UK #1 power bill: £23,437 in one day",
+    badge: "UK #1 Power Bill (£23,437 in One Day)",
     headlineStat: "£23,437",
     headlineLabel: "paid to Yu Energy on one day (more than a year's office rent)",
     taxpayerSummary:
-      "IPSA paid £20,385 + £3,052 on 19 May 2026. It is the biggest MP power bill in the UK in five years. She also billed £27,000 for a London flat.",
-    freebiesSummary: "£27,564 from Best for Britain and £2,500 from the John Smith Centre.",
-    localContrastNote: "She voted to cut pensioners' Winter Fuel Payment in Sept 2024.",
+      "On 19 May 2026 IPSA paid £20,385 + £3,052 on one account. That is the biggest MP power bill in the UK over five years. It equals 156 Warm Home Discounts.",
+    freebiesSummary:
+      "Voted in Sept 2024 to cut pensioners' Winter Fuel Payment. Also billed £27,000 for a London flat.",
     oneLine: "£23,437 paid for power on one day, the biggest MP power bill in the UK.",
     emailReason:
       "having £23,436.95 paid by IPSA to Yu Energy in a single day on 19 May 2026 (more than a full year's rent for your Kilmarnock office, and the largest MP electricity bill in the UK) after voting to restrict Winter Fuel Payments",
   },
   {
     slug: "dunfermline-and-dollar",
-    badge: "#1 highest expenses in Scotland",
+    badge: "#1 Highest Expenses in Scotland",
     headlineStat: "£151,954",
     headlineLabel: "billed in 2025/26, not counting staff wages (£410,253 with staff wages)",
     taxpayerSummary:
-      "£41,435 London flat, £29,820 flights, £3,308 parking and a £963 dinner. Housing and flying him to London cost £84,992: £559 for each day the Commons sat.",
-    freebiesSummary: "£11,882 in free trips to Taiwan, the USA and Spain.",
+      "£41,435 for a London flat, £29,820 on flights, £3,308 car park and a £963 dinner. Cost £84,992 to house and fly him to London (£559 per sitting day).",
+    freebiesSummary:
+      "Listed £11,882 in free trips to Taiwan (£5,669), the USA (£4,077) and Spain (£2,137).",
     oneLine: "£151,954 billed, the most in Scotland, including £29,820 on flights.",
     emailReason:
       "claiming £151,953.90 in non-staff expenses, including £41,435 for a London flat, £29,820 for flights and £3,308 for airport parking, on top of your £93,904 salary for 2025/26, alongside £11,882 in funded trips to Taiwan, Spain and the US",
   },
   {
     slug: "glasgow-south-west",
-    badge: "295 London hotel nights, 152 sitting days",
+    badge: "295 London Nights for 152 Sitting Days",
     headlineStat: "£37,359",
-    headlineLabel: "for 295 London hotel nights in 2025/26",
+    headlineLabel: "for 295 London hotel nights + £30k donor",
     taxpayerSummary:
-      "That is 143 more nights than the Commons sat. He became a health minister on 6 Sept 2025, and ministers work in London most weekdays. He also billed two £174.50 TV licences in nine months.",
-    freebiesSummary: "£30,000 from donor Francesca Sainsbury Perrin, plus £13,890 in outside pay as a surgeon.",
+      "143 more London nights than Parliament sat (123 nights for 60 sitting days before he became a health minister on 6 Sept 2025). Also billed two £174.50 TV licences in 9 months, one at a Co-op.",
+    freebiesSummary:
+      "Took a £30,000 gift from Francesca Sainsbury Perrin plus £13,890 in outside surgeon pay.",
     oneLine: "£37,359 for 295 London hotel nights, when the Commons sat on 152 days.",
     emailReason:
       "charging taxpayers £37,358.58 for 295 London hotel nights (against 152 days Parliament was open) and claiming two £174.50 TV licences inside nine months, while receiving £30,000 in private donor funding",
@@ -114,87 +116,89 @@ const SPOTLIGHT_LEADERS: SpotlightEntry[] = [
 const MORE_SPOTLIGHT_LEADERS: SpotlightEntry[] = [
   {
     slug: "cowdenbeath-and-kirkcaldy",
-    badge: "£10k unnamed consultant",
+    badge: "£10k Unnamed Consultant + £7k Paid Back",
     headlineStat: "£10,000",
-    headlineLabel: "to an unnamed office consultant, the most by any Scottish MP",
+    headlineLabel: "to an unnamed office consultant (plus £101k bills)",
     taxpayerSummary:
-      "Also £4,000 for unnamed PR help, £4,691 at IKEA and £7,932 on family travel. She paid back £7,000 for a report.",
-    freebiesSummary: "Trips to Qatar (£5,957) and Syria (£2,202), and a £1,100 China course.",
+      "Top consultant bill by any Scottish MP, with who got paid hidden. Also billed £4,000 for unnamed PR help, paid back £7,000 for a report, and spent £4,691 at IKEA and £7,932 on family trips.",
+    freebiesSummary: "Took a £5,957 trip to Qatar, a £2,202 trip to Syria, and a £1,100 China course.",
     oneLine: "£10,000 to an unnamed consultant, plus £4,691 at IKEA.",
     emailReason:
       "billing taxpayers £10,000 for an unnamed 'Policy and Office set up consultant' and £4,000 for unnamed 'Communications Support' (on top of £7,000 for a local industrial strategy you had to repay in full), plus £4,691 at IKEA, £7,932.47 for family travel and £3,302.72 for second home council tax",
   },
   {
     slug: "dundee-central",
-    badge: "#1 car parking in Scotland",
+    badge: "#1 Car Parking (£6,292) + £3,090 Broadband",
     headlineStat: "£129,066",
-    headlineLabel: "billed in 2025/26, not counting staff wages",
+    headlineLabel: "in everyday bills in 2025/26, not counting staff wages (£121 a week just to park)",
     taxpayerSummary:
-      "£6,292 parking (£121 a week), £28,200 London flat, £26,581 flights and £3,090 to set up 5G home broadband.",
-    freebiesSummary: "Two free trips to India worth £1,898.",
-    oneLine: "£6,292 on parking, the most in Scotland, and £3,090 to set up broadband.",
+      "£6,292 car park in one year, £28,200 London flat rent, £2,822 Europe hotels, £26,581 flights. Also billed £3,090 just to set up 5G home broadband.",
+    freebiesSummary:
+      "Took two free trips to India worth £1,898 paid by the Office of Tibet and Buddhist groups.",
+    oneLine: "£6,292 on parking, the most in Scotland, and £3,090 just to set up broadband.",
     emailReason:
       "billing taxpayers £6,292.29 for car parking alone, £28,200 a year for a rented London flat, and £3,090 to set up 5G home broadband",
   },
   {
     slug: "west-aberdeenshire-and-kincardine",
-    badge: "£33,100 flights + F1 VIP tickets",
+    badge: "Voted to Keep 2-Child Cap + £121k Bills",
     headlineStat: "£121,471",
-    headlineLabel: "billed in 2025/26, not counting staff wages",
+    headlineLabel: "in everyday bills in 2025/26 (not counting staff wages) + £20k donor & F1 VIP box",
     taxpayerSummary:
-      "£32,480 London flat, £33,100 flights, £1,541 second home council tax and £5,898 to post his yearly report.",
-    freebiesSummary: "£20,000 from Alasdair Locke, £1,100 Silverstone F1 tickets and a £2,678 Jordan trip.",
-    localContrastNote:
-      "He voted No to ending the two child benefit cap (the rule that stops Universal Credit paying for a third child or more).",
-    oneLine: "£33,100 on flights, plus £20,000 from a donor and £1,100 F1 tickets.",
+      "£32,480 London flat rent, £1,541 second home council tax, £33,100 flights, £1,501 family flights and £5,898 to post his yearly report.",
+    freebiesSummary:
+      "Voted to keep the two child cap (the rule that stops Universal Credit paying for a third child or more). Took £20,000 from Alasdair Locke, £1,100 F1 VIP tickets, and a £2,678 Jordan trip.",
+    oneLine: "Voted to keep the two child cap. £33,100 on flights, a £20,000 donor and F1 VIP tickets.",
     emailReason:
       "voting against removing the two child benefit cap on Universal Credit while claiming £121,470.92 in non-staff expenses (including £32,480 in flat rent, £1,541 in second home council tax and £1,501 for your own family travel) and accepting £1,100 in Silverstone Formula 1 hospitality",
   },
   {
     slug: "livingston",
-    badge: "#1 taxis + 4 TV licences in a year",
+    badge: "#1 Taxi Tab (£5,059) + 4 TV Licences in a Year",
     headlineStat: "£115,008",
-    headlineLabel: "billed in 2025/26, not counting staff wages",
+    headlineLabel: "in rent, travel, taxis & £3,630 council tax (2025/26)",
     taxpayerSummary:
-      "£5,059 on taxis (£100 a week), £3,630 second home council tax, £6,232 family flights, £9,600 PR firm and four TV licences (£688) in under a year.",
-    freebiesSummary: "£11,000 from donors plus £1,110 in free tickets to Lord's and Wembley.",
+      "£5,059 on taxis (£100 a week), £3,630 second home council tax, £6,232 family flights, £20,800 flat rent, £9,600 PR firm, plus four TV licences (£688) in under a year.",
+    freebiesSummary: "Took £11,000 from donors plus £1,110 in free VIP tickets to Lord's and Wembley.",
     oneLine: "£5,059 on taxis, the most in Scotland, and four TV licences in under a year.",
     emailReason:
       "billing taxpayers £5,059.35 for taxi fares, £3,629.54 for your second home council tax, £6,232.41 for family flights, £9,600 for a PR firm and four TV licences in under 12 months, while accepting £1,110 in free cricket and Wembley tickets",
   },
   {
     slug: "glasgow-east",
-    badge: "Top London flat rent: £42,000",
+    badge: "£42,000 Flat Rent + £13,117 Report",
     headlineStat: "£96,187",
-    headlineLabel: "billed in 2025/26, not counting staff wages",
+    headlineLabel: "in everyday bills in 2025/26 + £7,000 Qatar trip",
     taxpayerSummary:
-      "£42,000 London flat rent (£3,500 a month, the top in Scotland), £2,486 council tax and £13,117 to print and post his yearly report.",
-    freebiesSummary: "A £7,000 trip paid by Qatar's government, plus a £330 dinner ticket.",
+      "£42,000 London flat rent (top in Scotland at £3,500 a month), £2,486 council tax, plus £13,117 to print and post his yearly report.",
+    freebiesSummary: "Took a £7,000 Qatar trip paid by Qatar's government, plus a £330 dinner ticket.",
     oneLine: "£42,000 London flat rent, the top in Scotland, and a £7,000 Qatar trip.",
     emailReason:
       "charging taxpayers £42,000 a year (£3,500 a month) for London flat rent and £13,116.80 to post an annual report, and accepting a £7,000 trip paid for by the Ministry of Foreign Affairs of Qatar",
   },
   {
     slug: "argyll-bute-and-south-lochaber",
-    badge: "£24,530 mobile phone bills",
+    badge: "£24,530 Phone Bills + Spouse on Payroll",
     headlineStat: "£114,985",
-    headlineLabel: "billed in 2025/26, not counting staff wages",
+    headlineLabel: "in everyday bills in 2025/26 + £24.5k EE phone tab",
     taxpayerSummary:
-      "£29,322 London flat, £3,109 parking and £24,530 on mobile phone bills over five years (up to £909 a month). His wife is his paid office manager.",
-    freebiesSummary: "£1,525 in VIP football boxes and £2,541 in free trips.",
-    oneLine: "£24,530 on mobile phone bills over five years. His wife is his paid office manager.",
+      "£29,322 London flat rent, £3,109 car park, hires his spouse as office boss, and ran up £24,530 on EE mobile bills over five years (up to £909 a month).",
+    freebiesSummary:
+      "Took £1,525 in VIP football boxes (Champions League & Hampden) and £2,541 in free trips.",
+    oneLine: "£24,530 on EE mobile bills over five years, and his spouse on the payroll.",
     emailReason:
-      "claiming £114,984.88 in non-staff expenses (including £29,322 flat rent and £3,109 car parking), £24,530 in mobile phone bills over five years, employing your spouse on the public payroll, and accepting £1,525 in football hospitality",
+      "claiming £114,984.88 in non-staff expenses (including £29,322 flat rent and £3,109 car parking), £24,530 in EE mobile bills over five years, employing your spouse on the public payroll, and accepting £1,525 in football hospitality",
   },
   {
     slug: "east-kilbride-and-strathaven",
-    badge: "£2,561 per day she spoke",
+    badge: "£2,561 Per Day Spoken + Husband's Firm Perk",
     headlineStat: "£85,563",
-    headlineLabel: "billed in 2025/26, not counting staff wages",
+    headlineLabel: "in everyday bills in 2025/26 + £2,400 from husband's firm",
     taxpayerSummary:
-      "£31,366 London flat, £9,906 flights and £3,941 family flights. Housing and flying her to London cost £48,655. She spoke on 19 days: £2,561 for each day she spoke.",
-    freebiesSummary: "£2,400 of free media training from Earthcott Ltd, her lobbyist husband's firm.",
-    oneLine: "£2,561 for each of the 19 days she spoke. Free media training from her husband's firm.",
+      "£31,366 London flat rent, £9,906 flights, £3,941 family flights. Cost £48,655 to house and fly her to London while speaking on 19 days (£2,561 for each day she spoke).",
+    freebiesSummary:
+      "Took £2,400 of free media training from Earthcott Ltd, owned by her lobbyist husband David Taylor.",
+    oneLine: "£2,561 for each of the 19 days she spoke, and a perk from her husband's firm.",
     emailReason:
       "claiming £85,563.46 in non-staff expenses (including £31,366 flat rent and £3,941 family flights) while speaking on 19 days and accepting £2,400 of free media training from your lobbyist husband's own firm",
   },
@@ -212,6 +216,10 @@ const FAQ = [
   {
     q: "Do Scottish MPs claim council tax and power on second homes?",
     a: "Yes. On top of their £93,904 pay (2025/26), 47 Scottish MPs billed taxpayers £81,647 for second home council tax in 2025/26. Douglas Alexander topped the list at £4,093. Also, 38 MPs billed £39,218 for heat, power and water, led by Angus MacDonald at £3,314.",
+  },
+  {
+    q: "Which MPs voted to keep the two child cap while claiming family bills?",
+    a: "Five Scottish Tory MPs voted against ending the two child cap (the rule that stops Universal Credit paying for a third child or more) in Feb 2026: Andrew Bowie, John Lamont, David Mundell, John Cooper and Harriet Cross. In 2025/26 those five billed £523,512, not counting staff wages. That counts £147,964 on London rent, £7,218 council tax, £4,185 heat and power and £1,501 family trips.",
   },
   {
     q: "Who pays for Scottish MPs' free trips and VIP tickets?",
@@ -298,11 +306,11 @@ function renderSpotlightCard(card: SpotlightEntry) {
       <ExplainText>
         <dl className="flex-1 space-y-3 px-5 py-4 text-[14.5px] leading-[1.5] text-[var(--ink-2)]">
           <div>
-            <dt className="tile-key mb-0.5">Also billed</dt>
+            <dt className="tile-key mb-0.5">Billed to taxpayers</dt>
             <dd>{card.taxpayerSummary}</dd>
           </div>
           <div>
-            <dt className="tile-key mb-0.5">Declared to Parliament</dt>
+            <dt className="tile-key mb-0.5">Votes, donations & perks</dt>
             <dd>{card.freebiesSummary}</dd>
           </div>
           <div className="rounded-[var(--r-s)] border-l-[3px] border-[var(--brand)] bg-[var(--surface-2)] px-3.5 py-2.5">
@@ -502,7 +510,9 @@ export default function MpRegisterOfInterestsScotlandPage() {
       "Child support & family costs",
       <>
         35 Scottish MPs billed taxpayers <strong>£89,111</strong> to fly or train partners and kids
-        to London (up to <strong>£7,932</strong> each).
+        to London (up to <strong>£7,932</strong> each). Five Scottish MPs voted to keep the two
+        child cap (the rule that stops Universal Credit paying for a third child or more) while
+        claiming <strong>£523,512</strong>.
       </>,
       <>
         About <Link href="/poverty-in-scotland">240,000 children in Scotland live in poverty</Link>.
@@ -626,8 +636,8 @@ export default function MpRegisterOfInterestsScotlandPage() {
       ],
     },
     {
-      kicker: "Declared to Parliament · Party total",
-      title: "Donations, free trips and gifts",
+      kicker: "Register of Interests · Total",
+      title: "Private donations, funded trips and gifts declared",
       rows: [
         {
           party: "Labour",
@@ -653,7 +663,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
   ];
 
   const JUMP_LINKS = [
-    { href: "#top-claimants", label: "Biggest claims" },
+    { href: "#top-claimants", label: "Worst offenders" },
     { href: "#leaderboard", label: "All 57 MPs" },
     { href: "#party-tally", label: "By party" },
     { href: "#london-record", label: "152 sitting days" },
@@ -797,8 +807,8 @@ export default function MpRegisterOfInterestsScotlandPage() {
         {/* THE BIGGEST CLAIMS: THREE FULL CARDS, THE REST AS ONE-LINE ROWS */}
         <ContentFrame as="section" id="top-claimants" className="pt-4">
           <SectionHead
-            eyebrow="2025/26 · Biggest claims"
-            title="The Scottish MPs with the biggest claims"
+            eyebrow="The standout claims · Faces, receipts & local poverty"
+            title="The Scottish MPs with the biggest and most outrageous claims"
           />
           <p className="mt-2 max-w-[66ch] text-[16.5px] leading-[1.55] text-[var(--ink-2)]">
             <ExplainText>
@@ -845,7 +855,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
               <div>
                 <p className="tile-key">Deep dives · Official expense spreadsheets</p>
                 <h2 className="display-stat mt-1.5 text-[clamp(24px,2.8vw,34px)] text-white">
-                  Four stories in detail
+                  Four stories that sum up Westminster
                 </h2>
               </div>
               <Link href="/mp-expenses-scotland/search" className="btn btn-primary shrink-0">
@@ -861,7 +871,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
                 },
                 {
                   stat: "£2.91m",
-                  label: "To house and fly MPs to London for 152 sitting days (up to £3,007 for each day an MP spoke)",
+                  label: "To shuttle MPs to London for 152 sitting days (up to £3,007 for each day an MP spoke)",
                   href: "/blog/scottish-mps-london-homes-152-sitting-days",
                 },
                 {
@@ -909,24 +919,18 @@ export default function MpRegisterOfInterestsScotlandPage() {
         {/* COMPACT PARTY COMPARISON */}
         <ContentFrame as="section" id="party-tally" className="pt-14">
           <SectionHead
-            eyebrow="By party · 2025/26"
-            title="MPs in every party claim similar sums"
+            eyebrow="By party · Labour vs SNP vs Conservatives vs Lib Dems"
+            title="Every Westminster party is at the exact same trough"
           />
-          <div className="mt-2 max-w-[66ch] space-y-2.5 text-[16px] leading-[1.55] text-[var(--ink-2)]">
+          <p className="mt-2 max-w-[66ch] text-[16px] leading-[1.55] text-[var(--ink-2)]">
             <ExplainText>
-              <p>
-                The average MP billed between <strong>£90,377</strong> (Labour) and{" "}
-                <strong>£111,232</strong> (SNP) for rent, travel, hotels and office in 2025/26.
-              </p>
-              <p>
-                Labour has 37 of the 55 MPs who sat that year. Its MPs billed{" "}
-                <strong>73% of second home council tax</strong> and took{" "}
-                <strong>75% of free trips abroad</strong>. Conservative MPs declared the most
-                donations, trips and gifts per MP (<strong>£13,333 each</strong>). SNP and Highland
-                MPs had the biggest travel bills.
-              </p>
+              Scottish Labour MPs make up <strong>73% of second home council tax</strong> and{" "}
+              <strong>75% of free trips abroad</strong>. Tories took the most in donations, trips
+              and gifts per MP (<strong>£13,333 each</strong>). SNP and Highland MPs had the biggest
+              travel bills. Across all four parties, the average MP&apos;s bills for rent, travel,
+              hotels and office sat between £90,000 and £111,000.
             </ExplainText>
-          </div>
+          </p>
           <div className="mt-7 grid gap-4 md:grid-cols-2">
             {PARTY_BARS.map((group) => {
               const max = Math.max(...group.rows.map((r) => r.value));
@@ -1029,7 +1033,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
                     The Commons sat on <strong>{LONDON_RECORD.sittingDays} days</strong> in
                     2025/26. It did not sit on the other 213. Read our plain-English breakdown of{" "}
                     <Link href="/blog/scottish-mps-london-homes-152-sitting-days">
-                      the £2.91m London travel and housing bill (up to £3,007 for each day an MP spoke) →
+                      the £2.91m London shuttle bill (up to £3,007 for each day an MP spoke) →
                     </Link>
                   </ExplainText>
                 </p>
@@ -1578,7 +1582,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
                       5
                     </span>
                     <span>
-                      Lobbyist husbands and MP landlords
+                      Lobbyist husbands, a wife on the payroll, MP landlords & second jobs
                     </span>
                   </span>
                   <span

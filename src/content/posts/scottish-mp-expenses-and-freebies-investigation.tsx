@@ -5,7 +5,6 @@ import {
   type CasePerson,
   PARTY,
   gbp,
-  Dot,
   Who,
   QuickTake,
   Finding,
@@ -15,6 +14,7 @@ import {
   Tiles,
   PointList,
   Expand,
+  PartyList,
 } from "@/components/ExpenseKit";
 
 /*
@@ -28,7 +28,7 @@ import {
 
 const mp = (slug: string) => `/representatives/mps/${slug}#donations-and-interests`;
 
-const FINDINGS = 8;
+const FINDINGS = 9;
 
 const person = (name: string, slug: string, p: PartyKey, place: string): CasePerson => ({
   name,
@@ -64,46 +64,34 @@ const COUNCIL_TAX: { name: string; slug: string; p: PartyKey; seat: string; valu
   { name: "Richard Baker", slug: "glenrothes-and-mid-fife", p: "Labour", seat: "Glenrothes and Mid Fife", value: 2938.52 },
 ];
 
-const PARTY_TALLY: {
-  p: PartyKey;
-  name: string;
-  mps: string;
-  total: number;
-  perMp: number;
-  detail: string;
-}[] = [
+const PARTY_TALLY: { p: PartyKey; name: string; mps: string; detail: string }[] = [
+  {
+    p: "Labour",
+    name: "Scottish Labour",
+    mps: "37 MPs",
+    detail:
+      "£3,343,933 (£90,377 per MP). Second home council tax £59,231 (73% of Scotland's total). London hotels £44,605 (98%, mostly one MP). Family travel £58,905, taxis £24,976. Donations and trips £169,931 (£105.6k donors, £57.3k trips).",
+  },
   {
     p: "SNP",
     name: "SNP",
     mps: "8 MPs (7 with 2025/26 claims)",
-    total: 778624,
-    perMp: 111232,
-    detail: "£778,624 in all. Second home council tax £7,761. Family travel £19,749, parking £17,033. Gifts, trips and donations £11,902.",
+    detail:
+      "£778,624 (£111,232 per MP). Second home council tax £7,761. London hotels £716. Family travel £19,749, parking £17,033. Donations and trips £11,902 (£0 donors, £7.5k trips, £4.4k gifts).",
   },
   {
     p: "Conservative",
     name: "Scottish Conservatives",
     mps: "6 MPs (5 with 2025/26 claims)",
-    total: 523512,
-    perMp: 104702,
-    detail: "£523,512 in all. Second home council tax £7,218. Parking £10,708. Gifts, trips and donations £80,001.",
+    detail:
+      "£523,512 (£104,702 per MP). Second home council tax £7,218. London hotels £294. Parking £10,708, family travel £1,501. Donations and trips £80,001 (£71.1k donors, £6.9k trips).",
   },
   {
     p: "Lib Dem",
     name: "Scottish Liberal Democrats",
     mps: "6 MPs",
-    total: 564881,
-    perMp: 94147,
-    detail: "£564,881 in all. Second home council tax £7,437. Family travel £8,654, taxis £5,819. Gifts, trips and donations £35,061.",
-  },
-  {
-    p: "Labour",
-    name: "Scottish Labour",
-    mps: "37 MPs",
-    total: 3343933,
-    perMp: 90377,
     detail:
-      "£3,343,933 in all. Second home council tax £59,231 (73% of Scotland's total). London hotels £44,605 (98%, mostly one MP). Gifts, trips and donations £169,931.",
+      "£564,881 (£94,147 per MP). Second home council tax £7,437. London hotels £0. Family travel £8,654, taxis £5,819. Donations and trips £35,061 (£28.6k donors, £4.9k trips).",
   },
 ];
 
@@ -120,7 +108,7 @@ const TOP_10: {
   { name: "Dave Doogan", slug: "angus-and-perthshire-glens", p: "SNP", seat: "Angus and Perthshire Glens", value: 127847.3, detail: "£27,600 flat rent, £26,217 flights" },
   { name: "Alistair Carmichael", slug: "orkney-and-shetland", p: "Lib Dem", seat: "Orkney and Shetland", value: 124028.74, detail: "£35,437 flights (most in Scotland)" },
   { name: "Kirsty Blackman", slug: "aberdeen-north", p: "SNP", seat: "Aberdeen North", value: 121470.95, detail: "£39,951 flat rent, £27,472 flights" },
-  { name: "Andrew Bowie", slug: "west-aberdeenshire-and-kincardine", p: "Conservative", seat: "West Aberdeenshire and Kincardine", value: 121470.92, detail: "3p less than Kirsty Blackman. £32,480 flat rent, £33,100 flights" },
+  { name: "Andrew Bowie", slug: "west-aberdeenshire-and-kincardine", p: "Conservative", seat: "West Aberdeenshire and Kincardine", value: 121470.92, detail: "Voted No to scrapping the two child cap. £32,480 flat rent, £33,100 flights (3p less than Kirsty Blackman in total)" },
   { name: "Gregor Poynton", slug: "livingston", p: "Labour", seat: "Livingston", value: 115007.84, detail: "£24,291 flights, £5,059 taxis" },
   { name: "Brendan O'Hara", slug: "argyll-bute-and-south-lochaber", p: "SNP", seat: "Argyll, Bute and South Lochaber", value: 114984.88, detail: "£29,322 flat rent, £3,109 parking" },
   { name: "Dr Zubir Ahmed", slug: "glasgow-south-west", p: "Labour", seat: "Glasgow South West", value: 111044.9, detail: "£37,359 London hotels" },
@@ -135,8 +123,9 @@ export default function Post() {
   return (
     <Prose>
       <Lead>
-        MPs were paid £93,904 in 2025/26. On top, Scottish MPs billed you for council tax on their
-        second homes, hotels, taxis and family flights. Here are the names.
+        MPs were paid £93,904 in 2025/26. That puts them in the top 5% of earners before a single
+        penny of expenses. On top, Scottish MPs billed you for council tax on their second homes,
+        hotels, taxis and family flights. Here are the names.
       </Lead>
 
       <QuickTake
@@ -148,7 +137,7 @@ export default function Post() {
           </>,
           <>
             <strong>5 Scottish Conservative MPs</strong> voted No to scrapping the two child benefit
-            limit. Their own claims were about <strong>10% above</strong> the Scottish average.
+            limit. Between them they claimed <strong>£523,512</strong>.
           </>,
           <>
             MPs from <strong>three parties</strong> took free VIP tickets, from Silverstone F1 to
@@ -203,6 +192,10 @@ export default function Post() {
           files as hotels (<Link href="/mp-expenses-scotland/receipts#hotel-nights">see every
           claim</Link>).
         </p>
+        <p>
+          In his <Link href="/constituencies/glasgow-south-west">Glasgow South West</Link>{" "}
+          constituency, <strong>5,840 children (30.8%)</strong> live in poverty after housing costs.
+        </p>
       </CaseCard>
 
       <Tiles
@@ -217,6 +210,10 @@ export default function Post() {
           <strong>The maximum London rent: £3,500 every month</strong>
         </p>
         <p>That is more than triple a typical Glasgow private rent.</p>
+        <p>
+          In <Link href="/constituencies/glasgow-east">Glasgow East</Link>,{" "}
+          <strong>6,729 children (34.4%)</strong> live in poverty after housing costs.
+        </p>
       </CaseCard>
 
       <P>
@@ -226,25 +223,58 @@ export default function Post() {
 
       {/* ------------------------------------------------------------ 2 */}
       <Finding n={2} of={FINDINGS} id="voting-against-help">
-        How five MPs voted on the two child limit, and what they claimed
+        Voting against child poverty support while claiming £523,512 in expenses and F1 freebies
       </Finding>
       <P>
-        In February 2026, MPs voted on scrapping the{" "}
-        <Link href="/scottish-child-payment">two child benefit limit on Universal Credit</Link>. The
-        limit stops low income families getting £3,514 a year for a third child. Five Scottish
-        Conservative MPs voted No.
+        In February 2026, MPs voted on the bill to remove the{" "}
+        <Link href="/scottish-child-payment">two child benefit limit on Universal Credit</Link>. That
+        is the rule that denied low income families £3,514 a year for a third or later child.
       </P>
+      <P>Five Scottish Conservative MPs voted No to scrapping the two child cap.</P>
 
-      <CaseCard kicker="Voted No · their 2025/26 claims, not counting staff" figure="£523,512" people={NO_VOTERS}>
+      <CaseCard kicker="Voted No to scrapping the two child cap" figure="£523,512" people={NO_VOTERS}>
         <p>
-          That is about <strong>£104,700 each</strong>. The average for all 55 Scottish MPs was
-          about £94,700. So theirs was about 10% higher.
+          <strong>Their 2025/26 non-staff expenses, on top of £93,904 salaries</strong>
         </p>
         <p>
-          It includes £147,964 for London flat rent and £7,218 for second home council tax. All
-          within IPSA&apos;s rules.
+          When you check the 2025/26 IPSA and Register of Interests files for those exact same five
+          MPs, you find that between them they claimed £523,512.
         </p>
       </CaseCard>
+
+      <PointList
+        items={[
+          {
+            key: "homes",
+            title: "£147,964 for their own London flat rents",
+            children: <>Plus £7,218 for second home council tax and £4,185 for second home heating and utilities.</>,
+          },
+          {
+            key: "family",
+            title: "£1,501 for family travel to London",
+            children: (
+              <>
+                Claimed by <Link href={mp("west-aberdeenshire-and-kincardine")}>Andrew Bowie</Link>.
+              </>
+            ),
+          },
+          {
+            key: "freebies",
+            title: "£80,001 in donations, foreign trips and VIP gifts",
+            children: (
+              <>
+                Including £20,000 from businessman Alasdair Locke and £1,100 in Silverstone British
+                Grand Prix VIP tickets for{" "}
+                <Link href={mp("west-aberdeenshire-and-kincardine")}>Andrew Bowie</Link>, £11,100 from
+                the Coalition for Global Prosperity for{" "}
+                <Link href={mp("dumfriesshire-clydesdale-and-tweeddale")}>David Mundell</Link>, and
+                £40,000 in political donations plus a £925 Wentworth PGA Golf VIP ticket for{" "}
+                <Link href={mp("gordon-and-buchan")}>Harriet Cross</Link>.
+              </>
+            ),
+          },
+        ]}
+      />
 
       {/* ------------------------------------------------------------ 3 */}
       <Finding n={3} of={FINDINGS} id="freebies">
@@ -280,29 +310,14 @@ export default function Post() {
         <PointList
           items={[
             {
-              key: "cross",
-              title: <Who face name="Harriet Cross" href={mp("gordon-and-buchan")} p="Conservative" note="£40,000" />,
-              children: <>Political donations.</>,
-            },
-            {
               key: "ahmed",
               title: <Who face name="Dr Zubir Ahmed" href={mp("glasgow-south-west")} p="Labour" note="£30,000" />,
               children: <>A donation from Francesca Sainsbury Perrin.</>,
             },
             {
-              key: "bowie",
-              title: <Who face name="Andrew Bowie" href={mp("west-aberdeenshire-and-kincardine")} p="Conservative" note="£20,000" />,
-              children: <>A donation from businessman Alasdair Locke.</>,
-            },
-            {
               key: "downie",
               title: <Who face name="Graeme Downie" href={mp("dunfermline-and-dollar")} p="Labour" note="£11,882" />,
               children: <>Paid trips to Taiwan, the US and Spain.</>,
-            },
-            {
-              key: "mundell",
-              title: <Who face name="David Mundell" href={mp("dumfriesshire-clydesdale-and-tweeddale")} p="Conservative" note="£11,100" />,
-              children: <>From the Coalition for Global Prosperity.</>,
             },
             {
               key: "ward",
@@ -320,8 +335,21 @@ export default function Post() {
 
       {/* ------------------------------------------------------------ 4 */}
       <Finding n={4} of={FINDINGS} id="second-home-bills">
-        £81,647 for council tax on second homes
+        Why are taxpayers paying bills on homes MPs already own?
       </Finding>
+      <P>
+        After the 2009 MPs&apos; expenses scandal, voters were told the system had been cleaned up.
+        MPs could no longer use taxpayer money to pay off personal mortgages.
+      </P>
+      <P>
+        What the public was never told is the loophole that replaced it.{" "}
+        <strong>Even if an MP owns their second home outright and claims £0 in rent</strong>, IPSA
+        still lets them bill taxpayers for its council tax, gas, electricity, water, factor fees
+        (charges for running a shared building), insurance, broadband and even drain cleaning.
+      </P>
+      <P>
+        In 2025/26, 47 MPs billed <strong>£81,647</strong> for second home council tax.
+      </P>
 
       <CaseCard figure="£4,093" people={[person("Douglas Alexander", "lothian-east", "Labour", "Lothian East")]}>
         <p>
@@ -347,11 +375,28 @@ export default function Post() {
         Energy and water are on top: 38 MPs billed £39,218 for their second homes. The most was{" "}
         <Link href={mp("inverness-skye-and-west-ross-shire")}>Angus MacDonald</Link>, at £3,314.
       </P>
+      <P>
+        Put that beside what their constituents face. Ordinary households in Scotland are dealing
+        with <Link href="/council-tax-increase-scotland">steep council tax rises</Link> and an Ofgem{" "}
+        <Link href="/energy-price-cap-scotland">energy price cap forecast at £2,166</Link>.
+      </P>
+      <P>
+        Low income families in Scotland do not even get the{" "}
+        <Link href="/warm-home-discount-scotland">£150 Warm Home Discount</Link> automatically. They
+        have to apply before supplier pots close, or turn to{" "}
+        <Link href="/council-tax-reduction-scotland">means tested Council Tax Reduction</Link> and
+        emergency <Link href="/crisis-grant-scotland">Scottish Welfare Fund Crisis Grants</Link> when
+        their meter runs out.
+      </P>
 
       {/* ------------------------------------------------------------ 5 */}
       <Finding n={5} of={FINDINGS} id="family-parking-taxis">
         £6,292 to park, £5,059 on taxis, £7,932 for family travel
       </Finding>
+      <P>
+        In almost every normal job in Scotland, you pay for parking, taxis and your family&apos;s
+        travel out of your own wages. At Westminster, taxpayers pick up the tab.
+      </P>
 
       <PointList
         items={[
@@ -368,7 +413,13 @@ export default function Post() {
           {
             key: "ward",
             title: <Who face name="Melanie Ward" href={mp("cowdenbeath-and-kirkcaldy")} p="Labour" note="£7,932 family travel" />,
-            children: <>The most in Scotland. £7,607 of it was family flights.</>,
+            children: (
+              <>
+                The most in Scotland. £7,607 of it was family flights. In{" "}
+                <Link href="/constituencies/cowdenbeath-and-kirkcaldy">Cowdenbeath and Kirkcaldy</Link>,
+                4,581 children (26.2%) live in poverty.
+              </>
+            ),
           },
         ]}
       />
@@ -382,39 +433,89 @@ export default function Post() {
       />
 
       {/* ------------------------------------------------------------ 6 */}
-      <Finding n={6} of={FINDINGS} id="party-tally">
-        Every party, side by side
+      <Finding n={6} of={FINDINGS} id="remote-voting-and-carbon">
+        The 152-day Westminster year, remote voting, and £912,655 in flights
       </Finding>
       <P>
-        Per MP, the SNP claimed the most. In total, Labour claimed the most: it has 37 of
-        Scotland&apos;s 57 MPs. Bars show the average per MP, not counting staff.
+        Two questions come up every time regular workers look at these numbers. First, why do MPs
+        need full year £3,500 a month London flats, and in one case £37,359 of London hotels?
+      </P>
+      <P>
+        The House of Commons opened for just{" "}
+        <Link href="/blog/scottish-mps-london-homes-152-sitting-days">152 days in 2025/26</Link>,
+        typically Monday afternoon to Thursday.
+      </P>
+      <P>
+        In 2020 and 2021, Westminster proved MPs could join committees by video call and cast their
+        division votes (the formal votes in Parliament) remotely. The{" "}
+        <strong>Scottish Parliament at Holyrood still uses digital remote voting</strong> today.
+      </P>
+      <P>
+        Westminster chose to scrap remote voting and send MPs back through the wooden voting lobbies
+        in person. That decision locks in <strong>£1.38 million a year</strong> in London flat rents,{" "}
+        <strong>£45,615</strong> in MPs&apos; own London hotels and <strong>£89,111</strong> in
+        spouse and child travel, for Scottish MPs alone.
+      </P>
+      <P>
+        Second is the climate contradiction. Westminster sets the carbon budgets and net zero targets
+        that households are asked to live within. Yet in 2025/26, Scotland&apos;s 55 MPs billed{" "}
+        <strong>£912,655 for their own flights</strong>, plus £58,237 for airport and station car
+        parking.
       </P>
 
-      <ChartFrame
-        kicker="IPSA 2025/26 & Register of Interests · By party"
-        title="Average claimed per MP, by party"
-        caption="Source: IPSA 2025/26 expense files and the UK Parliament Register of Interests (checked 21 November 2026)."
-      >
-        <RankList
-          rows={PARTY_TALLY.map((t) => ({
-            key: t.p,
-            who: (
-              <span className="ui flex items-center gap-2 font-[620] text-[var(--ink)]">
-                <Dot p={t.p} />
-                {t.name}
-              </span>
-            ),
-            side: t.mps,
-            value: t.perMp,
-            label: gbp(t.perMp, false),
-            colour: PARTY[t.p].colour,
-            detail: t.detail,
-          }))}
-        />
-      </ChartFrame>
+      <PointList
+        items={[
+          {
+            key: "downie-fly",
+            title: <Who face name="Graeme Downie" href={mp("dunfermline-and-dollar")} p="Labour" note="£29,820 flights" />,
+            children: <>Against £3,935 on rail, though Dunfermline sits on the 4.5 hour East Coast line to King&apos;s Cross.</>,
+          },
+          {
+            key: "poynton-fly",
+            title: <Who face name="Gregor Poynton" href={mp("livingston")} p="Labour" note="£24,291 flights" />,
+            children: <>Against £2,415 on rail.</>,
+          },
+        ]}
+      />
 
       {/* ------------------------------------------------------------ 7 */}
-      <Finding n={7} of={FINDINGS} id="buried-receipts">
+      <Finding n={7} of={FINDINGS} id="party-tally">
+        The Party Tally: Scottish Labour accounts for 73% of second home council tax and 75% of
+        foreign trips
+      </Finding>
+      <P>
+        Scottish Labour won 37 of Scotland&apos;s 57 seats (65%) on a promise to clean up Westminster
+        politics. Yet Labour MPs account for <strong>73% of all second home council tax</strong>{" "}
+        (£59,231) and <strong>75% of all funded foreign trips</strong> (£57,288, including
+        delegations to Qatar, China, Taiwan and Syria).
+      </P>
+      <P>
+        They also include <strong>both MPs married to lobbyists</strong>.{" "}
+        <Link href={mp("east-kilbride-and-strathaven")}>Joani Reid</Link>&apos;s husband is a
+        lobbyist. Companies House lists him as the only director and owner of over 75% of Earthcott
+        Ltd, the PR firm that gave her £2,400 of free media training.{" "}
+        <Link href={mp("paisley-and-renfrewshire-south")}>Johanna Baxter</Link>&apos;s husband is
+        Executive Chairman of lobbying and PR agency SEC Newgate UK.
+      </P>
+
+      <PartyList
+        items={PARTY_TALLY.map((t) => ({
+          p: t.p,
+          key: t.p,
+          children: (
+            <>
+              <strong>{t.name}</strong> ({t.mps}): {t.detail}
+            </>
+          ),
+        }))}
+      />
+      <p className="ui mt-3 text-[14px] text-[var(--ink-2)]">
+        Non-staff expenses, 2025/26. Source: IPSA 2025/26 expense files and the UK Parliament
+        Register of Interests (checked 21 November 2026).
+      </p>
+
+      {/* ------------------------------------------------------------ 8 */}
+      <Finding n={8} of={FINDINGS} id="buried-receipts">
         More receipts: PR firms, European hotels and TV licences
       </Finding>
 
@@ -499,8 +600,8 @@ export default function Post() {
         />
       </Expand>
 
-      {/* ------------------------------------------------------------ 8 */}
-      <Finding n={8} of={FINDINGS} id="top-10-table">
+      {/* ------------------------------------------------------------ 9 */}
+      <Finding n={9} of={FINDINGS} id="top-10-table">
         The top 10 Scottish MPs, not counting staff
       </Finding>
       <P>
@@ -524,8 +625,14 @@ export default function Post() {
 
       <H2 id="ask-your-mp">Put the receipts to your own MP</H2>
       <P>
-        Every Scottish MP&apos;s 2025/26 claims, gifts and votes are on their{" "}
-        <Link href="/representatives">profile page</Link>, with a button to email them.
+        MPs rely on the fact that IPSA spreadsheets and Register of Interests filings are buried in
+        separate, hard to search databases. Busy voters rarely have time to cross reference them.
+      </P>
+      <P>
+        So every Scottish MP&apos;s 2025/26 claims, second home bills, donations, foreign trips and
+        voting record are on their <Link href="/representatives">profile page</Link>. It sits
+        alongside the child poverty rate in their constituency and a one click email asking them to
+        explain their claims.
       </P>
 
       <PostCTA

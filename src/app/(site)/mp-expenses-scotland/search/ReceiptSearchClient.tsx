@@ -1286,7 +1286,7 @@ export default function ReceiptSearchClient() {
             {/* One-click keyword tags */}
             <div className="mt-3 flex flex-wrap items-center gap-1.5">
               <span className="ui text-[13px] font-[600] text-[var(--muted)] mr-1">
-                Try:
+                Eye opening searches:
               </span>
               {visibleQuickWords.map(({ word, note }) => {
                 const isActive = query.trim().toLowerCase() === word.toLowerCase();
@@ -1891,11 +1891,6 @@ export default function ReceiptSearchClient() {
                     (not in the total above). Tick the boxes in More filters to add them.
                   </span>
                 )}
-                <span className="mt-1 block text-[14px] text-[var(--ink-2)]">
-                  {isMsp
-                    ? "The Scottish Parliament paid every bill here under its rules. Nobody broke them."
-                    : "IPSA paid every bill here under its rules. Nobody broke them."}
-                </span>
               </div>
             </div>
 

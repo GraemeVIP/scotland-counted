@@ -229,15 +229,15 @@ export default function MspExpensesScotlandInvestigation() {
     <Prose>
       <Lead>
         Holyrood lists who got paid and what each bill was for. So we read the lot, from leaflets
-        and hotels to calendars and football banners.
+        and hotels to calendars and football banners. Every party at Holyrood is in the same boat.
       </Lead>
 
       <QuickTake
         items={[
           <>
             Leaflet money not spent by <strong>31 March</strong> is lost. The{" "}
-            <strong>Scottish Greens</strong> spent <strong>77.8%</strong> of their 2024/25 leaflet
-            money in March, the last month.
+            <strong>Scottish Greens</strong> blew <strong>77.8%</strong> of their 2024/25 leaflet
+            spend in March alone.
           </>,
           <>
             Labour&apos;s{" "}
@@ -260,7 +260,8 @@ export default function MspExpensesScotlandInvestigation() {
             from 2016 to 2024.
           </>,
           <>
-            MSPs billed <strong>£161,374</strong> in council tax on Edinburgh flats in 2024/25,
+            MSPs backed double council tax on second homes. Then they sent you a{" "}
+            <strong>£161,374</strong> council tax bill for their own Edinburgh flats in 2024/25,
             more than double the year before.
           </>,
           <>
@@ -269,7 +270,7 @@ export default function MspExpensesScotlandInvestigation() {
               <strong>Rachael Hamilton</strong>
             </Link>{" "}
             at{" "}
-            <strong>£62,112</strong>. Every party is in the lists below.
+            <strong>£62,112</strong>.
           </>,
         ]}
       />
@@ -287,8 +288,8 @@ export default function MspExpensesScotlandInvestigation() {
         ]}
       >
         <p>
-          <strong>Paid to Craigview Strategies at £600 a day</strong> in 2023 and 2024. Griffin paid
-          £11,400 and Marra £8,400. Both are regional MSPs: each speaks for a large Holyrood region,
+          <strong>£19,800 to an ex Scottish Labour boss&apos;s firm.</strong> Griffin (£11,400) and
+          Marra (£8,400) paid <strong>Craigview Strategies</strong> £600 a day in 2023 and 2024. Both are regional MSPs: each speaks for a large Holyrood region,
           not one seat.
         </p>
         <p>
@@ -302,12 +303,14 @@ export default function MspExpensesScotlandInvestigation() {
         people={[{ name: "Alexander Burnett", href: msp("constituencies/aberdeenshire-west"), p: "Conservative", place: "Aberdeenshire West" }]}
       >
         <p>
-          <strong>Billed for printing and posting calendars</strong> through Hill and Hay Ltd from
-          2016 to 2024. £9,545 of it came in December 2024 alone.
+          <strong>£36,953 on calendars for a rich estate owner.</strong> Tory Alexander Burnett&apos;s
+          entry in the Register of Interests (the public list of MSPs&apos; homes, shares and other
+          jobs) shows a big estate, £2.49 million in property firm shares, a £4.7 million trust, and
+          £30,001 to £40,000 a year as a firm boss.
         </p>
         <p>
-          His entry in the Register of Interests (the public list of MSPs&apos; homes, shares and
-          other jobs) shows a large estate and £2.49 million in property firm shares.
+          Yet from 2016 to 2024 he billed taxpayers <strong>£36,953</strong> via Hill and Hay Ltd to
+          print and post calendars. That hit £9,545 in December 2024 alone.
         </p>
       </CaseCard>
 
@@ -326,7 +329,7 @@ export default function MspExpensesScotlandInvestigation() {
         </p>
       </CaseCard>
 
-      <Expand summary="Six cancelled hotel and taxi fees billed to taxpayers">
+      <Expand summary="Non refundable cancelled hotel and taxi fees sent to taxpayers">
         <UL>
           <LI>
             <strong>£396:</strong> <Link href={msp("regions/west-scotland/ross-greer")}>Ross Greer</Link> (Greens)
@@ -384,7 +387,7 @@ export default function MspExpensesScotlandInvestigation() {
 
       {/* ------------------------------------------------------------ 3 */}
       <Finding n={3} id="party-tally">
-        Party by party: who spent most on leaflets, and who left it to March
+        The Holyrood Party Tally: every party put on blast
       </Finding>
       <P>
         Each MSP gets a yearly pot for leaflets, mail and ads. It runs from April to March, and money
@@ -441,7 +444,62 @@ export default function MspExpensesScotlandInvestigation() {
         at £35,974, then the Tories, SNP and Labour.
       </P>
 
-      <Expand summary="Each party's 2024/25 claims per MSP">
+      <Expand summary="What stands out for each party, plus every party's figures">
+        <PartyList
+          items={[
+            {
+              p: "Greens",
+              children: (
+                <>
+                  <strong>Scottish Greens:</strong> Second highest spend at{" "}
+                  <strong>£35,974 per MSP</strong>, ahead of Tories, SNP and Labour. They came first
+                  for leaflets at <strong>£15,412 per MSP</strong>. They blew <strong>77.8%</strong>{" "}
+                  of their year&apos;s leaflet spend in March alone.
+                </>
+              ),
+            },
+            {
+              p: "Conservative",
+              children: (
+                <>
+                  <strong>Scottish Conservatives:</strong> First for Edinburgh flats and hotels at{" "}
+                  <strong>£9,438 per MSP</strong> (£51,968 in council tax). They also drove{" "}
+                  <strong>190,128 car miles</strong> (£84,308) in one year.
+                </>
+              ),
+            },
+            {
+              p: "SNP",
+              children: (
+                <>
+                  <strong>SNP:</strong> Claimed <strong>£2.19 million</strong> across 62 MSPs. That
+                  includes <strong>£87,890</strong> in Edinburgh second home council tax after backing
+                  double tax, plus <strong>174,045 car miles</strong> (£77,888).
+                </>
+              ),
+            },
+            {
+              p: "Labour",
+              children: (
+                <>
+                  <strong>Scottish Labour:</strong> Lowest spend at £31,906 per MSP. Yet they still
+                  blew <strong>46.3%</strong> of their leaflet spend in March and paid{" "}
+                  <strong>£19,800</strong> to an ex Scottish Labour boss&apos;s firm.
+                </>
+              ),
+            },
+            {
+              p: "Lib Dem",
+              children: (
+                <>
+                  <strong>Scottish Liberal Democrats:</strong> Top raw spend (£41,738 across four
+                  MSPs). That is pushed up by £34,309 in island flights for Orkney and Shetland.
+                </>
+              ),
+            },
+          ]}
+        />
+        <p className="ui mb-3 mt-6 text-[14.5px] font-[640] text-[var(--ink)]">Every party&apos;s figures per MSP</p>
         <PartyList
           items={PARTY_TALLY.map((t) => ({
             p: t.p,
@@ -464,12 +522,14 @@ export default function MspExpensesScotlandInvestigation() {
 
       {/* ------------------------------------------------------------ 4 */}
       <Finding n={4} id="greens-scorecard">
-        A closer look at the seven Green MSPs
+        The Scottish Greens&apos; £852,287 bill: flights, 37,274 car miles, £101k hotels and a
+        77.8% March blitz
       </Finding>
       <P>
-        The Greens spent the most per MSP on leaflets, so we looked at their claims in more detail.
-        From May 2021 to June 2025, their seven MSPs claimed £852,287, not counting staff pay. That
-        includes £286,756 on leaflets, mail and ads, £100,949 on hotels and 37,274 car miles.
+        From May 2021 to June 2025, just seven Green MSPs billed taxpayers <strong>£852,287</strong>{" "}
+        (not counting staff pay). Open their bills and the gap between their green words and their
+        spend is hard to miss: £286,756 on leaflets, mail and ads, 37,274 car miles, and £100,949 on
+        hotels, more than an MSP&apos;s £74,507 yearly pay.
       </P>
 
       <BigStat
@@ -501,11 +561,12 @@ export default function MspExpensesScotlandInvestigation() {
 
       {/* ------------------------------------------------------------ 5 */}
       <Finding n={5} id="double-council-tax">
-        Double council tax on second homes: MSPs&apos; Edinburgh council tax claims more than doubled
+        MSPs backed double council tax on second homes, then sent you the bill (+122%)
       </Finding>
       <P>
-        Since April 2024, councils can charge double council tax on second homes, using new powers
-        from Holyrood. MSPs claim the council tax on their Edinburgh flats as expenses. SNP minister{" "}
+        In April 2024, councils began charging double council tax on second homes under new Holyrood
+        powers. Once the extra charge hit, the bill to taxpayers for MSPs&apos; Edinburgh flats more
+        than doubled. SNP minister{" "}
         <Link href={msp("constituencies/argyll-and-bute")}>Jenni Minto</Link>&apos;s claims even
         name it: £1,696 for a &ldquo;Second Home levy&rdquo;.
       </P>
@@ -520,7 +581,7 @@ export default function MspExpensesScotlandInvestigation() {
 
       <ChartFrame
         kicker="Before and after the April 2024 double tax"
-        title="Biggest Edinburgh council tax claims in 2024/25, and the year before"
+        title="How MSPs' Edinburgh council tax bills shot up"
         legend={
           <>
             <Swatch colour="var(--rule-strong)">2023/24</Swatch>
@@ -537,13 +598,16 @@ export default function MspExpensesScotlandInvestigation() {
 
       {/* ------------------------------------------------------------ 6 */}
       <Finding n={6} id="newspaper-racket">
-        £127,627 on newspapers, and Lorna Slater&apos;s double £144 claim
+        The £127,627 paper bill (and Lorna Slater&apos;s double £144 claim)
       </Finding>
       <P>
-        Holyrood already gives MSPs a free library and daily press cuttings. Even so, from May 2021
-        to June 2025 MSPs billed £127,627 for papers and magazines (£35,987 in 2024/25).
+        Holyrood already pays for a free library and daily press clips. Yet from May 2021 to June
+        2025, MSPs still billed taxpayers <strong>£127,627</strong> for papers and mags (£35,987 in
+        2024/25).
       </P>
-      <P>Lorna Slater&apos;s papers cost £3,430 over four years. One month stands out:</P>
+      <P>
+        Lorna Slater&apos;s papers cost £3,430 over four years. What does not add up is July 2021:
+      </P>
 
       <Receipt
         person={{ name: "Lorna Slater", href: msp("constituencies/edinburgh-central"), p: "Greens", place: "Edinburgh Central" }}
@@ -575,8 +639,13 @@ export default function MspExpensesScotlandInvestigation() {
 
       {/* ------------------------------------------------------------ 7 */}
       <Finding n={7} id="commuter-belt-hotels">
-        Edinburgh flats and hotels for MSPs 35 to 45 miles away
+        Edinburgh flats and £10k hotels 35 to 45 miles away
       </Finding>
+      <P>
+        Normal workers travel from Glasgow, Paisley and East Kilbride to Edinburgh each day out of
+        their own pay. At Holyrood, taxpayers pay huge flat and hotel bills for MSPs from those
+        exact same towns.
+      </P>
       <ChartFrame
         kicker="2024/25 · Edinburgh flats, hotels and meals"
         title="Central Belt and West MSPs staying in Edinburgh"
@@ -627,7 +696,7 @@ export default function MspExpensesScotlandInvestigation() {
                 <Link href={msp("constituencies/ettrick-roxburgh-and-berwickshire")}>
                   <strong>Rachael Hamilton</strong>
                 </Link>
-                : owns 49% of Borders Hotels. Top MSP claimer in 2024/25 at £62,112.
+                : owns 49% of Borders Hotels while topping MSP claims at £62,112.
               </>
             ),
           },
@@ -661,8 +730,8 @@ export default function MspExpensesScotlandInvestigation() {
       />
 
       <P>
-        <strong>15 sitting MSPs</strong> still list a local councillor job with no end date. Council
-        pay of £25,001 to £30,000 comes on top of MSP pay of £74,507.
+        On top of that, <strong>15 sitting MSPs</strong> still list an active local councillor job
+        with no quit date. They draw £25,001 to £30,000 council pay on top of £74,507+ MSP pay.
       </P>
 
       <div className="not-prose flex flex-wrap gap-2">

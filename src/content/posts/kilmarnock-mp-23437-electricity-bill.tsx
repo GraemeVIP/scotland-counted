@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import Link from "@/components/IntentLink";
-import { Prose, P, PostCTA } from "@/components/Prose";
+import { Prose, P, Aside, PostCTA } from "@/components/Prose";
 
 /*
  * Written in Graeme's voice (graeme-writing skill). Every expense figure comes
@@ -156,7 +156,11 @@ export default function KilmarnockMp23437ElectricityBill() {
             <strong>£6,587 more</strong> than a full year&apos;s rent on her Kilmarnock office.
           </>,
           <>
-            <strong>£0</strong> has been paid back.
+            On <strong>10 September 2024</strong> she voted for Labour&apos;s cut to the Winter Fuel
+            Payment.
+          </>,
+          <>
+            Equal to <strong>156</strong> Warm Home Discounts. <strong>£0</strong> has been paid back.
           </>,
         ]}
       />
@@ -274,12 +278,13 @@ export default function KilmarnockMp23437ElectricityBill() {
 
       {/* ------------------------------------------------------------ 3 */}
       <Finding n={3} id="warm-home-contrast">
-        Equal to 156 Warm Home Discounts
+        156 Warm Home Discounts, and her Winter Fuel vote
       </Finding>
       <P>
-        Low paid homes in East Ayrshire apply for the{" "}
+        In East Ayrshire and across Scotland, low paid homes have to apply for the{" "}
         <Link href="/warm-home-discount-scotland">£150 Warm Home Discount</Link> to keep the heat
-        on. The money paid that one day equals <strong>156 Warm Home Discounts</strong>.
+        on. At £150 a home, the £23,437 paid in one day equals{" "}
+        <strong>156 Warm Home Discounts</strong>.
       </P>
 
       <Tiles
@@ -290,9 +295,9 @@ export default function KilmarnockMp23437ElectricityBill() {
       />
 
       <P>
-        For the record: on 10 September 2024, <Link href={JONES.href}>Lillian Jones</Link> voted
-        for the government&apos;s change to the Winter Fuel Payment (up to £300 a year), which
-        stopped it for millions of pensioners.
+        Now look at how she voted in Westminster. On <strong>10 September 2024</strong>,{" "}
+        <Link href={JONES.href}>Lillian Jones</Link> backed Labour&apos;s cut to the Winter Fuel
+        Payment. That cut took up to £300 of winter heat help from millions of pensioners.
       </P>
 
       {/* ------------------------------------------------------------ 4 */}
@@ -300,16 +305,21 @@ export default function KilmarnockMp23437ElectricityBill() {
         How IPSA paid it outside her normal office limit
       </Finding>
       <P>
-        An MP&apos;s office power bills normally come from a capped office budget. This bill was far
-        bigger than that budget allows.
+        Look at which pot of cash paid for this. Normal power bills for an MP&apos;s office come
+        from their capped office budget.
       </P>
       <P>
-        So IPSA logged it outside her office budget. It was paid from extra public money.
+        A £23,437 bill would have smashed straight through that cap. So IPSA paid Yu Energy from
+        extra public cash, outside her office budget. That kept it out of her normal office bill.
       </P>
       <P>
-        To be fair, a business power bill can jump for real reasons: no fixed deal, an old
-        tenant&apos;s unpaid bills, or heaters left on all winter. But the public files leave these
-        questions open:
+        To be fair, a business power bill can jump fast for real reasons. Yu Energy can charge steep
+        out of deal rates if a shop unit has no fixed plan. An old tenant may have left unpaid meter
+        bills behind, or electric heaters may have run all winter.
+      </P>
+      <P>
+        Even so, four clear questions for <Link href={JONES.href}>Lillian Jones</Link> and IPSA have
+        no answer in the public files:
       </P>
 
       <PointList
@@ -322,20 +332,40 @@ export default function KilmarnockMp23437ElectricityBill() {
           {
             key: "how",
             title: "How did an office paying £215 a month end up owing £23,437?",
-            children: <>Was there no fixed deal? Or was it a meter or landlord dispute?</>,
+            children: <>Was there no fixed deal in place? Or was it a meter or landlord fight?</>,
           },
           {
             key: "challenge",
-            title: "Did IPSA challenge the bill before paying it?",
-            children: <>It cost the public more than a year&apos;s rent on her office.</>,
+            title: "Did IPSA fight the bill before paying £23,437?",
+            children: (
+              <>
+                Why did the public pay more than a year&apos;s rent instead of the firm or landlord
+                sorting it out?
+              </>
+            ),
           },
           {
             key: "repaid",
-            title: "Will any of it come back?",
+            title: "Will any of the £23,437 ever come back?",
             children: <>In the latest public files, £0 has been paid back.</>,
           },
         ]}
       />
+
+      <Aside title="Part of a wider pattern in Westminster">
+        <p>
+          <Link href={JONES.href}>Lillian Jones</Link> is not alone. Across Scotland&apos;s 57 MPs,
+          we found{" "}
+          <Link href="/blog/scottish-mps-tv-licence-expenses">
+            29 MPs who claimed £10,754 for TV licences
+          </Link>
+          . We also found{" "}
+          <Link href="/blog/worst-scottish-mp-expenses">£3,090 to set up 5G broadband</Link>,
+          £24,530 on one MP&apos;s phone bills, and £37,359 on London hotels. See{" "}
+          <Link href="/mp-expenses-scotland/receipts">the oddest claims</Link> or compare{" "}
+          <Link href="/mp-expenses-scotland">all 57 Scottish MPs</Link>.
+        </p>
+      </Aside>
 
       <PostCTA
         title="See both Yu Energy claims (or check your own MP)"
