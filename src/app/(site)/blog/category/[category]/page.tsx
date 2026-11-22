@@ -34,7 +34,7 @@ const CATEGORY_SEO = {
       "Plain English guides and free tools for finding your MP and MSP, writing a focused email and understanding what happens after you press send.",
   },
   "politics-explained": {
-    title: "Scottish Politics Explained: Timelines and Primary Sources",
+    title: "Investigations: Scottish MP & MSP Expenses, Branchform & More",
     h1: "Scotland Counted investigations",
     description:
       "We read the receipts, records and votes so you don't have to. MP and MSP expenses, Operation Branchform and more, with every figure linked to its original source.",
