@@ -203,15 +203,15 @@ export default function Home() {
             <div>
               <span className="tile-key">New · MP expenses in Scotland</span>
               <p className="mt-2 max-w-[60ch] text-[17px] leading-[1.5] text-white">
-                Scottish MPs billed taxpayers £10,754 for TV licences, £37,359 for one MP&apos;s
-                London hotels, £24,530 for one MP&apos;s mobile bills and £3,090 to set up home
-                broadband. Search all 20,879 official receipts yourself.
+                Scottish MPs billed taxpayers £23,437 for electricity in a single day (number one
+                in the UK), £10,754 for TV licences, £37,359 for one MP&apos;s London hotels and
+                £24,530 for one MP&apos;s mobile bills. Search all 20,879 official receipts.
               </p>
               <p className="ui mt-3 flex flex-wrap gap-x-5 gap-y-2 text-[15px]">
-                <Link href="/mp-expenses-scotland" className="font-[600] text-white">All 57 MPs ranked →</Link>
-                <Link href="/mp-expenses-scotland/receipts" className="font-[600] text-white">The receipts →</Link>
-                <Link href="/blog/worst-scottish-mp-expenses" className="font-[600] text-white">The worst expenses →</Link>
+                <Link href="/blog/kilmarnock-mp-23437-electricity-bill" className="font-[600] text-white">£23,437 power bill (UK #1) →</Link>
                 <Link href="/blog/scottish-mps-tv-licence-expenses" className="font-[600] text-white">29 MPs&apos; TV licences →</Link>
+                <Link href="/mp-expenses-scotland/receipts" className="font-[600] text-white">The receipts →</Link>
+                <Link href="/mp-expenses-scotland" className="font-[600] text-white">All 57 MPs ranked →</Link>
               </p>
             </div>
             <Link href="/mp-expenses-scotland/search" className="btn bg-white text-[#00336f] shrink-0 self-start sm:self-center">

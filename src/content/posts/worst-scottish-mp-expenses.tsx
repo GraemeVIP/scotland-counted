@@ -157,8 +157,20 @@ export default function WorstScottishMpExpenses() {
         </LI>
       </UL>
 
-      <H2 id="perks">5. TV licences, a £24,530 mobile bill, dinners, sofas and phones</H2>
+      <H2 id="perks">5. £23,437 electricity bill, TV licences, a £24,530 mobile bill and dinners</H2>
       <UL>
+        <LI>
+          <strong>£23,437 paid to Yu Energy for electricity in a single day (Lillian Jones, Labour):</strong>{" "}
+          On 19 May 2026 IPSA paid £20,384.74 (under Miscellaneous) and £3,052.21 (under Other
+          Costs) on the exact same account number for Kilmarnock and Loudoun MP{" "}
+          <Link href={mp("kilmarnock-and-loudoun")}>Lillian Jones</Link>. That is the largest
+          electricity payout for any MP in the entire UK over five years, costs £6,587 more than a
+          full year&apos;s rent for her entire office (£16,850), and equals 156 Warm Home
+          Discounts.{" "}
+          <Link href="/blog/kilmarnock-mp-23437-electricity-bill">
+            Read the full £23,437 electricity investigation →
+          </Link>
+        </LI>
         <LI>
           <strong>29 Scottish MPs billed taxpayers £10,754 for TV licences:</strong> More than half
           of Scotland&apos;s MPs put their TV licence on public expenses while ordinary households

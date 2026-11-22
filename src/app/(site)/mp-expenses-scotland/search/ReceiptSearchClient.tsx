@@ -78,6 +78,7 @@ const PRESETS: { id: PresetId; label: string; hint: string }[] = [
 ];
 
 const QUICK_SEARCH_WORDS: { word: string; note: string }[] = [
+  { word: "Yu Energy", note: "£23.4k" },
   { word: "mobile telephone", note: "£65.5k" },
   { word: "Amazon", note: "£40.6k" },
   { word: "Peach Partners", note: "£35.8k" },
@@ -393,6 +394,7 @@ export default function ReceiptSearchClient() {
   function handleCopyViralSummary() {
     const text = [
       "What Scotland's 57 MPs billed taxpayers on top of their £98,599 salary (official IPSA records, 2022 to 2026):",
+      "• £23,437 paid to Yu Energy for electricity in ONE day (Lillian Jones, Kilmarnock: #1 biggest MP electricity payout in the entire UK, more than a full year's office rent)",
       "• £10,754 on TV licences across 29 MPs (including 4 in 12 months by Gregor Poynton, and 2 in 9 months by Dr Zubir Ahmed)",
       "• £37,359 for 295 nights in London hotels in one year (Dr Zubir Ahmed)",
       "• £24,530 on EE mobile phone bills (Brendan O'Hara, peaking at £909 in one month)",

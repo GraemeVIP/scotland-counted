@@ -110,17 +110,26 @@ const RECEIPTS: Receipt[] = [
     ],
   },
   {
-    amount: "£20,385",
-    what: "One energy bill",
+    amount: "£23,437",
+    what: "Biggest MP electricity payout in the UK (paid in one day)",
     mp: "Lillian Jones",
-    party: "Labour",
+    party: "Scottish Labour",
     seat: "Kilmarnock and Loudoun",
     slug: "kilmarnock-and-loudoun",
     date: "19 May 2026",
-    budget: "Miscellaneous",
-    ipsa: ["Lillian Jones - Yu Energy Utilities - 2000294348"],
+    budget: "Miscellaneous & Other Costs",
+    ipsa: [
+      "Lillian Jones - Yu Energy Utilities - 2000294348 (£20,384.74, Miscellaneous)",
+      "Lillian Jones - Yu Energy Utilities - 2000294348 (£3,052.21, Other Costs)",
+    ],
     context:
-      "A single payment of £20,384.74, filed as miscellaneous. The record does not say which building or which months it covers. The typical household energy bill is £2,166 a year.",
+      "Two same day electricity payouts on the exact same account number, totalling £23,436.95 with £0 repaid. Paid outside her capped Office Costs budget from central contingency funds, it ranks number one out of all 650 UK MPs over five years and costs £6,587 more than a full year's rent for her entire Kilmarnock office (£16,850). Equals 156 Warm Home Discounts (£150 each).",
+    compare: [
+      ["Her office electricity for 5 winter months (Clear Business, Nov 2024 to Mar 2025)", "£1,074"],
+      ["Next biggest single MP electricity claim in the entire UK (2022 to 2026)", "£5,633"],
+      ["A full year's rent for her entire Kilmarnock office (2025/26)", "£16,850"],
+      ["Yu Energy payouts logged on 19 May 2026", "£23,437"],
+    ],
   },
   {
     amount: "£1,248",
@@ -528,6 +537,9 @@ export default function MpExpenseReceiptsPage() {
           <div className="mt-5 flex flex-wrap items-center gap-3">
             <Link href="/mp-expenses-scotland/search" className="btn btn-primary">
               Search all 20,879 receipts yourself →
+            </Link>
+            <Link href="/blog/kilmarnock-mp-23437-electricity-bill" className="btn btn-ghost">
+              £23,437 Kilmarnock power bill (UK #1) →
             </Link>
             <Link href="/blog/scottish-mps-tv-licence-expenses" className="btn btn-ghost">
               29 MPs&apos; TV licences (£10,754) →

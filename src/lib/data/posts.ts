@@ -142,6 +142,58 @@ export type Post = {
 
 export const posts: Post[] = [
   {
+    slug: "kilmarnock-mp-23437-electricity-bill",
+    title:
+      "£23,437 for electricity in a single day: how Kilmarnock's MP ended up with the biggest power bill in the UK Parliament",
+    seoTitle:
+      "Kilmarnock MP Lillian Jones £23,437 Yu Energy Electricity Bill (UK #1 in IPSA)",
+    description:
+      "On 19 May 2026 IPSA paid Yu Energy £23,436.95 across two entries for Kilmarnock and Loudoun MP Lillian Jones, more than a full year's rent for her office and the largest electricity payout for any UK MP.",
+    standfirst:
+      "While families in Kilmarnock apply for £150 Warm Home Discounts, IPSA paid £23,436.95 to Yu Energy in a single day for Labour MP Lillian Jones. It costs £6,587 more than an entire year's rent for her office and ranks number one out of all 650 UK MPs over five years.",
+    date: "2026-11-22",
+    updated: "2026-11-22",
+    checked: "2026-11-22",
+    category: "politics-explained",
+    tags: ["MP expenses Scotland", "Lillian Jones", "Kilmarnock", "Energy bills", "IPSA", "Scottish Labour"],
+    readingMinutes: 5,
+    image: {
+      src: "/images/editorial/refresh-court-records.webp",
+      alt: "Official IPSA financial records showing £23,436.95 paid to Yu Energy for Kilmarnock and Loudoun MP Lillian Jones",
+      caption:
+        "Checked against all five annual IPSA individualBusinessCosts files (2022/23 to 2026/27) across all 650 UK constituencies.",
+      aspect: "wide",
+      objectPosition: "center",
+    },
+    shareImage: {
+      src: "/images/editorial/refresh-court-records.webp",
+      width: 1500,
+      height: 1000,
+      type: "image/webp",
+    },
+    toc: [
+      { id: "the-receipts", label: "What the IPSA ledger shows" },
+      { id: "uk-number-one", label: "Number one out of all 650 UK MPs" },
+      { id: "warm-home-contrast", label: "156 Warm Home Discounts & Winter Fuel vote" },
+      { id: "how-ipsa-paid-it", label: "How IPSA paid it outside her office budget" },
+    ],
+    faq: [
+      {
+        q: "How much did IPSA pay to Yu Energy for Lillian Jones MP?",
+        a: "IPSA paid £23,436.95 across two entries on 19 May 2026 quoting the exact same account reference (2000294348): £20,384.74 filed under Miscellaneous for 2025/26, plus £3,052.21 filed under Other Costs for 2026/27. Both are marked Paid with £0.00 repaid.",
+      },
+      {
+        q: "Is £23,436.95 really the largest MP electricity claim in the UK?",
+        a: "Yes. Across all five IPSA individual claims spreadsheets from 2022/23 to 2026/27 covering all 650 UK MPs (more than 350,000 claim lines), Lillian Jones's £20,384.74 payout is the single largest utility claim in the entire United Kingdom, and combined with the same day £3,052.21 payout is more than four times larger than the next highest MP electricity claim (£5,632.57).",
+      },
+      {
+        q: "Why did the claim appear under Miscellaneous instead of Office Costs?",
+        a: "IPSA used direct supplier payment claim references (200013554) and allocated the £20,384.74 to Miscellaneous and £3,052.21 to Other Costs rather than Lillian Jones's capped Office Costs budget. IPSA's public ledger does not state which months or building the bill covered or whether it resulted from an out of contract commercial tariff.",
+      },
+    ],
+    sourceIds: ["ipsa-claims-2022-2027"],
+  },
+  {
     slug: "scottish-mps-tv-licence-expenses",
     title:
       "29 Scottish MPs billed taxpayers £10,754 for their TV licences (including one who claimed 4 in a year)",

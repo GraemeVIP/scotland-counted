@@ -58,6 +58,7 @@ import CrimeRateGlasgow from "./crime-rate-glasgow";
 import ScottishMpExpensesAndFreebiesInvestigation from "./scottish-mp-expenses-and-freebies-investigation";
 import WorstScottishMpExpenses from "./worst-scottish-mp-expenses";
 import ScottishMpsTvLicenceExpenses from "./scottish-mps-tv-licence-expenses";
+import KilmarnockMp23437ElectricityBill from "./kilmarnock-mp-23437-electricity-bill";
 
 /**
  * Slug to post body. Statically imported so every post is prerendered and no
@@ -65,6 +66,7 @@ import ScottishMpsTvLicenceExpenses from "./scottish-mps-tv-licence-expenses";
  * to src/lib/data/posts.ts.
  */
 export const postBodies: Record<string, ComponentType> = {
+  "kilmarnock-mp-23437-electricity-bill": KilmarnockMp23437ElectricityBill,
   "scottish-mps-tv-licence-expenses": ScottishMpsTvLicenceExpenses,
   "worst-scottish-mp-expenses": WorstScottishMpExpenses,
   "scottish-mp-expenses-and-freebies-investigation": ScottishMpExpensesAndFreebiesInvestigation,

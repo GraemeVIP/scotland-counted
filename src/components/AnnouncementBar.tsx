@@ -44,10 +44,10 @@ export default function AnnouncementBar() {
             New
           </span>
           <span className="ui min-w-0 text-[14px] font-[600] leading-[1.3] sm:text-[15.5px]">
-            <span className="sm:hidden">MPs billed you £10,754 for TV licences &amp; £37k for hotels. Search 20,879 receipts</span>
+            <span className="sm:hidden">£23,437 for one MP&apos;s electricity &amp; £10.7k for TV licences. Search 20,879 receipts</span>
             <span className="hidden sm:inline">
-              Scottish MPs billed you £10,754 for TV licences, £37,359 for London hotels and £3,090
-              for broadband. <span className="font-[800]">Search all 20,879 receipts</span>
+              Scottish MPs billed you £23,437 for electricity in one day (UK #1), £10,754 for TV
+              licences and £37,359 for hotels. <span className="font-[800]">Search all 20,879 receipts</span>
             </span>
           </span>
           <span

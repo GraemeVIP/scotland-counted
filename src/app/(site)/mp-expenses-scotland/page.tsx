@@ -603,8 +603,9 @@ export default function MpRegisterOfInterestsScotlandPage() {
 
   const JUMP_LINKS = [
     { href: "/mp-expenses-scotland/search", label: "Search all 20,879 receipts" },
-    { href: "/mp-expenses-scotland/receipts", label: "Top receipts" },
+    { href: "/blog/kilmarnock-mp-23437-electricity-bill", label: "£23,437 Kilmarnock power bill (UK #1)" },
     { href: "/blog/scottish-mps-tv-licence-expenses", label: "29 MPs' TV licences (£10,754)" },
+    { href: "/mp-expenses-scotland/receipts", label: "Top receipts" },
     { href: "/blog/worst-scottish-mp-expenses", label: "Worst expenses roundup" },
     { href: "#two-sets-of-rules", label: "MPs vs families" },
     { href: "#staff-travel", label: "Staff travel" },
