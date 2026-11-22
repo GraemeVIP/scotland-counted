@@ -35,6 +35,7 @@ import {
   Tiles,
   PartyList,
   Expand,
+  Spotlight,
 } from "@/components/ExpenseKit";
 
 const msp = (path: string) => `/representatives/msps/${path}`;
@@ -115,11 +116,11 @@ const PARTY_TALLY: {
 const promoNum = (s: string) => Number(s.replace(/[£,]/g, ""));
 
 const GREENS_SCORECARD = [
-  { name: "Ross Greer", href: msp("regions/west-scotland/ross-greer"), total: 168793, print: "£47,167", hotels: "£31,916", other: "£1,000 consultancy, £159 TV licence, £396 hotel cancellation fee" },
+  { name: "Ross Greer", href: msp("regions/west-scotland/ross-greer"), total: 168793, print: "£47,167", hotels: "£31,916", other: "£1,000 consultancy, three £159 TV licences, £396 hotel cancellation fee" },
   { name: "Ariane Burgess", href: msp("regions/highlands-and-islands/ariane-burgess"), total: 161785, print: "£45,255", hotels: "£2,888", other: "£18,260 on consultants, 23 flights (£3,620), £3,713 car hire, 140 taxis (£1,033)" },
   { name: "Mark Ruskell", href: msp("regions/mid-scotland-and-fife/mark-ruskell"), total: 141472, print: "£38,620", hotels: "£31,927", other: "19,204 car miles (£8,642), £12,375 on research and rail consultants" },
   { name: "Patrick Harvie", href: msp("regions/glasgow/patrick-harvie"), total: 132308, print: "£49,499", hotels: "£26,215", other: "£17,400 leaflet bill on 28 March 2025, £2,990 for Trello (online planning software), £169.50 TV licence" },
-  { name: "Maggie Chapman", href: msp("regions/north-east-scotland/maggie-chapman"), total: 112311, print: "£37,343", hotels: "£0", other: "16,412 car miles (£7,385), £4,999 office decorating and new floor" },
+  { name: "Maggie Chapman", href: msp("regions/north-east-scotland/maggie-chapman"), total: 112311, print: "£37,343", hotels: "£0", other: "16,412 car miles (£7,385), £6,979 office decorating and new floor" },
   { name: "Gillian Mackay", href: msp("regions/central-scotland-and-lothians-west/gillian-mackay"), total: 92960, print: "£40,363", hotels: "£8,003", other: "£16,380 on leaflets in March 2025 alone" },
   { name: "Lorna Slater", href: msp("constituencies/edinburgh-central"), total: 42658, print: "£28,509", hotels: "£0", other: "£3,000 media coaching while a minister, £3,430 newspapers, £1,764 event food" },
 ];
@@ -142,7 +143,7 @@ const COUNCIL_TAX: {
   { name: "Gillian Martin", p: "SNP", href: msp("constituencies/aberdeenshire-east"), before: 2942.4, after: 3723.93, detail: "Then £3,313 in April to June 2025" },
   { name: "Ariane Burgess", p: "Greens", href: msp("regions/highlands-and-islands/ariane-burgess"), before: 1462.48, after: 3636.39, detail: "Up 149% in one year" },
   { name: "Graham Simpson", p: "Reform UK", note: "then a Tory", href: msp("regions/central-scotland-and-lothians-west/graham-simpson"), before: 2260.45, after: 3479.6, detail: "He also paid £4,842 early, in March 2025, for 2025/26. With that, he billed £8,322 in the 2024/25 year." },
-  { name: "Collette Stevenson", p: "SNP", href: msp("constituencies/east-kilbride"), before: 606.29, after: 3441.77, detail: "Then £7,455 in April 2025: two identical £3,727 entries four weeks apart, no refund shown up to June 2025" },
+  { name: "Collette Stevenson", p: "SNP", href: msp("constituencies/east-kilbride"), before: 606.29, after: 3441.77, detail: "Then £7,455 in April 2025 for 2025/26: two £3,727 lines four weeks apart, one labelled \"2 Home premium\"" },
   { name: "Siobhian Brown", p: "SNP", href: msp("constituencies/ayr"), before: 1462.48, after: 3441.77, detail: "Up 135% in one year" },
 ];
 
@@ -329,32 +330,44 @@ export default function MspExpensesScotlandInvestigation() {
         </p>
       </CaseCard>
 
-      <Expand summary="Non refundable cancelled hotel and taxi fees sent to taxpayers">
-        <UL>
-          <LI>
-            <strong>£396:</strong> <Link href={msp("regions/west-scotland/ross-greer")}>Ross Greer</Link> (Greens)
-          </LI>
-          <LI>
-            <strong>£296:</strong> <Link href={msp("constituencies/argyll-and-bute")}>Jenni Minto</Link> (SNP,
-            Premier Inn Oban)
-          </LI>
-          <LI>
-            <strong>£278:</strong> <Link href={msp("constituencies/cunninghame-north")}>Kenneth Gibson</Link>{" "}
-            (Independent)
-          </LI>
-          <LI>
-            <strong>£249:</strong>{" "}
-            <Link href={msp("constituencies/perthshire-south-and-kinross-shire")}>Jim Fairlie</Link> (SNP)
-          </LI>
-          <LI>
-            <strong>£150:</strong> <Link href={msp("constituencies/motherwell-and-wishaw")}>Clare Adamson</Link>{" "}
-            (SNP)
-          </LI>
-          <LI>
-            <strong>£55 taxi fee:</strong> <Link href={msp("constituencies/airdrie")}>Neil Gray</Link> (SNP)
-          </LI>
-        </UL>
-      </Expand>
+      <Spotlight
+        person={{ name: "Ross Greer", href: msp("regions/west-scotland/ross-greer"), p: "Greens", place: "West Scotland" }}
+        kicker="November 2023 · a hotel he never stayed in"
+        amount="£396"
+        headline="You paid for a hotel booking he cancelled."
+        lines={[{ what: "28 Nov Arrival 2NTS; Non-refundable Cancellation fee - 27 Nov 2023", amount: "£396.00" }]}
+      >
+        <p>
+          The booking was cancelled the day before. The fee could not be refunded, so it went on
+          expenses. Taxpayers paid for a room nobody used.
+        </p>
+      </Spotlight>
+
+      <P>
+        <strong>More cancelled hotel and taxi fees sent to taxpayers:</strong>
+      </P>
+      <UL>
+        <LI>
+          <strong>£296</strong> for <Link href={msp("constituencies/argyll-and-bute")}>Jenni Minto</Link>{" "}
+          (SNP), <strong>Premier Inn Oban</strong>
+        </LI>
+        <LI>
+          <strong>£278</strong> for <Link href={msp("constituencies/cunninghame-north")}>Kenneth Gibson</Link>{" "}
+          (Independent)
+        </LI>
+        <LI>
+          <strong>£249</strong> for{" "}
+          <Link href={msp("constituencies/perthshire-south-and-kinross-shire")}>Jim Fairlie</Link> (SNP)
+        </LI>
+        <LI>
+          <strong>£150</strong> for <Link href={msp("constituencies/motherwell-and-wishaw")}>Clare Adamson</Link>{" "}
+          (SNP)
+        </LI>
+        <LI>
+          <strong>£55 taxi fee</strong> for Health boss <Link href={msp("constituencies/airdrie")}>Neil Gray</Link>{" "}
+          (SNP)
+        </LI>
+      </UL>
 
       {/* ------------------------------------------------------------ 2 */}
       <Finding n={2} id="top-claimers">
@@ -538,6 +551,65 @@ export default function MspExpensesScotlandInvestigation() {
         exact="The five biggest March leaflet spenders at Holyrood were all Greens: Patrick Harvie £17,400, Maggie Chapman £17,200, Ross Greer £17,000, Gillian Mackay £16,380 and Mark Ruskell £15,566."
       />
 
+      <Spotlight
+        person={{ name: "Lorna Slater", href: msp("constituencies/edinburgh-central"), p: "Greens", place: "Edinburgh Central" }}
+        kicker="September and November 2023 · while she was a government minister"
+        amount="£3,000"
+        headline="You paid for a minister's one to one speaking coach."
+        lines={[
+          { meta: "18 Sept 2023 · Pink Elephant Communications Ltd", what: "Pink Elephant Communication Skills 1-2-1", amount: "£1,500.00" },
+          { meta: "2 Nov 2023 · Pink Elephant Communications Ltd", what: "Comm Skills October LS", amount: "£1,500.00" },
+        ]}
+      >
+        <p>
+          Two £1,500 sessions to help her talk better, billed as &ldquo;training&rdquo;. Taxpayers
+          paid both.
+        </p>
+        <p>
+          In May 2025 she also billed <strong>£1,764</strong> for &ldquo;International Biodiversity
+          Day 2025 - Catering and Audio Visual Costs&rdquo;.
+        </p>
+      </Spotlight>
+
+      <Spotlight
+        person={{ name: "Maggie Chapman", href: msp("regions/north-east-scotland/maggie-chapman"), p: "Greens", place: "North East Scotland" }}
+        kicker="November and December 2022 · her new regional office"
+        amount="£6,979"
+        headline="You paid to decorate her office and lay a new floor."
+        lines={[
+          { meta: "7 Nov 2022", what: "Office Decoration 07/11/22", amount: "£1,980.00" },
+          { meta: "7 Nov 2022", what: "Preparation and Decoration of office 07/11/22", amount: "£3,588.00" },
+          { meta: "15 Dec 2022", what: "Replacing floor in new regional office", amount: "£1,411.20" },
+        ]}
+      >
+        <p>Paint, prep and a new floor, all on expenses. Taxpayers paid the lot.</p>
+      </Spotlight>
+
+      <P>
+        <strong>Also on the Greens&apos; bills:</strong>
+      </P>
+      <UL>
+        <LI>
+          <Link href={msp("regions/glasgow/patrick-harvie")}>Patrick Harvie</Link>:{" "}
+          <strong>£17,400</strong> to Alliance Print Group for one &ldquo;Annual Report Printing &amp;
+          Mailing&rdquo; bill on <strong>28 March 2025</strong>, three days before unspent money ran out.
+        </LI>
+        <LI>
+          <Link href={msp("regions/glasgow/patrick-harvie")}>Patrick Harvie</Link>:{" "}
+          <strong>£2,990 for Trello</strong> (an online to do list app) over four years, and a{" "}
+          <strong>£169.50 TV licence</strong> the day before that print bill.
+        </LI>
+        <LI>
+          <Link href={msp("regions/west-scotland/ross-greer")}>Ross Greer</Link>:{" "}
+          <strong>three £159 TV licences</strong>, one a year from 2021 to 2023.
+        </LI>
+        <LI>
+          <Link href={msp("regions/highlands-and-islands/ariane-burgess")}>Ariane Burgess</Link>:{" "}
+          <strong>£18,260 on consultants</strong>, <strong>23 flights</strong> and{" "}
+          <strong>140 taxis</strong>.
+        </LI>
+      </UL>
+
       <Expand summary="See each Green MSP's four year claims">
         <RankList
           rows={GREENS_SCORECARD.map((r) => ({
@@ -622,7 +694,7 @@ export default function MspExpensesScotlandInvestigation() {
       <ChartFrame
         kicker="May 2021 to June 2025 · £127,627 across Holyrood"
         title="Biggest MSP newspaper and magazine bills"
-        caption="Source: Holyrood public expense files, Newspaper category, May 2021 to June 2025. Tory leader Russell Findlay also billed £530 for The Spectator."
+        caption="Source: Holyrood public expense files, Newspaper category, May 2021 to June 2025."
       >
         <RankFold
           more="See five more"
@@ -636,6 +708,13 @@ export default function MspExpensesScotlandInvestigation() {
           }))}
         />
       </ChartFrame>
+
+      <P>
+        <strong>Tory leader</strong>{" "}
+        <Link href={msp("regions/west-scotland/russell-findlay")}>Russell Findlay</Link> billed
+        taxpayers <strong>£699.96</strong> for <strong>four yearly Spectator subscriptions</strong>{" "}
+        (2022 to 2025).
+      </P>
 
       {/* ------------------------------------------------------------ 7 */}
       <Finding n={7} id="commuter-belt-hotels">

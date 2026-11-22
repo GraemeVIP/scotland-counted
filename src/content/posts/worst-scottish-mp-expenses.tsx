@@ -11,6 +11,7 @@ import {
   ChartFrame,
   RankList,
   Receipt,
+  Spotlight,
   CaseCard,
   Tiles,
   PointList,
@@ -46,7 +47,6 @@ const PRINT_AND_POST: { name: string; slug: string; p: PartyKey; seat: string; v
 const GADGETS: { name: string; slug: string; p: PartyKey; value: number; detail: string }[] = [
   { name: "Elaine Stewart", slug: "ayr-carrick-and-cumnock", p: "Labour", value: 2535, detail: "Phone gear from Amazon" },
   { name: "Pete Wishart", slug: "perth-and-kinross-shire", p: "SNP", value: 1399, detail: "Bought at Apple" },
-  { name: "John Lamont", slug: "berwickshire-roxburgh-and-selkirk", p: "Conservative", value: 1248, detail: "An iPhone and protection case" },
 ];
 
 export default function WorstScottishMpExpenses() {
@@ -264,9 +264,10 @@ export default function WorstScottishMpExpenses() {
             title: "More from Melanie Ward",
             children: (
               <>
-                £7,000 for a local industrial strategy report, paid back four months later. £4,691
-                at IKEA. £2,150 for drawings needed to get permission to paint and fit security at
-                her listed office building. £1,443 for a survey before leasing an office.
+                <strong>£4,691 at IKEA</strong> in one go. £7,000 for a local industrial strategy
+                report, paid back four months later. £2,150 for drawings needed to get permission to
+                paint and fit security at her listed office building. £1,443 for a survey before
+                leasing an office.
               </>
             ),
           },
@@ -327,7 +328,20 @@ export default function WorstScottishMpExpenses() {
         <p>That is about £110 a week. His biggest month was £909.24, in March 2026.</p>
       </CaseCard>
 
-      <ChartFrame kicker="IPSA files · Phones and tech" title="Biggest single gadget claims">
+      <Spotlight
+        person={person("John Lamont", "berwickshire-roxburgh-and-selkirk", "Conservative", "Berwickshire, Roxburgh and Selkirk")}
+        kicker="12 June 2025 · Mobile phone"
+        amount="£1,248"
+        headline="You paid for his new iPhone and case."
+        lines={[{ what: "Iphone and protection case", amount: "£1,248.00" }]}
+      >
+        <p>
+          Most people pay for their own phone. Here, taxpayers did. It was not his first: in August
+          2022 he claimed £1,098 for another iPhone.
+        </p>
+      </Spotlight>
+
+      <ChartFrame kicker="IPSA files · Phones and tech" title="More big gadget claims">
         <RankList
           rows={GADGETS.map((r) => ({
             key: r.slug,
@@ -345,38 +359,92 @@ export default function WorstScottishMpExpenses() {
         Dinners, a Christmas lunch, sofas and a column
       </Finding>
 
-      <Receipt
+      <Spotlight
         person={person("Christine Jardine", "edinburgh-west", "Lib Dem", "Edinburgh West")}
-        heading="19 December 2025 · Two claims, one day"
+        kicker="19 December 2025 · six days before Christmas"
+        amount="£510"
+        headline="You paid for her office Christmas lunch and team day."
         lines={[
           { what: "lunch staff team training Christmas", amount: "£250.80" },
           { what: "team building event", amount: "£259.31" },
         ]}
-        total={{ label: "Total", amount: "£510.11" }}
-        footer="Wording as printed by IPSA."
-      />
+      >
+        <p>
+          Both bills went in on the same day. Most people pay for their own work Christmas do, or
+          their boss does. Here, taxpayers did.
+        </p>
+      </Spotlight>
 
-      <Receipt
+      <Spotlight
         person={person("Graeme Downie", "dunfermline-and-dollar", "Labour", "Dunfermline and Dollar")}
-        heading="13 March 2025 · Hospitality"
+        kicker="13 March 2025 · Hospitality"
+        amount="£963"
+        headline="You paid for a business dinner held in his name."
         lines={[{ what: "Fife College hosted business dinner on behalf of Graeme Downie", amount: "£962.65" }]}
-        footer="Wording as printed by IPSA (reference number left out)."
-      />
+      >
+        <p>One dinner, nearly £1,000 of public cash. The file does not say who ate it.</p>
+      </Spotlight>
+
+      <Spotlight
+        person={person("Pamela Nash", "motherwell-wishaw-and-carluke", "Labour", "Motherwell, Wishaw and Carluke")}
+        kicker="2025/26 · Office furniture"
+        amount="£3,182"
+        headline="You paid for her DFS and IKEA office furniture."
+        lines={[
+          { meta: "5 April 2025", what: "IKEA LTD SHOP ONLINE", amount: "£1,334.00" },
+          { meta: "30 March 2026", what: "IKEA LTD SHOP ONLINE", amount: "£395.00" },
+          { meta: "31 March 2026", what: "DFS TRADING LIMITED", amount: "£1,208.00" },
+          { meta: "31 March 2026", what: "IKEA LTD SHOP ONLINE", amount: "£245.00" },
+        ]}
+      >
+        <p>
+          Three of the four bills landed in the last two days of the budget year. A £245 IKEA refund
+          came off in April 2026.
+        </p>
+      </Spotlight>
 
       <PointList
         items={[
           {
-            key: "nash",
-            title: <Who face name="Pamela Nash" href={mp("motherwell-wishaw-and-carluke")} p="Labour" note="£3,182" />,
-            children: <>Four DFS and IKEA bills for office furniture in 2025/26.</>,
-          },
-          {
             key: "doogan",
             title: <Who face name="Dave Doogan" href={mp("angus-and-perthshire-glens")} p="SNP" note="£892.80" />,
-            children: <>A &quot;Newspaper Column Invoice&quot;. The file does not say what it was for.</>,
+            children: (
+              <>
+                <strong>£892.80 for a &quot;Newspaper Column Invoice&quot;.</strong> The file does not
+                say what it was for.
+              </>
+            ),
           },
         ]}
       />
+
+      <section className="not-prose my-10 overflow-hidden rounded-[var(--r-m)] bg-[#10141d] px-6 py-7 text-white shadow-[0_18px_40px_-24px_rgba(0,0,0,0.55)] ring-1 ring-[#ff4d4d]/40 sm:px-8 sm:py-8">
+        <p className="ui text-[13px] font-[660] uppercase tracking-[0.07em] opacity-75">Who stops this?</p>
+        <p className="figure-num mt-2 text-[48px] leading-none text-[#ff5757] sm:text-[56px]">Nobody.</p>
+        <ul className="mt-6 space-y-4 text-[17px] leading-[1.55]">
+          <li>
+            Christine Jardine&apos;s Christmas lunch (above) went in as &ldquo;lunch staff team
+            training Christmas&rdquo;. <strong>A Christmas lunch, with the word
+            &ldquo;training&rdquo; in it.</strong> IPSA paid it in full.
+          </li>
+          <li>
+            IPSA is the body that pays MPs&apos; expenses with public money. It only exists because
+            of <strong>a law MPs passed themselves</strong> in 2009, after the last expenses
+            scandal.
+          </li>
+          <li>
+            IPSA&apos;s own files show just <strong>91 repayments out of 20,879 claims</strong> by
+            Scottish MPs since 2022. That is fewer than 1 in 200.
+          </li>
+          <li>
+            At Holyrood it is even cosier. <strong>MSPs vote on their own expenses rules</strong>,
+            and the board that writes and runs them is made up of MSPs.
+          </li>
+          <li className="text-[20px] font-[700] leading-[1.35]">
+            The rules let all of this through. Nobody is going to stop the gravy train.
+          </li>
+        </ul>
+      </section>
 
       {/* ------------------------------------------------------------ 9 */}
       <Finding n={9} of={FINDINGS} id="second-homes">

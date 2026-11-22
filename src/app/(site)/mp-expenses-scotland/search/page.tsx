@@ -148,9 +148,12 @@ export default function MpReceiptsSearchPage() {
                   title: "Nobody here broke the rules",
                   children: (
                     <>
-                      IPSA and Holyrood paid every single bill in this tool. MPs earn £98,599 a
-                      year. The rules still let them bill you for second home council tax, power
-                      bills, taxis, family flights, PR consultants and leaflets.
+                      IPSA and Holyrood paid every single bill in this tool.{" "}
+                      <strong>MPs earn £98,599 a year.</strong> The rules still let them{" "}
+                      <strong>
+                        bill you for second home council tax, power bills, taxis, family flights,
+                        PR consultants and leaflets.
+                      </strong>
                     </>
                   ),
                 },

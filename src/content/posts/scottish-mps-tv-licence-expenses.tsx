@@ -183,9 +183,10 @@ export default function ScottishMpsTvLicenceExpenses() {
             <strong>£30 aerial</strong> and a <strong>£40.79 TV stand</strong>. IPSA&apos;s files do
             not say why he needed four, or which buildings they were for.
           </p>
-          <p className="mt-3 text-[15px] leading-[1.55] opacity-70">
-            Total for the four licences: £688. He also tops Scotland for MP taxi bills (£5,059) and
-            claimed £3,630 for second home council tax.
+          <p className="mt-3 text-[17px] leading-[1.55] opacity-90">
+            Total for the four licences: <strong>£688</strong>. In 2025/26 you also paid{" "}
+            <strong>£5,059 for his taxis</strong>, the most of any Scottish MP, and{" "}
+            <strong>£3,630 of his second home council tax</strong>.
           </p>
         </div>
       </section>
@@ -218,6 +219,11 @@ export default function ScottishMpsTvLicenceExpenses() {
         ]}
       />
 
+      <P>
+        And it is not just licences. <strong>12 Scottish MPs billed you £3,608 for TV sets and TV
+        kit</strong> for their offices (after one part refund).
+      </P>
+
       {/* ------------------------------------------------------------ 2 */}
       <Finding n={2} of={FINDINGS} id="standout-claims">
         The claims that jump straight off the page
@@ -239,6 +245,21 @@ export default function ScottishMpsTvLicenceExpenses() {
         </p>
       </CaseCard>
 
+      <Spotlight
+        person={{ name: "Dr Zubir Ahmed", href: mp("glasgow-south-west"), p: "Labour", place: "Glasgow South West" }}
+        kicker="6 February 2025 · Richer Sounds"
+        amount="£715"
+        headline="You paid for a £715 television for his office."
+        lines={[
+          { meta: "Office Costs · Equipment - purchase · Television", what: "WWW.RICHERSOUNDS.COM [200011726-1495]", amount: "£715.00" },
+        ]}
+      >
+        <p>
+          The dearest TV set any Scottish MP put on expenses. Then you paid for the licences to
+          watch it, too.
+        </p>
+      </Spotlight>
+
       <CaseCard
         kicker="£5 over the fee, every year"
         figure="£682"
@@ -249,6 +270,21 @@ export default function ScottishMpsTvLicenceExpenses() {
           you pay to spread a licence over four payments instead of one.
         </p>
       </CaseCard>
+
+      <Spotlight
+        person={{ name: "Dr Scott Arthur", href: mp("edinburgh-south-west"), p: "Labour", place: "Edinburgh South West" }}
+        kicker="April and May 2025 · Currys"
+        amount="£467"
+        headline="You paid for two TVs for his office, six weeks apart."
+        lines={[
+          { meta: "13 April 2025 · Television", what: "CURRYS ONLINE", amount: "£218.00" },
+          { meta: "26 May 2025 · Television", what: "CURRYS ONLINE", amount: "£249.00" },
+        ]}
+      >
+        <p>
+          On top of the sets, he billed you <strong>£354</strong> for TV licences.
+        </p>
+      </Spotlight>
 
       <CaseCard
         kicker="Two island offices, after money paid back"
@@ -291,9 +327,11 @@ export default function ScottishMpsTvLicenceExpenses() {
         ]}
       >
         <p>
-          Both bills went in on the same day. Most people pay for their own work Christmas do, or
-          their boss does. Here, taxpayers did.
+          Look at how it was filed: &quot;lunch staff team training Christmas&quot;. A Christmas lunch,
+          with the word &quot;training&quot; in it. IPSA, the body that pays MPs&apos; expenses with
+          public money, paid it in full.
         </p>
+        <p>Most people pay for their own work Christmas do, or their boss does. Here, taxpayers did.</p>
       </Spotlight>
 
       {/* ------------------------------------------------------------ 3 */}

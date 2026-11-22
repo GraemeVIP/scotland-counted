@@ -7,7 +7,7 @@ import Faq from "@/components/Faq";
 import FindMpEmail from "@/components/FindMpEmail";
 import { JsonLd, articleJsonLd, faqJsonLd, meta } from "@/lib/seo";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import { Face, Expand } from "@/components/ExpenseKit";
+import { Face, Expand, Spotlight } from "@/components/ExpenseKit";
 
 /*
  * The receipts: single IPSA claim lines by Scottish MPs that most people would
@@ -114,8 +114,12 @@ const RECEIPTS: Receipt[] = [
       "Drainage professional pressure jet wash cleaning (£312)",
       "Drainage professional mechanical cable cleaning (£234)",
     ],
-    context:
-      "Put on his second home pot. That same year he billed £3,314 for power and gas there too.",
+    context: (
+      <>
+        Put on his second home pot.{" "}
+        <strong>That same year he billed £3,314 for power and gas there too.</strong>
+      </>
+    ),
   },
   {
     amount: "£3,090",
@@ -152,8 +156,13 @@ const RECEIPTS: Receipt[] = [
       "Communications Support (£4,000, Jul 2025)",
       "research and writing of local industrial strategy (£7,000 across two lines, Apr 2025, repaid in full Aug 2025)",
     ],
-    context:
-      "The biggest single consultant bill by any Scottish MP. IPSA hides who got the £10,000 or the £4,000 for PR help. She also paid back £7,000 four months later, and billed £4,691 at IKEA on top.",
+    context: (
+      <>
+        The biggest single consultant bill by any Scottish MP.{" "}
+        <strong>IPSA hides who got the £10,000 or the £4,000 for PR help.</strong> She also paid
+        back £7,000 four months later, and <strong>billed £4,691 at IKEA on top.</strong>
+      </>
+    ),
     compare: [
       ["Office set up consultant (who got paid is hidden)", "£10,000"],
       ["PR support (who got paid is hidden)", "£4,000"],
@@ -186,35 +195,13 @@ const RECEIPTS: Receipt[] = [
       "IKEA LTD SHOP ONLINE (£1,334, £395 and £245)",
       "DFS TRADING LIMITED (£1,208)",
     ],
-    context:
-      "Filed as office kit. That same year she billed £2,750 for new carpet and £2,250 for work.",
-  },
-  {
-    amount: "£510",
-    what: "A staff Christmas lunch and team day",
-    mp: "Christine Jardine",
-    party: "Liberal Democrat",
-    seat: "Edinburgh West",
-    slug: "edinburgh-west",
-    date: "19 December 2025",
-    budget: "Office food pot",
-    ipsa: ["lunch staff team training Christmas (£250.80)", "team building event (£259.31)"],
-    context: "Both billed on one day, six days before Christmas, and paid by you.",
-  },
-  {
-    amount: "£7,314",
-    what: "Lawyers' fees and new desks for an office move",
-    mp: "Tracy Gilbert",
-    party: "Labour",
-    seat: "Edinburgh North and Leith",
-    slug: "edinburgh-north-and-leith",
-    date: "May 2025",
-    budget: "Office pot",
-    ipsa: [
-      "Legal advice and costs (£3,044)",
-      "FURNITURE@WORK LTD (£3,332.40 and £937.20)",
-    ],
-    context: "£3,044 for lawyers and £4,270 for office kit, all in one month.",
+    context: (
+      <>
+        Filed as office kit. £245 of the IKEA bills was refunded in April 2026.{" "}
+        <strong>That same year she billed £2,750 for new carpet</strong> and
+        £2,250 for work.
+      </>
+    ),
   },
   {
     amount: "£550",
@@ -229,72 +216,46 @@ const RECEIPTS: Receipt[] = [
     context: "Food and drink for local bosses, paid from public cash.",
   },
   {
-    amount: "£13,117",
-    what: "Posting a report about himself to every home",
-    mp: "John Grady",
-    party: "Labour",
-    seat: "Glasgow East",
-    slug: "glasgow-east",
-    date: "12 February 2026",
+    amount: "£688",
+    what: "Four TV licences billed in under a year",
+    mp: "Gregor Poynton",
+    party: "Scottish Labour",
+    seat: "Livingston",
+    slug: "livingston",
+    date: "Dec 2024 to Nov 2025",
     budget: "Office pot",
-    ipsa: ["Roderick Urquhart/ Treehouse for printing and delivery of MP Annual Report to constituents"],
+    ipsa: [
+      "TVLICENSING.CO.UK (£169.50 on 18 Dec 2024 & £169.50 on 14 Feb 2025)",
+      "TVLICENSING.CO.UK (two £174.50 licences split across 4 Nov & 26 Nov 2025)",
+    ],
     context: (
       <>
-        IPSA allows this if there is no party badge on it. It still puts his face through every
-        door. <Link href="/representatives/mps/coatbridge-and-bellshill">Frank McNally</Link> paid
-        £9,974 and{" "}
-        <Link href="/representatives/mps/west-aberdeenshire-and-kincardine">Andrew Bowie</Link>{" "}
-        £5,898.
+        Part of <strong>£10,754 billed by 29 Scottish MPs for TV licences</strong> from 2022 to
+        2026. <Link href="/representatives/mps/glasgow-south-west">Dr Zubir Ahmed</Link> also{" "}
+        <strong>billed two in nine months</strong>, one online and one at a Co-op. IPSA only allows
+        TV licences for a local office.
       </>
     ),
   },
   {
-    amount: "£9,600",
-    what: "An outside PR firm for media help",
-    mp: "Gregor Poynton",
-    party: "Labour",
-    seat: "Livingston",
-    slug: "livingston",
-    date: "21 March 2025",
-    budget: "Staff pot",
-    ipsa: ["BB Partners Advisory Ltd - Comms and Media Support"],
-    context: "BB Partners is a PR firm in Crawley. The bill landed ten days before the budget year ended.",
-  },
-  {
-    amount: "£3,300",
-    what: "A billboard ad for himself as local MP",
-    mp: "Euan Stainbank",
-    party: "Labour",
-    seat: "Falkirk",
-    slug: "falkirk",
-    date: "31 October 2024",
-    budget: "Office pot",
-    ipsa: ["Advertising board to advertise Euan as local MP and contact details. To be advertised for 1 year."],
-    context: "A full year of ads for the MP, paid by the folk he serves.",
-  },
-  {
-    amount: "£963",
-    what: "A business dinner",
-    mp: "Graeme Downie",
-    party: "Labour",
-    seat: "Dunfermline and Dollar",
-    slug: "dunfermline-and-dollar",
-    date: "13 March 2025",
-    budget: "Office food pot",
-    ipsa: ["Fife College hosted business dinner on behalf of Graeme Downie"],
-    context: "A dinner in his name, paid from public cash right before the budget year ended.",
-  },
-  {
-    amount: "£893",
-    what: "A newspaper column bill",
-    mp: "Dave Doogan",
+    amount: "£24,530",
+    what: "Five years of mobile phone bills (up to £909 a month)",
+    mp: "Brendan O'Hara",
     party: "Scottish National Party",
-    seat: "Angus and Perthshire Glens",
-    slug: "angus-and-perthshire-glens",
-    date: "19 June 2026",
+    seat: "Argyll, Bute and South Lochaber",
+    slug: "argyll-bute-and-south-lochaber",
+    date: "2022 to 2026 (58 bills)",
     budget: "Office pot",
-    ipsa: ["Newspaper Column Invoice"],
-    context: "Filed under papers. The file does not say what the piece was or why you paid.",
+    ipsa: [
+      "EE LTD (£909.24 on 9 March 2026)",
+      "EE LIMITED (£721.96 on 7 March 2023)",
+    ],
+    context: (
+      <>
+        Over £500 a month for five years.{" "}
+        <strong>That is four times more than any other Scottish MP.</strong>
+      </>
+    ),
   },
   {
     amount: "£35,792",
@@ -312,40 +273,43 @@ const RECEIPTS: Receipt[] = [
     context: "Paid to Peach Partners across 13 bills out of his staff pot, on top of his own staff.",
   },
   {
-    amount: "£24,530",
-    what: "Five years of mobile phone bills (up to £909 a month)",
-    mp: "Brendan O'Hara",
-    party: "Scottish National Party",
-    seat: "Argyll, Bute and South Lochaber",
-    slug: "argyll-bute-and-south-lochaber",
-    date: "2022 to 2026 (58 bills)",
+    amount: "£7,314",
+    what: "Lawyers' fees and new desks for an office move",
+    mp: "Tracy Gilbert",
+    party: "Labour",
+    seat: "Edinburgh North and Leith",
+    slug: "edinburgh-north-and-leith",
+    date: "May 2025",
     budget: "Office pot",
     ipsa: [
-      "EE LTD (£909.24 on 9 March 2026)",
-      "EE LIMITED (£721.96 on 7 March 2023)",
+      "Legal advice and costs (£3,044)",
+      "FURNITURE@WORK LTD (£3,332.40 and £937.20)",
     ],
-    context: "Over £500 a month for five years. That is four times more than any other Scottish MP.",
+    context: "£3,044 for lawyers and £4,270 for office kit, all in one month.",
   },
   {
-    amount: "£688",
-    what: "Four TV licences billed in under a year",
+    amount: "£9,600",
+    what: "An outside PR firm for media help",
     mp: "Gregor Poynton",
-    party: "Scottish Labour",
+    party: "Labour",
     seat: "Livingston",
     slug: "livingston",
-    date: "Dec 2024 to Nov 2025",
+    date: "21 March 2025",
+    budget: "Staff pot",
+    ipsa: ["BB Partners Advisory Ltd - Comms and Media Support"],
+    context: "BB Partners is a PR firm in Crawley. The bill landed ten days before the budget year ended.",
+  },
+  {
+    amount: "£893",
+    what: "A newspaper column bill",
+    mp: "Dave Doogan",
+    party: "Scottish National Party",
+    seat: "Angus and Perthshire Glens",
+    slug: "angus-and-perthshire-glens",
+    date: "19 June 2026",
     budget: "Office pot",
-    ipsa: [
-      "TVLICENSING.CO.UK (£169.50 on 18 Dec 2024 & £169.50 on 14 Feb 2025)",
-      "TVLICENSING.CO.UK (two £174.50 licences split across 4 Nov & 26 Nov 2025)",
-    ],
-    context: (
-      <>
-        Part of £10,754 billed by 29 Scottish MPs for TV licences from 2022 to 2026.{" "}
-        <Link href="/representatives/mps/glasgow-south-west">Dr Zubir Ahmed</Link> also billed two in
-        nine months, one online and one at a Co-op. IPSA only allows TV licences for a local office.
-      </>
-    ),
+    ipsa: ["Newspaper Column Invoice"],
+    context: "Filed under papers. The file does not say what the piece was or why you paid.",
   },
 ];
 
@@ -631,7 +595,10 @@ function TabRow({ t }: { t: (typeof BIG_TABS)[number] }) {
   );
 }
 
-const RECEIPTS_SHOWN = 8;
+/** Cards shown before the "more" fold. Four more claims get their own Spotlight. */
+const RECEIPTS_SHOWN = 11;
+const SPOTLIGHT_COUNT = 4;
+const mpHref = (slug: string) => `/representatives/mps/${slug}`;
 
 export default function MpExpenseReceiptsPage() {
   return (
@@ -688,7 +655,7 @@ export default function MpExpenseReceiptsPage() {
 
         {/* THE SINGLE RECEIPTS */}
         <ContentFrame as="section" id="receipts">
-          <SectionHead eyebrow="Single claims · in IPSA's own words" title={`${RECEIPTS.length} receipts you paid for`} />
+          <SectionHead eyebrow="Single claims · in IPSA's own words" title={`${RECEIPTS.length + SPOTLIGHT_COUNT} receipts you paid for`} />
           <ExplainText>
             <p className="mt-3 max-w-[66ch] text-[17px] leading-[1.6] text-[var(--ink-2)]">
               Each card shows the amount, what it was for, and the MP&apos;s own words to IPSA.
@@ -701,8 +668,90 @@ export default function MpExpenseReceiptsPage() {
           </p>
 
           <ol className="mt-8 grid gap-5 md:grid-cols-2">
-            {RECEIPTS.slice(0, RECEIPTS_SHOWN).map((r, i) => (
+            {RECEIPTS.slice(0, 4).map((r, i) => (
               <ReceiptCard key={r.what} r={r} i={i} />
+            ))}
+          </ol>
+
+          {/* THE WORST ONES, IMPOSSIBLE TO MISS */}
+          <Spotlight
+            person={{ name: "Christine Jardine", href: mpHref("edinburgh-west"), p: "Lib Dem", place: "Edinburgh West" }}
+            kicker="19 December 2025 · six days before Christmas"
+            amount="£510"
+            headline="You paid for her office Christmas lunch and team day."
+            lines={[
+              { what: "lunch staff team training Christmas", amount: "£250.80" },
+              { what: "team building event", amount: "£259.31" },
+            ]}
+          >
+            <p>
+              <strong>
+                It was filed as &ldquo;lunch staff team training Christmas&rdquo;: a Christmas lunch
+                with the word &ldquo;training&rdquo; in it. IPSA paid it in full.
+              </strong>
+            </p>
+            <p>
+              Both bills went in on one day, six days before Christmas. Most workers pay for their
+              own Christmas do. Here, you paid.
+            </p>
+          </Spotlight>
+
+          <Spotlight
+            person={{ name: "Euan Stainbank", href: mpHref("falkirk"), p: "Labour", place: "Falkirk" }}
+            kicker="31 October 2024 · up for a whole year"
+            amount="£3,300"
+            headline="You paid for a billboard advertising him."
+            lines={[
+              {
+                what: "Advertising board to advertise Euan as local MP and contact details. To be advertised for 1 year.",
+                amount: "£3,300.00",
+              },
+            ]}
+          >
+            <p>A full year of ads for the MP, paid by the folk he serves.</p>
+          </Spotlight>
+
+          <Spotlight
+            person={{ name: "John Grady", href: mpHref("glasgow-east"), p: "Labour", place: "Glasgow East" }}
+            kicker="12 February 2026 · one bill"
+            amount="£13,117"
+            headline="You paid to post a report about him to every home."
+            lines={[
+              {
+                what: "12/02 Roderick Urquhart/ Treehouse for printing and delivery of MP Annual Report to constituents",
+                amount: "£13,116.80",
+              },
+            ]}
+          >
+            <p>
+              IPSA allows this if there is no party badge on it. It still puts his face through
+              every door.{" "}
+              <Link href={mpHref("coatbridge-and-bellshill")} className="text-white underline">
+                Frank McNally
+              </Link>{" "}
+              paid £9,974 and{" "}
+              <Link href={mpHref("west-aberdeenshire-and-kincardine")} className="text-white underline">
+                Andrew Bowie
+              </Link>{" "}
+              £5,898.
+            </p>
+          </Spotlight>
+
+          <Spotlight
+            person={{ name: "Graeme Downie", href: mpHref("dunfermline-and-dollar"), p: "Labour", place: "Dunfermline and Dollar" }}
+            kicker="13 March 2025 · 18 days before the budget year ended"
+            amount="£963"
+            headline="You paid for a business dinner in his name."
+            lines={[
+              { what: "Fife College hosted business dinner on behalf of Graeme Downie", amount: "£962.65" },
+            ]}
+          >
+            <p>A dinner in his name, paid from public cash right before the budget year ended.</p>
+          </Spotlight>
+
+          <ol className="mt-8 grid gap-5 md:grid-cols-2">
+            {RECEIPTS.slice(4, RECEIPTS_SHOWN).map((r, i) => (
+              <ReceiptCard key={r.what} r={r} i={i + 4} />
             ))}
           </ol>
           <Expand summary={`Show ${RECEIPTS.length - RECEIPTS_SHOWN} more receipts`}>
@@ -722,18 +771,11 @@ export default function MpExpenseReceiptsPage() {
           />
           <div className="tile mt-7 overflow-hidden">
             <ul className="divide-y divide-[var(--rule)]">
-              {BIG_TABS.slice(0, 4).map((t) => (
+              {BIG_TABS.map((t) => (
                 <TabRow key={t.mp + t.what} t={t} />
               ))}
             </ul>
           </div>
-          <Expand summary={`Show ${BIG_TABS.length - 4} more`}>
-            <ul className="divide-y divide-[var(--rule)]">
-              {BIG_TABS.slice(4).map((t) => (
-                <TabRow key={t.mp + t.what} t={t} />
-              ))}
-            </ul>
-          </Expand>
 
           {/* ONE MP'S LONDON NIGHTS, CLAIM BY CLAIM */}
           <div id="hotel-nights" className="mt-12">
@@ -773,7 +815,12 @@ export default function MpExpenseReceiptsPage() {
               ))}
             </div>
 
-            <p className="ui mt-5 max-w-[68ch] text-[15.5px] leading-[1.6] text-[var(--ink-2)]">
+            <p className="ui mt-5 max-w-[68ch] text-[17px] font-[680] leading-[1.5] text-[var(--bad-text)]">
+              You paid for {ZUBIR_NIGHT_COUNT} London nights. The Commons only sat on{" "}
+              {COMMONS_SITTING_DAYS} days.
+            </p>
+
+            <p className="ui mt-3 max-w-[68ch] text-[15.5px] leading-[1.6] text-[var(--ink-2)]">
               <strong className="text-[var(--ink)]">{gbp(ZUBIR_TOTAL, false)} is close to a normal full time wage.</strong>{" "}
               The middle UK full time worker earned{" "}
               <a href={ONS_EARNINGS_2026} target="_blank" rel="noopener noreferrer">
@@ -949,6 +996,17 @@ export default function MpExpenseReceiptsPage() {
                 <p className="mt-3 text-[15px] leading-[1.55] text-[var(--deep-muted)]">{c.body}</p>
               </div>
             ))}
+          </div>
+          <div className="mt-6 max-w-[66ch] rounded-[var(--r-m)] border-l-[5px] border-[var(--bad-text)] bg-[color-mix(in_srgb,var(--bad)_10%,transparent)] px-5 py-4">
+            <p className="ui text-[19px] font-[700] leading-[1.35] text-[var(--ink)]">
+              Just 91 repayments out of 20,879 claims by Scottish MPs since 2022.
+            </p>
+            <p className="mt-1 text-[16px] leading-[1.5] text-[var(--ink-2)]">
+              That is fewer than 1 in 200, from IPSA&apos;s own files.
+            </p>
+            <p className="ui mt-3 text-[19px] font-[700] leading-[1.35] text-[var(--ink)]">
+              IPSA only exists because of a law MPs passed themselves in 2009.
+            </p>
           </div>
           <ExplainText>
             <div className="mt-7 max-w-[66ch] space-y-4 text-[17px] leading-[1.65] text-[var(--ink-2)]">

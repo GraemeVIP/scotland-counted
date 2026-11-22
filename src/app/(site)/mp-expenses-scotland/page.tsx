@@ -21,7 +21,7 @@ import FindMpClaims from "@/components/FindMpClaims";
 import MpLondonTable from "@/components/MpLondonTable";
 import { LONDON_RECORD, londonTableRows } from "@/lib/data/mpLondonRecord";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import { Tiles } from "@/components/ExpenseKit";
+import { Tiles, Spotlight } from "@/components/ExpenseKit";
 
 const HERO_IMAGE = {
   src: "/images/editorial/mp-expenses-scotland-hub.webp",
@@ -77,10 +77,10 @@ const SPOTLIGHT_LEADERS: SpotlightEntry[] = [
     headlineStat: "£23,437",
     headlineLabel: "paid to Yu Energy on one day (more than a year's office rent)",
     taxpayerSummary:
-      "On 19 May 2026 IPSA paid £20,385 + £3,052 on one account. That is the biggest MP power bill in the UK over five years. It equals 156 Warm Home Discounts.",
+      "On 19 May 2026 IPSA paid £20,385 + £3,052 on one account. That is the biggest MP power bill in the UK over five years. It equals **156 Warm Home Discounts**.",
     freebiesSummary:
       "Voted in Sept 2024 to cut pensioners' Winter Fuel Payment. Also billed £27,000 for a London flat.",
-    oneLine: "£23,437 paid for power on one day, the biggest MP power bill in the UK.",
+    oneLine: "**£23,437 paid for power on one day**, the biggest MP power bill in the UK.",
     emailReason:
       "having £23,436.95 paid by IPSA to Yu Energy in a single day on 19 May 2026 (more than a full year's rent for your Kilmarnock office, and the largest MP electricity bill in the UK) after voting to restrict Winter Fuel Payments",
   },
@@ -90,10 +90,10 @@ const SPOTLIGHT_LEADERS: SpotlightEntry[] = [
     headlineStat: "£151,954",
     headlineLabel: "billed in 2025/26, not counting staff wages (£410,253 with staff wages)",
     taxpayerSummary:
-      "£41,435 for a London flat, £29,820 on flights, £3,308 car park and a £963 dinner. Cost £84,992 to house and fly him to London (£559 per sitting day).",
+      "**£41,435 for a London flat**, **£29,820 on flights** and **£3,308 car park**. Cost £84,992 to house and fly him to London (£559 per sitting day).",
     freebiesSummary:
       "Listed £11,882 in free trips to Taiwan (£5,669), the USA (£4,077) and Spain (£2,137).",
-    oneLine: "£151,954 billed, the most in Scotland, including £29,820 on flights.",
+    oneLine: "**£151,954 billed**, the most in Scotland, including **£29,820 on flights**.",
     emailReason:
       "claiming £151,953.90 in non-staff expenses, including £41,435 for a London flat, £29,820 for flights and £3,308 for airport parking, on top of your £93,904 salary for 2025/26, alongside £11,882 in funded trips to Taiwan, Spain and the US",
   },
@@ -103,10 +103,10 @@ const SPOTLIGHT_LEADERS: SpotlightEntry[] = [
     headlineStat: "£37,359",
     headlineLabel: "for 295 London hotel nights + £30k donor",
     taxpayerSummary:
-      "143 more London nights than Parliament sat (123 nights for 60 sitting days before he became a health minister on 6 Sept 2025). Also billed two £174.50 TV licences in 9 months, one at a Co-op.",
+      "143 more London nights than Parliament sat (123 nights for 60 sitting days before he became a health minister on 6 Sept 2025). Also billed **two £174.50 TV licences in 9 months**, one at a Co-op.",
     freebiesSummary:
       "Took a £30,000 gift from Francesca Sainsbury Perrin plus £13,890 in outside surgeon pay.",
-    oneLine: "£37,359 for 295 London hotel nights, when the Commons sat on 152 days.",
+    oneLine: "**£37,359 for 295 London hotel nights**, when the Commons sat on 152 days.",
     emailReason:
       "charging taxpayers £37,358.58 for 295 London hotel nights (against 152 days Parliament was open) and claiming two £174.50 TV licences inside nine months, while receiving £30,000 in private donor funding",
   },
@@ -120,9 +120,9 @@ const MORE_SPOTLIGHT_LEADERS: SpotlightEntry[] = [
     headlineStat: "£10,000",
     headlineLabel: "to an unnamed office consultant (plus £101k bills)",
     taxpayerSummary:
-      "Top consultant bill by any Scottish MP, with who got paid hidden. Also billed £4,000 for unnamed PR help, paid back £7,000 for a report, and spent £4,691 at IKEA and £7,932 on family trips.",
+      "Top consultant bill by any Scottish MP, **with who got paid hidden**. Also billed **£4,000 for unnamed PR help**, paid back £7,000 for a report, and spent **£4,691 at IKEA** and **£7,932 on family trips**.",
     freebiesSummary: "Took a £5,957 trip to Qatar, a £2,202 trip to Syria, and a £1,100 China course.",
-    oneLine: "£10,000 to an unnamed consultant, plus £4,691 at IKEA.",
+    oneLine: "**£10,000 to an unnamed consultant**, plus **£4,691 at IKEA**.",
     emailReason:
       "billing taxpayers £10,000 for an unnamed 'Policy and Office set up consultant' and £4,000 for unnamed 'Communications Support' (on top of £7,000 for a local industrial strategy you had to repay in full), plus £4,691 at IKEA, £7,932.47 for family travel and £3,302.72 for second home council tax",
   },
@@ -132,10 +132,10 @@ const MORE_SPOTLIGHT_LEADERS: SpotlightEntry[] = [
     headlineStat: "£129,066",
     headlineLabel: "in everyday bills in 2025/26, not counting staff wages (£121 a week just to park)",
     taxpayerSummary:
-      "£6,292 car park in one year, £28,200 London flat rent, £2,822 Europe hotels, £26,581 flights. Also billed £3,090 just to set up 5G home broadband.",
+      "**£6,292 car park in one year**, £28,200 London flat rent, **£2,822 Europe hotels**, £26,581 flights. Also billed **£3,090 just to set up 5G home broadband**.",
     freebiesSummary:
       "Took two free trips to India worth £1,898 paid by the Office of Tibet and Buddhist groups.",
-    oneLine: "£6,292 on parking, the most in Scotland, and £3,090 just to set up broadband.",
+    oneLine: "**£6,292 on parking**, the most in Scotland, and **£3,090 just to set up broadband**.",
     emailReason:
       "billing taxpayers £6,292.29 for car parking alone, £28,200 a year for a rented London flat, and £3,090 to set up 5G home broadband",
   },
@@ -145,10 +145,10 @@ const MORE_SPOTLIGHT_LEADERS: SpotlightEntry[] = [
     headlineStat: "£121,471",
     headlineLabel: "in everyday bills in 2025/26 (not counting staff wages) + £20k donor & F1 VIP box",
     taxpayerSummary:
-      "£32,480 London flat rent, £1,541 second home council tax, £33,100 flights, £1,501 family flights and £5,898 to post his yearly report.",
+      "£32,480 London flat rent, £1,541 second home council tax, £33,100 flights, **£1,501 family flights** and **£5,898 to post his yearly report**.",
     freebiesSummary:
-      "Voted to keep the two child cap (the rule that stops Universal Credit paying for a third child or more). Took £20,000 from Alasdair Locke, £1,100 F1 VIP tickets, and a £2,678 Jordan trip.",
-    oneLine: "Voted to keep the two child cap. £33,100 on flights, a £20,000 donor and F1 VIP tickets.",
+      "Voted to keep the two child cap (the rule that stops Universal Credit paying for a third child or more). Took **£20,000 from Alasdair Locke**, **£1,100 F1 VIP tickets**, and a **£2,678 Jordan trip**.",
+    oneLine: "Voted to keep the two child cap. **£33,100 on flights**, a £20,000 donor and **F1 VIP tickets**.",
     emailReason:
       "voting against removing the two child benefit cap on Universal Credit while claiming £121,470.92 in non-staff expenses (including £32,480 in flat rent, £1,541 in second home council tax and £1,501 for your own family travel) and accepting £1,100 in Silverstone Formula 1 hospitality",
   },
@@ -158,9 +158,9 @@ const MORE_SPOTLIGHT_LEADERS: SpotlightEntry[] = [
     headlineStat: "£115,008",
     headlineLabel: "in rent, travel, taxis & £3,630 council tax (2025/26)",
     taxpayerSummary:
-      "£5,059 on taxis (£100 a week), £3,630 second home council tax, £6,232 family flights, £20,800 flat rent, £9,600 PR firm, plus four TV licences (£688) in under a year.",
-    freebiesSummary: "Took £11,000 from donors plus £1,110 in free VIP tickets to Lord's and Wembley.",
-    oneLine: "£5,059 on taxis, the most in Scotland, and four TV licences in under a year.",
+      "**£5,059 on taxis (£100 a week)**, **£3,630 second home council tax**, **£6,232 family flights**, £20,800 flat rent, **£9,600 PR firm**, plus **four TV licences (£688) in under a year**.",
+    freebiesSummary: "Took £11,000 from donors plus **£1,110 in free VIP tickets to Lord's and Wembley**.",
+    oneLine: "**£5,059 on taxis**, the most in Scotland, and **four TV licences in under a year**.",
     emailReason:
       "billing taxpayers £5,059.35 for taxi fares, £3,629.54 for your second home council tax, £6,232.41 for family flights, £9,600 for a PR firm and four TV licences in under 12 months, while accepting £1,110 in free cricket and Wembley tickets",
   },
@@ -170,9 +170,9 @@ const MORE_SPOTLIGHT_LEADERS: SpotlightEntry[] = [
     headlineStat: "£96,187",
     headlineLabel: "in everyday bills in 2025/26 + £7,000 Qatar trip",
     taxpayerSummary:
-      "£42,000 London flat rent (top in Scotland at £3,500 a month), £2,486 council tax, plus £13,117 to print and post his yearly report.",
-    freebiesSummary: "Took a £7,000 Qatar trip paid by Qatar's government, plus a £330 dinner ticket.",
-    oneLine: "£42,000 London flat rent, the top in Scotland, and a £7,000 Qatar trip.",
+      "**£42,000 London flat rent** (top in Scotland at £3,500 a month), £2,486 council tax, plus **£13,117 to print and post his yearly report**.",
+    freebiesSummary: "Took a **£7,000 Qatar trip paid by Qatar's government**, plus a **£330 dinner ticket**.",
+    oneLine: "**£42,000 London flat rent**, the top in Scotland, and a **£7,000 Qatar trip**.",
     emailReason:
       "charging taxpayers £42,000 a year (£3,500 a month) for London flat rent and £13,116.80 to post an annual report, and accepting a £7,000 trip paid for by the Ministry of Foreign Affairs of Qatar",
   },
@@ -182,10 +182,10 @@ const MORE_SPOTLIGHT_LEADERS: SpotlightEntry[] = [
     headlineStat: "£114,985",
     headlineLabel: "in everyday bills in 2025/26 + £24.5k EE phone tab",
     taxpayerSummary:
-      "£29,322 London flat rent, £3,109 car park, hires his spouse as office boss, and ran up £24,530 on EE mobile bills over five years (up to £909 a month).",
+      "£29,322 London flat rent, **£3,109 car park**, **hires his spouse as office boss**, and ran up **£24,530 on EE mobile bills** over five years (up to £909 a month).",
     freebiesSummary:
-      "Took £1,525 in VIP football boxes (Champions League & Hampden) and £2,541 in free trips.",
-    oneLine: "£24,530 on EE mobile bills over five years, and his spouse on the payroll.",
+      "Took **£1,525 in VIP football boxes** (Champions League & Hampden) and £2,541 in free trips.",
+    oneLine: "**£24,530 on EE mobile bills** over five years, and **his spouse on the payroll**.",
     emailReason:
       "claiming £114,984.88 in non-staff expenses (including £29,322 flat rent and £3,109 car parking), £24,530 in EE mobile bills over five years, employing your spouse on the public payroll, and accepting £1,525 in football hospitality",
   },
@@ -195,10 +195,10 @@ const MORE_SPOTLIGHT_LEADERS: SpotlightEntry[] = [
     headlineStat: "£85,563",
     headlineLabel: "in everyday bills in 2025/26 + £2,400 from husband's firm",
     taxpayerSummary:
-      "£31,366 London flat rent, £9,906 flights, £3,941 family flights. Cost £48,655 to house and fly her to London while speaking on 19 days (£2,561 for each day she spoke).",
+      "£31,366 London flat rent, £9,906 flights, **£3,941 family flights**. Cost £48,655 to house and fly her to London while speaking on 19 days (**£2,561 for each day she spoke**).",
     freebiesSummary:
-      "Took £2,400 of free media training from Earthcott Ltd, owned by her lobbyist husband David Taylor.",
-    oneLine: "£2,561 for each of the 19 days she spoke, and a perk from her husband's firm.",
+      "Took **£2,400 of free media training from Earthcott Ltd, owned by her lobbyist husband** David Taylor.",
+    oneLine: "**£2,561 for each of the 19 days she spoke**, and **a perk from her husband's firm**.",
     emailReason:
       "claiming £85,563.46 in non-staff expenses (including £31,366 flat rent and £3,941 family flights) while speaking on 19 days and accepting £2,400 of free media training from your lobbyist husband's own firm",
   },
@@ -234,6 +234,19 @@ const FAQ = [
     a: "Yes. Your MP serves everyone in your seat, no matter how you voted. Click Ask to explain on any card, or open your MP's page. We fill in their real numbers and local child poverty rates for you.",
   },
 ];
+
+/** Turns **text** in card copy into bold, so the worst items stand out. */
+function boldParts(s: string) {
+  return s.split("**").map((part, i) =>
+    i % 2 === 1 ? (
+      <strong key={i} className="font-[700] text-[var(--ink)]">
+        {part}
+      </strong>
+    ) : (
+      part
+    ),
+  );
+}
 
 function shortParty(p: string) {
   if (p === "Scottish National Party") return "SNP";
@@ -307,11 +320,11 @@ function renderSpotlightCard(card: SpotlightEntry) {
         <dl className="flex-1 space-y-3 px-5 py-4 text-[14.5px] leading-[1.5] text-[var(--ink-2)]">
           <div>
             <dt className="tile-key mb-0.5">Billed to taxpayers</dt>
-            <dd>{card.taxpayerSummary}</dd>
+            <dd>{boldParts(card.taxpayerSummary)}</dd>
           </div>
           <div>
             <dt className="tile-key mb-0.5">Votes, donations & perks</dt>
-            <dd>{card.freebiesSummary}</dd>
+            <dd>{boldParts(card.freebiesSummary)}</dd>
           </div>
           <div className="rounded-[var(--r-s)] border-l-[3px] border-[var(--brand)] bg-[var(--surface-2)] px-3.5 py-2.5">
             <dt className="tile-key mb-0.5">Meanwhile in {mp.constituency}</dt>
@@ -369,7 +382,7 @@ function renderSpotlightRow(card: SpotlightEntry) {
           </span>
         </p>
         <p className="mt-1 text-[15px] leading-[1.45] text-[var(--ink-2)]">
-          <ExplainText>{card.oneLine}</ExplainText>
+          <ExplainText>{boldParts(card.oneLine)}</ExplainText>
         </p>
       </div>
     </li>
@@ -848,6 +861,113 @@ export default function MpRegisterOfInterestsScotlandPage() {
           </details>
         </ContentFrame>
 
+        {/* THE WORST SINGLE CLAIMS: BIG AND BOLD, NOT BURIED */}
+        <ContentFrame as="section" id="you-paid-for" className="pt-12">
+          <SectionHead
+            eyebrow="Straight from the receipts · IPSA, the body that pays MPs' expenses with public money"
+            title="You paid for this"
+          />
+          <div className="max-w-[760px]">
+            <Spotlight
+              person={{ name: "Angus MacDonald", href: "/representatives/mps/inverness-skye-and-west-ross-shire", p: "Lib Dem", place: "Inverness, Skye and West Ross-shire" }}
+              kicker="17 July 2025 · one workshop"
+              amount="£3,000"
+              headline="You paid for his speech coaching."
+              lines={[
+                {
+                  what: "Provision of personalised presentation and speech skills workshop to assist MPs representational role in Parliament.",
+                  amount: "£3,000.00",
+                },
+              ]}
+            >
+              <p>Speaking is the job. Taxpayers paid £3,000 for lessons in how to do it.</p>
+            </Spotlight>
+
+            <Spotlight
+              person={{ name: "Pamela Nash", href: "/representatives/mps/motherwell-wishaw-and-carluke", p: "Labour", place: "Motherwell, Wishaw and Carluke" }}
+              kicker="2025/26 · office shopping"
+              amount="£7,542"
+              headline="You paid for DFS, IKEA and a new carpet."
+              lines={[
+                { what: "IKEA LTD SHOP ONLINE", amount: "£1,334.00", meta: "5 April 2025" },
+                { what: "DFS TRADING LIMITED [200013613-5048]", amount: "£1,208.00", meta: "31 March 2026" },
+                { what: "Replacement of office carpet [200013634-169]", amount: "£2,750.00", meta: "26 March 2026" },
+                { what: "Essential refurbishment works to Constituency Office [200013634-170]", amount: "£2,250.00", meta: "30 March 2026" },
+              ]}
+            >
+              <p>Three of these bills went in during the last week of the budget year. Taxpayers paid.</p>
+            </Spotlight>
+
+            <Spotlight
+              person={{ name: "John Lamont", href: "/representatives/mps/berwickshire-roxburgh-and-selkirk", p: "Conservative", place: "Berwickshire, Roxburgh and Selkirk" }}
+              kicker="12 June 2025 · his second iPhone on expenses"
+              amount="£1,248"
+              headline="You paid for his new iPhone."
+              lines={[
+                { what: "Iphone and protection case", amount: "£1,248.00", meta: "12 June 2025" },
+                { what: "iPhone purchase - John Lamont", amount: "£1,098.00", meta: "9 August 2022" },
+              ]}
+            >
+              <p>Two iPhones in under three years, £2,346 in all. Taxpayers paid for both.</p>
+            </Spotlight>
+
+            <Spotlight
+              person={{ name: "Graeme Downie", href: "/representatives/mps/dunfermline-and-dollar", p: "Labour", place: "Dunfermline and Dollar" }}
+              kicker="13 March 2025 · one night out"
+              amount="£963"
+              headline="You paid for a business dinner."
+              lines={[
+                { what: "Fife College hosted business dinner on behalf of Graeme Downie [200012541-0]", amount: "£962.65" },
+              ]}
+            >
+              <p>One dinner, nearly £1,000 of public money.</p>
+            </Spotlight>
+          </div>
+
+          <div className="tile mt-2 max-w-[760px] p-5 sm:p-6">
+            <h3 className="ui text-[19px] font-[680] leading-[1.3] text-[var(--ink)]">
+              More things you paid for in 2025/26
+            </h3>
+            <ul className="mt-4 space-y-3.5 text-[16px] leading-[1.55] text-[var(--ink-2)]">
+              <li>
+                <strong className="text-[var(--ink)]">£546 to jet wash and clean drains</strong>,{" "}
+                <strong className="text-[var(--ink)]">£939 in flat fees</strong> and{" "}
+                <strong className="text-[var(--ink)]">£746 for home cover</strong>.{" "}
+                <Link href="/representatives/mps/inverness-skye-and-west-ross-shire#donations-and-interests" className="font-[640]">Angus MacDonald</Link>, Lib Dem.
+              </li>
+              <li>
+                <strong className="text-[var(--ink)]">£4,093 second home council tax</strong>,{" "}
+                <strong className="text-[var(--ink)]">£1,683 factor fees</strong> and{" "}
+                <strong className="text-[var(--ink)]">£386 broadband</strong> on a home with £0 rent.{" "}
+                <Link href="/representatives/mps/lothian-east#donations-and-interests" className="font-[640]">Douglas Alexander</Link>, Labour.
+              </li>
+              <li>
+                <strong className="text-[var(--ink)]">£1,500 to a media firm</strong> and{" "}
+                <strong className="text-[var(--ink)]">£723 for Europe hotels</strong>.{" "}
+                <Link href="/representatives/mps/kilmarnock-and-loudoun#donations-and-interests" className="font-[640]">Lillian Jones</Link>, Labour.
+              </li>
+              <li>
+                <strong className="text-[var(--ink)]">£9,194 for Europe hotels</strong> across 12 MPs. Top:{" "}
+                <Link href="/representatives/mps/dundee-central#donations-and-interests" className="font-[640]">Chris Law</Link> (£2,822),{" "}
+                <Link href="/representatives/mps/paisley-and-renfrewshire-south#donations-and-interests" className="font-[640]">Johanna Baxter</Link> (£1,004) and{" "}
+                <Link href="/representatives/mps/argyll-bute-and-south-lochaber#donations-and-interests" className="font-[640]">Brendan O&apos;Hara</Link> (£822).
+              </li>
+              <li>
+                <strong className="text-[var(--ink)]">£40,449 for outside PR and consultants</strong>. That counts £4,000 for{" "}
+                <Link href="/representatives/mps/cowdenbeath-and-kirkcaldy#donations-and-interests" className="font-[640]">Melanie Ward</Link>, £1,500 for{" "}
+                <Link href="/representatives/mps/kilmarnock-and-loudoun#donations-and-interests" className="font-[640]">Lillian Jones</Link>, £1,500 for{" "}
+                <Link href="/representatives/mps/central-ayrshire#donations-and-interests" className="font-[640]">Alan Gemmell</Link> and £1,100 for{" "}
+                <Link href="/representatives/mps/rutherglen#donations-and-interests" className="font-[640]">Michael Shanks</Link>.
+              </li>
+              <li>
+                <strong className="text-[var(--ink)]">£9,160 on papers</strong>,{" "}
+                <strong className="text-[var(--ink)]">£3,863 on 32 TV licences</strong> and{" "}
+                <strong className="text-[var(--ink)]">17 double or over claims</strong> that had to be paid back.
+              </li>
+            </ul>
+          </div>
+        </ContentFrame>
+
         {/* COMPACT 4-CARD INVESTIGATIONS STRIP */}
         <ContentFrame as="section" id="receipts" className="pt-12">
           <div className="tile-night tile overflow-hidden p-6 sm:p-7">
@@ -1311,91 +1431,6 @@ export default function MpRegisterOfInterestsScotlandPage() {
                       ))}
                     </ul>
                     <p className="ui mt-2 text-[13px] text-[var(--muted)]">Source: IPSA 2025/26 expense files (6,101 claims).</p>
-                  </div>
-                  <div className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] p-5 text-[15px] leading-[1.6] text-[var(--ink-2)]">
-                    <p className="font-[630] text-[var(--ink)] mb-2">
-                      Buried in the 6,101 rows: what else Scottish MPs billed in 2025/26
-                    </p>
-                    <ul className="list-disc space-y-2.5 pl-5 marker:text-[var(--bad)]">
-                      <li>
-                        <strong>£3,000 for a speech coach</strong>,{" "}
-                        <strong>£546 to jet wash drains</strong>,{" "}
-                        <strong>£939 in flat fees</strong> and{" "}
-                        <strong>£746 for home cover</strong> (
-                        <Link href="/representatives/mps/inverness-skye-and-west-ross-shire#donations-and-interests">
-                          Angus MacDonald
-                        </Link>
-                        , Lib Dem).
-                      </li>
-                      <li>
-                        <strong>£4,093 for second home council tax</strong>,{" "}
-                        <strong>£1,683 in factor fees</strong> and{" "}
-                        <strong>£386 for broadband</strong> on a house with{" "}
-                        <strong>£0 rent</strong> (
-                        <Link href="/representatives/mps/lothian-east#donations-and-interests">
-                          Douglas Alexander
-                        </Link>
-                        , Labour).
-                      </li>
-                      <li>
-                        <strong>£20,385 in one power bill</strong> to Yu Energy,{" "}
-                        <strong>£1,500 to a media firm</strong> and{" "}
-                        <strong>£723 for Europe hotels</strong> (
-                        <Link href="/representatives/mps/kilmarnock-and-loudoun#donations-and-interests">
-                          Lillian Jones
-                        </Link>
-                        , Labour).
-                      </li>
-                      <li>
-                        <strong>£9,194 for Europe hotels</strong> across 12 MPs. Top were{" "}
-                        <Link href="/representatives/mps/dundee-central#donations-and-interests">
-                          Chris Law
-                        </Link>{" "}
-                        (£2,822),{" "}
-                        <Link href="/representatives/mps/paisley-and-renfrewshire-south#donations-and-interests">
-                          Johanna Baxter
-                        </Link>{" "}
-                        (£1,004) and{" "}
-                        <Link href="/representatives/mps/argyll-bute-and-south-lochaber#donations-and-interests">
-                          Brendan O&apos;Hara
-                        </Link>{" "}
-                        (£822).
-                      </li>
-                      <li>
-                        <strong>£40,449 for outside PR and consultants</strong>. That counts{" "}
-                        <strong>£4,000</strong> for{" "}
-                        <Link href="/representatives/mps/cowdenbeath-and-kirkcaldy#donations-and-interests">
-                          Melanie Ward
-                        </Link>
-                        , <strong>£1,500</strong> for{" "}
-                        <Link href="/representatives/mps/kilmarnock-and-loudoun#donations-and-interests">
-                          Lillian Jones
-                        </Link>
-                        , <strong>£1,500</strong> for{" "}
-                        <Link href="/representatives/mps/central-ayrshire#donations-and-interests">
-                          Alan Gemmell
-                        </Link>{" "}
-                        and <strong>£1,100</strong> for{" "}
-                        <Link href="/representatives/mps/rutherglen#donations-and-interests">
-                          Michael Shanks
-                        </Link>
-                        .
-                      </li>
-                      <li>
-                        <strong>£1,248 for an iPhone</strong> (
-                        <Link href="/representatives/mps/berwickshire-roxburgh-and-selkirk#donations-and-interests">
-                          John Lamont
-                        </Link>
-                        ) and <strong>£2,542 at DFS and IKEA</strong> plus{" "}
-                        <strong>£5,000 for carpet and work</strong> (
-                        <Link href="/representatives/mps/motherwell-wishaw-and-carluke#donations-and-interests">
-                          Pamela Nash
-                        </Link>
-                        ). Plus <strong>£9,160 on papers</strong>,{" "}
-                        <strong>£3,863 on 32 TV licences</strong>, and{" "}
-                        <strong>17 double or over claims</strong> paid back.
-                      </li>
-                    </ul>
                   </div>
                 </div>
               </details>

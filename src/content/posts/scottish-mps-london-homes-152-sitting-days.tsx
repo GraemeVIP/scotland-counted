@@ -17,6 +17,7 @@ import {
   Tiles,
   PointList,
   Expand,
+  Spotlight,
 } from "@/components/ExpenseKit";
 
 /*
@@ -257,6 +258,53 @@ export default function ScottishMpsLondonHomes152SittingDays() {
         </div>
       </Expand>
 
+      <P>Here are the biggest single bills behind those numbers in 2025/26:</P>
+
+      <Spotlight
+        person={{ name: "Melanie Ward", href: mp("cowdenbeath-and-kirkcaldy"), p: "Labour", place: "Cowdenbeath and Kirkcaldy" }}
+        kicker="2025/26 · Family travel"
+        amount="£7,932"
+        headline="You paid for her family's flights and train trips."
+        lines={[
+          { meta: "Family · Air travel", what: "Aggregated figure for travel during 2025-26", amount: "£7,607.27" },
+          { meta: "Family · Rail", what: "Aggregated figure for travel during 2025-26", amount: "£305.40" },
+          { meta: "Family · Other public transport", what: "Aggregated figure for travel during 2025-26", amount: "£19.80" },
+        ]}
+      >
+        <p>
+          The biggest family travel bill of any Scottish MP that year. IPSA, the body that pays
+          MPs&apos; expenses with public money, paid every penny.
+        </p>
+      </Spotlight>
+
+      <Spotlight
+        person={{ name: "Gregor Poynton", href: mp("livingston"), p: "Labour", place: "Livingston" }}
+        kicker="2025/26 · Taxis"
+        amount="£5,059"
+        headline="You paid for his taxis. No Scottish MP billed more."
+        lines={[
+          { meta: "MP travel · Taxi", what: "Aggregated figure for travel during 2025-26", amount: "£4,938.65" },
+          { meta: "MP travel · Taxi", what: "Aggregated figure for travel during 2025-26", amount: "£93.70" },
+          { meta: "MP travel · Taxi", what: "Aggregated figure for travel during 2025-26", amount: "£27.00" },
+        ]}
+      >
+        <p>
+          On top of that, you paid <strong>£6,232</strong> for his family&apos;s flights.
+        </p>
+      </Spotlight>
+
+      <Spotlight
+        person={{ name: "Douglas Alexander", href: mp("lothian-east"), p: "Labour", place: "Lothian East" }}
+        kicker="20 October 2025 · Second home council tax"
+        amount="£4,093"
+        headline="You paid the council tax on his second home."
+        lines={[
+          { meta: "Accommodation · Council tax", what: "Council tax associated costs 2025 to 2026", amount: "£4,093.21" },
+        ]}
+      >
+        <p>The biggest council tax bill any Scottish MP put on expenses in 2025/26.</p>
+      </Spotlight>
+
       {/* ------------------------------------------------------------ 2 */}
       <Finding n={2} id="price-of-presence">
         What did we get for the money?
@@ -378,7 +426,8 @@ export default function ScottishMpsLondonHomes152SittingDays() {
             children: (
               <>
                 A minister works in London on weekdays, so more nights make sense. Even so, his
-                bills still ran <strong>seven nights a week</strong> (28 to 30 nights a month). See{" "}
+                bills still ran <strong>seven nights a week</strong> (28 to 30 nights a month),
+                all paid by you. See{" "}
                 <Link href="/mp-expenses-scotland/receipts#hotel-nights">all 14 of his hotel claims</Link>
                 .
               </>

@@ -14,6 +14,7 @@ import {
   Tiles,
   PointList,
   Expand,
+  Spotlight,
   PartyList,
 } from "@/components/ExpenseKit";
 
@@ -50,7 +51,6 @@ const NO_VOTERS: CasePerson[] = [
 ];
 
 const VIP_TICKETS: { name: string; slug: string; p: PartyKey; value: number; detail: string }[] = [
-  { name: "Dave Doogan", slug: "angus-and-perthshire-glens", p: "SNP", value: 1860, detail: "Silverstone Formula 1 VIP tickets" },
   { name: "Brendan O'Hara", slug: "argyll-bute-and-south-lochaber", p: "SNP", value: 1525, detail: "Champions League and Hampden VIP boxes" },
   { name: "Gregor Poynton", slug: "livingston", p: "Labour", value: 1110, detail: "Lord's Cricket Ground and the Carabao Cup Final at Wembley" },
   { name: "Andrew Bowie", slug: "west-aberdeenshire-and-kincardine", p: "Conservative", value: 1100, detail: "Silverstone British Grand Prix VIP tickets" },
@@ -285,6 +285,18 @@ export default function Post() {
         money). These are paid by firms and donors, not by you. The biggest VIP tickets:
       </P>
 
+      <Spotlight
+        person={person("Dave Doogan", "angus-and-perthshire-glens", "SNP", "Angus and Perthshire Glens")}
+        kicker="4 July 2026 · Register of Interests"
+        amount="£1,860"
+        headline="Two free tickets to the F1 Sprint Race at Silverstone, with hospitality."
+      >
+        <p>
+          A gift from Silverstone Circuit. It is the biggest single gift any Scottish MP has on the
+          Register. Most fans save up for their own ticket.
+        </p>
+      </Spotlight>
+
       <ChartFrame kicker="Register of Interests · 2025/26" title="Free VIP tickets declared by Scottish MPs">
         <RankList
           rows={VIP_TICKETS.map((t) => ({
@@ -403,26 +415,40 @@ export default function Post() {
           {
             key: "law",
             title: <Who face name="Chris Law" href={mp("dundee-central")} p="SNP" note="£6,292 parking" />,
-            children: <>The most in Scotland. That is £121 every week, at airports and stations.</>,
+            children: (
+              <>
+                The most in Scotland. <strong>That is £121 every week, just to park a car</strong>,
+                at airports and stations.
+              </>
+            ),
           },
           {
             key: "poynton",
             title: <Who face name="Gregor Poynton" href={mp("livingston")} p="Labour" note="£5,059 taxis" />,
-            children: <>The most in Scotland. Nearly £100 a week on cabs.</>,
-          },
-          {
-            key: "ward",
-            title: <Who face name="Melanie Ward" href={mp("cowdenbeath-and-kirkcaldy")} p="Labour" note="£7,932 family travel" />,
             children: (
               <>
-                The most in Scotland. £7,607 of it was family flights. In{" "}
-                <Link href="/constituencies/cowdenbeath-and-kirkcaldy">Cowdenbeath and Kirkcaldy</Link>,
-                4,581 children (26.2%) live in poverty.
+                The most in Scotland. <strong>Nearly £100 a week on cabs.</strong>
               </>
             ),
           },
         ]}
       />
+
+      <Spotlight
+        person={person("Melanie Ward", "cowdenbeath-and-kirkcaldy", "Labour", "Cowdenbeath and Kirkcaldy")}
+        kicker="2025/26 · Family travel"
+        amount="£7,607"
+        headline="You paid for her family's flights."
+        lines={[{ meta: "Dependant travel · Air travel", what: "Aggregated figure for travel during 2025-26", amount: "£7,607.27" }]}
+      >
+        <p>
+          It is part of £7,932 in family travel, the most of any Scottish MP. In{" "}
+          <Link href="/constituencies/cowdenbeath-and-kirkcaldy" className="text-white underline">
+            Cowdenbeath and Kirkcaldy
+          </Link>
+          , 4,581 children (26.2%) live in poverty.
+        </p>
+      </Spotlight>
 
       <Tiles
         items={[
@@ -519,6 +545,16 @@ export default function Post() {
         More receipts: PR firms, European hotels and TV licences
       </Finding>
 
+      <Spotlight
+        person={person("Chris Law", "dundee-central", "SNP", "Dundee Central")}
+        kicker="2025/26 · Hotels in Europe"
+        amount="£2,822"
+        headline="You paid for 26 nights in hotels in Europe."
+        lines={[{ meta: "Hotel - European · 26 nights", what: "Aggregated figure for travel during 2025-26", amount: "£2,821.90" }]}
+      >
+        <p>The most of any Scottish MP. IPSA&apos;s file does not say which cities.</p>
+      </Spotlight>
+
       <PointList
         items={[
           {
@@ -527,9 +563,10 @@ export default function Post() {
             children: (
               <>
                 MPs already get about £255,000 for staff. Still,{" "}
-                <Link href={mp("central-ayrshire")}>Alan Gemmell</Link> paid £1,500 for a website and{" "}
-                <Link href={mp("rutherglen")}>Michael Shanks</Link> paid £1,100 for social media
-                templates.
+                <Link href={mp("central-ayrshire")}>Alan Gemmell</Link> paid{" "}
+                <strong>£1,500 for a website</strong> and{" "}
+                <Link href={mp("rutherglen")}>Michael Shanks</Link> paid{" "}
+                <strong>£1,100 for social media templates</strong>.
               </>
             ),
           },
@@ -538,7 +575,7 @@ export default function Post() {
             title: "£9,194 on hotels in Europe, 12 MPs",
             children: (
               <>
-                <Link href={mp("dundee-central")}>Chris Law</Link> £2,822,{" "}
+                After Chris Law (above):{" "}
                 <Link href={mp("paisley-and-renfrewshire-south")}>Johanna Baxter</Link> £1,004,{" "}
                 <Link href={mp("argyll-bute-and-south-lochaber")}>Brendan O&apos;Hara</Link> £822.
               </>

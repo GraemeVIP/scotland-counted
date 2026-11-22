@@ -26,6 +26,7 @@ import {
   Tiles,
   PointList,
   Expand,
+  Spotlight,
 } from "@/components/ExpenseKit";
 
 const mp = (slug: string) => `/representatives/mps/${slug}#donations-and-interests`;
@@ -426,6 +427,32 @@ export default function KilmarnockMp23437ElectricityBill() {
         ]}
       />
 
+      <P>
+        The power bill is not her only eye catching claim. IPSA, the body that pays MPs&apos;
+        expenses with public money, also paid for this:
+      </P>
+
+      <Spotlight
+        person={JONES}
+        kicker="7 November 2024 · Kilmarnock FC"
+        amount="£1,020"
+        headline="You paid for a Kilmarnock FC advertising board with her name on it."
+        lines={[
+          {
+            meta: "Office Costs · Advertising and contact cards",
+            what: "Advertising Board for Kilmarnock FC for Lillian Jones MP",
+            amount: "£1,020.00",
+          },
+        ]}
+      >
+        <p>Her name, up at the football. Taxpayers footed the bill.</p>
+      </Spotlight>
+
+      <P>
+        She also billed you <strong>£2,820 for office signs</strong> from Owen Kerr Signs, in two
+        payments of £1,410 (March and April 2025).
+      </P>
+
       <Aside title="Part of a wider pattern in Westminster">
         <p>
           <Link href={JONES.href}>Lillian Jones</Link> is not alone. Across Scotland&apos;s 57 MPs,
@@ -435,7 +462,8 @@ export default function KilmarnockMp23437ElectricityBill() {
           </Link>
           . We also found{" "}
           <Link href="/blog/worst-scottish-mp-expenses">£3,090 to set up 5G broadband</Link>,
-          £24,530 on one MP&apos;s phone bills, and £37,359 on London hotels. See{" "}
+          <strong>£24,530 on one MP&apos;s phone bills</strong>, and{" "}
+          <strong>£37,359 on London hotels</strong>. See{" "}
           <Link href="/mp-expenses-scotland/receipts">the oddest claims</Link> or compare{" "}
           <Link href="/mp-expenses-scotland">all 57 Scottish MPs</Link>.
         </p>

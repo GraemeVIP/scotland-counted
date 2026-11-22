@@ -12,6 +12,7 @@ import {
   CaseCard,
   PointList,
   Expand,
+  Spotlight,
 } from "@/components/ExpenseKit";
 
 /*
@@ -94,7 +95,7 @@ const EXTRAS_SMALL = [
   {
     what: "Flights, trains and taxis for MPs' partners and children",
     amount: 89_111,
-    detail: "Billed by 35 Scottish MPs (up to £7,932 for a single MP)",
+    detail: "Billed by 35 Scottish MPs (top: Melanie Ward, £7,932)",
   },
   {
     what: "Newspapers and magazines (both parliaments have free libraries)",
@@ -107,9 +108,9 @@ const EXTRAS_SMALL = [
     detail: "The same day total across both lines was £23,437",
   },
   {
-    what: "Office TV licences, dinners and cancelled hotel rooms",
+    what: "Office TV licences, dinners, Christmas lunches and cancelled hotel rooms",
     amount: 9_172,
-    detail: "£4,877 TV licences + £3,763 dinners + £532 cancelled rooms",
+    detail: "£4,877 TV licences + £3,763 dinners and lunches + £532 for hotel rooms never used",
   },
 ];
 
@@ -191,6 +192,56 @@ export default function ScottishMpMspExpensesWhatItCouldBuy() {
         </p>
       </CaseCard>
 
+      <Spotlight
+        person={{
+          name: "Angus MacDonald MP",
+          href: mp("inverness-skye-and-west-ross-shire"),
+          p: "Lib Dem",
+          place: "Inverness, Skye and West Ross-shire",
+        }}
+        kicker="17 July 2025 · one workshop"
+        amount="£3,000"
+        headline="You paid for his speech lessons."
+        lines={[
+          {
+            meta: "Comms & Media · paid from his staffing budget",
+            what: "Provision of personalised presentation and speech skills workshop to assist MPs representational role in Parliament.",
+            amount: "£3,000.00",
+          },
+        ]}
+      >
+        <p>
+          One workshop on how to present and give speeches. <strong>Taxpayers paid all £3,000.</strong>
+        </p>
+      </Spotlight>
+
+      <Spotlight
+        person={{
+          name: "Melanie Ward MP",
+          href: mp("cowdenbeath-and-kirkcaldy"),
+          p: "Labour",
+          place: "Cowdenbeath and Kirkcaldy",
+        }}
+        kicker="2025/26 · top family travel bill of any Scottish MP"
+        amount="£7,932"
+        headline="You paid for her family's flights and trains."
+        lines={[
+          { meta: "Family travel · Air travel", what: "Aggregated figure for travel during 2025-26", amount: "£7,607.27" },
+          { meta: "Family travel · Rail", what: "Aggregated figure for travel during 2025-26", amount: "£305.40" },
+          { meta: "Family travel · Other public transport", what: "Aggregated figure for travel during 2025-26", amount: "£19.80" },
+        ]}
+      >
+        <p>
+          That is the biggest family travel bill of the 35 Scottish MPs who claimed for partners
+          and children in 2025/26.
+        </p>
+        <p>
+          She also billed <strong>£14,000 to consultants who are not named</strong>: £10,000 for a
+          &ldquo;Policy and Office set up consultant&rdquo; (December 2024) and £4,000 for
+          &ldquo;Communications Support&rdquo; (July 2025).
+        </p>
+      </Spotlight>
+
       <CaseCard
         kicker="Total over 8 years (2016 to 2024)"
         figure="£36,953"
@@ -234,30 +285,53 @@ export default function ScottishMpMspExpensesWhatItCouldBuy() {
         </p>
       </CaseCard>
 
-      <Expand summary="Five more real receipts">
-        <CaseCard
-          kicker="Total paid at £600 a day"
-          figure="£19,800"
-          people={[
-            {
-              name: "Mark Griffin",
-              href: msp("regions/central-scotland-and-lothians-west/mark-griffin"),
-              p: "Labour",
-              place: "MSP · £11,400",
-            },
-            {
-              name: "Michael Marra",
-              href: msp("regions/north-east-scotland/michael-marra"),
-              p: "Labour",
-              place: "MSP · £8,400",
-            },
-          ]}
-        >
-          <p>
-            <strong>Paid at £600 a day to Craigview Strategies</strong>, a firm run by ex Scottish
-            Labour boss Brian Roy. That £19,800 could fund <strong>152 Crisis Grants</strong> (£130 each) for homes with empty cupboards.
-          </p>
-        </CaseCard>
+      <Spotlight
+        person={{
+          name: "Mark Griffin",
+          href: msp("regions/central-scotland-and-lothians-west/mark-griffin"),
+          p: "Labour",
+          place: "MSP",
+        }}
+        kicker="November 2023 to March 2024 · £600 a day"
+        amount="£11,400"
+        headline="You paid an ex Labour boss's firm to help with his bill."
+        lines={[
+          { meta: "Nov 2023 · Craigview Strategies Limited", what: "Consultancy costs associated with support for private members bill", amount: "£2,400.00" },
+          { meta: "Dec 2023 · Craigview Strategies Limited", what: "Consultancy re: private members bill", amount: "£2,400.00" },
+          { meta: "Mar 2024 · Craigview Strategies Limited", what: "Consultancy Costs Private Members Bill", amount: "£2,400.00" },
+        ]}
+      >
+        <p>
+          Two more bills (£4,200) took it to £11,400. Craigview Strategies is run by ex Scottish
+          Labour boss Brian Roy.
+        </p>
+        <p>
+          Fellow Labour MSP{" "}
+          <Link href={msp("regions/north-east-scotland/michael-marra")}>Michael Marra</Link> paid
+          the same firm <strong>£8,400</strong> in 2023. Together, that <strong>£19,800</strong>{" "}
+          could fund <strong>152 Crisis Grants</strong> (£130 each) for homes with empty cupboards.
+        </p>
+      </Spotlight>
+
+      <Spotlight
+        person={{
+          name: "Patrick Harvie",
+          href: msp("regions/glasgow/patrick-harvie"),
+          p: "Greens",
+          place: "MSP · Glasgow",
+        }}
+        kicker="28 March 2025 · 3 days before the budget cutoff"
+        amount="£17,400"
+        headline="You paid to print and post his annual report, in one bill."
+        lines={[
+          { meta: "Alliance Print Group", what: "Annual Report Printing & Mailing costs", amount: "£17,400.00" },
+        ]}
+      >
+        <p>
+          One bill, 3 days before the budget year ended. That could have paid{" "}
+          <strong>134 Crisis Grants</strong> or <strong>6,692 school lunches</strong>.
+        </p>
+      </Spotlight>
 
       <CaseCard
         kicker="Total of 58 claims"
@@ -280,44 +354,7 @@ export default function ScottishMpMspExpensesWhatItCouldBuy() {
         </p>
       </CaseCard>
 
-        <CaseCard
-          kicker="One bill · 134 Crisis Grants"
-          figure="£17,400"
-          people={[
-            {
-              name: "Patrick Harvie",
-              href: msp("regions/glasgow/patrick-harvie"),
-              p: "Greens",
-              place: "MSP · Glasgow",
-            },
-          ]}
-        >
-          <p>
-            <strong>One March leaflet blitz bill on 28 March 2025</strong>, from Alliance Print
-            Group. That was 3 days before the budget cutoff.
-          </p>
-        </CaseCard>
-
-        <CaseCard
-          kicker="Two bills · 107 Crisis Grants"
-          figure="£14,000"
-          people={[
-            {
-              name: "Melanie Ward MP",
-              href: mp("cowdenbeath-and-kirkcaldy"),
-              p: "Labour",
-              place: "Cowdenbeath and Kirkcaldy",
-            },
-          ]}
-        >
-          <p>
-            <strong>Paid to consultants who are not named</strong>: £10,000 for policy work and
-            setting up her office, and £4,000 for communications support. The bills came in
-            December 2024 and July 2025.
-          </p>
-        </CaseCard>
-
-        <CaseCard
+      <CaseCard
           kicker="194 claims over 4 years · 5,180 school lunches"
           figure="£13,469"
           people={[
@@ -335,7 +372,6 @@ export default function ScottishMpMspExpensesWhatItCouldBuy() {
             2025.
           </p>
         </CaseCard>
-      </Expand>
 
       {/* ------------------------------------------------------------ 2 */}
       <Finding n={2} id="nhs-and-schools">
@@ -464,7 +500,7 @@ export default function ScottishMpMspExpensesWhatItCouldBuy() {
         </div>
       </ChartFrame>
 
-      <Expand summary="See the five smaller parts (taxis, family trips, papers and more)">
+      <ChartFrame kicker="Also in the £2.81 million" title="Five smaller bills taxpayers picked up">
         <div className="space-y-5">
           {EXTRAS_SMALL.map((z) => (
             <div key={z.what}>
@@ -474,7 +510,7 @@ export default function ScottishMpMspExpensesWhatItCouldBuy() {
             </div>
           ))}
         </div>
-      </Expand>
+      </ChartFrame>
 
       <PointList
         items={[
