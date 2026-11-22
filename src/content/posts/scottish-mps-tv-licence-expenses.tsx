@@ -13,6 +13,7 @@ import {
   Bar,
   RankList,
   CaseCard,
+  Face,
   Tiles,
   Expand,
 } from "@/components/ExpenseKit";
@@ -141,20 +142,52 @@ export default function ScottishMpsTvLicenceExpenses() {
         ]}
       />
 
-      <CaseCard
-        kicker="Four licences in under a year"
-        figure="£688"
-        people={[{ name: "Gregor Poynton", href: mp("livingston"), p: "Labour", place: "Livingston" }]}
+      <section
+        aria-label="Gregor Poynton's four TV licences"
+        className="not-prose my-10 overflow-hidden rounded-[var(--r-m)] bg-[#10141d] text-white shadow-[0_18px_40px_-24px_rgba(0,0,0,0.55)] ring-1 ring-[#ff4d4d]/40"
       >
-        <p>
-          He also tops Scotland for MP taxi bills (£5,059) and claimed £3,630 for second home
-          council tax. He billed £169.50 on 18 Dec 2024, then £169.50 again on 14 Feb 2025.
-        </p>
-        <p>
-          Two more followed on 4 Nov and 26 Nov 2025, worth £349 together. IPSA&apos;s files do not
-          say why he needed four licences in less than a year.
-        </p>
-      </CaseCard>
+        <div className="flex items-center gap-3 border-b border-white/15 px-6 py-4 sm:px-8">
+          <Face name="Gregor Poynton" href={mp("livingston")} size={44} />
+          <p className="ui text-[15px] font-[620] leading-[1.35]">
+            <Link href={mp("livingston")} className="text-white underline decoration-white/40 underline-offset-4">
+              Gregor Poynton
+            </Link>
+            <span className="opacity-75"> · Labour MP for Livingston</span>
+          </p>
+        </div>
+        <div className="px-6 py-7 sm:px-8 sm:py-9">
+          <p className="ui text-[13px] font-[660] uppercase tracking-[0.07em] opacity-75">
+            One TV licence covers one place for a whole year
+          </p>
+          <p className="mt-2 text-[28px] font-[720] leading-[1.15] sm:text-[34px]">
+            He billed you for <span className="text-[#ff5757]">four</span> in 11 months.
+          </p>
+          <ol className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
+            {[
+              { date: "18 Dec 2024", amount: "£169.50", note: "Licence 1" },
+              { date: "14 Feb 2025", amount: "£169.50", note: "Licence 2, eight weeks later" },
+              { date: "4 Nov 2025", amount: "£174.50", note: "Licence 3" },
+              { date: "26 Nov 2025", amount: "£174.50", note: "Licence 4, three weeks later" },
+            ].map((l) => (
+              <li key={l.date} className="rounded-[var(--r-s)] bg-white/[0.06] px-4 py-3 ring-1 ring-white/10">
+                <p className="ui text-[13px] opacity-75">{l.date}</p>
+                <p className="figure-num tnum mt-1 text-[26px] leading-none text-[#ff5757]">{l.amount}</p>
+                <p className="ui mt-1.5 text-[13.5px] opacity-85">{l.note}</p>
+              </li>
+            ))}
+          </ol>
+          <p className="mt-6 text-[17px] leading-[1.55] opacity-90">
+            IPSA, the body that pays MPs&apos; expenses with public money, only pays for a TV licence at
+            an MP&apos;s local office. His office also billed for a <strong>£228.97 TV</strong>, a{" "}
+            <strong>£30 aerial</strong> and a <strong>£40.79 TV stand</strong>. IPSA&apos;s files do
+            not say why he needed four, or which buildings they were for.
+          </p>
+          <p className="mt-3 text-[15px] leading-[1.55] opacity-70">
+            Total for the four licences: £688. He also tops Scotland for MP taxi bills (£5,059) and
+            claimed £3,630 for second home council tax.
+          </p>
+        </div>
+      </section>
 
       {/* ------------------------------------------------------------ 1 */}
       <Finding n={1} of={FINDINGS} id="why-tv-licence">
