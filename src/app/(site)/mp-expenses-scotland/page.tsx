@@ -926,7 +926,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
             <ExplainText>
               Scottish Labour MPs make up <strong>73% of second home council tax</strong> and{" "}
               <strong>75% of free trips abroad</strong>. Tories took the most in donations, trips
-              and gifts per MP (<strong>£13,333 each</strong>). SNP and Highland MPs had the biggest
+              and gifts per MP (<strong>£16,000 each</strong>, across the 5 who sat all year). SNP and Highland MPs had the biggest
               travel bills. Across all four parties, the average MP&apos;s bills for rent, travel,
               hotels and office sat between £90,000 and £111,000.
             </ExplainText>

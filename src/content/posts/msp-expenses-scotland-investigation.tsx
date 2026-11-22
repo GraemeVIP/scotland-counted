@@ -160,13 +160,13 @@ const NEWSPAPERS: { name: string; p: PartyKey; href?: string; former?: boolean; 
 const COMMUTER_HOTELS: { name: string; p: PartyKey; href: string; area: string; total: number; what: string }[] = [
   { name: "Graham Simpson", p: "Reform UK", href: msp("regions/central-scotland-and-lothians-west/graham-simpson"), area: "Central Scotland & Lothians West", total: 26329.15, what: "£13,500 flat rent, £8,322 council tax (incl. £4,842 paid early for 2025/26), £4,085 hotels" },
   { name: "Collette Stevenson", p: "SNP", href: msp("constituencies/east-kilbride"), area: "East Kilbride, 45 miles away", total: 16588.05, what: "Edinburgh rented flat plus £3,442 council tax" },
-  { name: "Russell Findlay", p: "Conservative", href: msp("regions/west-scotland/russell-findlay"), area: "West Scotland", total: 11593.94, what: "£10,495 Edinburgh hotels plus £1,136 evening meals" },
+  { name: "Russell Findlay", p: "Conservative", href: msp("regions/west-scotland/russell-findlay"), area: "West Scotland", total: 11593.94, what: "£10,495 Edinburgh hotels plus £1,099 meals and refreshments" },
   { name: "Ross Greer", p: "Greens", href: msp("regions/west-scotland/ross-greer"), area: "West Scotland", total: 10174.22, what: "£9,900 Edinburgh hotels" },
-  { name: "Clare Adamson", p: "SNP", href: msp("constituencies/motherwell-and-wishaw"), area: "Motherwell and Wishaw, 35 miles away", total: 10125.04, what: "£9,259 Edinburgh hotels plus £1,723 meals and catering" },
+  { name: "Clare Adamson", p: "SNP", href: msp("constituencies/motherwell-and-wishaw"), area: "Motherwell and Wishaw, 35 miles away", total: 10125.04, what: "£9,259 Edinburgh hotels plus £866 meals and refreshments" },
   { name: "George Adam", p: "SNP", href: msp("constituencies/paisley"), area: "Paisley", total: 9684.0, what: "Edinburgh hotels (including £820 for one 5 night stay)" },
   { name: "Jackie Baillie", p: "Labour", href: msp("constituencies/dumbarton"), area: "Dumbarton", total: 9565.0, what: "Edinburgh hotels" },
   { name: "Monica Lennon", p: "Labour", href: msp("regions/glasgow/monica-lennon"), area: "Glasgow", total: 9248.57, what: "£9,183 Edinburgh hotels" },
-  { name: "Pauline McNeill", p: "Labour", href: msp("regions/glasgow/pauline-mcneill"), area: "Glasgow", total: 8526.75, what: "£7,527 Edinburgh hotels plus £1,015 meals" },
+  { name: "Pauline McNeill", p: "Labour", href: msp("regions/glasgow/pauline-mcneill"), area: "Glasgow", total: 8526.75, what: "£7,527 Edinburgh hotels plus £1,000 meals and refreshments" },
   { name: "Patrick Harvie", p: "Greens", href: msp("regions/glasgow/patrick-harvie"), area: "Glasgow", total: 7035.72, what: "£6,457 Edinburgh hotels" },
 ];
 
@@ -776,7 +776,9 @@ export default function MspExpensesScotlandInvestigation() {
         </p>
         <p>
           Holyrood&apos;s full 2024/25 bill for MSPs was £27.45 million. Most of it (£22.57 million)
-          was staff pay. This page covers the claims MSPs make themselves (£4.58 million).
+          was staff pay. This page covers the £4.58 million that shows up as individual claims in
+          the published files. The last £0.30 million of the official total is costs the
+          Parliament reports only as totals, with no claim lines behind them.
         </p>
       </Aside>
 

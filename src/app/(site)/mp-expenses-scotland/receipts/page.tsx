@@ -80,6 +80,7 @@ const RECEIPTS: Receipt[] = [
       "Two power bills paid on one day on the same account, with £0 paid back. IPSA paid it outside her office cap. It is #1 out of all 650 UK MPs over five years. It beats a full year of her office rent (£16,850) by £6,587 and equals 156 Warm Home Discounts.",
     compare: [
       ["Her office power for 5 winter months (Clear Business)", "£1,074"],
+      ["Her bigger payment on its own", "£20,385"],
       ["Next biggest single MP power bill in the UK", "£5,633"],
       ["A full year's rent for her Kilmarnock office", "£16,850"],
       ["Yu Energy payouts on 19 May 2026", "£23,437"],

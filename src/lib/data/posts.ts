@@ -189,7 +189,7 @@ export const posts: Post[] = [
     faq: [
       {
         q: "How much do Scottish MPs and MSPs cost in expenses combined?",
-        a: "In one full year (2025/26 for 57 MPs and 2024/25 for 129 MSPs), total bills hit £45.77 million. Take out £35.68 million in staff pay and £3.36 million in local office rent. That leaves £6,650,199 spent on second homes, hotels, travel, leaflets, PR firms and papers.",
+        a: "In one full year (2025/26 for 57 MPs and 2024/25 for 129 MSPs), total bills hit £45.77 million. Take out £35.68 million in staff pay, £3.40 million in local office rent and bills, and £0.30 million of Holyrood costs that have no claim lines behind them. Then add back £264,757 of staff hotel and travel claims. That leaves £6,650,199 spent on second homes, hotels, travel, leaflets, PR firms and papers.",
       },
       {
         q: "How does £6.65 million compare to Crisis Grants in Scotland?",

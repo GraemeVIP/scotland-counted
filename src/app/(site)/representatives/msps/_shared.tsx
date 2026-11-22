@@ -250,6 +250,10 @@ export function MspExpensesAndInterests({
   if (!profile) return null;
 
   const exp = profile.holyroodExpenses;
+  /** 2024/25 bills outside the three named boxes (e.g. staff costs claims, start up), so the boxes add up to the total. */
+  const other2425 = exp
+    ? Math.max(0, exp.total2425 - exp.edinburghAcc2425 - exp.engagement2425 - exp.office2425 - exp.travel2425)
+    : 0;
   const west = profile.formerWestminster;
   const roi = profile.registerOfInterests;
   const dotColour = mspPartyColour(msp.party);
@@ -364,13 +368,14 @@ export function MspExpensesAndInterests({
 
               <div className="tile p-4">
                 <p className="ui text-[12.5px] font-[640] uppercase tracking-[0.04em] text-[var(--muted)]">
-                  Office, travel &amp; papers
+                  Office, travel &amp; other
                 </p>
                 <p className="figure-num tnum mt-1.5 text-[30px] leading-none text-[var(--ink)]">
-                  {gbpWhole.format(exp.office2425 + exp.travel2425)}
+                  {gbpWhole.format(exp.office2425 + exp.travel2425 + other2425)}
                 </p>
                 <p className="ui mt-1.5 text-[13px] text-[var(--ink-2)]">
                   Office {gbpWhole.format(exp.office2425)}. Travel {gbpWhole.format(exp.travel2425)}.
+                  {other2425 >= 1 ? ` Other ${gbpWhole.format(other2425)}.` : ""}
                   {exp.newspapers4Yr >= 500
                     ? ` Papers: ${gbpWhole.format(exp.newspapers4Yr)} (4 yrs).`
                     : exp.carMiles4Yr >= 1000
