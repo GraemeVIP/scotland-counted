@@ -142,6 +142,58 @@ export type Post = {
 
 export const posts: Post[] = [
   {
+    slug: "scottish-mps-tv-licence-expenses",
+    title:
+      "29 Scottish MPs billed taxpayers £10,754 for their TV licences (including one who claimed 4 in a year)",
+    seoTitle:
+      "Scottish MPs Claimed £10,754 in TV Licences on Expenses (Full List of All 29 MPs)",
+    description:
+      "More than half of Scotland's MPs put their TV licence on public expenses between 2022 and 2026, totalling £10,754 across 84 claims. See the full list of all 29 MPs.",
+    standfirst:
+      "Ordinary households in Scotland pay £180 a year for a TV licence out of their own pocket. Meanwhile, 29 Scottish MPs on £98,599 a year billed taxpayers £10,754 across 84 TV licence claims, including one MP who claimed four in under 12 months and another who claimed two in nine months (one online and one at a Co-op).",
+    date: "2026-11-21",
+    updated: "2026-11-21",
+    checked: "2026-11-21",
+    category: "politics-explained",
+    tags: ["MP expenses Scotland", "TV licence", "IPSA", "Scottish Labour", "Westminster"],
+    readingMinutes: 5,
+    image: {
+      src: "/images/editorial/refresh-court-records.webp",
+      alt: "Official folders and parliamentary financial records for Scottish MPs' TV licence expense claims",
+      caption:
+        "Every TV licence claim listed here comes directly from IPSA's published individualBusinessCosts files for 2022/23 to 2026/27.",
+      aspect: "wide",
+      objectPosition: "center",
+    },
+    shareImage: {
+      src: "/images/editorial/refresh-court-records.webp",
+      width: 1500,
+      height: 1000,
+      type: "image/webp",
+    },
+    toc: [
+      { id: "why-tv-licence", label: "Why taxpayers buy MPs a TV licence" },
+      { id: "standout-claims", label: "The claims that jump off the page" },
+      { id: "party-breakdown", label: "By party: Labour accounts for 63%" },
+      { id: "full-list", label: "All 29 Scottish MPs who claimed one" },
+    ],
+    faq: [
+      {
+        q: "Are MPs allowed to claim a TV licence on expenses?",
+        a: "IPSA allows MPs to claim a TV licence for their constituency office under the Office Costs budget. MPs are explicitly barred from claiming a TV licence for their London second home or private home.",
+      },
+      {
+        q: "How many Scottish MPs claimed a TV licence between 2022 and 2026?",
+        a: "29 of Scotland's 57 current MPs filed 84 TV licence expense entries totalling £10,754.00 across IPSA's 2022/23 to 2026/27 records. The other 28 Scottish MPs claimed £0 for TV licences over the same five years.",
+      },
+      {
+        q: "Which Scottish MP claimed the most for TV licences?",
+        a: "Alistair Carmichael (Lib Dem) logged £1,080.25 across two island offices (repaying £246.25 for an MSP's 50% share), followed by Christine Jardine (Lib Dem) at £842.00 across five straight years, and Gregor Poynton (Labour) at £688.00 across four separate TV licences in under 12 months.",
+      },
+    ],
+    sourceIds: ["ipsa-claims-2022-2027"],
+  },
+  {
     slug: "worst-scottish-mp-expenses",
     title:
       "£3,090 to set up broadband, £3,000 for a speech coach and £546 to clean the drains: the worst Scottish MP expenses",
@@ -198,7 +250,6 @@ export const posts: Post[] = [
       "ipsa-claims-2022-2027",
       "ofcom-connected-nations-2022",
       "ispreview-starlink-2022",
-      "scotsman-labour-mps-media-spend-2025",
     ],
   },
   {

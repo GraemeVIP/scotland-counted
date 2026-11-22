@@ -182,7 +182,7 @@ const MORE_SPOTLIGHT_LEADERS: SpotlightEntry[] = [
     taxpayerSummary:
       "£31,366 for London flat rent (£2,614/month), £9,906 for flights and £3,941 for family flights (£348,096 total including staff). Also declares rental property income.",
     freebiesSummary:
-      "Declared £2,400 of free media training (coaching on how to handle TV and press interviews) from Earthcott Ltd. Companies House shows Earthcott is her husband David Taylor's own firm: he is its only director and owns over 75% of it. She also declares that he is a lobbyist. So a perk worth £2,400 came from her husband's business, on top of £4,700 she billed taxpayers in 2025/26 for PR and website work from Causeway Creative (£24,664 since 2024, more than any other MP in the UK).",
+      "Declared £2,400 of free media training (coaching on how to handle TV and press interviews) from Earthcott Ltd. Companies House shows Earthcott is her husband David Taylor's own firm: he is its only director and owns over 75% of it. She also declares that he is a lobbyist. So a perk worth £2,400 came from her husband's business.",
     emailReason:
       "claiming £85,563.46 in non-staff expenses (including £31,366 for flat rent and £3,941 for family flights) while accepting £2,400 of free media training from Earthcott Ltd, the PR firm owned and run by your husband, a lobbyist",
   },
@@ -604,6 +604,8 @@ export default function MpRegisterOfInterestsScotlandPage() {
   const JUMP_LINKS = [
     { href: "/mp-expenses-scotland/search", label: "Search all 20,879 receipts" },
     { href: "/mp-expenses-scotland/receipts", label: "Top receipts" },
+    { href: "/blog/scottish-mps-tv-licence-expenses", label: "29 MPs' TV licences (£10,754)" },
+    { href: "/blog/worst-scottish-mp-expenses", label: "Worst expenses roundup" },
     { href: "#two-sets-of-rules", label: "MPs vs families" },
     { href: "#staff-travel", label: "Staff travel" },
     { href: "#party-tally", label: "By party" },
@@ -687,14 +689,17 @@ export default function MpRegisterOfInterestsScotlandPage() {
           lede="MPs were paid a basic salary of £93,904 in 2025/26, rising to £98,599 from April 2026. Yet in 2025/26, 47 Scottish MPs billed the taxpayer £81,647 to pay the council tax on their second homes and £39,218 to heat and light them, part of £18.32 million in total expense claims. Alongside taxpayer expenses, Scottish MPs declared £296,895 in private donations, funded trips to Qatar, China and Taiwan, and VIP hospitality at Silverstone, Murrayfield and Hampden."
         >
           <div className="mt-5 flex flex-wrap items-center gap-3">
-            <Link href="#your-mp" className="btn btn-primary">
-              See what your MP claimed →
+            <Link href="/mp-expenses-scotland/search" className="btn btn-primary">
+              Search all 20,879 receipts →
             </Link>
-            <Link
-              href="/blog/scottish-mp-expenses-and-freebies-investigation"
-              className="btn btn-ghost"
-            >
-              Read our full investigation article →
+            <Link href="#your-mp" className="btn btn-ghost">
+              Find my MP by postcode →
+            </Link>
+            <Link href="/mp-expenses-scotland/receipts" className="btn btn-ghost">
+              The strangest receipts →
+            </Link>
+            <Link href="/blog/scottish-mps-tv-licence-expenses" className="btn btn-ghost">
+              29 MPs&apos; TV licences (£10,754) →
             </Link>
           </div>
           <SharePage
@@ -1316,9 +1321,9 @@ export default function MpRegisterOfInterestsScotlandPage() {
                         <Link href="/representatives/mps/cowdenbeath-and-kirkcaldy#donations-and-interests">
                           Melanie Ward
                         </Link>
-                        ), <strong>£3,500</strong> to Causeway Creative (
-                        <Link href="/representatives/mps/east-kilbride-and-strathaven#donations-and-interests">
-                          Joani Reid
+                        ), <strong>£1,500</strong> to Warriors Studio (
+                        <Link href="/representatives/mps/kilmarnock-and-loudoun#donations-and-interests">
+                          Lillian Jones
                         </Link>
                         ), <strong>£1,500</strong> for website design (
                         <Link href="/representatives/mps/central-ayrshire#donations-and-interests">
@@ -1591,54 +1596,6 @@ export default function MpRegisterOfInterestsScotlandPage() {
                         . That register only covers lobbying of government ministers and their top
                         civil servants, so this does not mean any rule was broken. It does mean the
                         public cannot see who pays her husband to lobby.
-                      </div>
-                      <div className="mt-3 block rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] px-4 py-3 text-[15px]">
-                        <strong>A separate firm, Causeway Creative:</strong> nothing links it to her
-                        husband. It is a design and communications agency used by dozens of Labour
-                        MPs. But since 2024 she has billed taxpayers <strong>£24,664</strong> for its
-                        work, more than any other MP in the UK. IPSA records list seven payments:
-                        <div className="mt-2 block overflow-x-auto">
-                          <table className="w-full min-w-[420px] border-collapse text-[14px]">
-                            <thead>
-                              <tr className="border-b border-[var(--rule-strong)] text-left">
-                                <th className="py-1.5 pr-3 font-[600]">Date</th>
-                                <th className="py-1.5 pr-3 font-[600]">What IPSA records</th>
-                                <th className="py-1.5 text-right font-[600]">Amount</th>
-                              </tr>
-                            </thead>
-                            <tbody className="tnum divide-y divide-[var(--rule)]">
-                              <tr><td className="py-1.5 pr-3">14 Mar 2025</td><td className="py-1.5 pr-3">Website hosting and design</td><td className="py-1.5 text-right">£4,800</td></tr>
-                              <tr><td className="py-1.5 pr-3">31 Mar 2025</td><td className="py-1.5 pr-3">Bought-in comms and media</td><td className="py-1.5 text-right">£3,582</td></tr>
-                              <tr><td className="py-1.5 pr-3">31 Mar 2025</td><td className="py-1.5 pr-3">Bought-in comms and media</td><td className="py-1.5 text-right">£3,582</td></tr>
-                              <tr><td className="py-1.5 pr-3">31 Mar 2025</td><td className="py-1.5 pr-3">Bought-in comms and media</td><td className="py-1.5 text-right">£3,500</td></tr>
-                              <tr><td className="py-1.5 pr-3">24 Apr 2025</td><td className="py-1.5 pr-3">Bought-in comms and media</td><td className="py-1.5 text-right">£4,500</td></tr>
-                              <tr><td className="py-1.5 pr-3">24 Apr 2025</td><td className="py-1.5 pr-3">Bought-in comms and media</td><td className="py-1.5 text-right">£3,500</td></tr>
-                              <tr><td className="py-1.5 pr-3">12 Mar 2026</td><td className="py-1.5 pr-3">Website hosting and design</td><td className="py-1.5 text-right">£1,200</td></tr>
-                              <tr className="font-[650]"><td className="py-1.5 pr-3" colSpan={2}>Total: £18,664 comms and media, £6,000 website</td><td className="py-1.5 text-right">£24,664</td></tr>
-                            </tbody>
-                          </table>
-                        </div>
-                        <div className="mt-2 block">
-                          &ldquo;Bought-in comms and media&rdquo; means paying an outside firm to do
-                          press, social media or newsletter work instead of her own staff. IPSA
-                          does not publish what each invoice covered. Five of the payments, worth
-                          £18,664, were made between 31 March and 24 April 2025. 31 March is the
-                          last day of IPSA&apos;s budget year.
-                        </div>
-                        <div className="mt-3 block rounded-[var(--r-s)] border-2 border-[var(--bad-text)] bg-[var(--surface)] px-4 py-3">
-                          <strong className="text-[var(--bad-text)]">
-                            What she said vs what the receipts show:
-                          </strong>{" "}
-                          In December 2025 she told The Scotsman she had &quot;not used any public
-                          money to hire any consultant or consultancy services for public or media
-                          relations&quot;. IPSA&apos;s records show £18,664 of public money paid to
-                          this outside firm, filed as &quot;Comms &amp; Media&quot;.{" "}
-                          <strong>Put side by side, they don&apos;t match.</strong>
-                        </div>
-                        <div className="mt-2 block">
-                          She also said the money mostly went on a website. IPSA&apos;s records show
-                          only £6,000 of it as website work.
-                        </div>
                       </div>
                       <div className="mt-4 block">
                         Paisley South Labour MP{" "}

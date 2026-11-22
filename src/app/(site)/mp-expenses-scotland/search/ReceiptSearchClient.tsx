@@ -78,17 +78,21 @@ const PRESETS: { id: PresetId; label: string; hint: string }[] = [
 ];
 
 const QUICK_SEARCH_WORDS: { word: string; note: string }[] = [
+  { word: "mobile telephone", note: "£65.5k" },
   { word: "Amazon", note: "£40.6k" },
-  { word: "IKEA", note: "£20.0k" },
+  { word: "Peach Partners", note: "£35.8k" },
+  { word: "annual report", note: "£34.4k" },
+  { word: "newspapers", note: "£30.7k" },
   { word: "speech", note: "£26.8k" },
-  { word: "annual report", note: "£31.4k" },
+  { word: "vehicle hire", note: "£22.5k" },
+  { word: "IKEA", note: "£20.0k" },
   { word: "carpet", note: "£14.2k" },
+  { word: "broadband", note: "£13.2k" },
   { word: "TV licence", note: "£10.8k" },
   { word: "iPhone", note: "£2.7k" },
-  { word: "DFS", note: "£1.2k" },
-  { word: "broadband", note: "£13.2k" },
-  { word: "drain", note: "£1.2k" },
   { word: "Christmas", note: "£2.5k" },
+  { word: "drain", note: "£1.2k" },
+  { word: "DFS", note: "£1.2k" },
   { word: "dinner", note: "£963" },
 ];
 
@@ -188,7 +192,14 @@ export default function ReceiptSearchClient() {
   const [limit, setLimit] = useState(30);
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [copiedUrl, setCopiedUrl] = useState(false);
+  const [copiedViral, setCopiedViral] = useState(false);
   const [surpriseRow, setSurpriseRow] = useState<RawRow | null>(null);
+
+  // Postcode finder directly inside the Receipt Finder
+  const [postcode, setPostcode] = useState("");
+  const [pcState, setPcState] = useState<"idle" | "loading" | "found" | "error">("idle");
+  const [pcError, setPcError] = useState("");
+  const [pcMatched, setPcMatched] = useState<MpMeta | null>(null);
 
   useEffect(() => {
     let active = true;
@@ -379,6 +390,106 @@ export default function ReceiptSearchClient() {
     });
   }
 
+  function handleCopyViralSummary() {
+    const text = [
+      "What Scotland's 57 MPs billed taxpayers on top of their £98,599 salary (official IPSA records, 2022 to 2026):",
+      "• £10,754 on TV licences across 29 MPs (including 4 in 12 months by Gregor Poynton, and 2 in 9 months by Dr Zubir Ahmed)",
+      "• £37,359 for 295 nights in London hotels in one year (Dr Zubir Ahmed)",
+      "• £24,530 on EE mobile phone bills (Brendan O'Hara, peaking at £909 in one month)",
+      "• £35,792 to PR & speechwriting firm Peach Partners (John Lamont)",
+      "• £3,090 to set up 5G home broadband (Chris Law) & £3,000 for a speech coach (Angus MacDonald)",
+      "• £81,647 for 2nd home council tax & £39,218 for 2nd home heating bills in 2025/26 alone",
+      "Every single Westminster party averaged £93k to £100k per MP in 2025/26. Search all 20,879 receipts yourself: https://scotlandcounted.org.uk/mp-expenses-scotland/search",
+    ].join("\n");
+    navigator.clipboard?.writeText(text).then(() => {
+      setCopiedViral(true);
+      window.setTimeout(() => setCopiedViral(false), 2400);
+    });
+  }
+
+  async function handlePostcodeLookup(e: React.FormEvent) {
+    e.preventDefault();
+    if (!data) return;
+    const cleaned = postcode.trim().toUpperCase();
+    if (!cleaned) return;
+    setPcState("loading");
+    setPcError("");
+    setPcMatched(null);
+    try {
+      const res = await fetch("/api/representatives", {
+        method: "POST",
+        cache: "no-store",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ postcode: cleaned }),
+      });
+      const json = (await res.json()) as {
+        mp?: { memberId?: number; name?: string; constituency?: string };
+        error?: string;
+      };
+      if (!res.ok || !json.mp) {
+        throw new Error(json.error || "Could not find that postcode.");
+      }
+      const matched =
+        data.mps.find((m) => m.id === json.mp?.memberId) ||
+        data.mps.find(
+          (m) =>
+            json.mp?.constituency &&
+            m.seat.toLowerCase() === json.mp.constituency.toLowerCase(),
+        );
+      if (!matched) {
+        setPcError("That postcode is outside Scotland. This tool covers Scotland's 57 MPs.");
+        setPcState("error");
+        return;
+      }
+      setPcMatched(matched);
+      setPcState("found");
+      setMpSlug(matched.slug);
+      setParty("all");
+      setQuery("");
+      setPreset("all");
+      setYear("all");
+      setMinAmount(0);
+      setLimit(30);
+      setSurpriseRow(null);
+    } catch (err) {
+      setPcError(err instanceof Error ? err.message : "Postcode search is unavailable right now.");
+      setPcState("error");
+    }
+  }
+
+  const partyAverages2025 = useMemo(() => {
+    if (!data) return [];
+    const yr25 = data.years.indexOf("2025/26");
+    if (yr25 === -1) return [];
+    const counts = new Map<string, number>();
+    const totals = new Map<string, number>();
+    for (const m of data.mps) {
+      counts.set(m.party, (counts.get(m.party) || 0) + 1);
+    }
+    for (const r of data.rows) {
+      if (r[1] !== yr25) continue;
+      if (!includeStaff && data.categories[r[3]] === STAFF_TRAVEL) continue;
+      const p = data.mps[r[0]].party;
+      totals.set(p, (totals.get(p) || 0) + r[7]);
+    }
+    return Array.from(counts.entries())
+      .map(([p, n]) => ({
+        party: p,
+        short:
+          p === "Scottish National Party"
+            ? "SNP"
+            : p === "Scottish Labour"
+              ? "Labour"
+              : p === "Liberal Democrat"
+                ? "Lib Dems"
+                : "Conservatives",
+        mps: n,
+        total: totals.get(p) || 0,
+        perMp: Math.round((totals.get(p) || 0) / n),
+      }))
+      .sort((a, b) => b.perMp - a.perMp);
+  }, [data, includeStaff]);
+
   function resetAll() {
     setQuery("");
     setPreset("all");
@@ -391,6 +502,9 @@ export default function ReceiptSearchClient() {
     setMinAmount(0);
     setLimit(30);
     setSurpriseRow(null);
+    setPcMatched(null);
+    setPcState("idle");
+    setPcError("");
   }
 
   if (error) {
@@ -581,6 +695,109 @@ export default function ReceiptSearchClient() {
 
   return (
     <div className="space-y-5">
+      {/* Top Fast Bar: Postcode Lookup + Copy Viral Summary */}
+      <div className="rounded-[var(--r-m)] border-2 border-[var(--brand)] bg-[var(--surface)] p-4 sm:p-5">
+        <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+          <form onSubmit={handlePostcodeLookup} className="flex-1">
+            <label
+              htmlFor="finder-postcode-input"
+              className="ui block text-[14.5px] font-[700] text-[var(--ink)] mb-1.5"
+            >
+              Don&apos;t know your MP&apos;s name? Type your postcode to see all their receipts:
+            </label>
+            <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
+              <input
+                id="finder-postcode-input"
+                type="text"
+                value={postcode}
+                onChange={(e) => setPostcode(e.target.value)}
+                placeholder="e.g. G52 1AB, EH1 1YZ, DD1 4HN"
+                autoComplete="postal-code"
+                className="w-full rounded-full border border-[var(--rule-strong)] bg-[var(--paper)] px-4 py-2.5 text-[15.5px] uppercase text-[var(--ink)] placeholder:normal-case placeholder:text-[var(--muted)] focus:border-[var(--brand)] focus:outline-none sm:max-w-[260px]"
+              />
+              <button
+                type="submit"
+                disabled={pcState === "loading"}
+                className="btn btn-primary justify-center !py-2.5 !px-5 !text-[14.5px]"
+              >
+                {pcState === "loading" ? "Finding your MP..." : "Show my MP's receipts"}
+              </button>
+              <button
+                type="button"
+                onClick={handleCopyViralSummary}
+                className="btn btn-ghost justify-center !py-2.5 !px-4 !text-[14px]"
+              >
+                {copiedViral ? "Copied top stats ✓" : "Copy top stats for X / WhatsApp"}
+              </button>
+            </div>
+            {pcState === "error" && (
+              <p className="ui mt-2 text-[14px] font-[560] text-[var(--bad-text)]" role="alert">
+                {pcError}
+              </p>
+            )}
+            {pcState === "found" && pcMatched && (
+              <p className="ui mt-2 text-[14.5px] text-[var(--ink)]" aria-live="polite">
+                Locked onto <strong>{pcMatched.name}</strong> ({pcMatched.rawParty},{" "}
+                {pcMatched.seat}).{" "}
+                <Link
+                  href={`/representatives/mps/${pcMatched.slug}#donations-and-interests`}
+                  className="font-[640] text-[var(--brand)]"
+                >
+                  Open full MP profile &amp; donations →
+                </Link>
+              </p>
+            )}
+          </form>
+        </div>
+
+        {/* 4-Party "All at the same trough" strip */}
+        {partyAverages2025.length > 0 && (
+          <div className="mt-4 border-t border-[var(--rule)] pt-3.5">
+            <div className="flex flex-wrap items-baseline justify-between gap-2 mb-2">
+              <p className="ui text-[12.5px] font-[700] uppercase tracking-[0.05em] text-[var(--muted)]">
+                2025/26 non-staff average per MP · Every Westminster party at the same trough (click a party to filter)
+              </p>
+            </div>
+            <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+              {partyAverages2025.map((p) => {
+                const isActive = party === p.party && year === "2025/26";
+                return (
+                  <button
+                    key={p.party}
+                    type="button"
+                    onClick={() => {
+                      if (isActive) {
+                        setParty("all");
+                        setYear("all");
+                      } else {
+                        setParty(p.party);
+                        setYear("2025/26");
+                        setMpSlug("all");
+                      }
+                      setLimit(30);
+                      setSurpriseRow(null);
+                    }}
+                    className={`rounded-[var(--r-s)] border px-3 py-2 text-left transition-colors cursor-pointer ${
+                      isActive
+                        ? "border-[var(--brand)] bg-[var(--brand-wash)]"
+                        : "border-[var(--rule)] bg-[var(--surface-2)] hover:border-[var(--ink)]"
+                    }`}
+                  >
+                    <span className="ui block text-[12.5px] font-[640] text-[var(--ink-2)]">
+                      {p.short} ({p.mps} MPs)
+                    </span>
+                    <span className="figure-num tnum block text-[20px] leading-[1.15] text-[var(--bad-text)] mt-0.5">
+                      {moneyWhole.format(p.perMp)}
+                      <span className="ui text-[12px] font-[560] text-[var(--muted)]">/MP</span>
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        )}
+      </div>
+
       {/* Search + Preset Panel */}
       <div className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5 sm:p-6">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end">

@@ -60,12 +60,18 @@ export default function MpReceiptsSearchPage() {
           title="Search every Scottish MP expense receipt (2022 to 2026)"
           lede="IPSA buries MPs' expense receipts inside five separate spreadsheets totalling more than 350,000 lines. We pulled every single non-payroll receipt filed by Scotland's 57 current MPs from 2022/23 to 2026/27 so you can search, filter, copy and challenge any claim yourself."
         >
-          <div className="mt-4 flex flex-wrap items-center gap-3">
+          <div className="mt-4 flex flex-wrap items-center gap-2.5">
             <Link href="/mp-expenses-scotland/receipts" className="btn btn-ghost">
-              See our top highlighted receipts →
+              Top highlighted receipts →
+            </Link>
+            <Link href="/blog/worst-scottish-mp-expenses" className="btn btn-ghost">
+              Worst expenses roundup →
+            </Link>
+            <Link href="/blog/scottish-mps-tv-licence-expenses" className="btn btn-ghost">
+              29 MPs&apos; TV licences (£10,754) →
             </Link>
             <Link href="/mp-expenses-scotland" className="btn btn-ghost">
-              Back to all 57 MPs ranked →
+              All 57 MPs ranked →
             </Link>
           </div>
           <SharePage

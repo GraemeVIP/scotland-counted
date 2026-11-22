@@ -149,16 +149,33 @@ export default function WorstScottishMpExpenses() {
           Advisory Ltd, a PR firm in Crawley, for &quot;Comms and Media Support&quot;.
         </LI>
         <LI>
-          <Link href={mp("east-kilbride-and-strathaven")}>Joani Reid</Link> (Labour) paid Causeway
-          Creative, a PR and web firm, £24,664, more than any other MP in the UK. She told The Scotsman she had &quot;not used any
-          public money to hire any consultant or consultancy services for public or media
-          relations&quot;. IPSA&apos;s records show £18,664 of it filed as &quot;Comms &amp;
-          Media&quot;. Put side by side, they don&apos;t match.
+          <Link href={mp("berwickshire-roxburgh-and-selkirk")}>John Lamont</Link> (Conservative)
+          paid <strong>£35,792</strong> across 13 invoices to PR and media consultancy Peach
+          Partners, including a single £9,125 bill for &quot;broadcast, digital preparation&quot;
+          and regular £2,083 to £2,917 monthly retainers for &quot;social media, speech writing and
+          press support&quot;. Every penny came out of his taxpayer staffing budget.
         </LI>
       </UL>
 
-      <H2 id="perks">5. Dinners, a Christmas lunch, sofas and phones</H2>
+      <H2 id="perks">5. TV licences, a £24,530 mobile bill, dinners, sofas and phones</H2>
       <UL>
+        <LI>
+          <strong>29 Scottish MPs billed taxpayers £10,754 for TV licences:</strong> More than half
+          of Scotland&apos;s MPs put their TV licence on public expenses while ordinary households
+          pay £180 a year out of their own pocket. That includes four licences in under 12 months
+          for <Link href={mp("livingston")}>Gregor Poynton</Link> (£688) and two £174.50 licences
+          in nine months for <Link href={mp("glasgow-south-west")}>Dr Zubir Ahmed</Link> (one
+          online and one at a Co-op).{" "}
+          <Link href="/blog/scottish-mps-tv-licence-expenses">
+            See the full list of all 29 Scottish MPs →
+          </Link>
+        </LI>
+        <LI>
+          <Link href={mp("argyll-bute-and-south-lochaber")}>Brendan O&apos;Hara</Link> (SNP):{" "}
+          <strong>£24,530</strong> on EE mobile phone bills across 58 claims, over £500 a month for
+          five years running and peaking at £909.24 in March 2026 (more than four times higher than
+          any other Scottish MP).
+        </LI>
         <LI>
           <Link href={mp("dunfermline-and-dollar")}>Graeme Downie</Link> (Labour): £962.65 for a
           &quot;business dinner on behalf of Graeme Downie&quot;.
@@ -172,7 +189,11 @@ export default function WorstScottishMpExpenses() {
           DFS and IKEA for her office.
         </LI>
         <LI>
-          <Link href={mp("berwickshire-roxburgh-and-selkirk")}>John Lamont</Link> (Conservative):
+          <Link href={mp("ayr-carrick-and-cumnock")}>Elaine Stewart</Link> (Labour): £2,535 on
+          Amazon under mobile phone equipment, alongside{" "}
+          <Link href={mp("perth-and-kinross-shire")}>Pete Wishart</Link> (SNP) at £1,399 on
+          Apple.com and{" "}
+          <Link href={mp("berwickshire-roxburgh-and-selkirk")}>John Lamont</Link> (Conservative) at
           £1,248 for an &quot;Iphone and protection case&quot;.
         </LI>
         <LI>
@@ -218,9 +239,16 @@ export default function WorstScottishMpExpenses() {
         It&apos;s not secret. It&apos;s just that almost nobody has the time to read it.
       </P>
       <P>
-        So we did. You can see all of it in plain English on{" "}
-        <Link href="/mp-expenses-scotland/receipts">the receipts page</Link>, and every Scottish MP
-        side by side on <Link href="/mp-expenses-scotland">all 57 MPs ranked</Link>.
+        So we did. You can{" "}
+        <Link href="/mp-expenses-scotland/search">
+          search all 20,879 Scottish MP receipts yourself
+        </Link>
+        , browse <Link href="/mp-expenses-scotland/receipts">the strangest receipts</Link>, read
+        our breakdown of{" "}
+        <Link href="/blog/scottish-mps-tv-licence-expenses">
+          the 29 MPs who claimed TV licences
+        </Link>
+        , and compare <Link href="/mp-expenses-scotland">all 57 Scottish MPs ranked</Link>.
       </P>
 
       <Aside title="All within the rules">
@@ -231,10 +259,10 @@ export default function WorstScottishMpExpenses() {
       </Aside>
 
       <PostCTA
-        title="Ask your own MP to explain their receipts"
-        body="Put in your postcode, see what your MP claimed, and send them a ready written email asking them to explain."
-        href="/mp-expenses-scotland/receipts#put-it-to-them"
-        cta="Put it to your MP"
+        title="Search all 20,879 Scottish MP receipts (or look up your MP by postcode)"
+        body="Type your postcode, filter by Amazon, IKEA, TV licence, speech coach or taxi, copy any receipt for X or WhatsApp, and email your MP directly."
+        href="/mp-expenses-scotland/search"
+        cta="Open the Receipt Finder →"
       />
     </Prose>
   );

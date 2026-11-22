@@ -268,6 +268,54 @@ const RECEIPTS: Receipt[] = [
     context:
       "Filed under newspapers and magazines. The record does not explain what the column was or why the public paid for it.",
   },
+  {
+    amount: "£35,792",
+    what: "PR firm hired for speech writing and social media",
+    mp: "John Lamont",
+    party: "Conservative",
+    seat: "Berwickshire, Roxburgh and Selkirk",
+    slug: "berwickshire-roxburgh-and-selkirk",
+    date: "2022 to 2024 (13 invoices)",
+    budget: "Staffing budget",
+    ipsa: [
+      "Peach Partners - additional hours as set out on the invoice for broadcast, digital preparation (£9,125)",
+      "Peach Partners - social media, speech writing and press support (£2,916.66/month)",
+    ],
+    context:
+      "Paid to Peach Partners out of his taxpayer staffing budget across 13 invoices, on top of his own parliamentary staff.",
+  },
+  {
+    amount: "£24,530",
+    what: "Five years of EE mobile phone bills (up to £909 in one month)",
+    mp: "Brendan O'Hara",
+    party: "Scottish National Party",
+    seat: "Argyll, Bute and South Lochaber",
+    slug: "argyll-bute-and-south-lochaber",
+    date: "2022 to 2026 (58 bills)",
+    budget: "Office budget",
+    ipsa: [
+      "EE LTD (£909.24 on 9 March 2026)",
+      "EE LIMITED (£721.96 on 7 March 2023)",
+    ],
+    context:
+      "Over £500 a month on average for five years running, more than four times higher than any other Scottish MP's mobile phone spend.",
+  },
+  {
+    amount: "£688",
+    what: "Four separate TV licences billed in under 12 months",
+    mp: "Gregor Poynton",
+    party: "Scottish Labour",
+    seat: "Livingston",
+    slug: "livingston",
+    date: "Dec 2024 to Nov 2025",
+    budget: "Office budget",
+    ipsa: [
+      "TVLICENSING.CO.UK (£169.50 on 18 Dec 2024 & £169.50 on 14 Feb 2025)",
+      "TVLICENSING.CO.UK (two £174.50 licences split across 4 Nov & 26 Nov 2025)",
+    ],
+    context:
+      "Part of £10,754 billed by 29 Scottish MPs for TV licences (including Dr Zubir Ahmed claiming two £174.50 licences inside nine months, one online and one at a Co-op). IPSA only permits TV licences for constituency offices, never for a London flat or private home.",
+  },
 ];
 
 const BIG_TABS: { mp: string; slug: string; party: string; what: string; amount: string; note: string }[] = [
@@ -481,8 +529,8 @@ export default function MpExpenseReceiptsPage() {
             <Link href="/mp-expenses-scotland/search" className="btn btn-primary">
               Search all 20,879 receipts yourself →
             </Link>
-            <Link href="/email-your-mp-and-msp" className="btn btn-ghost">
-              Ask your own MP to explain →
+            <Link href="/blog/scottish-mps-tv-licence-expenses" className="btn btn-ghost">
+              29 MPs&apos; TV licences (£10,754) →
             </Link>
             <Link href="/mp-expenses-scotland" className="btn btn-ghost">
               All 57 MPs ranked →

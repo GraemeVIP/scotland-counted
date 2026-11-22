@@ -203,16 +203,19 @@ export default function Home() {
             <div>
               <span className="tile-key">New · MP expenses in Scotland</span>
               <p className="mt-2 max-w-[60ch] text-[17px] leading-[1.5] text-white">
-                One Scottish MP claimed £37,359 for London hotels in a year. Another claimed £6,292
-                for parking. See every expense, donation and free trip for all 57 MPs.
+                Scottish MPs billed taxpayers £10,754 for TV licences, £37,359 for one MP&apos;s
+                London hotels, £24,530 for one MP&apos;s mobile bills and £3,090 to set up home
+                broadband. Search all 20,879 official receipts yourself.
               </p>
               <p className="ui mt-3 flex flex-wrap gap-x-5 gap-y-2 text-[15px]">
+                <Link href="/mp-expenses-scotland" className="font-[600] text-white">All 57 MPs ranked →</Link>
                 <Link href="/mp-expenses-scotland/receipts" className="font-[600] text-white">The receipts →</Link>
                 <Link href="/blog/worst-scottish-mp-expenses" className="font-[600] text-white">The worst expenses →</Link>
+                <Link href="/blog/scottish-mps-tv-licence-expenses" className="font-[600] text-white">29 MPs&apos; TV licences →</Link>
               </p>
             </div>
-            <Link href="/mp-expenses-scotland#your-mp" className="btn bg-white text-[#00336f] shrink-0 self-start sm:self-center">
-              See your MP&apos;s expenses <span aria-hidden="true">→</span>
+            <Link href="/mp-expenses-scotland/search" className="btn bg-white text-[#00336f] shrink-0 self-start sm:self-center">
+              Search all 20,879 receipts <span aria-hidden="true">→</span>
             </Link>
           </div>
         </section>

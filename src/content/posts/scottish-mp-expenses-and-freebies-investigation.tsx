@@ -564,11 +564,7 @@ export default function Post() {
           <Link href="/representatives/mps/cowdenbeath-and-kirkcaldy#donations-and-interests">
             Melanie Ward
           </Link>{" "}
-          for &quot;Communications Support&quot;, <strong>£3,500.00</strong> by{" "}
-          <Link href="/representatives/mps/east-kilbride-and-strathaven#donations-and-interests">
-            Joani Reid
-          </Link>{" "}
-          to Causeway Creative, <strong>£1,500.00</strong> by{" "}
+          for &quot;Communications Support&quot;, <strong>£1,500.00</strong> by{" "}
           <Link href="/representatives/mps/kilmarnock-and-loudoun#donations-and-interests">
             Lillian Jones
           </Link>{" "}

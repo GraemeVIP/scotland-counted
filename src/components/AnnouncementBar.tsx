@@ -15,7 +15,7 @@ import { trackEvent } from "@/lib/analytics";
  * To run a new message later, change the copy and bump BAR_STORAGE_KEY so people
  * who closed the old one see the new one.
  */
-const HREF = "/mp-expenses-scotland#your-mp";
+const HREF = "/mp-expenses-scotland/search";
 const HIDE_ON = ["/mp-expenses-scotland"];
 
 export default function AnnouncementBar() {
@@ -44,10 +44,10 @@ export default function AnnouncementBar() {
             New
           </span>
           <span className="ui min-w-0 text-[14px] font-[600] leading-[1.3] sm:text-[15.5px]">
-            <span className="sm:hidden">One MP claimed £37,359 for hotels. See your MP&apos;s expenses</span>
+            <span className="sm:hidden">MPs billed you £10,754 for TV licences &amp; £37k for hotels. Search 20,879 receipts</span>
             <span className="hidden sm:inline">
-              Scottish MPs&apos; expenses: one claimed £37,359 for London hotels, another £6,292 for
-              parking. <span className="font-[800]">See your MP&apos;s expenses</span>
+              Scottish MPs billed you £10,754 for TV licences, £37,359 for London hotels and £3,090
+              for broadband. <span className="font-[800]">Search all 20,879 receipts</span>
             </span>
           </span>
           <span

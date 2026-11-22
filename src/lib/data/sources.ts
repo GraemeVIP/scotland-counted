@@ -2013,13 +2013,6 @@ export const sources: Source[] = [
     used: "All 6,101 individual Scottish MP expense claim lines in 2025/26, and IPSA's annual totals for the same MPs: £18,323,504.06 (£5,210,950.38 excluding staffing costs), including £1,383,619.92 for second home rent, £81,646.92 for second home council tax, £39,218.00 for second home utilities, £45,614.77 for MPs' own London hotels (staff hotel stays are counted under staff travel), £912,654.62 for MP flights, £89,110.80 for family/dependant travel, £58,237.33 for parking and £39,253.53 for MPs' own taxis.",
   },
   {
-    id: "scotsman-labour-mps-media-spend-2025",
-    title: "Revealed: Scottish Labour MPs have spent thousands on external media spin doctors since general election (27 December 2025)",
-    publisher: "The Scotsman",
-    url: "https://www.scotsman.com/news/politics/revealed-scottish-labour-mps-have-spent-thousands-on-external-media-spin-doctors-since-general-election-5451050",
-    used: "Joani Reid's quoted response about her spending with Causeway Creative.",
-  },
-  {
     id: "uk-parliament-register-interests-2026",
     title: "Register of Members' Financial Interests API (Categories 1 to 10)",
     publisher: "UK Parliament",
