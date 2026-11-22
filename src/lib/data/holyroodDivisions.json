@@ -1,0 +1,1547 @@
+{
+  "checkedAt": "2026-11-22T05:41:15.635Z",
+  "source": "https://data.parliament.scot/api/votesmotion?year=2026",
+  "sourceName": "Scottish Parliament Open Data, votes on motions",
+  "divisions": {
+    "S7M-01448.3": {
+      "reference": "S7M-01448.3",
+      "title": "Scotland’s Prosperity and Future in Europe",
+      "date": "2026-10-06T14:00:00",
+      "result": "Defeated",
+      "yes": 16,
+      "no": 93,
+      "abstain": 9,
+      "notVoted": 11,
+      "broughtBy": "Lab",
+      "parties": {
+        "SNP": {
+          "yes": 0,
+          "no": 53,
+          "abstain": 0,
+          "notVoted": 4
+        },
+        "Con": {
+          "yes": 0,
+          "no": 8,
+          "abstain": 0,
+          "notVoted": 4
+        },
+        "Lab": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 1
+        },
+        "Reform": {
+          "yes": 0,
+          "no": 17,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "LD": {
+          "yes": 0,
+          "no": 0,
+          "abstain": 9,
+          "notVoted": 1
+        },
+        "Green": {
+          "yes": 0,
+          "no": 15,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "NPA": {
+          "yes": 0,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 1
+        }
+      }
+    },
+    "S7M-01448.4": {
+      "reference": "S7M-01448.4",
+      "title": "Scotland’s Prosperity and Future in Europe",
+      "date": "2026-10-06T14:00:00",
+      "result": "Defeated",
+      "yes": 25,
+      "no": 66,
+      "abstain": 26,
+      "notVoted": 12,
+      "broughtBy": "Con",
+      "parties": {
+        "SNP": {
+          "yes": 0,
+          "no": 51,
+          "abstain": 0,
+          "notVoted": 6
+        },
+        "Con": {
+          "yes": 8,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 4
+        },
+        "Lab": {
+          "yes": 0,
+          "no": 0,
+          "abstain": 16,
+          "notVoted": 1
+        },
+        "Reform": {
+          "yes": 17,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "LD": {
+          "yes": 0,
+          "no": 0,
+          "abstain": 10,
+          "notVoted": 0
+        },
+        "Green": {
+          "yes": 0,
+          "no": 15,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "NPA": {
+          "yes": 0,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 1
+        }
+      }
+    },
+    "S7M-01460": {
+      "reference": "S7M-01460",
+      "title": "Supporting Scotland's Fishing Industry",
+      "date": "2026-10-07T14:00:00",
+      "result": "Carried",
+      "yes": 102,
+      "no": 15,
+      "abstain": 0,
+      "notVoted": 12,
+      "broughtBy": "SNP",
+      "parties": {
+        "SNP": {
+          "yes": 53,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 4
+        },
+        "Con": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 2
+        },
+        "Lab": {
+          "yes": 0,
+          "no": 15,
+          "abstain": 0,
+          "notVoted": 2
+        },
+        "Reform": {
+          "yes": 17,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "LD": {
+          "yes": 8,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 2
+        },
+        "Green": {
+          "yes": 14,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 1
+        },
+        "NPA": {
+          "yes": 0,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 1
+        }
+      }
+    },
+    "S7M-01460.1": {
+      "reference": "S7M-01460.1",
+      "title": "Supporting Scotland's Fishing Industry",
+      "date": "2026-10-07T14:00:00",
+      "result": "Defeated",
+      "yes": 26,
+      "no": 89,
+      "abstain": 0,
+      "notVoted": 14,
+      "broughtBy": "Reform",
+      "parties": {
+        "SNP": {
+          "yes": 0,
+          "no": 52,
+          "abstain": 0,
+          "notVoted": 5
+        },
+        "Con": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 3
+        },
+        "Lab": {
+          "yes": 0,
+          "no": 15,
+          "abstain": 0,
+          "notVoted": 2
+        },
+        "Reform": {
+          "yes": 17,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "LD": {
+          "yes": 0,
+          "no": 8,
+          "abstain": 0,
+          "notVoted": 2
+        },
+        "Green": {
+          "yes": 0,
+          "no": 14,
+          "abstain": 0,
+          "notVoted": 1
+        },
+        "NPA": {
+          "yes": 0,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 1
+        }
+      }
+    },
+    "S7M-01460.2": {
+      "reference": "S7M-01460.2",
+      "title": "Supporting Scotland's Fishing Industry",
+      "date": "2026-10-07T14:00:00",
+      "result": "Defeated",
+      "yes": 32,
+      "no": 71,
+      "abstain": 13,
+      "notVoted": 13,
+      "broughtBy": "Lab",
+      "parties": {
+        "SNP": {
+          "yes": 0,
+          "no": 53,
+          "abstain": 0,
+          "notVoted": 4
+        },
+        "Con": {
+          "yes": 0,
+          "no": 9,
+          "abstain": 0,
+          "notVoted": 3
+        },
+        "Lab": {
+          "yes": 15,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 2
+        },
+        "Reform": {
+          "yes": 17,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "LD": {
+          "yes": 0,
+          "no": 8,
+          "abstain": 0,
+          "notVoted": 2
+        },
+        "Green": {
+          "yes": 0,
+          "no": 1,
+          "abstain": 13,
+          "notVoted": 1
+        },
+        "NPA": {
+          "yes": 0,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 1
+        }
+      }
+    },
+    "S7M-01460.3": {
+      "reference": "S7M-01460.3",
+      "title": "Supporting Scotland's Fishing Industry",
+      "date": "2026-10-07T14:00:00",
+      "result": "Carried",
+      "yes": 102,
+      "no": 15,
+      "abstain": 0,
+      "notVoted": 12,
+      "broughtBy": "Con",
+      "parties": {
+        "SNP": {
+          "yes": 53,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 4
+        },
+        "Con": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 2
+        },
+        "Lab": {
+          "yes": 0,
+          "no": 15,
+          "abstain": 0,
+          "notVoted": 2
+        },
+        "Reform": {
+          "yes": 17,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "LD": {
+          "yes": 8,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 2
+        },
+        "Green": {
+          "yes": 14,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 1
+        },
+        "NPA": {
+          "yes": 0,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 1
+        }
+      }
+    },
+    "S7M-01460.4": {
+      "reference": "S7M-01460.4",
+      "title": "Supporting Scotland's Fishing Industry",
+      "date": "2026-10-07T14:00:00",
+      "result": "Defeated",
+      "yes": 22,
+      "no": 79,
+      "abstain": 16,
+      "notVoted": 12,
+      "broughtBy": "LD",
+      "parties": {
+        "SNP": {
+          "yes": 0,
+          "no": 53,
+          "abstain": 0,
+          "notVoted": 4
+        },
+        "Con": {
+          "yes": 0,
+          "no": 10,
+          "abstain": 0,
+          "notVoted": 2
+        },
+        "Lab": {
+          "yes": 0,
+          "no": 15,
+          "abstain": 0,
+          "notVoted": 2
+        },
+        "Reform": {
+          "yes": 0,
+          "no": 1,
+          "abstain": 16,
+          "notVoted": 0
+        },
+        "LD": {
+          "yes": 8,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 2
+        },
+        "Green": {
+          "yes": 14,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 1
+        },
+        "NPA": {
+          "yes": 0,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 1
+        }
+      }
+    },
+    "S7M-01460.5": {
+      "reference": "S7M-01460.5",
+      "title": "Supporting Scotland's Fishing Industry",
+      "date": "2026-10-07T14:00:00",
+      "result": "Defeated",
+      "yes": 21,
+      "no": 78,
+      "abstain": 15,
+      "notVoted": 15,
+      "broughtBy": "Green",
+      "parties": {
+        "SNP": {
+          "yes": 0,
+          "no": 52,
+          "abstain": 0,
+          "notVoted": 5
+        },
+        "Con": {
+          "yes": 0,
+          "no": 9,
+          "abstain": 0,
+          "notVoted": 3
+        },
+        "Lab": {
+          "yes": 0,
+          "no": 0,
+          "abstain": 15,
+          "notVoted": 2
+        },
+        "Reform": {
+          "yes": 0,
+          "no": 17,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "LD": {
+          "yes": 7,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 3
+        },
+        "Green": {
+          "yes": 14,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 1
+        },
+        "NPA": {
+          "yes": 0,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 1
+        }
+      }
+    },
+    "S7M-01517": {
+      "reference": "S7M-01517",
+      "title": "Strengthening Scotland’s Cyber Resilience",
+      "date": "2026-10-08T13:30:00",
+      "result": "Carried",
+      "yes": 70,
+      "no": 37,
+      "abstain": 0,
+      "notVoted": 22,
+      "broughtBy": "SNP",
+      "parties": {
+        "SNP": {
+          "yes": 50,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 7
+        },
+        "Con": {
+          "yes": 0,
+          "no": 8,
+          "abstain": 0,
+          "notVoted": 4
+        },
+        "Lab": {
+          "yes": 2,
+          "no": 9,
+          "abstain": 0,
+          "notVoted": 6
+        },
+        "Reform": {
+          "yes": 2,
+          "no": 12,
+          "abstain": 0,
+          "notVoted": 3
+        },
+        "LD": {
+          "yes": 1,
+          "no": 8,
+          "abstain": 0,
+          "notVoted": 1
+        },
+        "Green": {
+          "yes": 15,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "NPA": {
+          "yes": 0,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 1
+        }
+      }
+    },
+    "S7M-01517.1": {
+      "reference": "S7M-01517.1",
+      "title": "Strengthening Scotland’s Cyber Resilience",
+      "date": "2026-10-08T13:30:00",
+      "result": "Carried",
+      "yes": 96,
+      "no": 13,
+      "abstain": 0,
+      "notVoted": 20,
+      "broughtBy": "Lab",
+      "parties": {
+        "SNP": {
+          "yes": 50,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 7
+        },
+        "Con": {
+          "yes": 8,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 4
+        },
+        "Lab": {
+          "yes": 13,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 4
+        },
+        "Reform": {
+          "yes": 1,
+          "no": 13,
+          "abstain": 0,
+          "notVoted": 3
+        },
+        "LD": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 1
+        },
+        "Green": {
+          "yes": 15,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "NPA": {
+          "yes": 0,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 1
+        }
+      }
+    },
+    "S7M-01517.2": {
+      "reference": "S7M-01517.2",
+      "title": "Strengthening Scotland’s Cyber Resilience",
+      "date": "2026-10-08T13:30:00",
+      "result": "Carried",
+      "yes": 65,
+      "no": 42,
+      "abstain": 0,
+      "notVoted": 22,
+      "broughtBy": "Green",
+      "parties": {
+        "SNP": {
+          "yes": 50,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 7
+        },
+        "Con": {
+          "yes": 0,
+          "no": 8,
+          "abstain": 0,
+          "notVoted": 4
+        },
+        "Lab": {
+          "yes": 0,
+          "no": 11,
+          "abstain": 0,
+          "notVoted": 6
+        },
+        "Reform": {
+          "yes": 0,
+          "no": 14,
+          "abstain": 0,
+          "notVoted": 3
+        },
+        "LD": {
+          "yes": 0,
+          "no": 9,
+          "abstain": 0,
+          "notVoted": 1
+        },
+        "Green": {
+          "yes": 15,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "NPA": {
+          "yes": 0,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 1
+        }
+      }
+    },
+    "S7M-01517.3": {
+      "reference": "S7M-01517.3",
+      "title": "Strengthening Scotland’s Cyber Resilience",
+      "date": "2026-10-08T13:30:00",
+      "result": "Defeated",
+      "yes": 35,
+      "no": 74,
+      "abstain": 0,
+      "notVoted": 20,
+      "broughtBy": "Reform",
+      "parties": {
+        "SNP": {
+          "yes": 0,
+          "no": 50,
+          "abstain": 0,
+          "notVoted": 7
+        },
+        "Con": {
+          "yes": 8,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 4
+        },
+        "Lab": {
+          "yes": 13,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 4
+        },
+        "Reform": {
+          "yes": 14,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 3
+        },
+        "LD": {
+          "yes": 0,
+          "no": 9,
+          "abstain": 0,
+          "notVoted": 1
+        },
+        "Green": {
+          "yes": 0,
+          "no": 15,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "NPA": {
+          "yes": 0,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 1
+        }
+      }
+    },
+    "S7M-01726": {
+      "reference": "S7M-01726",
+      "title": "Scotland’s Commitment to International Climate Justice",
+      "date": "2026-10-27T14:00:00",
+      "result": "Carried",
+      "yes": 91,
+      "no": 24,
+      "abstain": 0,
+      "notVoted": 0,
+      "broughtBy": "SNP",
+      "parties": {
+        "SNP": {
+          "yes": 52,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Con": {
+          "yes": 0,
+          "no": 9,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Lab": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "LD": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Ind": {
+          "yes": 0,
+          "no": 1,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Green": {
+          "yes": 14,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Reform": {
+          "yes": 0,
+          "no": 14,
+          "abstain": 0,
+          "notVoted": 0
+        }
+      }
+    },
+    "S7M-01726.1": {
+      "reference": "S7M-01726.1",
+      "title": "Scotland’s Commitment to International Climate Justice",
+      "date": "2026-10-27T14:00:00",
+      "result": "Carried",
+      "yes": 91,
+      "no": 24,
+      "abstain": 0,
+      "notVoted": 0,
+      "broughtBy": "Lab",
+      "parties": {
+        "SNP": {
+          "yes": 52,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Con": {
+          "yes": 0,
+          "no": 9,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Lab": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "LD": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Ind": {
+          "yes": 0,
+          "no": 1,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Green": {
+          "yes": 14,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Reform": {
+          "yes": 0,
+          "no": 14,
+          "abstain": 0,
+          "notVoted": 0
+        }
+      }
+    },
+    "S7M-01726.2": {
+      "reference": "S7M-01726.2",
+      "title": "Scotland’s Commitment to International Climate Justice",
+      "date": "2026-10-27T14:00:00",
+      "result": "Defeated",
+      "yes": 14,
+      "no": 100,
+      "abstain": 0,
+      "notVoted": 0,
+      "broughtBy": "Reform",
+      "parties": {
+        "SNP": {
+          "yes": 0,
+          "no": 52,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Con": {
+          "yes": 0,
+          "no": 9,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Lab": {
+          "yes": 0,
+          "no": 15,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "LD": {
+          "yes": 0,
+          "no": 9,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Ind": {
+          "yes": 0,
+          "no": 1,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Green": {
+          "yes": 0,
+          "no": 14,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Reform": {
+          "yes": 14,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        }
+      }
+    },
+    "S7M-01726.3": {
+      "reference": "S7M-01726.3",
+      "title": "Scotland’s Commitment to International Climate Justice",
+      "date": "2026-10-27T14:00:00",
+      "result": "Carried",
+      "yes": 91,
+      "no": 24,
+      "abstain": 0,
+      "notVoted": 0,
+      "broughtBy": "LD",
+      "parties": {
+        "SNP": {
+          "yes": 52,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Con": {
+          "yes": 0,
+          "no": 9,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Lab": {
+          "yes": 16,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "LD": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Ind": {
+          "yes": 0,
+          "no": 1,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Green": {
+          "yes": 14,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Reform": {
+          "yes": 0,
+          "no": 14,
+          "abstain": 0,
+          "notVoted": 0
+        }
+      }
+    },
+    "S7M-01726.4": {
+      "reference": "S7M-01726.4",
+      "title": "Scotland’s Commitment to International Climate Justice",
+      "date": "2026-10-27T14:00:00",
+      "result": "Defeated",
+      "yes": 24,
+      "no": 91,
+      "abstain": 0,
+      "notVoted": 0,
+      "broughtBy": "Con",
+      "parties": {
+        "SNP": {
+          "yes": 0,
+          "no": 52,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Con": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Lab": {
+          "yes": 0,
+          "no": 16,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "LD": {
+          "yes": 0,
+          "no": 9,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Ind": {
+          "yes": 1,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Green": {
+          "yes": 0,
+          "no": 14,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Reform": {
+          "yes": 14,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        }
+      }
+    },
+    "S7M-01726.5": {
+      "reference": "S7M-01726.5",
+      "title": "Scotland’s Commitment to International Climate Justice",
+      "date": "2026-10-27T14:00:00",
+      "result": "Defeated",
+      "yes": 14,
+      "no": 24,
+      "abstain": 77,
+      "notVoted": 0,
+      "broughtBy": "Green",
+      "parties": {
+        "SNP": {
+          "yes": 0,
+          "no": 0,
+          "abstain": 52,
+          "notVoted": 0
+        },
+        "Con": {
+          "yes": 0,
+          "no": 9,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Lab": {
+          "yes": 0,
+          "no": 0,
+          "abstain": 16,
+          "notVoted": 0
+        },
+        "LD": {
+          "yes": 0,
+          "no": 0,
+          "abstain": 9,
+          "notVoted": 0
+        },
+        "Ind": {
+          "yes": 0,
+          "no": 1,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Green": {
+          "yes": 14,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Reform": {
+          "yes": 0,
+          "no": 14,
+          "abstain": 0,
+          "notVoted": 0
+        }
+      }
+    },
+    "S7M-01739": {
+      "reference": "S7M-01739",
+      "title": "Learning Disabilities, Autism and Neurodivergence (LDAN) Bill",
+      "date": "2026-10-28T14:00:00",
+      "result": "Carried",
+      "yes": 60,
+      "no": 54,
+      "abstain": 0,
+      "notVoted": 0,
+      "broughtBy": "LD",
+      "parties": {
+        "SNP": {
+          "yes": 0,
+          "no": 54,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Con": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Lab": {
+          "yes": 17,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "LD": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Reform": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Ind": {
+          "yes": 1,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Green": {
+          "yes": 13,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        }
+      }
+    },
+    "S7M-01739.1": {
+      "reference": "S7M-01739.1",
+      "title": "Learning Disabilities, Autism and Neurodivergence (LDAN) Bill",
+      "date": "2026-10-28T14:00:00",
+      "result": "Carried",
+      "yes": 61,
+      "no": 54,
+      "abstain": 0,
+      "notVoted": 0,
+      "broughtBy": "Lab",
+      "parties": {
+        "SNP": {
+          "yes": 0,
+          "no": 54,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Con": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Lab": {
+          "yes": 17,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "LD": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Reform": {
+          "yes": 11,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Ind": {
+          "yes": 1,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Green": {
+          "yes": 13,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        }
+      }
+    },
+    "S7M-01739.2": {
+      "reference": "S7M-01739.2",
+      "title": "Learning Disabilities, Autism and Neurodivergence (LDAN) Bill",
+      "date": "2026-10-28T14:00:00",
+      "result": "Defeated",
+      "yes": 54,
+      "no": 60,
+      "abstain": 0,
+      "notVoted": 0,
+      "broughtBy": "SNP",
+      "parties": {
+        "SNP": {
+          "yes": 54,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Con": {
+          "yes": 0,
+          "no": 8,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Lab": {
+          "yes": 0,
+          "no": 17,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "LD": {
+          "yes": 0,
+          "no": 10,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Reform": {
+          "yes": 0,
+          "no": 11,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Ind": {
+          "yes": 0,
+          "no": 1,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Green": {
+          "yes": 0,
+          "no": 13,
+          "abstain": 0,
+          "notVoted": 0
+        }
+      }
+    },
+    "S7M-01739.3": {
+      "reference": "S7M-01739.3",
+      "title": "Learning Disabilities, Autism and Neurodivergence (LDAN) Bill",
+      "date": "2026-10-28T14:00:00",
+      "result": "Defeated",
+      "yes": 48,
+      "no": 54,
+      "abstain": 13,
+      "notVoted": 0,
+      "broughtBy": "Reform",
+      "parties": {
+        "SNP": {
+          "yes": 0,
+          "no": 54,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Con": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Lab": {
+          "yes": 17,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "LD": {
+          "yes": 10,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Reform": {
+          "yes": 11,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Ind": {
+          "yes": 1,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Green": {
+          "yes": 0,
+          "no": 0,
+          "abstain": 13,
+          "notVoted": 0
+        }
+      }
+    },
+    "S7M-01766": {
+      "reference": "S7M-01766",
+      "title": "Strengthening Scotland's Public Health Approach to Preventing Alcohol and Drug Deaths",
+      "date": "2026-10-29T13:30:00",
+      "result": "Carried",
+      "yes": 76,
+      "no": 24,
+      "abstain": 14,
+      "notVoted": 0,
+      "broughtBy": "SNP",
+      "parties": {
+        "SNP": {
+          "yes": 53,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Con": {
+          "yes": 0,
+          "no": 9,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Lab": {
+          "yes": 0,
+          "no": 0,
+          "abstain": 14,
+          "notVoted": 0
+        },
+        "Reform": {
+          "yes": 0,
+          "no": 14,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Ind": {
+          "yes": 0,
+          "no": 1,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Green": {
+          "yes": 14,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "LD": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        }
+      }
+    },
+    "S7M-01766.1": {
+      "reference": "S7M-01766.1",
+      "title": "Strengthening Scotland's Public Health Approach to Preventing Alcohol and Drug Deaths",
+      "date": "2026-10-29T13:30:00",
+      "result": "Carried",
+      "yes": 88,
+      "no": 24,
+      "abstain": 2,
+      "notVoted": 0,
+      "broughtBy": "LD",
+      "parties": {
+        "SNP": {
+          "yes": 53,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Con": {
+          "yes": 0,
+          "no": 9,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Lab": {
+          "yes": 12,
+          "no": 0,
+          "abstain": 2,
+          "notVoted": 0
+        },
+        "Reform": {
+          "yes": 0,
+          "no": 14,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Ind": {
+          "yes": 0,
+          "no": 1,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Green": {
+          "yes": 14,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "LD": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        }
+      }
+    },
+    "S7M-01766.2": {
+      "reference": "S7M-01766.2",
+      "title": "Strengthening Scotland's Public Health Approach to Preventing Alcohol and Drug Deaths",
+      "date": "2026-10-29T13:30:00",
+      "result": "Defeated",
+      "yes": 22,
+      "no": 91,
+      "abstain": 0,
+      "notVoted": 0,
+      "broughtBy": "Lab",
+      "parties": {
+        "SNP": {
+          "yes": 0,
+          "no": 53,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Con": {
+          "yes": 0,
+          "no": 9,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Lab": {
+          "yes": 13,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Reform": {
+          "yes": 0,
+          "no": 14,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Ind": {
+          "yes": 0,
+          "no": 1,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Green": {
+          "yes": 0,
+          "no": 14,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "LD": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        }
+      }
+    },
+    "S7M-01766.3": {
+      "reference": "S7M-01766.3",
+      "title": "Strengthening Scotland's Public Health Approach to Preventing Alcohol and Drug Deaths",
+      "date": "2026-10-29T13:30:00",
+      "result": "Defeated",
+      "yes": 33,
+      "no": 67,
+      "abstain": 14,
+      "notVoted": 0,
+      "broughtBy": "Con",
+      "parties": {
+        "SNP": {
+          "yes": 0,
+          "no": 53,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Con": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Lab": {
+          "yes": 0,
+          "no": 0,
+          "abstain": 14,
+          "notVoted": 0
+        },
+        "Reform": {
+          "yes": 14,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Ind": {
+          "yes": 1,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Green": {
+          "yes": 0,
+          "no": 14,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "LD": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        }
+      }
+    },
+    "S7M-01766.4": {
+      "reference": "S7M-01766.4",
+      "title": "Strengthening Scotland's Public Health Approach to Preventing Alcohol and Drug Deaths",
+      "date": "2026-10-29T13:30:00",
+      "result": "Carried",
+      "yes": 36,
+      "no": 18,
+      "abstain": 59,
+      "notVoted": 0,
+      "broughtBy": "Reform",
+      "parties": {
+        "SNP": {
+          "yes": 0,
+          "no": 7,
+          "abstain": 46,
+          "notVoted": 0
+        },
+        "Con": {
+          "yes": 0,
+          "no": 9,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Lab": {
+          "yes": 13,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Reform": {
+          "yes": 14,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Ind": {
+          "yes": 0,
+          "no": 1,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Green": {
+          "yes": 0,
+          "no": 1,
+          "abstain": 13,
+          "notVoted": 0
+        },
+        "LD": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        }
+      }
+    },
+    "S7M-01766.5": {
+      "reference": "S7M-01766.5",
+      "title": "Strengthening Scotland's Public Health Approach to Preventing Alcohol and Drug Deaths",
+      "date": "2026-10-29T13:30:00",
+      "result": "Carried",
+      "yes": 76,
+      "no": 24,
+      "abstain": 14,
+      "notVoted": 0,
+      "broughtBy": "Green",
+      "parties": {
+        "SNP": {
+          "yes": 53,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Con": {
+          "yes": 0,
+          "no": 9,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Lab": {
+          "yes": 0,
+          "no": 0,
+          "abstain": 14,
+          "notVoted": 0
+        },
+        "Reform": {
+          "yes": 0,
+          "no": 14,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Ind": {
+          "yes": 0,
+          "no": 1,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "Green": {
+          "yes": 14,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        },
+        "LD": {
+          "yes": 9,
+          "no": 0,
+          "abstain": 0,
+          "notVoted": 0
+        }
+      }
+    }
+  }
+}

@@ -18,6 +18,7 @@ import { site } from "@/lib/site";
 import { listApprovedMspReviews } from "@/lib/mspReviewsDb";
 import {
   HolyroodSourceNote,
+  MspExpensesAndInterests,
   MspProfileCard,
   MspProfileReviews,
   MspVotingRecord,
@@ -75,17 +76,17 @@ export default async function RegionalMspPage({
   const faq = [
     {
       q: `Who is ${msp.name}?`,
-      a: `${msp.name} is a ${msp.party} regional MSP for ${region.region}. They have represented the region at Holyrood since ${formatHolyroodTermDate(msp.termStart)}.`,
+      a: `${msp.name} (${msp.party}) is a regional MSP for ${region.region}. They have sat at Holyrood since ${formatHolyroodTermDate(msp.termStart)}.`,
     },
     {
-      q: `How do I contact ${msp.name}?`,
-      a: `You can email ${msp.name} at ${msp.email}. Everyone in ${region.region} can contact a regional MSP, whatever party they support.`,
+      q: `How do I write to ${msp.name}?`,
+      a: `Email ${msp.name} at ${msp.email}. Anyone in ${region.region} can write to them, no matter who you voted for.`,
     },
     {
       q: `How has ${msp.name} voted?`,
       a: msp.votes.length > 0
-        ? `This page shows the latest ${msp.votes.length} recorded votes in the Scottish Parliament's 2026 motion dataset, with the date, motion and vote shown for each.`
-        : "No recorded votes for this member were in the current 2026 snapshot.",
+        ? `This page lists their last ${msp.votes.length} votes in Holyrood in 2026, with the date and how they voted.`
+        : "No 2026 votes are logged for this MSP yet.",
     },
   ];
 
@@ -145,18 +146,20 @@ export default async function RegionalMspPage({
         <PageHeader
           eyebrow="Regional MSP at Holyrood"
           title={`${msp.name}, MSP for ${region.region}`}
-          lede={<><strong>{msp.name}</strong> is one of seven regional MSPs for {region.region}. Every person in the region can contact them, whatever party they support.</>}
+          lede={<><strong>{msp.name}</strong> is one of seven regional MSPs for {region.region}. Anyone in the region can write to them, no matter who you voted for.</>}
         />
 
         <ContentFrame>
           <InShort expert={false}>
-            <p><strong>You can contact {msp.name} about Scottish matters.</strong> Regional MSPs represent the whole region, not only people who voted for them.</p>
-            <p>This page gives you the short answer first, then the official contact details, current roles and latest recorded votes.</p>
+            <p><strong>You can write to {msp.name} about Scottish issues.</strong> Regional MSPs serve the whole area, not just their voters.</p>
+            <p>This page gives the short answer first, then their email, bills, roles and recent votes.</p>
           </InShort>
 
           <section className="pt-10">
             <MspProfileCard msp={msp} area={region.region} regional />
           </section>
+
+          <MspExpensesAndInterests msp={msp} area={region.region} />
 
           <MspProfileReviews msp={msp} reviews={reviews} />
 
@@ -188,17 +191,17 @@ export default async function RegionalMspPage({
           </section>
 
           <section className="pt-12 max-w-[760px]">
-            <h2 className="h2 mb-4">Where this information comes from</h2>
+            <h2 className="h2 mb-4">Where these facts come from</h2>
             <HolyroodSourceNote />
             <p className="ui mt-4 text-[15px] leading-[1.55] text-[var(--ink-2)]">
-              Names, roles and contact details: <a href={HOLYROOD_DATA_SOURCE}>{HOLYROOD_DATA_SOURCE_NAME}</a>. Portrait: <a href="https://www.parliament.scot/about/copyright">Scottish Parliament Copyright Licence</a>. Last checked <time dateTime={HOLYROOD_DATA_CHECKED_AT}>{checked}</time>.
+              Names and emails: <a href={HOLYROOD_DATA_SOURCE}>{HOLYROOD_DATA_SOURCE_NAME}</a>. Photo: <a href="https://www.parliament.scot/about/copyright">Holyrood photo licence</a>. Last checked <time dateTime={HOLYROOD_DATA_CHECKED_AT}>{checked}</time>.
             </p>
           </section>
 
           <Faq items={faq} className="pt-12" />
           <CTA
             title={`Want to write to ${msp.name}?`}
-            body="Enter your postcode. I find everyone who represents you, then prepare the right emails with your local facts in them. You still read and approve everything."
+            body="Type your postcode. We find your MP and MSPs and write a ready email with local facts. You read and send it yourself."
             href="/email-your-mp-and-msp"
             cta="Start my email"
             secondaryHref={`/representatives/msps/regions/${region.regionSlug}`}

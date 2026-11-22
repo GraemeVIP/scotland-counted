@@ -2047,6 +2047,48 @@ export const sources: Source[] = [
     url: "https://www.ispreview.co.uk/index.php/2022/08/starlink-cuts-uk-ultrafast-leo-satellite-home-broadband-prices.html",
     used: "Starlink's UK kit price of £529 before 24 August 2022.",
   },
+  {
+    id: "sp-allowances-open-data",
+    title: "MSP Expense Claims (Scottish Parliament Open Data)",
+    publisher: "Scottish Parliament",
+    url: "https://data.parliament.scot/api/allowancesmembertransactions",
+    used: "All 242,844 single MSP expense claims from April 2016 to June 2025. Includes who got paid, the amount and what it was for.",
+  },
+  {
+    id: "sp-register-of-interest-s7",
+    title: "2026 MSP Register of Interests",
+    publisher: "Scottish Parliament",
+    url: "https://data.parliament.scot/api/registerofinterest",
+    used: "All 1,785 entries for Scotland's 129 sitting MSPs. Covers outside pay, land and homes, gifts, shares and paid trips (checked 22 November 2026).",
+  },
+  {
+    id: "sp-total-costs-2024-25",
+    title: "Total MSP costs for 2024 to 2025",
+    publisher: "Scottish Parliament",
+    url: "https://www.parliament.scot/msps/members-expenses/total-costs-for-the-financial-year",
+    used: "Total MSP bills of £27.45 million in 2024/25 (up from £25.36 million the year before). That includes £22.57 million in staff pay.",
+  },
+  {
+    id: "companies-house-craigview",
+    title: "Craigview Strategies Limited (Company number SC646066)",
+    publisher: "Companies House",
+    url: "https://find-and-update.company-information.service.gov.uk/company/SC646066",
+    used: "Public records showing Craigview Strategies Limited is run by former Scottish Labour General Secretary Brian Roy.",
+  },
+  {
+    id: "swf-crisis-grants-2025-26",
+    title: "Scottish Welfare Fund statistics: update to 31 March 2026",
+    publisher: "Scottish Government",
+    url: "https://www.gov.scot/publications/scottish-welfare-fund-statistics-update-to-31-march-2026/",
+    used: "167,990 Crisis Grant awards, 89,990 rejected applications, £130 average award, and council Crisis Grant totals for Glasgow (£3,950,416), Edinburgh (£2,120,654) and Dundee (£338,560).",
+  },
+  {
+    id: "nhs-scotland-afc-pay-2025-26",
+    title: "NHS Scotland Agenda for Change pay settlement 2025 to 2027",
+    publisher: "Scottish Government",
+    url: "https://www.gov.scot/publications/",
+    used: "Baseline starting salary of £32,073 for a newly qualified NHS Scotland Band 5 staff nurse.",
+  },
   ...snpMoneyTimelineSources,
 ];
 

@@ -171,6 +171,8 @@ test("only evidence-led investigations are filed under the investigations catego
    * and misfiling an explainer still fails.
    */
   const INVESTIGATIONS = [
+    "scottish-mp-msp-expenses-what-it-could-buy",
+    "msp-expenses-scotland-investigation",
     "scottish-mps-london-homes-152-sitting-days",
     "kilmarnock-mp-23437-electricity-bill",
     "scottish-mps-tv-licence-expenses",

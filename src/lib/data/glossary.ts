@@ -388,6 +388,24 @@ export const terms: Term[] = [
     tech: "A motion can be agreed, rejected or amended. A vote on a motion is not automatically a change to the law.",
   },
   {
+    id: "amendment",
+    term: "Amendment",
+    def: "A change someone wants to make to a motion or a new law. Members vote on each change before the final vote.",
+    tech: "At Holyrood, parties often put forward amendments to the main motion in a debate. If an amendment passes, its words are added to the motion before the final vote on the whole motion.",
+  },
+  {
+    id: "decision-time",
+    term: "Decision Time",
+    def: "The time on most sitting days, usually around 5pm, when MSPs vote on everything they debated that day.",
+    tech: "Most Scottish Parliament votes are taken together at Decision Time. MSPs vote with a console at their desk or remotely, and the result is shown straight away.",
+  },
+  {
+    id: "abstain",
+    term: "Abstain",
+    def: "To take part in a vote without saying yes or no.",
+    tech: "At Holyrood an abstention is recorded by name. It does not count towards the yes or the no total, so it cannot change whether a vote passes.",
+  },
+  {
     id: "qualifying",
     term: "Qualifying",
     def: "Meeting the rules for a payment, discount or service.",
@@ -1194,7 +1212,67 @@ export const terms: Term[] = [
   {
     id: "hansard",
     term: "Hansard",
-    def: "The official word for word transcript of everything said in Parliament, published free online after every debate.",
+    def: "The official word for word record of what MPs say in Parliament. Anyone can read it free online.",
+  },
+  {
+    id: "holyrood",
+    term: "Holyrood",
+    def: "The Scottish Parliament in Edinburgh. MSPs meet there to pass Scottish laws and set Scottish taxes and spending.",
+  },
+  {
+    id: "westminster",
+    term: "Westminster",
+    def: "The UK Parliament in London. MPs from across the UK meet there to pass UK laws.",
+  },
+  {
+    id: "regional-msp",
+    term: "Regional MSP",
+    def: "One of seven MSPs elected to cover a larger Scottish region. Anyone living in that region can ask them for help.",
+  },
+  {
+    id: "constituency-msp",
+    term: "Constituency MSP",
+    def: "The one MSP elected to represent your local area at the Scottish Parliament.",
+  },
+  {
+    id: "council-tax",
+    term: "Council tax",
+    def: "A yearly local tax paid to your council to help fund bins, schools, roads and local care.",
+  },
+  {
+    id: "winter-fuel-payment",
+    term: "Winter Fuel Payment",
+    def: "A yearly winter payment to help older people pay their heating bills.",
+  },
+  {
+    id: "redundancy",
+    term: "Redundancy",
+    def: "A payout given to staff when their job ends because an MP or MSP leaves office or shuts their office.",
+  },
+  {
+    id: "engagement-provision",
+    term: "Engagement Provision",
+    def: "A yearly pot of public cash (up to £18,800) that MSPs can spend on newsletters, leaflets, surveys and local events.",
+  },
+  {
+    id: "councillor",
+    term: "Councillor",
+    def: "A local politician elected to run your council and vote on local services and council tax.",
+  },
+  {
+    id: "consultant",
+    term: "Consultant",
+    def: "An outside expert or firm paid to give advice or write reports, on top of an MP or MSP's own paid staff.",
+  },
+  {
+    id: "payee",
+    term: "Payee",
+    def: "The person or company that actually received the public money.",
+  },
+  {
+    id: "non-refundable",
+    term: "Non refundable",
+    def: "A booking where you lose the cash if you cancel. Taxpayers still pay the bill.",
   },
 ];
 

@@ -1,6 +1,20 @@
 import Link from "@/components/IntentLink";
-import { Prose, Lead, P, H2, UL, LI, BigStat, Aside, PostCTA } from "@/components/Prose";
-import { GuideTable } from "@/components/GuideTable";
+import { Prose, Lead, P, H2, Aside, PostCTA } from "@/components/Prose";
+import {
+  type PartyKey,
+  type CasePerson,
+  PARTY,
+  gbp,
+  Who,
+  QuickTake,
+  Finding,
+  ChartFrame,
+  RankList,
+  Receipt,
+  CaseCard,
+  Tiles,
+  PointList,
+} from "@/components/ExpenseKit";
 
 /*
  * Written in Graeme's voice (graeme-writing skill). Every claim comes from
@@ -14,267 +28,413 @@ import { GuideTable } from "@/components/GuideTable";
 
 const mp = (slug: string) => `/representatives/mps/${slug}#donations-and-interests`;
 
-const BROADBAND = [
-  ["Three's 5G home broadband router, July 2022", "Free with a monthly plan"],
-  ["Starlink satellite broadband kit, made for the remotest homes, July 2022", "£529"],
-  ["A typical phone or internet setup claim by a Scottish MP", "£90"],
-  ["The next biggest setup claim by any Scottish MP", "£691"],
-  [<strong key="cl">Chris Law&apos;s claim</strong>, <strong key="cla">£3,090</strong>],
+const FINDINGS = 10;
+
+const person = (name: string, slug: string, p: PartyKey, place: string): CasePerson => ({
+  name,
+  href: mp(slug),
+  p,
+  place,
+});
+
+const PRINT_AND_POST: { name: string; slug: string; p: PartyKey; seat: string; value: number }[] = [
+  { name: "John Grady", slug: "glasgow-east", p: "Labour", seat: "Glasgow East", value: 13116.8 },
+  { name: "Frank McNally", slug: "coatbridge-and-bellshill", p: "Labour", seat: "Coatbridge and Bellshill", value: 9974 },
+  { name: "Andrew Bowie", slug: "west-aberdeenshire-and-kincardine", p: "Conservative", seat: "West Aberdeenshire and Kincardine", value: 5898 },
 ];
 
-const REPEAT_NAMES = [
-  [
-    <Link key="gd" href={mp("dunfermline-and-dollar")} className="font-[600]">
-      Graeme Downie (Labour)
-    </Link>,
-    "The highest non staff expenses in Scotland (£151,954), a £41,435 London flat, a £963 business dinner and a £2,936 letter folding machine",
-  ],
-  [
-    <Link key="cl" href={mp("dundee-central")} className="font-[600]">
-      Chris Law (SNP)
-    </Link>,
-    "A £3,090 broadband setup, £6,292 on car parking in one year, a £28,200 London flat, and the most of any Scottish MP on hotels in Europe (£2,822)",
-  ],
-  [
-    <Link key="am" href={mp("inverness-skye-and-west-ross-shire")} className="font-[600]">
-      Angus MacDonald (Lib Dem)
-    </Link>,
-    "A £3,000 speech workshop, £546 to clean drains and £3,314 of energy bills on a second home where he claims no rent",
-  ],
+const GADGETS: { name: string; slug: string; p: PartyKey; value: number; detail: string }[] = [
+  { name: "Elaine Stewart", slug: "ayr-carrick-and-cumnock", p: "Labour", value: 2535, detail: "Phone gear from Amazon" },
+  { name: "Pete Wishart", slug: "perth-and-kinross-shire", p: "SNP", value: 1399, detail: "Bought at Apple" },
+  { name: "John Lamont", slug: "berwickshire-roxburgh-and-selkirk", p: "Conservative", value: 1248, detail: "An iPhone and protection case" },
 ];
 
 export default function WorstScottishMpExpenses() {
   return (
     <Prose>
       <Lead>
-        £3,090 to set up broadband. £3,000 for a speech coach. £546 to clean the drains at a second
-        home. £13,117 to post a glossy report about the MP through every letterbox. All paid for by
-        you, and all sitting in a spreadsheet almost nobody reads.
+        £23,437 for power in one day. £3,090 to set up broadband. £3,000 for a speech coach. £546
+        to clean drains at a second home. All paid by you.
       </Lead>
 
-      <P>
-        We went through every one of the 21,017 expense lines filed by Scotland&apos;s current MPs
-        since 2022. Line by line. These are the ones that made us stop and read them twice.
-      </P>
-      <P>
-        And here&apos;s the thing. IPSA, the body that runs MPs&apos; expenses, approved every single
-        one. Nobody broke the rules. The rules just let them do this.
-      </P>
-
-      <BigStat
-        value="£3,090"
-        label="Claimed by Chris Law MP in July 2022 for one thing: setting up broadband at his home."
-        exact="The typical phone or internet setup claim by a Scottish MP is £90. The next biggest is £691."
+      <QuickTake
+        items={[
+          <>
+            <Link href={mp("kilmarnock-and-loudoun")}>Lillian Jones</Link>: the biggest MP power
+            bill in the UK in five years.
+          </>,
+          <>
+            <Link href={mp("dundee-central")}>Chris Law</Link>: £3,090 to set up broadband. A
+            normal setup claim is £90.
+          </>,
+          <>
+            <Link href={mp("cowdenbeath-and-kirkcaldy")}>Melanie Ward</Link>:{" "}
+            <strong>£10,000</strong> for an office set up consultant.
+          </>,
+          <>
+            <Link href={mp("glasgow-east")}>John Grady</Link>: <strong>£13,117</strong> to print and
+            post a report about his own work.
+          </>,
+          <>
+            IPSA (the body that runs MPs&apos; expenses) paid every claim.{" "}
+            <strong>No rules were broken.</strong>
+          </>,
+        ]}
       />
 
-      <H2 id="broadband">1. £3,090 just to set up broadband at home</H2>
       <P>
-        On 25 July 2022, <Link href={mp("dundee-central")}>Chris Law</Link>, then the SNP MP for
-        Dundee West, claimed £3,090 from the public purse. IPSA&apos;s record describes it in five
-        words: &quot;Home 5G mobile broadband installation&quot;. It was paid in full.
+        We read all <strong>21,017 expense lines</strong> filed by Scotland&apos;s MPs from 2022/23 to
+        2026/27, one by one. These are the ones that stood out.
       </P>
+
+      {/* ------------------------------------------------------------ 1 */}
+      <Finding n={1} of={FINDINGS} id="power-bill">
+        £23,437 for power, paid in one day
+      </Finding>
+
+      <CaseCard figure="£23,437" people={[person("Lillian Jones", "kilmarnock-and-loudoun", "Labour", "Kilmarnock and Loudoun")]}>
+        <p>
+          <strong>The biggest MP power bill in the UK in five years</strong>
+        </p>
+        <p>
+          On 19 May 2026 IPSA made two payments to Yu Energy on the same account. It is more than a
+          full year of her office rent (£16,850).
+        </p>
+      </CaseCard>
+
+      <Receipt
+        heading="19 May 2026 · Two payments, one day"
+        lines={[
+          { meta: "2025/26 · Miscellaneous", what: "Lillian Jones - Yu Energy Utilities - 2000294348", amount: "£20,384.74" },
+          { meta: "2026/27 · Other Costs", what: "Lillian Jones - Yu Energy Utilities - 2000294348", amount: "£3,052.21" },
+        ]}
+        total={{ label: "Paid in one day", amount: "£23,436.95" }}
+        footer="Wording as printed by IPSA."
+      />
+
+      <Tiles
+        items={[
+          { value: "£150", label: "One Warm Home Discount: money off a low income home's energy bill" },
+          { value: "156", label: "Warm Home Discounts that one day's payout equals", hot: true },
+        ]}
+      />
+
       <P>
-        5G home broadband is just a box you plug into the wall. No engineer. No installation. In
-        July 2022, Three were giving the box away free with a monthly plan. Plenty of people just
-        use their phone as a hotspot.
+        <Link href="/blog/kilmarnock-mp-23437-electricity-bill">Read the full £23,437 power bill story</Link>.
       </P>
-      <div className="my-7">
-        <GuideTable
-          kicker="What this normally costs"
-          title="Setting up home broadband in July 2022, compared with Chris Law's claim"
-          columns={["What", "Cost"]}
-          align={["left", "right"]}
-          rows={BROADBAND}
-          caption="Sources: Three's home broadband offer, July 2022; Starlink UK pricing reported by ISPreview, August 2022; IPSA claim files 2022/23 to 2026/27."
+
+      {/* ------------------------------------------------------------ 2 */}
+      <Finding n={2} of={FINDINGS} id="broadband">
+        £3,090 just to set up broadband
+      </Finding>
+
+      <CaseCard figure="£3,090" people={[person("Chris Law", "dundee-central", "SNP", "Dundee Central")]}>
+        <p>
+          <strong>One claim, July 2022, paid in full</strong>
+        </p>
+        <p>
+          He was then MP for Dundee West. Since 2024 his seat has been Dundee Central. The file does
+          not say which home it was for, or who was paid.
+        </p>
+      </CaseCard>
+
+      <Receipt
+        heading="25 July 2022"
+        lines={[{ what: "Home 5G mobile broadband installation", amount: "£3,090.00" }]}
+        footer="Wording as printed by IPSA."
+      />
+
+      <Tiles
+        items={[
+          { value: "£90", label: "A typical phone or internet setup claim by a Scottish MP" },
+          { value: "£529", label: "Starlink satellite kit for remote homes, July 2022" },
+          { value: "£3,090", label: "Chris Law's claim", hot: true },
+        ]}
+      />
+
+      <P>
+        5G home broadband is a box you plug in. In July 2022, Three gave it away free with a plan.
+        Ofcom says 99% of homes in Dundee could get fast broadband that year.
+      </P>
+
+      {/* ------------------------------------------------------------ 3 */}
+      <Finding n={3} of={FINDINGS} id="speech-coach">
+        A £3,000 speech coach, and £546 to clean drains
+      </Finding>
+
+      <CaseCard figure="£3,546" people={[person("Angus MacDonald", "inverness-skye-and-west-ross-shire", "Lib Dem", "Inverness, Skye and West Ross-shire")]}>
+        <p>
+          <strong>Speech lessons from the staff budget, and drains at his second home</strong>
+        </p>
+        <p>
+          The £3,000 came from his staff budget, which is meant for people who help local voters.
+          That year he also billed £3,314 for energy at his second home. He claims no rent there.
+        </p>
+      </CaseCard>
+
+      <Receipt
+        heading="Three claims, 2025/26"
+        lines={[
+          {
+            meta: "17 July 2025",
+            what: "Provision of personalised presentation and speech skills workshop to assist MPs representational role in Parliament.",
+            amount: "£3,000.00",
+          },
+          { meta: "24 March 2026", what: "Drainage professional mechanical cable cleaning", amount: "£234.00" },
+          { meta: "27 March 2026", what: "Drainage professional pressure jet wash cleaning", amount: "£312.00" },
+        ]}
+        footer="Wording as printed by IPSA (reference numbers left out)."
+      />
+
+      {/* ------------------------------------------------------------ 4 */}
+      <Finding n={4} of={FINDINGS} id="self-promotion">
+        Paying to put their own name through your door
+      </Finding>
+      <P>
+        These MPs paid to print and post a yearly report about their own work. IPSA allows it if
+        there is no party logo on it. £13,117 is about £250 for every week of the year.
+      </P>
+
+      <ChartFrame kicker="IPSA files · Annual report leaflets" title="Biggest bills to print and post an MP's report">
+        <RankList
+          rows={PRINT_AND_POST.map((r) => ({
+            key: r.slug,
+            who: <Who face name={r.name} href={mp(r.slug)} p={r.p} />,
+            side: r.seat,
+            value: r.value,
+            label: gbp(r.value, false),
+            colour: PARTY[r.p].colour,
+          }))}
         />
-      </div>
-      <P>
-        So why not just get normal broadband like everyone else? Almost every home in the country
-        can. Ofcom says 99% of homes in Dundee could get fast broadband that year. The record
-        doesn&apos;t even say which home this was for: his own, or the flat in London taxpayers
-        were already renting for him.
-      </P>
-      <P>
-        Even Starlink, the satellite kit for the remotest homes in the country, cost £529 at the
-        time. His claim was nearly six times that. And we&apos;re not told who was paid.
-      </P>
-      <Aside title="Questions Chris Law should answer">
-        <p>Which home was it for? Who was paid? And what did £3,090 actually buy?</p>
-      </Aside>
+      </ChartFrame>
 
-      <H2 id="speech-coach">2. A speech coach, and the drains cleaned at his second home</H2>
+      <PointList
+        items={[
+          {
+            key: "stainbank",
+            title: <Who face name="Euan Stainbank" href={mp("falkirk")} p="Labour" note="£3,300" />,
+            children: <>A year long sign with his name and details.</>,
+          },
+        ]}
+      />
+
+      {/* ------------------------------------------------------------ 5 */}
+      <Finding n={5} of={FINDINGS} id="consultants">
+        Consultants and PR firms, on top of their own staff
+      </Finding>
+      <P>Every MP gets a big budget for staff. Some still paid outside firms on top.</P>
+
+      <CaseCard figure="£10,000" people={[person("Melanie Ward", "cowdenbeath-and-kirkcaldy", "Labour", "Cowdenbeath and Kirkcaldy")]}>
+        <p>
+          <strong>The biggest single consultant bill by any Scottish MP</strong>
+        </p>
+        <p>IPSA does not say who was paid. She also billed £4,000 for PR help.</p>
+      </CaseCard>
+
+      <Receipt
+        heading="Her two biggest outside help bills"
+        lines={[
+          { meta: "19 December 2024", what: "Policy and Office set up consultant", amount: "£10,000.00" },
+          { meta: "16 July 2025", what: "Communications Support", amount: "£4,000.00" },
+        ]}
+        footer="Wording as printed by IPSA."
+      />
+
+      <PointList
+        items={[
+          {
+            key: "ward-more",
+            title: "More from Melanie Ward",
+            children: (
+              <>
+                £7,000 for a local industrial strategy report, paid back four months later. £4,691
+                at IKEA. £2,150 for drawings needed to get permission to paint and fit security at
+                her listed office building. £1,443 for a survey before leasing an office.
+              </>
+            ),
+          },
+        ]}
+      />
+
+      <CaseCard figure="£35,792" people={[person("John Lamont", "berwickshire-roxburgh-and-selkirk", "Conservative", "Berwickshire, Roxburgh and Selkirk")]}>
+        <p>
+          <strong>13 bills to PR firm Peach Partners</strong>
+        </p>
+        <p>
+          That is about £2,750 a bill, for speech notes, press help and social posts. The biggest
+          was £9,125. It all came from his staff budget.
+        </p>
+      </CaseCard>
+
+      <CaseCard figure="£9,600" people={[person("Gregor Poynton", "livingston", "Labour", "Livingston")]}>
+        <p>
+          <strong>Media help from PR firm BB Partners in Crawley</strong>
+        </p>
+      </CaseCard>
+
+      {/* ------------------------------------------------------------ 6 */}
+      <Finding n={6} of={FINDINGS} id="tv-licences">
+        29 MPs billed you for a TV licence
+      </Finding>
       <P>
-        <Link href={mp("inverness-skye-and-west-ross-shire")}>Angus MacDonald</Link>, the Lib Dem
-        MP for Inverness, Skye and West Ross-shire, billed £3,000 in July 2025 for a
-        &quot;personalised presentation and speech skills workshop&quot;. Talking is the job. And
-        that money came out of his staffing budget, the money that&apos;s meant for the people who
-        help his constituents.
+        From 2022/23 to 2026/27, 29 Scottish MPs billed <strong>£10,754</strong> for TV licences. Homes
+        now pay £180 a year for their own.
       </P>
       <P>
-        In March 2026 he billed £546 for &quot;professional pressure jet wash&quot; and
-        &quot;mechanical cable&quot; cleaning of the drains at his second home. The same year he
-        billed £3,314 for that home&apos;s energy bills. It&apos;s a home where he claims no rent.
+        Labour has 37 of Scotland&apos;s 57 MPs, so most names on any list will be Labour. 21 of
+        the 29 here are Labour.
       </P>
-
-      <H2 id="self-promotion">3. Paying to put their own name through your door</H2>
-      <UL>
-        <LI>
-          <Link href={mp("glasgow-east")}>John Grady</Link> (Labour) paid £13,116.80 for the
-          &quot;printing and delivery of MP Annual Report to constituents&quot;.{" "}
-          <Link href={mp("coatbridge-and-bellshill")}>Frank McNally</Link> paid £9,974 and{" "}
-          <Link href={mp("west-aberdeenshire-and-kincardine")}>Andrew Bowie</Link> £5,898 for
-          theirs. IPSA allows these as long as there&apos;s no party politics in them. They still put
-          the MP&apos;s name and face through every door.
-        </LI>
-        <LI>
-          <Link href={mp("falkirk")}>Euan Stainbank</Link> (Labour) paid £3,300 for an
-          &quot;Advertising board to advertise Euan as local MP and contact details. To be
-          advertised for 1 year.&quot; A billboard of himself, paid for by the people he
-          represents.
-        </LI>
-      </UL>
-
-      <H2 id="consultants">4. Consultants and PR firms, on top of their own staff</H2>
+      <PointList
+        items={[
+          {
+            key: "poynton-tv",
+            title: <Who face name="Gregor Poynton" href={mp("livingston")} p="Labour" note="£688" />,
+            children: <>Four licences in under a year.</>,
+          },
+          {
+            key: "ahmed-tv",
+            title: <Who face name="Dr Zubir Ahmed" href={mp("glasgow-south-west")} p="Labour" note="£349" />,
+            children: <>Two in nine months: one online and one at a Co-op.</>,
+          },
+        ]}
+      />
       <P>
-        Every MP gets a big budget for staff. Some still paid outside firms on top.
-      </P>
-      <UL>
-        <LI>
-          <Link href={mp("cowdenbeath-and-kirkcaldy")}>Melanie Ward</Link> (Labour) paid £10,000 for
-          a &quot;Policy and Office set up consultant&quot;. She also claimed £7,000 for
-          &quot;research and writing of local industrial strategy&quot;, then paid all £7,000 back.
-        </LI>
-        <LI>
-          <Link href={mp("livingston")}>Gregor Poynton</Link> (Labour) paid £9,600 to BB Partners
-          Advisory Ltd, a PR firm in Crawley, for &quot;Comms and Media Support&quot;.
-        </LI>
-        <LI>
-          <Link href={mp("berwickshire-roxburgh-and-selkirk")}>John Lamont</Link> (Conservative)
-          paid <strong>£35,792</strong> across 13 invoices to PR and media consultancy Peach
-          Partners, including a single £9,125 bill for &quot;broadcast, digital preparation&quot;
-          and regular £2,083 to £2,917 monthly retainers for &quot;social media, speech writing and
-          press support&quot;. Every penny came out of his taxpayer staffing budget.
-        </LI>
-      </UL>
-
-      <H2 id="perks">5. £23,437 electricity bill, TV licences, a £24,530 mobile bill and dinners</H2>
-      <UL>
-        <LI>
-          <strong>£23,437 paid to Yu Energy for electricity in a single day (Lillian Jones, Labour):</strong>{" "}
-          On 19 May 2026 IPSA paid £20,384.74 (under Miscellaneous) and £3,052.21 (under Other
-          Costs) on the exact same account number for Kilmarnock and Loudoun MP{" "}
-          <Link href={mp("kilmarnock-and-loudoun")}>Lillian Jones</Link>. That is the largest
-          electricity payout for any MP in the entire UK over five years, costs £6,587 more than a
-          full year&apos;s rent for her entire office (£16,850), and equals 156 Warm Home
-          Discounts.{" "}
-          <Link href="/blog/kilmarnock-mp-23437-electricity-bill">
-            Read the full £23,437 electricity investigation →
-          </Link>
-        </LI>
-        <LI>
-          <strong>29 Scottish MPs billed taxpayers £10,754 for TV licences:</strong> More than half
-          of Scotland&apos;s MPs put their TV licence on public expenses while ordinary households
-          pay £180 a year out of their own pocket. That includes four licences in under 12 months
-          for <Link href={mp("livingston")}>Gregor Poynton</Link> (£688) and two £174.50 licences
-          in nine months for <Link href={mp("glasgow-south-west")}>Dr Zubir Ahmed</Link> (one
-          online and one at a Co-op).{" "}
-          <Link href="/blog/scottish-mps-tv-licence-expenses">
-            See the full list of all 29 Scottish MPs →
-          </Link>
-        </LI>
-        <LI>
-          <Link href={mp("argyll-bute-and-south-lochaber")}>Brendan O&apos;Hara</Link> (SNP):{" "}
-          <strong>£24,530</strong> on EE mobile phone bills across 58 claims, over £500 a month for
-          five years running and peaking at £909.24 in March 2026 (more than four times higher than
-          any other Scottish MP).
-        </LI>
-        <LI>
-          <Link href={mp("dunfermline-and-dollar")}>Graeme Downie</Link> (Labour): £962.65 for a
-          &quot;business dinner on behalf of Graeme Downie&quot;.
-        </LI>
-        <LI>
-          <Link href={mp("edinburgh-west")}>Christine Jardine</Link> (Lib Dem): £510 on one day for
-          a staff Christmas lunch and a team building event.
-        </LI>
-        <LI>
-          <Link href={mp("motherwell-wishaw-and-carluke")}>Pamela Nash</Link> (Labour): £3,182 at
-          DFS and IKEA for her office.
-        </LI>
-        <LI>
-          <Link href={mp("ayr-carrick-and-cumnock")}>Elaine Stewart</Link> (Labour): £2,535 on
-          Amazon under mobile phone equipment, alongside{" "}
-          <Link href={mp("perth-and-kinross-shire")}>Pete Wishart</Link> (SNP) at £1,399 on
-          Apple.com and{" "}
-          <Link href={mp("berwickshire-roxburgh-and-selkirk")}>John Lamont</Link> (Conservative) at
-          £1,248 for an &quot;Iphone and protection case&quot;.
-        </LI>
-        <LI>
-          <Link href={mp("angus-and-perthshire-glens")}>Dave Doogan</Link> (SNP): £892.80 for a
-          &quot;Newspaper Column Invoice&quot;. The record doesn&apos;t say what that was for.
-        </LI>
-      </UL>
-
-      <H2 id="second-homes">6. Second homes, paid for by you</H2>
-      <P>
-        MPs work in two places, so the public pays for a second home. They can even own it and
-        still claim the bills. <Link href={mp("lothian-east")}>Douglas Alexander</Link> claimed
-        £4,093 for council tax on his house in East Lothian, which he lists as his second home.
-        East Lothian charges double council tax on second homes. IPSA raised MPs&apos; budgets to
-        cover charges like that, so you pick up the extra too.
-      </P>
-      <P>
-        <Link href={mp("glasgow-south-west")}>Dr Zubir Ahmed</Link> billed £37,359 for 295 nights in
-        London hotels in a single year, about £127 a night, mostly month-long block bookings of a flat (
-        <Link href="/mp-expenses-scotland/receipts#hotel-nights">every claim, night by night</Link>). <Link href={mp("glasgow-east")}>John Grady</Link> billed
-        £42,000 in London rent. That&apos;s £3,500 a month.
+        <Link href="/blog/scottish-mps-tv-licence-expenses">See all 29 Scottish MPs</Link>.
       </P>
 
-      <H2 id="repeat-names">7. The names that keep coming up</H2>
-      <P>
-        Go through enough of these and the same names keep popping up.
-      </P>
-      <div className="my-7">
-        <GuideTable
-          kicker="Repeat names"
-          title="Scottish MPs who appear again and again in the strangest claims"
-          columns={["MP", "What they claimed"]}
-          align={["left", "left"]}
-          rows={REPEAT_NAMES}
-          caption="Source: IPSA claim files 2022/23 to 2026/27. Click a name to see their full expenses."
+      {/* ------------------------------------------------------------ 7 */}
+      <Finding n={7} of={FINDINGS} id="phones">
+        A £24,530 phone tab, and new gadgets
+      </Finding>
+
+      <CaseCard figure="£24,530" people={[person("Brendan O'Hara", "argyll-bute-and-south-lochaber", "SNP", "Argyll, Bute and South Lochaber")]}>
+        <p>
+          <strong>Mobile phone bills, March 2022 to June 2026</strong>
+        </p>
+        <p>That is about £110 a week. His biggest month was £909.24, in March 2026.</p>
+      </CaseCard>
+
+      <ChartFrame kicker="IPSA files · Phones and tech" title="Biggest single gadget claims">
+        <RankList
+          rows={GADGETS.map((r) => ({
+            key: r.slug,
+            who: <Who face name={r.name} href={mp(r.slug)} p={r.p} />,
+            value: r.value,
+            label: gbp(r.value, false),
+            colour: PARTY[r.p].colour,
+            detail: r.detail,
+          }))}
         />
-      </div>
+      </ChartFrame>
 
-      <H2 id="why-hidden">8. Why you&apos;ve never heard about any of this</H2>
+      {/* ------------------------------------------------------------ 8 */}
+      <Finding n={8} of={FINDINGS} id="perks">
+        Dinners, a Christmas lunch, sofas and a column
+      </Finding>
+
+      <Receipt
+        person={person("Christine Jardine", "edinburgh-west", "Lib Dem", "Edinburgh West")}
+        heading="19 December 2025 · Two claims, one day"
+        lines={[
+          { what: "lunch staff team training Christmas", amount: "£250.80" },
+          { what: "team building event", amount: "£259.31" },
+        ]}
+        total={{ label: "Total", amount: "£510.11" }}
+        footer="Wording as printed by IPSA."
+      />
+
+      <Receipt
+        person={person("Graeme Downie", "dunfermline-and-dollar", "Labour", "Dunfermline and Dollar")}
+        heading="13 March 2025 · Hospitality"
+        lines={[{ what: "Fife College hosted business dinner on behalf of Graeme Downie", amount: "£962.65" }]}
+        footer="Wording as printed by IPSA (reference number left out)."
+      />
+
+      <PointList
+        items={[
+          {
+            key: "nash",
+            title: <Who face name="Pamela Nash" href={mp("motherwell-wishaw-and-carluke")} p="Labour" note="£3,182" />,
+            children: <>Four DFS and IKEA bills for office furniture in 2025/26.</>,
+          },
+          {
+            key: "doogan",
+            title: <Who face name="Dave Doogan" href={mp("angus-and-perthshire-glens")} p="SNP" note="£892.80" />,
+            children: <>A &quot;Newspaper Column Invoice&quot;. The file does not say what it was for.</>,
+          },
+        ]}
+      />
+
+      {/* ------------------------------------------------------------ 9 */}
+      <Finding n={9} of={FINDINGS} id="second-homes">
+        Second homes and doubled council tax
+      </Finding>
       <P>
-        IPSA does publish every claim. But it publishes them as a spreadsheet of 59,503 lines a
-        year. Thousands of lines are lumped into one yearly total, and some hide who was paid.
-        It&apos;s not secret. It&apos;s just that almost nobody has the time to read it.
+        MPs work in London and at home, so IPSA pays for a second home. MPs can own it and still
+        claim its bills.
       </P>
       <P>
-        So we did. You can{" "}
-        <Link href="/mp-expenses-scotland/search">
-          search all 20,879 Scottish MP receipts yourself
+        Many councils, like East Lothian, charge double council tax on second homes. IPSA raised the
+        limit on what MPs can claim, so the public pays that doubled bill too. See{" "}
+        <Link href="/blog/scottish-mp-expenses-and-freebies-investigation">
+          who claimed the most for second homes in 2025/26
         </Link>
-        , browse <Link href="/mp-expenses-scotland/receipts">the strangest receipts</Link>, read
-        our breakdown of{" "}
-        <Link href="/blog/scottish-mps-tv-licence-expenses">
-          the 29 MPs who claimed TV licences
-        </Link>
-        , and compare <Link href="/mp-expenses-scotland">all 57 Scottish MPs ranked</Link>.
+        .
+      </P>
+
+      {/* ------------------------------------------------------------ 10 */}
+      <Finding n={10} of={FINDINGS} id="repeat-names">
+        The names that keep coming up
+      </Finding>
+      <PointList
+        items={[
+          {
+            key: "downie",
+            title: <Who face name="Graeme Downie" href={mp("dunfermline-and-dollar")} p="Labour" note="£151,954" />,
+            children: (
+              <>The highest non staff expenses in Scotland in 2025/26, a £41,435 London flat and a £2,936 letter folding machine.</>
+            ),
+          },
+          {
+            key: "law",
+            title: <Who face name="Chris Law" href={mp("dundee-central")} p="SNP" note="£6,292 parking" />,
+            children: <>The £3,090 broadband, a £28,200 London flat and the most on hotels in Europe (£2,822).</>,
+          },
+          {
+            key: "macdonald",
+            title: <Who face name="Angus MacDonald" href={mp("inverness-skye-and-west-ross-shire")} p="Lib Dem" note="£3,314 energy" />,
+            children: <>The speech coach, the drains, and energy bills on a second home where he claims no rent.</>,
+          },
+          {
+            key: "ward",
+            title: <Who face name="Melanie Ward" href={mp("cowdenbeath-and-kirkcaldy")} p="Labour" note="£7,932 family travel" />,
+            children: <>The £10,000 consultant, £4,691 at IKEA and Scotland&apos;s highest family travel bill.</>,
+          },
+        ]}
+      />
+
+      <H2 id="why-hidden">Why you have never heard of this</H2>
+      <P>
+        IPSA puts every claim online. But its 2025/26 file alone, for all 650 UK MPs, has 59,503
+        rows. Many rows lump a whole year into one line. Some hide who was paid.
+      </P>
+      <P>
+        So we did the reading. <Link href="/mp-expenses-scotland/search">Search every claim</Link>{" "}
+        yourself, see <Link href="/mp-expenses-scotland/receipts">the oddest receipts</Link>, or
+        check <Link href="/mp-expenses-scotland">all 57 Scottish MPs ranked</Link>.
       </P>
 
       <Aside title="All within the rules">
         <p>
-          IPSA approved and paid every claim on this page. We found no broken rules. The question
-          is whether the rules should allow any of it.
+          IPSA paid every claim on this page. No rule was broken.
         </p>
       </Aside>
 
       <PostCTA
-        title="Search all 20,879 Scottish MP receipts (or look up your MP by postcode)"
-        body="Type your postcode, filter by Amazon, IKEA, TV licence, speech coach or taxi, copy any receipt for X or WhatsApp, and email your MP directly."
+        title="Search every Scottish MP claim (or check your MP)"
+        body="Type your postcode. Filter by Amazon, IKEA, TV licence, speech coach or taxi. Copy any claim or email your MP."
         href="/mp-expenses-scotland/search"
-        cta="Open the Receipt Finder →"
+        cta="Open the Receipt Finder"
       />
     </Prose>
   );

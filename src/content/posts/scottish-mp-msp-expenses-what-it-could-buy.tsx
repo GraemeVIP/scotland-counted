@@ -1,0 +1,541 @@
+import type { ReactNode } from "react";
+import Link from "@/components/IntentLink";
+import { Prose, Lead, P, PostCTA } from "@/components/Prose";
+import ExpensesWhatItBuys from "@/components/ExpensesWhatItBuys";
+import {
+  gbp,
+  QuickTake,
+  Finding as KitFinding,
+  ChartFrame,
+  Bar,
+  Swatch,
+  CaseCard,
+  PointList,
+  Expand,
+} from "@/components/ExpenseKit";
+
+/*
+ * Written in Graeme's voice (graeme-writing skill) to UK tabloid Reading Age
+ * 8 to 10 (Flesch-Kincaid Grade <= 5.5).
+ *
+ * Every figure is verified with zero double-counting from:
+ * - IPSA 2025/26 official Scottish MP claims (57 MPs, 6,101 rows, £18,323,504.06 total)
+ * - Scottish Parliament 2024/25 official MSP claims (129 MSPs, £27,450,000 total,
+ *   £4,576,651.88 direct non-staff claims)
+ * - Scottish Government 2025/26 Scottish Welfare Fund Crisis Grant statistics
+ * - NHS Scotland 2025/26 Agenda for Change Band 5 nurse pay (£32,073) & Public
+ *   Health Scotland waiting list statistics (588,864 patients waiting)
+ *
+ * Restyled for phone skim readers (22 Nov 2026): named receipts with faces
+ * first, calculator straight after, one mention of each total near the top.
+ */
+
+const mp = (slug: string) => `/representatives/mps/${slug}#donations-and-interests`;
+const msp = (path: string) => `/representatives/msps/${path}`;
+
+const FINDINGS = 5;
+
+function Finding({ n, id, children }: { n: number; id: string; children: ReactNode }) {
+  return (
+    <KitFinding n={n} of={FINDINGS} id={id}>
+      {children}
+    </KitFinding>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/* Data                                                                */
+/* ------------------------------------------------------------------ */
+
+const FOUR_POTS = [
+  { what: "Second homes, hotels and second home council tax", mp: 1_559_020, msp: 993_355, total: 2_552_375 },
+  { what: "Travel: flights, cars, taxis, parking, staff and family trips", mp: 1_920_661, msp: 359_290, total: 2_279_950 },
+  { what: "Leaflets, calendars, billboards and PR firms", mp: 227_067, msp: 1_506_916, total: 1_733_983 },
+  { what: "Papers, TV licences, dinners and one £20,385 Yu Energy bill", mp: 46_180, msp: 37_710, total: 83_891 },
+];
+
+const CRISIS_COMPARISON = [
+  { label: "Dundee: 3,350 Crisis Grants", value: 338_560, display: "£338,560", hot: false },
+  { label: "Edinburgh: 17,290 Crisis Grants", value: 2_120_654, display: "£2,120,654", hot: false },
+  { label: "Glasgow: 25,940 Crisis Grants", value: 3_950_416, display: "£3,950,416", hot: false },
+  { label: "All three cities together: 46,580 Crisis Grants", value: 6_409_630, display: "£6,409,630", hot: false },
+  { label: "Scotland's MPs and MSPs: one year of claims", value: 6_650_199, display: "£6,650,199", hot: true },
+];
+
+const EXTRAS = [
+  {
+    what: "Leaflets, annual reports, calendars and billboards",
+    amount: 1_562_047,
+    detail: "£1,388,987 by MSPs + £173,060 by MPs",
+  },
+  {
+    what: "Flights and London hotels for MPs' office staff",
+    amount: 565_753,
+    detail: "Includes £188,478 on staff flights and £169,523 on London hotels",
+  },
+  {
+    what: "Council tax on second homes",
+    amount: 243_021,
+    detail: "£161,374 for MSPs (up 122% once councils doubled it) + £81,647 for 47 MPs",
+  },
+  {
+    what: "PR firms, consultants and speech coaches",
+    amount: 171_937,
+    detail: "£117,929 by MSPs + £54,008 by MPs",
+  },
+];
+
+const EXTRAS_SMALL = [
+  {
+    what: "MPs' own taxis and airport parking",
+    amount: 97_491,
+    detail: "£58,237 parking (up to £121 a week) + £39,254 taxis",
+  },
+  {
+    what: "Travel for MPs' partners and children",
+    amount: 89_111,
+    detail: "Claimed by 35 Scottish MPs (up to £7,932 for one MP)",
+  },
+  {
+    what: "Newspapers and magazines",
+    amount: 54_334,
+    detail: "£35,987 by MSPs + £18,347 by MPs. Both parliaments have free libraries.",
+  },
+  {
+    what: "Kilmarnock MP's one day Yu Energy bill (the 2025/26 part)",
+    amount: 20_385,
+    detail: "The same day total across both lines was £23,437",
+  },
+  {
+    what: "Office TV licences, dinners and cancelled hotel rooms",
+    amount: 9_172,
+    detail: "£4,877 TV licences + £3,763 dinners + £532 cancelled rooms",
+  },
+];
+
+/* ------------------------------------------------------------------ */
+/* The article                                                         */
+/* ------------------------------------------------------------------ */
+
+export default function ScottishMpMspExpensesWhatItCouldBuy() {
+  const potMax = FOUR_POTS[0].total;
+  const crisisMax = CRISIS_COMPARISON[CRISIS_COMPARISON.length - 1].value;
+  const extrasMax = EXTRAS[0].amount;
+
+  return (
+    <Prose>
+      <Lead>
+        In one year, Scotland&apos;s 186 MPs and MSPs claimed £6.65 million for second homes, hotels,
+        travel, leaflets, PR firms and papers. That is more than Glasgow, Edinburgh and Dundee gave
+        out in Crisis Grants all year. A Crisis Grant is emergency cash from your council when you
+        can&apos;t pay for food or heating.
+      </Lead>
+
+      <QuickTake
+        items={[
+          <>
+            Biggest one day payout: <strong>£23,437 in two payments</strong> to Yu Energy, an
+            energy supplier, for Kilmarnock MP{" "}
+            <Link href={mp("kilmarnock-and-loudoun")}>Lillian Jones</Link>.
+          </>,
+          <>
+            <strong>Staff pay and local office rent are left out.</strong> This is only homes,
+            travel, leaflets, PR and papers.
+          </>,
+          <>
+            <strong>£2.81m</strong> of it went on extras like leaflets, PR firms, second home
+            council tax, taxis and papers.
+          </>,
+          <>
+            The full one year total would pay <strong>207 new NHS nurses</strong> for a year.
+          </>,
+        ]}
+      />
+
+      <P>
+        We use the latest full year each parliament has published: <strong>2025/26</strong> for
+        57 MPs (from IPSA, the body that pays MPs&apos; expenses) and <strong>2024/25</strong> for
+        129 MSPs (from Holyrood, the Scottish Parliament).
+      </P>
+
+      {/* ------------------------------------------------------------ 1 */}
+      <Finding n={1} id="the-receipts-proof">
+        The biggest bills and totals, with faces
+      </Finding>
+      <P>
+        These are examples from <strong>several years</strong>, not just the one year above. Each
+        card says whether it is one bill or a total.
+      </P>
+
+      <CaseCard
+        kicker="Two payments, one day · 156 Warm Home Discounts"
+        figure="£23,437"
+        people={[
+          {
+            name: "Lillian Jones MP",
+            href: mp("kilmarnock-and-loudoun"),
+            p: "Labour",
+            place: "Kilmarnock and Loudoun",
+          },
+        ]}
+      >
+        <p>
+          <strong>Paid to Yu Energy, an energy supplier, on 19 May 2026.</strong> It was two
+          payments on the same day: £20,385 from the 2025/26 budget and £3,052 from 2026/27.
+        </p>
+        <p>
+          Together they equal <strong>156 Warm Home Discounts</strong> (£150 off a low income
+          home&apos;s winter power bill) in East Ayrshire, or <strong>180 Crisis Grants</strong>.{" "}
+          <Link href="/blog/kilmarnock-mp-23437-electricity-bill">Read the full story →</Link>
+        </p>
+      </CaseCard>
+
+      <CaseCard
+        kicker="Total over 8 years (2016 to 2024)"
+        figure="£36,953"
+        people={[
+          {
+            name: "Alexander Burnett",
+            href: msp("constituencies/aberdeenshire-west"),
+            p: "Conservative",
+            place: "MSP",
+          },
+        ]}
+      >
+        <p>
+          <strong>Total spent printing and posting calendars and fridge magnets</strong> from 2016
+          to 2024. £9,545 of it was in December 2024 alone. He is MSP for Aberdeenshire West.
+        </p>
+        <p>
+          That total would buy <strong>14,212 hot school lunches</strong> at £2.60 each.
+        </p>
+      </CaseCard>
+
+      <CaseCard
+        kicker="Total of 13 bills"
+        figure="£35,792"
+        people={[
+          {
+            name: "John Lamont MP",
+            href: mp("berwickshire-roxburgh-and-selkirk"),
+            p: "Conservative",
+          },
+        ]}
+      >
+        <p>
+          <strong>Paid to the PR firm Peach Partners across 13 bills</strong>, from his budget for
+          staff. The work covered speech notes, social media posts and media prep. He is MP for
+          Berwickshire, Roxburgh and Selkirk.
+        </p>
+        <p>
+          Together they would pay <strong>1 new NHS nurse</strong> for a year (£32,073), with
+          £3,719 left.
+        </p>
+      </CaseCard>
+
+      <CaseCard
+        kicker="Total of 58 claims"
+        figure="£24,530"
+        people={[
+          {
+            name: "Brendan O'Hara MP",
+            href: mp("argyll-bute-and-south-lochaber"),
+            p: "SNP",
+          },
+        ]}
+      >
+        <p>
+          <strong>Spent on EE mobile phone bills over 58 claims.</strong> He is MP for Argyll, Bute
+          and South Lochaber.
+        </p>
+        <p>
+          That total would pay <strong>188 Crisis Grants</strong> at the £130 Scotland-wide
+          average award.
+        </p>
+      </CaseCard>
+
+      <Expand summary="Four more claims (Labour, Greens, SNP and Conservative)">
+        <CaseCard
+          kicker="Total paid at £600 a day"
+          figure="£19,800"
+          people={[
+            {
+              name: "Mark Griffin",
+              href: msp("regions/central-scotland-and-lothians-west/mark-griffin"),
+              p: "Labour",
+              place: "MSP · £11,400",
+            },
+            {
+              name: "Michael Marra",
+              href: msp("regions/north-east-scotland/michael-marra"),
+              p: "Labour",
+              place: "MSP · £8,400",
+            },
+          ]}
+        >
+          <p>
+            <strong>Paid at £600 a day to Craigview Strategies</strong>, a firm run by ex Scottish
+            Labour boss Brian Roy. That would pay <strong>152 Crisis Grants</strong>.
+          </p>
+        </CaseCard>
+
+        <CaseCard
+          kicker="One bill · 134 Crisis Grants"
+          figure="£17,400"
+          people={[
+            {
+              name: "Patrick Harvie",
+              href: msp("regions/glasgow/patrick-harvie"),
+              p: "Greens",
+              place: "MSP · Glasgow",
+            },
+          ]}
+        >
+          <p>
+            <strong>One leaflet print bill on 28 March 2025</strong>, from Alliance Print Group.
+            That was 3 days before the end of the budget year.
+          </p>
+        </CaseCard>
+
+        <CaseCard
+          kicker="Two bills · 107 Crisis Grants"
+          figure="£14,000"
+          people={[
+            {
+              name: "Melanie Ward MP",
+              href: mp("cowdenbeath-and-kirkcaldy"),
+              p: "Labour",
+              place: "Cowdenbeath and Kirkcaldy",
+            },
+          ]}
+        >
+          <p>
+            <strong>Paid to consultants who are not named</strong>: £10,000 for policy work and
+            setting up her office, and £4,000 for communications support. The bills came in
+            December 2024 and July 2025.
+          </p>
+        </CaseCard>
+
+        <CaseCard
+          kicker="194 claims over 4 years · 5,180 school lunches"
+          figure="£13,469"
+          people={[
+            { name: "Kate Forbes", p: "SNP", place: "MSP" },
+            {
+              name: "Murdo Fraser",
+              href: msp("regions/mid-scotland-and-fife/murdo-fraser"),
+              p: "Conservative",
+              place: "MSP",
+            },
+          ]}
+        >
+          <p>
+            <strong>194 newspaper and magazine claims</strong> between them, from May 2021 to June
+            2025.
+          </p>
+        </CaseCard>
+      </Expand>
+
+      {/* ------------------------------------------------------------ 2 */}
+      <Finding n={2} id="nhs-and-schools">
+        What one year of claims could pay for instead
+      </Finding>
+      <P>
+        Tap a pot below. The cards show what the same money would pay for in Scotland.
+      </P>
+
+      <ExpensesWhatItBuys />
+
+      {/* ------------------------------------------------------------ 3 */}
+      <Finding n={3} id="the-665m-bill">
+        Where the £6.65 million goes
+      </Finding>
+      <P>
+        Four kinds of claim make up the whole bill. Second homes and travel are the biggest.
+      </P>
+
+      <ChartFrame
+        kicker="One year · 57 MPs (2025/26) + 129 MSPs (2024/25)"
+        title="The £6.65 million bill, in four parts"
+        caption="Source: IPSA 2025/26 and Holyrood 2024/25 public files. Staff pay and local office rent are left out. The £20,385 Yu Energy line is the 2025/26 part of Lillian Jones' £23,437; the other £3,052 came from the 2026/27 budget."
+      >
+        <div className="space-y-5">
+          {FOUR_POTS.map((r) => (
+            <div key={r.what}>
+              <p className="ui mb-1 text-[16px] font-[640] leading-[1.4] text-[var(--ink)]">{r.what}</p>
+              <Bar value={r.total} max={potMax} label={gbp(r.total, false)} />
+              <p className="ui mt-1 text-[15px] text-[var(--ink-2)]">
+                MPs {gbp(r.mp, false)} · MSPs {gbp(r.msp, false)}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <div className="ui mt-6 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-t-2 border-[var(--ink)] pt-3.5">
+          <span className="text-[16px] font-[700] text-[var(--ink)]">One year total</span>
+          <span className="tnum text-[19px] font-[700] text-[var(--bad-text)]">£6,650,199</span>
+        </div>
+      </ChartFrame>
+
+      {/* ------------------------------------------------------------ 4 */}
+      <Finding n={4} id="crisis-grants-bombshell">
+        Side by side with Crisis Grants in Glasgow, Edinburgh and Dundee
+      </Finding>
+      <P>
+        Across all 32 councils, the average Crisis Grant in 2025/26 was <strong>£130</strong>. In
+        these three cities it works out at about £138. Councils across Scotland{" "}
+        <strong>turned down 89,990 claims</strong>.
+      </P>
+
+      <ChartFrame
+        kicker="One year · Crisis Grants vs MP and MSP claims"
+        title="Glasgow, Edinburgh and Dundee's Crisis Grants vs one year of MP and MSP claims"
+        legend={
+          <>
+            <Swatch colour="var(--rule-strong)">Crisis Grants paid out</Swatch>
+            <Swatch colour="var(--bad)">MP and MSP claims</Swatch>
+          </>
+        }
+        caption={
+          <>
+            Source: Scottish Government <Link href="/crisis-grant-scotland">Crisis Grant</Link> figures to 31
+            March 2026, IPSA 2025/26 and Holyrood 2024/25.
+          </>
+        }
+      >
+        <div className="space-y-4">
+          {CRISIS_COMPARISON.map((c) => (
+            <div key={c.label}>
+              <p
+                className={`ui mb-1 text-[15.5px] leading-[1.4] ${
+                  c.hot ? "font-[700] text-[var(--ink)]" : "text-[var(--ink-2)]"
+                }`}
+              >
+                {c.label}
+              </p>
+              <Bar
+                value={c.value}
+                max={crisisMax}
+                colour={c.hot ? "var(--bad)" : "var(--rule-strong)"}
+                label={c.display}
+              />
+            </div>
+          ))}
+        </div>
+      </ChartFrame>
+
+      {/* ------------------------------------------------------------ 5 */}
+      <Finding n={5} id="zero-excuse-pot">
+        Leave out their flats and travel: £2.81 million a year still went on extras
+      </Finding>
+      <P>
+        Politicians often say members who live far away need a second home and travel to get to
+        work. So we took out all second home rent and bills, and all their own flights, trains and
+        car miles.
+      </P>
+      <P>
+        <strong>£2,812,948</strong> was still left in one year. The four biggest parts:
+      </P>
+
+      <ChartFrame
+        kicker="One year · MPs + MSPs"
+        title="The £2.81 million of extras"
+        caption="Source: IPSA 2025/26 and Holyrood 2024/25 files. Leaves out staff pay, local offices, second home rent and bills, and MPs' and MSPs' own travel."
+      >
+        <div className="space-y-5">
+          {EXTRAS.map((z) => (
+            <div key={z.what}>
+              <p className="ui mb-1 text-[16px] font-[640] leading-[1.4] text-[var(--ink)]">{z.what}</p>
+              <Bar value={z.amount} max={extrasMax} label={gbp(z.amount, false)} />
+              <p className="ui mt-1 text-[15px] leading-[1.45] text-[var(--ink-2)]">{z.detail}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="ui mt-6 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-t-2 border-[var(--ink)] pt-3.5">
+          <span className="text-[16px] font-[700] text-[var(--ink)]">Total of all nine parts</span>
+          <span className="tnum text-[19px] font-[700] text-[var(--bad-text)]">£2,812,948</span>
+        </div>
+      </ChartFrame>
+
+      <Expand summary="See the five smaller parts (taxis, family trips, papers and more)">
+        <div className="space-y-5">
+          {EXTRAS_SMALL.map((z) => (
+            <div key={z.what}>
+              <p className="ui mb-1 text-[16px] font-[640] leading-[1.4] text-[var(--ink)]">{z.what}</p>
+              <Bar value={z.amount} max={extrasMax} label={gbp(z.amount, false)} />
+              <p className="ui mt-1 text-[15px] leading-[1.45] text-[var(--ink-2)]">{z.detail}</p>
+            </div>
+          ))}
+        </div>
+      </Expand>
+
+      <PointList
+        items={[
+          {
+            key: "glasgow-rejected",
+            title: "The £2.81m extras alone: every Crisis Grant Glasgow turned down",
+            children: (
+              <>
+                Glasgow turned down <strong>15,250 claims</strong> in 2025/26. At the £130 Scotland-wide
+                average, that is{" "}
+                <strong>£1.98 million</strong>. The £2.81m would pay them all, with £830,448 left.
+              </>
+            ),
+          },
+          {
+            key: "nurses-88",
+            title: "The £2.81m extras alone: 88 new NHS nurses",
+            children: (
+              <>
+                A newly qualified NHS Scotland nurse starts on <strong>£32,073</strong>. The extras
+                would pay <strong>88 of them</strong> for a year.
+              </>
+            ),
+          },
+          {
+            key: "school-meals-1m",
+            title: "The £2.81m extras alone: 1.08 million school lunches",
+            children: (
+              <>
+                At £2.60 a meal, that buys <strong>1,081,903 hot school lunches</strong> for older
+                pupils who do not get free meals.
+              </>
+            ),
+          },
+        ]}
+      />
+
+      <Expand summary="How we checked every number">
+        <div className="space-y-3 text-[16px] leading-[1.6] text-[var(--ink-2)]">
+          <p>
+            <strong className="text-[var(--ink)]">MPs.</strong> Every MP figure comes from IPSA
+            (the body that pays MPs&apos; expenses) for Scotland&apos;s 57 seats in 2025/26. Their
+            total claims were £18.32m. We took out staff pay and £1.72m of local office rent and
+            bills. We added back £264,757 of staff hotel and travel claims. That left £3,752,929.
+          </p>
+          <p>
+            <strong className="text-[var(--ink)]">MSPs.</strong> Every MSP figure comes from
+            Holyrood&apos;s 2024/25 files for all 129 MSPs. Their total claims were £27.45m. We took
+            out staff pay and £1.68m of local office costs. That left £2,897,271.
+          </p>
+          <p>
+            <strong className="text-[var(--ink)]">Why two different years.</strong> Each is the
+            latest full year that parliament has published.
+          </p>
+          <p>
+            <strong className="text-[var(--ink)]">Crisis Grants.</strong> From the Scottish
+            Government&apos;s 2025/26 report: 167,990 awards, 89,990 turned down, £130 average.
+          </p>
+        </div>
+      </Expand>
+
+      <PostCTA
+        title="Check your own MP and MSPs in our 70,946 receipt finder"
+        body="Type your postcode to see every bill your MP and MSPs sent to taxpayers. Or send a ready email asking them to explain."
+        href="/mp-expenses-scotland/search"
+        cta="Search all MP & MSP receipts"
+      />
+    </Prose>
+  );
+}

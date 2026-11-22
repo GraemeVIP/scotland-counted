@@ -178,7 +178,7 @@ export function PostView({ slug }: { slug: string }) {
                 <span>
                   <span className="label block mb-1">Proof and further detail</span>
                   <span id="article-sources" className="text-[20px] font-[600] text-[var(--ink)]">
-                    Open the {cited.length} original {cited.length === 1 ? "source" : "sources"}
+                    {cited.length === 1 ? "Open the original source" : `Open the ${cited.length} original sources`}
                   </span>
                 </span>
                 <span aria-hidden="true" className="text-[24px] text-[var(--brand)] transition-transform group-open:rotate-45">+</span>

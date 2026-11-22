@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import Link from "@/components/IntentLink";
-import { Page, ContentFrame, PageHeader, CTA, Callout } from "@/components/Blocks";
-import { ExplainText } from "@/components/ExplainServer";
+import { Page, ContentFrame, PageHeader, CTA } from "@/components/Blocks";
+import { Headlines, PointList } from "@/components/ExpenseKit";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import SharePage from "@/components/SharePage";
 import { JsonLd, datasetJsonLd, meta } from "@/lib/seo";
@@ -11,15 +11,15 @@ const PATH = "/mp-expenses-scotland/search";
 const PUBLISHED_ISO = "2026-11-21";
 
 export const metadata = meta({
-  title: "Search Every Scottish MP Expense Receipt (2022 to 2026)",
+  title: "Search Every Scottish MP & MSP Expense Receipt (Westminster & Holyrood)",
   description:
-    "Search and filter all 20,879 individual IPSA expense receipts filed by Scotland's 57 MPs from 2022/23 to 2026/27. Filter by MP, party, year or keyword.",
+    "Switch cleanly between Scotland's 57 Westminster MPs (20,879 receipts) and 129 Holyrood MSPs (50,067 receipts). Search by postcode, politician, party, payee or keyword.",
   path: PATH,
   type: "article",
   published: PUBLISHED_ISO,
-  modified: PUBLISHED_ISO,
-  image: "/images/editorial/refresh-court-records.webp",
-  imageAlt: "Searchable ledger of Scottish MP IPSA expense receipts from 2022 to 2026",
+  modified: "2026-11-22",
+  image: "/images/editorial/mp-msp-receipt-finder-scotland.webp",
+  imageAlt: "Two open oak archival filing drawers side by side holding Westminster and Holyrood expense receipt folders under a brass banker's lamp",
   imageWidth: 1500,
   imageHeight: 1000,
   imageType: "image/webp",
@@ -30,19 +30,20 @@ export default function MpReceiptsSearchPage() {
     <>
       <JsonLd
         data={datasetJsonLd({
-          name: "Scottish MPs Individual IPSA Expense Receipts (2022/23 to 2026/27)",
+          name: "Scottish MPs & MSPs Individual Expense Receipts (Westminster & Holyrood)",
           description:
-            "Searchable archive of all 20,879 non-payroll individual business cost claims filed by Scotland's 57 current MPs across five IPSA financial years.",
+            "Searchable archive of 20,879 Westminster MP receipts (2022/23 to 2026/27) and 50,067 Holyrood MSP receipts (2021/22 to 2025/26 Q1), clearly separated by parliament.",
           path: PATH,
           keywords: [
             "MP expenses search Scotland",
+            "MSP expenses search Scotland",
             "IPSA receipts lookup",
-            "Scottish MP expense claims",
-            "search MP expenses",
+            "Scottish Parliament expenses",
+            "search MP and MSP expenses",
           ],
-          temporalCoverage: "2022/2027",
+          temporalCoverage: "2021/2027",
           spatialCoverage: "Scotland",
-          dateModified: PUBLISHED_ISO,
+          dateModified: "2026-11-22",
         })}
       />
 
@@ -51,42 +52,21 @@ export default function MpReceiptsSearchPage() {
           crumbs={[
             { name: "Home", path: "/" },
             { name: "MP Expenses Scotland", path: "/mp-expenses-scotland" },
-            { name: "Search Every Receipt", path: PATH },
+            { name: "Search MP & MSP Receipts", path: PATH },
           ]}
         />
 
         <PageHeader
-          eyebrow="Full 5-Year IPSA Archive · 20,879 line-by-line receipts"
-          title="Search every Scottish MP expense receipt (2022 to 2026)"
-          lede="IPSA buries MPs' expense receipts inside five separate spreadsheets totalling more than 350,000 lines. We pulled every single non-payroll receipt filed by Scotland's 57 current MPs from 2022/23 to 2026/27 so you can search, filter, copy and challenge any claim yourself."
-        >
-          <div className="mt-4 flex flex-wrap items-center gap-2.5">
-            <Link href="/blog/scottish-mps-london-homes-152-sitting-days" className="btn btn-ghost">
-              £2.91m London shuttle (152 days) →
-            </Link>
-            <Link href="/blog/kilmarnock-mp-23437-electricity-bill" className="btn btn-ghost">
-              £23,437 Kilmarnock electricity bill (UK #1) →
-            </Link>
-            <Link href="/blog/scottish-mps-tv-licence-expenses" className="btn btn-ghost">
-              29 MPs&apos; TV licences (£10,754) →
-            </Link>
-            <Link href="/mp-expenses-scotland/receipts" className="btn btn-ghost">
-              Top highlighted receipts →
-            </Link>
-            <Link href="/mp-expenses-scotland" className="btn btn-ghost">
-              All 57 MPs ranked →
-            </Link>
-          </div>
-          <SharePage
-            title="Search all 20,879 Scottish MP expense receipts (2022 to 2026)"
-            text="Search every line-by-line expense claim filed by Scotland's 57 MPs from 2022 to 2026 (iPhones, IKEA, DFS, hotels, taxis, family flights, PR firms):"
-            path={PATH}
-            label="Share this lookup tool"
-            className="mt-4"
-          />
-        </PageHeader>
+          eyebrow="Westminster & Holyrood · 70,946 bills"
+          title="Search every Scottish MP & MSP expense bill"
+          lede="Every expense bill from Scotland's 57 MPs and 129 MSPs. Type a word, a name or your postcode."
+        />
 
         <ContentFrame className="pt-4">
+          <p className="ui mb-4 max-w-[760px] text-[16px] leading-[1.5] text-[var(--ink)]">
+            <strong>Use it in 10 seconds:</strong> type a word like IKEA or taxi, or tap Surprise me.
+          </p>
+
           <Suspense
             fallback={
               <div className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-8 text-center">
@@ -98,40 +78,111 @@ export default function MpReceiptsSearchPage() {
           </Suspense>
 
           <div className="mt-10">
-            <Callout>
-              <ExplainText>
-                <p className="font-[640] text-[var(--ink)] mb-1.5">
-                  How the rules let this happen (and why so much is still hidden)
-                </p>
-                <p className="text-[16px] leading-[1.6] text-[var(--ink-2)]">
-                  Every receipt in this tool was approved and paid by IPSA under Parliament&apos;s
-                  own expenses framework. Nobody here broke the rules: the rules themselves allow
-                  MPs earning £98,599 a year (up from £93,904 in 2025/26) to bill taxpayers for
-                  second home council tax, energy bills, drain cleaning, family flights, car
-                  parking, taxis, PR consultants and printed annual reports.
-                </p>
-                <p className="mt-2.5 text-[16px] leading-[1.6] text-[var(--ink-2)]">
-                  You will also notice two things IPSA still hides: thousands of claims are lumped
-                  together as <strong>&ldquo;Aggregated costs&rdquo;</strong> with no supplier
-                  listed, and many line items contain <strong>[***]</strong> where IPSA redacted
-                  who was paid. That is why every receipt card has a one-click button to email the
-                  MP and ask them to explain what the money bought.
-                </p>
-                <p className="mt-2.5 text-[16px] leading-[1.6] text-[var(--ink-2)]">
-                  <strong>Staff travel is kept separate.</strong> IPSA files trips by an MP&apos;s
-                  staff under the MP&apos;s name, but they are not the MP&apos;s own hotels or taxis.
-                  They are left out of every list, total and ranking unless you tick &ldquo;Include
-                  travel by the MP&apos;s staff&rdquo;.
-                </p>
-              </ExplainText>
-            </Callout>
+            <div className="flex flex-wrap items-center gap-2.5">
+              <Link href="/blog/scottish-mp-msp-expenses-what-it-could-buy" className="btn btn-primary">
+                What £6.65m/yr could buy Scotland →
+              </Link>
+              <Link href="/blog/msp-expenses-scotland-investigation" className="btn btn-ghost">
+                Holyrood MSP Party Tally →
+              </Link>
+              <Link href="/mp-expenses-scotland/receipts" className="btn btn-ghost">
+                Top bills →
+              </Link>
+              <Link href="/mp-expenses-scotland" className="btn btn-ghost">
+                All 57 MPs ranked →
+              </Link>
+            </div>
+            <SharePage
+              title="Search all 70,946 Scottish MP & MSP expense bills"
+              text="Search every expense bill claimed by Scotland's 57 Westminster MPs and 129 Holyrood MSPs:"
+              path={PATH}
+              label="Share this search tool"
+              className="mt-4"
+            />
           </div>
+
+          <section className="mt-14 max-w-[760px]" aria-labelledby="found-in-these-receipts">
+            <p className="kicker text-[var(--brand)]">Built from these receipts</p>
+            <h2 id="found-in-these-receipts" className="h2 mt-2">
+              What we found when we read them all
+            </h2>
+            <Headlines
+              label="Investigations built from these receipts"
+              items={[
+                {
+                  value: "£2.91m",
+                  label: "London flats and travel for Scotland's MPs, set against 152 Commons sitting days",
+                  href: "/blog/scottish-mps-london-homes-152-sitting-days",
+                  cta: "Read the investigation",
+                },
+                {
+                  value: "£23,437",
+                  label: "One day's electricity payout for the Kilmarnock MP, the UK's number one",
+                  href: "/blog/kilmarnock-mp-23437-electricity-bill",
+                  cta: "Read the investigation",
+                },
+                {
+                  value: "£10,754",
+                  label: "TV licences billed to taxpayers by 29 Scottish MPs, 2022 to 2026",
+                  href: "/blog/scottish-mps-tv-licence-expenses",
+                  cta: "Read the investigation",
+                },
+                {
+                  value: "57",
+                  label: "Scottish MPs ranked side by side on their everyday expenses",
+                  href: "/mp-expenses-scotland",
+                  cta: "See the rankings",
+                },
+              ]}
+            />
+          </section>
+
+          <section className="mt-12 max-w-[760px]" aria-labelledby="how-the-rules">
+            <p className="kicker text-[var(--brand)]">Before you share a receipt</p>
+            <h2 id="how-the-rules" className="h2 mt-2 mb-5">
+              How the rules let this happen (and why so much is still hidden)
+            </h2>
+            <PointList
+              items={[
+                {
+                  title: "Nobody here broke the rules",
+                  children: (
+                    <>
+                      IPSA and Holyrood paid every single bill in this tool. MPs earn £98,599 a
+                      year. The rules still let them bill you for second home council tax, power
+                      bills, taxis, family flights, PR consultants and leaflets.
+                    </>
+                  ),
+                },
+                {
+                  title: "Two things IPSA still hides",
+                  children: (
+                    <>
+                      IPSA lumps many MP bills into <strong>one big sum</strong> with no firm named.
+                      Other lines show <strong>[***]</strong> where the payee was blanked out. Tap
+                      the email button on any card to ask the MP what it bought.
+                    </>
+                  ),
+                },
+                {
+                  title: "Staff travel stays separate",
+                  children: (
+                    <>
+                      Trips by an MP or MSP&apos;s staff are filed under their name. They are not
+                      the politician&apos;s own hotels or cabs. We leave them out unless you tick
+                      &ldquo;Show staff travel too&rdquo; under More filters.
+                    </>
+                  ),
+                },
+              ]}
+            />
+          </section>
         </ContentFrame>
       </Page>
 
       <CTA
-        title="Want to see how your own MP compares?"
-        body="Enter your Scottish postcode to see your MP's full 2025/26 expenses, private donations, foreign trips and plain English voting record side by side."
+        title="See how your own MP compares"
+        body="Type your postcode. See your MP's bills, gifts, free trips and votes side by side."
         href="/email-your-mp-and-msp"
         cta="Find my MP by postcode"
         secondaryHref="/mp-expenses-scotland"

@@ -13,7 +13,7 @@
     "check:spacing": "node scripts/check-spacing.mjs",
     "data:build:councils": "node scripts/build-council-csv.mjs",
     "data:update:mps": "node scripts/update-mp-directory.mjs",
-    "data:update:msps": "node scripts/update-holyrood-directory.mjs",
+    "data:update:msps": "node scripts/update-holyrood-directory.mjs && node scripts/build-holyrood-divisions.mjs",
     "indexnow:plan": "node scripts/indexnow.mjs",
     "indexnow:submit": "node scripts/indexnow.mjs --submit",
     "test:indexnow": "node --test scripts/indexnow.test.mjs",

@@ -216,7 +216,7 @@ export default function Home() {
               </p>
             </div>
             <Link href="/mp-expenses-scotland/search" className="btn bg-white text-[#00336f] shrink-0 self-start sm:self-center">
-              Search all 20,879 receipts <span aria-hidden="true">→</span>
+              Search all 20,879 MP receipts <span aria-hidden="true">→</span>
             </Link>
           </div>
         </section>

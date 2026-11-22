@@ -25,7 +25,7 @@ type FilterTab =
   | "property";
 
 const TABS: { id: FilterTab; label: string; total: string }[] = [
-  { id: "expenses_nonstaff", label: "Rent, travel & hotels", total: "£5.21m" },
+  { id: "expenses_nonstaff", label: "Rent, travel & office", total: "£5.21m" },
   { id: "expenses_total", label: "All expenses incl. staff", total: "£18.32m" },
   { id: "donations_freebies", label: "Donations & freebies", total: "£297k" },
   { id: "visits", label: "Funded foreign trips", total: "£77k" },
@@ -45,6 +45,7 @@ const PARTY_DOT: Record<string, string> = {
 function shortParty(p: string) {
   if (p === "Scottish National Party") return "SNP";
   if (p === "Liberal Democrat") return "Lib Dem";
+  if (p === "Labour (Co-op)") return "Labour Co-op";
   return p;
 }
 
@@ -271,7 +272,11 @@ export default function MpInterestsExplorer({ records }: { records: MpInterestRe
             >
               {parties.map((p) => (
                 <option key={p} value={p}>
-                  {p === "all" ? "All parties (57 MPs)" : p}
+                  {p === "all"
+                    ? "All parties (57 MPs)"
+                    : p === "Labour (Co-op)"
+                      ? "Labour Co-op (Labour + Co-operative Party)"
+                      : p}
                 </option>
               ))}
             </select>
@@ -283,6 +288,9 @@ export default function MpInterestsExplorer({ records }: { records: MpInterestRe
           Showing <strong className="text-[var(--ink)] tnum">{visibleRows.length}</strong> of{" "}
           <strong className="text-[var(--ink)] tnum">{filtered.length}</strong> MPs. Tap a name for
           their full receipts.
+        </p>
+        <p className="ui mt-1 text-[13px] text-[var(--muted)]">
+          Labour Co-op: a Labour MP also backed by the Co-operative Party, its sister party.
         </p>
       </div>
 

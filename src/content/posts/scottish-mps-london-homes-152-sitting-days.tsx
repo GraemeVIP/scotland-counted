@@ -1,6 +1,23 @@
+import type { ReactNode } from "react";
 import Link from "@/components/IntentLink";
-import { Prose, Lead, P, H2, UL, LI, BigStat, Aside, PostCTA } from "@/components/Prose";
-import { GuideTable } from "@/components/GuideTable";
+import { Prose, P, Aside, PostCTA } from "@/components/Prose";
+import {
+  type PartyKey,
+  type RankRow,
+  PARTY,
+  gbp,
+  Who,
+  Finding as KitFinding,
+  QuickTake,
+  ChartFrame,
+  Swatch,
+  Bar,
+  RankList,
+  CaseCard,
+  Tiles,
+  PointList,
+  Expand,
+} from "@/components/ExpenseKit";
 
 /*
  * Written in Graeme's voice (graeme-writing skill) for everyday tabloid readers
@@ -15,423 +32,384 @@ import { GuideTable } from "@/components/GuideTable";
 
 const mp = (slug: string) => `/representatives/mps/${slug}#london-record`;
 
-const SHUTTLE_BREAKDOWN = [
-  ["London flats, hotels, second home council tax & heating bills", "£1,559,441"],
-  ["MPs' own flights, trains, taxis, airport parking & car mileage", "£1,265,797"],
-  ["Flights, trains & taxis for MPs' partners and children", "£89,111"],
-  [
-    <strong key="t">Total just to shuttle &amp; house 55 Scottish MPs (2025/26)</strong>,
-    <strong key="v">£2,914,349 (£19,173 per open day)</strong>,
-  ],
-  ["Staff travel billed on top (for MPs' office staff)", "£565,753"],
-  [
-    <strong key="gt">Combined housing &amp; travel total (before £13.11m staff wages or MP pay)</strong>,
-    <strong key="gv">£3,480,101</strong>,
-  ],
+const FINDINGS = 4;
+
+function Finding({ n, id, children }: { n: number; id: string; children: ReactNode }) {
+  return (
+    <KitFinding n={n} of={FINDINGS} id={id}>
+      {children}
+    </KitFinding>
+  );
+}
+
+/** RankList rows numbered from `start`, for the folded "places 4 to 10". */
+function MoreRanks({ rows, max, start }: { rows: RankRow[]; max: number; start: number }) {
+  return (
+    <ol className="divide-y divide-[var(--rule)]">
+      {rows.map((r, i) => (
+        <li key={r.key} className="flex gap-3 py-4 first:pt-0 last:pb-0">
+          <span className="figure-num tnum w-7 shrink-0 text-[20px] leading-[1.2] text-[var(--muted)]">
+            {start + i}
+          </span>
+          <div className="min-w-0 flex-1">
+            <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+              {r.who}
+              {r.side && <span className="ui text-[13.5px] text-[var(--muted)]">{r.side}</span>}
+            </div>
+            <div className="mt-2">
+              <Bar value={r.value} max={max} colour={r.colour} label={r.label} />
+            </div>
+            {r.detail && <p className="ui mt-1.5 text-[14px] leading-[1.45] text-[var(--ink-2)]">{r.detail}</p>}
+          </div>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/* Data                                                                */
+/* ------------------------------------------------------------------ */
+
+const SHUTTLE_PARTS = [
+  { what: "London flats, hotels, second home council tax & heating bills", value: 1559441 },
+  { what: "MPs' own flights, trains, taxis, airport parking & car mileage", value: 1265797 },
+  { what: "Flights, trains & taxis for MPs' partners and children", value: 89111 },
 ];
 
-const BIGGEST_SHUTTLE_BILLS = [
-  [
-    <Link key="gd" href={mp("dunfermline-and-dollar")} className="font-[600]">
-      Graeme Downie
-    </Link>,
-    "Labour",
-    "£84,992",
-    "£559",
-    "55 days",
-    "214 votes (£397 each)",
-  ],
-  [
-    <Link key="kb" href={mp("aberdeen-north")} className="font-[600]">
-      Kirsty Blackman
-    </Link>,
-    "SNP",
-    "£80,222",
-    "£528",
-    "58 days",
-    "83 votes (SNP skips England-only laws)",
-  ],
-  [
-    <Link key="ab" href={mp("west-aberdeenshire-and-kincardine")} className="font-[600]">
-      Andrew Bowie
-    </Link>,
-    "Conservative",
-    "£74,057",
-    "£487",
-    "41 days",
-    "190 votes (£390 each)",
-  ],
-  [
-    <Link key="cl" href={mp("dundee-central")} className="font-[600]">
-      Chris Law
-    </Link>,
-    "SNP",
-    "£73,355",
-    "£483",
-    "41 days",
-    "77 votes (SNP skips England-only laws)",
-  ],
-  [
-    <Link key="iw" href={mp("hamilton-and-clyde-valley")} className="font-[600]">
-      Imogen Walker
-    </Link>,
-    "Labour (Whip)",
-    "£70,803",
-    "£466",
-    "6 days",
-    "165 votes (Whips rarely speak)",
-  ],
-  [
-    <Link key="gp" href={mp("livingston")} className="font-[600]">
-      Gregor Poynton
-    </Link>,
-    "Labour",
-    "£69,250",
-    "£456",
-    "21 days",
-    "228 votes (£304 each)",
-  ],
-  [
-    <Link key="bo" href={mp("argyll-bute-and-south-lochaber")} className="font-[600]">
-      Brendan O&apos;Hara
-    </Link>,
-    "SNP",
-    "£68,561",
-    "£451",
-    "37 days",
-    "80 votes (SNP skips England-only laws)",
-  ],
-  [
-    <Link key="ac" href={mp("orkney-and-shetland")} className="font-[600]">
-      Alistair Carmichael
-    </Link>,
-    "Lib Dem",
-    "£68,482",
-    "£451",
-    "58 days",
-    "162 votes (£423 each)",
-  ],
-  [
-    <Link key="ck" href={mp("stirling-and-strathallan")} className="font-[600]">
-      Chris Kane
-    </Link>,
-    "Labour",
-    "£68,303",
-    "£449",
-    "25 days",
-    "230 votes (£297 each)",
-  ],
-  [
-    <Link key="jl" href={mp("berwickshire-roxburgh-and-selkirk")} className="font-[600]">
-      John Lamont
-    </Link>,
-    "Conservative",
-    "£68,187",
-    "£449",
-    "85 days",
-    "240 votes (£284 each)",
-  ],
+const STAFF_TRAVEL = { what: "Staff travel billed on top (for MPs' office staff)", value: 565753 };
+
+const BIGGEST_SHUTTLE_BILLS: {
+  name: string;
+  slug: string;
+  p: PartyKey;
+  note?: string;
+  bill: number;
+  perDay: string;
+  spoken: string;
+}[] = [
+  { name: "Graeme Downie", slug: "dunfermline-and-dollar", p: "Labour", bill: 84992, perDay: "£559", spoken: "55 days" },
+  { name: "Kirsty Blackman", slug: "aberdeen-north", p: "SNP", bill: 80222, perDay: "£528", spoken: "58 days" },
+  { name: "Andrew Bowie", slug: "west-aberdeenshire-and-kincardine", p: "Conservative", bill: 74057, perDay: "£487", spoken: "41 days" },
+  { name: "Chris Law", slug: "dundee-central", p: "SNP", bill: 73355, perDay: "£483", spoken: "41 days" },
+  { name: "Imogen Walker", slug: "hamilton-and-clyde-valley", p: "Labour", note: "Whip (organises party votes)", bill: 70803, perDay: "£466", spoken: "6 days" },
+  { name: "Gregor Poynton", slug: "livingston", p: "Labour", bill: 69250, perDay: "£456", spoken: "21 days" },
+  { name: "Brendan O'Hara", slug: "argyll-bute-and-south-lochaber", p: "SNP", bill: 68561, perDay: "£451", spoken: "37 days" },
+  { name: "Alistair Carmichael", slug: "orkney-and-shetland", p: "Lib Dem", bill: 68482, perDay: "£451", spoken: "58 days" },
+  { name: "Chris Kane", slug: "stirling-and-strathallan", p: "Labour", bill: 68303, perDay: "£449", spoken: "25 days" },
+  { name: "John Lamont", slug: "berwickshire-roxburgh-and-selkirk", p: "Conservative", bill: 68187, perDay: "£449", spoken: "85 days" },
 ];
 
-const COST_PER_SPOKEN_DAY = [
-  [
-    <Link key="es" href={mp("ayr-carrick-and-cumnock")} className="font-[600]">
-      Elaine Stewart
-    </Link>,
-    "Labour",
-    "£57,135",
-    "19 days",
-    "5",
-    <strong key="esv">£3,007</strong>,
-    "£344",
-  ],
-  [
-    <Link key="ck2" href={mp("stirling-and-strathallan")} className="font-[600]">
-      Chris Kane
-    </Link>,
-    "Labour",
-    "£68,303",
-    "25 days",
-    "9",
-    <strong key="ckv">£2,732</strong>,
-    "£297",
-  ],
-  [
-    <Link key="jr" href={mp("east-kilbride-and-strathaven")} className="font-[600]">
-      Joani Reid
-    </Link>,
-    "Labour",
-    "£48,655",
-    "19 days",
-    "5",
-    <strong key="jrv">£2,561</strong>,
-    "£272",
-  ],
-  [
-    <Link key="ag" href={mp("central-ayrshire")} className="font-[600]">
-      Alan Gemmell
-    </Link>,
-    "Labour",
-    "£56,145",
-    "24 days",
-    "2",
-    <strong key="agv">£2,339</strong>,
-    "£230",
-  ],
-  [
-    <Link key="mb" href={mp("glasgow-north-east")} className="font-[600]">
-      Maureen Burke
-    </Link>,
-    "Labour",
-    "£42,825",
-    "19 days",
-    "26",
-    <strong key="mbv">£2,254</strong>,
-    "£248",
-  ],
-  [
-    <Link key="ks" href={mp("airdrie-and-shotts")} className="font-[600]">
-      Kenneth Stevenson
-    </Link>,
-    "Labour",
-    "£33,465",
-    "16 days",
-    "4",
-    <strong key="ksv">£2,092</strong>,
-    "£148",
-  ],
-  [
-    <Link key="gm" href={mp("glasgow-south")} className="font-[600]">
-      Gordon McKee
-    </Link>,
-    "Labour",
-    "£42,867",
-    "21 days",
-    "2",
-    <strong key="gmv">£2,041</strong>,
-    "£198",
-  ],
-  [
-    <Link key="lj" href={mp("kilmarnock-and-loudoun")} className="font-[600]">
-      Lillian Jones
-    </Link>,
-    "Labour",
-    "£43,062",
-    "24 days",
-    "7",
-    <strong key="ljv">£1,794</strong>,
-    "£219",
-  ],
-  [
-    <Link key="fm" href={mp("coatbridge-and-bellshill")} className="font-[600]">
-      Frank McNally
-    </Link>,
-    "Labour",
-    "£46,862",
-    "28 days",
-    "6",
-    <strong key="fmv">£1,674</strong>,
-    "£180",
-  ],
-  [
-    <Link key="jg" href={mp("glasgow-east")} className="font-[600]">
-      John Grady
-    </Link>,
-    "Labour",
-    "£60,603",
-    "39 days",
-    "29",
-    <strong key="jgv">£1,554</strong>,
-    "£245",
-  ],
+const COST_PER_SPOKEN_DAY: {
+  name: string;
+  slug: string;
+  bill: number;
+  days: number;
+  questions: number;
+  perDay: number;
+}[] = [
+  { name: "Elaine Stewart", slug: "ayr-carrick-and-cumnock", bill: 57135, days: 19, questions: 5, perDay: 3007 },
+  { name: "Chris Kane", slug: "stirling-and-strathallan", bill: 68303, days: 25, questions: 9, perDay: 2732 },
+  { name: "Joani Reid", slug: "east-kilbride-and-strathaven", bill: 48655, days: 19, questions: 5, perDay: 2561 },
+  { name: "Alan Gemmell", slug: "central-ayrshire", bill: 56145, days: 24, questions: 2, perDay: 2339 },
+  { name: "Maureen Burke", slug: "glasgow-north-east", bill: 42825, days: 19, questions: 26, perDay: 2254 },
+  { name: "Kenneth Stevenson", slug: "airdrie-and-shotts", bill: 33465, days: 16, questions: 4, perDay: 2092 },
+  { name: "Gordon McKee", slug: "glasgow-south", bill: 42867, days: 21, questions: 2, perDay: 2041 },
+  { name: "Lillian Jones", slug: "kilmarnock-and-loudoun", bill: 43062, days: 24, questions: 7, perDay: 1794 },
+  { name: "Frank McNally", slug: "coatbridge-and-bellshill", bill: 46862, days: 28, questions: 6, perDay: 1674 },
+  { name: "John Grady", slug: "glasgow-east", bill: 60603, days: 39, questions: 29, perDay: 1554 },
 ];
+
+const BIG_BILL_ROWS: RankRow[] = BIGGEST_SHUTTLE_BILLS.map((r) => ({
+  key: r.slug,
+  who: <Who face name={r.name} href={mp(r.slug)} p={r.p} note={r.note} />,
+  value: r.bill,
+  label: gbp(r.bill, false),
+  colour: PARTY[r.p].colour,
+  detail: (
+    <span className="tnum">
+      Own bill ÷ 152 sitting days: {r.perDay} · spoke on {r.spoken}
+    </span>
+  ),
+}));
+
+const PER_DAY_ROWS: RankRow[] = COST_PER_SPOKEN_DAY.map((r) => ({
+  key: r.slug,
+  who: <Who face name={r.name} href={mp(r.slug)} p="Labour" />,
+  value: r.perDay,
+  label: gbp(r.perDay, false),
+  colour: PARTY.Labour.colour,
+  detail: (
+    <span className="tnum">
+      {gbp(r.bill, false)} bill · spoke on {r.days} days · {r.questions} written questions
+    </span>
+  ),
+}));
+
+/** Dr Zubir Ahmed: London nights paid for against days the Commons sat. */
+const AHMED_NIGHTS = [
+  { label: "Whole of 2025/26", open: 152, nights: 295 },
+  { label: "April to July 2025, before his government job", open: 60, nights: 123 },
+];
+
+/* ------------------------------------------------------------------ */
+/* The article                                                         */
+/* ------------------------------------------------------------------ */
 
 export default function ScottishMpsLondonHomes152SittingDays() {
+  const shuttleMax = SHUTTLE_PARTS[0].value;
+
   return (
     <Prose>
-      <Lead>
-        The House of Commons only opened its doors for 152 days in 2025/26, which means it was
-        shut for 213 days of the year. Yet taxpayers spent £2.91 million in that single year just
-        housing Scotland&apos;s MPs in London and shuttling them and their families up and down the
-        road: £19,173 every single day Parliament was open.
-      </Lead>
-
-      <P>
-        That £2.91 million does not include their £98,599 salaries. It does not include their local
-        Scottish offices. It does not include £13.11 million in staff wages, or another £565,753
-        spent flying their staff around. It is purely the bill to rent London flats, pay hotel
-        rooms, cover second home council tax and heating, pay for flights, trains, taxis and
-        airport parking, and fly MPs&apos; partners and kids down to London.
-      </P>
-
-      <BigStat
-        value="£19,173"
-        label="Spent every single day Parliament was open in 2025/26 just housing and shuttling Scotland's 55 full-year MPs and their families to London."
-        exact="£2,914,349 total across 152 open days (sitting days), before salaries, Scottish offices or £13.11m in staff wages."
+      <QuickTake
+        items={[
+          <>
+            The Commons sat on just <strong>152 days</strong> in 2025/26. Those are the days MPs
+            meet in London to debate and vote.
+          </>,
+          <>
+            Taxpayers paid <strong>£2.91 million</strong> to house and fly 55 Scottish MPs and
+            their families to London. That is <strong>£19,173</strong> for each day the Commons sat.
+          </>,
+          <>
+            Biggest bills: <Link href={mp("dunfermline-and-dollar")}>Graeme Downie</Link> (Labour){" "}
+            <strong>£84,992</strong>, <Link href={mp("aberdeen-north")}>Kirsty Blackman</Link> (SNP)
+            £80,222, <Link href={mp("west-aberdeenshire-and-kincardine")}>Andrew Bowie</Link>{" "}
+            (Conservative) £74,057.
+          </>,
+          <>
+            <Link href={mp("ayr-carrick-and-cumnock")}>Elaine Stewart</Link> (Labour): her own bill
+            works out at <strong>£3,007</strong> for each day she spoke in the Commons.
+          </>,
+        ]}
       />
 
-      <H2 id="the-shuttle-bill">1. What the £2.91 million London shuttle bill actually pays for</H2>
       <P>
-        Most people in Scotland pay to commute to work out of their own taxed wages. If your job
-        asks you into an office three days a week, nobody rents you a £3,500 a month flat for all
-        365 days of the year, pays your council tax and gas bill, covers your taxis and airport
-        parking, and buys flights for your partner and kids.
-      </P>
-      <P>
-        For Scotland&apos;s 55 MPs who served the whole of 2025/26, taxpayers picked up every single
-        part of that tab:
+        That daily figure is for all 55 MPs together. Five sitting days cost nearly as much as one
+        MP&apos;s pay for a whole year (£98,599). The bill leaves out pay, Scottish offices and
+        £13.11 million in staff pay.
       </P>
 
-      <div className="my-7">
-        <GuideTable
-          kicker="IPSA 2025/26 · All 55 Full-Year Scottish MPs"
-          title="The real cost of housing and shuttling Scotland's MPs to London"
-          columns={["What taxpayers paid for", "2025/26 total"]}
-          align={["left", "right"]}
-          rows={SHUTTLE_BREAKDOWN}
-          caption="Source: IPSA 2025/26 individualBusinessCosts CSV for the 55 current Scottish MPs who served the entire financial year."
+      <CaseCard
+        kicker="Her bill split by the days she spoke"
+        figure="£3,007"
+        people={[
+          { name: "Elaine Stewart", href: mp("ayr-carrick-and-cumnock"), p: "Labour", place: "Ayr, Carrick and Cumnock" },
+        ]}
+      >
+        <p>
+          Her London flat and travel bill came to <strong>£57,135</strong>. She spoke in the
+          Commons on <strong>19 days</strong> all year.
+        </p>
+        <p>
+          Split by those days, that is the most of any Scottish MP outside government and party
+          jobs. <a href="#price-of-presence">See the top ten</a>.
+        </p>
+      </CaseCard>
+
+
+      {/* ------------------------------------------------------------ 1 */}
+      <Finding n={1} id="the-shuttle-bill">
+        What the bill pays for
+      </Finding>
+      <P>
+        For Scotland&apos;s 55 full year MPs, IPSA (the body that pays MPs&apos; expenses) paid
+        all of this from public money:
+      </P>
+
+      <ChartFrame
+        kicker="IPSA 2025/26 · All 55 Full-Year Scottish MPs"
+        title="The real cost of housing and flying Scotland's MPs to London"
+        caption="Source: IPSA 2025/26 files for the 55 Scottish MPs who sat all year. Staff travel is not included."
+      >
+        <div className="space-y-4">
+          {SHUTTLE_PARTS.map((r) => (
+            <div key={r.what}>
+              <p className="ui mb-1.5 text-[15px] leading-[1.4] text-[var(--ink-2)]">{r.what}</p>
+              <Bar value={r.value} max={shuttleMax} label={gbp(r.value, false)} />
+            </div>
+          ))}
+        </div>
+
+        <div className="ui mt-5 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-t-2 border-[var(--ink)] pt-3">
+          <span className="text-[15.5px] font-[680] text-[var(--ink)]">
+            Total to house &amp; fly 55 Scottish MPs (2025/26)
+          </span>
+          <span className="tnum text-[17px] font-[700] text-[var(--bad-text)]">£2,914,349</span>
+        </div>
+      </ChartFrame>
+
+      <Expand summary="Add staff travel and the bill is £3.48 million">
+        <p className="ui mb-1.5 text-[15px] leading-[1.4] text-[var(--ink-2)]">{STAFF_TRAVEL.what}</p>
+        <Bar
+          value={STAFF_TRAVEL.value}
+          max={shuttleMax}
+          colour="var(--rule-strong)"
+          label={gbp(STAFF_TRAVEL.value, false)}
         />
-      </div>
+        <div className="ui mt-5 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-t-2 border-[var(--ink)] pt-3">
+          <span className="text-[15.5px] font-[680] text-[var(--ink)]">
+            Flats, MP travel, family travel and staff travel
+          </span>
+          <span className="tnum text-[17px] font-[700] text-[var(--ink)]">£3,480,101</span>
+        </div>
+      </Expand>
 
-      <H2 id="paid-when-shut">2. Paid for 365 nights when Parliament was shut for 213 days</H2>
+      {/* ------------------------------------------------------------ 2 */}
+      <Finding n={2} id="price-of-presence">
+        How often each MP spoke
+      </Finding>
       <P>
-        In Parliament, a day when MPs meet in London to debate and vote is called a sitting day. In
-        2025/26 there were <strong>152 sitting days</strong>. For the other <strong>213 days</strong>{" "}
-        of the year (weekends, summer recess, party conference weeks, Christmas and Easter), the
-        Commons chamber was shut.
+        Bills for one MP ran as high as £85,000 a year. Hansard (the official record of the
+        Commons) logs every day an MP spoke.
+      </P>
+      <P>First, the biggest London bills across all four parties:</P>
+
+      <ChartFrame
+        kicker="All Parties · Flat + Own Travel + Family Travel (2025/26)"
+        title="The biggest Scottish MP London bills"
+        caption="Source: IPSA 2025/26 files. Leaves out staff pay, staff trips and Scottish offices."
+      >
+        <RankList max={BIGGEST_SHUTTLE_BILLS[0].bill} rows={BIG_BILL_ROWS.slice(0, 3)} />
+      </ChartFrame>
+
+      <Expand summary="See the other 7 biggest bills (all parties, £68k to £73k)">
+        <MoreRanks max={BIGGEST_SHUTTLE_BILLS[0].bill} rows={BIG_BILL_ROWS.slice(3)} start={4} />
+      </Expand>
+
+      <P>
+        Next, we split each MP&apos;s own bill by the days that MP spoke. We left out ministers,
+        whips (the MPs who organise their party&apos;s votes) and PPS aides (unpaid MPs who help a
+        minister). By custom, they rarely speak in debates.
       </P>
       <P>
-        Because 53 of Scotland&apos;s MPs rent a private London flat on a full 12 month lease,
-        taxpayers pay for all 365 nights automatically. You pay for the flat in August when
-        Parliament is on summer holiday, you pay for it over Christmas, and you pay for it every
-        Friday, Saturday and Sunday. IPSA never publishes how many nights an MP actually slept
+        Of the rest, these cost the most per day spoken. All of the top ten are Labour MPs. Labour
+        has 37 of the 55 Scottish MPs in this data, the most of any party.
+      </P>
+
+      <ChartFrame
+        kicker="MPs With No Minister, Whip or PPS Job · 2025/26"
+        title="Each MP's own bill split by the days they spoke"
+        caption="Source: IPSA 2025/26 flat and travel bills split by 2025/26 Hansard days spoken."
+      >
+        <RankList max={COST_PER_SPOKEN_DAY[0].perDay} rows={PER_DAY_ROWS.slice(0, 3)} />
+      </ChartFrame>
+
+      <Expand summary="See the other 7 (£1,554 to £2,339 a day spoken)">
+        <MoreRanks max={COST_PER_SPOKEN_DAY[0].perDay} rows={PER_DAY_ROWS.slice(3)} start={4} />
+      </Expand>
+
+      {/* ------------------------------------------------------------ 3 */}
+      <Finding n={3} id="paid-when-shut">
+        Paid for 365 nights when it was shut for 213 days
+      </Finding>
+      <P>
+        The Commons sat on 152 days. For the other <strong>213 days</strong> it was shut for
+        weekends, recess, Easter and Christmas.
+      </P>
+
+      <Tiles
+        items={[
+          { value: "152", label: "days the Commons sat in 2025/26" },
+          { value: "213", label: "days the Commons was shut", hot: true },
+          { value: "365", label: "nights paid on each 12 month flat lease", hot: true },
+        ]}
+      />
+
+      <P>
+        Most Scottish MPs rent a London flat on a 12 month lease. So you pay for all 365 nights,
+        including August, Christmas and every weekend. IPSA never says how many nights an MP slept
         there.
       </P>
       <P>
-        There is only one Scottish MP whose exact London nights you can count, because he used
-        hotels and month long Airbnb block bookings instead of a 12 month flat lease:{" "}
-        <Link href={mp("glasgow-south-west")}>Dr Zubir Ahmed</Link> (Labour, Glasgow South West).
-      </P>
-      <UL>
-        <LI>
-          <strong>295 London nights paid for, against 152 days Parliament was open:</strong>{" "}
-          Taxpayers paid <strong>£37,359</strong> for his London stays (143 more nights than the
-          Commons sat, working out at £246 for every open day).
-        </LI>
-        <LI>
-          <strong>Before he got a government job (April to July 2025):</strong> Parliament was open
-          for <strong>60 days</strong>. Taxpayers paid for <strong>123 London nights</strong> (more
-          than double the days Parliament was open). Across those four months, he spoke in debates
-          on <strong>11 days</strong> and asked <strong>zero written questions</strong>.
-        </LI>
-        <LI>
-          <strong>After he became a health minister (from 6 September 2025):</strong> Government
-          ministers work in London departments on weekdays, so extra nights are expected. Even so,
-          his block bookings still billed taxpayers <strong>seven nights a week, weekends
-          included</strong> (28 to 30 nights every month). You can read{" "}
-          <Link href="/mp-expenses-scotland/receipts#hotel-nights">
-            all 14 of his hotel claims night by night here
-          </Link>
-          .
-        </LI>
-      </UL>
-
-      <H2 id="price-of-presence">3. Putting a price tag on what we actually got for £2.91 million</H2>
-      <P>
-        If taxpayers are paying £50,000 to £85,000 a year just to shuttle a single MP down to London
-        and put a roof over their head, it is fair to ask a simple question: <strong>what did they
-        actually do while they were down there?</strong>
+        Only one Scottish MP&apos;s bills let us count each night:{" "}
+        <Link href={mp("glasgow-south-west")}>Dr Zubir Ahmed</Link> (Labour, Glasgow South West). He
+        used hotels and short flat stays instead of a yearly lease.
       </P>
       <P>
-        Every speech an MP makes is recorded word for word in Hansard, every formal question they
-        put to government departments is published online, and every time they walk through a
-        doorway to vote Aye or No is logged in Parliament&apos;s voting record.
-      </P>
-      <P>
-        First, here are the <strong>10 Scottish MPs with the biggest combined London housing and
-        travel bills</strong> in 2025/26. Notice that Labour, the SNP, the Conservatives and the
-        Liberal Democrats are all right at the top:
+        His bill of £37,359 is well below the biggest bills (up to £85,000). He is shown here only
+        because his bills list the nights.
       </P>
 
-      <div className="my-7">
-        <GuideTable
-          kicker="All Parties · Home + Own Travel + Family Travel (2025/26)"
-          title="The 10 biggest Scottish MP London shuttle bills in 2025/26"
-          columns={["MP", "Party", "London + travel bill", "Per open day", "Days spoken", "Votes cast"]}
-          align={["left", "left", "right", "right", "right", "left"]}
-          rows={BIGGEST_SHUTTLE_BILLS}
-          caption="Includes Accommodation, MP Travel and Dependant (family) Travel from IPSA 2025/26. Excludes staff wages, staff travel and Scottish office costs."
-        />
-      </div>
+      <ChartFrame
+        kicker="Dr Zubir Ahmed · Labour, Glasgow South West"
+        title="London nights paid for vs days the Commons sat"
+        legend={
+          <>
+            <Swatch colour="var(--rule-strong)">Days the Commons sat</Swatch>
+            <Swatch colour={PARTY.Labour.colour}>London nights paid for</Swatch>
+          </>
+        }
+      >
+        <div className="space-y-5">
+          {AHMED_NIGHTS.map((r) => (
+            <div key={r.label}>
+              <p className="ui mb-2 text-[14.5px] font-[640] text-[var(--ink)]">{r.label}</p>
+              <div className="space-y-1.5">
+                <Bar value={r.open} max={295} colour="var(--rule-strong)" label={`${r.open} days`} />
+                <Bar value={r.nights} max={295} colour={PARTY.Labour.colour} label={`${r.nights} nights`} />
+              </div>
+            </div>
+          ))}
+        </div>
+      </ChartFrame>
 
+      <PointList
+        items={[
+          {
+            title: "Before his government job (April to July 2025)",
+            children: (
+              <>
+                The Commons sat on <strong>60 days</strong>. You paid for{" "}
+                <strong>123 London nights</strong>.
+              </>
+            ),
+          },
+          {
+            title: "After he became a health minister (6 Sept 2025)",
+            children: (
+              <>
+                Ministers work in London most weekdays, so more nights make sense. His bills ran{" "}
+                <strong>seven nights a week</strong> (28 to 30 a month). See{" "}
+                <Link href="/mp-expenses-scotland/receipts#hotel-nights">all 14 of his hotel claims</Link>
+                .
+              </>
+            ),
+          },
+        ]}
+      />
+
+      {/* ------------------------------------------------------------ 4 */}
+      <Finding n={4} id="why-not-remote">
+        Remote voting worked in Covid, then it stopped
+      </Finding>
       <P>
-        Now look at ordinary MPs who held <strong>no extra government job</strong>, were not a party
-        whip (the MPs who organise votes and rarely speak), and were not an unpaid aide to a
-        minister (a PPS, such as Pamela Nash, who is excluded from this list because convention bars
-        a PPS from asking written questions).
+        In 2020 and 2021, MPs could speak and vote by video from their local office. No flight. No
+        hotel.
       </P>
       <P>
-        When you divide each ordinary MP&apos;s combined London housing and travel bill by the number
-        of days they actually stood up and spoke in Parliament, taxpayers paid{" "}
-        <strong>between £1,554 and £3,007 every single day they spoke</strong>, and{" "}
-        <strong>£148 to £344 every single time they voted Aye or No</strong>:
+        That ended when lockdown ended. Most MPs must now be in the room to vote. So the London
+        flat and travel bills come back every year.
+      </P>
+      <P>
+        MPs also do a lot of unseen work for local people, on housing, benefits and visas. Much of
+        that is done from their Scottish offices.
       </P>
 
-      <div className="my-7">
-        <GuideTable
-          kicker="Ordinary MPs With No Government, Whip or PPS Job · 2025/26"
-          title="What taxpayers paid every time these MPs spoke or voted in London"
-          columns={[
-            "MP",
-            "Party",
-            "London + travel bill",
-            "Days spoken",
-            "Written Qs",
-            "Cost per day spoken",
-            "Cost per vote",
-          ]}
-          align={["left", "left", "right", "right", "right", "right", "right"]}
-          rows={COST_PER_SPOKEN_DAY}
-          caption="Source: IPSA 2025/26 (Accommodation + MP Travel + Family Travel) divided by 2025/26 Hansard speaking days and recorded Commons votes. Excludes ministers, whips, opposition spokespeople and PPSs."
-        />
-      </div>
-
-      <H2 id="why-not-remote">4. They proved remote voting works during Covid, then binned it</H2>
-      <P>
-        The common defence from MPs is that they do lots of unseen work helping local residents with
-        housing, benefits and passport problems. That is true, and it completely proves the point:
-        <strong> helping people in Kilmarnock, Ayr, Stirling or Glasgow happens in Scotland, not
-        from a £3,500 a month flat in Westminster.</strong>
-      </P>
-      <P>
-        Every normal office worker in Britain spent the last five years running meetings on Teams
-        and Zoom. Even Parliament itself proved remote voting and video debates worked smoothly
-        during Covid in 2020 and 2021. MPs could vote securely from their Scottish constituency
-        office in 30 seconds flat without boarding a plane or booking a single hotel room.
-      </P>
-      <P>
-        Yet Westminster scrapped remote voting the moment lockdown ended. So every week, Scottish
-        taxpayers keep shelling out £19,173 a day to fly 55 politicians down to London, rent them
-        year round flats that sit empty more than half the year, pay their council tax, heating,
-        taxis and airport parking, and fly their families down too, just so some of them can stand
-        up and speak 19 times a year at £3,007 a pop and walk through a doorway to say Aye or No.
-      </P>
-
-      <Aside title="Fairness notes so nobody can wriggle out of the numbers">
+      <Aside title="Fairness notes">
         <p>
-          Government ministers, party whips and unpaid ministerial aides (a PPS, such as Pamela Nash
-          at the Ministry of Defence) are kept out of the second table because their jobs restrict
-          them from speaking freely or asking written questions. SNP MPs cast fewer total votes
-          because the SNP does not vote on laws that only affect England. Every single figure on
-          this page comes directly from IPSA, Hansard and Parliament&apos;s official voting records.
+          Ministers, whips (who organise their party&apos;s votes) and PPS aides (like{" "}
+          <Link href={mp("motherwell-wishaw-and-carluke")}>Pamela Nash</Link>) are left out of the
+          cost per day spoken list, because their jobs mean they rarely speak in debates. Every
+          number comes straight from IPSA, Hansard and Commons records.
         </p>
       </Aside>
 
       <PostCTA
-        title="See every Scottish MP's London cost vs what they actually did"
-        body="Check the sortable table of all 55 full-year Scottish MPs, or search all 20,879 individual expense receipts by postcode."
+        title="See every Scottish MP's London bill vs what they did"
+        body="Check all 55 Scottish MPs side by side, or search 20,879 claims by postcode."
         href="/mp-expenses-scotland#london-record"
-        cta="Compare all 55 Scottish MPs →"
+        cta="Compare all 55 Scottish MPs"
       />
     </Prose>
   );
