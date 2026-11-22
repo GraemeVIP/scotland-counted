@@ -472,7 +472,7 @@ export default function WorstScottishMpExpenses() {
           { meta: "4 and 26 Nov 2025, two licences split over four lines", what: "TVLICENSING.CO.UK", amount: "£349.00" },
         ]}
       >
-        <p>The rest of us pay £180 today out of our own pocket. It was £169.50 in 2024/25. And IPSA only allows a licence for a local office.</p>
+        <p>One licence covers a place for a whole year. IPSA only allows a licence for a local office, yet paid four in 11 months.</p>
         <FullStory href={story("gregor-poynton-mp-four-tv-licences-livingston")}>
           Read the full Livingston story
         </FullStory>
@@ -758,13 +758,13 @@ export default function WorstScottishMpExpenses() {
         <p className="figure-num mt-2 text-[48px] leading-none text-[var(--bad-text)] sm:text-[56px]">Nobody.</p>
         <ul className="mt-6 space-y-4 text-[17px] leading-[1.55]">
           <li>
-            Christine Jardine&apos;s Christmas lunch (above) went in as &ldquo;lunch staff team
-            training Christmas&rdquo;. Pop the word <strong>training</strong> on it, it seems,
-            and IPSA pays the lot.
+            Christine Jardine&apos;s Christmas lunch went in as &ldquo;lunch staff team
+            training Christmas&rdquo;. Put <strong>training</strong> on a meal bill and IPSA pays
+            the lot.
           </li>
           <li>
-            And who set up IPSA? <strong>MPs did</strong>, with a law they passed themselves in
-            2009, after the last expenses scandal.
+            Who set up IPSA? <strong>MPs did</strong>, with a law they passed in 2009 after the last
+            expenses scandal.
           </li>
           <li>
             IPSA&apos;s own files show just <strong>91 repayments out of 20,879 claims</strong> by Scottish
@@ -772,10 +772,10 @@ export default function WorstScottishMpExpenses() {
           </li>
           <li>
             Holyrood is even cosier. <strong>MSPs vote on their own expenses rules</strong>, and the
-            board that writes and runs them is made up of MSPs too.
+            board running them is made up of MSPs too.
           </li>
           <li className="text-[20px] font-[700] leading-[1.35]">
-            So the gravy train keeps rolling, and nobody in charge wants to stop it.
+            Until voters push back, nobody inside Parliament is going to shut this down.
           </li>
         </ul>
       </section>

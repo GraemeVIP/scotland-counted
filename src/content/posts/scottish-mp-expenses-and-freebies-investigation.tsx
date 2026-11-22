@@ -96,27 +96,27 @@ export default function Post() {
   return (
     <Prose>
       <Lead>
-        MPs were paid £93,904 in 2025/26. That puts them in the top 5% of earners. On top of
-        that, they get free stuff. F1 tickets, VIP boxes, trips to Qatar and big gifts of cash. We
-        named them all.
+        MPs earn £93,904 a year, putting them in the top 5% of UK pay. On top of that come free
+        F1 tickets, VIP boxes, paid trips to Qatar and China, and £205,242 from donors. Here is who
+        took what.
       </Lead>
 
       <QuickTake
         items={[
           <>
-            <Link href={mp("angus-and-perthshire-glens")}>Dave Doogan</Link> got two free F1 tickets,
-            worth <strong>£1,860</strong>.
+            <Link href={mp("angus-and-perthshire-glens")}>Dave Doogan</Link> got two free F1 seats
+            at Silverstone, worth <strong>£1,860</strong>.
           </>,
           <>
-            <strong>5 Scottish Tory MPs</strong> voted No to ending the two child limit. They claimed{" "}
-            <strong>£523,512</strong> in expenses.
+            <strong>5 Scots Tory MPs</strong> voted to keep the two child cap on poor homes. Yet
+            they claimed <strong>£523,512</strong> in expenses.
           </>,
           <>
-            MPs from <strong>all four big parties</strong> took free VIP tickets for F1, rugby,
-            football, even Wimbledon.
+            MPs from <strong>all four parties</strong> took free VIP seats for F1, rugby, football
+            and Wimbledon.
           </>,
           <>
-            <strong>33 trips abroad</strong> paid by someone else, worth <strong>£76,557</strong>.
+            <strong>33 trips abroad</strong> paid by outside groups cost <strong>£76,557</strong>.
             Qatar, China and Taiwan are on the list.
           </>,
           <>
@@ -128,12 +128,12 @@ export default function Post() {
 
       <Aside title="What is the Register of Interests?">
         <p>
-          It&apos;s the public list where MPs must show what they get from outside: gifts, free
-          tickets, trips paid by others and cash from donors.
+          It is the public list where MPs must log freebies: gifts, VIP seats, paid trips and cash
+          from donors.
         </p>
         <p>
-          None of it is your money. Firms, rich donors and other countries pay, so it&apos;s fair
-          to ask what they want back.
+          You don&apos;t pay for these. Rich donors, firms and foreign states do. That makes it
+          fair to ask what they want back.
         </p>
       </Aside>
 
@@ -294,22 +294,21 @@ export default function Post() {
         The party tally: Labour took 57% of the freebies and 75% of paid trips abroad
       </Finding>
       <P>
-        Scottish Labour won 37 of Scotland&apos;s 57 seats (65%). It promised to clean up
+        Scottish Labour won 37 of Scotland&apos;s 57 seats (65%). The party promised to clean up
         Westminster. Yet its MPs took <strong>£169,931 of the £296,895</strong> (57%).
       </P>
       <P>
-        They also took <strong>75% of all paid trips abroad</strong>, worth £57,288, to places like
-        Qatar, China, Taiwan and Syria. So much for cleaning up.
+        They also took <strong>75% of all paid trips abroad</strong> (£57,288) to Qatar, China,
+        Taiwan and Syria.
       </P>
       <P>
-        And <strong>both MPs married to lobbyists</strong> are Labour.{" "}
-        <Link href={mp("east-kilbride-and-strathaven")}>Joani Reid</Link>&apos;s husband is a
-        lobbyist. Companies House lists him as the only director of Earthcott Ltd, and he owns over
-        75% of it. That same PR firm gave her £2,400 of free media training.
+        <strong>Both MPs married to lobbyists</strong> are Labour too.{" "}
+        <Link href={mp("east-kilbride-and-strathaven")}>Joani Reid</Link>&apos;s husband runs and
+        owns over 75% of PR firm Earthcott Ltd, which gave her £2,400 of free media training.
       </P>
       <P>
         <Link href={mp("paisley-and-renfrewshire-south")}>Johanna Baxter</Link>&apos;s husband is
-        Executive Chairman of SEC Newgate UK, a lobbying and PR firm.
+        chair of SEC Newgate UK, a lobbying and PR firm.
       </P>
 
       <PartyList

@@ -140,69 +140,59 @@ export default function ChrisLawMp3090BroadbandExpensesDundee() {
       <QuickTake
         items={[
           <>
-            <strong>Taxpayers</strong> paid <strong>£3,090</strong> to set up home broadband for{" "}
-            <Link href={LAW.href}>Chris Law</Link>. One claim, in July 2022. He was SNP MP for Dundee
-            West until 2024, and is now MP for Dundee Central.
+            Dundee SNP MP <Link href={LAW.href}>Chris Law</Link> billed taxpayers{" "}
+            <strong>£3,090</strong> to set up home 5G broadband in one go.
           </>,
           <>
-            A typical phone or internet setup claim by an MP is <strong>£90</strong>. His was over{" "}
-            <strong>34 times</strong> that.
+            A normal MP setup claim is <strong>£90</strong>. His was <strong>34 times</strong>{" "}
+            bigger, and more than seven times the next highest MP in the UK (£431).
           </>,
           <>
-            The <strong>biggest home broadband claim</strong> of all 650 UK MPs since 2022. The next
-            biggest was £431.
+            He also ran up Britain&apos;s <strong>biggest MP parking bill</strong> in 2025/26:{" "}
+            <strong>£6,292</strong>, or £121 every week of the year.
           </>,
           <>
-            He also ran up the <strong>biggest parking bill</strong> of any UK MP in 2025/26:{" "}
-            <strong>£6,292</strong>, or about £121 a week.
-          </>,
-          <>
-            And <strong>26 nights</strong> in European hotels in one year. No MP in the UK had
-            more.
+            And <strong>26 nights in European hotels</strong> in one year, top of all 650 MPs.
           </>,
         ]}
       />
 
       <CaseCard kicker="One claim · 25 July 2022 · paid in full" figure="£3,090" people={[LAW]}>
         <p>
-          IPSA, the body that pays MPs&apos; expenses with public money, logged it as{" "}
-          <strong>&ldquo;Home 5G mobile broadband installation&rdquo;</strong>.
+          Logged by IPSA as <strong>&ldquo;Home 5G mobile broadband installation&rdquo;</strong>.
         </p>
-        <p>The record does not say which home it was for, or who got the money.</p>
+        <p>
+          That is enough to pay a Dundee household&apos;s Wi-Fi bill for eight years. The record
+          never says which home it was for, or who got the money.
+        </p>
       </CaseCard>
 
       {/* ------------------------------------------------------------ 1 */}
       <Finding n={1} id="the-broadband">
-        £3,090 to set up broadband at home
+        £3,090 for a plug in 5G box
       </Finding>
       <P>
-        <Link href={LAW.href}>Chris Law</Link> has been an SNP MP for Dundee since 2015. His office
-        is on Marshall Street in Lochee.
+        5G home broadband works off the exact same phone masts as your mobile. You take a router
+        out of a cardboard box, plug it into the wall, and you&apos;re online. Nobody digs up the
+        road.
       </P>
       <P>
-        5G home broadband runs off the same masts as your phone. Most of the time it&apos;s a wee
-        box you plug in at the wall, and you&apos;re done.
-      </P>
-      <P>
-        Yet IPSA paid £3,090 to install it, out of his office budget. It&apos;s marked Paid, and
-        £0 has come back.
+        Yet in July 2022, Dundee SNP MP <Link href={LAW.href}>Chris Law</Link> put £3,090 on his
+        office budget to install it. IPSA paid the lot, and £0 has come back.
       </P>
 
       <Tiles
         items={[
-          { value: "£90", label: "a typical phone or internet setup claim by an MP" },
-          { value: "£529", label: "Starlink satellite kit for remote homes, July 2022" },
+          { value: "£90", label: "typical phone or internet setup claim by an MP" },
+          { value: "£529", label: "Starlink satellite dish for a remote farm, July 2022" },
           { value: "£3,090", label: "Chris Law's home 5G setup", hot: true },
         ]}
       />
 
       <P>
-        Why not normal broadband like the rest of us? Ofcom, the body that checks UK phone and
-        internet services, says 99% of homes in Dundee could get superfast broadband that year.
-      </P>
-      <P>
-        For comparison, a Starlink dish for a remote farm cost £529 back then. His
-        claim was nearly six times that.
+        Even a Starlink satellite dish for a farm in the middle of nowhere cost £529 back then.
+        Ofcom says 99% of homes in Dundee could already get superfast fixed broadband that same
+        year.
       </P>
 
       <Expand summary="See the proof: the IPSA line, word for word">
@@ -228,15 +218,15 @@ export default function ChrisLawMp3090BroadbandExpensesDundee() {
 
       {/* ------------------------------------------------------------ 2 */}
       <Finding n={2} id="uk-number-one">
-        No MP in the UK comes close
+        Seven times higher than any other MP in Britain
       </Finding>
       <P>
-        We checked over 350,000 claim lines from all 650 UK MPs, from 2022 to 2027. We pulled out
-        every home broadband and home internet claim.
+        Out of 650 MPs over five years, nothing in home internet comes within £2,600 of him.
       </P>
       <P>
-        His is top by a country mile. The next biggest was £430.64, and that was two months of BT
-        bills. His one claim is over <strong>seven times</strong> that.
+        Second place across the entire UK was £430.64, covering two months of BT bills. Only one
+        setup claim of any kind in Britain was bigger (£3,954 for a brand new office phone line in
+        Yeovil), and that was for a full office, not a home.
       </P>
 
       <ChartFrame
@@ -259,18 +249,13 @@ export default function ChrisLawMp3090BroadbandExpensesDundee() {
         />
       </ChartFrame>
 
-      <P>
-        Only one claim in IPSA&apos;s whole phone and internet setup group was bigger: £3,954 for
-        a phone line into a brand new MP office in Yeovil. And his was for a home.
-      </P>
-
       {/* ------------------------------------------------------------ 3 */}
       <Finding n={3} id="parking-and-travel">
-        Top of the UK for parking and European hotels
+        £121 a week on parking, and 26 nights in Europe
       </Finding>
       <P>
-        The broadband isn&apos;t the only bill that jumps out. His travel puts him near the top of
-        all 650 MPs too.
+        The broadband is not a one off. His travel bills put him right at the top of Westminster
+        too.
       </P>
 
       <ChartFrame
@@ -299,19 +284,20 @@ export default function ChrisLawMp3090BroadbandExpensesDundee() {
       </ChartFrame>
 
       <P>
-        In 2025/26 he claimed <strong>£6,292</strong> for parking, well clear of the next MP in the
-        UK on £3,587. Over four years his parking came to £16,554, more than any other MP.
+        In 2025/26, his <strong>£6,292</strong> parking tab crushed second place in the UK (£3,587).
+        Over four years he has put <strong>£16,554</strong> of car parking on taxpayers, number one
+        in Britain.
       </P>
 
       <Spotlight
         person={LAW}
         kicker="2025/26 · trips to Europe"
         amount="26 nights"
-        headline="The most nights in European hotels of any UK MP."
+        headline="More nights in European hotels than any other MP in the UK."
       >
         <p>
-          IPSA lets MPs claim some work trips to Europe. The next highest MP had 16 nights. His
-          European trips that year came to <strong>£6,191.92</strong>:
+          No other MP out of 650 topped 16 nights. His European trips that year cost{" "}
+          <strong>£6,191.92</strong>:
         </p>
         <ul className="space-y-1 text-[16px]">
           <li>Hotels, 26 nights: £2,821.90</li>
@@ -331,7 +317,7 @@ export default function ChrisLawMp3090BroadbandExpensesDundee() {
             key: "staff-hotels",
             title: "£10,996 on London hotels for his staff",
             children: (
-              <>73 nights in 2025/26, more than any other MP in the UK spent on staff hotels in London.</>
+              <>73 nights in 2025/26, the highest staff hotel bill in London of all 650 UK MPs.</>
             ),
           },
           {
@@ -339,71 +325,67 @@ export default function ChrisLawMp3090BroadbandExpensesDundee() {
             title: "£68,044 on travel in one year",
             children: (
               <>
-                His own trips, his staff and his family, in 2025/26. Only one MP in the UK billed
-                more, <Link href={mp("dunfermline-and-dollar")}>Graeme Downie</Link> (£72,286).
+                Him, his staff and his family in 2025/26. Only{" "}
+                <Link href={mp("dunfermline-and-dollar")}>Graeme Downie</Link> (£72,286) spent more
+                in the entire UK.
               </>
             ),
           },
           {
             key: "flat",
-            title: "£28,200 for a London flat",
+            title: "£28,200 for his London flat",
             children: (
               <>
-                His second home rent for 2025/26. He went over his housing budget two years running
-                and had to pay back £266.
+                Rent in 2025/26. He went over his housing cap two years running and paid back £266.
               </>
             ),
           },
           {
             key: "family",
             title: "£2,000 for family travel",
-            children: <>£1,999.75 in 2025/26, mostly flights, so his family could travel between home and London.</>,
+            children: <>£1,999.75 in 2025/26, mostly flights between Scotland and London.</>,
           },
         ]}
       />
 
       {/* ------------------------------------------------------------ 4 */}
       <Finding n={4} id="why-ipsa-paid">
-        Why IPSA paid it all
+        Three questions Dundee voters deserve answers to
       </Finding>
       <P>
-        IPSA lets MPs claim to set up phones and internet for their work. That can include a
-        home office. The £3,090 went in under that heading and IPSA signed it off.
+        Dundee is a trek from Westminster, so travel and airport parking are part of the job. To his
+        credit, he did pay back £266 when he nudged over his housing cap.
       </P>
       <P>
-        Now, Dundee is a long way from London. MPs there have to travel, and parking at an airport
-        or station soon adds up. He has also paid some money back when he went over.
-      </P>
-      <P>
-        But nobody else in the UK claimed anything like £3,090 for home broadband. So{" "}
-        <Link href={LAW.href}>Chris Law</Link> and IPSA still have three questions to answer:
+        None of that explains a £3,090 home broadband claim that no other MP in Britain came close
+        to matching. IPSA signed it off under home office setup, leaving three gaps in the record:
       </P>
 
       <PointList
         items={[
           {
             key: "which-home",
-            title: "Which home was it for?",
-            children: <>His home in Dundee, or the London flat you rent for him?</>,
+            title: "Which home got the £3,090 broadband?",
+            children: <>His house in Dundee, or the London flat taxpayers rent for him?</>,
           },
           {
             key: "who-paid",
-            title: "Who got the £3,090?",
-            children: <>IPSA&apos;s record names no firm.</>,
+            title: "Who pocketed the £3,090?",
+            children: <>No company or fitter is named anywhere in IPSA&apos;s log.</>,
           },
           {
             key: "what",
-            title: "What did it actually buy?",
-            children: <>A typical setup claim is £90. What made this one cost £3,000 more?</>,
+            title: "What on earth cost £3,000 more than normal?",
+            children: <>When other MPs claim £90, Dundee voters deserve to see the invoice.</>,
           },
         ]}
       />
 
-      <Aside title="Part of a wider pattern in Westminster">
+      <Aside title="Not just Dundee">
         <p>
-          Dundee isn&apos;t alone in this. Across Scotland&apos;s 57 MPs we also
-          found a <Link href="/blog/kilmarnock-mp-23437-electricity-bill">£23,437 power bill paid in one day</Link>{" "}
-          and <Link href="/blog/scottish-mps-tv-licence-expenses">29 MPs who claimed for TV licences</Link>.
+          Across Scotland&apos;s 57 MPs we also found{" "}
+          <Link href="/blog/kilmarnock-mp-23437-electricity-bill">a £23,437 power bill paid in one day</Link>{" "}
+          and <Link href="/blog/scottish-mps-tv-licence-expenses">29 MPs claiming TV licences</Link>.
           See <Link href="/blog/worst-scottish-mp-expenses">the worst claims</Link> or compare{" "}
           <Link href="/mp-expenses-scotland">all 57 Scottish MPs</Link>.
         </p>
@@ -441,14 +423,10 @@ export default function ChrisLawMp3090BroadbandExpensesDundee() {
 
       <PostCTA
         title="See every claim Chris Law has made"
-        body="Open our live Receipt Finder on the Dundee Central MP. Copy any claim for X or WhatsApp, or email him direct."
+        body="Open our live Receipt Finder on the Dundee Central MP. Copy any receipt for X or WhatsApp, or email him direct."
         href="/mp-expenses-scotland/search?mp=dundee-central"
         cta="See his receipts"
       />
-
-      <P>
-        Want the full picture? <Link href="/mp-expenses-scotland">Compare all 57 Scottish MPs</Link>.
-      </P>
     </Prose>
   );
 }

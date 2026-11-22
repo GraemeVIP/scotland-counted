@@ -258,7 +258,7 @@ export default function ScottishMpsLondonHomes152SittingDays() {
         </div>
       </Expand>
 
-      <P>A few of the biggest single bills behind those numbers in 2025/26:</P>
+      <P>Three of the biggest bills buried inside that £2.91 million:</P>
 
       <Spotlight
         person={{ name: "Melanie Ward", href: mp("cowdenbeath-and-kirkcaldy"), p: "Labour", place: "Cowdenbeath and Kirkcaldy" }}
@@ -272,8 +272,7 @@ export default function ScottishMpsLondonHomes152SittingDays() {
         ]}
       >
         <p>
-          The biggest family travel bill of any Scottish MP that year. And IPSA, the body that pays
-          MPs&apos; expenses with public money, signed off the lot.
+          The biggest family travel bill of any Scottish MP that year. IPSA signed off every penny.
         </p>
       </Spotlight>
 

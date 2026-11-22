@@ -171,24 +171,21 @@ export default function KilmarnockMp23437ElectricityBill() {
       <QuickTake
         items={[
           <>
-            <strong>Taxpayers</strong> paid a <strong>£23,437</strong> electricity bill for Kilmarnock MP{" "}
-            <Link href={JONES.href}>Lillian Jones</Link>, all on one day. IPSA, the body that pays
-            MPs&apos; expenses with public money, sent it to her energy company, Yu Energy.
+            You paid a <strong>£23,437</strong> power bill for Kilmarnock MP{" "}
+            <Link href={JONES.href}>Lillian Jones</Link> on one day. It is the{" "}
+            <strong>biggest MP power bill in the UK</strong> in five years.
           </>,
           <>
-            The <strong>biggest power bill</strong> for any of the 650 UK MPs in five years. Her
-            bigger payment alone is <strong>over three and a half times</strong> the next biggest MP
-            power claim.
+            It cost <strong>£6,587 more</strong> than a full year&apos;s rent on her Kilmarnock
+            office.
           </>,
           <>
-            <strong>£6,587 more</strong> than a full year&apos;s rent on her Kilmarnock office.
+            Labour MP <Link href={MURRAY.href}>Chris Murray</Link> uses the same firm (Yu Energy).
+            His June 2026 office bill was <strong>£178.79</strong>.
           </>,
           <>
-            Fellow Labour MP <Link href={MURRAY.href}>Chris Murray</Link> uses the{" "}
-            <strong>same firm</strong>. His office bill for June 2026 was <strong>£178.79</strong>.
-          </>,
-          <>
-            Equal to <strong>156</strong> Warm Home Discounts. <strong>£0</strong> has been paid back.
+            That equals <strong>156 Warm Home Discounts</strong>, after she voted to cut the Winter
+            Fuel Payment. <strong>£0</strong> paid back.
           </>,
         ]}
       />
@@ -198,9 +195,8 @@ export default function KilmarnockMp23437ElectricityBill() {
           Her Kilmarnock office normally pays about <strong>£215 a month</strong> for power.
         </p>
         <p>
-          Then, on <strong>19 May 2026</strong>, IPSA made two payments to Yu Energy, a business
-          energy firm, covering two budget years: <strong>£20,385</strong> for 2025/26 and{" "}
-          <strong>£3,052</strong> for 2026/27.
+          Then on <strong>19 May 2026</strong>, IPSA sent Yu Energy two payments on the same day:{" "}
+          <strong>£20,385</strong> (2025/26) and <strong>£3,052</strong> (2026/27).
         </p>
       </CaseCard>
 
@@ -390,66 +386,62 @@ export default function KilmarnockMp23437ElectricityBill() {
 
       {/* ------------------------------------------------------------ 4 */}
       <Finding n={4} id="how-ipsa-paid-it">
-        How IPSA paid it outside her normal office limit
+        How IPSA paid £23,437 without touching her office cap
       </Finding>
       <P>
-        Look at where the money came from. An MP&apos;s normal office power bill comes out of a
-        capped office budget, and £23,437 would have blown straight through it.
+        Normally, an MP&apos;s power bill comes out of their office pot. A £23,437 hit would have
+        blown straight through it.
       </P>
       <P>
-        So IPSA paid Yu Energy from a separate pot of public money instead. Her office budget never
-        felt a thing.
+        So IPSA paid Yu Energy from a side pot of public cash. Her normal office pot never took the
+        hit.
       </P>
       <P>
-        Now, business power bills can jump for real reasons. Yu Energy can charge steep rates if a
-        unit has no fixed deal. An old tenant might have left unpaid bills behind, or heaters might
-        have run all winter. But nobody has said which, if any, of those happened here.
+        Firm power bills can spike with no fixed deal, an old debt, or heaters left on all winter.
+        The files never say which of those took place, or why you paid the bill.
       </P>
       <P>
-        Even so, four clear questions for <Link href={JONES.href}>Lillian Jones</Link> and IPSA have
-        no answer in the public files:
+        Kilmarnock folk still have no answers to four plain questions:
       </P>
 
       <PointList
         items={[
           {
             key: "building",
-            title: "Which building and which dates did it pay for?",
-            children: <>IPSA&apos;s file gives one account number and nothing else.</>,
+            title: "Which building and which dates did £23,437 cover?",
+            children: <>IPSA only prints one Yu Energy account number.</>,
           },
           {
             key: "how",
-            title: "How did an office paying £215 a month end up owing £23,437?",
-            children: <>Was there no fixed deal in place? Or was it a meter or landlord fight?</>,
+            title: "How did a £215 a month office end up owing £23,437?",
+            children: <>Was it out of deal rates, a faulty meter, or an old tenant&apos;s debt?</>,
           },
           {
             key: "challenge",
-            title: "Did IPSA fight the bill before paying £23,437?",
+            title: "Did IPSA fight the bill before paying more than a year's rent?",
             children: (
               <>
-                Why did the public pay more than a year&apos;s rent instead of the firm or landlord
-                sorting it out?
+                Why did taxpayers pay instead of the energy firm or landlord sorting it out?
               </>
             ),
           },
           {
             key: "repaid",
-            title: "Will any of the £23,437 ever come back?",
-            children: <>In the latest public files, £0 has been paid back.</>,
+            title: "Will a penny of the £23,437 ever come back?",
+            children: <>In the latest public files, £0 has been repaid.</>,
           },
         ]}
       />
 
       <P>
-        The power bill is not her only eye catching claim. IPSA, the body that pays MPs&apos;
-        expenses with public money, also paid for this:
+        The power bill sits alongside her other local promo claims:
       </P>
 
       <Spotlight
         person={JONES}
         kicker="7 November 2024 · Kilmarnock FC"
         amount="£1,020"
-        headline="You paid for a Kilmarnock FC advertising board with her name on it."
+        headline="A Kilmarnock FC advertising board with her name on it."
         lines={[
           {
             meta: "Office Costs · Advertising and contact cards",
@@ -458,24 +450,22 @@ export default function KilmarnockMp23437ElectricityBill() {
           },
         ]}
       >
-        <p>So the public paid to put her name up at the football.</p>
+        <p>Taxpayers paid £1,020 to put her name up at Rugby Park.</p>
       </Spotlight>
 
       <P>
-        She also billed you <strong>£2,820 for office signs</strong> from Owen Kerr Signs, in two
-        payments of £1,410 (March and April 2025).
+        She also billed <strong>£2,820 for office signs</strong> from Owen Kerr Signs in two £1,410
+        payments (March and April 2025).
       </P>
 
-      <Aside title="Part of a wider pattern in Westminster">
+      <Aside title="Not just Kilmarnock">
         <p>
-          <Link href={JONES.href}>Lillian Jones</Link> is not alone. Across Scotland&apos;s 57 MPs,
-          we found{" "}
+          Across Scotland&apos;s 57 MPs, we also found{" "}
           <Link href="/blog/scottish-mps-tv-licence-expenses">
-            29 MPs who claimed £10,754 for TV licences
+            29 MPs claiming £10,754 for TV licences
           </Link>
-          . We also found{" "}
-          <Link href="/blog/worst-scottish-mp-expenses">£3,090 to set up 5G broadband</Link>,
-          <strong>£24,515 on one MP&apos;s phone bills</strong>, and{" "}
+          , <Link href="/blog/chris-law-mp-3090-broadband-expenses-dundee">£3,090 to set up 5G broadband</Link>,{" "}
+          <strong>£24,515 on one MP&apos;s mobile bills</strong> and{" "}
           <strong>£37,359 on London hotels</strong>. See{" "}
           <Link href="/blog/worst-scottish-mp-expenses">the worst claims</Link> or compare{" "}
           <Link href="/mp-expenses-scotland">all 57 Scottish MPs</Link>.

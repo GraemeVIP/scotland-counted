@@ -127,24 +127,19 @@ export default function PamelaNashMpFurnitureExpensesMotherwell() {
       <QuickTake
         items={[
           <>
-            <strong>Taxpayers</strong> paid <strong>£3,182</strong> for IKEA and DFS furniture for
-            Motherwell MP <Link href={NASH.href}>Pamela Nash</Link>. After a £245 refund, the public is
-            still out <strong>£2,937</strong>.
+            Motherwell MP <Link href={NASH.href}>Pamela Nash</Link> billed you{" "}
+            <strong>£3,182</strong> at IKEA and DFS (£2,937 left after a £245 refund).
           </>,
           <>
-            Three of those four bills landed in the <strong>last two days</strong> of the budget year:
-            30 and 31 March 2026.
+            Seven bills worth <strong>£7,203</strong> went in during the <strong>last seven days</strong>{" "}
+            of the budget year. That paid for a carpet, building work, DFS, IKEA and Amazon.
           </>,
           <>
-            A <strong>new office carpet</strong> and <strong>building works</strong> went on
-            expenses the same week.
+            MP shop bills jumped <strong>seven times</strong> in that last week of March. Only one
+            UK MP spent more than her.
           </>,
           <>
-            Only <strong>one MP in the whole UK</strong> billed more for office kit and repairs that
-            week.
-          </>,
-          <>
-            She is the <strong>only MP out of 650</strong> to put a DFS bill on expenses in five years.
+            Out of all 650 MPs in five years, she is the <strong>only one</strong> to claim DFS.
           </>,
         ]}
       />
@@ -153,7 +148,7 @@ export default function PamelaNashMpFurnitureExpensesMotherwell() {
         person={NASH}
         kicker="2025/26 budget year · Office furniture"
         amount="£3,182"
-        headline="You paid for her IKEA and DFS shopping."
+        headline="IKEA and DFS, right before the year closed."
         lines={[
           { meta: "5 April 2025", what: "IKEA LTD SHOP ONLINE", amount: "£1,334.00" },
           { meta: "30 March 2026", what: "IKEA LTD SHOP ONLINE [200013613-12910]", amount: "£395.00" },
@@ -161,24 +156,20 @@ export default function PamelaNashMpFurnitureExpensesMotherwell() {
           { meta: "31 March 2026", what: "IKEA LTD SHOP ONLINE [200013613-2955]", amount: "£245.00" },
         ]}
       >
-        <p>IKEA refunded the £245 bill on 17 April 2026.</p>
+        <p>Three of the four bills hit on 30 and 31 March. IKEA paid back £245 in April.</p>
       </Spotlight>
 
       {/* ------------------------------------------------------------ 1 */}
       <Finding n={1} id="the-receipts">
-        Seven bills in the last seven days
+        Seven bills in the last seven days of the year
       </Finding>
       <P>
-        <Link href={NASH.href}>Pamela Nash</Link> won Motherwell, Wishaw and Carluke for Labour in
-        July 2024.
+        An MP&apos;s office pot resets on 1 April. Any cash left on 31 March is lost.
       </P>
       <P>
-        First, how IPSA&apos;s year works. It runs from 1 April to 31 March. Each MP gets a pot of
-        money for their office, and on 1 April a fresh pot starts.
-      </P>
-      <P>
-        Keep that in mind. In the last seven days of March 2026, seven bills went in: carpet,
-        building works, DFS, IKEA and Amazon.
+        In the last seven days of March 2026, Labour MP <Link href={NASH.href}>Pamela Nash</Link>{" "}
+        put seven bills through IPSA. They came to <strong>£7,202.80</strong>: a £2,750 carpet,
+        £2,250 of building work, DFS, IKEA and Amazon.
       </P>
 
       <Receipt
@@ -220,22 +211,17 @@ export default function PamelaNashMpFurnitureExpensesMotherwell() {
       <Tiles
         items={[
           { value: "£2,750", label: "a new office carpet, 26 March 2026" },
-          { value: "£1,208", label: "the only DFS bill of any UK MP in five years", hot: true },
+          { value: "£1,208", label: "the only DFS bill of all 650 MPs in five years", hot: true },
         ]}
       />
 
       <P>
-        And the building works didn&apos;t stop at the end of March. Another <strong>£350</strong>{" "}
-        for the same &quot;Essential refurbishment works&quot; went in on 24 April 2026, taking them
-        to £2,600.
+        Another <strong>£350</strong> for the same work went in during April, taking it to £2,600.
+        Back in April 2025 she had already spent £2,742 at IKEA, Argos and Amazon to kit out the
+        room.
       </P>
       <P>
-        As for DFS, IPSA&apos;s line just says &quot;DFS TRADING LIMITED&quot;. They&apos;re best
-        known for sofas, but the file doesn&apos;t say what she bought.
-      </P>
-      <P>
-        It wasn&apos;t her first furniture spree either. In the first nine days of the same budget year, April
-        2025, she billed £2,742 for furniture from IKEA, Argos, Amazon and others.
+        The file never says what she bought at DFS for £1,208.
       </P>
 
       <Expand summary="See the proof: every furniture line, word for word">
@@ -271,20 +257,16 @@ export default function PamelaNashMpFurnitureExpensesMotherwell() {
 
       {/* ------------------------------------------------------------ 2 */}
       <Finding n={2} id="end-of-year-rush">
-        The last week of March, when MPs go shopping
+        The mad March rush across Westminster
       </Finding>
       <P>
-        Is that normal? We took every 2025/26 bill for office kit, furniture and repairs, for all 650
-        MPs, and added them up week by week.
+        This is not just Motherwell. Look at all 650 UK MPs&apos; office kit and repair bills week
+        by week and a huge spike jumps off the page.
       </P>
       <P>
-        A normal week came to about <strong>£18,900</strong>. The last seven days of March came to{" "}
-        <strong>£138,464</strong>, over <strong>seven times</strong> as much. A fresh
-        budget starts on 1 April.
-      </P>
-      <P>
-        The whole year&apos;s kit and repair bills came to £1,114,356. So about one pound in every
-        eight landed in those last seven days.
+        In a normal week, all 650 MPs spend about <strong>£18,900</strong>. In the last seven days
+        of March, that shot up to <strong>£138,464</strong>, over seven times higher. One pound in
+        every eight spent all year went out in one week.
       </P>
 
       <ChartFrame
@@ -312,8 +294,8 @@ export default function PamelaNashMpFurnitureExpensesMotherwell() {
       </ChartFrame>
 
       <P>
-        <strong>135 MPs</strong> billed for kit or repairs in that final week. Pamela Nash&apos;s
-        £7,203 was the <strong>second biggest in the UK</strong>.
+        <strong>135 MPs</strong> went to the shops in that last week. Pamela Nash&apos;s £7,203 was
+        second top in the whole UK.
       </P>
 
       <ChartFrame
@@ -336,18 +318,17 @@ export default function PamelaNashMpFurnitureExpensesMotherwell() {
       </ChartFrame>
 
       <P>
-        Her total for office kit, furniture and repairs over the whole 2025/26 year was £10,295. Of
-        Scotland&apos;s 57 MPs, only <Link href={mp("angus-and-perthshire-glens")}>Dave Doogan</Link>{" "}
-        billed more.
+        Over the whole year, her £10,295 kit and repair spend was second in Scotland behind{" "}
+        <Link href={mp("angus-and-perthshire-glens")}>Dave Doogan</Link>.
       </P>
 
       {/* ------------------------------------------------------------ 3 */}
       <Finding n={3} id="the-rest">
-        Everything else she billed you for
+        The rest of her £84,680 bill (and £1,544 Tattoo freebies)
       </Finding>
       <P>
-        The furniture is only part of it. In 2025/26 she billed{" "}
-        <strong>£84,680</strong>, not counting her staff&apos;s wages. With staff, it was £241,357.
+        Not counting staff wages, she claimed <strong>£84,680</strong> in 2025/26 (£241,357 with
+        staff):
       </P>
 
       <PointList
@@ -357,8 +338,7 @@ export default function PamelaNashMpFurnitureExpensesMotherwell() {
             title: "£28,547 rent on a London flat (2025/26)",
             children: (
               <>
-                Her second home, in London. On top came £1,791 of council tax and a £1,154 power
-                bill in January 2026.
+                Plus £1,791 in council tax and a £1,154 power bill in January 2026.
               </>
             ),
           },
@@ -370,16 +350,16 @@ export default function PamelaNashMpFurnitureExpensesMotherwell() {
           {
             key: "postage",
             title: "£1,440 for one month of post",
-            children: <>A single bill for &quot;Postage (March 2026)&quot;.</>,
+            children: <>A single bill for &ldquo;Postage (March 2026)&rdquo;.</>,
           },
           {
             key: "tv",
             title: "£174.50 for a TV licence",
             children: (
               <>
-                For her constituency office, May 2026. She is one of{" "}
-                <Link href="/blog/scottish-mps-tv-licence-expenses">29 Scottish MPs</Link> to put
-                one on expenses.
+                One of{" "}
+                <Link href="/blog/scottish-mps-tv-licence-expenses">29 Scottish MPs</Link> billing
+                taxpayers for a local office licence.
               </>
             ),
           },
@@ -387,29 +367,22 @@ export default function PamelaNashMpFurnitureExpensesMotherwell() {
       />
 
       <P>
-        From September 2025 to June 2026, she was a PPS: an unpaid helper to a defence minister.
-      </P>
-      <P>
-        In August 2026 the Royal Navy gave her £1,544 of free Tattoo tickets and hospitality. She
-        declared it.
+        From September 2025 to June 2026 she was a PPS (an unpaid aide to a minister). In August
+        2026, the Royal Navy gave her £1,544 of free Tattoo seats and drinks on the Royal Yacht
+        Britannia.
       </P>
 
       {/* ------------------------------------------------------------ 4 */}
       <Finding n={4} id="why-ipsa-paid">
-        Why IPSA said yes
+        Four questions left by the March dash
       </Finding>
       <P>
-        An MP needs a working office, nobody&apos;s arguing with that. So desks, chairs, carpets and
-        repairs can all go on expenses, and IPSA paid these bills in full.
+        An MP needs desks and chairs to work. IPSA lets MPs buy them, and she still finished
+        £15,445 under her £41,930 office cap.
       </P>
       <P>
-        She wasn&apos;t short of money either. IPSA gave her £41,930 for 2025/26. That
-        included £6,000 of start up money carried over from her first year. She spent £26,485. That
-        left an underspend of <strong>£15,445</strong>.
-      </P>
-      <P>
-        So why did so much land in the last week of March? The public files don&apos;t say, and
-        they leave these open too:
+        Still, sending seven big bills in during the last week of March leaves four clear
+        questions:
       </P>
 
       <PointList
@@ -417,41 +390,41 @@ export default function PamelaNashMpFurnitureExpensesMotherwell() {
           {
             key: "dfs",
             title: "What did DFS sell her for £1,208?",
-            children: <>IPSA&apos;s line gives the firm&apos;s name and nothing else.</>,
+            children: <>Only the shop name shows up. No item, no room, no note.</>,
           },
           {
             key: "carpet",
-            title: "Why replace the carpet in the last week of the budget year?",
-            children: <>The £2,750 bill went in on 26 March 2026, five days before the year ended.</>,
+            title: "Why buy a new carpet five days before the year closed?",
+            children: <>The £2,750 bill went in on 26 March 2026.</>,
           },
           {
             key: "works",
-            title: "What were the “essential” works?",
-            children: <>£2,600 over two bills, with no detail on what was done.</>,
+            title: "What was the £2,600 building work?",
+            children: <>Two bills, with no word on what work was done.</>,
           },
           {
             key: "more",
-            title: "Why more furniture, a year after kitting out the office?",
-            children: <>She had already billed £2,742 for furniture in April 2025.</>,
+            title: "Why buy more sofas and kit a year after kitting the room out?",
+            children: <>You had already paid £2,742 for office kit in April 2025.</>,
           },
         ]}
       />
 
-      <Aside title="Part of a wider pattern in Westminster">
+      <Aside title="See how other Scottish MPs spend your cash">
         <p>
-          Furniture is small beer next to Kilmarnock, where MP{" "}
-          <Link href={mp("kilmarnock-and-loudoun")}>Lillian Jones</Link> billed{" "}
-          <Link href="/blog/kilmarnock-mp-23437-electricity-bill">£23,437 for power in one day</Link>
-          . See <Link href="/blog/worst-scottish-mp-expenses">the worst Scottish MP expenses</Link>,
-          or compare <Link href="/mp-expenses-scotland">all 57 Scottish MPs</Link>.
+          Compare Motherwell with Kilmarnock, where{" "}
+          <Link href={mp("kilmarnock-and-loudoun")}>Lillian Jones</Link> ran up{" "}
+          <Link href="/blog/kilmarnock-mp-23437-electricity-bill">a £23,437 power bill in one day</Link>.
+          See <Link href="/blog/worst-scottish-mp-expenses">the worst Scottish MP expenses</Link> or{" "}
+          <Link href="/mp-expenses-scotland">all 57 Scottish MPs</Link>.
         </p>
       </Aside>
 
       <PostCTA
         title="See every bill Pamela Nash has claimed"
-        body="Open our live Receipt Finder on Pamela Nash. Copy any claim for X or WhatsApp, or email her direct."
+        body="Open our live search tool on Pamela Nash. Copy any bill for X or WhatsApp, or email her direct."
         href="/mp-expenses-scotland/search?mp=motherwell-wishaw-and-carluke"
-        cta="See her receipts"
+        cta="See her bills"
       />
     </Prose>
   );

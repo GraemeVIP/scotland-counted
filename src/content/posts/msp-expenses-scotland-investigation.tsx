@@ -540,9 +540,9 @@ export default function MspExpensesScotlandInvestigation() {
       </Finding>
       <P>
         From May 2021 to June 2025, just seven Green MSPs billed taxpayers <strong>£852,287</strong>{" "}
-        (not counting staff pay). For a party built on green talk, the bills make awkward reading.
-        £286,756 went on leaflets, mail and ads. Add 37,274 car miles and £100,949 on hotels. The
-        hotels alone cost more than an MSP&apos;s £74,507 yearly pay.
+        (not counting staff pay). £286,756 went on leaflets, mail and ads, alongside 37,274 car
+        miles and £100,949 on hotels. Their hotels alone cost more than an MSP&apos;s £74,507
+        yearly pay.
       </P>
 
       <BigStat

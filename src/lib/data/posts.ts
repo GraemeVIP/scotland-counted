@@ -149,7 +149,7 @@ export const posts: Post[] = [
     description:
       "Taxpayers paid £2,400 for coaching for Western Isles MP Torcuil Crichton and his staff. The coach used to work at IPSA, which signed off every bill.",
     standfirst:
-      "Taxpayers paid £2,400 for coaching for the Western Isles MP, Torcuil Crichton, and his staff. It went in 16 bills. The coach used to work at IPSA, the body that pays MPs' expenses. Now MPs pay her firm with IPSA's money. 12 MPs did it. He is the only Scot.",
+      "Leave the expenses office in March, bill it £16,800 by June. Western Isles MP Torcuil Crichton is the only Scottish MP on the client list, with 16 bills in eight months.",
     date: "2026-11-22",
     updated: "2026-11-22",
     checked: "2026-11-22",
@@ -200,7 +200,7 @@ export const posts: Post[] = [
     description:
       "Taxpayers paid £510 for Edinburgh West MP Christine Jardine's office Christmas lunch and team event. IPSA refused another MP's festive meal a year before.",
     standfirst:
-      "Six days before Christmas 2025, taxpayers paid £510 for Edinburgh West MP Christine Jardine's office. The \"lunch staff team training Christmas\" bill was £250.80. A \"team building event\" the same day was £259.31. In December 2024, IPSA refused another MP's festive meal. Hers was paid in full.",
+      "Most folk in Edinburgh pay for their own work Christmas lunch. Six days before Christmas, Christine Jardine's office put £510.11 on taxpayers under \"training\" and \"team building\".",
     date: "2026-11-22",
     updated: "2026-11-22",
     checked: "2026-11-22",
@@ -251,7 +251,7 @@ export const posts: Post[] = [
     description:
       "Taxpayers paid for four TV licences in 11 months for Livingston MP Gregor Poynton. No other UK MP has billed four in a year. Plus £5,059 on taxis.",
     standfirst:
-      "Taxpayers paid for four TV licences in 11 months for Livingston MP Gregor Poynton. That cost £688. One licence covers one place for a whole year. No other MP in the UK billed four in a year. You also paid for the office TV, the aerial and the stand.",
+      "A TV licence lasts a full year. Somehow Livingston's Labour MP billed taxpayers for four of them in 11 months, all for one office telly. Nobody else out of 650 MPs got close.",
     date: "2026-11-22",
     updated: "2026-11-22",
     checked: "2026-11-22",
@@ -302,7 +302,7 @@ export const posts: Post[] = [
     description:
       "Taxpayers paid £3,300 for a board advertising Falkirk MP Euan Stainbank for a year. It is the biggest advertising board claim of any of the 650 UK MPs.",
     standfirst:
-      "Taxpayers paid £3,300 for a board advertising Falkirk's Labour MP, Euan Stainbank. IPSA's own record says it was there \"to advertise Euan as local MP\". It was booked for a year. No MP in the UK has claimed more for an advertising board since 2022. It was paid less than four months after he won the seat.",
+      "Four months after winning Falkirk, Euan Stainbank billed taxpayers £3,300 for a year of adverts telling locals who he is. Nearly double any other MP's board in Britain.",
     date: "2026-11-22",
     updated: "2026-11-22",
     checked: "2026-11-22",
@@ -353,7 +353,7 @@ export const posts: Post[] = [
     description:
       "Taxpayers paid £3,090 to set up home 5G broadband for Dundee MP Chris Law. A typical MP setup claim is £90. He also tops the UK for parking.",
     standfirst:
-      "Taxpayers paid £3,090 to set up home broadband for Dundee's SNP MP, Chris Law. A typical setup claim by an MP is £90. No other MP in the UK has claimed anything close for home internet. He also ran up the UK's biggest MP parking bill in 2025/26, about £121 a week.",
+      "A 5G router plugs straight into a wall socket, and most MPs claim £90 to get connected. Dundee SNP MP Chris Law billed taxpayers £3,090, more than seven times any other MP in Britain.",
     date: "2026-11-22",
     updated: "2026-11-22",
     checked: "2026-11-22",
@@ -404,7 +404,7 @@ export const posts: Post[] = [
     description:
       "Taxpayers paid £3,000 for a speech skills workshop for Highland MP Angus MacDonald, from his staff budget, plus £546 to clean drains at his London flat.",
     standfirst:
-      "Taxpayers paid £3,000 for a speech skills workshop for Angus MacDonald, the Lib Dem MP for Inverness, Skye and West Ross-shire. It came out of the budget meant for his staff. You also paid £546 to clean the drains at his second home in London. No other UK MP has billed for that. He pays no rent there, but billed £3,314 for its energy and water in one year.",
+      "Speaking in Parliament is the job description. Highland Lib Dem MP Angus MacDonald still took £3,000 from his staff pot for a speech workshop, then billed you £546 to clean his London drains.",
     date: "2026-11-22",
     updated: "2026-11-22",
     checked: "2026-11-22",
@@ -456,7 +456,7 @@ export const posts: Post[] = [
     description:
       "Taxpayers paid £3,182 for Motherwell MP Pamela Nash's IKEA and DFS furniture, plus £5,000 for a carpet and works. Most landed in the last week of March.",
     standfirst:
-      "Taxpayers paid £3,182 for IKEA and DFS furniture for Motherwell MP Pamela Nash. Three of the four bills landed in the last two days of the budget year. That same week you paid £2,750 for a new carpet and £2,250 for building works. No other MP in the UK has billed you for DFS.",
+      "Every March, right before unspent office cash vanishes on 1 April, MPs rush to the shops. Motherwell MP Pamela Nash put £7,203 through in the final seven days, including DFS, IKEA and a new carpet.",
     date: "2026-11-22",
     updated: "2026-11-22",
     checked: "2026-11-22",
@@ -508,7 +508,7 @@ export const posts: Post[] = [
     description:
       "Taxpayers bought Borders MP John Lamont two iPhones: £1,098 in 2022 and £1,248 in 2025. He also spent more on adverts than any other UK MP: £49,568.",
     standfirst:
-      "Taxpayers bought Borders MP John Lamont two iPhones. The first cost £1,098 in August 2022. The second cost £1,248 in June 2025. No other Scottish MP's bills say they bought an iPhone. He also spent more on adverts than any MP in the UK. And he paid a PR firm £35,792 from his staff budget.",
+      "Taxpayers bought Borders Tory MP John Lamont two £1,000+ iPhones in under three years. Eight months after the second phone, he voted twice to keep the two child benefit cap.",
     date: "2026-11-22",
     updated: "2026-11-22",
     checked: "2026-11-22",
@@ -560,7 +560,7 @@ export const posts: Post[] = [
     description:
       "Taxpayers paid £963 for a business dinner for Dunfermline MP Graeme Downie, the biggest such bill of any UK MP. In 2025/26 he cost £410,253, the most in the UK.",
     standfirst:
-      "Taxpayers paid £963 for a business dinner for Dunfermline MP Graeme Downie. Fife College hosted it in March 2025. No MP in the UK has put a bigger single food or drink bill on expenses in five years. And in 2025/26, no MP in the UK cost you more: £410,253.",
+      "Most MP food claims are £12 for tea or lunch. Dunfermline MP Graeme Downie put through a £963 business dinner with no guest list, on top of running up the single biggest MP expense bill in Britain.",
     date: "2026-11-22",
     updated: "2026-11-22",
     checked: "2026-11-22",

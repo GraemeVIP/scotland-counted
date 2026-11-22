@@ -149,24 +149,19 @@ export default function EuanStainbankMpBillboardExpensesFalkirk() {
       <QuickTake
         items={[
           <>
-            <strong>Taxpayers</strong> paid <strong>£3,300</strong> for a board advertising Falkirk
-            MP <Link href={STAINBANK.href}>Euan Stainbank</Link>. It was booked for a whole year.
+            Four months after winning Falkirk, Labour MP{" "}
+            <Link href={STAINBANK.href}>Euan Stainbank</Link> billed you <strong>£3,300</strong>{" "}
+            for a big ad board.
           </>,
           <>
-            IPSA&apos;s own words: the board was there <strong>&ldquo;to advertise Euan as local
-            MP&rdquo;</strong>.
+            It is the <strong>biggest single board claim of all 650 UK MPs</strong> since 2022. It
+            is nearly twice the next one.
           </>,
           <>
-            The <strong>biggest advertising board claim</strong> of all 650 UK MPs since 2022, and
-            nearly <strong>double</strong> the next one.
+            That one sign cost <strong>four months&apos; rent</strong> on his Falkirk office.
           </>,
           <>
-            Paid on <strong>31 October 2024</strong>, less than four months after he won Falkirk for
-            Labour.
-          </>,
-          <>
-            It cost about <strong>four months&apos; rent</strong> on his Falkirk office. And{" "}
-            <strong>£0</strong> has been paid back.
+            IPSA paid it in full on 31 October 2024. <strong>£0</strong> has come back.
           </>,
         ]}
       />
@@ -175,7 +170,7 @@ export default function EuanStainbankMpBillboardExpensesFalkirk() {
         person={STAINBANK}
         kicker="31 October 2024 · booked for a whole year"
         amount="£3,300"
-        headline="You paid for a board advertising him."
+        headline="A year of ads telling Falkirk who its MP is, paid by Falkirk."
         lines={[
           {
             meta: "Office Costs · Advertising and contact cards",
@@ -184,25 +179,23 @@ export default function EuanStainbankMpBillboardExpensesFalkirk() {
           },
         ]}
       >
-        <p>The people he works for paid for a year of adverts telling them who he is.</p>
+        <p>You voted him in in July. By October, you were paying £275 a month to put his name on a board.</p>
       </Spotlight>
 
       {/* ------------------------------------------------------------ 1 */}
       <Finding n={1} id="the-billboard">
-        What the IPSA record shows
+        Four months&apos; office rent, spent on one sign
       </Finding>
       <P>
-        <Link href={STAINBANK.href}>Euan Stainbank</Link> won Falkirk for Labour on 4 July 2024.
-        His office is on Newmarket Street in the town centre.
+        <Link href={STAINBANK.href}>Euan Stainbank</Link> won Falkirk in July 2024. He opened a
+        local office on Newmarket Street.
       </P>
       <P>
-        IPSA is the body that pays MPs&apos; expenses with public money. On 31 October 2024 it paid
-        £3,300 for an advertising board. The board told people he was the local MP and how to
-        reach him.
+        Less than four months on, IPSA paid £3,300 for a year of ads &ldquo;to advertise Euan as
+        local MP&rdquo;.
       </P>
       <P>
-        Where did the board stand? Who made it? The record doesn&apos;t say. All you get is
-        &ldquo;To be advertised for 1 year&rdquo;.
+        The file never says where the sign stood or who made it. You only see the price tag.
       </P>
 
       <ChartFrame
@@ -231,23 +224,22 @@ export default function EuanStainbankMpBillboardExpensesFalkirk() {
 
       <Tiles
         items={[
-          { value: "£275", label: "what the board cost for every month it was booked" },
-          { value: "£3,300", label: "the full bill, paid in one go", hot: true },
+          { value: "£275", label: "what the board cost every single month" },
+          { value: "£3,300", label: "the full bill, paid upfront", hot: true },
         ]}
       />
 
       {/* ------------------------------------------------------------ 2 */}
       <Finding n={2} id="uk-number-one">
-        The biggest advertising board claim of all 650 UK MPs
+        Nearly twice any other MP&apos;s board in the UK
       </Finding>
       <P>
-        We checked over 350,000 claim lines from all 650 UK MPs, from 2022 to 2027. We pulled out
-        every claim for an advertising board or hoarding.
+        Across five years and all 650 UK seats, 63 MPs put an ad board on expenses (130 claims in
+        all).
       </P>
       <P>
-        There were <strong>130 of them</strong>, from 63 MPs. Most are a board at the local
-        football ground for a few hundred pounds. Then there&apos;s his, at nearly double the next
-        biggest in the country.
+        Most spent a few hundred pounds at a local football club. Stainbank&apos;s £3,300 beat
+        every other MP in the UK by £1,500.
       </P>
 
       <ChartFrame
@@ -271,23 +263,23 @@ export default function EuanStainbankMpBillboardExpensesFalkirk() {
       </ChartFrame>
 
       <P>
-        Four of the top six are Scottish Labour MPs.{" "}
-        <Link href={mp("kilmarnock-and-loudoun")}>Lillian Jones</Link> paid £1,020 for a board at
-        Kilmarnock FC, which is hardly cheap. His cost more than three times that.
+        Four of the top six are Scottish Labour MPs. Even{" "}
+        <Link href={mp("kilmarnock-and-loudoun")}>Lillian Jones</Link>&apos;s £1,020 board at
+        Kilmarnock FC was less than a third of Stainbank&apos;s bill.
       </P>
 
       {/* ------------------------------------------------------------ 3 */}
       <Finding n={3} id="his-other-claims">
-        Everything else he billed you for
+        £5,002 on furniture, £2,808 to a display firm, and broken heating
       </Finding>
       <P>
-        The board isn&apos;t the only big bill. A few more stand out in his files since 2024.
+        The board sits alongside several other hefty bills since July 2024:
       </P>
 
       <CaseCard kicker="Office furniture, in one go" figure="£5,002" people={[STAINBANK]}>
         <p>
           On <strong>19 September 2024</strong>, IPSA paid <strong>£5,001.60</strong> to an office
-          furniture shop. It&apos;s one of the biggest single furniture bills of any Scottish MP.
+          furniture shop. One of the biggest single furniture bills of any Scottish MP.
         </p>
       </CaseCard>
 
@@ -295,47 +287,46 @@ export default function EuanStainbankMpBillboardExpensesFalkirk() {
         items={[
           {
             key: "heating",
-            title: "£2,380 to get the office heating working",
+            title: "£2,380 to fix broken office heating",
             children: (
               <>
-                His office says the air conditioning units are its only heating, and they were broken
-                when it took over the lease. IPSA paid £2,006.17 for a part, £205.44 for repairs and
-                £168 for a service. You&apos;d normally expect the landlord to sort that.
+                His office says the air conditioning units were its only heating and were broken
+                when it signed the lease. Taxpayers paid £2,006.17 for a part, £205.44 for repairs
+                and £168 for a service, a job a landlord normally sorts out.
               </>
             ),
           },
           {
             key: "apb",
-            title: "£2,808 to a display firm, with no reason given",
+            title: "£2,808 to a display firm, with no detail",
             children: (
               <>
                 Three bills from APB Displays Limited: £897 (November 2025), £897 (January 2026) and
-                £1,014 (March 2026). The record does not say what they were for.
+                £1,014 (March 2026). The file never says what was bought.
               </>
             ),
           },
           {
             key: "tv",
-            title: "£344 for TV licences",
+            title: "£344 for two TV licences",
             children: (
               <>
-                One in January 2025 (£169.50) and another in September 2025 (£174.50, split over two lines). See{" "}
+                January 2025 (£169.50) and September 2025 (£174.50). See{" "}
                 <Link href="/blog/scottish-mps-tv-licence-expenses">all 29 Scottish MPs who did it</Link>.
               </>
             ),
           },
           {
             key: "training",
-            title: "£1,500 for staff training from a firm called Real Clear",
-            children: <>Two bills of £750 each, both paid on 31 January 2025.</>,
+            title: "£1,500 for staff training from Real Clear",
+            children: <>Two £750 bills, both paid on 31 January 2025.</>,
           },
           {
             key: "flat",
-            title: "£24,480 a year for a London flat",
+            title: "£24,480 a year for his London flat",
             children: (
               <>
-                £2,040 a month for his second home in London, in 2025/26. MPs from outside London
-                are allowed to claim it, but it&apos;s still your money.
+                £2,040 a month in 2025/26, allowed under IPSA&apos;s second home rules.
               </>
             ),
           },
@@ -384,50 +375,43 @@ export default function EuanStainbankMpBillboardExpensesFalkirk() {
 
       {/* ------------------------------------------------------------ 4 */}
       <Finding n={4} id="why-ipsa-paid">
-        Why IPSA said yes
+        How a £3,300 ad board slips past the rules
       </Finding>
       <P>
-        IPSA lets MPs spend public money telling local people how to reach them. Cards, adverts
-        and boards all count, as long as there is no party badge.
+        IPSA lets MPs pay to tell locals how to reach them, as long as there is no party badge on
+        it.
       </P>
       <P>
-        So a big board with his name on it counts as &ldquo;contact details&rdquo;. The problem is
-        the rules themselves. They let a brand new MP advertise himself for a year and send you
-        the bill.
-      </P>
-      <P>
-        Now, a new MP does need people to know where his office is. But plenty manage it for a
-        few hundred pounds at the local football club. So three questions are still unanswered:
+        Put your phone number on a huge sign and it counts as &ldquo;contact details&rdquo;. Other
+        new MPs do the same job for a few hundred pounds. Falkirk voters are owed three answers:
       </P>
 
       <PointList
         items={[
           {
             key: "where",
-            title: "Where was the board, and who made it?",
-            children: <>IPSA&apos;s record names no place and no firm.</>,
+            title: "Where did the board stand, and who got the £3,300?",
+            children: <>IPSA names no place and no firm.</>,
           },
           {
             key: "why-so-much",
-            title: "Why did it cost nearly double any other MP's board?",
-            children: <>The next biggest in the whole UK was £1,800.</>,
+            title: "Why nearly twice any other MP in the UK?",
+            children: <>The next biggest board in the UK was £1,800.</>,
           },
           {
             key: "worth-it",
-            title: "How many people in Falkirk got help because of it?",
-            children: <>£3,300 is an awful lot of public money for a sign.</>,
+            title: "What was the £2,808 to APB Displays for?",
+            children: <>Three more bills, with no word on what you bought.</>,
           },
         ]}
       />
 
-      <Aside title="Part of a wider pattern in Westminster">
+      <Aside title="Not the only MP advertising themselves on your money">
         <p>
-          <Link href={STAINBANK.href}>Euan Stainbank</Link> isn&apos;t the only MP paying to put his
-          name in front of you. Some send glossy reports about their own work through every door,
-          on your money. See{" "}
+          Some MPs send glossy leaflets through every door at your expense too. See{" "}
           <Link href="/blog/worst-scottish-mp-expenses">the worst Scottish MP expenses</Link>,{" "}
-          <Link href="/blog/worst-scottish-mp-expenses">the worst claims</Link>, or compare{" "}
-          <Link href="/mp-expenses-scotland">all 57 Scottish MPs</Link>.
+          <Link href="/blog/msp-expenses-scotland-investigation">Holyrood&apos;s March leaflet rush</Link>{" "}
+          or compare <Link href="/mp-expenses-scotland">all 57 Scottish MPs</Link>.
         </p>
       </Aside>
 
@@ -463,14 +447,10 @@ export default function EuanStainbankMpBillboardExpensesFalkirk() {
 
       <PostCTA
         title="See every claim Euan Stainbank has made"
-        body="Open our live Receipt Finder on the Falkirk MP. Copy any claim for X or WhatsApp, or email him direct."
+        body="Open our live Receipt Finder on the Falkirk MP. Copy any receipt for X or WhatsApp, or email him direct."
         href="/mp-expenses-scotland/search?mp=falkirk"
         cta="See his receipts"
       />
-
-      <P>
-        Want the full picture? <Link href="/mp-expenses-scotland">Compare all 57 Scottish MPs</Link>.
-      </P>
     </Prose>
   );
 }

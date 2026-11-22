@@ -336,14 +336,14 @@ export default function ScottishMpMspExpensesWhatItCouldBuy() {
         ]}
       >
         <p>
-          Sent in 3 days before the budget year ran out. Use it or lose it, by the look of it.
-          The same money would cover <strong>134 Crisis Grants</strong> or{" "}
+          Sent in three days before the year ran out, just before unspent leaflet cash vanished.
+          The same money pays for <strong>134 Crisis Grants</strong> or{" "}
           <strong>6,692 school lunches</strong>.
         </p>
       </Spotlight>
 
       <CaseCard
-        kicker="Total of 58 claims"
+        kicker="Total of 57 claims"
         figure="£24,515"
         people={[
           {

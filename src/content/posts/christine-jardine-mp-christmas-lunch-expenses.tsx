@@ -133,24 +133,22 @@ export default function ChristineJardineMpChristmasLunchExpenses() {
       <QuickTake
         items={[
           <>
-            Six days before Christmas 2025, <strong>taxpayers</strong> paid <strong>£510</strong> for
-            Edinburgh West MP <Link href={JARDINE.href}>Christine Jardine</Link>&apos;s office.
+            Six days before Christmas 2025, Edinburgh West MP{" "}
+            <Link href={JARDINE.href}>Christine Jardine</Link> billed you <strong>£510</strong> for
+            her office do.
           </>,
           <>
-            The lunch bill, <strong>&ldquo;lunch staff team training Christmas&rdquo;</strong>, was
-            £250.80. A &ldquo;team building event&rdquo; the same day was £259.31.
+            <strong>£250.80</strong> went down as{" "}
+            <strong>&ldquo;lunch staff team training Christmas&rdquo;</strong>. A &ldquo;team
+            building event&rdquo; the same day cost <strong>£259.31</strong>.
           </>,
           <>
-            In December 2024, IPSA <strong>turned down</strong> another MP&apos;s &ldquo;Festive team
-            meal&rdquo; as &ldquo;Not claimable&rdquo;. In December 2025, hers was{" "}
-            <strong>paid in full</strong>.
+            One year prior, IPSA told another MP a festive meal was &ldquo;Not claimable&rdquo;.
+            Hers was paid in full.
           </>,
           <>
-            She has also billed you for a <strong>TV licence five years running</strong>: £842.
-          </>,
-          <>
-            All <strong>605</strong> of her claim lines since 2022 were paid, with nothing refused
-            and nothing paid back.
+            She also put a <strong>TV licence on expenses five years in a row</strong> (£842). She
+            paid back <strong>£0</strong> across 605 claims.
           </>,
         ]}
       />
@@ -159,36 +157,35 @@ export default function ChristineJardineMpChristmasLunchExpenses() {
         person={JARDINE}
         kicker="19 December 2025 · six days before Christmas"
         amount="£510"
-        headline="You paid for her office Christmas lunch and team event."
+        headline="Her office Christmas lunch and team day, paid by you."
         lines={[
           { meta: "Office Costs · Hospitality", what: "lunch staff team training Christmas", amount: "£250.80" },
           { meta: "Office Costs · Hospitality", what: "team building event", amount: "£259.31" },
         ]}
       >
         <p>
-          Put &ldquo;training&rdquo; on a Christmas lunch and it becomes a work cost, apparently.
-          Most of us pay for our own work Christmas do, or the boss does. This time it was you.
+          Most folk pay for their own work Christmas lunch. Stick the word &ldquo;training&rdquo;
+          on it at Westminster and the public picks up the bill.
         </p>
       </Spotlight>
 
       {/* ------------------------------------------------------------ 1 */}
       <Finding n={1} id="christmas-lunch">
-        A Christmas lunch, billed as training
+        A Christmas lunch, dressed up as training
       </Finding>
       <P>
-        <Link href={JARDINE.href}>Christine Jardine</Link> has been the Lib Dem MP for Edinburgh
-        West since 2017. Her office is on St John&apos;s Road in Corstorphine.
+        At a normal job, you pay for your own Christmas lunch or the boss pays out of firm cash.
+        Not in Edinburgh West.
       </P>
       <P>
-        IPSA is the body that pays MPs&apos; expenses with public money. On{" "}
-        <strong>19 December 2025</strong>, it paid two bills for her office.
+        On <strong>19 December 2025</strong>, IPSA paid two food and drink bills for Lib Dem MP{" "}
+        <Link href={JARDINE.href}>Christine Jardine</Link>&apos;s local office. One was £250.80 for
+        &ldquo;lunch staff team training Christmas&rdquo;. The next was £259.31 for a &ldquo;team
+        building event&rdquo;.
       </P>
       <P>
-        The first was £250.80 for &ldquo;lunch staff team training Christmas&rdquo;. The second was
-        £259.31 for a &ldquo;team building event&rdquo;. Both were filed as hospitality, which means
-        food and drink.
+        It was not a one off. Her December food and drink bill went up three years in a row.
       </P>
-      <P>And it wasn&apos;t a one off. It was her third December bill in a row, and the biggest yet.</P>
 
       <ChartFrame
         kicker="Christine Jardine · IPSA hospitality bills"
@@ -215,8 +212,8 @@ export default function ChristineJardineMpChristmasLunchExpenses() {
       </ChartFrame>
 
       <P>
-        Her food and drink bills for 2025/26 came to <strong>£697.75</strong>, the most of any
-        Scottish MP. Only nine MPs in the whole UK billed more.
+        Over 2025/26, her food and drink bills hit <strong>£697.75</strong>. That was top in
+        Scotland, and top ten of all 650 UK MPs.
       </P>
 
       <Expand summary="See the proof: her December lines, word for word">
@@ -237,16 +234,16 @@ export default function ChristineJardineMpChristmasLunchExpenses() {
 
       {/* ------------------------------------------------------------ 2 */}
       <Finding n={2} id="uk-christmas">
-        Refused for one MP, paid for her
+        One MP told no. She got paid £510.
       </Finding>
       <P>
-        We went through every claim line from all 650 UK seats, 2022 to 2027, looking for staff
-        Christmas and festive meals.
+        We checked five years of bills for all 650 UK seats. Hardly any MPs even try to claim a
+        staff Christmas meal.
       </P>
       <P>
-        Only a handful of MPs billed one. On its own, her <strong>£250.80</strong> lunch was beaten
-        by one other MP&apos;s £300 meal. But add the £259.31 team event from the same day, and her{" "}
-        <strong>£510</strong> is the biggest staff Christmas spend we found.
+        On its own, her <strong>£250.80</strong> lunch was second only to a £300 meal. Add her
+        £259.31 team day from the same date, and her <strong>£510</strong> is the biggest festive
+        spend we found in the UK.
       </P>
 
       <ChartFrame
@@ -277,9 +274,10 @@ export default function ChristineJardineMpChristmasLunchExpenses() {
       </ChartFrame>
 
       <P>
-        <strong>December 2024:</strong> IPSA refused the MP for Newbury&apos;s &ldquo;Festive team
-        meal&rdquo; (£204.95) as &ldquo;Not claimable&rdquo;. <strong>December 2025:</strong> IPSA
-        paid Christine Jardine&apos;s Christmas lunch in full.
+        Look at two dates, one year apart. On <strong>19 December 2024</strong>, IPSA turned down
+        the Newbury MP&apos;s £204.95 &ldquo;Festive team meal&rdquo; as &ldquo;Not
+        claimable&rdquo;. On <strong>19 December 2025</strong>, IPSA paid Christine Jardine&apos;s
+        £510 bills in full.
       </P>
 
       <Receipt
@@ -290,24 +288,24 @@ export default function ChristineJardineMpChristmasLunchExpenses() {
       />
 
       <P>
-        We can&apos;t tell you why one was paid and the other wasn&apos;t. IPSA&apos;s files only
-        show the words on the bill. So how is anyone outside meant to check?
+        Did the word &ldquo;training&rdquo; get it paid? We can&apos;t tell, because IPSA&apos;s
+        file gives no facts past those five words.
       </P>
 
       {/* ------------------------------------------------------------ 3 */}
       <Finding n={3} id="other-claims">
-        Everything else she billed you
+        TV licences, £21,735 on flights, and a wall knocked down then rebuilt
       </Finding>
       <P>
-        Her full bill for 2025/26 was <strong>£349,032</strong>. Most of that is staff pay, but a
-        few other things jumped out.
+        Her 2025/26 bills hit <strong>£349,032</strong> with staff pay. Look past wages and these
+        bills jump out:
       </P>
 
       <Tiles
         items={[
           { value: "£842", label: "TV licences, five years running", hot: true },
           { value: "£21,735", label: "on her own flights in 2025/26" },
-          { value: "£3,358", label: "on newspapers since 2022" },
+          { value: "£3,358", label: "on papers since 2022" },
         ]}
       />
 
@@ -332,129 +330,113 @@ export default function ChristineJardineMpChristmasLunchExpenses() {
             title: "£21,735 on flights, while other Edinburgh MPs take the train",
             children: (
               <>
-                Her own flights, in 2025/26 alone. The same year,{" "}
-                <Link href={mp("edinburgh-south-west")}>Scott Arthur</Link> billed £680 for flights and
-                £9,467 for trains. <Link href={mp("edinburgh-north-and-leith")}>Tracy Gilbert</Link>{" "}
-                billed £529 for flights and £11,268 for trains.
+                That was just her own flights in 2025/26. In the same city,{" "}
+                <Link href={mp("edinburgh-south-west")}>Scott Arthur</Link> spent £680 on flights
+                and £9,467 on trains.{" "}
+                <Link href={mp("edinburgh-north-and-leith")}>Tracy Gilbert</Link> spent £529 on
+                flights and £11,268 on trains.
               </>
             ),
           },
           {
             key: "taxis",
             title: "£2,411 on taxis (2025/26)",
-            children: <>The fourth highest of any Scottish MP that year.</>,
+            children: <>Fourth highest of any Scottish MP that year.</>,
           },
           {
             key: "papers",
-            title: "£3,358 on newspapers since 2022",
+            title: "£3,358 on papers since 2022",
             children: (
               <>
-                Among them, a £269 Telegraph subscription every April since 2024, plus The Times,
-                The Herald and The Economist.
+                A £269 Telegraph bill each April since 2024, plus The Times, The Herald and The
+                Economist.
               </>
             ),
           },
           {
             key: "wall",
-            title: "A wall knocked down, then a wall put up",
+            title: "A wall knocked down, then put back up",
             children: (
               <>
                 March 2025: £760.80 for &ldquo;Internal office wall knocked down&rdquo;. May 2026:
-                £1,100 &ldquo;For materials to build an internal wall/glass door&rdquo;. June 2026: £1,250
-                for &ldquo;completion of work for which deposit previously paid&rdquo;.
+                £1,100 &ldquo;For materials to build an internal wall/glass door&rdquo;. June 2026:
+                £1,250 to wrap up the job.
               </>
             ),
           },
           {
             key: "lights",
-            title: "£1,590 on the office lights in five weeks",
+            title: "£1,590 on office lights in five weeks",
             children: (
               <>
-                Two electrician call outs at £264 each in October 2025. Then £1,062 for new LED
-                ceiling panels in November.
+                Two £264 call outs in October 2025. Then £1,062 for new LED lights the next month.
               </>
             ),
           },
           {
             key: "rent",
-            title: "£22,200 rent for her London home (2025/26)",
-            children: <>Plus £763 council tax to Westminster City Council.</>,
+            title: "£22,200 rent for her London flat (2025/26)",
+            children: <>Plus £763 in council tax.</>,
           },
         ]}
       />
 
       <P>
-        Away from expenses, her Register of Interests lists rugby hospitality from Scottish Rugby:
-        two tickets worth £798 (November 2025) and one worth £500 (April 2026). She declared both,
-        as she should.
+        On top of expenses, Scottish Rugby gave her £1,298 in free match seats and meals in
+        November 2025 and April 2026. Both sit on her Register of Interests.
       </P>
 
       {/* ------------------------------------------------------------ 4 */}
       <Finding n={4} id="who-stops-this">
-        Why IPSA paid it
+        605 bills sent in, 605 paid
       </Finding>
       <P>
-        IPSA does let MPs claim some food and drink for office work. Her files have small bills like
-        &ldquo;Coffee for office&rdquo;, and nobody&apos;s going to fall out over office coffee.
+        No one cares about a £10 bag of office tea or coffee. A £510 Christmas lunch and team day
+        six days before Christmas is a whole other thing.
       </P>
       <P>
-        But a Christmas lunch with &ldquo;training&rdquo; in the title? IPSA checked it against its
-        rules and waved it through, like all 605 of her claim lines since 2022.
+        All 605 of her claims since 2022 were paid in full. Across Scotland, MPs paid back just 91
+        of 20,879 claims, as our{" "}
+        <Link href="/blog/worst-scottish-mp-expenses">Scottish MP expenses roundup</Link> shows.
       </P>
-
-      <P>
-        If you&apos;re waiting for someone to stop the gravy train, don&apos;t hold your breath. Since
-        2022, Scottish MPs have paid back just 91 of 20,879 claims. Our{" "}
-        <Link href="/blog/worst-scottish-mp-expenses">roundup of the worst Scottish MP expenses</Link>{" "}
-        shows why.
-      </P>
-
-      <P>
-        So, three questions for <Link href={JARDINE.href}>Christine Jardine</Link> and IPSA, and
-        the public files answer none of them:
-      </P>
+      <P>Three plain questions for <Link href={JARDINE.href}>Christine Jardine</Link> and IPSA:</P>
 
       <PointList
         items={[
           {
             key: "training",
-            title: "What training happened at the Christmas lunch?",
-            children: <>The bill says &ldquo;training&rdquo; but not what anyone was taught.</>,
+            title: "What training took place at the Christmas lunch?",
+            children: <>The bill puts &ldquo;training&rdquo; in the title, with no proof of what was taught.</>,
           },
           {
             key: "event",
-            title: "What was the £259.31 team building event?",
-            children: <>It went in the same day, with no venue and no detail.</>,
+            title: "What was the £259.31 team day?",
+            children: <>No venue, no firm and no facts show in the log.</>,
           },
           {
             key: "refused",
-            title: "Why was one MP's festive meal refused, but hers paid?",
-            children: <>IPSA turned down a £204.95 &ldquo;Festive team meal&rdquo; in December 2024.</>,
+            title: "Why tell one MP no and pay her £510?",
+            children: <>IPSA blocked a £204.95 &ldquo;Festive team meal&rdquo; the year before.</>,
           },
         ]}
       />
 
-      <Aside title="Part of a wider pattern in Westminster">
+      <Aside title="Not just Edinburgh West">
         <p>
-          <Link href={JARDINE.href}>Christine Jardine</Link> is far from the only one. See{" "}
+          See the rest of Scotland&apos;s worst claims:{" "}
           <Link href="/blog/worst-scottish-mp-expenses">the worst Scottish MP expenses</Link>,{" "}
-          <Link href="/blog/scottish-mps-tv-licence-expenses">29 MPs who billed you for a TV licence</Link>{" "}
+          <Link href="/blog/scottish-mps-tv-licence-expenses">all 29 MPs claiming TV licences</Link>{" "}
           and{" "}
-          <Link href="/blog/kilmarnock-mp-23437-electricity-bill">a £23,437 power bill paid in one day</Link>
-          . Or compare <Link href="/mp-expenses-scotland">all 57 Scottish MPs</Link>.
+          <Link href="/blog/kilmarnock-mp-23437-electricity-bill">a £23,437 power bill paid in one day</Link>.
         </p>
       </Aside>
 
       <PostCTA
         title="See her food and drink bills (or check your own MP)"
-        body="Open our live Receipt Finder on Christine Jardine's hospitality claims. Copy any claim for X or WhatsApp, or email her direct."
+        body="Open our live Receipt Finder on Christine Jardine's food and drink claims. Copy any receipt for X or WhatsApp, or email her direct."
         href="/mp-expenses-scotland/search?mp=edinburgh-west&q=hospitality"
         cta="See the receipts"
       />
-
-      <P>
-        Want the big picture? See <Link href="/mp-expenses-scotland">every Scottish MP&apos;s expenses</Link>.
-      </P>
     </Prose>
   );
 }

@@ -126,24 +126,20 @@ export default function AngusMacdonaldMpSpeechCoachDrainsExpenses() {
       <QuickTake
         items={[
           <>
-            <strong>Taxpayers</strong> paid <strong>£3,000</strong> for a speech skills workshop
-            for Highland MP <Link href={MACDONALD.href}>Angus MacDonald</Link>.
+            Highland MP <Link href={MACDONALD.href}>Angus MacDonald</Link> took{" "}
+            <strong>£3,000</strong> from his <strong>staff pot</strong> for a speech skills class.
           </>,
           <>
-            It came out of his <strong>staff budget</strong>. That money is meant for the people
-            who help you with your problems.
+            You also paid <strong>£546</strong> to clean the drains at his London second home.{" "}
+            <strong>No other UK MP</strong> has put that on expenses.
           </>,
           <>
-            You also paid <strong>£546</strong> to clean the drains at his second home in London.
-            No other UK MP has billed for that.
+            He claims £0 rent on that flat. Yet he billed <strong>£3,314</strong> for its power and
+            water in one year, top in Scotland.
           </>,
           <>
-            He claims <strong>no rent</strong> on that home. But he billed{" "}
-            <strong>£3,314</strong> for its energy and water in one year, the most of any Scottish
-            MP.
-          </>,
-          <>
-            <strong>£0</strong> has been paid back.
+            He lists over <strong>£70,000 in bank shares</strong> and a rented block in Stirling.{" "}
+            <strong>£0</strong> paid back.
           </>,
         ]}
       />
@@ -152,60 +148,49 @@ export default function AngusMacdonaldMpSpeechCoachDrainsExpenses() {
         person={MACDONALD}
         kicker="17 July 2025 · from his staff budget"
         amount="£3,000"
-        headline="You paid for lessons in giving speeches."
+        headline="£3,000 for lessons in how to give a speech."
       >
         <p>
-          IPSA&apos;s record calls it a &ldquo;personalised presentation and speech skills
-          workshop&rdquo;. It was meant to help him speak up for local people in Parliament.
+          Logged as a &ldquo;personalised presentation and speech skills workshop&rdquo;. Speaking
+          up for voters is the whole job.
         </p>
-        <p>Speaking up is the job. You&apos;d hope he could already do it.</p>
       </Spotlight>
 
       {/* ------------------------------------------------------------ 1 */}
       <Finding n={1} id="the-speech-coach">
-        £3,000 for lessons in giving speeches
+        Six months&apos; office rent, spent on one speech class
       </Finding>
       <P>
-        <Link href={MACDONALD.href}>Angus MacDonald</Link> won Inverness, Skye and West Ross-shire
-        for the Lib Dems in July 2024. He has offices on the High Street in Fort William and in
-        Inverness.
+        An MP&apos;s staff pot pays the team who help local folk with housing, benefits and bills.
       </P>
       <P>
-        IPSA is the body that pays MPs&apos; expenses with public money. On 17 July 2025 it paid
-        £3,000 for a &ldquo;personalised presentation and speech skills workshop&rdquo; for him.
-      </P>
-      <P>
-        The money came from his staff budget. That pot pays the people who answer your letters
-        and help you with benefits, housing and the like.
+        In July 2025, Highland Lib Dem MP <Link href={MACDONALD.href}>Angus MacDonald</Link> took
+        £3,000 straight out of that pot for a speech class for himself.
       </P>
 
       <Tiles
         items={[
-          { value: "£450", label: "one month's rent on his constituency office (2024/25)" },
-          { value: "£3,000", label: "one speech workshop for the MP", hot: true },
+          { value: "£450", label: "one month's rent on his local office (2024/25)" },
+          { value: "£3,000", label: "one speech class for the MP", hot: true },
         ]}
       />
 
       <P>
-        So one workshop cost more than six months&apos; rent on his local office. Who ran it, and
-        for how long? The record doesn&apos;t say.
+        That one class cost more than six months&apos; rent on his local office. IPSA&apos;s file
+        never says who got the £3,000 or how long it lasted.
       </P>
 
       {/* ------------------------------------------------------------ 2 */}
       <Finding n={2} id="uk-comparison">
-        How it compares across all 650 UK MPs
+        Only one MP in the UK beat it, and he is a Lib Dem too
       </Finding>
       <P>
-        We checked over 350,000 claim lines from all 650 UK MPs, from 2022 to 2027. We pulled out
-        every claim that was only about speeches.
+        Out of all 650 MPs over five years, his £3,000 is the top speech claim in Scotland. It is
+        joint second in the whole UK.
       </P>
       <P>
-        His is the biggest of any Scottish MP. In the whole UK only one MP put in a bigger single
-        claim, and he&apos;s a fellow Lib Dem.
-      </P>
-      <P>
-        Compare it with Labour&apos;s Stephen Kinnock. He paid £660 for public speaking training
-        in 2025. Angus MacDonald&apos;s workshop cost over four times that.
+        Labour MP Stephen Kinnock paid £660 for speech help in 2025. MacDonald&apos;s bill was more
+        than four times that.
       </P>
 
       <ChartFrame
@@ -234,31 +219,31 @@ export default function AngusMacdonaldMpSpeechCoachDrainsExpenses() {
         people={[{ name: "Chris Coghlan", p: "Lib Dem", place: "Dorking and Horley" }, MACDONALD]}
       >
         <p>
-          Chris Coghlan, the Lib Dem MP for Dorking in Surrey, has billed <strong>£34,000</strong> for
-          &ldquo;speech consultancy&rdquo; over 14 claims since October 2024.
+          Surrey Lib Dem Chris Coghlan has billed <strong>£34,000</strong> for &ldquo;speech
+          consultancy&rdquo; across 14 claims since October 2024.
         </p>
         <p>
-          Add Angus MacDonald&apos;s £3,000 and two Lib Dem MPs have billed you{" "}
-          <strong>£37,000</strong> for help with speeches.
+          Put him and Angus MacDonald together and two Lib Dem MPs have billed taxpayers{" "}
+          <strong>£37,000</strong> for speech help.
         </p>
       </CaseCard>
 
-      <Aside title="He is not the only Scottish MP paying for coaching">
+      <Aside title="Not the only Scottish MP claiming for coaching">
         <p>
-          Labour&apos;s <Link href={mp("na-h-eileanan-an-iar")}>Torcuil Crichton</Link> billed £2,400
-          for coaching. The firm belongs to a former IPSA worker. It billed 12 MPs £16,800 in
-          under a year.{" "}
-          <Link href="/blog/torcuil-crichton-mp-coaching-expenses-western-isles">Read the Western Isles story</Link>.
+          Western Isles Labour MP{" "}
+          <Link href={mp("na-h-eileanan-an-iar")}>Torcuil Crichton</Link> billed £2,400 to a coach
+          who used to work at IPSA.{" "}
+          <Link href="/blog/torcuil-crichton-mp-coaching-expenses-western-isles">Read that story here</Link>.
         </p>
       </Aside>
 
       {/* ------------------------------------------------------------ 3 */}
       <Finding n={3} id="second-home">
-        £546 to clean the drains at his second home
+        No rent claimed, yet £546 to jet wash the drains
       </Finding>
       <P>
-        MPs who live far from London can claim for a second home there. His is a flat, and he bills{" "}
-        <strong>no rent</strong> for it. Sounds good, until you see the bills.
+        MacDonald claims <strong>£0 in rent</strong> on his London flat. Sounds thrifty, until you
+        read the running bills he sends you instead.
       </P>
 
       <Receipt
@@ -281,8 +266,8 @@ export default function AngusMacdonaldMpSpeechCoachDrainsExpenses() {
       />
 
       <P>
-        We searched the second home claims of all 650 UK MPs since 2022. <strong>Nobody
-        else</strong> had their drains cleaned on expenses.
+        Out of all 650 MPs since 2022, <strong>not a single other MP</strong> put second home drain
+        cleaning on expenses.
       </P>
 
       <ChartFrame
@@ -310,46 +295,43 @@ export default function AngusMacdonaldMpSpeechCoachDrainsExpenses() {
       </ChartFrame>
 
       <P>
-        His £3,314 for energy and water was the <strong>8th highest</strong> of all 650 MPs that
-        year. It was the highest in Scotland.
+        His £3,314 power and water bill was <strong>top in Scotland</strong> and eighth in the UK.
       </P>
       <P>
-        On top of that, on 24 March 2026 he billed <strong>£3,027.12</strong> for council tax.
-        IPSA counts it in the next budget year, 2026/27, so it is not in the £6,076 above. The line
-        says it includes the &ldquo;second home premium&rdquo;, the extra charge councils put on
-        second homes. You pay that too.
+        On 24 March 2026 came <strong>£3,027.12</strong> for council tax (in his 2026/27 pot). That
+        includes the &ldquo;second home premium&rdquo; councils put on second homes. You pay that
+        too.
       </P>
 
       {/* ------------------------------------------------------------ 4 */}
       <Finding n={4} id="why-ipsa-paid">
-        The rest of his bills, and why IPSA said yes
+        Two cameras, bank shares, and rules that pay for drains
       </Finding>
-      <P>A few more things stand out in his files since July 2024.</P>
+      <P>Four other big bills sit in his file since July 2024:</P>
 
       <PointList
         items={[
           {
             key: "cameras",
-            title: "£1,126 for two digital cameras on the same day",
-            children: <>£562.98 each on 27 March 2025. One for Westminster, one for the Highlands.</>,
+            title: "£1,126 for two cameras on the same day",
+            children: <>£562.98 each on 27 March 2025. One for London, one for the Highlands.</>,
           },
           {
             key: "legal",
-            title: "£3,064 in legal and professional fees",
-            children: <>For his Inverness office, in March 2025.</>,
+            title: "£3,064 in legal fees",
+            children: <>For his Inverness office, March 2025.</>,
           },
           {
             key: "furniture",
-            title: "£2,182 on office furniture from one firm",
-            children: <>Two bills from Kings Office Furniture, in March and May 2025.</>,
+            title: "£2,182 on office desks and chairs",
+            children: <>Two bills from Kings Office Furniture, March and May 2025.</>,
           },
           {
             key: "rail",
             title: "£19,942 on train fares in one year",
             children: (
               <>
-                The most of any UK MP in 2025/26. His seat is one of the furthest from
-                London.
+                Top in the UK in 2025/26, though the Highlands is a long trip to London.
               </>
             ),
           },
@@ -357,38 +339,31 @@ export default function AngusMacdonaldMpSpeechCoachDrainsExpenses() {
       />
 
       <P>
-        Some bills are fair enough. Vandals smashed his office windows, and part of the ceiling
-        fell in at his Fort William office. He also pays local papers like the West Highland Free
-        Press to list his surgeries. Nobody would grudge him any of that.
+        To be fair, some bills make sense. Vandals broke his windows, a roof fell in at Fort
+        William, and local papers list his surgeries. Nobody minds paying for that.
       </P>
       <P>
-        The workshop and the drains are another story. IPSA lets MPs buy in outside help
-        from their staff budget, and pays second home running costs even with no rent. So both
-        sailed through.
-      </P>
-      <P>If the rules let an MP bill you for his drains, they need changing.</P>
-      <P>
-        He isn&apos;t short of money either. His own Register of Interests lists shares in Hampden and
-        Co, a bank, worth over £70,000. He also owns an office building in Stirling that
-        earns him rent.
+        The £3,000 speech class and £546 drain clean are not the same. His Register of Interests
+        lists over £70,000 in Hampden and Co bank shares, plus a rented block in Stirling. He is
+        not short of cash, yet IPSA&apos;s rules still make you pay for his drains.
       </P>
 
       <PointList
         items={[
           {
             key: "who-ran-it",
-            title: "Who ran the £3,000 workshop?",
-            children: <>IPSA&apos;s record names no firm and no trainer.</>,
+            title: "Who got paid £3,000 for the class?",
+            children: <>No firm and no coach is named in IPSA&apos;s log.</>,
           },
           {
             key: "why-staff",
-            title: "Why did it come from the staff budget?",
-            children: <>That money is meant for help to local people, not lessons for the MP.</>,
+            title: "Why take it out of the staff pot?",
+            children: <>That pot pays staff who help local voters, not speech lessons.</>,
           },
           {
             key: "drains",
-            title: "Why should you clean his drains?",
-            children: <>No other MP of the 650 has billed you for that.</>,
+            title: "Why did you pay to clear his drains?",
+            children: <>Not one other MP out of 650 sent that bill to the public.</>,
           },
         ]}
       />
@@ -470,14 +445,10 @@ export default function AngusMacdonaldMpSpeechCoachDrainsExpenses() {
 
       <PostCTA
         title="See every claim Angus MacDonald has made"
-        body="Open our live Receipt Finder on the Highland MP. Copy any claim for X or WhatsApp, or email him direct."
+        body="Open our live Receipt Finder on the Highland MP. Copy any receipt for X or WhatsApp, or email him direct."
         href="/mp-expenses-scotland/search?mp=inverness-skye-and-west-ross-shire"
         cta="See his receipts"
       />
-
-      <P>
-        Want the full picture? <Link href="/mp-expenses-scotland">Compare all 57 Scottish MPs</Link>.
-      </P>
     </Prose>
   );
 }

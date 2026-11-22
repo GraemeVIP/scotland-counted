@@ -86,21 +86,21 @@ export default function GregorPoyntonMpFourTvLicencesLivingston() {
       <QuickTake
         items={[
           <>
-            <strong>Taxpayers</strong> paid for <strong>four TV licences in 11 months</strong> for
-            Livingston MP <Link href={POYNTON.href}>Gregor Poynton</Link>. That cost{" "}
-            <strong>£688</strong>.
-          </>,
-          <>One TV licence covers one place for a whole year.</>,
-          <>
-            We checked every MP since 2022. <strong>No other MP in the UK</strong> billed four in a
-            year.
+            A TV licence lasts a whole year. Livingston MP{" "}
+            <Link href={POYNTON.href}>Gregor Poynton</Link> billed you for <strong>four in 11 months</strong>{" "}
+            (<strong>£688</strong>).
           </>,
           <>
-            You also paid for the <strong>office TV</strong> (£228.97), the aerial (£30) and a TV stand
-            (£40.79).
+            <strong>No other MP out of all 650 in the UK</strong> has claimed four full licences in
+            a year since 2022.
           </>,
           <>
-            He also billed <strong>£5,059 for taxis</strong> in 2025/26, the most of any Scottish MP.
+            Taxpayers also bought his <strong>office TV</strong> (£228.97), the aerial (£30) and a
+            stand (£40.79).
+          </>,
+          <>
+            On top of that, his <strong>£5,059 taxi bill</strong> in 2025/26 was the biggest in
+            Scotland.
           </>,
         ]}
       />
@@ -109,7 +109,7 @@ export default function GregorPoyntonMpFourTvLicencesLivingston() {
         person={POYNTON}
         kicker="18 December 2024 to 26 November 2025"
         amount="£688"
-        headline="You paid for four TV licences in 11 months."
+        headline="Four TV licences in 11 months, all paid by you."
         lines={[
           { meta: "18 Dec 2024 · Office Costs · TV licence", what: "TVLICENSING.CO.UK", amount: "£169.50" },
           { meta: "14 Feb 2025 · Office Costs · TV licence", what: "TVLICENSING.CO.UK", amount: "£169.50" },
@@ -118,33 +118,34 @@ export default function GregorPoyntonMpFourTvLicencesLivingston() {
         ]}
       >
         <p>
-          The second licence came <strong>eight weeks</strong> after the first. The last two came{" "}
-          <strong>22 days</strong> apart.
+          Licence two landed <strong>eight weeks</strong> after licence one. Licences three and four
+          landed <strong>22 days</strong> apart in the exact same month.
         </p>
       </Spotlight>
 
       {/* ------------------------------------------------------------ 1 */}
       <Finding n={1} id="four-licences">
-        Four licences, one office TV
+        Four licences for one office telly
       </Finding>
       <P>
-        <Link href={POYNTON.href}>Gregor Poynton</Link> won Livingston for Labour in July 2024. His
-        local office is at the Craigsfarm Community Hub in Craigshill.
+        One TV licence covers one address for 12 months. IPSA only allows a licence for an MP&apos;s
+        local office, not their flat in London or their home.
       </P>
       <P>
-        A TV licence lets you watch live TV in one place for a year. IPSA, the body that pays
-        MPs&apos; expenses, only pays for a licence at an MP&apos;s local office.
+        Labour&apos;s <Link href={POYNTON.href}>Gregor Poynton</Link> runs his Livingston office out
+        of the Craigsfarm Community Hub in Craigshill. His files show one office TV, one aerial and
+        one stand.
       </P>
       <P>
-        So why four? IPSA&apos;s files don&apos;t say. They show one office TV, one aerial and one TV
-        stand. That&apos;s four licences for one TV.
+        Yet between December 2024 and November 2025, taxpayers paid for four separate licences. Not
+        one note in IPSA&apos;s file explains why.
       </P>
 
       <Tiles
         items={[
           { value: "4", label: "TV licences in 11 months", hot: true },
-          { value: "£688", label: "for the four licences" },
-          { value: "£988", label: "on TV in all, with the set, aerial and stand" },
+          { value: "£688", label: "for the four licences alone" },
+          { value: "£988", label: "total TV bill, with the set, aerial and stand" },
         ]}
       />
 
@@ -177,15 +178,14 @@ export default function GregorPoyntonMpFourTvLicencesLivingston() {
 
       {/* ------------------------------------------------------------ 2 */}
       <Finding n={2} id="uk-number-one">
-        Number one out of all 650 UK MPs
+        Top of all 650 MPs in Britain
       </Finding>
       <P>
-        We went through every TV licence claim from all 650 UK seats, 2022 to 2027, counting full
-        licence payments only (monthly instalments left out).
+        Across five years of files for all 650 MPs, <strong>459 MPs</strong> put a TV licence on
+        expenses (leaving out monthly plans).
       </P>
       <P>
-        <strong>459 MPs</strong> billed for at least one. Just 12 others ever got to three in a
-        year, and <strong>nobody else got to four</strong>.
+        Just 12 MPs ever hit three full licences in 12 months. <strong>Nobody else hit four.</strong>
       </P>
 
       <ChartFrame
@@ -215,28 +215,28 @@ export default function GregorPoyntonMpFourTvLicencesLivingston() {
       </ChartFrame>
 
       <P>
-        Across Scotland, 29 MPs billed you £10,754 for TV licences.{" "}
-        <Link href="/blog/scottish-mps-tv-licence-expenses">See all 29 Scottish MPs</Link>.
+        In Scotland alone, 29 MPs billed £10,754 for TV licences.{" "}
+        <Link href="/blog/scottish-mps-tv-licence-expenses">See the full Scottish list</Link>.
       </P>
 
       {/* ------------------------------------------------------------ 3 */}
       <Finding n={3} id="other-claims">
-        Taxis, family flights and a removal van
+        Scotland&apos;s biggest taxi bill, plus family flights and Pickfords
       </Finding>
       <P>
-        His full bill for 2025/26 was <strong>£372,851</strong>, and only six Scottish MPs billed
-        more. Other things caught our eye too.
+        In 2025/26, his total cost hit <strong>£372,851</strong>, seventh highest in Scotland. The
+        TV licences are the small change.
       </P>
 
       <Spotlight
         person={POYNTON}
         kicker="2025/26 · MP travel · Taxi"
         amount="£5,059"
-        headline="The biggest taxi bill of any Scottish MP."
+        headline="Nearly £100 a week on taxis. Top in Scotland."
       >
         <p>
-          Across all 650 UK MPs, only one billed more for taxis that year. £4,939 of it was for trips
-          between London and his seat.
+          Only one MP out of all 650 in Britain spent more on taxis that year. Almost all of it
+          (£4,939) went on trips between London and Livingston.
         </p>
       </Spotlight>
 
@@ -247,8 +247,7 @@ export default function GregorPoyntonMpFourTvLicencesLivingston() {
             title: "£6,232 on family flights (2025/26)",
             children: (
               <>
-                Flights for his family (IPSA calls it dependant travel). The 10th highest of any UK
-                MP, up from £2,325 the year before.
+                Tenth highest of all 650 UK MPs, up from £2,325 the year before.
               </>
             ),
           },
@@ -257,8 +256,8 @@ export default function GregorPoyntonMpFourTvLicencesLivingston() {
             title: "£3,630 council tax on his IPSA funded home (2025/26)",
             children: (
               <>
-                Paid to West Lothian Council. Only one Scottish MP billed more. IPSA also paid
-                £20,800 rent on that home.
+                Paid to West Lothian Council, on top of £20,800 in rent. Only one Scottish MP
+                claimed more council tax.
               </>
             ),
           },
@@ -267,8 +266,7 @@ export default function GregorPoyntonMpFourTvLicencesLivingston() {
             title: "£4,223 to Pickfords, the removal firm",
             children: (
               <>
-                Filed as &ldquo;Removals&rdquo; on 24 January 2025. It is the biggest removals bill of
-                any of Scotland&apos;s 57 MPs since 2022.
+                Billed on 24 January 2025. The biggest removals bill of any Scottish MP since 2022.
               </>
             ),
           },
@@ -277,8 +275,8 @@ export default function GregorPoyntonMpFourTvLicencesLivingston() {
             title: "£9,600 for a PR firm",
             children: (
               <>
-                &ldquo;BB Partners Advisory Ltd - Comms and Media Support&rdquo;, paid from his staff
-                budget in March 2025. A PR firm, on top of his own office staff.
+                Paid to &ldquo;BB Partners Advisory Ltd - Comms and Media Support&rdquo; out of his
+                staff pot in March 2025, on top of his own office team.
               </>
             ),
           },
@@ -287,19 +285,19 @@ export default function GregorPoyntonMpFourTvLicencesLivingston() {
             title: "£24,291 on his own flights (2025/26)",
             children: (
               <>
-                Plus £1,525 on parking and £1,999 on hire cars. Two Edinburgh MPs,{" "}
+                Plus £1,525 on parking and £1,999 on hire cars. Next door in Edinburgh,{" "}
                 <Link href={mp("edinburgh-south-west")}>Scott Arthur</Link> and{" "}
-                <Link href={mp("edinburgh-north-and-leith")}>Tracy Gilbert</Link>, spent under £700 on
-                flights. They mostly took the train.
+                <Link href={mp("edinburgh-north-and-leith")}>Tracy Gilbert</Link> both spent under
+                £700 on flights and took the train instead.
               </>
             ),
           },
           {
             key: "promo",
-            title: "£1,990 for Royal Mail to post through doors",
+            title: "£1,990 for Royal Mail door drops",
             children: (
               <>
-                Plus £1,716 to BIG LIME SIGNS AND GRA and £1,084 on a video editing app, KAPWING PRO
+                Plus £1,716 to BIG LIME SIGNS AND GRA and £1,084 on a video app called KAPWING PRO
                 PLAN.
               </>
             ),
@@ -308,78 +306,61 @@ export default function GregorPoyntonMpFourTvLicencesLivingston() {
       />
 
       <P>
-        Away from expenses, his Register of Interests lists tickets and hospitality at Lord&apos;s
-        Cricket Ground from Hanbury Strategy and Communications, worth £750 (June 2026). It also lists
-        four Carabao Cup final tickets from the Football Association, worth £360 (March 2026). Both
-        were declared, as the rules require.
+        He also logged £1,110 in free sport tickets on his Register of Interests: £750 at
+        Lord&apos;s cricket from a PR firm (June 2026) and £360 for four Carabao Cup final tickets
+        from the FA (March 2026).
       </P>
 
       {/* ------------------------------------------------------------ 4 */}
       <Finding n={4} id="why-ipsa-paid">
-        Why IPSA paid it
+        How did four licences slip past IPSA?
       </Finding>
       <P>
-        IPSA&apos;s rules allow a TV licence for an MP&apos;s local office. Look at any one of these
-        bills on its own and it passes.
+        Look at any single £169.50 or £174.50 receipt on its own and it looks fine. MPs are allowed
+        an office TV licence.
       </P>
       <P>
-        The trouble is, nobody seems to have put them side by side and asked why one office needed
-        four in 11 months. All four were paid, and not a penny has come back.
+        What IPSA never seemed to do was look at all four dates side by side. Every claim was paid,
+        and not a single penny shows as repaid. Across Scotland, MPs have paid back just 91 of
+        20,879 claims since 2022.
       </P>
-
-      <P>
-        Four licences in 11 months and nobody said no. That won&apos;t surprise you once you know
-        Scottish MPs have paid back just 91 of 20,879 claims since 2022. Our{" "}
-        <Link href="/blog/worst-scottish-mp-expenses">roundup of the worst Scottish MP expenses</Link>{" "}
-        has the rest.
-      </P>
-
-      <P>
-        Three questions for <Link href={POYNTON.href}>Gregor Poynton</Link> and IPSA that the
-        public files can&apos;t answer:
-      </P>
+      <P>Three basic questions for <Link href={POYNTON.href}>Gregor Poynton</Link>:</P>
 
       <PointList
         items={[
           {
             key: "where",
-            title: "Which places did the four licences cover?",
-            children: <>The files show one office TV, and no address for any licence.</>,
+            title: "Which buildings did four licences cover?",
+            children: <>His file shows one office telly and zero addresses for the licences.</>,
           },
           {
             key: "refund",
-            title: "Were any licences refunded by TV Licensing?",
-            children: <>If so, it never shows up. IPSA&apos;s files show nothing paid back.</>,
+            title: "Did TV Licensing refund any of them?",
+            children: <>If they did, the money never made it back into IPSA&apos;s public log.</>,
           },
           {
             key: "taxis",
             title: "Why £5,059 on taxis in one year?",
-            children: <>That was more than any other Scottish MP, and all but one MP in the UK.</>,
+            children: <>More than every other Scottish MP, and 648 of the 650 MPs in the UK.</>,
           },
         ]}
       />
 
-      <Aside title="Part of a wider pattern in Westminster">
+      <Aside title="See the rest of Scotland's claims">
         <p>
-          If four TV licences made you wince, the rest of the list will too. See{" "}
-          <Link href="/blog/worst-scottish-mp-expenses">the worst Scottish MP expenses</Link>,{" "}
-          <Link href="/blog/scottish-mps-tv-licence-expenses">29 MPs who billed you for a TV licence</Link>{" "}
-          and{" "}
-          <Link href="/blog/kilmarnock-mp-23437-electricity-bill">a £23,437 power bill paid in one day</Link>
-          . Or compare <Link href="/mp-expenses-scotland">all 57 Scottish MPs</Link>.
+          Four TV licences is just one slice of the file. See{" "}
+          <Link href="/blog/scottish-mps-tv-licence-expenses">all 29 MPs claiming TV licences</Link>,{" "}
+          <Link href="/blog/worst-scottish-mp-expenses">the worst Scottish MP expenses</Link> or{" "}
+          <Link href="/mp-expenses-scotland">every Scottish MP ranked</Link>.
         </p>
       </Aside>
 
       <PostCTA
         title="See all his TV claims (or check your own MP)"
-        body="Open our live Receipt Finder on Gregor Poynton's TV claims. Copy any claim for X or WhatsApp, or email him direct."
+        body="Open our live Receipt Finder on Gregor Poynton's TV claims. Copy any receipt for X or WhatsApp, or email him direct."
         href="/mp-expenses-scotland/search?mp=livingston&q=TV"
         cta="See the TV receipts"
       />
-
-      <P>
-        Want the big picture? See <Link href="/mp-expenses-scotland">every Scottish MP&apos;s expenses</Link>.
-      </P>
     </Prose>
   );
 }
