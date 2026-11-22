@@ -79,7 +79,7 @@ const ALL_29_TV_MPS: {
   { name: "Ian Murray", slug: "edinburgh-south", p: "Labour", amount: 682, detail: "4 years running, £5 over the yearly fee each time" },
   { name: "Wendy Chamberlain", slug: "north-east-fife", p: "Lib Dem", amount: 662, detail: "4 years running (2022/23 to 2025/26)" },
   { name: "Brendan O'Hara", slug: "argyll-bute-and-south-lochaber", p: "SNP", amount: 487.5, detail: "3 yearly licences" },
-  { name: "David Mundell", slug: "dumfriesshire-clydesdale-and-tweeddale", p: "Conservative", amount: 418.25, detail: "4 years running (half shares, then the full fee in Feb 2026)" },
+  { name: "David Mundell", slug: "dumfriesshire-clydesdale-and-tweeddale", p: "Conservative", amount: 418.25, detail: "4 years in a row. Half the fee each year at first, then the full fee in Feb 2026" },
   { name: "Irene Campbell", slug: "north-ayrshire-and-arran", p: "Labour", amount: 354.5, detail: "Jul 2025 + Jun 2026" },
   { name: "Dr Scott Arthur", slug: "edinburgh-south-west", p: "Labour", amount: 354, detail: "Jan 2025 + Feb 2026" },
   { name: "Dr Zubir Ahmed", slug: "glasgow-south-west", p: "Labour", amount: 349, detail: "Two licences in one year (Jul 2025 + Mar 2026)" },
@@ -255,9 +255,17 @@ export default function ScottishMpsTvLicenceExpenses() {
         people={[{ name: "Alistair Carmichael", href: mp("orkney-and-shetland"), p: "Lib Dem", place: "Orkney and Shetland" }]}
       >
         <p>
-          He billed <strong>£1,080.25</strong> for licences at his Orkney and Shetland offices. He
-          later paid back <strong>£246.25</strong>, partly as his local MSP&apos;s (member of the
-          Scottish Parliament) half share. He is the only one of the 29 who paid any back.
+          He billed taxpayers <strong>£1,080.25</strong> for TV licences at his Orkney and
+          Shetland offices.
+        </p>
+        <p>
+          He shares office space with the islands&apos; MSPs (members of the Scottish Parliament).
+          The MSPs pay half of each licence they share. So he paid IPSA back{" "}
+          <strong>£246.25</strong> when their half came in.
+        </p>
+        <p>
+          That leaves <strong>£834</strong> paid by taxpayers for his licences. He is the only one
+          of the 29 MPs who paid any back.
         </p>
       </CaseCard>
 
