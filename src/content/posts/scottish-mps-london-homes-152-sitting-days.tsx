@@ -282,14 +282,14 @@ export default function ScottishMpsLondonHomes152SittingDays() {
         kicker="2025/26 · Taxis"
         amount="£5,059"
         headline="You paid for his taxis. No Scottish MP billed more."
-        lines={[
-          { meta: "MP travel · Taxi", what: "Aggregated figure for travel during 2025-26", amount: "£4,938.65" },
-          { meta: "MP travel · Taxi", what: "Aggregated figure for travel during 2025-26", amount: "£93.70" },
-          { meta: "MP travel · Taxi", what: "Aggregated figure for travel during 2025-26", amount: "£27.00" },
-        ]}
       >
         <p>
           On top of that, you paid <strong>£6,232</strong> for his family&apos;s flights.
+        </p>
+        <p>
+          <Link href="/blog/gregor-poynton-mp-four-tv-licences-livingston" className="font-[660] text-[#8bb8ff] underline underline-offset-4">
+            Read the full story →
+          </Link>
         </p>
       </Spotlight>
 
@@ -428,7 +428,7 @@ export default function ScottishMpsLondonHomes152SittingDays() {
                 A minister works in London on weekdays, so more nights make sense. Even so, his
                 bills still ran <strong>seven nights a week</strong> (28 to 30 nights a month),
                 all paid by you. See{" "}
-                <Link href="/mp-expenses-scotland/receipts#hotel-nights">all 14 of his hotel claims</Link>
+                <Link href="/blog/worst-scottish-mp-expenses#hotel-nights">all 14 of his hotel claims</Link>
                 .
               </>
             ),

@@ -50,8 +50,8 @@ const CORE: Item[] = [
     keywords: "mp register of interests donations gifts hospitality foreign trips second jobs landlords lobbying scotland",
   },
   {
-    label: "The receipts: strangest Scottish MP expenses",
-    href: "/mp-expenses-scotland/receipts",
+    label: "The Scottish MP expenses scandal: every worst receipt",
+    href: "/blog/worst-scottish-mp-expenses",
     group: "Main pages",
     keywords: "mp expenses receipts strangest worst claims speech coach iphone furniture ipsa scotland",
   },

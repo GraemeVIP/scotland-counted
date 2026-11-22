@@ -113,6 +113,15 @@ const nextConfig: NextConfig = {
       ...exactMatchRedirects().map((r) => ({ ...r, statusCode: 301 as const })),
       {
         /*
+         * The receipts page was merged into the MP expenses scandal roundup
+         * (22 Nov 2026). Everything it held now lives on that page.
+         */
+        source: "/mp-expenses-scotland/receipts",
+        destination: "/blog/worst-scottish-mp-expenses",
+        statusCode: 301 as const,
+      },
+      {
+        /*
          * This URL promised a finder and served a letter writer for months.
          * The letter writer now lives at /email-your-mp-and-msp, and this
          * address does what it always said: people searching "find my MP"

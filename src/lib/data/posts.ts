@@ -142,6 +142,468 @@ export type Post = {
 
 export const posts: Post[] = [
   {
+    slug: "torcuil-crichton-mp-coaching-expenses-western-isles",
+    title:
+      "You paid £2,400 for coaching for Western Isles MP Torcuil Crichton and his staff, from a coach who used to work at IPSA",
+    seoTitle: "Torcuil Crichton MP Expenses: £2,400 for an Ex IPSA Coach",
+    description:
+      "Taxpayers paid £2,400 for coaching for Western Isles MP Torcuil Crichton and his staff. The coach used to work at IPSA, which signed off every bill.",
+    standfirst:
+      "Taxpayers paid £2,400 for coaching for the Western Isles MP, Torcuil Crichton, and his staff. It went in 16 bills. The coach used to work at IPSA, the body that pays MPs' expenses. Now MPs pay her firm with IPSA's money. 12 MPs did it. He is the only Scot.",
+    date: "2026-11-22",
+    updated: "2026-11-22",
+    checked: "2026-11-22",
+    category: "politics-explained",
+    tags: ["MP expenses Scotland", "Torcuil Crichton", "Western Isles", "Na h-Eileanan an Iar", "IPSA", "Scottish Labour"],
+    readingMinutes: 5,
+    image: {
+      src: "/images/editorial/worst-scottish-mp-expenses.webp",
+      alt: "Plug-in 5G home broadband router, speech coaching microphone on a brass stand, smartphone in a case and paper receipts on a dark mahogany desk",
+      caption:
+        "Checked across five years of IPSA expense files (2022/23 to 2026/27) for all 650 UK seats.",
+      aspect: "wide",
+      objectPosition: "center",
+    },
+    shareImage: {
+      src: "/images/editorial/worst-scottish-mp-expenses.webp",
+      width: 1500,
+      height: 1000,
+      type: "image/webp",
+    },
+    toc: [
+      { id: "the-receipts", label: "What the 16 coaching bills show" },
+      { id: "uk-list", label: "12 MPs, £16,800, and he is the only Scot" },
+      { id: "other-claims", label: "Everything else he billed you" },
+      { id: "why-ipsa-paid", label: "The revolving door, and why IPSA paid it" },
+    ],
+    faq: [
+      {
+        q: "How much did Torcuil Crichton claim for coaching?",
+        a: "£2,400 in 16 bills to LARA LLOYD COACHING, from 21 October 2025 to 16 June 2026. Five bills of £175 (£875) were filed as training for him. The other 11 (£1,525) were filed as staff training. IPSA paid them all.",
+      },
+      {
+        q: "Who is the coach, and why does it matter?",
+        a: "Her business website says she worked in the House of Commons Members' and Members' Staff Services Team, then at IPSA as Stakeholder Engagement Lead. Her company was set up on 19 March 2025. Since September 2025, 12 MPs have paid it £16,800 of public money through IPSA.",
+      },
+      {
+        q: "Did he break the rules?",
+        a: "Nothing in the public files says so. MPs may claim for training, and IPSA paid every bill in full. The rules allowed it. That is the problem.",
+      },
+    ],
+    sourceIds: ["ipsa-claims-2022-2027", "uk-parliament-register-interests-2026"],
+  },
+  {
+    slug: "christine-jardine-mp-christmas-lunch-expenses",
+    title:
+      "You paid £510 for Edinburgh West MP Christine Jardine's office Christmas lunch and team event, six days before Christmas",
+    seoTitle: "Christine Jardine MP Expenses: £510 Office Christmas Lunch",
+    description:
+      "Taxpayers paid £510 for Edinburgh West MP Christine Jardine's office Christmas lunch and team event. IPSA refused another MP's festive meal a year before.",
+    standfirst:
+      "Six days before Christmas 2025, taxpayers paid £510 for Edinburgh West MP Christine Jardine's office. One bill said \"lunch staff team training Christmas\". The other said \"team building event\". A year before, IPSA refused another MP's festive meal. Hers was paid in full.",
+    date: "2026-11-22",
+    updated: "2026-11-22",
+    checked: "2026-11-22",
+    category: "politics-explained",
+    tags: ["MP expenses Scotland", "Christine Jardine", "Edinburgh West", "Christmas", "IPSA", "Scottish Liberal Democrats"],
+    readingMinutes: 5,
+    image: {
+      src: "/images/editorial/scottish-mp-expenses-and-freebies.webp",
+      alt: "VIP hospitality passes, passport with boarding passes, champagne flute and financial ledgers on a dark leather desk beside a rainy window",
+      caption:
+        "Checked across five years of IPSA expense files (2022/23 to 2026/27) for all 650 UK seats.",
+      aspect: "wide",
+      objectPosition: "center",
+    },
+    shareImage: {
+      src: "/images/editorial/scottish-mp-expenses-and-freebies.webp",
+      width: 1500,
+      height: 1000,
+      type: "image/webp",
+    },
+    toc: [
+      { id: "christmas-lunch", label: "A Christmas lunch, billed as training" },
+      { id: "uk-christmas", label: "One MP was refused. She was paid." },
+      { id: "other-claims", label: "Everything else she billed you" },
+      { id: "who-stops-this", label: "Why IPSA paid it, and who stops this" },
+    ],
+    faq: [
+      {
+        q: "What did Christine Jardine claim on 19 December 2025?",
+        a: "Two hospitality bills: £250.80 for \"lunch staff team training Christmas\" and £259.31 for a \"team building event\". That is £510.11. IPSA paid both in full.",
+      },
+      {
+        q: "Have other MPs claimed for a staff Christmas meal?",
+        a: "A few have. IPSA paid six other staff Christmas or festive meals from 2022 to 2027, from £58.06 to £300. On 19 December 2024 it refused one MP's £204.95 \"Festive team meal\" as \"Not claimable\".",
+      },
+      {
+        q: "How much has she billed for TV licences?",
+        a: "£842 for five office TV licences, one each year from April 2022 to May 2026. All 605 of her claim lines since 2022 were paid in full, with £0 paid back.",
+      },
+    ],
+    sourceIds: ["ipsa-claims-2022-2027", "uk-parliament-register-interests-2026"],
+  },
+  {
+    slug: "gregor-poynton-mp-four-tv-licences-livingston",
+    title:
+      "You paid for four TV licences in 11 months for Livingston MP Gregor Poynton: more than any other MP in the UK",
+    seoTitle: "Gregor Poynton MP Expenses: 4 TV Licences in 11 Months",
+    description:
+      "Taxpayers paid for four TV licences in 11 months for Livingston MP Gregor Poynton. No other UK MP has billed four in a year. Plus £5,059 on taxis.",
+    standfirst:
+      "Taxpayers paid for four TV licences in 11 months for Livingston MP Gregor Poynton. That cost £688. One licence covers one place for a whole year. No other MP in the UK billed four in a year. You also paid for the office TV, the aerial and the stand.",
+    date: "2026-11-22",
+    updated: "2026-11-22",
+    checked: "2026-11-22",
+    category: "politics-explained",
+    tags: ["MP expenses Scotland", "Gregor Poynton", "Livingston", "TV licence", "IPSA", "Scottish Labour"],
+    readingMinutes: 5,
+    image: {
+      src: "/images/editorial/scottish-mps-tv-licence-expenses.webp",
+      alt: "Flatscreen television mounted on a wood-panelled MP office wall with a TV remote control resting on an official envelope on the desk below",
+      caption:
+        "Checked across five years of IPSA expense files (2022/23 to 2026/27) for all 650 UK seats.",
+      aspect: "wide",
+      objectPosition: "center",
+    },
+    shareImage: {
+      src: "/images/editorial/scottish-mps-tv-licence-expenses.webp",
+      width: 1500,
+      height: 1000,
+      type: "image/webp",
+    },
+    toc: [
+      { id: "four-licences", label: "Four licences, one office TV" },
+      { id: "uk-number-one", label: "Number one out of all 650 UK MPs" },
+      { id: "other-claims", label: "Taxis, family flights and a removal van" },
+      { id: "why-ipsa-paid", label: "Why IPSA paid it, and who stops this" },
+    ],
+    faq: [
+      {
+        q: "How many TV licences did Gregor Poynton claim?",
+        a: "Four in 11 months: £169.50 on 18 December 2024, £169.50 on 14 February 2025, then £174.50 on 4 November and £174.50 on 26 November 2025. That is £688. IPSA split each November licence across two budget years.",
+      },
+      {
+        q: "Is four TV licences in a year really a UK record?",
+        a: "Yes, in IPSA's files from 2022 to 2027. 459 MPs billed for at least one licence. Counting full licence payments, 12 others managed three in a year. Nobody else managed four.",
+      },
+      {
+        q: "What else did he claim?",
+        a: "In 2025/26: £5,059 on taxis (the most of any Scottish MP), £6,232 on family flights and £3,630 council tax on his IPSA funded home. In January 2025, £4,223 to removal firm Pickfords.",
+      },
+    ],
+    sourceIds: ["ipsa-claims-2022-2027", "uk-parliament-register-interests-2026"],
+  },
+  {
+    slug: "euan-stainbank-mp-billboard-expenses-falkirk",
+    title:
+      "You paid £3,300 for a board advertising Falkirk MP Euan Stainbank: the biggest MP advertising board in the UK",
+    seoTitle: "Euan Stainbank MP Expenses: £3,300 Board Advertising Himself",
+    description:
+      "Taxpayers paid £3,300 for a board advertising Falkirk MP Euan Stainbank for a year. It is the biggest advertising board claim of any of the 650 UK MPs.",
+    standfirst:
+      "Taxpayers paid £3,300 for a board advertising Falkirk's Labour MP, Euan Stainbank. IPSA's own record says it was there \"to advertise Euan as local MP\". It stayed up for a year. No MP in the UK has claimed more for an advertising board since 2022. It was paid less than four months after he won the seat.",
+    date: "2026-11-22",
+    updated: "2026-11-22",
+    checked: "2026-11-22",
+    category: "politics-explained",
+    tags: ["MP expenses Scotland", "Euan Stainbank", "Falkirk", "IPSA", "Scottish Labour"],
+    readingMinutes: 5,
+    image: {
+      src: "/images/editorial/mp-expenses-scotland-receipts.webp",
+      alt: "Close-up of curled paper expense receipts on dark Scottish slate and oak beneath a brass magnifying glass and fountain pen",
+      caption:
+        "Checked across five years of IPSA expense files (2022/23 to 2026/27) for all 650 UK MPs.",
+      aspect: "wide",
+      objectPosition: "center",
+    },
+    shareImage: {
+      src: "/images/editorial/mp-expenses-scotland-receipts.webp",
+      width: 1500,
+      height: 1000,
+      type: "image/webp",
+    },
+    toc: [
+      { id: "the-billboard", label: "What the IPSA record shows" },
+      { id: "uk-number-one", label: "The biggest advertising board of all 650 UK MPs" },
+      { id: "his-other-claims", label: "Everything else he billed you for" },
+      { id: "why-ipsa-paid", label: "Why IPSA said yes" },
+    ],
+    faq: [
+      {
+        q: "How much did Euan Stainbank claim for an advertising board?",
+        a: "£3,300. IPSA paid it on 31 October 2024. The record says: \"Advertising board to advertise Euan as local MP and contact details. To be advertised for 1 year.\" It is marked Paid. £0 has been paid back.",
+      },
+      {
+        q: "Is it really the biggest advertising board claim of any MP?",
+        a: "Yes. We checked over 350,000 IPSA claim lines for all 650 UK MPs from 2022/23 to 2026/27. We found 130 claims for advertising boards or hoardings by 63 MPs. His £3,300 is the biggest. The next was £1,800.",
+      },
+      {
+        q: "Was it against the rules?",
+        a: "No. IPSA lets MPs pay to tell local people how to contact them, as long as there is no party badge. That is the problem. The rules let an MP advertise himself for a year with public money.",
+      },
+    ],
+    sourceIds: ["ipsa-claims-2022-2027"],
+  },
+  {
+    slug: "chris-law-mp-3090-broadband-expenses-dundee",
+    title:
+      "You paid £3,090 to set up home broadband for Dundee MP Chris Law: the biggest home broadband claim of any UK MP",
+    seoTitle: "Chris Law MP Expenses: £3,090 Home 5G Broadband (UK #1)",
+    description:
+      "Taxpayers paid £3,090 to set up home 5G broadband for Dundee MP Chris Law. A typical MP setup claim is £90. He also tops the UK for parking.",
+    standfirst:
+      "Taxpayers paid £3,090 to set up home broadband for Dundee's SNP MP, Chris Law. A typical setup claim by an MP is £90. No other MP in the UK has claimed anything close for home internet. He also ran up the UK's biggest MP parking bill in 2025/26, about £121 a week.",
+    date: "2026-11-22",
+    updated: "2026-11-22",
+    checked: "2026-11-22",
+    category: "politics-explained",
+    tags: ["MP expenses Scotland", "Chris Law", "Dundee", "Broadband", "IPSA", "SNP"],
+    readingMinutes: 5,
+    image: {
+      src: "/images/editorial/worst-scottish-mp-expenses.webp",
+      alt: "Plug-in 5G home broadband router, speech coaching microphone on a brass stand, smartphone in a case and paper receipts on a dark mahogany desk",
+      caption:
+        "Checked across five years of IPSA expense files (2022/23 to 2026/27) for all 650 UK MPs.",
+      aspect: "wide",
+      objectPosition: "center",
+    },
+    shareImage: {
+      src: "/images/editorial/worst-scottish-mp-expenses.webp",
+      width: 1500,
+      height: 1000,
+      type: "image/webp",
+    },
+    toc: [
+      { id: "the-broadband", label: "£3,090 to set up broadband at home" },
+      { id: "uk-number-one", label: "No MP in the UK comes close" },
+      { id: "parking-and-travel", label: "Top of the UK for parking and European hotels" },
+      { id: "why-ipsa-paid", label: "Why IPSA paid it all" },
+    ],
+    faq: [
+      {
+        q: "How much did Chris Law claim for broadband?",
+        a: "£3,090. IPSA paid it on 25 July 2022, when he was MP for Dundee West. The record says: \"Home 5G mobile broadband installation\". It is marked Paid. £0 has been paid back.",
+      },
+      {
+        q: "How does £3,090 compare with other MPs?",
+        a: "A typical phone or internet setup claim by an MP is £90. We checked all 650 UK MPs from 2022/23 to 2026/27. His is the biggest home internet claim by far. The next biggest was £430.64.",
+      },
+      {
+        q: "How much does Chris Law claim for parking?",
+        a: "£6,292.29 in 2025/26, mostly on trips between Dundee and London. That is about £121 a week and the most of any UK MP. The next highest was £3,587.",
+      },
+    ],
+    sourceIds: ["ipsa-claims-2022-2027", "ofcom-connected-nations-2022", "ispreview-starlink-2022"],
+  },
+  {
+    slug: "angus-macdonald-mp-speech-coach-drains-expenses",
+    title:
+      "You paid £3,000 for Highland MP Angus MacDonald's speech lessons, and £546 to clean the drains at his second home",
+    seoTitle: "Angus MacDonald MP Expenses: £3,000 Speech Coach + Drains",
+    description:
+      "Taxpayers paid £3,000 for a speech skills workshop for Highland MP Angus MacDonald, from his staff budget, plus £546 to clean drains at his London flat.",
+    standfirst:
+      "Taxpayers paid £3,000 for a speech skills workshop for Angus MacDonald, the Lib Dem MP for Inverness, Skye and West Ross-shire. It came out of the budget meant for his staff. You also paid £546 to clean the drains at his second home in London. No other UK MP has billed for that. He pays no rent there, but billed £3,314 for its energy and water in one year.",
+    date: "2026-11-22",
+    updated: "2026-11-22",
+    checked: "2026-11-22",
+    category: "politics-explained",
+    tags: ["MP expenses Scotland", "Angus MacDonald", "Inverness", "Highlands", "IPSA", "Scottish Lib Dems"],
+    readingMinutes: 5,
+    image: {
+      src: "/images/editorial/worst-scottish-mp-expenses.webp",
+      alt: "Plug-in 5G home broadband router, speech coaching microphone on a brass stand, smartphone in a case and paper receipts on a dark mahogany desk",
+      caption:
+        "Checked across five years of IPSA expense files (2022/23 to 2026/27) for all 650 UK MPs.",
+      aspect: "wide",
+      objectPosition: "center",
+    },
+    shareImage: {
+      src: "/images/editorial/worst-scottish-mp-expenses.webp",
+      width: 1500,
+      height: 1000,
+      type: "image/webp",
+    },
+    toc: [
+      { id: "the-speech-coach", label: "£3,000 for lessons in giving speeches" },
+      { id: "uk-comparison", label: "How it compares across all 650 UK MPs" },
+      { id: "second-home", label: "£546 to clean the drains at his second home" },
+      { id: "why-ipsa-paid", label: "The rest of his bills, and why IPSA said yes" },
+    ],
+    faq: [
+      {
+        q: "What was Angus MacDonald's £3,000 speech claim?",
+        a: "IPSA paid £3,000 on 17 July 2025 for a \"personalised presentation and speech skills workshop to assist MPs representational role in Parliament\". It came from his staffing budget. It is marked Paid. £0 has been paid back.",
+      },
+      {
+        q: "Did taxpayers really pay to clean his drains?",
+        a: "Yes. IPSA paid £234 on 24 March 2026 and £312 on 27 March 2026 for drain cleaning at his second home. That is £546. No other UK MP has a second home drain cleaning claim in IPSA's files since 2022.",
+      },
+      {
+        q: "Does he claim rent on his second home?",
+        a: "No. But in 2025/26 he billed £3,314 for its energy and water, £939 in service charges and £746 for buildings insurance. His energy and water bill was the highest of any Scottish MP.",
+      },
+    ],
+    sourceIds: ["ipsa-claims-2022-2027", "uk-parliament-register-interests-2026"],
+  },
+  {
+    slug: "pamela-nash-mp-furniture-expenses-motherwell",
+    title:
+      "You paid £3,182 for Motherwell MP Pamela Nash's IKEA and DFS furniture, most of it in the last days of the budget year",
+    seoTitle:
+      "Pamela Nash MP Expenses: £3,182 IKEA and DFS Furniture",
+    description:
+      "Taxpayers paid £3,182 for Motherwell MP Pamela Nash's IKEA and DFS furniture, plus £5,000 for a carpet and works. Most landed in the last week of March.",
+    standfirst:
+      "Taxpayers paid £3,182 for IKEA and DFS furniture for Motherwell MP Pamela Nash. Three of the four bills landed in the last two days of the budget year. That same week you paid £2,750 for a new carpet and £2,250 for building works. No other MP in the UK has billed you for DFS.",
+    date: "2026-11-22",
+    updated: "2026-11-22",
+    checked: "2026-11-22",
+    category: "politics-explained",
+    tags: ["MP expenses Scotland", "Pamela Nash", "Motherwell", "Office furniture", "IPSA", "Scottish Labour"],
+    readingMinutes: 5,
+    image: {
+      src: "/images/editorial/mp-expenses-scotland-receipts.webp",
+      alt: "Long curling paper till receipts under a brass magnifying glass and a black fountain pen on a slate board and oak desk",
+      caption:
+        "Checked across five years of IPSA expense files (2022/23 to 2026/27) for all 650 UK MPs.",
+      aspect: "wide",
+      objectPosition: "center",
+    },
+    shareImage: {
+      src: "/images/editorial/mp-expenses-scotland-receipts.webp",
+      width: 1500,
+      height: 1000,
+      type: "image/webp",
+    },
+    toc: [
+      { id: "the-receipts", label: "Seven bills in the last seven days" },
+      { id: "end-of-year-rush", label: "The last week of March, when MPs go shopping" },
+      { id: "the-rest", label: "Everything else she billed you for" },
+      { id: "why-ipsa-paid", label: "Why IPSA said yes" },
+    ],
+    faq: [
+      {
+        q: "How much did taxpayers pay for Pamela Nash's IKEA and DFS furniture?",
+        a: "£3,182 across four bills: IKEA £1,334 (5 April 2025), IKEA £395 (30 March 2026), DFS £1,208 (31 March 2026) and IKEA £245 (31 March 2026). The £245 was refunded on 17 April 2026, so £2,937 stayed on the public bill.",
+      },
+      {
+        q: "What else did she bill in the last week of March 2026?",
+        a: "£2,750 for a new office carpet on 26 March and £2,250 for building works on 30 March, plus IKEA, DFS and Amazon. Her seven bills that week came to £7,202.80. Only one MP in the UK billed more that week.",
+      },
+      {
+        q: "Do MPs spend more at the end of the budget year?",
+        a: "Yes. In the last seven days of March 2026, all MPs billed £138,464 for office kit, furniture and repairs. A normal week in 2025/26 was about £18,900. That is over seven times as much.",
+      },
+    ],
+    sourceIds: ["ipsa-claims-2022-2027", "ipsa-annual-2025-26", "uk-parliament-register-interests-2026"],
+  },
+  {
+    slug: "john-lamont-mp-iphone-expenses-borders",
+    title:
+      "You paid for two iPhones for Borders MP John Lamont: £1,098 in 2022 and £1,248 in 2025",
+    seoTitle:
+      "John Lamont MP Expenses: Two iPhones Paid by You (£2,346)",
+    description:
+      "Taxpayers bought Borders MP John Lamont two iPhones: £1,098 in 2022 and £1,248 in 2025. He also spent more on adverts than any other UK MP: £49,568.",
+    standfirst:
+      "Taxpayers bought Borders MP John Lamont two iPhones. The first cost £1,098 in August 2022. The second cost £1,248 in June 2025. No other Scottish MP's bills say they bought an iPhone. He also spent more on adverts than any MP in the UK. And he paid a PR firm £35,792 from his staff budget.",
+    date: "2026-11-22",
+    updated: "2026-11-22",
+    checked: "2026-11-22",
+    category: "politics-explained",
+    tags: ["MP expenses Scotland", "John Lamont", "Scottish Borders", "Hawick", "iPhone", "IPSA", "Scottish Conservatives"],
+    readingMinutes: 6,
+    image: {
+      src: "/images/editorial/worst-scottish-mp-expenses.webp",
+      alt: "Plug-in 5G home broadband router, speech coaching microphone on a brass stand, smartphone in a case and paper receipts on a dark mahogany desk",
+      caption:
+        "Checked across five years of IPSA expense files (2022/23 to 2026/27) for all 650 UK MPs.",
+      aspect: "wide",
+      objectPosition: "center",
+    },
+    shareImage: {
+      src: "/images/editorial/worst-scottish-mp-expenses.webp",
+      width: 1500,
+      height: 1000,
+      type: "image/webp",
+    },
+    toc: [
+      { id: "the-phones", label: "Two iPhones, both paid by you" },
+      { id: "uk-iphones", label: "How his iPhones compare with all 650 MPs" },
+      { id: "the-rest", label: "A PR firm, adverts and leaflets" },
+      { id: "why-ipsa-paid", label: "Why IPSA paid, and how he voted" },
+    ],
+    faq: [
+      {
+        q: "How many iPhones has John Lamont claimed on expenses?",
+        a: "Two. IPSA paid £1,098 for \"iPhone purchase - John Lamont\" on 9 August 2022, and £1,248 for an \"Iphone and protection case\" on 12 June 2025. That is £2,346. £0 has been paid back.",
+      },
+      {
+        q: "Is John Lamont the top claimant among Scottish MPs?",
+        a: "In our Receipt Finder, yes. His bills shown one by one from 2022 to 2026 add up to £165,521 across 690 bills, more than any other Scottish MP. Most of it went on a PR firm and adverts.",
+      },
+      {
+        q: "How much has John Lamont spent on adverts?",
+        a: "£49,567.90 over five years, mostly adverts for his surgeries in local papers. That is the most of any of the 650 UK MPs, and nearly double the next MP.",
+      },
+    ],
+    sourceIds: ["ipsa-claims-2022-2027", "ipsa-annual-2025-26", "commons-votes-two-child-limit-2026"],
+  },
+  {
+    slug: "graeme-downie-mp-dinner-expenses-dunfermline",
+    title:
+      "You paid £963 for Dunfermline MP Graeme Downie's business dinner, and he cost you more than any MP in the UK",
+    seoTitle:
+      "Graeme Downie MP Expenses: £963 Dinner, UK's Biggest Bill",
+    description:
+      "Taxpayers paid £963 for a business dinner for Dunfermline MP Graeme Downie, the biggest such bill of any UK MP. In 2025/26 he cost £410,253, the most in the UK.",
+    standfirst:
+      "Taxpayers paid £963 for a business dinner for Dunfermline MP Graeme Downie. Fife College hosted it in March 2025. No MP in the UK has put a bigger single food or drink bill on expenses in five years. And in 2025/26, no MP in the UK cost you more: £410,253.",
+    date: "2026-11-22",
+    updated: "2026-11-22",
+    checked: "2026-11-22",
+    category: "politics-explained",
+    tags: ["MP expenses Scotland", "Graeme Downie", "Dunfermline", "Fife", "IPSA", "Scottish Labour"],
+    readingMinutes: 5,
+    image: {
+      src: "/images/editorial/scottish-mp-expenses-and-freebies.webp",
+      alt: "VIP hospitality passes, passport with boarding passes, champagne flute and financial ledgers on a dark leather desk beside a rainy window",
+      caption:
+        "Checked across five years of IPSA expense files (2022/23 to 2026/27) for all 650 UK MPs.",
+      aspect: "wide",
+      objectPosition: "center",
+    },
+    shareImage: {
+      src: "/images/editorial/scottish-mp-expenses-and-freebies.webp",
+      width: 1500,
+      height: 1000,
+      type: "image/webp",
+    },
+    toc: [
+      { id: "the-dinner", label: "The £963 dinner" },
+      { id: "uk-number-one", label: "Number one in the UK, five times over" },
+      { id: "staff-travel-and-more", label: "£31,098 for staff travel, and the rest" },
+      { id: "why-ipsa-paid", label: "Why IPSA paid it all" },
+    ],
+    faq: [
+      {
+        q: "What was Graeme Downie's £963 dinner?",
+        a: "IPSA's line says \"Fife College hosted business dinner on behalf of Graeme Downie\". It is dated 13 March 2025 and cost £962.65 from his office budget. The file does not say who came or why. £0 has been paid back.",
+      },
+      {
+        q: "Is Graeme Downie the most expensive MP in the UK?",
+        a: "In 2025/26, yes. IPSA's figures show he cost £410,253 with staff, and £151,954 not counting staff wages. Both are the highest of all 650 MPs.",
+      },
+      {
+        q: "How much did his London flat and travel cost?",
+        a: "£84,992 in 2025/26, the most of any UK MP. That was £43,805 for his London flat, £39,216 for his own travel (including £29,820 on flights) and £1,972 for family travel.",
+      },
+    ],
+    sourceIds: ["ipsa-claims-2022-2027", "ipsa-annual-2025-26", "uk-parliament-register-interests-2026"],
+  },
+  {
     slug: "scottish-mp-msp-expenses-what-it-could-buy",
     title:
       "£6.65 million a year on flats, flights, leaflets and perks: how Scottish MPs and MSPs burn more than Glasgow, Edinburgh and Dundee's Crisis Grant budgets combined",
@@ -437,12 +899,12 @@ export const posts: Post[] = [
   {
     slug: "worst-scottish-mp-expenses",
     title:
-      "£23,437 for electricity, £3,090 for broadband and £546 to clean drains: the worst Scottish MP expenses",
+      "The Scottish MP expenses scandal: £23,437 for power, £3,090 broadband and a Christmas lunch you paid for",
     seoTitle: "Worst Scottish MP Expenses: £3,090 Broadband, Speech Coach & More",
     description:
       "£3,090 to set up home broadband, £3,000 for a speech coach, £13,117 for a glossy report about the MP. The worst Scottish MP expenses, all paid by you.",
     standfirst:
-      "We went through all 21,017 expense lines filed by Scotland's MPs from 2022/23 to 2026/27. Here are the claims that made us stop and read them twice. Every one was approved. Every one was paid by you.",
+      "We read all 20,879 expense claims by Scotland's MPs since 2022. These are the worst. IPSA paid every one. You paid for every one.",
     date: "2026-11-21",
     updated: "2026-11-21",
     checked: "2026-11-21",
@@ -466,15 +928,17 @@ export const posts: Post[] = [
     toc: [
       { id: "power-bill", label: "£23,437 for power in one day" },
       { id: "broadband", label: "£3,090 to set up broadband" },
-      { id: "speech-coach", label: "A speech coach and drain cleaning" },
+      { id: "speech-coach", label: "Speech coaches and coaching" },
+      { id: "perks", label: "Dinners and a Christmas lunch" },
       { id: "self-promotion", label: "Paying to promote themselves" },
-      { id: "consultants", label: "Consultants and PR firms" },
       { id: "tv-licences", label: "29 MPs' TV licences" },
-      { id: "phones", label: "A £24,530 phone tab and gadgets" },
-      { id: "perks", label: "Dinners, a Christmas lunch, sofas and a column" },
-      { id: "second-homes", label: "Second homes, paid for by you" },
-      { id: "repeat-names", label: "The names that keep coming up" },
+      { id: "phones", label: "iPhones and a £24,530 phone tab" },
+      { id: "furniture", label: "Sofas, IKEA and new carpet" },
+      { id: "consultants", label: "Consultants and PR firms" },
+      { id: "hotel-nights", label: "295 London hotel nights" },
+      { id: "biggest-tabs", label: "The biggest yearly tabs" },
       { id: "why-hidden", label: "Why you've never heard about this" },
+      { id: "check-your-mp", label: "Check your own MP" },
     ],
     faq: [
       {
@@ -487,7 +951,7 @@ export const posts: Post[] = [
       },
       {
         q: "Where do these figures come from?",
-        a: "From IPSA's own published claim files for 2022/23 to 2026/27. We read all 21,017 lines filed by Scotland's current MPs. Descriptions in quotes are IPSA's own wording.",
+        a: "From IPSA's own published claim files for 2022/23 to 2026/27. We read all 20,879 claims filed by Scotland's current MPs. Descriptions in quotes are IPSA's own wording.",
       },
     ],
     sourceIds: [
@@ -499,13 +963,13 @@ export const posts: Post[] = [
   {
     slug: "scottish-mp-expenses-and-freebies-investigation",
     title:
-      "£81,647 for second home council tax, £37,359 for hotel rooms and free F1 tickets: inside Scottish MPs' 2025/26 expenses and freebies",
+      "F1 tickets, Qatar trips and £205,242 from donors: the freebies Scottish MPs declared",
     seoTitle:
-      "Scottish MP Expenses & Freebies Investigation: 2nd Home Bills, Hotels & Qatar Trips",
+      "Scottish MP Freebies: F1 Tickets, Qatar Trips & Donor Cash",
     description:
-      "47 Scottish MPs billed taxpayers £81,647 for 2nd home council tax and £39,218 for energy bills on top of £93,904 salaries, plus £37k on hotels and Qatar trips.",
+      "Scotland's MPs declared £296,895 in gifts, VIP tickets, foreign trips and donations, on top of £93,904 salaries. F1 tickets, Qatar trips and £205,242 from donors.",
     standfirst:
-      "Scottish MPs were paid £93,904 in 2025/26. On top, they billed taxpayers £81,647 for council tax on their second homes and £37,359 for one MP's London hotels. They also declared F1 tickets, Qatar and China trips and other gifts worth £296,895.",
+      "MPs were paid £93,904 in 2025/26. On top, firms, donors and foreign governments gave Scotland's MPs £296,895 in gifts, VIP tickets, trips and donations. Here are the names.",
     date: "2026-11-21",
     updated: "2026-11-21",
     checked: "2026-11-21",
@@ -524,7 +988,7 @@ export const posts: Post[] = [
       src: "/images/editorial/scottish-mp-expenses-and-freebies.webp",
       alt: "VIP hospitality passes, passport with boarding passes, champagne flute and financial ledgers on a dark leather desk beside a rainy window",
       caption:
-        "Scottish MPs billed £5.21m for their own costs in 2025/26 (£18.32m with staff wages), and declared £296,895 in gifts, trips and donations.",
+        "Scotland's MPs declared £296,895 in gifts, VIP tickets, trips abroad and donations on Parliament's Register of Interests.",
       aspect: "wide",
       objectPosition: "center",
     },
@@ -535,29 +999,26 @@ export const posts: Post[] = [
       type: "image/webp",
     },
     toc: [
-      { id: "flats-and-hotels", label: "£3,500/month flats & a £37,359 hotel tab" },
-      { id: "voting-against-help", label: "Voting against child support while claiming £523k" },
       { id: "freebies", label: "F1, golf and football tickets" },
-      { id: "second-home-bills", label: "£81,647 for 2nd home council tax & £39k for heating" },
-      { id: "family-parking-taxis", label: "£7,932 family flights, £6,292 parking & £5,059 taxis" },
-      { id: "remote-voting-and-carbon", label: "152 sitting days, remote voting & £912k in flights" },
+      { id: "voting-against-help", label: "Voting against child support while claiming £523k" },
+      { id: "foreign-trips", label: "Free trips abroad" },
+      { id: "donations", label: "£205,242 from donors" },
       { id: "party-tally", label: "The Party Tally: Labour vs SNP vs Tories vs Lib Dems" },
-      { id: "buried-receipts", label: "More receipts" },
-      { id: "top-10-table", label: "Top 10 highest claiming Scottish MPs" },
-      { id: "ask-your-mp", label: "Put the receipts to your own MP" },
+      { id: "expense-claims", label: "The expense claims" },
+      { id: "ask-your-mp", label: "Put it to your own MP" },
     ],
     faq: [
       {
-        q: "How much did Scottish MPs claim in taxpayer expenses in 2025/26?",
-        a: "Scotland's MPs claimed £18.32m in total expenses and staffing costs. Leaving out staff costs (£13.11m), they claimed £5.21m for their own London flats, second home council tax, energy bills, hotels, flights, parking, taxis, family travel and offices.",
+        q: "How much did Scottish MPs get in gifts, trips and donations?",
+        a: "Scotland's MPs declared £296,895 in gifts, VIP tickets, trips abroad and donations on Parliament's Register of Interests. £205,242 of that came from donors.",
       },
       {
-        q: "Which Scottish MPs claimed the most for second home council tax and energy bills?",
-        a: "47 Scottish MPs billed £81,647 for second home council tax in 2025/26, led by Douglas Alexander (£4,093), Gregor Poynton (£3,630), Melanie Ward (£3,303) and Richard Baker (£2,939). 38 MPs billed £39,218 for second home energy and water, led by Angus MacDonald (£3,314) and Ian Murray (£3,197).",
+        q: "Which Scottish MP got the biggest free gift?",
+        a: "Dave Doogan declared two free tickets to the F1 Sprint Race at Silverstone, with hospitality, worth £1,860. It is the biggest single gift any Scottish MP has on the Register.",
       },
       {
-        q: "Which party claimed the most in second home council tax, London hotels and foreign trips?",
-        a: "Scottish Labour holds 37 of Scotland's 57 seats (65%), yet its MPs accounted for 73% of all second home council tax billed to taxpayers (£59,231), 75% of all funded foreign trips (£57,288), and £105,589 in private donations.",
+        q: "Which party took the most in gifts, trips and donations?",
+        a: "Scottish Labour MPs took £169,931 in all: £105,589 from donors, £57,288 for 19 trips abroad and £7,054 in gifts. Labour holds 37 of Scotland's 57 seats.",
       },
     ],
     sourceIds: [

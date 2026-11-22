@@ -55,6 +55,19 @@ function Finding({ n, id, children }: { n: number; id: string; children: ReactNo
   );
 }
 
+/** Other MPs with their own local story page, linked near the end. */
+const MORE_LOCAL_STORIES: { name: string; seat: string; place: string; hook: string; story: string }[] = [
+  { name: "Pamela Nash", seat: "motherwell-wishaw-and-carluke", place: "Motherwell", hook: "£7,542 on DFS, IKEA and a new carpet", story: "/blog/pamela-nash-mp-furniture-expenses-motherwell" },
+  { name: "Euan Stainbank", seat: "falkirk", place: "Falkirk", hook: "£3,300 for a billboard of himself", story: "/blog/euan-stainbank-mp-billboard-expenses-falkirk" },
+  { name: "Chris Law", seat: "dundee-central", place: "Dundee", hook: "£3,090 to set up home broadband", story: "/blog/chris-law-mp-3090-broadband-expenses-dundee" },
+  { name: "Angus MacDonald", seat: "inverness-skye-and-west-ross-shire", place: "Inverness and Skye", hook: "£3,000 speech coach and £546 drains", story: "/blog/angus-macdonald-mp-speech-coach-drains-expenses" },
+  { name: "Torcuil Crichton", seat: "na-h-eileanan-an-iar", place: "Western Isles", hook: "£2,400 coaching from a former IPSA worker", story: "/blog/torcuil-crichton-mp-coaching-expenses-western-isles" },
+  { name: "John Lamont", seat: "berwickshire-roxburgh-and-selkirk", place: "Borders", hook: "Two iPhones on expenses", story: "/blog/john-lamont-mp-iphone-expenses-borders" },
+  { name: "Graeme Downie", seat: "dunfermline-and-dollar", place: "Dunfermline", hook: "£963 for one business dinner", story: "/blog/graeme-downie-mp-dinner-expenses-dunfermline" },
+  { name: "Gregor Poynton", seat: "livingston", place: "Livingston", hook: "Four TV licences in 11 months", story: "/blog/gregor-poynton-mp-four-tv-licences-livingston" },
+  { name: "Christine Jardine", seat: "edinburgh-west", place: "Edinburgh West", hook: "£510 Christmas lunch and team day", story: "/blog/christine-jardine-mp-christmas-lunch-expenses" },
+];
+
 /* ------------------------------------------------------------------ */
 /* Data                                                                */
 /* ------------------------------------------------------------------ */
@@ -464,10 +477,40 @@ export default function KilmarnockMp23437ElectricityBill() {
           <Link href="/blog/worst-scottish-mp-expenses">£3,090 to set up 5G broadband</Link>,
           <strong>£24,530 on one MP&apos;s phone bills</strong>, and{" "}
           <strong>£37,359 on London hotels</strong>. See{" "}
-          <Link href="/mp-expenses-scotland/receipts">the oddest claims</Link> or compare{" "}
+          <Link href="/blog/worst-scottish-mp-expenses">the worst claims</Link> or compare{" "}
           <Link href="/mp-expenses-scotland">all 57 Scottish MPs</Link>.
         </p>
       </Aside>
+
+      <section aria-labelledby="more-local-stories" className="not-prose my-10">
+        <h2
+          id="more-local-stories"
+          className="ui text-[20px] font-[700] leading-[1.25] text-[var(--ink)] sm:text-[22px]"
+        >
+          More local MP stories
+        </h2>
+        <p className="ui mt-1 text-[15px] leading-[1.5] text-[var(--muted)]">
+          One MP, one town, one bill. Is yours here?
+        </p>
+        <ul className="mt-4 divide-y divide-[var(--rule)] rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] px-4 sm:px-5">
+          {MORE_LOCAL_STORIES.map((s) => (
+            <li key={s.story} className="flex items-center gap-3 py-3.5">
+              <Face name={s.name} href={mp(s.seat)} size={44} />
+              <div className="min-w-0 flex-1">
+                <Link href={s.story} className="ui text-[16px] font-[660] leading-[1.35]">
+                  {s.hook} →
+                </Link>
+                <p className="ui mt-0.5 text-[13.5px] leading-[1.4] text-[var(--muted)]">
+                  <Link href={mp(s.seat)} className="text-[var(--muted)]">
+                    {s.name}
+                  </Link>{" "}
+                  · {s.place}
+                </p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </section>
 
       <PostCTA
         title="See both Yu Energy claims (or check your own MP)"

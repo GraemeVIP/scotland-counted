@@ -273,7 +273,7 @@ export const HUBS: Hub[] = [
           { href: "/representatives", label: "All 57 MPs" },
           { href: "/mp-expenses-scotland", label: "MP expenses and donations", tag: "New" },
           { href: "/mp-expenses-scotland/search", label: "Search all 20,879 MP receipts", tag: "Tool" },
-          { href: "/mp-expenses-scotland/receipts", label: "MP expenses: the receipts", tag: "New" },
+          { href: "/blog/worst-scottish-mp-expenses", label: "MP expenses: the scandal", tag: "New" },
         ],
       },
       {

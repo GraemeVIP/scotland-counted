@@ -85,7 +85,7 @@ export default function MpReceiptsSearchPage() {
               <Link href="/blog/msp-expenses-scotland-investigation" className="btn btn-ghost">
                 Holyrood MSP Party Tally →
               </Link>
-              <Link href="/mp-expenses-scotland/receipts" className="btn btn-ghost">
+              <Link href="/blog/worst-scottish-mp-expenses" className="btn btn-ghost">
                 Top bills →
               </Link>
               <Link href="/mp-expenses-scotland" className="btn btn-ghost">

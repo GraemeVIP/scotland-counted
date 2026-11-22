@@ -21,7 +21,7 @@ import FindMpClaims from "@/components/FindMpClaims";
 import MpLondonTable from "@/components/MpLondonTable";
 import { LONDON_RECORD, londonTableRows } from "@/lib/data/mpLondonRecord";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import { Tiles, Spotlight } from "@/components/ExpenseKit";
+import { Tiles, Spotlight, Face } from "@/components/ExpenseKit";
 
 const HERO_IMAGE = {
   src: "/images/editorial/mp-expenses-scotland-hub.webp",
@@ -67,12 +67,15 @@ type SpotlightEntry = {
   /** One short line for the folded list under the top three cards. */
   oneLine: string;
   emailReason: string;
+  /** The MP's own local story page, when they have one. */
+  story?: string;
 };
 
 /** The three cards shown in full at the top. */
 const SPOTLIGHT_LEADERS: SpotlightEntry[] = [
   {
     slug: "kilmarnock-and-loudoun",
+    story: "/blog/kilmarnock-mp-23437-electricity-bill",
     badge: "UK #1 Power Bill (£23,437 in One Day)",
     headlineStat: "£23,437",
     headlineLabel: "paid to Yu Energy on one day (more than a year's office rent)",
@@ -86,6 +89,7 @@ const SPOTLIGHT_LEADERS: SpotlightEntry[] = [
   },
   {
     slug: "dunfermline-and-dollar",
+    story: "/blog/graeme-downie-mp-dinner-expenses-dunfermline",
     badge: "#1 Highest Expenses in Scotland",
     headlineStat: "£151,954",
     headlineLabel: "billed in 2025/26, not counting staff wages (£410,253 with staff wages)",
@@ -128,6 +132,7 @@ const MORE_SPOTLIGHT_LEADERS: SpotlightEntry[] = [
   },
   {
     slug: "dundee-central",
+    story: "/blog/chris-law-mp-3090-broadband-expenses-dundee",
     badge: "#1 Car Parking (£6,292) + £3,090 Broadband",
     headlineStat: "£129,066",
     headlineLabel: "in everyday bills in 2025/26, not counting staff wages (£121 a week just to park)",
@@ -154,6 +159,7 @@ const MORE_SPOTLIGHT_LEADERS: SpotlightEntry[] = [
   },
   {
     slug: "livingston",
+    story: "/blog/gregor-poynton-mp-four-tv-licences-livingston",
     badge: "#1 Taxi Tab (£5,059) + 4 TV Licences in a Year",
     headlineStat: "£115,008",
     headlineLabel: "in rent, travel, taxis & £3,630 council tax (2025/26)",
@@ -201,6 +207,72 @@ const MORE_SPOTLIGHT_LEADERS: SpotlightEntry[] = [
     oneLine: "**£2,561 for each of the 19 days she spoke**, and **a perk from her husband's firm**.",
     emailReason:
       "claiming £85,563.46 in non-staff expenses (including £31,366 flat rent and £3,941 family flights) while speaking on 19 days and accepting £2,400 of free media training from your lobbyist husband's own firm",
+  },
+];
+
+/** MP by MP: each of these MPs now has their own local story page. */
+type LocalStory = { slug: string; stat: string; line: string; story: string };
+
+const LOCAL_STORIES: LocalStory[] = [
+  {
+    slug: "kilmarnock-and-loudoun",
+    stat: "£23,437",
+    line: "Paid for power on one day. The biggest MP power bill in the UK.",
+    story: "/blog/kilmarnock-mp-23437-electricity-bill",
+  },
+  {
+    slug: "motherwell-wishaw-and-carluke",
+    stat: "£7,542",
+    line: "DFS, IKEA, a new carpet and office works. Three bills in the last week of the budget year.",
+    story: "/blog/pamela-nash-mp-furniture-expenses-motherwell",
+  },
+  {
+    slug: "falkirk",
+    stat: "£3,300",
+    line: "A year long advertising board with his own name on it.",
+    story: "/blog/euan-stainbank-mp-billboard-expenses-falkirk",
+  },
+  {
+    slug: "dundee-central",
+    stat: "£3,090",
+    line: "Just to set up 5G home broadband. It is a box you plug in.",
+    story: "/blog/chris-law-mp-3090-broadband-expenses-dundee",
+  },
+  {
+    slug: "inverness-skye-and-west-ross-shire",
+    stat: "£3,000",
+    line: "One speech skills workshop. Plus £546 to clean drains.",
+    story: "/blog/angus-macdonald-mp-speech-coach-drains-expenses",
+  },
+  {
+    slug: "na-h-eileanan-an-iar",
+    stat: "£2,400",
+    line: "Coaching from a former IPSA worker. 12 MPs paid her firm £16,800.",
+    story: "/blog/torcuil-crichton-mp-coaching-expenses-western-isles",
+  },
+  {
+    slug: "berwickshire-roxburgh-and-selkirk",
+    stat: "£2,346",
+    line: "Two iPhones in under three years.",
+    story: "/blog/john-lamont-mp-iphone-expenses-borders",
+  },
+  {
+    slug: "dunfermline-and-dollar",
+    stat: "£963",
+    line: "One business dinner, paid with public money.",
+    story: "/blog/graeme-downie-mp-dinner-expenses-dunfermline",
+  },
+  {
+    slug: "livingston",
+    stat: "£688",
+    line: "Four TV licences in 11 months.",
+    story: "/blog/gregor-poynton-mp-four-tv-licences-livingston",
+  },
+  {
+    slug: "edinburgh-west",
+    stat: "£510",
+    line: "Her office Christmas lunch and team day. One bill had the word \"training\" in it.",
+    story: "/blog/christine-jardine-mp-christmas-lunch-expenses",
   },
 ];
 
@@ -343,6 +415,14 @@ function renderSpotlightCard(card: SpotlightEntry) {
       </ExplainText>
 
       <div className="flex flex-col gap-2 border-t border-[var(--rule)] bg-[var(--surface-2)] px-5 py-4">
+        {card.story && (
+          <Link
+            href={card.story}
+            className="btn btn-ghost w-full justify-center text-center text-[14.5px]"
+          >
+            Read the full story →
+          </Link>
+        )}
         <a
           href={mailto}
           className="btn btn-primary w-full justify-center text-center text-[14.5px]"
@@ -384,7 +464,49 @@ function renderSpotlightRow(card: SpotlightEntry) {
         <p className="mt-1 text-[15px] leading-[1.45] text-[var(--ink-2)]">
           <ExplainText>{boldParts(card.oneLine)}</ExplainText>
         </p>
+        {card.story && (
+          <Link
+            href={card.story}
+            className="ui mt-1 inline-block text-[14px] font-[640] text-[var(--action-text)] no-underline hover:underline"
+          >
+            Read the full story →
+          </Link>
+        )}
       </div>
+    </li>
+  );
+}
+
+/** MP by MP card: face, name, seat, the one number, one line, and the story link. */
+function renderLocalStory(s: LocalStory) {
+  const mp = mps.find((m) => m.constituencySlug === s.slug);
+  if (!mp) return null;
+  const profile = `/representatives/mps/${mp.constituencySlug}#donations-and-interests`;
+  return (
+    <li key={s.slug} className="tile flex flex-col p-5">
+      <div className="flex items-center gap-3">
+        <Face name={mp.name} href={profile} size={48} />
+        <div className="min-w-0">
+          <p className="ui text-[16.5px] font-[680] leading-[1.25]">
+            <Link href={profile} className="text-[var(--ink)] no-underline hover:underline">
+              {mp.name.replace(/^Mr |^Dr /, "")}
+            </Link>
+          </p>
+          <p className="ui mt-0.5 text-[13px] leading-[1.35] text-[var(--muted)]">
+            {shortParty(mp.party)} · {mp.constituency}
+          </p>
+        </div>
+      </div>
+      <p className="figure-num tnum mt-4 text-[34px] leading-none text-[var(--bad-text)]">{s.stat}</p>
+      <p className="mt-2 flex-1 text-[15px] leading-[1.45] text-[var(--ink-2)]">
+        <ExplainText>{s.line}</ExplainText>
+      </p>
+      <Link
+        href={s.story}
+        className="ui mt-4 text-[14.5px] font-[660] text-[var(--action-text)] no-underline hover:underline"
+      >
+        Read the full story →
+      </Link>
     </li>
   );
 }
@@ -540,7 +662,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
         49 MPs claimed <strong>£1.38 million</strong> for London flat rent (up to{" "}
         <strong>£42,000 a year</strong>). Eight claimed <strong>£45,615</strong> for London hotels
         (up to <strong>£37,359</strong> for Dr Zubir Ahmed,{" "}
-        <Link href="/mp-expenses-scotland/receipts#hotel-nights">night by night</Link>). Ten took{" "}
+        <Link href="/blog/worst-scottish-mp-expenses#hotel-nights">night by night</Link>). Ten took{" "}
         <strong>£205,242</strong> from donors.
       </>,
       <>
@@ -677,6 +799,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
 
   const JUMP_LINKS = [
     { href: "#top-claimants", label: "Worst offenders" },
+    { href: "#mp-by-mp", label: "MP by MP" },
     { href: "#leaderboard", label: "All 57 MPs" },
     { href: "#party-tally", label: "By party" },
     { href: "#london-record", label: "152 sitting days" },
@@ -773,8 +896,8 @@ export default function MpRegisterOfInterestsScotlandPage() {
             <Link href="/mp-expenses-scotland/search" className="btn btn-primary">
               Search all 20,879 receipts →
             </Link>
-            <Link href="/mp-expenses-scotland/receipts" className="btn btn-ghost">
-              The strangest receipts →
+            <Link href="/blog/worst-scottish-mp-expenses" className="btn btn-ghost">
+              The worst claims →
             </Link>
           </div>
           <p className="ui mt-4 text-[15px] leading-[1.5] text-[var(--ink-2)]">
@@ -861,6 +984,23 @@ export default function MpRegisterOfInterestsScotlandPage() {
           </details>
         </ContentFrame>
 
+        {/* MP BY MP: ONE LOCAL STORY PAGE PER MP */}
+        <ContentFrame as="section" id="mp-by-mp" className="pt-12">
+          <SectionHead
+            eyebrow="MP by MP · One MP, one town, one bill"
+            title="Read the full story on each MP"
+          />
+          <p className="mt-2 max-w-[66ch] text-[16.5px] leading-[1.55] text-[var(--ink-2)]">
+            <ExplainText>
+              Each of these MPs has their own page. It shows the receipt, what else they billed,
+              and how it compares with all 650 MPs.
+            </ExplainText>
+          </p>
+          <ul className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-5">
+            {LOCAL_STORIES.map((s) => renderLocalStory(s))}
+          </ul>
+        </ContentFrame>
+
         {/* THE WORST SINGLE CLAIMS: BIG AND BOLD, NOT BURIED */}
         <ContentFrame as="section" id="you-paid-for" className="pt-12">
           <SectionHead
@@ -881,6 +1021,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
               ]}
             >
               <p>Speaking is the job. Taxpayers paid £3,000 for lessons in how to do it.</p>
+              <p><Link href="/blog/angus-macdonald-mp-speech-coach-drains-expenses" className="font-[660] text-[#8bb8ff] underline underline-offset-4">Read the full story →</Link></p>
             </Spotlight>
 
             <Spotlight
@@ -896,6 +1037,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
               ]}
             >
               <p>Three of these bills went in during the last week of the budget year. Taxpayers paid.</p>
+              <p><Link href="/blog/pamela-nash-mp-furniture-expenses-motherwell" className="font-[660] text-[#8bb8ff] underline underline-offset-4">Read the full story →</Link></p>
             </Spotlight>
 
             <Spotlight
@@ -909,6 +1051,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
               ]}
             >
               <p>Two iPhones in under three years, £2,346 in all. Taxpayers paid for both.</p>
+              <p><Link href="/blog/john-lamont-mp-iphone-expenses-borders" className="font-[660] text-[#8bb8ff] underline underline-offset-4">Read the full story →</Link></p>
             </Spotlight>
 
             <Spotlight
@@ -921,6 +1064,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
               ]}
             >
               <p>One dinner, nearly £1,000 of public money.</p>
+              <p><Link href="/blog/graeme-downie-mp-dinner-expenses-dunfermline" className="font-[660] text-[#8bb8ff] underline underline-offset-4">Read the full story →</Link></p>
             </Spotlight>
           </div>
 
@@ -933,7 +1077,8 @@ export default function MpRegisterOfInterestsScotlandPage() {
                 <strong className="text-[var(--ink)]">£546 to jet wash and clean drains</strong>,{" "}
                 <strong className="text-[var(--ink)]">£939 in flat fees</strong> and{" "}
                 <strong className="text-[var(--ink)]">£746 for home cover</strong>.{" "}
-                <Link href="/representatives/mps/inverness-skye-and-west-ross-shire#donations-and-interests" className="font-[640]">Angus MacDonald</Link>, Lib Dem.
+                <Link href="/representatives/mps/inverness-skye-and-west-ross-shire#donations-and-interests" className="font-[640]">Angus MacDonald</Link>, Lib Dem.{" "}
+                <Link href="/blog/angus-macdonald-mp-speech-coach-drains-expenses" className="font-[640]">Full story →</Link>
               </li>
               <li>
                 <strong className="text-[var(--ink)]">£4,093 second home council tax</strong>,{" "}
@@ -1002,7 +1147,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
                 {
                   stat: "£10,000",
                   label: "Unnamed consultant, £3,090 broadband setup & £3k speech coach",
-                  href: "/mp-expenses-scotland/receipts",
+                  href: "/blog/worst-scottish-mp-expenses",
                 },
               ].map((item) => (
                 <Link

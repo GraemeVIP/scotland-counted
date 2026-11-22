@@ -59,6 +59,15 @@ import ScottishMpExpensesAndFreebiesInvestigation from "./scottish-mp-expenses-a
 import WorstScottishMpExpenses from "./worst-scottish-mp-expenses";
 import ScottishMpsTvLicenceExpenses from "./scottish-mps-tv-licence-expenses";
 import KilmarnockMp23437ElectricityBill from "./kilmarnock-mp-23437-electricity-bill";
+import TorcuilCrichtonMpCoachingExpensesWesternIsles from "./torcuil-crichton-mp-coaching-expenses-western-isles";
+import ChristineJardineMpChristmasLunchExpenses from "./christine-jardine-mp-christmas-lunch-expenses";
+import GregorPoyntonMpFourTvLicencesLivingston from "./gregor-poynton-mp-four-tv-licences-livingston";
+import EuanStainbankMpBillboardExpensesFalkirk from "./euan-stainbank-mp-billboard-expenses-falkirk";
+import ChrisLawMp3090BroadbandExpensesDundee from "./chris-law-mp-3090-broadband-expenses-dundee";
+import AngusMacdonaldMpSpeechCoachDrainsExpenses from "./angus-macdonald-mp-speech-coach-drains-expenses";
+import PamelaNashMpFurnitureExpensesMotherwell from "./pamela-nash-mp-furniture-expenses-motherwell";
+import JohnLamontMpIphoneExpensesBorders from "./john-lamont-mp-iphone-expenses-borders";
+import GraemeDownieMpDinnerExpensesDunfermline from "./graeme-downie-mp-dinner-expenses-dunfermline";
 import ScottishMpsLondonHomes152SittingDays from "./scottish-mps-london-homes-152-sitting-days";
 import MspExpensesScotlandInvestigation from "./msp-expenses-scotland-investigation";
 import ScottishMpMspExpensesWhatItCouldBuy from "./scottish-mp-msp-expenses-what-it-could-buy";
@@ -73,6 +82,15 @@ export const postBodies: Record<string, ComponentType> = {
   "msp-expenses-scotland-investigation": MspExpensesScotlandInvestigation,
   "scottish-mps-london-homes-152-sitting-days": ScottishMpsLondonHomes152SittingDays,
   "kilmarnock-mp-23437-electricity-bill": KilmarnockMp23437ElectricityBill,
+  "torcuil-crichton-mp-coaching-expenses-western-isles": TorcuilCrichtonMpCoachingExpensesWesternIsles,
+  "christine-jardine-mp-christmas-lunch-expenses": ChristineJardineMpChristmasLunchExpenses,
+  "gregor-poynton-mp-four-tv-licences-livingston": GregorPoyntonMpFourTvLicencesLivingston,
+  "euan-stainbank-mp-billboard-expenses-falkirk": EuanStainbankMpBillboardExpensesFalkirk,
+  "chris-law-mp-3090-broadband-expenses-dundee": ChrisLawMp3090BroadbandExpensesDundee,
+  "angus-macdonald-mp-speech-coach-drains-expenses": AngusMacdonaldMpSpeechCoachDrainsExpenses,
+  "pamela-nash-mp-furniture-expenses-motherwell": PamelaNashMpFurnitureExpensesMotherwell,
+  "john-lamont-mp-iphone-expenses-borders": JohnLamontMpIphoneExpensesBorders,
+  "graeme-downie-mp-dinner-expenses-dunfermline": GraemeDownieMpDinnerExpensesDunfermline,
   "scottish-mps-tv-licence-expenses": ScottishMpsTvLicenceExpenses,
   "worst-scottish-mp-expenses": WorstScottishMpExpenses,
   "scottish-mp-expenses-and-freebies-investigation": ScottishMpExpensesAndFreebiesInvestigation,

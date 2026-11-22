@@ -211,7 +211,7 @@ export default function Home() {
                 <Link href="/blog/scottish-mps-london-homes-152-sitting-days" className="font-[600] text-white">£2.91m London shuttle (152 days) →</Link>
                 <Link href="/blog/kilmarnock-mp-23437-electricity-bill" className="font-[600] text-white">£23,437 power bill (UK #1) →</Link>
                 <Link href="/blog/scottish-mps-tv-licence-expenses" className="font-[600] text-white">29 MPs&apos; TV licences →</Link>
-                <Link href="/mp-expenses-scotland/receipts" className="font-[600] text-white">The receipts →</Link>
+                <Link href="/blog/worst-scottish-mp-expenses" className="font-[600] text-white">The receipts →</Link>
                 <Link href="/mp-expenses-scotland" className="font-[600] text-white">All 57 MPs ranked →</Link>
               </p>
             </div>

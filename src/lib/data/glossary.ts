@@ -922,6 +922,56 @@ export const terms: Term[] = [
     tech: "The rules can apply even without an intention to prejudice the case. Current court orders and case status must be checked before publication.",
   },
   {
+    id: "ofcom",
+    term: "Ofcom",
+    def: "The UK body that keeps an eye on phone, internet and TV companies, and publishes what services normally cost.",
+  },
+  {
+    id: "superfast-broadband",
+    term: "Superfast broadband",
+    def: "Home internet that runs at 30 megabits a second or faster. That is quick enough for a family to stream TV and make video calls at the same time.",
+  },
+  {
+    id: "staff-budget",
+    term: "Staff budget",
+    def: "The money each MP gets to pay the people who answer letters and help local people with their problems.",
+  },
+  {
+    id: "service-charge",
+    term: "Service charge",
+    def: "A yearly fee flat owners or renters pay to the building's managers for repairs, cleaning and shared areas.",
+  },
+  {
+    id: "surgery",
+    term: "Surgery",
+    def: "A drop in session where local people can meet their MP face to face and ask for help.",
+  },
+  {
+    id: "shadow-deputy-leader-of-the-house",
+    term: "Shadow Deputy Leader of the House",
+    def: "A senior job in the main opposition party. It helps plan what the Commons talks about and challenges the government on it.",
+  },
+  {
+    id: "staff-travel",
+    term: "Staff travel",
+    def: "Trips made by an MP's staff for work, such as flights, trains and hotels. Taxpayers pay for these on top of the MP's own travel.",
+  },
+  {
+    id: "office-hospitality",
+    term: "Office hospitality",
+    def: "Food, drink or events an MP pays for out of their office budget, so the public picks up the bill.",
+  },
+  {
+    id: "revolving-door",
+    term: "Revolving door",
+    def: "When someone leaves a job inside a system, then gets paid by the people that system deals with. For example, leaving the body that pays MPs' expenses and then selling services to MPs.",
+  },
+  {
+    id: "budget-year",
+    term: "Budget year",
+    def: "The money year IPSA uses for MPs' expenses. It runs from 1 April to 31 March, so a bill from March counts in the year before.",
+  },
+  {
     id: "ipsa",
     term: "IPSA",
     def: "The official watchdog that pays MPs' wages and checks their expense claims. It stands for the Independent Parliamentary Standards Authority and was set up after the 2009 MPs' expenses scandal.",

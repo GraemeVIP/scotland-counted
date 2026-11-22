@@ -106,13 +106,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       images: [`${site.url}/images/editorial/mp-expenses-scotland-hub.webp`],
     },
     {
-      url: `${site.url}/mp-expenses-scotland/receipts`,
-      changeFrequency: "monthly",
-      priority: 0.9,
-      lastModified: spikeRelease,
-      images: [`${site.url}/images/editorial/mp-expenses-scotland-receipts.webp`],
-    },
-    {
       url: `${site.url}/mp-expenses-scotland/search`,
       changeFrequency: "monthly",
       priority: 0.9,

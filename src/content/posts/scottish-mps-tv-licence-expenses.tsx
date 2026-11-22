@@ -178,15 +178,14 @@ export default function ScottishMpsTvLicenceExpenses() {
             ))}
           </ol>
           <p className="mt-6 text-[17px] leading-[1.55] opacity-90">
-            IPSA, the body that pays MPs&apos; expenses with public money, only pays for a TV licence at
-            an MP&apos;s local office. His office also billed for a <strong>£228.97 TV</strong>, a{" "}
-            <strong>£30 aerial</strong> and a <strong>£40.79 TV stand</strong>. IPSA&apos;s files do
-            not say why he needed four, or which buildings they were for.
+            Total for the four licences: <strong>£688</strong>. IPSA, the body that pays MPs&apos;
+            expenses with public money, only pays for a TV licence at an MP&apos;s local office. Its
+            files do not say why he needed four, or which buildings they were for.
           </p>
-          <p className="mt-3 text-[17px] leading-[1.55] opacity-90">
-            Total for the four licences: <strong>£688</strong>. In 2025/26 you also paid{" "}
-            <strong>£5,059 for his taxis</strong>, the most of any Scottish MP, and{" "}
-            <strong>£3,630 of his second home council tax</strong>.
+          <p className="mt-3 text-[17px] leading-[1.55]">
+            <Link href="/blog/gregor-poynton-mp-four-tv-licences-livingston" className="font-[660] text-[#8bb8ff] underline underline-offset-4">
+              Read the full story →
+            </Link>
           </p>
         </div>
       </section>
@@ -326,12 +325,12 @@ export default function ScottishMpsTvLicenceExpenses() {
           { what: "team building event", amount: "£259.31" },
         ]}
       >
+        <p>A Christmas lunch, with the word &quot;training&quot; in it. Taxpayers paid.</p>
         <p>
-          Look at how it was filed: &quot;lunch staff team training Christmas&quot;. A Christmas lunch,
-          with the word &quot;training&quot; in it. IPSA, the body that pays MPs&apos; expenses with
-          public money, paid it in full.
+          <Link href="/blog/christine-jardine-mp-christmas-lunch-expenses" className="font-[660] text-[#8bb8ff] underline underline-offset-4">
+            Read the full story →
+          </Link>
         </p>
-        <p>Most people pay for their own work Christmas do, or their boss does. Here, taxpayers did.</p>
       </Spotlight>
 
       {/* ------------------------------------------------------------ 3 */}
@@ -400,7 +399,7 @@ export default function ScottishMpsTvLicenceExpenses() {
         <p>
           IPSA paid every one of these 84 claims. Its rules let MPs claim a TV licence for a local
           office. See <Link href="/mp-expenses-scotland">all 57 Scottish MPs ranked</Link> or{" "}
-          <Link href="/mp-expenses-scotland/receipts">the oddest claims</Link>.
+          <Link href="/blog/worst-scottish-mp-expenses">the worst claims</Link>.
         </p>
       </Aside>
 

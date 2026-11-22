@@ -213,6 +213,11 @@ export default function ScottishMpMspExpensesWhatItCouldBuy() {
         <p>
           One workshop on how to present and give speeches. <strong>Taxpayers paid all £3,000.</strong>
         </p>
+        <p>
+          <Link href="/blog/angus-macdonald-mp-speech-coach-drains-expenses" className="font-[660] text-[#8bb8ff] underline underline-offset-4">
+            Read the full story →
+          </Link>
+        </p>
       </Spotlight>
 
       <Spotlight
@@ -281,7 +286,8 @@ export default function ScottishMpMspExpensesWhatItCouldBuy() {
         </p>
         <p>
           Together they would pay <strong>1 new NHS nurse</strong> for a year (£32,073), with
-          £3,719 left.
+          £3,719 left.{" "}
+          <Link href="/blog/john-lamont-mp-iphone-expenses-borders">Read his full story →</Link>
         </p>
       </CaseCard>
 
