@@ -564,3 +564,76 @@ export function Expand({ summary, children }: { summary: string; children: React
     </details>
   );
 }
+
+/**
+ * A bold dark panel for the most outrageous single claims, so they cannot be
+ * missed while scrolling: face and linked name, the amount in big red, one
+ * plain line saying what taxpayers paid for, and IPSA's own wording.
+ */
+export function Spotlight({
+  person,
+  kicker,
+  amount,
+  headline,
+  lines,
+  children,
+}: {
+  person?: CasePerson;
+  /** Small caps line above the headline, e.g. the date. */
+  kicker?: string;
+  amount: string;
+  /** One short sentence: what the public paid for. */
+  headline: ReactNode;
+  /** IPSA's exact wording for each claim line. */
+  lines?: { what: string; amount: string; meta?: string }[];
+  children?: ReactNode;
+}) {
+  return (
+    <section className="not-prose my-10 overflow-hidden rounded-[var(--r-m)] bg-[#10141d] text-white shadow-[0_18px_40px_-24px_rgba(0,0,0,0.55)] ring-1 ring-[#ff4d4d]/40">
+      {person && (
+        <div className="flex items-center gap-3 border-b border-white/15 px-6 py-4 sm:px-8">
+          <Face name={person.name} href={person.href} size={44} />
+          <p className="ui text-[15px] font-[620] leading-[1.35]">
+            {person.href ? (
+              <Link href={person.href} className="text-white underline decoration-white/40 underline-offset-4">
+                {person.name}
+              </Link>
+            ) : (
+              person.name
+            )}
+            <span className="opacity-75">
+              {" "}
+              · {PARTY[person.p].label}
+              {person.place ? ` · ${person.place}` : ""}
+            </span>
+          </p>
+        </div>
+      )}
+      <div className="px-6 py-7 sm:px-8 sm:py-8">
+        {kicker && (
+          <p className="ui text-[13px] font-[660] uppercase tracking-[0.07em] opacity-75">{kicker}</p>
+        )}
+        <div className="mt-2 flex flex-wrap items-end gap-x-6 gap-y-2">
+          <p className="figure-num tnum text-[48px] leading-none text-[#ff5757] sm:text-[56px]">{amount}</p>
+          <p className="max-w-[30ch] pb-1 text-[22px] font-[700] leading-[1.2] sm:text-[26px]">{headline}</p>
+        </div>
+        {lines && lines.length > 0 && (
+          <ul className="mt-6 divide-y divide-white/10 rounded-[var(--r-s)] bg-white/[0.06] ring-1 ring-white/10">
+            {lines.map((l, i) => (
+              <li key={i} className="flex items-baseline justify-between gap-4 px-4 py-3">
+                <span className="min-w-0">
+                  {l.meta && <span className="ui block text-[13px] opacity-70">{l.meta}</span>}
+                  <span className="block font-[family-name:var(--font-mono)] text-[15px] leading-[1.45]">
+                    &ldquo;{l.what}&rdquo;
+                  </span>
+                </span>
+                <span className="tnum shrink-0 text-[16px] font-[650] text-[#ff5757]">{l.amount}</span>
+              </li>
+            ))}
+          </ul>
+        )}
+        {children && <div className="mt-5 space-y-3 text-[17px] leading-[1.55] opacity-90">{children}</div>}
+      </div>
+    </section>
+  );
+}

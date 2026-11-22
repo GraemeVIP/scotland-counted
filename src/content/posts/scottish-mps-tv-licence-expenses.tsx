@@ -14,6 +14,7 @@ import {
   RankList,
   CaseCard,
   Face,
+  Spotlight,
   Tiles,
   Expand,
 } from "@/components/ExpenseKit";
@@ -276,9 +277,24 @@ export default function ScottishMpsTvLicenceExpenses() {
       >
         <p>
           She claimed a TV licence every year from 2022/23 to May 2026, including the new £180 fee.
-          She also billed £510 for a staff Christmas lunch and team day.
         </p>
       </CaseCard>
+
+      <Spotlight
+        person={{ name: "Christine Jardine", href: mp("edinburgh-west"), p: "Lib Dem", place: "Edinburgh West" }}
+        kicker="19 December 2025 · six days before Christmas"
+        amount="£510"
+        headline="You paid for her office Christmas lunch and team day."
+        lines={[
+          { what: "lunch staff team training Christmas", amount: "£250.80" },
+          { what: "team building event", amount: "£259.31" },
+        ]}
+      >
+        <p>
+          Both bills went in on the same day. Most people pay for their own work Christmas do, or
+          their boss does. Here, taxpayers did.
+        </p>
+      </Spotlight>
 
       {/* ------------------------------------------------------------ 3 */}
       <Finding n={3} of={FINDINGS} id="party-breakdown">
