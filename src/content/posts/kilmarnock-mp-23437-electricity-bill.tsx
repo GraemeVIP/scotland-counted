@@ -22,6 +22,7 @@ import {
   RankList,
   Receipt,
   CaseCard,
+  Face,
   Tiles,
   PointList,
   Expand,
@@ -173,10 +174,6 @@ export default function KilmarnockMp23437ElectricityBill() {
             <strong>same firm</strong>. His office bill for June 2026 was <strong>£178.79</strong>.
           </>,
           <>
-            On <strong>10 September 2024</strong> she voted for Labour&apos;s cut to the Winter Fuel
-            Payment.
-          </>,
-          <>
             Equal to <strong>156</strong> Warm Home Discounts. <strong>£0</strong> has been paid back.
           </>,
         ]}
@@ -192,6 +189,41 @@ export default function KilmarnockMp23437ElectricityBill() {
           <strong>£3,052</strong> for 2026/27.
         </p>
       </CaseCard>
+
+      <section
+        aria-label="Her power bill and her Winter Fuel vote"
+        className="not-prose my-10 overflow-hidden rounded-[var(--r-m)] bg-[#10141d] text-white shadow-[0_18px_40px_-24px_rgba(0,0,0,0.55)] ring-1 ring-[#ff4d4d]/40"
+      >
+        <div className="flex items-center gap-3 border-b border-white/15 px-6 py-4 sm:px-8">
+          <Face name={JONES.name} href={JONES.href} size={44} />
+          <p className="ui text-[15px] font-[620] leading-[1.35]">
+            <Link href={JONES.href} className="text-white underline decoration-white/40 underline-offset-4">
+              Lillian Jones
+            </Link>
+            <span className="opacity-75"> · Labour MP for Kilmarnock and Loudoun</span>
+          </p>
+        </div>
+        <div className="grid sm:grid-cols-2">
+          <div className="border-b border-white/15 px-6 py-7 sm:border-b-0 sm:border-r sm:px-8 sm:py-9">
+            <p className="ui text-[13px] font-[660] uppercase tracking-[0.07em] opacity-75">
+              19 May 2026 · Her power bill
+            </p>
+            <p className="figure-num tnum mt-2 text-[54px] leading-none text-[#ff5757] sm:text-[62px]">£23,437</p>
+            <p className="mt-3 text-[19px] font-[600] leading-[1.4]">Paid by taxpayers. In one day.</p>
+          </div>
+          <div className="px-6 py-7 sm:px-8 sm:py-9">
+            <p className="ui text-[13px] font-[660] uppercase tracking-[0.07em] opacity-75">
+              10 September 2024 · Her vote
+            </p>
+            <p className="mt-2 text-[28px] font-[720] leading-[1.15] sm:text-[32px]">
+              She voted to cut the Winter Fuel Payment.
+            </p>
+            <p className="mt-3 text-[17px] leading-[1.5] opacity-85">
+              Millions of pensioners lost up to <strong>£300</strong> of help to heat their homes.
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* ------------------------------------------------------------ 1 */}
       <Finding n={1} id="the-receipts">
