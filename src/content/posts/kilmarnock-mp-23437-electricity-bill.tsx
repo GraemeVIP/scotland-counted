@@ -36,6 +36,13 @@ const JONES = {
   place: "Kilmarnock and Loudoun",
 };
 
+const MURRAY = {
+  name: "Chris Murray",
+  href: mp("edinburgh-east-and-musselburgh"),
+  p: "Labour" as PartyKey,
+  place: "Edinburgh East and Musselburgh",
+};
+
 const FINDINGS = 4;
 
 function Finding({ n, id, children }: { n: number; id: string; children: ReactNode }) {
@@ -53,6 +60,11 @@ function Finding({ n, id, children }: { n: number; id: string; children: ReactNo
 /** One day's payout against her own normal bills and rent, on one scale. */
 const SCALE: { what: string; value: number; label: string; hot?: boolean }[] = [
   { what: "Her London flat electricity bill (typical month)", value: 85, label: "£21 to £85" },
+  {
+    what: "Labour MP Chris Murray's office bill from the same firm, Yu Energy (June 2026)",
+    value: 178.79,
+    label: "£179",
+  },
   {
     what: "Her Kilmarnock office electricity for 5 winter months (Nov 2024 to Mar 2025)",
     value: 1074.15,
@@ -156,6 +168,10 @@ export default function KilmarnockMp23437ElectricityBill() {
             <strong>£6,587 more</strong> than a full year&apos;s rent on her Kilmarnock office.
           </>,
           <>
+            Fellow Labour MP <Link href={MURRAY.href}>Chris Murray</Link> uses the{" "}
+            <strong>same firm</strong>. His office bill for June 2026 was <strong>£178.79</strong>.
+          </>,
+          <>
             On <strong>10 September 2024</strong> she voted for Labour&apos;s cut to the Winter Fuel
             Payment.
           </>,
@@ -241,6 +257,31 @@ export default function KilmarnockMp23437ElectricityBill() {
           2025). Her London flat bills from Octopus ran from £21.57 to £85.01 a month. Her office
           rent for 2025/26 was £16,850.04.
         </p>
+      </Expand>
+
+      <CaseCard kicker="Same energy firm, another Labour MP" figure="£178.79" people={[MURRAY]}>
+        <p>
+          Chris Murray&apos;s Edinburgh office also buys its power from <strong>Yu Energy</strong>.
+          His bills in IPSA&apos;s files: <strong>£75.84</strong> for March 2026 and{" "}
+          <strong>£178.79</strong> for June 2026. That is <strong>£254.63</strong> in all.
+        </p>
+        <p>
+          Lillian Jones&apos;s payments to the same firm on one day came to{" "}
+          <strong>£23,437</strong>. That is about <strong>131 times</strong> his June bill.
+        </p>
+      </CaseCard>
+
+      <Expand summary="See Chris Murray's two Yu Energy lines, word for word">
+        <Receipt
+          person={MURRAY}
+          heading="IPSA records · 2026/27 · Office Costs · Utilities"
+          lines={[
+            { meta: "Paid 15 April 2026", what: "YU Energy Expense - March", amount: "£75.84" },
+            { meta: "Paid 6 July 2026", what: "YuEnergy Bill for June 2026", amount: "£178.79" },
+          ]}
+          total={{ label: "Both bills", amount: "£254.63" }}
+          footer="Wording as printed by IPSA. These are the only Yu Energy lines for any Scottish MP apart from Lillian Jones's two."
+        />
       </Expand>
 
       {/* ------------------------------------------------------------ 2 */}
