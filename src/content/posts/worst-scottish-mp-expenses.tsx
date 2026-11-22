@@ -62,6 +62,43 @@ function FullStory({ href, children }: { href: string; children: ReactNode }) {
 /* Data                                                                */
 /* ------------------------------------------------------------------ */
 
+/** The ten MPs with their own local story, biggest bill first. */
+const LOCAL_STORIES: { name: string; slug: string; p: PartyKey; town: string; amount: string; what: string; story: string }[] = [
+  { name: "Lillian Jones", slug: "kilmarnock-and-loudoun", p: "Labour", town: "Kilmarnock", amount: "£23,437", what: "Power, paid in one day", story: "kilmarnock-mp-23437-electricity-bill" },
+  { name: "Pamela Nash", slug: "motherwell-wishaw-and-carluke", p: "Labour", town: "Motherwell", amount: "£5,932", what: "DFS, IKEA and a carpet", story: "pamela-nash-mp-furniture-expenses-motherwell" },
+  { name: "Angus MacDonald", slug: "inverness-skye-and-west-ross-shire", p: "Lib Dem", town: "Inverness and Skye", amount: "£3,546", what: "Speech coach and drains", story: "angus-macdonald-mp-speech-coach-drains-expenses" },
+  { name: "Euan Stainbank", slug: "falkirk", p: "Labour", town: "Falkirk", amount: "£3,300", what: "A billboard of himself", story: "euan-stainbank-mp-billboard-expenses-falkirk" },
+  { name: "Chris Law", slug: "dundee-central", p: "SNP", town: "Dundee", amount: "£3,090", what: "Home broadband setup", story: "chris-law-mp-3090-broadband-expenses-dundee" },
+  { name: "Torcuil Crichton", slug: "na-h-eileanan-an-iar", p: "Labour", town: "Western Isles", amount: "£2,400", what: "Coaching from an ex IPSA worker", story: "torcuil-crichton-mp-coaching-expenses-western-isles" },
+  { name: "John Lamont", slug: "berwickshire-roxburgh-and-selkirk", p: "Conservative", town: "Borders", amount: "£2,346", what: "Two iPhones", story: "john-lamont-mp-iphone-expenses-borders" },
+  { name: "Graeme Downie", slug: "dunfermline-and-dollar", p: "Labour", town: "Dunfermline", amount: "£963", what: "One business dinner", story: "graeme-downie-mp-dinner-expenses-dunfermline" },
+  { name: "Gregor Poynton", slug: "livingston", p: "Labour", town: "Livingston", amount: "£688", what: "Four TV licences", story: "gregor-poynton-mp-four-tv-licences-livingston" },
+  { name: "Christine Jardine", slug: "edinburgh-west", p: "Lib Dem", town: "Edinburgh West", amount: "£510", what: "Staff Christmas lunch", story: "christine-jardine-mp-christmas-lunch-expenses" },
+];
+
+/** "Is your MP here?": every local story at a glance, with a link to each. */
+function LocalStories() {
+  return (
+    <section aria-labelledby="your-mp-here" className="not-prose my-8 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5 sm:p-6">
+      <h2 id="your-mp-here" className="ui text-[20px] font-[680] text-[var(--ink)]">
+        Is your MP here?
+      </h2>
+      <ol className="mt-4 grid gap-3 sm:grid-cols-2">
+        {LOCAL_STORIES.map((s) => (
+          <li key={s.slug} className="flex items-center justify-between gap-3 rounded-[var(--r-s)] border border-[var(--rule)] px-3.5 py-3">
+            <Who face name={s.name} href={mp(s.slug)} p={s.p} note={s.town} />
+            <Link href={story(s.story)} className="shrink-0 text-right no-underline">
+              <span className="figure-num tnum block text-[24px] leading-none text-[var(--bad-text)]">{s.amount}</span>
+              <span className="ui mt-1 block text-[13.5px] text-[var(--ink-2)]">{s.what}</span>
+              <span className="ui mt-0.5 block text-[13.5px] font-[640] text-[var(--action-text)]">Read it →</span>
+            </Link>
+          </li>
+        ))}
+      </ol>
+    </section>
+  );
+}
+
 const PRINT_AND_POST: { name: string; slug: string; p: PartyKey; seat: string; value: number }[] = [
   { name: "John Grady", slug: "glasgow-east", p: "Labour", seat: "Glasgow East", value: 13116.8 },
   { name: "Frank McNally", slug: "coatbridge-and-bellshill", p: "Labour", seat: "Coatbridge and Bellshill", value: 9974 },
@@ -198,12 +235,14 @@ export default function WorstScottishMpExpenses() {
         ]}
       />
 
+      <LocalStories />
+
       <P>
         We read all <strong>20,879 expense claims</strong> filed by Scotland&apos;s MPs from 2022/23 to
         2026/27. Line by line. These are the ones that made us stop and look twice.
       </P>
       <P>
-        Here is the catch. IPSA runs MPs&apos; expenses, and it paid every one. Nobody broke the
+        Here is the catch. IPSA runs MPs&apos; expenses, and it paid all of these claims. Nobody broke the
         rules. The rules just let them do this. That is the scandal.
       </P>
 
@@ -244,7 +283,7 @@ export default function WorstScottishMpExpenses() {
       </Finding>
 
       <Spotlight
-        person={person("Chris Law", "dundee-central", "SNP", "Dundee Central")}
+        person={person("Chris Law", "dundee-central", "SNP", "Dundee West at the time, now Dundee Central")}
         kicker="25 July 2022 · office pot"
         amount="£3,090"
         headline="You paid to set up his home broadband."
@@ -261,7 +300,7 @@ export default function WorstScottishMpExpenses() {
 
       {/* ------------------------------------------------------------ 3 */}
       <Finding n={3} of={FINDINGS} id="speech-coach">
-        Coaches and speech lessons, on your tab
+        Torcuil Crichton&apos;s coach and Angus MacDonald&apos;s speech lessons
       </Finding>
 
       <Spotlight
@@ -304,7 +343,7 @@ export default function WorstScottishMpExpenses() {
 
       {/* ------------------------------------------------------------ 4 */}
       <Finding n={4} of={FINDINGS} id="perks">
-        A Christmas lunch, a dinner and a newspaper column
+        Christine Jardine&apos;s Christmas lunch and Graeme Downie&apos;s dinner
       </Finding>
 
       <Spotlight
@@ -432,7 +471,7 @@ export default function WorstScottishMpExpenses() {
           { meta: "4 and 26 Nov 2025, two licences split over four lines", what: "TVLICENSING.CO.UK", amount: "£349.00" },
         ]}
       >
-        <p>Homes pay £180 a year out of their own pocket. IPSA only allows a licence for a local office.</p>
+        <p>Homes pay £180 today out of their own pocket. It was £169.50 in 2024/25. IPSA only allows a licence for a local office.</p>
         <FullStory href={story("gregor-poynton-mp-four-tv-licences-livingston")}>
           Read the full Livingston story
         </FullStory>
@@ -447,7 +486,7 @@ export default function WorstScottishMpExpenses() {
 
       {/* ------------------------------------------------------------ 7 */}
       <Finding n={7} of={FINDINGS} id="phones">
-        Two iPhones, and a £24,530 phone tab
+        Two iPhones, and a £24,515 phone tab
       </Finding>
 
       <Spotlight
@@ -466,13 +505,13 @@ export default function WorstScottishMpExpenses() {
         </FullStory>
       </Spotlight>
 
-      <CaseCard figure="£24,530" people={[person("Brendan O'Hara", "argyll-bute-and-south-lochaber", "SNP", "Argyll, Bute and South Lochaber")]}>
+      <CaseCard figure="£24,515" people={[person("Brendan O'Hara", "argyll-bute-and-south-lochaber", "SNP", "Argyll, Bute and South Lochaber")]}>
         <p>
-          <strong>Five years of mobile phone bills, 58 bills from 2022 to 2026</strong>
+          <strong>57 mobile phone bills, March 2022 to June 2026</strong>
         </p>
         <p>
-          Over £500 a month. His biggest was £909.24 from EE in March 2026. That is four times more
-          than any other Scottish MP.
+          That is about £110 a week. His biggest was £909.24 from EE in March 2026. It is four
+          times more than any other Scottish MP.
         </p>
       </CaseCard>
 
@@ -550,7 +589,7 @@ export default function WorstScottishMpExpenses() {
 
       <CaseCard figure="£35,792" people={[person("John Lamont", "berwickshire-roxburgh-and-selkirk", "Conservative", "Berwickshire, Roxburgh and Selkirk")]}>
         <p>
-          <strong>13 bills to PR firm Peach Partners, 2022 to 2024</strong>
+          <strong>13 bills to PR firm Peach Partners, September 2022 to December 2023</strong>
         </p>
         <p>
           Speech notes, press help and social posts. The biggest was £9,125. Every penny came from
@@ -693,7 +732,7 @@ export default function WorstScottishMpExpenses() {
         <Link href="/mp-expenses-scotland#why-second-homes">How second home rules work</Link>.
       </P>
 
-      <ChartFrame kicker="IPSA 2025/26 · all 55 Scottish MPs with claims" title="Across every Scottish MP, in one year">
+      <ChartFrame kicker="IPSA 2025/26 · 55 Scottish MPs (two had no claims that year)" title="Across every Scottish MP, in one year">
         <Tiles items={ALL_MPS.slice(0, 3)} />
         <Tiles items={ALL_MPS.slice(3)} />
       </ChartFrame>

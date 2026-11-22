@@ -205,7 +205,7 @@ export default function Home() {
               <p className="mt-2 max-w-[60ch] text-[17px] leading-[1.5] text-white">
                 Scottish MPs billed taxpayers £23,437 for electricity in a single day (number one
                 in the UK), £10,754 for TV licences, £37,359 for one MP&apos;s London hotels and
-                £24,530 for one MP&apos;s mobile bills. Search all 20,879 official receipts.
+                £24,515 for one MP&apos;s mobile bills. Search all 20,879 official receipts.
               </p>
               <p className="ui mt-3 flex flex-wrap gap-x-5 gap-y-2 text-[15px]">
                 <Link href="/blog/scottish-mps-london-homes-152-sitting-days" className="font-[600] text-white">£2.91m London shuttle (152 days) →</Link>

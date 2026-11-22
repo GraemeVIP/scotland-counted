@@ -184,16 +184,16 @@ const MORE_SPOTLIGHT_LEADERS: SpotlightEntry[] = [
   },
   {
     slug: "argyll-bute-and-south-lochaber",
-    badge: "£24,530 Phone Bills + Spouse on Payroll",
+    badge: "£24,515 Phone Bills + Spouse on Payroll",
     headlineStat: "£114,985",
-    headlineLabel: "in everyday bills in 2025/26 + £24.5k EE phone tab",
+    headlineLabel: "in everyday bills in 2025/26 + £24.5k phone tab",
     taxpayerSummary:
-      "£29,322 London flat rent, **£3,109 car park**, **hires his spouse as office boss**, and ran up **£24,530 on EE mobile bills** over five years (up to £909 a month).",
+      "£29,322 London flat rent, **£3,109 car park**, **hires his spouse as office boss**, and ran up **£24,515 on mobile phone bills** over five years (up to £909 a month).",
     freebiesSummary:
       "Took **£1,525 in VIP football boxes** (Champions League & Hampden) and £2,541 in free trips.",
-    oneLine: "**£24,530 on EE mobile bills** over five years, and **his spouse on the payroll**.",
+    oneLine: "**£24,515 on mobile phone bills** over five years, and **his spouse on the payroll**.",
     emailReason:
-      "claiming £114,984.88 in non-staff expenses (including £29,322 flat rent and £3,109 car parking), £24,530 in EE mobile bills over five years, employing your spouse on the public payroll, and accepting £1,525 in football hospitality",
+      "claiming £114,984.88 in non-staff expenses (including £29,322 flat rent and £3,109 car parking), £24,515 in mobile phone bills over five years, employing your spouse on the public payroll, and accepting £1,525 in football hospitality",
   },
   {
     slug: "east-kilbride-and-strathaven",

@@ -157,7 +157,7 @@ export const posts: Post[] = [
     tags: ["MP expenses Scotland", "Torcuil Crichton", "Western Isles", "Na h-Eileanan an Iar", "IPSA", "Scottish Labour"],
     readingMinutes: 5,
     image: {
-      src: "/images/editorial/worst-scottish-mp-expenses.webp",
+      src: "/images/editorial/mp-expenses-scotland-hub.webp",
       alt: "Plug-in 5G home broadband router, speech coaching microphone on a brass stand, smartphone in a case and paper receipts on a dark mahogany desk",
       caption:
         "Checked across five years of IPSA expense files (2022/23 to 2026/27) for all 650 UK seats.",
@@ -165,7 +165,7 @@ export const posts: Post[] = [
       objectPosition: "center",
     },
     shareImage: {
-      src: "/images/editorial/worst-scottish-mp-expenses.webp",
+      src: "/images/editorial/mp-expenses-scotland-hub.webp",
       width: 1500,
       height: 1000,
       type: "image/webp",
@@ -179,11 +179,11 @@ export const posts: Post[] = [
     faq: [
       {
         q: "How much did Torcuil Crichton claim for coaching?",
-        a: "£2,400 in 16 bills to LARA LLOYD COACHING, from 21 October 2025 to 16 June 2026. Five bills of £175 (£875) were filed as training for him. The other 11 (£1,525) were filed as staff training. IPSA paid them all.",
+        a: "£2,400 in 16 bills to LARA LLOYD COACHING, from 21 October 2025 to 16 June 2026. Five bills of £175 (£875, October 2025 to June 2026) were filed as training for him. The other 11 (£1,525) were filed as staff training. IPSA paid them all.",
       },
       {
         q: "Who is the coach, and why does it matter?",
-        a: "Her business website says she worked in the House of Commons Members' and Members' Staff Services Team, then at IPSA as Stakeholder Engagement Lead. Her company was set up on 19 March 2025. Since September 2025, 12 MPs have paid it £16,800 of public money through IPSA.",
+        a: "Her business website says she worked in a House of Commons team that helps MPs and their staff, then at IPSA in a job dealing with MPs. Her company was set up on 19 March 2025. Since September 2025, 12 MPs have paid it £16,800 of public money through IPSA.",
       },
       {
         q: "Did he break the rules?",
@@ -200,7 +200,7 @@ export const posts: Post[] = [
     description:
       "Taxpayers paid £510 for Edinburgh West MP Christine Jardine's office Christmas lunch and team event. IPSA refused another MP's festive meal a year before.",
     standfirst:
-      "Six days before Christmas 2025, taxpayers paid £510 for Edinburgh West MP Christine Jardine's office. One bill said \"lunch staff team training Christmas\". The other said \"team building event\". A year before, IPSA refused another MP's festive meal. Hers was paid in full.",
+      "Six days before Christmas 2025, taxpayers paid £510 for Edinburgh West MP Christine Jardine's office. The \"lunch staff team training Christmas\" bill was £250.80. A \"team building event\" the same day was £259.31. In December 2024, IPSA refused another MP's festive meal. Hers was paid in full.",
     date: "2026-11-22",
     updated: "2026-11-22",
     checked: "2026-11-22",
@@ -246,7 +246,7 @@ export const posts: Post[] = [
   {
     slug: "gregor-poynton-mp-four-tv-licences-livingston",
     title:
-      "You paid for four TV licences in 11 months for Livingston MP Gregor Poynton: more than any other MP in the UK",
+      "You paid £688 for four TV licences in 11 months for Livingston MP Gregor Poynton: more than any other MP in the UK",
     seoTitle: "Gregor Poynton MP Expenses: 4 TV Licences in 11 Months",
     description:
       "Taxpayers paid for four TV licences in 11 months for Livingston MP Gregor Poynton. No other UK MP has billed four in a year. Plus £5,059 on taxis.",
@@ -281,7 +281,7 @@ export const posts: Post[] = [
     faq: [
       {
         q: "How many TV licences did Gregor Poynton claim?",
-        a: "Four in 11 months: £169.50 on 18 December 2024, £169.50 on 14 February 2025, then £174.50 on 4 November and £174.50 on 26 November 2025. That is £688. IPSA split each November licence across two budget years.",
+        a: "Four in 11 months: £169.50 on 18 December 2024, £169.50 on 14 February 2025, then £174.50 on 4 November and £174.50 on 26 November 2025. That is £688. IPSA paid each November licence in two parts.",
       },
       {
         q: "Is four TV licences in a year really a UK record?",
@@ -302,7 +302,7 @@ export const posts: Post[] = [
     description:
       "Taxpayers paid £3,300 for a board advertising Falkirk MP Euan Stainbank for a year. It is the biggest advertising board claim of any of the 650 UK MPs.",
     standfirst:
-      "Taxpayers paid £3,300 for a board advertising Falkirk's Labour MP, Euan Stainbank. IPSA's own record says it was there \"to advertise Euan as local MP\". It stayed up for a year. No MP in the UK has claimed more for an advertising board since 2022. It was paid less than four months after he won the seat.",
+      "Taxpayers paid £3,300 for a board advertising Falkirk's Labour MP, Euan Stainbank. IPSA's own record says it was there \"to advertise Euan as local MP\". It was booked for a year. No MP in the UK has claimed more for an advertising board since 2022. It was paid less than four months after he won the seat.",
     date: "2026-11-22",
     updated: "2026-11-22",
     checked: "2026-11-22",
@@ -434,7 +434,7 @@ export const posts: Post[] = [
     faq: [
       {
         q: "What was Angus MacDonald's £3,000 speech claim?",
-        a: "IPSA paid £3,000 on 17 July 2025 for a \"personalised presentation and speech skills workshop to assist MPs representational role in Parliament\". It came from his staffing budget. It is marked Paid. £0 has been paid back.",
+        a: "IPSA paid £3,000 on 17 July 2025 for a \"personalised presentation and speech skills workshop\" to help him speak in Parliament. It came from his staff budget, the money meant for staff who help local people. £0 has been paid back.",
       },
       {
         q: "Did taxpayers really pay to clean his drains?",
@@ -928,11 +928,11 @@ export const posts: Post[] = [
     toc: [
       { id: "power-bill", label: "£23,437 for power in one day" },
       { id: "broadband", label: "£3,090 to set up broadband" },
-      { id: "speech-coach", label: "Speech coaches and coaching" },
-      { id: "perks", label: "Dinners and a Christmas lunch" },
+      { id: "speech-coach", label: "Torcuil Crichton's coach and Angus MacDonald's speech lessons" },
+      { id: "perks", label: "Christine Jardine's Christmas lunch and Graeme Downie's dinner" },
       { id: "self-promotion", label: "Paying to promote themselves" },
       { id: "tv-licences", label: "29 MPs' TV licences" },
-      { id: "phones", label: "iPhones and a £24,530 phone tab" },
+      { id: "phones", label: "iPhones and a £24,515 phone tab" },
       { id: "furniture", label: "Sofas, IKEA and new carpet" },
       { id: "consultants", label: "Consultants and PR firms" },
       { id: "hotel-nights", label: "295 London hotel nights" },
@@ -4646,7 +4646,19 @@ export function relatedPosts(slug: string, limit = 2) {
   const current = getPost(slug);
   if (!current) return [];
   const others = postsByDate().filter((p) => p.slug !== slug);
-  const sameCategory = others.filter((p) => p.category === current.category);
+  // Posts sharing the most tags come first. Ties are broken by a stable hash
+  // of the pair, so a batch of similar posts (the local MP expenses stories)
+  // each point at different neighbours instead of all showing the same two.
+  const tags = new Set(current.tags);
+  const shared = (p: Post) => p.tags.filter((t) => tags.has(t)).length;
+  const mix = (other: string) => {
+    let h = 0;
+    for (const ch of slug + other) h = (h * 31 + ch.charCodeAt(0)) | 0;
+    return h;
+  };
+  const rank = (list: Post[]) =>
+    [...list].sort((a, b) => shared(b) - shared(a) || mix(a.slug) - mix(b.slug));
+  const sameCategory = rank(others.filter((p) => p.category === current.category));
   return [
     ...sameCategory,
     ...others.filter((p) => p.category !== current.category),

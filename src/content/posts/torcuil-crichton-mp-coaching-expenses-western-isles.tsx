@@ -35,7 +35,7 @@ const CRICHTON = {
   name: "Torcuil Crichton",
   href: mp("na-h-eileanan-an-iar"),
   p: "Labour" as PartyKey,
-  place: "Na h-Eileanan an Iar",
+  place: "Na h-Eileanan an Iar (Western Isles)",
 };
 
 const FINDINGS = 4;
@@ -78,7 +78,7 @@ const UK_CLIENTS: { name: string; seat: string; href?: string; p?: PartyKey; bil
   { name: "Anneliese Midgley", seat: "Knowsley", bills: 2, value: 2700, note: "Filed as “Professional & consultancy”" },
   {
     name: "Torcuil Crichton",
-    seat: "Na h-Eileanan an Iar",
+    seat: "Na h-Eileanan an Iar (Western Isles)",
     href: mp("na-h-eileanan-an-iar"),
     p: "Labour",
     bills: 16,
@@ -139,8 +139,8 @@ export default function TorcuilCrichtonMpCoachingExpensesWesternIsles() {
         ]}
       >
         <p>
-          Five bills were for coaching the MP himself: <strong>£875</strong>. The other 11 were for
-          his staff: <strong>£1,525</strong>.
+          Five bills were for coaching the MP himself: <strong>£875</strong> from October 2025 to
+          June 2026. The other 11 were for his staff: <strong>£1,525</strong>.
         </p>
       </Spotlight>
 
@@ -149,8 +149,8 @@ export default function TorcuilCrichtonMpCoachingExpensesWesternIsles() {
         What the 16 bills show
       </Finding>
       <P>
-        <Link href={CRICHTON.href}>Torcuil Crichton</Link> won Na h-Eileanan an Iar, the Western
-        Isles, for Labour in July 2024.
+        <Link href={CRICHTON.href}>Torcuil Crichton</Link> won the Western Isles seat for Labour
+        in July 2024. Its Gaelic name is Na h-Eileanan an Iar.
       </P>
       <P>
         On <strong>21 October 2025</strong>, six bills to the coaching firm went in on one day. Each
@@ -168,7 +168,7 @@ export default function TorcuilCrichtonMpCoachingExpensesWesternIsles() {
       <Tiles
         items={[
           { value: "£2,400", label: "to the coaching firm, in 16 bills", hot: true },
-          { value: "£875", label: "of it for coaching the MP himself" },
+          { value: "£875", label: "for coaching the MP himself (Oct 2025 to June 2026)" },
           { value: "£4,200", label: "on all training since he was elected" },
         ]}
       />
@@ -235,8 +235,9 @@ export default function TorcuilCrichtonMpCoachingExpensesWesternIsles() {
         6&rdquo;, at £175 each. That is the website&apos;s £1,050 package, paid for by you.
       </P>
       <P>
-        Back in Scotland, only two of our 57 MPs billed for &ldquo;Training - MP&rdquo; in 2025/26.
-        He was top, with <strong>£700</strong> that year.
+        Back in Scotland, only two of our 57 MPs billed for &ldquo;Training - MP&rdquo; in the
+        2025/26 budget year (April 2025 to March 2026). He was top, with <strong>£700</strong>.
+        That is four of his £175 sessions. The fifth came in June 2026, in the next budget year.
       </P>
 
       {/* ------------------------------------------------------------ 3 */}
@@ -313,8 +314,8 @@ export default function TorcuilCrichtonMpCoachingExpensesWesternIsles() {
       </Finding>
       <P>
         Here is the part that should make you sit up. The coach&apos;s own website says she worked
-        in the House of Commons Members&apos; and Members&apos; Staff Services Team. Then she
-        worked at IPSA, as its Stakeholder Engagement Lead.
+        in a House of Commons team that helps MPs and their staff. Then she worked at IPSA, in a
+        job dealing with MPs.
       </P>
       <P>
         Her company, Lara Lloyd Coaching Ltd, was set up on <strong>19 March 2025</strong>, Companies

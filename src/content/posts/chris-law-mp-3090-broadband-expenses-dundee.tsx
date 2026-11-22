@@ -140,8 +140,9 @@ export default function ChrisLawMp3090BroadbandExpensesDundee() {
       <QuickTake
         items={[
           <>
-            <strong>Taxpayers</strong> paid <strong>£3,090</strong> to set up home broadband for
-            Dundee MP <Link href={LAW.href}>Chris Law</Link>. One claim, in July 2022.
+            <strong>Taxpayers</strong> paid <strong>£3,090</strong> to set up home broadband for{" "}
+            <Link href={LAW.href}>Chris Law</Link>. One claim, in July 2022. He was SNP MP for Dundee
+            West until 2024, and is now MP for Dundee Central.
           </>,
           <>
             A typical phone or internet setup claim by an MP is <strong>£90</strong>. His was over{" "}
@@ -167,10 +168,7 @@ export default function ChrisLawMp3090BroadbandExpensesDundee() {
           IPSA, the body that pays MPs&apos; expenses with public money, logged it as{" "}
           <strong>&ldquo;Home 5G mobile broadband installation&rdquo;</strong>.
         </p>
-        <p>
-          He was MP for Dundee West then. Since 2024 his seat has been Dundee Central. The record
-          does not say which home it was for, or who got the money.
-        </p>
+        <p>The record does not say which home it was for, or who got the money.</p>
       </CaseCard>
 
       {/* ------------------------------------------------------------ 1 */}
@@ -219,7 +217,7 @@ export default function ChrisLawMp3090BroadbandExpensesDundee() {
             },
           ]}
           total={{ label: "Paid in full · £0 repaid", amount: "£3,090.00" }}
-          footer="Wording as printed by IPSA. IPSA claim number 60124158-1 (2022/23), filed under his old seat, Dundee West."
+          footer="Wording as printed by IPSA. IPSA claim number 60124158-1 (2022/23), filed under his old seat."
         />
         <p className="text-[15.5px] leading-[1.6] text-[var(--ink-2)]">
           How we got £90: it is the middle claim out of all 1,149 phone and internet setup claims
@@ -311,15 +309,21 @@ export default function ChrisLawMp3090BroadbandExpensesDundee() {
         kicker="2025/26 · trips to Europe"
         amount="26 nights"
         headline="The most nights in European hotels of any UK MP."
-        lines={[
-          { meta: "MP travel · Hotel (Europe) · 26 nights", what: "Aggregated figure for travel during 2025-26", amount: "£2,821.90" },
-          { meta: "MP travel · Flights (Europe)", what: "Aggregated figure for travel during 2025-26", amount: "£2,871.91" },
-        ]}
       >
         <p>
-          IPSA lets MPs claim some work trips to Europe. His came to <strong>£6,192</strong> in all
-          that year. The next highest MP had 16 nights.
+          IPSA lets MPs claim some work trips to Europe. The next highest MP had 16 nights. His
+          European trips that year came to <strong>£6,191.92</strong>:
         </p>
+        <ul className="space-y-1 text-[16px]">
+          <li>Hotels, 26 nights: £2,821.90</li>
+          <li>Flights: £2,871.91</li>
+          <li>Food and drink: £150.19</li>
+          <li>Parking: £145.00</li>
+          <li>Taxis: £126.18</li>
+          <li>Trains: £55.51</li>
+          <li>Other public transport: £21.23</li>
+        </ul>
+        <p className="text-[14px] opacity-75">IPSA only gives yearly totals for travel, not single trips.</p>
       </Spotlight>
 
       <PointList

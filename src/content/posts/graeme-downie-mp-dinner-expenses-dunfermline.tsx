@@ -163,7 +163,8 @@ export default function GraemeDownieMpDinnerExpensesDunfermline() {
         items={[
           <>
             <strong>Taxpayers</strong> paid <strong>£963</strong> for a business dinner for Dunfermline
-            MP <Link href={DOWNIE.href}>Graeme Downie</Link>. Fife College hosted it in March 2025.
+            MP <Link href={DOWNIE.href}>Graeme Downie</Link>. Fife College hosted it in March 2025 (the
+            2024/25 budget year).
           </>,
           <>
             It is the <strong>biggest single bill for food, drink or events</strong> of any of the
@@ -174,17 +175,18 @@ export default function GraemeDownieMpDinnerExpensesDunfermline() {
             <strong>any other MP in the UK</strong>.
           </>,
           <>
-            His London flat and travel bill, <strong>£84,992</strong>, was the biggest in the UK too.
+            His 2025/26 London flat and travel bill, <strong>£84,992</strong>, was the biggest in the UK
+            too.
           </>,
           <>
-            So was his staff travel: <strong>£31,098</strong>, number one of all 650 MPs.
+            So was his 2025/26 staff travel: <strong>£31,098</strong>, number one of all 650 MPs.
           </>,
         ]}
       />
 
       <Spotlight
         person={DOWNIE}
-        kicker="13 March 2025 · Food and drink"
+        kicker="13 March 2025 · 2024/25 budget year · Food and drink"
         amount="£963"
         headline="You paid for a business dinner in his name."
         lines={[
@@ -223,15 +225,15 @@ export default function GraemeDownieMpDinnerExpensesDunfermline() {
 
       <Tiles
         items={[
-          { value: "£962.65", label: "his business dinner, 13 March 2025", hot: true },
+          { value: "£962.65", label: "his business dinner, 13 March 2025 (2024/25)", hot: true },
           { value: "£11.60", label: "the typical MP bill for food, drink or events" },
-          { value: "£154", label: "the next biggest dinner billed by any MP in five years" },
+          { value: "£840", label: "the next biggest single food, drink or event bill of any MP" },
         ]}
       />
 
       <P>
-        The next biggest dinner on any MP&apos;s file was £154. That was one Lib Dem MP&apos;s team
-        Christmas dinner, with the drink taken off.
+        IPSA files food, drink and events under one heading. Only 12 of those bills use the word
+        dinner. The next biggest of them was £154, for one Lib Dem MP&apos;s team Christmas dinner.
       </P>
 
       <Expand summary="See the proof: the IPSA line, word for word">
@@ -252,16 +254,16 @@ export default function GraemeDownieMpDinnerExpensesDunfermline() {
 
       {/* ------------------------------------------------------------ 2 */}
       <Finding n={2} id="uk-number-one">
-        Number one in the UK, five times over
+        Number one in the UK on five counts
       </Finding>
       <P>
-        We checked all 3,146 food, drink and event bills from all 650 MPs over five years. His dinner
-        is the <strong>biggest single one</strong>.
+        Count one. We checked all 3,146 food, drink and event bills from all 650 MPs over five years.
+        His 2024/25 dinner is the <strong>biggest single one</strong>.
       </P>
 
       <ChartFrame
         kicker="All 650 UK MPs · 2022/23 to 2026/27"
-        title="The biggest single hospitality bills of any MP"
+        title="The biggest single food, drink and event bills of any MP"
         caption="Source: Five years of IPSA files for all 650 UK seats. Single bills only, not IPSA's lumped yearly totals."
       >
         <RankList
@@ -280,22 +282,18 @@ export default function GraemeDownieMpDinnerExpensesDunfermline() {
       </ChartFrame>
 
       <P>
-        Then we checked IPSA&apos;s 2025/26 totals for every MP in the UK. He came top on four more
-        counts.
+        Counts two to five come from IPSA&apos;s 2025/26 totals for every MP in the UK. He came top
+        on all four.
       </P>
 
       <Tiles
         items={[
-          { value: "£410,253", label: "his total bill in 2025/26, staff included: UK number one", hot: true },
-          { value: "£151,954", label: "not counting his staff's wages: UK number one" },
-          { value: "£31,098", label: "his staff's travel: UK number one" },
+          { value: "£410,253", label: "2. His total bill in 2025/26, staff included", hot: true },
+          { value: "£151,954", label: "3. His 2025/26 bill not counting staff wages" },
+          { value: "£84,992", label: "4. His 2025/26 London flat and travel bill" },
+          { value: "£31,098", label: "5. His staff's travel in 2025/26" },
         ]}
       />
-
-      <P>
-        His London flat and travel bill came to <strong>£84,992</strong> in 2025/26. No MP in the UK
-        billed more.
-      </P>
 
       <ChartFrame
         kicker="All 650 UK MPs · 2025/26"
@@ -323,7 +321,7 @@ export default function GraemeDownieMpDinnerExpensesDunfermline() {
             children: (
               <>
                 That includes £41,435 of rent and £1,695 of council tax. IPSA gave him a bigger
-                budget, £46,380, to cover two dependants (family members) living with him.
+                budget, £46,380, to cover two family members who live with him.
               </>
             ),
           },
@@ -335,7 +333,7 @@ export default function GraemeDownieMpDinnerExpensesDunfermline() {
           {
             key: "family",
             title: "£1,972 for family travel",
-            children: <>Dependant travel, mostly flights.</>,
+            children: <>Trips for his family between home and London, mostly flights.</>,
           },
         ]}
       />
@@ -355,17 +353,17 @@ export default function GraemeDownieMpDinnerExpensesDunfermline() {
 
       <Receipt
         person={DOWNIE}
-        heading="IPSA records · 2025/26 · Staff travel · Yearly totals"
+        heading="IPSA records · 2025/26 · Staff travel · Totals for the year"
         lines={[
-          { meta: "Staff flights", what: "Air travel", amount: "£11,065.47" },
-          { meta: "39 nights", what: "Hotel - London", amount: "£8,539.00" },
-          { meta: "Hotels billed straight to IPSA", what: "Hotel - Direct Supply", amount: "£3,400.28" },
-          { meta: "Trains", what: "Rail", amount: "£3,419.14" },
-          { meta: "16 nights", what: "Hotel - UK Not London", amount: "£1,631.60" },
+          { meta: "Staff", what: "Flights", amount: "£11,065.47" },
+          { meta: "39 nights", what: "London hotels", amount: "£8,539.00" },
+          { meta: "Booked and paid by IPSA", what: "Other hotels", amount: "£3,400.28" },
+          { meta: "Staff", what: "Trains", amount: "£3,419.14" },
+          { meta: "16 nights", what: "Hotels outside London", amount: "£1,631.60" },
           { meta: "Car mileage, meals, taxis, parking and more", what: "Everything else", amount: "£3,042.11" },
         ]}
         total={{ label: "Staff travel, 2025/26", amount: "£31,097.60" }}
-        footer="IPSA's cost types as printed. Every line is 'Aggregated figure for travel during 2025-26'. The year before, his staff travel was £8,361.90."
+        footer="In plain words. IPSA only prints staff travel as yearly totals, not trip by trip. The year before, his staff travel was £8,361.90."
       />
 
       <P>He billed plenty more for his office too. Here are the big ones:</P>

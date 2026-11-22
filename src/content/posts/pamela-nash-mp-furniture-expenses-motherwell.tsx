@@ -127,21 +127,21 @@ export default function PamelaNashMpFurnitureExpensesMotherwell() {
       <QuickTake
         items={[
           <>
-            <strong>Taxpayers</strong> paid for <strong>£3,182</strong> of IKEA and DFS furniture for
-            Motherwell MP <Link href={NASH.href}>Pamela Nash</Link>. IPSA, the body that pays MPs&apos;
-            expenses with public money, paid every bill.
+            <strong>Taxpayers</strong> paid <strong>£3,182</strong> for IKEA and DFS furniture for
+            Motherwell MP <Link href={NASH.href}>Pamela Nash</Link>. After a £245 refund, the public is
+            still out <strong>£2,937</strong>.
           </>,
           <>
             Three of those four bills landed in the <strong>last two days</strong> of the budget year:
             30 and 31 March 2026.
           </>,
           <>
-            That same week you also paid <strong>£2,750 for a new office carpet</strong> and{" "}
-            <strong>£2,250 for building works</strong>.
+            That same week you also paid for a <strong>new office carpet</strong> and{" "}
+            <strong>building works</strong>.
           </>,
           <>
-            Her bills that last week came to <strong>£7,203</strong>. Only one MP in the whole UK
-            billed more for office kit and repairs that week.
+            Only <strong>one MP in the whole UK</strong> billed more for office kit and repairs that
+            week.
           </>,
           <>
             She is the <strong>only MP out of 650</strong> to put a DFS bill on expenses in five years.
@@ -161,9 +161,7 @@ export default function PamelaNashMpFurnitureExpensesMotherwell() {
           { meta: "31 March 2026", what: "IKEA LTD SHOP ONLINE [200013613-2955]", amount: "£245.00" },
         ]}
       >
-        <p>
-          IKEA gave £245 back on 17 April 2026. So the public is still out <strong>£2,937</strong>.
-        </p>
+        <p>IKEA refunded the £245 bill on 17 April 2026.</p>
       </Spotlight>
 
       {/* ------------------------------------------------------------ 1 */}
@@ -179,13 +177,8 @@ export default function PamelaNashMpFurnitureExpensesMotherwell() {
         money for their office each year. On 1 April, a new pot starts.
       </P>
       <P>
-        Her furniture shopping came at both ends of the 2025/26 year. In the first nine days of April
-        2025, she billed you <strong>£2,742</strong> for furniture from IKEA, Argos, Amazon and
-        others.
-      </P>
-      <P>
-        Then came the last week of March 2026. In seven days, seven bills went in. They came to{" "}
-        <strong>£7,203</strong>.
+        Then came the last week of March 2026. In seven days, seven bills went in: carpet, building
+        works, DFS, IKEA and Amazon.
       </P>
 
       <Receipt
@@ -220,26 +213,29 @@ export default function PamelaNashMpFurnitureExpensesMotherwell() {
             amount: "£1,208.00",
           },
         ]}
-        total={{ label: "Seven bills in seven days", amount: "£7,202.80" }}
+        total={{ label: "Total for the last 7 days of the year", amount: "£7,202.80" }}
         footer="Wording as printed by IPSA. All paid from her 2025/26 office budget. The £245 IKEA bill was refunded on 17 April 2026."
       />
 
       <Tiles
         items={[
           { value: "£2,750", label: "a new office carpet, 26 March 2026" },
-          { value: "£2,600", label: "“essential” building works, March and April 2026" },
           { value: "£1,208", label: "the only DFS bill of any UK MP in five years", hot: true },
         ]}
       />
 
       <P>
         The building works did not stop in March. Another <strong>£350</strong> for the same
-        &quot;Essential refurbishment works&quot; went in on 24 April 2026. That took the works to
+        &quot;Essential refurbishment works&quot; went in on 24 April 2026. Building works total:
         £2,600.
       </P>
       <P>
         IPSA&apos;s line for DFS just says &quot;DFS TRADING LIMITED&quot;. DFS is best known for
         sofas. The file does not say what she bought.
+      </P>
+      <P>
+        This was not her first furniture spree. In the first nine days of the same budget year, April
+        2025, she billed £2,742 for furniture from IKEA, Argos, Amazon and others.
       </P>
 
       <Expand summary="See the proof: every furniture line, word for word">
@@ -286,8 +282,8 @@ export default function PamelaNashMpFurnitureExpensesMotherwell() {
         <strong>£138,464</strong>. That is over <strong>seven times</strong> a normal week.
       </P>
       <P>
-        One in every eight pounds of the whole year&apos;s kit and repair bills landed in those seven
-        days.
+        The whole year&apos;s kit and repair bills came to £1,114,356. So about one pound in every
+        eight landed in those last seven days.
       </P>
 
       <ChartFrame
@@ -339,7 +335,7 @@ export default function PamelaNashMpFurnitureExpensesMotherwell() {
       </ChartFrame>
 
       <P>
-        Over the whole 2025/26 year, she billed £10,295 for office kit, furniture and repairs. Of
+        Her total for office kit, furniture and repairs over the whole 2025/26 year was £10,295. Of
         Scotland&apos;s 57 MPs, only <Link href={mp("angus-and-perthshire-glens")}>Dave Doogan</Link>{" "}
         billed more.
       </P>
@@ -390,32 +386,12 @@ export default function PamelaNashMpFurnitureExpensesMotherwell() {
       />
 
       <P>
-        From September 2025 to June 2026, she was a PPS at the Ministry of Defence. A PPS is an MP
-        who works as an unpaid helper to a government minister.
+        From September 2025 to June 2026, she was a PPS: an unpaid helper to a defence minister.
       </P>
       <P>
-        By custom, a PPS does not ask written questions or speak against the government. In 2025/26
-        she spoke on <strong>8 days</strong> and asked <strong>no</strong> written questions.
+        In August 2026 the Royal Navy gave her £1,544 of free Tattoo tickets and hospitality. She
+        declared it.
       </P>
-
-      <Spotlight
-        person={NASH}
-        kicker="17 August 2026 · Declared gift from the Royal Navy"
-        amount="£1,544"
-        headline="Free Tattoo tickets and hospitality on the Royal Yacht Britannia."
-        lines={[
-          {
-            meta: "Register of Members' Financial Interests · Gifts",
-            what: "Two tickets for Edinburgh Military Tattoo plus hospitality onboard Royal Yacht Britannia",
-            amount: "£1,544",
-          },
-        ]}
-      >
-        <p>
-          This was not on her expenses. The Royal Navy gave it, and she declared it, as the rules
-          say. It came after her defence job ended in June 2026.
-        </p>
-      </Spotlight>
 
       {/* ------------------------------------------------------------ 4 */}
       <Finding n={4} id="why-ipsa-paid">

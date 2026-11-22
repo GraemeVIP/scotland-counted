@@ -341,7 +341,7 @@ export default function ScottishMpMspExpensesWhatItCouldBuy() {
 
       <CaseCard
         kicker="Total of 58 claims"
-        figure="£24,530"
+        figure="£24,515"
         people={[
           {
             name: "Brendan O'Hara MP",
@@ -351,7 +351,7 @@ export default function ScottishMpMspExpensesWhatItCouldBuy() {
         ]}
       >
         <p>
-          <strong>Spent on EE mobile phone bills over 58 claims.</strong> He is MP for Argyll, Bute
+          <strong>Spent on mobile phone bills over 57 claims.</strong> He is MP for Argyll, Bute
           and South Lochaber.
         </p>
         <p>

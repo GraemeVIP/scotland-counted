@@ -137,12 +137,13 @@ export default function ChristineJardineMpChristmasLunchExpenses() {
             Edinburgh West MP <Link href={JARDINE.href}>Christine Jardine</Link>&apos;s office.
           </>,
           <>
-            One bill said <strong>&ldquo;lunch staff team training Christmas&rdquo;</strong>. The
-            other said &ldquo;team building event&rdquo;. Both went in on the same day.
+            The lunch bill, <strong>&ldquo;lunch staff team training Christmas&rdquo;</strong>, was
+            £250.80. A &ldquo;team building event&rdquo; the same day was £259.31.
           </>,
           <>
-            A year earlier, IPSA <strong>turned down</strong> another MP&apos;s &ldquo;Festive team
-            meal&rdquo; as &ldquo;Not claimable&rdquo;. Hers was <strong>paid in full</strong>.
+            In December 2024, IPSA <strong>turned down</strong> another MP&apos;s &ldquo;Festive team
+            meal&rdquo; as &ldquo;Not claimable&rdquo;. In December 2025, hers was{" "}
+            <strong>paid in full</strong>.
           </>,
           <>
             She has also billed you for a <strong>TV licence five years running</strong>: £842.
@@ -243,8 +244,9 @@ export default function ChristineJardineMpChristmasLunchExpenses() {
         Christmas and festive meals.
       </P>
       <P>
-        Only a handful of MPs billed one. Counting the team event on the same day, her{" "}
-        <strong>£510</strong> is the biggest staff Christmas spend we found.
+        Only a handful of MPs billed one. Her lunch bill on its own was <strong>£250.80</strong>.
+        One other MP&apos;s meal cost more: £300. But add her £259.31 team event on the same day,
+        and her <strong>£510</strong> is the biggest staff Christmas spend we found.
       </P>
 
       <ChartFrame
@@ -274,7 +276,11 @@ export default function ChristineJardineMpChristmasLunchExpenses() {
         />
       </ChartFrame>
 
-      <P>Now look at what happened to one MP in Newbury, a year before hers.</P>
+      <P>
+        <strong>December 2024:</strong> IPSA refused the MP for Newbury&apos;s &ldquo;Festive team
+        meal&rdquo; (£204.95) as &ldquo;Not claimable&rdquo;. <strong>December 2025:</strong> IPSA
+        paid Christine Jardine&apos;s Christmas lunch in full.
+      </P>
 
       <Receipt
         heading="IPSA records · 19 December 2024 · Newbury MP · Hospitality"
@@ -283,10 +289,6 @@ export default function ChristineJardineMpChristmasLunchExpenses() {
         footer="Wording as printed by IPSA, claim 60275492-1."
       />
 
-      <P>
-        Same month. Same kind of meal. That one was refused as &ldquo;Not claimable&rdquo;. A year
-        later, hers went through in full, with &ldquo;training&rdquo; in the wording.
-      </P>
       <P>
         We can&apos;t say why one was paid and one was not. IPSA&apos;s files only show the words on
         the bill. That is exactly the problem.

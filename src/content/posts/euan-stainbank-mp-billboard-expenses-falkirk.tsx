@@ -70,7 +70,7 @@ const SCALE: { what: string; value: number; label: string; hot?: boolean }[] = [
   { what: "His Falkirk office phone and internet bill (typical month, 2025)", value: 85.49, label: "£85" },
   { what: "One month's rent on his Falkirk office (2024/25)", value: 833.33, label: "£833" },
   { what: "His biggest single Falkirk office power bill (January 2025)", value: 986.53, label: "£987" },
-  { what: "One advertising board for him, up for a year (31 October 2024)", value: 3300, label: "£3,300", hot: true },
+  { what: "One advertising board for him, booked for a year (31 October 2024)", value: 3300, label: "£3,300", hot: true },
 ];
 
 /** The biggest single advertising board claims across all 650 UK MPs. */
@@ -89,7 +89,7 @@ const UK_TOP_BOARDS: {
     seat: "Falkirk",
     href: mp("falkirk"),
     date: "31 Oct 2024",
-    detail: "“Advertising board to advertise Euan as local MP”. Up for a year.",
+    detail: "“Advertising board to advertise Euan as local MP”. To be advertised for 1 year.",
     value: 3300,
   },
   {
@@ -150,7 +150,7 @@ export default function EuanStainbankMpBillboardExpensesFalkirk() {
         items={[
           <>
             <strong>Taxpayers</strong> paid <strong>£3,300</strong> for a board advertising Falkirk
-            MP <Link href={STAINBANK.href}>Euan Stainbank</Link>. It stayed up for a whole year.
+            MP <Link href={STAINBANK.href}>Euan Stainbank</Link>. It was booked for a whole year.
           </>,
           <>
             IPSA&apos;s own words: the board was there <strong>&ldquo;to advertise Euan as local
@@ -173,7 +173,7 @@ export default function EuanStainbankMpBillboardExpensesFalkirk() {
 
       <Spotlight
         person={STAINBANK}
-        kicker="31 October 2024 · up for a whole year"
+        kicker="31 October 2024 · booked for a whole year"
         amount="£3,300"
         headline="You paid for a board advertising him."
         lines={[
@@ -184,7 +184,7 @@ export default function EuanStainbankMpBillboardExpensesFalkirk() {
           },
         ]}
       >
-        <p>His name, up on a board for a year. Paid by the folk he works for.</p>
+        <p>His name on a board, booked for a year. Paid by the folk he works for.</p>
       </Spotlight>
 
       {/* ------------------------------------------------------------ 1 */}
@@ -202,7 +202,7 @@ export default function EuanStainbankMpBillboardExpensesFalkirk() {
       </P>
       <P>
         The record does not say where the board stood. It does not name the firm that made it
-        either. It just says it would be up for one year.
+        either. It just says it was &ldquo;To be advertised for 1 year&rdquo;.
       </P>
 
       <ChartFrame
@@ -231,7 +231,7 @@ export default function EuanStainbankMpBillboardExpensesFalkirk() {
 
       <Tiles
         items={[
-          { value: "£275", label: "what the board cost for every month it was up" },
+          { value: "£275", label: "what the board cost for every month it was booked" },
           { value: "£3,300", label: "the full bill, paid in one go", hot: true },
         ]}
       />

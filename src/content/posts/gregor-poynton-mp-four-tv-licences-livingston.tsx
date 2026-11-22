@@ -113,8 +113,8 @@ export default function GregorPoyntonMpFourTvLicencesLivingston() {
         lines={[
           { meta: "18 Dec 2024 · Office Costs · TV licence", what: "TVLICENSING.CO.UK", amount: "£169.50" },
           { meta: "14 Feb 2025 · Office Costs · TV licence", what: "TVLICENSING.CO.UK", amount: "£169.50" },
-          { meta: "4 Nov 2025 · split over two budget years", what: "TVLICENSING.CO.UK", amount: "£174.50" },
-          { meta: "26 Nov 2025 · split over two budget years", what: "TVLICENSING.CO.UK", amount: "£174.50" },
+          { meta: "4 Nov 2025 · paid in two parts", what: "TVLICENSING.CO.UK", amount: "£174.50" },
+          { meta: "26 Nov 2025 · paid in two parts", what: "TVLICENSING.CO.UK", amount: "£174.50" },
         ]}
       >
         <p>
@@ -155,13 +155,13 @@ export default function GregorPoyntonMpFourTvLicencesLivingston() {
           lines={[
             { meta: "18 Dec 2024 · 2024/25", what: "TVLICENSING.CO.UK", amount: "£169.50" },
             { meta: "14 Feb 2025 · 2024/25", what: "TVLICENSING.CO.UK", amount: "£169.50" },
-            { meta: "4 Nov 2025 · 2025/26 part", what: "TVLICENSING.CO.UK [200013634-164]", amount: "£54.98" },
-            { meta: "4 Nov 2025 · 2026/27 part", what: "TVLICENSING.CO.UK [200013609-437]", amount: "£119.52" },
-            { meta: "26 Nov 2025 · 2025/26 part", what: "TVLICENSING.CO.UK [200013634-163]", amount: "£72.67" },
-            { meta: "26 Nov 2025 · 2026/27 part", what: "TVLICENSING.CO.UK [200013609-436]", amount: "£101.83" },
+            { meta: "4 Nov 2025 · part 1", what: "TVLICENSING.CO.UK [200013634-164]", amount: "£54.98" },
+            { meta: "4 Nov 2025 · part 2", what: "TVLICENSING.CO.UK [200013609-437]", amount: "£119.52" },
+            { meta: "26 Nov 2025 · part 1", what: "TVLICENSING.CO.UK [200013634-163]", amount: "£72.67" },
+            { meta: "26 Nov 2025 · part 2", what: "TVLICENSING.CO.UK [200013609-436]", amount: "£101.83" },
           ]}
           total={{ label: "Four licences · all paid · £0 repaid", amount: "£688.00" }}
-          footer="Wording as printed by IPSA. IPSA split each November licence across two budget years. Added up, each is a full £174.50 licence."
+          footer="Wording as printed by IPSA. IPSA paid each November licence in two parts, one for each of its money years. Added up, each is a full £174.50 licence."
         />
         <Receipt
           heading="IPSA records · The TV itself · 2024/25"
@@ -247,7 +247,7 @@ export default function GregorPoyntonMpFourTvLicencesLivingston() {
             title: "£6,232 on family flights (2025/26)",
             children: (
               <>
-                IPSA calls this dependant travel. It was the 10th highest of all UK MPs. The year before,
+                This is family travel (IPSA calls it dependant travel). It was the 10th highest of all UK MPs. The year before,
                 it was £2,325.
               </>
             ),

@@ -475,7 +475,7 @@ export default function KilmarnockMp23437ElectricityBill() {
           </Link>
           . We also found{" "}
           <Link href="/blog/worst-scottish-mp-expenses">£3,090 to set up 5G broadband</Link>,
-          <strong>£24,530 on one MP&apos;s phone bills</strong>, and{" "}
+          <strong>£24,515 on one MP&apos;s phone bills</strong>, and{" "}
           <strong>£37,359 on London hotels</strong>. See{" "}
           <Link href="/blog/worst-scottish-mp-expenses">the worst claims</Link> or compare{" "}
           <Link href="/mp-expenses-scotland">all 57 Scottish MPs</Link>.

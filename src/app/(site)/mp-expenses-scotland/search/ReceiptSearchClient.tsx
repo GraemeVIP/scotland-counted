@@ -825,7 +825,7 @@ export default function ReceiptSearchClient() {
           "• £10,000 for an unnamed 'Policy and Office set up consultant' (Melanie Ward, plus £7,000 paid back)",
           "• £10,754 on TV licences across 29 MPs (4 in 12 months by Gregor Poynton; 2 in 9 months by Dr Zubir Ahmed)",
           "• £37,359 for 295 nights in London hotels in one year (Dr Zubir Ahmed)",
-          "• £24,530 on mobile phone bills (Brendan O'Hara, peaking at £909 in one month)",
+          "• £24,515 on mobile phone bills (Brendan O'Hara, peaking at £909 in one month)",
           "• £35,792 to PR firm Peach Partners (John Lamont) & £3,090 for 5G broadband setup (Chris Law)",
           "Search all 20,879 Scottish MP receipts yourself: https://scotlandcounted.org.uk/mp-expenses-scotland/search",
         ].join("\n");

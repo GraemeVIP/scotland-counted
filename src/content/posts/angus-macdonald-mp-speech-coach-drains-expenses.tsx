@@ -101,22 +101,6 @@ const UK_TOP_SPEECH: {
     detail: "“Speech writing services”",
     value: 3000,
   },
-  {
-    name: "Dan Jarvis",
-    p: "Labour",
-    seat: "Barnsley Central (now Barnsley North)",
-    date: "21 Apr 2023",
-    detail: "A speechwriting training course",
-    value: 1020,
-  },
-  {
-    name: "Stephen Kinnock",
-    p: "Labour",
-    seat: "Aberafan Maesteg",
-    date: "14 Aug 2025",
-    detail: "“Impact Factory - Public Speaking training 12th Sept”",
-    value: 660,
-  },
 ];
 
 /** His second home bills for 2025/26, with no rent at all. */
@@ -126,6 +110,8 @@ const SECOND_HOME: { what: string; value: number; label: string; hot?: boolean }
   { what: "Buildings insurance", value: 745.55, label: "£746" },
   { what: "Flat service charges", value: 939.24, label: "£939" },
   { what: "Energy and water", value: 3314.09, label: "£3,314" },
+  { what: "Phone and internet", value: 383.42, label: "£383" },
+  { what: "One hotel stay on constituency visits", value: 147.5, label: "£148" },
 ];
 
 /* ------------------------------------------------------------------ */
@@ -167,14 +153,11 @@ export default function AngusMacdonaldMpSpeechCoachDrainsExpenses() {
         kicker="17 July 2025 · from his staff budget"
         amount="£3,000"
         headline="You paid for lessons in giving speeches."
-        lines={[
-          {
-            meta: "Staffing · Bought-in services · Comms & Media",
-            what: "Provision of personalised presentation and speech skills workshop to assist MPs representational role in Parliament.",
-            amount: "£3,000.00",
-          },
-        ]}
       >
+        <p>
+          IPSA&apos;s record calls it a &ldquo;personalised presentation and speech skills
+          workshop&rdquo;. It was meant to help him speak up for local people in Parliament.
+        </p>
         <p>Talking is the job. You paid for him to learn how to do it.</p>
       </Spotlight>
 
@@ -245,9 +228,13 @@ export default function AngusMacdonaldMpSpeechCoachDrainsExpenses() {
         />
       </ChartFrame>
 
-      <CaseCard kicker="The Lib Dem speech habit" figure="£37,000" people={[MACDONALD]}>
+      <CaseCard
+        kicker="Two Lib Dem MPs, one speech habit"
+        figure="£37,000"
+        people={[{ name: "Chris Coghlan", p: "Lib Dem", place: "Dorking and Horley" }, MACDONALD]}
+      >
         <p>
-          Lib Dem MP Chris Coghlan, from Dorking in Surrey, has billed <strong>£34,000</strong> for
+          Chris Coghlan, the Lib Dem MP for Dorking in Surrey, has billed <strong>£34,000</strong> for
           &ldquo;speech consultancy&rdquo; since October 2024. That is 14 claims.
         </p>
         <p>
@@ -301,7 +288,7 @@ export default function AngusMacdonaldMpSpeechCoachDrainsExpenses() {
       <ChartFrame
         kicker="His London flat · 2025/26"
         title="What you paid for a second home he pays no rent on"
-        caption="Source: IPSA files for Angus MacDonald MP, 2025/26 budget year. His whole second home bill that year was £6,076, with £0 rent. Smaller items are not shown."
+        caption="Source: IPSA files for Angus MacDonald MP, 2025/26 budget year (April 2025 to March 2026). These items add up to £6,075.80, his whole second home bill that year, with £0 rent."
       >
         <div className="space-y-4">
           {SECOND_HOME.map((s) => (
@@ -327,7 +314,8 @@ export default function AngusMacdonaldMpSpeechCoachDrainsExpenses() {
         year. It was the highest in Scotland.
       </P>
       <P>
-        Then in March 2026 he billed <strong>£3,027.12</strong> for council tax. IPSA&apos;s line
+        On top of that, on 24 March 2026 he billed <strong>£3,027.12</strong> for council tax.
+        IPSA counts it in the next budget year, 2026/27, so it is not in the £6,076 above. The line
         says it includes the &ldquo;second home premium&rdquo;. That is the extra charge councils put
         on second homes. You pay that too.
       </P>
@@ -404,11 +392,16 @@ export default function AngusMacdonaldMpSpeechCoachDrainsExpenses() {
         ]}
       />
 
-      <Expand summary="See the proof: his other big claims, word for word">
+      <Expand summary="See the proof: his big claims, word for word">
         <Receipt
           person={MACDONALD}
-          heading="IPSA records · Angus MacDonald · 2025 to 2026"
+          heading="IPSA records · Angus MacDonald · 2025 and 2026"
           lines={[
+            {
+              meta: "17 Jul 2025 · Paid from his staff budget",
+              what: "Provision of personalised presentation and speech skills workshop to assist MPs representational role in Parliament.",
+              amount: "£3,000.00",
+            },
             {
               meta: "1 Apr 2025 · Second home · Water",
               what: "Annual Water Rates - London Accommodation",
@@ -420,7 +413,7 @@ export default function AngusMacdonaldMpSpeechCoachDrainsExpenses() {
               amount: "£620.25",
             },
             {
-              meta: "24 Mar 2026 · Second home · Council tax",
+              meta: "24 Mar 2026 · Second home · Council tax (2026/27 budget)",
               what: "Council tax & adjustment (second home premium)",
               amount: "£3,027.12",
             },
@@ -435,7 +428,7 @@ export default function AngusMacdonaldMpSpeechCoachDrainsExpenses() {
               amount: "£562.98",
             },
             {
-              meta: "24 Mar 2025 · Staffing · Bought-in services",
+              meta: "24 Mar 2025 · Paid from his staff budget",
               what: "Professional and legal fees for Inverness Constituency Office [200012963-4]",
               amount: "£3,064.00",
             },

@@ -89,31 +89,6 @@ const UK_IPHONES: {
     detail: "“Apple iPhone & cable per invoice”",
     value: 1468,
   },
-  {
-    name: "Al Pinkerton",
-    p: "Lib Dem",
-    seat: "Surrey Heath",
-    date: "19 Oct 2024",
-    detail: "“Purchase of iPhone Mobile for MP”",
-    value: 1327,
-  },
-  {
-    name: "Fabian Hamilton",
-    p: "Labour",
-    seat: "Leeds North East",
-    date: "28 Oct 2022",
-    detail: "“Apple iPhone 14 pro Max” (one of his three iPhones)",
-    value: 1309,
-  },
-  {
-    name: "John Lamont",
-    p: "Conservative",
-    seat: "Berwickshire, Roxburgh & Selkirk",
-    href: mp("berwickshire-roxburgh-and-selkirk"),
-    date: "12 Jun 2025",
-    detail: "“Iphone and protection case” (his second iPhone)",
-    value: 1248,
-  },
 ];
 
 /** Most spent on adverts, all MPs, 2022/23 to 2026/27. */
@@ -162,12 +137,12 @@ export default function JohnLamontMpIphoneExpensesBorders() {
             people pay for their own phone.
           </>,
           <>
-            He is the <strong>only one of Scotland&apos;s 57 MPs</strong> whose bills say they bought
-            an iPhone.
+            He also billed <strong>£49,568 on adverts</strong> in five years, the{" "}
+            <strong>most of any UK MP</strong>.
           </>,
           <>
-            He spent more on adverts than <strong>any other MP in the UK</strong>: almost £50,000 in
-            five years.
+            He is the <strong>only one of Scotland&apos;s 57 MPs</strong> whose bills say they bought
+            an iPhone.
           </>,
           <>
             He also tops our Receipt Finder, with <strong>£165,521</strong> across 690 bills. That is
@@ -183,20 +158,33 @@ export default function JohnLamontMpIphoneExpensesBorders() {
         headline="You paid for his new iPhone and case."
         lines={[
           {
-            meta: "12 June 2025 · Office Costs · Mobile phone kit",
-            what: "Iphone and protection case",
-            amount: "£1,248.00",
-          },
-          {
             meta: "9 August 2022 · Office Costs · Mobile phone kit",
             what: "iPhone purchase - John Lamont",
             amount: "£1,098.00",
+          },
+          {
+            meta: "12 June 2025 · Office Costs · Mobile phone kit",
+            what: "Iphone and protection case",
+            amount: "£1,248.00",
           },
         ]}
       >
         <p>
           Two iPhones in under three years. <strong>£2,346</strong> in all. £0 has been paid back.
         </p>
+      </Spotlight>
+
+      <Spotlight
+        person={LAMONT}
+        kicker="2022/23 to 2026/27 · Adverts and contact cards"
+        amount="£49,568"
+        headline="The most any UK MP spent on adverts in five years."
+        lines={[
+          { meta: "1 July 2025", what: "Hawick Paper - surgery advert (6 months)", amount: "£1,224.00" },
+          { meta: "17 July 2025", what: "Kelso Life - surgery advert (9 months)", amount: "£1,382.40" },
+        ]}
+      >
+        <p>Two of 201 advert bills. Nearly double the next MP in the UK. Taxpayers paid.</p>
       </Spotlight>
 
       {/* ------------------------------------------------------------ 1 */}
@@ -289,7 +277,7 @@ export default function JohnLamontMpIphoneExpensesBorders() {
 
       <ChartFrame
         kicker="All 650 UK MPs · 2022/23 to 2026/27"
-        title="The dearest single iPhone bills of any MP"
+        title="The three dearest single iPhone bills of any MP"
         caption="Source: Five years of IPSA files for all 650 UK seats. Only lines that name an iPhone and buy one handset. Leaves out bills for several phones at once, or a phone with a laptop."
       >
         <RankList
@@ -308,9 +296,7 @@ export default function JohnLamontMpIphoneExpensesBorders() {
       </ChartFrame>
 
       <P>
-        One more twist. He shares his London flat with Tory MP Robbie Moore. A month after the
-        Lamont phone, Moore billed £1,199 for an iPhone too. His bill says it replaced a stolen
-        phone.
+        His £1,248 phone was the sixth dearest single iPhone bill of all 650 MPs.
       </P>
 
       {/* ------------------------------------------------------------ 3 */}
@@ -405,8 +391,8 @@ export default function JohnLamontMpIphoneExpensesBorders() {
       />
 
       <P>
-        One fair point in his favour. Because he shares that London flat, the rent and bills are
-        split two ways. That saves you money.
+        One fair point in his favour. He shares his London flat with another MP, so the rent and
+        bills are split two ways. That saves you money.
       </P>
 
       <Expand summary="See the Peach Partners bills and the newsletter, word for word">
@@ -503,9 +489,9 @@ export default function JohnLamontMpIphoneExpensesBorders() {
       <Aside title="Part of a wider pattern in Westminster">
         <p>
           <Link href={LAMONT.href}>John Lamont</Link> is not alone. We found a{" "}
-          <Link href="/blog/worst-scottish-mp-expenses">£24,530 phone tab</Link> for another Scottish
-          MP, and <Link href="/blog/scottish-mps-tv-licence-expenses">29 MPs</Link> who billed you for
-          TV licences. See <Link href="/mp-expenses-scotland/receipts">the oddest claims</Link> or
+          <Link href="/blog/worst-scottish-mp-expenses">£24,515 phone tab</Link> for another Scottish
+          MP, and <Link href="/blog/scottish-mps-tv-licence-expenses">29 Scottish MPs</Link> who billed you
+          for TV licences. See <Link href="/mp-expenses-scotland/receipts">the oddest claims</Link> or
           compare <Link href="/mp-expenses-scotland">all 57 Scottish MPs</Link>.
         </p>
       </Aside>
