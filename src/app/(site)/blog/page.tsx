@@ -1,4 +1,4 @@
-import { Page, ContentFrame, PageHeader } from "@/components/Blocks";
+import { Page, ContentFrame, CompactHeader } from "@/components/Blocks";
 import AuthorBio from "@/components/AuthorBio";
 import BlogList from "./BlogList";
 import { JsonLd, meta } from "@/lib/seo";
@@ -46,10 +46,10 @@ export default function Blog() {
       />
 
       <Page>
-        <PageHeader
+        <CompactHeader
           eyebrow="Explained · the evidence hub"
           title="Scotland Counted explained"
-          lede="Start with the answer in ordinary words. Then open the figures, dates and original sources if you want to check the work. No political knowledge assumed."
+          lede="Investigations and plain English explainers. Every figure links to its original source, so you can check the work."
         />
 
         <ContentFrame>

@@ -38,16 +38,18 @@ export default function BlogList({
   const stories = posts.filter((post) => post.image && !post.guideImage);
   const guides = posts.filter((post) => !post.image || post.guideImage);
   const featured = showFeatured ? stories[0] : undefined;
-  const remaining = featured ? stories.filter((post) => post.slug !== featured.slug) : stories;
+  const alsoNew = featured ? stories.slice(1, 4) : [];
+  const shown = new Set([featured?.slug, ...alsoNew.map((post) => post.slug)]);
+  const remaining = stories.filter((post) => !shown.has(post.slug));
   const featuredCategory = featured ? getPostCategory(featured.category) : undefined;
 
   return (
     <>
-      <nav className="flex flex-wrap items-center gap-2 mt-7" aria-label="Article categories">
+      <nav className="-mx-5 flex items-center gap-2 overflow-x-auto px-5 pb-1 [scrollbar-width:none] sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0 sm:pb-0" aria-label="Article categories">
         <Link
           href="/blog"
           aria-current={!activeCategory ? "page" : undefined}
-          className={`ui min-h-11 inline-flex items-center px-4 py-2 rounded-[var(--r-pill)] text-[15px] font-[560] border no-underline transition-colors ${
+          className={`ui min-h-10 inline-flex shrink-0 items-center whitespace-nowrap px-3.5 py-1.5 rounded-[var(--r-pill)] text-[14.5px] font-[560] border no-underline transition-colors ${
             !activeCategory
               ? "bg-[var(--ink)] text-[var(--paper)] border-[var(--ink)]"
               : "bg-[var(--surface)] text-[var(--ink-2)] border-[var(--rule-strong)] hover:border-[var(--brand)]"
@@ -62,7 +64,7 @@ export default function BlogList({
               key={category.slug}
               href={`/blog/category/${category.slug}`}
               aria-current={active ? "page" : undefined}
-              className={`ui min-h-11 inline-flex items-center px-4 py-2 rounded-[var(--r-pill)] text-[15px] font-[560] border no-underline transition-colors ${
+              className={`ui min-h-10 inline-flex shrink-0 items-center whitespace-nowrap px-3.5 py-1.5 rounded-[var(--r-pill)] text-[14.5px] font-[560] border no-underline transition-colors ${
                 active
                   ? "bg-[var(--ink)] text-[var(--paper)] border-[var(--ink)]"
                   : "bg-[var(--surface)] text-[var(--ink-2)] border-[var(--rule-strong)] hover:border-[var(--brand)]"
@@ -78,55 +80,85 @@ export default function BlogList({
       </nav>
 
       {featured && (
-        <section className="pt-9" aria-labelledby="featured-story">
-          <p className="label mb-4">Latest</p>
-          <article className="group overflow-hidden rounded-[var(--r-l)] border border-[var(--rule)] bg-[var(--deep)] text-[var(--deep-ink)]">
+        <section className="mt-6" aria-labelledby="featured-story">
+          <article className="group overflow-hidden rounded-[var(--r-l)] bg-[var(--deep)] text-[var(--deep-ink)]">
             <Link
               href={postPath(featured.slug)}
-              className="grid lg:grid-cols-[minmax(0,1.08fr)_minmax(390px,0.92fr)] no-underline"
+              className="grid no-underline lg:h-[clamp(360px,30vw,440px)] lg:grid-cols-[minmax(0,1.12fr)_minmax(0,1fr)]"
             >
-              <div className="relative min-h-[300px] sm:min-h-[410px] lg:min-h-[500px] overflow-hidden">
+              <div className="relative aspect-[16/9] overflow-hidden lg:aspect-auto lg:h-full">
                 {featured.image ? (
                   <Image
                     src={featured.image.cardSrc ?? featured.image.src}
                     alt={featured.image.alt}
                     fill
                     priority
-                    sizes="(min-width: 1024px) 58vw, 100vw"
+                    sizes="(min-width: 1024px) 640px, 100vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
                     style={{ objectPosition: featured.image.objectPosition ?? "center" }}
                   />
                 ) : (
                   <CoverArt label="Guide" title={featured.title} className="absolute inset-0" />
                 )}
+                <span className="ui absolute left-4 top-4 rounded-[var(--r-pill)] bg-[var(--deep)]/85 px-3 py-1 text-[13px] font-[640] text-white backdrop-blur">
+                  Latest
+                </span>
               </div>
-              <div className="p-6 sm:p-9 lg:p-11 flex flex-col justify-center">
-                {/* This card sits on --deep, so it needs the dark-background
-                    variant. The light one drops to 2.77:1 here for politics. */}
-                <p
-                  className="ui text-[15px] font-[620]"
-                  style={{ color: featuredCategory?.colorOnDark ?? "#8bb8ff" }}
-                >
+              <div className="flex min-w-0 flex-col justify-center p-6 sm:p-8 lg:p-10">
+                {/* Sits on --deep, so it uses the dark-background category colour. */}
+                <p className="ui text-[14.5px] font-[620]" style={{ color: featuredCategory?.colorOnDark ?? "#8bb8ff" }}>
                   {featuredCategory?.name}
                 </p>
                 <h2
                   id="featured-story"
-                  className="text-[31px] sm:text-[42px] font-[640] leading-[1.05] tracking-[-0.03em] mt-3 max-w-[18ch]"
+                  className="mt-2 text-[clamp(22px,1.85vw,30px)] font-[650] leading-[1.14] tracking-[-0.02em] group-hover:underline decoration-white/40 underline-offset-4"
                 >
                   {featured.title}
                 </h2>
-                <p className="text-[18px] leading-[1.55] opacity-78 mt-5 max-w-[48ch]">
-                  {featured.standfirst}
-                </p>
-                <p className="text-[15px] opacity-62 mt-6">
+                <p className="mt-3 line-clamp-2 text-[16px] leading-[1.55] opacity-80">{featured.standfirst}</p>
+                <p className="ui mt-4 text-[14px] opacity-65">
                   {fmtDate(featured.updated ?? featured.date)} · {featured.readingMinutes} min read
-                </p>
-                <p className="ui text-[16px] font-[600] mt-7 text-[var(--deep-ink)]">
-                  Read the full story <span aria-hidden="true">→</span>
                 </p>
               </div>
             </Link>
           </article>
+
+          {alsoNew.length > 0 && (
+            <ul aria-label="Also new" className="mt-4 grid gap-4 md:grid-cols-3">
+              {alsoNew.map((post) => {
+                const category = getPostCategory(post.category);
+                return (
+                  <li key={post.slug} className="min-w-0">
+                    <Link
+                      href={postPath(post.slug)}
+                      className="tile group flex h-full gap-3.5 p-3.5 no-underline"
+                    >
+                      <div className="relative h-[78px] w-[96px] shrink-0 overflow-hidden rounded-[var(--r-s)] bg-[var(--paper-3)]">
+                        {post.image && (
+                          <Image
+                            src={post.image.cardSrc ?? post.image.src}
+                            alt=""
+                            fill
+                            sizes="96px"
+                            className="object-cover"
+                            style={{ objectPosition: post.image.objectPosition ?? "center" }}
+                          />
+                        )}
+                      </div>
+                      <div className="min-w-0">
+                        <p className="ui text-[12.5px] font-[620]" style={{ color: category?.color }}>
+                          {category?.name}
+                        </p>
+                        <p className="mt-0.5 line-clamp-4 text-[15.5px] font-[620] leading-[1.3] text-[var(--ink)] group-hover:text-[var(--action-text)] transition-colors">
+                          {post.title}
+                        </p>
+                      </div>
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          )}
         </section>
       )}
 
@@ -135,7 +167,7 @@ export default function BlogList({
           <div>
             <p className="label mb-2">Read and check</p>
             <h2 id="article-list-heading" className="h2">
-              {activeCategory ? getPostCategory(activeCategory)?.name : "Latest explainers"}
+              {activeCategory ? `More ${getPostCategory(activeCategory)?.name.toLowerCase()}` : "More to read"}
             </h2>
           </div>
           <p className="ui text-[15px] text-[var(--muted)]">

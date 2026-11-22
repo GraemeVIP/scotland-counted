@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import AuthorBio from "@/components/AuthorBio";
-import { Page, ContentFrame, PageHeader } from "@/components/Blocks";
+import { Page, ContentFrame, CompactHeader } from "@/components/Blocks";
 import { JsonLd, meta } from "@/lib/seo";
 import {
   getPostCategory,
@@ -35,9 +35,9 @@ const CATEGORY_SEO = {
   },
   "politics-explained": {
     title: "Scottish Politics Explained: Timelines and Primary Sources",
-    h1: "Scottish politics explained",
+    h1: "Scotland Counted investigations",
     description:
-      "Long form, plain English timelines of Scottish political stories, with allegations, official records and court findings clearly separated.",
+      "We read the receipts, records and votes so you don't have to. MP and MSP expenses, Operation Branchform and more, with every figure linked to its original source.",
   },
 } as const;
 
@@ -95,12 +95,11 @@ export default async function BlogCategory(props: { params: Promise<{ category: 
       />
 
       <Page>
-        <PageHeader eyebrow="Explained" title={seo.h1} lede={seo.description} />
+        <CompactHeader eyebrow="Explained" title={seo.h1} lede={seo.description} />
         <ContentFrame>
           <BlogList
             posts={categoryPosts}
             activeCategory={category.slug as PostCategorySlug}
-            showFeatured={false}
           />
           <AuthorBio className="mt-16" />
         </ContentFrame>

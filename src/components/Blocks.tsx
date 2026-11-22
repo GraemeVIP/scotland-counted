@@ -94,6 +94,29 @@ export function FullBleed({
    Page furniture
    ============================================================ */
 
+/**
+ * A tighter page header for index pages (the blog and its categories): small
+ * title with the lede beside it on wide screens, so the content starts in the
+ * first screen even on a laptop.
+ */
+export function CompactHeader({ eyebrow, title, lede }: { eyebrow?: string; title: string; lede?: ReactNode }) {
+  return (
+    <header className="pt-5 pb-5 sm:pt-6">
+      <div className="max-w-[1120px] mx-auto grid gap-x-12 gap-y-3 lg:grid-cols-[minmax(0,1fr)_minmax(0,46ch)] lg:items-end">
+        <div className="min-w-0">
+          {eyebrow && <p className="eyebrow mb-3"><span><ExplainText>{eyebrow}</ExplainText></span></p>}
+          <h1 className="h1 text-[clamp(32px,3.4vw,50px)]">{title}</h1>
+        </div>
+        {lede && (
+          <div className="text-[16.5px] leading-[1.55] text-[var(--ink-2)] lg:pb-1.5">
+            <ExplainText>{lede}</ExplainText>
+          </div>
+        )}
+      </div>
+    </header>
+  );
+}
+
 export function PageHeader({
   eyebrow,
   title,
