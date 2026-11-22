@@ -202,6 +202,29 @@ export default function WorstScottishMpExpenses() {
         footer="Wording as printed by IPSA (reference numbers left out)."
       />
 
+      <Spotlight
+        person={person("Torcuil Crichton", "na-h-eileanan-an-iar", "Labour", "Na h-Eileanan an Iar")}
+        kicker="October 2025 to June 2026 · 16 bills"
+        amount="£2,400"
+        headline="You paid for coaching for him and his staff."
+        lines={[
+          { meta: "21 Oct 2025 · six bills on one day, filed as staff training", what: "LARA LLOYD COACHING", amount: "6 × £125" },
+          { meta: "Oct 2025 to June 2026 · filed as training for the MP himself", what: "LARA LLOYD COACHING", amount: "5 × £175" },
+          { meta: "Feb to May 2026 · filed as staff training", what: "LARA LLOYD COACHING", amount: "£175 + 4 × £150" },
+        ]}
+      >
+        <p>
+          The coach used to work at IPSA, the body that pays MPs&apos; expenses with public money.
+          Her coaching firm was set up in March 2025. She charges MPs <strong>£175 an hour</strong>,
+          mostly over video calls.
+        </p>
+        <p>
+          He is not the only one. IPSA&apos;s files show <strong>12 MPs across the UK</strong> paid
+          her firm <strong>£16,800</strong> of public money in under a year, including Ed
+          Miliband&apos;s office. IPSA paid every penny. He is the only Scottish MP on the list.
+        </p>
+      </Spotlight>
+
       {/* ------------------------------------------------------------ 4 */}
       <Finding n={4} of={FINDINGS} id="self-promotion">
         Paying to put their own name through your door
