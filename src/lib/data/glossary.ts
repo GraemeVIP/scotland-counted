@@ -1171,6 +1171,31 @@ export const terms: Term[] = [
     term: "Winter Heating Payment",
     def: "A yearly payment from Social Security Scotland to help low income households with heating costs in winter.",
   },
+  {
+    id: "backbencher",
+    term: "Backbencher",
+    def: "An ordinary MP who does not hold a government job or a frontbench party job. They sit on the rows behind the party leaders and are free to speak in debates and ask written questions.",
+  },
+  {
+    id: "pps",
+    term: "PPS",
+    def: "Short for Parliamentary Private Secretary: an unpaid MP who acts as a go-between for a government minister. By custom, a PPS does not ask written questions or criticise government policy in debates.",
+  },
+  {
+    id: "minister",
+    term: "Minister",
+    def: "An MP or peer appointed by the Prime Minister to run part of a government department, such as health, defence or Scotland.",
+  },
+  {
+    id: "recess",
+    term: "Recess",
+    def: "The weeks when Parliament closes for breaks (summer, party conferences, Christmas and Easter) and no debates or votes take place in Westminster.",
+  },
+  {
+    id: "hansard",
+    term: "Hansard",
+    def: "The official word for word transcript of everything said in Parliament, published free online after every debate.",
+  },
 ];
 
 export const termsById: Record<string, Term> = Object.fromEntries(

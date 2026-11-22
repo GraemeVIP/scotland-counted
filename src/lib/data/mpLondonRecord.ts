@@ -69,6 +69,8 @@ export function roleLabel(r: MpLondonRecord): string | null {
   const gov = r.posts.filter((p) => p.kind === "government");
   if (gov.some((p) => /secretary of state/i.test(p.name) && !/under-secretary/i.test(p.name)))
     return "Cabinet minister";
+  if (gov.some((p) => /parliamentary private secretary/i.test(p.name)))
+    return "Unpaid aide to a minister (PPS)";
   if (gov.some((p) => /whip/i.test(p.name))) return gov.some((p) => !/whip/i.test(p.name)) ? "Minister" : "Government whip";
   if (gov.length) return "Minister";
   if (r.posts.some((p) => /whip/i.test(p.name))) return "Party whip";

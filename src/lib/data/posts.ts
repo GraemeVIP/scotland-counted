@@ -142,6 +142,58 @@ export type Post = {
 
 export const posts: Post[] = [
   {
+    slug: "scottish-mps-london-homes-152-sitting-days",
+    title:
+      "£2.91 million to shuttle Scottish MPs to London for 152 days: up to £3,007 every time they speak",
+    seoTitle:
+      "£2.91m to Shuttle Scottish MPs to London for 152 Open Days (Cost Per Speech & Vote)",
+    description:
+      "Parliament only opened for 152 days in 2025/26, yet taxpayers spent £2.91m housing and shuttling Scotland's MPs to London (£19,173 a day), up to £3,007 per day spoken.",
+    standfirst:
+      "The House of Commons was closed for 213 days in 2025/26. Yet taxpayers spent £2.91 million (£19,173 every open day) renting London flats, paying hotels, flights, taxis, parking and family travel for Scotland's MPs, costing up to £3,007 every time an ordinary MP stood up to speak.",
+    date: "2026-11-22",
+    updated: "2026-11-22",
+    checked: "2026-11-22",
+    category: "politics-explained",
+    tags: ["MP expenses Scotland", "Westminster", "London flats", "IPSA", "Scottish Labour", "SNP"],
+    readingMinutes: 6,
+    image: {
+      src: "/images/editorial/refresh-court-records.webp",
+      alt: "Official IPSA and Parliament records comparing Scottish MPs' £2.91 million London shuttle costs against 152 days Parliament was open",
+      caption:
+        "Every figure combines IPSA 2025/26 Accommodation, MP Travel and Dependant Travel claims with Hansard speaking records and Commons vote tallies.",
+      aspect: "wide",
+      objectPosition: "center",
+    },
+    shareImage: {
+      src: "/images/editorial/refresh-court-records.webp",
+      width: 1500,
+      height: 1000,
+      type: "image/webp",
+    },
+    toc: [
+      { id: "the-shuttle-bill", label: "What the £2.91 million actually pays for" },
+      { id: "paid-when-shut", label: "Paid 365 nights when Parliament is shut 213 days" },
+      { id: "price-of-presence", label: "Up to £3,007 every time an MP speaks" },
+      { id: "why-not-remote", label: "They proved remote voting works, then binned it" },
+    ],
+    faq: [
+      {
+        q: "How many days was the House of Commons open in 2025/26?",
+        a: "The House of Commons opened for 152 sitting days between 1 April 2025 and 31 March 2026, leaving it closed for 213 days of the year across weekends and recesses.",
+      },
+      {
+        q: "How much did it cost to house and shuttle Scotland's MPs to London in 2025/26?",
+        a: "Across Scotland's 55 full year MPs, taxpayers paid £2,914,349 in 2025/26 (£1,559,441 on London flats, hotels, council tax and heating, £1,265,797 on MPs' own travel, and £89,111 on family travel), equal to £19,173 for every day Parliament was open.",
+      },
+      {
+        q: "Which ordinary Scottish MPs cost taxpayers the most per day they spoke in Parliament?",
+        a: "Excluding ministers, whips and unpaid ministerial aides (PPSs), Elaine Stewart cost £3,007 per day she spoke (£57,135 across 19 speaking days), Chris Kane cost £2,732 per speaking day (£68,303 across 25 days), and Joani Reid cost £2,561 per speaking day (£48,655 across 19 days).",
+      },
+    ],
+    sourceIds: ["ipsa-claims-2022-2027"],
+  },
+  {
     slug: "kilmarnock-mp-23437-electricity-bill",
     title:
       "£23,437 for electricity in a single day: how Kilmarnock's MP ended up with the biggest power bill in the UK Parliament",

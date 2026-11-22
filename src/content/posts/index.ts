@@ -59,6 +59,7 @@ import ScottishMpExpensesAndFreebiesInvestigation from "./scottish-mp-expenses-a
 import WorstScottishMpExpenses from "./worst-scottish-mp-expenses";
 import ScottishMpsTvLicenceExpenses from "./scottish-mps-tv-licence-expenses";
 import KilmarnockMp23437ElectricityBill from "./kilmarnock-mp-23437-electricity-bill";
+import ScottishMpsLondonHomes152SittingDays from "./scottish-mps-london-homes-152-sitting-days";
 
 /**
  * Slug to post body. Statically imported so every post is prerendered and no
@@ -66,6 +67,7 @@ import KilmarnockMp23437ElectricityBill from "./kilmarnock-mp-23437-electricity-
  * to src/lib/data/posts.ts.
  */
 export const postBodies: Record<string, ComponentType> = {
+  "scottish-mps-london-homes-152-sitting-days": ScottishMpsLondonHomes152SittingDays,
   "kilmarnock-mp-23437-electricity-bill": KilmarnockMp23437ElectricityBill,
   "scottish-mps-tv-licence-expenses": ScottishMpsTvLicenceExpenses,
   "worst-scottish-mp-expenses": WorstScottishMpExpenses,

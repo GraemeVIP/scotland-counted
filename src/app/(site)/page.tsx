@@ -208,6 +208,7 @@ export default function Home() {
                 £24,530 for one MP&apos;s mobile bills. Search all 20,879 official receipts.
               </p>
               <p className="ui mt-3 flex flex-wrap gap-x-5 gap-y-2 text-[15px]">
+                <Link href="/blog/scottish-mps-london-homes-152-sitting-days" className="font-[600] text-white">£2.91m London shuttle (152 days) →</Link>
                 <Link href="/blog/kilmarnock-mp-23437-electricity-bill" className="font-[600] text-white">£23,437 power bill (UK #1) →</Link>
                 <Link href="/blog/scottish-mps-tv-licence-expenses" className="font-[600] text-white">29 MPs&apos; TV licences →</Link>
                 <Link href="/mp-expenses-scotland/receipts" className="font-[600] text-white">The receipts →</Link>

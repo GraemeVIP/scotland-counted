@@ -1444,7 +1444,14 @@
       "speakingDays": 8,
       "spokenContributions": 9,
       "writtenQuestions": 0,
-      "posts": [],
+      "posts": [
+        {
+          "kind": "government",
+          "name": "Parliamentary Private Secretary (Ministry of Defence)",
+          "start": "2025-09-01",
+          "end": "2026-06-30"
+        }
+      ],
       "committees": [],
       "hotelNights": 0,
       "hotelPaid": 0

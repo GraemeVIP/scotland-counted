@@ -61,6 +61,9 @@ export default function MpReceiptsSearchPage() {
           lede="IPSA buries MPs' expense receipts inside five separate spreadsheets totalling more than 350,000 lines. We pulled every single non-payroll receipt filed by Scotland's 57 current MPs from 2022/23 to 2026/27 so you can search, filter, copy and challenge any claim yourself."
         >
           <div className="mt-4 flex flex-wrap items-center gap-2.5">
+            <Link href="/blog/scottish-mps-london-homes-152-sitting-days" className="btn btn-ghost">
+              £2.91m London shuttle (152 days) →
+            </Link>
             <Link href="/blog/kilmarnock-mp-23437-electricity-bill" className="btn btn-ghost">
               £23,437 Kilmarnock electricity bill (UK #1) →
             </Link>
@@ -69,9 +72,6 @@ export default function MpReceiptsSearchPage() {
             </Link>
             <Link href="/mp-expenses-scotland/receipts" className="btn btn-ghost">
               Top highlighted receipts →
-            </Link>
-            <Link href="/blog/worst-scottish-mp-expenses" className="btn btn-ghost">
-              Worst expenses roundup →
             </Link>
             <Link href="/mp-expenses-scotland" className="btn btn-ghost">
               All 57 MPs ranked →

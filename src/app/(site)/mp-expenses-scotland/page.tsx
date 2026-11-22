@@ -603,6 +603,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
 
   const JUMP_LINKS = [
     { href: "/mp-expenses-scotland/search", label: "Search all 20,879 receipts" },
+    { href: "/blog/scottish-mps-london-homes-152-sitting-days", label: "£2.91m London shuttle (152 days)" },
     { href: "/blog/kilmarnock-mp-23437-electricity-bill", label: "£23,437 Kilmarnock power bill (UK #1)" },
     { href: "/blog/scottish-mps-tv-licence-expenses", label: "29 MPs' TV licences (£10,754)" },
     { href: "/mp-expenses-scotland/receipts", label: "Top receipts" },
