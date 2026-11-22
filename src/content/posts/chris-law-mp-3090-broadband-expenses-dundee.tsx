@@ -154,7 +154,7 @@ export default function ChrisLawMp3090BroadbandExpensesDundee() {
           </>,
           <>
             He also ran up the <strong>biggest parking bill</strong> of any UK MP in 2025/26:{" "}
-            <strong>£6,292</strong>. That is about £121 a week.
+            <strong>£6,292</strong>, or about £121 a week.
           </>,
           <>
             And <strong>26 nights</strong> in European hotels in one year. No MP in the UK had
@@ -180,12 +180,12 @@ export default function ChrisLawMp3090BroadbandExpensesDundee() {
         is on Marshall Street in Lochee.
       </P>
       <P>
-        5G home broadband runs off the same masts as your phone. Most of the time it is a box you
-        plug in at the wall. No engineer. No digging.
+        5G home broadband runs off the same masts as your phone. Most of the time it&apos;s a wee
+        box you plug in at the wall, and you&apos;re done.
       </P>
       <P>
-        Yet IPSA paid £3,090 to install it. The claim came out of his office budget. It is marked
-        Paid, and £0 has been paid back.
+        Yet IPSA paid £3,090 to install it, out of his office budget. It&apos;s marked Paid, and
+        £0 has come back.
       </P>
 
       <Tiles
@@ -201,8 +201,8 @@ export default function ChrisLawMp3090BroadbandExpensesDundee() {
         internet services, says 99% of homes in Dundee could get superfast broadband that year.
       </P>
       <P>
-        Even a Starlink satellite dish for a remote farm cost £529 then. His claim was nearly six
-        times that.
+        For comparison, a Starlink dish for a remote farm cost £529 back then. His
+        claim was nearly six times that.
       </P>
 
       <Expand summary="See the proof: the IPSA line, word for word">
@@ -235,8 +235,8 @@ export default function ChrisLawMp3090BroadbandExpensesDundee() {
         every home broadband and home internet claim.
       </P>
       <P>
-        His is number one by a mile. The next biggest was £430.64, for two months of BT bills. His
-        one claim is over <strong>seven times</strong> that.
+        His is top by a country mile. The next biggest was £430.64, and that was two months of BT
+        bills. His one claim is over <strong>seven times</strong> that.
       </P>
 
       <ChartFrame
@@ -260,8 +260,8 @@ export default function ChrisLawMp3090BroadbandExpensesDundee() {
       </ChartFrame>
 
       <P>
-        In IPSA&apos;s phone and internet setup group, only one claim was bigger. That was £3,954
-        to put a phone line into a brand new MP office in Yeovil. An office, not a home.
+        Only one claim in IPSA&apos;s whole phone and internet setup group was bigger: £3,954 for
+        a phone line into a brand new MP office in Yeovil. And his was for a home.
       </P>
 
       {/* ------------------------------------------------------------ 3 */}
@@ -269,8 +269,8 @@ export default function ChrisLawMp3090BroadbandExpensesDundee() {
         Top of the UK for parking and European hotels
       </Finding>
       <P>
-        The broadband is not his only eye catching bill. His travel claims put him near the top of
-        all 650 MPs.
+        The broadband isn&apos;t the only bill that jumps out. His travel puts him near the top of
+        all 650 MPs too.
       </P>
 
       <ChartFrame
@@ -299,9 +299,8 @@ export default function ChrisLawMp3090BroadbandExpensesDundee() {
       </ChartFrame>
 
       <P>
-        In 2025/26 he billed you <strong>£6,292</strong> for parking. That is about{" "}
-        <strong>£121 for every week of the year</strong>. The next highest MP in the UK billed
-        £3,587. Over four years his parking came to £16,554, more than any other MP.
+        In 2025/26 he claimed <strong>£6,292</strong> for parking, well clear of the next MP in the
+        UK on £3,587. Over four years his parking came to £16,554, more than any other MP.
       </P>
 
       <Spotlight
@@ -332,7 +331,7 @@ export default function ChrisLawMp3090BroadbandExpensesDundee() {
             key: "staff-hotels",
             title: "£10,996 on London hotels for his staff",
             children: (
-              <>73 nights in 2025/26. That is more than any other MP in the UK spent on staff hotels in London.</>
+              <>73 nights in 2025/26, more than any other MP in the UK spent on staff hotels in London.</>
             ),
           },
           {
@@ -350,8 +349,8 @@ export default function ChrisLawMp3090BroadbandExpensesDundee() {
             title: "£28,200 for a London flat",
             children: (
               <>
-                That is his second home rent for 2025/26. He went over his housing budget two years
-                in a row and had to pay back £266.
+                His second home rent for 2025/26. He went over his housing budget two years running
+                and had to pay back £266.
               </>
             ),
           },
@@ -369,15 +368,15 @@ export default function ChrisLawMp3090BroadbandExpensesDundee() {
       </Finding>
       <P>
         IPSA lets MPs claim to set up phones and internet for their work. That can include a
-        home office. The £3,090 went in under that heading, and IPSA paid every penny.
+        home office. The £3,090 went in under that heading and IPSA signed it off.
       </P>
       <P>
-        To be fair, he lives a long way from London. Dundee MPs have to travel, and parking at an
-        airport or station adds up. He has also paid some money back when he went over.
+        Now, Dundee is a long way from London. MPs there have to travel, and parking at an airport
+        or station soon adds up. He has also paid some money back when he went over.
       </P>
       <P>
-        But nobody else in the UK claimed anything like £3,090 for home broadband. Three questions
-        for <Link href={LAW.href}>Chris Law</Link> and IPSA still have no answer in the public files:
+        But nobody else in the UK claimed anything like £3,090 for home broadband. So{" "}
+        <Link href={LAW.href}>Chris Law</Link> and IPSA still have three questions to answer:
       </P>
 
       <PointList
@@ -402,7 +401,7 @@ export default function ChrisLawMp3090BroadbandExpensesDundee() {
 
       <Aside title="Part of a wider pattern in Westminster">
         <p>
-          <Link href={LAW.href}>Chris Law</Link> is not alone. Across Scotland&apos;s 57 MPs we
+          Dundee isn&apos;t alone in this. Across Scotland&apos;s 57 MPs we also
           found a <Link href="/blog/kilmarnock-mp-23437-electricity-bill">£23,437 power bill paid in one day</Link>{" "}
           and <Link href="/blog/scottish-mps-tv-licence-expenses">29 MPs who claimed for TV licences</Link>.
           See <Link href="/blog/worst-scottish-mp-expenses">the worst claims</Link> or compare{" "}

@@ -158,7 +158,7 @@ export default function AngusMacdonaldMpSpeechCoachDrainsExpenses() {
           IPSA&apos;s record calls it a &ldquo;personalised presentation and speech skills
           workshop&rdquo;. It was meant to help him speak up for local people in Parliament.
         </p>
-        <p>Talking is the job. You paid for him to learn how to do it.</p>
+        <p>Speaking up is the job. You&apos;d hope he could already do it.</p>
       </Spotlight>
 
       {/* ------------------------------------------------------------ 1 */}
@@ -187,8 +187,8 @@ export default function AngusMacdonaldMpSpeechCoachDrainsExpenses() {
       />
 
       <P>
-        That one workshop cost more than six months&apos; rent on his local office. The record
-        does not say who ran it, or how long it lasted.
+        So one workshop cost more than six months&apos; rent on his local office. Who ran it, and
+        for how long? The record doesn&apos;t say.
       </P>
 
       {/* ------------------------------------------------------------ 2 */}
@@ -200,8 +200,8 @@ export default function AngusMacdonaldMpSpeechCoachDrainsExpenses() {
         every claim that was only about speeches.
       </P>
       <P>
-        His is the biggest by any Scottish MP. In the whole UK, only one MP put in a bigger single
-        claim. He is a fellow Lib Dem.
+        His is the biggest of any Scottish MP. In the whole UK only one MP put in a bigger single
+        claim, and he&apos;s a fellow Lib Dem.
       </P>
       <P>
         Compare it with Labour&apos;s Stephen Kinnock. He paid £660 for public speaking training
@@ -235,7 +235,7 @@ export default function AngusMacdonaldMpSpeechCoachDrainsExpenses() {
       >
         <p>
           Chris Coghlan, the Lib Dem MP for Dorking in Surrey, has billed <strong>£34,000</strong> for
-          &ldquo;speech consultancy&rdquo; since October 2024. That is 14 claims.
+          &ldquo;speech consultancy&rdquo; over 14 claims since October 2024.
         </p>
         <p>
           Add Angus MacDonald&apos;s £3,000 and two Lib Dem MPs have billed you{" "}
@@ -257,8 +257,8 @@ export default function AngusMacdonaldMpSpeechCoachDrainsExpenses() {
         £546 to clean the drains at his second home
       </Finding>
       <P>
-        MPs who live far from London can claim for a second home there. His is a London flat. He
-        bills <strong>no rent</strong> for it. But you still pay its running costs.
+        MPs who live far from London can claim for a second home there. His is a flat, and he bills{" "}
+        <strong>no rent</strong> for it. Sounds good, until you see the bills.
       </P>
 
       <Receipt
@@ -282,7 +282,7 @@ export default function AngusMacdonaldMpSpeechCoachDrainsExpenses() {
 
       <P>
         We searched the second home claims of all 650 UK MPs since 2022. <strong>Nobody
-        else</strong> billed you to clean their drains.
+        else</strong> had their drains cleaned on expenses.
       </P>
 
       <ChartFrame
@@ -316,15 +316,15 @@ export default function AngusMacdonaldMpSpeechCoachDrainsExpenses() {
       <P>
         On top of that, on 24 March 2026 he billed <strong>£3,027.12</strong> for council tax.
         IPSA counts it in the next budget year, 2026/27, so it is not in the £6,076 above. The line
-        says it includes the &ldquo;second home premium&rdquo;. That is the extra charge councils put
-        on second homes. You pay that too.
+        says it includes the &ldquo;second home premium&rdquo;, the extra charge councils put on
+        second homes. You pay that too.
       </P>
 
       {/* ------------------------------------------------------------ 4 */}
       <Finding n={4} id="why-ipsa-paid">
         The rest of his bills, and why IPSA said yes
       </Finding>
-      <P>Here is what else stands out in his files since July 2024.</P>
+      <P>A few more things stand out in his files since July 2024.</P>
 
       <PointList
         items={[
@@ -348,7 +348,7 @@ export default function AngusMacdonaldMpSpeechCoachDrainsExpenses() {
             title: "£19,942 on train fares in one year",
             children: (
               <>
-                The most of any UK MP in 2025/26. To be fair, his seat is one of the furthest from
+                The most of any UK MP in 2025/26. His seat is one of the furthest from
                 London.
               </>
             ),
@@ -359,15 +359,16 @@ export default function AngusMacdonaldMpSpeechCoachDrainsExpenses() {
       <P>
         Some bills are fair enough. Vandals smashed his office windows, and part of the ceiling
         fell in at his Fort William office. He also pays local papers like the West Highland Free
-        Press to list his surgeries. That is what the money is for.
+        Press to list his surgeries. Nobody would grudge him any of that.
       </P>
       <P>
-        But the speech workshop and the drains? IPSA lets MPs buy in outside help from their staff
-        budget. It also pays running costs on a second home, even with no rent. So both were within
-        the rules. And that is the scandal.
+        The workshop and the drains are another story. IPSA lets MPs buy in outside help
+        from their staff budget, and pays second home running costs even with no rent. So both
+        sailed through.
       </P>
+      <P>If the rules let an MP bill you for his drains, they need changing.</P>
       <P>
-        He is not short of money either. His own Register of Interests lists shares in Hampden and
+        He isn&apos;t short of money either. His own Register of Interests lists shares in Hampden and
         Co, a bank, worth over £70,000. He also owns an office building in Stirling that
         earns him rent.
       </P>

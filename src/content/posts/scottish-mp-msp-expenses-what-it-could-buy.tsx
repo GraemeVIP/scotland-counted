@@ -127,8 +127,8 @@ export default function ScottishMpMspExpensesWhatItCouldBuy() {
     <Prose>
       <Lead>
         In one year, Scotland&apos;s 186 MPs and MSPs burned £6.65 million on second homes, hotels,
-        travel, leaflets, PR firms and papers. That is more than Glasgow, Edinburgh and Dundee gave
-        out in Crisis Grants all year. A Crisis Grant is emergency cash from your council when you
+        travel, leaflets, PR firms and papers. More than Glasgow, Edinburgh and Dundee gave out in
+        Crisis Grants all year. A Crisis Grant is emergency cash from your council when you
         can&apos;t pay for food or heating.
       </Lead>
 
@@ -164,8 +164,8 @@ export default function ScottishMpMspExpensesWhatItCouldBuy() {
         The biggest bills and totals, with faces
       </Finding>
       <P>
-        These are examples from <strong>several years</strong>, not just the one year above. Each
-        card says whether it is one bill or a total.
+        These come from <strong>several years</strong>, not just the one year above. Each card
+        tells you if it&apos;s one bill or a total.
       </P>
 
       <CaseCard
@@ -211,7 +211,8 @@ export default function ScottishMpMspExpensesWhatItCouldBuy() {
         ]}
       >
         <p>
-          One workshop on how to present and give speeches. <strong>Taxpayers paid all £3,000.</strong>
+          One workshop on how to give speeches. <strong>Which is a big part of the job he was
+          elected to do.</strong>
         </p>
         <p>
           <Link href="/blog/angus-macdonald-mp-speech-coach-drains-expenses" className="font-[660] text-[#8bb8ff] underline underline-offset-4">
@@ -229,7 +230,7 @@ export default function ScottishMpMspExpensesWhatItCouldBuy() {
         }}
         kicker="2025/26 · top family travel bill of any Scottish MP"
         amount="£7,932"
-        headline="You paid for her family's flights and trains."
+        headline="Her family's flights and trains, on expenses."
         lines={[
           { meta: "Family travel · Air travel", what: "Aggregated figure for travel during 2025-26", amount: "£7,607.27" },
           { meta: "Family travel · Rail", what: "Aggregated figure for travel during 2025-26", amount: "£305.40" },
@@ -237,11 +238,11 @@ export default function ScottishMpMspExpensesWhatItCouldBuy() {
         ]}
       >
         <p>
-          That is the biggest family travel bill of the 35 Scottish MPs who claimed for partners
-          and children in 2025/26.
+          35 Scottish MPs claimed for partners and children in 2025/26. Hers was the biggest
+          bill.
         </p>
         <p>
-          She also billed <strong>£14,000 to consultants who are not named</strong>: £10,000 for a
+          She also billed <strong>£14,000 for consultants nobody names</strong>: £10,000 for a
           &ldquo;Policy and Office set up consultant&rdquo; (December 2024) and £4,000 for
           &ldquo;Communications Support&rdquo; (July 2025).
         </p>
@@ -260,11 +261,12 @@ export default function ScottishMpMspExpensesWhatItCouldBuy() {
         ]}
       >
         <p>
-          <strong>Total spent printing and posting calendars and fridge magnets</strong> from 2016
-          to 2024, by a rich estate owner. £9,545 of it was in December 2024 alone. He is MSP for Aberdeenshire West.
+          <strong>Spent printing and posting calendars and fridge magnets</strong> from 2016 to
+          2024. He&apos;s the MSP for Aberdeenshire West, and a rich estate owner. £9,545 of it went
+          out in December 2024 alone.
         </p>
         <p>
-          That total would buy <strong>14,212 hot school lunches</strong> at £2.60 each.
+          Enough for <strong>14,212 hot school lunches</strong> at £2.60 each.
         </p>
       </CaseCard>
 
@@ -285,8 +287,8 @@ export default function ScottishMpMspExpensesWhatItCouldBuy() {
           Berwickshire, Roxburgh and Selkirk.
         </p>
         <p>
-          Together they would pay <strong>1 new NHS nurse</strong> for a year (£32,073), with
-          £3,719 left.{" "}
+          Enough to pay <strong>1 new NHS nurse</strong> for a year (£32,073), with £3,719 to
+          spare.{" "}
           <Link href="/blog/john-lamont-mp-iphone-expenses-borders">Read his full story →</Link>
         </p>
       </CaseCard>
@@ -328,14 +330,15 @@ export default function ScottishMpMspExpensesWhatItCouldBuy() {
         }}
         kicker="28 March 2025 · 3 days before the budget cutoff"
         amount="£17,400"
-        headline="You paid to print and post his annual report, in one bill."
+        headline="His annual report, printed and posted in one bill."
         lines={[
           { meta: "Alliance Print Group", what: "Annual Report Printing & Mailing costs", amount: "£17,400.00" },
         ]}
       >
         <p>
-          One bill, 3 days before the budget year ended. That could have paid{" "}
-          <strong>134 Crisis Grants</strong> or <strong>6,692 school lunches</strong>.
+          Sent in 3 days before the budget year ran out. Use it or lose it, by the look of it.
+          The same money would cover <strong>134 Crisis Grants</strong> or{" "}
+          <strong>6,692 school lunches</strong>.
         </p>
       </Spotlight>
 
@@ -355,8 +358,8 @@ export default function ScottishMpMspExpensesWhatItCouldBuy() {
           and South Lochaber.
         </p>
         <p>
-          That total would pay <strong>188 Crisis Grants</strong> at the £130 Scotland-wide
-          average award.
+          Enough for <strong>188 Crisis Grants</strong> at the £130 average award across
+          Scotland.
         </p>
       </CaseCard>
 
@@ -427,8 +430,8 @@ export default function ScottishMpMspExpensesWhatItCouldBuy() {
       <P>
         Across all 32 councils, the average Crisis Grant in 2025/26 was <strong>£130</strong>. In
         these three cities it works out at about £138. Cash strapped council teams{" "}
-        had to <strong>turn down 89,990 emergency claims</strong>. For a home with no cash for
-        food or a gas meter, a Crisis Grant is the last lifeline.
+        had to <strong>turn down 89,990 emergency claims</strong>. And for a home with no money for
+        food or the gas meter, a Crisis Grant is the last lifeline.
       </P>
 
       <ChartFrame
@@ -473,16 +476,16 @@ export default function ScottishMpMspExpensesWhatItCouldBuy() {
         Even if they keep basic flats and travel, £2.81 million a year is pure zero excuse waste
       </Finding>
       <P>
-        When you challenge politicians on expenses, they give one stock excuse. They say an MP or
-        MSP from far away needs a flat and a train or flight to get to work.
+        Ask a politician about expenses and you get the same excuse every time. An MP or MSP from
+        far away needs a flat, and a train or flight, to get to work.
       </P>
       <P>
-        So let&apos;s test that excuse. Take out all second home rent and heat bills, and all their
-        own flights, trains and car miles. Give them all of that for free.
+        Fine. Let&apos;s give them all of that. Take out the second home rent and heat bills, and
+        all their own flights, trains and car miles.
       </P>
       <P>
         They still blew <strong>£2,812,948 in one year</strong> on things no normal worker could
-        ever put on a work bill. The four biggest:
+        ever put through on expenses. The four biggest:
       </P>
 
       <ChartFrame
@@ -525,9 +528,8 @@ export default function ScottishMpMspExpensesWhatItCouldBuy() {
             title: "The £2.81m zero excuse pot alone pays every rejected Crisis Grant in Glasgow, with £830,000 to spare",
             children: (
               <>
-                Glasgow turned down <strong>15,250 claims</strong> in 2025/26. At the £130 Scotland-wide
-                average, that is{" "}
-                <strong>£1.98 million</strong>. The £2.81m would pay them all, with £830,448 left.
+                Glasgow turned down <strong>15,250 claims</strong> in 2025/26. At the £130 average
+                across Scotland, those come to <strong>£1.98 million</strong>. The £2.81m would pay them all, with £830,448 left.
               </>
             ),
           },
@@ -547,7 +549,7 @@ export default function ScottishMpMspExpensesWhatItCouldBuy() {
             title: "The £2.81m zero excuse pot alone buys 1.08 million hot school lunches each year",
             children: (
               <>
-                At £2.60 a meal, that buys <strong>1,081,903 hot school lunches</strong> for older
+                At £2.60 a meal, it buys <strong>1,081,903 hot school lunches</strong> for older
                 kids who miss out on free meals.
               </>
             ),

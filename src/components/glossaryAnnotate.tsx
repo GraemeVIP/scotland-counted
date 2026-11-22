@@ -223,6 +223,15 @@ const AUTO_GLOSSARY_IDS = [
   "consultant",
   "payee",
   "non-refundable",
+  "revolving-door",
+  "budget-year",
+  "staff-budget",
+  "staff-travel",
+  "office-hospitality",
+  "ofcom",
+  "superfast-broadband",
+  "service-charge",
+  "shadow-deputy-leader-of-the-house",
 ] as const;
 
 const autoTerms = AUTO_GLOSSARY_IDS.flatMap((id) => {

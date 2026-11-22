@@ -134,8 +134,8 @@ export default function ScottishMpsTvLicenceExpenses() {
             2026.
           </>,
           <>
-            <strong>84 claims</strong> billed <strong>£10,754</strong>. That would pay 59 homes&apos;
-            licences at today&apos;s £180 fee, on top of your own.
+            <strong>84 claims</strong> billed <strong>£10,754</strong>. Enough to cover 59 homes&apos;
+            licences at today&apos;s £180 fee.
           </>,
           <>
             <strong>21 of the 29</strong> are Scottish Labour, claiming <strong>£6,745.50</strong>.
@@ -145,23 +145,23 @@ export default function ScottishMpsTvLicenceExpenses() {
 
       <section
         aria-label="Gregor Poynton's four TV licences"
-        className="not-prose my-10 overflow-hidden rounded-[var(--r-m)] bg-[#10141d] text-white shadow-[0_18px_40px_-24px_rgba(0,0,0,0.55)] ring-1 ring-[#ff4d4d]/40"
+        className="not-prose my-10 overflow-hidden rounded-[var(--r-m)] border border-[var(--rule)] border-l-[6px] border-l-[var(--bad)] bg-[color-mix(in_srgb,var(--bad)_5%,var(--surface))] text-[var(--ink)] shadow-[0_14px_34px_-26px_rgba(10,16,34,0.45)]"
       >
-        <div className="flex items-center gap-3 border-b border-white/15 px-6 py-4 sm:px-8">
+        <div className="flex items-center gap-3 border-b border-[var(--rule)] px-6 py-4 sm:px-8">
           <Face name="Gregor Poynton" href={mp("livingston")} size={44} />
           <p className="ui text-[15px] font-[620] leading-[1.35]">
-            <Link href={mp("livingston")} className="text-white underline decoration-white/40 underline-offset-4">
+            <Link href={mp("livingston")} className="text-[var(--ink)] underline decoration-[var(--rule-strong)] underline-offset-4">
               Gregor Poynton
             </Link>
-            <span className="opacity-75"> · Labour MP for Livingston</span>
+            <span className="text-[var(--muted)]"> · Labour MP for Livingston</span>
           </p>
         </div>
         <div className="px-6 py-7 sm:px-8 sm:py-9">
-          <p className="ui text-[13px] font-[660] uppercase tracking-[0.07em] opacity-75">
+          <p className="ui text-[13px] font-[660] uppercase tracking-[0.07em] text-[var(--muted)]">
             One TV licence covers one place for a whole year
           </p>
           <p className="mt-2 text-[28px] font-[720] leading-[1.15] sm:text-[34px]">
-            He billed you for <span className="text-[#ff5757]">four</span> in 11 months.
+            He billed you for <span className="text-[var(--bad-text)]">four</span> in 11 months.
           </p>
           <ol className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
             {[
@@ -170,17 +170,17 @@ export default function ScottishMpsTvLicenceExpenses() {
               { date: "4 Nov 2025", amount: "£174.50", note: "Licence 3" },
               { date: "26 Nov 2025", amount: "£174.50", note: "Licence 4, three weeks later" },
             ].map((l) => (
-              <li key={l.date} className="rounded-[var(--r-s)] bg-white/[0.06] px-4 py-3 ring-1 ring-white/10">
-                <p className="ui text-[13px] opacity-75">{l.date}</p>
-                <p className="figure-num tnum mt-1 text-[26px] leading-none text-[#ff5757]">{l.amount}</p>
-                <p className="ui mt-1.5 text-[13.5px] opacity-85">{l.note}</p>
+              <li key={l.date} className="rounded-[var(--r-s)] bg-[var(--surface)] px-4 py-3 ring-1 ring-[var(--rule)]">
+                <p className="ui text-[13px] text-[var(--muted)]">{l.date}</p>
+                <p className="figure-num tnum mt-1 text-[26px] leading-none text-[var(--bad-text)]">{l.amount}</p>
+                <p className="ui mt-1.5 text-[13.5px] text-[var(--ink-2)]">{l.note}</p>
               </li>
             ))}
           </ol>
-          <p className="mt-6 text-[17px] leading-[1.55] opacity-90">
+          <p className="mt-6 text-[17px] leading-[1.55] text-[var(--ink-2)]">
             Total for the four licences: <strong>£688</strong>. IPSA, the body that pays MPs&apos;
             expenses with public money, only pays for a TV licence at an MP&apos;s local office. Its
-            files do not say why he needed four, or which buildings they were for.
+            files don&apos;t say why he needed four, or which buildings they were for.
           </p>
           <p className="mt-3 text-[17px] leading-[1.55]">
             <Link href="/blog/gregor-poynton-mp-four-tv-licences-livingston" className="font-[660] text-[#8bb8ff] underline underline-offset-4">
@@ -195,39 +195,38 @@ export default function ScottishMpsTvLicenceExpenses() {
         Why on earth do taxpayers buy MPs a TV licence?
       </Finding>
       <P>
-        Under the rules of IPSA (the body that pays MPs&apos; expenses), MPs cannot claim a TV
-        licence for a London second home or their own home. They can, though, bill the public for a
-        TV licence in their local office. The idea is that staff may need to watch live news or
-        Westminster TV.
+        Under the rules of IPSA (the body that pays MPs&apos; expenses), MPs can&apos;t claim a TV
+        licence for a London second home or their own home. But they can for their local office.
+        The idea is that staff might need to watch live news or Westminster on TV.
       </P>
       <P>
-        Think how out of date that is in 2026. You do not need a TV licence to read BBC News online
-        or check X. You do not need one for radio, YouTube clips, or Parliamentlive.tv. You only
-        need one for live TV or BBC iPlayer.
+        In 2026 that rule is well past its sell by date. You don&apos;t need a licence for BBC News
+        online, X, radio, YouTube clips or Parliamentlive.tv. You only need one for live TV or BBC
+        iPlayer.
       </P>
       <P>
-        Better still, the other 28 Scottish MPs claimed £0 for a TV licence. The 29 sent the bill to
-        you. They kept claiming as the fee rose from £159 to £169.50, then £174.50, and now £180.
+        And the other 28 Scottish MPs claimed £0 for a TV licence, so it&apos;s hardly essential.
+        The 29 who did kept claiming as the fee went from £159 to £169.50, then £174.50, and now £180.
       </P>
 
       <Tiles
         items={[
           { value: "28", label: "Scottish MPs who claimed £0 for a TV licence" },
-          { value: "29", label: "Scottish MPs who sent the bill to you", hot: true },
+          { value: "29", label: "Scottish MPs who put it on expenses", hot: true },
           { value: "£180", label: "The TV licence fee from April 2026, up from £174.50" },
         ]}
       />
 
       <P>
-        And it is not just licences. <strong>12 Scottish MPs billed you £3,608 for TV sets and TV
-        kit</strong> for their offices (after one part refund).
+        It doesn&apos;t stop at licences either. <strong>12 Scottish MPs claimed £3,608 for TV sets
+        and TV kit</strong> for their offices (after one part refund).
       </P>
 
       {/* ------------------------------------------------------------ 2 */}
       <Finding n={2} of={FINDINGS} id="standout-claims">
         The claims that jump straight off the page
       </Finding>
-      <P>Look at the dates and notes on the claims. Four more names stand out right away:</P>
+      <P>Go through the dates and notes on each claim and four more names stand out straight away.</P>
 
       <CaseCard
         kicker="Two licences in one year"
@@ -239,8 +238,8 @@ export default function ScottishMpsTvLicenceExpenses() {
           claimed a second <strong>£174.50</strong> licence, paid in a Co-op shop.
         </p>
         <p>
-          That was the day before the fee rose to £180. His files show one local office. They do
-          not say why he needed two licences.
+          That was the day before the fee went up to £180. Handy timing. His files show one local
+          office, and nothing says why it needed two licences.
         </p>
       </CaseCard>
 
@@ -254,8 +253,8 @@ export default function ScottishMpsTvLicenceExpenses() {
         ]}
       >
         <p>
-          The dearest TV set any Scottish MP put on expenses. Then you paid for the licences to
-          watch it, too.
+          No Scottish MP put a dearer TV on expenses. Then the licences to watch it went on
+          expenses as well.
         </p>
       </Spotlight>
 
@@ -265,8 +264,8 @@ export default function ScottishMpsTvLicenceExpenses() {
         people={[{ name: "Ian Murray", href: mp("edinburgh-south"), p: "Labour", place: "Edinburgh South" }]}
       >
         <p>
-          Four licences over four years. Each time he billed £5 more than the yearly fee, the extra
-          you pay to spread a licence over four payments instead of one.
+          Four licences in four years, and every time he billed £5 over the yearly fee. The extra
+          £5 is what you&apos;re charged for paying in four chunks instead of all at once.
         </p>
       </CaseCard>
 
@@ -281,7 +280,7 @@ export default function ScottishMpsTvLicenceExpenses() {
         ]}
       >
         <p>
-          On top of the sets, he billed you <strong>£354</strong> for TV licences.
+          And on top of the two sets, he claimed <strong>£354</strong> for TV licences.
         </p>
       </Spotlight>
 
@@ -300,8 +299,8 @@ export default function ScottishMpsTvLicenceExpenses() {
           <strong>£246.25</strong> when their half came in.
         </p>
         <p>
-          That leaves <strong>£834</strong> paid by taxpayers for his licences. He is the only one
-          of the 29 MPs who paid any back.
+          That still leaves <strong>£834</strong> of public money on his licences. But he&apos;s
+          the only one of the 29 MPs who paid any of it back.
         </p>
       </CaseCard>
 
@@ -311,7 +310,7 @@ export default function ScottishMpsTvLicenceExpenses() {
         people={[{ name: "Christine Jardine", href: mp("edinburgh-west"), p: "Lib Dem", place: "Edinburgh West" }]}
       >
         <p>
-          She claimed a TV licence every year from 2022/23 to May 2026, including the new £180 fee.
+          She claimed a TV licence every single year from 2022/23 to May 2026, new £180 fee and all.
         </p>
       </CaseCard>
 
@@ -325,7 +324,7 @@ export default function ScottishMpsTvLicenceExpenses() {
           { what: "team building event", amount: "£259.31" },
         ]}
       >
-        <p>A Christmas lunch, with the word &quot;training&quot; in it. Taxpayers paid.</p>
+        <p>It was filed with the word &quot;training&quot; in it, and it went straight through.</p>
         <p>
           <Link href="/blog/christine-jardine-mp-christmas-lunch-expenses" className="font-[660] text-[#8bb8ff] underline underline-offset-4">
             Read the full story →
@@ -338,9 +337,9 @@ export default function ScottishMpsTvLicenceExpenses() {
         By party: Scottish Labour makes up 63% of the bill
       </Finding>
       <P>
-        Just like second home council tax and London hotels, Labour tops the TV licence list. Of
-        Labour&apos;s 37 Scottish MPs, 21 billed a TV licence (57%). Just two of the SNP&apos;s
-        eight MPs did, and two of the six Tories.
+        Same story as second home council tax and London hotels: Labour tops this list too. 21 of
+        Labour&apos;s 37 Scottish MPs billed a TV licence (57%). Only two of the SNP&apos;s eight
+        MPs did, and two of the six Tories.
       </P>
 
       <ChartFrame
@@ -395,11 +394,11 @@ export default function ScottishMpsTvLicenceExpenses() {
         <MoreRanks max={top} rows={TV_ROWS.slice(10)} start={11} />
       </Expand>
 
-      <Aside title="Paid by IPSA, and that is the problem">
+      <Aside title="IPSA signed off all 84">
         <p>
-          IPSA paid every one of these 84 claims. Its rules let MPs claim a TV licence for a local
-          office. See <Link href="/mp-expenses-scotland">all 57 Scottish MPs ranked</Link> or{" "}
-          <Link href="/blog/worst-scottish-mp-expenses">the worst claims</Link>.
+          Its own rules let MPs put a TV licence for a local office on expenses, so nobody gets
+          told no. See <Link href="/mp-expenses-scotland">all 57 Scottish MPs ranked</Link> or{" "}
+          <Link href="/blog/worst-scottish-mp-expenses">the worst claims we found</Link>.
         </p>
       </Aside>
 

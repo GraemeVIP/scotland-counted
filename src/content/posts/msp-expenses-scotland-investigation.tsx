@@ -230,7 +230,7 @@ export default function MspExpensesScotlandInvestigation() {
     <Prose>
       <Lead>
         Holyrood lists who got paid and what each bill was for. So we read the lot, from leaflets
-        and hotels to calendars and football banners. Every party at Holyrood is in the same boat.
+        and hotels to calendars and football banners. And every party at Holyrood is at it.
       </Lead>
 
       <QuickTake
@@ -261,8 +261,8 @@ export default function MspExpensesScotlandInvestigation() {
             from 2016 to 2024.
           </>,
           <>
-            MSPs backed double council tax on second homes. Then they sent you a{" "}
-            <strong>£161,374</strong> council tax bill for their own Edinburgh flats in 2024/25,
+            MSPs backed double council tax on second homes. Then they billed taxpayers{" "}
+            <strong>£161,374</strong> in council tax for their own Edinburgh flats in 2024/25,
             more than double the year before.
           </>,
           <>
@@ -310,8 +310,8 @@ export default function MspExpensesScotlandInvestigation() {
           £30,001 to £40,000 a year as a firm boss.
         </p>
         <p>
-          Yet from 2016 to 2024 he billed taxpayers <strong>£36,953</strong> via Hill and Hay Ltd to
-          print and post calendars. That hit £9,545 in December 2024 alone.
+          And still, from 2016 to 2024, he billed taxpayers <strong>£36,953</strong> through Hill and
+          Hay Ltd to print and post calendars. £9,545 of it went in December 2024 alone.
         </p>
       </CaseCard>
 
@@ -338,13 +338,13 @@ export default function MspExpensesScotlandInvestigation() {
         lines={[{ what: "28 Nov Arrival 2NTS; Non-refundable Cancellation fee - 27 Nov 2023", amount: "£396.00" }]}
       >
         <p>
-          The booking was cancelled the day before. The fee could not be refunded, so it went on
-          expenses. Taxpayers paid for a room nobody used.
+          He cancelled the day before and the fee couldn&apos;t be refunded. So it went on
+          expenses, and the public paid for a room nobody slept in.
         </p>
       </Spotlight>
 
       <P>
-        <strong>More cancelled hotel and taxi fees sent to taxpayers:</strong>
+        <strong>Other cancelled hotel and taxi fees that went on expenses:</strong>
       </P>
       <UL>
         <LI>
@@ -374,8 +374,8 @@ export default function MspExpensesScotlandInvestigation() {
         The 10 MSPs who claimed the most in 2024/25
       </Finding>
       <P>
-        These are claims MSPs make themselves: Edinburgh flats, offices, travel and leaflets. Staff
-        pay is not included. For scale, an MSP&apos;s own pay is £74,507 a year.
+        These are the claims MSPs make themselves: Edinburgh flats, offices, travel and leaflets.
+        Staff pay isn&apos;t included. For scale, an MSP&apos;s own pay is £74,507 a year.
       </P>
 
       <ChartFrame
@@ -404,7 +404,7 @@ export default function MspExpensesScotlandInvestigation() {
       </Finding>
       <P>
         Each MSP gets a yearly pot for leaflets, mail and ads. It runs from April to March, and money
-        not spent by 31 March is lost. So a late rush stands out.
+        not spent by 31 March is lost. So a late rush sticks out a mile.
       </P>
 
       <ChartFrame
@@ -485,8 +485,8 @@ export default function MspExpensesScotlandInvestigation() {
               p: "SNP",
               children: (
                 <>
-                  <strong>SNP:</strong> Claimed <strong>£2.19 million</strong> across 62 MSPs. That
-                  includes <strong>£87,890</strong> in Edinburgh second home council tax after backing
+                  <strong>SNP:</strong> Claimed <strong>£2.19 million</strong> across 62 MSPs,
+                  including <strong>£87,890</strong> in Edinburgh second home council tax after backing
                   double tax, plus <strong>174,045 car miles</strong> (£77,888).
                 </>
               ),
@@ -495,7 +495,7 @@ export default function MspExpensesScotlandInvestigation() {
               p: "Labour",
               children: (
                 <>
-                  <strong>Scottish Labour:</strong> Lowest spend at £31,906 per MSP. Yet they still
+                  <strong>Scottish Labour:</strong> Lowest spend at £31,906 per MSP. But they still
                   blew <strong>46.3%</strong> of their leaflet spend in March and paid{" "}
                   <strong>£19,800</strong> to an ex Scottish Labour boss&apos;s firm.
                 </>
@@ -506,7 +506,7 @@ export default function MspExpensesScotlandInvestigation() {
               children: (
                 <>
                   <strong>Scottish Liberal Democrats:</strong> Top raw spend (£41,738 across four
-                  MSPs). That is pushed up by £34,309 in island flights for Orkney and Shetland.
+                  MSPs), pushed up by £34,309 in island flights for Orkney and Shetland.
                 </>
               ),
             },
@@ -540,9 +540,9 @@ export default function MspExpensesScotlandInvestigation() {
       </Finding>
       <P>
         From May 2021 to June 2025, just seven Green MSPs billed taxpayers <strong>£852,287</strong>{" "}
-        (not counting staff pay). Open their bills and the gap between their green words and their
-        spend is hard to miss: £286,756 on leaflets, mail and ads, 37,274 car miles, and £100,949 on
-        hotels, more than an MSP&apos;s £74,507 yearly pay.
+        (not counting staff pay). For a party built on green talk, the bills make awkward reading.
+        £286,756 went on leaflets, mail and ads. Add 37,274 car miles and £100,949 on hotels. The
+        hotels alone cost more than an MSP&apos;s £74,507 yearly pay.
       </P>
 
       <BigStat
@@ -562,8 +562,8 @@ export default function MspExpensesScotlandInvestigation() {
         ]}
       >
         <p>
-          Two £1,500 sessions to help her talk better, billed as &ldquo;training&rdquo;. Taxpayers
-          paid both.
+          Two £1,500 sessions to help a minister talk better, billed as
+          &ldquo;training&rdquo;.
         </p>
         <p>
           In May 2025 she also billed <strong>£1,764</strong> for &ldquo;International Biodiversity
@@ -575,14 +575,14 @@ export default function MspExpensesScotlandInvestigation() {
         person={{ name: "Maggie Chapman", href: msp("regions/north-east-scotland/maggie-chapman"), p: "Greens", place: "North East Scotland" }}
         kicker="November and December 2022 · her new regional office"
         amount="£6,979"
-        headline="You paid to decorate her office and lay a new floor."
+        headline="Her new office, decorated and floored on expenses."
         lines={[
           { meta: "7 Nov 2022", what: "Office Decoration 07/11/22", amount: "£1,980.00" },
           { meta: "7 Nov 2022", what: "Preparation and Decoration of office 07/11/22", amount: "£3,588.00" },
           { meta: "15 Dec 2022", what: "Replacing floor in new regional office", amount: "£1,411.20" },
         ]}
       >
-        <p>Paint, prep and a new floor, all on expenses. Taxpayers paid the lot.</p>
+        <p>Nearly £7,000 of public money to get one office looking nice.</p>
       </Spotlight>
 
       <P>
@@ -636,9 +636,9 @@ export default function MspExpensesScotlandInvestigation() {
         MSPs backed double council tax on second homes, then sent you the bill (+122%)
       </Finding>
       <P>
-        In April 2024, councils began charging double council tax on second homes under new Holyrood
-        powers. Once the extra charge hit, the bill to taxpayers for MSPs&apos; Edinburgh flats more
-        than doubled. SNP minister{" "}
+        In April 2024, councils started charging double council tax on second homes, using new
+        Holyrood powers. Once it kicked in, the bill for MSPs&apos; Edinburgh flats more than
+        doubled. SNP minister{" "}
         <Link href={msp("constituencies/argyll-and-bute")}>Jenni Minto</Link>&apos;s claims even
         name it: £1,696 for a &ldquo;Second Home levy&rdquo;.
       </P>
@@ -673,12 +673,12 @@ export default function MspExpensesScotlandInvestigation() {
         The £127,627 paper bill (and Lorna Slater&apos;s double £144 claim)
       </Finding>
       <P>
-        Holyrood already pays for a free library and daily press clips. Yet from May 2021 to June
+        Holyrood already pays for a free library and daily press clips. But from May 2021 to June
         2025, MSPs still billed taxpayers <strong>£127,627</strong> for papers and mags (£35,987 in
         2024/25).
       </P>
       <P>
-        Lorna Slater&apos;s papers cost £3,430 over four years. What does not add up is July 2021:
+        Lorna Slater&apos;s papers cost £3,430 over four years. But look at July 2021:
       </P>
 
       <Receipt
@@ -721,9 +721,9 @@ export default function MspExpensesScotlandInvestigation() {
         Edinburgh flats and £10k hotels 35 to 45 miles away
       </Finding>
       <P>
-        Normal workers travel from Glasgow, Paisley and East Kilbride to Edinburgh each day out of
-        their own pay. At Holyrood, taxpayers pay huge flat and hotel bills for MSPs from those
-        exact same towns.
+        Plenty of people travel from Glasgow, Paisley and East Kilbride to Edinburgh every day and
+        pay for it themselves. At Holyrood, MSPs from the very same towns get big flat and hotel
+        bills paid by taxpayers.
       </P>
       <ChartFrame
         kicker="2024/25 · Edinburgh flats, hotels and meals"
@@ -749,7 +749,7 @@ export default function MspExpensesScotlandInvestigation() {
         26 landlords and 15 MSPs with council jobs in 2026
       </Finding>
       <P>
-        66 new MSPs arrived after the May 2026 election. Their claims are not out yet, but their
+        66 new MSPs arrived after the May 2026 election. Their claims aren&apos;t out yet, but their
         2026 Register of Interests entries are. <strong>26 of the 129 MSPs</strong> list rental
         homes, lets, estates or homes abroad.
       </P>
@@ -809,8 +809,8 @@ export default function MspExpensesScotlandInvestigation() {
       />
 
       <P>
-        On top of that, <strong>15 sitting MSPs</strong> still list an active local councillor job
-        with no quit date. They draw £25,001 to £30,000 council pay on top of £74,507+ MSP pay.
+        And <strong>15 sitting MSPs</strong> still list an active local councillor job with no
+        quit date. So they draw £25,001 to £30,000 in council pay on top of £74,507+ as an MSP.
       </P>
 
       <div className="not-prose flex flex-wrap gap-2">

@@ -206,33 +206,33 @@ export default function KilmarnockMp23437ElectricityBill() {
 
       <section
         aria-label="Her power bill and her Winter Fuel vote"
-        className="not-prose my-10 overflow-hidden rounded-[var(--r-m)] bg-[#10141d] text-white shadow-[0_18px_40px_-24px_rgba(0,0,0,0.55)] ring-1 ring-[#ff4d4d]/40"
+        className="not-prose my-10 overflow-hidden rounded-[var(--r-m)] border border-[var(--rule)] border-l-[6px] border-l-[var(--bad)] bg-[color-mix(in_srgb,var(--bad)_5%,var(--surface))] text-[var(--ink)] shadow-[0_14px_34px_-26px_rgba(10,16,34,0.45)]"
       >
-        <div className="flex items-center gap-3 border-b border-white/15 px-6 py-4 sm:px-8">
+        <div className="flex items-center gap-3 border-b border-[var(--rule)] px-6 py-4 sm:px-8">
           <Face name={JONES.name} href={JONES.href} size={44} />
           <p className="ui text-[15px] font-[620] leading-[1.35]">
-            <Link href={JONES.href} className="text-white underline decoration-white/40 underline-offset-4">
+            <Link href={JONES.href} className="text-[var(--ink)] underline decoration-[var(--rule-strong)] underline-offset-4">
               Lillian Jones
             </Link>
-            <span className="opacity-75"> · Labour MP for Kilmarnock and Loudoun</span>
+            <span className="text-[var(--muted)]"> · Labour MP for Kilmarnock and Loudoun</span>
           </p>
         </div>
         <div className="grid sm:grid-cols-2">
-          <div className="border-b border-white/15 px-6 py-7 sm:border-b-0 sm:border-r sm:px-8 sm:py-9">
-            <p className="ui text-[13px] font-[660] uppercase tracking-[0.07em] opacity-75">
+          <div className="border-b border-[var(--rule)] px-6 py-7 sm:border-b-0 sm:border-r sm:px-8 sm:py-9">
+            <p className="ui text-[13px] font-[660] uppercase tracking-[0.07em] text-[var(--muted)]">
               19 May 2026 · Her power bill
             </p>
-            <p className="figure-num tnum mt-2 text-[54px] leading-none text-[#ff5757] sm:text-[62px]">£23,437</p>
+            <p className="figure-num tnum mt-2 text-[54px] leading-none text-[var(--bad-text)] sm:text-[62px]">£23,437</p>
             <p className="mt-3 text-[19px] font-[600] leading-[1.4]">Paid by taxpayers. In one day.</p>
           </div>
           <div className="px-6 py-7 sm:px-8 sm:py-9">
-            <p className="ui text-[13px] font-[660] uppercase tracking-[0.07em] opacity-75">
+            <p className="ui text-[13px] font-[660] uppercase tracking-[0.07em] text-[var(--muted)]">
               10 September 2024 · Her vote
             </p>
             <p className="mt-2 text-[28px] font-[720] leading-[1.15] sm:text-[32px]">
               She voted to cut the Winter Fuel Payment.
             </p>
-            <p className="mt-3 text-[17px] leading-[1.5] opacity-85">
+            <p className="mt-3 text-[17px] leading-[1.5] text-[var(--ink-2)]">
               Millions of pensioners lost up to <strong>£300</strong> of help to heat their homes.
             </p>
           </div>
@@ -393,17 +393,17 @@ export default function KilmarnockMp23437ElectricityBill() {
         How IPSA paid it outside her normal office limit
       </Finding>
       <P>
-        Look at which pot of cash paid for this. Normal power bills for an MP&apos;s office come
-        from their capped office budget.
+        Look at where the money came from. An MP&apos;s normal office power bill comes out of a
+        capped office budget, and £23,437 would have blown straight through it.
       </P>
       <P>
-        A £23,437 bill would have smashed straight through that cap. So IPSA paid Yu Energy from
-        extra public cash, outside her office budget. That kept it out of her normal office bill.
+        So IPSA paid Yu Energy from a separate pot of public money instead. Her office budget never
+        felt a thing.
       </P>
       <P>
-        To be fair, a business power bill can jump fast for real reasons. Yu Energy can charge steep
-        out of deal rates if a shop unit has no fixed plan. An old tenant may have left unpaid meter
-        bills behind, or electric heaters may have run all winter.
+        Now, business power bills can jump for real reasons. Yu Energy can charge steep rates if a
+        unit has no fixed deal. An old tenant might have left unpaid bills behind, or heaters might
+        have run all winter. But nobody has said which, if any, of those happened here.
       </P>
       <P>
         Even so, four clear questions for <Link href={JONES.href}>Lillian Jones</Link> and IPSA have
@@ -458,7 +458,7 @@ export default function KilmarnockMp23437ElectricityBill() {
           },
         ]}
       >
-        <p>Her name, up at the football. Taxpayers footed the bill.</p>
+        <p>So the public paid to put her name up at the football.</p>
       </Spotlight>
 
       <P>

@@ -171,7 +171,7 @@ export default function GraemeDownieMpDinnerExpensesDunfermline() {
             650 UK MPs in five years. The typical one is £11.60.
           </>,
           <>
-            In 2025/26, with his staff, he cost you <strong>£410,253</strong>. That is more than{" "}
+            In 2025/26, with his staff, he cost <strong>£410,253</strong>, more than{" "}
             <strong>any other MP in the UK</strong>.
           </>,
           <>
@@ -198,7 +198,7 @@ export default function GraemeDownieMpDinnerExpensesDunfermline() {
         ]}
       >
         <p>
-          The file does not say who ate, how many came, or what it was for. £0 has been paid back.
+          The file doesn&apos;t say who ate or what it was for. And none of it has been paid back.
         </p>
       </Spotlight>
 
@@ -208,19 +208,17 @@ export default function GraemeDownieMpDinnerExpensesDunfermline() {
       </Finding>
       <P>
         <Link href={DOWNIE.href}>Graeme Downie</Link> won Dunfermline and Dollar for Labour in July
-        2024.
+        2024. Eight months later, on 13 March 2025, Fife College hosted a &quot;business dinner&quot;
+        on his behalf.
       </P>
       <P>
-        On 13 March 2025, Fife College hosted a &quot;business dinner&quot; on his behalf. IPSA, the
-        body that pays MPs&apos; expenses, paid £962.65 from his office budget.
+        IPSA, the body that pays MPs&apos; expenses, paid the £962.65 bill from his office budget.
+        That&apos;s where the record stops. There&apos;s no guest list, no menu and nothing to say
+        what it was for.
       </P>
       <P>
-        That is all the public record says. There is no guest list. There is no menu. There is no
-        reason given.
-      </P>
-      <P>
-        His other 18 bills for food and drink came to <strong>£142.55</strong> all together. Most
-        were under £10. This one dinner was nearly £1,000.
+        For context, his other 18 food and drink bills came to <strong>£142.55</strong> between
+        them, and most were under £10. Then one dinner comes in at nearly £1,000.
       </P>
 
       <Tiles
@@ -232,8 +230,8 @@ export default function GraemeDownieMpDinnerExpensesDunfermline() {
       />
 
       <P>
-        IPSA files food, drink and events under one heading. Only 12 of those bills use the word
-        dinner. The next biggest of them was £154, for one Lib Dem MP&apos;s team Christmas dinner.
+        IPSA lumps food, drink and events under one heading. Only 12 of those bills use the word
+        dinner. The next dearest was £154, for a Lib Dem MP&apos;s team Christmas dinner.
       </P>
 
       <Expand summary="See the proof: the IPSA line, word for word">
@@ -257,8 +255,8 @@ export default function GraemeDownieMpDinnerExpensesDunfermline() {
         Number one in the UK on five counts
       </Finding>
       <P>
-        Count one. We checked all 3,146 food, drink and event bills from all 650 MPs over five years.
-        His 2024/25 dinner is the <strong>biggest single one</strong>.
+        Start with the dinner. We went through all 3,146 food, drink and event bills from all 650
+        MPs over five years. His is the <strong>biggest single one</strong>.
       </P>
 
       <ChartFrame
@@ -282,8 +280,8 @@ export default function GraemeDownieMpDinnerExpensesDunfermline() {
       </ChartFrame>
 
       <P>
-        Counts two to five come from IPSA&apos;s 2025/26 totals for every MP in the UK. He came top
-        on all four.
+        The other four come from IPSA&apos;s 2025/26 totals for every MP in the UK. He came top on
+        every one of them.
       </P>
 
       <Tiles
@@ -343,12 +341,12 @@ export default function GraemeDownieMpDinnerExpensesDunfermline() {
         £31,098 for his staff to travel, and the rest
       </Finding>
       <P>
-        Staff travel is what his team&apos;s trips cost. In 2025/26 it came to{" "}
-        <strong>£31,098</strong>. No MP in the UK billed more.
+        Staff travel is what it costs to move his team about. In 2025/26 that came to{" "}
+        <strong>£31,098</strong>, more than any other MP in the UK.
       </P>
       <P>
-        IPSA lumps staff travel into yearly totals. So we cannot see who went where. But we can see
-        what it was spent on.
+        IPSA lumps staff travel into one total for the year, so we can&apos;t see who went where. We
+        can see what the money went on, though.
       </P>
 
       <Receipt
@@ -366,7 +364,7 @@ export default function GraemeDownieMpDinnerExpensesDunfermline() {
         footer="In plain words. IPSA only prints staff travel as yearly totals, not trip by trip. The year before, his staff travel was £8,361.90."
       />
 
-      <P>He billed plenty more for his office too. Here are the big ones:</P>
+      <P>His office wasn&apos;t cheap to run either. These were the biggest bills:</P>
 
       <PointList
         items={[
@@ -406,13 +404,13 @@ export default function GraemeDownieMpDinnerExpensesDunfermline() {
 
       <CaseCard kicker="His office pot in 2025/26" figure="£119 left" people={[DOWNIE]}>
         <p>
-          IPSA gave him £35,930 to run his office. He spent <strong>£35,811</strong>. That is 99.7% of
-          the pot.
+          IPSA gave him £35,930 to run his office and he spent <strong>£35,811</strong> of it, 99.7%
+          of the pot.
         </p>
       </CaseCard>
 
       <P>
-        Others paid for some of his trips too. He declared three free trips worth £11,882 on the
+        Not every trip came out of the public purse. He declared three free trips worth £11,882 on the
         Register of Interests: Taiwan (£5,669, paid by Taiwan&apos;s government), Washington (£4,077)
         and Madrid (£2,137).
       </P>
@@ -422,17 +420,17 @@ export default function GraemeDownieMpDinnerExpensesDunfermline() {
         Why IPSA paid it all
       </Finding>
       <P>
-        IPSA checked the dinner and paid it in full. It was billed to his office budget, so the rules
-        allowed it. That is the scandal.
+        He didn&apos;t break any rules, and that should bother you more than if he had. A nearly
+        £1,000 dinner went through on a single line of text, and IPSA paid it out of his office
+        budget.
       </P>
       <P>
-        The big totals are within the rules too. There is no cap on MPs&apos; travel. The more they
-        fly, the more they can bill. And IPSA lets him spend more on the flat because of his
-        family.
+        Travel has no cap at all, so the more an MP flies, the more they can bill. And because two
+        family members live with him, IPSA gave him a bigger budget for the London flat.
       </P>
       <P>
-        To be fair, a Fife MP has a long way to go to work. But no other MP in the UK, from Orkney to
-        Cornwall, cost you more last year. Four plain questions have no answer in the public files:
+        Fife is a long way from Westminster, granted. But Orkney is further, and still nobody in the
+        UK cost more than him last year. The public files leave these questions hanging:
       </P>
 
       <PointList
@@ -462,7 +460,7 @@ export default function GraemeDownieMpDinnerExpensesDunfermline() {
 
       <Aside title="Part of a wider pattern in Westminster">
         <p>
-          <Link href={DOWNIE.href}>Graeme Downie</Link> is not alone. See how Scotland&apos;s MPs{" "}
+          Big London bills are a pattern, not a one off. See how Scotland&apos;s MPs{" "}
           <Link href="/blog/scottish-mps-london-homes-152-sitting-days">
             billed for London homes for 152 sitting days
           </Link>

@@ -170,7 +170,7 @@ export default function ScottishMpsLondonHomes152SittingDays() {
           </>,
           <>
             Taxpayers paid <strong>£2.91 million</strong> to house and fly 55 Scottish MPs and
-            their families to London. That is <strong>£19,173</strong> for each day the Commons sat.
+            their families to London. Or <strong>£19,173</strong> for every day the Commons sat.
           </>,
           <>
             One Scottish MP had <strong>295 London nights</strong> paid for across 152 open days.
@@ -183,9 +183,9 @@ export default function ScottishMpsLondonHomes152SittingDays() {
       />
 
       <P>
-        That daily figure is for all 55 MPs together. Five sitting days cost nearly as much as one
-        MP&apos;s pay for a whole year (£98,599). The bill leaves out pay, Scottish offices and
-        £13.11 million in staff pay.
+        That daily figure covers all 55 MPs together. Five sitting days cost nearly a full year of
+        one MP&apos;s pay (£98,599). And it leaves out pay, Scottish offices and £13.11 million in
+        staff pay.
       </P>
 
       <CaseCard
@@ -200,8 +200,8 @@ export default function ScottishMpsLondonHomes152SittingDays() {
           Commons on <strong>19 days</strong> all year.
         </p>
         <p>
-          Split by those days, that is the most of any Scottish MP outside government and party
-          jobs. <a href="#price-of-presence">See the top ten</a>.
+          Split across those days, no Scottish MP outside government and party jobs cost more.{" "}
+          <a href="#price-of-presence">See the top ten</a>.
         </p>
       </CaseCard>
 
@@ -211,13 +211,13 @@ export default function ScottishMpsLondonHomes152SittingDays() {
         What the bill pays for
       </Finding>
       <P>
-        Most folk in Scotland pay to get to work out of their own pay. If your boss wants you in
-        three days a week, nobody rents you a £3,500 a month flat all year. Nobody pays your council
-        tax, gas, taxis, car park, or flights for your kids.
+        Most people in Scotland pay their own way to work. If your boss wants you in three days a
+        week, nobody rents you a £3,500 a month flat all year. And they certainly don&apos;t cover
+        your council tax, gas, taxis, car park or your kids&apos; flights.
       </P>
       <P>
-        For Scotland&apos;s 55 full year MPs, taxpayers paid every bit of that bill through IPSA
-        (the body that pays MPs&apos; expenses):
+        Scotland&apos;s 55 full year MPs get the lot, paid by taxpayers through IPSA (the body that
+        pays MPs&apos; expenses):
       </P>
 
       <ChartFrame
@@ -258,13 +258,13 @@ export default function ScottishMpsLondonHomes152SittingDays() {
         </div>
       </Expand>
 
-      <P>Here are the biggest single bills behind those numbers in 2025/26:</P>
+      <P>A few of the biggest single bills behind those numbers in 2025/26:</P>
 
       <Spotlight
         person={{ name: "Melanie Ward", href: mp("cowdenbeath-and-kirkcaldy"), p: "Labour", place: "Cowdenbeath and Kirkcaldy" }}
         kicker="2025/26 · Family travel"
         amount="£7,932"
-        headline="You paid for her family's flights and train trips."
+        headline="Her family's flights and train trips went on expenses."
         lines={[
           { meta: "Family · Air travel", what: "Aggregated figure for travel during 2025-26", amount: "£7,607.27" },
           { meta: "Family · Rail", what: "Aggregated figure for travel during 2025-26", amount: "£305.40" },
@@ -272,8 +272,8 @@ export default function ScottishMpsLondonHomes152SittingDays() {
         ]}
       >
         <p>
-          The biggest family travel bill of any Scottish MP that year. IPSA, the body that pays
-          MPs&apos; expenses with public money, paid every penny.
+          The biggest family travel bill of any Scottish MP that year. And IPSA, the body that pays
+          MPs&apos; expenses with public money, signed off the lot.
         </p>
       </Spotlight>
 
@@ -281,10 +281,10 @@ export default function ScottishMpsLondonHomes152SittingDays() {
         person={{ name: "Gregor Poynton", href: mp("livingston"), p: "Labour", place: "Livingston" }}
         kicker="2025/26 · Taxis"
         amount="£5,059"
-        headline="You paid for his taxis. No Scottish MP billed more."
+        headline="His taxi bill. No Scottish MP billed more."
       >
         <p>
-          On top of that, you paid <strong>£6,232</strong> for his family&apos;s flights.
+          And his family&apos;s flights came to another <strong>£6,232</strong>.
         </p>
         <p>
           <Link href="/blog/gregor-poynton-mp-four-tv-licences-livingston" className="font-[660] text-[#8bb8ff] underline underline-offset-4">
@@ -310,18 +310,18 @@ export default function ScottishMpsLondonHomes152SittingDays() {
         What did we get for the money?
       </Finding>
       <P>
-        We pay up to £85,000 a year just to house and fly one MP to London. So ask one plain thing:{" "}
-        <strong>what did they do down there?</strong>
+        Up to £85,000 a year goes on housing and flying one MP to London. So the obvious question
+        is: <strong>what did they actually do down there?</strong>
       </P>
       <P>
-        Every speech is saved in Hansard (the official record of the Commons). Every written
-        question goes online. Every Aye or No vote is logged too.
+        It&apos;s easy to check. Every speech is saved in Hansard (the official record of the
+        Commons), and every written question and Aye or No vote goes online.
       </P>
       <P>
-        We took each ordinary MP&apos;s London flat and travel bill. We left out ministers, whips
+        So we took each ordinary MP&apos;s London flat and travel bill. We left out ministers, whips
         (the MPs who organise their party&apos;s votes) and unpaid PPS aides (MPs who help a
         minister) like <Link href={mp("motherwell-wishaw-and-carluke")}>Pamela Nash</Link>. Split by
-        the days they spoke, taxpayers paid <strong>£1,554 to £3,007 each day they spoke</strong>:
+        the days they spoke, it comes to <strong>£1,554 to £3,007 each day they spoke</strong>:
       </P>
 
       <ChartFrame
@@ -364,17 +364,17 @@ export default function ScottishMpsLondonHomes152SittingDays() {
       />
 
       <P>
-        Because most Scottish MPs rent a London flat on a 12 month lease, you pay for all 365
-        nights.
+        Most Scottish MPs rent their London flat on a 12 month lease, so the public pays for all
+        365 nights.
       </P>
       <P>
-        You pay in August when it is on break. You pay over Christmas. You pay every Friday,
-        Saturday and Sunday. IPSA never says how many nights an MP slept there.
+        August when it&apos;s on break, Christmas, every Friday, Saturday and Sunday: all paid for.
+        And IPSA never says how many nights an MP actually slept there.
       </P>
       <P>
-        Only one Scottish MP lets us count each night. He used hotels and block flat stays instead
-        of a yearly lease. That is <Link href={mp("glasgow-south-west")}>Dr Zubir Ahmed</Link>{" "}
-        (Labour, Glasgow South West).
+        Only one Scottish MP lets us count each night:{" "}
+        <Link href={mp("glasgow-south-west")}>Dr Zubir Ahmed</Link> (Labour, Glasgow South West).
+        He used hotels and block flat stays instead of a yearly lease.
       </P>
 
       <ChartFrame
@@ -406,8 +406,8 @@ export default function ScottishMpsLondonHomes152SittingDays() {
             title: "295 London nights paid for, vs 152 open days",
             children: (
               <>
-                Taxpayers paid <strong>£37,359</strong> for his London stays. That is 143 more
-                nights than open days, or £246 for each open day.
+                His London stays cost taxpayers <strong>£37,359</strong>. He had 143 more nights
+                than open days, which works out at £246 for each open day.
               </>
             ),
           },
@@ -415,9 +415,10 @@ export default function ScottishMpsLondonHomes152SittingDays() {
             title: "Before his top job (April to July 2025)",
             children: (
               <>
-                Westminster opened on <strong>60 days</strong>. You paid for{" "}
-                <strong>123 London nights</strong>, more than twice as many. In those four months,
-                he spoke on <strong>11 days</strong> and asked <strong>zero written questions</strong>.
+                Westminster opened on <strong>60 days</strong>, but{" "}
+                <strong>123 London nights</strong> went on expenses. More than twice as many. And in
+                those four months he spoke on <strong>11 days</strong> and asked{" "}
+                <strong>zero written questions</strong>.
               </>
             ),
           },
@@ -425,9 +426,8 @@ export default function ScottishMpsLondonHomes152SittingDays() {
             title: "After he became a health minister (6 Sept 2025)",
             children: (
               <>
-                A minister works in London on weekdays, so more nights make sense. Even so, his
-                bills still ran <strong>seven nights a week</strong> (28 to 30 nights a month),
-                all paid by you. See{" "}
+                A minister works in London on weekdays, so more nights make sense. But his bills
+                still ran <strong>seven nights a week</strong> (28 to 30 nights a month). See{" "}
                 <Link href="/blog/worst-scottish-mp-expenses#hotel-nights">all 14 of his hotel claims</Link>
                 .
               </>
@@ -441,24 +441,24 @@ export default function ScottishMpsLondonHomes152SittingDays() {
         They proved remote voting works in Covid, then binned it
       </Finding>
       <P>
-        MPs say they do lots of unseen work helping local folk with housing, benefits and visas.
-        That is true. And it proves the point: <strong>helping folk in Ayr, Stirling or Glasgow
-        happens in Scotland, not from a £3,500 a month London flat.</strong>
+        MPs will tell you they do lots of unseen work, helping local people with housing, benefits
+        and visas. And they do. But that proves the point: <strong>helping people in Ayr, Stirling or
+        Glasgow happens in Scotland, not in a £3,500 a month London flat.</strong>
       </P>
       <P>
-        Normal staff across the UK spent five years on Teams and Zoom. Westminster itself ran remote
-        votes and video talks in 2020 and 2021. MPs voted safely from their local office in 30
-        seconds flat. No plane. No hotel.
+        The rest of us spent five years on Teams and Zoom. Westminster itself ran remote votes and
+        video talks in 2020 and 2021. MPs voted from their local office in 30 seconds flat,
+        without a plane or a hotel in sight.
       </P>
-      <P>Yet Westminster binned remote votes as soon as lockdown ended.</P>
+      <P>Then it binned remote votes the minute lockdown ended.</P>
       <P>
-        So Scots keep paying £19,173 for each day the Commons sits to fly 55 MPs to London. You
-        rent flats that sit empty half the year. You pay their council tax, heat, taxis and car
-        parks. You fly their kids down too. All so some can speak on 19 days a year at £3,007 a day
+        So Scots keep paying £19,173 for every day the Commons sits. The money rents flats that
+        lie empty half the year. It covers council tax, heating, taxis and car parks, and flies
+        MPs&apos; kids down too. All so some of them can speak on 19 days a year, at £3,007 a day,
         and walk through a door to say Aye or No.
       </P>
 
-      <Aside title="Fairness notes so nobody can dodge the numbers">
+      <Aside title="How we kept it fair">
         <p>
           Ministers, whips (who organise their party&apos;s votes) and unpaid PPS aides (like{" "}
           <Link href={mp("motherwell-wishaw-and-carluke")}>Pamela Nash</Link>) are left out of the

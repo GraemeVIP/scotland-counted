@@ -589,19 +589,19 @@ export function Spotlight({
   children?: ReactNode;
 }) {
   return (
-    <section className="not-prose my-10 overflow-hidden rounded-[var(--r-m)] bg-[#10141d] text-white shadow-[0_18px_40px_-24px_rgba(0,0,0,0.55)] ring-1 ring-[#ff4d4d]/40">
+    <section className="not-prose my-10 overflow-hidden rounded-[var(--r-m)] border border-[var(--rule)] border-l-[6px] border-l-[var(--bad)] bg-[color-mix(in_srgb,var(--bad)_5%,var(--surface))] text-[var(--ink)] shadow-[0_14px_34px_-26px_rgba(10,16,34,0.45)]">
       {person && (
-        <div className="flex items-center gap-3 border-b border-white/15 px-6 py-4 sm:px-8">
+        <div className="flex items-center gap-3 border-b border-[var(--rule)] px-6 py-4 sm:px-8">
           <Face name={person.name} href={person.href} size={44} />
           <p className="ui text-[15px] font-[620] leading-[1.35]">
             {person.href ? (
-              <Link href={person.href} className="text-white underline decoration-white/40 underline-offset-4">
+              <Link href={person.href} className="text-[var(--ink)] underline decoration-[var(--rule-strong)] underline-offset-4 hover:decoration-[var(--action)]">
                 {person.name}
               </Link>
             ) : (
               person.name
             )}
-            <span className="opacity-75">
+            <span className="text-[var(--muted)]">
               {" "}
               · {PARTY[person.p].label}
               {person.place ? ` · ${person.place}` : ""}
@@ -611,28 +611,28 @@ export function Spotlight({
       )}
       <div className="px-6 py-7 sm:px-8 sm:py-8">
         {kicker && (
-          <p className="ui text-[13px] font-[660] uppercase tracking-[0.07em] opacity-75">{kicker}</p>
+          <p className="ui text-[13px] font-[660] uppercase tracking-[0.07em] text-[var(--muted)]">{kicker}</p>
         )}
         <div className="mt-2 flex flex-wrap items-end gap-x-6 gap-y-2">
-          <p className="figure-num tnum text-[48px] leading-none text-[#ff5757] sm:text-[56px]">{amount}</p>
-          <p className="max-w-[30ch] pb-1 text-[22px] font-[700] leading-[1.2] sm:text-[26px]">{headline}</p>
+          <p className="figure-num tnum text-[48px] leading-none text-[var(--bad-text)] sm:text-[56px]">{amount}</p>
+          <p className="max-w-[30ch] pb-1 text-[22px] font-[700] leading-[1.2] text-[var(--ink)] sm:text-[26px]">{headline}</p>
         </div>
         {lines && lines.length > 0 && (
-          <ul className="mt-6 divide-y divide-white/10 rounded-[var(--r-s)] bg-white/[0.06] ring-1 ring-white/10">
+          <ul className="mt-6 divide-y divide-[var(--rule)] rounded-[var(--r-s)] bg-[var(--surface)] ring-1 ring-[var(--rule)]">
             {lines.map((l, i) => (
               <li key={i} className="flex items-baseline justify-between gap-4 px-4 py-3">
                 <span className="min-w-0">
-                  {l.meta && <span className="ui block text-[13px] opacity-70">{l.meta}</span>}
-                  <span className="block font-[family-name:var(--font-mono)] text-[15px] leading-[1.45]">
+                  {l.meta && <span className="ui block text-[13px] text-[var(--muted)]">{l.meta}</span>}
+                  <span className="block font-[family-name:var(--font-mono)] text-[15px] leading-[1.45] text-[var(--ink)]">
                     &ldquo;{l.what}&rdquo;
                   </span>
                 </span>
-                <span className="tnum shrink-0 text-[16px] font-[650] text-[#ff5757]">{l.amount}</span>
+                <span className="tnum shrink-0 text-[16px] font-[650] text-[var(--bad-text)]">{l.amount}</span>
               </li>
             ))}
           </ul>
         )}
-        {children && <div className="mt-5 space-y-3 text-[17px] leading-[1.55] opacity-90">{children}</div>}
+        {children && <div className="mt-5 space-y-3 text-[17px] leading-[1.55] text-[var(--ink-2)]">{children}</div>}
       </div>
     </section>
   );

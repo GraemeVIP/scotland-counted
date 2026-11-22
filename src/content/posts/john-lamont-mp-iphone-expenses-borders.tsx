@@ -145,8 +145,8 @@ export default function JohnLamontMpIphoneExpensesBorders() {
             an iPhone.
           </>,
           <>
-            He also tops our Receipt Finder, with <strong>£165,521</strong> across 690 bills. That is
-            more than any other Scottish MP.
+            His <strong>£165,521</strong> across 690 bills is the biggest total of any Scottish MP in
+            our Receipt Finder.
           </>,
         ]}
       />
@@ -170,7 +170,7 @@ export default function JohnLamontMpIphoneExpensesBorders() {
         ]}
       >
         <p>
-          Two iPhones in under three years. <strong>£2,346</strong> in all. £0 has been paid back.
+          Two iPhones in under three years, <strong>£2,346</strong> in all, and none of it paid back.
         </p>
       </Spotlight>
 
@@ -184,7 +184,7 @@ export default function JohnLamontMpIphoneExpensesBorders() {
           { meta: "17 July 2025", what: "Kelso Life - surgery advert (9 months)", amount: "£1,382.40" },
         ]}
       >
-        <p>Two of 201 advert bills. Nearly double the next MP in the UK. Taxpayers paid.</p>
+        <p>Just two of his 201 advert bills. His total is nearly double the next MP in the UK.</p>
       </Spotlight>
 
       {/* ------------------------------------------------------------ 1 */}
@@ -201,7 +201,7 @@ export default function JohnLamontMpIphoneExpensesBorders() {
         years later, in June 2025, it paid £1,248 for an &quot;Iphone and protection case&quot;.
       </P>
       <P>
-        That is on top of the phone contract. Most months he also billed for the &quot;Hawick office
+        And that&apos;s before the phone contract. Most months he also billed for the &quot;Hawick office
         mobile phone&quot;, at about £17 to £30 a month.
       </P>
       <P>
@@ -217,7 +217,7 @@ export default function JohnLamontMpIphoneExpensesBorders() {
       />
 
       <P>
-        Other Scottish MPs found cheaper ways. His Tory neighbour{" "}
+        Other Scottish MPs made do with cheaper. His Tory neighbour{" "}
         <Link href={mp("dumfriesshire-clydesdale-and-tweeddale")}>David Mundell</Link> billed £426 for
         a Samsung Galaxy A55.
       </P>
@@ -264,11 +264,11 @@ export default function JohnLamontMpIphoneExpensesBorders() {
       </Finding>
       <P>
         We searched five years of bills from all 650 MPs for the word iPhone. We found at least{" "}
-        <strong>23 MPs</strong> who billed you for buying an iPhone.
+        <strong>23 MPs</strong> who put one on expenses.
       </P>
       <P>
-        Many phone bills just say &quot;APPLE.COM&quot; or &quot;Currys&quot;. So the real number is
-        higher.
+        Many phone bills just say &quot;APPLE.COM&quot; or &quot;Currys&quot;, so the real number
+        will be higher.
       </P>
       <P>
         Only <strong>three MPs</strong> billed for two iPhones that cost over £1,000 each. John Lamont
@@ -306,13 +306,13 @@ export default function JohnLamontMpIphoneExpensesBorders() {
       <P>
         The phones are the small stuff. Our{" "}
         <Link href="/mp-expenses-scotland/search">Receipt Finder</Link> shows his bills one by one,
-        from 2022 to 2026. They add up to <strong>£165,521</strong> across 690 bills. That is more
-        than any other Scottish MP.
+        from 2022 to 2026. They add up to <strong>£165,521</strong> across 690 bills, more than any
+        other Scottish MP.
       </P>
       <P>
-        To be fair, part of that is how IPSA prints things. His bills show up one at a time, where many
-        MPs have theirs lumped into yearly totals. But most of his total comes from two things: a PR
-        firm and adverts.
+        Part of that is down to how IPSA prints things. His bills show up one at a time, where many
+        MPs have theirs lumped into yearly totals. Even so, most of his total comes from two things:
+        a PR firm and adverts.
       </P>
 
       <CaseCard kicker="13 bills, September 2022 to December 2023" figure="£35,792" people={[LAMONT]}>
@@ -329,8 +329,8 @@ export default function JohnLamontMpIphoneExpensesBorders() {
       </CaseCard>
 
       <P>
-        Then the adverts. Over five years he billed <strong>£49,568</strong> for adverts and cards.
-        That is the most of any MP in the UK, and nearly double the next MP.
+        Then there&apos;s the adverts. Over five years he billed <strong>£49,568</strong> for adverts
+        and cards, the most of any MP in the UK and nearly double the next one.
       </P>
       <P>
         Most were adverts for his surgeries in local papers. A surgery is a drop in session where you
@@ -391,8 +391,8 @@ export default function JohnLamontMpIphoneExpensesBorders() {
       />
 
       <P>
-        One fair point in his favour. He shares his London flat with another MP, so the rent and
-        bills are split two ways. That saves you money.
+        One thing in his favour: he shares his London flat with another MP, so the rent
+        and bills are split two ways. That saves the public money.
       </P>
 
       <Expand summary="See the Peach Partners bills and the newsletter, word for word">
@@ -448,8 +448,9 @@ export default function JohnLamontMpIphoneExpensesBorders() {
         Why IPSA paid, and how he voted
       </Finding>
       <P>
-        IPSA lets MPs claim for a work phone. It lets them pay a PR firm from the staff pot. It lets
-        them advertise their surgeries. So every bill here was within the rules. That is the scandal.
+        None of this broke IPSA&apos;s rules. MPs can claim for a work phone, pay a PR firm from the
+        staff pot and advertise their surgeries. If a £1,248 iPhone counts as an office cost, the
+        rules aren&apos;t doing much to protect your money.
       </P>
       <P>
         Now look at how he voted. On <strong>3 February 2026</strong> and again on{" "}
@@ -457,9 +458,9 @@ export default function JohnLamontMpIphoneExpensesBorders() {
       </P>
       <P>
         That rule stopped families getting the usual Universal Credit help for a third child. He
-        voted to keep it. You paid for his second iPhone eight months before.
+        voted to keep it, eight months after the public bought him his second iPhone.
       </P>
-      <P>Four plain questions for him have no answer in the public files:</P>
+      <P>The public files leave these questions hanging:</P>
 
       <PointList
         items={[
@@ -488,10 +489,10 @@ export default function JohnLamontMpIphoneExpensesBorders() {
 
       <Aside title="Part of a wider pattern in Westminster">
         <p>
-          <Link href={LAMONT.href}>John Lamont</Link> is not alone. We found a{" "}
-          <Link href="/blog/worst-scottish-mp-expenses">£24,515 phone tab</Link> for another Scottish
-          MP, and <Link href="/blog/scottish-mps-tv-licence-expenses">29 Scottish MPs</Link> who billed you
-          for TV licences. See <Link href="/mp-expenses-scotland/receipts">the oddest claims</Link> or
+          Phones are only the start of it. We also found a <Link href="/blog/worst-scottish-mp-expenses">£24,515 phone tab</Link> for
+          another Scottish MP, and{" "}
+          <Link href="/blog/scottish-mps-tv-licence-expenses">29 Scottish MPs</Link> who put TV
+          licences on expenses. See <Link href="/blog/worst-scottish-mp-expenses">the worst claims</Link> or
           compare <Link href="/mp-expenses-scotland">all 57 Scottish MPs</Link>.
         </p>
       </Aside>

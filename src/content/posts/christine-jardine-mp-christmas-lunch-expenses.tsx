@@ -149,8 +149,8 @@ export default function ChristineJardineMpChristmasLunchExpenses() {
             She has also billed you for a <strong>TV licence five years running</strong>: £842.
           </>,
           <>
-            All <strong>605</strong> of her claim lines since 2022 were paid. <strong>£0</strong>{" "}
-            refused. £0 paid back.
+            All <strong>605</strong> of her claim lines since 2022 were paid, with nothing refused
+            and nothing paid back.
           </>,
         ]}
       />
@@ -166,8 +166,8 @@ export default function ChristineJardineMpChristmasLunchExpenses() {
         ]}
       >
         <p>
-          A Christmas lunch, with the word &ldquo;training&rdquo; in it. Most people pay for their own
-          work Christmas do, or their boss does. Here, you did.
+          Put &ldquo;training&rdquo; on a Christmas lunch and it becomes a work cost, apparently.
+          Most of us pay for our own work Christmas do, or the boss does. This time it was you.
         </p>
       </Spotlight>
 
@@ -180,15 +180,15 @@ export default function ChristineJardineMpChristmasLunchExpenses() {
         West since 2017. Her office is on St John&apos;s Road in Corstorphine.
       </P>
       <P>
-        On <strong>19 December 2025</strong>, IPSA paid two bills for her office. IPSA is the body
-        that pays MPs&apos; expenses with public money.
+        IPSA is the body that pays MPs&apos; expenses with public money. On{" "}
+        <strong>19 December 2025</strong>, it paid two bills for her office.
       </P>
       <P>
         The first was £250.80 for &ldquo;lunch staff team training Christmas&rdquo;. The second was
         £259.31 for a &ldquo;team building event&rdquo;. Both were filed as hospitality, which means
         food and drink.
       </P>
-      <P>It was not her first December bill, either. It was her third in a row, and the biggest.</P>
+      <P>And it wasn&apos;t a one off. It was her third December bill in a row, and the biggest yet.</P>
 
       <ChartFrame
         kicker="Christine Jardine · IPSA hospitality bills"
@@ -215,8 +215,8 @@ export default function ChristineJardineMpChristmasLunchExpenses() {
       </ChartFrame>
 
       <P>
-        Her food and drink bills for 2025/26 came to <strong>£697.75</strong>. That is the most of
-        any Scottish MP. Across the UK, only nine MPs billed more.
+        Her food and drink bills for 2025/26 came to <strong>£697.75</strong>, the most of any
+        Scottish MP. Only nine MPs in the whole UK billed more.
       </P>
 
       <Expand summary="See the proof: her December lines, word for word">
@@ -237,16 +237,16 @@ export default function ChristineJardineMpChristmasLunchExpenses() {
 
       {/* ------------------------------------------------------------ 2 */}
       <Finding n={2} id="uk-christmas">
-        One MP was refused. She was paid.
+        Refused for one MP, paid for her
       </Finding>
       <P>
-        We checked every claim line from all 650 UK seats, from 2022 to 2027. We looked for staff
+        We went through every claim line from all 650 UK seats, 2022 to 2027, looking for staff
         Christmas and festive meals.
       </P>
       <P>
-        Only a handful of MPs billed one. Her lunch bill on its own was <strong>£250.80</strong>.
-        One other MP&apos;s meal cost more: £300. But add her £259.31 team event on the same day,
-        and her <strong>£510</strong> is the biggest staff Christmas spend we found.
+        Only a handful of MPs billed one. On its own, her <strong>£250.80</strong> lunch was beaten
+        by one other MP&apos;s £300 meal. But add the £259.31 team event from the same day, and her{" "}
+        <strong>£510</strong> is the biggest staff Christmas spend we found.
       </P>
 
       <ChartFrame
@@ -290,8 +290,8 @@ export default function ChristineJardineMpChristmasLunchExpenses() {
       />
 
       <P>
-        We can&apos;t say why one was paid and one was not. IPSA&apos;s files only show the words on
-        the bill. That is exactly the problem.
+        We can&apos;t tell you why one was paid and the other wasn&apos;t. IPSA&apos;s files only
+        show the words on the bill. So how is anyone outside meant to check?
       </P>
 
       {/* ------------------------------------------------------------ 3 */}
@@ -299,8 +299,8 @@ export default function ChristineJardineMpChristmasLunchExpenses() {
         Everything else she billed you
       </Finding>
       <P>
-        Her full bill for 2025/26 was <strong>£349,032</strong>. Most of that is staff pay. Here is
-        the rest that stood out.
+        Her full bill for 2025/26 was <strong>£349,032</strong>. Most of that is staff pay, but a
+        few other things jumped out.
       </P>
 
       <Tiles
@@ -329,10 +329,10 @@ export default function ChristineJardineMpChristmasLunchExpenses() {
         items={[
           {
             key: "flights",
-            title: "£21,735 on flights. Other Edinburgh MPs take the train.",
+            title: "£21,735 on flights, while other Edinburgh MPs take the train",
             children: (
               <>
-                That was her own flights in 2025/26. In the same year,{" "}
+                Her own flights, in 2025/26 alone. The same year,{" "}
                 <Link href={mp("edinburgh-south-west")}>Scott Arthur</Link> billed £680 for flights and
                 £9,467 for trains. <Link href={mp("edinburgh-north-and-leith")}>Tracy Gilbert</Link>{" "}
                 billed £529 for flights and £11,268 for trains.
@@ -349,7 +349,7 @@ export default function ChristineJardineMpChristmasLunchExpenses() {
             title: "£3,358 on newspapers since 2022",
             children: (
               <>
-                That includes a £269 Telegraph subscription every April since 2024, plus The Times,
+                Among them, a £269 Telegraph subscription every April since 2024, plus The Times,
                 The Herald and The Economist.
               </>
             ),
@@ -386,48 +386,32 @@ export default function ChristineJardineMpChristmasLunchExpenses() {
       <P>
         Away from expenses, her Register of Interests lists rugby hospitality from Scottish Rugby:
         two tickets worth £798 (November 2025) and one worth £500 (April 2026). She declared both,
-        as the rules require.
+        as she should.
       </P>
 
       {/* ------------------------------------------------------------ 4 */}
       <Finding n={4} id="who-stops-this">
-        Why IPSA paid it, and who stops this
+        Why IPSA paid it
       </Finding>
       <P>
-        IPSA lets MPs claim some food and drink for office work. Her own files include small bills
-        like &ldquo;Coffee for office&rdquo;. IPSA checks claims against its rules before it pays.
+        IPSA does let MPs claim some food and drink for office work. Her files have small bills like
+        &ldquo;Coffee for office&rdquo;, and nobody&apos;s going to fall out over office coffee.
       </P>
       <P>
-        Not one of her 605 claim lines since 2022 has been refused. Not one has been paid back. On
-        paper, the rules let all of it through. That is the scandal.
+        But a Christmas lunch with &ldquo;training&rdquo; in the title? IPSA checked it against its
+        rules and waved it through, like all 605 of her claim lines since 2022.
       </P>
 
-      <section className="not-prose my-10 overflow-hidden rounded-[var(--r-m)] bg-[#10141d] px-6 py-7 text-white shadow-[0_18px_40px_-24px_rgba(0,0,0,0.55)] ring-1 ring-[#ff4d4d]/40 sm:px-8 sm:py-8">
-        <p className="ui text-[13px] font-[660] uppercase tracking-[0.07em] opacity-75">Who stops this?</p>
-        <p className="figure-num mt-2 text-[48px] leading-none text-[#ff5757] sm:text-[56px]">Nobody.</p>
-        <ul className="mt-6 space-y-4 text-[17px] leading-[1.55]">
-          <li>
-            Her Christmas lunch went in as &ldquo;lunch staff team training Christmas&rdquo;.{" "}
-            <strong>A Christmas lunch, with the word &ldquo;training&rdquo; in it.</strong> IPSA paid
-            it in full.
-          </li>
-          <li>
-            IPSA only exists because of <strong>a law MPs passed themselves</strong> in 2009, after the
-            last expenses scandal.
-          </li>
-          <li>
-            IPSA&apos;s own files show just <strong>91 repayments out of 20,879 claims</strong> by
-            Scottish MPs since 2022. That is fewer than 1 in 200.
-          </li>
-          <li className="text-[20px] font-[700] leading-[1.35]">
-            The rules let all of this through. Nobody is going to stop the gravy train.
-          </li>
-        </ul>
-      </section>
+      <P>
+        If you&apos;re waiting for someone to stop the gravy train, don&apos;t hold your breath. Since
+        2022, Scottish MPs have paid back just 91 of 20,879 claims. Our{" "}
+        <Link href="/blog/worst-scottish-mp-expenses">roundup of the worst Scottish MP expenses</Link>{" "}
+        shows why.
+      </P>
 
       <P>
-        Three plain questions for <Link href={JARDINE.href}>Christine Jardine</Link> and IPSA have
-        no answer in the public files:
+        So, three questions for <Link href={JARDINE.href}>Christine Jardine</Link> and IPSA, and
+        the public files answer none of them:
       </P>
 
       <PointList
@@ -435,12 +419,12 @@ export default function ChristineJardineMpChristmasLunchExpenses() {
           {
             key: "training",
             title: "What training happened at the Christmas lunch?",
-            children: <>The bill says &ldquo;training&rdquo;. It does not say what was taught.</>,
+            children: <>The bill says &ldquo;training&rdquo; but not what anyone was taught.</>,
           },
           {
             key: "event",
             title: "What was the £259.31 team building event?",
-            children: <>It went in on the same day. The file gives no venue and no detail.</>,
+            children: <>It went in the same day, with no venue and no detail.</>,
           },
           {
             key: "refused",
@@ -452,7 +436,7 @@ export default function ChristineJardineMpChristmasLunchExpenses() {
 
       <Aside title="Part of a wider pattern in Westminster">
         <p>
-          <Link href={JARDINE.href}>Christine Jardine</Link> is not alone. See{" "}
+          <Link href={JARDINE.href}>Christine Jardine</Link> is far from the only one. See{" "}
           <Link href="/blog/worst-scottish-mp-expenses">the worst Scottish MP expenses</Link>,{" "}
           <Link href="/blog/scottish-mps-tv-licence-expenses">29 MPs who billed you for a TV licence</Link>{" "}
           and{" "}

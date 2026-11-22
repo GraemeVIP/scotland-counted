@@ -122,7 +122,7 @@ export default function TorcuilCrichtonMpCoachingExpensesWesternIsles() {
             He sent in <strong>more bills than any of them</strong>: 16 out of 44.
           </>,
           <>
-            IPSA paid every penny. <strong>£0</strong> of the £16,800 has been refused or paid back.
+            Not a penny of the £16,800 has been <strong>refused or paid back</strong>.
           </>,
         ]}
       />
@@ -153,16 +153,17 @@ export default function TorcuilCrichtonMpCoachingExpensesWesternIsles() {
         in July 2024. Its Gaelic name is Na h-Eileanan an Iar.
       </P>
       <P>
-        On <strong>21 October 2025</strong>, six bills to the coaching firm went in on one day. Each
-        was £125, filed as staff training.
+        On <strong>21 October 2025</strong>, six bills to the coaching firm went in at once, all
+        £125 and all filed as staff training.
       </P>
       <P>
-        A week later came the first bill for coaching him. It was £175. Four more followed, each
-        exactly £175.
+        A week later, the first bill for coaching the MP himself came in at £175. Four more
+        followed, and every one was exactly £175.
       </P>
       <P>
-        That price is no accident. The coach&apos;s own website charges <strong>£1,050 for six one
-        hour sessions</strong>, mostly online. That works out at £175 a session.
+        That figure didn&apos;t come out of nowhere. The coach&apos;s own website charges{" "}
+        <strong>£1,050 for six one hour sessions</strong>, mostly online. Do the sum and you get
+        £175 a session.
       </P>
 
       <Tiles
@@ -174,9 +175,10 @@ export default function TorcuilCrichtonMpCoachingExpensesWesternIsles() {
       />
 
       <P>
-        The coaching was not his first training bill. He also billed <strong>£1,500</strong> to HIVE
-        SUPPORT LTD (four bills of £375, Sept 2024 to Jan 2025). Then <strong>£300</strong> to
-        ELECTED TECHNOLOGIES (Aug 2025). All of it was filed as staff training.
+        And the coaching wasn&apos;t his first training bill. Before it came{" "}
+        <strong>£1,500</strong> to HIVE SUPPORT LTD (four bills of £375, Sept 2024 to Jan 2025) and{" "}
+        <strong>£300</strong> to ELECTED TECHNOLOGIES (Aug 2025). All of it went down as staff
+        training.
       </P>
 
       <Expand summary="See the proof: all 16 IPSA lines, word for word">
@@ -194,12 +196,12 @@ export default function TorcuilCrichtonMpCoachingExpensesWesternIsles() {
         12 MPs, £16,800, and he is the only Scot
       </Finding>
       <P>
-        We checked every claim line from all 650 UK seats, from 2022 to 2027. We searched for the
-        coaching firm&apos;s name.
+        So we searched for the coaching firm&apos;s name in every claim line from all 650 UK seats,
+        2022 to 2027.
       </P>
       <P>
-        <strong>12 MPs</strong> billed it, in <strong>44 claims</strong>, from September 2025 to
-        June 2026. That came to <strong>£16,800</strong>. IPSA paid all of it.
+        It turned up in <strong>44 claims</strong> from <strong>12 MPs</strong>, between September
+        2025 and June 2026. They came to <strong>£16,800</strong>, and IPSA paid the lot.
       </P>
 
       <ChartFrame
@@ -230,14 +232,15 @@ export default function TorcuilCrichtonMpCoachingExpensesWesternIsles() {
       </ChartFrame>
 
       <P>
-        Look at how differently it was filed. One MP put it down as &ldquo;Professional &amp;
-        consultancy&rdquo;. Another listed &ldquo;session 1 of 6&rdquo; through to &ldquo;session 6 of
-        6&rdquo;, at £175 each. That is the website&apos;s £1,050 package, paid for by you.
+        Same coach, filed all sorts of ways. One MP put it down as &ldquo;Professional &amp;
+        consultancy&rdquo;. Another listed &ldquo;session 1 of 6&rdquo; right through to
+        &ldquo;session 6 of 6&rdquo;, at £175 a time. Funnily enough, that&apos;s the website&apos;s
+        £1,050 package, bought with your money.
       </P>
       <P>
-        Back in Scotland, only two of our 57 MPs billed for &ldquo;Training - MP&rdquo; in the
-        2025/26 budget year (April 2025 to March 2026). He was top, with <strong>£700</strong>.
-        That is four of his £175 sessions. The fifth came in June 2026, in the next budget year.
+        Back home, only two of Scotland&apos;s 57 MPs billed for &ldquo;Training - MP&rdquo; in the
+        2025/26 budget year (April 2025 to March 2026). He was top, with <strong>£700</strong>, or
+        four of his £175 sessions. The fifth landed in June 2026, in the next budget year.
       </P>
 
       {/* ------------------------------------------------------------ 3 */}
@@ -246,7 +249,7 @@ export default function TorcuilCrichtonMpCoachingExpensesWesternIsles() {
       </Finding>
       <P>
         His full bill for 2025/26 was <strong>£313,106</strong>. Most of that is staff pay
-        (£209,561). Here is the rest that stood out.
+        (£209,561). A few other things jumped out at us.
       </P>
 
       <PointList
@@ -256,23 +259,23 @@ export default function TorcuilCrichtonMpCoachingExpensesWesternIsles() {
             title: "£23,608 on his own flights (2025/26)",
             children: (
               <>
-                To be fair, he represents islands. Flying is part of the job. His staff flew too:
-                £8,424, plus £3,691 on London hotels.
+                He represents islands, so flying comes with the job. His staff flew too: £8,424, plus £3,691 on London hotels.
               </>
             ),
           },
           {
             key: "rent",
             title: "£21,600 rent for his London home (2025/26)",
-            children: <>That is £1,800 a month, plus £1,089 council tax.</>,
+            children: <>£1,800 a month, with £1,089 council tax on top.</>,
           },
           {
             key: "adverts",
             title: "£4,813 on adverts in one year (2025/26)",
             children: (
               <>
-                That was 16 bills, including a £250 &ldquo;Advertising board in constituency&rdquo;.
-                Since July 2025, four bills to &ldquo;SQ SPORSNIS&rdquo; have come to £1,825.
+                Spread over 16 bills, including a £250 &ldquo;Advertising board in
+                constituency&rdquo;. Four bills to &ldquo;SQ SPORSNIS&rdquo; since July 2025 have come
+                to £1,825.
               </>
             ),
           },
@@ -300,12 +303,12 @@ export default function TorcuilCrichtonMpCoachingExpensesWesternIsles() {
       />
 
       <P>
-        Credit where it is due: he has paid back <strong>£1,749.85</strong> over four lines. Most of
-        that was a £1,476 caseworker software bill and the duplicate water test.
+        He has paid some back: <strong>£1,749.85</strong> over four lines.
+        Most of it was a £1,476 caseworker software bill and that duplicate water test.
       </P>
       <P>
         Away from expenses, his Register of Interests lists two tickets with hospitality for a Paul
-        Simon concert from Diageo, worth £370 (May 2026). He declared it, as the rules require.
+        Simon concert, from Diageo and worth £370 (May 2026). He declared it properly.
       </P>
 
       {/* ------------------------------------------------------------ 4 */}
@@ -313,47 +316,34 @@ export default function TorcuilCrichtonMpCoachingExpensesWesternIsles() {
         The revolving door, and why IPSA paid it
       </Finding>
       <P>
-        Here is the part that should make you sit up. The coach&apos;s own website says she worked
-        in a House of Commons team that helps MPs and their staff. Then she worked at IPSA, in a
+        Now, this is the bit that made us sit up. The coach&apos;s own website says she worked in a
+        House of Commons team that helps MPs and their staff. After that, she worked at IPSA, in a
         job dealing with MPs.
       </P>
       <P>
-        Her company, Lara Lloyd Coaching Ltd, was set up on <strong>19 March 2025</strong>, Companies
-        House says. The first MP bill to it shows up in IPSA&apos;s files on{" "}
+        Her company, Lara Lloyd Coaching Ltd, was set up on <strong>19 March 2025</strong>,
+        according to Companies House. The first MP bill to it shows up in IPSA&apos;s files on{" "}
         <strong>16 September 2025</strong>.
       </P>
       <P>
-        That is a <strong>revolving door</strong>. Someone leaves a job inside the system. Then MPs
-        pay their firm, using the system&apos;s own money.
+        There&apos;s a name for this: a <strong>revolving door</strong>. You leave a job inside the
+        system, set up on your own, and then MPs pay your firm with the system&apos;s own money.
       </P>
       <P>
-        Nothing in the public records says she broke any rule. MPs are allowed to buy training for
-        themselves and their staff. IPSA checked the bills and paid every one. That is the point. The
-        rules let it all through.
+        Nothing in the public records says she broke any rule. MPs can buy training for themselves
+        and their staff, and IPSA paid all 44 bills.
       </P>
 
-      <section className="not-prose my-10 overflow-hidden rounded-[var(--r-m)] bg-[#10141d] px-6 py-7 text-white shadow-[0_18px_40px_-24px_rgba(0,0,0,0.55)] ring-1 ring-[#ff4d4d]/40 sm:px-8 sm:py-8">
-        <p className="ui text-[13px] font-[660] uppercase tracking-[0.07em] opacity-75">Who stops this?</p>
-        <p className="figure-num mt-2 text-[48px] leading-none text-[#ff5757] sm:text-[56px]">Nobody.</p>
-        <ul className="mt-6 space-y-4 text-[17px] leading-[1.55]">
-          <li>
-            IPSA only exists because of <strong>a law MPs passed themselves</strong> in 2009, after the
-            last expenses scandal.
-          </li>
-          <li>
-            IPSA&apos;s own files show just <strong>91 repayments out of 20,879 claims</strong> by
-            Scottish MPs since 2022. That is fewer than 1 in 200.
-          </li>
-          <li className="text-[20px] font-[700] leading-[1.35]">
-            A former IPSA insider now gets paid with IPSA&apos;s money. And IPSA waved every bill
-            through.
-          </li>
-        </ul>
-      </section>
+      <P>
+        So a former IPSA insider now gets paid with IPSA&apos;s money. Don&apos;t expect anyone to
+        step in: Scottish MPs have paid back just 91 of 20,879 claims since 2022. Our{" "}
+        <Link href="/blog/worst-scottish-mp-expenses">roundup of the worst Scottish MP expenses</Link>{" "}
+        shows why.
+      </P>
 
       <P>
-        Four plain questions for <Link href={CRICHTON.href}>Torcuil Crichton</Link> and IPSA have no
-        answer in the public files:
+        Which leaves four questions for <Link href={CRICHTON.href}>Torcuil Crichton</Link> and
+        IPSA. The public files don&apos;t answer any of them:
       </P>
 
       <PointList
@@ -371,12 +361,12 @@ export default function TorcuilCrichtonMpCoachingExpensesWesternIsles() {
           {
             key: "check",
             title: "Did IPSA check its old staff member's firm before paying?",
-            children: <>12 MPs, 44 bills, £16,800. Not one refused.</>,
+            children: <>12 MPs, 44 bills, £16,800, and none of it refused.</>,
           },
           {
             key: "worth",
             title: "What did Western Isles voters get for £2,400?",
-            children: <>The files do not say what changed after the coaching.</>,
+            children: <>The files don&apos;t say what, if anything, changed after the coaching.</>,
           },
         ]}
       />

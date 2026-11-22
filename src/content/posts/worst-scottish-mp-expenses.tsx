@@ -205,9 +205,9 @@ export default function WorstScottishMpExpenses() {
   return (
     <Prose>
       <Lead>
-        £23,437 for power in one day. £3,090 to set up broadband. A Christmas lunch filed as
-        &ldquo;training&rdquo;. Four TV licences in 11 months. All paid by you. This is the Scottish
-        MP expenses scandal, claim by claim.
+        A £23,437 power bill paid in one day. £3,090 to set up broadband. A Christmas lunch filed
+        as &ldquo;training&rdquo;, and four TV licences in 11 months. You paid for the lot. Here it
+        is, claim by claim.
       </Lead>
 
       <QuickTake
@@ -229,8 +229,8 @@ export default function WorstScottishMpExpenses() {
             coaching from a former IPSA worker.
           </>,
           <>
-            Just <strong>91 repayments out of 20,879 claims</strong>. IPSA paid the rest.{" "}
-            <strong>No rules were broken.</strong>
+            Just <strong>91 repayments out of 20,879 claims</strong>. IPSA paid the rest, and{" "}
+            <strong>no rules were broken.</strong>
           </>,
         ]}
       />
@@ -239,19 +239,19 @@ export default function WorstScottishMpExpenses() {
 
       <P>
         We read all <strong>20,879 expense claims</strong> filed by Scotland&apos;s MPs from 2022/23 to
-        2026/27. Line by line. These are the ones that made us stop and look twice.
+        2026/27, one line at a time. These are the ones that made us read them twice.
       </P>
       <P>
-        Here is the catch. IPSA runs MPs&apos; expenses, and it paid all of these claims. Nobody broke the
-        rules. The rules just let them do this. That is the scandal.
+        Nobody broke a rule here, and that&apos;s the worrying bit. IPSA, the body that runs
+        MPs&apos; expenses, looked at every one of these and paid it.
       </P>
 
       <Aside title="How MPs' expenses work">
         <p>
-          Each MP gets set pots of public money. One pays for the office. One pays for staff. One
-          pays for a second home, because MPs work in London and back home.
+          Each MP gets set pots of public money: one for the office, one for staff, and one for a
+          second home, since they work in London and back home.
         </p>
-        <p>We say which pot paid where the file shows it.</p>
+        <p>Where the file shows which pot paid, we say so.</p>
       </Aside>
 
       {/* ------------------------------------------------------------ 1 */}
@@ -270,7 +270,8 @@ export default function WorstScottishMpExpenses() {
         ]}
       >
         <p>
-          Two payments, one account, one day. It beats a full year of her office rent by £6,587.
+          Two payments to one account on one day. Together they top a year of her office rent
+          by £6,587.
         </p>
         <FullStory href={story("kilmarnock-mp-23437-electricity-bill")}>
           Read the full Kilmarnock story
@@ -286,12 +287,12 @@ export default function WorstScottishMpExpenses() {
         person={person("Chris Law", "dundee-central", "SNP", "Dundee West at the time, now Dundee Central")}
         kicker="25 July 2022 · office pot"
         amount="£3,090"
-        headline="You paid to set up his home broadband."
+        headline="His home broadband setup went on expenses."
         lines={[{ what: "Home 5G mobile broadband installation", amount: "£3,090.00" }]}
       >
         <p>
-          5G home broadband is a box you plug in. No fitter needed. A normal setup claim by a
-          Scottish MP is £90. The file does not say which home, or who got the cash.
+          5G home broadband is a box you plug in, no fitter needed. A normal setup claim by a
+          Scottish MP is £90. The file doesn&apos;t say which home, or who got the money.
         </p>
         <FullStory href={story("chris-law-mp-3090-broadband-expenses-dundee")}>
           Read the full Dundee story
@@ -307,13 +308,13 @@ export default function WorstScottishMpExpenses() {
         person={person("Torcuil Crichton", "na-h-eileanan-an-iar", "Labour", "Na h-Eileanan an Iar")}
         kicker="October 2025 to June 2026 · 16 bills"
         amount="£2,400"
-        headline="You paid for coaching for him and his staff."
+        headline="Coaching for him and his staff, billed 16 times."
         lines={[{ meta: "Filed as training for him and his staff", what: "LARA LLOYD COACHING", amount: "£2,400.00" }]}
       >
         <p>
-          The coach used to work at IPSA, the body that pays the bills.{" "}
-          <strong>12 MPs across the UK paid her firm £16,800</strong> in under a year. He is the
-          only Scottish MP on the list.
+          And the coach used to work at IPSA, the very body that pays the bills.{" "}
+          <strong>12 MPs across the UK paid her firm £16,800</strong> in under a year. He&apos;s
+          the only one from Scotland.
         </p>
         <FullStory href={story("torcuil-crichton-mp-coaching-expenses-western-isles")}>
           Read the full Western Isles story
@@ -324,7 +325,7 @@ export default function WorstScottishMpExpenses() {
         person={person("Angus MacDonald", "inverness-skye-and-west-ross-shire", "Lib Dem", "Inverness, Skye and West Ross-shire")}
         kicker="2025/26 · staff pot and second home pot"
         amount="£3,546"
-        headline="You paid for his speech coach, and to clean his drains."
+        headline="A speech coach, and his drains cleaned, on expenses."
         lines={[
           {
             meta: "17 July 2025 · staff pot",
@@ -335,7 +336,7 @@ export default function WorstScottishMpExpenses() {
           { meta: "27 March 2026 · second home pot", what: "Drainage professional pressure jet wash cleaning", amount: "£312.00" },
         ]}
       >
-        <p>Talking is the job. The £3,000 came from the pot meant for staff who help local voters.</p>
+        <p>Talking is the whole job. And the £3,000 came from the pot meant for staff who help local voters.</p>
         <FullStory href={story("angus-macdonald-mp-speech-coach-drains-expenses")}>
           Read the full Highlands story
         </FullStory>
@@ -357,8 +358,8 @@ export default function WorstScottishMpExpenses() {
         ]}
       >
         <p>
-          <strong>A Christmas lunch, with the word &ldquo;training&rdquo; in it.</strong> Most
-          workers pay for their own Christmas do. Here, you did.
+          <strong>A Christmas lunch, with the word &ldquo;training&rdquo; stuck on it.</strong>{" "}
+          Most of us pay for our own Christmas do. This one went on expenses.
         </p>
         <FullStory href={story("christine-jardine-mp-christmas-lunch-expenses")}>
           Read the full Edinburgh West story
@@ -369,10 +370,10 @@ export default function WorstScottishMpExpenses() {
         person={person("Graeme Downie", "dunfermline-and-dollar", "Labour", "Dunfermline and Dollar")}
         kicker="13 March 2025 · 18 days before the budget year ended"
         amount="£963"
-        headline="You paid for a business dinner held in his name."
+        headline="A business dinner, hosted in his name."
         lines={[{ what: "Fife College hosted business dinner on behalf of Graeme Downie", amount: "£962.65" }]}
       >
-        <p>One dinner, nearly £1,000 of public cash. The file does not say who ate it.</p>
+        <p>Nearly £1,000 of public money on one dinner. The file doesn&apos;t say who ate it.</p>
         <FullStory href={story("graeme-downie-mp-dinner-expenses-dunfermline")}>
           Read the full Dunfermline story
         </FullStory>
@@ -395,8 +396,8 @@ export default function WorstScottishMpExpenses() {
             title: <Who face name="Dave Doogan" href={mp("angus-and-perthshire-glens")} p="SNP" note="£892.80" />,
             children: (
               <>
-                A &ldquo;Newspaper Column Invoice&rdquo;, 19 June 2026. The file does not say what the
-                piece was, or why you paid.
+                A &ldquo;Newspaper Column Invoice&rdquo;, 19 June 2026. Nothing says what the piece
+                was, or why the public paid for it.
               </>
             ),
           },
@@ -412,7 +413,7 @@ export default function WorstScottishMpExpenses() {
         person={person("Euan Stainbank", "falkirk", "Labour", "Falkirk")}
         kicker="31 October 2024 · up for a whole year"
         amount="£3,300"
-        headline="You paid for a billboard advertising him."
+        headline="A billboard of himself, up for a year."
         lines={[
           {
             what: "Advertising board to advertise Euan as local MP and contact details. To be advertised for 1 year.",
@@ -420,15 +421,15 @@ export default function WorstScottishMpExpenses() {
           },
         ]}
       >
-        <p>A full year of ads for the MP, paid by the folk he serves.</p>
+        <p>A year of adverts for the MP, paid for by the people he serves.</p>
         <FullStory href={story("euan-stainbank-mp-billboard-expenses-falkirk")}>
           Read the full Falkirk story
         </FullStory>
       </Spotlight>
 
       <P>
-        Other MPs paid to print and post a yearly report about their own work. IPSA allows it if
-        there is no party badge on it. It still puts their face through every door.
+        Others paid to print and post a yearly report on their own work. IPSA allows that as long
+        as there&apos;s no party badge on it. But it still puts their face through every door.
       </P>
 
       <Receipt
@@ -465,20 +466,20 @@ export default function WorstScottishMpExpenses() {
         person={person("Gregor Poynton", "livingston", "Labour", "Livingston")}
         kicker="December 2024 to November 2025 · office pot"
         amount="£688"
-        headline="You paid for four TV licences in 11 months."
+        headline="Four TV licences in 11 months."
         lines={[
           { meta: "18 Dec 2024 and 14 Feb 2025", what: "TVLICENSING.CO.UK", amount: "2 × £169.50" },
           { meta: "4 and 26 Nov 2025, two licences split over four lines", what: "TVLICENSING.CO.UK", amount: "£349.00" },
         ]}
       >
-        <p>Homes pay £180 today out of their own pocket. It was £169.50 in 2024/25. IPSA only allows a licence for a local office.</p>
+        <p>The rest of us pay £180 today out of our own pocket. It was £169.50 in 2024/25. And IPSA only allows a licence for a local office.</p>
         <FullStory href={story("gregor-poynton-mp-four-tv-licences-livingston")}>
           Read the full Livingston story
         </FullStory>
       </Spotlight>
 
       <P>
-        He is not alone. 29 Scottish MPs billed <strong>£10,754</strong> for TV licences from 2022/23 to
+        He&apos;s not the only one. 29 Scottish MPs billed <strong>£10,754</strong> for TV licences from 2022/23 to
         2026/27. <Link href={mp("glasgow-south-west")}>Dr Zubir Ahmed</Link> billed two in nine
         months, one online and one at a Co-op.{" "}
         <Link href="/blog/scottish-mps-tv-licence-expenses">See all 29 Scottish MPs</Link>.
@@ -493,13 +494,13 @@ export default function WorstScottishMpExpenses() {
         person={person("John Lamont", "berwickshire-roxburgh-and-selkirk", "Conservative", "Berwickshire, Roxburgh and Selkirk")}
         kicker="August 2022 and June 2025 · office pot"
         amount="£2,346"
-        headline="You paid for two iPhones."
+        headline="Two iPhones, both on expenses."
         lines={[
           { meta: "9 August 2022", what: "iPhone purchase - John Lamont", amount: "£1,098.00" },
           { meta: "12 June 2025", what: "Iphone and protection case", amount: "£1,248.00" },
         ]}
       >
-        <p>Most people pay for their own phone. Here, taxpayers did. Twice.</p>
+        <p>Two phones on the public purse, three years apart.</p>
         <FullStory href={story("john-lamont-mp-iphone-expenses-borders")}>
           Read the full Borders story
         </FullStory>
@@ -510,8 +511,8 @@ export default function WorstScottishMpExpenses() {
           <strong>57 mobile phone bills, March 2022 to June 2026</strong>
         </p>
         <p>
-          That is about £110 a week. His biggest was £909.24 from EE in March 2026. It is four
-          times more than any other Scottish MP.
+          About £110 a week. His biggest was £909.24 from EE in March 2026, and his total is four
+          times more than any other Scottish MP&apos;s.
         </p>
       </CaseCard>
 
@@ -537,14 +538,14 @@ export default function WorstScottishMpExpenses() {
         person={person("Pamela Nash", "motherwell-wishaw-and-carluke", "Labour", "Motherwell, Wishaw and Carluke")}
         kicker="April 2025 to March 2026 · office pot"
         amount="£5,932"
-        headline="You paid for her DFS and IKEA furniture, and a new carpet."
+        headline="DFS and IKEA furniture, and a new carpet."
         lines={[
           { meta: "Three bills, 5 April 2025 to 31 March 2026", what: "IKEA LTD SHOP ONLINE", amount: "£1,974.00" },
           { meta: "31 March 2026", what: "DFS TRADING LIMITED", amount: "£1,208.00" },
           { meta: "26 March 2026", what: "Replacement of office carpet", amount: "£2,750.00" },
         ]}
       >
-        <p>Most of it landed in the last week of the budget year. £245 of IKEA came back later.</p>
+        <p>Most of it went through in the last week of the budget year. £245 of IKEA was paid back later.</p>
         <FullStory href={story("pamela-nash-mp-furniture-expenses-motherwell")}>
           Read the full Motherwell story
         </FullStory>
@@ -566,14 +567,14 @@ export default function WorstScottishMpExpenses() {
       <Finding n={9} of={FINDINGS} id="consultants">
         Consultants and PR firms, on top of their own staff
       </Finding>
-      <P>Every MP gets a big budget for staff. Some still paid outside firms on top.</P>
+      <P>Every MP gets a big budget for staff. Some paid outside firms on top anyway.</P>
 
       <CaseCard figure="£10,000" people={[person("Melanie Ward", "cowdenbeath-and-kirkcaldy", "Labour", "Cowdenbeath and Kirkcaldy")]}>
         <p>
           <strong>The biggest single consultant bill by any Scottish MP</strong>
         </p>
         <p>
-          IPSA hides who got paid. She also billed £4,000 for PR help, and £4,691 at IKEA. A £7,000
+          IPSA hides who got paid. She also billed £4,000 for PR help and £4,691 at IKEA. A £7,000
           local report was paid back four months later.
         </p>
       </CaseCard>
@@ -592,8 +593,8 @@ export default function WorstScottishMpExpenses() {
           <strong>13 bills to PR firm Peach Partners, September 2022 to December 2023</strong>
         </p>
         <p>
-          Speech notes, press help and social posts. The biggest was £9,125. Every penny came from
-          his staff pot.
+          Speech notes, press help and social posts, with the biggest bill at £9,125. All of it
+          came from his staff pot.
         </p>
       </CaseCard>
 
@@ -616,8 +617,8 @@ export default function WorstScottishMpExpenses() {
           </strong>
         </p>
         <p>
-          He claims no London rent. Most of his {ZUBIR_NIGHTS.length} claims are month long flat
-          stays, plus one Airbnb. IPSA files them all as hotels.
+          He claims no London rent. Most of his {ZUBIR_NIGHTS.length} claims are month
+          long flat stays, plus one Airbnb, and IPSA files them all as hotels.
         </p>
       </CaseCard>
 
@@ -630,7 +631,7 @@ export default function WorstScottishMpExpenses() {
       />
 
       <P>
-        <strong>That is close to a normal full time wage.</strong> The middle UK full time worker
+        <strong>That&apos;s close to a full time wage.</strong> The middle UK full time worker
         earned{" "}
         <a href={ONS_EARNINGS_2026} target="_blank" rel="noopener noreferrer">
           £39,157 a year before tax
@@ -638,7 +639,7 @@ export default function WorstScottishMpExpenses() {
         in April 2025.
       </P>
       <P>
-        Is it allowed? Yes. MPs can book hotels instead of renting a flat.{" "}
+        Is it allowed? Yes. MPs can book hotels instead of renting a flat, and{" "}
         <a href={IPSA_ACCOMMODATION} target="_blank" rel="noopener noreferrer">
           IPSA&apos;s London cap is £230 a night
         </a>
@@ -671,10 +672,10 @@ export default function WorstScottishMpExpenses() {
       <Expand summary="How often was he needed in London?">
         <div className="space-y-4">
           <P>
-            &ldquo;The Commons sat&rdquo; means MPs met to debate and vote. It normally meets Monday to
-            Thursday. In 2025/26 it had {COMMONS_SITTING_DAYS} sitting days. You paid for{" "}
-            {ZUBIR_NIGHT_COUNT} of his London nights. That is{" "}
-            {ZUBIR_NIGHT_COUNT - COMMONS_SITTING_DAYS} more nights than open days, or{" "}
+            &ldquo;The Commons sat&rdquo; means MPs met to debate and vote, normally Monday to
+            Thursday. In 2025/26 it had {COMMONS_SITTING_DAYS} sitting days. The public paid for{" "}
+            {ZUBIR_NIGHT_COUNT} of his London nights. So that&apos;s{" "}
+            {ZUBIR_NIGHT_COUNT - COMMONS_SITTING_DAYS} more nights than sitting days, or{" "}
             {gbp(ZUBIR_TOTAL / COMMONS_SITTING_DAYS, false)} for each day it sat.
           </P>
           <p className="ui text-[16px] font-[660] text-[var(--ink)]">Before he became a minister: April to July 2025</p>
@@ -689,13 +690,14 @@ export default function WorstScottishMpExpenses() {
             </dl>
           </div>
           <P>
-            As a backbencher, his London job is votes, talks and questions. In those four months you
-            paid for twice as many London nights as sitting days. He asked zero written questions.
+            As a backbencher then, his London job was voting, speaking and asking questions. In
+            those four months he billed twice as many nights as sitting days, and tabled no written
+            questions.
           </P>
           <P>
             From 6 September 2025 to 12 May 2026 he was a health minister. A minister works in London
-            on weekdays, so more nights make sense. Even so, his stays ran seven nights a week,
-            weekends too.
+            through the week, so more nights make sense. But his stays ran seven nights a week,
+            weekends included.
           </P>
           <P>
             Over the full year he voted in 202 of 301 votes (67%). The average MP voted in 69%.{" "}
@@ -705,9 +707,9 @@ export default function WorstScottishMpExpenses() {
             .
           </P>
           <P>
-            It beats the £27,873 rent paid by the middle Scottish MP. Since July 2024 it adds up to
-            548 nights and £67,519, up to April 2026. His first three claims for 2026/27 cover 75
-            nights at about £145 a night.
+            His year of stays beat the £27,873 rent paid by the middle Scottish MP. From July 2024
+            to April 2026 it comes to 548 nights and £67,519. His first three claims for 2026/27 add 75
+            nights, at about £145 a night.
           </P>
         </div>
       </Expand>
@@ -716,7 +718,7 @@ export default function WorstScottishMpExpenses() {
       <Finding n={11} of={FINDINGS} id="biggest-tabs">
         The biggest tabs, one MP at a time
       </Finding>
-      <P>These are yearly totals for 2025/26. Each one is the top in Scotland for that kind of bill.</P>
+      <P>These are yearly totals for 2025/26. Each is the highest in Scotland for that kind of bill.</P>
 
       <PointList
         items={BIG_TABS.map((t) => ({
@@ -727,8 +729,8 @@ export default function WorstScottishMpExpenses() {
       />
 
       <P>
-        Why second homes? MPs work in two places, so you pay for a second home. They can own it
-        and still bill you its council tax and heating.{" "}
+        Why second homes? MPs work in two places, so you cover a second home. They can even own
+        it and still bill you its council tax and heating.{" "}
         <Link href="/mp-expenses-scotland#why-second-homes">How second home rules work</Link>.
       </P>
 
@@ -739,8 +741,8 @@ export default function WorstScottishMpExpenses() {
 
       <H2 id="why-hidden">Why you have never seen these receipts</H2>
       <P>
-        IPSA puts every claim online. Nothing is secret by law. But almost nobody has time to read
-        it. Here is why.
+        IPSA does put every claim online, and none of it is secret. But almost nobody has time to
+        wade through it. These numbers show why.
       </P>
 
       <Tiles
@@ -751,36 +753,35 @@ export default function WorstScottishMpExpenses() {
         ]}
       />
 
-      <section className="not-prose my-10 overflow-hidden rounded-[var(--r-m)] bg-[#10141d] px-6 py-7 text-white shadow-[0_18px_40px_-24px_rgba(0,0,0,0.55)] ring-1 ring-[#ff4d4d]/40 sm:px-8 sm:py-8">
-        <p className="ui text-[13px] font-[660] uppercase tracking-[0.07em] opacity-75">Who stops this?</p>
-        <p className="figure-num mt-2 text-[48px] leading-none text-[#ff5757] sm:text-[56px]">Nobody.</p>
+      <section className="not-prose my-10 overflow-hidden rounded-[var(--r-m)] border border-[var(--rule)] border-l-[6px] border-l-[var(--bad)] bg-[color-mix(in_srgb,var(--bad)_5%,var(--surface))] px-6 py-7 text-[var(--ink)] shadow-[0_14px_34px_-26px_rgba(10,16,34,0.45)] sm:px-8 sm:py-8">
+        <p className="ui text-[13px] font-[660] uppercase tracking-[0.07em] text-[var(--muted)]">Who stops this?</p>
+        <p className="figure-num mt-2 text-[48px] leading-none text-[var(--bad-text)] sm:text-[56px]">Nobody.</p>
         <ul className="mt-6 space-y-4 text-[17px] leading-[1.55]">
           <li>
             Christine Jardine&apos;s Christmas lunch (above) went in as &ldquo;lunch staff team
-            training Christmas&rdquo;. <strong>A Christmas lunch, with the word
-            &ldquo;training&rdquo; in it.</strong> IPSA paid it in full.
+            training Christmas&rdquo;. Pop the word <strong>training</strong> on it, it seems,
+            and IPSA pays the lot.
           </li>
           <li>
-            IPSA is the body that pays MPs&apos; expenses with public money. It only exists because
-            of <strong>a law MPs passed themselves</strong> in 2009, after the last expenses
-            scandal.
+            And who set up IPSA? <strong>MPs did</strong>, with a law they passed themselves in
+            2009, after the last expenses scandal.
           </li>
           <li>
-            IPSA&apos;s own files show just <strong>91 repayments out of 20,879 claims</strong> by
-            Scottish MPs since 2022. That is fewer than 1 in 200.
+            IPSA&apos;s own files show just <strong>91 repayments out of 20,879 claims</strong> by Scottish
+            MPs since 2022. Fewer than 1 in 200.
           </li>
           <li>
-            At Holyrood it is even cosier. <strong>MSPs vote on their own expenses rules</strong>,
-            and the board that writes and runs them is made up of MSPs.
+            Holyrood is even cosier. <strong>MSPs vote on their own expenses rules</strong>, and the
+            board that writes and runs them is made up of MSPs too.
           </li>
           <li className="text-[20px] font-[700] leading-[1.35]">
-            The rules let all of this through. Nobody is going to stop the gravy train.
+            So the gravy train keeps rolling, and nobody in charge wants to stop it.
           </li>
         </ul>
       </section>
 
       <H2 id="check-your-mp">Check your own MP, and put it to them</H2>
-      <P>So we read it for you. You can check any MP yourself in three steps.</P>
+      <P>So we read it all for you. You can check any MP yourself in three steps.</P>
       <PointList
         items={[
           {
@@ -809,7 +810,7 @@ export default function WorstScottishMpExpenses() {
         ]}
       />
 
-      <P>MPs can say their bills are online. They are, in a giant file almost nobody opens. These are the questions they should answer:</P>
+      <P>Any MP can tell you their bills are online. They are, in a giant file almost nobody opens. So ask them these:</P>
       <PointList
         items={PUT_IT_TO_THEM.map((q, i) => ({
           key: `q${i}`,
@@ -836,8 +837,8 @@ export default function WorstScottishMpExpenses() {
 
       <Aside title="All within the rules">
         <p>
-          IPSA paid every claim on this page. No rule was broken. The real ask is why the rules let
-          any of this happen. For gifts, free tickets and paid trips, see{" "}
+          None of the claims on this page broke a rule. What needs answering is why IPSA&apos;s rules
+          let any of it through. For gifts, free tickets and paid trips, see{" "}
           <Link href="/blog/scottish-mp-expenses-and-freebies-investigation">the freebies MPs declared</Link>
           . For every MP ranked, see <Link href="/mp-expenses-scotland">all 57 Scottish MPs</Link>.
         </p>

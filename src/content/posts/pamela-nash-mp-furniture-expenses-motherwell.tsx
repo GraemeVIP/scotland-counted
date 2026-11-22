@@ -136,8 +136,8 @@ export default function PamelaNashMpFurnitureExpensesMotherwell() {
             30 and 31 March 2026.
           </>,
           <>
-            That same week you also paid for a <strong>new office carpet</strong> and{" "}
-            <strong>building works</strong>.
+            A <strong>new office carpet</strong> and <strong>building works</strong> went on
+            expenses the same week.
           </>,
           <>
             Only <strong>one MP in the whole UK</strong> billed more for office kit and repairs that
@@ -173,12 +173,12 @@ export default function PamelaNashMpFurnitureExpensesMotherwell() {
         July 2024.
       </P>
       <P>
-        IPSA runs on a budget year. It starts on 1 April and ends on 31 March. Each MP gets a pot of
-        money for their office each year. On 1 April, a new pot starts.
+        First, how IPSA&apos;s year works. It runs from 1 April to 31 March. Each MP gets a pot of
+        money for their office, and on 1 April a fresh pot starts.
       </P>
       <P>
-        Then came the last week of March 2026. In seven days, seven bills went in: carpet, building
-        works, DFS, IKEA and Amazon.
+        Keep that in mind. In the last seven days of March 2026, seven bills went in: carpet,
+        building works, DFS, IKEA and Amazon.
       </P>
 
       <Receipt
@@ -225,16 +225,16 @@ export default function PamelaNashMpFurnitureExpensesMotherwell() {
       />
 
       <P>
-        The building works did not stop in March. Another <strong>£350</strong> for the same
-        &quot;Essential refurbishment works&quot; went in on 24 April 2026. Building works total:
-        £2,600.
+        And the building works didn&apos;t stop at the end of March. Another <strong>£350</strong>{" "}
+        for the same &quot;Essential refurbishment works&quot; went in on 24 April 2026, taking them
+        to £2,600.
       </P>
       <P>
-        IPSA&apos;s line for DFS just says &quot;DFS TRADING LIMITED&quot;. DFS is best known for
-        sofas. The file does not say what she bought.
+        As for DFS, IPSA&apos;s line just says &quot;DFS TRADING LIMITED&quot;. They&apos;re best
+        known for sofas, but the file doesn&apos;t say what she bought.
       </P>
       <P>
-        This was not her first furniture spree. In the first nine days of the same budget year, April
+        It wasn&apos;t her first furniture spree either. In the first nine days of the same budget year, April
         2025, she billed £2,742 for furniture from IKEA, Argos, Amazon and others.
       </P>
 
@@ -274,12 +274,13 @@ export default function PamelaNashMpFurnitureExpensesMotherwell() {
         The last week of March, when MPs go shopping
       </Finding>
       <P>
-        We checked every 2025/26 bill for office kit, furniture and repairs, for all 650 MPs. Then we
-        added them up week by week.
+        Is that normal? We took every 2025/26 bill for office kit, furniture and repairs, for all 650
+        MPs, and added them up week by week.
       </P>
       <P>
         A normal week came to about <strong>£18,900</strong>. The last seven days of March came to{" "}
-        <strong>£138,464</strong>. That is over <strong>seven times</strong> a normal week.
+        <strong>£138,464</strong>, over <strong>seven times</strong> as much. A fresh
+        budget starts on 1 April.
       </P>
       <P>
         The whole year&apos;s kit and repair bills came to £1,114,356. So about one pound in every
@@ -345,7 +346,7 @@ export default function PamelaNashMpFurnitureExpensesMotherwell() {
         Everything else she billed you for
       </Finding>
       <P>
-        The furniture is not the only thing on her file. In 2025/26 she billed{" "}
+        The furniture is only part of it. In 2025/26 she billed{" "}
         <strong>£84,680</strong>, not counting her staff&apos;s wages. With staff, it was £241,357.
       </P>
 
@@ -356,8 +357,8 @@ export default function PamelaNashMpFurnitureExpensesMotherwell() {
             title: "£28,547 rent on a London flat (2025/26)",
             children: (
               <>
-                This is her second home, in London. You also paid £1,791 of council tax on it,
-                and a £1,154 power bill in January 2026.
+                Her second home, in London. On top came £1,791 of council tax and a £1,154 power
+                bill in January 2026.
               </>
             ),
           },
@@ -377,8 +378,8 @@ export default function PamelaNashMpFurnitureExpensesMotherwell() {
             children: (
               <>
                 For her constituency office, May 2026. She is one of{" "}
-                <Link href="/blog/scottish-mps-tv-licence-expenses">29 Scottish MPs</Link> to bill
-                you for one.
+                <Link href="/blog/scottish-mps-tv-licence-expenses">29 Scottish MPs</Link> to put
+                one on expenses.
               </>
             ),
           },
@@ -398,17 +399,17 @@ export default function PamelaNashMpFurnitureExpensesMotherwell() {
         Why IPSA said yes
       </Finding>
       <P>
-        An MP needs a working office. So desks, chairs, carpets and repairs can all go on expenses.
-        IPSA paid every one of these bills in full. The rules allowed it. That is the scandal.
+        An MP needs a working office, nobody&apos;s arguing with that. So desks, chairs, carpets and
+        repairs can all go on expenses, and IPSA paid these bills in full.
       </P>
       <P>
-        To be fair, she did not use up her office pot. IPSA gave her £41,930 for 2025/26. That
+        She wasn&apos;t short of money either. IPSA gave her £41,930 for 2025/26. That
         included £6,000 of start up money carried over from her first year. She spent £26,485. That
         left an underspend of <strong>£15,445</strong>.
       </P>
       <P>
-        So why did so much land in the last week of March? The public files do not say. Four plain
-        questions have no answer:
+        So why did so much land in the last week of March? The public files don&apos;t say, and
+        they leave these open too:
       </P>
 
       <PointList
@@ -438,8 +439,8 @@ export default function PamelaNashMpFurnitureExpensesMotherwell() {
 
       <Aside title="Part of a wider pattern in Westminster">
         <p>
-          <Link href={NASH.href}>Pamela Nash</Link> is not alone. Kilmarnock MP{" "}
-          <Link href={mp("kilmarnock-and-loudoun")}>Lillian Jones</Link> billed you{" "}
+          Furniture is small beer next to Kilmarnock, where MP{" "}
+          <Link href={mp("kilmarnock-and-loudoun")}>Lillian Jones</Link> billed{" "}
           <Link href="/blog/kilmarnock-mp-23437-electricity-bill">£23,437 for power in one day</Link>
           . See <Link href="/blog/worst-scottish-mp-expenses">the worst Scottish MP expenses</Link>,
           or compare <Link href="/mp-expenses-scotland">all 57 Scottish MPs</Link>.
