@@ -7,7 +7,7 @@ import { Page } from "@/components/Blocks";
 import EditorialImage from "@/components/EditorialImage";
 import SharePage from "@/components/SharePage";
 import { JsonLd, articleJsonLd, faqJsonLd, meta } from "@/lib/seo";
-import { getPost, getPostCategory, relatedPosts } from "@/lib/data/posts";
+import { getPost, getPostCategory } from "@/lib/data/posts";
 import { sourcesById, type Source } from "@/lib/data/sources";
 import { postBodies } from "@/content/posts";
 import Faq from "@/components/Faq";
@@ -17,6 +17,9 @@ import ComparePromo from "@/components/ComparePromo";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { ExpenseStoryRail } from "@/components/ExpenseStoryRail";
 import { EXPENSE_STORY_SLUGS } from "@/lib/data/expenseStories";
+import { nudgesFor, readNextFor } from "@/lib/data/nudges";
+import { BridgeRow, KeepReading, ToolCard } from "@/components/KeepReading";
+import MidArticleSlot from "@/components/MidArticleSlot";
 
 /**
  * Posts that end with a pointer to the compare tool, and the area each one is
@@ -68,7 +71,25 @@ export function PostView({ slug }: { slug: string }) {
   if (!post || !Body) notFound();
 
   const category = getPostCategory(post.category);
-  const related = relatedPosts(slug);
+  const isExpenseStory = EXPENSE_STORY_SLUGS.has(post.slug);
+  const showCompare = COMPARE_POSTS[post.slug] !== undefined || post.category === "poverty-explained";
+  // The compare box already sits below these pages, so their tool is a different one.
+  const { tool, bridge } = nudgesFor(post.slug, showCompare ? ["/compare-areas"] : []);
+  const readNext = readNextFor(slug, 5);
+  // Expenses stories have their own strip, so only the guides get the panel
+  // straight after the article. The foot of the page shows the next picks down.
+  const keepReading = isExpenseStory ? [] : readNext.slice(0, 3);
+  const related = isExpenseStory ? readNext.slice(0, 2) : readNext.slice(3, 5);
+  // The quick answer box gets the topic's tool when it has no next step of its own.
+  const quickAnswer =
+    post.quickAnswer && !post.quickAnswer.nextStep && tool
+      ? { ...post.quickAnswer, nextStep: { label: tool.short, href: tool.href } }
+      : post.quickAnswer;
+  const tocNext = tool
+    ? { kicker: tool.kicker, label: tool.short, href: tool.href }
+    : bridge
+      ? { kicker: "From the expenses files", label: `${bridge.stat}: ${bridge.cta.toLowerCase()}`, href: bridge.href }
+      : undefined;
   const cited = post.sourceIds
     .map((id) => sourcesById[id])
     .filter((source): source is Source => Boolean(source));
@@ -135,8 +156,8 @@ export function PostView({ slug }: { slug: string }) {
             </div>
           </header>
 
-          {post.quickAnswer && (
-            <QuickAnswer answer={post.quickAnswer} className="mt-9 sm:mt-11 max-w-[1120px] mx-auto" />
+          {quickAnswer && (
+            <QuickAnswer answer={quickAnswer} className="mt-9 sm:mt-11 max-w-[1120px] mx-auto" />
           )}
 
           {post.image && (
@@ -154,10 +175,16 @@ export function PostView({ slug }: { slug: string }) {
           )}
 
           <div className="grid gap-x-12 xl:gap-x-20 gap-y-8 lg:grid-cols-[minmax(0,760px)_minmax(240px,280px)] mt-10 sm:mt-12 max-w-[1120px] mx-auto">
-            <ArticleToc items={post.toc} />
-            <div className="min-w-0 lg:col-start-1 lg:row-start-1">
+            <ArticleToc items={post.toc} next={tocNext} />
+            <div id="article-body" className="min-w-0 lg:col-start-1 lg:row-start-1">
               <Body />
             </div>
+            {(tool || bridge) && (
+              <MidArticleSlot containerId="article-body">
+                {/* The tool is already offered at the top, so the middle gets the open question. */}
+                {bridge ? <BridgeRow bridge={bridge} /> : tool && <ToolCard tool={tool} />}
+              </MidArticleSlot>
+            )}
           </div>
         </article>
 
@@ -167,7 +194,13 @@ export function PostView({ slug }: { slug: string }) {
           </div>
         )}
 
-        {(COMPARE_POSTS[post.slug] !== undefined || post.category === "poverty-explained") && (
+        {!isExpenseStory && (
+          <div className="pt-12 max-w-[1120px] mx-auto">
+            <KeepReading posts={keepReading} tool={tool} bridge={bridge} />
+          </div>
+        )}
+
+        {showCompare && (
           <div className="pt-14 max-w-[1120px] mx-auto">
             <ComparePromo slug={COMPARE_POSTS[post.slug] ?? undefined} />
           </div>
@@ -215,8 +248,8 @@ export function PostView({ slug }: { slug: string }) {
 
         {related.length > 0 && (
           <section className="pt-14 max-w-[1120px] mx-auto" aria-labelledby="read-next-heading">
-            <p className="label mb-2">Keep going</p>
-            <h2 id="read-next-heading" className="h2 mb-6">Read next</h2>
+            <p className="label mb-2">{isExpenseStory ? "Keep going" : "Still curious?"}</p>
+            <h2 id="read-next-heading" className="h2 mb-6">{isExpenseStory ? "Read next" : "Two more worth your time"}</h2>
             <div className="grid gap-5 sm:grid-cols-2">
               {related.map((item) => (
                 <ArticleCard key={item.slug} post={item} heading="h3" />
