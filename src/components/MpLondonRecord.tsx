@@ -1,5 +1,7 @@
 import Link from "@/components/IntentLink";
 import { ExplainText } from "@/components/ExplainServer";
+import { G } from "@/components/Glossary";
+import type { ReactNode } from "react";
 import {
   LONDON_RECORD,
   SCOTTISH_MIDDLE,
@@ -23,7 +25,7 @@ function roleDates(start: string | null, end: string | null) {
 }
 
 /**
- * "How often were they needed in London?" on every MP page: the Commons
+ * "What they did at Westminster" on every MP page: the Commons
  * sitting days in 2025/26 set against what the MP's second home cost, and
  * what Parliament's own records show they did there.
  */
@@ -43,7 +45,7 @@ export default function MpLondonRecord({
   if (notAnMpThatYear(record)) {
     return (
       <div className="tile p-6 sm:p-8">
-        <h2 className="h3">How often were they needed in London?</h2>
+        <h2 className="h3">What they did at Westminster</h2>
         <p className="ui mt-3 text-[16px] leading-[1.6] text-[var(--ink-2)]">
           {name} became an MP on {shortDate(record.memberSince)}, after IPSA&apos;s 2025/26 year
           ended. There is no full year to show yet.
@@ -58,37 +60,47 @@ export default function MpLondonRecord({
   const shownPosts = posts.slice(0, 4);
   const usesHotels = record.hotelNights >= 30;
 
-  const tiles: [string, string, string?][] = [
-    [
-      moneyWhole.format(secondHome / days),
-      `of second home costs for every day the Commons sat (${moneyWhole.format(secondHome)} in the year)`,
-    ],
-    [
-      `${record.votes} of ${LONDON_RECORD.divisions}`,
-      `Commons votes they took part in (${votePct}%)`,
-      `Average MP: ${Math.round(LONDON_RECORD.averageTurnoutPct)}%`,
-    ],
-    [
-      `${record.speakingDays}`,
-      `sitting days they spoke in a Commons debate`,
-      `Scottish MP middle: ${SCOTTISH_MIDDLE.speakingDays}`,
-    ],
-    [
-      `${record.writtenQuestions}`,
-      `written questions they tabled`,
-      `Scottish MP middle: ${SCOTTISH_MIDDLE.writtenQuestions}`,
-    ],
+  const tiles: { figure: string; label: ReactNode; compare?: ReactNode }[] = [
+    {
+      figure: `${moneyWhole.format(secondHome / days)} a day`,
+      label: (
+        <>
+          Taxpayers paid {moneyWhole.format(secondHome)} for their <G t="second-home">second home</G>{" "}
+          in 2025/26. Split across the {days} days the Commons sat, that is{" "}
+          {moneyWhole.format(secondHome / days)} for each day.
+        </>
+      ),
+    },
+    {
+      figure: `${record.votes} of ${LONDON_RECORD.divisions}`,
+      label: <>Commons votes they voted in ({votePct}%)</>,
+      compare: <>All MPs, on average: {Math.round(LONDON_RECORD.averageTurnoutPct)}%</>,
+    },
+    {
+      figure: `${record.speakingDays}`,
+      label: <>days they spoke in a debate, out of {days} sitting days</>,
+      compare: <>Typical Scottish MP: {SCOTTISH_MIDDLE.speakingDays}</>,
+    },
+    {
+      figure: `${record.writtenQuestions}`,
+      label: (
+        <>
+          <G t="written-question">written questions</G> they sent to ministers
+        </>
+      ),
+      compare: <>Typical Scottish MP: {SCOTTISH_MIDDLE.writtenQuestions}</>,
+    },
   ];
 
   return (
     <div className="tile p-6 sm:p-8">
       <p className="kicker mb-3 text-[var(--action-text)]">2025/26 · from Parliament&apos;s own records</p>
-      <h2 className="h3">How often were they needed in London?</h2>
+      <h2 className="h3">What they did at Westminster</h2>
       <ExplainText>
         <p className="ui mt-3 max-w-[68ch] text-[16px] leading-[1.6] text-[var(--ink-2)]">
-          The Commons normally sits Monday to Thursday. In IPSA&apos;s 2025/26 year it sat on{" "}
-          <strong className="text-[var(--ink)]">{days} days</strong>. The taxpayer pays for an MP&apos;s
-          second home so they can be at Westminster for those days.
+          The House of Commons sat on <strong className="text-[var(--ink)]">{days} days</strong> in
+          IPSA&apos;s 2025/26 year, usually Monday to Thursday. Taxpayers pay for MPs&apos; homes in
+          London so they can be there on those days. Here is what {name} did.
           {usesHotels && (
             <>
               {" "}
@@ -103,9 +115,9 @@ export default function MpLondonRecord({
         </p>
       </ExplainText>
 
-      <div className="mt-6 grid grid-cols-2 gap-3 lg:grid-cols-4">
-        {tiles.map(([figure, label, compare]) => (
-          <div key={label} className="rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface-2)] p-4">
+      <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        {tiles.map(({ figure, label, compare }, i) => (
+          <div key={i} className="rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface-2)] p-4">
             <p className="figure-num tnum text-[24px] leading-none text-[var(--ink)] sm:text-[28px]">{figure}</p>
             <p className="ui mt-2 text-[13.5px] leading-[1.4] text-[var(--ink-2)]">{label}</p>
             {compare && <p className="ui mt-1.5 text-[12.5px] text-[var(--muted)]">{compare}</p>}
@@ -121,19 +133,19 @@ export default function MpLondonRecord({
 
       {!usesHotels && record.hotelNights > 0 && (
         <p className="ui mt-4 text-[14.5px] text-[var(--ink-2)]">
-          They also claimed {record.hotelNights} {record.hotelNights === 1 ? "night" : "nights"} in
-          hotels from their accommodation budget.
+          They also claimed for {record.hotelNights} {record.hotelNights === 1 ? "night" : "nights"} in
+          a hotel.
         </p>
       )}
 
       <div className="mt-6 grid gap-5 md:grid-cols-2">
         <div>
-          <h3 className="ui text-[15.5px] font-[660] text-[var(--ink)]">Jobs in Parliament that year</h3>
+          <h3 className="ui text-[15.5px] font-[660] text-[var(--ink)]">Their jobs in Parliament that year</h3>
           {shownPosts.length ? (
             <ul className="ui mt-2 space-y-1.5 text-[14.5px] leading-[1.45] text-[var(--ink-2)]">
               {shownPosts.map((p) => (
                 <li key={p.name + p.start}>
-                  {p.name}
+                  <ExplainText>{p.name}</ExplainText>
                   {roleDates(p.start, p.end) && (
                     <span className="text-[var(--muted)]"> ({roleDates(p.start, p.end)})</span>
                   )}
@@ -145,12 +157,14 @@ export default function MpLondonRecord({
             </ul>
           ) : (
             <p className="ui mt-2 text-[14.5px] text-[var(--ink-2)]">
-              None. A backbench MP: no government, whip or party spokesperson job.
+              <ExplainText>None. A backbencher, with no government job and no job speaking for their party.</ExplainText>
             </p>
           )}
         </div>
         <div>
-          <h3 className="ui text-[15.5px] font-[660] text-[var(--ink)]">Commons committees that year</h3>
+          <h3 className="ui text-[15.5px] font-[660] text-[var(--ink)]">
+            <G t="commons-committee">Commons committees</G> they sat on
+          </h3>
           {record.committees.length ? (
             <ul className="ui mt-2 space-y-1.5 text-[14.5px] leading-[1.45] text-[var(--ink-2)]">
               {record.committees.map((c) => (
@@ -163,7 +177,7 @@ export default function MpLondonRecord({
               ))}
             </ul>
           ) : (
-            <p className="ui mt-2 text-[14.5px] text-[var(--ink-2)]">None on Parliament&apos;s record.</p>
+            <p className="ui mt-2 text-[14.5px] text-[var(--ink-2)]">None that year.</p>
           )}
         </div>
       </div>
@@ -173,7 +187,7 @@ export default function MpLondonRecord({
           {heldFrontbenchJob(record) && (
             <p>
               Ministers answer questions rather than ask them, and whips by custom do not speak in
-              debates. Both rarely table written questions, so lower figures here are expected.
+              debates. Both rarely send written questions, so lower figures here are normal.
             </p>
           )}
           {isSnp && (
@@ -182,8 +196,15 @@ export default function MpLondonRecord({
               England and Wales, so its MPs take part in fewer Commons votes.
             </p>
           )}
+          {shownPosts.some((p) => /spokesperson/i.test(p.name)) && (
+            <p>
+              A spokesperson is an MP picked by their party to speak for it on one subject.
+            </p>
+          )}
           <p>
-            Speaking counts debates in the main chamber and Westminster Hall. Votes, speeches,
+            Typical Scottish MP means the one in the middle: half of Scotland&apos;s MPs did more, half
+            did less. Speaking days count debates in the main Commons chamber and in Westminster Hall.
+            Votes, speeches,
             questions and jobs come from{" "}
             <a href={`https://members.parliament.uk/member/${record.memberId}`} target="_blank" rel="noopener noreferrer">
               Parliament&apos;s record for {name}

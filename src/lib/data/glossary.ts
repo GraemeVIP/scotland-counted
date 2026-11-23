@@ -730,6 +730,18 @@ export const terms: Term[] = [
     tech: "Examples include an official budget, audit report, regulator notice or written parliamentary answer.",
   },
   {
+    id: "commons-committee",
+    term: "Commons committee",
+    def: "A small group of MPs who look at one subject, question ministers and experts, and write reports.",
+    tech: "Select committees shadow each government department. MPs on them are chosen by the Commons, and their reports are published on Parliament's website.",
+  },
+  {
+    id: "party-spokesperson",
+    term: "Party spokesperson",
+    def: "An MP picked by their party to speak for it on one subject, such as business or trade. Opposition parties call these shadow jobs.",
+    tech: "Spokespeople lead for their party in debates on their subject and question the minister who covers it.",
+  },
+  {
     id: "political-bias",
     term: "Political bias",
     def: "Leaning towards one party or side, so the facts you pick and how you tell them favour that side.",
