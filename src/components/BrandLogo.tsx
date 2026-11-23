@@ -32,7 +32,7 @@ export function BrandLogo({
   const markWidth = Math.round(height * MARK_RATIO);
   const fontSize = Math.round(height * 0.42 * 10) / 10;
   return (
-    <span className={`inline-flex items-center gap-2.5 align-middle ${className}`}>
+    <span className={`inline-flex items-center gap-1.5 align-middle ${className}`}>
       <Image
         src="/brand/sc-mark.webp"
         alt=""
