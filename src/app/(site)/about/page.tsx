@@ -179,7 +179,7 @@ export default function AboutPage() {
                 </p>
                 <p>
                   <ExplainText>
-                    Some words can&apos;t be avoided. When you see a word with a wavy line under it,
+                    Some words can&apos;t be avoided. When you see a word with a dotted line under it,
                     hover over it, or tap it on a phone. A short explanation pops up, so you never
                     have to leave the page to understand it.
                   </ExplainText>
@@ -194,7 +194,7 @@ export default function AboutPage() {
                 <G t="primary-source">primary source</G>.
               </p>
               <p className="mt-4 text-[15px] leading-[1.5] text-[var(--muted)]">
-                Hover over, or tap, any word with a wavy line.
+                Hover over, or tap, any word with a dotted line.
               </p>
             </div>
           </div>
