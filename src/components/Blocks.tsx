@@ -177,7 +177,7 @@ export function HeaderFacts({
   return (
     <HeaderPanel label={label}>
       <ul className="divide-y divide-[var(--rule)]">
-        {items.map((item) => {
+        {items.map((item, i) => {
           const body = (
             <>
               <span className="figure-num min-w-[4.6ch] shrink-0 whitespace-nowrap text-[clamp(26px,2.4vw,34px)] leading-none text-[var(--brand)]">
@@ -190,7 +190,7 @@ export function HeaderFacts({
             </>
           );
           return (
-            <li key={item.value + String(item.href ?? "")} className="py-3 first:pt-0 last:pb-0">
+            <li key={i} className="py-3 first:pt-0 last:pb-0">
               {item.href ? (
                 <Link href={item.href} className="flex items-center gap-4 no-underline hover:underline">
                   {body}
@@ -244,7 +244,7 @@ export function PageHeader({
     <header className="pt-8 pb-8 sm:pt-12 lg:pt-14">
       <div className="max-w-[1120px] mx-auto">
         {stat || panel ? (
-          <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] lg:gap-12">
+          <div className={`grid gap-8 ${panel ? "items-start" : "items-center"} lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] lg:gap-12`}>
             <div className="min-w-0">
               {eyebrowEl}
               <h1 className={`h1 mb-5 max-w-[18ch] ${titleSize}`}>{title}</h1>
