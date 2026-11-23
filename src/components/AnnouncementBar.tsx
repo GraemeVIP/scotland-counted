@@ -15,7 +15,12 @@ import { trackEvent } from "@/lib/analytics";
  * To run a new message later, change the copy and bump BAR_STORAGE_KEY so people
  * who closed the old one see the new one.
  */
-const HREF = "/mp-expenses-scotland/search";
+/*
+ * The hub, not the Receipt Finder: its top answers "Is your MP on the list?"
+ * with a postcode box, then offers the four biggest stories and all 21. A
+ * cold visitor gets a story to read, not a search tool to learn.
+ */
+const HREF = "/mp-expenses-scotland";
 const HIDE_ON = ["/mp-expenses-scotland"];
 
 export default function AnnouncementBar() {
@@ -44,10 +49,12 @@ export default function AnnouncementBar() {
             New
           </span>
           <span className="ui min-w-0 text-[14px] font-[600] leading-[1.3] sm:text-[15.5px]">
-            <span className="sm:hidden">£23,437 for one MP&apos;s electricity &amp; £10.7k for TV licences. Search 20,879 MP receipts</span>
+            <span className="sm:hidden">
+              You paid £23,437 for one MP&apos;s energy bill. <span className="font-[800]">Is your MP on the list?</span>
+            </span>
             <span className="hidden sm:inline">
-              Scottish MPs billed you £23,437 for electricity in one day (UK #1), £10,754 for TV
-              licences and £37,359 for hotels. <span className="font-[800]">Search all 20,879 MP receipts</span>
+              You paid £67,519 for one Glasgow MP&apos;s London hotels, the most in the UK, and £23,437
+              for a Kilmarnock MP&apos;s energy bill. <span className="font-[800]">Is your MP on the list?</span>
             </span>
           </span>
           <span

@@ -4,7 +4,7 @@
  * Bump the key when the message changes so people who closed the old one
  * see the new one.
  */
-export const BAR_STORAGE_KEY = "sc-bar-mp-expenses-yu-2026-11";
+export const BAR_STORAGE_KEY = "sc-bar-mp-expenses-on-the-list-2026-11-23";
 
 /** Runs before the strip is drawn: hides it if this browser closed it. */
 export const BAR_HIDE_SCRIPT = `try{if(localStorage.getItem(${JSON.stringify(
