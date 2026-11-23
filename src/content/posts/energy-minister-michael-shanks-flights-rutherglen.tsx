@@ -1,5 +1,4 @@
 import Link from "@/components/IntentLink";
-import { ExpenseMpCheck, ExpenseNextUp } from "@/components/ExpenseStoryRail";
 import { Prose, P, Aside, PostCTA } from "@/components/Prose";
 
 /*
@@ -77,8 +76,6 @@ export default function EnergyMinisterMichaelShanksFlightsRutherglen() {
         ]}
       />
 
-      <ExpenseMpCheck slug="energy-minister-michael-shanks-flights-rutherglen" />
-
       <Spotlight
         person={SHANKS}
         kicker="His own London travel, 2025/26 · paid by taxpayers"
@@ -147,8 +144,6 @@ export default function EnergyMinisterMichaelShanksFlightsRutherglen() {
       </P>
 
       {/* ------------------------------------------------------------ 3 */}
-      <ExpenseNextUp slug="energy-minister-michael-shanks-flights-rutherglen" />
-
       <Finding n={3} of={FINDINGS} id="sullivan">
         Bathgate and Linlithgow&apos;s MP: £0 on trains
       </Finding>

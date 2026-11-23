@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 import Link from "@/components/IntentLink";
-import { ExpenseMpCheck, ExpenseNextUp } from "@/components/ExpenseStoryRail";
 import { Prose, Lead, P, PostCTA } from "@/components/Prose";
 import ExpensesWhatItBuys from "@/components/ExpensesWhatItBuys";
 import {
@@ -154,8 +153,6 @@ export default function ScottishMpMspExpensesWhatItCouldBuy() {
           </>,
         ]}
       />
-
-      <ExpenseMpCheck slug="scottish-mp-msp-expenses-what-it-could-buy" />
 
       <P>
         We use the latest full year each parliament has published: <strong>2025/26</strong> for
@@ -398,8 +395,6 @@ export default function ScottishMpMspExpensesWhatItCouldBuy() {
       <ExpensesWhatItBuys />
 
       {/* ------------------------------------------------------------ 3 */}
-      <ExpenseNextUp slug="scottish-mp-msp-expenses-what-it-could-buy" />
-
       <Finding n={3} id="the-665m-bill">
         Where the £6.64 million goes
       </Finding>

@@ -1,5 +1,4 @@
 import Link from "@/components/IntentLink";
-import { ExpenseMpCheck, ExpenseNextUp } from "@/components/ExpenseStoryRail";
 import { Prose, P, Aside, PostCTA } from "@/components/Prose";
 
 /*
@@ -104,8 +103,6 @@ export default function MspEdinburghFlatsCommuterBelt() {
         ]}
       />
 
-      <ExpenseMpCheck slug="msp-edinburgh-flats-commuter-belt" />
-
       <Spotlight
         person={SIMPSON}
         kicker="Edinburgh flat, 2024/25 · Conservative MSP at the time"
@@ -200,8 +197,6 @@ export default function MspEdinburghFlatsCommuterBelt() {
       </P>
 
       {/* ------------------------------------------------------------ 3 */}
-      <ExpenseNextUp slug="msp-edinburgh-flats-commuter-belt" />
-
       <Finding n={3} of={FINDINGS} id="commuter-belt">
         The commuter belt flats
       </Finding>

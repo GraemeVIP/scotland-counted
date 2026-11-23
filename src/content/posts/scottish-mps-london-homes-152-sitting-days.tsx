@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 import Link from "@/components/IntentLink";
-import { ExpenseMpCheck, ExpenseNextUp } from "@/components/ExpenseStoryRail";
 import { Prose, P, Aside, PostCTA } from "@/components/Prose";
 import {
   type PartyKey,
@@ -186,8 +185,6 @@ export default function ScottishMpsLondonHomes152SittingDays() {
         ]}
       />
 
-      <ExpenseMpCheck slug="scottish-mps-london-homes-152-sitting-days" />
-
       <P>
         That daily figure covers all 55 MPs together. Five sitting days cost £95,867, more than a
         whole year of one MP&apos;s pay in 2025/26 (£93,904). And it leaves out their pay, Scottish
@@ -370,8 +367,6 @@ export default function ScottishMpsLondonHomes152SittingDays() {
       </Expand>
 
       {/* ------------------------------------------------------------ 3 */}
-      <ExpenseNextUp slug="scottish-mps-london-homes-152-sitting-days" />
-
       <Finding n={3} id="paid-when-shut">
         Paying for London homes all year, when it was shut for 213 days
       </Finding>

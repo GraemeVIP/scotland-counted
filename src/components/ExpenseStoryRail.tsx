@@ -2,7 +2,7 @@ import Link from "@/components/IntentLink";
 import ExpenseMpCheckClient, { type MpCheckStory, type MspCheckStory } from "@/components/ExpenseMpCheckClient";
 import {
   EXPENSE_STORIES,
-  nextExpenseStory,
+  nearExpenseStory,
   pickExpenseStories,
   type ExpenseStory,
 } from "@/lib/data/expenseStories";
@@ -31,31 +31,49 @@ function StoryRow({ s }: { s: ExpenseStory }) {
   );
 }
 
-/** "Read the next one": shown on every expenses story, straight after the article. */
+/**
+ * "Read the next one": shown on every expenses story, straight after the
+ * article, where reading naturally ends. Nothing earlier on the page pulls
+ * people away before they have read the story. Holds, quietly: the nearest
+ * local story ("Also in your area"), five more, and a slim postcode check.
+ */
 export function ExpenseStoryRail({ slug }: { slug: string }) {
-  // The story teased halfway down is left out here, so the end strip is all new.
-  const picks = pickExpenseStories(slug, 5, [nextExpenseStory(slug).slug]);
+  const near = nearExpenseStory(slug);
+  const picks = pickExpenseStories(slug, 5, near ? [near.slug] : []);
   return (
     <section aria-labelledby="more-expenses-stories" className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5 sm:p-6">
       <p className="label">You paid for these too</p>
       <h2 id="more-expenses-stories" className="ui mt-1 text-[22px] font-[700] leading-[1.25] text-[var(--ink)] sm:text-[24px]">
         Read the next one
       </h2>
-      <p className="ui mt-1 text-[15px] leading-[1.5] text-[var(--muted)]">
-        Same expense files, same taxpayers. Is your MP or MSP here?
-      </p>
+      {near && (
+        <p className="ui mt-2 text-[15.5px] leading-[1.5] text-[var(--ink-2)]">
+          <span className="font-[650] text-[var(--ink)]">Also in your area:</span>{" "}
+          {near.person && (
+            <>
+              <Link href={near.person.href} className="font-[620]">
+                {near.person.name}
+              </Link>
+              , {near.person.place}.{" "}
+            </>
+          )}
+          <Link href={`/blog/${near.slug}`}>
+            <span className="figure-num tnum text-[var(--bad-text)]">{near.stat}</span> {near.hook} →
+          </Link>
+        </p>
+      )}
       <ul className="mt-3 divide-y divide-[var(--rule)]">
         {picks.map((s) => (
           <StoryRow key={s.slug} s={s} />
         ))}
       </ul>
-      <div className="mt-4 flex flex-wrap gap-3">
+      <div className="mt-4">
         <Link href="/mp-expenses-scotland#all-stories" className="btn btn-primary">
           See all {EXPENSE_STORIES.length} expenses stories →
         </Link>
-        <Link href="/mp-expenses-scotland/search" className="btn btn-ghost">
-          Check your MP&apos;s receipts by postcode
-        </Link>
+      </div>
+      <div className="mt-6 border-t border-[var(--rule)] pt-5">
+        <ExpenseMpCheck slug={slug} framed={false} compact />
       </div>
     </section>
   );
@@ -101,8 +119,8 @@ const MSP_STORIES: Record<string, MspCheckStory> = Object.fromEntries(
 );
 
 /**
- * "Is your MP on the list?" A postcode box near the top of every expenses
- * story (and on the hub). Answers with the reader's own MP, that MP's story if
+ * "Is your MP on the list?" A postcode check at the foot of every expenses
+ * story's end strip (slim), and near the top of the hub (full size). Answers with the reader's own MP, that MP's story if
  * there is one, and a link to every bill they claimed.
  */
 export function ExpenseMpCheck({
@@ -110,11 +128,13 @@ export function ExpenseMpCheck({
   title,
   intro,
   framed,
+  compact,
 }: {
   slug?: string;
   title?: string;
   intro?: string;
   framed?: boolean;
+  compact?: boolean;
 }) {
   return (
     <ExpenseMpCheckClient
@@ -125,36 +145,8 @@ export function ExpenseMpCheck({
       title={title}
       intro={intro}
       framed={framed}
+      compact={compact}
     />
-  );
-}
-
-/** "Up next": one related story, teased halfway down the page. */
-export function ExpenseNextUp({ slug }: { slug: string }) {
-  const s = nextExpenseStory(slug);
-  return (
-    <aside
-      aria-label="Up next"
-      className="not-prose my-8 flex items-start gap-4 rounded-[var(--r-m)] border border-[var(--rule)] border-l-[4px] border-l-[var(--bad)] bg-[var(--surface)] px-5 py-4"
-    >
-      <span className="figure-num tnum shrink-0 pt-1 text-[22px] leading-none text-[var(--bad-text)] sm:text-[26px]">
-        {s.stat}
-      </span>
-      <div className="min-w-0 flex-1">
-        <p className="label">Up next: you paid for this too</p>
-        <Link href={`/blog/${s.slug}`} className="ui mt-0.5 block text-[16.5px] font-[660] leading-[1.35]">
-          {s.hook} →
-        </Link>
-        {s.person && (
-          <p className="ui mt-0.5 text-[13.5px] leading-[1.4] text-[var(--muted)]">
-            <Link href={s.person.href} className="text-[var(--muted)]">
-              {s.person.name}
-            </Link>{" "}
-            · {s.person.place}
-          </p>
-        )}
-      </div>
-    </aside>
   );
 }
 

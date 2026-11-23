@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 import Link from "@/components/IntentLink";
-import { ExpenseMpCheck, ExpenseNextUp } from "@/components/ExpenseStoryRail";
 import { Prose, P, Aside, PostCTA } from "@/components/Prose";
 
 /*
@@ -126,8 +125,6 @@ export default function TorcuilCrichtonMpCoachingExpensesWesternIsles() {
         ]}
       />
 
-      <ExpenseMpCheck slug="torcuil-crichton-mp-coaching-expenses-western-isles" />
-
       <Spotlight
         person={CRICHTON}
         kicker="21 October 2025 to 16 June 2026 · 16 bills"
@@ -244,8 +241,6 @@ export default function TorcuilCrichtonMpCoachingExpensesWesternIsles() {
       </P>
 
       {/* ------------------------------------------------------------ 3 */}
-      <ExpenseNextUp slug="torcuil-crichton-mp-coaching-expenses-western-isles" />
-
       <Finding n={3} id="other-claims">
         What else went on his £313,106 tab
       </Finding>

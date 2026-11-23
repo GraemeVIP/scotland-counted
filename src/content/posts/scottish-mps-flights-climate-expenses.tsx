@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 import Link from "@/components/IntentLink";
-import { ExpenseMpCheck, ExpenseNextUp } from "@/components/ExpenseStoryRail";
 import { Prose, P, Aside, PostCTA } from "@/components/Prose";
 
 /*
@@ -273,8 +272,6 @@ export default function ScottishMpsFlightsClimateExpenses() {
         ]}
       />
 
-      <ExpenseMpCheck slug="scottish-mps-flights-climate-expenses" />
-
       <Spotlight
         person={JARDINE}
         kicker="2025/26 London travel · Same city contrast"
@@ -392,8 +389,6 @@ export default function ScottishMpsFlightsClimateExpenses() {
       </ChartFrame>
 
       {/* ------------------------------------------------------------ 3 */}
-      <ExpenseNextUp slug="scottish-mps-flights-climate-expenses" />
-
       <Finding n={3} id="scotland-total">
         85% of their London travel money went on planes
       </Finding>

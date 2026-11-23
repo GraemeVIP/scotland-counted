@@ -27,6 +27,7 @@ export default function ExpenseMpCheckClient({
   title = "Is your MP on the list?",
   intro = "Type your postcode. See if your MP has a story here, and every bill they sent taxpayers.",
   framed = true,
+  compact = false,
 }: {
   currentSlug?: string;
   /** Parliament member id to the seat slug used across the site. */
@@ -38,6 +39,8 @@ export default function ExpenseMpCheckClient({
   title?: string;
   intro?: string;
   framed?: boolean;
+  /** Smaller title, for the end of a story. */
+  compact?: boolean;
 }) {
   const inputId = useId();
   const [postcode, setPostcode] = useState("");
@@ -97,8 +100,16 @@ export default function ExpenseMpCheckClient({
 
   const body = (
     <>
-      <p className="ui text-[20px] font-[700] leading-[1.25] text-[var(--ink)] sm:text-[22px]">{title}</p>
-      <p className="ui mt-1 mb-3 text-[15.5px] leading-[1.5] text-[var(--ink-2)]">{intro}</p>
+      <p
+        className={
+          compact
+            ? "ui text-[17px] font-[680] leading-[1.3] text-[var(--ink)]"
+            : "ui text-[20px] font-[700] leading-[1.25] text-[var(--ink)] sm:text-[22px]"
+        }
+      >
+        {title}
+      </p>
+      <p className={`ui mt-1 mb-3 leading-[1.5] text-[var(--ink-2)] ${compact ? "text-[14.5px]" : "text-[15.5px]"}`}>{intro}</p>
       <form onSubmit={find} className="flex flex-col gap-2.5 sm:flex-row">
         <label htmlFor={inputId} className="sr-only">
           Your postcode

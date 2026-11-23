@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 import Link from "@/components/IntentLink";
-import { ExpenseMpCheck, ExpenseNextUp } from "@/components/ExpenseStoryRail";
 import { Prose, P, Aside, PostCTA } from "@/components/Prose";
 
 /*
@@ -107,8 +106,6 @@ export default function GregorPoyntonMpFourTvLicencesLivingston() {
           </>,
         ]}
       />
-
-      <ExpenseMpCheck slug="gregor-poynton-mp-four-tv-licences-livingston" />
 
       <Spotlight
         person={POYNTON}
@@ -225,8 +222,6 @@ export default function GregorPoyntonMpFourTvLicencesLivingston() {
       </P>
 
       {/* ------------------------------------------------------------ 3 */}
-      <ExpenseNextUp slug="gregor-poynton-mp-four-tv-licences-livingston" />
-
       <Finding n={3} id="other-claims">
         Scotland&apos;s biggest taxi bill, plus family flights and Pickfords
       </Finding>

@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 import Link from "@/components/IntentLink";
-import { ExpenseMpCheck, ExpenseNextUp } from "@/components/ExpenseStoryRail";
 import { Prose, P, Aside, PostCTA } from "@/components/Prose";
 
 /*
@@ -182,8 +181,6 @@ export default function ZubirAhmedMpLondonHotelsGlasgow() {
         ]}
       />
 
-      <ExpenseMpCheck slug="zubir-ahmed-mp-london-hotels-glasgow" />
-
       <Spotlight
         person={AHMED}
         kicker="July 2024 to April 2026 · 25 claims"
@@ -318,8 +315,6 @@ export default function ZubirAhmedMpLondonHotelsGlasgow() {
       </P>
 
       {/* ------------------------------------------------------------ 3 */}
-      <ExpenseNextUp slug="zubir-ahmed-mp-london-hotels-glasgow" />
-
       <Finding n={3} id="scotland-rank">
         Number one in the UK, and more than seven times any other Scottish MP
       </Finding>

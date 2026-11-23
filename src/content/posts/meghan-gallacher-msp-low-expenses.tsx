@@ -1,5 +1,4 @@
 import Link from "@/components/IntentLink";
-import { ExpenseMpCheck, ExpenseNextUp } from "@/components/ExpenseStoryRail";
 import { Prose, P, Aside, PostCTA } from "@/components/Prose";
 
 /*
@@ -66,8 +65,6 @@ export default function MeghanGallacherMspLowExpenses() {
           </>,
         ]}
       />
-
-      <ExpenseMpCheck slug="meghan-gallacher-msp-low-expenses" />
 
       <div className="not-prose my-10 overflow-hidden rounded-[var(--r-m)] border border-[var(--rule)] border-l-[6px] border-l-[var(--good)] bg-[color-mix(in_srgb,var(--good)_6%,var(--surface))] px-5 py-6 sm:px-7">
         <div className="flex items-center gap-4">
@@ -151,8 +148,6 @@ export default function MeghanGallacherMspLowExpenses() {
       </P>
 
       {/* ------------------------------------------------------------ 3 */}
-      <ExpenseNextUp slug="meghan-gallacher-msp-low-expenses" />
-
       <Finding n={3} of={FINDINGS} id="same-region">
         Same region, very different bill
       </Finding>

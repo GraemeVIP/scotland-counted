@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 import Link from "@/components/IntentLink";
-import { ExpenseMpCheck, ExpenseNextUp } from "@/components/ExpenseStoryRail";
 import { Prose, P, Aside, PostCTA } from "@/components/Prose";
 
 /*
@@ -144,8 +143,6 @@ export default function PamelaNashMpFurnitureExpensesMotherwell() {
           </>,
         ]}
       />
-
-      <ExpenseMpCheck slug="pamela-nash-mp-furniture-expenses-motherwell" />
 
       <Spotlight
         person={NASH}
@@ -328,8 +325,6 @@ export default function PamelaNashMpFurnitureExpensesMotherwell() {
       </P>
 
       {/* ------------------------------------------------------------ 3 */}
-      <ExpenseNextUp slug="pamela-nash-mp-furniture-expenses-motherwell" />
-
       <Finding n={3} id="the-rest">
         The rest of her £84,680 bill (and £1,544 Tattoo freebies)
       </Finding>

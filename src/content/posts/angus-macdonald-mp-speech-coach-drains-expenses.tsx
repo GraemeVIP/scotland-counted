@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 import Link from "@/components/IntentLink";
-import { ExpenseMpCheck, ExpenseNextUp } from "@/components/ExpenseStoryRail";
 import { Prose, P, Aside, PostCTA } from "@/components/Prose";
 
 /*
@@ -136,8 +135,6 @@ export default function AngusMacdonaldMpSpeechCoachDrainsExpenses() {
         ]}
       />
 
-      <ExpenseMpCheck slug="angus-macdonald-mp-speech-coach-drains-expenses" />
-
       <Spotlight
         person={MACDONALD}
         kicker="17 July 2025 · from his staff budget"
@@ -232,8 +229,6 @@ export default function AngusMacdonaldMpSpeechCoachDrainsExpenses() {
       </Aside>
 
       {/* ------------------------------------------------------------ 3 */}
-      <ExpenseNextUp slug="angus-macdonald-mp-speech-coach-drains-expenses" />
-
       <Finding n={3} id="second-home">
         No rent claimed, yet £546 to jet wash the drains
       </Finding>
