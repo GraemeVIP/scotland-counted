@@ -167,14 +167,14 @@ export default function MspEdinburghFlatsCommuterBelt() {
         themselves. Nobody rents them a flat.
       </P>
       <P>
-        Meanwhile, the same paper was about Green MSP{" "}
-        <Link href={msp("regions/mid-scotland-and-fife/mark-ruskell")}>Mark Ruskell</Link>. He lives
-        in the north of the Stirling seat, at least two hours each way by car, bus and train. His area
-        was stuck in Group 2, hotels only, because Stirling station sits at the bottom of the seat.
-        Staff said his ward should move up to Group 3.
+        So what did the paper do about it? It didn&apos;t take a single flat away. It was about Green
+        MSP <Link href={msp("regions/mid-scotland-and-fife/mark-ruskell")}>Mark Ruskell</Link>, who
+        lives in the north of the Stirling seat, about two hours from Holyrood. His area only gets
+        hotel nights. Staff said it should move up to the flat group.
       </P>
       <P>
-        So a man two hours away had to ask for a flat. A town 50 miles away got one by default.
+        So the fix for a rule that hands out too many flats was to hand out one more. If he has a late
+        night, a hotel is there. Otherwise he can drive home, like everyone else does.
       </P>
 
       {/* ------------------------------------------------------------ 3 */}
