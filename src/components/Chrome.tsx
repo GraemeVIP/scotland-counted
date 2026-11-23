@@ -162,7 +162,7 @@ export function Header() {
                 onClick={() => setPanel(expanded ? null : { path: pathname, hub: hub.id })}
                 aria-expanded={expanded}
                 aria-controls="hub-panel"
-                className={`ui inline-flex items-center gap-1 whitespace-nowrap text-[14px] font-[500] h-10 px-2 min-[1400px]:gap-1.5 min-[1400px]:px-2.5 rounded-[var(--r-pill)] transition-colors ${
+                className={`ui inline-flex items-center gap-1 whitespace-nowrap text-[14px] font-[500] h-10 px-2 rounded-[var(--r-pill)] transition-colors ${
                   expanded ? "bg-white/16 text-white" : here ? "text-white hover:bg-white/10" : "text-white/80 hover:text-white hover:bg-white/10"
                 }`}
               >
@@ -184,7 +184,7 @@ export function Header() {
                 onClick={() => setPanel(expanded ? null : { path: pathname, hub: hub.id })}
                 aria-expanded={expanded}
                 aria-controls="hub-panel"
-                className={`ui inline-flex items-center gap-1.5 whitespace-nowrap text-[14px] font-[620] h-10 px-2 min-[1400px]:px-2.5 rounded-[var(--r-pill)] transition-colors ${
+                className={`ui inline-flex items-center gap-1.5 whitespace-nowrap text-[14px] font-[620] h-10 px-2 rounded-[var(--r-pill)] transition-colors ${
                   expanded ? "bg-white/16 text-white" : here ? "text-white bg-white/12" : "text-white hover:bg-white/10"
                 }`}
               >
@@ -199,10 +199,11 @@ export function Header() {
           <Link
             href="/about"
             aria-current={pathname === "/about" ? "page" : undefined}
-            className={`ui hidden min-[1500px]:inline-flex items-center whitespace-nowrap text-[14px] font-[500] h-10 px-2.5 rounded-[var(--r-pill)] transition-colors ${
+            className={`ui hidden min-[1500px]:inline-flex items-center gap-1 whitespace-nowrap text-[14px] font-[500] h-10 px-2 rounded-[var(--r-pill)] transition-colors ${
               pathname === "/about" ? "text-white bg-white/12" : "text-white/80 hover:text-white hover:bg-white/10"
             }`}
           >
+            <span aria-hidden="true" className="h-[7px] w-[7px] rounded-full bg-white/85" />
             About
           </Link>
         </nav>
@@ -211,10 +212,10 @@ export function Header() {
           <SearchButton />
           <ThemeToggle />
           <Link
-            href="/email-your-mp-and-msp"
-            className="ui hidden sm:inline-flex items-center whitespace-nowrap rounded-[var(--r-pill)] bg-white px-4 h-10 text-[14.5px] font-[580] text-[#00336f] shadow-[0_1px_0_rgba(255,255,255,0.6)_inset,0_6px_18px_-8px_rgba(0,0,0,0.45)] transition-transform hover:-translate-y-px"
+            href="/blog"
+            className="ui hidden sm:inline-flex items-center gap-1.5 whitespace-nowrap rounded-[var(--r-pill)] bg-white px-4 h-10 text-[14.5px] font-[580] text-[#00336f] shadow-[0_1px_0_rgba(255,255,255,0.6)_inset,0_6px_18px_-8px_rgba(0,0,0,0.45)] transition-transform hover:-translate-y-px"
           >
-            Email your MP/MSP
+            All guides <span aria-hidden="true">→</span>
           </Link>
           <button
             type="button"
