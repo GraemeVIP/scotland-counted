@@ -247,8 +247,8 @@ export default function ScottishMpsFlightsClimateExpenses() {
         items={[
           <>
             Across Scotland, 55 current MPs billed you <strong>£868,378</strong> for London flights
-            and <strong>£150,170</strong> for trains in 2025/26. That&apos;s nearly{" "}
-            <strong>£6 on a plane for every £1 on a train</strong>.
+            and <strong>£150,170</strong> for trains in 2025/26. That&apos;s{" "}
+            <strong>85% of their London travel money on planes</strong>.
           </>,
           <>
             In Edinburgh, <Link href={mp("edinburgh-north-and-leith")}>Tracy Gilbert</Link> spent{" "}
@@ -390,13 +390,13 @@ export default function ScottishMpsFlightsClimateExpenses() {
 
       {/* ------------------------------------------------------------ 3 */}
       <Finding n={3} id="scotland-total">
-        Nearly £6 on a plane for every £1 on a train
+        85% of their London travel money went on planes
       </Finding>
       <P>
         Step back to the whole country. In 2025/26, the 55 current Scottish MPs in IPSA&apos;s
         files spent <strong>£868,378 on London planes</strong> and{" "}
-        <strong>£150,170 on trains</strong>. Nearly{" "}
-        <strong>£6 on a plane for every £1 on a train</strong>.
+        <strong>£150,170 on trains</strong>. That&apos;s{" "}
+        <strong>85% of their London travel money on planes</strong>.
       </P>
       <P>
         Add other UK and European trips and those 55 MPs spent <strong>£912,655 on planes</strong>{" "}
@@ -407,7 +407,7 @@ export default function ScottishMpsFlightsClimateExpenses() {
         items={[
           { value: "£868,378", label: "London flights in 2025/26 (55 MPs)", hot: true },
           { value: "£150,170", label: "London trains in 2025/26 (55 MPs)" },
-          { value: "£521,119", label: "Glasgow and Edinburgh belt flights alone (£5 air per £1 rail)" },
+          { value: "£521,119", label: "Glasgow and Edinburgh belt flights alone (83% on planes)" },
         ]}
       />
 
@@ -419,7 +419,7 @@ export default function ScottishMpsFlightsClimateExpenses() {
         So we took out all 18 island, Highland, north east and rural south seats. That leaves{" "}
         <strong>39 seats around Glasgow, Edinburgh, Fife, Ayrshire and Lanarkshire</strong>. Even
         there, MPs billed <strong>£521,119 on London planes</strong> against £104,553 on trains.
-        That&apos;s <strong>£5 on a plane for every £1 on a train</strong>.
+        That&apos;s <strong>83% of their London travel money on planes</strong>.
       </P>
 
       {/* ------------------------------------------------------------ 4 */}
@@ -489,7 +489,7 @@ export default function ScottishMpsFlightsClimateExpenses() {
                 The Energy Minister flies to London. His staff take the train
               </Link>
             ),
-            children: <>Michael Shanks put 92p in every £1 of his London travel on planes.</>,
+            children: <>Michael Shanks put 92% of his London travel money on planes.</>,
           },
           {
             key: "shuttle",

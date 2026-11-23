@@ -270,8 +270,8 @@ export default function ScottishMpsLondonHomes152SittingDays() {
       </P>
       <P>
         Planes take a big slice of the travel money. Energy Minister{" "}
-        <Link href={mp("rutherglen")}>Michael Shanks</Link> put 92p of every £1 of his own London
-        travel on flights, as{" "}
+        <Link href={mp("rutherglen")}>Michael Shanks</Link> put 92% of his own London travel money
+        on flights, as{" "}
         <Link href="/blog/energy-minister-michael-shanks-flights-rutherglen">
           our Energy Minister flights story
         </Link>{" "}

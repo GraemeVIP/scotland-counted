@@ -147,9 +147,9 @@ export const posts: Post[] = [
       "You paid £868,378 for Scottish MPs to fly to London while MPs in the same city took the train",
     seoTitle: "Scottish MPs Flight Expenses: £868,378 on Planes vs £150,170 Rail",
     description:
-      "Scottish MPs billed £868,378 for London flights against £150,170 on trains in 2025/26, nearly £6 on a plane for every £1 on a train, even when MPs in the same city took the train.",
+      "Scottish MPs billed £868,378 for London flights against £150,170 on trains in 2025/26, 85% of their London travel money on planes, even when MPs in the same city took the train.",
     standfirst:
-      "Christine Jardine told MPs she has consistently raised opposition to a bigger Heathrow, yet billed you £20,789 for London flights. Tracy Gilbert, in the same city, spent £529 on planes and £10,481 on trains. Across Scotland, 55 current MPs put £868,378 on planes and £150,170 on trains. That is nearly £6 on a plane for every £1 on a train.",
+      "Christine Jardine told MPs she has consistently raised opposition to a bigger Heathrow, yet billed you £20,789 for London flights. Tracy Gilbert, in the same city, spent £529 on planes and £10,481 on trains. Across Scotland, 55 current MPs put £868,378 on planes and £150,170 on trains. That is 85% of their London travel money on planes.",
     date: "2026-11-23",
     updated: "2026-11-23",
     checked: "2026-11-23",
@@ -174,13 +174,13 @@ export const posts: Post[] = [
     toc: [
       { id: "edinburgh-split", label: "Same city, 40 times the flight bill" },
       { id: "glasgow-split", label: "Glasgow: John Grady £9,270 on trains, Patricia Ferguson £0" },
-      { id: "scotland-total", label: "Nearly £6 on a plane for every £1 on a train" },
+      { id: "scotland-total", label: "85% of their London travel money went on planes" },
       { id: "minister-and-zero-rail", label: "The Energy Minister and the MPs who spent £0 on trains" },
     ],
     faq: [
       {
         q: "How much did Scottish MPs spend on London flights versus trains in 2025/26?",
-        a: "Across 55 current Scottish MPs in IPSA's 2025/26 files, London flights cost £868,378 and trains cost £150,170. That is nearly £6 on a plane for every £1 on a train (85.3% of combined spend).",
+        a: "Across 55 current Scottish MPs in IPSA's 2025/26 files, London flights cost £868,378 and trains cost £150,170. That is 85% of their London plane and train money spent on planes.",
       },
       {
         q: "How do Edinburgh MPs compare with each other?",
@@ -780,7 +780,7 @@ export const posts: Post[] = [
   {
     slug: "energy-minister-michael-shanks-flights-rutherglen",
     title:
-      "You paid for the Energy Minister to fly to London. 92p in every £1 of Michael Shanks's London travel went on planes",
+      "You paid for the Energy Minister to fly to London. 92% of Michael Shanks's London travel money went on planes",
     seoTitle: "Michael Shanks MP Flights: Energy Minister Flies, Staff Take the Train",
     description:
       "Taxpayers paid £11,753 for Energy Minister Michael Shanks's London flights in 2025/26 and £955 for trains, while his staff mostly took the train. Kirsteen Sullivan spent £0 on trains.",

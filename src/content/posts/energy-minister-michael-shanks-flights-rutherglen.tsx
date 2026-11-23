@@ -62,7 +62,7 @@ export default function EnergyMinisterMichaelShanksFlightsRutherglen() {
             <strong>six times</strong> the carbon of a train.
           </>,
           <>
-            That&apos;s <strong>92p of every £1</strong> of his London travel on planes. His own staff
+            That&apos;s <strong>92%</strong> of his London travel money on planes. His own staff
             did the opposite: most of their money went on trains.
           </>,
           <>
@@ -121,7 +121,7 @@ export default function EnergyMinisterMichaelShanksFlightsRutherglen() {
       />
       <P>
         So the minister whose job is cutting the UK&apos;s carbon picked the way of travelling his own
-        department says is more than six times worse. And he put 92p in every £1 of his London travel
+        department says is more than six times worse. And he put 92% of his London travel money
         on it.
       </P>
 
