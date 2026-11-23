@@ -754,6 +754,7 @@ export const posts: Post[] = [
       { id: "energy-minister", label: "The Energy Minister's travel bill" },
       { id: "sullivan", label: "Bathgate and Linlithgow's MP: £0 on trains" },
       { id: "neighbours", label: "Their neighbours take the train" },
+      { id: "why-nobody-saw-it", label: "Why nobody spotted this until now" },
     ],
     faq: [
       {

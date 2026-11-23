@@ -20,7 +20,7 @@ import {
   Expand,
 } from "@/components/ExpenseKit";
 
-const FINDINGS = 4;
+const FINDINGS = 5;
 const mp = (slug: string) => `/representatives/mps/${slug}`;
 
 const SHANKS = {
@@ -204,6 +204,26 @@ export default function EnergyMinisterMichaelShanksFlightsRutherglen() {
       <P>
         If Tracy Gilbert can get from Leith to London by train, so can an MP 20 minutes up the line. If
         John Grady can do it from Glasgow East, so can the Energy Minister from Rutherglen.
+      </P>
+
+      {/* ------------------------------------------------------------ 5 */}
+      <Finding n={5} of={FINDINGS} id="why-nobody-saw-it">
+        Why nobody spotted this until now
+      </Finding>
+      <P>
+        As far as we can find, this has never been reported. Not by a paper, not by a TV channel, not
+        by anyone.
+      </P>
+      <P>
+        That&apos;s not an accident. IPSA used to publish MPs&apos; travel claim by claim. It
+        doesn&apos;t any more. Now each MP gets one yearly total for each kind of ticket, buried in a
+        spreadsheet of <strong>59,503 lines</strong> for 2025/26 alone. There&apos;s no
+        &ldquo;planes against trains&rdquo; table. You have to build it yourself.
+      </P>
+      <P>
+        Most journalists don&apos;t have the hours to do that. We&apos;re not journalists. Scotland
+        Counted goes through the public data line by line, for every Scottish MP, and puts the numbers
+        side by side. That&apos;s how this turned up.
       </P>
 
       <PointList
