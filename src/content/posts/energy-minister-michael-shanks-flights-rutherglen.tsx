@@ -20,7 +20,7 @@ import {
   Expand,
 } from "@/components/ExpenseKit";
 
-const FINDINGS = 3;
+const FINDINGS = 4;
 const mp = (slug: string) => `/representatives/mps/${slug}`;
 
 const SHANKS = {
@@ -58,6 +58,10 @@ export default function EnergyMinisterMichaelShanksFlightsRutherglen() {
             paid £11,753 for his London flights and £955 for his trains.
           </>,
           <>
+            His job is cutting the UK&apos;s carbon. His own department says a UK flight puts out more than{" "}
+            <strong>six times</strong> the carbon of a train.
+          </>,
+          <>
             That&apos;s <strong>92p of every £1</strong> of his London travel on planes. His own staff
             did the opposite: most of their money went on trains.
           </>,
@@ -91,7 +95,38 @@ export default function EnergyMinisterMichaelShanksFlightsRutherglen() {
       </Spotlight>
 
       {/* ------------------------------------------------------------ 1 */}
-      <Finding n={1} of={FINDINGS} id="energy-minister">
+      <Finding n={1} of={FINDINGS} id="the-job">
+        What the Energy Minister is there to do
+      </Finding>
+      <P>
+        Michael Shanks has been an energy minister since July 2024. He works in the government
+        department for Energy Security and Net Zero.
+      </P>
+      <P>
+        Net zero is the UK&apos;s legal promise to stop adding to climate change by 2050. To get there,
+        the UK has to cut the carbon it puts into the air. His part of that job is clean power: the
+        plan to make all of the UK&apos;s electricity clean by 2030.
+      </P>
+      <P>
+        His own department also writes the official carbon sums that UK businesses use. They say a UK
+        flight puts out more than <strong>six times</strong> the carbon of a train, for each person, mile
+        for mile.
+      </P>
+      <Tiles
+        items={[
+          { value: "6.5x", label: "Carbon from a UK flight compared with a train, per person, by his own department's figures", hot: true },
+          { value: "2050", label: "The year the UK has promised to reach net zero" },
+          { value: "92%", label: "His own London travel money spent on planes, 2025/26", hot: true },
+        ]}
+      />
+      <P>
+        So the minister whose job is cutting the UK&apos;s carbon picked the way of travelling his own
+        department says is more than six times worse. And he put 92p in every £1 of his London travel
+        on it.
+      </P>
+
+      {/* ------------------------------------------------------------ 2 */}
+      <Finding n={2} of={FINDINGS} id="energy-minister">
         The Energy Minister&apos;s travel bill
       </Finding>
       <P>
@@ -108,8 +143,8 @@ export default function EnergyMinisterMichaelShanksFlightsRutherglen() {
         flies.
       </P>
 
-      {/* ------------------------------------------------------------ 2 */}
-      <Finding n={2} of={FINDINGS} id="sullivan">
+      {/* ------------------------------------------------------------ 3 */}
+      <Finding n={3} of={FINDINGS} id="sullivan">
         Bathgate and Linlithgow&apos;s MP: £0 on trains
       </Finding>
       <Spotlight
@@ -137,8 +172,8 @@ export default function EnergyMinisterMichaelShanksFlightsRutherglen() {
         plane.
       </P>
 
-      {/* ------------------------------------------------------------ 3 */}
-      <Finding n={3} of={FINDINGS} id="neighbours">
+      {/* ------------------------------------------------------------ 4 */}
+      <Finding n={4} of={FINDINGS} id="neighbours">
         Their neighbours take the train
       </Finding>
       <P>
@@ -205,6 +240,12 @@ export default function EnergyMinisterMichaelShanksFlightsRutherglen() {
           <p>
             The share is the plane money divided by plane plus train money. Taxis, parking and car
             miles are left out.
+          </p>
+          <p>
+            The carbon figures are the UK government&apos;s 2025 conversion factors, from his own
+            department. A UK flight is 0.229 kg of carbon dioxide (and the gases like it) per person per
+            kilometre, counting the extra warming planes cause high up. A national rail trip is 0.035.
+            That is about 6.5 times more for the flight.
           </p>
         </div>
       </Expand>

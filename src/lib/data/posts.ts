@@ -750,6 +750,7 @@ export const posts: Post[] = [
       type: "image/webp",
     },
     toc: [
+      { id: "the-job", label: "What the Energy Minister is there to do" },
       { id: "energy-minister", label: "The Energy Minister's travel bill" },
       { id: "sullivan", label: "Bathgate and Linlithgow's MP: £0 on trains" },
       { id: "neighbours", label: "Their neighbours take the train" },
