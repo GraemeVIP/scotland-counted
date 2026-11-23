@@ -40,6 +40,7 @@ export default function Glossary() {
           eyebrow={`${terms.length} terms`}
           title="Poverty terms in Scotland, explained"
           lede="If the site has to use a technical word, it is explained here in ordinary language. Open the extra detail only if you want the exact definition."
+          stat={{ value: String(terms.length), label: "words and phrases from the site, explained in ordinary language." }}
         />
 
         <ContentFrame>

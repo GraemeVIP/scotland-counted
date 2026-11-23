@@ -1,6 +1,6 @@
 import { Page, ContentFrame, PageHeader, CTA } from "@/components/Blocks";
 import { JsonLd, faqJsonLd, meta } from "@/lib/seo";
-import { faqItems } from "@/lib/data/faqs";
+import { faqItems, faqSections } from "@/lib/data/faqs";
 import FaqSearch from "./FaqSearch";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
@@ -25,6 +25,10 @@ export default function FaqPage() {
           eyebrow={`${faqItems.length} questions · Plain English answers`}
           title="Poverty in Scotland: your questions answered"
           lede="You do not need the political words or the right name for a statistic. Search in ordinary language, choose a topic, or open any question below."
+          stat={{
+            value: String(faqItems.length),
+            label: `questions answered in plain English, across ${faqSections.length} topics.`,
+          }}
         />
 
         <ContentFrame>

@@ -156,6 +156,10 @@ export default async function MpPage({ params }: { params: Promise<{ slug: strin
               represent everyone who lives in the area, not only people who voted for them.
             </>
           }
+          stat={{
+            value: `${povertyRate}%`,
+            label: `of children in ${mp.constituency} were living in poverty after housing costs in ${povertyYear}.`,
+          }}
         />
 
         <ContentFrame>

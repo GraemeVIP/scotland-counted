@@ -1,5 +1,5 @@
 import Link from "@/components/IntentLink";
-import { CTA, ContentFrame, InShort, Page, PageHeader } from "@/components/Blocks";
+import { CTA, ContentFrame, HeaderFacts, InShort, Page, PageHeader } from "@/components/Blocks";
 import PortraitLightbox from "@/components/PortraitLightbox";
 import {
   formatHolyroodCheckedDate,
@@ -23,6 +23,8 @@ export const metadata = meta({
 
 export default function MspsDirectoryPage() {
   const checked = formatHolyroodCheckedDate();
+  const mspCount =
+    holyroodConstituencies.length + holyroodRegions.reduce((total, item) => total + item.msps.length, 0);
 
   return (
     <>
@@ -62,6 +64,15 @@ export default function MspsDirectoryPage() {
           eyebrow="All 129 Members of the Scottish Parliament"
           title="Find your MSPs and contact them"
           lede="Everyone in Scotland has eight MSPs: one for their constituency and seven for their larger region. You do not need to know either area. The postcode tool finds all eight for you."
+          panel={
+            <HeaderFacts
+              items={[
+                { value: String(mspCount), label: "MSPs in the Scottish Parliament." },
+                { value: String(holyroodConstituencies.length), label: "constituencies, each with one MSP." },
+                { value: String(holyroodRegions.length), label: "regions, each with seven MSPs." },
+              ]}
+            />
+          }
         >
           <div className="mt-7 flex flex-wrap gap-3">
             <Link href="/email-your-mp-and-msp" className="btn btn-primary">

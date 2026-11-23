@@ -13,6 +13,7 @@ import {
 import { JsonLd, faqJsonLd, meta } from "@/lib/seo";
 import { site } from "@/lib/site";
 import { listApprovedMspReviews } from "@/lib/mspReviewsDb";
+import { getMspInterests } from "@/lib/data/mspInterests";
 import {
   HolyroodSourceNote,
   MspExpensesAndInterests,
@@ -32,6 +33,13 @@ import Breadcrumbs from "@/components/Breadcrumbs";
  * changed, and every rebuild used server time from the monthly allowance.
  */
 export const revalidate = 86400;
+
+/** Same format as the expenses box further down the page (_shared.tsx). */
+const gbpWhole = new Intl.NumberFormat("en-GB", {
+  style: "currency",
+  currency: "GBP",
+  maximumFractionDigits: 0,
+});
 
 export function generateStaticParams() {
   return holyroodConstituencies.map((item) => ({ slug: item.constituencySlug }));
@@ -60,6 +68,7 @@ export default async function HolyroodConstituencyPage({
   const reviews = await listApprovedMspReviews(record.msp.memberId);
 
   const checked = formatHolyroodCheckedDate();
+  const expenses = getMspInterests(record.msp.memberId)?.holyroodExpenses ?? null;
   const pagePath = `/representatives/msps/constituencies/${record.constituencySlug}`;
   const pageUrl = `${site.url}${pagePath}`;
   const faq = [
@@ -122,6 +131,17 @@ export default async function HolyroodConstituencyPage({
               <strong>{record.msp.name}</strong> is the {partyLabel(record.msp)} constituency MSP for{" "}
               {record.constituency}. They serve all folk in this area, not just their voters.
             </>
+          }
+          stat={
+            expenses
+              ? {
+                  value: gbpWhole.format(expenses.total2425),
+                  label: `paid by taxpayers for ${record.msp.name}'s bills in 2024/25, not counting staff pay.`,
+                }
+              : {
+                  value: "8",
+                  label: `MSPs serve ${record.constituency}. ${record.msp.name} is one. Seven more cover ${record.region}.`,
+                }
           }
         />
 

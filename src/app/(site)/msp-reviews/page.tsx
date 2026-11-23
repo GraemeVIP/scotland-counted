@@ -64,6 +64,7 @@ export default async function MspReviewsPage() {
           eyebrow="Scottish MSP reviews and complaints"
           title="Rate and review your Scottish MSP"
           lede="Read what happened when people asked a Member of the Scottish Parliament for help, or share your own firsthand experience. No account is needed and nothing is published automatically."
+          stat={{ value: String(mspReviewProfiles.length), label: "MSPs you can rate and review on this page." }}
         >
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <a href="#leave-an-msp-review" className="btn btn-primary justify-center text-center">Rate an MSP</a>

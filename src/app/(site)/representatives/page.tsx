@@ -1,5 +1,5 @@
 import Link from "@/components/IntentLink";
-import { CTA, ContentFrame, InShort, Page, PageHeader } from "@/components/Blocks";
+import { CTA, ContentFrame, HeaderFacts, InShort, Page, PageHeader } from "@/components/Blocks";
 import PortraitLightbox from "@/components/PortraitLightbox";
 import { JsonLd, meta } from "@/lib/seo";
 import {
@@ -53,6 +53,7 @@ export default function RepresentativesPage() {
       photoUrl: msp.photoUrl,
     }))),
   ];
+  const mspCount = directoryEntries.filter((entry) => entry.role === "MSP").length;
 
   return (
     <>
@@ -92,6 +93,16 @@ export default function RepresentativesPage() {
           eyebrow="Everyone who represents you"
           title="Find your MP and MSPs"
           lede="You have one MP at Westminster and eight MSPs at Holyrood. Enter your postcode to see their names and contact details. Nothing opens or sends unless you choose it."
+          panel={
+            <HeaderFacts
+              items={[
+                { value: "1", label: "MP for you at Westminster in London." },
+                { value: "8", label: "MSPs for you at Holyrood in Edinburgh." },
+                { value: String(mps.length), label: "Scottish MPs in all." },
+                { value: String(mspCount), label: "MSPs in all." },
+              ]}
+            />
+          }
         />
 
         <ContentFrame>

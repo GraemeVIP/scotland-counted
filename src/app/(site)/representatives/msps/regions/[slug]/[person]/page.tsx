@@ -16,6 +16,7 @@ import { representativeSlug } from "@/lib/representatives";
 import { JsonLd, faqJsonLd, meta } from "@/lib/seo";
 import { site } from "@/lib/site";
 import { listApprovedMspReviews } from "@/lib/mspReviewsDb";
+import { getMspInterests } from "@/lib/data/mspInterests";
 import {
   HolyroodSourceNote,
   MspExpensesAndInterests,
@@ -33,6 +34,13 @@ import Breadcrumbs from "@/components/Breadcrumbs";
  * changed, and every rebuild used server time from the monthly allowance.
  */
 export const revalidate = 86400;
+
+/** Same format as the expenses box further down the page (_shared.tsx). */
+const gbpWhole = new Intl.NumberFormat("en-GB", {
+  style: "currency",
+  currency: "GBP",
+  maximumFractionDigits: 0,
+});
 
 export function generateStaticParams() {
   return holyroodRegions.flatMap((region) =>
@@ -72,6 +80,7 @@ export default async function RegionalMspPage({
   const reviews = await listApprovedMspReviews(msp.memberId);
 
   const checked = formatHolyroodCheckedDate();
+  const expenses = getMspInterests(msp.memberId)?.holyroodExpenses ?? null;
   const pagePath = `/representatives/msps/regions/${region.regionSlug}/${representativeSlug(msp.name)}`;
   const pageUrl = `${site.url}${pagePath}`;
   const otherMsps = region.msps.filter((item) => item.memberId !== msp.memberId);
@@ -149,6 +158,17 @@ export default async function RegionalMspPage({
           eyebrow="Regional MSP at Holyrood"
           title={`${msp.name}, MSP for ${region.region}`}
           lede={<><strong>{msp.name}</strong> is one of seven regional MSPs for {region.region}. Anyone in the region can write to them, no matter who you voted for.</>}
+          stat={
+            expenses
+              ? {
+                  value: gbpWhole.format(expenses.total2425),
+                  label: `paid by taxpayers for ${msp.name}'s bills in 2024/25, not counting staff pay.`,
+                }
+              : {
+                  value: "7",
+                  label: `regional MSPs serve ${region.region}. ${msp.name} is one of them.`,
+                }
+          }
         />
 
         <ContentFrame>

@@ -1,5 +1,5 @@
 import Link from "@/components/IntentLink";
-import { Page, ContentFrame, PageHeader, SectionHead, CTA } from "@/components/Blocks";
+import { Page, ContentFrame, PageHeader, HeaderFacts, SectionHead, CTA } from "@/components/Blocks";
 import { GuideTable } from "@/components/GuideTable";
 import { meta } from "@/lib/seo";
 import { site } from "@/lib/site";
@@ -60,6 +60,7 @@ const COURSE_MAP: Array<[string, Array<[string, string]>]> = [
 
 export default function TeachingResourcesPage() {
   const years = N5_PAST_PAPER_FILES.map((p) => p.year);
+  const coursePages = COURSE_MAP.reduce((total, [, pages]) => total + pages.length, 0);
   return (
     <>
       <Breadcrumbs crumbs={[
@@ -72,6 +73,18 @@ export default function TeachingResourcesPage() {
           eyebrow="For teachers"
           title="Modern Studies teaching resources: free, current Scottish data"
           lede="Up to date Scottish figures for your classes, mapped to the course, with past papers, model answers and practice questions. Free, no ads, and no sign up for you or your pupils."
+          panel={
+            <HeaderFacts
+              items={[
+                { value: String(coursePages), label: "pages on this site matched to the course." },
+                { value: String(COURSE_MAP.length), label: "areas of study covered." },
+                {
+                  value: String(years.length),
+                  label: `years of National 5 past papers, ${years[years.length - 1]} to ${years[0]}.`,
+                },
+              ]}
+            />
+          }
         />
         <ContentFrame>
           <section className="pb-12">

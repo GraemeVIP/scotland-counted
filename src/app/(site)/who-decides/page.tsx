@@ -1,5 +1,5 @@
 import Link from "@/components/IntentLink";
-import { Page, ContentFrame, PageHeader, InShort, CTA } from "@/components/Blocks";
+import { Page, ContentFrame, PageHeader, HeaderFacts, InShort, CTA } from "@/components/Blocks";
 import Faq from "@/components/Faq";
 import { JsonLd, faqJsonLd, meta } from "@/lib/seo";
 import {
@@ -70,6 +70,15 @@ export default function WhoDecides() {
           eyebrow="Who decides"
           title="Westminster, Holyrood or your council?"
           lede="Most letters that go nowhere went to the wrong building. Find the thing you are annoyed about, and see who actually controls it."
+          panel={
+            <HeaderFacts
+              items={[
+                { value: String(responsibilitiesFor("uk").length), label: "issues decided at Westminster. Write to your MP." },
+                { value: String(responsibilitiesFor("scotland").length), label: "issues decided at Holyrood. Write to your MSPs." },
+                { value: String(responsibilitiesFor("council").length), label: "issues decided by your council. Write to your councillors." },
+              ]}
+            />
+          }
         />
 
         <ContentFrame>
