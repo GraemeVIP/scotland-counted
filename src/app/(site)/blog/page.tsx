@@ -6,6 +6,7 @@ import { postsByDate } from "@/lib/data/posts";
 import { site } from "@/lib/site";
 import { postPath } from "@/lib/routeMap";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import SectionStarters from "@/components/SectionStarters";
 
 export const metadata = meta({
   title: "Scotland Counted Explained | Poverty Evidence Hub",
@@ -53,6 +54,7 @@ export default function Blog() {
         />
 
         <ContentFrame>
+          <SectionStarters section="all" className="mb-8" />
           <BlogList posts={all} />
 
         <AuthorBio className="mt-16" />

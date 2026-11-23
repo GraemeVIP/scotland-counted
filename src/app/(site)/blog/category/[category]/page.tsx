@@ -13,6 +13,7 @@ import { site } from "@/lib/site";
 import BlogList from "../../BlogList";
 import { postPath } from "@/lib/routeMap";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import SectionStarters from "@/components/SectionStarters";
 
 const CATEGORY_SEO = {
   "money-and-bills": {
@@ -97,6 +98,7 @@ export default async function BlogCategory(props: { params: Promise<{ category: 
       <Page>
         <CompactHeader eyebrow="Explained" title={seo.h1} lede={seo.description} />
         <ContentFrame>
+          <SectionStarters section={category.slug} className="mb-8" />
           <BlogList
             posts={categoryPosts}
             activeCategory={category.slug as PostCategorySlug}
