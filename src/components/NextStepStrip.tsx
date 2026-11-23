@@ -21,7 +21,7 @@ export default function NextStepStrip({
   className?: string;
 }) {
   return (
-    <nav aria-label={heading} className={`not-prose ${className}`}>
+    <nav data-nudge="next_steps" aria-label={heading} className={`not-prose ${className}`}>
       <p className="ui mb-2.5 text-[14px] font-[620] uppercase tracking-[0.06em] text-[var(--muted)]">
         {heading}
       </p>

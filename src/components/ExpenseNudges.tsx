@@ -48,7 +48,7 @@ export function ExpenseStoryHook({
   className?: string;
 }) {
   return (
-    <aside aria-label={`Expenses story about ${name}`} className={`${shell} ${className}`}>
+    <aside data-nudge="story_hook" aria-label={`Expenses story about ${name}`} className={`${shell} ${className}`}>
       <span className={lead}>From the receipts</span>
       <p className={body}>
         <Stat story={story} /> {story.hook}.{" "}
@@ -90,7 +90,7 @@ export function ReceiptsNudge({
   className?: string;
 }) {
   return (
-    <aside aria-label={`Receipts for ${name}`} className={`${shell} ${className}`}>
+    <aside data-nudge="receipts_nudge" aria-label={`Receipts for ${name}`} className={`${shell} ${className}`}>
       <span className={lead}>From the receipts</span>
       <p className={body}>
         {amount ? (
@@ -135,7 +135,7 @@ export function ExpenseStoryPicks({
 }) {
   if (picks.length === 0) return null;
   return (
-    <section aria-label={title} className={`not-prose ${className}`}>
+    <section data-nudge="story_picks" aria-label={title} className={`not-prose ${className}`}>
       <p className="kicker mb-1.5 text-[var(--muted)]">{kicker}</p>
       <h2 className="h3">{title}</h2>
       {intro && (
@@ -197,7 +197,7 @@ export function YourMpExpenses({
   );
 
   return (
-    <aside aria-label={`Expenses for ${name}, your MP`} className={`${shell} ${className}`}>
+    <aside data-nudge="your_mp_expenses" aria-label={`Expenses for ${name}, your MP`} className={`${shell} ${className}`}>
       <span className={lead}>Your MP, in the receipts</span>
       {story ? (
         <p className={body}>
@@ -232,7 +232,7 @@ export function YourMspStory({
   const story = storyForProfile(profileHref);
   if (!story) return null;
   return (
-    <aside aria-label={`Expenses story about ${name}`} className={`${shell} ${className}`}>
+    <aside data-nudge="your_msp_story" aria-label={`Expenses story about ${name}`} className={`${shell} ${className}`}>
       <span className={lead}>Your MSP, in the receipts</span>
       <p className={body}>
         <Link href={profileHref} className="font-[600] text-[var(--ink)]">

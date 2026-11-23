@@ -6,7 +6,27 @@
  */
 export const BAR_STORAGE_KEY = "sc-bar-mp-expenses-on-the-list-2026-11-23";
 
-/** Runs before the strip is drawn: hides it if this browser closed it. */
-export const BAR_HIDE_SCRIPT = `try{if(localStorage.getItem(${JSON.stringify(
+/*
+ * The strip runs an A/B test: each visitor is given one of these at random
+ * on their first visit and keeps it, so the clicks for each can be compared.
+ * Results show in Clarity and GA4 as banner_view_<id>, banner_click_<id> and
+ * banner_close_<id>. Change BAR_VARIANT_KEY to start a fresh test.
+ */
+export const BAR_VARIANTS = ["hotels", "energy", "receipts", "flats", "buys"] as const;
+export type BarVariant = (typeof BAR_VARIANTS)[number];
+export const BAR_VARIANT_KEY = "sc-bar-variant-test-2026-11-23";
+
+/**
+ * Runs before the strip is drawn: hides it if this browser closed it, and
+ * picks (or recalls) this visitor's test version, so the right wording is
+ * there from the first paint with no flicker.
+ */
+export const BAR_HIDE_SCRIPT = `(function(){var d=document.documentElement,a=${JSON.stringify(
+  BAR_VARIANTS,
+)},v;try{if(localStorage.getItem(${JSON.stringify(
   BAR_STORAGE_KEY,
-)})==="closed")document.documentElement.setAttribute("data-bar-closed","")}catch(e){}`;
+)})==="closed")d.setAttribute("data-bar-closed","");v=localStorage.getItem(${JSON.stringify(
+  BAR_VARIANT_KEY,
+)});if(a.indexOf(v)<0){v=a[Math.floor(Math.random()*a.length)];localStorage.setItem(${JSON.stringify(
+  BAR_VARIANT_KEY,
+)},v)}}catch(e){if(a.indexOf(v)<0)v=a[Math.floor(Math.random()*a.length)]}d.setAttribute("data-bar-variant",v)})()`;

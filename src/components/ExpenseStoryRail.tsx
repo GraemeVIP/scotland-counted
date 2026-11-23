@@ -41,7 +41,7 @@ export function ExpenseStoryRail({ slug }: { slug: string }) {
   const near = nearExpenseStory(slug);
   const picks = pickExpenseStories(slug, 5, near ? [near.slug] : []);
   return (
-    <section aria-labelledby="more-expenses-stories" className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5 sm:p-6">
+    <section data-nudge="expenses_rail" aria-labelledby="more-expenses-stories" className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-5 sm:p-6">
       <p className="label">You paid for these too</p>
       <h2 id="more-expenses-stories" className="ui mt-1 text-[22px] font-[700] leading-[1.25] text-[var(--ink)] sm:text-[24px]">
         Read the next one
@@ -98,7 +98,7 @@ export function ExpenseStoryIndex() {
     </ul>
   );
   return (
-    <div className="grid items-start gap-6 lg:grid-cols-3">
+    <div data-nudge="expenses_index" className="grid items-start gap-6 lg:grid-cols-3">
       <div className={`${box} lg:col-span-2`}>
         <h3 className={title}>MP by MP</h3>
         <div className="grid md:grid-cols-2 md:gap-x-8">
@@ -181,7 +181,7 @@ const START_HERE = [
 export function ExpenseStoryStarters() {
   const stories = START_HERE.map((slug) => EXPENSE_STORIES.find((s) => s.slug === slug)!).filter(Boolean);
   return (
-    <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+    <div data-nudge="expenses_starters" className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
       {stories.map((s) => (
         <div
           key={s.slug}

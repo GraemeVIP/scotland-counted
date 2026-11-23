@@ -28,6 +28,7 @@ export function KeepReading({
   if (posts.length === 0 && !tool && !bridge) return null;
   return (
     <section
+      data-nudge="keep_reading"
       aria-labelledby="keep-reading"
       className={`rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] px-5 py-5 sm:px-6 ${className}`}
     >

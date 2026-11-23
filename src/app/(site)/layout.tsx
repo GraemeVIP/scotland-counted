@@ -1,6 +1,7 @@
 import { Header, Footer } from "@/components/Chrome";
 import CommandPalette from "@/components/Command";
 import AnnouncementBar from "@/components/AnnouncementBar";
+import NudgeTracker from "@/components/NudgeTracker";
 import { BAR_HIDE_SCRIPT } from "@/lib/announcement";
 import { JsonLd, orgJsonLd } from "@/lib/seo";
 
@@ -15,6 +16,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
       {/* Hides the top strip before it paints if this browser closed it. */}
       <script dangerouslySetInnerHTML={{ __html: BAR_HIDE_SCRIPT }} />
       <AnnouncementBar />
+      <NudgeTracker />
       <Header />
       <main id="main" className="flex-1">
         {children}

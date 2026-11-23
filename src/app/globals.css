@@ -1092,6 +1092,26 @@ select:not([multiple]):not([size]) {
 [data-bar-closed] .announce-top {
   display: none;
 }
+/* A/B test: every version is in the HTML; only this visitor's one shows. */
+.announce-variant {
+  display: none;
+}
+html:not([data-bar-variant]) .announce-variant[data-variant="hotels"],
+[data-bar-variant="hotels"] .announce-variant[data-variant="hotels"],
+[data-bar-variant="energy"] .announce-variant[data-variant="energy"],
+[data-bar-variant="receipts"] .announce-variant[data-variant="receipts"],
+[data-bar-variant="flats"] .announce-variant[data-variant="flats"],
+[data-bar-variant="buys"] .announce-variant[data-variant="buys"] {
+  display: flex;
+}
+/* On the page a version points to, that visitor sees no strip at all. */
+[data-bar-variant="hotels"] .announce-top[data-skip~="hotels"],
+[data-bar-variant="energy"] .announce-top[data-skip~="energy"],
+[data-bar-variant="receipts"] .announce-top[data-skip~="receipts"],
+[data-bar-variant="flats"] .announce-top[data-skip~="flats"],
+[data-bar-variant="buys"] .announce-top[data-skip~="buys"] {
+  display: none;
+}
 @media print {
   .announce-top { display: none; }
 }

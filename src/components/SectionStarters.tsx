@@ -11,7 +11,7 @@ import { SECTION_STARTERS, isBridge } from "@/lib/data/nudges";
 export default function SectionStarters({ section, className = "" }: { section: string; className?: string }) {
   const items = SECTION_STARTERS[section] ?? SECTION_STARTERS.all;
   return (
-    <nav aria-label="Start here" className={className}>
+    <nav data-nudge="section_starters" aria-label="Start here" className={className}>
       <p className="ui mb-2.5 text-[14px] font-[620] uppercase tracking-[0.06em] text-[var(--muted)]">Start here</p>
       <ul className="grid gap-3 sm:grid-cols-3">
         {items.map((item) => (
