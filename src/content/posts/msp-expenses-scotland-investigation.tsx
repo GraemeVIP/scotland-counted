@@ -117,7 +117,7 @@ const promoNum = (s: string) => Number(s.replace(/[£,]/g, ""));
 
 const GREENS_SCORECARD = [
   { name: "Ross Greer", href: msp("regions/west-scotland/ross-greer"), total: 168793, print: "£47,167", hotels: "£31,916", other: "£1,000 consultancy, three £159 TV licences, £396 hotel cancellation fee" },
-  { name: "Ariane Burgess", href: msp("regions/highlands-and-islands/ariane-burgess"), total: 161785, print: "£45,255", hotels: "£2,888", other: "£18,260 on consultants, 23 flights (£3,620), £3,713 car hire, 140 taxis (£1,033)" },
+  { name: "Ariane Burgess", href: msp("regions/highlands-and-islands/ariane-burgess"), total: 161785, print: "£45,255", hotels: "£2,888", other: "£18,260 on consultants, 23 flights (£3,620: 19 hers, 4 for staff), £3,713 car hire, 140 taxis (£1,033)" },
   { name: "Mark Ruskell", href: msp("regions/mid-scotland-and-fife/mark-ruskell"), total: 141472, print: "£38,620", hotels: "£31,927", other: "19,204 car miles (£8,642), £12,375 on research and rail consultants" },
   { name: "Patrick Harvie", href: msp("regions/glasgow/patrick-harvie"), total: 132308, print: "£49,499", hotels: "£26,215", other: "£17,400 leaflet bill on 28 March 2025, £2,990 for Trello (online planning software), £169.50 TV licence" },
   { name: "Maggie Chapman", href: msp("regions/north-east-scotland/maggie-chapman"), total: 112311, print: "£37,343", hotels: "£0", other: "16,412 car miles (£7,385), £6,979 office decorating and new floor" },
@@ -136,7 +136,7 @@ const COUNCIL_TAX: {
   detail: string;
 }[] = [
   { name: "Maree Todd", p: "SNP", href: msp("regions/highlands-and-islands/maree-todd"), before: 2308.51, after: 5494.23, detail: "Then £5,949 on 1 April 2025 for 2025/26" },
-  { name: "Kenneth Gibson", p: "Independent", href: msp("constituencies/cunninghame-north"), before: 2650.0, after: 5494.23, detail: "Then £5,949 on 2 April 2025 for 2025/26" },
+  { name: "Kenneth Gibson", p: "SNP", note: "now Presiding Officer", href: msp("constituencies/cunninghame-north"), before: 2650.0, after: 5494.23, detail: "Then £5,949 on 2 April 2025 for 2025/26" },
   { name: "Alexander Burnett", p: "Conservative", href: msp("constituencies/aberdeenshire-west"), before: 0, after: 5234.5, detail: "Then £5,949 on 3 April 2025 for 2025/26" },
   { name: "Jenni Minto", p: "SNP", href: msp("constituencies/argyll-and-bute"), before: 1415.25, after: 4472.01, detail: "Includes a £1,696 \"Second Home levy\"; then £4,842 in April to May 2025" },
   { name: "Liam McArthur", p: "Lib Dem", href: msp("constituencies/orkney-islands"), before: 2708.37, after: 4472.01, detail: "Up 65% in one year" },
@@ -155,12 +155,14 @@ const NEWSPAPERS: { name: string; p: PartyKey; href?: string; former?: boolean; 
   { name: "Shona Robison", p: "SNP", former: true, total: 3587.5, detail: "Ongoing newspaper subscriptions" },
   { name: "Lorna Slater", p: "Greens", href: msp("constituencies/edinburgh-central"), total: 3430.29, detail: "5 years of the FT (£1,592) and The Economist (£1,061), plus two £144 New Statesman entries 3 days apart" },
   { name: "Neil Bibby", p: "Labour", href: msp("regions/west-scotland/neil-bibby"), total: 3338.78, detail: "£909 in 2024/25 alone" },
+  { name: "Annabelle Ewing", p: "SNP", former: true, total: 3247.4, detail: "7 claims, including £2,081 of local paper adverts filed as newspapers" },
+  { name: "Colin Smyth", p: "Labour", former: true, total: 3217.55, detail: "48 claims for office papers" },
   { name: "Jim Fairlie", p: "SNP", href: msp("constituencies/perthshire-south-and-kinross-shire"), total: 3189.25, detail: "£857 in 2024/25 alone" },
 ];
 
 const COMMUTER_HOTELS: { name: string; p: PartyKey; href: string; area: string; total: number; what: string }[] = [
   { name: "Graham Simpson", p: "Reform UK", href: msp("regions/central-scotland-and-lothians-west/graham-simpson"), area: "Central Scotland & Lothians West", total: 26329.15, what: "£13,500 flat rent, £8,322 council tax (incl. £4,842 paid early for 2025/26), £4,085 hotels" },
-  { name: "Collette Stevenson", p: "SNP", href: msp("constituencies/east-kilbride"), area: "East Kilbride, 45 miles away", total: 16588.05, what: "Edinburgh rented flat plus £3,442 council tax" },
+  { name: "Collette Stevenson", p: "SNP", href: msp("constituencies/east-kilbride"), area: "East Kilbride, 50 miles away by Parliament's count", total: 16588.05, what: "Edinburgh rented flat plus £3,442 council tax" },
   { name: "Russell Findlay", p: "Conservative", href: msp("regions/west-scotland/russell-findlay"), area: "West Scotland", total: 11593.94, what: "£10,495 Edinburgh hotels plus £1,099 meals and refreshments" },
   { name: "Ross Greer", p: "Greens", href: msp("regions/west-scotland/ross-greer"), area: "West Scotland", total: 10174.22, what: "£9,900 Edinburgh hotels" },
   { name: "Clare Adamson", p: "SNP", href: msp("constituencies/motherwell-and-wishaw"), area: "Motherwell and Wishaw, 35 miles away", total: 10125.04, what: "£9,259 Edinburgh hotels plus £866 meals and refreshments" },
@@ -171,9 +173,9 @@ const COMMUTER_HOTELS: { name: string; p: PartyKey; href: string; area: string; 
   { name: "Patrick Harvie", p: "Greens", href: msp("regions/glasgow/patrick-harvie"), area: "Glasgow", total: 7035.72, what: "£6,457 Edinburgh hotels" },
 ];
 
-const TOP_10: { name: string; p: PartyKey; href: string; area: string; amount: number; detail: string }[] = [
+const TOP_10: { name: string; p: PartyKey; note?: string; href: string; area: string; amount: number; detail: string }[] = [
   { name: "Rachael Hamilton", p: "Conservative", href: msp("constituencies/ettrick-roxburgh-and-berwickshire"), area: "Ettrick, Roxburgh & Berwickshire", amount: 62112.43, detail: "£23,860 leaflets & ads, £19,640 Edinburgh flat, £7,202 travel" },
-  { name: "Kenneth Gibson", p: "Independent", href: msp("constituencies/cunninghame-north"), area: "Cunninghame North", amount: 61907.28, detail: "£23,052 Edinburgh flat (£5,494 council tax), £21,183 office" },
+  { name: "Kenneth Gibson", p: "SNP", note: "now Presiding Officer", href: msp("constituencies/cunninghame-north"), area: "Cunninghame North", amount: 61907.28, detail: "£23,052 Edinburgh flat (£5,494 council tax), £21,183 office" },
   { name: "Karen Adam", p: "SNP", href: msp("constituencies/banffshire-and-buchan-coast"), area: "Banffshire & Buchan Coast", amount: 60577.13, detail: "£23,871 office, £17,619 Edinburgh flat, £12,171 leaflets & ads" },
   { name: "Emma Roddick", p: "SNP", href: msp("constituencies/inverness-and-nairn"), area: "Inverness and Nairn", amount: 60493.97, detail: "£17,587 Edinburgh flat, £17,045 leaflets & ads, £13,329 travel" },
   { name: "Maree Todd", p: "SNP", href: msp("regions/highlands-and-islands/maree-todd"), area: "Highlands and Islands", amount: 58721.78, detail: "£20,572 Edinburgh flat (£5,494 council tax), £19,457 office" },
@@ -257,13 +259,14 @@ export default function MspExpensesScotlandInvestigation() {
             <Link href={msp("constituencies/aberdeenshire-west")}>
               <strong>Alexander Burnett</strong>
             </Link>{" "}
-            billed <strong>£36,953</strong> for calendars
+            billed <strong>£39,480</strong> for calendars
             from 2016 to 2024.
           </>,
           <>
             MSPs backed double council tax on second homes. Then they billed taxpayers{" "}
-            <strong>£161,374</strong> in council tax for their own Edinburgh flats in 2024/25,
-            more than double the year before.
+            <strong>£161,374</strong> in council tax for their own Edinburgh flats in 2024/25.
+            Take out £16,442 of next year&apos;s tax paid early, and the bill still{" "}
+            <strong>nearly doubled</strong>.
           </>,
           <>
             Top claimer in 2024/25: Tory{" "}
@@ -278,7 +281,7 @@ export default function MspExpensesScotlandInvestigation() {
 
       {/* ------------------------------------------------------------ 1 */}
       <Finding n={1} id="labour-firm-and-calendars">
-        £19,800 to an ex Labour boss, £36,953 on calendars, and football banners
+        £19,800 to an ex Labour boss, £39,480 on calendars, and football banners
       </Finding>
 
       <CaseCard
@@ -300,18 +303,19 @@ export default function MspExpensesScotlandInvestigation() {
       </CaseCard>
 
       <CaseCard
-        figure="£36,953"
+        figure="£39,480"
         people={[{ name: "Alexander Burnett", href: msp("constituencies/aberdeenshire-west"), p: "Conservative", place: "Aberdeenshire West" }]}
       >
         <p>
-          <strong>£36,953 on calendars for a rich estate owner.</strong> Tory Alexander Burnett&apos;s
+          <strong>£39,480 on calendars for a rich estate owner.</strong> Tory Alexander Burnett&apos;s
           entry in the Register of Interests (the public list of MSPs&apos; homes, shares and other
           jobs) shows a big estate, £2.49 million in property firm shares, a £4.7 million trust, and
           £30,001 to £40,000 a year as a firm boss.
         </p>
         <p>
-          And still, from 2016 to 2024, he billed taxpayers <strong>£36,953</strong> through Hill and
-          Hay Ltd to print and post calendars. £9,545 of it went in December 2024 alone.
+          And still, from 2016 to 2024, he billed taxpayers <strong>£39,480</strong> through Hill and
+          Hay Ltd to print and post calendars. £9,545 of it went in December 2024 alone. Two of the
+          December 2018 bills spell it &ldquo;CALANDER&rdquo;.
         </p>
       </CaseCard>
 
@@ -353,7 +357,7 @@ export default function MspExpensesScotlandInvestigation() {
         </LI>
         <LI>
           <strong>£278</strong> for <Link href={msp("constituencies/cunninghame-north")}>Kenneth Gibson</Link>{" "}
-          (Independent)
+          (SNP then, now Presiding Officer)
         </LI>
         <LI>
           <strong>£249</strong> for{" "}
@@ -388,7 +392,7 @@ export default function MspExpensesScotlandInvestigation() {
           more="See numbers 4 to 10"
           rows={TOP_10.map((r) => ({
             key: r.name,
-            who: <Who face name={r.name} href={r.href} p={r.p} />,
+            who: <Who face name={r.name} href={r.href} p={r.p} note={r.note} />,
             side: r.area,
             value: r.amount,
             label: gbp(r.amount, false),
@@ -453,7 +457,7 @@ export default function MspExpensesScotlandInvestigation() {
 
       <P>
         <strong>All claims together</strong> (not just leaflets), the four Lib Dems top the list at
-        £41,738 per MSP. Island flights for Orkney and Shetland push that up. The Greens come second
+        £41,738 per MSP. Island flights for Orkney and Shetland, for MSPs and their staff, push that up. The Greens come second
         at £35,974, then the Tories, SNP and Labour.
       </P>
 
@@ -476,8 +480,8 @@ export default function MspExpensesScotlandInvestigation() {
               children: (
                 <>
                   <strong>Scottish Conservatives:</strong> First for Edinburgh flats and hotels at{" "}
-                  <strong>£9,438 per MSP</strong> (£51,968 in council tax). They also drove{" "}
-                  <strong>190,128 car miles</strong> (£84,308) in one year.
+                  <strong>£9,438 per MSP</strong> (£51,968 in council tax). Their MSPs and staff also
+                  drove <strong>190,128 car miles</strong> (£84,308) in one year.
                 </>
               ),
             },
@@ -487,7 +491,7 @@ export default function MspExpensesScotlandInvestigation() {
                 <>
                   <strong>SNP:</strong> Claimed <strong>£2.19 million</strong> across 62 MSPs,
                   including <strong>£87,890</strong> in Edinburgh second home council tax after backing
-                  double tax, plus <strong>174,045 car miles</strong> (£77,888).
+                  double tax, plus <strong>174,045 car miles</strong> (£77,888) driven by MSPs and staff.
                 </>
               ),
             },
@@ -506,7 +510,8 @@ export default function MspExpensesScotlandInvestigation() {
               children: (
                 <>
                   <strong>Scottish Liberal Democrats:</strong> Top raw spend (£41,738 across four
-                  MSPs), pushed up by £34,309 in island flights for Orkney and Shetland.
+                  MSPs), pushed up by £34,309 in island flights for Orkney and Shetland. That
+                  includes £3,775 of flights for their staff.
                 </>
               ),
             },
@@ -528,8 +533,8 @@ export default function MspExpensesScotlandInvestigation() {
           }))}
         />
         <p className="ui mt-4 text-[14px] text-[var(--muted)]">
-          Not counting staff pay. CT means council tax. Source: Holyrood public expense files, April
-          2024 to March 2025.
+          Not counting staff pay. CT means council tax. Car miles and flights include trips by MSPs
+          and their staff. Source: Holyrood public expense files, April 2024 to March 2025.
         </p>
       </Expand>
 
@@ -548,7 +553,7 @@ export default function MspExpensesScotlandInvestigation() {
       <BigStat
         value="£83,546"
         label="Spent on leaflets by five Green MSPs in March 2025, just before unspent money was lost."
-        exact="The five biggest March leaflet spenders at Holyrood were all Greens: Patrick Harvie £17,400, Maggie Chapman £17,200, Ross Greer £17,000, Gillian Mackay £16,380 and Mark Ruskell £15,566."
+        exact="Four of the five biggest March leaflet spenders at Holyrood were Greens: Patrick Harvie £17,400, Maggie Chapman £17,200 and Ross Greer £17,000, then Labour's Rhoda Grant £16,522 and Gillian Mackay £16,380. Green Mark Ruskell spent £15,566."
       />
 
       <Spotlight
@@ -605,8 +610,8 @@ export default function MspExpensesScotlandInvestigation() {
         </LI>
         <LI>
           <Link href={msp("regions/highlands-and-islands/ariane-burgess")}>Ariane Burgess</Link>:{" "}
-          <strong>£18,260 on consultants</strong>, <strong>23 flights</strong> and{" "}
-          <strong>140 taxis</strong>.
+          <strong>£18,260 on consultants</strong>, <strong>23 flights</strong> (19 for her, 4 for
+          her staff) and <strong>140 taxis</strong>.
         </LI>
       </UL>
 
@@ -633,11 +638,11 @@ export default function MspExpensesScotlandInvestigation() {
 
       {/* ------------------------------------------------------------ 5 */}
       <Finding n={5} id="double-council-tax">
-        MSPs backed double council tax on second homes, then sent you the bill (+122%)
+        MSPs backed double council tax on second homes, then sent you the bill (+99%)
       </Finding>
       <P>
         In April 2024, councils started charging double council tax on second homes, using new
-        Holyrood powers. Once it kicked in, the bill for MSPs&apos; Edinburgh flats more than
+        Holyrood powers. Once it kicked in, the bill for MSPs&apos; Edinburgh flats nearly
         doubled. SNP minister{" "}
         <Link href={msp("constituencies/argyll-and-bute")}>Jenni Minto</Link>&apos;s claims even
         name it: £1,696 for a &ldquo;Second Home levy&rdquo;.
@@ -646,7 +651,8 @@ export default function MspExpensesScotlandInvestigation() {
       <Tiles
         items={[
           { value: "£72,822", label: "2023/24, before the double tax" },
-          { value: "£161,374", label: "2024/25: more than double the year before (up £88,552)", hot: true },
+          { value: "£144,932", label: "2024/25 tax for 2024/25: nearly double the year before (up 99%)", hot: true },
+          { value: "£161,374", label: "Billed in 2024/25. £16,442 of it was next year's tax, paid early by four MSPs." },
           { value: "£116,901", label: "April to June 2025 alone, from 27 MSPs", hot: true },
         ]}
       />
@@ -697,7 +703,7 @@ export default function MspExpensesScotlandInvestigation() {
         caption="Source: Holyrood public expense files, Newspaper category, May 2021 to June 2025."
       >
         <RankFold
-          more="See five more"
+          more="See seven more"
           rows={NEWSPAPERS.map((r) => ({
             key: r.name,
             who: <Who face name={r.name} href={r.href} p={r.p} note={r.former ? "former MSP" : undefined} />,
@@ -718,7 +724,7 @@ export default function MspExpensesScotlandInvestigation() {
 
       {/* ------------------------------------------------------------ 7 */}
       <Finding n={7} id="commuter-belt-hotels">
-        Edinburgh flats and £10k hotels 35 to 45 miles away
+        Edinburgh flats and £10k hotels 35 to 50 miles away
       </Finding>
       <P>
         Plenty of people travel from Glasgow, Paisley and East Kilbride to Edinburgh every day and
@@ -746,12 +752,13 @@ export default function MspExpensesScotlandInvestigation() {
 
       {/* ------------------------------------------------------------ 8 */}
       <Finding n={8} id="landlords-and-double-jobs">
-        26 landlords and 15 MSPs with council jobs in 2026
+        19 landlords and 15 MSPs with council jobs in 2026
       </Finding>
       <P>
         66 new MSPs arrived after the May 2026 election. Their claims aren&apos;t out yet, but their
-        2026 Register of Interests entries are. <strong>26 of the 129 MSPs</strong> list rental
-        homes, lets, estates or homes abroad.
+        2026 Register of Interests entries are. <strong>26 of the 129 MSPs</strong> list property
+        they own. And <strong>19 MSPs</strong> make money from letting: flats, houses, holiday lets,
+        shops, land, a caravan, or a letting firm.
       </P>
 
       <PartyList
@@ -801,7 +808,7 @@ export default function MspExpensesScotlandInvestigation() {
                 <Link href={msp("constituencies/clackmannanshire-and-dunblane")}>
                   <strong>Keith Brown</strong>
                 </Link>
-                : rented out homes.
+                : half of a home letting firm, and a rented out house.
               </>
             ),
           },

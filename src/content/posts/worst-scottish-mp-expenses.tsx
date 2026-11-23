@@ -104,8 +104,8 @@ function LocalStories() {
 
 const PRINT_AND_POST: { name: string; slug: string; p: PartyKey; seat: string; value: number }[] = [
   { name: "John Grady", slug: "glasgow-east", p: "Labour", seat: "Glasgow East", value: 13116.8 },
-  { name: "Frank McNally", slug: "coatbridge-and-bellshill", p: "Labour", seat: "Coatbridge and Bellshill", value: 9974 },
-  { name: "Andrew Bowie", slug: "west-aberdeenshire-and-kincardine", p: "Conservative", seat: "West Aberdeenshire and Kincardine", value: 5898 },
+  { name: "Frank McNally", slug: "coatbridge-and-bellshill", p: "Labour", seat: "Coatbridge and Bellshill", value: 9974.22 },
+  { name: "Andrew Bowie", slug: "west-aberdeenshire-and-kincardine", p: "Conservative", seat: "West Aberdeenshire and Kincardine", value: 5563.32 },
 ];
 
 const GADGETS: { name: string; slug: string; p: PartyKey; value: number; detail: string }[] = [
@@ -233,7 +233,7 @@ export default function WorstScottishMpExpenses() {
           </>,
           <>
             Just <strong>91 repayments out of 20,879 claims</strong>. IPSA paid the rest, and{" "}
-            <strong>no rules were broken.</strong>
+            <strong>we found no broken rules.</strong>
           </>,
         ]}
       />
@@ -245,7 +245,7 @@ export default function WorstScottishMpExpenses() {
         2026/27, one line at a time. These are the ones that made us read them twice.
       </P>
       <P>
-        Nobody broke a rule here, and that&apos;s the worrying bit. IPSA, the body that runs
+        We found no broken rules, and that&apos;s the worrying bit. IPSA, the body that runs
         MPs&apos; expenses, looked at every one of these and paid it.
       </P>
 
@@ -316,7 +316,7 @@ export default function WorstScottishMpExpenses() {
       >
         <p>
           And the coach used to work at IPSA, the very body that pays the bills.{" "}
-          <strong>12 MPs across the UK paid her firm £16,800</strong> in under a year. He&apos;s
+          <strong>12 MPs across the UK billed IPSA £16,800</strong> for her firm in under a year. He&apos;s
           the only one from Scotland.
         </p>
         <FullStory href={story("torcuil-crichton-mp-coaching-expenses-western-isles")}>
@@ -447,7 +447,7 @@ export default function WorstScottishMpExpenses() {
         footer="Wording as printed by IPSA."
       />
 
-      <ChartFrame kicker="IPSA files · Yearly report leaflets" title="Biggest bills to print and post an MP's report">
+      <ChartFrame kicker="IPSA files · Yearly report leaflets" title="Biggest single bills to print and post an MP's report">
         <RankList
           rows={PRINT_AND_POST.map((r) => ({
             key: r.slug,
@@ -577,8 +577,9 @@ export default function WorstScottishMpExpenses() {
           <strong>The biggest single consultant bill by any Scottish MP</strong>
         </p>
         <p>
-          IPSA hides who got paid. She also billed £4,000 for PR help and £4,691 at IKEA. A £7,000
-          local report was paid back four months later.
+          The file doesn&apos;t say who got paid. She also billed £4,000 for PR help and £4,691 at
+          IKEA. A £7,000 local report, in a claim dated 25 April 2025, was paid back about three
+          months later.
         </p>
       </CaseCard>
 
@@ -605,7 +606,7 @@ export default function WorstScottishMpExpenses() {
         <p>
           <strong>Media help from PR firm BB Partners in Crawley</strong>
         </p>
-        <p>The bill landed on 21 March 2025, ten days before the budget year ended.</p>
+        <p>The claim is dated 21 March 2025, ten days before the budget year ended.</p>
       </CaseCard>
 
       {/* ------------------------------------------------------------ 10 */}
@@ -643,7 +644,7 @@ export default function WorstScottishMpExpenses() {
         <a href={ONS_EARNINGS_2026} target="_blank" rel="noopener noreferrer">
           £39,157 a year before tax
         </a>{" "}
-        in April 2025.
+        in 2025.
       </P>
       <P>
         Is it allowed? Yes. MPs can book hotels instead of renting a flat, and{" "}
@@ -842,9 +843,9 @@ export default function WorstScottishMpExpenses() {
         </div>
       </div>
 
-      <Aside title="All within the rules">
+      <Aside title="No broken rules found">
         <p>
-          None of the claims on this page broke a rule. What needs answering is why IPSA&apos;s rules
+          We found no broken rules in any claim on this page. What needs answering is why IPSA&apos;s rules
           let any of it through. For gifts, free tickets and paid trips, see{" "}
           <Link href="/blog/scottish-mp-expenses-and-freebies-investigation">the freebies MPs declared</Link>
           . For every MP ranked, see <Link href="/mp-expenses-scotland">all 57 Scottish MPs</Link>.

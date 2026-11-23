@@ -115,7 +115,7 @@ export default function TorcuilCrichtonMpCoachingExpensesWesternIsles() {
             expenses.
           </>,
           <>
-            <strong>12 MPs</strong> across the UK paid her new firm <strong>£16,800</strong>. He is
+            <strong>12 MPs</strong> across the UK billed IPSA <strong>£16,800</strong> for her new firm. He is
             the <strong>only Scottish MP</strong> on the list, and sent in more bills than anyone
             else.
           </>,
@@ -272,7 +272,7 @@ export default function TorcuilCrichtonMpCoachingExpensesWesternIsles() {
             children: (
               <>
                 16 separate bills, including £250 for an &ldquo;Advertising board in
-                constituency&rdquo; and £1,825 across four bills to &ldquo;SQ SPORSNIS&rdquo;.
+                constituency&rdquo; and £1,355 across three bills to &ldquo;SQ SPORSNIS&rdquo;.
               </>
             ),
           },
@@ -311,7 +311,7 @@ export default function TorcuilCrichtonMpCoachingExpensesWesternIsles() {
       </Finding>
       <P>
         Here is why this story stinks. On her own website, the coach says she worked inside the
-        House of Commons supporting MPs, and then worked at IPSA dealing directly with MPs.
+        House of Commons supporting MPs, and then worked at IPSA as a Stakeholder Engagement Lead.
       </P>
       <P>
         Companies House shows she formed Lara Lloyd Coaching Ltd on <strong>19 March 2025</strong>.
@@ -352,7 +352,7 @@ export default function TorcuilCrichtonMpCoachingExpensesWesternIsles() {
           },
           {
             key: "worth",
-            title: "What did folk in the islands get for £2,400?",
+            title: "What did people in the islands get for £2,400?",
             children: <>Nobody in the public file has to prove the coaching did a thing.</>,
           },
         ]}

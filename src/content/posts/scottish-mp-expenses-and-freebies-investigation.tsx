@@ -72,7 +72,7 @@ const TRIPS: { key: string; name: string; slug: string; p: PartyKey; value: numb
 ];
 
 const DONATIONS: { name: string; slug: string; p: PartyKey; value: number; detail: string }[] = [
-  { name: "Lillian Jones", slug: "kilmarnock-and-loudoun", p: "Labour", value: 30064, detail: "Mostly £27,564 of staff and help from Best for Britain. It is for a trade group she chairs." },
+  { name: "Lillian Jones", slug: "kilmarnock-and-loudoun", p: "Labour", value: 30064, detail: "Mostly £27,564 of staff and help from Best for Britain, for the UK Trade and Business Commission, a cross party group of MPs she chairs." },
   { name: "Dr Zubir Ahmed", slug: "glasgow-south-west", p: "Labour", value: 30000, detail: "One gift, from Francesca Sainsbury Perrin." },
   { name: "Wendy Chamberlain", slug: "north-east-fife", p: "Lib Dem", value: 27000, detail: "£15,000 from Claire Enders. £12,000 from Patrick Foster." },
   { name: "David Mundell", slug: "dumfriesshire-clydesdale-and-tweeddale", p: "Conservative", value: 22100, detail: "Of this, £11,100 is free adviser time. The Coalition for Global Prosperity pays." },
@@ -96,7 +96,7 @@ export default function Post() {
   return (
     <Prose>
       <Lead>
-        MPs earn £93,904 a year, putting them in the top 5% of UK pay. On top of that come free
+        MPs earned £93,904 in 2025/26 (£98,599 since April 2026), putting them in the top 5% of UK pay. On top of that come free
         F1 tickets, VIP boxes, paid trips to Qatar and China, and £205,242 from donors. Here is who
         took what.
       </Lead>
@@ -188,7 +188,7 @@ export default function Post() {
       <P>
         In February 2026, MPs voted on ending the{" "}
         <Link href="/scottish-child-payment">two child limit on Universal Credit</Link>. That rule
-        stops poor families getting £3,514 a year for a third or later child.
+        stopped poor families getting £3,514 a year for a third or later child. It ended in April 2026.
       </P>
       <P>Five Scottish Tory MPs voted No.</P>
 
@@ -198,7 +198,7 @@ export default function Post() {
         </p>
         <p>
           We went through IPSA&apos;s files for all five. All of it is on top of their £93,904
-          pay.
+          pay that year.
         </p>
       </CaseCard>
 
@@ -257,7 +257,7 @@ export default function Post() {
           {
             key: "gemmell",
             title: <Who face name="Alan Gemmell" href={mp("central-ayrshire")} p="Labour" note="£11,184" />,
-            children: <>China, Angola and Syria.</>,
+            children: <>China, Angola, Syria and Bangladesh (£1,880).</>,
           },
           {
             key: "ward",
@@ -304,7 +304,7 @@ export default function Post() {
       <P>
         <strong>Both MPs married to lobbyists</strong> are Labour too.{" "}
         <Link href={mp("east-kilbride-and-strathaven")}>Joani Reid</Link>&apos;s husband runs and
-        owns over 75% of PR firm Earthcott Ltd, which gave her £2,400 of free media training.
+        owns 75% or more of PR firm Earthcott Ltd, which gave her £2,400 of free media training.
       </P>
       <P>
         <Link href={mp("paisley-and-renfrewshire-south")}>Johanna Baxter</Link>&apos;s husband is
