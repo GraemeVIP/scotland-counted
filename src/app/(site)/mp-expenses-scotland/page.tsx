@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ExpenseStoryIndex } from "@/components/ExpenseStoryRail";
 import Link from "@/components/IntentLink";
 import { Page, ContentFrame, PageHeader, SectionHead, CTA, Callout } from "@/components/Blocks";
 import { ExplainText } from "@/components/ExplainServer";
@@ -273,6 +274,12 @@ const LOCAL_STORIES: LocalStory[] = [
     stat: "£688",
     line: "Four TV licences in 11 months.",
     story: "/blog/gregor-poynton-mp-four-tv-licences-livingston",
+  },
+  {
+    slug: "rutherglen",
+    stat: "£11,753",
+    line: "The Energy Minister's London flights in 2025/26. 92% of his London travel money went on planes.",
+    story: "/blog/energy-minister-michael-shanks-flights-rutherglen",
   },
   {
     slug: "edinburgh-west",
@@ -806,6 +813,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
   const JUMP_LINKS = [
     { href: "#top-claimants", label: "Worst offenders" },
     { href: "#mp-by-mp", label: "MP by MP" },
+    { href: "#all-stories", label: "All stories" },
     { href: "#leaderboard", label: "All 57 MPs" },
     { href: "#party-tally", label: "By party" },
     { href: "#london-record", label: "152 sitting days" },
@@ -1007,6 +1015,21 @@ export default function MpRegisterOfInterestsScotlandPage() {
           </ul>
         </ContentFrame>
 
+        {/* EVERY EXPENSES STORY IN ONE PLACE */}
+        <ContentFrame as="section" id="all-stories" className="pt-12">
+          <SectionHead
+            eyebrow="Every story · MPs and MSPs"
+            title="All our expenses stories"
+          />
+          <p className="mt-2 mb-5 max-w-[66ch] text-[16.5px] leading-[1.55] text-[var(--ink-2)]">
+            <ExplainText>
+              Every story we have written from the MP and MSP expense files, with the one number that
+              matters most.
+            </ExplainText>
+          </p>
+          <ExpenseStoryIndex />
+        </ContentFrame>
+
         {/* THE WORST SINGLE CLAIMS: BIG AND BOLD, NOT BURIED */}
         <ContentFrame as="section" id="you-paid-for" className="pt-12">
           <SectionHead
@@ -1139,12 +1162,12 @@ export default function MpRegisterOfInterestsScotlandPage() {
               {[
                 {
                   stat: "£23,437",
-                  label: "Electricity paid in one day for Kilmarnock's MP (UK #1)",
+                  label: "One energy bill for Kilmarnock's MP, two claims on one day (UK #1)",
                   href: "/blog/kilmarnock-mp-23437-electricity-bill",
                 },
                 {
                   stat: "£2.91m",
-                  label: "To shuttle MPs to London for 152 sitting days (up to £3,007 for each day an MP spoke)",
+                  label: "To shuttle 55 Scottish MPs to London for 152 sitting days (up to £3,007 for each day an MP spoke)",
                   href: "/blog/scottish-mps-london-homes-152-sitting-days",
                 },
                 {

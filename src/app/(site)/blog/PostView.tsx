@@ -15,6 +15,8 @@ import QuickAnswer from "@/components/QuickAnswer";
 import { postPath } from "@/lib/routeMap";
 import ComparePromo from "@/components/ComparePromo";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import { ExpenseStoryRail } from "@/components/ExpenseStoryRail";
+import { EXPENSE_STORY_SLUGS } from "@/lib/data/expenseStories";
 
 /**
  * Posts that end with a pointer to the compare tool, and the area each one is
@@ -158,6 +160,12 @@ export function PostView({ slug }: { slug: string }) {
             </div>
           </div>
         </article>
+
+        {EXPENSE_STORY_SLUGS.has(post.slug) && (
+          <div className="pt-12 max-w-[940px] mx-auto">
+            <ExpenseStoryRail slug={post.slug} />
+          </div>
+        )}
 
         {(COMPARE_POSTS[post.slug] !== undefined || post.category === "poverty-explained") && (
           <div className="pt-14 max-w-[1120px] mx-auto">

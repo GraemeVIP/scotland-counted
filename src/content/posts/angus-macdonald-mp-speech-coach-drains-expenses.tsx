@@ -26,7 +26,6 @@ import {
   RankList,
   Receipt,
   CaseCard,
-  Face,
   Tiles,
   PointList,
   Expand,
@@ -53,15 +52,6 @@ function Finding({ n, id, children }: { n: number; id: string; children: ReactNo
 }
 
 /** Other MPs with their own local story page, linked near the end. */
-const MORE_LOCAL_STORIES: { name: string; seat: string; place: string; hook: string; story: string }[] = [
-  { name: "Torcuil Crichton", seat: "na-h-eileanan-an-iar", place: "Western Isles", hook: "£2,400 coaching from a former IPSA worker", story: "/blog/torcuil-crichton-mp-coaching-expenses-western-isles" },
-  { name: "Lillian Jones", seat: "kilmarnock-and-loudoun", place: "Kilmarnock", hook: "£23,437 energy bill in one day", story: "/blog/kilmarnock-mp-23437-electricity-bill" },
-  { name: "Chris Law", seat: "dundee-central", place: "Dundee", hook: "£3,090 to set up home broadband", story: "/blog/chris-law-mp-3090-broadband-expenses-dundee" },
-  { name: "Euan Stainbank", seat: "falkirk", place: "Falkirk", hook: "£3,300 for a board advertising himself", story: "/blog/euan-stainbank-mp-billboard-expenses-falkirk" },
-  { name: "Christine Jardine", seat: "edinburgh-west", place: "Edinburgh West", hook: "£510 Christmas lunch and team day", story: "/blog/christine-jardine-mp-christmas-lunch-expenses" },
-  { name: "John Lamont", seat: "berwickshire-roxburgh-and-selkirk", place: "Borders", hook: "Two iPhones on expenses", story: "/blog/john-lamont-mp-iphone-expenses-borders" },
-];
-
 /* ------------------------------------------------------------------ */
 /* Data                                                                */
 /* ------------------------------------------------------------------ */
@@ -413,36 +403,6 @@ export default function AngusMacdonaldMpSpeechCoachDrainsExpenses() {
           footer="Wording as printed by IPSA. Speech workshop claim number: 60316967-1 (2025/26). Every line is marked Paid. £0 repaid."
         />
       </Expand>
-
-      <section aria-labelledby="more-local-stories" className="not-prose my-10">
-        <h2
-          id="more-local-stories"
-          className="ui text-[20px] font-[700] leading-[1.25] text-[var(--ink)] sm:text-[22px]"
-        >
-          More local MP stories
-        </h2>
-        <p className="ui mt-1 text-[15px] leading-[1.5] text-[var(--muted)]">
-          One MP, one town, one bill. Is yours here?
-        </p>
-        <ul className="mt-4 divide-y divide-[var(--rule)] rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] px-4 sm:px-5">
-          {MORE_LOCAL_STORIES.map((s) => (
-            <li key={s.story} className="flex items-center gap-3 py-3.5">
-              <Face name={s.name} href={mp(s.seat)} size={44} />
-              <div className="min-w-0 flex-1">
-                <Link href={s.story} className="ui text-[16px] font-[660] leading-[1.35]">
-                  {s.hook} →
-                </Link>
-                <p className="ui mt-0.5 text-[13.5px] leading-[1.4] text-[var(--muted)]">
-                  <Link href={mp(s.seat)} className="text-[var(--muted)]">
-                    {s.name}
-                  </Link>{" "}
-                  · {s.place}
-                </p>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </section>
 
       <PostCTA
         title="See every claim Angus MacDonald has made"

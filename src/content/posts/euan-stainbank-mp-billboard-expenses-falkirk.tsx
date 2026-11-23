@@ -27,7 +27,6 @@ import {
   RankList,
   Receipt,
   CaseCard,
-  Face,
   Tiles,
   PointList,
   Expand,
@@ -54,15 +53,6 @@ function Finding({ n, id, children }: { n: number; id: string; children: ReactNo
 }
 
 /** Other MPs with their own local story page, linked near the end. */
-const MORE_LOCAL_STORIES: { name: string; seat: string; place: string; hook: string; story: string }[] = [
-  { name: "Lillian Jones", seat: "kilmarnock-and-loudoun", place: "Kilmarnock", hook: "£23,437 energy bill in one day", story: "/blog/kilmarnock-mp-23437-electricity-bill" },
-  { name: "Chris Law", seat: "dundee-central", place: "Dundee", hook: "£3,090 to set up home broadband", story: "/blog/chris-law-mp-3090-broadband-expenses-dundee" },
-  { name: "Angus MacDonald", seat: "inverness-skye-and-west-ross-shire", place: "Inverness and Skye", hook: "£3,000 speech coach and £546 drains", story: "/blog/angus-macdonald-mp-speech-coach-drains-expenses" },
-  { name: "Pamela Nash", seat: "motherwell-wishaw-and-carluke", place: "Motherwell", hook: "£7,203 in one week, from DFS to a new carpet", story: "/blog/pamela-nash-mp-furniture-expenses-motherwell" },
-  { name: "Torcuil Crichton", seat: "na-h-eileanan-an-iar", place: "Western Isles", hook: "£2,400 coaching from a former IPSA worker", story: "/blog/torcuil-crichton-mp-coaching-expenses-western-isles" },
-  { name: "Gregor Poynton", seat: "livingston", place: "Livingston", hook: "Four TV licences in 11 months", story: "/blog/gregor-poynton-mp-four-tv-licences-livingston" },
-];
-
 /* ------------------------------------------------------------------ */
 /* Data                                                                */
 /* ------------------------------------------------------------------ */
@@ -416,36 +406,6 @@ export default function EuanStainbankMpBillboardExpensesFalkirk() {
           or compare <Link href="/mp-expenses-scotland">all 57 Scottish MPs</Link>.
         </p>
       </Aside>
-
-      <section aria-labelledby="more-local-stories" className="not-prose my-10">
-        <h2
-          id="more-local-stories"
-          className="ui text-[20px] font-[700] leading-[1.25] text-[var(--ink)] sm:text-[22px]"
-        >
-          More local MP stories
-        </h2>
-        <p className="ui mt-1 text-[15px] leading-[1.5] text-[var(--muted)]">
-          One MP, one town, one bill. Is yours here?
-        </p>
-        <ul className="mt-4 divide-y divide-[var(--rule)] rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] px-4 sm:px-5">
-          {MORE_LOCAL_STORIES.map((s) => (
-            <li key={s.story} className="flex items-center gap-3 py-3.5">
-              <Face name={s.name} href={mp(s.seat)} size={44} />
-              <div className="min-w-0 flex-1">
-                <Link href={s.story} className="ui text-[16px] font-[660] leading-[1.35]">
-                  {s.hook} →
-                </Link>
-                <p className="ui mt-0.5 text-[13.5px] leading-[1.4] text-[var(--muted)]">
-                  <Link href={mp(s.seat)} className="text-[var(--muted)]">
-                    {s.name}
-                  </Link>{" "}
-                  · {s.place}
-                </p>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </section>
 
       <PostCTA
         title="See every claim Euan Stainbank has made"
