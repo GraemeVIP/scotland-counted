@@ -53,8 +53,8 @@ export default function AnnouncementBar() {
               You paid £23,437 for one MP&apos;s energy bill. <span className="font-[800]">Is your MP on the list?</span>
             </span>
             <span className="hidden sm:inline">
-              You paid £67,519 for one Glasgow MP&apos;s London hotels, the most in the UK, and £23,437
-              for a Kilmarnock MP&apos;s energy bill. <span className="font-[800]">Is your MP on the list?</span>
+              You paid £67,519 for one Glasgow MP&apos;s London hotels.{" "}
+              <span className="font-[800]">Is your MP on the list?</span>
             </span>
           </span>
           <span
