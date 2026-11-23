@@ -44,11 +44,11 @@ export const metadata = meta({
   type: "article",
   published: PUBLISHED_ISO,
   modified: MODIFIED_ISO,
-  image: HERO_IMAGE.src,
+  image: "/images/share/mp-expenses-scotland-hub.jpg",
   imageAlt: HERO_IMAGE.alt,
-  imageWidth: HERO_IMAGE.width,
-  imageHeight: HERO_IMAGE.height,
-  imageType: "image/webp",
+  imageWidth: 1200,
+  imageHeight: 630,
+  imageType: "image/jpeg",
 });
 
 const poundsExact = new Intl.NumberFormat("en-GB", {

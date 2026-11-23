@@ -26,11 +26,11 @@ export const metadata = meta({
     "Calculate Land and Buildings Transaction Tax (LBTT) in Scotland for 2026/27. Includes first-time buyer relief up to £175,000 and the 8% ADS second home rate.",
   path: "/lbtt-calculator-scotland",
   type: "website",
-  image: HERO_IMAGE.src,
+  image: "/images/share/lbtt-calculator-scotland-stamp-duty.jpg",
   imageAlt: HERO_IMAGE.alt,
-  imageWidth: HERO_IMAGE.width,
-  imageHeight: HERO_IMAGE.height,
-  imageType: "image/webp",
+  imageWidth: 1200,
+  imageHeight: 630,
+  imageType: "image/jpeg",
 });
 
 const money = new Intl.NumberFormat("en-GB", {

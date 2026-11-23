@@ -18,11 +18,11 @@ export const metadata = meta({
   type: "article",
   published: PUBLISHED_ISO,
   modified: "2026-11-22",
-  image: "/images/editorial/mp-msp-receipt-finder-scotland.webp",
+  image: "/images/share/mp-msp-receipt-finder-scotland.jpg",
   imageAlt: "Two open oak archival filing drawers side by side holding Westminster and Holyrood expense receipt folders under a brass banker's lamp",
-  imageWidth: 1500,
-  imageHeight: 1000,
-  imageType: "image/webp",
+  imageWidth: 1200,
+  imageHeight: 630,
+  imageType: "image/jpeg",
 });
 
 export default function MpReceiptsSearchPage() {

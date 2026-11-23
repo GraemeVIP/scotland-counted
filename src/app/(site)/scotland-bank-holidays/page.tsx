@@ -23,11 +23,11 @@ export const metadata = meta({
     "Every official Scottish bank holiday for 2026, 2027 and 2028, including substitute days, how Scotland differs from England, and benefit payment date changes.",
   path: "/scotland-bank-holidays",
   type: "website",
-  image: HERO_IMAGE.src,
+  image: "/images/share/scotland-bank-holidays-calendar.jpg",
   imageAlt: HERO_IMAGE.alt,
-  imageWidth: HERO_IMAGE.width,
-  imageHeight: HERO_IMAGE.height,
-  imageType: "image/webp",
+  imageWidth: 1200,
+  imageHeight: 630,
+  imageType: "image/jpeg",
 });
 
 const HOLIDAYS_2026 = [

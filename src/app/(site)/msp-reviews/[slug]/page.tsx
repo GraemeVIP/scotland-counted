@@ -29,11 +29,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: `${profile.msp.name} MSP Reviews`,
     description: `Read moderated, firsthand reviews of ${profile.msp.name}, ${profile.msp.party} MSP for ${profile.areas.join(", ")}, or submit your own experience.`,
     path: `/msp-reviews/${profile.slug}`,
-    image: "/images/social/refresh-msp-social.webp",
+    image: "/images/share/refresh-msp-social.jpg",
     imageAlt: "A blank sheet of paper, pen and laptop on a desk overlooking a city",
-    imageWidth: 1500,
-    imageHeight: 1000,
-    imageType: "image/webp",
+    imageWidth: 1200,
+    imageHeight: 630,
+    imageType: "image/jpeg",
   });
   return reviews.length
     ? metadata
