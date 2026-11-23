@@ -730,6 +730,18 @@ export const terms: Term[] = [
     tech: "Examples include an official budget, audit report, regulator notice or written parliamentary answer.",
   },
   {
+    id: "political-bias",
+    term: "Political bias",
+    def: "Leaning towards one party or side, so the facts you pick and how you tell them favour that side.",
+    tech: "A paper can be biased without printing anything false: it chooses which numbers to show, which to leave out and how to frame them. We show the same figures for every party and link each one to its source.",
+  },
+  {
+    id: "objective",
+    term: "Objective",
+    def: "Based on facts anyone can check, not on someone's opinion or feelings.",
+    tech: "An objective claim can be tested against the original record. If two people check the same source, they should get the same answer.",
+  },
+  {
     id: "embezzlement",
     term: "Embezzlement",
     def: "Using money you were trusted to look after for a purpose you were not allowed to use it for.",

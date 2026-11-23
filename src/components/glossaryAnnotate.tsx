@@ -130,6 +130,7 @@ const AUTO_GLOSSARY_IDS = [
   "cumulative",
   "like-for-like",
   "primary-source",
+  "political-bias",
   "embezzlement",
   "embezzled",
   "ring-fenced",
