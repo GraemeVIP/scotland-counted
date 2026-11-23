@@ -1,4 +1,4 @@
-import { Page, ContentFrame, PageHeader, SectionHead } from "@/components/Blocks";
+import { Page, ContentFrame, PageHeader, SectionHead, HeaderFacts } from "@/components/Blocks";
 import QuickAnswer from "@/components/QuickAnswer";
 import Faq from "@/components/Faq";
 import AreaComparePicker from "@/components/AreaComparePicker";
@@ -120,7 +120,19 @@ export default function GlasgowVsEdinburghPage() {
         ]} />
       <JsonLd data={faqJsonLd(FAQ)} />
       <Page>
-        <PageHeader eyebrow="Compare areas" title="Glasgow vs Edinburgh" lede={`${verdict} ${cost}`}>
+        <PageHeader
+          eyebrow="Compare areas"
+          title="Glasgow vs Edinburgh"
+          lede={`${verdict} ${cost}`}
+          panel={
+            <HeaderFacts
+              items={[
+                { value: `${edinburghWins} of ${scored.length}`, label: "measures where Edinburgh comes out better" },
+                { value: `${glasgowWins} of ${scored.length}`, label: "measures where Glasgow comes out better" },
+              ]}
+            />
+          }
+        >
           <Freshness updated={UPDATED} checked={CHECKED} />
           <SharePage
             title="Glasgow vs Edinburgh on official figures"

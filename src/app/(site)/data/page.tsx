@@ -1,5 +1,5 @@
 import Link from "@/components/IntentLink";
-import { Page, ContentFrame, Col, PageHeader, CTA } from "@/components/Blocks";
+import { Page, ContentFrame, Col, PageHeader, CTA, HeaderFacts } from "@/components/Blocks";
 import { JsonLd, datasetJsonLd, meta } from "@/lib/seo";
 import { site } from "@/lib/site";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -303,6 +303,15 @@ export default function Data() {
           eyebrow="Free to download and reuse"
           title="Download Scotland data"
           lede="This is the proof behind the simple pages. Twenty four downloadable files: 19 CSVs, two Excel workbooks, two method notes and one source manifest. Seventeen I prepared and documented; the other seven are the publishers' own files, served exactly as they came, so you can check my working against them."
+          panel={
+            <HeaderFacts
+              items={[
+                { value: String(FILES.length), label: "files to download, free to reuse" },
+                { value: String(FILES.filter((f) => f.kind === "prepared").length), label: "files I prepared and documented" },
+                { value: String(FILES.filter((f) => f.kind === "original").length), label: "publishers' own files, exactly as they came" },
+              ]}
+            />
+          }
         />
 
         <ContentFrame>

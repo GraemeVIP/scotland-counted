@@ -104,6 +104,10 @@ export default function CheapestPlacePage() {
           eyebrow="Your area · Rankings"
           title="Cheapest place to live in Scotland"
           lede={`${areaName(cheapest.slug)} is the cheapest place to live in Scotland for buying a home: ${pounds(cheapest.value)} on average, against ${pounds(scotlandHouse)} across Scotland. Here is every council area, with rent, council tax and how many years of local pay a home costs.`}
+          stat={{
+            value: pounds(cheapest.value),
+            label: `average home price in ${areaName(cheapest.slug)}, the cheapest area in Scotland.`,
+          }}
         >
           <Freshness updated={UPDATED} checked={CHECKED} />
           <SharePage

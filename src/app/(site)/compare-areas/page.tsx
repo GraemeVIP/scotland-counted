@@ -1,12 +1,12 @@
 import { redirect } from "next/navigation";
-import { Page, ContentFrame, PageHeader, SectionHead } from "@/components/Blocks";
+import { Page, ContentFrame, PageHeader, SectionHead, HeaderFacts } from "@/components/Blocks";
 import { RankingLinks } from "@/components/AreaRanking";
 import AreaComparePicker from "@/components/AreaComparePicker";
 import AreaComparison from "@/components/AreaComparison";
 import SharePage from "@/components/SharePage";
 import { meta } from "@/lib/seo";
 import { councils } from "@/lib/data/councils";
-import { COMPARE_DEFAULTS } from "@/lib/data/compareAreas";
+import { COMPARE_DEFAULTS, COMPARE_METRICS, winner } from "@/lib/data/compareAreas";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import NextStepStrip from "@/components/NextStepStrip";
 import { councilTaxPath } from "@/lib/routeMap";
@@ -55,6 +55,10 @@ export default async function CompareAreasPage({
   }
 
   const nameOf = (slug: string) => councils.find((c) => c.slug === slug)?.name ?? slug;
+  // The same tally the comparison's scoreboard shows below.
+  const results = COMPARE_METRICS.map((m) => winner(m, a, b)).filter((w) => w === "a" || w === "b");
+  const aWins = results.filter((w) => w === "a").length;
+  const bWins = results.filter((w) => w === "b").length;
 
   return (
     <>
@@ -68,6 +72,14 @@ export default async function CompareAreasPage({
           eyebrow="Your area · Compare"
           title="Compare areas in Scotland"
           lede="Pick any two council areas, or type two postcodes, and see them side by side: pay, homes, jobs, crime, poverty, health, schools and how the council performs. Every figure is the latest official one, with its source."
+          panel={
+            <HeaderFacts
+              items={[
+                { value: `${aWins} of ${results.length}`, label: `measures where ${nameOf(a)} comes out better` },
+                { value: `${bWins} of ${results.length}`, label: `measures where ${nameOf(b)} comes out better` },
+              ]}
+            />
+          }
         >
           <SharePage
             title={`${councils.find((c) => c.slug === a)?.name ?? a} vs ${councils.find((c) => c.slug === b)?.name ?? b}`}

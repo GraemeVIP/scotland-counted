@@ -123,6 +123,10 @@ export default function BestPlaceToLivePage() {
           eyebrow="Your area · Rankings"
           title="Best place to live in Scotland"
           lede={`${areaName(first.slug)} comes out top on the official figures, followed by ${areaName(second.slug)} and ${areaName(third.slug)}. Here is every council area in Scotland ranked on pay, jobs, poverty, crime, health and schools.`}
+          stat={{
+            value: `${Math.round(first.score)}`,
+            label: `out of 100 for ${areaName(first.slug)}, the top area in Scotland on pay, jobs, poverty, crime, health and schools.`,
+          }}
         >
           <Freshness updated={UPDATED} checked={CHECKED} />
           <SharePage

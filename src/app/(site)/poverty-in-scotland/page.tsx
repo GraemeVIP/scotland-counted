@@ -1,6 +1,6 @@
 import Link from "@/components/IntentLink";
 import ComparePromo from "@/components/ComparePromo";
-import { Page, ContentFrame, PageHeader, InShort, CTA, Card } from "@/components/Blocks";
+import { Page, ContentFrame, PageHeader, InShort, CTA, Card, HeaderFacts } from "@/components/Blocks";
 import { meta } from "@/lib/seo";
 import { scotlandPoverty } from "@/lib/data/scotland";
 import { getSources } from "@/lib/data/sources";
@@ -56,6 +56,7 @@ export default function PovertyHub() {
           eyebrow="Poverty in Scotland"
           title="Poverty in Scotland: the figures, the causes and who can fix it"
           lede={`${p.all.pct}% of people in Scotland were living in relative poverty after housing costs in ${p.period}. Three quarters of the children among them live in a household where somebody works.`}
+          panel={<HeaderFacts label={`Scotland, ${p.period}`} items={HEADLINES} />}
         />
 
         <ContentFrame>

@@ -3,7 +3,7 @@ import { councilTaxPath } from "@/lib/routeMap";
 import { notFound } from "next/navigation";
 import { G, PlainText } from "@/components/Glossary";
 import Faq from "@/components/Faq";
-import { CTA, ContentFrame, EvidenceDetails, InShort, Page, PageHeader } from "@/components/Blocks";
+import { CTA, ContentFrame, EvidenceDetails, HeaderFacts, InShort, Page, PageHeader } from "@/components/Blocks";
 import {
   councilAccountabilityRecords,
   getCouncilAccountability,
@@ -211,6 +211,21 @@ export default async function CouncilAccountabilityPage({
           eyebrow={`Holding the council to account · Checked ${record.lastReviewedOn}`}
           title={`${record.councilName}: what was promised and what happened`}
           lede={<PlainText text={record.summary} />}
+          stat={
+            performanceIndex
+              ? {
+                  value: `#${performanceIndex.overallRank}`,
+                  label: "of 32 councils in the Scotland Counted council index. It is built from 53 official figures.",
+                }
+              : undefined
+          }
+          panel={
+            <HeaderFacts
+              items={quickReadCards
+                .filter((card) => card.value.trim() !== ",")
+                .map((card) => ({ value: card.value, label: card.label }))}
+            />
+          }
         >
           <SharePage
             title={`${record.councilName}: budget and performance`}

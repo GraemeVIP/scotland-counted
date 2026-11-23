@@ -54,6 +54,10 @@ export default function CouncilsPage() {
           eyebrow="Your money. Their choices."
           title="What is your council doing with the money?"
           lede="You pay for your council. This section shows what they promised and what really happened. The watchdogs checked. Every fact links to the paper it came from."
+          stat={{
+            value: `${NATIONAL.councilsWithGap} of ${NATIONAL.councilsTotal}`,
+            label: `councils said they needed more money this year. Only ${NATIONAL.surplusCouncil} said it had money left over.`,
+          }}
         />
 
         <ContentFrame>

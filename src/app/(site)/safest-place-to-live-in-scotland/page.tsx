@@ -92,6 +92,11 @@ export default function SafestPlacePage() {
           eyebrow="Your area · Rankings"
           title="Safest place to live in Scotland"
           lede={`${areaName(safest.slug)} is the safest place to live in Scotland on police figures: ${whole(safest.value)} recorded crimes for every 10,000 people in ${crime.period}, against ${whole(scotland)} across Scotland. Here is every council area, with violent crime, break ins and the change on last year.`}
+          stat={{
+            value: whole(safest.value),
+            label: `recorded crimes for every 10,000 people in ${areaName(safest.slug)}, the lowest in Scotland. Across Scotland it is ${whole(scotland)}.`,
+            tone: "good",
+          }}
         >
           <Freshness updated={UPDATED} checked={CHECKED} />
           <SharePage

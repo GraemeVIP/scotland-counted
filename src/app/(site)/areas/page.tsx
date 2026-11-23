@@ -58,6 +58,11 @@ export default function Areas() {
           eyebrow="All 32 Scottish council areas"
           title="Child poverty, work and pay across Scotland's 32 council areas"
           lede={`Choose an area for a clear answer first, then open the exact figures and sources. Things got worse in ${rose} of 32 areas over the last ten years.`}
+          stat={{
+            value: `${byLevel[0].pcts[9]}%`,
+            label: `of children in ${byLevel[0].name} were growing up in poverty in ${last}. That is the highest of Scotland's 32 council areas.`,
+            tone: "bad",
+          }}
         />
 
         <InShort>
