@@ -9,7 +9,11 @@ import { Prose, P, Aside, PostCTA } from "@/components/Prose";
  * scheme (September 2025, paragraphs 59 and 67), Holyrood vote records
  * for 2024/25, and the Official Report of 11 November 2026.
  * Distances are straight lines from each seat's main town to Holyrood,
- * except where an MSP has said publicly where they live.
+ * except where an MSP has said publicly where they live. 2025/26 council
+ * tax paid early in March 2025 (Dey, Gougeon, Nicoll, Simpson) sits in the
+ * 2024/25 files; the commuter belt list shows each flat's own year.
+ * 300% premium: City of Edinburgh Council second home council tax page,
+ * and Holyrood magazine, 27 August 2026.
  */
 
 import {
@@ -47,16 +51,23 @@ const GIBSON = {
   place: "Cunninghame North, lives in Kilbirnie",
 };
 
-/** Commuter belt renters, 2024/25. Flat costs = rent, council tax, bills. */
-const NEAR: { name: string; href?: string; p: PartyKey; seat: string; miles: number; cost: number }[] = [
-  { name: "Màiri McAllan", href: msp("constituencies/clydesdale"), p: "SNP", seat: "Clydesdale (Lanark)", miles: 30, cost: 2392 },
+/**
+ * Commuter belt renters, 2024/25. Flat costs = rent, council tax, bills,
+ * phone, insurance. Council tax for 2025/26 paid early is left out and noted.
+ * Former MSPs have no profile page here, so they are not linked.
+ */
+const NEAR: { name: string; href?: string; p: PartyKey; seat: string; miles: number; cost: number; note?: string }[] = [
+  { name: "Màiri McAllan", href: msp("constituencies/clydesdale"), p: "SNP", seat: "Clydesdale (Lanark)", miles: 30, cost: 2505, note: "Her flat claims stopped in July 2024." },
+  { name: "Rachael Hamilton", href: msp("constituencies/ettrick-roxburgh-and-berwickshire"), p: "Conservative", seat: "Ettrick, Roxburgh and Berwickshire (Hawick)", miles: 40, cost: 19640 },
   { name: "Collette Stevenson", href: msp("constituencies/east-kilbride"), p: "SNP", seat: "East Kilbride", miles: 41, cost: 16588 },
   { name: "Jackson Carlaw", p: "Conservative", seat: "Eastwood (Newton Mearns)", miles: 47, cost: 13343 },
-  { name: "Graeme Dey", p: "SNP", seat: "Angus South (Arbroath)", miles: 48, cost: 20393 },
+  { name: "Graeme Dey", p: "SNP", seat: "Angus South (Arbroath)", miles: 48, cost: 18800, note: "Plus £1,923 of next year's council tax, paid early in March 2025." },
+  { name: "Elena Whitham", p: "SNP", seat: "Carrick, Cumnock and Doon Valley (Cumnock)", miles: 55, cost: 15742 },
   { name: "Willie Coffey", p: "SNP", seat: "Kilmarnock and Irvine Valley", miles: 56, cost: 18852 },
+  { name: "Mairi Gougeon", p: "SNP", seat: "Angus North and Mearns (Montrose)", miles: 59, cost: 17074, note: "Plus £5,949 of next year's council tax, paid early in March 2025." },
+  { name: "Kenneth Gibson", href: msp("constituencies/cunninghame-north"), p: "SNP", seat: "Cunninghame North (Kilbirnie)", miles: 60, cost: 23053 },
   { name: "Stuart McMillan", href: msp("constituencies/inverclyde"), p: "SNP", seat: "Greenock and Inverclyde", miles: 61, cost: 18815 },
-  { name: "Kenneth Gibson", href: msp("constituencies/cunninghame-north"), p: "SNP", seat: "Cunninghame North (Kilbirnie)", miles: 62, cost: 23053 },
-  { name: "Ruth Maguire", p: "SNP", seat: "Cunninghame South (Irvine)", miles: 62, cost: 13545 },
+  { name: "Ruth Maguire", p: "SNP", seat: "Cunninghame South (Irvine)", miles: 63, cost: 13545 },
   { name: "Siobhian Brown", href: msp("constituencies/ayr"), p: "SNP", seat: "Ayr", miles: 66, cost: 17587 },
 ];
 
@@ -82,7 +93,7 @@ export default function MspEdinburghFlatsCommuterBelt() {
             on the flat list. Glasgow city isn&apos;t.
           </>,
           <>
-            Kenneth Gibson&apos;s flat claims hit the limit <strong>to the penny</strong>, two years
+            <Link href={GIBSON.href}>Kenneth Gibson</Link>&apos;s flat claims hit the limit <strong>to the penny</strong>, two years
             running. Double council tax then went on top.
           </>,
           <>
@@ -107,7 +118,10 @@ export default function MspEdinburghFlatsCommuterBelt() {
           On 11 November 2026 he told Parliament about &ldquo;the situation where I live, in East
           Kilbride&rdquo;. In the same speech: &ldquo;People like me are forced to use cars&rdquo;.
         </p>
-        <p>He also billed £4,085 for Edinburgh hotels that year, on top of the flat.</p>
+        <p>
+          He also billed £4,085 for Edinburgh hotels that year. Every night of it was from April to
+          June 2024, while he moved into the flat.
+        </p>
       </Spotlight>
 
       {/* ------------------------------------------------------------ 1 */}
@@ -122,9 +136,9 @@ export default function MspEdinburghFlatsCommuterBelt() {
 
       <Tiles
         items={[
-          { value: "Group 1", label: "Edinburgh, West Lothian and part of Midlothian. Nothing at all." },
+          { value: "Group 1", label: "Edinburgh, West Lothian, Falkirk East and Linlithgow, and part of Midlothian. Nothing at all." },
           { value: "Group 2", label: "Under 90 minutes away: Glasgow city, Fife, Dundee, Stirling. Hotel nights only." },
-          { value: "Group 3", label: "Over 90 minutes away. A whole flat, up to £22,400 a year.", hot: true },
+          { value: "Group 3", label: "Over 90 minutes away. A whole flat, up to £22,400 a year in 2026/27.", hot: true },
         ]}
       />
 
@@ -144,16 +158,16 @@ export default function MspEdinburghFlatsCommuterBelt() {
         East Kilbride: 50 miles, two MSPs, two flats
       </Finding>
       <P>
-        Holyrood&apos;s expense rules are set by a small group of MSPs who run the Parliament. In
-        September 2026, their own staff wrote them{" "}
+        Holyrood&apos;s expense rules are drawn up by a small group of MSPs who run the Parliament.
+        Then the whole Parliament votes them through. In September 2026, their own staff wrote them{" "}
         <a href="https://www.parliament.scot/-/media/files/spcb/spcb-papers/spcb-papers-2026/10-september/spcb-2026-paper-60.pdf">a report on the flat rules</a>. In it, they admitted the problem in black and white.
         They listed <strong>East Kilbride at 50 miles</strong> from Parliament, and Scone at 47. Both
         are on the flat list.
       </P>
       <P>
         Two MSPs who live in East Kilbride had taxpayers rent them an Edinburgh flat in 2024/25. One
-        is Graham Simpson, at the top of this page. The other is Collette Stevenson, the MSP for East
-        Kilbride. Between them that&apos;s <strong>£38,832</strong>.
+        is <Link href={SIMPSON.href}>Graham Simpson</Link>, at the top of this page. The other is{" "}
+        <Link href={STEVENSON.href}>Collette Stevenson</Link>, the MSP for East Kilbride. Between them that&apos;s <strong>£38,832</strong>.
       </P>
 
       <CaseCard kicker="Edinburgh flat, 2024/25" figure="£16,588" people={[STEVENSON]}>
@@ -199,6 +213,7 @@ export default function MspEdinburghFlatsCommuterBelt() {
           side: `${r.miles} miles`,
           value: r.cost,
           label: `£${r.cost.toLocaleString("en-GB")}`,
+          detail: r.note,
         }))}
       />
 
@@ -224,9 +239,26 @@ export default function MspEdinburghFlatsCommuterBelt() {
       <P>
         We&apos;ve already shown{" "}
         <Link href="/blog/msp-expenses-scotland-investigation#double-council-tax">
-          the council tax MSPs billed jumped from £72,822 to £161,374
+          the council tax MSPs billed went from £72,822 to £161,374
         </Link>{" "}
-        in a year.
+        in a year. £16,442 of the 2024/25 bills was next year&apos;s tax, paid early. Take it out and
+        the bill still nearly doubled.
+      </P>
+      <P>
+        And it&apos;s about to get bigger. From 1 January 2027,{" "}
+        <a href="https://www.edinburgh.gov.uk/council-tax/second-home-council-tax">
+          City of Edinburgh Council
+        </a>{" "}
+        raises its second home premium from 100% to <strong>300%</strong>. That&apos;s four times the
+        normal council tax.
+      </P>
+      <P>
+        The MSPs who run the Parliament asked the council to let MSPs off. In August 2026,{" "}
+        <a href="https://www.holyrood.com/news/view,edinburgh-councillors-reject-msps-calls-for-exemption-from-council-tax-premium">
+          councillors said no
+        </a>
+        . As the rules are written, the premium goes on top of the limit, with no cap. So taxpayers
+        would cover the bigger bill too.
       </P>
 
       <CaseCard kicker="Kilbirnie to Holyrood, 2024/25" figure="£23,053" people={[GIBSON]}>
@@ -239,9 +271,9 @@ export default function MspEdinburghFlatsCommuterBelt() {
           penny.
         </p>
         <p>
-          In 2024/25 his rent claims stopped in February at an odd <strong>£508.27</strong>. That took
-          his rent and normal council tax to <strong>£20,700.00</strong>. The limit, to the penny,
-          again. Then £2,352.50 of double council tax went on top.
+          In 2024/25 his rent claims stopped in February at an odd <strong>£508.27</strong>. His rent,
+          plus £3,141.73 of council tax, came to exactly <strong>£20,700.00</strong>. The limit, to the
+          penny, again. The other £2,352.50 of council tax went on top.
         </p>
         <p>
           <strong>Two years in a row, his claims landed exactly on the limit, to the penny.</strong>
@@ -251,11 +283,6 @@ export default function MspEdinburghFlatsCommuterBelt() {
           Holyrood&apos;s debates.
         </p>
       </CaseCard>
-
-      <P>
-        <Link href={SIMPSON.href}>Graham Simpson</Link> went over the limit too. His flat cost
-        taxpayers £22,244 that year.
-      </P>
 
       {/* ------------------------------------------------------------ 5 */}
       <Finding n={5} of={FINDINGS} id="hotels-vs-flats">
@@ -283,8 +310,9 @@ export default function MspEdinburghFlatsCommuterBelt() {
         or Thursday. Mondays and Fridays are kept for work back home.
       </P>
       <P>
-        Of the 62 MSPs allowed a flat, <strong>37</strong> took one. Holyrood&apos;s staff still said
-        keep the flats. Their reasons: hotel prices are going up, and MSPs told them a flat is handier.
+        When Holyrood&apos;s staff checked in September 2025, <strong>37</strong> of the 62 MSPs allowed
+        a flat had one. The 2024/25 files show 36 claiming rent. Holyrood&apos;s staff still said keep
+        the flats. Their reasons: hotel prices are going up, and MSPs told them a flat is handier.
       </P>
 
       <PointList
@@ -311,8 +339,14 @@ export default function MspEdinburghFlatsCommuterBelt() {
         <div className="space-y-3 text-[16px] leading-[1.6] text-[var(--ink-2)]">
           <p>
             Flat costs come from Holyrood&apos;s own expense files for 2024/25. We added up rent, council
-            tax, bills, phone, insurance and deposits for each flat. 36 MSPs claimed rent. Their flats
-            came to £623,696. Of that, £454,525 was rent. Hotels and meals are not in that total.
+            tax, bills, phone, insurance, factoring and removal costs for each flat. There were no
+            deposits that year. 36 MSPs claimed rent. Their flats came to £623,696. Of that, £454,525
+            was rent. Hotels and meals are not in that total.
+          </p>
+          <p>
+            Four MSPs paid some 2025/26 council tax early, in March 2025. It sits in the 2024/25 files,
+            so it is in the £623,696 and the £161,374. In the commuter belt list we take it out and say
+            how much it was.
           </p>
           <p>
             The groups come from the MSP expenses rules. The East Kilbride and Scone miles come from a
@@ -321,9 +355,19 @@ export default function MspEdinburghFlatsCommuterBelt() {
             Holyrood&apos;s own review in September 2025. The 83 voting days come from its vote records.
           </p>
           <p>
-            The yearly flat limits (£19,700 in 2023/24 and £20,700 in 2024/25) come from
-            Holyrood&apos;s rates page. The rule that puts double council tax on top of the limit is
-            paragraph 2.1.5 of the MSP expenses rules.
+            The yearly flat limits come from Holyrood&apos;s rates page, as saved by the Internet
+            Archive:{" "}
+            <a href="https://web.archive.org/web/20231203133949/https://www.parliament.scot/msps/members-expenses/allowances-rates">
+              £19,700 in 2023/24
+            </a>{" "}
+            and{" "}
+            <a href="https://web.archive.org/web/20240613224955/https://www.parliament.scot/msps/members-expenses/allowances-rates">
+              £20,700 in 2024/25
+            </a>
+            . The rule that puts double council tax on top of the limit is
+            paragraph 2.1.5 of the MSP expenses rules. The rules are drawn up by the MSPs who run the
+            Parliament and agreed by the whole Parliament (Paper 60, paragraph 11). The 300% premium
+            comes from the council&apos;s own page and Holyrood magazine (27 August 2026).
           </p>
           <p>
             Graham Simpson&apos;s words come from what was said in Holyrood on 11 November 2026. Collette

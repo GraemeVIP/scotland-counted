@@ -132,7 +132,7 @@ export default function PamelaNashMpFurnitureExpensesMotherwell() {
           </>,
           <>
             Seven bills worth <strong>£7,203</strong> went in during the <strong>last seven days</strong>{" "}
-            of the budget year. That paid for a carpet, building work, DFS, IKEA and Amazon.
+            of the budget year: a carpet, building work, DFS, two IKEA bills and two Amazon orders.
           </>,
           <>
             MP shop bills jumped <strong>seven times</strong> in that last week of March. Only one
@@ -148,7 +148,7 @@ export default function PamelaNashMpFurnitureExpensesMotherwell() {
         person={NASH}
         kicker="2025/26 budget year · Office furniture"
         amount="£3,182"
-        headline="IKEA and DFS, right before the year closed."
+        headline="IKEA and DFS, mostly in the last two days of the year."
         lines={[
           { meta: "5 April 2025", what: "IKEA LTD SHOP ONLINE", amount: "£1,334.00" },
           { meta: "30 March 2026", what: "IKEA LTD SHOP ONLINE [200013613-12910]", amount: "£395.00" },
@@ -164,12 +164,14 @@ export default function PamelaNashMpFurnitureExpensesMotherwell() {
         Seven bills in the last seven days of the year
       </Finding>
       <P>
-        An MP&apos;s office pot resets on 1 April. Any cash left on 31 March is lost.
+        An MP&apos;s office pot resets on 1 April, and spare cash does not normally carry over.
+        Hers had £6,000 of start up money rolled in from her first year.
       </P>
       <P>
         In the last seven days of March 2026, Labour MP <Link href={NASH.href}>Pamela Nash</Link>{" "}
-        put seven bills through IPSA. They came to <strong>£7,202.80</strong>: a £2,750 carpet,
-        £2,250 of building work, DFS, IKEA and Amazon.
+        put seven shop and building bills through IPSA. They came to <strong>£7,202.80</strong>: a
+        £2,750 carpet, £2,250 of building work, £1,208 at DFS, two IKEA bills (£395 and £245) and
+        two Amazon orders (£230.71 and £124.09).
       </P>
 
       <Receipt
@@ -205,7 +207,7 @@ export default function PamelaNashMpFurnitureExpensesMotherwell() {
           },
         ]}
         total={{ label: "Total for the last 7 days of the year", amount: "£7,202.80" }}
-        footer="Wording as printed by IPSA. All paid from her 2025/26 office budget. The £245 IKEA bill was refunded on 17 April 2026."
+        footer="Wording as printed by IPSA. All paid from her 2025/26 office budget. The £245 IKEA bill was refunded on 17 April 2026. A £126.12 banner dated 27 March 2026 is not counted here."
       />
 
       <Tiles
@@ -336,16 +338,24 @@ export default function PamelaNashMpFurnitureExpensesMotherwell() {
           {
             key: "flat",
             title: "£28,547 rent on a London flat (2025/26)",
-            children: (
-              <>
-                Plus £1,791 in council tax and a £1,154 power bill in January 2026.
-              </>
-            ),
+            children: <>Plus £1,791 in council tax.</>,
           },
           {
             key: "flights",
             title: "£22,864 on flights (2025/26)",
             children: <>Her own trips between Scotland and London.</>,
+          },
+        ]}
+      />
+
+      <P>A few more bills sit in her 2026/27 budget instead:</P>
+
+      <PointList
+        items={[
+          {
+            key: "power",
+            title: "£1,154 power bill for the London flat (January 2026)",
+            children: <>Dated January 2026, but billed to the next year&apos;s budget.</>,
           },
           {
             key: "postage",
@@ -354,7 +364,7 @@ export default function PamelaNashMpFurnitureExpensesMotherwell() {
           },
           {
             key: "tv",
-            title: "£174.50 for a TV licence",
+            title: "£174.50 for a TV licence (May 2026)",
             children: (
               <>
                 One of{" "}
@@ -404,7 +414,7 @@ export default function PamelaNashMpFurnitureExpensesMotherwell() {
           },
           {
             key: "more",
-            title: "Why buy more sofas and kit a year after kitting the room out?",
+            title: "Why buy more furniture a year after kitting the room out?",
             children: <>You had already paid £2,742 for office kit in April 2025.</>,
           },
         ]}

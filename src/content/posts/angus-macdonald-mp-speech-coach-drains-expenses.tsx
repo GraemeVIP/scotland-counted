@@ -138,7 +138,8 @@ export default function AngusMacdonaldMpSpeechCoachDrainsExpenses() {
             water in one year, top in Scotland.
           </>,
           <>
-            He lists over <strong>£70,000 in bank shares</strong> and a rented block in Stirling.{" "}
+            He lists over <strong>£70,000 in bank shares</strong> and an office building in Stirling
+            with rental income.{" "}
             <strong>£0</strong> paid back.
           </>,
         ]}
@@ -161,7 +162,7 @@ export default function AngusMacdonaldMpSpeechCoachDrainsExpenses() {
         Six months&apos; office rent, spent on one speech class
       </Finding>
       <P>
-        An MP&apos;s staff pot pays the team who help local folk with housing, benefits and bills.
+        An MP&apos;s staff pot pays the team who help local people with housing, benefits and bills.
       </P>
       <P>
         In July 2025, Highland Lib Dem MP <Link href={MACDONALD.href}>Angus MacDonald</Link> took
@@ -189,8 +190,8 @@ export default function AngusMacdonaldMpSpeechCoachDrainsExpenses() {
         joint second in the whole UK.
       </P>
       <P>
-        Labour MP Stephen Kinnock paid £660 for speech help in 2025. MacDonald&apos;s bill was more
-        than four times that.
+        Labour MP Stephen Kinnock paid £660 for public speaking training for his office in 2025.
+        MacDonald&apos;s bill was more than four times that.
       </P>
 
       <ChartFrame
@@ -328,7 +329,7 @@ export default function AngusMacdonaldMpSpeechCoachDrainsExpenses() {
           },
           {
             key: "rail",
-            title: "£19,942 on train fares in one year",
+            title: "£19,942 on his own train fares in one year",
             children: (
               <>
                 Top in the UK in 2025/26, though the Highlands is a long trip to London.
@@ -339,13 +340,13 @@ export default function AngusMacdonaldMpSpeechCoachDrainsExpenses() {
       />
 
       <P>
-        To be fair, some bills make sense. Vandals broke his windows, a roof fell in at Fort
-        William, and local papers list his surgeries. Nobody minds paying for that.
+        To be fair, some bills make sense. Vandals broke his windows, a ceiling collapsed at his
+        Fort William office, and local papers list his surgeries. Nobody minds paying for that.
       </P>
       <P>
         The £3,000 speech class and £546 drain clean are not the same. His Register of Interests
-        lists over £70,000 in Hampden and Co bank shares, plus a rented block in Stirling. He is
-        not short of cash, yet IPSA&apos;s rules still make you pay for his drains.
+        lists over £70,000 in Hampden and Co bank shares, plus an office building in Stirling with
+        rental income. He is not short of cash, yet IPSA&apos;s rules still make you pay for his drains.
       </P>
 
       <PointList
@@ -358,7 +359,7 @@ export default function AngusMacdonaldMpSpeechCoachDrainsExpenses() {
           {
             key: "why-staff",
             title: "Why take it out of the staff pot?",
-            children: <>That pot pays staff who help local voters, not speech lessons.</>,
+            children: <>IPSA allowed it. But that same pot pays the staff who help local voters.</>,
           },
           {
             key: "drains",

@@ -175,7 +175,7 @@ const COMMUTER_HOTELS: { name: string; p: PartyKey; href: string; area: string; 
 
 const TOP_10: { name: string; p: PartyKey; note?: string; href: string; area: string; amount: number; detail: string }[] = [
   { name: "Rachael Hamilton", p: "Conservative", href: msp("constituencies/ettrick-roxburgh-and-berwickshire"), area: "Ettrick, Roxburgh & Berwickshire", amount: 62112.43, detail: "£23,860 leaflets & ads, £19,640 Edinburgh flat, £7,202 travel" },
-  { name: "Kenneth Gibson", p: "SNP", note: "now Presiding Officer", href: msp("constituencies/cunninghame-north"), area: "Cunninghame North", amount: 61907.28, detail: "£23,052 Edinburgh flat (£5,494 council tax), £21,183 office" },
+  { name: "Kenneth Gibson", p: "SNP", note: "now Presiding Officer", href: msp("constituencies/cunninghame-north"), area: "Cunninghame North", amount: 61907.28, detail: "£23,053 Edinburgh flat (£5,494 council tax), £21,183 office" },
   { name: "Karen Adam", p: "SNP", href: msp("constituencies/banffshire-and-buchan-coast"), area: "Banffshire & Buchan Coast", amount: 60577.13, detail: "£23,871 office, £17,619 Edinburgh flat, £12,171 leaflets & ads" },
   { name: "Emma Roddick", p: "SNP", href: msp("constituencies/inverness-and-nairn"), area: "Inverness and Nairn", amount: 60493.97, detail: "£17,587 Edinburgh flat, £17,045 leaflets & ads, £13,329 travel" },
   { name: "Maree Todd", p: "SNP", href: msp("regions/highlands-and-islands/maree-todd"), area: "Highlands and Islands", amount: 58721.78, detail: "£20,572 Edinburgh flat (£5,494 council tax), £19,457 office" },

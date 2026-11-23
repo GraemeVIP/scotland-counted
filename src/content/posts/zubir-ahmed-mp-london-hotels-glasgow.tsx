@@ -81,7 +81,7 @@ const ALL_STAYS: { date: string; year: string; paid: number; ipsa: string }[] = 
   { date: "15 Apr 2026", year: "2026/27", paid: 3628.61, ipsa: "june block booking flat" },
 ];
 
-/** Top Scottish MPs for hotel claims across 2024/25 to 2026/27. */
+/** Top Scottish MPs for London hotel claims dated since the July 2024 election. */
 const SCOTLAND_HOTELS: {
   name: string;
   seat: string;
@@ -98,15 +98,7 @@ const SCOTLAND_HOTELS: {
     p: "Labour",
     claims: 25,
     value: 67518.82,
-    note: "Nearly five times the next Scottish MP.",
-  },
-  {
-    name: "Michael Shanks",
-    seat: "Rutherglen",
-    href: mp("rutherglen"),
-    p: "Labour",
-    claims: 32,
-    value: 14195.31,
+    note: "More than seven times the next Scottish MP.",
   },
   {
     name: "Douglas McAllister",
@@ -129,8 +121,8 @@ const SCOTLAND_HOTELS: {
     seat: "Stirling and Strathallan",
     href: mp("stirling-and-strathallan"),
     p: "Labour",
-    claims: 16,
-    value: 9024.1,
+    claims: 17,
+    value: 8790.26,
   },
   {
     name: "Alison Taylor",
@@ -139,6 +131,14 @@ const SCOTLAND_HOTELS: {
     p: "Labour",
     claims: 25,
     value: 7828.0,
+  },
+  {
+    name: "Dr Scott Arthur",
+    seat: "Edinburgh South West",
+    href: mp("edinburgh-south-west"),
+    p: "Labour",
+    claims: 10,
+    value: 5916.22,
   },
 ];
 
@@ -166,8 +166,8 @@ export default function ZubirAhmedMpLondonHotelsGlasgow() {
           </>,
           <>
             That is the <strong>highest total of all 650 UK MPs</strong> since July 2024. He sits
-            nearly £20,000 ahead of second place (Esther McVey, £47,864) and almost five times
-            ahead of any other Scottish MP.
+            nearly £20,000 ahead of second place (Esther McVey, £47,864). His bill is more than
+            seven times that of any other Scottish MP.
           </>,
           <>
             In 2025/26 alone, taxpayers paid <strong>£37,359</strong> for{" "}
@@ -194,7 +194,7 @@ export default function ZubirAhmedMpLondonHotelsGlasgow() {
       >
         <p>
           He claims no London rent. Instead, his stays go through IPSA as hotels and block booked
-          flats, running between <strong>£2,300 and £4,840 a month</strong>.
+          flats. Twenty of his 25 bills came to between <strong>£2,280 and £4,840</strong>.
         </p>
       </Spotlight>
 
@@ -203,7 +203,7 @@ export default function ZubirAhmedMpLondonHotelsGlasgow() {
         £67,519 on London stays, including £4,840 for one month
       </Finding>
       <P>
-        Most folk in Govan, Pollok, Cardonald and Penilee know what a hotel room costs. You would
+        Most people in Govan, Pollok, Cardonald and Penilee know what a hotel room costs. You would
         think twice before paying £170 a night for a whole month.
       </P>
       <P>
@@ -309,29 +309,29 @@ export default function ZubirAhmedMpLondonHotelsGlasgow() {
         <strong>zero written questions</strong>.
       </P>
       <P>
-        Even when he was a minister, his stays ran seven nights a week. That covers weekends and
-        recess too. Over the year, he voted in 202 of 301 votes (67%), just below the MP average
+        Even as a minister, five of his seven monthly flat bills in 2025/26 covered 28 nights or
+        more. That takes in weekends and recess too. December 2025 was lighter, at 19 nights. Over the year, he voted in 202 of 301 votes (67%), just below the MP average
         of 69%.
       </P>
 
       {/* ------------------------------------------------------------ 3 */}
       <Finding n={3} id="scotland-rank">
-        Number one in the UK, and five times any other Scottish MP
+        Number one in the UK, and more than seven times any other Scottish MP
       </Finding>
       <P>
         We checked all 650 UK seats in IPSA&apos;s hotel files since the July 2024 election. Dr
-        Zubir Ahmed sits top in Britain at <strong>£67,519</strong>. Second in the whole UK is
-        Esther McVey at £47,864.
+        Zubir Ahmed sits top of the whole UK at <strong>£67,519</strong>. Second is Esther McVey at
+        £47,864.
       </P>
       <P>
-        In Scotland, nobody else comes close. The next highest Scottish MP, Michael Shanks, spent
-        £14,195.
+        In Scotland, nobody else comes close. The next highest Scottish MP,{" "}
+        <Link href={mp("west-dunbartonshire")}>Douglas McAllister</Link>, claimed £9,396.
       </P>
 
       <ChartFrame
-        kicker="IPSA · 2024/25 to 2026/27 · Scottish MPs"
+        kicker="IPSA · July 2024 to April 2026 · Scottish MPs"
         title="Biggest London hotel bills among Scottish MPs"
-        caption="IPSA individual business costs, 2024/25 to 2026/27 (MP own hotel claims)."
+        caption="IPSA individual business costs, claims dated since the July 2024 election (MP own London hotel claims)."
       >
         <RankList
           max={SCOTLAND_HOTELS[0].value}
@@ -349,7 +349,7 @@ export default function ZubirAhmedMpLondonHotelsGlasgow() {
       </ChartFrame>
 
       <P>
-        Add up the next six Scottish MPs on that list. You still do not reach his bill. Most MPs
+        Add up the next five Scottish MPs on that list. You still do not reach his bill. Most MPs
         rent a flat on a set cap, or only book a room on nights they stay.
       </P>
 
@@ -387,7 +387,8 @@ export default function ZubirAhmedMpLondonHotelsGlasgow() {
       <Aside title="Did he break IPSA's rules?">
         <p>
           Nothing in the public files says so. MPs are allowed to book London hotels instead of
-          renting a flat, as long as each night sits under IPSA&apos;s £230 cap. IPSA waved every
+          renting a flat, as long as each night sits under IPSA&apos;s cap. That cap is £230 a night
+          today. In 2024/25 it was £210. IPSA waved every
           one of these 25 claims through, and £0 was refused or paid back.
         </p>
         <p>
@@ -418,10 +419,10 @@ export default function ZubirAhmedMpLondonHotelsGlasgow() {
             key: "kilmarnock",
             title: (
               <Link href="/blog/kilmarnock-mp-23437-electricity-bill">
-                £23,437 electricity bill paid in one day
+                £23,437 energy bill in two claims on one day
               </Link>
             ),
-            children: <>For Kilmarnock MP Lillian Jones, the biggest in the UK in five years.</>,
+            children: <>For Kilmarnock MP Lillian Jones, the biggest of any UK MP since 2022.</>,
           },
         ]}
       />

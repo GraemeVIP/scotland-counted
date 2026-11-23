@@ -4,8 +4,8 @@ import { Prose, P, Aside, PostCTA } from "@/components/Prose";
 /*
  * Written with the graeme-writing skill. Figures: Holyrood's own expense
  * files (allowances_member_transactions, claim months May 2021 to June
- * 2025), compared across the 63 MSPs who sat from 2021 to 2025 and still
- * sit now. The flat groups come from Annex A of the MSP expenses rules.
+ * 2025), compared across the 63 MSPs who sat before 2026 and still sit
+ * now (Tim Eagle joined in November 2023). The flat groups come from Annex A of the MSP expenses rules.
  */
 
 import {
@@ -35,7 +35,7 @@ const SIMPSON = {
   p: "Reform UK" as PartyKey,
 };
 
-/** 2024/25 totals for the 63 MSPs who sat from 2021 to 2025 and still sit. */
+/** 2024/25 totals for the 63 MSPs who sat before 2026 and still sit. */
 const LOWEST: { name: string; href?: string; p: PartyKey; note: string; cost: number; her?: boolean }[] = [
   { name: "Lorna Slater", href: msp("constituencies/edinburgh-central"), p: "Greens", note: "Edinburgh Central", cost: 13611 },
   { name: "Meghan Gallacher", href: GALLACHER.href, p: "Conservative", note: "Central Scotland and Lothians West", cost: 15764, her: true },
@@ -57,10 +57,10 @@ export default function MeghanGallacherMspLowExpenses() {
             Not one mile.
           </>,
           <>
-            Her Edinburgh hotels came to <strong>£2,368</strong> across four years.
+            Her Edinburgh hotels came to <strong>£2,369</strong> across four years.
           </>,
           <>
-            Graham Simpson covers the same area. In 2024/25 he cost <strong>£34,416</strong>, more than
+            <Link href={SIMPSON.href}>Graham Simpson</Link> covers the same area. In 2024/25 he cost <strong>£34,416</strong>, more than
             twice as much.
           </>,
         ]}
@@ -92,8 +92,8 @@ export default function MeghanGallacherMspLowExpenses() {
         So it&apos;s only fair to show what it looks like when someone keeps the bill down.
       </P>
       <P>
-        We checked every claim from the 63 MSPs who have sat at Holyrood since 2021 and are still
-        there now. One name kept coming out near the bottom.
+        We checked every claim from the 63 MSPs who sat at Holyrood before 2026 and are still there
+        now. One name kept coming out near the bottom.
       </P>
 
       {/* ------------------------------------------------------------ 1 */}
@@ -101,8 +101,8 @@ export default function MeghanGallacherMspLowExpenses() {
         Second lowest of 63 MSPs
       </Finding>
       <P>
-        In 2024/25, only one of the 63 cost less than Meghan Gallacher. That was Lorna Slater, an
-        Edinburgh MSP. MSPs from Edinburgh can&apos;t claim for hotels or a flat at all, so their
+        In 2024/25, only one of the 63 cost less than Meghan Gallacher. That was{" "}
+        <Link href={msp("constituencies/edinburgh-central")}>Lorna Slater</Link>, an Edinburgh MSP. MSPs from Edinburgh can&apos;t claim for hotels or a flat at all, so their
         bills start lower.
       </P>
 
@@ -127,7 +127,8 @@ export default function MeghanGallacherMspLowExpenses() {
       </Finding>
       <P>
         Every MSP can claim for getting between home and Holyrood, by train or by car. Most do. The
-        typical MSP we checked billed <strong>£9,517</strong> for travel over four years.
+        typical MSP we checked billed <strong>£9,517</strong> for travel over four years, for them and
+        their staff. For their own trips alone, it was £6,710.
       </P>
       <P>
         Meghan Gallacher has claimed <strong>nothing</strong>. Not in four years of records. Only three
@@ -137,7 +138,7 @@ export default function MeghanGallacherMspLowExpenses() {
       <Tiles
         items={[
           { value: "£0", label: "Her travel claims, May 2021 to June 2025" },
-          { value: "£2,368", label: "Her Edinburgh hotels across the same four years" },
+          { value: "£2,369", label: "Her Edinburgh hotels across the same four years" },
           { value: "£0", label: "Edinburgh flat. She has never billed for one" },
         ]}
       />
@@ -187,15 +188,22 @@ export default function MeghanGallacherMspLowExpenses() {
             title: "Could she have had a flat?",
             children: (
               <>
-                Most of North Lanarkshire is under 90 minutes from Holyrood. MSPs who live there get
-                hotel nights, not a flat. She used very few.
+                It depends on where an MSP lives, and we don&apos;t publish home addresses. Only homes in
+                Group 3 seats, over 90 minutes away, get a flat. All North Lanarkshire seats are Group
+                2: hotel nights only. She has never billed for a flat.
               </>
             ),
           },
           {
             key: "staff",
             title: "What about staff pay?",
-            children: <>It&apos;s paid separately and isn&apos;t in these figures for any MSP, so the comparison is fair.</>,
+            children: (
+              <>
+                Staff wages aren&apos;t in Holyrood&apos;s expense files, so they aren&apos;t in these
+                figures for any MSP. A few small staff costs, like train fares, are in the files, and we
+                counted them for everyone. So the comparison is fair.
+              </>
+            ),
           },
         ]}
       />
@@ -204,14 +212,17 @@ export default function MeghanGallacherMspLowExpenses() {
         <div className="space-y-3 text-[16px] leading-[1.6] text-[var(--ink-2)]">
           <p>
             Every figure comes from Holyrood&apos;s own expense files. We added up all claims for each
-            MSP by year. Staff pay is not in those files.
+            MSP by year. Staff wages are not in those files. A small amount of other staff costs is,
+            and we counted it for every MSP.
           </p>
           <p>
-            We compared the 63 MSPs who sat from May 2021 to June 2025 and are still MSPs now. The
+            We compared the 63 MSPs who sat at Holyrood before 2026 and are still MSPs now. Most were
+            there from 2021. Tim Eagle joined in November 2023. The files run to June 2025. The
             typical figure is the middle one of the 63, so a few very high bills don&apos;t skew it.
           </p>
           <p>
-            Travel means every claim for MSP travel and car miles. Simpson&apos;s home town comes from
+            Travel means every claim for travel and car miles, by the MSP and their staff. The
+            £6,710 counts the MSP&apos;s own trips only. Simpson&apos;s home town comes from
             what he told Parliament on 11 November 2026.
           </p>
         </div>

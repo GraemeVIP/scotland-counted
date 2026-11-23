@@ -163,12 +163,13 @@ export default function GraemeDownieMpDinnerExpensesDunfermline() {
         items={[
           <>
             Dunfermline MP <Link href={DOWNIE.href}>Graeme Downie</Link> billed you{" "}
-            <strong>£963</strong> for a meal at Fife College. It is the biggest single food bill of
-            all 650 UK MPs in five years.
+            <strong>£963</strong> for a Fife College dinner in his name. It is the biggest single
+            food bill of all 650 UK MPs in five years.
           </>,
           <>
-            In 2025/26 he cost you <strong>£410,253</strong> with staff. No other MP in the UK cost
-            more.
+            His <strong>£410,253</strong> bill for 2025/26{" "}
+            <strong>includes staff wages</strong>, and no MP in the UK cost more. Leave the wages
+            out and he still tops the UK at <strong>£151,954</strong>.
           </>,
           <>
             He was also UK top for his <strong>London flat and trips (£84,992)</strong> and{" "}
@@ -194,7 +195,7 @@ export default function GraemeDownieMpDinnerExpensesDunfermline() {
         ]}
       >
         <p>
-          A normal MP food claim is £11.60. This one hit nearly £1,000, with no word on who ate or
+          The typical MP food bill is £11.60. This one hit nearly £1,000, with no word on who ate or
           why. £0 paid back.
         </p>
       </Spotlight>
@@ -204,13 +205,13 @@ export default function GraemeDownieMpDinnerExpensesDunfermline() {
         Nearly £1,000 for one meal, and no guest list
       </Finding>
       <P>
-        Most food claims at Westminster are a pot of tea or a £12 lunch. His other 18 food and drink
-        bills came to £142.55 in all.
+        Line up every food and drink bill MPs have sent in since 2022, one by one. The one in the
+        middle is £11.60. His own 18 other food and drink bills came to £142.55 in all.
       </P>
       <P>
         Then on <strong>13 March 2025</strong>, Labour MP{" "}
-        <Link href={DOWNIE.href}>Graeme Downie</Link> billed £962.65 for a Fife College meal in his
-        name. IPSA paid it straight off, with no menu, no guest list and no note of why.
+        <Link href={DOWNIE.href}>Graeme Downie</Link> billed £962.65 for a Fife College dinner in
+        his name. There is no menu, no guest list and no note of why.
       </P>
 
       <Tiles
@@ -247,8 +248,8 @@ export default function GraemeDownieMpDinnerExpensesDunfermline() {
         Number one in the entire UK, five times over
       </Finding>
       <P>
-        The dinner wasn&apos;t a fluke. In 2025/26, Graeme Downie topped all 650 MPs in Britain on
-        five separate counts.
+        The dinner, from 2024/25, was no fluke. The next year he went further. In 2025/26, Graeme
+        Downie topped all 650 UK MPs on four more counts.
       </P>
 
       <ChartFrame
@@ -329,7 +330,7 @@ export default function GraemeDownieMpDinnerExpensesDunfermline() {
       </Finding>
       <P>
         Moving his team around cost <strong>£31,098</strong> in 2025/26, beating every other MP in
-        Britain. IPSA lumps it into yearly blocks, so you only see the big buckets:
+        the UK. IPSA lumps it into yearly blocks, so you only see the big buckets:
       </P>
 
       <Receipt
@@ -347,7 +348,30 @@ export default function GraemeDownieMpDinnerExpensesDunfermline() {
         footer="In plain words. IPSA only prints staff travel as yearly totals, not trip by trip. The year before, his staff travel was £8,361.90."
       />
 
-      <P>His office spending hit 99.7% of its limit too:</P>
+      <CaseCard kicker="His office pot in 2025/26" figure="£119 left" people={[DOWNIE]}>
+        <p>
+          Out of a £35,930 office cap, he spent <strong>£35,811</strong> (99.7%).
+        </p>
+      </CaseCard>
+
+      <P>Local paper adverts were one of the big bills that year:</P>
+
+      <PointList
+        items={[
+          {
+            key: "ads",
+            title: "£2,592 for Dunfermline Press adverts (spring 2025)",
+            children: (
+              <>
+                The bills came to £3,792, but one £1,200 bill was a duplicate claim and was paid
+                back.
+              </>
+            ),
+          },
+        ]}
+      />
+
+      <P>The big kit and training bills sit in the year before, 2024/25:</P>
 
       <PointList
         items={[
@@ -356,9 +380,9 @@ export default function GraemeDownieMpDinnerExpensesDunfermline() {
             title: "£5,900 for staff training in one day",
             children: (
               <>
-                Six bills on 24 March 2025, one week before the budget year closed, for
+                Six bills on 24 March 2025, one week before the 2024/25 budget year closed, for
                 &ldquo;communications training services including written and broadcast
-                production&rdquo;.
+                production&rdquo;. Paid from his staff budget.
               </>
             ),
           },
@@ -370,26 +394,20 @@ export default function GraemeDownieMpDinnerExpensesDunfermline() {
           {
             key: "signs",
             title: "£2,066 for office signs (March 2025)",
-            children: <>Door and window signs, both dated 26 March 2025.</>,
+            children: <>A sign over the front and window signs, both dated 26 March 2025.</>,
           },
           {
             key: "kit",
             title: "£3,014 for desks, chairs and a sofa",
-            children: <>Four desks (£1,880), four chairs (£633.60) and a £500 sofa.</>,
-          },
-          {
-            key: "ads",
-            title: "£3,792 for Dunfermline Press adverts (spring 2025)",
-            children: <>£1,200 was claimed twice by mistake and paid back.</>,
+            children: (
+              <>
+                Four desks (£1,880) and four chairs (£633.60) in October 2024, then a £500 sofa in
+                January 2025.
+              </>
+            ),
           },
         ]}
       />
-
-      <CaseCard kicker="His office pot in 2025/26" figure="£119 left" people={[DOWNIE]}>
-        <p>
-          Out of a £35,930 office cap, he spent <strong>£35,811</strong> (99.7%).
-        </p>
-      </CaseCard>
 
       <P>
         Outside expenses, he also took three free trips abroad worth £11,882 on his Register of

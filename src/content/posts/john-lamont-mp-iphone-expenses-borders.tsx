@@ -134,7 +134,7 @@ export default function JohnLamontMpIphoneExpensesBorders() {
           </>,
           <>
             Eight months after getting his next iPhone, he voted <strong>twice</strong> to keep the
-            two child cap on poor homes.
+            two child limit on poor homes.
           </>,
           <>
             Over five years he spent <strong>£49,568 on ads</strong>. That is top of all 650 UK
@@ -150,7 +150,7 @@ export default function JohnLamontMpIphoneExpensesBorders() {
         person={LAMONT}
         kicker="12 June 2025 · His second iPhone on expenses"
         amount="£1,248"
-        headline="Two top spec iPhones in under three years, paid by you."
+        headline="Two iPhones in under three years, paid by you."
         lines={[
           {
             meta: "9 August 2022 · Office Costs · Mobile phone kit",
@@ -188,12 +188,12 @@ export default function JohnLamontMpIphoneExpensesBorders() {
         Two £1,000+ iPhones, while his peers bought cheaper
       </Finding>
       <P>
-        Most folk keep a phone until the screen breaks or it dies. Not Borders Tory MP{" "}
+        Most people keep a phone until the screen breaks or it dies. Not Borders Tory MP{" "}
         <Link href={LAMONT.href}>John Lamont</Link>.
       </P>
       <P>
-        In August 2022, IPSA paid £1,098 for &ldquo;iPhone purchase - John Lamont&rdquo;. Under
-        three years on, you bought him a new one with a case for £1,248. On top came a £39.90 mic
+        A claim dated 9 August 2022 billed you £1,098 for &ldquo;iPhone purchase - John
+        Lamont&rdquo;. Under three years on, you bought him a new one with a case for £1,248. On top came a £39.90 mic
         and £17 to £30 a month for his office phone plan.
       </P>
 
@@ -213,7 +213,7 @@ export default function JohnLamontMpIphoneExpensesBorders() {
         bought used phones.
       </P>
       <P>
-        Just one other Scottish MP went past £1,000 for a phone:{" "}
+        Of today&apos;s 57 Scottish MPs, just one other has a bill naming a phone over £1,000:{" "}
         <Link href={mp("glasgow-north-east")}>Maureen Burke</Link>, once, at £1,199.
       </P>
 
@@ -245,7 +245,7 @@ export default function JohnLamontMpIphoneExpensesBorders() {
 
       {/* ------------------------------------------------------------ 2 */}
       <Finding n={2} id="uk-iphones">
-        One of just three MPs in Britain to claim two £1,000+ iPhones
+        One of just three MPs in the UK to claim two £1,000+ iPhones
       </Finding>
       <P>
         At least <strong>23 MPs</strong> named an iPhone on expenses since 2022 (and more hide
@@ -254,7 +254,7 @@ export default function JohnLamontMpIphoneExpensesBorders() {
       <P>
         Only <strong>three MPs out of 650</strong> put through two iPhones over £1,000 each: John
         Lamont, Fabian Hamilton and Ian Liddell-Grainger. Lamont&apos;s £1,248 bill sits sixth
-        dearest in Britain.
+        dearest in the UK.
       </P>
 
       <ChartFrame
@@ -423,7 +423,7 @@ export default function JohnLamontMpIphoneExpensesBorders() {
         <strong>3 February 2026</strong> and <strong>23 February 2026</strong> to keep the two child
         limit on Universal Credit.
       </P>
-      <P>Borders folk can judge that for themselves, and ask him four plain questions:</P>
+      <P>Borders voters can judge that for themselves, and ask him four plain questions:</P>
 
       <PointList
         items={[

@@ -286,7 +286,7 @@ export const posts: Post[] = [
       },
       {
         q: "Who is the coach, and why does it matter?",
-        a: "Her business website says she worked in a House of Commons team that helps MPs and their staff, then at IPSA in a job dealing with MPs. Her company was set up on 19 March 2025. Since September 2025, 12 MPs have paid it £16,800 of public money through IPSA.",
+        a: "Her business website says she worked in a House of Commons team that helps MPs and their staff, then worked at IPSA as a Stakeholder Engagement Lead. Her company was set up on 19 March 2025. Since September 2025, 12 MPs have billed IPSA £16,800 of public money for it.",
       },
       {
         q: "Did he break the rules?",
@@ -354,7 +354,7 @@ export const posts: Post[] = [
     description:
       "Taxpayers paid for four TV licences in 11 months for Livingston MP Gregor Poynton. No other UK MP has billed four in a year. Plus £5,059 on taxis.",
     standfirst:
-      "A TV licence lasts a full year. Somehow Livingston's Labour MP billed taxpayers for four of them in 11 months, all for one office telly. Nobody else out of 650 MPs got close.",
+      "A TV licence lasts a full year. Somehow Livingston's Labour MP billed taxpayers for four of them in 11 months. No other MP in the UK has put four on expenses in a year.",
     date: "2026-11-22",
     updated: "2026-11-22",
     checked: "2026-11-22",
@@ -376,10 +376,10 @@ export const posts: Post[] = [
       type: "image/webp",
     },
     toc: [
-      { id: "four-licences", label: "Four licences, one office TV" },
-      { id: "uk-number-one", label: "Number one out of all 650 UK MPs" },
-      { id: "other-claims", label: "Taxis, family flights and a removal van" },
-      { id: "why-ipsa-paid", label: "Why IPSA paid it, and who stops this" },
+      { id: "four-licences", label: "Four licences in 11 months" },
+      { id: "uk-number-one", label: "Top of all 650 MPs in the UK" },
+      { id: "other-claims", label: "Scotland's biggest taxi bill, plus family flights and Pickfords" },
+      { id: "why-ipsa-paid", label: "How did four licences slip past IPSA?" },
     ],
     faq: [
       {
@@ -388,7 +388,7 @@ export const posts: Post[] = [
       },
       {
         q: "Is four TV licences in a year really a UK record?",
-        a: "Yes, in IPSA's files from 2022 to 2027. 459 MPs billed for at least one licence. Counting full licence payments, 12 others managed three in a year. Nobody else managed four.",
+        a: "Yes, in IPSA's files from 2022 to 2027. 406 MPs billed for at least one licence. Counting full licence payments, 12 others managed three in a year. Nobody else managed four.",
       },
       {
         q: "What else did he claim?",
@@ -405,7 +405,7 @@ export const posts: Post[] = [
     description:
       "Taxpayers paid £3,300 for a board advertising Falkirk MP Euan Stainbank for a year. It is the biggest advertising board claim of any of the 650 UK MPs.",
     standfirst:
-      "Four months after winning Falkirk, Euan Stainbank billed taxpayers £3,300 for a year of adverts telling locals who he is. Nearly double any other MP's board in Britain.",
+      "Four months after winning Falkirk, Euan Stainbank billed taxpayers £3,300 for a year of adverts telling locals who he is. No other MP in the UK has billed more for one ad board.",
     date: "2026-11-22",
     updated: "2026-11-22",
     checked: "2026-11-22",
@@ -435,11 +435,11 @@ export const posts: Post[] = [
     faq: [
       {
         q: "How much did Euan Stainbank claim for an advertising board?",
-        a: "£3,300. IPSA paid it on 31 October 2024. The record says: \"Advertising board to advertise Euan as local MP and contact details. To be advertised for 1 year.\" It is marked Paid. £0 has been paid back.",
+        a: "£3,300. The claim is dated 31 October 2024. The record says: \"Advertising board to advertise Euan as local MP and contact details. To be advertised for 1 year.\" It is marked Paid. £0 has been paid back.",
       },
       {
         q: "Is it really the biggest advertising board claim of any MP?",
-        a: "Yes. We checked over 350,000 IPSA claim lines for all 650 UK MPs from 2022/23 to 2026/27. We found 130 claims for advertising boards or hoardings by 63 MPs. His £3,300 is the biggest. The next was £1,800.",
+        a: "Yes. We checked over 350,000 IPSA claim lines for all 650 UK MPs from 2022/23 to 2026/27. We found 139 claims for advertising boards or hoardings by 63 MPs. His £3,300 is the biggest. The next was £2,160, for ad boards at Chasetown FC booked by Lichfield MP Dave Robertson.",
       },
       {
         q: "Was it against the rules?",
@@ -456,7 +456,7 @@ export const posts: Post[] = [
     description:
       "Taxpayers paid £3,090 to set up home 5G broadband for Dundee MP Chris Law. A typical MP setup claim is £90. He also tops the UK for parking.",
     standfirst:
-      "A 5G router plugs straight into a wall socket, and most MPs claim £90 to get connected. Dundee SNP MP Chris Law billed taxpayers £3,090, more than seven times any other MP in Britain.",
+      "A 5G router plugs straight into a wall socket, and a typical MP setup claim is £90. Dundee SNP MP Chris Law billed taxpayers £3,090, more than seven times any other MP's home internet claim in the UK.",
     date: "2026-11-22",
     updated: "2026-11-22",
     checked: "2026-11-22",
@@ -479,14 +479,14 @@ export const posts: Post[] = [
     },
     toc: [
       { id: "the-broadband", label: "£3,090 to set up broadband at home" },
-      { id: "uk-number-one", label: "No MP in the UK comes close" },
+      { id: "uk-number-one", label: "Seven times any other MP's home internet claim in the UK" },
       { id: "parking-and-travel", label: "Top of the UK for parking and European hotels" },
       { id: "why-ipsa-paid", label: "Why IPSA paid it all" },
     ],
     faq: [
       {
         q: "How much did Chris Law claim for broadband?",
-        a: "£3,090. IPSA paid it on 25 July 2022, when he was MP for Dundee West. The record says: \"Home 5G mobile broadband installation\". It is marked Paid. £0 has been paid back.",
+        a: "£3,090. The claim is dated 25 July 2022, when he was MP for Dundee West. The record says: \"Home 5G mobile broadband installation\". It is marked Paid. £0 has been paid back.",
       },
       {
         q: "How does £3,090 compare with other MPs?",
@@ -537,11 +537,11 @@ export const posts: Post[] = [
     faq: [
       {
         q: "What was Angus MacDonald's £3,000 speech claim?",
-        a: "IPSA paid £3,000 on 17 July 2025 for a \"personalised presentation and speech skills workshop\" to help him speak in Parliament. It came from his staff budget, the money meant for staff who help local people. £0 has been paid back.",
+        a: "A claim dated 17 July 2025 billed £3,000 for a \"personalised presentation and speech skills workshop\" to help him speak in Parliament. IPSA allowed it from his staff budget, the same pot that pays staff who help local people. £0 has been paid back.",
       },
       {
         q: "Did taxpayers really pay to clean his drains?",
-        a: "Yes. IPSA paid £234 on 24 March 2026 and £312 on 27 March 2026 for drain cleaning at his second home. That is £546. No other UK MP has a second home drain cleaning claim in IPSA's files since 2022.",
+        a: "Yes. Two claims dated 24 and 27 March 2026 billed £234 and £312 for drain cleaning at his second home, £546 in all. No other UK MP has a second home drain cleaning claim in IPSA's files since 2022.",
       },
       {
         q: "Does he claim rent on his second home?",
@@ -559,7 +559,7 @@ export const posts: Post[] = [
     description:
       "Taxpayers paid £3,182 for Motherwell MP Pamela Nash's IKEA and DFS furniture, plus £5,000 for a carpet and works. Most landed in the last week of March.",
     standfirst:
-      "Every March, right before unspent office cash vanishes on 1 April, MPs rush to the shops. Motherwell MP Pamela Nash put £7,203 through in the final seven days, including DFS, IKEA and a new carpet.",
+      "Motherwell MP Pamela Nash put £7,203 through in the last seven days of the budget year, from DFS to a new carpet. She still had £15,445 of her office budget left.",
     date: "2026-11-22",
     updated: "2026-11-22",
     checked: "2026-11-22",
@@ -611,7 +611,7 @@ export const posts: Post[] = [
     description:
       "Taxpayers bought Borders MP John Lamont two iPhones: £1,098 in 2022 and £1,248 in 2025. He also spent more on adverts than any other UK MP: £49,568.",
     standfirst:
-      "Taxpayers bought Borders Tory MP John Lamont two £1,000+ iPhones in under three years. Eight months after the second phone, he voted twice to keep the two child benefit cap.",
+      "Taxpayers bought Borders Tory MP John Lamont two £1,000+ iPhones in under three years. Eight months after the second phone, he voted twice to keep the two child limit.",
     date: "2026-11-22",
     updated: "2026-11-22",
     checked: "2026-11-22",
@@ -641,7 +641,7 @@ export const posts: Post[] = [
     faq: [
       {
         q: "How many iPhones has John Lamont claimed on expenses?",
-        a: "Two. IPSA paid £1,098 for \"iPhone purchase - John Lamont\" on 9 August 2022, and £1,248 for an \"Iphone and protection case\" on 12 June 2025. That is £2,346. £0 has been paid back.",
+        a: "Two. A claim dated 9 August 2022 billed £1,098 for \"iPhone purchase - John Lamont\", and a claim dated 12 June 2025 billed £1,248 for an \"Iphone and protection case\". The two come to £2,346. £0 has been paid back.",
       },
       {
         q: "Is John Lamont the top claimant among Scottish MPs?",
@@ -657,13 +657,13 @@ export const posts: Post[] = [
   {
     slug: "graeme-downie-mp-dinner-expenses-dunfermline",
     title:
-      "You paid £963 for Dunfermline MP Graeme Downie's business dinner, and he cost you more than any MP in the UK",
+      "You paid £963 for a business dinner in Dunfermline MP Graeme Downie's name, and he cost you more than any MP in the UK",
     seoTitle:
       "Graeme Downie MP Expenses: £963 Dinner, UK's Biggest Bill",
     description:
-      "Taxpayers paid £963 for a business dinner for Dunfermline MP Graeme Downie, the biggest such bill of any UK MP. In 2025/26 he cost £410,253, the most in the UK.",
+      "Taxpayers paid £963 for a business dinner in Dunfermline MP Graeme Downie's name, the biggest such bill of any UK MP. In 2025/26 he cost £410,253 with staff wages, the most in the UK.",
     standfirst:
-      "Most MP food claims are £12 for tea or lunch. Dunfermline MP Graeme Downie put through a £963 business dinner with no guest list, on top of running up the single biggest MP expense bill in Britain.",
+      "The typical MP food bill is £11.60. Dunfermline MP Graeme Downie put through a £963 business dinner in his name with no guest list, then ran up the single biggest MP expense bill in the UK in 2025/26.",
     date: "2026-11-22",
     updated: "2026-11-22",
     checked: "2026-11-22",
@@ -975,14 +975,14 @@ export const posts: Post[] = [
       type: "image/webp",
     },
     toc: [
-      { id: "labour-firm-and-calendars", label: "£19,800 to an ex Labour boss & £36,953 on calendars" },
+      { id: "labour-firm-and-calendars", label: "£19,800 to an ex Labour boss & £39,480 on calendars" },
       { id: "top-claimers", label: "The 10 MSPs who claimed the most" },
       { id: "party-tally", label: "The Holyrood Party Tally (2024/25 per MSP)" },
       { id: "greens-scorecard", label: "The Scottish Greens' £852k four year scorecard" },
-      { id: "double-council-tax", label: "Double council tax billed straight to taxpayers (+122%)" },
+      { id: "double-council-tax", label: "Double council tax billed straight to taxpayers (+99%)" },
       { id: "newspaper-racket", label: "The £127,627 newspaper racket & duplicate claim" },
-      { id: "commuter-belt-hotels", label: "Edinburgh flats & £10k hotel tabs 35 to 45 miles away" },
-      { id: "landlords-and-double-jobs", label: "26 landlords & 15 double jobbing councillors" },
+      { id: "commuter-belt-hotels", label: "Edinburgh flats & £10k hotel tabs 35 to 50 miles away" },
+      { id: "landlords-and-double-jobs", label: "19 landlords & 15 double jobbing councillors" },
     ],
     faq: [
       {
@@ -991,7 +991,7 @@ export const posts: Post[] = [
       },
       {
         q: "Did taxpayers pay the doubled council tax on MSPs' Edinburgh flats?",
-        a: "Yes. Holyrood let councils charge double council tax on second homes from April 2024. The bill MSPs sent to taxpayers more than doubled from £72,822 to £161,374 in 2024/25 (up £88,552). Another £116,901 was billed in just the first three months of 2025/26.",
+        a: "Yes. Holyrood let councils charge double council tax on second homes from April 2024. MSPs billed taxpayers £161,374 in 2024/25, against £72,822 the year before. £16,442 of that was next year's tax paid early, so the 2024/25 bill itself was £144,932: nearly double (up 99%). Another £116,901 was billed in just the first three months of 2025/26.",
       },
       {
         q: "How much did MSPs spend on newspapers?",
@@ -1232,7 +1232,7 @@ export const posts: Post[] = [
     seoTitle:
       "Scottish MP Freebies: F1 Tickets, Qatar Trips & Donor Cash",
     description:
-      "Scotland's MPs declared £296,895 in gifts, VIP tickets, foreign trips and donations, on top of £93,904 salaries. F1 tickets, Qatar trips and £205,242 from donors.",
+      "Scotland's MPs declared £296,895 in gifts, VIP tickets, foreign trips and donations, on top of their pay (£93,904 in 2025/26). F1 tickets, Qatar trips and £205,242 from donors.",
     standfirst:
       "MPs were paid £93,904 in 2025/26. On top, firms, donors and foreign governments gave Scotland's MPs £296,895 in gifts, VIP tickets, trips and donations. Here are the names.",
     date: "2026-11-21",

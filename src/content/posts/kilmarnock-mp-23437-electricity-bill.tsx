@@ -5,8 +5,8 @@ import { Prose, P, Aside, PostCTA } from "@/components/Prose";
 /*
  * Written in Graeme's voice (graeme-writing skill). Every expense figure comes
  * directly from IPSA's published individualBusinessCosts CSV files for 2022/23
- * to 2026/27 (checked 22 November 2026 across all 650 UK MPs, over 350,000
- * rows). Quoted descriptions are IPSA's exact wording.
+ * to 2026/27 (checked 23 November 2026 across every MP who claimed since 2022,
+ * over 350,000 rows). Quoted descriptions are IPSA's exact wording.
  * Voting record: House of Commons Divisions 14 and 15, 10 September 2024.
  */
 
@@ -23,6 +23,7 @@ import {
   Receipt,
   CaseCard,
   Face,
+  Party,
   Tiles,
   PointList,
   Expand,
@@ -57,7 +58,7 @@ function Finding({ n, id, children }: { n: number; id: string; children: ReactNo
 
 /** Other MPs with their own local story page, linked near the end. */
 const MORE_LOCAL_STORIES: { name: string; seat: string; place: string; hook: string; story: string }[] = [
-  { name: "Pamela Nash", seat: "motherwell-wishaw-and-carluke", place: "Motherwell", hook: "£7,542 on DFS, IKEA and a new carpet", story: "/blog/pamela-nash-mp-furniture-expenses-motherwell" },
+  { name: "Pamela Nash", seat: "motherwell-wishaw-and-carluke", place: "Motherwell", hook: "£7,203 in one week, from DFS to a new carpet", story: "/blog/pamela-nash-mp-furniture-expenses-motherwell" },
   { name: "Euan Stainbank", seat: "falkirk", place: "Falkirk", hook: "£3,300 for a billboard of himself", story: "/blog/euan-stainbank-mp-billboard-expenses-falkirk" },
   { name: "Chris Law", seat: "dundee-central", place: "Dundee", hook: "£3,090 to set up home broadband", story: "/blog/chris-law-mp-3090-broadband-expenses-dundee" },
   { name: "Angus MacDonald", seat: "inverness-skye-and-west-ross-shire", place: "Inverness and Skye", hook: "£3,000 speech coach and £546 drains", story: "/blog/angus-macdonald-mp-speech-coach-drains-expenses" },
@@ -91,16 +92,19 @@ const SCALE: { what: string; value: number; label: string; hot?: boolean }[] = [
     label: "£16,850",
   },
   {
-    what: "Paid to Yu Energy in a single day (19 May 2026)",
+    what: "Two Yu Energy claims, both dated 19 May 2026",
     value: 23436.95,
     label: "£23,437",
     hot: true,
   },
 ];
 
+/** Each MP's biggest single gas or electricity claim, top eight, 2022/23 to 2026/27. */
 const UK_TOP_ELECTRICITY: {
   name: string;
   p: PartyKey;
+  partyLabel?: string;
+  colour?: string;
   seat: string;
   href?: string;
   date: string;
@@ -113,8 +117,16 @@ const UK_TOP_ELECTRICITY: {
     seat: "Kilmarnock & Loudoun",
     href: mp("kilmarnock-and-loudoun"),
     date: "19 May 2026",
-    detail: "Plus £3,052 to the same firm on the same day",
+    detail: "Plus £3,052 to the same firm in a claim dated the same day",
     value: 20384.74,
+  },
+  {
+    name: "Bim Afolami",
+    p: "Conservative",
+    seat: "Hitchin and Harpenden",
+    date: "4 Sep 2024",
+    detail: "Accommodation (Gas & Electricity for London residence)",
+    value: 6483.31,
   },
   {
     name: "Nick Thomas-Symonds",
@@ -139,6 +151,16 @@ const UK_TOP_ELECTRICITY: {
     date: "19 Jul 2024",
     detail: "Office Costs (SSE Energy Solutions)",
     value: 5081.02,
+  },
+  {
+    name: "Liz Saville-Roberts",
+    p: "Independent",
+    partyLabel: "Plaid Cymru",
+    colour: "#3f8428",
+    seat: "Dwyfor Meirionnydd",
+    date: "29 Jul 2022",
+    detail: "Office Costs (Gas charges for constituency office)",
+    value: 4663.87,
   },
   {
     name: "Janet Daby",
@@ -171,9 +193,9 @@ export default function KilmarnockMp23437ElectricityBill() {
       <QuickTake
         items={[
           <>
-            You paid a <strong>£23,437</strong> power bill for Kilmarnock MP{" "}
-            <Link href={JONES.href}>Lillian Jones</Link> on one day. It is the{" "}
-            <strong>biggest MP power bill in the UK</strong> in five years.
+            You paid a <strong>£23,437</strong> energy bill for Kilmarnock MP{" "}
+            <Link href={JONES.href}>Lillian Jones</Link>, in two claims dated the same day. It is
+            the <strong>biggest energy bill of any UK MP</strong> since 2022.
           </>,
           <>
             It cost <strong>£6,587 more</strong> than a full year&apos;s rent on her Kilmarnock
@@ -190,18 +212,18 @@ export default function KilmarnockMp23437ElectricityBill() {
         ]}
       />
 
-      <CaseCard kicker="Paid in a single day" figure="£23,437" people={[JONES]}>
+      <CaseCard kicker="Two claims, one date" figure="£23,437" people={[JONES]}>
         <p>
-          Her Kilmarnock office normally pays about <strong>£215 a month</strong> for power.
+          Her last office power bill worked out at about <strong>£215 a month</strong>.
         </p>
         <p>
-          Then on <strong>19 May 2026</strong>, IPSA sent Yu Energy two payments on the same day:{" "}
+          Then came two claims to Yu Energy, both dated <strong>19 May 2026</strong>:{" "}
           <strong>£20,385</strong> (2025/26) and <strong>£3,052</strong> (2026/27).
         </p>
       </CaseCard>
 
       <section
-        aria-label="Her power bill and her Winter Fuel vote"
+        aria-label="Her energy bill and her Winter Fuel vote"
         className="not-prose my-10 overflow-hidden rounded-[var(--r-m)] border border-[var(--rule)] border-l-[6px] border-l-[var(--bad)] bg-[color-mix(in_srgb,var(--bad)_5%,var(--surface))] text-[var(--ink)] shadow-[0_14px_34px_-26px_rgba(10,16,34,0.45)]"
       >
         <div className="flex items-center gap-3 border-b border-[var(--rule)] px-6 py-4 sm:px-8">
@@ -216,10 +238,10 @@ export default function KilmarnockMp23437ElectricityBill() {
         <div className="grid sm:grid-cols-2">
           <div className="border-b border-[var(--rule)] px-6 py-7 sm:border-b-0 sm:border-r sm:px-8 sm:py-9">
             <p className="ui text-[13px] font-[660] uppercase tracking-[0.07em] text-[var(--muted)]">
-              19 May 2026 · Her power bill
+              19 May 2026 · Her energy bill
             </p>
             <p className="figure-num tnum mt-2 text-[54px] leading-none text-[var(--bad-text)] sm:text-[62px]">£23,437</p>
-            <p className="mt-3 text-[19px] font-[600] leading-[1.4]">Paid by taxpayers. In one day.</p>
+            <p className="mt-3 text-[19px] font-[600] leading-[1.4]">Paid by taxpayers. Two claims, one date.</p>
           </div>
           <div className="px-6 py-7 sm:px-8 sm:py-9">
             <p className="ui text-[13px] font-[660] uppercase tracking-[0.07em] text-[var(--muted)]">
@@ -245,16 +267,16 @@ export default function KilmarnockMp23437ElectricityBill() {
       </P>
       <P>
         Her office paid £1,074 for five winter months of power, about £215 a month. Her London
-        flat power bills ran from £21 to £85 a month.
+        flat power bills ran from £21 to £85.
       </P>
       <P>
-        Then came <strong>19 May 2026</strong>. IPSA logged two big power payments to Yu Energy on
-        the same day, on the same account.
+        Then came <strong>19 May 2026</strong>. IPSA logged two big energy claims to Yu Energy,
+        both dated that day, on the same account.
       </P>
 
       <ChartFrame
         kicker="Putting £23,437 in perspective"
-        title="One day's power payments vs her own normal bills and rent"
+        title="Two energy claims on one date vs her own normal bills and rent"
         caption="Source: IPSA files (2024/25 to 2026/27) for Lillian Jones MP."
       >
         <div className="space-y-4">
@@ -279,7 +301,7 @@ export default function KilmarnockMp23437ElectricityBill() {
       <Expand summary="See the proof: the two IPSA lines, word for word">
         <Receipt
           person={JONES}
-          heading="IPSA records · 19 May 2026 · Two payments to Yu Energy"
+          heading="IPSA records · 19 May 2026 · Two claims to Yu Energy"
           lines={[
             {
               meta: "2025/26 budget year · Miscellaneous",
@@ -292,13 +314,13 @@ export default function KilmarnockMp23437ElectricityBill() {
               amount: "£3,052.21",
             },
           ]}
-          total={{ label: "Paid on one day · £0 repaid", amount: "£23,436.95" }}
+          total={{ label: "Both dated 19 May 2026 · £0 repaid", amount: "£23,436.95" }}
           footer="Wording as printed by IPSA. 2000294348 is the Yu Energy account. IPSA file codes: 200013554-0-C (2025/26) and 200013554-0 (2026/27)."
         />
         <p className="text-[15.5px] leading-[1.6] text-[var(--ink-2)]">
           Her normal office power bill came from Clear Business (£1,074.15 for Nov 2024 to Mar
-          2025). Her London flat bills from Octopus ran from £21.57 to £85.01 a month. Her office
-          rent for 2025/26 was £16,850.04.
+          2025). Her London flat power bills ran from £21.57 to £85.01. The Octopus Energy ones
+          were £52.43 to £85.01. Her office rent for 2025/26 was £16,850.04.
         </p>
       </Expand>
 
@@ -309,7 +331,7 @@ export default function KilmarnockMp23437ElectricityBill() {
           <strong>£178.79</strong> for June 2026. That is <strong>£254.63</strong> in all.
         </p>
         <p>
-          Lillian Jones&apos;s payments to the same firm on one day came to{" "}
+          Lillian Jones&apos;s two claims to the same firm, dated the same day, came to{" "}
           <strong>£23,437</strong>. That is about <strong>131 times</strong> his June bill.
         </p>
       </CaseCard>
@@ -319,8 +341,8 @@ export default function KilmarnockMp23437ElectricityBill() {
           person={MURRAY}
           heading="IPSA records · 2026/27 · Office Costs · Utilities"
           lines={[
-            { meta: "Paid 15 April 2026", what: "YU Energy Expense - March", amount: "£75.84" },
-            { meta: "Paid 6 July 2026", what: "YuEnergy Bill for June 2026", amount: "£178.79" },
+            { meta: "Claim dated 15 April 2026", what: "YU Energy Expense - March", amount: "£75.84" },
+            { meta: "Claim dated 6 July 2026", what: "YuEnergy Bill for June 2026", amount: "£178.79" },
           ]}
           total={{ label: "Both bills", amount: "£254.63" }}
           footer="Wording as printed by IPSA. These are the only Yu Energy lines for any Scottish MP apart from Lillian Jones's two."
@@ -329,31 +351,42 @@ export default function KilmarnockMp23437ElectricityBill() {
 
       {/* ------------------------------------------------------------ 2 */}
       <Finding n={2} id="uk-number-one">
-        Number one out of all 650 UK MPs over five years
+        Number one of every UK MP since 2022
       </Finding>
       <P>
-        We checked over 350,000 claim lines from all 650 UK MPs, from 2022 to 2027. We looked at
-        every power and gas claim.
+        We checked over 350,000 claim lines from every MP since 2022. We looked at every power and
+        gas claim.
       </P>
       <P>
-        Nothing else comes close. Her bigger payment on its own is more than{" "}
-        <strong>three and a half times</strong> the next biggest single MP power claim.
+        Nothing else comes close. Her bigger claim on its own is more than{" "}
+        <strong>three times</strong> the next biggest single gas or electricity claim by any MP.
+        That was £6,483 for Conservative Bim Afolami&apos;s London home in 2024.
       </P>
 
       <ChartFrame
-        kicker="All 650 UK MPs · 2022/23 to 2026/27"
-        title="Biggest single power claims across all 650 UK MPs"
-        caption="Source: Five years of IPSA files (2022/23 to 2026/27) across all 650 UK seats."
+        kicker="Every UK MP · 2022/23 to 2026/27"
+        title="Biggest single gas and electricity claims by any UK MP"
+        caption="Source: Five years of IPSA files (2022/23 to 2026/27) for every MP who claimed. Each MP's biggest single claim is shown once."
       >
         <RankList
           max={UK_TOP_ELECTRICITY[0].value}
           rows={UK_TOP_ELECTRICITY.map((r, i) => ({
             key: r.name,
-            who: <Who face name={r.name} href={r.href} p={r.p} note={r.seat} />,
+            who: r.partyLabel ? (
+              <span className="flex min-w-0 items-center gap-2.5">
+                <Face name={r.name} href={r.href} size={40} />
+                <span className="flex min-w-0 flex-col gap-0.5">
+                  <span className="font-[620] text-[var(--ink)]">{r.name}</span>
+                  <Party p={r.p} label={r.partyLabel} note={r.seat} />
+                </span>
+              </span>
+            ) : (
+              <Who face name={r.name} href={r.href} p={r.p} note={r.seat} />
+            ),
             side: r.date,
             value: r.value,
             label: gbp(r.value, false),
-            colour: PARTY[r.p].colour,
+            colour: r.colour ?? PARTY[r.p].colour,
             detail: r.detail,
             highlight: i === 0,
           }))}
@@ -367,14 +400,14 @@ export default function KilmarnockMp23437ElectricityBill() {
       <P>
         In East Ayrshire and across Scotland, low paid homes have to apply for the{" "}
         <Link href="/warm-home-discount-scotland">£150 Warm Home Discount</Link> to keep the heat
-        on. At £150 a home, the £23,437 paid in one day equals{" "}
+        on. At £150 a home, the £23,437 in those two claims equals{" "}
         <strong>156 Warm Home Discounts</strong>.
       </P>
 
       <Tiles
         items={[
           { value: "£150", label: "one Warm Home Discount for one home" },
-          { value: "156", label: "Warm Home Discounts the one day's payments equal", hot: true },
+          { value: "156", label: "Warm Home Discounts the two claims equal", hot: true },
         ]}
       />
 
@@ -386,22 +419,22 @@ export default function KilmarnockMp23437ElectricityBill() {
 
       {/* ------------------------------------------------------------ 4 */}
       <Finding n={4} id="how-ipsa-paid-it">
-        How IPSA paid £23,437 without touching her office cap
+        How £23,437 went through without touching her office cap
       </Finding>
       <P>
-        Normally, an MP&apos;s power bill comes out of their office pot. A £23,437 hit would have
+        Normally, an MP&apos;s energy bill comes out of their office pot. A £23,437 hit would have
         blown straight through it.
       </P>
       <P>
-        So IPSA paid Yu Energy from a side pot of public cash. Her normal office pot never took the
-        hit.
+        So the Yu Energy claims went through a side pot of public cash. Her normal office pot never
+        took the hit.
       </P>
       <P>
-        Firm power bills can spike with no fixed deal, an old debt, or heaters left on all winter.
+        Business energy bills can spike with no fixed deal, an old debt, or heaters left on all winter.
         The files never say which of those took place, or why you paid the bill.
       </P>
       <P>
-        Kilmarnock folk still have no answers to four plain questions:
+        Kilmarnock people still have no answers to four plain questions:
       </P>
 
       <PointList
@@ -434,7 +467,7 @@ export default function KilmarnockMp23437ElectricityBill() {
       />
 
       <P>
-        The power bill sits alongside her other local promo claims:
+        The energy bill sits alongside her other local promo claims:
       </P>
 
       <Spotlight
@@ -466,7 +499,9 @@ export default function KilmarnockMp23437ElectricityBill() {
           </Link>
           , <Link href="/blog/chris-law-mp-3090-broadband-expenses-dundee">£3,090 to set up 5G broadband</Link>,{" "}
           <strong>£24,515 on one MP&apos;s mobile bills</strong> and{" "}
-          <strong>£37,359 on London hotels</strong>. See{" "}
+          <strong>£37,359 on London hotels for</strong>{" "}
+          <Link href="/representatives/mps/glasgow-south-west#donations-and-interests">Dr Zubir Ahmed</Link>{" "}
+          in one year. See{" "}
           <Link href="/blog/worst-scottish-mp-expenses">the worst claims</Link> or compare{" "}
           <Link href="/mp-expenses-scotland">all 57 Scottish MPs</Link>.
         </p>
