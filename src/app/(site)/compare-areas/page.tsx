@@ -8,6 +8,8 @@ import { meta } from "@/lib/seo";
 import { councils } from "@/lib/data/councils";
 import { COMPARE_DEFAULTS } from "@/lib/data/compareAreas";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import NextStepStrip from "@/components/NextStepStrip";
+import { councilTaxPath } from "@/lib/routeMap";
 
 /**
  * Compare any two of Scotland's 32 council areas.
@@ -52,6 +54,8 @@ export default async function CompareAreasPage({
     redirect("/glasgow-vs-edinburgh");
   }
 
+  const nameOf = (slug: string) => councils.find((c) => c.slug === slug)?.name ?? slug;
+
   return (
     <>
       <Breadcrumbs crumbs={[
@@ -88,6 +92,29 @@ export default async function CompareAreasPage({
       <div className="max-w-[1232px] mx-auto px-5 sm:px-8 lg:px-14">
         <ContentFrame className="pb-16">
           <AreaComparison a={a} b={b} />
+          {/* The comparison is the answer. The best next click is the bill
+              people pay in each place, then a check on one street. */}
+          <NextStepStrip
+            heading="Your next check"
+            className="mt-12"
+            items={[
+              {
+                href: councilTaxPath(a),
+                label: `Council tax in ${nameOf(a)}`,
+                blurb: "Every band, with the water charge most sites leave out.",
+              },
+              {
+                href: councilTaxPath(b),
+                label: `Council tax in ${nameOf(b)}`,
+                blurb: "Same house, different council, different bill. See by how much.",
+              },
+              {
+                href: "/simd-postcode-checker",
+                label: "Check one street",
+                blurb: "A whole council can hide big gaps. See how one postcode ranks.",
+              },
+            ]}
+          />
           <section className="pt-16" aria-labelledby="rankings">
             <SectionHead eyebrow="Rankings" title="Every area, ranked" id="rankings" />
             <div className="mt-6">

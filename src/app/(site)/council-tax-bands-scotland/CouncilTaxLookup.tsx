@@ -14,6 +14,7 @@ import { bandShares, DWELLINGS_YEAR } from "@/lib/data/dwellings";
 import { trackEvent } from "@/lib/analytics";
 import EnergyPaymentNote from "@/components/EnergyPaymentNote";
 import { councilTaxPath, postPath } from "@/lib/routeMap";
+import { YourMpExpenses } from "@/components/ExpenseNudges";
 
 /**
  * Postcode to council tax charges.
@@ -31,7 +32,8 @@ const exact = new Intl.NumberFormat("en-GB", {
   minimumFractionDigits: 2,
 });
 
-type Result = { councilName: string; slug: string; charges: BandCharge[] };
+type LocalMp = { name: string; constituency: string; slug: string };
+type Result = { councilName: string; slug: string; charges: BandCharge[]; mp?: LocalMp };
 
 const pct = (n: number) => `${Math.round(n)}%`;
 const risePct = new Intl.NumberFormat("en-GB", { maximumFractionDigits: 1 });
@@ -51,7 +53,7 @@ export default function CouncilTaxLookup() {
     resultHeading.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   }, [result]);
 
-  function show(slug: string, councilName: string, method: "postcode" | "council_list") {
+  function show(slug: string, councilName: string, method: "postcode" | "council_list", mp?: LocalMp) {
     const charges = chargesFor(slug);
     if (!charges) {
       setState("error");
@@ -59,7 +61,7 @@ export default function CouncilTaxLookup() {
       trackEvent("council_tax_lookup_error", { method });
       return;
     }
-    setResult({ councilName, slug, charges });
+    setResult({ councilName, slug, charges, mp });
     setOpenBand(null);
     setMessage("");
     setState("idle");
@@ -92,12 +94,12 @@ export default function CouncilTaxLookup() {
         body: JSON.stringify({ postcode: value }),
       });
       const data = (await response.json()) as
-        | { council: { name: string; slug: string } }
+        | { council: { name: string; slug: string }; mp?: LocalMp }
         | { error?: string };
       if (!response.ok || !("council" in data)) {
         throw new Error("error" in data && data.error ? data.error : "That lookup failed.");
       }
-      show(data.council.slug, data.council.name, "postcode");
+      show(data.council.slug, data.council.name, "postcode", data.mp);
     } catch (caught) {
       setState("error");
       setMessage(caught instanceof Error ? caught.message : "That lookup failed.");
@@ -341,6 +343,17 @@ export default function CouncilTaxLookup() {
               ))}
             </ul>
           </div>
+
+          {/* A postcode also tells us the MP. Their receipts are the next
+              thing a local taxpayer is likely to want to see. */}
+          {result.mp && (
+            <YourMpExpenses
+              name={result.mp.name}
+              constituency={result.mp.constituency}
+              constituencySlug={result.mp.slug}
+              className="mt-6"
+            />
+          )}
 
           <p className="mt-5 text-[15px] leading-[1.55] text-[var(--muted)]">
             Council tax figures for {PREVIOUS_COUNCIL_TAX_YEAR} and {COUNCIL_TAX_YEAR} are the

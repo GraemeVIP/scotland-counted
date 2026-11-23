@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { councils } from "@/lib/data/councils";
+import { mps } from "@/lib/data/mps";
 import { POSTCODE_MESSAGES, lookupPostcodeArea } from "@/lib/postcode";
 import { representativePostcodeFromRequest } from "@/lib/representatives";
 
@@ -32,10 +33,18 @@ export async function POST(request: Request) {
     return error("I found the postcode but could not match its council data.", 404);
   }
 
+  // The MP for the postcode, so a tool can point to their receipts after
+  // the answer. Matched on the constituency name from the official lookup.
+  const constituency = result.area.constituency.trim().toLowerCase();
+  const mp = mps.find((item) => item.constituency.toLowerCase() === constituency);
+
   return NextResponse.json(
     {
       postcode: result.area.postcode || postcode.formatted,
       council: { name: council.name, slug: council.slug },
+      ...(mp
+        ? { mp: { name: mp.name, constituency: mp.constituency, slug: mp.constituencySlug } }
+        : {}),
     },
     { headers: NO_STORE_HEADERS }
   );

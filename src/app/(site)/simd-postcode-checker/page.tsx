@@ -3,6 +3,7 @@ import { Page, ContentFrame, PageHeader, SectionHead, CTA } from "@/components/B
 import EditorialImage from "@/components/EditorialImage";
 import SharePage from "@/components/SharePage";
 import NextStepStrip from "@/components/NextStepStrip";
+import { mps } from "@/lib/data/mps";
 import QuickAnswer from "@/components/QuickAnswer";
 import Faq from "@/components/Faq";
 import { GuideTable } from "@/components/GuideTable";
@@ -57,6 +58,9 @@ const FAQ = [
     a: "Yes. SIMD 2020v2 is the current published Scottish Index of Multiple Deprivation used by the Scottish Government, councils, NHS boards and universities.",
   },
 ];
+
+/** Just what the checker needs to name the MP for a postcode. */
+const mpsLite = mps.map((m) => ({ name: m.name, constituency: m.constituency, slug: m.constituencySlug }));
 
 export default function SimdPostcodeCheckerPage() {
   const ranked = rankAreas("simd_most_deprived", "desc");
@@ -123,7 +127,7 @@ export default function SimdPostcodeCheckerPage() {
         </ContentFrame>
 
         <ContentFrame className="pt-10">
-          <SimdLookup />
+          <SimdLookup mps={mpsLite} />
           <NextStepStrip
             className="mt-7"
             items={[

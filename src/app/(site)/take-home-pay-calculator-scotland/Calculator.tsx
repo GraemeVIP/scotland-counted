@@ -3,6 +3,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "@/components/IntentLink";
+import NextStepStrip from "@/components/NextStepStrip";
+import { biggestMpStory, statValue, storyHref } from "@/lib/expenseNudges";
 import {
   calculate,
   solveGross,
@@ -719,6 +721,32 @@ export default function Calculator() {
                 )}
               </div>
             </details>
+
+            {/* The moment after the answer. Two nudges: one that puts the
+                reader's own pay next to a real MP bill, and the next tools. */}
+            {hasInput && !inputProblem && calc.net > 0 && <PayInContext net={calc.net} />}
+
+            <NextStepStrip
+              heading="Now check"
+              className="mt-1"
+              items={[
+                {
+                  href: "/council-tax-bands-scotland",
+                  label: "How much goes on council tax?",
+                  blurb: "Find your bill by postcode, with water included.",
+                },
+                {
+                  href: "/average-salary-scotland",
+                  label: "Is your pay above average?",
+                  blurb: "See the typical Scottish salary and where you sit.",
+                },
+                {
+                  href: "/tax-bands-scotland",
+                  label: "Why Scotland's tax is different",
+                  blurb: "Every Scottish band and what each one takes.",
+                },
+              ]}
+            />
           </>
         )}
 
@@ -730,5 +758,49 @@ export default function Calculator() {
         </p>
       </section>
     </div>
+  );
+}
+
+/**
+ * Puts the reader's own take home pay next to the biggest single MP bill on
+ * the site. A real figure from the IPSA files, measured in their own months.
+ */
+function PayInContext({ net }: { net: number }) {
+  const story = biggestMpStory();
+  if (!story?.person) return null;
+  const months = statValue(story.stat) / (net / 12);
+  const span =
+    months >= 24
+      ? `about ${Math.round(months / 12)} years`
+      : `about ${Math.max(1, Math.round(months))} ${Math.round(months) === 1 ? "month" : "months"}`;
+  return (
+    <aside
+      aria-label="Your pay next to one MP's bill"
+      className="rounded-[var(--r-m)] border border-[var(--rule)] border-l-[5px] border-l-[var(--bad)] bg-[var(--surface)] p-5 sm:p-6"
+    >
+      <p className="kicker mb-1.5 text-[var(--bad-text)]">Your pay, next to one MP&apos;s bill</p>
+      <div className="grid gap-x-5 gap-y-1.5 sm:grid-cols-[auto_minmax(0,1fr)] sm:items-center">
+        <p className="figure-num tnum text-[38px] leading-none text-[var(--bad-text)] sm:text-[44px]">
+          {story.stat}
+        </p>
+        <p className="ui text-[17px] font-[640] leading-[1.35] text-[var(--ink)]">{story.hook}</p>
+      </div>
+      <p className="mt-3 text-[16px] leading-[1.55] text-[var(--ink-2)]">
+        Taxpayers paid it for{" "}
+        <Link href={story.person.href} className="font-[640]">
+          {story.person.name}
+        </Link>
+        , MP for {story.person.place}. That is <strong className="tnum text-[var(--ink)]">{span}</strong>{" "}
+        of your take home pay.
+      </p>
+      <div className="mt-4 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap">
+        <Link href={storyHref(story)} className="btn btn-primary justify-center text-center">
+          Read the story →
+        </Link>
+        <Link href="/mp-expenses-scotland/search" className="btn btn-ghost justify-center text-center">
+          Check your own MP&apos;s receipts
+        </Link>
+      </div>
+    </aside>
   );
 }

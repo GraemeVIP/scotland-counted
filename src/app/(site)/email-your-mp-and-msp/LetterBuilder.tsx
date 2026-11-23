@@ -2,6 +2,8 @@
 
 import { useCallback, useEffect, useId, useMemo, useRef, useState, type ReactNode } from "react";
 import Link from "@/components/IntentLink";
+import { YourMpExpenses } from "@/components/ExpenseNudges";
+import { placeSlug } from "@/lib/expenseNudges";
 import { councils, COUNCIL_YEARS, SCOTLAND_PCTS } from "@/lib/data/councils";
 import {
   councilExtra,
@@ -907,6 +909,17 @@ export default function LetterBuilder() {
         Every href names a council or a constituency, so all of them are
         safe to bookmark or send on. None of them carries the postcode.
       */}
+      {/* After the email is ready, not before: the receipts never get in
+          the way of sending it. */}
+      {lookup && (
+        <YourMpExpenses
+          name={lookup.mp.name}
+          constituency={lookup.mp.constituency}
+          constituencySlug={placeSlug(lookup.mp.constituency)}
+          className="mt-6"
+        />
+      )}
+
       {lookup && (
         <div className="tile mt-6 p-5 sm:p-8">
           <h2 className="display-stat text-[clamp(22px,2.4vw,28px)]">While you are here</h2>

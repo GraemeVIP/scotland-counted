@@ -9,6 +9,7 @@ import { JsonLd, faqJsonLd, imageJsonLd, meta } from "@/lib/seo";
 import { calculateLbtt, LBTT_DATA } from "@/lib/lbtt/engine";
 import LbttCalculator from "./LbttCalculator";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import NextStepStrip from "@/components/NextStepStrip";
 
 const HERO_IMAGE = {
   src: "/images/editorial/lbtt-calculator-scotland-stamp-duty.webp",
@@ -133,6 +134,29 @@ export default function LbttCalculatorPage() {
 
         <ContentFrame className="pt-10">
           <LbttCalculator />
+          {/* Straight after the tax figure: the bills that come next with a
+              new home, and a check on the street before buying. */}
+          <NextStepStrip
+            heading="Buying? Check these next"
+            className="mt-6"
+            items={[
+              {
+                href: "/council-tax-bands-scotland",
+                label: "Council tax on the new home",
+                blurb: "You pay LBTT once. Council tax comes every year. See the bill, water included.",
+              },
+              {
+                href: "/simd-postcode-checker",
+                label: "Check the street first",
+                blurb: "See how the postcode ranks on Scotland's official poverty map.",
+              },
+              {
+                href: "/mansion-tax-scotland",
+                label: "Over £1 million?",
+                blurb: "New council tax Bands I and J start in April 2028. See who pays.",
+              },
+            ]}
+          />
           <EditorialImage
             src={HERO_IMAGE.src}
             alt={HERO_IMAGE.alt}

@@ -5,6 +5,11 @@ import Link from "@/components/IntentLink";
 import { councils } from "@/lib/data/councils";
 import { councilTaxPath } from "@/lib/routeMap";
 import { simdFromRank, SIMD_TOTAL_DATA_ZONES, type SimdSummary } from "@/lib/simd";
+import { YourMpExpenses } from "@/components/ExpenseNudges";
+import { placeSlug } from "@/lib/expenseNudges";
+
+/** The 57 Scottish MPs, slimmed down on the server so the page stays light. */
+export type MpLite = { name: string; constituency: string; slug: string };
 
 type LookupResult = {
   postcode: string;
@@ -14,6 +19,7 @@ type LookupResult = {
   councilName: string;
   councilSlug: string | null;
   simd: SimdSummary;
+  mp: MpLite | null;
 };
 
 type PostcodesIoPayload = {
@@ -24,6 +30,8 @@ type PostcodesIoPayload = {
     admin_district: string | null;
     admin_ward: string | null;
     lsoa: string | null;
+    parliamentary_constituency_2024?: string | null;
+    parliamentary_constituency?: string | null;
     index_of_multiple_deprivation: number | null;
     codes?: {
       admin_district?: string | null;
@@ -34,7 +42,7 @@ type PostcodesIoPayload = {
 
 const EXAMPLES = ["G12 8QQ", "EH1 1YZ", "AB10 1XG", "DD1 4HN"];
 
-export default function SimdLookup() {
+export default function SimdLookup({ mps = [] }: { mps?: MpLite[] }) {
   const [postcode, setPostcode] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "error">("idle");
   const [error, setError] = useState("");
@@ -92,8 +100,12 @@ export default function SimdLookup() {
       const councilCode = r.codes?.admin_district ?? null;
       const matched = councilCode ? councils.find((c) => c.code === councilCode) : null;
 
+      const seat = r.parliamentary_constituency_2024 ?? r.parliamentary_constituency ?? "";
+      const mp = seat ? mps.find((m) => m.slug === placeSlug(seat)) ?? null : null;
+
       setResult({
         postcode: r.postcode,
+        mp,
         neighbourhood: r.lsoa ?? "Scottish data zone",
         dataZoneCode: r.codes?.lsoa ?? null,
         ward: r.admin_ward ?? null,
@@ -258,6 +270,14 @@ export default function SimdLookup() {
               </div>
             )}
           </div>
+        )}
+        {result?.mp && (
+          <YourMpExpenses
+            name={result.mp.name}
+            constituency={result.mp.constituency}
+            constituencySlug={result.mp.slug}
+            className="mt-4"
+          />
         )}
       </div>
     </section>
