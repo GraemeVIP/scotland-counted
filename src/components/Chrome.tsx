@@ -11,8 +11,8 @@ import { BrandLogo } from "@/components/BrandLogo";
 
 export const NAV = PRIMARY;
 
-function Wordmark({ height = 28, priority = false, sizeClass }: { height?: number; priority?: boolean; sizeClass?: string }) {
-  return <BrandLogo tone="on-dark" height={height} priority={priority} sizeClass={sizeClass} />;
+function Wordmark({ height = 30, priority = false }: { height?: number; priority?: boolean }) {
+  return <BrandLogo tone="on-dark" height={height} priority={priority} />;
 }
 
 function SearchButton() {
@@ -133,7 +133,7 @@ export function Header() {
       className="sticky top-0 z-50 no-print px-3 pt-3 sm:px-5"
     >
       <div
-        className={`max-w-[1320px] mx-auto flex items-center gap-2 sm:gap-3 h-[60px] rounded-[var(--r-pill)] pl-4 pr-2 text-white border border-white/12 transition-shadow ${
+        className={`max-w-[1320px] mx-auto flex items-center gap-2 sm:gap-3 h-[60px] rounded-[var(--r-pill)] pl-5 pr-2 text-white border border-white/12 transition-shadow ${
           scrolled ? "shadow-[0_14px_40px_-14px_rgba(0,12,40,0.55)]" : "shadow-[0_10px_30px_-16px_rgba(0,12,40,0.45)]"
         }`}
         style={{
@@ -148,7 +148,7 @@ export function Header() {
           onClick={() => setMenuPath(null)}
           aria-label="Scotland Counted home"
         >
-          <Wordmark height={32} priority sizeClass="h-[26px] sm:h-[29px] xl:h-[28px] min-[1400px]:h-[32px]" />
+          <Wordmark height={30} priority />
         </Link>
 
         <nav aria-label="Main" className="hidden xl:flex items-center gap-0.5 mx-auto">

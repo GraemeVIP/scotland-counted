@@ -1,49 +1,57 @@
 import Image from "next/image";
 
 /**
- * The Scotland Counted logo: the SC monogram and the wordmark.
+ * The Scotland Counted logo: the blue saltire SC mark, with the name set
+ * beside it on two lines ("Scotland" over "Counted").
  *
- * "on-dark" is the original artwork, white lettering for the navy header and
- * footer. "adaptive" is for surfaces that follow the theme: the dark lettering
- * version on paper, swapped for the white one when the dark theme is on.
+ * The mark is a transparent image (public/brand/sc-mark.webp, trimmed from
+ * Graeme's 1254px master), so it sits straight on any background. The name is
+ * live text, so it stays sharp at every size and needs no second image for
+ * the dark theme.
+ *
+ * "on-dark" is white lettering for the navy header, menu sheet and footer.
+ * "adaptive" follows the theme (ink on paper, white in the dark theme).
  *
  * Kept in its own file so the header, the menu sheet and the 404 page can all
  * use it without importing each other.
  */
-const RATIO = 560 / 96;
+const MARK_RATIO = 193 / 120;
 
 export function BrandLogo({
   tone = "on-dark",
-  height = 28,
+  height = 30,
   priority = false,
   className = "",
-  sizeClass,
 }: {
   tone?: "on-dark" | "adaptive";
+  /** Height of the mark in px. The name is sized to match it. */
   height?: number;
   priority?: boolean;
   className?: string;
-  /** Responsive height classes, e.g. "h-[26px] xl:h-[32px]". Overrides `height` on screen. */
-  sizeClass?: string;
 }) {
-  const width = Math.round(height * RATIO);
-  const img = (src: string, extra = "") => (
-    <Image
-      src={src}
-      alt="Scotland Counted"
-      width={width}
-      height={height}
-      priority={priority}
-      unoptimized
-      className={`block w-auto max-w-full ${sizeClass ?? ""} ${extra}`}
-      style={sizeClass ? undefined : { height, width: "auto" }}
-    />
-  );
-  if (tone === "on-dark") return <span className={`inline-flex ${className}`}>{img("/brand/logo-on-dark.webp")}</span>;
+  const markWidth = Math.round(height * MARK_RATIO);
+  const fontSize = Math.round(height * 0.42 * 10) / 10;
   return (
-    <span className={`inline-flex ${className}`}>
-      {img("/brand/logo-on-light.webp", "logo-light-theme")}
-      {img("/brand/logo-on-dark.webp", "logo-dark-theme")}
+    <span className={`inline-flex items-center gap-2.5 ${className}`}>
+      <Image
+        src="/brand/sc-mark.webp"
+        alt=""
+        width={markWidth}
+        height={height}
+        priority={priority}
+        unoptimized
+        className="block shrink-0"
+        style={{ height, width: markWidth }}
+      />
+      <span
+        className={`ui flex flex-col font-[800] uppercase leading-[1.02] tracking-[0.045em] ${
+          tone === "on-dark" ? "text-white" : "text-[var(--ink)]"
+        }`}
+        style={{ fontSize }}
+      >
+        <span>Scotland</span>
+        <span>Counted</span>
+      </span>
     </span>
   );
 }
