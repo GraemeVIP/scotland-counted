@@ -133,7 +133,7 @@ export function Header() {
       className="sticky top-0 z-50 no-print px-3 pt-3 sm:px-5"
     >
       <div
-        className={`max-w-[1320px] mx-auto flex items-center gap-2 sm:gap-3 h-[60px] rounded-[var(--r-pill)] pl-5 pr-2 text-white border border-white/12 transition-shadow ${
+        className={`max-w-[1320px] mx-auto flex items-center gap-2 sm:gap-3 h-[60px] rounded-[var(--r-pill)] pl-6 sm:pl-7 pr-2 text-white border border-white/12 transition-shadow ${
           scrolled ? "shadow-[0_14px_40px_-14px_rgba(0,12,40,0.55)]" : "shadow-[0_10px_30px_-16px_rgba(0,12,40,0.45)]"
         }`}
         style={{

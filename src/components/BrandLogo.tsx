@@ -44,7 +44,7 @@ export function BrandLogo({
         style={{ height, width: markWidth }}
       />
       <span
-        className={`ui flex flex-col font-[800] uppercase leading-[1.02] tracking-[0.045em] ${
+        className={`ui flex flex-col items-center text-center font-[800] uppercase leading-[1.02] tracking-[0.045em] ${
           tone === "on-dark" ? "text-white" : "text-[var(--ink)]"
         }`}
         style={{ fontSize }}
