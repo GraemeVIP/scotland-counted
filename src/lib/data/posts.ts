@@ -722,6 +722,55 @@ export const posts: Post[] = [
     ],
   },
   {
+    slug: "meghan-gallacher-msp-low-expenses",
+    title:
+      "Meghan Gallacher MSP cost taxpayers less than half the typical MSP, and has never claimed a penny for travel",
+    seoTitle: "Meghan Gallacher MSP Expenses: £15,764, Half the Typical MSP",
+    description:
+      "Taxpayers paid £15,764 for Meghan Gallacher MSP in 2024/25, less than half the typical £33,693. She has claimed £0 for travel since 2021 and never billed for an Edinburgh flat.",
+    standfirst:
+      "Most of our expenses stories are about MSPs who cost you too much. This one is the other way round. In 2024/25 Meghan Gallacher cost taxpayers £15,764, second lowest of 63 MSPs. She hasn't claimed a penny for travel in four years.",
+    date: "2026-11-23",
+    updated: "2026-11-23",
+    checked: "2026-11-23",
+    category: "politics-explained",
+    tags: ["MSP expenses Scotland", "Holyrood", "Scottish Parliament", "Scottish Conservatives", "Lanarkshire"],
+    readingMinutes: 4,
+    image: {
+      src: "/images/editorial/meghan-gallacher-msp-low-expenses.webp",
+      alt: "Official portrait of Meghan Gallacher MSP beside the words £0 on travel since 2021",
+      caption: "Official portrait: Scottish Parliament. Figures from Holyrood's own expense files, May 2021 to June 2025.",
+      aspect: "wide",
+      objectPosition: "center",
+    },
+    shareImage: {
+      src: "/images/editorial/meghan-gallacher-msp-low-expenses.webp",
+      width: 1600,
+      height: 800,
+      type: "image/webp",
+    },
+    toc: [
+      { id: "lowest", label: "Second lowest of 63 MSPs" },
+      { id: "no-travel", label: "Not a penny on travel in four years" },
+      { id: "same-region", label: "Same region, very different bill" },
+    ],
+    faq: [
+      {
+        q: "How much did Meghan Gallacher MSP cost taxpayers?",
+        a: "£15,764 in 2024/25 and £15,504 in 2023/24, not counting staff pay. The typical MSP cost £33,693 in 2024/25. Of the 63 MSPs who sat from 2021 to 2025 and still sit, only Lorna Slater cost less in 2024/25.",
+      },
+      {
+        q: "Does Meghan Gallacher claim travel expenses?",
+        a: "No. Holyrood's expense files show no travel or mileage claims from her between May 2021 and June 2025. The typical MSP we checked claimed £9,517 for travel over the same four years.",
+      },
+      {
+        q: "How does she compare with Graham Simpson?",
+        a: "Both cover the same region. In 2024/25 Graham Simpson cost £34,416, including an Edinburgh flat, against her £15,764. He claimed for 22,544 car miles over four years. She claimed none.",
+      },
+    ],
+    sourceIds: ["sp-allowances-open-data", "sp-members-expenses-scheme-s7", "sp-official-report-2026-11-11"],
+  },
+  {
     slug: "msp-edinburgh-flats-commuter-belt",
     title:
       "You paid £623,696 to rent Edinburgh flats for 36 MSPs. Some live just 50 miles away",
