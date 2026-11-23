@@ -142,6 +142,43 @@ export type Post = {
 
 export const posts: Post[] = [
   {
+    slug: "north-ayrshire-school-taxi-spending",
+    title: "North Ayrshire spent £2.45 million on school taxis. What did it get for the money?",
+    seoTitle: "North Ayrshire Council’s £2.45m School Taxi Bill",
+    description: "North Ayrshire reported £2.45m in school taxi spending in 2024/25. See how it compares and which invoices and contract records would show value for money.",
+    standfirst: "School runs made up about 87% of North Ayrshire’s taxi bill in 2024/25. To see whether the council got a fair price, we need to see what it paid for each route.",
+    date: "2026-11-23",
+    category: "politics-explained",
+    tags: ["North Ayrshire Council", "School transport", "School taxi spending", "Council spending"],
+    readingMinutes: 6,
+    image: {
+      src: "/images/editorial/north-ayrshire-school-taxi-spending.webp",
+      alt: "Of North Ayrshire’s reported £2.83 million taxi bill in 2024/25, £2.45 million was for school runs and about £380,000 for other journeys",
+      caption: "Source figures were rounded in the published FOI reporting. The amount for other journeys is the difference between the two published figures.",
+    },
+    toc: [
+      { id: "comparison", label: "How North Ayrshire compares" },
+      { id: "contracts", label: "How the council buys journeys" },
+      { id: "five-questions", label: "Five questions about the bill" },
+      { id: "records", label: "The records needed" },
+    ],
+    faq: [
+      { q: "How much did North Ayrshire Council spend on school taxis?", a: "A council FOI return reported by the Sunday Mail put North Ayrshire’s 2024/25 spending on taxis and private hire for school runs at about £2.45 million, out of a total taxi bill of £2.83 million." },
+      { q: "How much did North Ayrshire pay per route?", a: "The published total gives no route costs. The rates agreed with each provider, the journeys delivered and the matched invoice lines are needed to work that out." },
+    ],
+    sourceIds: [
+      "school-taxi-foi-reporting-2024-25",
+      "sg-pupil-census-2024-school-taxis",
+      "sg-asn-counts-2024-school-taxis",
+      "sg-pobe-2026-north-ayrshire",
+      "nac-school-transport-policy",
+      "nac-statutory-transport-tender",
+      "nac-statutory-transport-award",
+      "nac-contracts-register",
+      "nac-supplier-payments",
+    ],
+  },
+  {
     slug: "scottish-mps-flights-climate-expenses",
     title:
       "You paid £868,378 for Scottish MPs to fly to London while MPs in the same city took the train",
@@ -307,7 +344,7 @@ export const posts: Post[] = [
     description:
       "Taxpayers paid £510 for Edinburgh West MP Christine Jardine's office Christmas lunch and team event. IPSA refused another MP's festive meal a year before.",
     standfirst:
-      "Most folk in Edinburgh pay for their own work Christmas lunch. Six days before Christmas, Christine Jardine's office put £510.11 on taxpayers under \"training\" and \"team building\".",
+      "Most people in Edinburgh pay for their own work Christmas lunch. Six days before Christmas, Christine Jardine's office put £510.11 on taxpayers under \"training\" and \"team building\".",
     date: "2026-11-22",
     updated: "2026-11-22",
     checked: "2026-11-22",

@@ -164,7 +164,7 @@ export default function ChristineJardineMpChristmasLunchExpenses() {
         ]}
       >
         <p>
-          Most folk pay for their own work Christmas lunch. Stick the word &ldquo;training&rdquo;
+          Most people pay for their own work Christmas lunch. Stick the word &ldquo;training&rdquo;
           on it at Westminster and the public picks up the bill.
         </p>
       </Spotlight>

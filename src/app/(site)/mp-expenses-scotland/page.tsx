@@ -648,7 +648,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
       </>,
       <>
         Homes across Scotland faced{" "}
-        <Link href="/council-tax-increase-scotland">steep council tax rises</Link>. Folk on low pay
+        <Link href="/council-tax-increase-scotland">steep council tax rises</Link>. People on low pay
         must apply for{" "}
         <Link href="/council-tax-reduction-scotland">means tested Council Tax Reduction</Link> to
         get help.
@@ -1552,7 +1552,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
                 <div className="max-w-[66ch] space-y-3 text-[16px] leading-[1.6] text-[var(--ink-2)]">
                   <ExplainText>
                     <p>
-                      Most MP staff help local folk with housing, benefits and visas. That work
+                      Most MP staff help local people with housing, benefits and visas. That work
                       happens in Scotland by phone and email. Yet in 2025/26 MPs billed{" "}
                       <strong>£565,753</strong> for staff trips.
                     </p>

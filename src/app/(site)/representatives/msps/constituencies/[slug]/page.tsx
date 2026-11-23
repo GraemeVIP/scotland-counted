@@ -86,7 +86,7 @@ export default async function HolyroodConstituencyPage({
     },
     {
       q: `Do I have to vote for ${record.msp.name} to write to them?`,
-      a: "No. MSPs must help all folk who live in their area, no matter how you voted.",
+      a: "No. MSPs must help everyone who lives in their area, no matter how you voted.",
     },
   ];
 
@@ -129,7 +129,7 @@ export default async function HolyroodConstituencyPage({
           lede={
             <>
               <strong>{record.msp.name}</strong> is the {partyLabel(record.msp)} constituency MSP for{" "}
-              {record.constituency}. They serve all folk in this area, not just their voters.
+              {record.constituency}. They serve everyone in this area, not just their voters.
             </>
           }
           stat={
