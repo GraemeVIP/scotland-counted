@@ -722,6 +722,66 @@ export const posts: Post[] = [
     ],
   },
   {
+    slug: "msp-edinburgh-flats-commuter-belt",
+    title:
+      "You paid £623,696 to rent Edinburgh flats for 36 MSPs. Some live just 50 miles away",
+    seoTitle: "MSP Edinburgh Flats: 36 MSPs, £623,696 and the 90 Minute Rule",
+    description:
+      "Taxpayers rented Edinburgh flats for 36 MSPs in 2024/25 at £623,696. A 90 minute rule puts East Kilbride, 50 miles away, on the flat list while Glasgow gets hotels.",
+    standfirst:
+      "You paid £623,696 in a year to rent Edinburgh flats for 36 MSPs. Holyrood only sits Tuesday to Thursday. Some of those MSPs live in East Kilbride, 50 miles away. Parliament's own sums show two hotel nights a week would cost less.",
+    date: "2026-11-23",
+    updated: "2026-11-23",
+    checked: "2026-11-23",
+    category: "politics-explained",
+    tags: ["MSP expenses Scotland", "Holyrood", "Scottish Parliament", "Edinburgh flats", "SNP", "Reform UK"],
+    readingMinutes: 5,
+    image: {
+      src: "/images/editorial/msp-edinburgh-flats-holyrood.webp",
+      alt: "Old Town rooftops and flats in front of the Scottish Parliament building at Holyrood, with Arthur's Seat and Salisbury Crags behind",
+      caption:
+        "The Scottish Parliament at Holyrood, seen over Old Town rooftops. Photo: Brian McNeil (CC BY 3.0, Wikimedia Commons).",
+      creditLabel: "Brian McNeil (CC BY 3.0)",
+      aspect: "wide",
+      objectPosition: "center bottom",
+    },
+    shareImage: {
+      src: "/images/editorial/msp-edinburgh-flats-holyrood.webp",
+      width: 1600,
+      height: 900,
+      type: "image/webp",
+    },
+    toc: [
+      { id: "the-rule", label: "The 90 minute rule that hands out the flats" },
+      { id: "east-kilbride", label: "East Kilbride: 50 miles, two MSPs, two flats" },
+      { id: "commuter-belt", label: "The commuter belt flats" },
+      { id: "hotels-vs-flats", label: "Parliament's own sums say hotels can be cheaper" },
+    ],
+    faq: [
+      {
+        q: "How many MSPs had taxpayers rent them an Edinburgh flat?",
+        a: "36 MSPs claimed rent for an Edinburgh flat in 2024/25. Rent, council tax and bills for those flats came to £623,696, of which £454,525 was rent.",
+      },
+      {
+        q: "Who can claim for an Edinburgh flat?",
+        a: "MSPs whose home area is more than 90 minutes from Holyrood (Group 3) can rent a flat, up to £22,400 a year from 2026/27. Under 90 minutes (Group 2) gets hotel nights only. Edinburgh and nearby areas (Group 1) get nothing.",
+      },
+      {
+        q: "Is a flat cheaper than a hotel for MSPs?",
+        a: "Parliament's own September 2025 review put the average flat at £16,678 a year. Two hotel nights a week over 36 sitting weeks would cost £11,880, which is £4,798 less. Three nights a week would cost £17,820.",
+      },
+    ],
+    sourceIds: [
+      "sp-allowances-open-data",
+      "sp-members-expenses-scheme-s7",
+      "spcb-2026-paper-60",
+      "sp-expenses-review-2025",
+      "sp-official-report-2026-11-11",
+      "holyrood-collette-stevenson-2026",
+      "kenneth-gibson-about",
+    ],
+  },
+  {
     slug: "msp-expenses-scotland-investigation",
     title:
       "The Holyrood Party Tally: Scottish Greens top leaflet spend, double council tax billed to taxpayers, and £127k on newspapers",

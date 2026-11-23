@@ -71,6 +71,7 @@ import JohnLamontMpIphoneExpensesBorders from "./john-lamont-mp-iphone-expenses-
 import GraemeDownieMpDinnerExpensesDunfermline from "./graeme-downie-mp-dinner-expenses-dunfermline";
 import ScottishMpsLondonHomes152SittingDays from "./scottish-mps-london-homes-152-sitting-days";
 import MspExpensesScotlandInvestigation from "./msp-expenses-scotland-investigation";
+import MspEdinburghFlatsCommuterBelt from "./msp-edinburgh-flats-commuter-belt";
 import ScottishMpMspExpensesWhatItCouldBuy from "./scottish-mp-msp-expenses-what-it-could-buy";
 
 /**
@@ -81,6 +82,7 @@ import ScottishMpMspExpensesWhatItCouldBuy from "./scottish-mp-msp-expenses-what
 export const postBodies: Record<string, ComponentType> = {
   "scottish-mp-msp-expenses-what-it-could-buy": ScottishMpMspExpensesWhatItCouldBuy,
   "msp-expenses-scotland-investigation": MspExpensesScotlandInvestigation,
+  "msp-edinburgh-flats-commuter-belt": MspEdinburghFlatsCommuterBelt,
   "scottish-mps-london-homes-152-sitting-days": ScottishMpsLondonHomes152SittingDays,
   "kilmarnock-mp-23437-electricity-bill": KilmarnockMp23437ElectricityBill,
   "zubir-ahmed-mp-london-hotels-glasgow": ZubirAhmedMpLondonHotelsGlasgow,

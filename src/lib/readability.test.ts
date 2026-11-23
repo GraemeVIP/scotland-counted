@@ -35,6 +35,7 @@ const CHECKED_FILES = [
   "src/content/posts/john-lamont-mp-iphone-expenses-borders.tsx",
   "src/content/posts/graeme-downie-mp-dinner-expenses-dunfermline.tsx",
   "src/content/posts/msp-expenses-scotland-investigation.tsx",
+  "src/content/posts/msp-edinburgh-flats-commuter-belt.tsx",
   "src/content/posts/scottish-mp-expenses-and-freebies-investigation.tsx",
   "src/app/(site)/mp-expenses-scotland/page.tsx",
   "src/app/(site)/mp-expenses-scotland/search/page.tsx",
@@ -150,6 +151,7 @@ describe("Scotland Counted plain English & squiggle safeguards", () => {
       "src/content/posts/scottish-mps-london-homes-152-sitting-days.tsx",
       "src/content/posts/worst-scottish-mp-expenses.tsx",
       "src/content/posts/msp-expenses-scotland-investigation.tsx",
+      "src/content/posts/msp-edinburgh-flats-commuter-belt.tsx",
     ];
     for (const rel of articles) {
       const age = readingAgeFromProse(fs.readFileSync(path.join(ROOT, rel), "utf8"));
