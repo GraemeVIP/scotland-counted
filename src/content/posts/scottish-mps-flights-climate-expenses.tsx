@@ -8,8 +8,10 @@ import { Prose, P, Aside, PostCTA } from "@/components/Prose";
  * files for 2025/26 (MP Travel, London-constituency rows, excluding staff and
  * family, checked 23 November 2026 across all 55 current Scottish MPs who
  * served in 2025/26). IPSA records ticket costs, not a count of trips.
- * Exact speeches: UK Parliament Hansard API. Overseas trips: Register of
- * Members' Financial Interests (2026). Nobody was contacted for comment.
+ * Exact speeches: UK Parliament Hansard (Christine Jardine, Airport
+ * Expansion, 28 January 2025). Overseas trips: Register of Members'
+ * Financial Interests (2026). Committee places: UK Parliament members API.
+ * Nobody was contacted for comment.
  */
 
 import {
@@ -27,7 +29,8 @@ import {
   Spotlight,
 } from "@/components/ExpenseKit";
 
-const mp = (slug: string) => `/representatives/mps/${slug}#donations-and-interests`;
+const mp = (slug: string) => `/representatives/mps/${slug}`;
+const SHANKS_STORY = "/blog/energy-minister-michael-shanks-flights-rutherglen";
 
 const JARDINE = {
   name: "Christine Jardine",
@@ -182,55 +185,54 @@ const GLASGOW_MPS: {
   },
 ];
 
-/** Other MPs near Glasgow and Edinburgh main lines (2025/26 London travel). */
+/**
+ * Four more MPs near Glasgow and Edinburgh main lines (2025/26 London
+ * travel). Shanks and Sullivan have their own story, linked in finding 4.
+ */
 const OTHER_FLYERS: {
-  who: string;
+  name: string;
+  slug: string;
+  party: string;
   seat: string;
   air: string;
   rail: string;
   context: string;
 }[] = [
   {
-    who: "Graeme Downie (Labour)",
+    name: "Graeme Downie",
+    slug: "dunfermline-and-dollar",
+    party: "Labour",
     seat: "Dunfermline and Dollar",
     air: "£28,916",
     rail: "£2,529",
-    context: "92.0% air. Sits on Parliament's Energy and Net Zero Committee. Also took £11,882 in funded trips to the USA, Taiwan and Spain.",
+    context: "92.0% air. Sits on the Commons Energy Security and Net Zero Committee. Also took £11,882 in funded trips to the USA, Taiwan and Spain.",
   },
   {
-    who: "Douglas McAllister (Labour)",
+    name: "Douglas McAllister",
+    slug: "west-dunbartonshire",
+    party: "Labour",
     seat: "West Dunbartonshire",
     air: "£22,241",
     rail: "£131",
     context: "99.4% air. Backed clean energy in his first Commons speech.",
   },
   {
-    who: "Katrina Murray (Labour)",
+    name: "Katrina Murray",
+    slug: "cumbernauld-and-kirkintilloch",
+    party: "Labour",
     seat: "Cumbernauld and Kirkintilloch",
     air: "£19,017",
     rail: "£187",
-    context: "99.0% air. Declared £840 in US flights paid by a US green group, and a £1,570 trip to study Swiss trains (£380 listed as travel).",
+    context: "99.0% air. Declared £840 of US flights paid by Elected Officials to Protect America, and a £1,570 trip to look at Swiss trains and training (£380 of it travel).",
   },
   {
-    who: "Kirsteen Sullivan (Labour)",
-    seat: "Bathgate and Linlithgow",
-    air: "£18,342",
-    rail: "£0",
-    context: "100% air. 18 minutes by train from Edinburgh Waverley. Spoke in Jan 2025 on shifting folk from cars to buses and trains.",
-  },
-  {
-    who: "Brian Leishman (Labour)",
+    name: "Brian Leishman",
+    slug: "alloa-and-grangemouth",
+    party: "Labour",
     seat: "Alloa and Grangemouth",
     air: "£18,292",
     rail: "£1,835",
     context: "90.9% air. Told Parliament in June 2025: \"There is no doubt about it; we face a climate emergency.\"",
-  },
-  {
-    who: "Michael Shanks (Labour)",
-    seat: "Rutherglen",
-    air: "£11,753",
-    rail: "£955",
-    context: "92.5% air. UK Energy Minister. Represents a seat 10 minutes from Glasgow Central.",
   },
 ];
 
@@ -244,8 +246,8 @@ export default function ScottishMpsFlightsClimateExpenses() {
       <QuickTake
         items={[
           <>
-            Across Scotland, 55 MPs billed you <strong>£868,378</strong> for London flights and{" "}
-            <strong>£150,170</strong> for trains in 2025/26. That is nearly{" "}
+            Across Scotland, 55 current MPs billed you <strong>£868,378</strong> for London flights
+            and <strong>£150,170</strong> for trains in 2025/26. That&apos;s nearly{" "}
             <strong>£6 on a plane for every £1 on a train</strong>.
           </>,
           <>
@@ -265,7 +267,7 @@ export default function ScottishMpsFlightsClimateExpenses() {
             <Link href={mp("bathgate-and-linlithgow")}>Kirsteen Sullivan</Link> also spent{" "}
             <strong>£0 on London trains</strong> all year (£18,342 on planes). UK Energy Minister{" "}
             <Link href={mp("rutherglen")}>Michael Shanks</Link> billed £11,753 for planes and £955
-            for trains.
+            for trains. <Link href={SHANKS_STORY}>Read their story</Link>.
           </>,
         ]}
       />
@@ -282,9 +284,12 @@ export default function ScottishMpsFlightsClimateExpenses() {
         ]}
       >
         <p>
-          In January 2025, she told Parliament she has always been against a bigger Heathrow
-          because of noise and pollution. Her own flights over four years came to{" "}
-          <strong>£71,282</strong>. You paid.
+          On 28 January 2025, she told MPs:{" "}
+          <a href="https://hansard.parliament.uk/Commons/2025-01-28/debates/DA779B29-76E4-40CE-BE62-3C19ACFE0877/AirportExpansion#contribution-540D2CA6-4785-4AFC-BC86-BAE33058A917">
+            &ldquo;I have consistently raised airport noise, opposition to the expansion of
+            Heathrow&rdquo;
+          </a>
+          . Her own flights over four years came to <strong>£71,282</strong>. You paid.
         </p>
       </Spotlight>
 
@@ -309,7 +314,7 @@ export default function ScottishMpsFlightsClimateExpenses() {
       <P>
         Both did the exact same London job by rail. Yet{" "}
         <Link href={JARDINE.href}>Christine Jardine</Link> (Edinburgh West) billed{" "}
-        <strong>£20,789 on planes</strong> and just <strong>£871 on trains</strong>. That is nearly
+        <strong>£20,789 on planes</strong> and just <strong>£871 on trains</strong>. It&apos;s nearly
         40 times Tracy Gilbert&apos;s flight bill from the same city.
       </P>
 
@@ -335,9 +340,7 @@ export default function ScottishMpsFlightsClimateExpenses() {
 
       <P>
         Over four years (2022/23 to 2025/26), her own flight bills hit <strong>£71,282</strong>.
-        Add staff and family planes and the sum hits £94,464. Back in November 2021, IPSA logged a
-        £300.18 Edinburgh to London City flight claim. It carried the same date as her Scotsman
-        column attacking plans for more UK flights.
+        Add staff and family planes and the sum hits £94,464.
       </P>
       <P>
         Want to see what else she billed? We also looked at her{" "}
@@ -349,7 +352,7 @@ export default function ScottishMpsFlightsClimateExpenses() {
 
       {/* ------------------------------------------------------------ 2 */}
       <Finding n={2} id="glasgow-split">
-        Glasgow: £9,270 on trains vs £0 on trains
+        Glasgow: John Grady £9,270 on trains, Patricia Ferguson £0
       </Finding>
       <P>
         Glasgow shows the exact same split. Fast trains run from Glasgow Central to London all day.
@@ -392,7 +395,7 @@ export default function ScottishMpsFlightsClimateExpenses() {
       <P>
         Step back to the whole country. In 2025/26, the 55 current Scottish MPs in IPSA&apos;s
         files spent <strong>£868,378 on London planes</strong> and{" "}
-        <strong>£150,170 on trains</strong>. That is nearly{" "}
+        <strong>£150,170 on trains</strong>. Nearly{" "}
         <strong>£6 on a plane for every £1 on a train</strong>.
       </P>
       <P>
@@ -416,35 +419,42 @@ export default function ScottishMpsFlightsClimateExpenses() {
         So we took out all 18 island, Highland, north east and rural south seats. That leaves{" "}
         <strong>39 seats around Glasgow, Edinburgh, Fife, Ayrshire and Lanarkshire</strong>. Even
         there, MPs billed <strong>£521,119 on London planes</strong> against £104,553 on trains.
-        That is <strong>£5 on a plane for every £1 on a train</strong>.
+        That&apos;s <strong>£5 on a plane for every £1 on a train</strong>.
       </P>
 
       {/* ------------------------------------------------------------ 4 */}
       <Finding n={4} id="minister-and-zero-rail">
-        The Energy Minister and the MP who spent £0 on trains
+        The Energy Minister and the MPs who spent £0 on trains
       </Finding>
       <P>
-        Two names outside Edinburgh and Glasgow stand out straight away.
+        Three Scottish MPs put nothing at all on London trains in 2025/26. Every penny of their London
+        travel went on planes.
       </P>
       <P>
-        <Link href={mp("rutherglen")}>Michael Shanks</Link> (Rutherglen) is the UK Energy Minister.
-        He has made 22 climate and clean power speeches in Parliament since July 2024. Rutherglen
-        sits ten minutes from Glasgow Central. Still, in 2025/26 he spent{" "}
-        <strong>£11,753 on London planes</strong> and just <strong>£955 on trains</strong>.
+        One is <Link href={mp("glasgow-west")}>Patricia Ferguson</Link> in Glasgow West, above.
+        Another is <Link href={mp("argyll-bute-and-south-lochaber")}>Brendan O&apos;Hara</Link> in
+        Argyll, Bute and South Lochaber. His seat is one of the 18 island, Highland and rural seats we took
+        out above.
       </P>
       <P>
-        <Link href={mp("bathgate-and-linlithgow")}>Kirsteen Sullivan</Link> (Bathgate and
-        Linlithgow) sits 18 minutes by train from Edinburgh Waverley. In January 2025, she spoke on
-        shifting folk from cars to buses and trains in the climate crisis. Her 2025/26 London bill
-        was <strong>£18,342 on planes</strong> and <strong>£0 on trains</strong>.
+        The third is <Link href={mp("bathgate-and-linlithgow")}>Kirsteen Sullivan</Link> in Bathgate
+        and Linlithgow, about 20 minutes by train from Edinburgh. She put{" "}
+        <strong>£18,342 on planes</strong>. UK Energy Minister{" "}
+        <Link href={mp("rutherglen")}>Michael Shanks</Link> flies too. His Rutherglen seat
+        is a few minutes from Glasgow Central, and he put <strong>£11,753 on planes</strong> and £955
+        on trains.
+      </P>
+      <P>
+        We&apos;ve told their story in full:{" "}
+        <Link href={SHANKS_STORY}>the Energy Minister who flies while his staff take the train</Link>.
       </P>
 
-      <Expand summary="See 6 more MPs beside fast London rail lines (2025/26)">
+      <Expand summary="See 4 more MPs beside fast London rail lines (2025/26)">
         <ul className="divide-y divide-[var(--rule)]">
           {OTHER_FLYERS.map((row) => (
-            <li key={row.who} className="py-3.5">
+            <li key={row.name} className="py-3.5">
               <p className="ui text-[15.5px] font-[660] text-[var(--ink)]">
-                {row.who} · {row.seat}
+                <Link href={mp(row.slug)}>{row.name}</Link> ({row.party}) · {row.seat}
               </p>
               <p className="ui mt-1 text-[14.5px] leading-[1.45] text-[var(--ink-2)]">
                 <strong>2025/26 London travel:</strong> Planes {row.air} vs Trains {row.rail}
@@ -464,13 +474,23 @@ export default function ScottishMpsFlightsClimateExpenses() {
         </p>
         <p>
           None of these MPs broke the rules. IPSA lets any Scottish MP fly and pays the bill. The
-          test is plain. Tracy Gilbert and Dr Scott Arthur do the job from Edinburgh by train. Why
-          are other MPs in the same city billing you £20,000 a year for planes?
+          test is plain. <Link href={mp("edinburgh-north-and-leith")}>Tracy Gilbert</Link> and{" "}
+          <Link href={mp("edinburgh-south-west")}>Dr Scott Arthur</Link> do the job from Edinburgh by
+          train. Why is another MP in the same city billing you over £20,000 a year for planes?
         </p>
       </Aside>
 
       <PointList
         items={[
+          {
+            key: "minister",
+            title: (
+              <Link href={SHANKS_STORY}>
+                The Energy Minister flies to London. His staff take the train
+              </Link>
+            ),
+            children: <>Michael Shanks put 92p in every £1 of his London travel on planes.</>,
+          },
           {
             key: "shuttle",
             title: (

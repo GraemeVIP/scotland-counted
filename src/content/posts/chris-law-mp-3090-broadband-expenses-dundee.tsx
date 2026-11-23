@@ -58,8 +58,8 @@ function Finding({ n, id, children }: { n: number; id: string; children: ReactNo
 
 /** Other MPs with their own local story page, linked near the end. */
 const MORE_LOCAL_STORIES: { name: string; seat: string; place: string; hook: string; story: string }[] = [
-  { name: "Lillian Jones", seat: "kilmarnock-and-loudoun", place: "Kilmarnock", hook: "£23,437 for electricity in one day", story: "/blog/kilmarnock-mp-23437-electricity-bill" },
-  { name: "Euan Stainbank", seat: "falkirk", place: "Falkirk", hook: "£3,300 for a billboard of himself", story: "/blog/euan-stainbank-mp-billboard-expenses-falkirk" },
+  { name: "Lillian Jones", seat: "kilmarnock-and-loudoun", place: "Kilmarnock", hook: "£23,437 energy bill in one day", story: "/blog/kilmarnock-mp-23437-electricity-bill" },
+  { name: "Euan Stainbank", seat: "falkirk", place: "Falkirk", hook: "£3,300 for a board advertising himself", story: "/blog/euan-stainbank-mp-billboard-expenses-falkirk" },
   { name: "Angus MacDonald", seat: "inverness-skye-and-west-ross-shire", place: "Inverness and Skye", hook: "£3,000 speech coach and £546 drains", story: "/blog/angus-macdonald-mp-speech-coach-drains-expenses" },
   { name: "Pamela Nash", seat: "motherwell-wishaw-and-carluke", place: "Motherwell", hook: "£7,203 in one week, from DFS to a new carpet", story: "/blog/pamela-nash-mp-furniture-expenses-motherwell" },
   { name: "John Lamont", seat: "berwickshire-roxburgh-and-selkirk", place: "Borders", hook: "Two iPhones on expenses", story: "/blog/john-lamont-mp-iphone-expenses-borders" },

@@ -186,6 +186,7 @@ test("only evidence-led investigations are filed under the investigations catego
     "scottish-mps-flights-climate-expenses",
     "scottish-mps-london-homes-152-sitting-days",
     "kilmarnock-mp-23437-electricity-bill",
+    "zubir-ahmed-mp-london-hotels-glasgow",
     "torcuil-crichton-mp-coaching-expenses-western-isles",
     "christine-jardine-mp-christmas-lunch-expenses",
     "gregor-poynton-mp-four-tv-licences-livingston",

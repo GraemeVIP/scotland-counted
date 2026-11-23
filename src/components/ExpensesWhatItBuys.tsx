@@ -17,22 +17,22 @@ const POTS: {
   {
     id: "perks-1yr",
     badge: "1 Year · All perks, 2nd homes, travel & leaflets",
-    label: "£6.65m a year (MPs + MSPs)",
-    amount: 6_650_199,
-    amountDisplay: "£6,650,199",
-    sub: "One year of second homes, hotels, flights, taxis, leaflets, PR firms and papers for Scotland's 186 MPs and MSPs. Staff pay and local office rent are left out.",
+    label: "£6.64m a year (MPs + MSPs)",
+    amount: 6_641_316,
+    amountDisplay: "£6,641,316",
+    sub: "One year of second homes, hotels, flights, taxis, leaflets, PR firms and papers for 184 Scottish MPs and MSPs. Staff pay and local office rent are left out.",
     shareClaim:
-      "Scotland's 186 MPs and MSPs burned £6.65 million in a single year on second homes, hotels, flights, leaflets, PR firms and papers (excluding staff wages and local offices). That is more than Glasgow, Edinburgh and Dundee spent on emergency Crisis Grants all year combined (£6.41m).",
+      "184 Scottish MPs and MSPs burned £6.64 million in a single year on second homes, hotels, flights, leaflets, PR firms and papers (excluding staff wages and local offices). That is more than Glasgow, Edinburgh and Dundee spent on emergency Crisis Grants all year combined (£6.41m).",
   },
   {
     id: "extras-1yr",
     badge: "1 Year · Pure zero excuse waste only",
-    label: "£2.81m a year (Zero excuse only)",
-    amount: 2_812_948,
-    amountDisplay: "£2,812,948",
-    sub: "Even if they keep their flats and flights, they still spent £2.81m in one year. That went on leaflets, calendars, PR firms, second home council tax, family trips, staff hotels, taxis and papers.",
+    label: "£2.80m a year (Zero excuse only)",
+    amount: 2_803_948,
+    amountDisplay: "£2,803,948",
+    sub: "Even if they keep their flats and flights, they still spent £2.80m in one year. That went on leaflets, calendars, PR firms, second home council tax, family trips, staff hotels, taxis and papers.",
     shareClaim:
-      "Even if you pay for their offices, staff, flats and travel, Scotland's MPs and MSPs still blew £2.81 million in one year on leaflets, PR firms, second home council tax, family flights, taxis, papers and TV licences: enough for 88 new NHS Scotland nurses or 21,638 emergency Crisis Grants.",
+      "Even if you pay for their offices, staff, flats and travel, Scotland's MPs and MSPs still blew £2.80 million in one year on leaflets, PR firms, second home council tax, family flights, taxis, papers and TV licences: enough for 87 new NHS Scotland nurses or 21,569 emergency Crisis Grants.",
   },
 ];
 

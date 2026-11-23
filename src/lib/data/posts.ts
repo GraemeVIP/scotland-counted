@@ -149,7 +149,7 @@ export const posts: Post[] = [
     description:
       "Scottish MPs billed £868,378 for London flights against £150,170 on trains in 2025/26, nearly £6 on a plane for every £1 on a train, even when MPs in the same city took the train.",
     standfirst:
-      "Christine Jardine talks about plane noise and pollution, yet billed you £20,789 for London flights. Tracy Gilbert, in the same city, spent £529 on planes and £10,481 on trains. Across Scotland, 55 MPs put £868,378 on planes and £150,170 on trains. That is nearly £6 on a plane for every £1 on a train.",
+      "Christine Jardine told MPs she has consistently raised opposition to a bigger Heathrow, yet billed you £20,789 for London flights. Tracy Gilbert, in the same city, spent £529 on planes and £10,481 on trains. Across Scotland, 55 current MPs put £868,378 on planes and £150,170 on trains. That is nearly £6 on a plane for every £1 on a train.",
     date: "2026-11-23",
     updated: "2026-11-23",
     checked: "2026-11-23",
@@ -173,25 +173,29 @@ export const posts: Post[] = [
     },
     toc: [
       { id: "edinburgh-split", label: "Same city, 40 times the flight bill" },
-      { id: "glasgow-split", label: "Glasgow: £9,270 on trains vs £0" },
+      { id: "glasgow-split", label: "Glasgow: John Grady £9,270 on trains, Patricia Ferguson £0" },
       { id: "scotland-total", label: "Nearly £6 on a plane for every £1 on a train" },
-      { id: "minister-and-zero-rail", label: "The Energy Minister and the £0 rail MP" },
+      { id: "minister-and-zero-rail", label: "The Energy Minister and the MPs who spent £0 on trains" },
     ],
     faq: [
       {
         q: "How much did Scottish MPs spend on London flights versus trains in 2025/26?",
-        a: "Across 55 Scottish MPs in IPSA's 2025/26 files, London flights cost £868,378 and trains cost £150,170. That is nearly £6 on a plane for every £1 on a train (85.3% of combined spend).",
+        a: "Across 55 current Scottish MPs in IPSA's 2025/26 files, London flights cost £868,378 and trains cost £150,170. That is nearly £6 on a plane for every £1 on a train (85.3% of combined spend).",
       },
       {
         q: "How do Edinburgh MPs compare with each other?",
         a: "In 2025/26 London travel, Tracy Gilbert spent £529 on planes and £10,481 on trains, and Dr Scott Arthur spent £680 on planes and £8,908 on trains. Christine Jardine spent £20,789 on planes and £871 on trains.",
       },
       {
+        q: "Which Scottish MPs spent nothing on London trains?",
+        a: "Three, in 2025/26: Patricia Ferguson (Glasgow West), Kirsteen Sullivan (Bathgate and Linlithgow) and Brendan O'Hara (Argyll, Bute and South Lochaber). UK Energy Minister Michael Shanks spent £11,753 on planes and £955 on trains.",
+      },
+      {
         q: "Do IPSA files show the number of flights or exact dates?",
         a: "No. For MP safety, IPSA hides single UK flight dates and publishes yearly ticket costs rather than a count of trips.",
       },
     ],
-    sourceIds: ["ipsa-claims-2022-2027", "uk-parliament-register-interests-2026"],
+    sourceIds: ["ipsa-claims-2022-2027", "uk-parliament-register-interests-2026", "hansard-2025-01-28-airport-expansion"],
   },
   {
     slug: "zubir-ahmed-mp-london-hotels-glasgow",
@@ -201,7 +205,7 @@ export const posts: Post[] = [
     description:
       "Taxpayers paid £67,519 for Glasgow South West MP Dr Zubir Ahmed's London hotels and short stay flats since July 2024, the highest total of all 650 UK MPs.",
     standfirst:
-      "Since winning Glasgow South West in July 2024, Labour MP Dr Zubir Ahmed has billed taxpayers £67,519 for London hotels and month long flat stays. That is the highest total of all 650 UK MPs, nearly £20,000 ahead of second place and almost five times any other Scottish MP.",
+      "Since winning Glasgow South West in July 2024, Labour MP Dr Zubir Ahmed has billed taxpayers £67,519 for London hotels and month long flat stays. That is the highest total of all 650 UK MPs, nearly £20,000 ahead of second place and more than seven times any other Scottish MP.",
     date: "2026-11-23",
     updated: "2026-11-23",
     checked: "2026-11-23",
@@ -225,7 +229,7 @@ export const posts: Post[] = [
     toc: [
       { id: "the-bills", label: "£67,519 across 25 London stays" },
       { id: "sitting-days", label: "295 nights for 152 sitting days" },
-      { id: "scotland-rank", label: "Five times any other Scottish MP" },
+      { id: "scotland-rank", label: "Seven times any other Scottish MP" },
       { id: "other-claims", label: "What else you paid for" },
     ],
     faq: [
@@ -239,7 +243,7 @@ export const posts: Post[] = [
       },
       {
         q: "Did he break IPSA's rules?",
-        a: "Nothing in the public files says so. IPSA allows MPs to book hotels or short stay flats instead of renting, up to £230 a night in London. IPSA paid every claim in full.",
+        a: "Nothing in the public files says so. IPSA allows MPs to book hotels or short stay flats instead of renting, up to £230 a night in London today (£210 in 2024/25). Every claim was paid in full.",
       },
     ],
     sourceIds: ["ipsa-claims-2022-2027", "uk-parliament-register-interests-2026"],
@@ -709,13 +713,13 @@ export const posts: Post[] = [
   {
     slug: "scottish-mp-msp-expenses-what-it-could-buy",
     title:
-      "£6.65 million a year on flats, flights, leaflets and perks: how Scottish MPs and MSPs burn more than Glasgow, Edinburgh and Dundee's Crisis Grant budgets combined",
+      "£6.64 million a year on flats, flights, leaflets and perks: how Scottish MPs and MSPs burn more than Glasgow, Edinburgh and Dundee's Crisis Grant budgets combined",
     seoTitle:
-      "Scottish MP & MSP Expenses Combined (£6.65m/yr): What It Could Buy Instead",
+      "Scottish MP & MSP Expenses Combined (£6.64m/yr): What It Could Buy Instead",
     description:
-      "Scotland's 186 MPs and MSPs spent £6.65m in one year on second homes, hotels, travel, leaflets, PR firms and papers, more than Glasgow, Edinburgh and Dundee spent on Crisis Grants all year combined.",
+      "184 Scottish MPs and MSPs spent £6.64m in one year on second homes, hotels, travel, leaflets, PR firms and papers, more than Glasgow, Edinburgh and Dundee spent on Crisis Grants all year combined.",
     standfirst:
-      "We added up every MP and MSP expense claim for a full year. Even after taking out staff pay and local office rent, Scotland's 186 politicians burned £6.65 million. That beat what Glasgow, Edinburgh and Dundee spent on Crisis Grants all year combined (£6.41m). It is enough to hire 207 NHS nurses.",
+      "We added up every MP and MSP expense claim for a full year. Even after taking out staff pay and local office rent, 184 Scottish politicians burned £6.64 million. That beat what Glasgow, Edinburgh and Dundee spent on Crisis Grants all year combined (£6.41m). It is enough to hire 207 NHS nurses.",
     date: "2026-11-22",
     updated: "2026-11-22",
     checked: "2026-11-22",
@@ -746,23 +750,23 @@ export const posts: Post[] = [
     },
     toc: [
       { id: "the-receipts-proof", label: "Real receipts priced up in school meals & nurses" },
-      { id: "nhs-and-schools", label: "Calculator: 207 nurses or 51,155 Crisis Grants" },
-      { id: "the-665m-bill", label: "Where the £6.65m goes" },
+      { id: "nhs-and-schools", label: "Calculator: 207 nurses or 51,087 Crisis Grants" },
+      { id: "the-665m-bill", label: "Where the £6.64m goes" },
       { id: "crisis-grants-bombshell", label: "More than three cities' Crisis Grants" },
-      { id: "zero-excuse-pot", label: "The £2.81m a year 'zero excuse' waste pot" },
+      { id: "zero-excuse-pot", label: "The £2.80m a year 'zero excuse' waste pot" },
     ],
     faq: [
       {
         q: "How much do Scottish MPs and MSPs cost in expenses combined?",
-        a: "In one full year (2025/26 for 57 MPs and 2024/25 for 129 MSPs), total bills hit £45.77 million. Take out £35.68 million in staff pay, £3.40 million in local office rent and bills, and £0.30 million of Holyrood costs that have no claim lines behind them. Then add back £264,757 of staff hotel and travel claims. That leaves £6,650,199 spent on second homes, hotels, travel, leaflets, PR firms and papers.",
+        a: "In one full year (2025/26 for the 55 Scottish MPs still in Parliament who served all of that year, and 2024/25 for 129 MSPs), total bills hit £45.78 million. Take out staff pay and local office rent and bills. That leaves £6,641,316 spent on second homes, hotels, travel, leaflets, PR firms and papers.",
       },
       {
-        q: "How does £6.65 million compare to Crisis Grants in Scotland?",
-        a: "In 2025/26, the average Crisis Grant for a home with no food or heat cash was £130. Glasgow (£3.95m), Edinburgh (£2.12m) and Dundee (£0.34m) spent £6.41 million on Crisis Grants all year combined. One year of MP and MSP perks (£6.65m) beats all three cities put together.",
+        q: "How does £6.64 million compare to Crisis Grants in Scotland?",
+        a: "In 2025/26, the average Crisis Grant for a home with no food or heat cash was £130. Glasgow (£3.95m), Edinburgh (£2.12m) and Dundee (£0.34m) spent £6.41 million on Crisis Grants all year combined. One year of MP and MSP perks (£6.64m) beats all three cities put together.",
       },
       {
         q: "How much goes on things other than flats, offices, staff and MP travel?",
-        a: "Even if they keep their flats and their own flights and trains, they still spent £2,812,948 in one year. That went on leaflets and calendars (£1.56m), staff travel (£566k), second home council tax (£243k), PR firms and consultants (£172k), taxis and parking (£97k), family trips (£89k) and papers (£54k). That £2.81m pays for 88 NHS nurses.",
+        a: "Even if they keep their flats and their own flights and trains, they still spent £2,803,948 in one year. That went on leaflets and calendars (£1.56m), staff travel (£566k), second home council tax (£243k), PR firms and consultants (£172k), taxis and parking (£97k), family trips (£89k) and papers (£45k). That £2.80m pays for 87 NHS nurses.",
       },
     ],
     sourceIds: [
@@ -860,11 +864,11 @@ export const posts: Post[] = [
     faq: [
       {
         q: "How much did Meghan Gallacher MSP cost taxpayers?",
-        a: "£15,764 in 2024/25 and £15,504 in 2023/24, not counting staff pay. The typical MSP cost £33,693 in 2024/25. Of the 63 MSPs who sat from 2021 to 2025 and still sit, only Lorna Slater cost less in 2024/25.",
+        a: "£15,764 in 2024/25 and £15,504 in 2023/24, not counting staff pay. The typical MSP cost £33,693 in 2024/25. Of the 63 MSPs who sat before 2026 and still sit, only Lorna Slater cost less in 2024/25.",
       },
       {
         q: "Does Meghan Gallacher claim travel expenses?",
-        a: "No. Holyrood's expense files show no travel or mileage claims from her between May 2021 and June 2025. The typical MSP we checked claimed £9,517 for travel over the same four years.",
+        a: "No. Holyrood's expense files show no travel or mileage claims from her between May 2021 and June 2025. The typical MSP we checked claimed £9,517 for travel for themselves and their staff over the same four years, or £6,710 for their own trips alone.",
       },
       {
         q: "How does she compare with Graham Simpson?",
@@ -923,6 +927,10 @@ export const posts: Post[] = [
         q: "Is a flat cheaper than a hotel for MSPs?",
         a: "Parliament's own September 2025 review put the average flat at £16,678 a year. Two hotel nights a week over 36 sitting weeks would cost £11,880, which is £4,798 less. Three nights a week would cost £17,820.",
       },
+      {
+        q: "Will taxpayers pay Edinburgh's 300% second home council tax for MSPs?",
+        a: "City of Edinburgh Council raises its second home premium from 100% to 300% from 1 January 2027, four times normal council tax. Councillors rejected a request to let MSPs off. As the MSP expenses rules are written (paragraph 2.1.5), the premium is added on top of the flat limit with no cap, so taxpayers would cover it.",
+      },
     ],
     sourceIds: [
       "sp-allowances-open-data",
@@ -933,6 +941,10 @@ export const posts: Post[] = [
       "sp-official-report-2026-11-11",
       "holyrood-collette-stevenson-2026",
       "kenneth-gibson-about",
+      "edinburgh-second-home-premium-2027",
+      "holyrood-msp-premium-exemption-2026",
+      "sp-allowances-rates-2023-24-archive",
+      "sp-allowances-rates-2024-25-archive",
     ],
   },
   {
@@ -1008,13 +1020,13 @@ export const posts: Post[] = [
   {
     slug: "scottish-mps-london-homes-152-sitting-days",
     title:
-      "£2.91 million to shuttle Scottish MPs to London for 152 days: up to £3,007 for every day they speak",
+      "You paid £2.91 million to shuttle 55 Scottish MPs to London for 152 days: up to £3,007 for every day they speak",
     seoTitle:
       "£2.91m to Shuttle Scottish MPs to London for 152 Open Days (Cost Per Day Spoken)",
     description:
-      "Parliament only opened for 152 days in 2025/26, yet taxpayers spent £2.91m housing and shuttling Scotland's MPs to London (£19,173 a day), up to £3,007 per day spoken.",
+      "Parliament only opened for 152 days in 2025/26, yet taxpayers spent £2.91m housing and shuttling the 55 Scottish MPs still in Parliament who served all year to London (£19,173 a day), up to £3,007 per day spoken.",
     standfirst:
-      "The House of Commons was shut for 213 days in 2025/26. Yet taxpayers paid £2.91 million to house and fly Scotland's MPs to London. That is £19,173 a day, and up to £3,007 for each day an ordinary MP stood up to speak.",
+      "The House of Commons was shut for 213 days in 2025/26. Yet taxpayers paid £2.91 million to house and fly the 55 Scottish MPs still in Parliament who served all of 2025/26 to London. That is £19,173 a day, and up to £3,007 for each day an ordinary MP stood up to speak.",
     date: "2026-11-22",
     updated: "2026-11-22",
     checked: "2026-11-22",
@@ -1038,7 +1050,7 @@ export const posts: Post[] = [
     toc: [
       { id: "the-shuttle-bill", label: "What the £2.91 million actually pays for" },
       { id: "price-of-presence", label: "Up to £3,007 every day an MP speaks" },
-      { id: "paid-when-shut", label: "Paid 365 nights when Parliament is shut 213 days" },
+      { id: "paid-when-shut", label: "London rent runs all year, even when Parliament is shut" },
       { id: "why-not-remote", label: "They proved remote voting works, then binned it" },
     ],
     faq: [
@@ -1048,11 +1060,11 @@ export const posts: Post[] = [
       },
       {
         q: "How much did it cost to house and fly Scottish MPs to London?",
-        a: "Taxpayers paid £2,914,349 for Scotland's 55 full year MPs in 2025/26. That breaks down to £1.56 million on flats and hotels, £1.27 million on MP travel, and £89,111 on family trips. It works out at £19,173 for each open day.",
+        a: "Taxpayers paid £2,914,349 for the 55 Scottish MPs still in Parliament who served all of 2025/26. That breaks down to £1.56 million on flats and hotels, £1.27 million on MP travel, and £89,111 on family trips. It works out at £19,173 for each open day. Stephen Flynn (£74,101) and Stephen Gethins (£76,714) are left out because they have since left the Commons. With them, the 57 seats cost £3,065,164 (£20,166 a day).",
       },
       {
         q: "Which MPs cost the most per day they spoke?",
-        a: "Leaving out ministers, whips and unpaid PPS aides, Elaine Stewart cost £3,007 per day she spoke (£57,135 across 19 days). Chris Kane cost £2,732 a day (£68,303 across 25 days). Joani Reid cost £2,561 a day (£48,655 across 19 days).",
+        a: "Leaving out ministers, whips and unpaid PPS aides (opposition spokespeople stay in), Elaine Stewart cost £3,007 per day she spoke (£57,135 across 19 days). Chris Kane cost £2,732 a day (£68,303 across 25 days). Joani Reid cost £2,561 a day (£48,655 across 19 days).",
       },
     ],
     sourceIds: ["ipsa-claims-2022-2027"],
@@ -1060,13 +1072,13 @@ export const posts: Post[] = [
   {
     slug: "kilmarnock-mp-23437-electricity-bill",
     title:
-      "You paid £23,437 for Kilmarnock MP Lillian Jones's electricity in one day: the biggest power bill of any MP in the UK",
+      "You paid £23,437 for Kilmarnock MP Lillian Jones's energy in two claims on one day: the biggest energy bill of any UK MP since 2022",
     seoTitle:
-      "Kilmarnock MP Lillian Jones £23,437 Yu Energy Electricity Bill (UK #1 in IPSA)",
+      "Kilmarnock MP Lillian Jones £23,437 Yu Energy Bill (UK #1 in IPSA)",
     description:
-      "Taxpayers paid a £23,437 electricity bill for Kilmarnock MP Lillian Jones on one day in May 2026. It is more than a year's rent on her office and the biggest power bill of any UK MP in five years.",
+      "Taxpayers paid a £23,437 energy bill for Kilmarnock MP Lillian Jones, in two claims dated the same day in May 2026. It is more than a year's rent on her office and the biggest energy bill of any UK MP since 2022.",
     standfirst:
-      "Taxpayers paid a £23,437 electricity bill for Kilmarnock's Labour MP, Lillian Jones. It was all paid on one day, 19 May 2026, to her energy company, Yu Energy. That is more than a whole year's rent on her office. No MP in the UK has had a bigger power bill in five years. Meanwhile, families in Kilmarnock have to apply for £150 off their winter bills.",
+      "Taxpayers paid a £23,437 energy bill for Kilmarnock's Labour MP, Lillian Jones. It came in two claims to her energy company, Yu Energy, both dated 19 May 2026. That is more than a whole year's rent on her office. No UK MP has claimed a bigger energy bill since 2022. Meanwhile, families in Kilmarnock have to apply for £150 off their winter bills.",
     date: "2026-11-22",
     updated: "2026-11-22",
     checked: "2026-11-22",
@@ -1089,22 +1101,22 @@ export const posts: Post[] = [
     },
     toc: [
       { id: "the-receipts", label: "What the official expense records show" },
-      { id: "uk-number-one", label: "Number one out of all 650 UK MPs" },
+      { id: "uk-number-one", label: "Number one of every UK MP since 2022" },
       { id: "warm-home-contrast", label: "156 Warm Home Discounts & Winter Fuel vote" },
-      { id: "how-ipsa-paid-it", label: "How IPSA paid it outside her normal office limit" },
+      { id: "how-ipsa-paid-it", label: "How it went through outside her normal office limit" },
     ],
     faq: [
       {
-        q: "How much did IPSA pay Yu Energy for Lillian Jones?",
-        a: "IPSA paid £23,436.95 across two claims on 19 May 2026. Both used account 2000294348. One was £20,384.74 for 2025/26, and the next was £3,052.21 for 2026/27. Both are marked Paid. £0 has been paid back.",
+        q: "How much went to Yu Energy for Lillian Jones?",
+        a: "Two claims dated 19 May 2026 came to £23,436.95. Both used account 2000294348. One was £20,384.74 for 2025/26, and the next was £3,052.21 for 2026/27. Both are marked Paid. £0 has been paid back.",
       },
       {
-        q: "Is £23,436.95 really the biggest MP power bill in the UK?",
-        a: "Yes. We checked over 350,000 IPSA claim lines for all 650 UK MPs over five years. Her £20,385 payment alone is number one in the UK, over three and a half times the next biggest single MP electricity claim (£5,633).",
+        q: "Is £23,436.95 really the biggest MP energy bill in the UK?",
+        a: "Yes. We checked over 350,000 IPSA claim lines for every MP since 2022. Her £20,385 claim alone is number one in the UK, more than three times the next biggest single gas or electricity claim by any MP (£6,483, for Bim Afolami's London home in September 2024).",
       },
       {
         q: "Why did it not come out of her office budget?",
-        a: "IPSA paid Yu Energy straight from extra public cash using code 200013554. That kept the bill out of her normal office limit. The files do not say which months or room the bill covered.",
+        a: "The Yu Energy claims were paid from extra public cash using code 200013554. That kept the bill out of her normal office limit. The files do not say which months or room the bill covered.",
       },
     ],
     sourceIds: ["ipsa-claims-2022-2027"],

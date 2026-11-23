@@ -28,7 +28,9 @@ import {
  * Data sources (checked 22 November 2026):
  * - IPSA 2025/26 individualBusinessCosts CSV (Accommodation + MP Travel + Dependant Travel)
  * - Hansard / Parliament API (152 days the Commons opened in 2025/26, speaking days,
- *   written questions, and recorded votes across all 55 full-year Scottish MPs).
+ *   written questions, and recorded votes for the 55 Scottish MPs still in Parliament
+ *   who served all of 2025/26). Stephen Flynn and Stephen Gethins sat all year but have
+ *   since left; with them the 57 seats cost £3,065,164 (re-checked 23 November 2026).
  */
 
 const mp = (slug: string) => `/representatives/mps/${slug}#london-record`;
@@ -104,21 +106,22 @@ const BIGGEST_SHUTTLE_BILLS: {
 const COST_PER_SPOKEN_DAY: {
   name: string;
   slug: string;
+  p: PartyKey;
   bill: number;
   days: number;
   questions: number;
   perDay: number;
 }[] = [
-  { name: "Elaine Stewart", slug: "ayr-carrick-and-cumnock", bill: 57135, days: 19, questions: 5, perDay: 3007 },
-  { name: "Chris Kane", slug: "stirling-and-strathallan", bill: 68303, days: 25, questions: 9, perDay: 2732 },
-  { name: "Joani Reid", slug: "east-kilbride-and-strathaven", bill: 48655, days: 19, questions: 5, perDay: 2561 },
-  { name: "Alan Gemmell", slug: "central-ayrshire", bill: 56145, days: 24, questions: 2, perDay: 2339 },
-  { name: "Maureen Burke", slug: "glasgow-north-east", bill: 42825, days: 19, questions: 26, perDay: 2254 },
-  { name: "Kenneth Stevenson", slug: "airdrie-and-shotts", bill: 33465, days: 16, questions: 4, perDay: 2092 },
-  { name: "Gordon McKee", slug: "glasgow-south", bill: 42867, days: 21, questions: 2, perDay: 2041 },
-  { name: "Lillian Jones", slug: "kilmarnock-and-loudoun", bill: 43062, days: 24, questions: 7, perDay: 1794 },
-  { name: "Frank McNally", slug: "coatbridge-and-bellshill", bill: 46862, days: 28, questions: 6, perDay: 1674 },
-  { name: "John Grady", slug: "glasgow-east", bill: 60603, days: 39, questions: 29, perDay: 1554 },
+  { name: "Elaine Stewart", slug: "ayr-carrick-and-cumnock", p: "Labour", bill: 57135, days: 19, questions: 5, perDay: 3007 },
+  { name: "Chris Kane", slug: "stirling-and-strathallan", p: "Labour", bill: 68303, days: 25, questions: 9, perDay: 2732 },
+  { name: "Joani Reid", slug: "east-kilbride-and-strathaven", p: "Labour", bill: 48655, days: 19, questions: 5, perDay: 2561 },
+  { name: "Alan Gemmell", slug: "central-ayrshire", p: "Labour", bill: 56145, days: 24, questions: 2, perDay: 2339 },
+  { name: "Maureen Burke", slug: "glasgow-north-east", p: "Labour", bill: 42825, days: 19, questions: 26, perDay: 2254 },
+  { name: "Kenneth Stevenson", slug: "airdrie-and-shotts", p: "Labour", bill: 33465, days: 16, questions: 4, perDay: 2092 },
+  { name: "Gordon McKee", slug: "glasgow-south", p: "Labour", bill: 42867, days: 21, questions: 2, perDay: 2041 },
+  { name: "Brendan O'Hara", slug: "argyll-bute-and-south-lochaber", p: "SNP", bill: 68561, days: 37, questions: 55, perDay: 1853 },
+  { name: "Andrew Bowie", slug: "west-aberdeenshire-and-kincardine", p: "Conservative", bill: 74057, days: 41, questions: 81, perDay: 1806 },
+  { name: "Lillian Jones", slug: "kilmarnock-and-loudoun", p: "Labour", bill: 43062, days: 24, questions: 7, perDay: 1794 },
 ];
 
 const BIG_BILL_ROWS: RankRow[] = BIGGEST_SHUTTLE_BILLS.map((r) => ({
@@ -136,10 +139,10 @@ const BIG_BILL_ROWS: RankRow[] = BIGGEST_SHUTTLE_BILLS.map((r) => ({
 
 const PER_DAY_ROWS: RankRow[] = COST_PER_SPOKEN_DAY.map((r) => ({
   key: r.slug,
-  who: <Who face name={r.name} href={mp(r.slug)} p="Labour" />,
+  who: <Who face name={r.name} href={mp(r.slug)} p={r.p} />,
   value: r.perDay,
   label: gbp(r.perDay, false),
-  colour: PARTY.Labour.colour,
+  colour: PARTY[r.p].colour,
   detail: (
     <span className="tnum">
       {gbp(r.bill, false)} bill · spoke on {r.days} days · {r.questions} written questions
@@ -169,8 +172,8 @@ export default function ScottishMpsLondonHomes152SittingDays() {
             meet in London to debate and vote.
           </>,
           <>
-            Taxpayers paid <strong>£2.91 million</strong> to house and fly 55 Scottish MPs and
-            their families to London. Or <strong>£19,173</strong> for every day the Commons sat.
+            Taxpayers paid <strong>£2.91 million</strong> to house and fly the 55 Scottish MPs
+            still in Parliament who served all of 2025/26, and their families, to London. Or <strong>£19,173</strong> for every day the Commons sat.
           </>,
           <>
             One Scottish MP had <strong>295 London nights</strong> paid for across 152 open days.
@@ -183,9 +186,9 @@ export default function ScottishMpsLondonHomes152SittingDays() {
       />
 
       <P>
-        That daily figure covers all 55 MPs together. Five sitting days cost nearly a full year of
-        one MP&apos;s pay (£98,599). And it leaves out pay, Scottish offices and £13.11 million in
-        staff pay.
+        That daily figure covers all 55 MPs together. Five sitting days cost £95,867, more than a
+        whole year of one MP&apos;s pay in 2025/26 (£93,904). And it leaves out their pay, Scottish
+        offices and £13.11 million in staff pay.
       </P>
 
       <CaseCard
@@ -200,7 +203,8 @@ export default function ScottishMpsLondonHomes152SittingDays() {
           Commons on <strong>19 days</strong> all year.
         </p>
         <p>
-          Split across those days, no Scottish MP outside government and party jobs cost more.{" "}
+          Split across those days, no Scottish MP cost more, apart from ministers, whips and PPS
+          aides.{" "}
           <a href="#price-of-presence">See the top ten</a>.
         </p>
       </CaseCard>
@@ -216,14 +220,14 @@ export default function ScottishMpsLondonHomes152SittingDays() {
         your council tax, gas, taxis, car park or your kids&apos; flights.
       </P>
       <P>
-        Scotland&apos;s 55 full year MPs get the lot, paid by taxpayers through IPSA (the body that
-        pays MPs&apos; expenses):
+        The 55 Scottish MPs still in Parliament who served all of 2025/26 get the lot, paid by
+        taxpayers through IPSA (the body that pays MPs&apos; expenses):
       </P>
 
       <ChartFrame
-        kicker="IPSA 2025/26 · All 55 Full-Year Scottish MPs"
+        kicker="IPSA 2025/26 · 55 Scottish MPs Who Served All Year"
         title="The real cost of housing and flying Scotland's MPs to London"
-        caption="Source: IPSA 2025/26 files for the 55 Scottish MPs who sat all year. Staff travel is not included."
+        caption="Source: IPSA 2025/26 files for the 55 Scottish MPs still in Parliament who served all of 2025/26. Staff travel is not included."
       >
         <div className="space-y-4">
           {SHUTTLE_PARTS.map((r) => (
@@ -257,6 +261,22 @@ export default function ScottishMpsLondonHomes152SittingDays() {
           <span className="tnum text-[17px] font-[700] text-[var(--ink)]">£3,480,101</span>
         </div>
       </Expand>
+
+      <P>
+        Two Scottish MPs who sat all year are left out because they have since left the Commons:{" "}
+        <a href="https://members.parliament.uk/member/4735">Stephen Flynn</a> (£74,101) and{" "}
+        <a href="https://members.parliament.uk/member/4434">Stephen Gethins</a> (£76,714). Add them
+        back and the 57 seats cost <strong>£3,065,164</strong>, or £20,166 a day.
+      </P>
+      <P>
+        Planes take a big slice of the travel money. Energy Minister{" "}
+        <Link href={mp("rutherglen")}>Michael Shanks</Link> put 92p of every £1 of his own London
+        travel on flights, as{" "}
+        <Link href="/blog/energy-minister-michael-shanks-flights-rutherglen">
+          our Energy Minister flights story
+        </Link>{" "}
+        shows.
+      </P>
 
       <P>Three of the biggest bills buried inside that £2.91 million:</P>
 
@@ -319,27 +339,28 @@ export default function ScottishMpsLondonHomes152SittingDays() {
       <P>
         So we took each ordinary MP&apos;s London flat and travel bill. We left out ministers, whips
         (the MPs who organise their party&apos;s votes) and unpaid PPS aides (MPs who help a
-        minister) like <Link href={mp("motherwell-wishaw-and-carluke")}>Pamela Nash</Link>. Split by
-        the days they spoke, it comes to <strong>£1,554 to £3,007 each day they spoke</strong>:
+        minister) like <Link href={mp("motherwell-wishaw-and-carluke")}>Pamela Nash</Link>.
+        Opposition spokespeople stay in, as they hold no government job. Split by the days they
+        spoke, it comes to <strong>£1,794 to £3,007 each day they spoke</strong>:
       </P>
 
       <ChartFrame
         kicker="Ordinary MPs With No Minister, Whip or PPS Job · 2025/26"
         title="What you paid for each day these MPs spoke in London"
-        caption="Source: IPSA 2025/26 flat and travel bills (each MP's own bill) split by 2025/26 Hansard days spoken. Leaves out ministers, whips and PPS aides."
+        caption="Source: IPSA 2025/26 flat and travel bills (each MP's own bill) split by 2025/26 Hansard days spoken. Leaves out ministers, whips and PPS aides. Opposition spokespeople are included."
       >
         <RankList max={COST_PER_SPOKEN_DAY[0].perDay} rows={PER_DAY_ROWS.slice(0, 3)} />
       </ChartFrame>
 
-      <Expand summary="See the other 7 (£1,554 to £2,339 a day spoken)">
+      <Expand summary="See the other 7 (£1,794 to £2,339 a day spoken)">
         <MoreRanks max={COST_PER_SPOKEN_DAY[0].perDay} rows={PER_DAY_ROWS.slice(3)} start={4} />
       </Expand>
 
       <Expand summary="Open the 10 biggest London bills across all four parties (£68k to £85k)">
         <ChartFrame
           kicker="All Parties · Flat + Own Travel + Family Travel (2025/26)"
-          title="The 10 biggest Scottish MP London bills in 2025/26"
-          caption="Counts flats, hotels, MP travel and family travel from IPSA 2025/26 files. Leaves out staff pay, staff trips and Scottish offices."
+          title="The 10 biggest London bills among the 55 Scottish MPs in 2025/26"
+          caption="Counts flats, hotels, MP travel and family travel from IPSA 2025/26 files. Leaves out staff pay, staff trips and Scottish offices. Stephen Gethins (£76,714) and Stephen Flynn (£74,101), who have since left the Commons, would also make this list."
         >
           <RankList max={BIGGEST_SHUTTLE_BILLS[0].bill} rows={BIG_BILL_ROWS} />
         </ChartFrame>
@@ -347,7 +368,7 @@ export default function ScottishMpsLondonHomes152SittingDays() {
 
       {/* ------------------------------------------------------------ 3 */}
       <Finding n={3} id="paid-when-shut">
-        Paid for 365 nights when it was shut for 213 days
+        Paying for London homes all year, when it was shut for 213 days
       </Finding>
       <P>
         The Commons sat on 152 days. For the other <strong>213 days</strong> it was shut for
@@ -358,17 +379,17 @@ export default function ScottishMpsLondonHomes152SittingDays() {
         items={[
           { value: "152", label: "days the Commons sat in 2025/26" },
           { value: "213", label: "days the Commons was shut", hot: true },
-          { value: "365", label: "nights paid on each 12 month flat lease", hot: true },
+          { value: "49", label: "of the 55 claimed rent on a London home", hot: true },
         ]}
       />
 
       <P>
-        Most Scottish MPs rent their London flat on a 12 month lease, so the public pays for all
-        365 nights.
+        In 2025/26, 49 of the 55 claimed rent on a London home. Rent keeps running whether the
+        Commons sits or not.
       </P>
       <P>
-        August when it&apos;s on break, Christmas, every Friday, Saturday and Sunday: all paid for.
-        And IPSA never says how many nights an MP actually slept there.
+        August when it&apos;s on break, Christmas, every weekend: the rent still runs. IPSA prints
+        it as one total for the year. It never says how many nights an MP actually slept there.
       </P>
       <P>
         Only one Scottish MP lets us count each night:{" "}
@@ -425,8 +446,9 @@ export default function ScottishMpsLondonHomes152SittingDays() {
             title: "After he became a health minister (6 Sept 2025)",
             children: (
               <>
-                A minister works in London on weekdays, so more nights make sense. But his bills
-                still ran <strong>seven nights a week</strong> (28 to 30 nights a month). See{" "}
+                A minister works in London on weekdays, so more nights make sense. But five of his
+                seven monthly flat bills as a minister still covered <strong>28 nights or more</strong>,
+                weekends included. See{" "}
                 <Link href="/blog/worst-scottish-mp-expenses#hotel-nights">all 14 of his hotel claims</Link>
                 .
               </>
@@ -452,7 +474,7 @@ export default function ScottishMpsLondonHomes152SittingDays() {
       <P>Then it binned remote votes the minute lockdown ended.</P>
       <P>
         So Scots keep paying £19,173 for every day the Commons sits. The money rents flats that
-        lie empty half the year. It covers council tax, heating, taxis and car parks, and flies
+        keep costing when the Commons is shut. It covers council tax, heating, taxis and car parks, and flies
         MPs&apos; kids down too. All so some of them can speak on 19 days a year, at £3,007 a day,
         and walk through a door to say Aye or No.
       </P>
@@ -468,9 +490,9 @@ export default function ScottishMpsLondonHomes152SittingDays() {
 
       <PostCTA
         title="See every Scottish MP's London bill vs what they did"
-        body="Check all 55 Scottish MPs side by side, or search 20,879 claims by postcode."
+        body="Check all 57 Scottish seats side by side, or search about 21,000 claims by postcode."
         href="/mp-expenses-scotland#london-record"
-        cta="Compare all 55 Scottish MPs"
+        cta="Compare all 57 Scottish MPs"
       />
     </Prose>
   );

@@ -20,7 +20,8 @@ import {
  * 8 to 10 (Flesch-Kincaid Grade <= 5.5).
  *
  * Every figure is verified with zero double-counting from:
- * - IPSA 2025/26 official Scottish MP claims (57 MPs, 6,101 rows, £18,323,504.06 total)
+ * - IPSA 2025/26 official Scottish MP claims (the 55 Scottish MPs still in Parliament
+ *   who served all of 2025/26, 6,101 rows, £18,328,069.26 total; re-checked 23 Nov 2026)
  * - Scottish Parliament 2024/25 official MSP claims (129 MSPs, £27,450,000 total,
  *   £4,576,651.88 direct non-staff claims)
  * - Scottish Government 2025/26 Scottish Welfare Fund Crisis Grant statistics
@@ -49,10 +50,10 @@ function Finding({ n, id, children }: { n: number; id: string; children: ReactNo
 /* ------------------------------------------------------------------ */
 
 const FOUR_POTS = [
-  { what: "Second homes, hotels and second home council tax", mp: 1_559_020, msp: 993_355, total: 2_552_375 },
+  { what: "Second homes, hotels and second home council tax", mp: 1_559_441, msp: 993_355, total: 2_552_796 },
   { what: "Travel: flights, cars, taxis, parking, staff and family trips", mp: 1_920_661, msp: 359_290, total: 2_279_950 },
   { what: "Glossy leaflets, calendars, billboards, PR firms and consultants", mp: 227_067, msp: 1_506_916, total: 1_733_983 },
-  { what: "Papers, TV licences, dinners and one £20,385 Yu Energy bill", mp: 46_180, msp: 37_710, total: 83_891 },
+  { what: "Papers, TV licences, dinners and one £20,385 Yu Energy bill", mp: 36_966, msp: 37_621, total: 74_587 },
 ];
 
 const CRISIS_COMPARISON = [
@@ -60,7 +61,7 @@ const CRISIS_COMPARISON = [
   { label: "Edinburgh: 17,290 Crisis Grants", value: 2_120_654, display: "£2,120,654", hot: false },
   { label: "Glasgow: 25,940 Crisis Grants", value: 3_950_416, display: "£3,950,416", hot: false },
   { label: "All three cities together: 46,580 Crisis Grants", value: 6_409_630, display: "£6,409,630", hot: false },
-  { label: "Scottish MPs + MSPs: 1 year of 2nd homes, travel, leaflets, PR and perks", value: 6_650_199, display: "£6,650,199", hot: true },
+  { label: "Scottish MPs + MSPs: 1 year of 2nd homes, travel, leaflets, PR and perks", value: 6_641_316, display: "£6,641,316", hot: true },
 ];
 
 const EXTRAS = [
@@ -95,12 +96,12 @@ const EXTRAS_SMALL = [
   {
     what: "Flights, trains and taxis for MPs' partners and children",
     amount: 89_111,
-    detail: "Billed by 35 Scottish MPs (top: Melanie Ward, £7,932)",
+    detail: "Billed by 35 of the 55 Scottish MPs (top: Melanie Ward, £7,932)",
   },
   {
     what: "Newspapers and magazines (both parliaments have free libraries)",
-    amount: 54_334,
-    detail: "£35,987 by MSPs (£127,627 over 4 years) + £18,347 by MPs",
+    amount: 45_147,
+    detail: "£35,987 by MSPs (£127,627 over 4 years) + £9,160 by MPs",
   },
   {
     what: "Kilmarnock MP's one day Yu Energy bill (the 2025/26 part)",
@@ -109,8 +110,8 @@ const EXTRAS_SMALL = [
   },
   {
     what: "Office TV licences, dinners, Christmas lunches and cancelled hotel rooms",
-    amount: 9_172,
-    detail: "£4,877 TV licences + £3,763 dinners and lunches + £532 for hotel rooms never used",
+    amount: 9_056,
+    detail: "£4,965 TV licences (£3,863 MPs + £1,102 MSPs) + £3,559 MPs' dinners and lunches + £532 for cancelled MSP staff hotel rooms",
   },
 ];
 
@@ -126,7 +127,7 @@ export default function ScottishMpMspExpensesWhatItCouldBuy() {
   return (
     <Prose>
       <Lead>
-        In one year, Scotland&apos;s 186 MPs and MSPs burned £6.65 million on second homes, hotels,
+        In one year, 184 Scottish MPs and MSPs burned £6.64 million on second homes, hotels,
         travel, leaflets, PR firms and papers. More than Glasgow, Edinburgh and Dundee gave out in
         Crisis Grants all year. A Crisis Grant is emergency cash from your council when you
         can&apos;t pay for food or heating.
@@ -135,7 +136,7 @@ export default function ScottishMpMspExpensesWhatItCouldBuy() {
       <QuickTake
         items={[
           <>
-            Biggest one day payout: <strong>£23,437 in two payments</strong> to Yu Energy, an
+            Biggest bill on one date: <strong>£23,437 in two claims</strong> to Yu Energy, an
             energy supplier, for Kilmarnock MP{" "}
             <Link href={mp("kilmarnock-and-loudoun")}>Lillian Jones</Link>.
           </>,
@@ -144,7 +145,7 @@ export default function ScottishMpMspExpensesWhatItCouldBuy() {
             travel, leaflets, PR and papers.
           </>,
           <>
-            Even if they keep their flats and trips, <strong>£2.81 million a year</strong> goes
+            Even if they keep their flats and trips, <strong>£2.80 million a year</strong> goes
             on pure zero excuse waste: leaflets, PR firms, second home council tax, taxis and papers.
           </>,
           <>
@@ -155,8 +156,9 @@ export default function ScottishMpMspExpensesWhatItCouldBuy() {
 
       <P>
         We use the latest full year each parliament has published: <strong>2025/26</strong> for
-        57 MPs (from IPSA, the body that pays MPs&apos; expenses) and <strong>2024/25</strong> for
-        129 MSPs (from Holyrood, the Scottish Parliament).
+        the 55 Scottish MPs still in Parliament who served all of 2025/26 (from IPSA, the body that
+        pays MPs&apos; expenses), and <strong>2024/25</strong> for 129 MSPs (from Holyrood, the
+        Scottish Parliament).
       </P>
 
       {/* ------------------------------------------------------------ 1 */}
@@ -169,7 +171,7 @@ export default function ScottishMpMspExpensesWhatItCouldBuy() {
       </P>
 
       <CaseCard
-        kicker="Two payments, one day · 156 Warm Home Discounts"
+        kicker="Two claims, one date · 156 Warm Home Discounts"
         figure="£23,437"
         people={[
           {
@@ -181,9 +183,9 @@ export default function ScottishMpMspExpensesWhatItCouldBuy() {
         ]}
       >
         <p>
-          <strong>Paid to Yu Energy, an energy supplier, on 19 May 2026.</strong> It was two
-          payments on the same day: £20,385 from the 2025/26 budget and £3,052 from 2026/27. It
-          came after she voted to cut the Winter Fuel Payment.
+          <strong>Two claims to Yu Energy, an energy supplier, both dated 19 May 2026.</strong>{" "}
+          £20,385 came from the 2025/26 budget and £3,052 from 2026/27. It came after she voted to
+          cut the Winter Fuel Payment.
         </p>
         <p>
           Together they equal <strong>156 Warm Home Discounts</strong> (£150 off a low income
@@ -238,8 +240,8 @@ export default function ScottishMpMspExpensesWhatItCouldBuy() {
         ]}
       >
         <p>
-          35 Scottish MPs claimed for partners and children in 2025/26. Hers was the biggest
-          bill.
+          35 of the 55 Scottish MPs still in Parliament claimed for partners and children in
+          2025/26. Hers was the biggest bill.
         </p>
         <p>
           She also billed <strong>£14,000 for consultants nobody names</strong>: £10,000 for a
@@ -394,15 +396,15 @@ export default function ScottishMpMspExpensesWhatItCouldBuy() {
 
       {/* ------------------------------------------------------------ 3 */}
       <Finding n={3} id="the-665m-bill">
-        Where the £6.65 million goes
+        Where the £6.64 million goes
       </Finding>
       <P>
         Four kinds of claim make up the whole bill. Second homes and travel are the biggest.
       </P>
 
       <ChartFrame
-        kicker="One year · 57 MPs (2025/26) + 129 MSPs (2024/25)"
-        title="The £6.65 million bill, in four parts"
+        kicker="One year · 55 MPs (2025/26) + 129 MSPs (2024/25)"
+        title="The £6.64 million bill, in four parts"
         caption="Source: IPSA 2025/26 and Holyrood 2024/25 public files. Staff pay and local office rent are left out. The £20,385 Yu Energy line is the 2025/26 part of Lillian Jones' £23,437; the other £3,052 came from the 2026/27 budget."
       >
         <div className="space-y-5">
@@ -419,7 +421,7 @@ export default function ScottishMpMspExpensesWhatItCouldBuy() {
 
         <div className="ui mt-6 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-t-2 border-[var(--ink)] pt-3.5">
           <span className="text-[16px] font-[700] text-[var(--ink)]">One year total</span>
-          <span className="tnum text-[19px] font-[700] text-[var(--bad-text)]">£6,650,199</span>
+          <span className="tnum text-[19px] font-[700] text-[var(--bad-text)]">£6,641,316</span>
         </div>
       </ChartFrame>
 
@@ -473,7 +475,7 @@ export default function ScottishMpMspExpensesWhatItCouldBuy() {
 
       {/* ------------------------------------------------------------ 5 */}
       <Finding n={5} id="zero-excuse-pot">
-        Even if they keep basic flats and travel, £2.81 million a year is pure zero excuse waste
+        Even if they keep basic flats and travel, £2.80 million a year is pure zero excuse waste
       </Finding>
       <P>
         Ask a politician about expenses and you get the same excuse every time. An MP or MSP from
@@ -484,12 +486,12 @@ export default function ScottishMpMspExpensesWhatItCouldBuy() {
         all their own flights, trains and car miles.
       </P>
       <P>
-        They still blew <strong>£2,812,948 in one year</strong> on things no normal worker could
+        They still blew <strong>£2,803,948 in one year</strong> on things no normal worker could
         ever put through on expenses. The four biggest:
       </P>
 
       <ChartFrame
-        kicker="The £2.81 Million 'Zero Excuse' Pot · 1 Year (MPs + MSPs)"
+        kicker="The £2.80 Million 'Zero Excuse' Pot · 1 Year (MPs + MSPs)"
         title="What is left when you only count self promo, PR firms, council tax, family trips, staff hotels, taxis and papers"
         caption="Source: IPSA 2025/26 and Holyrood 2024/25 files. Leaves out staff pay, local offices, second home rent and bills, and MPs' and MSPs' own travel."
       >
@@ -505,11 +507,11 @@ export default function ScottishMpMspExpensesWhatItCouldBuy() {
 
         <div className="ui mt-6 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-t-2 border-[var(--ink)] pt-3.5">
           <span className="text-[16px] font-[700] text-[var(--ink)]">1 year zero excuse total (all nine)</span>
-          <span className="tnum text-[19px] font-[700] text-[var(--bad-text)]">£2,812,948</span>
+          <span className="tnum text-[19px] font-[700] text-[var(--bad-text)]">£2,803,948</span>
         </div>
       </ChartFrame>
 
-      <ChartFrame kicker="Also in the £2.81 million" title="Five smaller bills taxpayers picked up">
+      <ChartFrame kicker="Also in the £2.80 million" title="Five smaller bills taxpayers picked up">
         <div className="space-y-5">
           {EXTRAS_SMALL.map((z) => (
             <div key={z.what}>
@@ -525,31 +527,31 @@ export default function ScottishMpMspExpensesWhatItCouldBuy() {
         items={[
           {
             key: "glasgow-rejected",
-            title: "The £2.81m zero excuse pot alone pays every rejected Crisis Grant in Glasgow, with £830,000 to spare",
+            title: "The £2.80m zero excuse pot alone pays every rejected Crisis Grant in Glasgow, with £821,000 to spare",
             children: (
               <>
                 Glasgow turned down <strong>15,250 claims</strong> in 2025/26. At the £130 average
-                across Scotland, those come to <strong>£1.98 million</strong>. The £2.81m would pay them all, with £830,448 left.
+                across Scotland, those come to <strong>£1.98 million</strong>. The £2.80m would pay them all, with £821,448 left.
               </>
             ),
           },
           {
-            key: "nurses-88",
-            title: "The £2.81m zero excuse pot alone hires 88 new NHS Scotland nurses each year",
+            key: "nurses-87",
+            title: "The £2.80m zero excuse pot alone pays 87 new NHS Scotland nurses each year",
             children: (
               <>
                 A newly qualified NHS Scotland nurse starts on <strong>£32,073</strong>. Cut just the
-                leaflets, PR firms, second home council tax, family flights, taxis and papers, and
-                you can pay <strong>88 full time ward nurses</strong>.
+                leaflets, PR firms, second home council tax, family flights, taxis and papers
+                (£2.21 million), and you can pay <strong>68 full time ward nurses</strong>.
               </>
             ),
           },
           {
             key: "school-meals-1m",
-            title: "The £2.81m zero excuse pot alone buys 1.08 million hot school lunches each year",
+            title: "The £2.80m zero excuse pot alone buys 1.08 million hot school lunches each year",
             children: (
               <>
-                At £2.60 a meal, it buys <strong>1,081,903 hot school lunches</strong> for older
+                At £2.60 a meal, it buys <strong>1,078,441 hot school lunches</strong> for older
                 kids who miss out on free meals.
               </>
             ),
@@ -561,14 +563,15 @@ export default function ScottishMpMspExpensesWhatItCouldBuy() {
         <div className="space-y-3 text-[16px] leading-[1.6] text-[var(--ink-2)]">
           <p>
             <strong className="text-[var(--ink)]">MPs.</strong> Every MP figure comes from IPSA
-            (the body that pays MPs&apos; expenses) for Scotland&apos;s 57 seats in 2025/26. Their
-            total claims were £18.32m. We took out staff pay and £1.72m of local office rent and
-            bills. We added back £264,757 of staff hotel and travel claims. That left £3,752,929.
+            (the body that pays MPs&apos; expenses) for the 55 Scottish MPs still in Parliament who
+            served all of 2025/26. Their total claims were £18.33m. We took out staff pay and their
+            local office rent and bills. We kept London homes, hotels and every travel claim (staff
+            travel too), plus leaflets, PR, papers, TV licences and dinners. That left £3,744,135.
           </p>
           <p>
             <strong className="text-[var(--ink)]">MSPs.</strong> Every MSP figure comes from
             Holyrood&apos;s 2024/25 files for all 129 MSPs. Their total claims were £27.45m. We took
-            out staff pay and £1.68m of local office costs. That left £2,897,271.
+            out staff pay and £1.68m of local office costs. That left £2,897,181.
           </p>
           <p>
             <strong className="text-[var(--ink)]">Why two different years.</strong> Each is the

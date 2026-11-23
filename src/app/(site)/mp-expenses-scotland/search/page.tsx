@@ -80,7 +80,7 @@ export default function MpReceiptsSearchPage() {
           <div className="mt-10">
             <div className="flex flex-wrap items-center gap-2.5">
               <Link href="/blog/scottish-mp-msp-expenses-what-it-could-buy" className="btn btn-primary">
-                What £6.65m/yr could buy Scotland →
+                What £6.64m/yr could buy Scotland →
               </Link>
               <Link href="/blog/msp-expenses-scotland-investigation" className="btn btn-ghost">
                 Holyrood MSP Party Tally →

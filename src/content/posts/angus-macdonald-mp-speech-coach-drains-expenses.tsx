@@ -55,9 +55,9 @@ function Finding({ n, id, children }: { n: number; id: string; children: ReactNo
 /** Other MPs with their own local story page, linked near the end. */
 const MORE_LOCAL_STORIES: { name: string; seat: string; place: string; hook: string; story: string }[] = [
   { name: "Torcuil Crichton", seat: "na-h-eileanan-an-iar", place: "Western Isles", hook: "£2,400 coaching from a former IPSA worker", story: "/blog/torcuil-crichton-mp-coaching-expenses-western-isles" },
-  { name: "Lillian Jones", seat: "kilmarnock-and-loudoun", place: "Kilmarnock", hook: "£23,437 for electricity in one day", story: "/blog/kilmarnock-mp-23437-electricity-bill" },
+  { name: "Lillian Jones", seat: "kilmarnock-and-loudoun", place: "Kilmarnock", hook: "£23,437 energy bill in one day", story: "/blog/kilmarnock-mp-23437-electricity-bill" },
   { name: "Chris Law", seat: "dundee-central", place: "Dundee", hook: "£3,090 to set up home broadband", story: "/blog/chris-law-mp-3090-broadband-expenses-dundee" },
-  { name: "Euan Stainbank", seat: "falkirk", place: "Falkirk", hook: "£3,300 for a billboard of himself", story: "/blog/euan-stainbank-mp-billboard-expenses-falkirk" },
+  { name: "Euan Stainbank", seat: "falkirk", place: "Falkirk", hook: "£3,300 for a board advertising himself", story: "/blog/euan-stainbank-mp-billboard-expenses-falkirk" },
   { name: "Christine Jardine", seat: "edinburgh-west", place: "Edinburgh West", hook: "£510 Christmas lunch and team day", story: "/blog/christine-jardine-mp-christmas-lunch-expenses" },
   { name: "John Lamont", seat: "berwickshire-roxburgh-and-selkirk", place: "Borders", hook: "Two iPhones on expenses", story: "/blog/john-lamont-mp-iphone-expenses-borders" },
 ];
