@@ -117,7 +117,7 @@ export default function MpReceiptsSearchPage() {
                 },
                 {
                   value: "£23,437",
-                  label: "One day's electricity payout for the Kilmarnock MP, the UK's number one",
+                  label: "Two energy claims on one day for the Kilmarnock MP, the biggest in the UK",
                   href: "/blog/kilmarnock-mp-23437-electricity-bill",
                   cta: "Read the investigation",
                 },

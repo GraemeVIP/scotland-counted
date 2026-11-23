@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { ExpenseStoryIndex } from "@/components/ExpenseStoryRail";
+import { ExpenseMpCheck, ExpenseStoryIndex, ExpenseStoryStarters } from "@/components/ExpenseStoryRail";
+import { EXPENSE_STORIES } from "@/lib/data/expenseStories";
 import Link from "@/components/IntentLink";
 import { Page, ContentFrame, PageHeader, SectionHead, CTA, Callout } from "@/components/Blocks";
 import { ExplainText } from "@/components/ExplainServer";
@@ -18,7 +19,6 @@ import { mpInterests, MP_INTERESTS_CHECKED_ISO, MP_INTERESTS_TOTALS } from "@/li
 import { mps } from "@/lib/data/mps";
 import { CONSTITUENCY_YEARS, getConstituency } from "@/lib/data/constituencies";
 import MpInterestsExplorer from "./MpInterestsExplorer";
-import FindMpClaims from "@/components/FindMpClaims";
 import MpLondonTable from "@/components/MpLondonTable";
 import { LONDON_RECORD, londonTableRows } from "@/lib/data/mpLondonRecord";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -811,9 +811,9 @@ export default function MpRegisterOfInterestsScotlandPage() {
   ];
 
   const JUMP_LINKS = [
+    { href: "#all-stories", label: `All ${EXPENSE_STORIES.length} stories` },
     { href: "#top-claimants", label: "Worst offenders" },
     { href: "#mp-by-mp", label: "MP by MP" },
-    { href: "#all-stories", label: "All stories" },
     { href: "#leaderboard", label: "All 57 MPs" },
     { href: "#party-tally", label: "By party" },
     { href: "#london-record", label: "152 sitting days" },
@@ -898,20 +898,31 @@ export default function MpRegisterOfInterestsScotlandPage() {
             id="your-mp"
             className="mt-6 scroll-mt-24 rounded-[var(--r-m)] border-2 border-[var(--brand)] bg-[var(--surface)] p-4 sm:p-6"
           >
-            <h2 className="text-[21px] font-[700] leading-[1.2] text-[var(--ink)] sm:text-[24px]">
-              Check your own MP first
+            <h2 className="sr-only">Check your own MP</h2>
+            <ExpenseMpCheck
+              framed={false}
+              intro="Type your Scottish postcode. See if your MP has a story here, and every bill they sent taxpayers."
+            />
+          </div>
+
+          {/* START HERE: THE FOUR BIGGEST STORIES, ONE TAP AWAY */}
+          <div className="mt-6">
+            <h2 className="ui text-[19px] font-[700] leading-[1.25] text-[var(--ink)] sm:text-[21px]">
+              Start with the biggest bills
             </h2>
-            <p className="ui mt-1 mb-3 text-[15px] leading-[1.5] text-[var(--ink-2)]">
-              Type your Scottish postcode to see your MP&apos;s claims, donations and free trips.
-            </p>
-            <FindMpClaims slugs={Object.fromEntries(mps.map((m) => [m.memberId, m.constituencySlug]))} />
+            <div className="mt-3">
+              <ExpenseStoryStarters />
+            </div>
           </div>
           <div className="mt-5 flex flex-wrap items-center gap-3">
-            <Link href="/mp-expenses-scotland/search" className="btn btn-primary">
-              Search all 20,879 receipts →
-            </Link>
+            <a href="#all-stories" className="btn btn-primary">
+              All {EXPENSE_STORIES.length} expenses stories ↓
+            </a>
             <Link href="/blog/worst-scottish-mp-expenses" className="btn btn-ghost">
               The worst claims →
+            </Link>
+            <Link href="/mp-expenses-scotland/search" className="btn btn-ghost">
+              Search all 20,879 receipts
             </Link>
           </div>
           <p className="ui mt-4 text-[15px] leading-[1.5] text-[var(--ink-2)]">
