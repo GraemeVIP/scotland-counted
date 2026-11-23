@@ -2016,7 +2016,7 @@ export const sources: Source[] = [
     id: "uk-parliament-register-interests-2026",
     title: "Register of Members' Financial Interests API (Categories 1 to 10)",
     publisher: "UK Parliament",
-    url: "https://interests-api.parliament.uk/swagger/ui/index",
+    url: "https://interests-api.parliament.uk/index.html",
     used: "All 210 registered financial interest entries across Scotland's 57 MPs (checked 21 November 2026), totalling £296,894.97 across 23 donations (£205,242.29), 33 funded overseas visits (£76,556.68) and 22 gifts and hospitality entries (£15,096.00), plus 22 properties, 18 shareholdings and 3 family declarations.",
   },
   {
@@ -2037,7 +2037,7 @@ export const sources: Source[] = [
     id: "ofcom-connected-nations-2022",
     title: "Connected Nations 2022: Scotland and England reports",
     publisher: "Ofcom",
-    url: "https://www.ofcom.org.uk/research-and-data/telecoms-research/connected-nations/connected-nations-2022",
+    url: "https://www.ofcom.org.uk/phones-and-broadband/coverage-and-speeds/connected-nations-2022",
     used: "Superfast broadband coverage of 99% in Dundee City and 98% in urban England, and about 80,000 UK premises without decent broadband (September 2022).",
   },
   {

@@ -8,8 +8,10 @@ import { Prose, P, Aside, PostCTA } from "@/components/Prose";
  * to 2026/27 (checked 22 November 2026 across all 650 UK MPs, over 350,000
  * rows). Quoted descriptions are IPSA's exact wording and must not be edited.
  * UK advertising board ranking: every "Advertising and contact cards" line whose
- * wording mentions an advertising board, hoarding, billboard or pitchside
- * board (130 claims by 63 MPs). Office address from the UK Parliament members
+ * wording mentions an advertising, advert, ad or sponsor board, a hoarding, a
+ * billboard or a pitchside board (139 claims by 63 MPs, rechecked 23 November
+ * 2026; the first pass missed "Ad Boards" and "sponsor board" wording, which
+ * added Dave Robertson and Sarah Smith). Office address from the UK Parliament members
  * site. Nobody was contacted for comment.
  */
 
@@ -56,7 +58,7 @@ const MORE_LOCAL_STORIES: { name: string; seat: string; place: string; hook: str
   { name: "Lillian Jones", seat: "kilmarnock-and-loudoun", place: "Kilmarnock", hook: "£23,437 for electricity in one day", story: "/blog/kilmarnock-mp-23437-electricity-bill" },
   { name: "Chris Law", seat: "dundee-central", place: "Dundee", hook: "£3,090 to set up home broadband", story: "/blog/chris-law-mp-3090-broadband-expenses-dundee" },
   { name: "Angus MacDonald", seat: "inverness-skye-and-west-ross-shire", place: "Inverness and Skye", hook: "£3,000 speech coach and £546 drains", story: "/blog/angus-macdonald-mp-speech-coach-drains-expenses" },
-  { name: "Pamela Nash", seat: "motherwell-wishaw-and-carluke", place: "Motherwell", hook: "£7,542 on DFS, IKEA and a new carpet", story: "/blog/pamela-nash-mp-furniture-expenses-motherwell" },
+  { name: "Pamela Nash", seat: "motherwell-wishaw-and-carluke", place: "Motherwell", hook: "£7,203 in one week, from DFS to a new carpet", story: "/blog/pamela-nash-mp-furniture-expenses-motherwell" },
   { name: "Torcuil Crichton", seat: "na-h-eileanan-an-iar", place: "Western Isles", hook: "£2,400 coaching from a former IPSA worker", story: "/blog/torcuil-crichton-mp-coaching-expenses-western-isles" },
   { name: "Gregor Poynton", seat: "livingston", place: "Livingston", hook: "Four TV licences in 11 months", story: "/blog/gregor-poynton-mp-four-tv-licences-livingston" },
 ];
@@ -93,11 +95,27 @@ const UK_TOP_BOARDS: {
     value: 3300,
   },
   {
+    name: "Dave Robertson",
+    p: "Labour",
+    seat: "Lichfield",
+    date: "22 Apr 2025",
+    detail: "“Ad Boards at Chasetown FC - Multiyear deal”",
+    value: 2160,
+  },
+  {
     name: "Lizzi Collinge",
     p: "Labour",
     seat: "Morecambe & Lunesdale",
     date: "31 Jul 2025",
     detail: "“Football Hoarding costs for 2025/2026”",
+    value: 1800,
+  },
+  {
+    name: "Sarah Smith",
+    p: "Labour",
+    seat: "Hyndburn",
+    date: "30 May 2025",
+    detail: "“1 sx TV sponsor board at Accrington Stanley FC”",
     value: 1800,
   },
   {
@@ -118,23 +136,6 @@ const UK_TOP_BOARDS: {
     detail: "“Advertising Hoarding at East Kilbride FC”",
     value: 1500,
   },
-  {
-    name: "Michelle Donelan",
-    p: "Conservative",
-    seat: "Chippenham (former MP)",
-    date: "30 Mar 2024",
-    detail: "Board at Melksham Football Club",
-    value: 1200,
-  },
-  {
-    name: "Lillian Jones",
-    p: "Labour",
-    seat: "Kilmarnock & Loudoun",
-    href: mp("kilmarnock-and-loudoun"),
-    date: "7 Nov 2024",
-    detail: "Board at Kilmarnock FC",
-    value: 1020,
-  },
 ];
 
 /* ------------------------------------------------------------------ */
@@ -154,14 +155,15 @@ export default function EuanStainbankMpBillboardExpensesFalkirk() {
             for a big ad board.
           </>,
           <>
-            It is the <strong>biggest single board claim of all 650 UK MPs</strong> since 2022. It
-            is nearly twice the next one.
+            It is the <strong>biggest single board claim of all 650 UK MPs</strong> since 2022. The
+            next biggest was £2,160.
           </>,
           <>
             That one sign cost <strong>four months&apos; rent</strong> on his Falkirk office.
           </>,
           <>
-            IPSA paid it in full on 31 October 2024. <strong>£0</strong> has come back.
+            The claim is dated 31 October 2024 and was paid in full. <strong>£0</strong> has come
+            back.
           </>,
         ]}
       />
@@ -191,7 +193,7 @@ export default function EuanStainbankMpBillboardExpensesFalkirk() {
         local office on Newmarket Street.
       </P>
       <P>
-        Less than four months on, IPSA paid £3,300 for a year of ads &ldquo;to advertise Euan as
+        Less than four months on, he claimed £3,300 for a year of ads &ldquo;to advertise Euan as
         local MP&rdquo;.
       </P>
       <P>
@@ -231,15 +233,15 @@ export default function EuanStainbankMpBillboardExpensesFalkirk() {
 
       {/* ------------------------------------------------------------ 2 */}
       <Finding n={2} id="uk-number-one">
-        Nearly twice any other MP&apos;s board in the UK
+        The biggest advertising board of all 650 UK MPs
       </Finding>
       <P>
-        Across five years and all 650 UK seats, 63 MPs put an ad board on expenses (130 claims in
+        Across five years and all 650 UK seats, 63 MPs put an ad board on expenses (139 claims in
         all).
       </P>
       <P>
         Most spent a few hundred pounds at a local football club. Stainbank&apos;s £3,300 beat
-        every other MP in the UK by £1,500.
+        the next biggest in the UK, £2,160 for boards at Chasetown FC, by £1,140.
       </P>
 
       <ChartFrame
@@ -263,7 +265,7 @@ export default function EuanStainbankMpBillboardExpensesFalkirk() {
       </ChartFrame>
 
       <P>
-        Four of the top six are Scottish Labour MPs. Even{" "}
+        Three of the top six are Scottish Labour MPs. Even{" "}
         <Link href={mp("kilmarnock-and-loudoun")}>Lillian Jones</Link>&apos;s £1,020 board at
         Kilmarnock FC was less than a third of Stainbank&apos;s bill.
       </P>
@@ -278,8 +280,8 @@ export default function EuanStainbankMpBillboardExpensesFalkirk() {
 
       <CaseCard kicker="Office furniture, in one go" figure="£5,002" people={[STAINBANK]}>
         <p>
-          On <strong>19 September 2024</strong>, IPSA paid <strong>£5,001.60</strong> to an office
-          furniture shop. One of the biggest single furniture bills of any Scottish MP.
+          A claim dated <strong>19 September 2024</strong> shows <strong>£5,001.60</strong> paid to an
+          office furniture shop. One of the biggest single furniture bills of any Scottish MP.
         </p>
       </CaseCard>
 
@@ -319,7 +321,7 @@ export default function EuanStainbankMpBillboardExpensesFalkirk() {
           {
             key: "training",
             title: "£1,500 for staff training from Real Clear",
-            children: <>Two £750 bills, both paid on 31 January 2025.</>,
+            children: <>Two £750 bills, both in claims dated 31 January 2025.</>,
           },
           {
             key: "flat",
@@ -395,8 +397,8 @@ export default function EuanStainbankMpBillboardExpensesFalkirk() {
           },
           {
             key: "why-so-much",
-            title: "Why nearly twice any other MP in the UK?",
-            children: <>The next biggest board in the UK was £1,800.</>,
+            title: "Why £1,140 more than any other MP in the UK?",
+            children: <>The next biggest board in the UK was £2,160, and that was a deal over several years.</>,
           },
           {
             key: "worth-it",

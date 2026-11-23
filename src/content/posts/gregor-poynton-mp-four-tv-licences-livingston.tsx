@@ -10,6 +10,8 @@ import { Prose, P, Aside, PostCTA } from "@/components/Prose";
  * TV licence ranking: every "TV licence" line for every MP, with lines on the
  * same day added together, counting only full licence payments of £140 or
  * more (monthly instalments left out), then the most bought in any 365 days.
+ * "406 MPs" = every MP with at least one IPSA line under the cost type
+ * "TV licence", monthly instalments included (rechecked 23 November 2026).
  * "91 repayments out of 20,879 claims" counts every Scottish MP claim line in
  * public/data/scottish-mp-receipts.json with an amount repaid above zero.
  * Gifts: Register of Members' Financial Interests (Mar and Jun 2026 entries).
@@ -125,7 +127,7 @@ export default function GregorPoyntonMpFourTvLicencesLivingston() {
 
       {/* ------------------------------------------------------------ 1 */}
       <Finding n={1} id="four-licences">
-        Four licences for one office telly
+        Four licences in 11 months
       </Finding>
       <P>
         One TV licence covers one address for 12 months. IPSA only allows a licence for an MP&apos;s
@@ -138,7 +140,7 @@ export default function GregorPoyntonMpFourTvLicencesLivingston() {
       </P>
       <P>
         Yet between December 2024 and November 2025, taxpayers paid for four separate licences. Not
-        one note in IPSA&apos;s file explains why.
+        one note in IPSA&apos;s file says where they were used, or why.
       </P>
 
       <Tiles
@@ -178,14 +180,14 @@ export default function GregorPoyntonMpFourTvLicencesLivingston() {
 
       {/* ------------------------------------------------------------ 2 */}
       <Finding n={2} id="uk-number-one">
-        Top of all 650 MPs in Britain
+        Top of all 650 MPs in the UK
       </Finding>
       <P>
-        Across five years of files for all 650 MPs, <strong>459 MPs</strong> put a TV licence on
-        expenses (leaving out monthly plans).
+        Across five years of files for all 650 MPs, <strong>406 MPs</strong> put at least one TV
+        licence on expenses.
       </P>
       <P>
-        Just 12 MPs ever hit three full licences in 12 months. <strong>Nobody else hit four.</strong>
+        Just 12 other MPs ever hit three full licences in 12 months. <strong>Nobody else hit four.</strong>
       </P>
 
       <ChartFrame
@@ -235,7 +237,7 @@ export default function GregorPoyntonMpFourTvLicencesLivingston() {
         headline="Nearly £100 a week on taxis. Top in Scotland."
       >
         <p>
-          Only one MP out of all 650 in Britain spent more on taxis that year. Almost all of it
+          Only one MP out of all 650 in the UK spent more on taxis that year. Almost all of it
           (£4,939) went on trips between London and Livingston.
         </p>
       </Spotlight>
@@ -247,7 +249,8 @@ export default function GregorPoyntonMpFourTvLicencesLivingston() {
             title: "£6,232 on family flights (2025/26)",
             children: (
               <>
-                Tenth highest of all 650 UK MPs, up from £2,325 the year before.
+                Fourth highest of the 44 MPs who billed for family flights that year, up from
+                £2,325 the year before.
               </>
             ),
           },
@@ -266,7 +269,8 @@ export default function GregorPoyntonMpFourTvLicencesLivingston() {
             title: "£4,223 to Pickfords, the removal firm",
             children: (
               <>
-                Billed on 24 January 2025. The biggest removals bill of any Scottish MP since 2022.
+                A claim dated 24 January 2025, and the biggest removals bill of any sitting Scottish
+                MP since 2022.
               </>
             ),
           },
@@ -320,7 +324,7 @@ export default function GregorPoyntonMpFourTvLicencesLivingston() {
         an office TV licence.
       </P>
       <P>
-        What IPSA never seemed to do was look at all four dates side by side. Every claim was paid,
+        Put all four dates side by side, though, and the pattern jumps out. Every claim was paid,
         and not a single penny shows as repaid. Across Scotland, MPs have paid back just 91 of
         20,879 claims since 2022.
       </P>
@@ -331,7 +335,7 @@ export default function GregorPoyntonMpFourTvLicencesLivingston() {
           {
             key: "where",
             title: "Which buildings did four licences cover?",
-            children: <>His file shows one office telly and zero addresses for the licences.</>,
+            children: <>His files show one TV bought, and no address for any of the licences.</>,
           },
           {
             key: "refund",

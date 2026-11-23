@@ -43,6 +43,9 @@ const LAW = {
   place: "Dundee Central",
 };
 
+/** The broadband claim was filed in July 2022, when his seat was Dundee West. */
+const LAW_2022 = { ...LAW, place: "Dundee West (now Dundee Central)" };
+
 const FINDINGS = 4;
 
 function Finding({ n, id, children }: { n: number; id: string; children: ReactNode }) {
@@ -58,7 +61,7 @@ const MORE_LOCAL_STORIES: { name: string; seat: string; place: string; hook: str
   { name: "Lillian Jones", seat: "kilmarnock-and-loudoun", place: "Kilmarnock", hook: "£23,437 for electricity in one day", story: "/blog/kilmarnock-mp-23437-electricity-bill" },
   { name: "Euan Stainbank", seat: "falkirk", place: "Falkirk", hook: "£3,300 for a billboard of himself", story: "/blog/euan-stainbank-mp-billboard-expenses-falkirk" },
   { name: "Angus MacDonald", seat: "inverness-skye-and-west-ross-shire", place: "Inverness and Skye", hook: "£3,000 speech coach and £546 drains", story: "/blog/angus-macdonald-mp-speech-coach-drains-expenses" },
-  { name: "Pamela Nash", seat: "motherwell-wishaw-and-carluke", place: "Motherwell", hook: "£7,542 on DFS, IKEA and a new carpet", story: "/blog/pamela-nash-mp-furniture-expenses-motherwell" },
+  { name: "Pamela Nash", seat: "motherwell-wishaw-and-carluke", place: "Motherwell", hook: "£7,203 in one week, from DFS to a new carpet", story: "/blog/pamela-nash-mp-furniture-expenses-motherwell" },
   { name: "John Lamont", seat: "berwickshire-roxburgh-and-selkirk", place: "Borders", hook: "Two iPhones on expenses", story: "/blog/john-lamont-mp-iphone-expenses-borders" },
   { name: "Graeme Downie", seat: "dunfermline-and-dollar", place: "Dunfermline", hook: "£963 for one business dinner", story: "/blog/graeme-downie-mp-dinner-expenses-dunfermline" },
 ];
@@ -144,11 +147,12 @@ export default function ChrisLawMp3090BroadbandExpensesDundee() {
             <strong>£3,090</strong> to set up home 5G broadband in one go.
           </>,
           <>
-            A normal MP setup claim is <strong>£90</strong>. His was <strong>34 times</strong>{" "}
-            bigger, and more than seven times the next highest MP in the UK (£431).
+            A typical MP setup claim is <strong>£90</strong>. His was <strong>34 times</strong>{" "}
+            bigger, and more than seven times any other MP&apos;s home internet claim in the UK
+            (£431).
           </>,
           <>
-            He also ran up Britain&apos;s <strong>biggest MP parking bill</strong> in 2025/26:{" "}
+            He also ran up the UK&apos;s <strong>biggest MP parking bill</strong> in 2025/26:{" "}
             <strong>£6,292</strong>, or £121 every week of the year.
           </>,
           <>
@@ -157,13 +161,13 @@ export default function ChrisLawMp3090BroadbandExpensesDundee() {
         ]}
       />
 
-      <CaseCard kicker="One claim · 25 July 2022 · paid in full" figure="£3,090" people={[LAW]}>
+      <CaseCard kicker="One claim · 25 July 2022 · paid in full" figure="£3,090" people={[LAW_2022]}>
         <p>
           Logged by IPSA as <strong>&ldquo;Home 5G mobile broadband installation&rdquo;</strong>.
         </p>
         <p>
-          That is enough to pay a Dundee household&apos;s Wi-Fi bill for eight years. The record
-          never says which home it was for, or who got the money.
+          He was MP for Dundee West at the time. The record never says which home it was for, or who
+          got the money.
         </p>
       </CaseCard>
 
@@ -197,7 +201,7 @@ export default function ChrisLawMp3090BroadbandExpensesDundee() {
 
       <Expand summary="See the proof: the IPSA line, word for word">
         <Receipt
-          person={LAW}
+          person={LAW_2022}
           heading="IPSA record · 25 July 2022 · Office Costs"
           lines={[
             {
@@ -218,14 +222,14 @@ export default function ChrisLawMp3090BroadbandExpensesDundee() {
 
       {/* ------------------------------------------------------------ 2 */}
       <Finding n={2} id="uk-number-one">
-        Seven times higher than any other MP in Britain
+        Seven times any other MP&apos;s home internet claim in the UK
       </Finding>
       <P>
         Out of 650 MPs over five years, nothing in home internet comes within £2,600 of him.
       </P>
       <P>
         Second place across the entire UK was £430.64, covering two months of BT bills. Only one
-        setup claim of any kind in Britain was bigger (£3,954 for a brand new office phone line in
+        setup claim of any kind in the UK was bigger (£3,954 for a brand new office phone line in
         Yeovil), and that was for a full office, not a home.
       </P>
 
@@ -286,7 +290,7 @@ export default function ChrisLawMp3090BroadbandExpensesDundee() {
       <P>
         In 2025/26, his <strong>£6,292</strong> parking tab crushed second place in the UK (£3,587).
         Over four years he has put <strong>£16,554</strong> of car parking on taxpayers, number one
-        in Britain.
+        in the UK.
       </P>
 
       <Spotlight
@@ -357,7 +361,7 @@ export default function ChrisLawMp3090BroadbandExpensesDundee() {
         credit, he did pay back £266 when he nudged over his housing cap.
       </P>
       <P>
-        None of that explains a £3,090 home broadband claim that no other MP in Britain came close
+        None of that explains a £3,090 home broadband claim that no other MP in the UK came close
         to matching. IPSA signed it off under home office setup, leaving three gaps in the record:
       </P>
 

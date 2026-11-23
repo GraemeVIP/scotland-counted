@@ -36,7 +36,7 @@ const PUBLISHED_ISO = "2026-11-21";
 const MODIFIED_ISO = "2026-11-21";
 
 export const metadata = meta({
-  title: "MP Expenses Scotland & Register of Interests: All 57 Ranked",
+  title: "MP Expenses Scotland & Register of Interests: All 57 MPs",
   description:
     "See which Scottish MPs billed taxpayers £37k for London hotels, £6k for car parking, and £4k for 2nd home council tax while local families face rising bills.",
   path: "/mp-expenses-scotland",
@@ -80,12 +80,12 @@ const SPOTLIGHT_LEADERS: SpotlightEntry[] = [
     headlineStat: "£23,437",
     headlineLabel: "paid to Yu Energy on one day (more than a year's office rent)",
     taxpayerSummary:
-      "On 19 May 2026 IPSA paid £20,385 + £3,052 on one account. That is the biggest MP power bill in the UK over five years. It equals **156 Warm Home Discounts**.",
+      "Two claims dated 19 May 2026 put £20,385 + £3,052 on one energy account. It is the biggest MP power bill in the UK over five years, and equals **156 Warm Home Discounts**.",
     freebiesSummary:
       "Voted in Sept 2024 to cut pensioners' Winter Fuel Payment. Also billed £27,000 for a London flat.",
     oneLine: "**£23,437 paid for power on one day**, the biggest MP power bill in the UK.",
     emailReason:
-      "having £23,436.95 paid by IPSA to Yu Energy in a single day on 19 May 2026 (more than a full year's rent for your Kilmarnock office, and the largest MP electricity bill in the UK) after voting to restrict Winter Fuel Payments",
+      "claiming £23,436.95 for Yu Energy in two claims dated 19 May 2026 (more than a full year's rent for your Kilmarnock office, and the largest MP energy bill in the UK) after voting to restrict Winter Fuel Payments",
   },
   {
     slug: "dunfermline-and-dollar",
@@ -155,7 +155,7 @@ const MORE_SPOTLIGHT_LEADERS: SpotlightEntry[] = [
       "Voted to keep the two child cap (the rule that stops Universal Credit paying for a third child or more). Took **£20,000 from Alasdair Locke**, **£1,100 F1 VIP tickets**, and a **£2,678 Jordan trip**.",
     oneLine: "Voted to keep the two child cap. **£33,100 on flights**, a £20,000 donor and **F1 VIP tickets**.",
     emailReason:
-      "voting against removing the two child benefit cap on Universal Credit while claiming £121,470.92 in non-staff expenses (including £32,480 in flat rent, £1,541 in second home council tax and £1,501 for your own family travel) and accepting £1,100 in Silverstone Formula 1 hospitality",
+      "voting against removing the two child limit on Universal Credit while claiming £121,470.92 in non-staff expenses (including £32,480 in flat rent, £1,541 in second home council tax and £1,501 for your own family travel) and accepting £1,100 in Silverstone Formula 1 hospitality",
   },
   {
     slug: "livingston",
@@ -228,8 +228,8 @@ const LOCAL_STORIES: LocalStory[] = [
   },
   {
     slug: "motherwell-wishaw-and-carluke",
-    stat: "£7,542",
-    line: "DFS, IKEA, a new carpet and office works. Three bills in the last week of the budget year.",
+    stat: "£7,203",
+    line: "DFS, IKEA, a new carpet and office works. Seven bills in the last week of the budget year.",
     story: "/blog/pamela-nash-mp-furniture-expenses-motherwell",
   },
   {
@@ -253,7 +253,7 @@ const LOCAL_STORIES: LocalStory[] = [
   {
     slug: "na-h-eileanan-an-iar",
     stat: "£2,400",
-    line: "Coaching from a former IPSA worker. 12 MPs paid her firm £16,800.",
+    line: "Coaching from a former IPSA worker. 12 MPs billed IPSA £16,800 for her firm.",
     story: "/blog/torcuil-crichton-mp-coaching-expenses-western-isles",
   },
   {
@@ -265,7 +265,7 @@ const LOCAL_STORIES: LocalStory[] = [
   {
     slug: "dunfermline-and-dollar",
     stat: "£963",
-    line: "One business dinner, paid with public money.",
+    line: "One business dinner in 2024/25, paid with public money.",
     story: "/blog/graeme-downie-mp-dinner-expenses-dunfermline",
   },
   {
@@ -668,7 +668,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
         49 MPs claimed <strong>£1.38 million</strong> for London flat rent (up to{" "}
         <strong>£42,000 a year</strong>). Eight claimed <strong>£45,615</strong> for London hotels
         (up to <strong>£37,359</strong> for Dr Zubir Ahmed,{" "}
-        <Link href="/blog/worst-scottish-mp-expenses#hotel-nights">night by night</Link>). Ten took{" "}
+        <Link href="/blog/worst-scottish-mp-expenses#hotel-nights">night by night</Link>). Twelve took{" "}
         <strong>£205,242</strong> from donors.
       </>,
       <>
@@ -827,7 +827,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
         data={imageJsonLd({
           src: HERO_IMAGE.src,
           alt: HERO_IMAGE.alt,
-          title: "MP Expenses and Register of Interests Scotland: All 57 MPs Ranked",
+          title: "MP Expenses and Register of Interests Scotland: All 57 MPs",
           width: HERO_IMAGE.width,
           height: HERO_IMAGE.height,
         })}
@@ -876,7 +876,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
       <Page>
         <PageHeader
           eyebrow={`MP expenses · Checked ${new Date(MP_INTERESTS_CHECKED_ISO).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}`}
-          title="MP expenses, donations and freebies in Scotland: all 57 MPs ranked"
+          title="MP expenses, donations and freebies in Scotland: all 57 MPs"
           stat={{
             value: "£5.21m",
             label:
@@ -1032,17 +1032,19 @@ export default function MpRegisterOfInterestsScotlandPage() {
 
             <Spotlight
               person={{ name: "Pamela Nash", href: "/representatives/mps/motherwell-wishaw-and-carluke", p: "Labour", place: "Motherwell, Wishaw and Carluke" }}
-              kicker="2025/26 · office shopping"
-              amount="£7,542"
+              kicker="Last week of 2025/26 · office shopping"
+              amount="£7,203"
               headline="You paid for DFS, IKEA and a new carpet."
               lines={[
-                { what: "IKEA LTD SHOP ONLINE", amount: "£1,334.00", meta: "5 April 2025" },
-                { what: "DFS TRADING LIMITED [200013613-5048]", amount: "£1,208.00", meta: "31 March 2026" },
                 { what: "Replacement of office carpet [200013634-169]", amount: "£2,750.00", meta: "26 March 2026" },
                 { what: "Essential refurbishment works to Constituency Office [200013634-170]", amount: "£2,250.00", meta: "30 March 2026" },
+                { what: "DFS TRADING LIMITED [200013613-5048]", amount: "£1,208.00", meta: "31 March 2026" },
+                { what: "IKEA LTD SHOP ONLINE [200013613-12910]", amount: "£395.00", meta: "30 March 2026" },
+                { what: "IKEA LTD SHOP ONLINE [200013613-2955]", amount: "£245.00", meta: "31 March 2026, refunded 17 April 2026" },
+                { what: "AMAZON (two bills)", amount: "£354.80", meta: "26 and 28 March 2026" },
               ]}
             >
-              <p>Three of these bills went in during the last week of the budget year. Taxpayers paid.</p>
+              <p>Seven bills in the last seven days of the budget year. Taxpayers paid.</p>
               <p><Link href="/blog/pamela-nash-mp-furniture-expenses-motherwell" className="font-[660] text-[#8bb8ff] underline underline-offset-4">Read the full story →</Link></p>
             </Spotlight>
 
@@ -1062,9 +1064,9 @@ export default function MpRegisterOfInterestsScotlandPage() {
 
             <Spotlight
               person={{ name: "Graeme Downie", href: "/representatives/mps/dunfermline-and-dollar", p: "Labour", place: "Dunfermline and Dollar" }}
-              kicker="13 March 2025 · one night out"
+              kicker="13 March 2025 (2024/25) · one night out"
               amount="£963"
-              headline="You paid for a business dinner."
+              headline="You paid for a business dinner in his name."
               lines={[
                 { what: "Fife College hosted business dinner on behalf of Graeme Downie [200012541-0]", amount: "£962.65" },
               ]}
@@ -1181,7 +1183,11 @@ export default function MpRegisterOfInterestsScotlandPage() {
           <p className="mt-2 mb-5 max-w-[66ch] text-[16px] leading-[1.55] text-[var(--ink-2)]">
             <ExplainText>
               Top 10 shown first so the page stays quick. Type any MP, town or donor into the box,
-              or click <strong>Show all 57 Scottish MPs</strong> below.
+              or click <strong>Show all 57 Scottish MPs</strong> below. Only 55 have 2025/26
+              expenses to rank.{" "}
+              <Link href="/representatives/mps/aberdeen-south">Douglas Lumsden</Link> and{" "}
+              <Link href="/representatives/mps/arbroath-and-broughty-ferry">Lara Bird</Link> won
+              by-elections in June 2026, after that year closed.
             </ExplainText>
           </p>
           <MpInterestsExplorer records={mpInterests} />
@@ -1674,7 +1680,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
                 </summary>
                 <div className="space-y-4 border-t border-[var(--rule)] p-5 sm:p-6">
                   <p className="text-[16px] leading-[1.55] text-[var(--ink-2)]">
-                    Ten Scottish MPs listed £205,242 in donor cash and free staff. Dr Zubir Ahmed
+                    Twelve Scottish MPs listed £205,242 in donor cash and free staff. Dr Zubir Ahmed
                     got <strong>£30,000</strong> from Francesca Sainsbury Perrin. Lillian Jones got{" "}
                     <strong>£27,564</strong> from Best for Britain. Andrew Bowie got{" "}
                     <strong>£20,000</strong> from Alasdair Locke. Chris Murray got{" "}
