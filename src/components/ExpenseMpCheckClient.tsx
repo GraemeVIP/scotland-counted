@@ -122,7 +122,7 @@ export default function ExpenseMpCheckClient({
           autoComplete="postal-code"
           className="w-full rounded-full border border-[var(--rule-strong)] bg-[var(--surface)] px-4 py-3 text-[16px] uppercase text-[var(--ink)] placeholder:normal-case placeholder:text-[var(--muted)] focus:border-[var(--brand)] focus:outline-none focus:ring-4 focus:ring-[var(--brand-wash)] sm:max-w-[280px]"
         />
-        <button type="submit" className="btn btn-primary justify-center" disabled={state === "loading"}>
+        <button type="submit" className="btn btn-primary shrink-0 justify-center whitespace-nowrap" disabled={state === "loading"}>
           {state === "loading" ? "Checking…" : "Check my MP"}
         </button>
       </form>

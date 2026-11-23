@@ -47,19 +47,26 @@ export default function MpReceiptsSearchPage() {
         })}
       />
 
+      {/* Breadcrumbs carry their own page gutters, so they sit outside Page. */}
+      <Breadcrumbs
+        crumbs={[
+          { name: "Home", path: "/" },
+          { name: "MP Expenses Scotland", path: "/mp-expenses-scotland" },
+          { name: "Search MP & MSP Receipts", path: PATH },
+        ]}
+      />
+
       <Page>
-        <Breadcrumbs
-          crumbs={[
-            { name: "Home", path: "/" },
-            { name: "MP Expenses Scotland", path: "/mp-expenses-scotland" },
-            { name: "Search MP & MSP Receipts", path: PATH },
-          ]}
-        />
 
         <PageHeader
           eyebrow="Westminster & Holyrood · 70,946 bills"
           title="Search every Scottish MP & MSP expense bill"
           lede="Every expense bill from Scotland's 57 MPs and 129 MSPs. Type a word, a name or your postcode."
+          stat={{
+            value: "70,946",
+            label: "expense bills from Scotland's MPs and MSPs, all in one search.",
+            tone: "neutral",
+          }}
         />
 
         <ContentFrame className="pt-4">
@@ -101,11 +108,13 @@ export default function MpReceiptsSearchPage() {
             />
           </div>
 
-          <section className="mt-14 max-w-[760px]" aria-labelledby="found-in-these-receipts">
+          <section className="mt-14" aria-labelledby="found-in-these-receipts">
             <p className="kicker text-[var(--brand)]">Built from these receipts</p>
             <h2 id="found-in-these-receipts" className="h2 mt-2">
               What we found when we read them all
             </h2>
+            {/* Four cards in a row on a laptop, two by two on a tablet. */}
+            <div className="lg:[&>nav]:grid-cols-4">
             <Headlines
               label="Investigations built from these receipts"
               items={[
@@ -135,13 +144,21 @@ export default function MpReceiptsSearchPage() {
                 },
               ]}
             />
+            </div>
           </section>
 
-          <section className="mt-12 max-w-[760px]" aria-labelledby="how-the-rules">
-            <p className="kicker text-[var(--brand)]">Before you share a receipt</p>
-            <h2 id="how-the-rules" className="h2 mt-2 mb-5">
-              How the rules let this happen (and why so much is still hidden)
-            </h2>
+          {/* Heading on the left, the three points on the right: no half empty rows. */}
+          <section
+            className="mt-12 grid gap-x-12 gap-y-2 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]"
+            aria-labelledby="how-the-rules"
+          >
+            <div>
+              <p className="kicker text-[var(--brand)]">Before you share a receipt</p>
+              <h2 id="how-the-rules" className="h2 mt-2 mb-5 lg:text-[clamp(30px,2.6vw,38px)]">
+                How the rules let this happen (and why so much is still hidden)
+              </h2>
+            </div>
+            <div>
             <PointList
               items={[
                 {
@@ -179,6 +196,7 @@ export default function MpReceiptsSearchPage() {
                 },
               ]}
             />
+            </div>
           </section>
         </ContentFrame>
       </Page>

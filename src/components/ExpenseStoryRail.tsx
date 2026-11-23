@@ -79,25 +79,45 @@ export function ExpenseStoryRail({ slug }: { slug: string }) {
   );
 }
 
-/** The full list, grouped, for the expenses hub. */
+/**
+ * The full list, grouped, for the expenses hub. On a laptop the long "MP by
+ * MP" group takes two thirds of the width in two columns, the round ups take
+ * the last third, and the three Holyrood stories run in one row underneath,
+ * so no column trails far below the others.
+ */
 export function ExpenseStoryIndex() {
-  const groups: { key: ExpenseStory["group"]; title: string }[] = [
-    { key: "roundup", title: "The big picture" },
-    { key: "mp", title: "MP by MP" },
-    { key: "msp", title: "Holyrood MSPs" },
-  ];
-  return (
-    <div className="grid gap-6 lg:grid-cols-3">
-      {groups.map((g) => (
-        <div key={g.key} className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] px-5 py-4">
-          <h3 className="ui text-[18px] font-[700] text-[var(--ink)]">{g.title}</h3>
-          <ul className="mt-1 divide-y divide-[var(--rule)]">
-            {EXPENSE_STORIES.filter((s) => s.group === g.key).map((s) => (
-              <StoryRow key={s.slug} s={s} />
-            ))}
-          </ul>
-        </div>
+  const box = "rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] px-5 py-4";
+  const title = "ui text-[18px] font-[700] text-[var(--ink)]";
+  const mpStories = EXPENSE_STORIES.filter((s) => s.group === "mp");
+  const half = Math.ceil(mpStories.length / 2);
+  const list = (items: ExpenseStory[], extra = "") => (
+    <ul className={`mt-1 divide-y divide-[var(--rule)] ${extra}`}>
+      {items.map((s) => (
+        <StoryRow key={s.slug} s={s} />
       ))}
+    </ul>
+  );
+  return (
+    <div className="grid items-start gap-6 lg:grid-cols-3">
+      <div className={`${box} lg:col-span-2`}>
+        <h3 className={title}>MP by MP</h3>
+        <div className="grid md:grid-cols-2 md:gap-x-8">
+          {list(mpStories.slice(0, half))}
+          {list(mpStories.slice(half), "border-t border-[var(--rule)] md:border-t-0")}
+        </div>
+      </div>
+      <div className={box}>
+        <h3 className={title}>The big picture</h3>
+        {list(EXPENSE_STORIES.filter((s) => s.group === "roundup"))}
+      </div>
+      <div className={`${box} lg:col-span-3`}>
+        <h3 className={title}>Holyrood MSPs</h3>
+        <ul className="mt-1 grid divide-y divide-[var(--rule)] md:grid-cols-3 md:gap-x-8 md:divide-y-0">
+          {EXPENSE_STORIES.filter((s) => s.group === "msp").map((s) => (
+            <StoryRow key={s.slug} s={s} />
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }

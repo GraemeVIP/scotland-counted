@@ -2,7 +2,7 @@ import Image from "next/image";
 import { ExpenseMpCheck, ExpenseStoryIndex, ExpenseStoryStarters } from "@/components/ExpenseStoryRail";
 import { EXPENSE_STORIES } from "@/lib/data/expenseStories";
 import Link from "@/components/IntentLink";
-import { Page, ContentFrame, PageHeader, SectionHead, CTA, Callout } from "@/components/Blocks";
+import { Page, ContentFrame, SectionHead, CTA } from "@/components/Blocks";
 import { ExplainText } from "@/components/ExplainServer";
 import SharePage from "@/components/SharePage";
 import Faq from "@/components/Faq";
@@ -882,70 +882,107 @@ export default function MpRegisterOfInterestsScotlandPage() {
       />
 
       <Page>
-        <PageHeader
-          eyebrow={`MP expenses · Checked ${new Date(MP_INTERESTS_CHECKED_ISO).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}`}
-          title="MP expenses, donations and freebies in Scotland: all 57 MPs"
-          stat={{
-            value: "£5.21m",
-            label:
-              "billed by Scotland's MPs in 2025/26 for flats, travel, hotels and offices. Staff wages are not included.",
-            tone: "bad",
-          }}
-          lede="Scotland's MPs billed £5.21m for flats, travel, hotels and offices in 2025/26. That is on top of their £93,904 pay (the 2025/26 MP salary)."
-        >
-          {/* POSTCODE FINDER: straight under the intro */}
-          <div
-            id="your-mp"
-            className="mt-6 scroll-mt-24 rounded-[var(--r-m)] border-2 border-[var(--brand)] bg-[var(--surface)] p-4 sm:p-6"
-          >
-            <h2 className="sr-only">Check your own MP</h2>
-            <ExpenseMpCheck
-              framed={false}
-              intro="Type your Scottish postcode. See if your MP has a story here, and every bill they sent taxpayers."
-            />
-          </div>
+        {/*
+          HERO. Two balanced columns on a laptop: the headline and standfirst on
+          the left, the one big number and the postcode check on the right. The
+          shared PageHeader puts everything under the headline in its left
+          column, which pushed the number to the bottom right and left half the
+          screen empty. Phones get one column in reading order.
+        */}
+        <header className="mx-auto max-w-[1120px] pt-8 pb-8 sm:pt-12 lg:pt-14">
+          <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] lg:gap-12">
+            <div className="min-w-0">
+              <p className="eyebrow mb-5">
+                <span>
+                  MP expenses · Checked{" "}
+                  {new Date(MP_INTERESTS_CHECKED_ISO).toLocaleDateString("en-GB", {
+                    day: "numeric",
+                    month: "long",
+                    year: "numeric",
+                  })}
+                </span>
+              </p>
+              <h1 className="h1 mb-5 max-w-[18ch] text-[clamp(34px,3.9vw,54px)]">
+                MP expenses, donations and freebies in Scotland: all 57 MPs
+              </h1>
+              <div className="lede max-w-[52ch]">
+                <ExplainText>
+                  Scotland&apos;s MPs billed £5.21m for flats, travel, hotels and offices in 2025/26.
+                  That is on top of their £93,904 pay (the 2025/26 MP salary).
+                </ExplainText>
+              </div>
+              <p className="ui mt-4 text-[15px] leading-[1.5] text-[var(--ink-2)]">
+                <ExplainText>
+                  We also cover all 129 MSPs at Holyrood (the Scottish Parliament):{" "}
+                  <Link href="/blog/msp-expenses-scotland-investigation" className="font-[620]">
+                    MSP expenses
+                  </Link>{" "}
+                  ·{" "}
+                  <Link href="/representatives/msps" className="font-[620]">
+                    every MSP
+                  </Link>
+                  .
+                </ExplainText>
+              </p>
+            </div>
 
-          {/* START HERE: THE FOUR BIGGEST STORIES, ONE TAP AWAY */}
-          <div className="mt-6">
-            <h2 className="ui text-[19px] font-[700] leading-[1.25] text-[var(--ink)] sm:text-[21px]">
-              Start with the biggest bills
-            </h2>
-            <div className="mt-3">
-              <ExpenseStoryStarters />
+            <div className="min-w-0 space-y-4">
+              <div className="tile tile-blue flex flex-col items-start gap-3 p-6 sm:flex-row sm:items-center sm:gap-5 sm:p-7">
+                <div className="figure-num shrink-0 whitespace-nowrap text-[clamp(44px,5vw,68px)] leading-none text-white">
+                  £5.21m
+                </div>
+                <p className="text-[15px] leading-[1.45] text-[var(--hero-muted)]">
+                  <ExplainText>
+                    billed by Scotland&apos;s MPs in 2025/26 for flats, travel, hotels and offices.
+                    Staff wages are not included.
+                  </ExplainText>
+                </p>
+              </div>
+              {/* POSTCODE CHECK */}
+              <div
+                id="your-mp"
+                className="scroll-mt-24 rounded-[var(--r-m)] border-2 border-[var(--brand)] bg-[var(--surface)] p-5 sm:p-6"
+              >
+                <h2 className="sr-only">Check your own MP</h2>
+                <ExpenseMpCheck
+                  framed={false}
+                  intro="Type your Scottish postcode. See if your MP has a story here, and every bill they sent taxpayers."
+                />
+              </div>
             </div>
           </div>
-          <div className="mt-5 flex flex-wrap items-center gap-3">
-            <a href="#all-stories" className="btn btn-primary">
-              All {EXPENSE_STORIES.length} expenses stories ↓
-            </a>
-            <Link href="/blog/worst-scottish-mp-expenses" className="btn btn-ghost">
-              The worst claims →
-            </Link>
-            <Link href="/mp-expenses-scotland/search" className="btn btn-ghost">
-              Search all 20,879 receipts
-            </Link>
-          </div>
-          <p className="ui mt-4 text-[15px] leading-[1.5] text-[var(--ink-2)]">
-            <ExplainText>
-              We also cover all 129 MSPs at Holyrood (the Scottish Parliament):{" "}
-              <Link href="/blog/msp-expenses-scotland-investigation" className="font-[620]">
-                MSP expenses
-              </Link>{" "}
-              ·{" "}
-              <Link href="/representatives/msps" className="font-[620]">
-                every MSP
+
+          {/* START HERE: THE FOUR BIGGEST STORIES, FULL WIDTH UNDER THE HERO */}
+          <div className="mt-10 sm:mt-12">
+            <div className="flex flex-wrap items-end justify-between gap-3">
+              <h2 className="ui text-[20px] font-[700] leading-[1.25] text-[var(--ink)] sm:text-[22px]">
+                Start with the biggest bills
+              </h2>
+              <a href="#all-stories" className="ui text-[15px] font-[620]">
+                All {EXPENSE_STORIES.length} expenses stories ↓
+              </a>
+            </div>
+            <div className="mt-4">
+              <ExpenseStoryStarters />
+            </div>
+            <div className="mt-5 flex flex-wrap items-center gap-3">
+              <Link href="/blog/worst-scottish-mp-expenses" className="btn btn-primary">
+                The worst claims →
               </Link>
-              .
-            </ExplainText>
-          </p>
-          <SharePage
-            title="Scottish MP expenses, donations & freebies: all 57 ranked"
-            text="Scotland's MPs billed £5.21m for flats, travel, hotels and offices in 2025/26, on top of their £93,904 pay (2025/26). See all 57 ranked:"
-            path="/mp-expenses-scotland"
-            label="Share this investigation"
-            className="mt-4"
-          />
-        </PageHeader>
+              <Link href="/mp-expenses-scotland/search" className="btn btn-ghost">
+                Search all 20,879 receipts
+              </Link>
+            </div>
+            <SharePage
+              title="Scottish MP expenses, donations & freebies: all 57 ranked"
+              text="Scotland's MPs billed £5.21m for flats, travel, hotels and offices in 2025/26, on top of their £93,904 pay (2025/26). See all 57 ranked:"
+              path="/mp-expenses-scotland"
+              label="Share this investigation"
+              className="mt-5"
+            />
+          </div>
+          <div className="mt-10 h-px bg-[linear-gradient(90deg,var(--rule-strong),transparent)]" />
+        </header>
 
         {/* JUMP LINKS */}
         <ContentFrame className="mb-4">
@@ -1021,7 +1058,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
               and how it compares with all 650 MPs.
             </ExplainText>
           </p>
-          <ul className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-5">
+          <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {LOCAL_STORIES.map((s) => renderLocalStory(s))}
           </ul>
         </ContentFrame>
@@ -1047,111 +1084,112 @@ export default function MpRegisterOfInterestsScotlandPage() {
             eyebrow="Straight from the receipts · IPSA, the body that pays MPs' expenses with public money"
             title="You paid for this"
           />
-          <div className="max-w-[760px]">
-            <Spotlight
-              person={{ name: "Angus MacDonald", href: "/representatives/mps/inverness-skye-and-west-ross-shire", p: "Lib Dem", place: "Inverness, Skye and West Ross-shire" }}
-              kicker="17 July 2025 · one workshop"
-              amount="£3,000"
-              headline="You paid for his speech coaching."
-              lines={[
-                {
-                  what: "Provision of personalised presentation and speech skills workshop to assist MPs representational role in Parliament.",
-                  amount: "£3,000.00",
-                },
-              ]}
-            >
-              <p>Speaking is the job. Taxpayers paid £3,000 for lessons in how to do it.</p>
-              <p><Link href="/blog/angus-macdonald-mp-speech-coach-drains-expenses" className="font-[660] text-[#8bb8ff] underline underline-offset-4">Read the full story →</Link></p>
-            </Spotlight>
-
-            <Spotlight
-              person={{ name: "Pamela Nash", href: "/representatives/mps/motherwell-wishaw-and-carluke", p: "Labour", place: "Motherwell, Wishaw and Carluke" }}
-              kicker="Last week of 2025/26 · office shopping"
-              amount="£7,203"
-              headline="You paid for DFS, IKEA and a new carpet."
-              lines={[
-                { what: "Replacement of office carpet [200013634-169]", amount: "£2,750.00", meta: "26 March 2026" },
-                { what: "Essential refurbishment works to Constituency Office [200013634-170]", amount: "£2,250.00", meta: "30 March 2026" },
-                { what: "DFS TRADING LIMITED [200013613-5048]", amount: "£1,208.00", meta: "31 March 2026" },
-                { what: "IKEA LTD SHOP ONLINE [200013613-12910]", amount: "£395.00", meta: "30 March 2026" },
-                { what: "IKEA LTD SHOP ONLINE [200013613-2955]", amount: "£245.00", meta: "31 March 2026, refunded 17 April 2026" },
-                { what: "AMAZON (two bills)", amount: "£354.80", meta: "26 and 28 March 2026" },
-              ]}
-            >
-              <p>Seven bills in the last seven days of the budget year. Taxpayers paid.</p>
-              <p><Link href="/blog/pamela-nash-mp-furniture-expenses-motherwell" className="font-[660] text-[#8bb8ff] underline underline-offset-4">Read the full story →</Link></p>
-            </Spotlight>
-
-            <Spotlight
-              person={{ name: "John Lamont", href: "/representatives/mps/berwickshire-roxburgh-and-selkirk", p: "Conservative", place: "Berwickshire, Roxburgh and Selkirk" }}
-              kicker="12 June 2025 · his second iPhone on expenses"
-              amount="£1,248"
-              headline="You paid for his new iPhone."
-              lines={[
-                { what: "Iphone and protection case", amount: "£1,248.00", meta: "12 June 2025" },
-                { what: "iPhone purchase - John Lamont", amount: "£1,098.00", meta: "9 August 2022" },
-              ]}
-            >
-              <p>Two iPhones in under three years, £2,346 in all. Taxpayers paid for both.</p>
-              <p><Link href="/blog/john-lamont-mp-iphone-expenses-borders" className="font-[660] text-[#8bb8ff] underline underline-offset-4">Read the full story →</Link></p>
-            </Spotlight>
-
-            <Spotlight
-              person={{ name: "Graeme Downie", href: "/representatives/mps/dunfermline-and-dollar", p: "Labour", place: "Dunfermline and Dollar" }}
-              kicker="13 March 2025 (2024/25) · one night out"
-              amount="£963"
-              headline="You paid for a business dinner in his name."
-              lines={[
-                { what: "Fife College hosted business dinner on behalf of Graeme Downie [200012541-0]", amount: "£962.65" },
-              ]}
-            >
-              <p>One dinner, nearly £1,000 of public money.</p>
-              <p><Link href="/blog/graeme-downie-mp-dinner-expenses-dunfermline" className="font-[660] text-[#8bb8ff] underline underline-offset-4">Read the full story →</Link></p>
-            </Spotlight>
-          </div>
-
-          <div className="tile mt-2 max-w-[760px] p-5 sm:p-6">
-            <h3 className="ui text-[19px] font-[680] leading-[1.3] text-[var(--ink)]">
-              More things you paid for in 2025/26
-            </h3>
-            <ul className="mt-4 space-y-3.5 text-[16px] leading-[1.55] text-[var(--ink-2)]">
-              <li>
-                <strong className="text-[var(--ink)]">£546 to jet wash and clean drains</strong>,{" "}
-                <strong className="text-[var(--ink)]">£939 in flat fees</strong> and{" "}
-                <strong className="text-[var(--ink)]">£746 for home cover</strong>.{" "}
-                <Link href="/representatives/mps/inverness-skye-and-west-ross-shire#donations-and-interests" className="font-[640]">Angus MacDonald</Link>, Lib Dem.{" "}
-                <Link href="/blog/angus-macdonald-mp-speech-coach-drains-expenses" className="font-[640]">Full story →</Link>
-              </li>
-              <li>
-                <strong className="text-[var(--ink)]">£4,093 second home council tax</strong>,{" "}
-                <strong className="text-[var(--ink)]">£1,683 factor fees</strong> and{" "}
-                <strong className="text-[var(--ink)]">£386 broadband</strong> on a home with £0 rent.{" "}
-                <Link href="/representatives/mps/lothian-east#donations-and-interests" className="font-[640]">Douglas Alexander</Link>, Labour.
-              </li>
-              <li>
-                <strong className="text-[var(--ink)]">£1,500 to a media firm</strong> and{" "}
-                <strong className="text-[var(--ink)]">£723 for Europe hotels</strong>.{" "}
-                <Link href="/representatives/mps/kilmarnock-and-loudoun#donations-and-interests" className="font-[640]">Lillian Jones</Link>, Labour.
-              </li>
-              <li>
-                <strong className="text-[var(--ink)]">£9,194 for Europe hotels</strong> across 12 MPs. Top:{" "}
-                <Link href="/representatives/mps/dundee-central#donations-and-interests" className="font-[640]">Chris Law</Link> (£2,822),{" "}
-                <Link href="/representatives/mps/paisley-and-renfrewshire-south#donations-and-interests" className="font-[640]">Johanna Baxter</Link> (£1,004) and{" "}
-                <Link href="/representatives/mps/argyll-bute-and-south-lochaber#donations-and-interests" className="font-[640]">Brendan O&apos;Hara</Link> (£822).
-              </li>
-              <li>
-                <strong className="text-[var(--ink)]">£40,449 for outside PR and consultants</strong>. That counts £4,000 for{" "}
-                <Link href="/representatives/mps/cowdenbeath-and-kirkcaldy#donations-and-interests" className="font-[640]">Melanie Ward</Link>, £1,500 for{" "}
-                <Link href="/representatives/mps/kilmarnock-and-loudoun#donations-and-interests" className="font-[640]">Lillian Jones</Link>, £1,500 for{" "}
-                <Link href="/representatives/mps/central-ayrshire#donations-and-interests" className="font-[640]">Alan Gemmell</Link> and £1,100 for{" "}
-                <Link href="/representatives/mps/rutherglen#donations-and-interests" className="font-[640]">Michael Shanks</Link>.
-              </li>
-              <li>
-                <strong className="text-[var(--ink)]">£9,160 on papers</strong>,{" "}
-                <strong className="text-[var(--ink)]">£3,863 on 32 TV licences</strong> and{" "}
-                <strong className="text-[var(--ink)]">17 double or over claims</strong> that had to be paid back.
-              </li>
-            </ul>
+          {/* Two balanced columns on a laptop, one on a phone. */}
+          <div className="mt-8 grid items-start gap-6 lg:grid-cols-2 [&_section]:my-0">
+            <div className="grid gap-6">
+              <Spotlight
+                person={{ name: "Angus MacDonald", href: "/representatives/mps/inverness-skye-and-west-ross-shire", p: "Lib Dem", place: "Inverness, Skye and West Ross-shire" }}
+                kicker="17 July 2025 · one workshop"
+                amount="£3,000"
+                headline="You paid for his speech coaching."
+                lines={[
+                  {
+                    what: "Provision of personalised presentation and speech skills workshop to assist MPs representational role in Parliament.",
+                    amount: "£3,000.00",
+                  },
+                ]}
+              >
+                <p>Speaking is the job. Taxpayers paid £3,000 for lessons in how to do it.</p>
+                <p><Link href="/blog/angus-macdonald-mp-speech-coach-drains-expenses" className="font-[660] text-[var(--action-text)] underline underline-offset-4">Read the full story →</Link></p>
+              </Spotlight>
+              <Spotlight
+                person={{ name: "John Lamont", href: "/representatives/mps/berwickshire-roxburgh-and-selkirk", p: "Conservative", place: "Berwickshire, Roxburgh and Selkirk" }}
+                kicker="12 June 2025 · his second iPhone on expenses"
+                amount="£1,248"
+                headline="You paid for his new iPhone."
+                lines={[
+                  { what: "Iphone and protection case", amount: "£1,248.00", meta: "12 June 2025" },
+                  { what: "iPhone purchase - John Lamont", amount: "£1,098.00", meta: "9 August 2022" },
+                ]}
+              >
+                <p>Two iPhones in under three years, £2,346 in all. Taxpayers paid for both.</p>
+                <p><Link href="/blog/john-lamont-mp-iphone-expenses-borders" className="font-[660] text-[var(--action-text)] underline underline-offset-4">Read the full story →</Link></p>
+              </Spotlight>
+              <Spotlight
+                person={{ name: "Graeme Downie", href: "/representatives/mps/dunfermline-and-dollar", p: "Labour", place: "Dunfermline and Dollar" }}
+                kicker="13 March 2025 (2024/25) · one night out"
+                amount="£963"
+                headline="You paid for a business dinner in his name."
+                lines={[
+                  { what: "Fife College hosted business dinner on behalf of Graeme Downie [200012541-0]", amount: "£962.65" },
+                ]}
+              >
+                <p>One dinner, nearly £1,000 of public money.</p>
+                <p><Link href="/blog/graeme-downie-mp-dinner-expenses-dunfermline" className="font-[660] text-[var(--action-text)] underline underline-offset-4">Read the full story →</Link></p>
+              </Spotlight>
+            </div>
+            <div className="grid gap-6">
+              <Spotlight
+                person={{ name: "Pamela Nash", href: "/representatives/mps/motherwell-wishaw-and-carluke", p: "Labour", place: "Motherwell, Wishaw and Carluke" }}
+                kicker="Last week of 2025/26 · office shopping"
+                amount="£7,203"
+                headline="You paid for DFS, IKEA and a new carpet."
+                lines={[
+                  { what: "Replacement of office carpet [200013634-169]", amount: "£2,750.00", meta: "26 March 2026" },
+                  { what: "Essential refurbishment works to Constituency Office [200013634-170]", amount: "£2,250.00", meta: "30 March 2026" },
+                  { what: "DFS TRADING LIMITED [200013613-5048]", amount: "£1,208.00", meta: "31 March 2026" },
+                  { what: "IKEA LTD SHOP ONLINE [200013613-12910]", amount: "£395.00", meta: "30 March 2026" },
+                  { what: "IKEA LTD SHOP ONLINE [200013613-2955]", amount: "£245.00", meta: "31 March 2026, refunded 17 April 2026" },
+                  { what: "AMAZON (two bills)", amount: "£354.80", meta: "26 and 28 March 2026" },
+                ]}
+              >
+                <p>Seven bills in the last seven days of the budget year. Taxpayers paid.</p>
+                <p><Link href="/blog/pamela-nash-mp-furniture-expenses-motherwell" className="font-[660] text-[var(--action-text)] underline underline-offset-4">Read the full story →</Link></p>
+              </Spotlight>
+            <div className="tile p-5 sm:p-6">
+              <h3 className="ui text-[19px] font-[680] leading-[1.3] text-[var(--ink)]">
+                More things you paid for in 2025/26
+              </h3>
+              <ul className="mt-4 space-y-3.5 text-[16px] leading-[1.55] text-[var(--ink-2)]">
+                <li>
+                  <strong className="text-[var(--ink)]">£546 to jet wash and clean drains</strong>,{" "}
+                  <strong className="text-[var(--ink)]">£939 in flat fees</strong> and{" "}
+                  <strong className="text-[var(--ink)]">£746 for home cover</strong>.{" "}
+                  <Link href="/representatives/mps/inverness-skye-and-west-ross-shire#donations-and-interests" className="font-[640]">Angus MacDonald</Link>, Lib Dem.{" "}
+                  <Link href="/blog/angus-macdonald-mp-speech-coach-drains-expenses" className="font-[640]">Full story →</Link>
+                </li>
+                <li>
+                  <strong className="text-[var(--ink)]">£4,093 second home council tax</strong>,{" "}
+                  <strong className="text-[var(--ink)]">£1,683 factor fees</strong> and{" "}
+                  <strong className="text-[var(--ink)]">£386 broadband</strong> on a home with £0 rent.{" "}
+                  <Link href="/representatives/mps/lothian-east#donations-and-interests" className="font-[640]">Douglas Alexander</Link>, Labour.
+                </li>
+                <li>
+                  <strong className="text-[var(--ink)]">£1,500 to a media firm</strong> and{" "}
+                  <strong className="text-[var(--ink)]">£723 for Europe hotels</strong>.{" "}
+                  <Link href="/representatives/mps/kilmarnock-and-loudoun#donations-and-interests" className="font-[640]">Lillian Jones</Link>, Labour.
+                </li>
+                <li>
+                  <strong className="text-[var(--ink)]">£9,194 for Europe hotels</strong> across 12 MPs. Top:{" "}
+                  <Link href="/representatives/mps/dundee-central#donations-and-interests" className="font-[640]">Chris Law</Link> (£2,822),{" "}
+                  <Link href="/representatives/mps/paisley-and-renfrewshire-south#donations-and-interests" className="font-[640]">Johanna Baxter</Link> (£1,004) and{" "}
+                  <Link href="/representatives/mps/argyll-bute-and-south-lochaber#donations-and-interests" className="font-[640]">Brendan O&apos;Hara</Link> (£822).
+                </li>
+                <li>
+                  <strong className="text-[var(--ink)]">£40,449 for outside PR and consultants</strong>. That counts £4,000 for{" "}
+                  <Link href="/representatives/mps/cowdenbeath-and-kirkcaldy#donations-and-interests" className="font-[640]">Melanie Ward</Link>, £1,500 for{" "}
+                  <Link href="/representatives/mps/kilmarnock-and-loudoun#donations-and-interests" className="font-[640]">Lillian Jones</Link>, £1,500 for{" "}
+                  <Link href="/representatives/mps/central-ayrshire#donations-and-interests" className="font-[640]">Alan Gemmell</Link> and £1,100 for{" "}
+                  <Link href="/representatives/mps/rutherglen#donations-and-interests" className="font-[640]">Michael Shanks</Link>.
+                </li>
+                <li>
+                  <strong className="text-[var(--ink)]">£9,160 on papers</strong>,{" "}
+                  <strong className="text-[var(--ink)]">£3,863 on 32 TV licences</strong> and{" "}
+                  <strong className="text-[var(--ink)]">17 double or over claims</strong> that had to be paid back.
+                </li>
+              </ul>
+            </div>
+            </div>
           </div>
         </ContentFrame>
 
@@ -1917,7 +1955,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
           </ExplainText>
 
           <div className="mt-7">
-            <Callout>
+            <div className="prose max-w-none rounded-[var(--r-s)] border-l-[4px] border-[var(--action)] bg-[var(--surface-2)] px-6 py-5">
               <ExplainText>
                 <p className="font-[640] text-[var(--ink)] mb-1">Put the figures to your own MP</p>
                 <p className="text-[16.5px] leading-[1.55] text-[var(--ink-2)]">
@@ -1928,7 +1966,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
                   <Link href="/crisis-grant-scotland">Crisis Grant</Link>.
                 </p>
               </ExplainText>
-            </Callout>
+            </div>
           </div>
         </ContentFrame>
 
