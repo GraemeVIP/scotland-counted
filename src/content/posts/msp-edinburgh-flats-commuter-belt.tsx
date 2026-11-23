@@ -82,7 +82,7 @@ export default function MspEdinburghFlatsCommuterBelt() {
             on the flat list. Glasgow city isn&apos;t.
           </>,
           <>
-            Parliament&apos;s own review worked out that two hotel nights a week would cost{" "}
+            Holyrood&apos;s own expenses staff worked out that two hotel nights a week would cost{" "}
             <strong>£4,798 less</strong> than the average flat.
           </>,
         ]}
@@ -142,9 +142,9 @@ export default function MspEdinburghFlatsCommuterBelt() {
       <P>
         Holyrood&apos;s expense rules are set by a small group of MSPs who run the Parliament. In
         September 2026, their own staff wrote them{" "}
-        <a href="https://www.parliament.scot/-/media/files/spcb/spcb-papers/spcb-papers-2026/10-september/spcb-2026-paper-60.pdf">a report on the flat rules</a>. It admitted the problem in black and white. It
-        listed <strong>East Kilbride at 50 miles</strong> from Parliament, and Scone at 47. Both are
-        on the flat list.
+        <a href="https://www.parliament.scot/-/media/files/spcb/spcb-papers/spcb-papers-2026/10-september/spcb-2026-paper-60.pdf">a report on the flat rules</a>. In it, they admitted the problem in black and white.
+        They listed <strong>East Kilbride at 50 miles</strong> from Parliament, and Scone at 47. Both
+        are on the flat list.
       </P>
       <P>
         Two MSPs who live in East Kilbride had taxpayers rent them an Edinburgh flat in 2024/25. One
@@ -168,10 +168,10 @@ export default function MspEdinburghFlatsCommuterBelt() {
         themselves. Nobody rents them a flat.
       </P>
       <P>
-        So what did that report do about it? It didn&apos;t take a single flat away. It was about Green
-        MSP <Link href={msp("regions/mid-scotland-and-fife/mark-ruskell")}>Mark Ruskell</Link>, who
-        lives in the north of the Stirling seat, about two hours from Holyrood. His area only gets
-        hotel nights. Staff said it should move up to the flat group.
+        So what did Holyrood&apos;s staff suggest? Not taking a single flat away. Their report was about
+        Green MSP <Link href={msp("regions/mid-scotland-and-fife/mark-ruskell")}>Mark Ruskell</Link>,
+        who lives in the north of the Stirling seat, about two hours from Holyrood. His area only gets
+        hotel nights. The staff said it should move up to the flat group.
       </P>
       <P>
         So the fix for a rule that hands out too many flats was to hand out one more. If he has a late
@@ -240,8 +240,8 @@ export default function MspEdinburghFlatsCommuterBelt() {
         or Thursday. Mondays and Fridays are kept for work back home.
       </P>
       <P>
-        Of the 62 MSPs allowed a flat, <strong>37</strong> took one. The review kept the flats anyway,
-        pointing to hotel prices going up and MSPs saying a flat is handier.
+        Of the 62 MSPs allowed a flat, <strong>37</strong> took one. Holyrood&apos;s staff still said
+        keep the flats. Their reasons: hotel prices are going up, and MSPs told them a flat is handier.
       </P>
 
       <PointList
