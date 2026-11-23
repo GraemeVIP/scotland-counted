@@ -131,6 +131,11 @@ export default function EnergyMinisterMichaelShanksFlightsRutherglen() {
       <P>
         Her staff spent £1,052 on London trains in 2025/26. She spent nothing.
       </P>
+      <P>
+        On 8 January 2025, in a debate in Parliament, she talked about getting people to make the
+        &ldquo;shift from their cars to public transport&rdquo;. Her own London travel was all by
+        plane.
+      </P>
 
       {/* ------------------------------------------------------------ 3 */}
       <Finding n={3} of={FINDINGS} id="neighbours">
