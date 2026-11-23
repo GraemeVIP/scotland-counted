@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { site } from "@/lib/site";
 import { ScrollProgress } from "@/components/Motion";
-import { ABOUT, EVIDENCE, INVESTIGATIONS, HUBS, PRIMARY, hubBarColor, hubForPath, type HubId } from "@/lib/data/navigation";
+import { ABOUT, EVIDENCE, INVESTIGATIONS_HUB, HUBS, PRIMARY, hubBarColor, hubForPath, type HubId } from "@/lib/data/navigation";
 import { HubPanel, MobileMenu } from "@/components/SiteMenu";
 import { BrandLogo } from "@/components/BrandLogo";
 
@@ -174,15 +174,36 @@ export function Header() {
               </button>
             );
           })}
+          {(() => {
+            const hub = INVESTIGATIONS_HUB;
+            const expanded = openHub === hub.id;
+            const here = currentHub === hub.id;
+            return (
+              <button
+                type="button"
+                onClick={() => setPanel(expanded ? null : { path: pathname, hub: hub.id })}
+                aria-expanded={expanded}
+                aria-controls="hub-panel"
+                className={`ui inline-flex items-center gap-1.5 whitespace-nowrap text-[14px] font-[620] h-10 px-2 min-[1400px]:px-2.5 rounded-[var(--r-pill)] transition-colors ${
+                  expanded ? "bg-white/16 text-white" : here ? "text-white bg-white/12" : "text-white hover:bg-white/10"
+                }`}
+              >
+                <span aria-hidden="true" className="h-[7px] w-[7px] rounded-full" style={{ background: hubBarColor(hub.id) }} />
+                {hub.label}
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" aria-hidden="true" className={`transition-transform ${expanded ? "rotate-180" : ""}`}>
+                  <path d="m5 8 7 7 7-7" />
+                </svg>
+              </button>
+            );
+          })()}
           <Link
-            href={INVESTIGATIONS.href}
-            aria-current={pathname === INVESTIGATIONS.href ? "page" : undefined}
-            className={`ui inline-flex items-center gap-1.5 whitespace-nowrap text-[14px] font-[620] h-10 px-2 min-[1400px]:px-2.5 rounded-[var(--r-pill)] transition-colors ${
-              pathname.startsWith(INVESTIGATIONS.href) ? "text-white bg-white/12" : "text-white hover:bg-white/10"
+            href="/about"
+            aria-current={pathname === "/about" ? "page" : undefined}
+            className={`ui hidden min-[1500px]:inline-flex items-center whitespace-nowrap text-[14px] font-[500] h-10 px-2.5 rounded-[var(--r-pill)] transition-colors ${
+              pathname === "/about" ? "text-white bg-white/12" : "text-white/80 hover:text-white hover:bg-white/10"
             }`}
           >
-            <span aria-hidden="true" className="h-[7px] w-[7px] rounded-full bg-[#ff5757]" />
-            {INVESTIGATIONS.label}
+            About
           </Link>
         </nav>
 

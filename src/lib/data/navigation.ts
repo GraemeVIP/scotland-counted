@@ -16,7 +16,8 @@
 
 export type NavItem = { href: string; label: string; tag?: string };
 
-export type HubId = "money" | "benefits" | "tax" | "area" | "reps" | "schools";
+/** "investigations" is the red Investigations menu; it is not one of the six sections in HUBS. */
+export type HubId = "money" | "benefits" | "tax" | "area" | "reps" | "schools" | "investigations";
 
 /**
  * The featured box at the left of each panel. `kind` picks the control:
@@ -348,8 +349,64 @@ export const HUBS: Hub[] = [
   },
 ];
 
-/** The one header link without a panel: the investigations (expenses and other probes). */
+/** Every investigation (expenses and other probes): the category page. */
 export const INVESTIGATIONS: NavItem = { href: "/blog/category/politics-explained", label: "Investigations" };
+
+/**
+ * The red Investigations menu in the header. It opens a panel like the six
+ * sections, led by the MP and MSP expenses series. Kept out of HUBS so the
+ * six sections (and the footer columns built from them) stay as they are.
+ */
+export const INVESTIGATIONS_HUB: Hub = {
+  id: "investigations",
+  label: "Investigations",
+  href: INVESTIGATIONS.href,
+  intro: "What MPs and MSPs billed you for, from the official expense files.",
+  feature: {
+    kind: "link",
+    kicker: "MP and MSP expenses",
+    title: "21 stories, every receipt",
+    text: "Hotels, energy bills, flights and Edinburgh flats. Check what your own MP claimed by postcode.",
+    cta: "See all 21 stories",
+    href: "/mp-expenses-scotland#all-stories",
+  },
+  groups: [
+    {
+      heading: "Start here",
+      items: [
+        { href: "/mp-expenses-scotland", label: "MP expenses and donations" },
+        { href: "/mp-expenses-scotland/search", label: "Search every MP receipt", tag: "Tool" },
+        { href: "/blog/worst-scottish-mp-expenses", label: "The worst MP expenses" },
+        { href: "/blog/scottish-mp-msp-expenses-what-it-could-buy", label: "What £6.64m could buy" },
+      ],
+    },
+    {
+      heading: "Biggest bills",
+      items: [
+        { href: "/blog/zubir-ahmed-mp-london-hotels-glasgow", label: "£67,519 on London hotels" },
+        { href: "/blog/kilmarnock-mp-23437-electricity-bill", label: "£23,437 energy bill" },
+        { href: "/blog/scottish-mps-flights-climate-expenses", label: "£868,378 on London flights", tag: "New" },
+        { href: "/blog/energy-minister-michael-shanks-flights-rutherglen", label: "The Energy Minister's flights", tag: "New" },
+        { href: "/blog/scottish-mps-london-homes-152-sitting-days", label: "£2.91m on London homes" },
+      ],
+    },
+    {
+      heading: "Holyrood and more",
+      items: [
+        { href: "/blog/msp-edinburgh-flats-commuter-belt", label: "£623,696 on MSPs' Edinburgh flats", tag: "New" },
+        { href: "/blog/meghan-gallacher-msp-low-expenses", label: "The MSP who claims least", tag: "New" },
+        { href: "/blog/msp-expenses-scotland-investigation", label: "MSP expenses party tally" },
+        { href: "/blog/scottish-mp-expenses-and-freebies-investigation", label: "Freebies and donors" },
+        { href: "/blog/operation-branchform-snp-money-timeline", label: "Operation Branchform timeline" },
+      ],
+    },
+  ],
+  top: [
+    { href: "/mp-expenses-scotland", label: "MP expenses hub" },
+    { href: "/mp-expenses-scotland/search", label: "Receipt Finder" },
+    { href: "/blog/zubir-ahmed-mp-london-hotels-glasgow", label: "£67,519 London hotels" },
+  ],
+};
 
 /** Every post: explainers, guides and investigations. Phone menu, 404 and /browse. */
 export const EXPLAINERS: NavItem = { href: "/blog", label: "Explainers" };
@@ -389,5 +446,12 @@ export function hubForPath(pathname: string): HubId | null {
   if (pathname.startsWith("/representatives") || pathname.startsWith("/msp-reviews")) return "reps";
   if (pathname.startsWith("/councils") || pathname.endsWith("-council-tax-bands") || pathname.startsWith("/council-tax-band-")) return "tax";
   if (pathname.endsWith("-after-tax-scotland")) return "money";
+  if (
+    pathname.startsWith("/mp-expenses-scotland") ||
+    pathname.startsWith(INVESTIGATIONS.href) ||
+    INVESTIGATIONS_HUB.groups.some((group) => group.items.some((item) => item.href === pathname))
+  ) {
+    return "investigations";
+  }
   return null;
 }

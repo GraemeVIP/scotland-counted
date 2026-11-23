@@ -11,7 +11,7 @@ import {
   ABOUT,
   EVIDENCE,
   EXPLAINERS,
-  INVESTIGATIONS,
+  INVESTIGATIONS_HUB,
   HUBS,
   hubColor,
   hubForPath,
@@ -185,7 +185,7 @@ function Feature({ hub, onNavigate }: { hub: Hub; onNavigate: () => void }) {
 
 /** Desktop: the panel for one section, under the header bar. */
 export function HubPanel({ hubId, onNavigate }: { hubId: HubId; onNavigate: () => void }) {
-  const hub = HUBS.find((h) => h.id === hubId)!;
+  const hub = [...HUBS, INVESTIGATIONS_HUB].find((h) => h.id === hubId)!;
   const color = hubColor(hub.id);
   return (
     <div
@@ -249,7 +249,10 @@ export function HubPanel({ hubId, onNavigate }: { hubId: HubId; onNavigate: () =
             {item.label}
           </Link>
         ))}
-        <Link href="/browse" onClick={onNavigate} className="ui ml-auto text-[14.5px] font-[600] text-[var(--ink-2)]">
+        <Link href={ABOUT[0].href} onClick={onNavigate} className="ui ml-auto text-[14.5px] font-[600] text-[var(--ink-2)]">
+          About us
+        </Link>
+        <Link href="/browse" onClick={onNavigate} className="ui text-[14.5px] font-[600] text-[var(--ink-2)]">
           Every page on the site <span aria-hidden="true">→</span>
         </Link>
       </div>
@@ -351,7 +354,7 @@ export function MobileMenu({
           </button>
 
           <div className="overflow-hidden rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)]">
-            {HUBS.map((hub) => {
+            {[...HUBS, INVESTIGATIONS_HUB].map((hub) => {
               const isOpen = open === hub.id;
               const color = hubColor(hub.id);
               const count = hub.groups.reduce((n, g) => n + g.items.length, 0);
@@ -417,14 +420,6 @@ export function MobileMenu({
               );
             })}
             <Link
-              href={INVESTIGATIONS.href}
-              onClick={onNavigate}
-              className="ui flex min-h-14 items-center gap-3 px-4 text-[17px] font-[680] text-[var(--ink)] no-underline"
-            >
-              <span aria-hidden="true" className="h-2.5 w-2.5 shrink-0 rounded-full bg-[var(--bad)]" />
-              {INVESTIGATIONS.label}
-            </Link>
-            <Link
               href={EXPLAINERS.href}
               onClick={onNavigate}
               className="ui flex min-h-14 items-center gap-3 px-4 text-[17px] font-[600] text-[var(--ink)] no-underline"
@@ -432,10 +427,18 @@ export function MobileMenu({
               <span aria-hidden="true" className="h-2.5 w-2.5 shrink-0 rounded-full bg-[var(--ink)]" />
               {EXPLAINERS.label}
             </Link>
+            <Link
+              href={ABOUT[0].href}
+              onClick={onNavigate}
+              className="ui flex min-h-14 items-center gap-3 border-t border-[var(--rule)] px-4 text-[17px] font-[600] text-[var(--ink)] no-underline"
+            >
+              <span aria-hidden="true" className="h-2.5 w-2.5 shrink-0 rounded-full border-2 border-[var(--ink)]" />
+              {ABOUT[0].label}
+            </Link>
           </div>
 
           <div className="flex flex-wrap gap-x-5 gap-y-2 px-1 pt-1">
-            {[ABOUT[0], EVIDENCE[1], ABOUT[1]].map((item) => (
+            {[EVIDENCE[1], ABOUT[1]].map((item) => (
               <Link key={item.href} href={item.href} onClick={onNavigate} className="ui text-[15px] text-[var(--ink-2)]">
                 {item.label}
               </Link>
