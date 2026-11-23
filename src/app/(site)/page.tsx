@@ -107,8 +107,34 @@ export default function Home() {
       <Hero facts={buildLocalFacts()} split={responsibilitySplit()} />
 
       <Page>
+        {/* ---------- The expenses series ----------
+            The stories people share most, so they come straight after the
+            first screen rather than after the money tiles. */}
+        <section aria-label="MP expenses" className="pt-10 sm:pt-14">
+          <div className="tile tile-blue flex flex-col gap-4 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-7">
+            <div>
+              <span className="tile-key">New · MP expenses in Scotland</span>
+              <p className="mt-2 max-w-[60ch] text-[17px] leading-[1.5] text-white">
+                Scottish MPs billed taxpayers £23,437 for electricity in a single day (number one
+                in the UK), £10,754 for TV licences, £37,359 for one MP&apos;s London hotels and
+                £24,515 for one MP&apos;s mobile bills. Search all 20,879 official receipts.
+              </p>
+              <p className="ui mt-3 flex flex-wrap gap-x-5 gap-y-2 text-[15px]">
+                <Link href="/blog/scottish-mps-london-homes-152-sitting-days" className="font-[600] text-white">£2.91m London shuttle (152 days) →</Link>
+                <Link href="/blog/kilmarnock-mp-23437-electricity-bill" className="font-[600] text-white">£23,437 power bill (UK #1) →</Link>
+                <Link href="/blog/scottish-mps-tv-licence-expenses" className="font-[600] text-white">29 MPs&apos; TV licences →</Link>
+                <Link href="/blog/worst-scottish-mp-expenses" className="font-[600] text-white">The receipts →</Link>
+                <Link href="/mp-expenses-scotland" className="font-[600] text-white">All 57 MPs ranked →</Link>
+              </p>
+            </div>
+            <Link href="/mp-expenses-scotland/search" className="btn bg-white text-[#00336f] shrink-0 self-start sm:self-center">
+              Search all 20,879 MP receipts <span aria-hidden="true">→</span>
+            </Link>
+          </div>
+        </section>
+
         {/* ---------- The answers people look for most ---------- */}
-        <section className="pt-20 sm:pt-28" aria-labelledby="answers">
+        <section className="pt-16 sm:pt-24" aria-labelledby="answers">
           <div className="flex flex-wrap items-end justify-between gap-x-10 gap-y-5">
             <div>
               <p className="eyebrow">Most searched</p>
@@ -194,29 +220,6 @@ export default function Home() {
               <span className="btn btn-primary self-start !min-h-10 !px-4 !py-2 !text-[14.5px]">
                 Find yours <span aria-hidden="true">→</span>
               </span>
-            </Link>
-          </div>
-        </section>
-
-        <section aria-label="MP expenses" className="mt-6">
-          <div className="tile tile-blue flex flex-col gap-4 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-7">
-            <div>
-              <span className="tile-key">New · MP expenses in Scotland</span>
-              <p className="mt-2 max-w-[60ch] text-[17px] leading-[1.5] text-white">
-                Scottish MPs billed taxpayers £23,437 for electricity in a single day (number one
-                in the UK), £10,754 for TV licences, £37,359 for one MP&apos;s London hotels and
-                £24,515 for one MP&apos;s mobile bills. Search all 20,879 official receipts.
-              </p>
-              <p className="ui mt-3 flex flex-wrap gap-x-5 gap-y-2 text-[15px]">
-                <Link href="/blog/scottish-mps-london-homes-152-sitting-days" className="font-[600] text-white">£2.91m London shuttle (152 days) →</Link>
-                <Link href="/blog/kilmarnock-mp-23437-electricity-bill" className="font-[600] text-white">£23,437 power bill (UK #1) →</Link>
-                <Link href="/blog/scottish-mps-tv-licence-expenses" className="font-[600] text-white">29 MPs&apos; TV licences →</Link>
-                <Link href="/blog/worst-scottish-mp-expenses" className="font-[600] text-white">The receipts →</Link>
-                <Link href="/mp-expenses-scotland" className="font-[600] text-white">All 57 MPs ranked →</Link>
-              </p>
-            </div>
-            <Link href="/mp-expenses-scotland/search" className="btn bg-white text-[#00336f] shrink-0 self-start sm:self-center">
-              Search all 20,879 MP receipts <span aria-hidden="true">→</span>
             </Link>
           </div>
         </section>

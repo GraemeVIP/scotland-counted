@@ -3,6 +3,8 @@
 import Link from "@/components/IntentLink";
 import PostcodeStart, { RESULT_SLOT_ID } from "@/components/PostcodeStart";
 import type { LocalFacts, ResponsibilitySplit } from "@/lib/localFacts";
+import { EXPENSE_STORIES, type ExpenseStory } from "@/lib/data/expenseStories";
+import { postPath } from "@/lib/routeMap";
 
 /**
  * The homepage opening: the Saltire band.
@@ -18,6 +20,21 @@ import type { LocalFacts, ResponsibilitySplit } from "@/lib/localFacts";
  */
 
 const TRUST = ["Free, no account", "Every figure sourced", "I never store your postcode"];
+
+/**
+ * Three expenses stories on the first screen. A big, exact figure with a
+ * half told story is the strongest pull the site has, so the opening offers
+ * it straight away rather than below the fold. The £23,437 energy bill
+ * is left out here because the announcement bar above already leads on it. Figures and lines come from
+ * the expenses story list, so they stay in step with the stories.
+ */
+const HOT_STORIES = [
+  "msp-edinburgh-flats-commuter-belt",
+  "scottish-mp-msp-expenses-what-it-could-buy",
+  "scottish-mps-flights-climate-expenses",
+]
+  .map((slug) => EXPENSE_STORIES.find((story) => story.slug === slug))
+  .filter((story): story is ExpenseStory => Boolean(story));
 
 export default function Hero({
   facts,
@@ -65,6 +82,29 @@ export default function Hero({
                 Work out your take home pay
               </Link>
             </div>
+
+            {HOT_STORIES.length > 0 && (
+              <div className="rise mt-8">
+                <p className="ui text-[13px] font-[640] uppercase tracking-[0.08em] text-[var(--hero-muted)]">
+                  New from the expenses files
+                </p>
+                <ul className="mt-2.5 grid max-w-[560px] gap-2">
+                  {HOT_STORIES.map((story) => (
+                    <li key={story.slug}>
+                      <Link
+                        href={postPath(story.slug)}
+                        className="group flex items-baseline gap-3 rounded-[14px] border border-white/15 bg-white/[0.06] px-4 py-2.5 no-underline transition-colors hover:bg-white/[0.12]"
+                      >
+                        <span className="figure-num tnum shrink-0 text-[19px] leading-none text-white">{story.stat}</span>
+                        <span className="ui min-w-0 text-[15px] leading-[1.4] text-[var(--hero-muted)] group-hover:text-white">
+                          {story.hook} <span aria-hidden="true">→</span>
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
 
             <ul className="rise mt-6 flex flex-wrap gap-2">
               {TRUST.map((item) => (
