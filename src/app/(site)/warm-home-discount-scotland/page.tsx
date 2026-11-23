@@ -232,6 +232,7 @@ export default function WarmHomeDiscountScotlandPage() {
           eyebrow="Winter 2026/27 · Published 21 November 2026 · Last updated 21 November 2026"
           title="Warm Home Discount Scotland 2026/27: who gets £150 automatically and who must apply"
           lede="The Warm Home Discount takes £150 off your winter electricity bill by 31 March 2027. In Scotland, the scheme splits households into two groups: an expanded automatic Core Group (covering Pension Credit plus certain disability and child under 5 benefit elements) and a Broader Group where you still have to apply directly to your energy supplier before their funding runs out."
+          stat={{ value: "£150", label: "off your winter electricity bill, paid by 31 March 2027." }}
         >
           <SharePage
             title="Warm Home Discount Scotland 2026/27: how to get your £150"

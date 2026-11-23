@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import Link from "@/components/IntentLink";
-import { Page, ContentFrame, PageHeader, InShort, CTA, SectionHead } from "@/components/Blocks";
+import { Page, ContentFrame, PageHeader, HeaderFacts, InShort, CTA, SectionHead } from "@/components/Blocks";
 import { JsonLd, faqJsonLd, meta } from "@/lib/seo";
 import { getSources } from "@/lib/data/sources";
 import { TAX_DATA, calculate } from "@/lib/tax/engine";
@@ -88,6 +88,15 @@ export default function TakeHomePayCalculator() {
           eyebrow={`Scotland · ${TAX_DATA.taxYear} rates`}
           title="Take home pay calculator Scotland 2026/27"
           lede="Enter what you earn and see what actually reaches your bank account, on Scotland's six income tax bands. Or work backwards from the pay you need to live on."
+          panel={
+            <HeaderFacts
+              label="What you keep each month"
+              items={EXAMPLES.filter((e) => e.gross >= 30_000).map((e) => ({
+                value: pounds.format(e.monthly),
+                label: `on ${pounds.format(e.gross)} a year, after tax and NI`,
+              }))}
+            />
+          }
         >
           <SharePage
             title="Scottish take home pay calculator 2026/27"

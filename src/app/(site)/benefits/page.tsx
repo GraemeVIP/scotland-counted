@@ -1,5 +1,5 @@
 import Link from "@/components/IntentLink";
-import { Page, ContentFrame, PageHeader, SectionHead } from "@/components/Blocks";
+import { Page, ContentFrame, PageHeader, HeaderFacts, SectionHead } from "@/components/Blocks";
 import { meta } from "@/lib/seo";
 import { HUBS, hubColor } from "@/lib/data/navigation";
 import { posts } from "@/lib/data/posts";
@@ -33,6 +33,21 @@ const STATIC_GUIDES: Record<string, { value: string; unit: string; standfirst: s
   },
 };
 
+/**
+ * Three weekly rates for the page header, read from the same guide answers
+ * the cards below show, so the two can never disagree.
+ */
+const allItems = hub.groups.flatMap((g) => g.items);
+const HEADER_FACTS = ["/adult-disability-payment", "/carer-support-payment", "/scottish-child-payment"].flatMap(
+  (href) => {
+    const item = allItems.find((i) => i.href === href);
+    const answer = byPath.get(href)?.quickAnswer;
+    return item && answer?.value
+      ? [{ value: answer.value, label: answer.unit ? `${item.label}, ${answer.unit}` : item.label }]
+      : [];
+  },
+);
+
 export default function BenefitsPage() {
   const color = hubColor(hub.id);
   return (
@@ -46,6 +61,11 @@ export default function BenefitsPage() {
           eyebrow="Benefits in Scotland"
           title="Benefits in Scotland"
           lede="What you can claim, how much it is this year and when it is paid. Each guide gives you the answer first, then how to apply."
+          panel={
+            HEADER_FACTS.length > 0 ? (
+              <HeaderFacts label="How much it is this year" items={HEADER_FACTS} />
+            ) : undefined
+          }
         />
         <ContentFrame>
           {hub.groups.map((group) => (

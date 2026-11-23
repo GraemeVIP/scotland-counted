@@ -67,6 +67,42 @@ const HOLIDAYS_2028 = [
   ["26 December", "Tuesday", "Boxing Day", "UK wide"],
 ];
 
+/**
+ * The page header shows the next date from the three tables above. The page
+ * is rebuilt every hour so that date moves on by itself once a holiday passes.
+ */
+export const revalidate = 3600;
+
+const MONTHS = [
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December",
+];
+
+const ALL_HOLIDAYS = (
+  [
+    [2026, HOLIDAYS_2026],
+    [2027, HOLIDAYS_2027],
+    [2028, HOLIDAYS_2028],
+  ] as const
+).flatMap(([year, rows]) =>
+  rows.map(([date, day, name]) => {
+    const [d, month] = date.split(" ");
+    return {
+      key: `${year}-${String(MONTHS.indexOf(month) + 1).padStart(2, "0")}-${d.padStart(2, "0")}`,
+      short: `${d} ${month.slice(0, 3)}`,
+      day,
+      name,
+    };
+  }),
+);
+
+/** The next bank holiday on or after today's date in Scotland, if any is listed. */
+function nextHoliday() {
+  // en-CA gives YYYY-MM-DD, which sorts the same way as the keys above.
+  const today = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/London" }).format(new Date());
+  return ALL_HOLIDAYS.find((h) => h.key >= today);
+}
+
 const FAQ = [
   {
     q: "How many bank holidays does Scotland have each year?",
@@ -91,6 +127,7 @@ const FAQ = [
 ];
 
 export default function ScotlandBankHolidaysPage() {
+  const next = nextHoliday();
   return (
     <>
       <Breadcrumbs crumbs={[
@@ -113,6 +150,11 @@ export default function ScotlandBankHolidaysPage() {
           eyebrow="Official GOV.UK & Scottish Government dates"
           title="Scotland bank holidays 2026, 2027 and 2028"
           lede="Scotland has its own bank holiday calendar, including 2 January, the first Monday in August and St Andrew's Day. Here is every official date for 2026, 2027 and 2028, plus substitute days when a holiday lands on a weekend."
+          stat={
+            next
+              ? { value: next.short, label: `is the next bank holiday in Scotland: ${next.name}, on a ${next.day}.` }
+              : undefined
+          }
         >
           <SharePage
             title="Scotland bank holidays 2026, 2027 and 2028"

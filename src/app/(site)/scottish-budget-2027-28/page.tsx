@@ -1,5 +1,5 @@
 import Link from "@/components/IntentLink";
-import { Page, ContentFrame, PageHeader, SectionHead, CTA, Callout } from "@/components/Blocks";
+import { Page, ContentFrame, PageHeader, HeaderFacts, SectionHead, CTA, Callout } from "@/components/Blocks";
 import EditorialImage from "@/components/EditorialImage";
 import SharePage from "@/components/SharePage";
 import QuickAnswer from "@/components/QuickAnswer";
@@ -151,6 +151,16 @@ export default function ScottishBudgetPage() {
           eyebrow="Holyrood · Published 21 November 2026 · Last updated 21 November 2026"
           title="Scottish Budget 2027/28: 3 December date and what it means for your money"
           lede="Deputy First Minister and Finance Secretary Jenny Gilruth presents the 2027/28 Scottish Budget to Holyrood on Thursday 3 December 2026. That single statement sets next April's Scottish income tax thresholds, Social Security Scotland benefit rises, and the funding settlement that decides how much your council puts up council tax."
+          panel={
+            <HeaderFacts
+              label="What is at stake on 3 December"
+              items={[
+                { value: "£43,663", label: "where Scotland's 42% Higher rate starts now, frozen for 2026/27" },
+                { value: "£50,271", label: "where England's 40% rate starts, for comparison" },
+                { value: "1.9 million", label: "homes in council tax bands A to D in line for the £100 energy payment" },
+              ]}
+            />
+          }
         >
           <SharePage
             title="Scottish Budget 2027/28: 3 December date, income tax & benefits"

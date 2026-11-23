@@ -1,5 +1,5 @@
 import Link from "@/components/IntentLink";
-import { Page, ContentFrame, PageHeader, SectionHead, CTA, Callout } from "@/components/Blocks";
+import { Page, ContentFrame, PageHeader, HeaderFacts, SectionHead, CTA, Callout } from "@/components/Blocks";
 import EditorialImage from "@/components/EditorialImage";
 import SharePage from "@/components/SharePage";
 import QuickAnswer from "@/components/QuickAnswer";
@@ -115,6 +115,8 @@ export default function MansionTaxScotlandPage() {
       extraJ: bandJ - bandH,
     };
   }).filter((r): r is NonNullable<typeof r> => r !== null);
+  /** Edinburgh, from the worked examples table below, for the page header. */
+  const edinburgh = councilRows.find((r) => r.slug === "city-of-edinburgh");
 
   return (
     <>
@@ -159,6 +161,18 @@ export default function MansionTaxScotlandPage() {
           eyebrow="Scottish Parliament Bill · Published 21 November 2026 · Last updated 21 November 2026"
           title="Mansion tax Scotland: new council tax bands I and J explained"
           lede="The Scottish Government has unveiled the Council Tax (High Value Dwellings etc.) (Scotland) Bill at Holyrood. Branded in the press as Scotland's mansion tax, it creates two new bands above Band H for homes worth over £1 million from April 2028, alongside backdated council tax help for people diagnosed with dementia and emergency powers for flooded homes."
+          panel={
+            edinburgh ? (
+              <HeaderFacts
+                label={`Council tax a year in ${edinburgh.name}, before water`}
+                items={[
+                  { value: pounds.format(edinburgh.bandH), label: "Band H, the top band now" },
+                  { value: pounds.format(edinburgh.bandI), label: "new Band I, homes worth £1m to £2m" },
+                  { value: pounds.format(edinburgh.bandJ), label: "new Band J, homes worth over £2m" },
+                ]}
+              />
+            ) : undefined
+          }
         >
           <SharePage
             title="Mansion tax Scotland: new council tax bands I & J explained"

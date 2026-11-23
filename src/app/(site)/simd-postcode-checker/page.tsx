@@ -89,6 +89,7 @@ export default function SimdPostcodeCheckerPage() {
           eyebrow={`SIMD 2020v2 · ${SIMD_TOTAL_DATA_ZONES.toLocaleString("en-GB")} data zones`}
           title="SIMD postcode checker: check your SIMD decile in Scotland"
           lede="Enter any Scottish postcode to find its official Scottish Index of Multiple Deprivation (SIMD) rank, decile (1 to 10) and quintile (1 to 5), plus how all 32 Scottish councils compare."
+          panel={<SimdLookup mps={mpsLite} />}
         >
           <SharePage
             title="SIMD postcode checker Scotland"
@@ -127,9 +128,7 @@ export default function SimdPostcodeCheckerPage() {
         </ContentFrame>
 
         <ContentFrame className="pt-10">
-          <SimdLookup mps={mpsLite} />
           <NextStepStrip
-            className="mt-7"
             items={[
               {
                 href: "/council-tax-bands-scotland",

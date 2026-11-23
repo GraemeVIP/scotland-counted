@@ -1,5 +1,5 @@
 import Link from "@/components/IntentLink";
-import { Page, ContentFrame, PageHeader, SectionHead, CTA } from "@/components/Blocks";
+import { Page, ContentFrame, PageHeader, HeaderFacts, SectionHead, CTA } from "@/components/Blocks";
 import EditorialImage from "@/components/EditorialImage";
 import SharePage from "@/components/SharePage";
 import QuickAnswer from "@/components/QuickAnswer";
@@ -82,6 +82,13 @@ export default function TaxBandsScotlandPage() {
     const diff = scot.tax.total - ruk.tax.total;
     return { gross, scotTax: scot.tax.total, rukTax: ruk.tax.total, diff, scotNet: scot.net };
   });
+  /** Three rows of the comparison table below, for the page header. */
+  const headerFacts = comparisons
+    .filter((row) => [25_000, 50_000, 100_000].includes(row.gross))
+    .map((row) => ({
+      value: pounds.format(Math.abs(row.diff)),
+      label: `${row.diff < 0 ? "less" : "more"} income tax than England on ${pounds.format(row.gross)} a year`,
+    }));
 
   return (
     <>
@@ -106,6 +113,7 @@ export default function TaxBandsScotlandPage() {
           eyebrow={`Scotland · ${TAX_DATA.taxYear} rates`}
           title="Tax bands Scotland 2026/27: Scottish income tax rates"
           lede="Scotland has six income tax bands instead of the three used in England, Wales and Northern Ireland. Here are the exact 2026/27 thresholds, what you pay at each salary, and where the crossover with England sits."
+          panel={<HeaderFacts label="Scotland compared with England" items={headerFacts} />}
         >
           <SharePage
             title="Tax bands Scotland 2026/27 vs England"

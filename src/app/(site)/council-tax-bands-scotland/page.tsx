@@ -1,5 +1,5 @@
 import Link from "@/components/IntentLink";
-import { Page, PageHeader, InShort } from "@/components/Blocks";
+import { Page, PageHeader, HeaderFacts, InShort } from "@/components/Blocks";
 import { JsonLd, faqJsonLd, meta } from "@/lib/seo";
 import CouncilTaxLookup from "./CouncilTaxLookup";
 import WaterCharge from "@/components/WaterCharge";
@@ -115,6 +115,25 @@ export default function CouncilTaxPage() {
           eyebrow="Scotland · all 32 councils · bands A to H"
           title="Council tax bands Scotland 2026/27"
           lede="Find your council’s 2026/27 charges, including Scottish Water. Enter a Scottish postcode or choose your council."
+          panel={
+            <HeaderFacts
+              label="Band D this year"
+              items={[
+                {
+                  value: pounds(bandDTotals[0]),
+                  label: "a year in the cheapest council, water included",
+                },
+                {
+                  value: pounds(bandDTotals[bandDTotals.length - 1]),
+                  label: "a year in the dearest council, water included",
+                },
+                {
+                  value: `${percent.format(largestRise.councilTaxRisePct)}%`,
+                  label: `the biggest council tax rise this year, in ${largestRise.name}`,
+                },
+              ]}
+            />
+          }
         >
           <SharePage
             title="Council tax bands Scotland 2026/27: all 32 councils"

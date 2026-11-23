@@ -1,5 +1,5 @@
 import Link from "@/components/IntentLink";
-import { Page, ContentFrame, PageHeader, InShort, SectionHead, CTA, Card } from "@/components/Blocks";
+import { Page, ContentFrame, PageHeader, HeaderFacts, InShort, SectionHead, CTA, Card } from "@/components/Blocks";
 import { JsonLd, faqJsonLd, meta } from "@/lib/seo";
 import Faq from "@/components/Faq";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -148,6 +148,16 @@ export default function MoneyHub() {
           eyebrow="Your money"
           title="What you earn, what you keep and what it costs"
           lede="Two calculators and a set of plain English answers about pay, council tax, benefits and bills in Scotland. Everything you type into a calculator stays in your browser."
+          panel={
+            <HeaderFacts
+              label="The figures behind this page"
+              items={[
+                { value: "19% to 48%", label: "Scottish income tax, across six bands" },
+                { value: "32", label: "councils, with every council tax band shown" },
+                { value: "£150", label: "Warm Home Discount off your electricity bill" },
+              ]}
+            />
+          }
         />
 
         <ContentFrame>

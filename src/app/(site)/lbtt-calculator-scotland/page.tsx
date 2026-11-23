@@ -1,5 +1,5 @@
 import Link from "@/components/IntentLink";
-import { Page, ContentFrame, PageHeader, SectionHead, CTA } from "@/components/Blocks";
+import { Page, ContentFrame, PageHeader, HeaderFacts, SectionHead, CTA } from "@/components/Blocks";
 import EditorialImage from "@/components/EditorialImage";
 import SharePage from "@/components/SharePage";
 import QuickAnswer from "@/components/QuickAnswer";
@@ -40,6 +40,8 @@ const money = new Intl.NumberFormat("en-GB", {
 });
 
 const WORKED_PRICES = [145_000, 175_000, 200_000, 250_000, 300_000, 350_000, 450_000, 600_000];
+/** One of the worked prices above, shown in the page header. */
+const HEADER_PRICE = 250_000;
 
 const FAQ = [
   {
@@ -95,6 +97,16 @@ export default function LbttCalculatorPage() {
           eyebrow={`Scotland · ${LBTT_DATA.taxYear} residential rates`}
           title="LBTT calculator Scotland: Stamp Duty and ADS worked out"
           lede="Scotland does not use Stamp Duty. Buyers pay Land and Buildings Transaction Tax (LBTT) to Revenue Scotland. Enter a property price below to see exact standard, first-time buyer and second home (8% ADS) costs."
+          panel={
+            <HeaderFacts
+              label={`LBTT on a ${money.format(HEADER_PRICE)} home`}
+              items={[
+                { value: money.format(calculateLbtt(HEADER_PRICE, "standard").totalTax), label: "if you are moving home" },
+                { value: money.format(calculateLbtt(HEADER_PRICE, "first-time").totalTax), label: "if you are a first time buyer" },
+                { value: money.format(calculateLbtt(HEADER_PRICE, "additional").totalTax), label: "for a second home, with the 8% ADS" },
+              ]}
+            />
+          }
         >
           <SharePage
             title="LBTT calculator Scotland 2026/27"
