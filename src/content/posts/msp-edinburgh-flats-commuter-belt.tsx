@@ -140,10 +140,11 @@ export default function MspEdinburghFlatsCommuterBelt() {
         East Kilbride: 50 miles, two MSPs, two flats
       </Finding>
       <P>
-        In September 2026, a paper to the board that runs Holyrood&apos;s expenses admitted the
-        problem in black and white. It listed{" "}
-        <strong>East Kilbride at 50 miles</strong> from Parliament, and Scone at 47, both on the flat
-        list.
+        Holyrood&apos;s expense rules are set by a small group of MSPs who run the Parliament. In
+        September 2026, their own staff wrote them{" "}
+        <a href="https://www.parliament.scot/-/media/files/spcb/spcb-papers/spcb-papers-2026/10-september/spcb-2026-paper-60.pdf">a report on the flat rules</a>. It admitted the problem in black and white. It
+        listed <strong>East Kilbride at 50 miles</strong> from Parliament, and Scone at 47. Both are
+        on the flat list.
       </P>
       <P>
         Two MSPs who live in East Kilbride had taxpayers rent them an Edinburgh flat in 2024/25. One
@@ -167,7 +168,7 @@ export default function MspEdinburghFlatsCommuterBelt() {
         themselves. Nobody rents them a flat.
       </P>
       <P>
-        So what did the paper do about it? It didn&apos;t take a single flat away. It was about Green
+        So what did that report do about it? It didn&apos;t take a single flat away. It was about Green
         MSP <Link href={msp("regions/mid-scotland-and-fife/mark-ruskell")}>Mark Ruskell</Link>, who
         lives in the north of the Stirling seat, about two hours from Holyrood. His area only gets
         hotel nights. Staff said it should move up to the flat group.
@@ -184,7 +185,7 @@ export default function MspEdinburghFlatsCommuterBelt() {
       <P>
         These MSPs all had an Edinburgh flat on expenses in 2024/25, with seats within about 66 miles
         of Holyrood. Miles are straight lines from each seat&apos;s main town. By road it&apos;s further:
-        Parliament&apos;s own paper puts East Kilbride at 50.
+        Holyrood&apos;s own report puts East Kilbride at 50.
       </P>
 
       <RankList
@@ -272,7 +273,8 @@ export default function MspEdinburghFlatsCommuterBelt() {
           </p>
           <p>
             The groups come from the MSP expenses rules. The East Kilbride and Scone miles come from a
-            paper to Holyrood&apos;s expenses board in September 2026. The hotel and flat sums come from
+            report by Holyrood&apos;s staff to the MSPs who run the Parliament, dated 10 September 2026
+            (Paper 60). The hotel and flat sums come from
             Holyrood&apos;s own review in September 2025. The 83 voting days come from its vote records.
           </p>
           <p>
