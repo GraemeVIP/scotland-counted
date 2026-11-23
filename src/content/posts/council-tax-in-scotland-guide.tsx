@@ -167,7 +167,7 @@ export default function Post() {
       <Aside title="Why online figures often look too low">
         <p>
           Many pages quote only the council tax part. The bill through your door normally includes
-          council tax, water and waste water. My calculator shows all three separately and then
+          council tax, water and waste water. Our calculator shows all three separately and then
           gives the total.
         </p>
       </Aside>

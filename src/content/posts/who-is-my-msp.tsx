@@ -27,14 +27,14 @@ export default function Post() {
       <Lead>
         Everyone in Scotland has {SP.perPerson} MSPs, not one. There&apos;s a constituency MSP
         for your local area and {SP.regionalPerRegion} regional MSPs for the wider region, and you
-        can go to any of them. Put your postcode in below and I&apos;ll show you all of them, plus
+        can go to any of them. Put your postcode in below and we&apos;ll show you all of them, plus
         your MP, with their contact details.
       </Lead>
 
       <H2 id="postcode">Who is my MSP by postcode</H2>
       <P>
         The lookup uses the Scottish Parliament&apos;s and the UK Parliament&apos;s own records.
-        It only shows names and contact details. It won&apos;t send anything, and I don&apos;t
+        It only shows names and contact details. It won&apos;t send anything, and we don&apos;t
         keep your postcode.
       </P>
       <RepresentativeLookup />
@@ -148,7 +148,7 @@ export default function Post() {
       </P>
       <P>
         For bins, potholes, council housing and council tax, your councillors are usually quicker.
-        My guide to{" "}
+        Our guide to{" "}
         <Link href="/who-is-my-local-councillor-by-postcode">who is my local councillor by postcode</Link>{" "}
         links to every council&apos;s councillor finder. You can also check{" "}
         <Link href="/councils">all 32 Scottish council budgets and performance records</Link>, read{" "}

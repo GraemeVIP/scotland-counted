@@ -45,7 +45,7 @@ async function lookupRepresentatives(request: Request) {
     const area = geography.area;
     const council = councils.find((item) => item.code === area.councilCode);
     if (!council) {
-      return error("I found the postcode but could not match its council data.", 404);
+      return error("We found the postcode but could not match its council data.", 404);
     }
 
     const snapshotMp = getMpByConstituencyName(area.constituency);
@@ -86,7 +86,7 @@ async function lookupRepresentatives(request: Request) {
         : null;
 
     if (!mp) {
-      return error("I could not find your MP just now. Please try again shortly.", 502);
+      return error("We could not find your MP just now. Please try again shortly.", 502);
     }
 
     const result: RepresentativeLookup = {

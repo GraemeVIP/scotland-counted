@@ -30,7 +30,7 @@ export default function Post() {
       />
       <P>
         The early payment is the same money, not extra. That means a longer gap until the next one in
-        January, which catches a lot of people out. I&apos;d plan for the money landing on the 23rd
+        January, which catches a lot of people out. We&apos;d plan for the money landing on the 23rd
         to last into the middle of January.
       </P>
 

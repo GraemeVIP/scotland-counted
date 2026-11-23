@@ -103,7 +103,7 @@ export function SalaryAfterTax({ amount }: { amount: number }) {
             </h1>
             <p className="lede mt-6 max-w-[60ch]">
               On {pretty} a year in Scotland you take home {money(scotland.net)} after income tax and
-              National Insurance. I have done the sums on Scotland&rsquo;s own tax bands, so you don&rsquo;t have to.
+              National Insurance. We have done the sums on Scotland&rsquo;s own tax bands, so you don&rsquo;t have to.
             </p>
           </header>
 

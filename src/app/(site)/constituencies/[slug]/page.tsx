@@ -66,7 +66,7 @@ export default async function ConstituencyPage(props: { params: Promise<{ slug: 
     },
     {
       q: `What can the MP for ${c.name} actually do about child poverty?`,
-      a: `Your MP votes on Universal Credit and help with private rent. These choices change how much money a family has left each week. Enter your postcode and I will find the MP and write the email for you.`,
+      a: `Your MP votes on Universal Credit and help with private rent. These choices change how much money a family has left each week. Enter your postcode and we will find the MP and write the email for you.`,
     },
   ];
 
@@ -111,7 +111,7 @@ export default async function ConstituencyPage(props: { params: Promise<{ slug: 
             </p>
             <p>
               One MP speaks for this area in the UK Parliament, in London. They help decide
-              benefits and help with rent. <strong>I already know who they are</strong>. You can
+              benefits and help with rent. <strong>We already know who they are</strong>. You can
               send them an email from this page without entering anything.
             </p>
             <p>
@@ -248,7 +248,7 @@ export default async function ConstituencyPage(props: { params: Promise<{ slug: 
               what do you expect this area&apos;s child poverty figure to be in five years, and what
               are you doing to bring it down?
             </strong>{" "}
-            <Link href="#email-your-mp">I have already written that email for you.</Link>
+            <Link href="#email-your-mp">We have already written that email for you.</Link>
           </p>
         </Col>
 
@@ -280,7 +280,7 @@ export default async function ConstituencyPage(props: { params: Promise<{ slug: 
 
         <CTA
           title={`Email the MP for ${c.name}`}
-          body="You do not need to enter anything. I know who your MP is, and the email is already written with these exact local figures."
+          body="You do not need to enter anything. We know who your MP is, and the email is already written with these exact local figures."
           href="#email-your-mp"
           cta="Write my email to the MP"
           secondaryHref="/constituencies"

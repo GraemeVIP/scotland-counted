@@ -43,7 +43,7 @@ export default function Post() {
       <Lead>
         Higher Modern Studies past papers are free from Qualifications Scotland, with the marking
         instructions for every year from {PAST.firstYear} to {PAST.lastYear}. Below is exactly where
-        to find them, how to use them properly, and three Paper 2 style practice questions I&apos;ve
+        to find them, how to use them properly, and three Paper 2 style practice questions we&apos;ve
         built from real Scottish data.
       </Lead>
 
@@ -68,7 +68,7 @@ export default function Post() {
       <P>
         The specimen papers, which show the current layout with marking instructions, are on the{" "}
         <a href={LINKS.higher}>Higher Modern Studies course page</a> instead, along with the course
-        reports. I don&apos;t copy any papers onto this site. Always get them from the official page so
+        reports. We don&apos;t copy any papers onto this site. Always get them from the official page so
         you have the right version.
       </P>
 
@@ -121,7 +121,7 @@ export default function Post() {
 
       <H2 id="practice-conclusions">Practice question 1: conclusions</H2>
       <P>
-        These sources use real figures. The question is written by me in the style of Paper 2. It
+        These sources use real figures. The question is written by us in the style of Paper 2. It
         isn&apos;t an official question, so there is no official marking scheme, but the hints after
         it show what a strong answer covers.
       </P>

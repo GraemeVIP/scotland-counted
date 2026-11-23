@@ -30,7 +30,7 @@ export async function POST(request: Request) {
 
   const council = councils.find((item) => item.code === result.area.councilCode);
   if (!council) {
-    return error("I found the postcode but could not match its council data.", 404);
+    return error("We found the postcode but could not match its council data.", 404);
   }
 
   // The MP for the postcode, so a tool can point to their receipts after

@@ -55,7 +55,7 @@ export default function Browse() {
                   Find everyone by postcode →
                 </span>
                 <span className="mt-2 block text-[15px] leading-[1.5] text-[var(--ink-2)]">
-                  I find your MP and all eight MSPs, then write the focused emails for you.
+                  We find your MP and all eight MSPs, then write the focused emails for you.
                 </span>
               </Link>
               <div className="grid gap-3">

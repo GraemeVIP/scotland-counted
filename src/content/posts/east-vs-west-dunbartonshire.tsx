@@ -81,8 +81,8 @@ export default function Post() {
       </Lead>
 
       <P>
-        I put the two side by side with the{" "}
-        <Link href={`/compare-areas?a=${EAST}&b=${WEST}`}>compare tool</Link>, expecting a gap. I didn&apos;t expect it to
+        We put the two side by side with the{" "}
+        <Link href={`/compare-areas?a=${EAST}&b=${WEST}`}>compare tool</Link>, expecting a gap. We didn&apos;t expect it to
         be this wide. East Dunbartonshire comes out better on {eastWins} of the {results.length} measures where better or
         worse is clear. West Dunbartonshire comes out better on {westWins}.
       </P>
@@ -260,7 +260,7 @@ export default function Post() {
       <H2 id="health">The gap that matters most</H2>
 
       <P>
-        Of all the numbers, this is the one that stays with me. A baby boy born in East Dunbartonshire can expect to live{" "}
+        Of all the numbers, this is the one that stays with us. A baby boy born in East Dunbartonshire can expect to live{" "}
         {menEast.toFixed(1)} years. In West Dunbartonshire it&apos;s {menWest.toFixed(1)}. For girls it&apos;s{" "}
         {womenEast.toFixed(1)} against {womenWest.toFixed(1)}. That&apos;s around five years of life. Bearsden and Clydebank
         are about three miles apart.
@@ -311,7 +311,7 @@ export default function Post() {
       <P>
         If you&apos;re thinking about where to live, the{" "}
         <Link href="/best-place-to-live-in-scotland">best places to live in Scotland</Link> ranking shows every area, and you
-        can <Link href="/compare-areas">compare any two areas</Link> the same way I did here.
+        can <Link href="/compare-areas">compare any two areas</Link> the same way we did here.
       </P>
     </Prose>
   );

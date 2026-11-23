@@ -535,8 +535,8 @@ export default function LetterBuilder() {
             </button>
           </form>
           <p className="mt-3 max-w-[64ch] text-[15px] leading-[1.55] text-[var(--ink-2)]">
-            I use your postcode to find your representatives, then add it to your email so their office knows you live
-            there. I do not save it and nothing is sent until you press send yourself.
+            We use your postcode to find your representatives, then add it to your email so their office knows you live
+            there. We do not save it and nothing is sent until you press send yourself.
           </p>
 
           <div aria-live="polite">
@@ -556,7 +556,7 @@ export default function LetterBuilder() {
                     <PersonCard representative={lookup.msp} heading="Your constituency MSP, in Edinburgh" />
                   ) : (
                     <p className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] p-4 text-[15px] leading-[1.5] text-[var(--warn-text)]">
-                      {lookup.mspUnavailable ?? "I could not find your MSP just now."}
+                      {lookup.mspUnavailable ?? "We could not find your MSP just now."}
                     </p>
                   )}
                 </div>
@@ -664,7 +664,7 @@ export default function LetterBuilder() {
 
           {topics.length === 0 ? (
             <p className="mt-4 rounded-[var(--r-s)] border-l-[3px] border-[var(--warn)] bg-[var(--surface-2)] px-4 py-3 text-[15px] leading-[1.55] text-[var(--ink-2)]">
-              Tick at least one thing above and I will work out who can act on it.
+              Tick at least one thing above and we will work out who can act on it.
             </p>
           ) : (
             <div className="mt-5 rounded-[var(--r-m)] bg-[var(--surface-2)] p-4 sm:p-5">
@@ -735,7 +735,7 @@ export default function LetterBuilder() {
           </div>
           <p className="mt-3 max-w-[64ch] text-[15px] leading-[1.55] text-[var(--ink-2)]">
             It is the part only you can write, and it goes first, before any of the asks. A sentence or two is plenty.
-            Nothing you type is sent to me or saved.
+            Nothing you type is sent to us or saved.
           </p>
           <button
             type="button"
@@ -754,7 +754,7 @@ export default function LetterBuilder() {
           {!lookup ? (
             <div className="flex flex-wrap items-center justify-between gap-4 rounded-[var(--r-m)] bg-[var(--surface-2)] p-5">
               <p className="max-w-[56ch] text-[16px] leading-[1.55] text-[var(--ink-2)]">
-                Your emails appear here once I know your postcode. I write one to your MP and one to your constituency
+                Your emails appear here once we know your postcode. We write one to your MP and one to your constituency
                 MSP, and each only asks for what that person can do.
               </p>
               <button type="button" onClick={goToPostcode} className="btn btn-primary">
@@ -766,12 +766,12 @@ export default function LetterBuilder() {
               <p className="text-[15px] leading-[1.55] text-[var(--ink-2)]">
                 {topics.length === 0 ? (
                   <>
-                    <strong>No email is ready yet.</strong> Tick at least one subject in step 2 and I will work out who
+                    <strong>No email is ready yet.</strong> Tick at least one subject in step 2 and we will work out who
                     can act on it.
                   </>
                 ) : (
                   <>
-                    <strong>I could not prepare this email just now.</strong> Your representative details are incomplete.
+                    <strong>We could not prepare this email just now.</strong> Your representative details are incomplete.
                     Try the postcode again in a moment, or use the official profile links to contact them directly.
                   </>
                 )}

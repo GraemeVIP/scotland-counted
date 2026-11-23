@@ -102,7 +102,7 @@ export default function Accessibility() {
               if the site itself is not.
             </p>
             <p>
-              If something here does not work for you, tell me and I will fix it. That is a
+              If something here does not work for you, tell us and we will fix it. That is a
               faster route than any statement.
             </p>
           </InShort>

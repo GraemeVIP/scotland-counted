@@ -139,7 +139,7 @@ export default function NewsletterSignup({
       >
         {state === "error"
           ? (window.location.hostname !== new URL(site.url).hostname ? "Sending is disabled in this preview. Use the live site at scotlandcounted.org.uk." : "That didn't send, try again in a moment, or use the RSS feed instead.")
-          : "A few emails a year, when the figures update. Your address is forwarded to me by Web3Forms, used only for these updates, and never sold."}
+          : "A few emails a year, when the figures update. Your address is forwarded to us by Web3Forms, used only for these updates, and never sold."}
       </p>
     </form>
   );

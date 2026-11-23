@@ -334,7 +334,7 @@ export default function Home() {
             <div>
               <p className="eyebrow">Check the work</p>
               <h2 id="trust" className="h2 mt-4 max-w-[13ch] text-[clamp(32px,4vw,50px)]">
-                Nothing here asks you to <span className="serif-accent text-[var(--action-text)]">take my word</span>
+                Nothing here asks you to <span className="serif-accent text-[var(--action-text)]">take our word</span>
               </h2>
               <p className="mt-4 max-w-[36ch] text-[17px] leading-[1.55] text-[var(--ink-2)]">
                 Every figure links to the official document it came from. When something is

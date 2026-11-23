@@ -67,8 +67,8 @@ export default function Post() {
 
       <H2 id="what-he-said">What he said, word for word</H2>
       <P>
-        The clip is 86 seconds long. Below it is every word. I&apos;ve starred out the swearing,
-        because some of the people who use this site are at school, but I haven&apos;t changed
+        The clip is 86 seconds long. Below it is every word. We&apos;ve starred out the swearing,
+        because some of the people who use this site are at school, but we haven&apos;t changed
         anything else.
       </P>
       <ClipPlayer
@@ -105,20 +105,20 @@ export default function Post() {
       <P>
         He&apos;s sitting on cold steps in the dark, rolling a cigarette out of a tin, and he looks
         like life hasn&apos;t been kind to him lately. He talks about housing like someone
-        who&apos;s felt it, not someone who&apos;s read about it. So most people, me included, have
-        assumed he&apos;s struggling, maybe without a home of his own. I&apos;d bet a fair bit on
-        it. But it is a bet. He might have a flat round the corner. I&apos;m writing about what he
+        who&apos;s felt it, not someone who&apos;s read about it. So most people, us included, have
+        assumed he&apos;s struggling, maybe without a home of his own. We&apos;d bet a fair bit on
+        it. But it is a bet. He might have a flat round the corner. We&apos;re writing about what he
         said, not deciding who he is.
       </P>
       <P>
-        What struck me, and I think most people who shared it, is the gap between how he looks and
+        What struck us, and we think most people who shared it, is the gap between how he looks and
         how he talks. &quot;Peppercorn rent.&quot; &quot;Fiduciary duty.&quot; &quot;Absolute,
         abject fraud.&quot; He doesn&apos;t stumble over any of it. Plenty of politicians
         couldn&apos;t deliver it that cleanly with a speechwriter and an autocue. That says more
         about us than about him. We decide what somebody knows before they&apos;ve opened their
         mouth.
       </P>
-      <P>So I checked what he said against the official figures.</P>
+      <P>So we checked what he said against the official figures.</P>
 
       <H2 id="sold">Were the council houses sold off?</H2>
       <P>Yes. This is the heart of what he&apos;s saying, and it&apos;s true.</P>
@@ -171,7 +171,7 @@ export default function Post() {
         child. Councils are meant to look after public money and property for the people they
         serve. His argument is that selling homes cheaply, homes that were never replaced, broke
         that trust. That&apos;s a political argument rather than a legal one. It&apos;s a serious
-        one, and I think it&apos;s the one he&apos;s really making.
+        one, and we think it&apos;s the one he&apos;s really making.
       </P>
       <P>
         One small thing. A peppercorn rent is a token rent, next to nothing. He uses it to mean the
@@ -204,7 +204,7 @@ export default function Post() {
         These figures mostly reflect homes advertised to new tenants, so some people who&apos;ve been
         in the same place for years pay less. But anyone looking for somewhere now faces these
         prices. And the help hasn&apos;t kept up: the most Universal Credit will pay towards private
-        rent is frozen below the average, as my guide to the{" "}
+        rent is frozen below the average, as our guide to the{" "}
         <Link href={postPath("local-housing-allowance-rent-shortfall-scotland")}>
           Local Housing Allowance rent shortfall
         </Link>{" "}
@@ -213,7 +213,7 @@ export default function Post() {
       <P>
         Not every home sold under Right to Buy is rented out now. Many are still lived in by the
         families who bought them, or by the people they sold to. But some have ended up with private
-        landlords, and when they&apos;re let, they&apos;re let at market rents. I couldn&apos;t find
+        landlords, and when they&apos;re let, they&apos;re let at market rents. We couldn&apos;t find
         an official count of how many in Scotland.
       </P>
 
@@ -251,7 +251,7 @@ export default function Post() {
 
       <H2 id="anyone">Hardship can reach anyone</H2>
       <P>
-        Whatever his story is, I think the clip landed because most of us know somebody who&apos;s
+        Whatever his story is, we think the clip landed because most of us know somebody who&apos;s
         one bad year from trouble. Maybe we are. Homelessness in Scotland doesn&apos;t look the way
         people imagine.
       </P>
@@ -287,7 +287,7 @@ export default function Post() {
         was.
       </P>
       <P>
-        I don&apos;t know if the man on the steps has a home tonight. I hope he does. But he&apos;s
+        We don&apos;t know if the man on the steps has a home tonight. We hope he does. But he&apos;s
         right that something was sold that can&apos;t easily be bought back, and the people paying
         for it now are the ones with the least choice. See{" "}
         <Link href={postPath("causes-of-poverty")}>the causes of poverty in Scotland</Link> for more
@@ -326,7 +326,7 @@ export default function Post() {
 
       <PostCTA
         title="Housing is decided at Holyrood"
-        body="Tell your MSP what rent costs where you live. I find your MSP from your postcode, add the housing figures and help you write the email in ordinary language."
+        body="Tell your MSP what rent costs where you live. We find your MSP from your postcode, add the housing figures and help you write the email in ordinary language."
         href="/email-your-mp-and-msp"
         cta="Email my MSP"
       />

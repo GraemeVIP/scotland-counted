@@ -59,7 +59,7 @@ export default function Post() {
       </P>
       <P>
         One word of caution. The survey has the middle full time weekly wage in Aberdeen jumping
-        a lot in a year, and a city sample this size can swing about. I&apos;d treat the level as
+        a lot in a year, and a city sample this size can swing about. We&apos;d treat the level as
         solid and any single year&apos;s change with care.
       </P>
 

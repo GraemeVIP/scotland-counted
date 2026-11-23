@@ -33,7 +33,7 @@ export default function Post() {
       <Lead>
         Every Nat 5 Modern Studies past paper from {PAST.firstYear} to {PAST.lastYear} is below, with
         its marking instructions, one tap to download. Then there&apos;s how to use them so they
-        actually help, and two full 10 mark source questions I&apos;ve built from real Scottish data.
+        actually help, and two full 10 mark source questions we&apos;ve built from real Scottish data.
       </Lead>
 
       <H2 id="where">Modern studies nat 5 past papers: download them here</H2>
@@ -102,7 +102,7 @@ export default function Post() {
 
       <H2 id="practice-knowledge">Practice knowledge questions with real data</H2>
       <P>
-        Written by me in the National 5 style, not taken from a paper. Each one has evidence on this
+        Written by us in the National 5 style, not taken from a paper. Each one has evidence on this
         site you can use as your recent example.
       </P>
       <UL>

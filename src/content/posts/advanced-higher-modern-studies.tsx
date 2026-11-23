@@ -89,7 +89,7 @@ export default function Post() {
       <H2 id="data">Where to find data</H2>
       <P>
         Using a wide range of sources is worth marks, and so is evaluating them. Below are the
-        official sources I use on this site, what each one is good for, and its main weakness. The
+        official sources we use on this site, what each one is good for, and its main weakness. The
         weakness is the part that earns you evaluation marks, so don&apos;t skip it.
       </P>
       <GuideTable

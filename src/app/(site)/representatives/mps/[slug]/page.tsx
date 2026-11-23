@@ -353,7 +353,7 @@ export default async function MpPage({ params }: { params: Promise<{ slug: strin
 
           <CTA
             title="You also have MSPs and councillors"
-            body="Enter your postcode. I find all the right people and put each request into the email for the person who can act on it."
+            body="Enter your postcode. We find all the right people and put each request into the email for the person who can act on it."
             href="/email-your-mp-and-msp"
             cta="Find everyone who represents me"
             secondaryHref="/representatives"

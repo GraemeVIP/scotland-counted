@@ -28,7 +28,7 @@ const HELP = [
   {
     href: "/email-your-mp-and-msp",
     title: "Email your MP and MSP",
-    body: "Enter a postcode and I find both, then write both emails for you.",
+    body: "Enter a postcode and we find both, then write both emails for you.",
   },
   {
     href: "/council-tax-bands-scotland",

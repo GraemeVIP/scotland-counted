@@ -93,8 +93,8 @@ export default function ConstituencyLetter({
       {state !== "ready" && (
         <>
           <p className="text-[17px] text-[var(--ink-2)] leading-[1.6] max-w-[62ch]">
-            One MP speaks for this area. I already know who it is, so you do not need to enter
-            anything. Press the button and I will write the email, with the figures from this
+            One MP speaks for this area. We already know who it is, so you do not need to enter
+            anything. Press the button and we will write the email, with the figures from this
             page, ready for you to read and send.
           </p>
 
@@ -202,7 +202,7 @@ export default function ConstituencyLetter({
           than asking one.
         </p>
         <p className="text-[16px] text-[var(--ink-2)] leading-[1.6] max-w-[62ch] mt-2.5">
-          Put your postcode in and I will find your MSP and write that email too. It takes a
+          Put your postcode in and we will find your MSP and write that email too. It takes a
           few seconds.
         </p>
         <form onSubmit={goToFullFlow} className="mt-4 grid gap-2.5 sm:grid-cols-[minmax(0,240px)_auto] sm:justify-start">
@@ -233,7 +233,7 @@ export default function ConstituencyLetter({
           </button>
         </form>
         <p className="mt-3 text-[15px] text-[var(--muted)] leading-[1.5]">
-          I use your postcode to find your representatives and add it to your local draft. I do
+          We use your postcode to find your representatives and add it to your local draft. We do
           not save it or send the email.
         </p>
       </div>

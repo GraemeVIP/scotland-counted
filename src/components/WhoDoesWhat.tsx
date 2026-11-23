@@ -153,7 +153,7 @@ export default function WhoDoesWhat({
           do not need to pick.
         </p>
         <p className="text-[17px] leading-[1.6] mt-3 max-w-[64ch] opacity-85">
-          I automatically write to your MP and your constituency MSP. Each email only asks for
+          We automatically write to your MP and your constituency MSP. Each email only asks for
           things that person can actually do. You do not need to have voted for them. They still
           represent you.
         </p>
@@ -181,7 +181,7 @@ export default function WhoDoesWhat({
           </p>
           <p className="mt-3">
             MP areas and MSP areas are drawn differently and do not sit on top of each other. That
-            is the only reason I ask for a postcode to find your MSP.
+            is the only reason we ask for a postcode to find your MSP.
           </p>
         </EvidenceDetails>
       )}

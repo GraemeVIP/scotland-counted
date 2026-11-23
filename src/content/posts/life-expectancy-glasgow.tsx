@@ -131,7 +131,7 @@ export default function Post() {
         poverty side of the story is in{" "}
         <Link href="/glasgow-poverty-statistics">Glasgow poverty statistics</Link> and{" "}
         <Link href="/why-poverty-is-worse-in-glasgow">why poverty is worse in Glasgow</Link>. Drug
-        deaths follow the same pattern, and I&apos;ve covered them in{" "}
+        deaths follow the same pattern, and we&apos;ve covered them in{" "}
         <Link href="/blog/drug-deaths-scotland-deprivation">drug deaths and deprivation</Link>.
       </P>
 

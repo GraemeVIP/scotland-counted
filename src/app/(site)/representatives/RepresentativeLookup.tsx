@@ -282,7 +282,7 @@ export default function RepresentativeLookup() {
               <div>
                 <h3 className="h3">Want them to hear from you?</h3>
                 <p className="mt-2 text-[15.5px] leading-[1.55] text-[var(--ink-2)]">
-                  I can add your local facts and prepare separate emails for your MP and MSP. You
+                  We can add your local facts and prepare separate emails for your MP and MSP. You
                   still read and approve everything.
                 </p>
               </div>

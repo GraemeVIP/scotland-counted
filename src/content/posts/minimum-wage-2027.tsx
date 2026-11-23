@@ -30,7 +30,7 @@ export default function Post() {
       <Lead>
         From 1 April 2027 the legal minimum for anyone aged 21 or over goes up to{" "}
         {pounds(next.over21, true)} an hour. That&apos;s {pence(current.over21, next.over21)} more than
-        now. Every other rate goes up as well, and I&apos;ve set them all out below with what they
+        now. Every other rate goes up as well, and we&apos;ve set them all out below with what they
         mean for a pay packet in Scotland.
       </Lead>
 
@@ -61,7 +61,7 @@ export default function Post() {
       <H2 id="yearly">What {pounds(next.over21, true)} an hour adds up to</H2>
       <P>
         The law sets an hourly rate, not a salary. To turn it into something you can plan with,
-        I use {FULL_TIME.hours} paid hours a week for all {FULL_TIME.weeks} weeks of the year.
+        we use {FULL_TIME.hours} paid hours a week for all {FULL_TIME.weeks} weeks of the year.
       </P>
       <BigStat
         value={pounds(minimumWageNext.annual, true)}
@@ -71,7 +71,7 @@ export default function Post() {
 
       <H2 id="take-home">Take home pay in Scotland at {pounds(next.over21, true)}</H2>
       <P>
-        I&apos;ve run both rates through the same tax engine as the site&apos;s take home pay
+        We&apos;ve run both rates through the same tax engine as the site&apos;s take home pay
         calculator. One thing to know: the Scottish Government hasn&apos;t set its income tax bands
         for 2027/28 yet. So this uses this year&apos;s rules. If the bands move, the answer moves a
         little with them.
@@ -111,7 +111,7 @@ export default function Post() {
       </P>
       <P>
         Because the rate is the same everywhere, the real difference from place to place is what
-        the money buys. I&apos;ve done that sum, rent and council tax included, for four cities:
+        the money buys. We&apos;ve done that sum, rent and council tax included, for four cities:
       </P>
       <UL>
         {CITY_ORDER.map((slug) => (
@@ -121,7 +121,7 @@ export default function Post() {
         ))}
       </UL>
       <P>
-        For this year&apos;s rates and the full working on take home pay, see my{" "}
+        For this year&apos;s rates and the full working on take home pay, see our{" "}
         <Link href="/minimum-wage-scotland">minimum wage Scotland</Link> guide.
       </P>
 
@@ -134,7 +134,7 @@ export default function Post() {
       <P>
         Once the legal minimum reaches {pounds(next.over21, true)}, the gap between the two is{" "}
         {pounds(gap.hourly, true)} an hour. Over a full time year that&apos;s{" "}
-        {pounds(gap.annual, true)} before tax. More on how the two compare in my{" "}
+        {pounds(gap.annual, true)} before tax. More on how the two compare in our{" "}
         <Link href="/real-living-wage-scotland">real Living Wage Scotland</Link> guide.
       </P>
 

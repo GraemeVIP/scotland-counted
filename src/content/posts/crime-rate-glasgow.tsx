@@ -89,7 +89,7 @@ export default function Post() {
         Theft and other dishonesty is the biggest group, {n(C.groups[2].glasgow)} crimes.
         {shoplifting && (
           <>
-            {" "}Nearly half of that is shoplifting, {n(shoplifting.y2025)} cases, which I&apos;ve
+            {" "}Nearly half of that is shoplifting, {n(shoplifting.y2025)} cases, which we&apos;ve
             looked at in{" "}
             <Link href="/blog/shoplifting-scotland-record-high">shoplifting hits a record high</Link>.
           </>
@@ -117,7 +117,7 @@ export default function Post() {
             {changePct(allSexual.glasgow2025, allSexual.glasgow2026)}%, the same rise as Scotland.
           </>
         )}{" "}
-        I went through what is behind the recent rise, and what the records can and can&apos;t
+        We went through what is behind the recent rise, and what the records can and can&apos;t
         tell us, in{" "}
         <Link href="/blog/glasgow-sex-crime-rise-migrants">Glasgow sex crimes went up 28%</Link>.
       </P>

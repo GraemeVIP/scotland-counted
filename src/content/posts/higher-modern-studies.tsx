@@ -117,7 +117,7 @@ export default function Post() {
         </LI>
       </UL>
       <P>
-        I&apos;ve written three Paper 2 style practice questions using real Scottish data on the{" "}
+        We&apos;ve written three Paper 2 style practice questions using real Scottish data on the{" "}
         <Link href="/higher-modern-studies-past-papers">Higher modern studies past papers</Link> page.
       </P>
 

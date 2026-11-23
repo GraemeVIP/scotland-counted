@@ -128,7 +128,7 @@ export default function Post() {
 
       <H2 id="other-discounts">Council tax discounts Scotland: the others worth knowing</H2>
       <P>
-        The single person discount is the most common one. These are the others I&apos;d check.
+        The single person discount is the most common one. These are the others we&apos;d check.
       </P>
       <H3>A home adapted for a disabled person</H3>
       <P>

@@ -269,8 +269,8 @@ export default function Post() {
 
       <H2 id="model-answers">National 5 modern studies model answers</H2>
       <P>
-        These are my own example answers, written to show the shape markers look for. They
-        aren&apos;t official, and I haven&apos;t given them a mark. Compare them with the marking
+        These are our own example answers, written to show the shape markers look for. They
+        aren&apos;t official, and we haven&apos;t given them a mark. Compare them with the marking
         instructions that come with each past paper.
       </P>
       <Aside title="Describe, in detail, two ways the Scottish Government has tried to reduce social and economic inequality. (4 marks)">

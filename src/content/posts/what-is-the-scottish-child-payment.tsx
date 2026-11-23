@@ -210,13 +210,13 @@ export default function Post() {
 
       <PostCTA
         title="Ask your MSP what they are doing about it"
-        body="I will find your MSP, put your area's own child poverty figure into the email and write it for you. You just read it and press send."
+        body="We will find your MSP, put your area's own child poverty figure into the email and write it for you. You just read it and press send."
         href="/email-your-mp-and-msp"
         cta="Email my MSP"
       />
 
       <P>
-        Every figure I publish is sourced. See the{" "}
+        Every figure we publish is sourced. See the{" "}
         <Link href="/solutions-to-poverty-in-scotland">costed list of what would actually help</Link>, the{" "}
         <Link href="/benefits">benefits guides</Link>, or{" "}
         <Link href="/glossary">the plain English glossary</Link>.

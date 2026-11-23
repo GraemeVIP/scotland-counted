@@ -13,7 +13,7 @@ export default function Organisations() {
   return <>
     <Breadcrumbs crumbs={[{name:"Home",path:"/"},{name:"For organisations",path:"/for-organisations"}]} />
     <Page>
-      <PageHeader eyebrow="For charities, housing teams and community organisations" title="Local evidence you can put to work." lede="Need to explain what is happening in a Scottish community? Start with the free data here, or ask me about a focused piece of research for your project." />
+      <PageHeader eyebrow="For charities, housing teams and community organisations" title="Local evidence you can put to work." lede="Need to explain what is happening in a Scottish community? Start with the free data here, or ask us about a focused piece of research for your project." />
       <div className="grid gap-5 md:grid-cols-2">
         <section className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] p-6 sm:p-8">
           <p className="kicker text-[var(--brand)] mb-3">Available now · free</p>
@@ -24,7 +24,7 @@ export default function Organisations() {
         <section className="rounded-[var(--r-m)] border-2 border-[var(--brand)] p-6 sm:p-8">
           <p className="kicker text-[var(--brand)] mb-3">Commissioned work · by agreement</p>
           <h2 className="h2">Ask for a local evidence brief</h2>
-          <p className="mt-4 text-[17px] leading-relaxed text-[var(--ink-2)]">A clearly sourced brief for a funding application, community presentation or service planning discussion. Tell me the place, the question and what you need to do with the answer.</p>
+          <p className="mt-4 text-[17px] leading-relaxed text-[var(--ink-2)]">A clearly sourced brief for a funding application, community presentation or service planning discussion. Tell us the place, the question and what you need to do with the answer.</p>
           <Link href="/methods" className="btn btn-primary mt-5">Read our methods →</Link>
           <p className="mt-3 text-[15px] leading-relaxed text-[var(--muted)]">Scope, price and timing are agreed before any paid work starts.</p>
         </section>

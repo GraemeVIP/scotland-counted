@@ -1991,7 +1991,7 @@ export const posts: Post[] = [
     description:
       "Minimum wage in Scotland is £12.71 an hour in 2026, rising to £13.21 in April 2027. See every age rate, yearly pay and take home pay after tax and NI.",
     standfirst:
-      "£12.71 an hour sounds clear. A payslip is not. I have done the tax and National Insurance working for a 37.5 hour week so you can see what reaches the bank.",
+      "£12.71 an hour sounds clear. A payslip is not. We have done the tax and National Insurance working for a 37.5 hour week so you can see what reaches the bank.",
     date: "2026-08-01",
     checked: "2026-10-29",
     updated: "2026-10-29",
@@ -3593,7 +3593,7 @@ export const posts: Post[] = [
     title: "Minimum wage in Edinburgh Scotland: the legal rate and what local jobs pay",
     seoTitle: "Minimum Wage in Edinburgh Scotland 2026: Local Pay",
     description: `The minimum wage in Edinburgh is ${pounds(MINIMUM_WAGE.current.over21, true)} an hour, the same as the rest of the UK. With rents at ${pounds(CITY_PAY["city-of-edinburgh"].rent.oneBed)} a month, here's what it leaves you.`,
-    standfirst: "Same legal rate as Dundee or London. Edinburgh's rents are what make it go less far, and I've done the sums to show by how much.",
+    standfirst: "Same legal rate as Dundee or London. Edinburgh's rents are what make it go less far, and we've done the sums to show by how much.",
     date: "2026-10-29",
     checked: "2026-10-29",
     category: "money-and-bills",
@@ -4333,7 +4333,7 @@ export const posts: Post[] = [
       },
       {
         q: "Are the practice questions on this page official?",
-        a: "No. I wrote them in the style of Paper 2 using real Scottish figures, with hints on what a strong answer covers. For official questions and marking, use the past papers.",
+        a: "No. We wrote them in the style of Paper 2 using real Scottish figures, with hints on what a strong answer covers. For official questions and marking, use the past papers.",
       },
     ],
     sourceIds: [

@@ -69,7 +69,7 @@ export default function Post() {
         <p>
           Living on your own takes 25% off the council tax part of the bill. And if rent is
           swallowing most of your pay, check whether you can get help with housing costs through
-          Universal Credit. My guide to the{" "}
+          Universal Credit. Our guide to the{" "}
           <Link href="/blog/local-housing-allowance-rent-shortfall-scotland">Local Housing Allowance</Link>{" "}
           explains the limits.
         </p>
@@ -100,7 +100,7 @@ export default function Post() {
       </UL>
       <P>
         So Edinburgh is a well paid city with a long tail of low paid work underneath. If you want
-        the wider picture, I&apos;ve covered it in{" "}
+        the wider picture, we&apos;ve covered it in{" "}
         <Link href="/average-salary-scotland">average salary Scotland</Link>.
       </P>
 

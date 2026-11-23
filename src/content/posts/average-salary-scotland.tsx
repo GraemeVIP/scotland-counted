@@ -48,7 +48,7 @@ export default function Post() {
         <p>
           Add up everyone&apos;s pay and divide by the number of people and you get{" "}
           {pounds(S.annualMean)}. That&apos;s the mean. A small number of very high earners pull it
-          up, so I use the middle figure, the median, because it&apos;s much closer to what an
+          up, so we use the middle figure, the median, because it&apos;s much closer to what an
           ordinary full time job pays.
         </p>
       </Aside>
@@ -97,7 +97,7 @@ export default function Post() {
       <P>
         Edinburgh pay comes with Edinburgh rents, though. A one bedroom flat in the Lothian area
         averaged {pounds(CITY_PAY["city-of-edinburgh"].rent.oneBed)} a month in{" "}
-        {PRIVATE_RENTS.month}, the most of Scotland&apos;s four big cities. I&apos;ve worked through what that leaves on
+        {PRIVATE_RENTS.month}, the most of Scotland&apos;s four big cities. We&apos;ve worked through what that leaves on
         the lowest wage in{" "}
         <Link href={CITY_PAY["city-of-edinburgh"].path}>minimum wage in Edinburgh</Link>.
       </P>
@@ -158,14 +158,14 @@ export default function Post() {
         even the lowest tenth here. That&apos;s partly because a lot of minimum wage work is part
         time, and part time jobs aren&apos;t in these figures at all. Count everyone, full and part
         time, and the middle salary drops to {pounds(S.allEmployeesAnnual)}. The rates and take home
-        pay at the bottom end are in my{" "}
+        pay at the bottom end are in our{" "}
         <Link href="/minimum-wage-scotland">minimum wage Scotland</Link> guide.
       </P>
 
       <H2 id="source">Where these figures come from</H2>
       <P>
         The pay figures on this page come from the ONS Annual Survey of Hours and Earnings. Each
-        April it asks employers about 1% of employees, picked from PAYE records. I think it&apos;s
+        April it asks employers about 1% of employees, picked from PAYE records. We think it&apos;s
         the best picture of pay by council that&apos;s published. It doesn&apos;t cover the self
         employed, and full time means more than 30 paid hours a week.
       </P>

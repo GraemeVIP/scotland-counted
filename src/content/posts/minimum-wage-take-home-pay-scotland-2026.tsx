@@ -171,7 +171,7 @@ export default function Post() {
       <H2 id="full-time">Minimum wage Scotland yearly: full time and part time pay</H2>
       <P>
         There is no official &ldquo;minimum wage salary&rdquo; because the law sets an hourly rate.
-        To make it useful, I use {FULL_TIME.hours} paid hours a week for all {FULL_TIME.weeks} weeks.
+        To make it useful, we use {FULL_TIME.hours} paid hours a week for all {FULL_TIME.weeks} weeks.
       </P>
       <BigStat
         value={pounds(minimumWageNow.annual, true)}

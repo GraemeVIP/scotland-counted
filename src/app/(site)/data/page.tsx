@@ -268,7 +268,7 @@ const FILES: DataFile[] = [
 const GROUPS = [
   {
     kind: "prepared" as const,
-    title: "Files I prepared",
+    title: "Files we prepared",
     blurb:
       "Built from the sources below and documented so the working can be checked. The data files open cleanly in a spreadsheet, with readable columns and one row per observation; the council index also includes its method, validation report and hashed source manifest.",
   },
@@ -276,7 +276,7 @@ const GROUPS = [
     kind: "original" as const,
     title: "Original files, exactly as published",
     blurb:
-      "Saved and served unaltered, down to the publisher's own column names, NOMIS uses DATE_NAME, GEOGRAPHY_NAME and OBS_VALUE. Nothing has been renamed, reordered, rounded or filtered. Use these to check my working.",
+      "Saved and served unaltered, down to the publisher's own column names, NOMIS uses DATE_NAME, GEOGRAPHY_NAME and OBS_VALUE. Nothing has been renamed, reordered, rounded or filtered. Use these to check our working.",
   },
 ];
 
@@ -302,12 +302,12 @@ export default function Data() {
         <PageHeader
           eyebrow="Free to download and reuse"
           title="Download Scotland data"
-          lede="This is the proof behind the simple pages. Twenty four downloadable files: 19 CSVs, two Excel workbooks, two method notes and one source manifest. Seventeen I prepared and documented; the other seven are the publishers' own files, served exactly as they came, so you can check my working against them."
+          lede="This is the proof behind the simple pages. Twenty four downloadable files: 19 CSVs, two Excel workbooks, two method notes and one source manifest. Seventeen we prepared and documented; the other seven are the publishers' own files, served exactly as they came, so you can check our working against them."
           panel={
             <HeaderFacts
               items={[
                 { value: String(FILES.length), label: "files to download, free to reuse" },
-                { value: String(FILES.filter((f) => f.kind === "prepared").length), label: "files I prepared and documented" },
+                { value: String(FILES.filter((f) => f.kind === "prepared").length), label: "files we prepared and documented" },
                 { value: String(FILES.filter((f) => f.kind === "original").length), label: "publishers' own files, exactly as they came" },
               ]}
             />
@@ -373,17 +373,17 @@ export default function Data() {
             and Loughborough University. Their licence rules still apply to the original files.
           </p>
           <p>
-            My cleaned files, charts and words are free to reuse if you credit {site.name}. You do
+            Our cleaned files, charts and words are free to reuse if you credit {site.name}. You do
             not need permission. Journalists and researchers can ask for a different file format.
           </p>
           <p>
-            Any calculation I made is explained on the <Link href="/methods">how I counted it page</Link>.
+            Any calculation we made is explained on the <Link href="/methods">how we counted it page</Link>.
           </p>
         </Col>
 
         <CTA
-          title="If a number does not match, tell me"
-          body="People can make mistakes when copying or cleaning data. I check reported errors, fix confirmed mistakes and keep a public record."
+          title="If a number does not match, tell us"
+          body="People can make mistakes when copying or cleaning data. We check reported errors, fix confirmed mistakes and keep a public record."
           href="/corrections"
           cta="Report an error"
           secondaryHref="/methods"

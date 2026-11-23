@@ -253,7 +253,7 @@ export default function PostcodeStart({
           {/* Only now, and only if they want it. */}
           <div className="mt-8 rounded-[var(--r-s)] border border-[var(--action)] bg-[var(--action-tint)] p-4 sm:flex sm:items-center sm:justify-between sm:gap-5 sm:p-5">
             <p className="text-[15.5px] leading-[1.5] text-[var(--ink-2)]">
-              <strong className="text-[var(--ink)]">Want something changed?</strong> I can put your area&rsquo;s figures
+              <strong className="text-[var(--ink)]">Want something changed?</strong> We can put your area&rsquo;s figures
               into an email to the right person. You read it before anything is sent.
             </p>
             <button
@@ -322,7 +322,7 @@ export default function PostcodeStart({
       </form>
 
       <p className="mt-3 text-[15px] text-[var(--ink-2)] leading-[1.5]">
-        Your local figures first. Nothing is sent to anybody unless you ask for it, and I do not
+        Your local figures first. Nothing is sent to anybody unless you ask for it, and we do not
         save your postcode.
       </p>
 

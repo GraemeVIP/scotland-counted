@@ -19,7 +19,7 @@ import { postPath } from "@/lib/routeMap";
  * a card keeps all of that legible without restyling the tool.
  */
 
-const TRUST = ["Free, no account", "Every figure sourced", "I never store your postcode"];
+const TRUST = ["Free, no account", "Every figure sourced", "We never store your postcode"];
 
 /**
  * Three expenses stories on the first screen. A big, exact figure with a

@@ -29,7 +29,7 @@ export default function Post() {
 
       <H2 id="ready">What to have ready before you call</H2>
       <P>
-        I&apos;d have these in front of you. It makes the call shorter and saves you being asked to
+        Have these in front of you. It makes the call shorter and saves you being asked to
         ring back.
       </P>
       <UL>

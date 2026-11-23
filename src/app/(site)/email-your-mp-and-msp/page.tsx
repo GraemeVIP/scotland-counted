@@ -27,8 +27,8 @@ const OTHER = [
     body: "Ask what your MP or MSP will do, and what they expect the local poverty figure to be in five years. A clear question is harder to avoid.",
   },
   {
-    title: "Correct me in public",
-    body: "If a figure is wrong, tell me. I will check it, fix any error and keep a public record of the change.",
+    title: "Correct us in public",
+    body: "If a figure is wrong, tell us. We will check it, fix any error and keep a public record of the change.",
   },
 ];
 
@@ -43,8 +43,8 @@ export default function TakeAction() {
       <Page>
         <PageHeader
           eyebrow="No politics knowledge needed"
-          title="I write the emails to your MP and MSP"
-          lede="Enter your postcode. I find the right two people, put your area's real figures into an email to each, and open both in your email app. You read them, change anything you like, and press send."
+          title="We write the emails to your MP and MSP"
+          lede="Enter your postcode. We find the right two people, put your area's real figures into an email to each, and open both in your email app. You read them, change anything you like, and press send."
         >
           {/*
             The other door, named at the door. This page is for getting

@@ -102,7 +102,7 @@ export default function Post() {
         Council Tax Reduction isn&apos;t part of Universal Credit. It&apos;s a separate claim to
         your council. If you said you wanted it when you claimed Universal Credit, the DWP may pass
         your details on. South Lanarkshire Council says you still need to send your own
-        application, and I&apos;d do the same wherever you live, so nothing falls through the gap.
+        application, and we&apos;d do the same wherever you live, so nothing falls through the gap.
       </P>
       <P>
         Universal Credit doesn&apos;t give you a full reduction automatically the way some older
@@ -112,7 +112,7 @@ export default function Post() {
       <P>
         Once you start earning, the reduction tapers away rather than stopping dead. That&apos;s
         the {CTR.taperPercent}% rule above. Tell the council when your hours or pay change. If
-        you&apos;re weighing up more hours, my piece on{" "}
+        you&apos;re weighing up more hours, our piece on{" "}
         <Link href={postPath("universal-credit-when-you-work-more-hours")}>
           Universal Credit when you work more hours
         </Link>{" "}
@@ -260,7 +260,7 @@ export default function Post() {
 
       <PostCTA
         title="Find your council and claim"
-        body="Every council runs its own claim form. Put in your postcode and I'll show you your council and what your band costs. Then claim on the council's own website."
+        body="Every council runs its own claim form. Put in your postcode and we'll show you your council and what your band costs. Then claim on the council's own website."
         href="/council-tax-bands-scotland"
         cta="Find my council"
       />

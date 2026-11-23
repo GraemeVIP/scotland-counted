@@ -24,7 +24,7 @@ function error(message: string, status: number) {
 export async function GET(request: Request) {
   const slug = new URL(request.url).searchParams.get("constituency")?.trim() ?? "";
   const constituency = getConstituency(slug);
-  if (!constituency) return error("I do not have a page for that area.", 404);
+  if (!constituency) return error("We do not have a page for that area.", 404);
 
   try {
     const snapshot = getMpByConstituencyName(constituency.name);

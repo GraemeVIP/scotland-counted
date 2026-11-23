@@ -31,7 +31,7 @@ export default function Post() {
 
       <H2 id="money">What&apos;s left after rent and council tax in Dundee</H2>
       <P>
-        I&apos;ll start with the bit that matters most when money is tight. The average one bedroom
+        We&apos;ll start with the bit that matters most when money is tight. The average one bedroom
         rent in the {city.rentArea} rental area was {pounds(city.rent.oneBed)} a month in{" "}
         {PRIVATE_RENTS.month}, the lowest of the four big city areas. That&apos;s about{" "}
         {Math.round(city.rentShare * 100)}% of a full time minimum wage after tax.

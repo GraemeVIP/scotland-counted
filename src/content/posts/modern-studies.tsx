@@ -29,7 +29,7 @@ export default function Post() {
     <Prose>
       <Lead>
         Modern Studies is the Scottish school subject about how power works, who has it, and what
-        it does to people&apos;s lives. I&apos;ve put the official course facts and the up to date
+        it does to people&apos;s lives. We&apos;ve put the official course facts and the up to date
         Scottish evidence on this site in one place, so pupils and teachers can find both quickly.
       </Lead>
 
@@ -79,7 +79,7 @@ export default function Post() {
         caption={`Checked against the course specifications on 29 October 2026. All three exams are on ${EXAMS.date}.`}
       />
       <P>
-        Past papers and their marking instructions are free from Qualifications Scotland. I explain
+        Past papers and their marking instructions are free from Qualifications Scotland. We explain
         where to find them and how to use them well on the{" "}
         <Link href="/nat-5-modern-studies-past-papers">Nat 5 modern studies past papers</Link> and{" "}
         <Link href="/higher-modern-studies-past-papers">Higher modern studies past papers</Link>{" "}

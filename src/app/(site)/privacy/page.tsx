@@ -70,7 +70,7 @@ export default function Privacy() {
             Calculator sums run in your browser.
           </p>
           <p>
-            If you join the mailing list I keep your email address, and nothing else. You can have
+            If you join the mailing list we keep your email address, and nothing else. You can have
             it deleted at any time by asking.
           </p>
         </InShort>
@@ -82,11 +82,11 @@ export default function Privacy() {
             {[
               {
                 t: "Joining the mailing list",
-                b: "Your email address is submitted through Web3Forms to my inbox and used for occasional site updates. There is no name field. Reply “stop” to an update or contact me to leave the list.",
+                b: "Your email address is submitted through Web3Forms to our inbox and used for occasional site updates. There is no name field. Reply “stop” to an update or contact us to leave the list.",
               },
               {
                 t: "Using the contact form",
-                b: "Your message and the reason you picked are sent through Web3Forms to my inbox. Name and email are optional. Add an email address only if you want me to be able to reply.",
+                b: "Your message and the reason you picked are sent through Web3Forms to our inbox. Name and email are optional. Add an email address only if you want us to be able to reply.",
               },
               {
                 t: "Submitting an MSP review",

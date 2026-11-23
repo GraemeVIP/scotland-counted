@@ -29,7 +29,7 @@ export default function CouncilWatch({ councilName }: { councilName?: string }) 
         {shortName ? `Get told when ${shortName}'s figures change` : "Get told when the figures change"}
       </h2>
       <p className="mb-5 max-w-[62ch] text-[16px] leading-[1.6] text-[var(--ink-2)]">
-        Councils publish new figures every year, and almost nobody hears about it. I read the
+        Councils publish new figures every year, and almost nobody hears about it. We read the
         audits and the budget papers when they land, and send one email when the numbers move.
         A few times a year. Nothing else, ever.
       </p>

@@ -58,7 +58,7 @@ export default function Post() {
         band by accident.
       </P>
       <P>
-        Once you know your band, you can see exactly what it costs where you live. I&apos;ve put
+        Once you know your band, you can see exactly what it costs where you live. We&apos;ve put
         every council on its own page, for example{" "}
         <Link href={councilTaxPath("glasgow-city")}>Glasgow council tax bands</Link> and{" "}
         <Link href={councilTaxPath("city-of-edinburgh")}>Edinburgh council tax bands</Link>, with
@@ -160,7 +160,7 @@ export default function Post() {
       </Aside>
 
       <H2 id="council-tax-check">Council tax check Scotland: is your bill right?</H2>
-      <P>Once you&apos;ve got your band, these are the four things I&apos;d check on the bill.</P>
+      <P>Once you&apos;ve got your band, these are the four things we&apos;d check on the bill.</P>
       <UL>
         <LI>
           <strong>The band.</strong> Same as the Assessor&apos;s list?
@@ -183,7 +183,7 @@ export default function Post() {
         </LI>
       </UL>
       <P>
-        If you want the full picture of how the bill fits together, my guide on{" "}
+        If you want the full picture of how the bill fits together, our guide on{" "}
         <Link href={postPath("how-council-tax-works-scotland")}>how council tax works in Scotland</Link>{" "}
         covers it, and the <Link href="/council-tax-increase-scotland">council tax increase</Link>{" "}
         page shows how much each council put it up this year.

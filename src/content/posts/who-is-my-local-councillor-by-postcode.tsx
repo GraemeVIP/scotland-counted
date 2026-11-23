@@ -49,7 +49,7 @@ export default function Post() {
       <RepresentativeLookup />
       <P>
         The box shows your MSPs and MP as well. If your problem is about the NHS, benefits or the
-        law, they&apos;re the ones to ask, and my guide to{" "}
+        law, they&apos;re the ones to ask, and our guide to{" "}
         <Link href="/who-is-my-msp">who is my MSP</Link> explains which does what.
       </P>
 

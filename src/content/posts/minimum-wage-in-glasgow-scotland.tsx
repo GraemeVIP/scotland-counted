@@ -58,7 +58,7 @@ export default function Post() {
         {pounds(city.residentFullTimeAnnual ?? 0)}, below it. People living in East Renfrewshire
         earn {pounds(eastRen.annual ?? 0)} and in East Dunbartonshire {pounds(eastDun.annual ?? 0)}.
         That suggests plenty of the city&apos;s better paid jobs go to people who live in the
-        suburbs round it. I&apos;ve gone into why that matters in{" "}
+        suburbs round it. We&apos;ve gone into why that matters in{" "}
         <Link href="/why-poverty-is-worse-in-glasgow">why poverty is worse in Glasgow</Link>.
       </P>
 

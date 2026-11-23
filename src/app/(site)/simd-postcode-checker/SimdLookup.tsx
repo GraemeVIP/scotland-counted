@@ -68,7 +68,7 @@ export default function SimdLookup({ mps = [] }: { mps?: MpLite[] }) {
 
       if (response.status === 404) {
         setStatus("error");
-        setError("I could not find that postcode. Check the spelling and try again.");
+        setError("We could not find that postcode. Check the spelling and try again.");
         return;
       }
       if (!response.ok) {
@@ -81,7 +81,7 @@ export default function SimdLookup({ mps = [] }: { mps?: MpLite[] }) {
       const r = data.result;
       if (!r) {
         setStatus("error");
-        setError("I could not find that postcode.");
+        setError("We could not find that postcode.");
         return;
       }
       if (r.country !== "Scotland") {

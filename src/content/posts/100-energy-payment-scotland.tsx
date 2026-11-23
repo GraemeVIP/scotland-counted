@@ -95,7 +95,7 @@ export default function Post() {
         <a href={SCOTTISH_ASSESSORS.url} target="_blank" rel="noopener noreferrer">
           Scottish Assessors website
         </a>{" "}
-        with your postcode. My guide to{" "}
+        with your postcode. Our guide to{" "}
         <Link href={postPath("check-council-tax-band")}>checking your council tax band</Link> walks
         through it step by step, and the{" "}
         <Link href="/council-tax-bands-scotland">council tax bands page</Link> shows what each band
@@ -122,7 +122,7 @@ export default function Post() {
         <LI>what happens if you don&apos;t pay by direct debit, or don&apos;t have a bank account</LI>
         <LI>how it works if your bill is already cut to nothing by Council Tax Reduction</LI>
       </UL>
-      <P>I&apos;ll update this page as soon as any of that is announced.</P>
+      <P>We&apos;ll update this page as soon as any of that is announced.</P>
 
       <Aside title="Watch out for scams">
         <p>

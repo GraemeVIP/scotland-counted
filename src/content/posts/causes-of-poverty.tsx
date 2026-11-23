@@ -52,7 +52,7 @@ export default function Post() {
       <P>
         Poverty here means <G t="relative-poverty">relative poverty</G>{" "}
         <G t="ahc">after housing costs</G>: a household left with less than 60% of the typical UK
-        income once the rent or mortgage is paid. If that is new to you, my{" "}
+        income once the rent or mortgage is paid. If that is new to you, our{" "}
         <Link href={postPath("what-does-poverty-mean")}>what does poverty mean</Link> explainer
         covers it in five minutes.
       </P>

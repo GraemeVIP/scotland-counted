@@ -144,8 +144,8 @@ export default function Areas() {
         <AreaGrid className="py-14 sm:py-16" />
 
         <CTA
-          title="Enter your postcode and I do the rest"
-          body="I find your area, MP and MSP automatically, add the local facts and prepare two addressed emails."
+          title="Enter your postcode and we do the rest"
+          body="We find your area, MP and MSP automatically, add the local facts and prepare two addressed emails."
           href="/email-your-mp-and-msp"
           cta="Find my MP and MSP"
           secondaryHref={`/areas/${byLevel[0].slug}`}

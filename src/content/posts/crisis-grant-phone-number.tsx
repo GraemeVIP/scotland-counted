@@ -10,7 +10,7 @@ export default function Post() {
     <Prose>
       <Lead>
         There&apos;s no single crisis grant phone number for Scotland. Each council runs its own
-        Scottish Welfare Fund, so you ring the council where you live. I&apos;ve put all 32 below,
+        Scottish Welfare Fund, so you ring the council where you live. We&apos;ve put all 32 below,
         taken from each council&apos;s own crisis grant page.
       </Lead>
 
@@ -61,7 +61,7 @@ export default function Post() {
       <P>
         It&apos;s money you don&apos;t pay back, for an emergency like losing your job, a fire or
         flood, or having nothing left for food and heating. You need to be 16 or over and on a low
-        income or certain benefits. The full rules are in my{" "}
+        income or certain benefits. The full rules are in our{" "}
         <Link href="/crisis-grant-scotland">crisis grant Scotland</Link> guide, and the council by
         council award rates are in the{" "}
         <Link href="/blog/crisis-grant-acceptance-rates-scotland-councils">crisis grant acceptance rates</Link>{" "}
@@ -74,7 +74,7 @@ export default function Post() {
 
       <PostCTA
         title="Not sure which council you're in?"
-        body="Put in your postcode and I'll show you your council, then find its number in the table above."
+        body="Put in your postcode and we'll show you your council, then find its number in the table above."
         href="/areas"
         cta="Find my council"
       />

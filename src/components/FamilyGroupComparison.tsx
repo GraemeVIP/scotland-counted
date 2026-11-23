@@ -48,7 +48,7 @@ export default function FamilyGroupComparison({
         </a>
         , which runs the national benchmarking, sorts all 32 councils into groups of eight and
         publishes an average for each group. The grouping and every average below are theirs,
-        not mine. Bin, road and recycling measures are grouped by how urban or rural an area
+        not ours. Bin, road and recycling measures are grouped by how urban or rural an area
         is. Collection and satisfaction measures are grouped by deprivation.
       </p>
 

@@ -359,7 +359,7 @@ export default function CouncilTaxLookup() {
             Council tax figures for {PREVIOUS_COUNCIL_TAX_YEAR} and {COUNCIL_TAX_YEAR} are the
             complete official sets for all 32 councils. Water is a separate {WATER_YEAR} charge
             published by Scottish Water.{" "}
-            <Link href="/methods">How I source this</Link>.
+            <Link href="/methods">How we source this</Link>.
           </p>
         </div>
       )}
