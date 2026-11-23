@@ -171,28 +171,6 @@ export default async function MpPage({ params }: { params: Promise<{ slug: strin
             </p>
           </InShort>
 
-          {/* The strongest moment to offer the story is the moment someone
-              lands on their own MP. Real figures only, from the IPSA files. */}
-          {ownStory ? (
-            <ExpenseStoryHook
-              story={ownStory}
-              name={mp.name}
-              role={`MP for ${mp.constituency}`}
-              receiptsHref={receiptsHref}
-              className="mt-8"
-            />
-          ) : (
-            <ReceiptsNudge
-              name={mp.name}
-              amount={interests?.expenses?.nonStaffSpend}
-              what="for rent, travel and office costs"
-              period={interests?.expenses ? `in ${interests.expenses.year}` : undefined}
-              href={receiptsHref}
-              cta={`See ${mp.name}'s receipts`}
-              className="mt-8"
-            />
-          )}
-
           <section className="pt-10">
             <div className="grid gap-5 lg:grid-cols-[minmax(0,1.15fr)_minmax(300px,0.85fr)]">
               <div className="rounded-[var(--r-m)] border border-[var(--rule)] border-t-[3px] border-t-[var(--action)] bg-[var(--surface)] p-6 sm:p-8">
@@ -293,8 +271,25 @@ export default async function MpPage({ params }: { params: Promise<{ slug: strin
             <MemberVoteList name={mp.name} votes={mp.votes ?? []} parliament="Commons" />
           </section>
 
+          {/* Read more routes come after the profile's own content, never
+              above it. One slim line on their own receipts, then the picks. */}
+          <div className="pt-10">
+            {ownStory ? (
+              <ExpenseStoryHook story={ownStory} name={mp.name} receiptsHref={receiptsHref} />
+            ) : (
+              <ReceiptsNudge
+                name={mp.name}
+                amount={interests?.expenses?.nonStaffSpend}
+                what="for rent, travel and office costs"
+                period={interests?.expenses ? `in ${interests.expenses.year}` : undefined}
+                href={receiptsHref}
+                cta="See every receipt"
+              />
+            )}
+          </div>
+
           <ExpenseStoryPicks
-            className="mt-12"
+            className="mt-10"
             kicker="From the same expense files"
             title="What other MPs claimed"
             intro={`Taxpayers paid for all of these. Now check what ${mp.name} claimed.`}

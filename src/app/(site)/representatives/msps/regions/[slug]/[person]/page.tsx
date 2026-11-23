@@ -22,7 +22,7 @@ import {
   MspProfileCard,
   MspProfileReviews,
   MspStoryPicks,
-  MspTopExpensesNudge,
+  MspOwnExpensesLine,
   MspVotingRecord,
 } from "../../../_shared";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -157,7 +157,6 @@ export default async function RegionalMspPage({
             <p>This page gives the short answer first, then their email, bills, roles and recent votes.</p>
           </InShort>
 
-          <MspTopExpensesNudge msp={msp} pagePath={pagePath} area={region.region} />
 
           <section className="pt-10">
             <MspProfileCard msp={msp} area={region.region} regional />
@@ -171,6 +170,7 @@ export default async function RegionalMspPage({
             <MspVotingRecord msp={msp} />
           </section>
 
+          <MspOwnExpensesLine msp={msp} pagePath={pagePath} />
           <MspStoryPicks msp={msp} pagePath={pagePath} />
 
           <section className="pt-12">

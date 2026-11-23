@@ -776,31 +776,23 @@ function PayInContext({ net }: { net: number }) {
   return (
     <aside
       aria-label="Your pay next to one MP's bill"
-      className="rounded-[var(--r-m)] border border-[var(--rule)] border-l-[5px] border-l-[var(--bad)] bg-[var(--surface)] p-5 sm:p-6"
+      className="rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] px-4 py-3.5 sm:px-5"
     >
-      <p className="kicker mb-1.5 text-[var(--bad-text)]">Your pay, next to one MP&apos;s bill</p>
-      <div className="grid gap-x-5 gap-y-1.5 sm:grid-cols-[auto_minmax(0,1fr)] sm:items-center">
-        <p className="figure-num tnum text-[38px] leading-none text-[var(--bad-text)] sm:text-[44px]">
-          {story.stat}
-        </p>
-        <p className="ui text-[17px] font-[640] leading-[1.35] text-[var(--ink)]">{story.hook}</p>
-      </div>
-      <p className="mt-3 text-[16px] leading-[1.55] text-[var(--ink-2)]">
+      <span className="ui block text-[12.5px] font-[640] uppercase tracking-[0.05em] text-[var(--muted)]">
+        Your pay, next to one MP&apos;s bill
+      </span>
+      <p className="mt-1 text-[15.5px] leading-[1.55] text-[var(--ink-2)]">
+        <strong className="tnum font-[700] text-[var(--bad-text)]">{story.stat}</strong> {story.hook}.
         Taxpayers paid it for{" "}
-        <Link href={story.person.href} className="font-[640]">
+        <Link href={story.person.href} className="font-[600] text-[var(--ink)]">
           {story.person.name}
         </Link>
-        , MP for {story.person.place}. That is <strong className="tnum text-[var(--ink)]">{span}</strong>{" "}
-        of your take home pay.
-      </p>
-      <div className="mt-4 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap">
-        <Link href={storyHref(story)} className="btn btn-primary justify-center text-center">
+        , MP for {story.person.place}. That is{" "}
+        <strong className="tnum font-[700] text-[var(--ink)]">{span}</strong> of your take home pay.{" "}
+        <Link href={storyHref(story)} className="ui whitespace-nowrap font-[600]">
           Read the story →
         </Link>
-        <Link href="/mp-expenses-scotland/search" className="btn btn-ghost justify-center text-center">
-          Check your own MP&apos;s receipts
-        </Link>
-      </div>
+      </p>
     </aside>
   );
 }

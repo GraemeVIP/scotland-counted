@@ -765,17 +765,15 @@ function mspReceiptsHref(searchSlug: string) {
 }
 
 /**
- * Near the top of an MSP profile: their own story if they have one, or the
- * real total they billed with a tap through to every receipt.
+ * After an MSP profile's own content: their own story if they have one, or
+ * the real total they billed, as one slim line with a route to the receipts.
  */
-export function MspTopExpensesNudge({
+export function MspOwnExpensesLine({
   msp,
   pagePath,
-  area,
 }: {
   msp: HolyroodMspContact;
   pagePath: string;
-  area: string;
 }) {
   const profile = getMspInterests(msp.memberId);
   const exp = profile?.holyroodExpenses;
@@ -783,13 +781,7 @@ export function MspTopExpensesNudge({
   const story = storyForProfile(pagePath);
   if (story) {
     return (
-      <ExpenseStoryHook
-        story={story}
-        name={msp.name}
-        role={`MSP for ${area}`}
-        receiptsHref={receipts}
-        className="mt-8"
-      />
+      <ExpenseStoryHook story={story} name={msp.name} receiptsHref={receipts} className="mt-10" />
     );
   }
   if (!exp || !receipts) return null;
@@ -800,8 +792,8 @@ export function MspTopExpensesNudge({
       what="in expenses"
       period="in 2024/25"
       href={receipts}
-      cta={`See ${msp.name}'s receipts`}
-      className="mt-8"
+      cta="See every receipt"
+      className="mt-10"
     />
   );
 }
@@ -815,7 +807,7 @@ export function MspStoryPicks({ msp, pagePath }: { msp: HolyroodMspContact; page
   }));
   return (
     <ExpenseStoryPicks
-      className="mt-12"
+      className="mt-10"
       kicker="From the Holyrood expense files"
       title="What MSPs claimed"
       intro={`Taxpayers paid for all of these. See how ${msp.name} compares with the rest of Holyrood.`}
