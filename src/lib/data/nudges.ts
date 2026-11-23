@@ -37,8 +37,6 @@ export type NudgeTool = {
   title: string;
   body: string;
   cta: string;
-  /** Short label for the button inside the quick answer box. */
-  short: string;
 };
 
 export type NudgeBridge = {
@@ -55,7 +53,6 @@ const TOOLS = {
     title: "What does your council tax cost?",
     body: "Type your postcode. See this year's bill for every band in your area, with water and sewerage added.",
     cta: "Check my council tax",
-    short: "Check your council tax",
   },
   takeHome: {
     href: "/take-home-pay-calculator-scotland",
@@ -63,7 +60,6 @@ const TOOLS = {
     title: "What will you take home?",
     body: "Put in your pay. See what lands in your bank after Scottish income tax and National Insurance.",
     cta: "Work out my take home pay",
-    short: "Work out your take home pay",
   },
   benefits: {
     href: "/benefits",
@@ -71,7 +67,6 @@ const TOOLS = {
     title: "Could you be missing a payment?",
     body: "Every Scottish benefit on one page. What each one pays this year, who can get it and how to claim.",
     cta: "See every benefit and rate",
-    short: "See every benefit you could claim",
   },
   heating: {
     href: "/benefits",
@@ -79,7 +74,6 @@ const TOOLS = {
     title: "Are you getting every payment you're owed?",
     body: "Winter Heating Payment, Scottish Child Payment and the rest, on one page. See what each one pays and how to claim.",
     cta: "See every benefit and rate",
-    short: "See every benefit you could claim",
   },
   compare: {
     href: "/compare-areas",
@@ -87,7 +81,6 @@ const TOOLS = {
     title: "Where is it cheaper to live?",
     body: "Put two council areas side by side. Rent, house prices, pay, crime and schools, with the official figures.",
     cta: "Compare two areas",
-    short: "Compare two areas",
   },
   simd: {
     href: "/simd-postcode-checker",
@@ -95,7 +88,6 @@ const TOOLS = {
     title: "How deprived is your area?",
     body: "Type a postcode. See where it sits on Scotland's official list, from most to least deprived.",
     cta: "Check my postcode",
-    short: "Check your postcode",
   },
   quiz: {
     href: "/poverty-in-scotland-quiz",
@@ -103,7 +95,6 @@ const TOOLS = {
     title: "Think you know the real numbers?",
     body: "Guess the figures on poverty in Scotland, then see the answers and where each one comes from.",
     cta: "Take the quiz",
-    short: "Take the poverty quiz",
   },
   email: {
     href: "/email-your-mp-and-msp",
@@ -111,7 +102,6 @@ const TOOLS = {
     title: "Email your MP and MSP",
     body: "Type your postcode. Get an email to each of them with your area's real figures already in it.",
     cta: "Write my email",
-    short: "Email your MP and MSP",
   },
   findReps: {
     href: "/representatives",
@@ -119,7 +109,6 @@ const TOOLS = {
     title: "Who are your MP and MSPs?",
     body: "Type your postcode. See your MP and all eight of your MSPs in one place.",
     cta: "Find mine",
-    short: "Find your MP and MSPs",
   },
 } satisfies Record<string, NudgeTool>;
 

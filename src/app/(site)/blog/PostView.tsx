@@ -18,8 +18,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import { ExpenseStoryRail } from "@/components/ExpenseStoryRail";
 import { EXPENSE_STORY_SLUGS } from "@/lib/data/expenseStories";
 import { nudgesFor, readNextFor } from "@/lib/data/nudges";
-import { BridgeRow, KeepReading, ToolCard } from "@/components/KeepReading";
-import MidArticleSlot from "@/components/MidArticleSlot";
+import { KeepReading } from "@/components/KeepReading";
 
 /**
  * Posts that end with a pointer to the compare tool, and the area each one is
@@ -80,16 +79,8 @@ export function PostView({ slug }: { slug: string }) {
   // straight after the article. The foot of the page shows the next picks down.
   const keepReading = isExpenseStory ? [] : readNext.slice(0, 3);
   const related = isExpenseStory ? readNext.slice(0, 2) : readNext.slice(3, 5);
-  // The quick answer box gets the topic's tool when it has no next step of its own.
-  const quickAnswer =
-    post.quickAnswer && !post.quickAnswer.nextStep && tool
-      ? { ...post.quickAnswer, nextStep: { label: tool.short, href: tool.href } }
-      : post.quickAnswer;
-  const tocNext = tool
-    ? { kicker: tool.kicker, label: tool.short, href: tool.href }
-    : bridge
-      ? { kicker: "From the expenses files", label: `${bridge.stat}: ${bridge.cta.toLowerCase()}`, href: bridge.href }
-      : undefined;
+  // Nudges only where reading naturally ends: nothing at the top or in the
+  // middle of an article pulls a reader off the page before they've read it.
   const cited = post.sourceIds
     .map((id) => sourcesById[id])
     .filter((source): source is Source => Boolean(source));
@@ -156,8 +147,8 @@ export function PostView({ slug }: { slug: string }) {
             </div>
           </header>
 
-          {quickAnswer && (
-            <QuickAnswer answer={quickAnswer} className="mt-9 sm:mt-11 max-w-[1120px] mx-auto" />
+          {post.quickAnswer && (
+            <QuickAnswer answer={post.quickAnswer} className="mt-9 sm:mt-11 max-w-[1120px] mx-auto" />
           )}
 
           {post.image && (
@@ -175,16 +166,10 @@ export function PostView({ slug }: { slug: string }) {
           )}
 
           <div className="grid gap-x-12 xl:gap-x-20 gap-y-8 lg:grid-cols-[minmax(0,760px)_minmax(240px,280px)] mt-10 sm:mt-12 max-w-[1120px] mx-auto">
-            <ArticleToc items={post.toc} next={tocNext} />
-            <div id="article-body" className="min-w-0 lg:col-start-1 lg:row-start-1">
+            <ArticleToc items={post.toc} />
+            <div className="min-w-0 lg:col-start-1 lg:row-start-1">
               <Body />
             </div>
-            {(tool || bridge) && (
-              <MidArticleSlot containerId="article-body">
-                {/* The tool is already offered at the top, so the middle gets the open question. */}
-                {bridge ? <BridgeRow bridge={bridge} /> : tool && <ToolCard tool={tool} />}
-              </MidArticleSlot>
-            )}
           </div>
         </article>
 
