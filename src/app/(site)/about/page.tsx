@@ -173,8 +173,8 @@ export default function AboutPage() {
                 <p>
                   <ExplainText>
                     Every page on this site is written so anyone can read it. We use short
-                    sentences and everyday words, and we check each page so a 10 year old could
-                    follow it.
+                    sentences and everyday words, so the facts are quick to find and easy to
+                    follow.
                   </ExplainText>
                 </p>
                 <p>
