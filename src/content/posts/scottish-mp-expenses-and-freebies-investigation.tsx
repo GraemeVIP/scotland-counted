@@ -1,4 +1,5 @@
 import Link from "@/components/IntentLink";
+import { ExpenseMpCheck, ExpenseNextUp } from "@/components/ExpenseStoryRail";
 import { Prose, Lead, P, H2, Aside, PostCTA } from "@/components/Prose";
 import {
   type PartyKey,
@@ -126,6 +127,8 @@ export default function Post() {
         ]}
       />
 
+      <ExpenseMpCheck slug="scottish-mp-expenses-and-freebies-investigation" />
+
       <Aside title="What is the Register of Interests?">
         <p>
           It is the public list where MPs must log freebies: gifts, VIP seats, paid trips and cash
@@ -226,6 +229,8 @@ export default function Post() {
       />
 
       {/* ------------------------------------------------------------ 3 */}
+      <ExpenseNextUp slug="scottish-mp-expenses-and-freebies-investigation" />
+
       <Finding n={3} of={FINDINGS} id="foreign-trips">
         Qatar, China and Taiwan: trips paid for by someone else
       </Finding>

@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import Link from "@/components/IntentLink";
+import { ExpenseMpCheck, ExpenseNextUp } from "@/components/ExpenseStoryRail";
 import { Prose, P, Aside, PostCTA } from "@/components/Prose";
 
 /*
@@ -146,6 +147,8 @@ export default function JohnLamontMpIphoneExpensesBorders() {
         ]}
       />
 
+      <ExpenseMpCheck slug="john-lamont-mp-iphone-expenses-borders" />
+
       <Spotlight
         person={LAMONT}
         kicker="12 June 2025 · His second iPhone on expenses"
@@ -278,6 +281,8 @@ export default function JohnLamontMpIphoneExpensesBorders() {
       </ChartFrame>
 
       {/* ------------------------------------------------------------ 3 */}
+      <ExpenseNextUp slug="john-lamont-mp-iphone-expenses-borders" />
+
       <Finding n={3} id="the-rest">
         £49,568 on ads and £35,792 for a PR firm
       </Finding>

@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import Link from "@/components/IntentLink";
+import { ExpenseMpCheck, ExpenseNextUp } from "@/components/ExpenseStoryRail";
 import { Prose, Lead, P, H2, Aside, PostCTA } from "@/components/Prose";
 import FindMpEmail from "@/components/FindMpEmail";
 import {
@@ -238,6 +239,8 @@ export default function WorstScottishMpExpenses() {
         ]}
       />
 
+      <ExpenseMpCheck slug="worst-scottish-mp-expenses" />
+
       <LocalStories />
 
       <P>
@@ -303,6 +306,8 @@ export default function WorstScottishMpExpenses() {
       </Spotlight>
 
       {/* ------------------------------------------------------------ 3 */}
+      <ExpenseNextUp slug="worst-scottish-mp-expenses" />
+
       <Finding n={3} of={FINDINGS} id="speech-coach">
         Torcuil Crichton&apos;s coach and Angus MacDonald&apos;s speech lessons
       </Finding>

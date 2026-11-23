@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import Link from "@/components/IntentLink";
+import { ExpenseMpCheck, ExpenseNextUp } from "@/components/ExpenseStoryRail";
 import { Prose, P, Aside, PostCTA } from "@/components/Prose";
 
 /*
@@ -200,6 +201,8 @@ export default function KilmarnockMp23437ElectricityBill() {
         ]}
       />
 
+      <ExpenseMpCheck slug="kilmarnock-mp-23437-electricity-bill" />
+
       <CaseCard kicker="Two claims, one date" figure="£23,437" people={[JONES]}>
         <p>
           Her last office power bill worked out at about <strong>£215 a month</strong>.
@@ -382,6 +385,8 @@ export default function KilmarnockMp23437ElectricityBill() {
       </ChartFrame>
 
       {/* ------------------------------------------------------------ 3 */}
+      <ExpenseNextUp slug="kilmarnock-mp-23437-electricity-bill" />
+
       <Finding n={3} id="warm-home-contrast">
         156 Warm Home Discounts, and her Winter Fuel vote
       </Finding>

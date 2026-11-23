@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import Link from "@/components/IntentLink";
+import { ExpenseMpCheck, ExpenseNextUp } from "@/components/ExpenseStoryRail";
 import { Prose, P, Aside, PostCTA } from "@/components/Prose";
 
 /*
@@ -181,6 +182,8 @@ export default function GraemeDownieMpDinnerExpensesDunfermline() {
         ]}
       />
 
+      <ExpenseMpCheck slug="graeme-downie-mp-dinner-expenses-dunfermline" />
+
       <Spotlight
         person={DOWNIE}
         kicker="13 March 2025 · 2024/25 budget year · Food and drink"
@@ -325,6 +328,8 @@ export default function GraemeDownieMpDinnerExpensesDunfermline() {
       />
 
       {/* ------------------------------------------------------------ 3 */}
+      <ExpenseNextUp slug="graeme-downie-mp-dinner-expenses-dunfermline" />
+
       <Finding n={3} id="staff-travel-and-more">
         £31,098 for staff travel, and £5,900 of training in one day
       </Finding>

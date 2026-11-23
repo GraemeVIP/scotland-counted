@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import Link from "@/components/IntentLink";
+import { ExpenseMpCheck, ExpenseNextUp } from "@/components/ExpenseStoryRail";
 import { Prose, Lead, P, UL, LI, BigStat, Aside, PostCTA } from "@/components/Prose";
 
 /*
@@ -279,6 +280,8 @@ export default function MspExpensesScotlandInvestigation() {
         ]}
       />
 
+      <ExpenseMpCheck slug="msp-expenses-scotland-investigation" />
+
       {/* ------------------------------------------------------------ 1 */}
       <Finding n={1} id="labour-firm-and-calendars">
         £19,800 to an ex Labour boss, £39,480 on calendars, and football banners
@@ -403,6 +406,8 @@ export default function MspExpensesScotlandInvestigation() {
       </ChartFrame>
 
       {/* ------------------------------------------------------------ 3 */}
+      <ExpenseNextUp slug="msp-expenses-scotland-investigation" />
+
       <Finding n={3} id="party-tally">
         The Holyrood Party Tally: every party put on blast
       </Finding>

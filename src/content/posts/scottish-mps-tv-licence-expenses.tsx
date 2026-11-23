@@ -1,4 +1,5 @@
 import Link from "@/components/IntentLink";
+import { ExpenseMpCheck, ExpenseNextUp } from "@/components/ExpenseStoryRail";
 import { Prose, P, Aside, PostCTA } from "@/components/Prose";
 import {
   type PartyKey,
@@ -142,6 +143,8 @@ export default function ScottishMpsTvLicenceExpenses() {
           </>,
         ]}
       />
+
+      <ExpenseMpCheck slug="scottish-mps-tv-licence-expenses" />
 
       <section
         aria-label="Gregor Poynton's four TV licences"
@@ -333,6 +336,8 @@ export default function ScottishMpsTvLicenceExpenses() {
       </Spotlight>
 
       {/* ------------------------------------------------------------ 3 */}
+      <ExpenseNextUp slug="scottish-mps-tv-licence-expenses" />
+
       <Finding n={3} of={FINDINGS} id="party-breakdown">
         By party: Scottish Labour makes up 63% of the bill
       </Finding>

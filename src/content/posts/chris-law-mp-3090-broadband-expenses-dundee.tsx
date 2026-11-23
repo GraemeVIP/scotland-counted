@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import Link from "@/components/IntentLink";
+import { ExpenseMpCheck, ExpenseNextUp } from "@/components/ExpenseStoryRail";
 import { Prose, P, Aside, PostCTA } from "@/components/Prose";
 
 /*
@@ -151,6 +152,8 @@ export default function ChrisLawMp3090BroadbandExpensesDundee() {
         ]}
       />
 
+      <ExpenseMpCheck slug="chris-law-mp-3090-broadband-expenses-dundee" />
+
       <CaseCard kicker="One claim · 25 July 2022 · paid in full" figure="£3,090" people={[LAW_2022]}>
         <p>
           Logged by IPSA as <strong>&ldquo;Home 5G mobile broadband installation&rdquo;</strong>.
@@ -244,6 +247,8 @@ export default function ChrisLawMp3090BroadbandExpensesDundee() {
       </ChartFrame>
 
       {/* ------------------------------------------------------------ 3 */}
+      <ExpenseNextUp slug="chris-law-mp-3090-broadband-expenses-dundee" />
+
       <Finding n={3} id="parking-and-travel">
         £121 a week on parking, and 26 nights in Europe
       </Finding>
