@@ -722,6 +722,55 @@ export const posts: Post[] = [
     ],
   },
   {
+    slug: "energy-minister-michael-shanks-flights-rutherglen",
+    title:
+      "You paid for the Energy Minister to fly to London. 92p in every £1 of Michael Shanks's London travel went on planes",
+    seoTitle: "Michael Shanks MP Flights: Energy Minister Flies, Staff Take the Train",
+    description:
+      "Taxpayers paid £11,753 for Energy Minister Michael Shanks's London flights in 2025/26 and £955 for trains, while his staff mostly took the train. Kirsteen Sullivan spent £0 on trains.",
+    standfirst:
+      "Michael Shanks is the UK's Energy Minister. In 2025/26 you paid £11,753 for his London flights and £955 for his trains. His own staff mostly took the train. Bathgate and Linlithgow MP Kirsteen Sullivan put £18,342 on planes and nothing on trains.",
+    date: "2026-11-23",
+    updated: "2026-11-23",
+    checked: "2026-11-23",
+    category: "politics-explained",
+    tags: ["MP expenses Scotland", "Flights", "Climate", "IPSA", "Scottish Labour", "Rutherglen", "Linlithgow"],
+    readingMinutes: 3,
+    image: {
+      src: "/images/editorial/energy-minister-shanks-flights.webp",
+      alt: "Official portraits of Energy Minister Michael Shanks MP and Kirsteen Sullivan MP with 92% and 100% of their London travel money spent on planes",
+      caption: "Official portraits: UK Parliament (CC BY 3.0). Figures from IPSA's published claims, 2025/26.",
+      aspect: "wide",
+      objectPosition: "center",
+    },
+    shareImage: {
+      src: "/images/editorial/energy-minister-shanks-flights.webp",
+      width: 1600,
+      height: 800,
+      type: "image/webp",
+    },
+    toc: [
+      { id: "energy-minister", label: "The Energy Minister's travel bill" },
+      { id: "sullivan", label: "Bathgate and Linlithgow's MP: £0 on trains" },
+      { id: "neighbours", label: "Their neighbours take the train" },
+    ],
+    faq: [
+      {
+        q: "How much did Michael Shanks MP spend on London flights?",
+        a: "IPSA's files show £11,752.87 on air travel and £955.04 on rail for his own trips between London and home in 2025/26. That is 92% of his plane and train money on planes. His staff spent £1,879.05 on rail and £665.78 on air for the same journeys.",
+      },
+      {
+        q: "Did Kirsteen Sullivan MP take the train to London?",
+        a: "Not on expenses in 2025/26. IPSA shows £18,342.27 on air travel and £0 on rail for her own London trips. In 2024/25 it was £15,190 on planes and £192 on trains.",
+      },
+      {
+        q: "Do other Scottish MPs take the train?",
+        a: "Yes. In 2025/26 Tracy Gilbert (Edinburgh North and Leith) spent £10,481 on trains and £529 on planes, and John Grady (Glasgow East) spent £9,270 on trains and £2,782 on planes.",
+      },
+    ],
+    sourceIds: ["ipsa-claims-2022-2027"],
+  },
+  {
     slug: "meghan-gallacher-msp-low-expenses",
     title:
       "Meghan Gallacher MSP cost taxpayers less than half the typical MSP, and has never claimed a penny for travel",

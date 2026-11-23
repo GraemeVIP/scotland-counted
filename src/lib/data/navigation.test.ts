@@ -182,6 +182,7 @@ test("only evidence-led investigations are filed under the investigations catego
     "msp-expenses-scotland-investigation",
     "msp-edinburgh-flats-commuter-belt",
     "meghan-gallacher-msp-low-expenses",
+    "energy-minister-michael-shanks-flights-rutherglen",
     "scottish-mps-london-homes-152-sitting-days",
     "kilmarnock-mp-23437-electricity-bill",
     "torcuil-crichton-mp-coaching-expenses-western-isles",
