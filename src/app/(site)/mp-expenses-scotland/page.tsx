@@ -215,6 +215,12 @@ type LocalStory = { slug: string; stat: string; line: string; story: string };
 
 const LOCAL_STORIES: LocalStory[] = [
   {
+    slug: "glasgow-south-west",
+    stat: "£67,519",
+    line: "London hotels and block booked flats. Nearly five times any other Scottish MP.",
+    story: "/blog/zubir-ahmed-mp-london-hotels-glasgow",
+  },
+  {
     slug: "kilmarnock-and-loudoun",
     stat: "£23,437",
     line: "Paid for power on one day. The biggest MP power bill in the UK.",

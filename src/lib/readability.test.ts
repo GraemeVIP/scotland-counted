@@ -21,6 +21,7 @@ const BANNED_JARGON = [
 const CHECKED_FILES = [
   "src/content/posts/scottish-mp-msp-expenses-what-it-could-buy.tsx",
   "src/content/posts/kilmarnock-mp-23437-electricity-bill.tsx",
+  "src/content/posts/zubir-ahmed-mp-london-hotels-glasgow.tsx",
   "src/content/posts/scottish-mps-tv-licence-expenses.tsx",
   "src/content/posts/scottish-mps-london-homes-152-sitting-days.tsx",
   "src/content/posts/worst-scottish-mp-expenses.tsx",
@@ -144,6 +145,7 @@ describe("Scotland Counted plain English & squiggle safeguards", () => {
     const articles = [
       "src/content/posts/scottish-mp-msp-expenses-what-it-could-buy.tsx",
       "src/content/posts/kilmarnock-mp-23437-electricity-bill.tsx",
+      "src/content/posts/zubir-ahmed-mp-london-hotels-glasgow.tsx",
       "src/content/posts/scottish-mps-tv-licence-expenses.tsx",
       "src/content/posts/scottish-mps-london-homes-152-sitting-days.tsx",
       "src/content/posts/worst-scottish-mp-expenses.tsx",
@@ -158,31 +160,35 @@ describe("Scotland Counted plain English & squiggle safeguards", () => {
     }
   });
 
-  it("gives every MP and MSP expenses article and page its own unique editorial image file", () => {
-    const expectedImages = [
-      "/images/editorial/mp-msp-expenses-what-it-could-buy.webp",
-      "/images/editorial/msp-expenses-holyrood-party-tally.webp",
-      "/images/editorial/scottish-mps-london-homes-152-days.webp",
-      "/images/editorial/kilmarnock-mp-23437-electricity-bill.webp",
-      "/images/editorial/scottish-mps-tv-licence-expenses.webp",
-      "/images/editorial/worst-scottish-mp-expenses.webp",
-      "/images/editorial/scottish-mp-expenses-and-freebies.webp",
+  it("enforces zero duplicate editorial images across ALL articles in posts.ts and verifies every file exists", () => {
+    const postsSource = fs.readFileSync(path.join(ROOT, "src/lib/data/posts.ts"), "utf8");
+    const blocks = postsSource.split(/\n  \{\n    slug: /).slice(1);
+    const seen = new Map<string, string>();
+    const hubImages = new Set([
       "/images/editorial/mp-expenses-scotland-hub.webp",
       "/images/editorial/mp-expenses-scotland-receipts.webp",
       "/images/editorial/mp-msp-receipt-finder-scotland.webp",
-    ];
-    assert.equal(
-      new Set(expectedImages).size,
-      expectedImages.length,
-      "Every expenses page must have a distinct image path",
-    );
-    const postsSource = fs.readFileSync(path.join(ROOT, "src/lib/data/posts.ts"), "utf8");
-    for (const img of expectedImages) {
+    ]);
+
+    for (const block of blocks) {
+      const slugMatch = block.match(/^"([^"]+)"/);
+      const imgMatch = block.match(/image:\s*\{[\s\S]*?src:\s*"([^"]+)"/);
+      if (!slugMatch || !imgMatch) continue;
+      const slug = slugMatch[1];
+      const img = imgMatch[1];
+
       const diskPath = path.join(ROOT, "public", img);
-      assert.ok(fs.existsSync(diskPath), `Missing image file on disk: ${diskPath}`);
+      assert.ok(fs.existsSync(diskPath), `Missing image file on disk for ${slug}: ${diskPath}`);
+      assert.ok(
+        !hubImages.has(img),
+        `Article "${slug}" reuses a hub page image (${img}); every article must have its own unique image.`,
+      );
+      assert.ok(
+        !seen.has(img),
+        `Duplicate editorial image "${img}" used by both "${seen.get(img)}" and "${slug}". Every article must have its own unique image.`,
+      );
+      seen.set(img, slug);
     }
-    for (const img of expectedImages.slice(0, 7)) {
-      assert.ok(postsSource.includes(img), `Expected ${img} to be wired into src/lib/data/posts.ts`);
-    }
+    assert.ok(seen.size >= 70, `Expected at least 70 articles with unique images, checked ${seen.size}`);
   });
 });

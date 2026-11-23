@@ -64,6 +64,7 @@ function FullStory({ href, children }: { href: string; children: ReactNode }) {
 
 /** The ten MPs with their own local story, biggest bill first. */
 const LOCAL_STORIES: { name: string; slug: string; p: PartyKey; town: string; amount: string; what: string; story: string }[] = [
+  { name: "Dr Zubir Ahmed", slug: "glasgow-south-west", p: "Labour", town: "Glasgow South West", amount: "£67,519", what: "London hotels and flats", story: "zubir-ahmed-mp-london-hotels-glasgow" },
   { name: "Lillian Jones", slug: "kilmarnock-and-loudoun", p: "Labour", town: "Kilmarnock", amount: "£23,437", what: "Power, paid in one day", story: "kilmarnock-mp-23437-electricity-bill" },
   { name: "Pamela Nash", slug: "motherwell-wishaw-and-carluke", p: "Labour", town: "Motherwell", amount: "£5,932", what: "DFS, IKEA and a carpet", story: "pamela-nash-mp-furniture-expenses-motherwell" },
   { name: "Angus MacDonald", slug: "inverness-skye-and-west-ross-shire", p: "Lib Dem", town: "Inverness and Skye", amount: "£3,546", what: "Speech coach and drains", story: "angus-macdonald-mp-speech-coach-drains-expenses" },
@@ -620,9 +621,13 @@ export default function WorstScottishMpExpenses() {
         </p>
         <p>
           He claims no London rent. Most of his {ZUBIR_NIGHTS.length} claims are month
-          long flat stays, plus one Airbnb, and IPSA files them all as hotels.
+          long flat stays, plus one Airbnb, and IPSA files them all as hotels. Across 2024 to
+          2026, his total hits £67,519.
         </p>
       </CaseCard>
+      <FullStory href={story("zubir-ahmed-mp-london-hotels-glasgow")}>
+        Read the full £67,519 Glasgow South West hotel story
+      </FullStory>
 
       <Tiles
         items={[

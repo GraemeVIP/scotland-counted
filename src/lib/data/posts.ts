@@ -142,6 +142,57 @@ export type Post = {
 
 export const posts: Post[] = [
   {
+    slug: "zubir-ahmed-mp-london-hotels-glasgow",
+    title:
+      "You paid £67,519 for Glasgow MP Dr Zubir Ahmed's London hotels and flats: nearly five times any other Scottish MP",
+    seoTitle: "Dr Zubir Ahmed MP Expenses: £67,519 on London Hotels & Flats",
+    description:
+      "Taxpayers paid £67,519 for Glasgow South West MP Dr Zubir Ahmed's London hotels and short stay flats since July 2024, including 295 nights in one year.",
+    standfirst:
+      "Since winning Glasgow South West in July 2024, Labour MP Dr Zubir Ahmed has billed taxpayers £67,519 for London hotels and month long flat stays. That is nearly five times more than any other Scottish MP. In 2025/26 alone, you paid for 295 nights in London while the House of Commons only sat for 152 days.",
+    date: "2026-11-23",
+    updated: "2026-11-23",
+    checked: "2026-11-23",
+    category: "politics-explained",
+    tags: ["MP expenses Scotland", "Dr Zubir Ahmed", "Glasgow South West", "London hotels", "IPSA", "Scottish Labour"],
+    readingMinutes: 5,
+    image: {
+      src: "/images/editorial/zubir-ahmed-mp-london-hotels-glasgow.webp",
+      alt: "A central London townhouse hotel entrance at dusk with glowing windows and wet pavements looking toward Westminster",
+      caption:
+        "Checked across IPSA's published expense files (2024/25 to 2026/27) for all 57 Scottish seats.",
+      aspect: "wide",
+      objectPosition: "center",
+    },
+    shareImage: {
+      src: "/images/editorial/zubir-ahmed-mp-london-hotels-glasgow.webp",
+      width: 1264,
+      height: 848,
+      type: "image/webp",
+    },
+    toc: [
+      { id: "the-bills", label: "£67,519 across 25 London stays" },
+      { id: "sitting-days", label: "295 nights for 152 sitting days" },
+      { id: "scotland-rank", label: "Five times any other Scottish MP" },
+      { id: "other-claims", label: "What else you paid for" },
+    ],
+    faq: [
+      {
+        q: "How much did Dr Zubir Ahmed claim for London hotels?",
+        a: "£67,519 across 25 claims between July 2024 and April 2026 (£19,295 in 2024/25, £37,359 in 2025/26, and £10,866 already in April 2026). Every claim is filed by IPSA under London hotels.",
+      },
+      {
+        q: "How many London nights did taxpayers pay for in 2025/26?",
+        a: "295 nights across 14 claims in 2025/26, costing £37,359. In that same year, the House of Commons sat for 152 days and was shut for 213 days.",
+      },
+      {
+        q: "Did he break IPSA's rules?",
+        a: "Nothing in the public files says so. IPSA allows MPs to book hotels or short stay flats instead of renting, up to £230 a night in London. IPSA paid every claim in full.",
+      },
+    ],
+    sourceIds: ["ipsa-claims-2022-2027", "uk-parliament-register-interests-2026"],
+  },
+  {
     slug: "torcuil-crichton-mp-coaching-expenses-western-isles",
     title:
       "You paid £2,400 for coaching for Western Isles MP Torcuil Crichton and his staff, from a coach who used to work at IPSA",
@@ -157,17 +208,17 @@ export const posts: Post[] = [
     tags: ["MP expenses Scotland", "Torcuil Crichton", "Western Isles", "Na h-Eileanan an Iar", "IPSA", "Scottish Labour"],
     readingMinutes: 5,
     image: {
-      src: "/images/editorial/mp-expenses-scotland-hub.webp",
-      alt: "Plug-in 5G home broadband router, speech coaching microphone on a brass stand, smartphone in a case and paper receipts on a dark mahogany desk",
+      src: "/images/editorial/torcuil-crichton-coaching-western-isles.webp",
+      alt: "A Scottish coastal office desk at dusk overlooking a misty sea loch with an open notebook, headset and laptop",
       caption:
         "Checked across five years of IPSA expense files (2022/23 to 2026/27) for all 650 UK seats.",
       aspect: "wide",
       objectPosition: "center",
     },
     shareImage: {
-      src: "/images/editorial/mp-expenses-scotland-hub.webp",
-      width: 1500,
-      height: 1000,
+      src: "/images/editorial/torcuil-crichton-coaching-western-isles.webp",
+      width: 1264,
+      height: 848,
       type: "image/webp",
     },
     toc: [
@@ -208,17 +259,17 @@ export const posts: Post[] = [
     tags: ["MP expenses Scotland", "Christine Jardine", "Edinburgh West", "Christmas", "IPSA", "Scottish Liberal Democrats"],
     readingMinutes: 5,
     image: {
-      src: "/images/editorial/scottish-mp-expenses-and-freebies.webp",
-      alt: "VIP hospitality passes, passport with boarding passes, champagne flute and financial ledgers on a dark leather desk beside a rainy window",
+      src: "/images/editorial/christine-jardine-christmas-lunch-edinburgh.webp",
+      alt: "A warmly lit Edinburgh pub dining table laid with Christmas crackers, glasses and evergreen sprigs",
       caption:
         "Checked across five years of IPSA expense files (2022/23 to 2026/27) for all 650 UK seats.",
       aspect: "wide",
       objectPosition: "center",
     },
     shareImage: {
-      src: "/images/editorial/scottish-mp-expenses-and-freebies.webp",
-      width: 1500,
-      height: 1000,
+      src: "/images/editorial/christine-jardine-christmas-lunch-edinburgh.webp",
+      width: 1264,
+      height: 848,
       type: "image/webp",
     },
     toc: [
@@ -259,17 +310,17 @@ export const posts: Post[] = [
     tags: ["MP expenses Scotland", "Gregor Poynton", "Livingston", "TV licence", "IPSA", "Scottish Labour"],
     readingMinutes: 5,
     image: {
-      src: "/images/editorial/scottish-mps-tv-licence-expenses.webp",
-      alt: "Flatscreen television mounted on a wood-panelled MP office wall with a TV remote control resting on an official envelope on the desk below",
+      src: "/images/editorial/gregor-poynton-four-tv-licences-livingston.webp",
+      alt: "A wall mounted flatscreen television in a plain Scottish office room with official envelopes stacked underneath",
       caption:
         "Checked across five years of IPSA expense files (2022/23 to 2026/27) for all 650 UK seats.",
       aspect: "wide",
       objectPosition: "center",
     },
     shareImage: {
-      src: "/images/editorial/scottish-mps-tv-licence-expenses.webp",
-      width: 1500,
-      height: 1000,
+      src: "/images/editorial/gregor-poynton-four-tv-licences-livingston.webp",
+      width: 1264,
+      height: 848,
       type: "image/webp",
     },
     toc: [
@@ -310,17 +361,17 @@ export const posts: Post[] = [
     tags: ["MP expenses Scotland", "Euan Stainbank", "Falkirk", "IPSA", "Scottish Labour"],
     readingMinutes: 5,
     image: {
-      src: "/images/editorial/mp-expenses-scotland-receipts.webp",
-      alt: "Close-up of curled paper expense receipts on dark Scottish slate and oak beneath a brass magnifying glass and fountain pen",
+      src: "/images/editorial/euan-stainbank-billboard-falkirk.webp",
+      alt: "A large blank roadside advertising hoarding beside a wet Scottish town road under grey clouds",
       caption:
         "Checked across five years of IPSA expense files (2022/23 to 2026/27) for all 650 UK MPs.",
       aspect: "wide",
       objectPosition: "center",
     },
     shareImage: {
-      src: "/images/editorial/mp-expenses-scotland-receipts.webp",
-      width: 1500,
-      height: 1000,
+      src: "/images/editorial/euan-stainbank-billboard-falkirk.webp",
+      width: 1264,
+      height: 848,
       type: "image/webp",
     },
     toc: [
@@ -361,17 +412,17 @@ export const posts: Post[] = [
     tags: ["MP expenses Scotland", "Chris Law", "Dundee", "Broadband", "IPSA", "SNP"],
     readingMinutes: 5,
     image: {
-      src: "/images/editorial/worst-scottish-mp-expenses.webp",
-      alt: "Plug-in 5G home broadband router, speech coaching microphone on a brass stand, smartphone in a case and paper receipts on a dark mahogany desk",
+      src: "/images/editorial/chris-law-broadband-dundee.webp",
+      alt: "A compact white wireless broadband router plugged into a UK three pin wall socket beside a window over a misty Scottish city",
       caption:
         "Checked across five years of IPSA expense files (2022/23 to 2026/27) for all 650 UK MPs.",
       aspect: "wide",
       objectPosition: "center",
     },
     shareImage: {
-      src: "/images/editorial/worst-scottish-mp-expenses.webp",
-      width: 1500,
-      height: 1000,
+      src: "/images/editorial/chris-law-broadband-dundee.webp",
+      width: 1264,
+      height: 848,
       type: "image/webp",
     },
     toc: [
@@ -412,17 +463,17 @@ export const posts: Post[] = [
     tags: ["MP expenses Scotland", "Angus MacDonald", "Inverness", "Highlands", "IPSA", "Scottish Lib Dems"],
     readingMinutes: 5,
     image: {
-      src: "/images/editorial/worst-scottish-mp-expenses.webp",
-      alt: "Plug-in 5G home broadband router, speech coaching microphone on a brass stand, smartphone in a case and paper receipts on a dark mahogany desk",
+      src: "/images/editorial/angus-macdonald-speech-coach-highlands.webp",
+      alt: "A studio condenser microphone on a brass desk stand beside a leather notebook inside a wood panelled study",
       caption:
         "Checked across five years of IPSA expense files (2022/23 to 2026/27) for all 650 UK MPs.",
       aspect: "wide",
       objectPosition: "center",
     },
     shareImage: {
-      src: "/images/editorial/worst-scottish-mp-expenses.webp",
-      width: 1500,
-      height: 1000,
+      src: "/images/editorial/angus-macdonald-speech-coach-highlands.webp",
+      width: 1264,
+      height: 848,
       type: "image/webp",
     },
     toc: [
@@ -464,17 +515,17 @@ export const posts: Post[] = [
     tags: ["MP expenses Scotland", "Pamela Nash", "Motherwell", "Office furniture", "IPSA", "Scottish Labour"],
     readingMinutes: 5,
     image: {
-      src: "/images/editorial/mp-expenses-scotland-receipts.webp",
-      alt: "Long curling paper till receipts under a brass magnifying glass and a black fountain pen on a slate board and oak desk",
+      src: "/images/editorial/pamela-nash-furniture-motherwell.webp",
+      alt: "A furniture showroom floor with a neutral sofa, rolled new carpets and stacked flatpack boxes",
       caption:
         "Checked across five years of IPSA expense files (2022/23 to 2026/27) for all 650 UK MPs.",
       aspect: "wide",
       objectPosition: "center",
     },
     shareImage: {
-      src: "/images/editorial/mp-expenses-scotland-receipts.webp",
-      width: 1500,
-      height: 1000,
+      src: "/images/editorial/pamela-nash-furniture-motherwell.webp",
+      width: 1264,
+      height: 848,
       type: "image/webp",
     },
     toc: [
@@ -516,17 +567,17 @@ export const posts: Post[] = [
     tags: ["MP expenses Scotland", "John Lamont", "Scottish Borders", "Hawick", "iPhone", "IPSA", "Scottish Conservatives"],
     readingMinutes: 6,
     image: {
-      src: "/images/editorial/worst-scottish-mp-expenses.webp",
-      alt: "Plug-in 5G home broadband router, speech coaching microphone on a brass stand, smartphone in a case and paper receipts on a dark mahogany desk",
+      src: "/images/editorial/john-lamont-iphones-borders.webp",
+      alt: "Two modern dark smartphones lying side by side on a weathered oak desk beside printed expense receipts",
       caption:
         "Checked across five years of IPSA expense files (2022/23 to 2026/27) for all 650 UK MPs.",
       aspect: "wide",
       objectPosition: "center",
     },
     shareImage: {
-      src: "/images/editorial/worst-scottish-mp-expenses.webp",
-      width: 1500,
-      height: 1000,
+      src: "/images/editorial/john-lamont-iphones-borders.webp",
+      width: 1264,
+      height: 848,
       type: "image/webp",
     },
     toc: [
@@ -568,17 +619,17 @@ export const posts: Post[] = [
     tags: ["MP expenses Scotland", "Graeme Downie", "Dunfermline", "Fife", "IPSA", "Scottish Labour"],
     readingMinutes: 5,
     image: {
-      src: "/images/editorial/scottish-mp-expenses-and-freebies.webp",
-      alt: "VIP hospitality passes, passport with boarding passes, champagne flute and financial ledgers on a dark leather desk beside a rainy window",
+      src: "/images/editorial/graeme-downie-dinner-dunfermline.webp",
+      alt: "A formal banquet dining table with white linen tablecloth, silver cutlery and glasses in a Scottish hall at dusk",
       caption:
         "Checked across five years of IPSA expense files (2022/23 to 2026/27) for all 650 UK MPs.",
       aspect: "wide",
       objectPosition: "center",
     },
     shareImage: {
-      src: "/images/editorial/scottish-mp-expenses-and-freebies.webp",
-      width: 1500,
-      height: 1000,
+      src: "/images/editorial/graeme-downie-dinner-dunfermline.webp",
+      width: 1264,
+      height: 848,
       type: "image/webp",
     },
     toc: [
@@ -1538,8 +1589,8 @@ export const posts: Post[] = [
     ],
     readingMinutes: 10,
     image: {
-      src: "/images/editorial/scottish-welfare-fund-crisis-grant.webp",
-      alt: "A community adviser helping a resident complete an emergency grant application at a public computer",
+      src: "/images/editorial/crisis-grant-acceptance-rates-councils.webp",
+      alt: "A quiet Scottish council civic building entrance with stone steps and wet pavement on an overcast winter morning",
       caption:
         "The application is local, but the scheme is national. In 2025/26 the published council award rates stretched from 52% to 89%.",
       objectPosition: "center 42%",

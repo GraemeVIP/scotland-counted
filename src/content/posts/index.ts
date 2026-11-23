@@ -59,6 +59,7 @@ import ScottishMpExpensesAndFreebiesInvestigation from "./scottish-mp-expenses-a
 import WorstScottishMpExpenses from "./worst-scottish-mp-expenses";
 import ScottishMpsTvLicenceExpenses from "./scottish-mps-tv-licence-expenses";
 import KilmarnockMp23437ElectricityBill from "./kilmarnock-mp-23437-electricity-bill";
+import ZubirAhmedMpLondonHotelsGlasgow from "./zubir-ahmed-mp-london-hotels-glasgow";
 import TorcuilCrichtonMpCoachingExpensesWesternIsles from "./torcuil-crichton-mp-coaching-expenses-western-isles";
 import ChristineJardineMpChristmasLunchExpenses from "./christine-jardine-mp-christmas-lunch-expenses";
 import GregorPoyntonMpFourTvLicencesLivingston from "./gregor-poynton-mp-four-tv-licences-livingston";
@@ -82,6 +83,7 @@ export const postBodies: Record<string, ComponentType> = {
   "msp-expenses-scotland-investigation": MspExpensesScotlandInvestigation,
   "scottish-mps-london-homes-152-sitting-days": ScottishMpsLondonHomes152SittingDays,
   "kilmarnock-mp-23437-electricity-bill": KilmarnockMp23437ElectricityBill,
+  "zubir-ahmed-mp-london-hotels-glasgow": ZubirAhmedMpLondonHotelsGlasgow,
   "torcuil-crichton-mp-coaching-expenses-western-isles": TorcuilCrichtonMpCoachingExpensesWesternIsles,
   "christine-jardine-mp-christmas-lunch-expenses": ChristineJardineMpChristmasLunchExpenses,
   "gregor-poynton-mp-four-tv-licences-livingston": GregorPoyntonMpFourTvLicencesLivingston,
