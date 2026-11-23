@@ -8,6 +8,8 @@ import MspVoteList from "@/components/MspVoteList";
 import { representativeSlug } from "@/lib/representatives";
 import { getMspRating, type ApprovedMspReview } from "@/lib/data/mspReviews";
 import { getMspInterests } from "@/lib/data/mspInterests";
+import { ExpenseStoryHook, ExpenseStoryPicks, ReceiptsNudge } from "@/components/ExpenseNudges";
+import { mspStories, storyForProfile } from "@/lib/expenseNudges";
 
 const gbpWhole = new Intl.NumberFormat("en-GB", {
   style: "currency",
@@ -755,5 +757,69 @@ export function HolyroodSourceNote() {
       <a href="https://www.parliament.scot/about/copyright">photo licence</a>. Each page shows when
       it was last checked, and changes go on our <Link href="/updates">update log</Link>.
     </p>
+  );
+}
+
+function mspReceiptsHref(searchSlug: string) {
+  return `/mp-expenses-scotland/search?who=msp&msp=${searchSlug}`;
+}
+
+/**
+ * Near the top of an MSP profile: their own story if they have one, or the
+ * real total they billed with a tap through to every receipt.
+ */
+export function MspTopExpensesNudge({
+  msp,
+  pagePath,
+  area,
+}: {
+  msp: HolyroodMspContact;
+  pagePath: string;
+  area: string;
+}) {
+  const profile = getMspInterests(msp.memberId);
+  const exp = profile?.holyroodExpenses;
+  const receipts = profile && exp ? mspReceiptsHref(profile.searchSlug) : undefined;
+  const story = storyForProfile(pagePath);
+  if (story) {
+    return (
+      <ExpenseStoryHook
+        story={story}
+        name={msp.name}
+        role={`MSP for ${area}`}
+        receiptsHref={receipts}
+        className="mt-8"
+      />
+    );
+  }
+  if (!exp || !receipts) return null;
+  return (
+    <ReceiptsNudge
+      name={msp.name}
+      amount={exp.total2425}
+      what="in expenses"
+      period="in 2024/25"
+      href={receipts}
+      cta={`See ${msp.name}'s receipts`}
+      className="mt-8"
+    />
+  );
+}
+
+/** Lower down an MSP profile: the Holyrood expenses stories. */
+export function MspStoryPicks({ msp, pagePath }: { msp: HolyroodMspContact; pagePath: string }) {
+  const own = storyForProfile(pagePath);
+  const picks = mspStories(own?.slug).map((story) => ({
+    story,
+    label: story.person ? "One MSP" : "Every MSP",
+  }));
+  return (
+    <ExpenseStoryPicks
+      className="mt-12"
+      kicker="From the Holyrood expense files"
+      title="What MSPs claimed"
+      intro={`Taxpayers paid for all of these. See how ${msp.name} compares with the rest of Holyrood.`}
+      picks={picks}
+    />
   );
 }

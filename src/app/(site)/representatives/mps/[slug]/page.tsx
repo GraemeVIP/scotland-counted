@@ -25,6 +25,9 @@ import {
   MP_INTERESTS_CHECKED_ISO,
 } from "@/lib/data/mpInterests";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import { ExpenseStoryHook, ExpenseStoryPicks, ReceiptsNudge } from "@/components/ExpenseNudges";
+import { mpReceiptsHref, storyForProfile } from "@/lib/expenseNudges";
+import { relatedMpStories } from "@/lib/expenseNudgePicks";
 
 export function generateStaticParams() {
   return mps.map((mp) => ({ slug: mp.constituencySlug }));
@@ -62,6 +65,9 @@ export default async function MpPage({ params }: { params: Promise<{ slug: strin
   const povertyCount = constituency.counts[latestIndex];
   const pagePath = `/representatives/mps/${mp.constituencySlug}`;
   const pageUrl = `${site.url}${pagePath}`;
+  const ownStory = storyForProfile(pagePath);
+  const receiptsHref = mpReceiptsHref(mp.constituencySlug);
+  const otherStories = relatedMpStories(mp.constituencySlug, mp.party);
   const emailIssues = buildMpEmailIssues({
     name: mp.name,
     constituency: mp.constituency,
@@ -165,6 +171,28 @@ export default async function MpPage({ params }: { params: Promise<{ slug: strin
             </p>
           </InShort>
 
+          {/* The strongest moment to offer the story is the moment someone
+              lands on their own MP. Real figures only, from the IPSA files. */}
+          {ownStory ? (
+            <ExpenseStoryHook
+              story={ownStory}
+              name={mp.name}
+              role={`MP for ${mp.constituency}`}
+              receiptsHref={receiptsHref}
+              className="mt-8"
+            />
+          ) : (
+            <ReceiptsNudge
+              name={mp.name}
+              amount={interests?.expenses?.nonStaffSpend}
+              what="for rent, travel and office costs"
+              period={interests?.expenses ? `in ${interests.expenses.year}` : undefined}
+              href={receiptsHref}
+              cta={`See ${mp.name}'s receipts`}
+              className="mt-8"
+            />
+          )}
+
           <section className="pt-10">
             <div className="grid gap-5 lg:grid-cols-[minmax(0,1.15fr)_minmax(300px,0.85fr)]">
               <div className="rounded-[var(--r-m)] border border-[var(--rule)] border-t-[3px] border-t-[var(--action)] bg-[var(--surface)] p-6 sm:p-8">
@@ -264,6 +292,19 @@ export default async function MpPage({ params }: { params: Promise<{ slug: strin
           <section className="pt-10">
             <MemberVoteList name={mp.name} votes={mp.votes ?? []} parliament="Commons" />
           </section>
+
+          <ExpenseStoryPicks
+            className="mt-12"
+            kicker="From the same expense files"
+            title="What other MPs claimed"
+            intro={`Taxpayers paid for all of these. Now check what ${mp.name} claimed.`}
+            picks={otherStories.map((p) => ({
+              story: p.story,
+              label: p.sameParty ? `Another ${p.party} MP` : `${p.party} MP`,
+            }))}
+            moreHref={receiptsHref}
+            moreLabel={`See every receipt ${mp.name} claimed`}
+          />
 
           <section className="pt-12 grid gap-5 md:grid-cols-2">
             <div className="rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] p-6">

@@ -18,6 +18,8 @@ import {
   MspExpensesAndInterests,
   MspProfileCard,
   MspProfileReviews,
+  MspStoryPicks,
+  MspTopExpensesNudge,
   MspVotingRecord,
   holyroodPersonJsonLd,
   partyLabel,
@@ -135,6 +137,8 @@ export default async function HolyroodConstituencyPage({
             </p>
           </InShort>
 
+          <MspTopExpensesNudge msp={record.msp} pagePath={pagePath} area={record.constituency} />
+
           <section className="pt-10 grid gap-5 lg:grid-cols-[minmax(0,1.15fr)_minmax(300px,0.85fr)]">
             <MspProfileCard msp={record.msp} area={record.constituency} />
             <aside className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] p-6 sm:p-7">
@@ -160,6 +164,8 @@ export default async function HolyroodConstituencyPage({
           <section className="pt-10">
             <MspVotingRecord msp={record.msp} />
           </section>
+
+          <MspStoryPicks msp={record.msp} pagePath={pagePath} />
 
           <section className="pt-12 grid gap-5 md:grid-cols-2">
             <div className="rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] p-6">

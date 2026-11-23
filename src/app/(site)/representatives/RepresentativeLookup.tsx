@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { trackEvent } from "@/lib/analytics";
 import PortraitLightbox from "@/components/PortraitLightbox";
+import { YourMpExpenses, YourMspStory } from "@/components/ExpenseNudges";
+import { placeSlug, storyForProfile } from "@/lib/expenseNudges";
 import {
   POSTCODE_SESSION_KEY,
   localAreaLinks,
@@ -275,6 +277,26 @@ export default function RepresentativeLookup() {
                 </div>
               )}
             </div>
+
+            {/* Right after the names appear is the moment people are most
+                curious about them, so the receipts come next. */}
+            <YourMpExpenses
+              name={lookup.mp.name}
+              constituency={lookup.mp.constituency}
+              constituencySlug={placeSlug(lookup.mp.constituency)}
+              className="mt-5"
+            />
+            {[lookup.constituencyMsp, ...lookup.regionalMsps]
+              .filter((msp): msp is NonNullable<typeof msp> => Boolean(msp))
+              .filter((msp) => storyForProfile(representativePagePath(msp)))
+              .map((msp) => (
+                <YourMspStory
+                  key={msp.name}
+                  name={msp.name}
+                  profileHref={representativePagePath(msp)}
+                  className="mt-4"
+                />
+              ))}
 
             <div className="mt-5 rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--paper)] p-5 sm:flex sm:items-center sm:justify-between sm:gap-6">
               <div>
