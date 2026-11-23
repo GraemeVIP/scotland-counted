@@ -153,7 +153,7 @@ export function Who({
   );
   if (!face) return inner;
   return (
-    <span className="flex items-center gap-2.5">
+    <span className="flex min-w-0 items-center gap-2.5">
       <Face name={name} href={href} size={40} />
       {inner}
     </span>

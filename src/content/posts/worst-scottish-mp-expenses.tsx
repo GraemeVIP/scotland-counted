@@ -69,7 +69,7 @@ const LOCAL_STORIES: { name: string; slug: string; p: PartyKey; town: string; am
   { name: "Angus MacDonald", slug: "inverness-skye-and-west-ross-shire", p: "Lib Dem", town: "Inverness and Skye", amount: "£3,546", what: "Speech coach and drains", story: "angus-macdonald-mp-speech-coach-drains-expenses" },
   { name: "Euan Stainbank", slug: "falkirk", p: "Labour", town: "Falkirk", amount: "£3,300", what: "A billboard of himself", story: "euan-stainbank-mp-billboard-expenses-falkirk" },
   { name: "Chris Law", slug: "dundee-central", p: "SNP", town: "Dundee", amount: "£3,090", what: "Home broadband setup", story: "chris-law-mp-3090-broadband-expenses-dundee" },
-  { name: "Torcuil Crichton", slug: "na-h-eileanan-an-iar", p: "Labour", town: "Western Isles", amount: "£2,400", what: "Coaching from an ex IPSA worker", story: "torcuil-crichton-mp-coaching-expenses-western-isles" },
+  { name: "Torcuil Crichton", slug: "na-h-eileanan-an-iar", p: "Labour", town: "Western Isles", amount: "£2,400", what: "Ex IPSA coaching", story: "torcuil-crichton-mp-coaching-expenses-western-isles" },
   { name: "John Lamont", slug: "berwickshire-roxburgh-and-selkirk", p: "Conservative", town: "Borders", amount: "£2,346", what: "Two iPhones", story: "john-lamont-mp-iphone-expenses-borders" },
   { name: "Graeme Downie", slug: "dunfermline-and-dollar", p: "Labour", town: "Dunfermline", amount: "£963", what: "One business dinner", story: "graeme-downie-mp-dinner-expenses-dunfermline" },
   { name: "Gregor Poynton", slug: "livingston", p: "Labour", town: "Livingston", amount: "£688", what: "Four TV licences", story: "gregor-poynton-mp-four-tv-licences-livingston" },
@@ -85,11 +85,13 @@ function LocalStories() {
       </h2>
       <ol className="mt-4 grid gap-3 sm:grid-cols-2">
         {LOCAL_STORIES.map((s) => (
-          <li key={s.slug} className="flex items-center justify-between gap-3 rounded-[var(--r-s)] border border-[var(--rule)] px-3.5 py-3">
-            <Who face name={s.name} href={mp(s.slug)} p={s.p} note={s.town} />
-            <Link href={story(s.story)} className="shrink-0 text-right no-underline">
+          <li key={s.slug} className="flex min-w-0 items-center justify-between gap-3 rounded-[var(--r-s)] border border-[var(--rule)] px-3.5 py-3">
+            <div className="min-w-0 flex-1">
+              <Who face name={s.name} href={mp(s.slug)} p={s.p} note={s.town} />
+            </div>
+            <Link href={story(s.story)} className="min-w-0 max-w-[46%] text-right no-underline">
               <span className="figure-num tnum block text-[24px] leading-none text-[var(--bad-text)]">{s.amount}</span>
-              <span className="ui mt-1 block text-[13.5px] text-[var(--ink-2)]">{s.what}</span>
+              <span className="ui mt-1 block text-[13.5px] leading-[1.3] text-[var(--ink-2)]">{s.what}</span>
               <span className="ui mt-0.5 block text-[13.5px] font-[640] text-[var(--action-text)]">Read it →</span>
             </Link>
           </li>
