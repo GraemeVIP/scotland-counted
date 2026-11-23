@@ -166,10 +166,10 @@ export const posts: Post[] = [
       objectPosition: "center",
     },
     shareImage: {
-      src: "/images/editorial/scottish-mps-flights-climate-hypocrisy.webp",
-      width: 1600,
-      height: 900,
-      type: "image/webp",
+      src: "/images/share/scottish-mps-flights-climate-hypocrisy.jpg",
+      width: 1200,
+      height: 630,
+      type: "image/jpeg",
     },
     toc: [
       { id: "edinburgh-split", label: "Same city, 40 times the flight bill" },
@@ -221,10 +221,10 @@ export const posts: Post[] = [
       objectPosition: "center",
     },
     shareImage: {
-      src: "/images/editorial/zubir-ahmed-mp-london-hotels-glasgow.webp",
-      width: 1264,
-      height: 848,
-      type: "image/webp",
+      src: "/images/share/zubir-ahmed-mp-london-hotels-glasgow.jpg",
+      width: 1200,
+      height: 630,
+      type: "image/jpeg",
     },
     toc: [
       { id: "the-bills", label: "£67,519 across 25 London stays" },
@@ -272,10 +272,10 @@ export const posts: Post[] = [
       objectPosition: "center",
     },
     shareImage: {
-      src: "/images/editorial/torcuil-crichton-coaching-western-isles.webp",
-      width: 1264,
-      height: 848,
-      type: "image/webp",
+      src: "/images/share/torcuil-crichton-coaching-western-isles.jpg",
+      width: 1200,
+      height: 630,
+      type: "image/jpeg",
     },
     toc: [
       { id: "the-receipts", label: "What the 16 coaching bills show" },
@@ -323,10 +323,10 @@ export const posts: Post[] = [
       objectPosition: "center",
     },
     shareImage: {
-      src: "/images/editorial/christine-jardine-christmas-lunch-edinburgh.webp",
-      width: 1264,
-      height: 848,
-      type: "image/webp",
+      src: "/images/share/christine-jardine-christmas-lunch-edinburgh.jpg",
+      width: 1200,
+      height: 630,
+      type: "image/jpeg",
     },
     toc: [
       { id: "christmas-lunch", label: "A Christmas lunch, billed as training" },
@@ -374,10 +374,10 @@ export const posts: Post[] = [
       objectPosition: "center",
     },
     shareImage: {
-      src: "/images/editorial/gregor-poynton-four-tv-licences-livingston.webp",
-      width: 1264,
-      height: 848,
-      type: "image/webp",
+      src: "/images/share/gregor-poynton-four-tv-licences-livingston.jpg",
+      width: 1200,
+      height: 630,
+      type: "image/jpeg",
     },
     toc: [
       { id: "four-licences", label: "Four licences in 11 months" },
@@ -425,10 +425,10 @@ export const posts: Post[] = [
       objectPosition: "center",
     },
     shareImage: {
-      src: "/images/editorial/euan-stainbank-billboard-falkirk.webp",
-      width: 1264,
-      height: 848,
-      type: "image/webp",
+      src: "/images/share/euan-stainbank-billboard-falkirk.jpg",
+      width: 1200,
+      height: 630,
+      type: "image/jpeg",
     },
     toc: [
       { id: "the-billboard", label: "What the IPSA record shows" },
@@ -476,10 +476,10 @@ export const posts: Post[] = [
       objectPosition: "center",
     },
     shareImage: {
-      src: "/images/editorial/chris-law-broadband-dundee.webp",
-      width: 1264,
-      height: 848,
-      type: "image/webp",
+      src: "/images/share/chris-law-broadband-dundee.jpg",
+      width: 1200,
+      height: 630,
+      type: "image/jpeg",
     },
     toc: [
       { id: "the-broadband", label: "£3,090 to set up broadband at home" },
@@ -527,10 +527,10 @@ export const posts: Post[] = [
       objectPosition: "center",
     },
     shareImage: {
-      src: "/images/editorial/angus-macdonald-speech-coach-highlands.webp",
-      width: 1264,
-      height: 848,
-      type: "image/webp",
+      src: "/images/share/angus-macdonald-speech-coach-highlands.jpg",
+      width: 1200,
+      height: 630,
+      type: "image/jpeg",
     },
     toc: [
       { id: "the-speech-coach", label: "£3,000 for lessons in giving speeches" },
@@ -579,10 +579,10 @@ export const posts: Post[] = [
       objectPosition: "center",
     },
     shareImage: {
-      src: "/images/editorial/pamela-nash-furniture-motherwell.webp",
-      width: 1264,
-      height: 848,
-      type: "image/webp",
+      src: "/images/share/pamela-nash-furniture-motherwell.jpg",
+      width: 1200,
+      height: 630,
+      type: "image/jpeg",
     },
     toc: [
       { id: "the-receipts", label: "Seven bills in the last seven days" },
@@ -631,10 +631,10 @@ export const posts: Post[] = [
       objectPosition: "center",
     },
     shareImage: {
-      src: "/images/editorial/john-lamont-iphones-borders.webp",
-      width: 1264,
-      height: 848,
-      type: "image/webp",
+      src: "/images/share/john-lamont-iphones-borders.jpg",
+      width: 1200,
+      height: 630,
+      type: "image/jpeg",
     },
     toc: [
       { id: "the-phones", label: "Two iPhones, both paid by you" },
@@ -683,10 +683,10 @@ export const posts: Post[] = [
       objectPosition: "center",
     },
     shareImage: {
-      src: "/images/editorial/graeme-downie-dinner-dunfermline.webp",
-      width: 1264,
-      height: 848,
-      type: "image/webp",
+      src: "/images/share/graeme-downie-dinner-dunfermline.jpg",
+      width: 1200,
+      height: 630,
+      type: "image/jpeg",
     },
     toc: [
       { id: "the-dinner", label: "The £963 dinner" },
@@ -743,10 +743,10 @@ export const posts: Post[] = [
       objectPosition: "center",
     },
     shareImage: {
-      src: "/images/editorial/mp-msp-expenses-what-it-could-buy.webp",
-      width: 1500,
-      height: 1000,
-      type: "image/webp",
+      src: "/images/share/mp-msp-expenses-what-it-could-buy.jpg",
+      width: 1200,
+      height: 630,
+      type: "image/jpeg",
     },
     toc: [
       { id: "the-receipts-proof", label: "Real receipts priced up in school meals & nurses" },
@@ -800,10 +800,10 @@ export const posts: Post[] = [
       objectPosition: "center",
     },
     shareImage: {
-      src: "/images/editorial/energy-minister-shanks-flights.webp",
-      width: 1600,
-      height: 800,
-      type: "image/webp",
+      src: "/images/share/energy-minister-shanks-flights.jpg",
+      width: 1200,
+      height: 630,
+      type: "image/jpeg",
     },
     toc: [
       { id: "the-job", label: "What the Energy Minister is there to do" },
@@ -851,10 +851,10 @@ export const posts: Post[] = [
       objectPosition: "center",
     },
     shareImage: {
-      src: "/images/editorial/meghan-gallacher-msp-low-expenses.webp",
-      width: 1600,
-      height: 800,
-      type: "image/webp",
+      src: "/images/share/meghan-gallacher-msp-low-expenses.jpg",
+      width: 1200,
+      height: 630,
+      type: "image/jpeg",
     },
     toc: [
       { id: "lowest", label: "Second lowest of 63 MSPs" },
@@ -902,10 +902,10 @@ export const posts: Post[] = [
       objectPosition: "center bottom",
     },
     shareImage: {
-      src: "/images/editorial/msp-edinburgh-flats-holyrood.webp",
-      width: 1600,
-      height: 900,
-      type: "image/webp",
+      src: "/images/share/msp-edinburgh-flats-holyrood.jpg",
+      width: 1200,
+      height: 630,
+      type: "image/jpeg",
     },
     toc: [
       { id: "the-rule", label: "The 90 minute rule that hands out the flats" },
@@ -981,10 +981,10 @@ export const posts: Post[] = [
       objectPosition: "center",
     },
     shareImage: {
-      src: "/images/editorial/msp-expenses-holyrood-party-tally.webp",
-      width: 1500,
-      height: 1000,
-      type: "image/webp",
+      src: "/images/share/msp-expenses-holyrood-party-tally.jpg",
+      width: 1200,
+      height: 630,
+      type: "image/jpeg",
     },
     toc: [
       { id: "labour-firm-and-calendars", label: "£19,800 to an ex Labour boss & £39,480 on calendars" },
@@ -1042,10 +1042,10 @@ export const posts: Post[] = [
       objectPosition: "center",
     },
     shareImage: {
-      src: "/images/editorial/scottish-mps-london-homes-152-days.webp",
-      width: 1500,
-      height: 1000,
-      type: "image/webp",
+      src: "/images/share/scottish-mps-london-homes-152-days.jpg",
+      width: 1200,
+      height: 630,
+      type: "image/jpeg",
     },
     toc: [
       { id: "the-shuttle-bill", label: "What the £2.91 million actually pays for" },
@@ -1094,10 +1094,10 @@ export const posts: Post[] = [
       objectPosition: "center",
     },
     shareImage: {
-      src: "/images/editorial/kilmarnock-mp-23437-electricity-bill.webp",
-      width: 1500,
-      height: 1000,
-      type: "image/webp",
+      src: "/images/share/kilmarnock-mp-23437-electricity-bill.jpg",
+      width: 1200,
+      height: 630,
+      type: "image/jpeg",
     },
     toc: [
       { id: "the-receipts", label: "What the official expense records show" },
@@ -1146,10 +1146,10 @@ export const posts: Post[] = [
       objectPosition: "center",
     },
     shareImage: {
-      src: "/images/editorial/scottish-mps-tv-licence-expenses.webp",
-      width: 1500,
-      height: 1000,
-      type: "image/webp",
+      src: "/images/share/scottish-mps-tv-licence-expenses.jpg",
+      width: 1200,
+      height: 630,
+      type: "image/jpeg",
     },
     toc: [
       { id: "why-tv-licence", label: "Why taxpayers buy MPs a TV licence" },
@@ -1197,10 +1197,10 @@ export const posts: Post[] = [
       objectPosition: "center",
     },
     shareImage: {
-      src: "/images/editorial/worst-scottish-mp-expenses.webp",
-      width: 1500,
-      height: 1000,
-      type: "image/webp",
+      src: "/images/share/worst-scottish-mp-expenses.jpg",
+      width: 1200,
+      height: 630,
+      type: "image/jpeg",
     },
     toc: [
       { id: "power-bill", label: "£23,437 for power in one day" },
@@ -1270,10 +1270,10 @@ export const posts: Post[] = [
       objectPosition: "center",
     },
     shareImage: {
-      src: "/images/editorial/scottish-mp-expenses-and-freebies.webp",
-      width: 1500,
-      height: 1000,
-      type: "image/webp",
+      src: "/images/share/scottish-mp-expenses-and-freebies.jpg",
+      width: 1200,
+      height: 630,
+      type: "image/jpeg",
     },
     toc: [
       { id: "freebies", label: "F1, golf and football tickets" },
@@ -1333,10 +1333,10 @@ export const posts: Post[] = [
       objectPosition: "center",
     },
     shareImage: {
-      src: "/images/editorial/refresh-shoplifting.webp",
-      width: 1500,
-      height: 1000,
-      type: "image/webp",
+      src: "/images/share/refresh-shoplifting.jpg",
+      width: 1200,
+      height: 630,
+      type: "image/jpeg",
     },
     toc: [
       { id: "short-answer", label: "Four key figures" },
@@ -1428,10 +1428,10 @@ export const posts: Post[] = [
       objectPosition: "center",
     },
     shareImage: {
-      src: "/images/editorial/refresh-glasgow-investigation.webp",
-      width: 1500,
-      height: 1000,
-      type: "image/webp",
+      src: "/images/share/refresh-glasgow-investigation.jpg",
+      width: 1200,
+      height: 630,
+      type: "image/jpeg",
     },
     toc: [
       { id: "number", label: "The number is real" },
@@ -1524,10 +1524,10 @@ export const posts: Post[] = [
       objectPosition: "center",
     },
     shareImage: {
-      src: "/images/editorial/refresh-councils.webp",
-      width: 1500,
-      height: 1000,
-      type: "image/webp",
+      src: "/images/share/refresh-councils.jpg",
+      width: 1200,
+      height: 630,
+      type: "image/jpeg",
     },
     toc: [
       { id: "answer", label: "The answer in four numbers" },
@@ -1597,10 +1597,10 @@ export const posts: Post[] = [
       objectPosition: "center 48%",
     },
     shareImage: {
-      src: "/images/editorial/refresh-snp-finances.webp",
-      width: 1500,
-      height: 1000,
-      type: "image/webp",
+      src: "/images/share/refresh-snp-finances.jpg",
+      width: 1200,
+      height: 630,
+      type: "image/jpeg",
     },
     toc: [
       { id: "short-answer", label: "The whole story in one minute" },
@@ -1675,10 +1675,10 @@ export const posts: Post[] = [
       objectPosition: "center",
     },
     shareImage: {
-      src: "/images/editorial/east-vs-west-dunbartonshire.webp",
-      width: 1500,
-      height: 1000,
-      type: "image/webp",
+      src: "/images/share/east-vs-west-dunbartonshire.jpg",
+      width: 1200,
+      height: 630,
+      type: "image/jpeg",
     },
     quickAnswer: {
       label: "Why West Dunbartonshire is poorer than East Dunbartonshire",
