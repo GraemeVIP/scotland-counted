@@ -117,59 +117,159 @@ export function CompactHeader({ eyebrow, title, lede }: { eyebrow?: string; titl
   );
 }
 
+/** The big number in a page header, in the blue tile used on the expenses hub. */
+function HeaderStat({ value, label }: { value: string; label: ReactNode }) {
+  const m = value.match(/^(£?)(\d+(?:\.\d+)?)(%?)$/);
+  const dp = m && m[2].includes(".") ? m[2].split(".")[1].length : 0;
+  return (
+    <div className="tile tile-blue flex min-w-0 flex-col items-start gap-3 p-6 sm:flex-row sm:items-center sm:gap-5 sm:p-7">
+      <div
+        className={`figure-num shrink-0 whitespace-nowrap leading-none text-white ${
+          value.length > 7 ? "text-[clamp(40px,4.4vw,60px)]" : "text-[clamp(44px,5vw,68px)]"
+        }`}
+      >
+        {m ? <CountUp value={parseFloat(m[2])} decimals={dp} prefix={m[1]} suffix={m[3]} /> : value}
+      </div>
+      <p className="text-[15px] leading-[1.45] text-[var(--hero-muted)]">
+        <ExplainText>{label}</ExplainText>
+      </p>
+    </div>
+  );
+}
+
+/**
+ * A plain framed box for the right side of a page header: the page's own
+ * postcode box or calculator, or a short list of its key figures.
+ */
+export function HeaderPanel({
+  label,
+  children,
+  id,
+  className = "",
+}: {
+  label?: string;
+  children: ReactNode;
+  id?: string;
+  className?: string;
+}) {
+  return (
+    <div
+      id={id}
+      className={`min-w-0 scroll-mt-24 rounded-[var(--r-m)] border-2 border-[var(--brand)] bg-[var(--surface)] p-5 sm:p-6 ${className}`}
+    >
+      {label && <p className="label mb-3">{label}</p>}
+      {children}
+    </div>
+  );
+}
+
+/**
+ * Two to four key figures the page already shows, as a tidy list for the right
+ * side of a page header. Each row is a number and a short label.
+ */
+export function HeaderFacts({
+  label,
+  items,
+}: {
+  label?: string;
+  items: { value: string; label: ReactNode; href?: string }[];
+}) {
+  return (
+    <HeaderPanel label={label}>
+      <ul className="divide-y divide-[var(--rule)]">
+        {items.map((item) => {
+          const body = (
+            <>
+              <span className="figure-num min-w-[4.6ch] shrink-0 whitespace-nowrap text-[clamp(26px,2.4vw,34px)] leading-none text-[var(--brand)]">
+                {item.value}
+              </span>
+              <span className="text-[15px] leading-[1.45] text-[var(--ink-2)]">
+                <ExplainText>{item.label}</ExplainText>
+                {item.href && <span aria-hidden="true"> →</span>}
+              </span>
+            </>
+          );
+          return (
+            <li key={item.value + String(item.href ?? "")} className="py-3 first:pt-0 last:pb-0">
+              {item.href ? (
+                <Link href={item.href} className="flex items-center gap-4 no-underline hover:underline">
+                  {body}
+                </Link>
+              ) : (
+                <div className="flex items-center gap-4">{body}</div>
+              )}
+            </li>
+          );
+        })}
+      </ul>
+    </HeaderPanel>
+  );
+}
+
+/**
+ * The shared page header.
+ *
+ * Laptop widths get two balanced columns, as on the expenses hub: headline and
+ * standfirst on the left; on the right either the page's key figure (`stat`),
+ * its own tool or figures (`panel`), or both. With nothing for the right, the
+ * standfirst sits beside the headline instead, so no page opens with a narrow
+ * column and an empty half screen. Phones always get one column in reading
+ * order. Headline size and spacing are the same on every page.
+ */
 export function PageHeader({
   eyebrow,
   title,
   lede,
   children,
   stat,
+  panel,
 }: {
   eyebrow?: string;
   title: string;
   lede?: ReactNode;
+  /** Small extras under the standfirst: share buttons, dates, buttons. */
   children?: ReactNode;
-  /** Optional big number pinned to the right of the header. */
-  stat?: { value: string; label: string; tone?: "bad" | "good" | "neutral" };
+  /** Optional big number for the right of the header. */
+  stat?: { value: string; label: ReactNode; tone?: "bad" | "good" | "neutral" };
+  /** Optional element for the right of the header (see HeaderPanel, HeaderFacts). */
+  panel?: ReactNode;
 }) {
-  return (
-    <header className="pt-10 sm:pt-16 pb-10 sm:pb-12">
-      <div
-        className={`max-w-[1120px] mx-auto ${
-          stat
-            ? "grid gap-x-12 gap-y-10 lg:grid-cols-[minmax(0,1fr)_minmax(280px,340px)] items-end"
-            : ""
-        }`}
-      >
-        <div className="min-w-0">
-          {eyebrow && <p className="eyebrow mb-6"><span><ExplainText>{eyebrow}</ExplainText></span></p>}
-          <h1 className="h1 max-w-[18ch] mb-6 text-[clamp(40px,5.6vw,80px)]">{title}</h1>
-          {lede && <div className="lede max-w-[56ch]"><ExplainText>{lede}</ExplainText></div>}
-          {children}
-        </div>
+  const eyebrowEl = eyebrow && (
+    <p className="eyebrow mb-5"><span><ExplainText>{eyebrow}</ExplainText></span></p>
+  );
+  const titleSize = "text-[clamp(34px,3.9vw,54px)]";
+  const ledeEl = lede && <div className="lede max-w-[52ch]"><ExplainText>{lede}</ExplainText></div>;
 
-        {stat && (
-          <div className="tile tile-blue min-w-0 p-7">
-            <div
-              className={`figure-num whitespace-nowrap text-white ${
-                stat.value.length > 5
-                  ? "text-[clamp(48px,14vw,76px)]"
-                  : "text-[clamp(52px,6vw,88px)]"
-              }`}
-            >
-              {(() => {
-                const m = stat.value.match(/^(£?)(\d+(?:\.\d+)?)(%?)$/);
-                if (!m) return stat.value;
-                const dp = m[2].includes(".") ? m[2].split(".")[1].length : 0;
-                return (
-                  <CountUp value={parseFloat(m[2])} decimals={dp} prefix={m[1]} suffix={m[3]} />
-                );
-              })()}
+  return (
+    <header className="pt-8 pb-8 sm:pt-12 lg:pt-14">
+      <div className="max-w-[1120px] mx-auto">
+        {stat || panel ? (
+          <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] lg:gap-12">
+            <div className="min-w-0">
+              {eyebrowEl}
+              <h1 className={`h1 mb-5 max-w-[18ch] ${titleSize}`}>{title}</h1>
+              {ledeEl}
+              {children}
             </div>
-            <p className="text-[15px] leading-[1.5] text-[var(--hero-muted)] mt-5"><ExplainText>{stat.label}</ExplainText></p>
+            <div className="min-w-0 space-y-4">
+              {stat && <HeaderStat value={stat.value} label={stat.label} />}
+              {panel}
+            </div>
           </div>
+        ) : (
+          <>
+            {eyebrowEl}
+            <div className="grid gap-x-12 gap-y-5 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] lg:items-center">
+              <h1 className={`h1 min-w-0 max-w-[20ch] ${titleSize}`}>{title}</h1>
+              <div className="min-w-0 lg:[&_.lede]:text-[20px]">
+                {ledeEl}
+                {children}
+              </div>
+            </div>
+          </>
         )}
       </div>
-      <div className="mt-10 sm:mt-12 max-w-[1120px] mx-auto h-px bg-[linear-gradient(90deg,var(--rule-strong),transparent)]" />
+      <div className="mt-8 sm:mt-10 max-w-[1120px] mx-auto h-px bg-[linear-gradient(90deg,var(--rule-strong),transparent)]" />
     </header>
   );
 }
