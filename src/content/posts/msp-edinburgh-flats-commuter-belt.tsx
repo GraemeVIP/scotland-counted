@@ -146,17 +146,19 @@ export default function MspEdinburghFlatsCommuterBelt() {
         list.
       </P>
       <P>
-        Two MSPs who live in East Kilbride both had taxpayers rent them a flat in 2024/25. Between them
-        that&apos;s <strong>£38,832</strong>.
+        Two MSPs who live in East Kilbride had taxpayers rent them an Edinburgh flat in 2024/25. One
+        is Graham Simpson, at the top of this page. The other is Collette Stevenson, the MSP for East
+        Kilbride. Between them that&apos;s <strong>£38,832</strong>.
       </P>
 
-      <CaseCard kicker="East Kilbride, 2024/25" figure="£16,588" people={[STEVENSON]}>
+      <CaseCard kicker="Edinburgh flat, 2024/25" figure="£16,588" people={[STEVENSON]}>
         <p>
-          The town&apos;s own MSP. In October 2026, Holyrood magazine said she &ldquo;has always
-          lived in the town she represents&rdquo;.
+          Collette Stevenson is the MSP for East Kilbride, and she lives there. In October 2026,
+          Holyrood magazine said she has always lived in East Kilbride.
         </p>
         <p>
-          Her flat bill: £11,837 rent, £3,442 council tax and £1,310 in bills.
+          Taxpayers still rented her a flat in Edinburgh: £11,837 rent, £3,442 council tax and £1,310
+          in bills.
         </p>
       </CaseCard>
 
