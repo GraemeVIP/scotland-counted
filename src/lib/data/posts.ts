@@ -144,12 +144,12 @@ export const posts: Post[] = [
   {
     slug: "zubir-ahmed-mp-london-hotels-glasgow",
     title:
-      "You paid £67,519 for Glasgow MP Dr Zubir Ahmed's London hotels and flats: nearly five times any other Scottish MP",
-    seoTitle: "Dr Zubir Ahmed MP Expenses: £67,519 on London Hotels & Flats",
+      "You paid £67,519 for Glasgow MP Dr Zubir Ahmed's London hotels and flats: the biggest MP hotel bill in the UK",
+    seoTitle: "Dr Zubir Ahmed MP Expenses: £67,519 UK #1 London Hotel Bill",
     description:
-      "Taxpayers paid £67,519 for Glasgow South West MP Dr Zubir Ahmed's London hotels and short stay flats since July 2024, including 295 nights in one year.",
+      "Taxpayers paid £67,519 for Glasgow South West MP Dr Zubir Ahmed's London hotels and short stay flats since July 2024, the highest total of all 650 UK MPs.",
     standfirst:
-      "Since winning Glasgow South West in July 2024, Labour MP Dr Zubir Ahmed has billed taxpayers £67,519 for London hotels and month long flat stays. That is nearly five times more than any other Scottish MP. In 2025/26 alone, you paid for 295 nights in London while the House of Commons only sat for 152 days.",
+      "Since winning Glasgow South West in July 2024, Labour MP Dr Zubir Ahmed has billed taxpayers £67,519 for London hotels and month long flat stays. That is the highest total of all 650 UK MPs, nearly £20,000 ahead of second place and almost five times any other Scottish MP.",
     date: "2026-11-23",
     updated: "2026-11-23",
     checked: "2026-11-23",
@@ -200,7 +200,7 @@ export const posts: Post[] = [
     description:
       "Taxpayers paid £2,400 for coaching for Western Isles MP Torcuil Crichton and his staff. The coach used to work at IPSA, which signed off every bill.",
     standfirst:
-      "Leave the expenses office in March, bill it £16,800 by June. Western Isles MP Torcuil Crichton is the only Scottish MP on the client list, with 16 bills in eight months.",
+      "Form a coaching company in March 2025, bill MPs £16,800 through IPSA between September 2025 and June 2026. Western Isles MP Torcuil Crichton is the only Scottish MP on the client list, with 16 bills in eight months.",
     date: "2026-11-22",
     updated: "2026-11-22",
     checked: "2026-11-22",

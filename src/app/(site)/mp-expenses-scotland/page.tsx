@@ -217,7 +217,7 @@ const LOCAL_STORIES: LocalStory[] = [
   {
     slug: "glasgow-south-west",
     stat: "£67,519",
-    line: "London hotels and block booked flats. Nearly five times any other Scottish MP.",
+    line: "London hotels and block booked flats. The biggest MP hotel bill in the UK.",
     story: "/blog/zubir-ahmed-mp-london-hotels-glasgow",
   },
   {

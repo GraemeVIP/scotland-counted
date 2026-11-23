@@ -165,8 +165,9 @@ export default function ZubirAhmedMpLondonHotelsGlasgow() {
             <strong>£67,519</strong> for London hotels and short stay flats since July 2024.
           </>,
           <>
-            That is <strong>nearly five times more</strong> than any other Scottish MP spent on
-            hotels. It beats the next six Scottish MPs added together.
+            That is the <strong>highest total of all 650 UK MPs</strong> since July 2024. He sits
+            nearly £20,000 ahead of second place (Esther McVey, £47,864) and almost five times
+            ahead of any other Scottish MP.
           </>,
           <>
             In 2025/26 alone, taxpayers paid <strong>£37,359</strong> for{" "}
@@ -315,15 +316,16 @@ export default function ZubirAhmedMpLondonHotelsGlasgow() {
 
       {/* ------------------------------------------------------------ 3 */}
       <Finding n={3} id="scotland-rank">
-        Nearly five times more than any other Scottish MP
+        Number one in the UK, and five times any other Scottish MP
       </Finding>
       <P>
-        Every Scottish MP has to travel to London. So we checked all 57 Scottish seats in IPSA&apos;s
-        hotel files from 2024 to 2026.
+        We checked all 650 UK seats in IPSA&apos;s hotel files since the July 2024 election. Dr
+        Zubir Ahmed sits top in Britain at <strong>£67,519</strong>. Second in the whole UK is
+        Esther McVey at £47,864.
       </P>
       <P>
-        Nobody else comes close. He spent <strong>£67,519</strong> on hotels and short stays. The
-        next highest Scottish MP, Michael Shanks, spent £14,195.
+        In Scotland, nobody else comes close. The next highest Scottish MP, Michael Shanks, spent
+        £14,195.
       </P>
 
       <ChartFrame

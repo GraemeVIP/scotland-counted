@@ -319,7 +319,7 @@ export default function TorcuilCrichtonMpCoachingExpensesWesternIsles() {
         to pay her new firm.
       </P>
       <P>
-        Leave the expenses watchdog in March, invoice the expenses watchdog by September. Nothing in
+        Form a coaching company in March 2025, invoice MPs through IPSA by September. Nothing in
         the files says any rule was broken. That is the whole issue: IPSA&apos;s rules wave this
         straight through.
       </P>
