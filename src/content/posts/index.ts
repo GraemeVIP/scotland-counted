@@ -74,6 +74,7 @@ import MspExpensesScotlandInvestigation from "./msp-expenses-scotland-investigat
 import MspEdinburghFlatsCommuterBelt from "./msp-edinburgh-flats-commuter-belt";
 import MeghanGallacherMspLowExpenses from "./meghan-gallacher-msp-low-expenses";
 import EnergyMinisterMichaelShanksFlightsRutherglen from "./energy-minister-michael-shanks-flights-rutherglen";
+import ScottishMpsFlightsClimateExpenses from "./scottish-mps-flights-climate-expenses";
 import ScottishMpMspExpensesWhatItCouldBuy from "./scottish-mp-msp-expenses-what-it-could-buy";
 
 /**
@@ -87,6 +88,7 @@ export const postBodies: Record<string, ComponentType> = {
   "msp-edinburgh-flats-commuter-belt": MspEdinburghFlatsCommuterBelt,
   "meghan-gallacher-msp-low-expenses": MeghanGallacherMspLowExpenses,
   "energy-minister-michael-shanks-flights-rutherglen": EnergyMinisterMichaelShanksFlightsRutherglen,
+  "scottish-mps-flights-climate-expenses": ScottishMpsFlightsClimateExpenses,
   "scottish-mps-london-homes-152-sitting-days": ScottishMpsLondonHomes152SittingDays,
   "kilmarnock-mp-23437-electricity-bill": KilmarnockMp23437ElectricityBill,
   "zubir-ahmed-mp-london-hotels-glasgow": ZubirAhmedMpLondonHotelsGlasgow,

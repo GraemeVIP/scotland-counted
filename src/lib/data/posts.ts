@@ -142,6 +142,58 @@ export type Post = {
 
 export const posts: Post[] = [
   {
+    slug: "scottish-mps-flights-climate-expenses",
+    title:
+      "You paid £868,378 for Scottish MPs to fly to London while MPs in the same city took the train",
+    seoTitle: "Scottish MPs Flight Expenses: £868,378 on Planes vs £150,170 Rail",
+    description:
+      "Scottish MPs billed £868,378 for London flights against £150,170 on trains in 2025/26, nearly £6 on a plane for every £1 on a train, even when MPs in the same city took the train.",
+    standfirst:
+      "Christine Jardine talks about plane noise and pollution, yet billed you £20,789 for London flights. Tracy Gilbert, in the same city, spent £529 on planes and £10,481 on trains. Across Scotland, 55 MPs put £868,378 on planes and £150,170 on trains. That is nearly £6 on a plane for every £1 on a train.",
+    date: "2026-11-23",
+    updated: "2026-11-23",
+    checked: "2026-11-23",
+    category: "politics-explained",
+    tags: ["MP expenses Scotland", "Flights", "Climate", "IPSA", "Hansard"],
+    readingMinutes: 4,
+    image: {
+      src: "/images/editorial/scottish-mps-flights-climate-hypocrisy.webp",
+      alt: "View from an aircraft engine taking off from Edinburgh Airport bound for London Heathrow over the M9 motorway and Central Scotland fields",
+      caption:
+        "Taking off from Edinburgh Airport bound for London Heathrow. Photo: Mike McBey (CC BY 2.0, Wikimedia Commons).",
+      creditLabel: "Mike McBey (CC BY 2.0)",
+      aspect: "wide",
+      objectPosition: "center",
+    },
+    shareImage: {
+      src: "/images/editorial/scottish-mps-flights-climate-hypocrisy.webp",
+      width: 1600,
+      height: 900,
+      type: "image/webp",
+    },
+    toc: [
+      { id: "edinburgh-split", label: "Same city, 40 times the flight bill" },
+      { id: "glasgow-split", label: "Glasgow: £9,270 on trains vs £0" },
+      { id: "scotland-total", label: "Nearly £6 on a plane for every £1 on a train" },
+      { id: "minister-and-zero-rail", label: "The Energy Minister and the £0 rail MP" },
+    ],
+    faq: [
+      {
+        q: "How much did Scottish MPs spend on London flights versus trains in 2025/26?",
+        a: "Across 55 Scottish MPs in IPSA's 2025/26 files, London flights cost £868,378 and trains cost £150,170. That is nearly £6 on a plane for every £1 on a train (85.3% of combined spend).",
+      },
+      {
+        q: "How do Edinburgh MPs compare with each other?",
+        a: "In 2025/26 London travel, Tracy Gilbert spent £529 on planes and £10,481 on trains, and Dr Scott Arthur spent £680 on planes and £8,908 on trains. Christine Jardine spent £20,789 on planes and £871 on trains.",
+      },
+      {
+        q: "Do IPSA files show the number of flights or exact dates?",
+        a: "No. For MP safety, IPSA hides single UK flight dates and publishes yearly ticket costs rather than a count of trips.",
+      },
+    ],
+    sourceIds: ["ipsa-claims-2022-2027", "uk-parliament-register-interests-2026"],
+  },
+  {
     slug: "zubir-ahmed-mp-london-hotels-glasgow",
     title:
       "You paid £67,519 for Glasgow MP Dr Zubir Ahmed's London hotels and flats: the biggest MP hotel bill in the UK",
