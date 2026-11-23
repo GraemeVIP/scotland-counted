@@ -804,6 +804,7 @@ export const posts: Post[] = [
       { id: "the-rule", label: "The 90 minute rule that hands out the flats" },
       { id: "east-kilbride", label: "East Kilbride: 50 miles, two MSPs, two flats" },
       { id: "commuter-belt", label: "The commuter belt flats" },
+      { id: "the-limit", label: "The limit that isn't a limit" },
       { id: "hotels-vs-flats", label: "Parliament's own sums say hotels can be cheaper" },
     ],
     faq: [
@@ -824,6 +825,7 @@ export const posts: Post[] = [
       "sp-allowances-open-data",
       "sp-members-expenses-scheme-s7",
       "spcb-2026-paper-60",
+      "sp-allowances-rates",
       "sp-expenses-review-2025",
       "sp-official-report-2026-11-11",
       "holyrood-collette-stevenson-2026",

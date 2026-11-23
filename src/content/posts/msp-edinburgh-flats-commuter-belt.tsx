@@ -25,7 +25,7 @@ import {
   Expand,
 } from "@/components/ExpenseKit";
 
-const FINDINGS = 4;
+const FINDINGS = 5;
 const msp = (path: string) => `/representatives/msps/${path}`;
 
 const SIMPSON = {
@@ -80,6 +80,10 @@ export default function MspEdinburghFlatsCommuterBelt() {
           <>
             <strong>East Kilbride</strong> is 50 miles away, by Parliament&apos;s own count. It&apos;s
             on the flat list. Glasgow city isn&apos;t.
+          </>,
+          <>
+            Kenneth Gibson&apos;s flat claims hit the limit <strong>to the penny</strong>, two years
+            running. Double council tax then went on top.
           </>,
           <>
             Holyrood&apos;s own expenses staff worked out that two hotel nights a week would cost{" "}
@@ -198,16 +202,6 @@ export default function MspEdinburghFlatsCommuterBelt() {
         }))}
       />
 
-      <CaseCard kicker="Kilbirnie to Holyrood, 2024/25" figure="£23,053" people={[GIBSON]}>
-        <p>
-          His own website says he lives in Kilbirnie, in Ayrshire. In 2024/25 he billed £17,558 in
-          rent and £5,494 in council tax for the Edinburgh flat. All in, that&apos;s about £1,921 a month.
-        </p>
-        <p>
-          He was an SNP MSP then. Since May 2026 he has been Holyrood&apos;s Presiding Officer.
-        </p>
-      </CaseCard>
-
       <P>
         The islands are a different story. An MSP from Shetland lives 300 miles away. They need a bed
         in Edinburgh, and nobody sensible argues with that. It&apos;s why the flats in the commuter
@@ -215,7 +209,56 @@ export default function MspEdinburghFlatsCommuterBelt() {
       </P>
 
       {/* ------------------------------------------------------------ 4 */}
-      <Finding n={4} of={FINDINGS} id="hotels-vs-flats">
+      <Finding n={4} of={FINDINGS} id="the-limit">
+        The limit that isn&apos;t a limit
+      </Finding>
+      <P>
+        Each MSP&apos;s Edinburgh flat has a yearly limit. In 2024/25 it was <strong>£20,700</strong>.
+        But MSPs wrote a catch into their own rules.
+      </P>
+      <P>
+        In 2024, Holyrood let councils double the council tax on second homes. Edinburgh did. So the
+        tax on MSPs&apos; flats doubled too. The rules say that extra tax doesn&apos;t count towards
+        the limit. Taxpayers pay it on top.
+      </P>
+      <P>
+        We&apos;ve already shown{" "}
+        <Link href="/blog/msp-expenses-scotland-investigation#double-council-tax">
+          the council tax MSPs billed jumped from £72,822 to £161,374
+        </Link>{" "}
+        in a year.
+      </P>
+
+      <CaseCard kicker="Kilbirnie to Holyrood, 2024/25" figure="£23,053" people={[GIBSON]}>
+        <p>
+          His own website says he lives in Kilbirnie, in Ayrshire. The rent on his Edinburgh flat is
+          £1,550 a month.
+        </p>
+        <p>
+          In 2023/24 his flat claims came to <strong>£19,700.00</strong>. That was the limit, to the
+          penny.
+        </p>
+        <p>
+          In 2024/25 his rent claims stopped in February at an odd <strong>£508.27</strong>. That took
+          his rent and normal council tax to <strong>£20,700.00</strong>. The limit, to the penny,
+          again. Then £2,352.50 of double council tax went on top.
+        </p>
+        <p>
+          <strong>Two years in a row, his claims landed exactly on the limit, to the penny.</strong>
+        </p>
+        <p>
+          He was an SNP MSP then. Since May 2026 he has been the Presiding Officer, the MSP who chairs
+          Holyrood&apos;s debates.
+        </p>
+      </CaseCard>
+
+      <P>
+        <Link href={SIMPSON.href}>Graham Simpson</Link> went over the limit too. His flat cost
+        taxpayers £22,244 that year.
+      </P>
+
+      {/* ------------------------------------------------------------ 5 */}
+      <Finding n={5} of={FINDINGS} id="hotels-vs-flats">
         Parliament&apos;s own sums say hotels can be cheaper
       </Finding>
       <P>
@@ -276,6 +319,11 @@ export default function MspEdinburghFlatsCommuterBelt() {
             report by Holyrood&apos;s staff to the MSPs who run the Parliament, dated 10 September 2026
             (Paper 60). The hotel and flat sums come from
             Holyrood&apos;s own review in September 2025. The 83 voting days come from its vote records.
+          </p>
+          <p>
+            The yearly flat limits (£19,700 in 2023/24 and £20,700 in 2024/25) come from
+            Holyrood&apos;s rates page. The rule that puts double council tax on top of the limit is
+            paragraph 2.1.5 of the MSP expenses rules.
           </p>
           <p>
             Graham Simpson&apos;s words come from what was said in Holyrood on 11 November 2026. Collette

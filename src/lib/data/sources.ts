@@ -2076,6 +2076,13 @@ export const sources: Source[] = [
     used: "The three groups. They decide if an MSP gets nothing, hotels or a flat. Also the 90 minute rule, and which areas sit in each group.",
   },
   {
+    id: "sp-allowances-rates",
+    title: "MSP travel and expenses rates",
+    publisher: "Scottish Parliament",
+    url: "https://www.parliament.scot/msps/members-expenses/allowances-rates",
+    used: "The yearly limit on an MSP's Edinburgh flat: £19,700 in 2023/24 and £20,700 in 2024/25.",
+  },
+  {
     id: "spcb-2026-paper-60",
     title: "Paper 60 on the hotel and flat groups (10 September 2026)",
     publisher: "Scottish Parliament",
