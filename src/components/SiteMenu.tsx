@@ -323,7 +323,7 @@ export function MobileMenu({
       className="xl:hidden fixed inset-0 z-[60] flex flex-col bg-[var(--paper)]"
     >
       <div className="flex h-[var(--header-h)] shrink-0 items-center justify-between bg-[var(--deep)] px-4 sm:px-8">
-        <Link href="/" onClick={onNavigate} aria-label="Scotland Counted home">
+        <Link href="/" onClick={onNavigate} aria-label="Scotland Counted home" className="flex items-center">
           <BrandLogo tone="on-dark" height={26} />
         </Link>
         <button

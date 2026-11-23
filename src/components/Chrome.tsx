@@ -144,7 +144,7 @@ export function Header() {
       >
         <Link
           href="/"
-          className="shrink-0 text-white"
+          className="shrink-0 flex items-center text-white"
           onClick={() => setMenuPath(null)}
           aria-label="Scotland Counted home"
         >
