@@ -1,3 +1,4 @@
+import { redirect } from "next/navigation";
 import { Page, ContentFrame, PageHeader, SectionHead } from "@/components/Blocks";
 import { RankingLinks } from "@/components/AreaRanking";
 import AreaComparePicker from "@/components/AreaComparePicker";
@@ -31,9 +32,25 @@ export default async function CompareAreasPage({
   searchParams: Promise<{ a?: string; b?: string }>;
 }) {
   const params = await searchParams;
-  const a = valid(params.a) ?? COMPARE_DEFAULTS.a;
-  let b = valid(params.b) ?? COMPARE_DEFAULTS.b;
-  if (b === a) b = a === COMPARE_DEFAULTS.b ? COMPARE_DEFAULTS.a : COMPARE_DEFAULTS.b;
+  const rawA = valid(params.a);
+  const rawB = valid(params.b);
+
+  if ((params.a && !rawA) || (params.b && !rawB)) {
+    redirect("/compare-areas");
+  }
+
+  const a = rawA ?? COMPARE_DEFAULTS.a;
+  let b = rawB ?? COMPARE_DEFAULTS.b;
+  if (b === a) {
+    b = a === COMPARE_DEFAULTS.b ? COMPARE_DEFAULTS.a : COMPARE_DEFAULTS.b;
+    if (rawA && rawB && rawA === rawB) {
+      redirect(`/compare-areas?a=${a}&b=${b}`);
+    }
+  }
+
+  if (rawA && rawB && [a, b].sort().join() === "city-of-edinburgh,glasgow-city") {
+    redirect("/glasgow-vs-edinburgh");
+  }
 
   return (
     <>

@@ -5,6 +5,7 @@ import CouncilTaxLookup from "./CouncilTaxLookup";
 import WaterCharge from "@/components/WaterCharge";
 import ToolCTA from "@/components/ToolCTA";
 import SharePage from "@/components/SharePage";
+import NextStepStrip from "@/components/NextStepStrip";
 import { GuideTable } from "@/components/GuideTable";
 import {
   BAND_LETTERS,
@@ -93,7 +94,9 @@ export default function CouncilTaxPage() {
   const bandRows = BAND_LETTERS.map((band, i) => {
     const totals = withData.map((c) => chargesFor(c.slug)![i].total);
     return [
-      <Link key={band} href={councilTaxBandPath(band)}>Band {band}</Link>,
+      <Link key={band} href={councilTaxBandPath(band)} className="whitespace-nowrap font-[600]">
+        Band {band} →
+      </Link>,
       bandValueLabel(band),
       `${pounds(Math.min(...totals))} to ${pounds(Math.max(...totals))}`,
     ];
@@ -123,6 +126,27 @@ export default function CouncilTaxPage() {
         </PageHeader>
 
         <CouncilTaxLookup />
+
+        <NextStepStrip
+          className="mt-7"
+          items={[
+            {
+              href: postPath("check-council-tax-band"),
+              label: "Check your property band",
+              blurb: "Find your home's exact band free on the official list.",
+            },
+            {
+              href: postPath("100-energy-payment-scotland"),
+              label: "£100 energy payment",
+              blurb: "See who gets it in Bands A to D and when it pays.",
+            },
+            {
+              href: "/mansion-tax-scotland",
+              label: "New Bands I and J",
+              blurb: "How Scotland's new £1m home bands and rules work.",
+            },
+          ]}
+        />
 
         <div className="mt-10 mb-9">
           <InShort>
@@ -170,6 +194,7 @@ export default function CouncilTaxPage() {
             columns={["Band", "Value on 1 April 1991", "A year, cheapest to dearest council"]}
             rows={bandRows}
             align={["left", "left", "right"]}
+            caption="Pick any band on the left to see prices for all 32 councils."
           />
         </section>
 

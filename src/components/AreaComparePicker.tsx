@@ -119,8 +119,17 @@ export default function AreaComparePicker({ a, b }: { a: string; b: string }) {
       const [sa, sb] = await Promise.all(
         [left, right].map((s) => (s.postcode.trim() ? councilForPostcode(s.postcode.trim()) : Promise.resolve(s.council)))
       );
+      if (sa === sb) {
+        const areaName = COUNCIL_SEARCH_NAMES[sa] ?? sa;
+        setError(`Both choices are in ${areaName}. Pick a second council area to compare.`);
+        return;
+      }
       setLeft({ council: sa, postcode: "" });
       setRight({ council: sb, postcode: "" });
+      if ([sa, sb].sort().join() === "city-of-edinburgh,glasgow-city") {
+        router.push("/glasgow-vs-edinburgh");
+        return;
+      }
       const onPage = document.getElementById("comparison");
       if (!onPage) {
         try {
@@ -137,25 +146,42 @@ export default function AreaComparePicker({ a, b }: { a: string; b: string }) {
   }
 
   function swap() {
+    setError("");
     setLeft(right);
     setRight(left);
+  }
+
+  function handleLeftChange(next: Side) {
+    setError("");
+    if (!next.postcode && next.council === right.council) {
+      setRight({ council: left.council, postcode: "" });
+    }
+    setLeft(next);
+  }
+
+  function handleRightChange(next: Side) {
+    setError("");
+    if (!next.postcode && next.council === left.council) {
+      setLeft({ council: right.council, postcode: "" });
+    }
+    setRight(next);
   }
 
   return (
     <form onSubmit={submit} className="tile p-5 sm:p-7">
       <div className="grid gap-5 md:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] md:items-start">
-        <SidePicker label="First area" colour="var(--brand)" side={left} example="G12 8QQ" onChange={setLeft} />
+        <SidePicker label="First area" colour="var(--brand)" side={left} example="G12 8QQ" onChange={handleLeftChange} />
         <button
           type="button"
           onClick={swap}
-          className="btn btn-ghost mx-auto h-12 w-12 justify-center rounded-full p-0 max-md:rotate-90 md:mt-8"
+          className="btn btn-ghost mx-auto h-12 w-12 cursor-pointer justify-center rounded-full p-0 max-md:rotate-90 md:mt-8"
           aria-label="Swap the two areas"
         >
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
             <path d="M7 7h13m0 0-4-4m4 4-4 4M17 17H4m0 0 4 4m-4-4 4-4" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </button>
-        <SidePicker label="Second area" colour="var(--hub-area)" side={right} example="EH1 1RE" onChange={setRight} />
+        <SidePicker label="Second area" colour="var(--hub-area)" side={right} example="EH1 1RE" onChange={handleRightChange} />
       </div>
       <div className="mt-6 flex flex-wrap items-center gap-4">
         <button type="submit" className="btn btn-primary justify-center max-sm:w-full" disabled={state === "loading"}>

@@ -1,6 +1,7 @@
 import Link from "@/components/IntentLink";
 import { Prose, Lead, P, H2, UL, LI, Aside, PostCTA } from "@/components/Prose";
 import { GuideTable } from "@/components/GuideTable";
+import NextStepStrip from "@/components/NextStepStrip";
 import RepresentativeLookup from "@/app/(site)/representatives/RepresentativeLookup";
 import { HOLYROOD_DATA_CHECKED_AT, holyroodConstituencies, holyroodRegions } from "@/lib/data/holyrood";
 import { mps } from "@/lib/data/mps";
@@ -37,6 +38,27 @@ export default function Post() {
         keep your postcode.
       </P>
       <RepresentativeLookup />
+
+      <NextStepStrip
+        className="my-6"
+        items={[
+          {
+            href: "/mp-expenses-scotland/search",
+            label: "Search MP and MSP receipts",
+            blurb: "Enter your postcode to check every claim your MP made.",
+          },
+          {
+            href: "/email-your-mp-and-msp",
+            label: "Email your MP and MSP",
+            blurb: "Draft a clear email with local figures in two minutes.",
+          },
+          {
+            href: "/higher-modern-studies",
+            label: "Modern Studies revision",
+            blurb: "Official Scottish facts and figures for exams.",
+          },
+        ]}
+      />
 
       <H2 id="two-kinds">Constituency MSPs and regional MSPs</H2>
       <P>

@@ -1,6 +1,7 @@
 import Link from "@/components/IntentLink";
 import { Prose, Lead, P, H2, H3, UL, LI, Aside, PostCTA } from "@/components/Prose";
 import { GuideTable } from "@/components/GuideTable";
+import NextStepStrip from "@/components/NextStepStrip";
 import { SCOTTISH_ASSESSORS, bandValueLabel } from "@/lib/data/councilTaxHelp";
 import { postPath } from "@/lib/routeMap";
 
@@ -21,6 +22,27 @@ export default function Post() {
         D. In Scotland, the Scottish Government has said it will pay it too, using the bands homes
         already have. The date, and whether you need to apply, haven&apos;t been announced yet.
       </Lead>
+
+      <NextStepStrip
+        className="my-6"
+        items={[
+          {
+            href: "/warm-home-discount-scotland",
+            label: "Warm Home Discount (£150)",
+            blurb: "Check if you get £150 off your winter power bill.",
+          },
+          {
+            href: postPath("winter-heating-payment"),
+            label: "Winter Heating Payment",
+            blurb: "See who gets extra cold weather help in Scotland.",
+          },
+          {
+            href: postPath("kilmarnock-mp-23437-electricity-bill"),
+            label: "MP's £23,437 power bill",
+            blurb: "The Scottish MP who claimed £23,437 in one day.",
+          },
+        ]}
+      />
 
       <H2 id="who">Who gets the £100 energy payment?</H2>
       <P>

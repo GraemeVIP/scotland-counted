@@ -1,6 +1,7 @@
 import Link from "@/components/IntentLink";
 import { Prose, Lead, P, H2, UL, LI, BigStat, Aside, PostCTA } from "@/components/Prose";
 import { GuideTable } from "@/components/GuideTable";
+import NextStepStrip from "@/components/NextStepStrip";
 import ToolCTA from "@/components/ToolCTA";
 import { minimumWageTakeHome } from "@/lib/data/livingCosts";
 import { MINIMUM_WAGE, REAL_LIVING_WAGE, pounds } from "@/lib/data/quickAnswers";
@@ -58,6 +59,27 @@ export default function Post() {
         Scotland does not set a separate minimum wage, so the UK rates apply, but Scottish income
         tax bands change what you take home.
       </Lead>
+
+      <NextStepStrip
+        className="my-6"
+        items={[
+          {
+            href: "/take-home-pay-calculator-scotland",
+            label: "Take home pay calculator",
+            blurb: "See what reaches your bank after Scottish tax.",
+          },
+          {
+            href: "/real-living-wage-scotland",
+            label: "Real Living Wage Scotland",
+            blurb: "See how the higher Living Wage compares with the minimum.",
+          },
+          {
+            href: "/tax-bands-scotland",
+            label: "Scottish tax bands 2026/27",
+            blurb: "All six Scottish income tax bands in one table.",
+          },
+        ]}
+      />
 
       <H2 id="rates">Minimum wage Scotland 2026: every rate</H2>
       <P>

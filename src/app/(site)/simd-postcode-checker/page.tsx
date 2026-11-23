@@ -2,6 +2,7 @@ import Link from "@/components/IntentLink";
 import { Page, ContentFrame, PageHeader, SectionHead, CTA } from "@/components/Blocks";
 import EditorialImage from "@/components/EditorialImage";
 import SharePage from "@/components/SharePage";
+import NextStepStrip from "@/components/NextStepStrip";
 import QuickAnswer from "@/components/QuickAnswer";
 import Faq from "@/components/Faq";
 import { GuideTable } from "@/components/GuideTable";
@@ -123,6 +124,26 @@ export default function SimdPostcodeCheckerPage() {
 
         <ContentFrame className="pt-10">
           <SimdLookup />
+          <NextStepStrip
+            className="mt-7"
+            items={[
+              {
+                href: "/council-tax-bands-scotland",
+                label: "Council tax bands Scotland",
+                blurb: "Check full yearly and monthly bills for all 32 councils.",
+              },
+              {
+                href: "/safest-place-to-live-in-scotland",
+                label: "Safest places in Scotland",
+                blurb: "See how every Scottish council ranks on local crime.",
+              },
+              {
+                href: "/who-is-my-msp",
+                label: "Who is my MSP?",
+                blurb: "Put in your postcode to find your MSPs, MP and emails.",
+              },
+            ]}
+          />
           <EditorialImage
             src={HERO_IMAGE.src}
             alt={HERO_IMAGE.alt}

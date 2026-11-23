@@ -4322,6 +4322,7 @@ export const posts: Post[] = [
       ],
       asOf: `Elected ${SCOTTISH_PARLIAMENT.elected}`,
       source: SCOTTISH_PARLIAMENT.source,
+      nextStep: { label: "Search MP and MSP expenses", href: "/mp-expenses-scotland/search" },
     },
     toc: [
       { id: "postcode", label: "Who is my MSP by postcode" },

@@ -46,7 +46,9 @@ export default function CouncilTaxLookup() {
   const resultHeading = useRef<HTMLHeadingElement>(null);
   const [period, setPeriod] = useState<"year" | "12" | "10">("year");
   useEffect(() => {
-    if (result) resultHeading.current?.focus({ preventScroll: true });
+    if (!result) return;
+    resultHeading.current?.focus({ preventScroll: true });
+    resultHeading.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   }, [result]);
 
   function show(slug: string, councilName: string, method: "postcode" | "council_list") {
@@ -67,7 +69,18 @@ export default function CouncilTaxLookup() {
   async function lookup(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const value = postcode.trim();
-    if (!value) { setState("error"); setMessage("Enter a postcode or choose your council below."); return; }
+    if (!value) {
+      if (result) {
+        setState("idle");
+        setMessage("");
+        resultHeading.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+        resultHeading.current?.focus({ preventScroll: true });
+        return;
+      }
+      setState("error");
+      setMessage("Enter a postcode or choose your council below.");
+      return;
+    }
     setState("loading");
     setMessage("");
     setResult(null);
@@ -108,7 +121,7 @@ export default function CouncilTaxLookup() {
           */}
           <input
             id="ct-postcode"
-            maxLength={10}
+            maxLength={16}
             aria-describedby={state === "error" ? "ct-error" : "ct-help"}
             aria-invalid={state === "error" || undefined}
             type="text"
@@ -119,7 +132,7 @@ export default function CouncilTaxLookup() {
             autoComplete="postal-code"
             className="ui min-h-12 w-full rounded-[var(--r-s)] border border-[var(--rule-strong)] bg-[var(--paper)] px-4 text-[16px] text-[var(--ink)] outline-none transition-colors placeholder:text-[var(--muted)] focus:border-[var(--brand)]"
           />
-          <button type="submit" disabled={state === "loading"} className="btn btn-primary justify-center whitespace-nowrap">
+          <button type="submit" disabled={state === "loading"} className="btn btn-primary cursor-pointer justify-center whitespace-nowrap">
             {state === "loading" ? "Looking…" : "Show my charges"}
             {state !== "loading" && <span aria-hidden="true">→</span>}
           </button>
@@ -135,11 +148,14 @@ export default function CouncilTaxLookup() {
         <select id="ct-council" value={result?.slug ?? ""} onChange={(event) => {
           const council = councils.find((c) => c.slug === event.target.value);
           if (council) show(council.slug, council.name, "council_list");
-        }} className="ui mt-2 min-h-12 w-full max-w-[440px] rounded-[var(--r-s)] border border-[var(--rule-strong)] bg-[var(--paper)] px-3 text-[16px]">
+        }} className="ui mt-2 min-h-12 w-full max-w-[440px] cursor-pointer rounded-[var(--r-s)] border border-[var(--rule-strong)] bg-[var(--paper)] px-3 text-[16px]">
           <option value="" disabled>Select a council</option>
           {councils.map((c) => <option key={c.slug} value={c.slug}>{c.name}</option>)}
         </select>
-        <p id="ct-help" className="mt-4 text-[15px] leading-relaxed text-[var(--ink-2)]">
+        <p className="mt-2 text-[14.5px] text-[var(--muted)]">
+          Picking a council shows your prices below straight away.
+        </p>
+        <p id="ct-help" className="mt-3 text-[15px] leading-relaxed text-[var(--ink-2)]">
           Your postcode finds the council, not your property’s band. <a href="https://www.saa.gov.uk/" target="_blank" rel="noopener noreferrer">Find your exact band with the Scottish Assessors ↗</a>.
         </p>
       </div>
@@ -148,7 +164,7 @@ export default function CouncilTaxLookup() {
 
       {result && (
         <div className="mt-8">
-          <h2 ref={resultHeading} tabIndex={-1} className="h2 mb-2">{result.councilName}</h2>
+          <h2 ref={resultHeading} tabIndex={-1} className="h2 mb-2 scroll-mt-24">{result.councilName}</h2>
           <p className="max-w-[62ch] text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
             Every band, with water and waste water included. Those are on the same bill and are
             usually missing from figures you find elsewhere.
@@ -176,7 +192,7 @@ export default function CouncilTaxLookup() {
                     type="button"
                     onClick={() => setOpenBand(open ? null : c.band)}
                     aria-expanded={open}
-                    className="grid w-full grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-x-4 bg-[var(--surface)] px-5 py-4 text-left transition-colors hover:bg-[var(--surface-2)]"
+                    className="grid w-full cursor-pointer grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-x-4 bg-[var(--surface)] px-5 py-4 text-left transition-colors hover:bg-[var(--surface-2)]"
                   >
                     <span className="display-stat w-8 text-[20px] text-[var(--brand)]">{c.band}</span>
                     <span className="ui text-[15px] leading-[1.4] text-[var(--ink-2)]">
@@ -214,11 +230,17 @@ export default function CouncilTaxLookup() {
                           <dd className="text-[17px] font-[560] tnum">{exact.format(value as number)}</dd>
                         </div>
                       ))}
-                      <div className="sm:col-span-2 lg:col-span-5">
+                      <div className="flex flex-wrap items-center justify-between gap-3 sm:col-span-2 lg:col-span-5">
                         <p className="text-[15px] leading-[1.5] text-[var(--ink-2)]">
                           About {exact.format(c.total / 12)} a month, or{" "}
                           {exact.format(c.total / 52)} a week.
                         </p>
+                        <Link
+                          href={`${councilTaxPath(result.slug)}#band-${c.band.toLowerCase()}`}
+                          className="ui text-[14.5px] font-[600] text-[var(--brand)]"
+                        >
+                          Full {result.councilName} Band {c.band} page →
+                        </Link>
                       </div>
                     </dl>
                   )}
@@ -229,7 +251,7 @@ export default function CouncilTaxLookup() {
 
           <EnergyPaymentNote />
 
-          <details className="mt-5"><summary className="cursor-pointer text-[16px] font-semibold">How common is each band in this area?</summary>          {(() => {
+          <details className="mt-5 rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface)] px-4 py-3"><summary className="cursor-pointer text-[16px] font-semibold text-[var(--brand)]">How common is each band in this area?</summary>          {(() => {
             const shares = bandShares(result.slug);
             if (!shares) return null;
             const top = [...shares].sort((a, b) => b.share - a.share)[0];
