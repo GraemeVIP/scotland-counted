@@ -28,11 +28,6 @@ export const metadata = meta({
   type: "article",
   published: PUBLISHED_ISO,
   modified: MODIFIED_ISO,
-  image: "/images/share/warm-home-discount-scotland-150.jpg",
-  imageAlt: HERO_IMAGE.alt,
-  imageWidth: 1200,
-  imageHeight: 630,
-  imageType: "image/jpeg",
 });
 
 const GROUPS_TABLE = [

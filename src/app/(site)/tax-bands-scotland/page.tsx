@@ -26,11 +26,6 @@ export const metadata = meta({
     "Scottish income tax bands for 2026/27: six rates from 19% to 48%, exact thresholds, how much more or less you pay than England, and your take home pay.",
   path: "/tax-bands-scotland",
   type: "website",
-  image: "/images/share/tax-bands-scotland-2026-27.jpg",
-  imageAlt: HERO_IMAGE.alt,
-  imageWidth: 1200,
-  imageHeight: 630,
-  imageType: "image/jpeg",
 });
 
 const pounds = new Intl.NumberFormat("en-GB", {

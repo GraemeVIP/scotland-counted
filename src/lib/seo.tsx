@@ -7,6 +7,34 @@ const BRAND_SUFFIX = ` | ${site.name}`;
 const TITLE_BUDGET = 60;
 const RSS_FEED_URL = `${site.url}/feed.xml`;
 
+const DATA_OG_PREFIXES = [
+  "/representatives/",
+  "/councils/",
+  "/msp-reviews/",
+  "/indicators/",
+  "/blog/",
+  "/mp-expenses-scotland",
+  "/glasgow-vs-edinburgh",
+  "/compare-areas",
+];
+
+function defaultOgImage(path: string, title: string, description: string): string {
+  if (path === "/") return "/opengraph-image";
+  const cleanPath = path.startsWith("/") ? path : `/${path}`;
+  const isDataRoute =
+    DATA_OG_PREFIXES.some((prefix) => cleanPath === prefix || cleanPath.startsWith(prefix)) ||
+    cleanPath.endsWith("-council-tax-bands") ||
+    cleanPath.endsWith("-after-tax-scotland") ||
+    cleanPath.startsWith("/council-tax-band-");
+
+  const params = new URLSearchParams({ path: cleanPath });
+  if (!isDataRoute) {
+    params.set("t", title.slice(0, 120));
+    params.set("d", description.slice(0, 180));
+  }
+  return `/og?${params.toString()}`;
+}
+
 /**
  * Builds page metadata consistently: canonical URL, Open Graph,
  * Twitter card and title template all derive from one call.
@@ -55,12 +83,17 @@ export function meta({
 
   const url = `${site.url}${path === "/" ? "" : path}`;
   /**
-   * Every page gets a share card. The opengraph-image file convention only
-   * covers the segment it sits in. It does not reach nested routes whose own
-   * metadata defines openGraph, which left most of the site sharing as a bare
-   * link. Defaulting here covers every page from one place.
+   * Every page gets its own unique 1200x630 share card via /og?path=... unless
+   * it specifies an explicit image, uses an adjacent opengraph-image file
+   * (ownImage: true), or is the homepage (/).
    */
-  const resolved = image ?? (ownImage ? undefined : "/opengraph-image");
+  const resolved = image ?? (ownImage ? undefined : defaultOgImage(path, title, description));
+  const isGeneratedCard = Boolean(
+    resolved && (resolved.startsWith("/og?") || resolved === "/opengraph-image"),
+  );
+  const resolvedWidth = imageWidth ?? (isGeneratedCard ? 1200 : undefined);
+  const resolvedHeight = imageHeight ?? (isGeneratedCard ? 630 : undefined);
+  const resolvedType = imageType ?? (isGeneratedCard ? "image/png" : undefined);
   const imageUrl = resolved
     ? resolved.startsWith("http")
       ? resolved
@@ -70,17 +103,17 @@ export function meta({
     ? {
         url: imageUrl,
         alt: imageAlt ?? title,
-        ...(imageWidth ? { width: imageWidth } : {}),
-        ...(imageHeight ? { height: imageHeight } : {}),
-        ...(imageType ? { type: imageType } : {}),
+        ...(resolvedWidth ? { width: resolvedWidth } : {}),
+        ...(resolvedHeight ? { height: resolvedHeight } : {}),
+        ...(resolvedType ? { type: resolvedType } : {}),
       }
     : undefined;
   const twitterImage = imageUrl
     ? {
         url: imageUrl,
         alt: imageAlt ?? title,
-        ...(imageWidth ? { width: imageWidth } : {}),
-        ...(imageHeight ? { height: imageHeight } : {}),
+        ...(resolvedWidth ? { width: resolvedWidth } : {}),
+        ...(resolvedHeight ? { height: resolvedHeight } : {}),
       }
     : undefined;
   return {

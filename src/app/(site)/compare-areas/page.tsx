@@ -9,7 +9,7 @@ import { councils } from "@/lib/data/councils";
 import { COMPARE_DEFAULTS, COMPARE_METRICS, winner } from "@/lib/data/compareAreas";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import NextStepStrip from "@/components/NextStepStrip";
-import { councilTaxPath } from "@/lib/routeMap";
+import { COUNCIL_SEARCH_NAMES, councilTaxPath } from "@/lib/routeMap";
 
 /**
  * Compare any two of Scotland's 32 council areas.
@@ -19,14 +19,39 @@ import { councilTaxPath } from "@/lib/routeMap";
  * stays /compare-areas, so 496 near identical pairings are never indexed.
  */
 
-export const metadata = meta({
-  title: "Compare Areas in Scotland: Two Council Areas Side by Side",
-  description:
-    "Compare any two Scottish council areas, or two postcodes, on pay, house prices, crime, poverty, health, schools and council services, using the latest official figures.",
-  path: "/compare-areas",
-});
-
 const valid = (slug: string | undefined) => (slug && councils.some((c) => c.slug === slug) ? slug : undefined);
+
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: Promise<{ a?: string; b?: string }>;
+}) {
+  const params = await searchParams;
+  const rawA = valid(params.a);
+  const rawB = valid(params.b);
+
+  if (rawA && rawB && rawA !== rawB) {
+    const nameA = COUNCIL_SEARCH_NAMES[rawA] ?? councils.find((c) => c.slug === rawA)?.name ?? rawA;
+    const nameB = COUNCIL_SEARCH_NAMES[rawB] ?? councils.find((c) => c.slug === rawB)?.name ?? rawB;
+    return meta({
+      title: `${nameA} vs ${nameB}: Pay, Housing, Crime & Cost`,
+      description: `Compare ${nameA} and ${nameB} side by side on pay, house prices, rent, council tax, crime, poverty, health and schools using the latest official figures.`,
+      path: "/compare-areas",
+      image: `/og?path=${encodeURIComponent("/compare-areas")}&a=${encodeURIComponent(rawA)}&b=${encodeURIComponent(rawB)}`,
+      imageAlt: `${nameA} vs ${nameB} official council comparison`,
+      imageWidth: 1200,
+      imageHeight: 630,
+      imageType: "image/png",
+    });
+  }
+
+  return meta({
+    title: "Compare Areas in Scotland: Two Council Areas Side by Side",
+    description:
+      "Compare any two Scottish council areas, or two postcodes, on pay, house prices, crime, poverty, health, schools and council services, using the latest official figures.",
+    path: "/compare-areas",
+  });
+}
 
 export default async function CompareAreasPage({
   searchParams,

@@ -29,11 +29,6 @@ export const metadata = meta({
   type: "article",
   published: PUBLISHED_ISO,
   modified: MODIFIED_ISO,
-  image: "/images/share/scottish-budget-2027-28-holyrood.jpg",
-  imageAlt: HERO_IMAGE.alt,
-  imageWidth: 1200,
-  imageHeight: 630,
-  imageType: "image/jpeg",
 });
 
 const CURRENT_TAX_TABLE = [

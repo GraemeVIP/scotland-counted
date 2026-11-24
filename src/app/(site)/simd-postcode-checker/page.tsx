@@ -29,11 +29,6 @@ export const metadata = meta({
     "Free SIMD postcode checker for Scotland. Enter any Scottish postcode to find its official SIMD 2020 decile (1 to 10), quintile, rank out of 6,976 and council share.",
   path: "/simd-postcode-checker",
   type: "website",
-  image: "/images/share/simd-postcode-checker-scotland.jpg",
-  imageAlt: HERO_IMAGE.alt,
-  imageWidth: 1200,
-  imageHeight: 630,
-  imageType: "image/jpeg",
 });
 
 const FAQ = [

@@ -31,11 +31,6 @@ export const metadata = meta({
   type: "article",
   published: PUBLISHED_ISO,
   modified: MODIFIED_ISO,
-  image: "/images/share/mansion-tax-scotland-council-tax-bands.jpg",
-  imageAlt: HERO_IMAGE.alt,
-  imageWidth: 1200,
-  imageHeight: 630,
-  imageType: "image/jpeg",
 });
 
 const pounds = new Intl.NumberFormat("en-GB", {
