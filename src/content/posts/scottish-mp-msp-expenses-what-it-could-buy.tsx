@@ -61,14 +61,14 @@ const CRISIS_COMPARISON = [
   { label: "Edinburgh: 17,290 Crisis Grants", value: 2_120_654, display: "£2,120,654", hot: false },
   { label: "Glasgow: 25,940 Crisis Grants", value: 3_950_416, display: "£3,950,416", hot: false },
   { label: "All three cities together: 46,580 Crisis Grants", value: 6_409_630, display: "£6,409,630", hot: false },
-  { label: "Scottish MPs + MSPs: 1 year of 2nd homes, travel, leaflets, PR and perks", value: 6_641_316, display: "£6,641,316", hot: true },
+  { label: "Scottish MPs + MSPs: 1 year of 2nd homes, travel, leaflets, PR and extras", value: 6_641_316, display: "£6,641,316", hot: true },
 ];
 
 const EXTRAS = [
   {
     what: "Glossy leaflets, annual reports, calendars and billboards",
     amount: 1_562_047,
-    detail: "£1,388,987 by MSPs (77.8% of the Greens' pot blown in March) + £173,060 by MPs",
+    detail: "£1,388,987 by MSPs (77.8% of the Greens' pot spent in March) + £173,060 by MPs",
   },
   {
     what: "Flying MP office staff around and London staff hotels",
@@ -127,7 +127,7 @@ export default function ScottishMpMspExpensesWhatItCouldBuy() {
   return (
     <Prose>
       <Lead>
-        In one year, 184 Scottish MPs and MSPs burned £6.64 million on second homes, hotels,
+        In one year, 184 Scottish MPs and MSPs spent £6.64 million on second homes, hotels,
         travel, leaflets, PR firms and papers. More than Glasgow, Edinburgh and Dundee gave out in
         Crisis Grants all year. A Crisis Grant is emergency cash from your council when you
         can&apos;t pay for food or heating.
@@ -145,8 +145,8 @@ export default function ScottishMpMspExpensesWhatItCouldBuy() {
             travel, leaflets, PR and papers.
           </>,
           <>
-            Even if they keep their flats and trips, <strong>£2.80 million a year</strong> goes
-            on pure zero excuse waste: leaflets, PR firms, second home council tax, taxis and papers.
+            Even if you take out flats and MP travel, <strong>£2.80 million a year</strong> goes
+            on leaflets, PR firms, second home council tax, taxis and papers.
           </>,
           <>
             The full one year total would pay <strong>207 new NHS nurses</strong> for a year.
@@ -442,7 +442,7 @@ export default function ScottishMpMspExpensesWhatItCouldBuy() {
         legend={
           <>
             <Swatch colour="var(--rule-strong)">Emergency Crisis Grants for families</Swatch>
-            <Swatch colour="var(--bad)">MP + MSP 2nd homes, travel, leaflets &amp; perks</Swatch>
+            <Swatch colour="var(--bad)">MP + MSP 2nd homes, travel, leaflets &amp; extras</Swatch>
           </>
         }
         caption={
@@ -475,24 +475,24 @@ export default function ScottishMpMspExpensesWhatItCouldBuy() {
 
       {/* ------------------------------------------------------------ 5 */}
       <Finding n={5} id="zero-excuse-pot">
-        Even if they keep basic flats and travel, £2.80 million a year is pure zero excuse waste
+        Even without flats and MP travel, £2.80 million a year goes on extras
       </Finding>
       <P>
-        Ask a politician about expenses and you get the same excuse every time. An MP or MSP from
-        far away needs a flat, and a train or flight, to get to work.
+        Politicians often say an MP or MSP from far away needs a flat, and a train or flight, to get
+        to work.
       </P>
       <P>
-        Fine. Let&apos;s give them all of that. Take out the second home rent and heat bills, and
-        all their own flights, trains and car miles.
+        So take out all second home rent and heat bills, and all their own flights, trains and car
+        miles.
       </P>
       <P>
-        They still blew <strong>£2,803,948 in one year</strong> on things no normal worker could
-        ever put through on expenses. The four biggest:
+        The bill still comes to <strong>£2,803,948 in one year</strong> on costs most workers pay
+        themselves or cannot claim. The four biggest:
       </P>
 
       <ChartFrame
-        kicker="The £2.80 Million 'Zero Excuse' Pot · 1 Year (MPs + MSPs)"
-        title="What is left when you only count self promo, PR firms, council tax, family trips, staff hotels, taxis and papers"
+        kicker="£2.80 Million Outside Flats & MP Travel · 1 Year (MPs + MSPs)"
+        title="What is left when you count leaflets, PR firms, council tax, family trips, staff hotels, taxis and papers"
         caption="Source: IPSA 2025/26 and Holyrood 2024/25 files. Leaves out staff pay, local offices, second home rent and bills, and MPs' and MSPs' own travel."
       >
         <div className="space-y-5">
@@ -506,7 +506,7 @@ export default function ScottishMpMspExpensesWhatItCouldBuy() {
         </div>
 
         <div className="ui mt-6 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-t-2 border-[var(--ink)] pt-3.5">
-          <span className="text-[16px] font-[700] text-[var(--ink)]">1 year zero excuse total (all nine)</span>
+          <span className="text-[16px] font-[700] text-[var(--ink)]">1 year total across all nine</span>
           <span className="tnum text-[19px] font-[700] text-[var(--bad-text)]">£2,803,948</span>
         </div>
       </ChartFrame>

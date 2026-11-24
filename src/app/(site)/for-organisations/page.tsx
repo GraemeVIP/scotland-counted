@@ -1,50 +1,112 @@
 import Link from "@/components/IntentLink";
 import { Page, PageHeader, SectionHead } from "@/components/Blocks";
+import { ExplainText } from "@/components/ExplainServer";
 import { meta } from "@/lib/seo";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata = meta({
-  title: "Scottish local data briefs for organisations",
-  description: "Use Scotland Counted’s free charts and local data, or enquire about a commissioned brief for your charity, housing organisation or community project.",
+  title: "Free Scottish data help for charities and good causes",
+  description:
+    "Use Scotland Counted's free charts and local data, or ask for free help with data analysis for your charity, community group or good cause. Every request is looked at case by case.",
   path: "/for-organisations",
 });
 
 export default function Organisations() {
-  return <>
-    <Breadcrumbs crumbs={[{name:"Home",path:"/"},{name:"For organisations",path:"/for-organisations"}]} />
-    <Page>
-      <PageHeader eyebrow="For charities, housing teams and community organisations" title="Local evidence you can put to work." lede="Need to explain what is happening in a Scottish community? Start with the free data here, or ask us about a focused piece of research for your project." />
-      <div className="grid gap-5 md:grid-cols-2">
-        <section className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] p-6 sm:p-8">
-          <p className="kicker text-[var(--brand)] mb-3">Available now · free</p>
-          <h2 className="h2">Use the public resources</h2>
-          <p className="mt-4 text-[17px] leading-relaxed text-[var(--ink-2)]">Download local figures, cite an explainer or embed an existing chart. Keep the original source, date and credit with anything you reuse.</p>
-          <div className="mt-5 flex flex-wrap gap-4 text-[16px] font-semibold"><Link href="/data">Browse the data →</Link><Link href="/press">Charts and press downloads →</Link></div>
-        </section>
-        <section className="rounded-[var(--r-m)] border-2 border-[var(--brand)] p-6 sm:p-8">
-          <p className="kicker text-[var(--brand)] mb-3">Commissioned work · by agreement</p>
-          <h2 className="h2">Ask for a local evidence brief</h2>
-          <p className="mt-4 text-[17px] leading-relaxed text-[var(--ink-2)]">A clearly sourced brief for a funding application, community presentation or service planning discussion. Tell us the place, the question and what you need to do with the answer.</p>
-          <Link href="/methods" className="btn btn-primary mt-5">Read our methods →</Link>
-          <p className="mt-3 text-[15px] leading-relaxed text-[var(--muted)]">Scope, price and timing are agreed before any paid work starts.</p>
-        </section>
-      </div>
-      <section className="pt-12">
-        <SectionHead eyebrow="A useful starting point" title="One place. One clear question." />
-        <div className="mt-6 grid gap-5 md:grid-cols-3">
-          {[
-            ["Community needs", "Explain local poverty and living cost pressures, with the reporting years and comparison areas made clear."],
-            ["Costs and context", "Bring council tax, local figures and the relevant public sources together in a format your readers can understand."],
-            ["Evidence for a decision", "Turn an existing public dataset into a small set of charts and plain English findings, with its limits explained."],
-          ].map(([title,body]) => <div key={title} className="border-t-2 border-[var(--ink)] pt-4"><h3 className="text-[20px] font-bold">{title}</h3><p className="mt-3 text-[17px] leading-relaxed text-[var(--ink-2)]">{body}</p></div>)}
+  return (
+    <>
+      <Breadcrumbs
+        crumbs={[
+          { name: "Home", path: "/" },
+          { name: "For organisations", path: "/for-organisations" },
+        ]}
+      />
+      <Page>
+        <PageHeader
+          eyebrow="For charities and good causes"
+          title="Free data help for good causes."
+          lede="Need clear local facts for a grant bid, report or local meeting? Use our free data, or ask us for help. It is free for good causes. We look at each ask case by case."
+        />
+        <div className="grid gap-5 md:grid-cols-2">
+          <section className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface-2)] p-6 sm:p-8">
+            <p className="kicker text-[var(--brand)] mb-3">Ready now · free</p>
+            <h2 className="h2">Use the public data</h2>
+            <p className="mt-4 text-[17px] leading-relaxed text-[var(--ink-2)]">
+              <ExplainText>
+                Download local figures, quote a guide or share a chart. Keep the source, date and
+                credit on anything you reuse.
+              </ExplainText>
+            </p>
+            <div className="mt-5 flex flex-wrap gap-4 text-[16px] font-semibold">
+              <Link href="/data">Browse the data →</Link>
+              <Link href="/press">Charts and press files →</Link>
+            </div>
+          </section>
+          <section className="rounded-[var(--r-m)] border-2 border-[var(--brand)] p-6 sm:p-8">
+            <p className="kicker text-[var(--brand)] mb-3">Free help · case by case</p>
+            <h2 className="h2">Ask for data help</h2>
+            <p className="mt-4 text-[17px] leading-relaxed text-[var(--ink-2)]">
+              <ExplainText>
+                We help Scottish charities, housing teams, schools and local groups with data
+                analysis and charts. We do not charge good causes. We look at each ask case by
+                case, based on time and what the public data can show.
+              </ExplainText>
+            </p>
+            <Link href="/methods" className="btn btn-primary mt-5">
+              See how we check facts →
+            </Link>
+            <p className="mt-3 text-[15px] leading-relaxed text-[var(--muted)]">
+              We do not charge fees or sell paid work. A contact form is on the way.
+            </p>
+          </section>
         </div>
-      </section>
-      <section className="mt-12 border-t border-[var(--rule)] pt-8 max-w-[75ch] text-[17px] leading-relaxed text-[var(--ink-2)]">
-        <h2 className="h2 mb-4">Evidence comes first</h2>
-        <p>Commissioned work pays for research and presentation time. It does not buy a favourable finding, editorial coverage or a representative’s rating. Public tools and published datasets remain free to use under their stated terms.</p>
-        <p className="mt-4">Every figure published on Scotland Counted links to its official source so you can check it directly. <Link href="/methods">Read the methods</Link>.</p>
-        <p className="mt-4">For an enquiry, include the council area, your question, your intended audience and any deadline. Please leave out personal case details.</p>
-      </section>
-    </Page>
-  </>;
+        <section className="pt-12">
+          <SectionHead eyebrow="How we can help" title="One place. One clear question." />
+          <div className="mt-6 grid gap-5 md:grid-cols-3">
+            {[
+              [
+                "Local needs",
+                "Pull local poverty, pay and living cost facts together. Each chart shows the year and how your area stacks up.",
+              ],
+              [
+                "Bills and budgets",
+                "Put council tax, local spend and public records into plain words anyone can read.",
+              ],
+              [
+                "Charts and checks",
+                "Turn raw public files into clean charts and short notes. Any gap in the data is set out clearly.",
+              ],
+            ].map(([title, body]) => (
+              <div key={title} className="border-t-2 border-[var(--ink)] pt-4">
+                <h3 className="text-[20px] font-bold">{title}</h3>
+                <p className="mt-3 text-[17px] leading-relaxed text-[var(--ink-2)]">
+                  <ExplainText>{body}</ExplainText>
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+        <section className="mt-12 border-t border-[var(--rule)] pt-8 max-w-[75ch] text-[17px] leading-relaxed text-[var(--ink-2)]">
+          <h2 className="h2 mb-4">Facts come first</h2>
+          <p>
+            <ExplainText>
+              All help for good causes is free. We report what the public records show, never a
+              pre-set line. Every tool and file on this site stays free for all.
+            </ExplainText>
+          </p>
+          <p className="mt-4">
+            <ExplainText>
+              Every number links back to its first source so you can check it yourself.
+            </ExplainText>{" "}
+            <Link href="/methods">Read the methods</Link>.
+          </p>
+          <p className="mt-4">
+            <ExplainText>
+              When you get in touch, share your council area, your question, who will read it and
+              when you need it. Leave out private case details.
+            </ExplainText>
+          </p>
+        </section>
+      </Page>
+    </>
+  );
 }

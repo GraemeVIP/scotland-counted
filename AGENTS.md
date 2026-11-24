@@ -12,3 +12,8 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 - **Zero duplicate article images:** Every article in `src/lib/data/posts.ts` MUST have its own unique `image.src` file under `public/images/editorial/`. Never reuse another article's or hub page's editorial image on a new post. This rule is enforced automatically by `src/lib/readability.test.ts`.
 
+## Scotland Counted article approval rule
+
+- **Show Graeme every article on the local preview site before it goes live:** Keep a local preview server running and give Graeme the localhost URL so he can review the full page (headline, standfirst, body, charts, and image/photo) in his browser before committing, pushing, or deploying to the live site.
+
+

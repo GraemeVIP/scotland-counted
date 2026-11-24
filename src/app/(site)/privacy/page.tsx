@@ -3,6 +3,7 @@ import { Page, ContentFrame, PageHeader, InShort, SectionHead } from "@/componen
 import { meta } from "@/lib/seo";
 import { site } from "@/lib/site";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import { CookieSettingsButton } from "@/components/CookieBanner";
 
 /**
  * Written to describe what the code actually does, not what would be
@@ -58,7 +59,7 @@ export default function Privacy() {
           <p>
             <strong>
               {ANALYTICS_ON
-                ? `${toolList} ${TOOL_NAMES.length === 1 ? "collects" : "collect"} basic visit data after interaction or ten visible seconds.`
+                ? `${toolList} only use cookies if you accept them. Google Analytics only starts after you click Agree and continue, while Microsoft Clarity runs without cookies until then.`
                 : "No visit analytics are running."}
             </strong>{" "}
             Numbers typed into calculators and the words you add to an email draft stay in your
@@ -122,8 +123,14 @@ export default function Privacy() {
             <div className="mt-7 grid gap-4 max-w-[1000px]">
               <p className="text-[17px] leading-[1.65] text-[var(--ink-2)] max-w-[68ch]">
                 This site uses {toolList} to understand which pages people find useful and
-                where they get stuck. These set cookies and load after interaction or ten visible seconds. If you
-                would rather they did not run, the controls below all work.
+                where they get stuck. Google Analytics only runs and sets cookies after you choose
+                Agree and continue. Microsoft Clarity runs without cookies by default, and only stores
+                cookies to join up pages in the same visit if you agree. You can change your
+                choice at any time using{" "}
+                <CookieSettingsButton className="cursor-pointer underline decoration-[var(--rule-strong)] underline-offset-4 text-[var(--ink)] hover:text-[var(--action-text)]">
+                  Cookie settings
+                </CookieSettingsButton>
+                .
               </p>
 
               <div className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] px-6 py-6">

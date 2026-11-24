@@ -512,7 +512,7 @@ export default function ScottishMpsFlightsClimateExpenses() {
           {
             key: "worst",
             title: (
-              <Link href="/blog/worst-scottish-mp-expenses">The Scottish MP expenses scandal</Link>
+              <Link href="/blog/worst-scottish-mp-expenses">Standout Scottish MP expense claims</Link>
             ),
             children: <>All the biggest Scottish MP expense claims in one place.</>,
           },

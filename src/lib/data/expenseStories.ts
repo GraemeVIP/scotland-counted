@@ -24,8 +24,8 @@ const mp = (seat: string) => `/representatives/mps/${seat}`;
 const msp = (path: string) => `/representatives/msps/${path}`;
 
 export const EXPENSE_STORIES: ExpenseStory[] = [
-  { slug: "worst-scottish-mp-expenses", stat: "£10,000", hook: "An unnamed consultant, and the rest of the worst Scottish MP expenses", group: "roundup" },
-  { slug: "scottish-mp-msp-expenses-what-it-could-buy", stat: "£6.64m", hook: "A year of MP and MSP perks. More than three cities spend on Crisis Grants", group: "roundup", boost: true },
+  { slug: "worst-scottish-mp-expenses", stat: "£10,000", hook: "An unnamed consultant, and the rest of the standout Scottish MP expenses", group: "roundup" },
+  { slug: "scottish-mp-msp-expenses-what-it-could-buy", stat: "£6.64m", hook: "A year of MP and MSP expenses. More than three cities spend on Crisis Grants", group: "roundup", boost: true },
   { slug: "scottish-mps-london-homes-152-sitting-days", stat: "£2.91m", hook: "To house and fly 55 Scottish MPs to London for 152 sitting days", group: "roundup" },
   { slug: "scottish-mps-flights-climate-expenses", stat: "£868,378", hook: "On Scottish MPs' London flights. 85% of their travel money went on planes", group: "roundup", boost: true },
   { slug: "scottish-mp-expenses-and-freebies-investigation", stat: "£205,242", hook: "From donors, plus the F1 tickets and Qatar trips Scottish MPs declared", group: "roundup", boost: true },

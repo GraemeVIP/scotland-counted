@@ -92,9 +92,10 @@ export const site = {
    * anything you leave blank. And the privacy page reads these values, so
    * what it tells people is always what is really running.
    *
-   * These load without a consent banner, which is a decision taken with the
-   * PECR position understood. If that changes, gate <Analytics /> rather than
-   * blanking these, blanking them also removes the disclosure.
+   * GA4 only loads after explicit consent from CookieBanner. Clarity runs in
+   * cookieless mode until accepted, then upgrades via consentv2. Keep these
+   * IDs set and gate behaviour via src/lib/consent.ts and Analytics.tsx so the
+   * privacy page disclosures stay accurate.
    */
   analytics: {
     /** GA4 measurement ID, looks like G-XXXXXXXXXX. */

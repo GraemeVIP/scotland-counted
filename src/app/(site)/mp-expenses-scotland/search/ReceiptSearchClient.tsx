@@ -812,7 +812,7 @@ export default function ReceiptSearchClient() {
       ? [
           "What Scottish MSPs billed taxpayers at Holyrood (official Scottish Parliament records):",
           "• £161,374 for Edinburgh second home council tax in 2024/25 (+122% in one year after MSPs passed the 100% second home council tax hike)",
-          "• Scottish Greens spent more per MSP (£35,974) than Conservatives (£35,677), SNP (£35,364) and Labour (£31,906), and blew 77.8% of their leaflet budget in March alone",
+          "• Scottish Greens spent more per MSP (£35,974) than Conservatives (£35,677), SNP (£35,364) and Labour (£31,906), and spent 77.8% of their leaflet budget in March alone",
           "• £127,627 on newspapers and magazines in 4 years (Kate Forbes £7,707, Murdo Fraser £5,762, Lorna Slater £3,430 including two £144 New Statesman entries 3 days apart)",
           "• £19,800 paid by two Scottish Labour MSPs to ex Labour General Secretary Brian Roy's consultancy firm",
           "• £36,953 for multi millionaire Tory Alexander Burnett's calendars",

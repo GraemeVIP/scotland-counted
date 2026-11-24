@@ -838,7 +838,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
       <JsonLd
         data={articleJsonLd({
           headline:
-            "MP Expenses & Register of Interests Scotland: Every Scottish MP Ranked on Taxpayer Claims, Second Home Bills, Foreign Trips and Freebies",
+            "MP Expenses & Register of Interests Scotland: Every Scottish MP Ranked on Taxpayer Claims, Second Home Bills, Foreign Trips and Gifts",
           description:
             "Search and compare all 57 Scottish MPs across £5.21 million in 2025/26 IPSA expenses, not counting staff wages (second home rent, council tax, energy bills, hotels, taxis), and £296,895 in private donations, foreign trips and gifts.",
           path: "/mp-expenses-scotland",
@@ -850,7 +850,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
             "mp expenses",
             "mp expenses list",
             "mp expenses scotland",
-            "mp expenses scandal",
+            "scottish mp expenses claims",
             "mp register of interests",
             "mps register of interests",
           ],
@@ -898,7 +898,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
                 </span>
               </p>
               <h1 className="h1 mb-5 max-w-[18ch] text-[clamp(34px,3.9vw,54px)]">
-                MP expenses, donations and freebies in Scotland: all 57 MPs
+                MP expenses, donations and gifts in Scotland: all 57 MPs
               </h1>
               <div className="lede max-w-[52ch]">
                 <ExplainText>
@@ -962,14 +962,14 @@ export default function MpRegisterOfInterestsScotlandPage() {
             </div>
             <div className="mt-5 flex flex-wrap items-center gap-3">
               <Link href="/blog/worst-scottish-mp-expenses" className="btn btn-primary">
-                The worst claims →
+                Standout claims →
               </Link>
               <Link href="/mp-expenses-scotland/search" className="btn btn-ghost">
                 Search all 20,879 receipts
               </Link>
             </div>
             <SharePage
-              title="Scottish MP expenses, donations & freebies: all 57 ranked"
+              title="Scottish MP expenses, donations & gifts: all 57 ranked"
               text="Scotland's MPs billed £5.21m for flats, travel, hotels and offices in 2025/26, on top of their £93,904 pay (2025/26). See all 57 ranked:"
               path="/mp-expenses-scotland"
               label="Share this investigation"

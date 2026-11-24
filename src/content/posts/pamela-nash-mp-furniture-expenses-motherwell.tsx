@@ -326,7 +326,7 @@ export default function PamelaNashMpFurnitureExpensesMotherwell() {
 
       {/* ------------------------------------------------------------ 3 */}
       <Finding n={3} id="the-rest">
-        The rest of her £84,680 bill (and £1,544 Tattoo freebies)
+        The rest of her £84,680 bill (and £1,544 Tattoo tickets)
       </Finding>
       <P>
         Not counting staff wages, she claimed <strong>£84,680</strong> in 2025/26 (£241,357 with

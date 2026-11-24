@@ -298,7 +298,7 @@ function renderStaticRouteOg(path: string) {
       return ogInvestigationCard({
         eyebrow: "Scottish MP Expenses & Register of Interests",
         eyebrowColor: "#ff7a5c",
-        title: "Every Scottish MP's 2025/26 Expenses & Freebies",
+        title: "Every Scottish MP's 2025/26 Expenses & Gifts",
         stat: "£5.21m",
         statTone: "bad",
         photoPath: "/images/share/mp-expenses-scotland-hub.jpg",

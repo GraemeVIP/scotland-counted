@@ -44,13 +44,13 @@ const CORE: Item[] = [
     keywords: "who is my mp names contact email phone westminster representatives",
   },
   {
-    label: "MP Register of Interests Scotland: Donations, Trips & Freebies",
+    label: "MP Register of Interests Scotland: Donations, Trips & Gifts",
     href: "/mp-expenses-scotland",
     group: "Main pages",
     keywords: "mp register of interests donations gifts hospitality foreign trips second jobs landlords lobbying scotland",
   },
   {
-    label: "The Scottish MP expenses scandal: every worst receipt",
+    label: "Scottish MP expenses: every standout receipt",
     href: "/blog/worst-scottish-mp-expenses",
     group: "Main pages",
     keywords: "mp expenses receipts strangest worst claims speech coach iphone furniture ipsa scotland",

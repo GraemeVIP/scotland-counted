@@ -236,6 +236,11 @@ const AUTO_GLOSSARY_IDS = [
   "superfast-broadband",
   "service-charge",
   "shadow-deputy-leader-of-the-house",
+  "recorded-crime",
+  "clear-up-rate",
+  "common-assault",
+  "housebreaking",
+  "road-traffic-offences",
 ] as const;
 
 const autoTerms = AUTO_GLOSSARY_IDS.flatMap((id) => {

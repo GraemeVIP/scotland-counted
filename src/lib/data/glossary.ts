@@ -1348,6 +1348,35 @@ export const terms: Term[] = [
     term: "Non refundable",
     def: "A booking where you lose the cash if you cancel. Taxpayers still pay the bill.",
   },
+  {
+    id: "recorded-crime",
+    term: "Recorded crime",
+    def: "Crimes that are reported to and logged by Police Scotland. Crimes nobody reports are not counted.",
+    tech: "Covers Groups 1 to 5 in the Scottish Government bulletin: non-sexual violence, sexual crimes, dishonesty, damage and reckless behaviour, and crimes against society.",
+  },
+  {
+    id: "clear-up-rate",
+    term: "Clear up rate",
+    def: "The share of recorded crimes where police identified a suspect or solved the case.",
+    tech: "Published by the Scottish Government in Table 3 of Recorded Crime in Scotland. It includes crimes cleared up in the year even if recorded earlier, so rare categories can exceed 100%.",
+  },
+  {
+    id: "common-assault",
+    term: "Common assault",
+    def: "An attack or threat of force without severe injury, such as pushing, hitting or spitting.",
+    tech: "Makes up over four fifths of non-sexual violent crime in Scotland, including assaults on emergency workers.",
+  },
+  {
+    id: "housebreaking",
+    term: "Housebreaking",
+    def: "Breaking into a home, shed, shop or other building, including failed attempts.",
+  },
+  {
+    id: "road-traffic-offences",
+    term: "Road traffic offences",
+    def: "Driving offences such as speeding, mobile phone use or driving without insurance. Often driven up by proactive police stops.",
+    tech: "Counted under police recorded offences (Group 7) rather than the main Groups 1 to 5 recorded crime total.",
+  },
 ];
 
 export const termsById: Record<string, Term> = Object.fromEntries(

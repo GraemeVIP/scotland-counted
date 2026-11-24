@@ -215,6 +215,7 @@ const SLUG_TOPIC: Record<string, NudgeTopic> = {
   "drug-deaths-scotland-deprivation": "poverty",
 
   "crime-rate-glasgow": "area",
+  "north-ayrshire-crime-fell-scotland": "area",
   "life-expectancy-glasgow": "area",
   "east-vs-west-dunbartonshire": "area",
   "best-performing-councils-scotland": "area",

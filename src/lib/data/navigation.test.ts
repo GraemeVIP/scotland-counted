@@ -178,6 +178,8 @@ test("only evidence-led investigations are filed under the investigations catego
    * and misfiling an explainer still fails.
    */
   const INVESTIGATIONS = [
+    "north-ayrshire-crime-fell-scotland",
+    "north-ayrshire-school-taxi-spending",
     "scottish-mp-msp-expenses-what-it-could-buy",
     "msp-expenses-scotland-investigation",
     "msp-edinburgh-flats-commuter-belt",

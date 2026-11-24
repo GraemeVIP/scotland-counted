@@ -128,12 +128,12 @@ export default function Post() {
 
       <Aside title="What is the Register of Interests?">
         <p>
-          It is the public list where MPs must log freebies: gifts, VIP seats, paid trips and cash
-          from donors.
+          It is the public list where MPs must log gifts, VIP seats, paid trips and cash from
+          donors.
         </p>
         <p>
-          You don&apos;t pay for these. Rich donors, firms and foreign states do. That makes it
-          fair to ask what they want back.
+          Taxpayers do not pay for these. Donors, firms and foreign states do. That makes it fair to
+          check who gave what.
         </p>
       </Aside>
 
@@ -183,7 +183,7 @@ export default function Post() {
 
       {/* ------------------------------------------------------------ 2 */}
       <Finding n={2} of={FINDINGS} id="voting-against-help">
-        Voting against child poverty support while claiming £523,512 in expenses and F1 freebies
+        Voting against child poverty support while claiming £523,512 in expenses and F1 tickets
       </Finding>
       <P>
         In February 2026, MPs voted on ending the{" "}
@@ -291,7 +291,7 @@ export default function Post() {
 
       {/* ------------------------------------------------------------ 5 */}
       <Finding n={5} of={FINDINGS} id="party-tally">
-        The party tally: Labour took 57% of the freebies and 75% of paid trips abroad
+        The party tally: Labour took 57% of gifts and donations, and 75% of paid trips abroad
       </Finding>
       <P>
         Scottish Labour won 37 of Scotland&apos;s 57 seats (65%). The party promised to clean up
@@ -328,8 +328,8 @@ export default function Post() {
 
       <H2 id="expense-claims">The expense claims</H2>
       <P>
-        Freebies come from someone else. Expenses come out of your pocket. For those, read{" "}
-        <Link href="/blog/worst-scottish-mp-expenses">the Scottish MP expenses scandal</Link>. It has
+        Gifts and trips come from outside donors. Expenses come from public money. For those, read{" "}
+        <Link href="/blog/worst-scottish-mp-expenses">the standout Scottish MP expense claims</Link>. It has
         the £23,437 power bill, the £3,090 broadband and the Christmas lunch. It also has{" "}
         <Link href="/blog/worst-scottish-mp-expenses#hotel-nights">£37,359 of London hotel nights</Link>
         . For council tax on second homes, family travel, taxis and parking, see{" "}

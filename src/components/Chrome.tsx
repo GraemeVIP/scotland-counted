@@ -8,6 +8,7 @@ import { ScrollProgress } from "@/components/Motion";
 import { ABOUT, EVIDENCE, INVESTIGATIONS_HUB, HUBS, PRIMARY, hubBarColor, hubForPath, type HubId } from "@/lib/data/navigation";
 import { HubPanel, MobileMenu } from "@/components/SiteMenu";
 import { BrandLogo } from "@/components/BrandLogo";
+import { openCookieSettings } from "@/lib/consent";
 
 export const NAV = PRIMARY;
 
@@ -412,6 +413,17 @@ export function Footer() {
                 Every page
               </Link>
             </li>
+            {(site.analytics.ga4 || site.analytics.clarity) && (
+              <li>
+                <button
+                  type="button"
+                  onClick={openCookieSettings}
+                  className="ui cursor-pointer transition-colors hover:text-white"
+                >
+                  Cookie settings
+                </button>
+              </li>
+            )}
           </ul>
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
             {site.social.x && (

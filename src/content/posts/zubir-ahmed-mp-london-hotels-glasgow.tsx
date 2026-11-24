@@ -411,9 +411,9 @@ export default function ZubirAhmedMpLondonHotelsGlasgow() {
           {
             key: "worst",
             title: (
-              <Link href="/blog/worst-scottish-mp-expenses">The Scottish MP expenses scandal</Link>
+              <Link href="/blog/worst-scottish-mp-expenses">Standout Scottish MP expense claims</Link>
             ),
-            children: <>Puts all the worst claims in Scotland on one page.</>,
+            children: <>Puts the biggest and most unusual claims in Scotland on one page.</>,
           },
           {
             key: "kilmarnock",

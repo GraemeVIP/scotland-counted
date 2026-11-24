@@ -456,9 +456,9 @@ export default function GraemeDownieMpDinnerExpensesDunfermline() {
         <p>
           See how Scotland&apos;s MPs{" "}
           <Link href="/blog/scottish-mps-london-homes-152-sitting-days">
-            burned £2.91m on London flats and flights for 152 sitting days
+            spent £2.91m on London flats and flights for 152 sitting days
           </Link>
-          , read <Link href="/blog/worst-scottish-mp-expenses">the worst Scottish MP expenses</Link>,
+          , read <Link href="/blog/worst-scottish-mp-expenses">the standout Scottish MP expense claims</Link>,
           or compare <Link href="/mp-expenses-scotland">all 57 Scottish MPs</Link>.
         </p>
       </Aside>

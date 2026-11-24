@@ -1,12 +1,16 @@
 import { Header, Footer } from "@/components/Chrome";
 import CommandPalette from "@/components/Command";
 import AnnouncementBar from "@/components/AnnouncementBar";
+import CookieBanner from "@/components/CookieBanner";
 import NudgeTracker from "@/components/NudgeTracker";
 import { BAR_HIDE_SCRIPT } from "@/lib/announcement";
 import { JsonLd, orgJsonLd } from "@/lib/seo";
+import { site } from "@/lib/site";
 
 /** Site chrome for every ordinary page. Embed routes skip this. */
 export default function SiteLayout({ children }: { children: React.ReactNode }) {
+  const analyticsEnabled = Boolean(site.analytics.ga4 || site.analytics.clarity);
+
   return (
     <>
       <div className="grain" aria-hidden="true" />
@@ -22,6 +26,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
         {children}
       </main>
       <Footer />
+      {analyticsEnabled && <CookieBanner />}
       <CommandPalette />
       <JsonLd data={orgJsonLd()} />
     </>

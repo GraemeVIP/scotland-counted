@@ -25,6 +25,7 @@ import { crisisGrantScotland, getCrisisGrantCouncil } from "@/lib/data/crisisGra
 import { councilPerformanceBySlug } from "@/lib/data/councilPerformanceIndex";
 import CouncilPerformanceSnapshot from "@/components/CouncilPerformanceSnapshot";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import NorthAyrshireSpending from "@/components/NorthAyrshireSpending";
 
 export function generateStaticParams() {
   return councilAccountabilityRecords.map((record) => ({ slug: record.councilSlug }));
@@ -115,6 +116,7 @@ export default async function CouncilAccountabilityPage({
   if (!record || !council) notFound();
 
   const pagePath = `/councils/${record.councilSlug}`;
+  const showSpendingInvestigation = record.councilSlug === "north-ayrshire";
   const crisisGrant = getCrisisGrantCouncil(record.councilSlug);
   const performanceIndex = councilPerformanceBySlug[record.councilSlug];
   const missed = record.outcomes.filter((outcome) => outcome.status === "missed");
@@ -297,6 +299,7 @@ export default async function CouncilAccountabilityPage({
               { id: "council-index", label: "Index rank" },
               { id: "money", label: "Money" },
               { id: "why-more-money", label: "Why they need more" },
+              ...(showSpendingInvestigation ? [{ id: "spending", label: "Where the money went" }] : []),
               { id: "performance", label: "Goals" },
               { id: "crisis-grants", label: "Crisis Grants" },
               { id: "compare", label: "Compare councils" },
@@ -360,6 +363,8 @@ export default async function CouncilAccountabilityPage({
             why that happens every single year.
           */}
           <BudgetGapExplainer slug={record.councilSlug} councilName={record.councilName} />
+
+          {showSpendingInvestigation && <NorthAyrshireSpending />}
 
           <section id="performance" className="pt-14">
             <p className="kicker mb-2 text-[var(--action-text)]">

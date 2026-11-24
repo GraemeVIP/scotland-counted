@@ -779,11 +779,11 @@ export default function WorstScottishMpExpenses() {
             MPs since 2022. Fewer than 1 in 200.
           </li>
           <li>
-            Holyrood is even cosier. <strong>MSPs vote on their own expenses rules</strong>, and the
-            board running them is made up of MSPs too.
+            At Holyrood, <strong>MSPs vote on their own expenses rules</strong>, and the board
+            running the scheme is made up of MSPs too.
           </li>
           <li className="text-[20px] font-[700] leading-[1.35]">
-            Until voters push back, nobody inside Parliament is going to shut this down.
+            Unless voters ask for tighter rules, Parliament has little reason to change them.
           </li>
         </ul>
       </section>
@@ -846,8 +846,8 @@ export default function WorstScottishMpExpenses() {
       <Aside title="No broken rules found">
         <p>
           We found no broken rules in any claim on this page. What needs answering is why IPSA&apos;s rules
-          let any of it through. For gifts, free tickets and paid trips, see{" "}
-          <Link href="/blog/scottish-mp-expenses-and-freebies-investigation">the freebies MPs declared</Link>
+          let these claims through. For gifts, VIP tickets and paid trips, see{" "}
+          <Link href="/blog/scottish-mp-expenses-and-freebies-investigation">the gifts and trips MPs declared</Link>
           . For every MP ranked, see <Link href="/mp-expenses-scotland">all 57 Scottish MPs</Link>.
         </p>
       </Aside>

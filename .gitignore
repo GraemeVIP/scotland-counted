@@ -55,3 +55,6 @@ next-env.d.ts
 
 # Raw IPSA expense downloads (large, kept local only)
 /IPSA data/
+
+# Private OSCR charity registration documents and trustee forms (never commit)
+/charity-application/

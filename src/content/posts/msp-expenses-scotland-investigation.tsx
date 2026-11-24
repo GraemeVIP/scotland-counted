@@ -231,16 +231,16 @@ export default function MspExpensesScotlandInvestigation() {
   return (
     <Prose>
       <Lead>
-        Holyrood lists who got paid and what each bill was for. So we read the lot, from leaflets
-        and hotels to calendars and football banners. And every party at Holyrood is at it.
+        Holyrood lists who got paid and what each bill was for. We read all 242,844 lines, from
+        leaflets and hotels to calendars and papers. Every party at Holyrood appears in the file.
       </Lead>
 
       <QuickTake
         items={[
           <>
             Leaflet money not spent by <strong>31 March</strong> is lost. The{" "}
-            <strong>Scottish Greens</strong> blew <strong>77.8%</strong> of their 2024/25 leaflet
-            spend in March alone.
+            <strong>Scottish Greens</strong> spent <strong>77.8%</strong> of their 2024/25 leaflet
+            budget in March alone.
           </>,
           <>
             Labour&apos;s{" "}
@@ -470,8 +470,8 @@ export default function MspExpensesScotlandInvestigation() {
                 <>
                   <strong>Scottish Greens:</strong> Second highest spend at{" "}
                   <strong>£35,974 per MSP</strong>, ahead of Tories, SNP and Labour. They came first
-                  for leaflets at <strong>£15,412 per MSP</strong>. They blew <strong>77.8%</strong>{" "}
-                  of their year&apos;s leaflet spend in March alone.
+                  for leaflets at <strong>£15,412 per MSP</strong>. They spent <strong>77.8%</strong>{" "}
+                  of their year&apos;s leaflet budget in March alone.
                 </>
               ),
             },
@@ -499,8 +499,8 @@ export default function MspExpensesScotlandInvestigation() {
               p: "Labour",
               children: (
                 <>
-                  <strong>Scottish Labour:</strong> Lowest spend at £31,906 per MSP. But they still
-                  blew <strong>46.3%</strong> of their leaflet spend in March and paid{" "}
+                  <strong>Scottish Labour:</strong> Lowest spend at £31,906 per MSP. They still
+                  spent <strong>46.3%</strong> of their leaflet budget in March and paid{" "}
                   <strong>£19,800</strong> to an ex Scottish Labour boss&apos;s firm.
                 </>
               ),

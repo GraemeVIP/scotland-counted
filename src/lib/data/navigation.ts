@@ -274,7 +274,7 @@ export const HUBS: Hub[] = [
           { href: "/representatives", label: "All 57 MPs" },
           { href: "/mp-expenses-scotland", label: "MP expenses and donations", tag: "New" },
           { href: "/mp-expenses-scotland/search", label: "Search all 20,879 MP receipts", tag: "Tool" },
-          { href: "/blog/worst-scottish-mp-expenses", label: "MP expenses: the scandal", tag: "New" },
+          { href: "/blog/worst-scottish-mp-expenses", label: "MP expenses: standout claims", tag: "New" },
         ],
       },
       {
@@ -376,7 +376,7 @@ export const INVESTIGATIONS_HUB: Hub = {
       items: [
         { href: "/mp-expenses-scotland", label: "MP expenses and donations" },
         { href: "/mp-expenses-scotland/search", label: "Search every MP receipt", tag: "Tool" },
-        { href: "/blog/worst-scottish-mp-expenses", label: "The worst MP expenses" },
+        { href: "/blog/worst-scottish-mp-expenses", label: "Standout MP expense claims" },
         { href: "/blog/scottish-mp-msp-expenses-what-it-could-buy", label: "What £6.64m could buy" },
       ],
     },
@@ -396,7 +396,7 @@ export const INVESTIGATIONS_HUB: Hub = {
         { href: "/blog/msp-edinburgh-flats-commuter-belt", label: "£623,696 on MSPs' Edinburgh flats", tag: "New" },
         { href: "/blog/meghan-gallacher-msp-low-expenses", label: "The MSP who claims least", tag: "New" },
         { href: "/blog/msp-expenses-scotland-investigation", label: "MSP expenses party tally" },
-        { href: "/blog/scottish-mp-expenses-and-freebies-investigation", label: "Freebies and donors" },
+        { href: "/blog/scottish-mp-expenses-and-freebies-investigation", label: "Gifts, trips and donors" },
         { href: "/blog/operation-branchform-snp-money-timeline", label: "Operation Branchform timeline" },
       ],
     },

@@ -142,6 +142,52 @@ export type Post = {
 
 export const posts: Post[] = [
   {
+    slug: "north-ayrshire-crime-fell-scotland",
+    title: "Only three Scottish councils cut crime last year. North Ayrshire led the country.",
+    seoTitle: "North Ayrshire Crime Fell 4.1% While 29 Scottish Councils Rose",
+    description: "Police recorded crime rose in 29 of Scotland's 32 councils in 2025-26. North Ayrshire saw the biggest drop (-4.1%). See what fell, how it beat peer councils and what others can learn.",
+    standfirst: "Police recorded crime rose in 29 of Scotland's 32 councils in 2025-26. It fell in just three, and North Ayrshire led the country at -4.1%. Here is what changed in the data and what other councils can learn.",
+    date: "2026-11-24",
+    updated: "2026-11-24",
+    checked: "2026-11-24",
+    category: "politics-explained",
+    tags: ["North Ayrshire Council", "Crime in Scotland", "Safest places in Scotland", "Police Scotland", "Shoplifting", "Council performance"],
+    readingMinutes: 6,
+    image: {
+      src: "/images/editorial/north-ayrshire-crime-fell-scotland.webp",
+      alt: "Chart comparing police recorded crime change in 2025-26: North Ayrshire fell 4.1%, East Renfrewshire fell 3.0% and Highland fell 0.5%, while Scotland rose 5.4% and Dundee City rose 18.3%",
+      caption: "Only three Scottish councils saw recorded crime fall in 2025-26. Source: Scottish Government, Recorded Crime in Scotland, 2025-26.",
+      aspect: "wide",
+      objectPosition: "center",
+    },
+    toc: [
+      { id: "three-councils", label: "Only three councils fell" },
+      { id: "what-dropped", label: "What dropped in North Ayrshire" },
+      { id: "peer-councils", label: "How it beat similar councils" },
+      { id: "reasons", label: "What seems to be behind it" },
+      { id: "learn", label: "What other councils can learn" },
+    ],
+    faq: [
+      {
+        q: "Which three Scottish councils saw recorded crime fall in 2025-26?",
+        a: "North Ayrshire (-4.1%, down 314 crimes to 7,284), East Renfrewshire (-3.0%, down 78 crimes to 2,524) and Highland (-0.5%, down 54 crimes to 10,202). Recorded crime rose in all 29 other councils and rose 5.4% across Scotland.",
+      },
+      {
+        q: "What crimes fell in North Ayrshire in 2025-26?",
+        a: "Non-sexual violent crime fell 7.2% (common assault down 118, serious assault down 16.2%), damage and vandalism fell 5.3%, crimes against society fell 4.7% (drug supply down 14.5%) and crimes of dishonesty fell 2.9% (housebreaking down 10.6%, fraud down 14.4%). Only sexual crimes (+10.4%) and shoplifting (+7.3%) rose.",
+      },
+      {
+        q: "How does North Ayrshire compare with similar Scottish councils?",
+        a: "North Ayrshire is in the official Most Deprived group of eight councils. All seven other councils in that group saw crime rise in 2025-26, from +1.6% in East Ayrshire to +18.3% in Dundee City. North Ayrshire also cleared up 64.5% of recorded crimes, the seventh highest rate in Scotland.",
+      },
+    ],
+    sourceIds: [
+      "sg-recorded-crime-2025-26",
+      "nac-cctv-safety-2025",
+      "snap-north-ayrshire",
+    ],
+  },
+  {
     slug: "north-ayrshire-school-taxi-spending",
     title: "North Ayrshire spent £2.45 million on school taxis. What did it get for the money?",
     seoTitle: "North Ayrshire Council’s £2.45m School Taxi Bill",
@@ -750,13 +796,13 @@ export const posts: Post[] = [
   {
     slug: "scottish-mp-msp-expenses-what-it-could-buy",
     title:
-      "£6.64 million a year on flats, flights, leaflets and perks: how Scottish MPs and MSPs burn more than Glasgow, Edinburgh and Dundee's Crisis Grant budgets combined",
+      "£6.64 million a year on flats, flights, leaflets and extras: Scottish MPs and MSPs spent more than Glasgow, Edinburgh and Dundee's Crisis Grant budgets combined",
     seoTitle:
       "Scottish MP & MSP Expenses Combined (£6.64m/yr): What It Could Buy Instead",
     description:
       "184 Scottish MPs and MSPs spent £6.64m in one year on second homes, hotels, travel, leaflets, PR firms and papers, more than Glasgow, Edinburgh and Dundee spent on Crisis Grants all year combined.",
     standfirst:
-      "We added up every MP and MSP expense claim for a full year. Even after taking out staff pay and local office rent, 184 Scottish politicians burned £6.64 million. That beat what Glasgow, Edinburgh and Dundee spent on Crisis Grants all year combined (£6.41m). It is enough to hire 207 NHS nurses.",
+      "We added up every MP and MSP expense claim for a full year. Even after taking out staff pay and local office rent, 184 Scottish politicians spent £6.64 million. That beat what Glasgow, Edinburgh and Dundee spent on Crisis Grants all year combined (£6.41m). It is enough to hire 207 NHS nurses.",
     date: "2026-11-22",
     updated: "2026-11-22",
     checked: "2026-11-22",
@@ -790,7 +836,7 @@ export const posts: Post[] = [
       { id: "nhs-and-schools", label: "Calculator: 207 nurses or 51,087 Crisis Grants" },
       { id: "the-665m-bill", label: "Where the £6.64m goes" },
       { id: "crisis-grants-bombshell", label: "More than three cities' Crisis Grants" },
-      { id: "zero-excuse-pot", label: "The £2.80m a year 'zero excuse' waste pot" },
+      { id: "zero-excuse-pot", label: "The £2.80m a year outside flats, offices and MP travel" },
     ],
     faq: [
       {
@@ -799,7 +845,7 @@ export const posts: Post[] = [
       },
       {
         q: "How does £6.64 million compare to Crisis Grants in Scotland?",
-        a: "In 2025/26, the average Crisis Grant for a home with no food or heat cash was £130. Glasgow (£3.95m), Edinburgh (£2.12m) and Dundee (£0.34m) spent £6.41 million on Crisis Grants all year combined. One year of MP and MSP perks (£6.64m) beats all three cities put together.",
+        a: "In 2025/26, the average Crisis Grant for a home with no food or heat cash was £130. Glasgow (£3.95m), Edinburgh (£2.12m) and Dundee (£0.34m) spent £6.41 million on Crisis Grants all year combined. One year of MP and MSP non-staff expenses (£6.64m) beats all three cities put together.",
       },
       {
         q: "How much goes on things other than flats, offices, staff and MP travel?",
@@ -991,9 +1037,9 @@ export const posts: Post[] = [
     seoTitle:
       "MSP Expenses Scotland Party Tally: Greens, SNP, Tories & Labour Ranked",
     description:
-      "Scottish Greens spent more per MSP than Tories, SNP and Labour in 2024/25 and blew 77.8% of their year's leaflet spending in March, while MSPs billed £161k in council tax after it doubled.",
+      "Scottish Greens spent more per MSP than Tories, SNP and Labour in 2024/25 and spent 77.8% of their year's leaflet budget in March, while MSPs billed £161k in council tax after it doubled.",
     standfirst:
-      "We checked all 242,844 MSP expense receipts and the 2026 Register of Interests. The Scottish Greens spent more per MSP than the Tories, SNP and Labour. They also blew 77.8% of their year's leaflet spending in March. MSPs billed £161k in council tax after it doubled, £127k on papers, and £19,800 to an ex Labour boss.",
+      "We checked all 242,844 MSP expense receipts and the 2026 Register of Interests. The Scottish Greens spent more per MSP than the Tories, SNP and Labour. They also spent 77.8% of their year's leaflet budget in March. MSPs billed £161k in council tax after it doubled, £127k on papers, and £19,800 to an ex Labour boss.",
     date: "2026-11-22",
     updated: "2026-11-22",
     checked: "2026-11-22",
@@ -1029,7 +1075,7 @@ export const posts: Post[] = [
       { id: "party-tally", label: "The Holyrood Party Tally (2024/25 per MSP)" },
       { id: "greens-scorecard", label: "The Scottish Greens' £852k four year scorecard" },
       { id: "double-council-tax", label: "Double council tax billed straight to taxpayers (+99%)" },
-      { id: "newspaper-racket", label: "The £127,627 newspaper racket & duplicate claim" },
+      { id: "newspaper-racket", label: "The £127,627 newspaper bill & duplicate claim" },
       { id: "commuter-belt-hotels", label: "Edinburgh flats & £10k hotel tabs 35 to 50 miles away" },
       { id: "landlords-and-double-jobs", label: "19 landlords & 15 double jobbing councillors" },
     ],
@@ -1213,12 +1259,12 @@ export const posts: Post[] = [
   {
     slug: "worst-scottish-mp-expenses",
     title:
-      "The Scottish MP expenses scandal: £23,437 for power, £3,090 broadband and a Christmas lunch you paid for",
-    seoTitle: "Worst Scottish MP Expenses: £3,090 Broadband, Speech Coach & More",
+      "Scottish MP expenses: £23,437 for power, £3,090 broadband and a Christmas lunch billed to taxpayers",
+    seoTitle: "Scottish MP Expenses: £23,437 Power Bill, £3,090 Broadband & More",
     description:
-      "£3,090 to set up home broadband, £3,000 for a speech coach, £13,117 for a glossy report about the MP. The worst Scottish MP expenses, all paid by you.",
+      "£3,090 to set up home broadband, £3,000 for a speech coach, £13,117 for a glossy report about the MP. The biggest and most unusual Scottish MP expense claims in IPSA's files.",
     standfirst:
-      "We read all 20,879 expense claims by Scotland's MPs since 2022. These are the worst. IPSA paid every one. You paid for every one.",
+      "We read all 20,879 expense claims by Scotland's MPs since 2022. These are the ones that stand out most. IPSA paid every one from public money.",
     date: "2026-11-21",
     updated: "2026-11-21",
     checked: "2026-11-21",
@@ -1277,9 +1323,9 @@ export const posts: Post[] = [
   {
     slug: "scottish-mp-expenses-and-freebies-investigation",
     title:
-      "F1 tickets, Qatar trips and £205,242 from donors: the freebies Scottish MPs declared",
+      "F1 tickets, Qatar trips and £205,242 from donors: the gifts and trips Scottish MPs declared",
     seoTitle:
-      "Scottish MP Freebies: F1 Tickets, Qatar Trips & Donor Cash",
+      "Scottish MP Gifts & Donations: F1 Tickets, Qatar Trips & Donor Cash",
     description:
       "Scotland's MPs declared £296,895 in gifts, VIP tickets, foreign trips and donations, on top of their pay (£93,904 in 2025/26). F1 tickets, Qatar trips and £205,242 from donors.",
     standfirst:
