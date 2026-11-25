@@ -161,46 +161,54 @@ export default function ContactForm() {
 
     setSubmitting(true);
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          reason: reasonId,
-          wantsReply: true,
-          name: trimmedName,
+      const reference = `SC-${Math.random().toString(36).slice(2, 8).toUpperCase()}`;
+      if (botcheck.trim()) {
+        setSent({
+          reference,
+          reasonLabel: activeReason.label,
           email: trimmedEmail,
-          organisation,
-          pageUrl,
-          timeframe,
-          message: trimmedMsg,
-          botcheck,
-        }),
+        });
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append("access_key", "4bcc9b22-6c82-45cc-ab20-0882fc8144d5");
+      formData.append("subject", `[${reference}] ${activeReason.shortLabel}${organisation.trim() ? `: ${organisation.trim()}` : ""}`);
+      formData.append("from_name", "Scotland Counted Contact");
+      formData.append("reference", reference);
+      formData.append("topic", activeReason.label);
+      formData.append("name", trimmedName);
+      formData.append("email", trimmedEmail);
+      formData.append("replyto", trimmedEmail);
+      if (organisation.trim()) formData.append("organisation", organisation.trim());
+      if (pageUrl.trim()) formData.append("page_url", pageUrl.trim());
+      if (timeframe.trim()) formData.append("timeframe", timeframe.trim());
+      formData.append("message", trimmedMsg);
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
       });
       const result = (await response.json().catch(() => null)) as {
         success?: boolean;
-        reference?: string;
-        reasonLabel?: string;
-        error?: string;
-        field?: string;
+        message?: string;
       } | null;
 
       if (!response.ok || !result?.success) {
-        const msg = result?.error || "Your message could not be sent right now. Please try again shortly.";
-        setError({ text: msg, field: result?.field });
-        if (result?.field === "name") nameRef.current?.focus();
-        if (result?.field === "email") emailRef.current?.focus();
-        if (result?.field === "message") messageRef.current?.focus();
+        setError({
+          text: result?.message || "Your message could not be sent right now. Please try again shortly.",
+        });
         return;
       }
 
       trackEvent("contact_submitted", { reason: reasonId, wants_reply: "yes" });
       setSent({
-        reference: result.reference ?? "SC-SENT",
-        reasonLabel: result.reasonLabel ?? activeReason.label,
+        reference,
+        reasonLabel: activeReason.label,
         email: trimmedEmail,
       });
     } catch {
-      setError({ text: "Could not reach the server. Check your connection and try again." });
+      setError({ text: "Could not reach the form service. Check your connection and try again." });
     } finally {
       setSubmitting(false);
     }
