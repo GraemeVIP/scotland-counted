@@ -4,6 +4,7 @@ import { GuideTable } from "@/components/GuideTable";
 import { meta } from "@/lib/seo";
 import { site } from "@/lib/site";
 import { N5_PAST_PAPER_FILES } from "@/lib/data/schools";
+import { classroomLessonPath, classroomLessons } from "@/lib/data/classroom";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
 /**
@@ -56,6 +57,14 @@ const COURSE_MAP: Array<[string, Array<[string, string]>]> = [
       ["Unemployment in Scotland", "/unemployment-scotland"],
     ],
   ],
+  [
+    "International issues: world powers and world issues",
+    [
+      ["World Power (USA): poverty and health gaps", "/classroom/world-power-usa-inequality"],
+      ["World Issue: global poverty and international aid", "/classroom/world-issue-global-development"],
+      ["International test scores: Scotland vs OECD (PISA)", "/classroom/compare-education-systems"],
+    ],
+  ],
 ];
 
 export default function TeachingResourcesPage() {
@@ -71,13 +80,13 @@ export default function TeachingResourcesPage() {
       <Page>
         <PageHeader
           eyebrow="For teachers"
-          title="Modern Studies teaching resources: free, current Scottish data"
-          lede="Up to date Scottish figures for your classes, mapped to the course, with past papers, model answers and practice questions. Free, no ads, and no sign up for you or your pupils."
+          title="Free Modern Studies lessons and teaching resources"
+          lede="Give pupils a real source and clear questions. Every lesson has a printable worksheet, answers and a quick check of what pupils learnt."
           panel={
             <HeaderFacts
               items={[
-                { value: String(coursePages), label: "pages on this site matched to the course." },
-                { value: String(COURSE_MAP.length), label: "areas of study covered." },
+                { value: String(classroomLessons.length), label: "classroom lessons with teacher notes." },
+                { value: "35 to 45", label: "minutes to teach each lesson." },
                 {
                   value: String(years.length),
                   label: `years of National 5 past papers, ${years[years.length - 1]} to ${years[0]}.`,
@@ -87,13 +96,62 @@ export default function TeachingResourcesPage() {
           }
         />
         <ContentFrame>
+          <section id="lesson-packs" className="pb-12 scroll-mt-28" aria-labelledby="lesson-packs-title">
+            <h2 id="lesson-packs-title" className="h2">Classroom lessons</h2>
+            <p className="mt-3 max-w-[68ch] text-[17px] leading-relaxed text-[var(--ink-2)]">
+              Open a lesson on phones, laptops or the class board. Pupils get real Scottish data,
+              quick checks and a print ready worksheet. Teachers get a timer, model answers and a
+              class tally.
+            </p>
+            <ul className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {classroomLessons.map((lesson) => {
+                const path = classroomLessonPath(lesson.slug);
+                return (
+                  <li key={lesson.slug} className="tile flex flex-col p-5 sm:p-6">
+                    <div className="flex items-center justify-between gap-3">
+                      <span className="ui text-[13.5px] font-[700] uppercase tracking-[0.04em] text-[var(--brand)]">
+                        {lesson.topic}
+                      </span>
+                      <span className="shrink-0 rounded-full bg-[var(--paper-2)] px-2.5 py-0.5 text-[13px] font-[700] text-[var(--ink)]">
+                        {lesson.heroStat.value}
+                      </span>
+                    </div>
+                    <h3 className="mt-2.5 text-[21px] font-[680] leading-[1.2]">{lesson.title}</h3>
+                    <p className="mt-2.5 flex-1 text-[16px] leading-relaxed text-[var(--ink-2)]">
+                      {lesson.summary}
+                    </p>
+                    <p className="mt-4 text-[14px] font-[550] text-[var(--muted)]">
+                      {lesson.level} · {lesson.minutes} mins
+                    </p>
+                    <div className="mt-4 flex flex-wrap items-center gap-2 border-t border-[var(--rule)] pt-4">
+                      {/* Document links keep main-site scripts out of classroom worksheets. */}
+                      <a
+                        href={path}
+                        aria-label={`Open pupil lesson: ${lesson.title}`}
+                        className="inline-flex items-center rounded-full bg-[var(--action)] px-3.5 py-2 text-[14.5px] font-[680] text-white no-underline hover:bg-[var(--action-hover)]"
+                      >
+                        Open lesson →
+                      </a>
+                      <a
+                        href={`${path}/teacher`}
+                        aria-label={`Teacher notes: ${lesson.title}`}
+                        className="inline-flex items-center rounded-full border border-[var(--rule-strong)] bg-[var(--surface)] px-3.5 py-2 text-[14.5px] font-[650] text-[var(--ink)] no-underline hover:border-[var(--brand)]"
+                      >
+                        Teacher notes
+                      </a>
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
           <section className="pb-12">
             <SectionHead eyebrow="Why it helps" title="Textbooks date. This does not." />
             <div className="mt-6 grid gap-4 md:grid-cols-3">
               {[
-                ["Current figures", "Every page shows when it was last updated and when its figures were checked. Poverty, pay, crime and health figures are the latest official releases."],
-                ["Every figure sourced", "Each number links to the official source it came from, so pupils can practise judging reliability on real evidence."],
-                ["Built for the exam", "Course guides, model answers and source questions in the style of the National 5 and Higher papers, using real Scottish data."],
+                ["Current figures", "Every page shows its update date. Poverty, pay, crime and health pages use the latest official releases."],
+                ["Every figure sourced", "Each fact links to its source. Pupils can practise checking real evidence."],
+                ["Built for the exam", "Course guides, model answers and source checks in the National 5 and Higher style."],
               ].map(([title, body]) => (
                 <div key={title} className="tile p-5">
                   <p className="ui text-[17px] font-[600]">{title}</p>
@@ -118,7 +176,7 @@ export default function TeachingResourcesPage() {
                   ))}
                 </span>,
               ])}
-              caption="International issues (world powers and world issues) is not covered yet. If you would find it useful, tell us which topics and we will prioritise them."
+              caption="Covers all three core National 5 and Higher Modern Studies units: Democracy, Social Issues, and International Issues."
             />
           </section>
 
@@ -148,10 +206,10 @@ export default function TeachingResourcesPage() {
           <section className="pb-12 max-w-[760px]">
             <SectionHead eyebrow="Ideas for class" title="Ways teachers use it" />
             <ul className="mt-6 grid gap-3 text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
-              <li><strong className="text-[var(--ink)]">Your own area.</strong> Pupils put in the school postcode and compare child poverty, pay and life expectancy with the rest of Scotland.</li>
-              <li><strong className="text-[var(--ink)]">Source skills.</strong> The practice questions use real tables, so pupils can check their conclusions against the official source afterwards.</li>
-              <li><strong className="text-[var(--ink)]">Who is responsible.</strong> The who decides page shows which parliament or council controls each policy, a clear way into democracy questions.</li>
-              <li><strong className="text-[var(--ink)]">Assignment research.</strong> Every figure has its source linked, which suits the research and evaluation the assignment and dissertation need.</li>
+              <li><strong className="text-[var(--ink)]">Your own area.</strong> Pupils enter the school postcode. They compare local poverty, pay and health with Scotland.</li>
+              <li><strong className="text-[var(--ink)]">Source skills.</strong> Tests use real tables. Pupils check their answers against the real source.</li>
+              <li><strong className="text-[var(--ink)]">Who decides.</strong> Our guide names who runs each service. It fits democracy units well.</li>
+              <li><strong className="text-[var(--ink)]">Research tasks.</strong> Every fact links to its source. Pupils can cite and check data easily.</li>
             </ul>
           </section>
 
@@ -159,31 +217,30 @@ export default function TeachingResourcesPage() {
             <SectionHead eyebrow="Trust" title="Balance, accuracy and your pupils" />
             <div className="mt-6 grid gap-4 text-[16.5px] leading-[1.65] text-[var(--ink-2)]">
               <p>
-                <strong className="text-[var(--ink)]">Who is behind it.</strong> Scotland Counted was set
-                up by {site.author.name}. He struggled at school, worked hard to turn things around
-                afterwards, and built this to give something back, so complicated subjects are easy to
-                follow. <Link href="/about">Read more about us</Link>.
+                <strong className="text-[var(--ink)]">Why it exists.</strong> Scotland Counted puts
+                public data in plain words. Anyone can read it. You do not need a degree to check
+                your council or parliament. <Link href="/about">Read more about us</Link>.
               </p>
               <p>
-                <strong className="text-[var(--ink)]">Balance.</strong> Scotland Counted is independent
-                and has no party, campaign or funder behind it. Pages keep official figures separate from
-                interpretation, and where responsibility is described it is about which government holds
-                the power, not which party deserves blame. Some investigations cover sensitive subjects
-                such as sexual crime and drug deaths, so please read a page before sharing it with a
-                class.
+                <strong className="text-[var(--ink)]">Balance.</strong> No party runs or funds this
+                site. There are no ads and no paywall. Facts sit separate from notes. We show who
+                has power to act. Check pages on hard topics like crime and drug deaths before class.
               </p>
               <p>
-                <strong className="text-[var(--ink)]">Accuracy.</strong> Figures come from official
-                sources such as the Scottish Government, National Records of Scotland, the ONS and
-                Qualifications Scotland. Mistakes are fixed and logged publicly on the{" "}
-                <Link href="/corrections">corrections page</Link>, and the{" "}
-                <Link href="/methods">methods page</Link> explains how every figure was worked out.
+                <strong className="text-[var(--ink)]">Accuracy.</strong> Data comes from official
+                bodies like the Scottish Government and ONS. We log fixes on the{" "}
+                <Link href="/corrections">corrections page</Link>. Our{" "}
+                <Link href="/methods">methods page</Link> shows every sum.
               </p>
               <p>
-                <strong className="text-[var(--ink)]">Pupils.</strong> There are no accounts, no sign
-                up and no personal details needed to use anything on the site. Visits are measured with
-                Google Analytics and Microsoft Clarity; the <Link href="/privacy">privacy page</Link>{" "}
-                explains exactly what they record.
+                <strong className="text-[var(--ink)]">Pupils.</strong> No account is needed. No sign
+                up is asked for. Site stats run without personal names, and typed boxes stay
+                hidden. See our <Link href="/privacy">privacy page</Link> for full details.
+              </p>
+              <p id="teacher-pilot" className="scroll-mt-28">
+                <strong className="text-[var(--ink)]">Teacher feedback.</strong> Used a lesson
+                in class? <Link href="/contact">Tell us how it went</Link> so we can make these
+                pages better.
               </p>
               <p className="text-[15px] text-[var(--muted)]">
                 Past papers and marking instructions © Qualifications Scotland (formerly SQA), reproduced

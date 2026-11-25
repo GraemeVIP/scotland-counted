@@ -12,13 +12,12 @@ import {
 } from "@/lib/data/holyrood";
 import { JsonLd, faqJsonLd, meta } from "@/lib/seo";
 import { site } from "@/lib/site";
-import { listApprovedMspReviews } from "@/lib/mspReviewsDb";
 import { getMspInterests } from "@/lib/data/mspInterests";
 import {
   HolyroodSourceNote,
+  MspContactAndComplaints,
   MspExpensesAndInterests,
   MspProfileCard,
-  MspProfileReviews,
   MspStoryPicks,
   MspOwnExpensesLine,
   MspVotingRecord,
@@ -27,11 +26,6 @@ import {
 } from "../../_shared";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
-/*
- * A day, not a minute. Approving a review refreshes this page straight away
- * (api/msp-review-moderation), so a short timer only rebuilt pages nothing had
- * changed, and every rebuild used server time from the monthly allowance.
- */
 export const revalidate = 86400;
 
 /** Same format as the expenses box further down the page (_shared.tsx). */
@@ -65,7 +59,6 @@ export default async function HolyroodConstituencyPage({
   const { slug } = await params;
   const record = getHolyroodConstituencyBySlug(slug);
   if (!record) notFound();
-  const reviews = await listApprovedMspReviews(record.msp.memberId);
 
   const checked = formatHolyroodCheckedDate();
   const expenses = getMspInterests(record.msp.memberId)?.holyroodExpenses ?? null;
@@ -178,7 +171,7 @@ export default async function HolyroodConstituencyPage({
 
           <MspExpensesAndInterests msp={record.msp} area={record.constituency} />
 
-          <MspProfileReviews msp={record.msp} reviews={reviews} />
+          <MspContactAndComplaints msp={record.msp} />
 
           <section className="pt-10">
             <MspVotingRecord msp={record.msp} />

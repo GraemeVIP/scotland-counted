@@ -132,6 +132,7 @@ export const PAGE_PATHS: Record<string, string> = {
   "/poverty": "/poverty-in-scotland",
   "/salary-after-tax-scotland": "/take-home-pay-calculator-scotland",
   "/mp-register-of-interests-scotland": "/mp-expenses-scotland",
+  "/msp-reviews": "/representatives/msps",
 };
 
 /** Every permanent redirect from an old address to its exact match one. */

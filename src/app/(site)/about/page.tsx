@@ -247,6 +247,49 @@ export default function AboutPage() {
             <Link href="/contact">Contact us →</Link>
           </div>
         </ContentFrame>
+
+        {/* GOVERNANCE, FUNDING AND COMPLAINTS */}
+        <ContentFrame as="section" id="governance" className="pt-16">
+          <SectionHead
+            eyebrow="Governance and complaints"
+            title="Funding, editorial rules and how to challenge us"
+          />
+          <div className="mt-8 grid gap-5 md:grid-cols-3">
+            <div className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-6">
+              <h3 className="text-[19px] font-[620] text-[var(--ink)]">Who runs and funds it</h3>
+              <p className="mt-2.5 text-[16px] leading-[1.6] text-[var(--ink-2)]">
+                <ExplainText>
+                  No party pays for this site. There are no ads and no paywall. We run it openly
+                  while setting up a Scottish charity board. Any grant we get in future will be
+                  listed here. Grant funders will have no say in what we write.
+                </ExplainText>
+              </p>
+            </div>
+            <div className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-6">
+              <h3 className="text-[19px] font-[620] text-[var(--ink)]">Fairness and right of reply</h3>
+              <p className="mt-2.5 text-[16px] leading-[1.6] text-[var(--ink-2)]">
+                <ExplainText>
+                  Every MP, MSP and council is judged by the same rules. All facts come from official
+                  data. If we criticise a body in detail, we link the full numbers. Any confirmed
+                  reply or context gets added cleanly.
+                </ExplainText>
+              </p>
+            </div>
+            <div className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-6">
+              <h3 className="text-[19px] font-[620] text-[var(--ink)]">Raise a concern</h3>
+              <p className="mt-2.5 text-[16px] leading-[1.6] text-[var(--ink-2)]">
+                <ExplainText>
+                  Think a figure is wrong or unfair? Tell us through the contact page. We aim to
+                  reply within five working days. Real fixes go straight on our corrections log.
+                </ExplainText>
+              </p>
+              <div className="mt-4 flex flex-wrap gap-4 border-t border-[var(--rule)] pt-4 text-[14.5px] font-[580]">
+                <Link href="/contact?reason=correction">Raise a concern →</Link>
+                <Link href="/corrections">Corrections log →</Link>
+              </div>
+            </div>
+          </div>
+        </ContentFrame>
       </Page>
     </>
   );

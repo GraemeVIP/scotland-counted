@@ -38,15 +38,20 @@ export default function Corrections() {
 
         <ContentFrame>
           <Col className="pt-11">
-          <h2 className="h2 mb-4">How corrections are handled</h2>
+          <h2 className="h2 mb-4">Corrections and complaints</h2>
           <p>
-            Every figure on Scotland Counted links to its original publisher. When an official body
-            revises a release or a transcription error is found, the page is updated and the change
-            is logged publicly below with the date and original source.
+            Every figure on Scotland Counted links to its source. When an official body updates a
+            number or we spot a slip, we fix the page. Every change goes on the list below with the
+            date.
+          </p>
+          <p className="mt-4">
+            Think a page is unfair or missed key context? Tell us and we will look at it again.
+            We aim to reply within five working days. See our{" "}
+            <Link href="/about#governance">fairness and funding rules</Link>.
           </p>
           <p className="mt-4">
             <Link href="/contact?reason=correction" className="ui font-[600]">
-              Spot an error? Report it on our contact page →
+              Report an error or raise a concern →
             </Link>
           </p>
         </Col>

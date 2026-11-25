@@ -5,8 +5,6 @@ import { formatVoteDate } from "@/lib/voting";
 import PortraitLightbox from "@/components/PortraitLightbox";
 import { ExplainText } from "@/components/ExplainServer";
 import MspVoteList from "@/components/MspVoteList";
-import { representativeSlug } from "@/lib/representatives";
-import { getMspRating, type ApprovedMspReview } from "@/lib/data/mspReviews";
 import { getMspInterests } from "@/lib/data/mspInterests";
 import { ExpenseStoryHook, ExpenseStoryPicks, ReceiptsNudge } from "@/components/ExpenseNudges";
 import { mspStories, storyForProfile } from "@/lib/expenseNudges";
@@ -41,13 +39,6 @@ function mspPartyColour(party: string) {
   if (p.includes("reform")) return "#12b6cf";
   return "#8a93a3";
 }
-
-const reviewPublishedDate = new Intl.DateTimeFormat("en-GB", { dateStyle: "medium" });
-const reviewInteractionMonth = new Intl.DateTimeFormat("en-GB", {
-  month: "long",
-  year: "numeric",
-  timeZone: "UTC",
-});
 
 export function preparedMspEmailHref({
   msp,
@@ -587,88 +578,33 @@ export function MspExpensesAndInterests({
   );
 }
 
-export function MspProfileReviews({
+export function MspContactAndComplaints({
   msp,
-  reviews,
 }: {
   msp: HolyroodMspContact;
-  reviews: ApprovedMspReview[];
 }) {
-  const aggregate = getMspRating(reviews);
-  const reviewPath = `/msp-reviews/${representativeSlug(msp.name)}`;
-
   return (
-    <section id="reviews" className="pt-10" aria-labelledby="profile-reviews-heading">
+    <section id="complaints" className="pt-10" aria-labelledby="profile-complaints-heading">
       <div className="rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] p-6 sm:p-8">
-        <div className="flex flex-wrap items-end justify-between gap-4">
-          <div>
-            <p className="kicker mb-2 text-[var(--brand)]">Published experiences</p>
-            <h2 id="profile-reviews-heading" className="h2">
-              Reviews of {msp.name}
-            </h2>
-          </div>
-          {aggregate && (
-            <p
-              className="ui rounded-full bg-[var(--action-tint)] px-4 py-2 text-[15px] font-[640] text-[var(--action-text)]"
-              aria-label={`${aggregate.ratingValue.toFixed(1)} out of 5 from ${aggregate.reviewCount} approved ${aggregate.reviewCount === 1 ? "review" : "reviews"}`}
-            >
-              {aggregate.ratingValue.toFixed(1)} out of 5 · {aggregate.reviewCount} {aggregate.reviewCount === 1 ? "review" : "reviews"}
-            </p>
-          )}
-        </div>
-
-        {reviews.length > 0 ? (
-          <div className="mt-6 grid gap-5">
-            {reviews.map((review) => (
-              <article
-                key={review.id}
-                className="rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface-2)] p-5 sm:p-6"
-              >
-                <div className="flex flex-wrap items-start justify-between gap-3">
-                  <div>
-                    <h3 className="ui text-[18px] font-[640] text-[var(--ink)]">{review.title}</h3>
-                    <p className="ui mt-2 text-[15px] leading-[1.55] text-[var(--muted)]">
-                      {review.authorName} · {review.relationship}
-                      {review.interactionDate ? (
-                        <>
-                          {" "}· interaction {" "}
-                          <time dateTime={review.interactionDate}>
-                            {reviewInteractionMonth.format(new Date(`${review.interactionDate}T00:00:00Z`))}
-                          </time>
-                        </>
-                      ) : null}
-                      {" "}· {" "}
-                      <time dateTime={review.publishedDate}>
-                        published {reviewPublishedDate.format(new Date(review.publishedDate))}
-                      </time>
-                    </p>
-                  </div>
-                  <p
-                    className="ui rounded-full bg-[var(--action-tint)] px-4 py-2 text-[15px] font-[640] text-[var(--action-text)]"
-                    aria-label={`${review.rating} out of 5 stars`}
-                  >
-                    {"★".repeat(review.rating)}{"☆".repeat(5 - review.rating)}
-                  </p>
-                </div>
-                <p className="mt-5 whitespace-pre-line text-[17px] leading-[1.7] text-[var(--ink-2)]">
-                  {review.body}
-                </p>
-              </article>
-            ))}
-          </div>
-        ) : (
-          <p className="mt-6 text-[16px] leading-[1.6] text-[var(--ink-2)]">
-            No checked reviews for {msp.name} yet. That is not a good or bad score.
-          </p>
-        )}
-
+        <p className="kicker mb-2 text-[var(--brand)]">Writing or raising a concern</p>
+        <h2 id="profile-complaints-heading" className="h2">
+          How to contact or complain about {msp.name}
+        </h2>
+        <p className="mt-4 max-w-[66ch] text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
+          Use your email app or our postcode email builder to write directly about a devolved issue. If you believe an MSP broke the Scottish Parliament Code of Conduct, use Parliament&apos;s official complaint process.
+        </p>
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-          <Link href={`${reviewPath}#leave-review`} className="btn btn-primary justify-center text-center">
-            Review this MSP
+          <Link href="/email-your-mp-and-msp" className="btn btn-primary justify-center text-center">
+            Email your MP and MSP
           </Link>
-          <Link href={reviewPath} className="btn btn-ghost justify-center text-center">
-            Open the full review page
-          </Link>
+          <a
+            href="https://www.parliament.scot/msps/complain-about-an-msp"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-ghost justify-center text-center"
+          >
+            Scottish Parliament complaints process ↗
+          </a>
         </div>
       </div>
     </section>

@@ -26,7 +26,7 @@
  * writing to the wrong one wastes weeks.
  */
 
-import type { RepresentativeRole } from "@/lib/letter";
+import type { RepresentativeRole } from "../letter.ts";
 
 export type Ask = {
   /**

@@ -24,9 +24,9 @@ export default function AuthorBio({ className = "" }: { className?: string }) {
 
       <p className="text-[16.5px] leading-[1.6] text-[var(--ink-2)] mt-3 max-w-[60ch]">
         <ExplainText>
-          <strong className="text-[var(--ink)]">No party, no funding, no paywall.</strong> Nothing
-          here is sponsored and nobody pays to appear. Confirmed errors are corrected in public and
-          logged on the corrections page.
+          <strong className="text-[var(--ink)]">No party backing, no ads, no paywall.</strong> Nothing
+          here is paid for by a political party and nobody pays to appear. Confirmed errors are
+          corrected in public and logged on the corrections page.
         </ExplainText>
       </p>
 

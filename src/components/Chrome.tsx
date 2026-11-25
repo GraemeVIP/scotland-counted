@@ -319,6 +319,7 @@ export function Footer() {
   const tools = [
     { href: "/take-home-pay-calculator-scotland", label: "Take home pay calculator" },
     { href: "/tax-bands-scotland", label: "Scottish tax bands" },
+    { href: "/electricity-cost-calculator-scotland", label: "Electricity cost calculator" },
     { href: "/lbtt-calculator-scotland", label: "LBTT calculator" },
     { href: "/council-tax-bands-scotland", label: "Council tax by band" },
     { href: "/simd-postcode-checker", label: "SIMD postcode checker" },
@@ -329,7 +330,7 @@ export function Footer() {
     money: [
       { href: "/take-home-pay-calculator-scotland", label: "Take home pay calculator" },
       { href: "/tax-bands-scotland", label: "Scottish income tax bands" },
-      { href: "/lbtt-calculator-scotland", label: "LBTT calculator (Stamp Duty)" },
+      { href: "/electricity-cost-calculator-scotland", label: "Electricity cost calculator" },
       { href: "/minimum-wage-scotland", label: "Minimum wage Scotland" },
       { href: "/real-living-wage-scotland", label: "Real Living Wage" },
       { href: "/scotland-bank-holidays", label: "Scotland bank holidays" },
@@ -364,7 +365,7 @@ export function Footer() {
       { href: "/representatives", label: "All 57 MPs" },
       { href: "/mp-expenses-scotland", label: "MP expenses" },
       { href: "/councils", label: "All 32 council records" },
-      { href: "/msp-reviews", label: "Review your MSP" },
+      { href: "/who-decides", label: "Who decides what" },
       { href: "/blog/operation-branchform-snp-money-timeline", label: "Operation Branchform timeline" },
     ],
     schools: [

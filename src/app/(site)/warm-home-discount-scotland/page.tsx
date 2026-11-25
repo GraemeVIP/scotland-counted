@@ -1,6 +1,7 @@
 import Link from "@/components/IntentLink";
 import { Page, ContentFrame, PageHeader, SectionHead, CTA, Callout } from "@/components/Blocks";
 import EditorialImage from "@/components/EditorialImage";
+import ElectricityPromo from "@/components/ElectricityPromo";
 import SharePage from "@/components/SharePage";
 import QuickAnswer from "@/components/QuickAnswer";
 import Faq from "@/components/Faq";
@@ -399,11 +400,11 @@ export default function WarmHomeDiscountScotlandPage() {
             </p>
             <p className="text-[16.5px] leading-[1.55] text-[var(--ink-2)]">
               Mid November temperatures in the Highlands have already dropped to minus 8.4 degrees
-              Celsius, and on Wednesday 25 November Ofgem is expected to confirm a{" "}
+              Celsius, and Ofgem has confirmed a{" "}
               <Link href="/energy-price-cap-scotland">
-                26% jump in the January 2027 energy price cap
+                26% rise in the energy price cap from 1 January 2027
               </Link>{" "}
-              (taking a typical bill from £1,723 to around £2,166). If you are in the Broader Group,
+              (taking a typical bill from £1,723 to £2,166 a year). If you are in the Broader Group,
               apply while your supplier&apos;s window is still open.
             </p>
           </Callout>
@@ -520,6 +521,10 @@ export default function WarmHomeDiscountScotlandPage() {
           </div>
         </ContentFrame>
 
+        <ContentFrame className="pt-14">
+          <ElectricityPromo />
+        </ContentFrame>
+
         <ContentFrame as="section" className="pt-16">
           <Faq
             items={FAQ}
@@ -605,15 +610,15 @@ export default function WarmHomeDiscountScotlandPage() {
             </li>
             <li>
               <a
-                href="https://www.cornwall-insight.com/press-releases/energy-bills-set-for-steep-rise-in-january/"
+                href="https://www.ofgem.gov.uk/press-release/energy-price-cap-rise-26-january-2027"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-[580] text-[var(--ink)]"
               >
-                Energy bills set for steep rise in January 2027
+                Energy price cap to rise by 26% from January 2027
               </a>
-              , Cornwall Insight: final forecast of a 26% rise (+£443) taking the typical Direct
-              Debit price cap from £1,723 to £2,166 from 1 January 2027.
+              , Ofgem (25 November 2026): the typical Direct Debit price cap rises from £1,723 to
+              £2,166 a year from 1 January 2027.
             </li>
             <li>
               <a
@@ -636,7 +641,7 @@ export default function WarmHomeDiscountScotlandPage() {
         href="/100-energy-payment-scotland"
         cta="Check the £100 energy payment"
         secondaryHref="/energy-price-cap-scotland"
-        secondaryCta="See January 2027 energy price cap forecast"
+        secondaryCta="See the January 2027 energy price cap"
       />
     </>
   );

@@ -22,6 +22,7 @@ import { holyroodConstituencies, holyroodRegions } from "@/lib/data/holyrood";
 import { representativeSlug } from "@/lib/representatives";
 import { councilAccountabilityRecords } from "@/lib/data/councilAccountability";
 import { councilTaxBandPath, councilTaxPath, postPath } from "./routeMap.ts";
+import { HUBS, INVESTIGATIONS_HUB, type HubId } from "@/lib/data/navigation";
 
 export type Item = {
   label: string;
@@ -30,6 +31,30 @@ export type Item = {
   /** Right-aligned metadata, e.g. the area's latest rate. */
   meta?: string;
   keywords?: string;
+  /** The menu section the page belongs to, for its colour, icon and heading. */
+  section?: HubId;
+};
+
+/**
+ * Extra search words for menu pages that have no entry above. The menu label
+ * alone is short, and people search in their own words ("no money", "appeal").
+ */
+const NAV_KEYWORDS: Record<string, string> = {
+  "/struggling-right-now-scotland": "urgent help emergency cash no money food bank today crisis bills skint",
+  "/suicide-scotland-statistics-and-support": "suicide mental health samaritans breathing space helpline crisis cope suicidal statistics",
+  "/where-to-apply-scotland": "apply application forms official links mygov how to apply",
+  "/benefit-or-crisis-grant-rejected-scotland": "refused rejected turned down appeal review challenge redetermination spso",
+  "/sight-loss-scotland": "blind blindness partially sighted cvi eyes vision blind persons allowance",
+  "/disability-support-scotland": "disabled disability adp pip rights access to work blue badge",
+  "/electricity-cost-calculator-scotland": "electricity energy appliance kettle cost kwh running costs bill",
+  "/minimum-wage-scotland": "national living wage hourly pay rate",
+  "/adult-disability-payment": "adp pip disability benefit",
+  "/crisis-grant-scotland": "scottish welfare fund emergency money",
+  "/who-is-my-msp": "msp holyrood find my representative postcode",
+  "/who-is-my-local-councillor-by-postcode": "councillor council ward",
+  "/winter-fuel-payment-scotland": "pension age winter payment heating",
+  "/social-security-scotland-payment-dates": "when paid payment dates christmas bank holiday",
+  "/scottish-child-payment": "scp child benefit kids",
 };
 
 const CORE: Item[] = [
@@ -166,7 +191,54 @@ const CORE: Item[] = [
   { label: "Privacy", href: "/privacy", group: "More", keywords: "data cookies tracking gdpr postcode stored" },
 ];
 
+/** Every page in the menus, keyed by address, with its section. */
+function menuIndex() {
+  const index = new Map<string, { label: string; section: HubId; group: string }>();
+  for (const hub of [...HUBS, INVESTIGATIONS_HUB]) {
+    const add = (href: string, label: string) => {
+      if (!index.has(href)) index.set(href, { label, section: hub.id, group: hub.label });
+    };
+    add(hub.href, `${hub.label}: every page`);
+    for (const group of hub.groups) for (const item of group.items) add(item.href, item.label);
+    add(hub.feature.href, hub.feature.title);
+  }
+  return index;
+}
+
+/**
+ * The menus and search used to be two separate lists, so search could not
+ * find most of the pages the menu offers (minimum wage, ADP, crisis help).
+ * Every menu page is now in search under its section, and any page already
+ * here picks up its section's colour and heading.
+ */
 export function buildRegistry(): Item[] {
+  const menu = menuIndex();
+  const seen = new Set<string>();
+  const merged: Item[] = [];
+  for (const item of buildBase()) {
+    if (seen.has(item.href)) continue;
+    seen.add(item.href);
+    const nav = menu.get(item.href);
+    merged.push(
+      nav
+        ? {
+            ...item,
+            section: nav.section,
+            group: nav.group,
+            keywords: [item.keywords, nav.label, NAV_KEYWORDS[item.href]].filter(Boolean).join(" "),
+          }
+        : item,
+    );
+  }
+  for (const [href, nav] of menu) {
+    if (seen.has(href)) continue;
+    seen.add(href);
+    merged.push({ label: nav.label, href, group: nav.group, section: nav.section, keywords: NAV_KEYWORDS[href] });
+  }
+  return merged;
+}
+
+function buildBase(): Item[] {
   return [
     ...CORE,
     ...indicators.map((i) => ({

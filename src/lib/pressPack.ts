@@ -179,7 +179,7 @@ export function pressPackFor(slug: string): PressPack | null {
     standfirst,
     facts: facts.filter((f) => f.source.trim().length > 0),
     notes,
-    boilerplate: `${site.publisher.description} It is written and published by ${site.author.name}. No party affiliation, no funding and no paywall.`,
+    boilerplate: `${site.publisher.description} Published by ${site.author.name}. No party backing, no advertising and no paywall.`,
     citation: CITATION,
     dataFile: `${site.url}${COUNCIL_DATA_FILE}`,
     pageUrl: `${site.url}/councils/${slug}`,

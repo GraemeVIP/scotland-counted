@@ -76,7 +76,7 @@ test("the short list holds every section front door, Investigations and Explaine
 });
 
 test("the tools people come for stay one click from any page", () => {
-  for (const required of ["/take-home-pay-calculator-scotland", "/council-tax-bands-scotland", "/email-your-mp-and-msp", "/msp-reviews", "/who-is-my-msp"]) {
+  for (const required of ["/take-home-pay-calculator-scotland", "/council-tax-bands-scotland", "/email-your-mp-and-msp", "/who-is-my-msp"]) {
     assert.ok(allHrefs.includes(required), `${required} has dropped out of the menu`);
   }
 });

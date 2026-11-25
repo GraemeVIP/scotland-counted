@@ -185,8 +185,8 @@ export default function Post() {
       </P>
       <Aside title="Using this site as a source">
         <p>
-          You can, but treat it like any secondary source. It is an independent site run by one
-          person, not a government body. Every figure links to the official original and the{" "}
+          You can, but treat it like any secondary source. It is an independent public data
+          organisation, not a government body. Every figure links to the official original and the{" "}
           <Link href="/methods">methods page</Link> explains every calculation, which helps
           reliability. For a dissertation, go to the original wherever you can and cite that.
         </p>

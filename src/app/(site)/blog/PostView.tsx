@@ -14,11 +14,23 @@ import Faq from "@/components/Faq";
 import QuickAnswer from "@/components/QuickAnswer";
 import { postPath } from "@/lib/routeMap";
 import ComparePromo from "@/components/ComparePromo";
+import ElectricityPromo from "@/components/ElectricityPromo";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { ExpenseStoryRail } from "@/components/ExpenseStoryRail";
 import { EXPENSE_STORY_SLUGS } from "@/lib/data/expenseStories";
 import { nudgesFor, readNextFor } from "@/lib/data/nudges";
 import { KeepReading } from "@/components/KeepReading";
+
+/** Posts about bills and energy end with the electricity cost calculator. */
+const ELECTRICITY_POSTS = new Set([
+  "energy-price-cap-scotland-2026-explained",
+  "100-energy-payment-scotland",
+  "winter-fuel-payment-scotland",
+  "winter-heating-payment",
+  "why-is-the-cost-of-living-so-high",
+  "why-food-prices-stay-high-when-inflation-falls",
+  "kilmarnock-mp-23437-electricity-bill",
+]);
 
 /**
  * Posts that end with a pointer to the compare tool, and the area each one is
@@ -179,6 +191,12 @@ export function PostView({ slug }: { slug: string }) {
         {!isExpenseStory && (
           <div className="pt-12 max-w-[1120px] mx-auto">
             <KeepReading posts={keepReading} tool={tool} bridge={bridge} />
+          </div>
+        )}
+
+        {ELECTRICITY_POSTS.has(post.slug) && (
+          <div className="pt-12 max-w-[1120px] mx-auto">
+            <ElectricityPromo />
           </div>
         )}
 

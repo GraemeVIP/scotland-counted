@@ -1,4 +1,5 @@
 import Link from "@/components/IntentLink";
+import ElectricityPromo from "@/components/ElectricityPromo";
 import { FullBleed, Page } from "@/components/Blocks";
 import { JsonLd, articleJsonLd, faqJsonLd, meta } from "@/lib/seo";
 import BlogCarousel from "@/components/BlogCarousel";
@@ -72,23 +73,23 @@ const EVIDENCE = [
 const FAQ = [
   {
     q: "What is Scotland Counted?",
-    a: "An independent site that takes Scottish public data and explains what it means where you live. It covers poverty and living standards, pay and council tax, council spending and performance, and which government is responsible for each. Every figure links to its official source.",
+    a: "It puts Scottish data in plain words. We cover pay, poverty, council tax, council spend and who decides what. Every figure links to its source.",
   },
   {
     q: "Who runs it and who pays for it?",
-    a: "Scotland Counted is an independent public data project with no political party affiliation, no donations, and no paywall. Every figure is linked back to its official publisher.",
+    a: "It is run cleanly with no party ties, no ads, and no paywall. Every figure links back to its source.",
   },
   {
     q: "What happens to the postcode I enter?",
-    a: "It is used only to find your area, MP and MSPs. It is not saved and it never appears in a shareable link. Anything you type into a calculator stays in your browser.",
+    a: "We use it only to find your area, MP and MSPs. We never save it or put it in links. Sums stay in your browser.",
   },
   {
     q: "Who has the power to change any of this?",
-    a: "The UK Government, the Scottish Government and your council each decide different things. You do not need to know which is which: the who decides page lists fifteen everyday issues and names the one responsible for each.",
+    a: "The UK Government, Holyrood and your council each run different things. Our who decides page lists fifteen issues and names who runs each one.",
   },
   {
     q: "What do I do if a figure is wrong?",
-    a: "Report it. Corrections are fixed and then logged in public with the date, because a site that asks you to check its work has to show what happened when somebody did.",
+    a: "Tell us. We fix real errors and log every fix with the date on our corrections page.",
   },
 ];
 
@@ -107,34 +108,8 @@ export default function Home() {
       <Hero facts={buildLocalFacts()} split={responsibilitySplit()} />
 
       <Page>
-        {/* ---------- The expenses series ----------
-            The stories people share most, so they come straight after the
-            first screen rather than after the money tiles. */}
-        <section aria-label="MP expenses" className="pt-10 sm:pt-14">
-          <div className="tile tile-blue flex flex-col gap-4 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-7">
-            <div>
-              <span className="tile-key">New · MP expenses in Scotland</span>
-              <p className="mt-2 max-w-[60ch] text-[17px] leading-[1.5] text-white">
-                Scottish MPs billed taxpayers £23,437 for electricity in a single day (number one
-                in the UK), £10,754 for TV licences, £37,359 for one MP&apos;s London hotels and
-                £24,515 for one MP&apos;s mobile bills. Search all 20,879 official receipts.
-              </p>
-              <p className="ui mt-3 flex flex-wrap gap-x-5 gap-y-2 text-[15px]">
-                <Link href="/blog/scottish-mps-london-homes-152-sitting-days" className="font-[600] text-white">£2.91m London shuttle (152 days) →</Link>
-                <Link href="/blog/kilmarnock-mp-23437-electricity-bill" className="font-[600] text-white">£23,437 power bill (UK #1) →</Link>
-                <Link href="/blog/scottish-mps-tv-licence-expenses" className="font-[600] text-white">29 MPs&apos; TV licences →</Link>
-                <Link href="/blog/worst-scottish-mp-expenses" className="font-[600] text-white">The receipts →</Link>
-                <Link href="/mp-expenses-scotland" className="font-[600] text-white">All 57 MPs ranked →</Link>
-              </p>
-            </div>
-            <Link href="/mp-expenses-scotland/search" className="btn bg-white text-[#00336f] shrink-0 self-start sm:self-center">
-              Search all 20,879 MP receipts <span aria-hidden="true">→</span>
-            </Link>
-          </div>
-        </section>
-
         {/* ---------- The answers people look for most ---------- */}
-        <section className="pt-16 sm:pt-24" aria-labelledby="answers">
+        <section className="pt-12 sm:pt-16" aria-labelledby="answers">
           <div className="flex flex-wrap items-end justify-between gap-x-10 gap-y-5">
             <div>
               <p className="eyebrow">Most searched</p>
@@ -260,8 +235,9 @@ export default function Home() {
                 How does your area <span className="serif-accent text-[var(--action-text)]">compare?</span>
               </h2>
               <p className="mt-5 max-w-[46ch] text-[17px] leading-[1.6] text-[var(--ink-2)]">
-                Put any two council areas side by side, or type two postcodes. Pay, house prices, rent, crime, poverty, health
-                and schools, in plain words with the official figures. Handy if you are thinking of moving.
+                Put any two councils side by side, or type two postcodes. See pay, rent, house
+                prices, crime, poverty, health and schools with source links. Handy if you plan to
+                move.
               </p>
               <ul className="mt-6 flex flex-wrap gap-2.5">
                 {POPULAR_PAIRS.slice(0, 4).map(([x, y]) => (
@@ -284,6 +260,9 @@ export default function Home() {
             <AreaComparePicker a="glasgow-city" b="city-of-edinburgh" />
           </div>
         </section>
+
+        {/* ---------- Electricity cost calculator ---------- */}
+        <ElectricityPromo variant="feature" />
 
         {/* ---------- Six doors ---------- */}
         <section className="pt-24" aria-labelledby="doors">
@@ -313,6 +292,54 @@ export default function Home() {
                 <span aria-hidden="true" className="text-[var(--muted)] transition-transform group-hover:translate-x-1 group-hover:text-[var(--action-text)]">→</span>
               </Link>
             ))}
+          </div>
+        </section>
+
+        {/* ---------- Public education & good causes ---------- */}
+        <section className="pt-16" aria-labelledby="public-service">
+          <div className="grid gap-4 md:grid-cols-3">
+            <Link href="/modern-studies-teaching-resources" className="tile p-6 no-underline">
+              <span className="tile-key">For schools</span>
+              <strong className="mt-2 block text-[20px] font-[620] text-[var(--ink)]">Modern Studies guides</strong>
+              <span className="mt-2 block text-[15.5px] leading-[1.55] text-[var(--ink-2)]">
+                Course notes and past paper help for National 5, Higher and Advanced Higher.
+              </span>
+            </Link>
+            <Link href="/for-organisations" className="tile p-6 no-underline">
+              <span className="tile-key">For good causes</span>
+              <strong className="mt-2 block text-[20px] font-[620] text-[var(--ink)]">Free charity data help</strong>
+              <span className="mt-2 block text-[15.5px] leading-[1.55] text-[var(--ink-2)]">
+                Local charts and council numbers for charities, schools and local groups.
+              </span>
+            </Link>
+            <Link href="/benefits" className="tile p-6 no-underline">
+              <span className="tile-key">Help with bills</span>
+              <strong className="mt-2 block text-[20px] font-[620] text-[var(--ink)]">Benefits and grants</strong>
+              <span className="mt-2 block text-[15.5px] leading-[1.55] text-[var(--ink-2)]">
+                Plain guides to Scottish payments, energy help and council tax cuts.
+              </span>
+            </Link>
+          </div>
+        </section>
+
+        {/* ---------- Parliamentary expenses records ---------- */}
+        <section aria-label="MP expenses" className="pt-16">
+          <div className="tile tile-blue flex flex-col gap-4 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-7">
+            <div>
+              <span className="tile-key">MP bills · 57 Scottish MPs</span>
+              <p className="mt-2 max-w-[60ch] text-[17px] leading-[1.5] text-white">
+                Check IPSA expense claims and declared gifts across Scotland. Search 20,879 real
+                receipts next to council and local data.
+              </p>
+              <p className="ui mt-3 flex flex-wrap gap-x-5 gap-y-2 text-[15px]">
+                <Link href="/mp-expenses-scotland" className="font-[600] text-white">All 57 MPs compared →</Link>
+                <Link href="/blog/scottish-mp-msp-expenses-what-it-could-buy" className="font-[600] text-white">Putting costs in context →</Link>
+                <Link href="/blog/scottish-mps-london-homes-152-sitting-days" className="font-[600] text-white">London travel & accommodation →</Link>
+              </p>
+            </div>
+            <Link href="/mp-expenses-scotland/search" className="btn bg-white text-[#00336f] shrink-0 self-start sm:self-center">
+              Search all 20,879 receipts <span aria-hidden="true">→</span>
+            </Link>
           </div>
         </section>
       </Page>
@@ -355,8 +382,8 @@ export default function Home() {
                 </Link>
               ))}
               <p className="ui mt-2 border-t border-[var(--rule)] pt-4 text-[15px] leading-[1.55] text-[var(--ink-2)] sm:col-span-2">
-                Latest finding from {flagship.source.publisher}. Published by {site.author.name},{" "}
-                {site.organisation.name}. No funding, no advertising, no party.
+                Latest finding from {flagship.source.publisher}. Published by {site.author.name}.
+                No party ties, no advertising, no paywall.
               </p>
             </div>
           </div>
@@ -374,9 +401,8 @@ export default function Home() {
                 Councils publish. <span className="serif-accent text-[var(--action-text)]">Nobody tells you.</span>
               </h2>
               <p className="mt-4 max-w-[56ch] text-[17px] leading-[1.55] text-[var(--ink-2)]">
-                Audits, budgets, tax changes and official data releases land quietly through the
-                year. Every update and data refresh is logged in the{" "}
-                <Link href="/updates">public update log</Link> (with an RSS feed) alongside our{" "}
+                Budgets, tax changes and audits come out quietly all year. We log each fresh number
+                in our <Link href="/updates">update log</Link> (with an RSS feed). Read our{" "}
                 <Link href="/about">mission and standards</Link>, or{" "}
                 <Link href="/contact">get in touch</Link>.
               </p>

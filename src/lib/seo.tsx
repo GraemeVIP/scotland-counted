@@ -10,7 +10,6 @@ const RSS_FEED_URL = `${site.url}/feed.xml`;
 const DATA_OG_PREFIXES = [
   "/representatives/",
   "/councils/",
-  "/msp-reviews/",
   "/indicators/",
   "/blog/",
   "/mp-expenses-scotland",

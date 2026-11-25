@@ -25,11 +25,47 @@ export const metadata = meta({
 const hub = HUBS.find((h) => h.id === "benefits")!;
 const byPath = new Map(posts.map((post) => [postPath(post.slug), post]));
 const STATIC_GUIDES: Record<string, { value: string; unit: string; standfirst: string }> = {
+  "/where-to-apply-scotland": {
+    value: "24",
+    unit: "direct official forms",
+    standfirst:
+      "Search and jump straight to the real official form for benefits, sight loss, bus passes, grants, and free help.",
+  },
+  "/benefit-or-crisis-grant-rejected-scotland": {
+    value: "50% to 60%",
+    unit: "SPSO reviews overturned",
+    standfirst:
+      "Exact deadlines, overturn rates, SPSO and VoiceAbility phone numbers, and copyable review wording.",
+  },
+  "/sight-loss-scotland": {
+    value: "£3,250",
+    unit: "tax allowance",
+    standfirst:
+      "Sight loss data, large text dark mode, 2026/27 tax savings, bus pass rules and phone numbers.",
+  },
+  "/disability-support-scotland": {
+    value: "52% to 54%",
+    unit: "first ADP claims denied",
+    standfirst:
+      "Real ADP approval odds, wait times, 2026/27 rates, free form help and work rights.",
+  },
+  "/struggling-right-now-scotland": {
+    value: "52% to 89%",
+    unit: "Crisis Grant rates",
+    standfirst:
+      "Pick your council for Crisis Grant odds, cash help you may miss, and free debt advice.",
+  },
+  "/suicide-scotland-statistics-and-support": {
+    value: "703",
+    unit: "deaths in 2025",
+    standfirst:
+      "Free 24/7 Scottish crisis phone lines upfront, plus official Scottish data and local help.",
+  },
   "/warm-home-discount-scotland": {
     value: "£150",
-    unit: "off electricity bill",
+    unit: "off power bill",
     standfirst:
-      "Automatic in Scotland for Pension Credit and certain disability or under 5 benefit elements, or apply directly to your supplier in the Broader Group.",
+      "Paid automatically for Pension Credit and some disability homes, or apply via your supplier.",
   },
 };
 
@@ -60,10 +96,10 @@ export default function BenefitsPage() {
         <PageHeader
           eyebrow="Benefits in Scotland"
           title="Benefits in Scotland"
-          lede="What you can claim, how much it is this year and when it is paid. Each guide gives you the answer first, then how to apply."
+          lede="See what you can claim, what it pays, and when it lands. Each guide gives the plain fact first, then how to claim."
           panel={
             HEADER_FACTS.length > 0 ? (
-              <HeaderFacts label="How much it is this year" items={HEADER_FACTS} />
+              <HeaderFacts label="This year's rates" items={HEADER_FACTS} />
             ) : undefined
           }
         />
@@ -106,15 +142,14 @@ export default function BenefitsPage() {
             <div className="tile p-6 sm:p-7 max-w-[760px]">
               <p className="ui text-[19px] font-[600]">Not sure what you can get?</p>
               <p className="mt-2 text-[16.5px] leading-[1.6] text-[var(--ink-2)]">
-                Social Security Scotland will talk it through with you for free on{" "}
-                <a href={SSS.phoneHref}>{SSS.phone}</a>, {SSS.hours}. For DWP benefits like Universal
-                Credit and State Pension, Citizens Advice Scotland can check everything you are owed in
-                one go.
+                Call free on <a href={SSS.phoneHref}>{SSS.phone}</a> ({SSS.hours}). Staff can talk
+                you through Scottish claims. For UK wide claims like Universal Credit or State
+                Pension, a local advice office can check your full list for free.
               </p>
               <p className="mt-3 text-[16.5px]">
-                <Link href="/social-security-scotland-payment-dates">Social Security Scotland payment dates</Link>
+                <Link href="/social-security-scotland-payment-dates">Payment dates</Link>
                 {" · "}
-                <Link href="/crisis-grant-phone-number">Crisis grant numbers for every council</Link>
+                <Link href="/crisis-grant-phone-number">Council Crisis Grant numbers</Link>
               </p>
             </div>
           </section>

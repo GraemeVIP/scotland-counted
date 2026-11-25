@@ -72,7 +72,7 @@ const WATCHLIST_TABLE = [
 const TIMELINE_TABLE = [
   ["Wednesday 28 October 2026", "UK Budget at Westminster sets Scotland's Barnett formula block grant adjustment and announces the £100 energy payment for Bands A to D"],
   ["Wednesday 18 November 2026", "Council Tax (High Value Dwellings etc.) (Scotland) Bill unveiled at Holyrood, proposing Band I (£1m to £2m) and Band J (£2m+) from April 2028"],
-  ["Wednesday 25 November 2026", "Ofgem announces the confirmed 1 January to 31 March 2027 energy price cap (forecast by Cornwall Insight to jump 26% to £2,166)"],
+  ["Wednesday 25 November 2026", "Ofgem confirms the 1 January to 31 March 2027 energy price cap: up 26% to £2,166 a year for a typical Direct Debit home"],
   ["Thursday 3 December 2026", "Finance Secretary Jenny Gilruth presents the 2027/28 Scottish Budget statement to the Scottish Parliament alongside Scottish Fiscal Commission forecasts"],
   ["January to February 2027", "Holyrood committees scrutinise the Budget Bill and the Scottish Government negotiates cross party votes to pass the Bill"],
   ["February to March 2027", "All 32 Scottish councils meet to set their local 2027/28 council tax rises once their grant settlement is confirmed"],
@@ -272,10 +272,10 @@ export default function ScottishBudgetPage() {
           <div className="mt-5 max-w-[66ch] space-y-4 text-[17.5px] leading-[1.6] text-[var(--ink-2)]">
             <p>
               Timing is everything for this Budget. On Wednesday 25 November 2026, eight days before
-              Jenny Gilruth stands up at Holyrood, Ofgem announces the confirmed{" "}
+              Jenny Gilruth stands up at Holyrood, Ofgem confirmed the{" "}
               <Link href="/energy-price-cap-scotland">January to March 2027 energy price cap</Link>.
-              Cornwall Insight&apos;s final forecast warns that typical Direct Debit bills will jump
-              26% (+£443 a year) from £1,723 to <strong>£2,166</strong>.
+              Typical Direct Debit bills jump 26% (+£443 a year) from £1,723 to{" "}
+              <strong>£2,166</strong>.
             </p>
             <p>
               Following the UK Budget at the end of October, the Scottish Government confirmed it
@@ -458,15 +458,15 @@ export default function ScottishBudgetPage() {
             </li>
             <li>
               <a
-                href="https://www.cornwall-insight.com/press-releases/energy-bills-set-for-steep-rise-in-january/"
+                href="https://www.ofgem.gov.uk/press-release/energy-price-cap-rise-26-january-2027"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-[580] text-[var(--ink)]"
               >
-                Energy bills set for steep rise in January 2027
+                Energy price cap to rise by 26% from January 2027
               </a>
-              , Cornwall Insight: final forecast of a 26% (+£443) rise in the Ofgem energy price
-              cap to £2,166 ahead of Ofgem&apos;s Wednesday 25 November 2026 announcement.
+              , Ofgem (25 November 2026): a 26% (+£443) rise in the energy price cap to £2,166 a
+              year for a typical Direct Debit home from 1 January 2027.
             </li>
             <li>
               <a

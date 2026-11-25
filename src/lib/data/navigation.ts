@@ -43,7 +43,25 @@ export type Hub = {
   groups: { heading: string; items: NavItem[] }[];
   /** Shown as chips along the bottom of the panel. */
   top: NavItem[];
+  /**
+   * Pages for someone who needs help today. They stay in their group (so the
+   * section page, /browse and the tests still list them), but the menus lift
+   * them out into their own band so they are never lost in a long list.
+   */
+  help?: { title: string; text: string; hrefs: string[] };
 };
+
+/** A section's groups as the menus show them: anything in the help band is left out of the lists. */
+export function menuGroups(hub: Hub) {
+  const lifted = new Set(hub.help?.hrefs ?? []);
+  return hub.groups.map((group) => ({ ...group, items: group.items.filter((item) => !lifted.has(item.href)) }));
+}
+
+/** The help band's links, in the order given. */
+export function helpItems(hub: Hub): NavItem[] {
+  const all = hub.groups.flatMap((group) => group.items);
+  return (hub.help?.hrefs ?? []).map((href) => all.find((item) => item.href === href)!).filter(Boolean);
+}
 
 export const HUBS: Hub[] = [
   {
@@ -87,6 +105,7 @@ export const HUBS: Hub[] = [
         items: [
           { href: "/lbtt-calculator-scotland", label: "LBTT calculator (Stamp Duty)", tag: "Tool" },
           { href: "/scotland-bank-holidays", label: "Scotland bank holidays" },
+          { href: "/electricity-cost-calculator-scotland", label: "Electricity cost calculator", tag: "Tool" },
           { href: "/energy-price-cap-scotland", label: "Energy price cap" },
           { href: "/cost-of-living-scotland", label: "Why the cost of living is so high" },
           { href: "/blog/why-food-prices-stay-high-when-inflation-falls", label: "Why food prices stay high" },
@@ -118,6 +137,8 @@ export const HUBS: Hub[] = [
         items: [
           { href: "/adult-disability-payment", label: "Adult Disability Payment" },
           { href: "/adult-disability-payment-phone-number", label: "Adult Disability Payment phone number" },
+          { href: "/disability-support-scotland", label: "Disability support and your rights", tag: "New" },
+          { href: "/sight-loss-scotland", label: "Sight loss and blindness", tag: "New" },
           { href: "/carer-support-payment", label: "Carer Support Payment" },
           { href: "/young-carers-allowance-scotland", label: "Young Carer Grant" },
         ],
@@ -128,20 +149,24 @@ export const HUBS: Hub[] = [
           { href: "/scottish-child-payment", label: "Scottish Child Payment" },
           { href: "/best-start-grant", label: "Best Start Grant" },
           { href: "/blog/free-school-meals-clothing-grant-scotland", label: "Free school meals and clothing" },
-          { href: "/warm-home-discount-scotland", label: "Warm Home Discount (£150)", tag: "New" },
           { href: "/winter-fuel-payment-scotland", label: "Winter fuel payment" },
           { href: "/winter-heating-payment", label: "Winter Heating Payment" },
-          { href: "/100-energy-payment-scotland", label: "£100 energy payment", tag: "New" },
+          { href: "/warm-home-discount-scotland", label: "Warm Home Discount (£150)" },
+          { href: "/100-energy-payment-scotland", label: "£100 energy payment" },
         ],
       },
       {
-        heading: "Help in a crisis",
+        heading: "Apply, appeal and crisis help",
         items: [
+          { href: "/where-to-apply-scotland", label: "Where to apply: 24 direct links", tag: "New" },
+          { href: "/benefit-or-crisis-grant-rejected-scotland", label: "Turned down? Challenge it", tag: "New" },
           { href: "/crisis-grant-scotland", label: "Crisis grant" },
           { href: "/crisis-grant-phone-number", label: "Crisis grant phone numbers", tag: "32 councils" },
           { href: "/blog/discretionary-housing-payment-scotland", label: "Discretionary Housing Payment" },
           { href: "/blog/universal-credit-when-you-work-more-hours", label: "Universal Credit and extra hours" },
           { href: "/blog/local-housing-allowance-rent-shortfall-scotland", label: "Housing benefit and rent gaps" },
+          { href: "/struggling-right-now-scotland", label: "Short of money today" },
+          { href: "/suicide-scotland-statistics-and-support", label: "Struggling to cope: 24/7 support" },
         ],
       },
     ],
@@ -150,6 +175,11 @@ export const HUBS: Hub[] = [
       { href: "/winter-fuel-payment-scotland", label: "Winter fuel payment" },
       { href: "/social-security-scotland-payment-dates", label: "Payment dates" },
     ],
+    help: {
+      title: "Need help today?",
+      text: "Free, fast and confidential.",
+      hrefs: ["/struggling-right-now-scotland", "/suicide-scotland-statistics-and-support"],
+    },
   },
   {
     id: "tax",
@@ -272,9 +302,7 @@ export const HUBS: Hub[] = [
           { href: "/who-is-my-local-councillor-by-postcode", label: "Who is my local councillor" },
           { href: "/representatives/msps", label: "All 129 MSPs" },
           { href: "/representatives", label: "All 57 MPs" },
-          { href: "/mp-expenses-scotland", label: "MP expenses and donations", tag: "New" },
-          { href: "/mp-expenses-scotland/search", label: "Search all 20,879 MP receipts", tag: "Tool" },
-          { href: "/blog/worst-scottish-mp-expenses", label: "MP expenses: standout claims", tag: "New" },
+          { href: "/mp-expenses-scotland", label: "MP expenses and donations" },
         ],
       },
       {
@@ -282,7 +310,6 @@ export const HUBS: Hub[] = [
         items: [
           { href: "/email-your-mp-and-msp", label: "Email your MP and MSP", tag: "Tool" },
           { href: "/what-happens-when-you-email-your-mp", label: "What happens when you email" },
-          { href: "/msp-reviews", label: "Review your MSP" },
           { href: "/blog/how-to-contact-your-mp-or-msp", label: "How to contact them" },
         ],
       },
@@ -305,14 +332,14 @@ export const HUBS: Hub[] = [
     id: "schools",
     label: "Schools",
     href: "/modern-studies",
-    intro: "Modern Studies with real Scottish figures, free for every school.",
+    intro: "Free Modern Studies lessons, course guides and practice with Scottish evidence.",
     feature: {
       kind: "link",
       kicker: "Free for schools",
-      title: "Modern Studies",
-      text: "Course guides, past paper help and practice questions built on up to date Scottish data.",
-      cta: "Open the Modern Studies hub",
-      href: "/modern-studies",
+      title: "Classroom lessons",
+      text: "Printable pupil worksheets with real sources, teacher notes and suggested answers.",
+      cta: "See the classroom lessons",
+      href: "/modern-studies-teaching-resources",
     },
     groups: [
       {
@@ -444,7 +471,7 @@ export function hubForPath(pathname: string): HubId | null {
     if (hub.groups.some((group) => group.items.some((item) => item.href === pathname))) return hub.id;
   }
   if (pathname.startsWith("/areas") || pathname.startsWith("/constituencies") || pathname.startsWith("/indicators")) return "area";
-  if (pathname.startsWith("/representatives") || pathname.startsWith("/msp-reviews")) return "reps";
+  if (pathname.startsWith("/representatives")) return "reps";
   if (pathname.startsWith("/councils") || pathname.endsWith("-council-tax-bands") || pathname.startsWith("/council-tax-band-")) return "tax";
   if (pathname.endsWith("-after-tax-scotland")) return "money";
   if (

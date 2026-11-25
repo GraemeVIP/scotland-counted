@@ -59,20 +59,18 @@ export default function Privacy() {
           <p>
             <strong>
               {ANALYTICS_ON
-                ? `${toolList} only use cookies if you accept them. Google Analytics only starts after you click Agree and continue, while Microsoft Clarity runs without cookies until then.`
-                : "No visit analytics are running."}
+                ? `${toolList} only use cookies if you accept them. Google Analytics only starts after you click Agree and continue. Microsoft Clarity runs without cookies until then.`
+                : "No visit tools are running."}
             </strong>{" "}
-            Numbers typed into calculators and the words you add to an email draft stay in your
-            browser unless you choose to send them.
+            Your sums and drafts stay on your own device unless you send them.
           </p>
           <p>
-            Postcodes are sent to lookup services when you ask for a local result. A postcode can
-            be held temporarily in this browser tab when you move to the email builder.
-            Calculator sums run in your browser.
+            Postcodes go to lookup tools to find your area, MP and MSPs. Your tab holds a
+            postcode only until the email tool reads it. Sum tools run inside your browser.
           </p>
           <p>
-            If you join the mailing list we keep your email address, and nothing else. You can have
-            it deleted at any time by asking.
+            We have no login accounts and no mailing list. Contact notes only go to our team so we
+            can write back.
           </p>
         </InShort>
 
@@ -82,24 +80,20 @@ export default function Privacy() {
           <div className="mt-8 grid gap-4 lg:grid-cols-2">
             {[
               {
-                t: "Joining the mailing list",
-                b: "Your email address is submitted through Web3Forms to our inbox and used for occasional site updates. There is no name field. Reply “stop” to an update or contact us to leave the list.",
-              },
-              {
                 t: "Using the contact form",
-                b: "Your message and the topic you picked are sent directly from our server to our inbox. Name and email are optional. Add an email address only if you want us to be able to reply.",
-              },
-              {
-                t: "Submitting an MSP review",
-                b: "Your review, rating, chosen display name, relationship to the experience and approximate interaction date are stored in a private Supabase moderation queue. Gmail emails the moderator a short alert and private moderation link; Resend may be tried as a fallback if Gmail cannot send. The full account and any optional contact address stay out of either alert. Email is optional and collected only if you ask to be considered for a follow up about a fuller public interest article. Nothing is published automatically, rejected submissions are deleted, and any email is never copied to the public review table.",
+                b: "Your name, email, topic and note go through Web3Forms to our inbox. That lets us write back. Leave out private case notes. We never add you to a mailing list.",
               },
               {
                 t: "Entering a postcode",
-                b: "It is sent to a public lookup service to work out your council area, MP and MSPs. It is then placed in the email draft so the office can confirm you live in the area. For that handoff it may be held temporarily in this tab’s session storage, then removed when the email builder reads it. Closing the tab clears it. It is not added to a server side postcode list, and the site does not send the email.",
+                b: "Your postcode goes to a public tool to find your council, MP and MSPs. This tab keeps it briefly for the email tool, then clears it. Closing the tab wipes it. We never store postcodes or send emails for you.",
               },
               {
                 t: "Using the calculators",
-                b: "The sums run in your browser. Wages and pension amounts are not included in custom analytics events. A council tax postcode is sent to the lookup service to find your council.",
+                b: "Sums run on your own device. Pay and pension figures stay out of visit stats. Council tax lookups only send the postcode to find your council.",
+              },
+              {
+                t: "Accounts and mailing lists",
+                b: "Scotland Counted has no logins and no newsletter. We only see your email if you choose to send the contact form.",
               },
             ].map((row) => (
               <div
@@ -122,11 +116,8 @@ export default function Privacy() {
             />
             <div className="mt-7 grid gap-4 max-w-[1000px]">
               <p className="text-[17px] leading-[1.65] text-[var(--ink-2)] max-w-[68ch]">
-                This site uses {toolList} to understand which pages people find useful and
-                where they get stuck. Google Analytics only runs and sets cookies after you choose
-                Agree and continue. Microsoft Clarity runs without cookies by default, and only stores
-                cookies to join up pages in the same visit if you agree. You can change your
-                choice at any time using{" "}
+                {toolList} show which pages help most. Google Analytics starts after you agree.
+                Microsoft Clarity runs without cookies until then. Change your pick anytime using{" "}
                 <CookieSettingsButton className="cursor-pointer underline decoration-[var(--rule-strong)] underline-offset-4 text-[var(--ink)] hover:text-[var(--action-text)]">
                   Cookie settings
                 </CookieSettingsButton>
@@ -137,11 +128,11 @@ export default function Privacy() {
                 <p className="ui text-[15px] font-[600] mb-3">What they record</p>
                 <ul className="grid gap-2.5">
                   {[
-                    "The pages you visit, roughly where in the world you are, and which site or search sent you.",
-                    "Your device, browser and screen size.",
+                    "Which pages you visit, your rough area, and where you came from.",
+                    "Your phone or computer type and screen size.",
                     ...(CLARITY_ON
                       ? [
-                          "Clarity also records how the page is used — scrolling, clicks and mouse movement — so layout problems can be spotted. Text you type is masked and is not part of that recording.",
+                          "Clarity logs clicks and scrolls to find bugs. Words you type are hidden.",
                         ]
                       : []),
                   ].map((line) => (
@@ -189,8 +180,7 @@ export default function Privacy() {
               </div>
 
               <p className="text-[15.5px] leading-[1.55] text-[var(--muted)] max-w-[68ch]">
-                This is measurement, not identification. There is no attempt to work out who
-                you are, no mailing list, and none of it is sold or shared.
+                This counts visits only. We never track who you are. Nothing is sold or shared.
               </p>
             </div>
           </ContentFrame>
@@ -202,16 +192,16 @@ export default function Privacy() {
             {[
               ...(ANALYTICS_ON
                 ? [
-                    "Private form fields are marked for masking in Clarity. Custom analytics events exclude postcodes, names, email addresses, salaries and message contents.",
+                    "Private form boxes stay masked in Clarity. Stats leave out postcodes, names, emails, pay and message words.",
                   ]
                 : [
-                    "No analytics. There is no Google Analytics, no Plausible, no pixel and no heatmap.",
-                    "No tracking cookies. The only thing stored in your browser is whether you chose light or dark mode, and that stays on your device.",
+                    "No visit stats run. There is no Google Analytics, no pixel and no heatmap.",
+                    "No tracking cookies. This browser only stores light or dark mode choice on your device.",
                   ]),
-              "No advertising networks and no sale of personal information. Service providers are listed below.",
-              "No profiling, no automated decisions and no attempt to work out who you are.",
-              "No account, no password and no sign up needed to use anything here.",
-              "Postcodes are not added to a server side list. A postcode may be kept temporarily in this browser tab to pass your chosen area to the email builder.",
+              "No ads networks. Nothing about you is ever sold. Our tools are listed below.",
+              "No profiling and no automated checks. We never try to guess who you are.",
+              "No account, no password and no sign up needed on any page.",
+              "Postcodes never go on a server list. Your tab only holds them briefly for the email tool.",
             ].map((item) => (
               <li
                 key={item}
@@ -251,9 +241,7 @@ export default function Privacy() {
               <tbody>
                 {[
                   ["Vercel", "Hosts the site", "Standard server logs, which include IP addresses, for security and to keep the site running"],
-                  ["Google Gmail", "Sends contact messages and new review alerts to our inbox", "For contact forms, what you submitted. For MSP reviews, only the MSP, rating, display name and whether follow up permission was given"],
-                  ["Resend", "Backup mail delivery if Gmail cannot send", "Same message fields as Gmail above when used as a fallback"],
-                  ["Supabase", "Stores MSP reviews while they are moderated and publishes approved reviews", "The review fields you submit. If you opt into a possible follow up, your email remains in the private moderation queue and is excluded from the public review table"],
+                  ["Web3Forms", "Sends contact form messages to our editorial inbox", "Your name, email address, topic and the message fields you submit on the contact page"],
                   ...(GA4_ON ? [["Google Analytics", "Measures visits and existing tool actions", "Page paths, device details, approximate location, referral information and limited action events"]] : []),
                   ...(CLARITY_ON ? [["Microsoft Clarity", "Helps find usability problems", "Page interaction and session recordings with private form fields masked"]] : []),
                   ["postcodes.io", "Turns a postcode into a council area", "The postcode you entered"],
@@ -282,10 +270,8 @@ export default function Privacy() {
             <div className="space-y-4 text-[17px] leading-[1.6] text-[var(--ink-2)]">
               <p>
                 Under UK data protection law you can ask what is held about you, ask for it to be
-                corrected, and ask for it to be deleted. Depending on what you used, that may be a
-                mailing list address, a contact message or an MSP review. If a review has no contact
-                email, say which MSP it concerned and the display name or headline you used so it can
-                be found without collecting anything new.
+                corrected, and ask for it to be deleted, for example any message you sent through
+                the <Link href="/contact">contact page</Link>.
               </p>
               <p>
                 Scotland Counted does not run a mailing list and collects no personal account

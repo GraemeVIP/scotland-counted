@@ -40,6 +40,7 @@
        them itself when the suite runs. */
     "e2e",
     "supabase/functions",
-    ".claude"
+    ".claude",
+    "charity-archive"
   ]
 }

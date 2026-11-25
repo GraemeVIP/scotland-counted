@@ -1480,6 +1480,29 @@ export const sources: Source[] = [
       "The North and South Scotland yearly bills (about £1,717 and £1,734) apply each region's Direct Debit rates to Ofgem's typical use of 2,500 kWh of electricity and 9,500 kWh of gas, plus 365 days of standing charges. Yearly standing charges are the daily rate times 365.",
   },
   {
+    id: "ofgem-press-jan-2027",
+    title: "Energy price cap to rise by 26% from January 2027",
+    publisher: "Ofgem",
+    url: "https://www.ofgem.gov.uk/press-release/energy-price-cap-rise-26-january-2027",
+    used: "The 26% rise for 1 January to 31 March 2027, taking a typical Direct Debit dual fuel bill from £1,723 to £2,166 a year (£1,935 to £2,451 on the old 2023 typical use); the Middle East conflict pushing up gas prices; gas bills up 33% and electricity up 19%; around 20 million homes on default tariffs affected and around 10 million on fixed deals not; the UK Government's £100 towards bills from January; and that moving from paying on the bill to Direct Debit saves about £160 a year. Released 25 November 2026.",
+  },
+  {
+    id: "ofgem-cap-jan-2027",
+    title: "Energy price cap (default tariff) update from 1 January 2027",
+    publisher: "Ofgem",
+    url: "https://www.ofgem.gov.uk/sites/default/files/2026-11/summary-of-changes-to-energy-price-cap-1-January-to-31-March-2027.pdf",
+    used: "The cap levels for October to December 2026 and January to March 2027 by payment method: Direct Debit £1,723 to £2,166, standard credit £1,861 to £2,328, prepayment £1,678 to £2,108, Economy 7 Direct Debit £1,046 to £1,265. VAT applies only to gas until the end of June 2027. Letter dated 25 November 2026.",
+  },
+  {
+    id: "ofgem-regional-rates-jan-2027",
+    title: "Changes to energy price cap between 1 January and 31 March 2027, and regional unit rates and standing charges",
+    publisher: "Ofgem",
+    url: "https://www.ofgem.gov.uk/your-energy-supply/your-energy-bill/energy-price-cap-unit-rates-and-standing-charges",
+    used: "Great Britain average Direct Debit rates for 1 January to 31 March 2027 (electricity 32.69p a kWh and 54.77p a day, gas 10.96p a kWh and 29.65p a day) and the regional tables for Northern and Southern Scotland: Direct Debit electricity 32.40p and 55.07p (north), 32.57p and 61.33p (south); gas 10.86p and 29.84p (north), 10.86p and 29.86p (south); standard credit and prepayment single rate electricity for both regions. Ofgem's news page adds that electricity has no VAT from 1 October 2026 to 30 June 2027, that the Government has asked for gas standing charges to be removed in 2027 or as soon as possible after, and that the next cap is published by 23 February 2027.",
+    derivation:
+      "The North and South Scotland yearly bills (about £2,152 and £2,179, up from £1,717 and £1,734) apply each region's Direct Debit rates to Ofgem's typical use of 2,500 kWh of electricity and 9,500 kWh of gas, plus 365 days of standing charges. Monthly figures divide the yearly figure by 12. The same sum on the Great Britain average rates gives £2,167, within a pound of Ofgem's £2,166.",
+  },
+  {
     id: "cornwall-insight-jan-2027-cap",
     title: "Energy bills set for steep rise in January 2027",
     publisher: "Cornwall Insight",

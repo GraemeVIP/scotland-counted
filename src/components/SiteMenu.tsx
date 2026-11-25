@@ -1,6 +1,7 @@
 "use client";
 
 import { BrandLogo } from "@/components/BrandLogo";
+import { SectionIcon, SectionTile } from "@/components/SectionIcon";
 import Link from "@/components/IntentLink";
 import { useRouter } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
@@ -15,6 +16,8 @@ import {
   HUBS,
   hubColor,
   hubForPath,
+  helpItems,
+  menuGroups,
   type Hub,
   type HubFeature,
   type HubId,
@@ -154,31 +157,112 @@ function FeatureForm({ feature, onNavigate }: { feature: HubFeature; onNavigate:
   );
 }
 
+/** A menu link's little label: "New" as a green dot, tools with a spanner, anything else as a quiet pill. */
+function Tag({ tag, color }: { tag: string; color: string }) {
+  if (tag === "New") {
+    return (
+      <span className="ui inline-flex shrink-0 items-center gap-1.5 text-[12px] font-[650] text-[var(--good-text)]">
+        <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-[var(--good)]" />
+        New
+      </span>
+    );
+  }
+  if (tag === "Tool" || tag === "Free") {
+    return (
+      <span
+        className="ui inline-flex shrink-0 items-center gap-1 rounded-[var(--r-pill)] px-2 py-0.5 text-[12px] font-[650]"
+        style={{ color: `color-mix(in srgb, ${color} 82%, var(--ink))`, background: `color-mix(in srgb, ${color} 12%, var(--surface))` }}
+      >
+        {tag === "Tool" && <SectionIcon name="tool" size={11} />}
+        {tag}
+      </span>
+    );
+  }
+  return (
+    <span className="ui shrink-0 rounded-[var(--r-pill)] border border-[var(--rule)] px-2 py-0.5 text-[12px] font-[560] text-[var(--muted)]">
+      {tag}
+    </span>
+  );
+}
+
 function Feature({ hub, onNavigate }: { hub: Hub; onNavigate: () => void }) {
   const { feature } = hub;
   const color = hubColor(hub.id);
   const next = feature.kind === "payment-dates" ? nextEarlyPayment() : undefined;
   return (
     <div
-      className="flex flex-col gap-2.5 rounded-[var(--r-m)] p-5"
-      style={{ background: `color-mix(in srgb, ${color} 9%, var(--surface))` }}
+      className="relative flex flex-col gap-2.5 overflow-hidden rounded-[var(--r-m)] p-5"
+      style={{
+        background: `linear-gradient(160deg, color-mix(in srgb, ${color} 15%, var(--surface)) 0%, color-mix(in srgb, ${color} 5%, var(--surface)) 100%)`,
+        boxShadow: `inset 0 0 0 1px color-mix(in srgb, ${color} 20%, transparent)`,
+      }}
     >
-      <p className="kicker" style={{ color }}>
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute -bottom-5 -right-5 opacity-[0.08]"
+        style={{ color }}
+      >
+        <SectionIcon name={hub.id} size={110} />
+      </span>
+      <p className="kicker relative" style={{ color: `color-mix(in srgb, ${color} 85%, var(--ink))` }}>
         {feature.kicker}
       </p>
-      <p className="text-[20px] font-[600] leading-[1.2] tracking-[-0.015em] text-[var(--ink)]">
+      <p className="relative text-[20px] font-[620] leading-[1.2] tracking-[-0.015em] text-[var(--ink)]">
         {next ? `Paid early on ${next.paid.replace(/ \d{4}$/, "")}` : feature.title}
       </p>
-      <p className="text-[15px] leading-[1.5] text-[var(--ink-2)]">
+      <p className="relative text-[15px] leading-[1.5] text-[var(--ink-2)]">
         {next ? `Due ${next.due.replace(/ \d{4}$/, "")}. ${feature.text}` : feature.text}
       </p>
-      {feature.kind === "link" || feature.kind === "payment-dates" ? (
-        <Link href={feature.href} onClick={onNavigate} className="btn btn-primary mt-1 self-start">
-          {feature.cta} <span aria-hidden="true">→</span>
-        </Link>
-      ) : (
-        <FeatureForm feature={feature} onNavigate={onNavigate} />
-      )}
+      <div className="relative">
+        {feature.kind === "link" || feature.kind === "payment-dates" ? (
+          <Link href={feature.href} onClick={onNavigate} className="btn btn-primary mt-1 self-start">
+            {feature.cta} <span aria-hidden="true">→</span>
+          </Link>
+        ) : (
+          <FeatureForm feature={feature} onNavigate={onNavigate} />
+        )}
+      </div>
+    </div>
+  );
+}
+
+/** "Need help today?": the urgent pages, lifted out of the lists so they are never buried. */
+function HelpBand({ hub, onNavigate, compact = false }: { hub: Hub; onNavigate: () => void; compact?: boolean }) {
+  if (!hub.help) return null;
+  const items = helpItems(hub);
+  return (
+    <div
+      className={`flex flex-wrap items-center gap-x-4 gap-y-3 rounded-[var(--r-m)] ${compact ? "p-4" : "px-5 py-4"}`}
+      style={{
+        background: "color-mix(in srgb, var(--brand) 7%, var(--surface))",
+        boxShadow: "inset 0 0 0 1px color-mix(in srgb, var(--brand) 18%, transparent)",
+      }}
+    >
+      <span
+        aria-hidden="true"
+        className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-[var(--action-text)]"
+        style={{ background: "color-mix(in srgb, var(--brand) 14%, var(--surface))" }}
+      >
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z" />
+        </svg>
+      </span>
+      <div className="min-w-0 flex-1">
+        <p className="ui text-[15.5px] font-[650] text-[var(--ink)]">{hub.help.title}</p>
+        <p className="text-[14px] text-[var(--ink-2)]">{hub.help.text}</p>
+      </div>
+      <div className={`flex gap-2 ${compact ? "w-full flex-col" : "flex-wrap"}`}>
+        {items.map((item) => (
+          <Link
+            key={item.href}
+            href={item.href}
+            onClick={onNavigate}
+            className="ui inline-flex min-h-11 items-center justify-between gap-2 rounded-[var(--r-pill)] border border-[var(--rule-strong)] bg-[var(--surface)] px-4 text-[14.5px] font-[600] text-[var(--ink)] no-underline transition-colors hover:border-[var(--brand)] hover:text-[var(--action-text)]"
+          >
+            {item.label} <span aria-hidden="true" className="text-[var(--action-text)]">→</span>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }
@@ -187,6 +271,7 @@ function Feature({ hub, onNavigate }: { hub: Hub; onNavigate: () => void }) {
 export function HubPanel({ hubId, onNavigate }: { hubId: HubId; onNavigate: () => void }) {
   const hub = [...HUBS, INVESTIGATIONS_HUB].find((h) => h.id === hubId)!;
   const color = hubColor(hub.id);
+  const groups = menuGroups(hub);
   return (
     <div
       id="hub-panel"
@@ -194,71 +279,97 @@ export function HubPanel({ hubId, onNavigate }: { hubId: HubId; onNavigate: () =
       aria-label={`${hub.label} menu`}
       className="hidden xl:flex flex-col max-h-[calc(100dvh-var(--header-h)-24px)] max-w-[1400px] mx-auto mt-2.5 overflow-hidden rounded-[var(--r-l)] border border-[var(--rule)] bg-[var(--surface)] shadow-[0_30px_60px_-24px_rgba(2,20,60,0.45)]"
     >
-      <div className="flex items-center gap-3.5 border-b border-[var(--rule)] px-7 py-4">
-        <span aria-hidden="true" className="h-2.5 w-2.5 shrink-0 rounded-full" style={{ background: color }} />
-        <p className="ui text-[18px] font-[620]" style={{ color }}>
-          {hub.label}
-        </p>
-        <p className="text-[15px] text-[var(--ink-2)]">{hub.intro}</p>
-        <Link href={hub.href} onClick={onNavigate} className="ui ml-auto whitespace-nowrap text-[15px] font-[600]">
+      <div aria-hidden="true" className="h-[3px] shrink-0" style={{ background: `linear-gradient(90deg, ${color}, color-mix(in srgb, ${color} 25%, transparent))` }} />
+      <div className="flex items-center gap-3.5 border-b border-[var(--rule)] px-7 py-3.5">
+        <SectionTile name={hub.id} color={color} size={38} solid />
+        <div className="min-w-0">
+          <p className="ui text-[18px] font-[650] leading-tight text-[var(--ink)]">{hub.label}</p>
+          <p className="text-[14.5px] leading-snug text-[var(--ink-2)]">{hub.intro}</p>
+        </div>
+        <Link
+          href={hub.href}
+          onClick={onNavigate}
+          className="ui ml-auto inline-flex min-h-10 items-center gap-1.5 whitespace-nowrap rounded-[var(--r-pill)] px-4 text-[14.5px] font-[620] no-underline transition-colors"
+          style={{ color: `color-mix(in srgb, ${color} 80%, var(--ink))`, background: `color-mix(in srgb, ${color} 11%, var(--surface))` }}
+        >
           All of {hub.label} <span aria-hidden="true">→</span>
         </Link>
       </div>
 
       <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain">
-        <div className="grid grid-cols-[300px_repeat(3,minmax(0,1fr))] gap-8 px-7 py-6">
-          <Feature hub={hub} onNavigate={onNavigate} />
-          {hub.groups.map((group) => (
+        <div className="grid grid-cols-[288px_repeat(3,minmax(0,1fr))] gap-x-8 gap-y-5 px-7 py-6">
+          <div className={hub.help ? "row-span-2" : undefined}>
+            <Feature hub={hub} onNavigate={onNavigate} />
+          </div>
+          {groups.map((group) => (
             <div key={group.heading} className="min-w-0">
-              <p className="kicker mb-2 text-[var(--muted)]">{group.heading}</p>
+              <p
+                className="ui mb-1.5 flex items-center gap-2 text-[12.5px] font-[720] uppercase tracking-[0.06em]"
+                style={{ color: `color-mix(in srgb, ${color} 78%, var(--ink))` }}
+              >
+                <span aria-hidden="true" className="h-3.5 w-[3px] rounded-full" style={{ background: color }} />
+                {group.heading}
+              </p>
               <ul>
                 {group.items.map((item) => (
-                  <li key={item.href} className="border-b border-[var(--rule)] last:border-b-0">
+                  <li key={item.href}>
                     <Link
                       href={item.href}
                       onClick={onNavigate}
-                      className="ui flex items-center justify-between gap-3 py-2.5 text-[15.5px] font-[520] text-[var(--ink)] no-underline hover:text-[var(--action-text)]"
+                      className="ui group/item hover:bg-[var(--menu-wash)] focus-visible:bg-[var(--menu-wash)] transition-colors -mx-3 flex items-center justify-between gap-3 rounded-[10px] px-3 py-[8px] text-[15.5px] font-[520] text-[var(--ink)] no-underline"
+                      style={{ ["--menu-wash" as string]: `color-mix(in srgb, ${color} 9%, var(--surface))` }}
                     >
-                      <span>{item.label}</span>
-                      {item.tag && (
+                      <span className="min-w-0">{item.label}</span>
+                      <span className="flex shrink-0 items-center gap-2">
+                        {item.tag && <Tag tag={item.tag} color={color} />}
                         <span
-                          className="shrink-0 rounded-[var(--r-pill)] px-2 py-0.5 text-[12.5px] font-[600]"
-                          style={{ color, background: `color-mix(in srgb, ${color} 10%, var(--surface))` }}
+                          aria-hidden="true"
+                          className="-translate-x-1 text-[14px] opacity-0 transition-all group-hover/item:translate-x-0 group-hover/item:opacity-100"
+                          style={{ color }}
                         >
-                          {item.tag}
+                          →
                         </span>
-                      )}
+                      </span>
                     </Link>
                   </li>
                 ))}
               </ul>
             </div>
           ))}
+          {hub.help && (
+            <div className="col-span-3">
+              <HelpBand hub={hub} onNavigate={onNavigate} />
+            </div>
+          )}
         </div>
       </div>
 
-      <div className="flex flex-wrap items-center gap-2.5 border-t border-[var(--rule)] bg-[var(--surface-2)] px-7 py-3.5">
-        <p className="ui text-[14.5px] font-[600] text-[var(--ink-2)]">Most searched:</p>
+      <div className="flex flex-wrap items-center gap-2.5 border-t border-[var(--rule)] bg-[var(--surface-2)] px-7 py-3">
+        <p className="ui inline-flex items-center gap-1.5 text-[14px] font-[600] text-[var(--ink-2)]">
+          <SectionIcon name="search" size={14} />
+          Most searched
+        </p>
         {hub.top.map((item) => (
           <Link
             key={item.href}
             href={item.href}
             onClick={onNavigate}
-            className="ui rounded-[var(--r-pill)] border border-[var(--rule)] bg-[var(--surface)] px-3 py-1.5 text-[14.5px] font-[520] text-[var(--ink)] no-underline hover:border-[var(--brand)]"
+            className="ui rounded-[var(--r-pill)] border border-[var(--rule)] bg-[var(--surface)] px-3 py-1.5 text-[14px] font-[540] text-[var(--ink)] no-underline transition-colors hover:border-[var(--chip-hover)]"
+            style={{ ["--chip-hover" as string]: color }}
           >
             {item.label}
           </Link>
         ))}
         <div className="ml-auto flex flex-wrap items-center gap-x-4 gap-y-1">
-          <Link href={ABOUT[0].href} onClick={onNavigate} className="ui text-[14.5px] font-[550] text-[var(--ink-2)] no-underline transition-colors hover:text-[var(--ink)]">
+          <Link href={ABOUT[0].href} onClick={onNavigate} className="ui text-[14px] font-[550] text-[var(--ink-2)] no-underline transition-colors hover:text-[var(--ink)]">
             About us
           </Link>
           <span aria-hidden="true" className="h-3.5 w-px bg-[var(--rule-strong)]" />
-          <Link href="/contact" onClick={onNavigate} className="ui text-[14.5px] font-[550] text-[var(--ink-2)] no-underline transition-colors hover:text-[var(--ink)]">
+          <Link href="/contact" onClick={onNavigate} className="ui text-[14px] font-[550] text-[var(--ink-2)] no-underline transition-colors hover:text-[var(--ink)]">
             Contact
           </Link>
           <span aria-hidden="true" className="h-3.5 w-px bg-[var(--rule-strong)]" />
-          <Link href="/browse" onClick={onNavigate} className="ui text-[14.5px] font-[600] text-[var(--ink)] no-underline transition-colors hover:text-[var(--action-text)]">
+          <Link href="/browse" onClick={onNavigate} className="ui text-[14px] font-[620] text-[var(--ink)] no-underline transition-colors hover:text-[var(--action-text)]">
             Every page on the site <span aria-hidden="true">→</span>
           </Link>
         </div>
@@ -351,34 +462,37 @@ export function MobileMenu({
           <button
             type="button"
             onClick={openSearch}
-            className="ui flex min-h-[52px] w-full items-center gap-3 rounded-[var(--r-m)] border border-[var(--rule-strong)] bg-[var(--surface)] px-4 text-left text-[16px] text-[var(--muted)]"
+            className="ui flex min-h-[54px] w-full items-center gap-3 rounded-[var(--r-pill)] border border-[var(--rule-strong)] bg-[var(--surface)] pl-4 pr-2 text-left text-[16px] text-[var(--muted)] shadow-[var(--shadow-1)]"
           >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" aria-hidden="true">
-              <circle cx="11" cy="11" r="7" />
-              <path d="m20 20-3.8-3.8" />
-            </svg>
-            Search, or put in your postcode
+            <SectionIcon name="search" size={18} className="text-[var(--action-text)]" />
+            <span className="min-w-0 flex-1 truncate">Search or enter a postcode</span>
+            <span className="ui rounded-[var(--r-pill)] bg-[var(--brand-wash)] px-3 py-1.5 text-[13.5px] font-[620] text-[var(--action-text)]">Search</span>
           </button>
 
-          <div className="overflow-hidden rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)]">
+          <div className="space-y-2">
             {[...HUBS, INVESTIGATIONS_HUB].map((hub) => {
               const isOpen = open === hub.id;
               const color = hubColor(hub.id);
-              const count = hub.groups.reduce((n, g) => n + g.items.length, 0);
               const panelId = `mobile-hub-${hub.id}`;
               return (
-                <div key={hub.id} className="border-b border-[var(--rule)]">
+                <div
+                  key={hub.id}
+                  className="overflow-hidden rounded-[var(--r-m)] border bg-[var(--surface)] transition-colors"
+                  style={{ borderColor: isOpen ? `color-mix(in srgb, ${color} 35%, var(--rule))` : "var(--rule)" }}
+                >
                   <button
                     type="button"
                     aria-expanded={isOpen}
                     aria-controls={panelId}
                     onClick={() => setOpen(isOpen ? null : hub.id)}
-                    className="flex min-h-14 w-full items-center gap-3 px-4 text-left text-[var(--ink)]"
-                    style={isOpen ? { background: `color-mix(in srgb, ${color} 8%, var(--surface))` } : undefined}
+                    className="flex min-h-[60px] w-full items-center gap-3 px-3.5 py-2.5 text-left text-[var(--ink)]"
+                    style={isOpen ? { background: `color-mix(in srgb, ${color} 9%, var(--surface))` } : undefined}
                   >
-                    <span aria-hidden="true" className="h-2.5 w-2.5 shrink-0 rounded-full" style={{ background: color }} />
-                    <span className="ui flex-1 text-[17px] font-[600]">{hub.label}</span>
-                    <span className="ui text-[14px] text-[var(--muted)]">{count} pages</span>
+                    <SectionTile name={hub.id} color={color} size={38} solid={isOpen} />
+                    <span className="ui min-w-0 flex-1 text-[17px] font-[640] leading-tight">{hub.label}</span>
+                    <span className="ui shrink-0 text-[13.5px] text-[var(--muted)]">
+                      {hub.groups.reduce((n, g) => n + g.items.length, 0)} pages
+                    </span>
                     <svg
                       width="12"
                       height="12"
@@ -387,38 +501,58 @@ export function MobileMenu({
                       stroke="currentColor"
                       strokeWidth="3"
                       aria-hidden="true"
-                      className={`transition-transform ${isOpen ? "rotate-180" : ""}`}
+                      className={`shrink-0 text-[var(--muted)] transition-transform ${isOpen ? "rotate-180" : ""}`}
                     >
                       <path d="m5 8 7 7 7-7" />
                     </svg>
                   </button>
                   {isOpen && (
-                    <div
-                      id={panelId}
-                      className="px-4 pt-1 pb-4 pl-[38px]"
-                      style={{ background: `color-mix(in srgb, ${color} 5%, var(--surface))` }}
-                    >
-                      {hub.groups.map((group) => (
+                    <div id={panelId} className="px-3.5 pt-1 pb-4">
+                      {hub.help && (
+                        <div className="mt-2">
+                          <HelpBand hub={hub} onNavigate={onNavigate} compact />
+                        </div>
+                      )}
+                      {menuGroups(hub).map((group) => (
                         <div key={group.heading}>
-                          <p className="kicker mt-3.5 mb-1" style={{ color }}>
+                          <p
+                            className="ui mt-4 mb-1 flex items-center gap-2 px-1 text-[12.5px] font-[720] uppercase tracking-[0.06em]"
+                            style={{ color: `color-mix(in srgb, ${color} 78%, var(--ink))` }}
+                          >
+                            <span aria-hidden="true" className="h-3.5 w-[3px] rounded-full" style={{ background: color }} />
                             {group.heading}
                           </p>
                           <ul>
-                            {group.items.map((item) => (
-                              <li key={item.href}>
-                                <Link
-                                  href={item.href}
-                                  onClick={onNavigate}
-                                  className="ui block border-b border-[var(--rule)] py-2.5 text-[16px] font-[500] text-[var(--ink)] no-underline"
-                                >
-                                  {item.label}
-                                </Link>
-                              </li>
-                            ))}
+                            {group.items.map((item) => {
+                              const here = item.href === pathname;
+                              return (
+                                <li key={item.href}>
+                                  <Link
+                                    href={item.href}
+                                    onClick={onNavigate}
+                                    aria-current={here ? "page" : undefined}
+                                    className="ui flex min-h-11 items-center justify-between gap-3 rounded-[10px] px-2.5 py-2 text-[16px] font-[520] text-[var(--ink)] no-underline"
+                                    style={here ? { background: `color-mix(in srgb, ${color} 11%, var(--surface))` } : undefined}
+                                  >
+                                    <span className="min-w-0">{item.label}</span>
+                                    {item.tag ? (
+                                      <Tag tag={item.tag} color={color} />
+                                    ) : (
+                                      <span aria-hidden="true" className="text-[14px] text-[var(--muted)]">›</span>
+                                    )}
+                                  </Link>
+                                </li>
+                              );
+                            })}
                           </ul>
                         </div>
                       ))}
-                      <Link href={hub.href} onClick={onNavigate} className="ui mt-3 inline-block text-[15.5px] font-[600]">
+                      <Link
+                        href={hub.href}
+                        onClick={onNavigate}
+                        className="ui mt-3 flex min-h-11 items-center justify-center gap-1.5 rounded-[var(--r-pill)] text-[15.5px] font-[620] no-underline"
+                        style={{ color: `color-mix(in srgb, ${color} 80%, var(--ink))`, background: `color-mix(in srgb, ${color} 11%, var(--surface))` }}
+                      >
                         All of {hub.label} <span aria-hidden="true">→</span>
                       </Link>
                     </div>
@@ -429,10 +563,10 @@ export function MobileMenu({
             <Link
               href={EXPLAINERS.href}
               onClick={onNavigate}
-              className="ui flex min-h-14 items-center gap-3 px-4 text-[17px] font-[600] text-[var(--ink)] no-underline"
+              className="ui flex min-h-[60px] items-center gap-3 rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] px-3.5 text-[var(--ink)] no-underline"
             >
-              <span aria-hidden="true" className="h-2.5 w-2.5 shrink-0 rounded-full bg-[var(--ink)]" />
-              <span className="flex-1">{EXPLAINERS.label}</span>
+              <SectionTile name="explainers" color="var(--ink-2)" size={38} />
+              <span className="ui min-w-0 flex-1 text-[17px] font-[640] leading-tight">{EXPLAINERS.label}</span>
               <span aria-hidden="true" className="text-[15px] text-[var(--muted)]">→</span>
             </Link>
           </div>

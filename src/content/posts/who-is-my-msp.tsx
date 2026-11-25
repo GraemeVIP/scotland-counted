@@ -151,8 +151,8 @@ export default function Post() {
         Our guide to{" "}
         <Link href="/who-is-my-local-councillor-by-postcode">who is my local councillor by postcode</Link>{" "}
         links to every council&apos;s councillor finder. You can also check{" "}
-        <Link href="/councils">all 32 Scottish council budgets and performance records</Link>, read{" "}
-        <Link href="/msp-reviews">Scottish MSP reviews</Link>, or follow the full{" "}
+        <Link href="/councils">all 32 Scottish council budgets and performance records</Link>, check{" "}
+        <Link href="/who-decides">who decides what</Link>, or follow the full{" "}
         <Link href="/blog/operation-branchform-snp-money-timeline">Operation Branchform timeline</Link>.
       </P>
 

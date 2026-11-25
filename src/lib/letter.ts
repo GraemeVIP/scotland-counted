@@ -18,15 +18,15 @@
  * is acted on and the campaign part stays visible enough to be passed on.
  */
 
-import type { Representative } from "@/lib/representatives";
-import { asOneIn } from "@/lib/plain-language";
+import type { Representative } from "./representatives.ts";
+import { asOneIn } from "./plain-language.ts";
 import {
   joinPhrases,
   topicAppliesTo,
   topicById,
   type Ask,
   type LetterTopic,
-} from "@/lib/data/letterTopics";
+} from "./data/letterTopics.ts";
 
 export type RepresentativeRole = "MP" | "MSP";
 
@@ -137,6 +137,7 @@ export function buildLetter({
   postcode = "",
   councilSlug,
   topics = [],
+  includeAsks = false,
 }: {
   area: LetterArea;
   role: RepresentativeRole;
@@ -150,6 +151,11 @@ export function buildLetter({
    * pass nothing, so the default keeps their letter byte-for-byte what it was.
    */
   topics?: LetterTopic[];
+  /**
+   * Policy asks are opt-in (default false) so the tool drafts an open
+   * constituent enquiry unless the sender chooses to include suggested asks.
+   */
+  includeAsks?: boolean;
 }) {
   const chosen = topics.length ? topics : [topicById("child-poverty")];
   const mine = topicsForRole(chosen, role);
@@ -194,8 +200,8 @@ ${evidence}The figures come from End Child Poverty and Loughborough University, 
 `
     : "";
 
-  /* ---------- The asks, grouped and deduplicated ---------- */
-  const groups = askGroups(subjects, role, councilSlug);
+  /* ---------- The asks, only when explicitly chosen by the sender ---------- */
+  const groups = includeAsks ? askGroups(subjects, role, councilSlug) : [];
   const asksBlock = groups.length
     ? `What I would like changed
 
@@ -209,11 +215,11 @@ ${groups
   /* ---------- What they should do about it ---------- */
   const closing = detail
     ? groups.length
-      ? "I would be grateful if you could look into my own situation and let me know what you are able to do. Please also tell me where you stand on the changes above, and what you have done about them so far."
-      : "I would be grateful if you could look into this and let me know what you are able to do. Please contact me at the address below."
+      ? "I would be grateful if you could look into my own situation and let me know what you are able to do. Please also tell me where you stand on the points above, and what you have done about them so far."
+      : "I would be grateful if you could look into my own situation and let me know what help or response is available."
     : groups.length
       ? `As my ${role}, please tell me whether you support these changes, what you have done about them so far, and what you expect to change in the next five years.`
-      : `As my ${role}, I would like to know where you stand on this and what you are doing about it.`;
+      : `As my ${role}, I would like to know what is happening on this issue locally and what help or response is available for constituents.`;
 
   const body = `${greeting}
 

@@ -327,7 +327,7 @@ export default function Press() {
           <h2 className="h2 mb-3">About, in one paragraph</h2>
           <div>
             <CopyLine
-              text={`${site.name} (${site.url.replace("https://", "")}) is an independent evidence to action service covering poverty, work and living standards across all 32 Scottish council areas and all 57 Scottish Westminster constituencies, with Glasgow as its detailed historical case study. Built from ONS, DWP, Scottish Government and academic data, it finds a reader's MP and MSP and prepares addressed emails without storing the postcode. It is written and published by ${site.author.name} of ${site.organisation.name}, with no party affiliation or funding.`}
+              text={`${site.name} (${site.url.replace("https://", "")}) is an independent civic data and public education service covering poverty, work and living standards across all 32 Scottish council areas and all 57 Scottish Westminster constituencies, with Glasgow as its detailed historical case study. Built from ONS, DWP, Scottish Government and academic data, it helps residents understand local data, see which body decides what and prepare their own constituent enquiries without storing their postcode. Published by ${site.name} with no party backing, no advertising and no paywall.`}
             />
           </div>
         </section>

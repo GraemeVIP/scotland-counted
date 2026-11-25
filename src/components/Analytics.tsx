@@ -19,7 +19,8 @@ export default function Analytics() {
 
   const bootstrap = `(function(){
 var nav=window.navigator;
-if(window.location.pathname.indexOf('/review-moderation/')===0)return;
+var path=window.location.pathname;
+if(path.indexOf('/review-moderation/')===0||path==='/classroom'||path.indexOf('/classroom/')===0)return;
 // Local copies and Vercel previews are testing, not visitors: never count them.
 var host=window.location.hostname;
 if(host==='localhost'||host==='127.0.0.1'||host==='[::1]'||host==='0.0.0.0'||/[.](local|localhost|test)$/.test(host)||/[.]vercel[.]app$/.test(host))return;

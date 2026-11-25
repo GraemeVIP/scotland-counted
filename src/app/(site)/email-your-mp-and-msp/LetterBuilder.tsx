@@ -208,6 +208,7 @@ export default function LetterBuilder() {
   const [name, setName] = useState("");
   const [postcode, setPostcode] = useState("");
   const [personal, setPersonal] = useState("");
+  const [includeAsks, setIncludeAsks] = useState(false);
   // Nothing ticked to start with. A preselected subject lit step 2 before the
   // reader had done anything, and wrote an email they had not asked for.
   const [topicIds, setTopicIds] = useState<string[]>([]);
@@ -280,9 +281,10 @@ export default function LetterBuilder() {
           postcode: lookup.postcode ?? postcode,
           councilSlug: council.slug,
           topics,
+          includeAsks,
         }),
       }));
-  }, [lookup, area, council.slug, name, personal, postcode, topics]);
+  }, [lookup, area, council.slug, name, personal, postcode, topics, includeAsks]);
 
   const regionalDrafts = useMemo(() => {
     if (!lookup) return [];
@@ -300,10 +302,11 @@ export default function LetterBuilder() {
             postcode: lookup.postcode ?? postcode,
             councilSlug: council.slug,
             topics,
+            includeAsks,
           })
         : null,
     }));
-  }, [lookup, area, council.slug, name, personal, postcode, topics]);
+  }, [lookup, area, council.slug, name, personal, postcode, topics, includeAsks]);
 
   const findRepresentativesFor = useCallback(async (value: string) => {
     setLookupState("loading");
@@ -734,9 +737,23 @@ export default function LetterBuilder() {
             </div>
           </div>
           <p className="mt-3 max-w-[64ch] text-[15px] leading-[1.55] text-[var(--ink-2)]">
-            It is the part only you can write, and it goes first, before any of the asks. A sentence or two is plenty.
+            It is the part only you can write, and it goes first. A sentence or two is plenty.
             Nothing you type is sent to us or saved.
           </p>
+          {topics.some((t) => t.asks && t.asks.length > 0) && (
+            <label className="mt-4 flex cursor-pointer items-start gap-3 rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface-2)] px-4 py-3">
+              <input
+                type="checkbox"
+                checked={includeAsks}
+                onChange={(event) => setIncludeAsks(event.target.checked)}
+                className="mt-1 h-4 w-4 shrink-0 accent-[var(--action)]"
+              />
+              <span className="text-[15px] leading-[1.5] text-[var(--ink-2)]">
+                <strong className="ui block text-[var(--ink)]">Include suggested policy points (optional)</strong>
+                By default the draft asks an open local question in your own words. Tick this only if you also want suggested policy points added.
+              </span>
+            </label>
+          )}
           <button
             type="button"
             onClick={() => {

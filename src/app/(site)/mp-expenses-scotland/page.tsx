@@ -1000,8 +1000,8 @@ export default function MpRegisterOfInterestsScotlandPage() {
         {/* THE BIGGEST CLAIMS: THREE FULL CARDS, THE REST AS ONE-LINE ROWS */}
         <ContentFrame as="section" id="top-claimants" className="pt-4">
           <SectionHead
-            eyebrow="The standout claims · Faces, receipts & local poverty"
-            title="The Scottish MPs with the biggest and most outrageous claims"
+            eyebrow="Highest claims · Figures, receipts and local poverty"
+            title="The highest individual MP expense claims in Scotland"
           />
           <p className="mt-2 max-w-[66ch] text-[16.5px] leading-[1.55] text-[var(--ink-2)]">
             <ExplainText>
@@ -1264,7 +1264,7 @@ export default function MpRegisterOfInterestsScotlandPage() {
         <ContentFrame as="section" id="party-tally" className="pt-14">
           <SectionHead
             eyebrow="By party · Labour vs SNP vs Conservatives vs Lib Dems"
-            title="Every Westminster party is at the exact same trough"
+            title="Average non-staff claims by Scottish party in 2025/26"
           />
           <p className="mt-2 max-w-[66ch] text-[16px] leading-[1.55] text-[var(--ink-2)]">
             <ExplainText>

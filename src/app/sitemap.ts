@@ -1,5 +1,7 @@
 import type { MetadataRoute } from "next";
 import { councils } from "@/lib/data/councils";
+import { classroomLessonPath, classroomLessons } from "@/lib/data/classroom";
+import { evidenceBriefPath } from "@/lib/data/evidenceBriefs";
 import { constituencies } from "@/lib/data/constituencies";
 import { indicators, lifeExpectancy, deprivation } from "@/lib/data/indicators";
 import { isPostCategoryIndexable, postCategories, posts } from "@/lib/data/posts";
@@ -13,8 +15,6 @@ import {
 } from "@/lib/data/holyrood";
 import { representativeSlug } from "@/lib/representatives";
 import { councilAccountabilityRecords } from "@/lib/data/councilAccountability";
-import { mspReviewProfiles } from "@/lib/data/mspReviews";
-import { listApprovedMspReviews } from "@/lib/mspReviewsDb";
 import { SALARIES, councilTaxBandPath, councilTaxPath, postPath, salaryPath } from "@/lib/routeMap";
 
 export const revalidate = 3600;
@@ -34,7 +34,23 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${site.url}/areas`, changeFrequency: "monthly", priority: 0.95, lastModified: seoRelease },
     { url: `${site.url}/money`, changeFrequency: "monthly", priority: 0.95, lastModified: seoRefresh },
     { url: `${site.url}/benefits`, changeFrequency: "monthly", priority: 0.9, lastModified: seoRefresh },
-    { url: `${site.url}/modern-studies-teaching-resources`, changeFrequency: "monthly", priority: 0.8, lastModified: seoRefresh },
+    { url: `${site.url}/where-to-apply-scotland`, changeFrequency: "monthly", priority: 0.9, lastModified: dataChecked },
+    { url: `${site.url}/benefit-or-crisis-grant-rejected-scotland`, changeFrequency: "monthly", priority: 0.9, lastModified: dataChecked },
+    { url: `${site.url}/sight-loss-scotland`, changeFrequency: "monthly", priority: 0.9, lastModified: dataChecked },
+    { url: `${site.url}/disability-support-scotland`, changeFrequency: "monthly", priority: 0.9, lastModified: dataChecked },
+    { url: `${site.url}/struggling-right-now-scotland`, changeFrequency: "monthly", priority: 0.9, lastModified: dataChecked },
+    { url: `${site.url}/suicide-scotland-statistics-and-support`, changeFrequency: "monthly", priority: 0.9, lastModified: dataChecked },
+    { url: `${site.url}/modern-studies-teaching-resources`, changeFrequency: "monthly", priority: 0.8 },
+    ...classroomLessons.map(({ slug }) => ({
+      url: `${site.url}${classroomLessonPath(slug)}`,
+      changeFrequency: "yearly" as const,
+    })),
+    ...councils.map(({ slug }) => ({
+      url: `${site.url}${evidenceBriefPath(slug)}`,
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+      lastModified: dataChecked,
+    })),
     { url: `${site.url}/councils`, changeFrequency: "monthly", priority: 0.85, lastModified: seoRelease },
     { url: `${site.url}/who-decides`, changeFrequency: "monthly", priority: 0.9, lastModified: repositioning },
     { url: `${site.url}/compare-areas`, changeFrequency: "monthly", priority: 0.9, lastModified: new Date("2026-10-29") },
@@ -48,6 +64,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${site.url}/faq`, changeFrequency: "monthly", priority: 0.85 },
     { url: `${site.url}/what-happens-when-you-email-your-mp`, changeFrequency: "monthly", priority: 0.95, lastModified: seoRelease },
     { url: `${site.url}/council-tax-bands-scotland`, changeFrequency: "yearly", priority: 0.9, lastModified: seoRefresh },
+    { url: `${site.url}/electricity-cost-calculator-scotland`, changeFrequency: "monthly", priority: 0.9 },
     { url: `${site.url}/take-home-pay-calculator-scotland`, changeFrequency: "yearly", priority: 0.9, lastModified: seoRefresh },
     {
       url: `${site.url}/tax-bands-scotland`,
@@ -127,7 +144,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.9,
       lastModified: new Date(HOLYROOD_DATA_CHECKED_AT),
     },
-    { url: `${site.url}/msp-reviews`, changeFrequency: "weekly", priority: 0.9 },
     { url: `${site.url}/solutions-to-poverty-in-scotland`, changeFrequency: "monthly", priority: 0.85, lastModified: seoRelease },
     { url: `${site.url}/who-is-responsible-for-poverty-in-scotland`, changeFrequency: "monthly", priority: 0.85, lastModified: seoRelease },
     { url: `${site.url}/glasgow-poverty-statistics`, changeFrequency: "monthly", priority: 0.75, lastModified: seoRelease },
@@ -219,19 +235,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: seoRefresh,
   }));
 
-  const approvedMspReviews = await listApprovedMspReviews().catch(() => {
-    console.warn("Sitemap: optional review lookup unavailable; keeping core URLs.");
-    return [];
-  });
-  const reviewedMemberIds = new Set(approvedMspReviews.map((review) => review.memberId));
-  const mspReviewPages: MetadataRoute.Sitemap = mspReviewProfiles
-    .filter((profile) => reviewedMemberIds.has(profile.msp.memberId))
-    .map((profile) => ({
-    url: `${site.url}/msp-reviews/${profile.slug}`,
-    changeFrequency: "weekly" as const,
-    priority: 0.75,
-  }));
-
   /**
    * Posts carry a real date, so they get a real lastModified. Everything else
    * gets the date the underlying data was last checked. Stamping every URL with
@@ -271,7 +274,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...constituencyPages,
     ...representativePages,
     ...holyroodRepresentativePages,
-    ...mspReviewPages,
     ...councilTaxPages,
     ...salaryPages,
   ].map((e) => ({ lastModified: dataChecked, ...e }));

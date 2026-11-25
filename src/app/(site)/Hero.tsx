@@ -3,8 +3,6 @@
 import Link from "@/components/IntentLink";
 import PostcodeStart, { RESULT_SLOT_ID } from "@/components/PostcodeStart";
 import type { LocalFacts, ResponsibilitySplit } from "@/lib/localFacts";
-import { EXPENSE_STORIES, type ExpenseStory } from "@/lib/data/expenseStories";
-import { postPath } from "@/lib/routeMap";
 
 /**
  * The homepage opening: the Saltire band.
@@ -28,20 +26,23 @@ const CARD_INCLUDES = [
   "Who decides what",
 ];
 
-/**
- * Three expenses stories on the first screen. A big, exact figure with a
- * half told story is the strongest pull the site has, so the opening offers
- * it straight away rather than below the fold. The £23,437 energy bill
- * is left out here because the announcement bar above already leads on it. Figures and lines come from
- * the expenses story list, so they stay in step with the stories.
- */
-const HOT_STORIES = [
-  "msp-edinburgh-flats-commuter-belt",
-  "scottish-mp-msp-expenses-what-it-could-buy",
-  "scottish-mps-flights-climate-expenses",
-]
-  .map((slug) => EXPENSE_STORIES.find((story) => story.slug === slug))
-  .filter((story): story is ExpenseStory => Boolean(story));
+const HERO_PILLARS = [
+  {
+    href: "/modern-studies",
+    tag: "For schools",
+    hook: "Free Modern Studies course guides, past paper help and Scottish data",
+  },
+  {
+    href: "/for-organisations",
+    tag: "For good causes",
+    hook: "Free local charts, poverty packs and data help for Scottish charities",
+  },
+  {
+    href: "/mp-expenses-scotland",
+    tag: "Public records",
+    hook: "20,879 official MP expense receipts and declared interests across Scotland",
+  },
+];
 
 export default function Hero({
   facts,
@@ -137,46 +138,44 @@ export default function Hero({
           </div>
         </div>
 
-        {HOT_STORIES.length > 0 && (
-          <div className="home-hero-dock rise mx-auto w-full max-w-[1400px] mt-8 lg:mt-[clamp(20px,3vh,48px)] border-t border-white/15 pt-5 sm:pt-6">
-            <div className="flex flex-wrap items-center justify-between gap-2 mb-3.5">
-              <p className="ui text-[12.5px] font-[640] uppercase tracking-[0.09em] text-[var(--hero-muted)]">
-                New from the expenses files
-              </p>
-              <Link
-                href="/mp-expenses-scotland"
-                className="ui inline-flex items-center gap-1.5 text-[13.5px] font-[560] text-white/90 hover:text-white no-underline transition-colors"
-              >
-                All 57 MPs and 20,879 receipts <span aria-hidden="true">→</span>
-              </Link>
-            </div>
-            <ul className="grid gap-3 md:grid-cols-3">
-              {HOT_STORIES.map((story) => (
-                <li key={story.slug} className="min-w-0">
-                  <Link
-                    href={postPath(story.slug)}
-                    className="home-hero-dock-card group flex h-full flex-col justify-between gap-2 rounded-[16px] border border-white/15 bg-white/[0.07] px-4 py-3.5 sm:px-5 sm:py-4 no-underline backdrop-blur-md transition-all hover:-translate-y-0.5 hover:border-white/30 hover:bg-white/[0.12]"
-                  >
-                    <span className="flex items-baseline justify-between gap-3">
-                      <span className="figure-num tnum text-[24px] sm:text-[26px] leading-none text-white">
-                        {story.stat}
-                      </span>
-                      <span
-                        aria-hidden="true"
-                        className="text-[15px] text-white/60 transition-transform group-hover:translate-x-0.5 group-hover:text-white"
-                      >
-                        →
-                      </span>
-                    </span>
-                    <span className="ui text-[14.5px] leading-[1.42] text-[var(--hero-muted)] group-hover:text-white">
-                      {story.hook}
-                    </span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
+        <div className="home-hero-dock rise mx-auto w-full max-w-[1400px] mt-8 lg:mt-[clamp(20px,3vh,48px)] border-t border-white/15 pt-5 sm:pt-6">
+          <div className="flex flex-wrap items-center justify-between gap-2 mb-3.5">
+            <p className="ui text-[12.5px] font-[640] uppercase tracking-[0.09em] text-[var(--hero-muted)]">
+              Education, civic tools and public records
+            </p>
+            <Link
+              href="/about"
+              className="ui inline-flex items-center gap-1.5 text-[13.5px] font-[560] text-white/90 hover:text-white no-underline transition-colors"
+            >
+              About our mission and sources <span aria-hidden="true">→</span>
+            </Link>
           </div>
-        )}
+          <ul className="grid gap-3 md:grid-cols-3">
+            {HERO_PILLARS.map((item) => (
+              <li key={item.href} className="min-w-0">
+                <Link
+                  href={item.href}
+                  className="home-hero-dock-card group flex h-full flex-col justify-between gap-2 rounded-[16px] border border-white/15 bg-white/[0.07] px-4 py-3.5 sm:px-5 sm:py-4 no-underline backdrop-blur-md transition-all hover:-translate-y-0.5 hover:border-white/30 hover:bg-white/[0.12]"
+                >
+                  <span className="flex items-baseline justify-between gap-3">
+                    <span className="ui text-[15px] font-[640] text-white">
+                      {item.tag}
+                    </span>
+                    <span
+                      aria-hidden="true"
+                      className="text-[15px] text-white/60 transition-transform group-hover:translate-x-0.5 group-hover:text-white"
+                    >
+                      →
+                    </span>
+                  </span>
+                  <span className="ui text-[14.5px] leading-[1.42] text-[var(--hero-muted)] group-hover:text-white">
+                    {item.hook}
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
     {/* The postcode result renders here, full width, rather than stretching the card and the hero. */}

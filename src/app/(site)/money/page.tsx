@@ -26,8 +26,15 @@ export const metadata = meta({
   path: "/money",
 });
 
-/** The five things people actually arrive wanting to do. */
+/** The tasks people arrive wanting to do. */
 const TASKS = [
+  {
+    href: "/electricity-cost-calculator-scotland",
+    eyebrow: "Calculator",
+    title: "See what uses electricity at home",
+    body: "Add your lights, laundry and other appliances to see what they cost at your rate and what you could save.",
+    meta: "Electricity costs",
+  },
   {
     href: "/take-home-pay-calculator-scotland",
     eyebrow: "Calculator",
@@ -91,7 +98,7 @@ const GROUPS = [
       { href: "/blog/how-council-tax-works-scotland", label: "How council tax works", blurb: "Bands, discounts and the help most people miss" },
       { href: "/council-tax-increase-scotland", label: "What council tax rose by this year", blurb: "Every council, and what it means for a Band D bill" },
       { href: "/blog/local-housing-allowance-rent-shortfall-scotland", label: "Local Housing Allowance", blurb: "Why rent help often falls short of the rent" },
-      { href: "/energy-price-cap-scotland", label: "Energy price cap Scotland & Jan 2027 forecast", blurb: "Current £1,723 cap, North & South Scotland rates, and the +26% (£2,166) January forecast" },
+      { href: "/energy-price-cap-scotland", label: "Energy price cap Scotland: January 2027 rise", blurb: "Confirmed +26% to £2,166 from 1 January, with North & South Scotland rates" },
       { href: "/scotland-bank-holidays", label: "Scotland bank holidays 2026 to 2028", blurb: "Every official date and when benefit payments move early" },
     ],
   },

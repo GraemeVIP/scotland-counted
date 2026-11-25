@@ -33,6 +33,13 @@ export default function Post() {
         Scottish evidence on this site in one place, so pupils and teachers can find both quickly.
       </Lead>
 
+      <P>
+        If you teach the subject, the{" "}
+        <Link href="/modern-studies-teaching-resources#lesson-packs">free classroom lessons</Link>{" "}
+        give you printable pupil worksheets, teacher notes and answers. Start with who decides
+        what in Scotland or give the class a real set of figures to check.
+      </P>
+
       <H2 id="what">What modern studies is</H2>
       <P>
         At National 5 and Higher the course has the same three areas of study: democracy in
@@ -147,7 +154,11 @@ export default function Post() {
             <Link key="l" href="/areas">All 32 council areas</Link>,
             "Child poverty, benefits and pay for the place you live",
           ],
-          ["International issues", "Not covered here", "Use your class notes and BBC Bitesize"],
+          [
+            "International comparison",
+            <Link key="l" href="/modern-studies-teaching-resources#lesson-packs">PISA classroom lesson</Link>,
+            "Practise comparing sources alongside the world power or issue you study in class",
+          ],
         ]}
         caption="This site is about Scotland, so it has nothing on world powers or world issues."
       />

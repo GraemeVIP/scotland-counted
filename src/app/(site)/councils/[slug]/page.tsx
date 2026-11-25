@@ -559,12 +559,12 @@ export default async function CouncilAccountabilityPage({
           <Faq items={faq} className="pt-14" />
 
           <CTA
-            title="See the poverty figures alongside this record"
-            body={`The ${council.name} area page shows the local poverty, work and pay figures that explain why council decisions matter.`}
-            href={`/areas/${council.slug}`}
-            cta={`See ${council.name} area facts`}
-            secondaryHref="/representatives"
-            secondaryCta="Find the people who represent you"
+            title="Need a printable 2-page evidence brief for a grant bid or report?"
+            body={`Open our free ${council.name} Local Evidence Brief with child poverty, Crisis Grants, pay and council tax figures, ready to save as a PDF or copy with citations.`}
+            href={`/briefs/${council.slug}`}
+            cta={`Open ${council.name} PDF brief`}
+            secondaryHref={`/areas/${council.slug}`}
+            secondaryCta={`See ${council.name} area facts`}
           />
 
           <CouncilWatch councilName={record.councilName} />

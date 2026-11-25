@@ -7,16 +7,17 @@ import { BAR_STORAGE_KEY, type BarVariant } from "@/lib/announcement";
 import { trackEvent } from "@/lib/analytics";
 
 /*
- * A bold strip across the very top of every page, pointing visitors at the
- * MP expenses pages. It is part of the first render, so the page never jumps
- * when it appears. Closing it stores a flag; a tiny script in the site layout
+ * A bold strip across the very top of every page, pointing visitors to free
+ * Modern Studies lessons, local postcode tools, council numbers and charity
+ * data help. It is part of the first render, so the page never jumps when it
+ * appears. Closing it stores a flag; a tiny script in the site layout
  * (BAR_HIDE_SCRIPT in src/lib/announcement.ts) reads that flag before the page
  * paints and hides the strip, so people who closed it never see it flash back.
  *
  * It also runs an A/B test. Every version is in the HTML, and the same script
  * picks one per visitor (kept in their browser), so CSS shows only that one
  * from the first paint. Each version is hidden on the page it points to, so
- * nobody is told about the story they are already reading.
+ * nobody is told about the page they are already reading.
  */
 type Variant = {
   id: BarVariant;
@@ -29,58 +30,47 @@ type Variant = {
   shortCta: string;
 };
 
-const HUB = "/mp-expenses-scotland";
-
 const VARIANTS: Variant[] = [
   {
-    id: "hotels",
-    href: HUB,
-    hideOn: ["/blog/zubir-ahmed-mp-london-hotels-glasgow"],
-    long: "You paid £67,519 for one Glasgow MP's London hotels.",
-    short: "You paid £67,519 for one MP's London hotels.",
-    cta: "Is your MP on the list?",
-    shortCta: "Is yours on the list?",
+    id: "lessons",
+    href: "/modern-studies-teaching-resources",
+    hideOn: ["/modern-studies-teaching-resources", "/modern-studies"],
+    long: "Free Modern Studies classroom lessons using real Scottish and global data.",
+    short: "Free Modern Studies classroom lessons.",
+    cta: "See all 8 lessons",
+    shortCta: "See lessons",
   },
   {
-    id: "energy",
-    href: HUB,
-    hideOn: ["/blog/kilmarnock-mp-23437-electricity-bill"],
-    long: "You paid £23,437 for one MP's energy bill.",
-    short: "You paid £23,437 for one MP's energy bill.",
-    cta: "Is your MP on the list?",
-    shortCta: "Is yours on the list?",
+    id: "postcode",
+    href: "/simd-postcode-checker",
+    hideOn: ["/simd-postcode-checker"],
+    long: "Check your Scottish postcode's official SIMD rank and council area.",
+    short: "Check your Scottish postcode's SIMD rank.",
+    cta: "Check your postcode",
+    shortCta: "Check postcode",
   },
   {
-    id: "receipts",
-    href: `${HUB}/search`,
-    hideOn: [],
-    long: "See every claim your MP made, from hotels to TV licences.",
-    short: "See every claim your MP made.",
-    cta: "Check by postcode",
-    shortCta: "Check by postcode",
+    id: "councils",
+    href: "/councils",
+    hideOn: ["/councils"],
+    long: "See how all 32 Scottish councils spend and perform.",
+    short: "See your Scottish council budget.",
+    cta: "Check your council",
+    shortCta: "Check council",
   },
   {
-    id: "flats",
-    href: "/blog/msp-edinburgh-flats-commuter-belt",
-    hideOn: ["/blog/msp-edinburgh-flats-commuter-belt"],
-    long: "You paid £623,696 for 36 MSPs' Edinburgh flats.",
-    short: "You paid £623,696 for 36 MSPs' flats.",
-    cta: "Is yours one of them?",
-    shortCta: "Is yours one?",
-  },
-  {
-    id: "buys",
-    href: "/blog/scottish-mp-msp-expenses-what-it-could-buy",
-    hideOn: ["/blog/scottish-mp-msp-expenses-what-it-could-buy"],
-    long: "You paid £6.64m for a year of MP and MSP perks.",
-    short: "You paid £6.64m for a year of MP and MSP perks.",
-    cta: "See what it could have bought",
-    shortCta: "See what it could buy",
+    id: "charities",
+    href: "/for-organisations",
+    hideOn: ["/for-organisations"],
+    long: "Free local charts and data packs for Scottish charities.",
+    short: "Free data help for Scottish charities.",
+    cta: "See how we help",
+    shortCta: "Get data help",
   },
 ];
 
-/** The whole strip is hidden on the expenses hub and Receipt Finder. */
-const HIDE_ON = [HUB];
+/** Pages where the whole strip stays hidden. */
+const HIDE_ON: string[] = [];
 
 function currentVariant(): BarVariant | null {
   const v = document.documentElement.getAttribute("data-bar-variant");
@@ -116,13 +106,13 @@ export default function AnnouncementBar() {
   if (hidden) return null;
 
   function click(id: BarVariant) {
-    trackEvent("mp_expenses_banner_click", { page_path: pathname, banner_variant: id });
+    trackEvent("announcement_banner_click", { page_path: pathname, banner_variant: id });
     trackEvent(`banner_click_${id}`, { page_path: pathname, banner_variant: id });
   }
 
   function close() {
     const v = currentVariant();
-    trackEvent("mp_expenses_banner_close", { page_path: pathname, banner_variant: v });
+    trackEvent("announcement_banner_close", { page_path: pathname, banner_variant: v });
     if (v) trackEvent(`banner_close_${v}`, { page_path: pathname, banner_variant: v });
     document.documentElement.setAttribute("data-bar-closed", "");
     try {
@@ -134,7 +124,7 @@ export default function AnnouncementBar() {
 
   return (
     <aside
-      aria-label="New on Scotland Counted"
+      aria-label="Featured on Scotland Counted"
       data-skip={skip.join(" ")}
       className="announce-top no-print relative z-[60] text-white"
     >
@@ -147,8 +137,8 @@ export default function AnnouncementBar() {
             onClick={() => click(v.id)}
             className="announce-variant group min-w-0 flex-1 items-center justify-center gap-2.5 text-white no-underline sm:gap-3"
           >
-            <span className="hidden shrink-0 rounded-full bg-white px-2.5 py-0.5 text-[11.5px] font-[800] uppercase tracking-[0.07em] text-[#b4152b] sm:inline">
-              New
+            <span className="hidden shrink-0 rounded-full bg-white px-2.5 py-0.5 text-[11.5px] font-[800] uppercase tracking-[0.07em] text-[#074f48] sm:inline">
+              Free
             </span>
             <span className="ui min-w-0 text-[14px] font-[600] leading-[1.3] sm:text-[15.5px]">
               <span className="sm:hidden">
@@ -160,7 +150,7 @@ export default function AnnouncementBar() {
             </span>
             <span
               aria-hidden="true"
-              className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white text-[15px] font-[800] text-[#b4152b] transition-transform group-hover:translate-x-0.5"
+              className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white text-[15px] font-[800] text-[#074f48] transition-transform group-hover:translate-x-0.5"
             >
               →
             </span>

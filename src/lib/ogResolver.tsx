@@ -19,7 +19,6 @@ import {
   holyroodRegions,
 } from "@/lib/data/holyrood";
 import { getMspInterests } from "@/lib/data/mspInterests";
-import { getMspReviewProfile } from "@/lib/data/mspReviews";
 import { getCouncilAccountability } from "@/lib/data/councilAccountability";
 import { councilPerformanceBySlug } from "@/lib/data/councilPerformanceIndex";
 import {
@@ -478,19 +477,6 @@ function renderStaticRouteOg(path: string) {
         ],
       });
 
-    case "/msp-reviews":
-      return ogStatCard({
-        eyebrow: "Public Accountability · Holyrood",
-        title: "Scottish MSP Reviews",
-        stat: "129 MSPs",
-        statTone: "amber",
-        details: [
-          "Read moderated, firsthand experiences of MSP offices",
-          "Rate responsiveness, help & casework from 1 to 5",
-          "Every constituency & regional MSP listed",
-        ],
-      });
-
     case "/areas":
       return ogStatCard({
         eyebrow: "Local Data · Every Council Area",
@@ -734,25 +720,6 @@ export function renderOgForPath(
           ],
         });
       }
-    }
-  }
-
-  // 5. MSP review pages: /msp-reviews/[slug]
-  if (path.startsWith("/msp-reviews/")) {
-    const slug = path.slice("/msp-reviews/".length);
-    const profile = getMspReviewProfile(slug);
-    if (profile) {
-      return ogPersonCard({
-        eyebrow: `MSP Reviews · ${profile.msp.party}`,
-        name: profile.msp.name,
-        roleLine: `${profile.representation === "regional" ? "Regional" : "Constituency"} MSP for ${profile.areas.join(", ")}`,
-        party: profile.msp.party,
-        photoPath: profile.msp.photoUrl,
-        stats: [
-          { value: "1 to 5", label: "Moderated public ratings", tone: "amber" },
-          { value: profile.msp.party, label: "Party at Holyrood", tone: "white" },
-        ],
-      });
     }
   }
 

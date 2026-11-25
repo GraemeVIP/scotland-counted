@@ -149,6 +149,12 @@ const nextConfig: NextConfig = {
         destination: "/blog/scottish-councils-school-taxi-spending",
         statusCode: 301 as const,
       },
+      {
+        /* MSP star ratings archived ahead of OSCR charity application (25 Nov 2026). */
+        source: "/msp-reviews/:slug*",
+        destination: "/representatives/msps",
+        statusCode: 301 as const,
+      },
     ];
   },
   async headers() {

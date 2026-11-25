@@ -1,0 +1,583 @@
+/* Disability support: page-local styles. Colours come only from globals.css
+   tokens so light and dark themes both work. */
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+  align-items: center;
+  gap: clamp(24px, 4vw, 56px);
+  max-width: 1120px;
+  margin: clamp(12px, 2vw, 22px) auto 0;
+  padding: clamp(24px, 4.4vw, 56px);
+  border-radius: var(--r-l);
+  border: 1px solid color-mix(in srgb, var(--hub-benefits) 22%, var(--rule));
+  background:
+    radial-gradient(60% 90% at 100% 0%, color-mix(in srgb, var(--hub-benefits) 20%, transparent), transparent 70%),
+    radial-gradient(55% 80% at 0% 100%, color-mix(in srgb, var(--hub-reps) 7%, transparent), transparent 70%),
+    linear-gradient(160deg, color-mix(in srgb, var(--hub-benefits) 9%, var(--surface)), var(--surface) 70%);
+  box-shadow: var(--shadow-2);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px 6px 8px;
+  border-radius: var(--r-pill);
+  background: color-mix(in srgb, var(--hub-benefits) 12%, var(--surface));
+  border: 1px solid color-mix(in srgb, var(--hub-benefits) 22%, transparent);
+  color: var(--hub-benefits);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+@media (max-width: 520px) {
+  .eyebrowExtra {
+    display: none;
+  }
+}
+.eyebrow svg {
+  width: 16px;
+  height: 16px;
+}
+
+.heroTitle {
+  margin: 18px 0 18px;
+  max-width: 18ch;
+  font-size: clamp(34px, 3.9vw, 54px);
+}
+
+.heroLede {
+  max-width: 46ch;
+}
+
+.panelLabel {
+  margin: 0 0 12px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.stats {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px 20px;
+  border-radius: var(--r-m);
+  background: color-mix(in srgb, var(--surface) 86%, transparent);
+  border: 1px solid color-mix(in srgb, var(--hub-benefits) 16%, var(--rule));
+  box-shadow: var(--shadow-1);
+}
+.stat:first-child {
+  border-color: color-mix(in srgb, var(--bad) 30%, var(--rule));
+  background: color-mix(in srgb, var(--bad) 6%, var(--surface));
+}
+.stat:first-child .statValue {
+  color: var(--bad-text);
+}
+
+.statValue {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  white-space: nowrap;
+  font-size: clamp(32px, 3.2vw, 44px);
+  color: var(--hub-benefits);
+}
+
+.statLabel {
+  font-size: 15.5px;
+  line-height: 1.45;
+  color: var(--ink-2);
+}
+
+@media (max-width: 960px) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ---------- Sight loss banner ---------- */
+.sight {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 20px 28px;
+  padding: clamp(22px, 3.4vw, 36px);
+  border-radius: var(--r-l);
+  color: var(--deep-ink);
+  background:
+    radial-gradient(55% 140% at 0% 0%, color-mix(in srgb, var(--hub-benefits-bar) 30%, transparent), transparent 62%),
+    radial-gradient(45% 120% at 100% 100%, color-mix(in srgb, var(--hub-tax-bar) 26%, transparent), transparent 62%),
+    linear-gradient(120deg, var(--deep-2), var(--deep));
+  box-shadow: var(--shadow-3);
+}
+.sightIcon {
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 22px;
+  background: color-mix(in srgb, var(--hub-benefits-bar) 16%, transparent);
+  border: 1px solid color-mix(in srgb, var(--hub-benefits-bar) 40%, transparent);
+  color: var(--hub-benefits-bar);
+}
+.sightIcon svg {
+  width: 36px;
+  height: 36px;
+}
+.sightKicker {
+  margin: 0 0 6px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--hub-benefits-bar);
+}
+.sightTitle {
+  margin: 0;
+  font-size: clamp(22px, 2.3vw, 28px);
+  font-weight: 680;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: var(--deep-ink);
+}
+.sightBody {
+  margin: 8px 0 0;
+  max-width: 62ch;
+  font-size: 16.5px;
+  line-height: 1.55;
+  color: var(--deep-muted);
+}
+.sightBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 50px;
+  padding: 12px 24px;
+  border-radius: var(--r-pill);
+  background: var(--deep-ink);
+  color: var(--deep);
+  font-size: 16px;
+  font-weight: 650;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 10px 24px -12px rgba(0, 0, 0, 0.6);
+  transition: transform 0.18s var(--ease), background 0.18s var(--ease);
+}
+.sightBtn:hover {
+  transform: translateY(-1px);
+  background: color-mix(in srgb, var(--deep-ink) 90%, var(--hub-benefits-bar));
+}
+.sightBtn:focus-visible {
+  outline: 3px solid var(--hub-benefits-bar);
+  outline-offset: 3px;
+}
+@media (max-width: 860px) {
+  .sight {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+  .sightBtn {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+}
+@media (max-width: 520px) {
+  .sight {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .sightIcon {
+    width: 56px;
+    height: 56px;
+    border-radius: 18px;
+  }
+  .sightIcon svg {
+    width: 28px;
+    height: 28px;
+  }
+  .sightBtn {
+    justify-self: stretch;
+    white-space: normal;
+  }
+}
+
+/* ---------- Shared card ---------- */
+.grid3,
+.grid2,
+.grid4 {
+  display: grid;
+  gap: 16px;
+  margin-top: 24px;
+  grid-template-columns: minmax(0, 1fr);
+}
+@media (min-width: 768px) {
+  .grid3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .grid2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .grid4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1024px) {
+  .grid4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  overflow: hidden;
+  border-radius: var(--r-l);
+  border: 1px solid color-mix(in srgb, var(--c) 16%, var(--rule));
+  background: linear-gradient(180deg, color-mix(in srgb, var(--c) 7%, var(--surface)) 0, var(--surface) 150px);
+  box-shadow: var(--shadow-2);
+}
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--c), color-mix(in srgb, var(--c) 45%, var(--surface)));
+}
+
+.iconChip {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--c) 14%, var(--surface));
+  color: var(--c);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--c) 22%, transparent);
+}
+.iconChip svg {
+  width: 22px;
+  height: 22px;
+}
+
+.cardKicker {
+  margin: 16px 0 0;
+  font-size: 13.5px;
+  font-weight: 720;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--c);
+}
+
+.bigFig {
+  margin: 8px 0 0;
+  font-family: var(--font-sans);
+  font-size: clamp(36px, 3.4vw, 44px);
+  font-weight: 760;
+  letter-spacing: -0.045em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  color: var(--c);
+}
+
+.cardHeading {
+  margin: 8px 0 0;
+  font-size: 22px;
+  font-weight: 720;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.cardText {
+  margin: 12px 0 0;
+  font-size: 15.5px;
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+
+/* Yes / no split bar in the first data card */
+.split {
+  display: flex;
+  gap: 3px;
+  height: 10px;
+  margin-top: 16px;
+  border-radius: var(--r-pill);
+  overflow: hidden;
+  background: var(--paper-3);
+}
+.splitYes {
+  width: 44%;
+  background: var(--hub-benefits);
+}
+.splitNo {
+  width: 53%;
+  background: var(--bad);
+}
+.splitKey {
+  display: flex;
+  gap: 14px;
+  margin-top: 8px;
+  font-size: 13px;
+  font-weight: 650;
+  color: var(--ink-3);
+}
+.splitKey span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.splitKey span::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--hub-benefits);
+}
+.splitKey span + span::before {
+  background: var(--bad);
+}
+
+/* ---------- Payment cards ---------- */
+.payHead {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.payTitle {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 720;
+  line-height: 1.2;
+  letter-spacing: -0.018em;
+  color: var(--ink);
+}
+.payBody {
+  flex: 1;
+}
+
+.rates {
+  display: grid;
+  gap: 8px;
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.rate {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 16px;
+  padding: 12px 16px;
+  border-radius: var(--r-s);
+  border: 1px solid color-mix(in srgb, var(--c) 18%, var(--rule));
+  background: color-mix(in srgb, var(--c) 7%, var(--surface));
+  font-size: 15px;
+  color: var(--ink-2);
+}
+.rate > span:first-child {
+  font-weight: 650;
+  color: var(--ink);
+}
+
+.fig {
+  font-family: var(--font-sans);
+  font-weight: 760;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  color: var(--c);
+}
+.rate .fig {
+  font-size: 20px;
+}
+
+.leadFig {
+  margin: 14px 0 0;
+  font-size: 15.5px;
+  color: var(--ink-2);
+}
+.leadFig .fig {
+  font-size: clamp(30px, 3vw, 38px);
+  letter-spacing: -0.04em;
+  margin: 0 6px;
+}
+.leadFig .fig:first-child {
+  margin-left: 0;
+}
+.leadFig + .cardText {
+  margin-top: 8px;
+}
+
+.cardLink {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 8px;
+  min-height: 44px;
+  margin-top: 16px;
+  padding: 10px 18px;
+  border-radius: var(--r-pill);
+  border: 1px solid color-mix(in srgb, var(--c) 30%, var(--rule));
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 650;
+  text-decoration: none;
+  transition: border-color 0.18s var(--ease), background 0.18s var(--ease);
+}
+.cardLink:hover {
+  border-color: var(--c);
+  background: color-mix(in srgb, var(--c) 8%, var(--surface));
+}
+.cardLink svg {
+  width: 16px;
+  height: 16px;
+  color: var(--c);
+}
+
+.warnCard {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--c) 9%, var(--surface)) 0, color-mix(in srgb, var(--c) 3%, var(--surface)) 100%);
+}
+
+/* ---------- Extra help cards ---------- */
+.miniTitle {
+  margin: 16px 0 0;
+  font-size: 18px;
+  font-weight: 720;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+.miniText {
+  margin: 8px 0 0;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+
+.linkRow {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.linkRow .cardLink {
+  margin-top: 0;
+}
+.phoneSmall {
+  margin: 10px 0 0;
+  font-size: 14px;
+  color: var(--ink-2);
+}
+.phoneSmall a {
+  font-weight: 700;
+  color: var(--ink) !important;
+  white-space: nowrap;
+}
+
+/* Every extra help card ends in an action, lined up along the card bottom. */
+.helpActions {
+  display: grid;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 18px;
+}
+.helpBtn,
+.helpBtnAlt {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 46px;
+  padding: 10px 14px;
+  border-radius: var(--r-pill);
+  font-size: 14.5px;
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: center;
+  text-decoration: none !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+.helpBtn {
+  background: color-mix(in srgb, var(--c) 88%, var(--ink));
+  color: var(--surface) !important;
+}
+.helpBtn:hover {
+  background: color-mix(in srgb, var(--c) 72%, var(--ink));
+}
+.helpBtnAlt {
+  border: 1.5px solid color-mix(in srgb, var(--c) 45%, var(--rule));
+  background: var(--surface);
+  color: color-mix(in srgb, var(--c) 75%, var(--ink)) !important;
+}
+.helpBtnAlt:hover {
+  border-color: var(--c);
+}
+
+/* ---------- Plain note ---------- */
+.note {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 22px;
+  border-radius: var(--r-m);
+  border: 1px solid color-mix(in srgb, var(--hub-benefits) 20%, var(--rule));
+  background: linear-gradient(90deg, color-mix(in srgb, var(--hub-benefits) 9%, var(--surface)), var(--surface) 75%);
+  font-size: 15.5px;
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+.note strong {
+  color: var(--ink);
+}
+.noteIcon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--hub-benefits) 14%, var(--surface));
+  color: var(--hub-benefits);
+}
+.noteIcon svg {
+  width: 22px;
+  height: 22px;
+}
+
+@media (max-width: 560px) {
+  .card {
+    padding: 22px 18px;
+  }
+  .note {
+    align-items: flex-start;
+    padding: 16px;
+  }
+}

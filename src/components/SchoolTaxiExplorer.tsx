@@ -13,12 +13,12 @@ const fmtMoney = (n: number | null) => {
 };
 
 const fmtExactMoney = (n: number | null) => {
-  if (n === null) return "—";
+  if (n === null) return "Not disclosed";
   return `£${Math.round(n).toLocaleString("en-GB")}`;
 };
 
 const fmtPerPupil = (n: number | null) => {
-  if (n === null) return "—";
+  if (n === null) return "n/a";
   return n < 10 ? `£${n.toFixed(2)}` : `£${Math.round(n).toLocaleString("en-GB")}`;
 };
 
@@ -139,7 +139,7 @@ export default function SchoolTaxiExplorer() {
             <p className="tnum mt-1 text-[22px] font-[680] text-[var(--ink)]">
               {selected.bandDHomesAll !== null
                 ? selected.bandDHomesAll.toLocaleString("en-GB")
-                : "—"}
+                : "n/a"}
             </p>
           </div>
         </div>
@@ -252,10 +252,10 @@ export default function SchoolTaxiExplorer() {
                     {fmtMoney(row.allTaxiGbp)}
                   </td>
                   <td className="py-2.5 px-2 text-right text-[var(--ink-2)]">
-                    {row.schoolTaxiGbp !== null ? fmtMoney(row.schoolTaxiGbp) : "—"}
+                    {row.schoolTaxiGbp !== null ? fmtMoney(row.schoolTaxiGbp) : "n/a"}
                   </td>
                   <td className="py-2.5 px-2 text-right text-[var(--ink-2)]">
-                    {row.nonSchoolGbp !== null ? fmtExactMoney(row.nonSchoolGbp) : "—"}
+                    {row.nonSchoolGbp !== null ? fmtExactMoney(row.nonSchoolGbp) : "n/a"}
                   </td>
                   <td className="py-2.5 px-2 text-right font-[620] text-[var(--ink)]">
                     {fmtPerPupil(row.perPupilGbp)}

@@ -1400,6 +1400,60 @@ export const terms: Term[] = [
     def: "The total number of pupils registered at council schools in an area.",
     tech: "Taken from the Scottish Government September 2024 pupil census across primary, secondary and special schools.",
   },
+  {
+    id: "clinical-trial",
+    term: "Clinical trial",
+    def: "A fair, real-world medical test where one group tries a treatment and another does not, so doctors can prove if it truly works.",
+    tech: "In a randomised controlled trial (RCT), people are split into groups at random so opinion or luck cannot skew the result. It is the medical gold standard.",
+  },
+  {
+    id: "clinical-trials",
+    term: "Clinical trials",
+    def: "Fair, real-world medical tests where one group tries a treatment and another does not, so doctors can prove if it truly works.",
+    tech: "In randomised controlled trials (RCTs), people are split into groups at random so opinion or luck cannot skew the result. They are the medical gold standard.",
+  },
+  {
+    id: "meta-analysis",
+    term: "Meta-analysis",
+    def: "The gold standard in medical proof. Scientists pool dozens or hundreds of separate trials together to see what truly works across thousands of real people.",
+    tech: "One small study can be a fluke. A meta-analysis combines data from many independent clinical trials into one large check, separating hard proof from opinion.",
+  },
+  {
+    id: "meta-analyses",
+    term: "Meta-analyses",
+    def: "The gold standard in medical proof. Scientists pool dozens or hundreds of separate trials together to see what truly works across thousands of real people.",
+    tech: "One small study can be a fluke. Meta-analyses combine data from many independent clinical trials into one large check, separating hard proof from opinion.",
+  },
+  {
+    id: "cbt",
+    term: "CBT",
+    def: "Cognitive Behavioural Therapy. A practical talking therapy that helps spot unhelpful thought loops and change daily habits.",
+    tech: "Offered free through NHS Scotland GPs and local mental health services. Proven across hundreds of clinical trials for depression and anxiety.",
+  },
+  {
+    id: "cbt-i",
+    term: "CBT-I",
+    def: "Sleep therapy (Cognitive Behavioural Therapy for Insomnia). A drug-free way to reset broken sleep habits.",
+    tech: "Unlike sleeping pills, CBT-I fixes the habits keeping you awake at 2am. Clinical trials show it lowers both depression and suicidal thoughts.",
+  },
+  {
+    id: "behavioural-activation",
+    term: "Behavioural Activation",
+    def: "Doing one small planned action each day before you feel motivated, instead of waiting for low mood to lift first.",
+    tech: "In the UK NHS COBRA clinical trial published in The Lancet, Behavioural Activation worked just as well as full CBT for severe depression.",
+  },
+  {
+    id: "shbg",
+    term: "SHBG",
+    def: "Sex Hormone-Binding Globulin. A protein in your blood that locks onto testosterone. If SHBG is high, less active testosterone is left for your body to use.",
+    tech: "Checking SHBG alongside total testosterone lets a doctor calculate your free testosterone, which is vital when total readings sit in the 8 to 12 nmol/L borderline zone.",
+  },
+  {
+    id: "free-testosterone",
+    term: "Free testosterone",
+    def: "The active part of your testosterone that is not locked to proteins, so your brain and body can actually use it.",
+    tech: "UK BSSM guidelines advise checking free testosterone via SHBG when a man's total testosterone sits in the borderline 8 to 12 nmol/L range.",
+  },
 ];
 
 export const termsById: Record<string, Term> = Object.fromEntries(

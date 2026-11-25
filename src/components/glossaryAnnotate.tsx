@@ -245,6 +245,15 @@ const AUTO_GLOSSARY_IDS = [
   "additional-support-needs",
   "asn",
   "school-roll",
+  "clinical-trial",
+  "clinical-trials",
+  "meta-analysis",
+  "meta-analyses",
+  "cbt",
+  "cbt-i",
+  "behavioural-activation",
+  "shbg",
+  "free-testosterone",
 ] as const;
 
 const autoTerms = AUTO_GLOSSARY_IDS.flatMap((id) => {

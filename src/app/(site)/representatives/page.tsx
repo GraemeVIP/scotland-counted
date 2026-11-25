@@ -112,7 +112,7 @@ export default function RepresentativesPage() {
             <Link href="/mp-expenses-scotland">
               See MP donations, foreign trips & gifts (£297k declared) →
             </Link>
-            <Link href="/msp-reviews">Read or leave MSP reviews →</Link>
+            <Link href="/who-decides">See who decides what →</Link>
           </div>
           <RepresentativeDirectorySearch entries={directoryEntries} />
 

@@ -140,9 +140,9 @@ export default function Post() {
           council by council figures.
         </LI>
         <LI>
-          How well do MSPs represent their constituents? Use the{" "}
-          <Link href="/representatives">MSP directory</Link> and{" "}
-          <Link href="/msp-reviews">MSP reviews</Link>.
+          How do MSPs serve their constituents? Use the{" "}
+          <Link href="/representatives/msps">MSP directory</Link> and{" "}
+          <Link href="/who-is-my-msp">who is my MSP guide</Link>.
         </LI>
         <LI>
           Should councils raise council tax to protect services? See the{" "}
@@ -152,7 +152,7 @@ export default function Post() {
       </UL>
       <P>
         If you use this site as a source, say so, and say what makes it more or less reliable. It is
-        an independent website run by one person, not a government body, but every figure links to
+        an independent public data organisation, not a government body, and every figure links to
         the official source so you can check it. That is exactly the kind of specific comment the
         marking rewards.
       </P>

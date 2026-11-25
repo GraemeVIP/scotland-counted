@@ -112,7 +112,7 @@
 
   /* Section colours. One per menu section, used for its dot, its headings and
      its panel wash, so a section looks the same wherever it appears. */
-  --hub-money: #a14a07;
+  --hub-money: #946200;
   --hub-benefits: #0b6b63;
   --hub-tax: #0b57d0;
   --hub-area: #b4430a;
@@ -1092,8 +1092,8 @@ select:not([multiple]):not([size]) {
   --announce-h: 0px;
 }
 .announce-top {
-  background: linear-gradient(90deg, #a5122a 0%, #d42a3f 50%, #a5122a 100%);
-  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.18);
+  background: linear-gradient(90deg, #074f48 0%, #0b6b63 50%, #074f48 100%);
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.14);
 }
 [data-bar-closed] .announce-top {
   display: none;
@@ -1127,22 +1127,36 @@ select:not([multiple]):not([size]) {
 .announce-variant {
   display: none;
 }
-html:not([data-bar-variant]) .announce-variant[data-variant="hotels"],
-[data-bar-variant="hotels"] .announce-variant[data-variant="hotels"],
-[data-bar-variant="energy"] .announce-variant[data-variant="energy"],
-[data-bar-variant="receipts"] .announce-variant[data-variant="receipts"],
-[data-bar-variant="flats"] .announce-variant[data-variant="flats"],
-[data-bar-variant="buys"] .announce-variant[data-variant="buys"] {
+html:not([data-bar-variant]) .announce-variant[data-variant="lessons"],
+[data-bar-variant="lessons"] .announce-variant[data-variant="lessons"],
+[data-bar-variant="postcode"] .announce-variant[data-variant="postcode"],
+[data-bar-variant="councils"] .announce-variant[data-variant="councils"],
+[data-bar-variant="charities"] .announce-variant[data-variant="charities"] {
   display: flex;
 }
 /* On the page a version points to, that visitor sees no strip at all. */
-[data-bar-variant="hotels"] .announce-top[data-skip~="hotels"],
-[data-bar-variant="energy"] .announce-top[data-skip~="energy"],
-[data-bar-variant="receipts"] .announce-top[data-skip~="receipts"],
-[data-bar-variant="flats"] .announce-top[data-skip~="flats"],
-[data-bar-variant="buys"] .announce-top[data-skip~="buys"] {
+[data-bar-variant="lessons"] .announce-top[data-skip~="lessons"],
+[data-bar-variant="postcode"] .announce-top[data-skip~="postcode"],
+[data-bar-variant="councils"] .announce-top[data-skip~="councils"],
+[data-bar-variant="charities"] .announce-top[data-skip~="charities"] {
   display: none;
 }
 @media print {
   .announce-top { display: none; }
+}
+
+/*
+ * On a computer, a phone link cannot ring anyone, so it is shown as plain
+ * text: readable, but not pretending to be a link. Phones and tablets keep
+ * tap to call. Pages lead with the online route (form, webchat, apply
+ * online) and give the number underneath.
+ */
+@media (hover: hover) and (pointer: fine) {
+  a[href^="tel:"],
+  a[href^="sms:"] {
+    pointer-events: none;
+    cursor: text;
+    text-decoration: none !important;
+    color: inherit;
+  }
 }
