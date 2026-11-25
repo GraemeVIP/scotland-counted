@@ -93,12 +93,20 @@ export default function ContactForm() {
   const messageRef = useRef<HTMLTextAreaElement>(null);
   const nameRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
+  const sentRef = useRef<HTMLDivElement>(null);
   const orgUid = useId();
   const pageUid = useId();
   const timeUid = useId();
   const msgUid = useId();
   const emailUid = useId();
   const nameUid = useId();
+
+  useEffect(() => {
+    if (sent && sentRef.current) {
+      sentRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
+      sentRef.current.focus({ preventScroll: true });
+    }
+  }, [sent]);
 
   useEffect(() => {
     const r = params.get("reason");
@@ -209,8 +217,10 @@ export default function ContactForm() {
   if (sent) {
     return (
       <div
+        ref={sentRef}
+        tabIndex={-1}
         role="status"
-        className="rounded-[var(--r-m)] border border-[var(--rule)] border-t-[4px] border-t-[var(--good)] bg-[var(--surface)] p-6 sm:p-9"
+        className="rounded-[var(--r-m)] border border-[var(--rule)] border-t-[4px] border-t-[var(--good)] bg-[var(--surface)] p-6 sm:p-9 focus:outline-none"
         style={{ boxShadow: "var(--shadow-2)" }}
       >
         <div
