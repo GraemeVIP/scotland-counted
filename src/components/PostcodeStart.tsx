@@ -279,8 +279,8 @@ export default function PostcodeStart({
   );
 
   return (
-    <div className="w-full max-w-[620px]">
-      <form onSubmit={submit} className="grid gap-2.5 sm:grid-cols-[minmax(0,260px)_auto]">
+    <div className="w-full">
+      <form onSubmit={submit} className="grid gap-2.5 sm:grid-cols-[minmax(0,1fr)_auto]">
         <label className="sr-only" htmlFor={inputId}>
           Your Scottish postcode
         </label>
@@ -304,7 +304,7 @@ export default function PostcodeStart({
           autoComplete="postal-code"
           inputMode="text"
           required
-          className="ui w-full rounded-[var(--r-s)] bg-[var(--surface)] border border-[var(--rule-strong)] px-4 py-3.5 text-[16px] text-[var(--ink)] placeholder:text-[var(--muted)] focus:border-[var(--brand)] outline-none transition-colors"
+          className="ui min-h-[52px] w-full rounded-[var(--r-s)] bg-[var(--surface)] border border-[var(--rule-strong)] px-4 py-3 text-[16px] font-[500] text-[var(--ink)] placeholder:font-normal placeholder:text-[var(--muted)] focus:border-[var(--brand)] outline-none transition-colors"
         />
         {/*
           "Check my area", not "Find my MP and MSP". The button now names what
@@ -314,14 +314,14 @@ export default function PostcodeStart({
         <button
           type="submit"
           disabled={state === "loading"}
-          className="btn btn-primary justify-center whitespace-nowrap disabled:cursor-wait disabled:opacity-70"
+          className="btn btn-primary min-h-[52px] w-full sm:w-auto justify-center whitespace-nowrap disabled:cursor-wait disabled:opacity-70"
         >
           {state === "loading" ? "Looking it up…" : "Check my area"}
           <span aria-hidden="true">→</span>
         </button>
       </form>
 
-      <p className="mt-3 text-[15px] text-[var(--ink-2)] leading-[1.5]">
+      <p className="mt-3 text-[14px] text-[var(--ink-2)] leading-[1.5]">
         Your local figures first. Nothing is sent to anybody unless you ask for it, and we do not
         save your postcode.
       </p>

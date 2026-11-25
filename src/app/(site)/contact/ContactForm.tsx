@@ -122,7 +122,7 @@ export default function ContactForm() {
   const messageChars = message.trim().length;
   const hasMessage = messageChars >= 15;
   const hasValidDetails = name.trim().length >= 2 && /^\S+@\S+\.\S+$/.test(email.trim());
-  const doneSteps = 1 + (hasMessage ? 1 : 0) + (hasValidDetails ? 1 : 0);
+  const doneSteps = 1 + (hasValidDetails ? 1 : 0) + (hasValidDetails && hasMessage ? 1 : 0);
   const progressPct = Math.round((doneSteps / 3) * 100);
 
   function selectReason(id: ContactReasonId) {
@@ -138,11 +138,6 @@ export default function ContactForm() {
     const trimmedName = name.trim();
     const trimmedEmail = email.trim();
 
-    if (trimmedMsg.length < 15) {
-      setError({ text: "Write at least 15 characters so we know how to help.", field: "message" });
-      messageRef.current?.focus();
-      return;
-    }
     if (trimmedName.length < 2) {
       setError({ text: "Add your name so we know who we are speaking with.", field: "name" });
       nameRef.current?.focus();
@@ -156,6 +151,11 @@ export default function ContactForm() {
     if (trimmedEmail.length < 5 || !/^\S+@\S+\.\S+$/.test(trimmedEmail)) {
       setError({ text: "Enter a valid email address.", field: "email" });
       emailRef.current?.focus();
+      return;
+    }
+    if (trimmedMsg.length < 15) {
+      setError({ text: "Write at least 15 characters so we know how to help.", field: "message" });
+      messageRef.current?.focus();
       return;
     }
 
@@ -274,8 +274,6 @@ export default function ContactForm() {
     );
   }
 
-  const hasExtraFields = activeReason.showOrganisation || activeReason.showPageUrl || activeReason.showTimeframe;
-
   return (
     <form
       onSubmit={handleSubmit}
@@ -376,101 +374,9 @@ export default function ContactForm() {
       </fieldset>
 
       <div className="mt-8 border-t border-[var(--rule)] pt-7">
-        <p className="kicker text-[var(--action-text)]">2. Write your note</p>
-
-        <div className="mt-3 rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--surface-2)] px-4 py-3 text-[15px] leading-[1.5] text-[var(--ink-2)]">
-          {activeReason.messageHint}
-        </div>
-
-        {hasExtraFields && (
-          <div className="mt-5 grid gap-4 sm:grid-cols-2">
-            {activeReason.showOrganisation && (
-              <div className={activeReason.showTimeframe ? "" : "sm:col-span-2"}>
-                <label htmlFor={orgUid} className="ui mb-2 block text-[15px] font-[580] text-[var(--ink)]">
-                  {activeReason.organisationLabel}
-                </label>
-                <input
-                  id={orgUid}
-                  type="text"
-                  value={organisation}
-                  onChange={(e) => setOrganisation(e.target.value)}
-                  maxLength={120}
-                  placeholder="For example, Ayrshire food bank"
-                  className={inputCls}
-                />
-              </div>
-            )}
-
-            {activeReason.showTimeframe && (
-              <div className={activeReason.showOrganisation ? "" : "sm:col-span-2"}>
-                <label htmlFor={timeUid} className="ui mb-2 block text-[15px] font-[580] text-[var(--ink)]">
-                  {activeReason.timeframeLabel}
-                </label>
-                <input
-                  id={timeUid}
-                  type="text"
-                  value={timeframe}
-                  onChange={(e) => setTimeframe(e.target.value)}
-                  maxLength={80}
-                  placeholder="For example, Friday or next month"
-                  className={inputCls}
-                />
-              </div>
-            )}
-
-            {activeReason.showPageUrl && (
-              <div className="sm:col-span-2">
-                <label htmlFor={pageUid} className="ui mb-2 block text-[15px] font-[580] text-[var(--ink)]">
-                  Page link or title (optional)
-                </label>
-                <input
-                  id={pageUid}
-                  type="text"
-                  value={pageUrl}
-                  onChange={(e) => setPageUrl(e.target.value)}
-                  maxLength={300}
-                  placeholder="Paste the page link or name the council"
-                  className={inputCls}
-                />
-              </div>
-            )}
-          </div>
-        )}
-
-        <div className="mt-5">
-          <div className="mb-2 flex items-baseline justify-between gap-2">
-            <label htmlFor={msgUid} className="ui text-[15px] font-[580] text-[var(--ink)]">
-              Your message
-            </label>
-            <span className="ui text-[13.5px] text-[var(--muted)] tabular-nums">
-              {messageChars} / 4000
-            </span>
-          </div>
-          <textarea
-            ref={messageRef}
-            id={msgUid}
-            required
-            rows={5}
-            maxLength={4000}
-            value={message}
-            onChange={(e) => {
-              setMessage(e.target.value);
-              if (error?.field === "message") setError(null);
-            }}
-            placeholder="Write your question, correction or tip here..."
-            className={`${inputCls} min-h-[144px] resize-y`}
-            style={error?.field === "message" ? errorFieldStyle : undefined}
-          />
-          <p className="mt-2 text-[14px] leading-[1.45] text-[var(--muted)]">
-            Please leave out private bank or case details.
-          </p>
-        </div>
-      </div>
-
-      <div className="mt-8 border-t border-[var(--rule)] pt-7">
-        <p className="kicker text-[var(--action-text)]">3. Your details</p>
+        <p className="kicker text-[var(--action-text)]">2. Your details</p>
         <p className="mt-1.5 text-[15.5px] leading-[1.55] text-[var(--ink-2)]">
-          Add your name and email address so we can reply to your message.
+          Add your name and email address so we can reply to you.
         </p>
 
         <div className="mt-4 grid gap-4 sm:grid-cols-2">
@@ -517,6 +423,97 @@ export default function ContactForm() {
               style={error?.field === "email" ? errorFieldStyle : undefined}
             />
           </div>
+
+          {activeReason.showOrganisation && (
+            <div className="sm:col-span-2">
+              <label htmlFor={orgUid} className="ui mb-2 block text-[15px] font-[580] text-[var(--ink)]">
+                {activeReason.organisationLabel}
+              </label>
+              <input
+                id={orgUid}
+                type="text"
+                value={organisation}
+                onChange={(e) => setOrganisation(e.target.value)}
+                maxLength={120}
+                placeholder="For example, Ayrshire food bank or local paper"
+                className={inputCls}
+              />
+            </div>
+          )}
+        </div>
+      </div>
+
+      <div className="mt-8 border-t border-[var(--rule)] pt-7">
+        <p className="kicker text-[var(--action-text)]">3. Write your note</p>
+        <p className="mt-1.5 text-[15.5px] leading-[1.55] text-[var(--ink-2)]">
+          {activeReason.messageHint}
+        </p>
+
+        {(activeReason.showPageUrl || activeReason.showTimeframe) && (
+          <div className="mt-4 grid gap-4 sm:grid-cols-2">
+            {activeReason.showPageUrl && (
+              <div className={activeReason.showTimeframe ? "" : "sm:col-span-2"}>
+                <label htmlFor={pageUid} className="ui mb-2 block text-[15px] font-[580] text-[var(--ink)]">
+                  Page link or title (optional)
+                </label>
+                <input
+                  id={pageUid}
+                  type="text"
+                  value={pageUrl}
+                  onChange={(e) => setPageUrl(e.target.value)}
+                  maxLength={300}
+                  placeholder="Paste the page link or name the council"
+                  className={inputCls}
+                />
+              </div>
+            )}
+
+            {activeReason.showTimeframe && (
+              <div className={activeReason.showPageUrl ? "" : "sm:col-span-2"}>
+                <label htmlFor={timeUid} className="ui mb-2 block text-[15px] font-[580] text-[var(--ink)]">
+                  {activeReason.timeframeLabel}
+                </label>
+                <input
+                  id={timeUid}
+                  type="text"
+                  value={timeframe}
+                  onChange={(e) => setTimeframe(e.target.value)}
+                  maxLength={80}
+                  placeholder="For example, Friday or next month"
+                  className={inputCls}
+                />
+              </div>
+            )}
+          </div>
+        )}
+
+        <div className="mt-4">
+          <div className="mb-2 flex items-baseline justify-between gap-2">
+            <label htmlFor={msgUid} className="ui text-[15px] font-[580] text-[var(--ink)]">
+              Your message
+            </label>
+            <span className="ui text-[13.5px] text-[var(--muted)] tabular-nums">
+              {messageChars} / 4000
+            </span>
+          </div>
+          <textarea
+            ref={messageRef}
+            id={msgUid}
+            required
+            rows={5}
+            maxLength={4000}
+            value={message}
+            onChange={(e) => {
+              setMessage(e.target.value);
+              if (error?.field === "message") setError(null);
+            }}
+            placeholder="Type your message here..."
+            className={`${inputCls} min-h-[144px] resize-y`}
+            style={error?.field === "message" ? errorFieldStyle : undefined}
+          />
+          <p className="mt-2 text-[14px] leading-[1.45] text-[var(--muted)]">
+            Please leave out private bank or case details.
+          </p>
         </div>
       </div>
 

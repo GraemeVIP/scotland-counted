@@ -6,7 +6,7 @@ describe("contact form validation", () => {
   it("resolves known and fallback contact reasons", () => {
     assert.equal(getContactReason("charity-help").id, "charity-help");
     assert.equal(getContactReason("correction").id, "correction");
-    assert.equal(getContactReason("unknown").id, "charity-help");
+    assert.equal(getContactReason("unknown").id, "general");
   });
 
   it("requires both name and email", () => {

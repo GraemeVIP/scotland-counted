@@ -15,9 +15,9 @@ export const metadata = meta({
 });
 
 const PROMISES = [
-  { title: "Free for good causes", body: "We never charge charities, schools or local groups." },
   { title: "No mailing list", body: "We only use your email to reply to you." },
   { title: "Open fixes", body: "Real errors are fixed and logged in public." },
+  { title: "Free for good causes", body: "We never charge charities, schools or local groups." },
 ];
 
 const QUICK_ROUTES = [
@@ -27,9 +27,9 @@ const QUICK_ROUTES = [
     body: "Need help with housing or bills? Put in your postcode to write to them.",
   },
   {
-    href: "/for-organisations",
-    title: "Free data help for charities",
-    body: "See how we help good causes with local charts, bids and checks.",
+    href: "/corrections",
+    title: "Check our corrections log",
+    body: "See how we fix mistakes and read past updates.",
   },
   {
     href: "/data",
@@ -37,28 +37,28 @@ const QUICK_ROUTES = [
     body: "Get our tables and source links to check the figures yourself.",
   },
   {
-    href: "/corrections",
-    title: "Check our corrections log",
-    body: "See how we fix mistakes and read past updates.",
+    href: "/for-organisations",
+    title: "Free data help for charities",
+    body: "See how we help good causes with local charts, bids and checks.",
   },
 ];
 
 const FAQ = [
   {
-    q: "Can my charity or school ask for free data help?",
-    a: "Yes. Pick the charity help option on this page. Tell us your area, your question and your date. Every request is free and checked case by case.",
+    q: "What happens if I report an error on a page?",
+    a: "We check the figure against its source. If we got it wrong, we fix the page and log the date on our corrections page.",
   },
   {
-    q: "Do I have to give my name or email address?",
-    a: "No. If you want to flag an error or share a tip, pick No reply needed. You only need an email if you want a reply.",
+    q: "Why do you ask for my name and email?",
+    a: "So we can write back to you. We never put your email on a mailing list or share it with anyone.",
   },
   {
     q: "Can Scotland Counted help with a personal benefit or housing case?",
     a: "No. We are a public data site, not an advice team. Use our email tool to write to your MP or MSP, or try Citizens Advice Scotland.",
   },
   {
-    q: "What happens if I report an error on a page?",
-    a: "We check the figure against its source. If we got it wrong, we fix the page and log the date on our corrections page.",
+    q: "Can my charity or school ask for free data help?",
+    a: "Yes. Pick the charity help option on this page. Tell us your area, your question and your date. Every request is free and checked case by case.",
   },
 ];
 
@@ -77,7 +77,7 @@ export default function ContactPage() {
         <PageHeader
           eyebrow="Get in touch"
           title="Contact Scotland Counted"
-          lede="Ask for free data help for a charity or group. Flag an error, or share public records. You only need an email if you want a reply."
+          lede="Ask a question, report a mistake or share public records. You can also request free data help for a charity or local group."
           panel={
             <HeaderPanel label="How we handle messages">
               <ul className="divide-y divide-[var(--rule)]">
