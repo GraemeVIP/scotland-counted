@@ -40,6 +40,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${site.url}/disability-support-scotland`, changeFrequency: "monthly", priority: 0.9, lastModified: dataChecked },
     { url: `${site.url}/struggling-right-now-scotland`, changeFrequency: "monthly", priority: 0.9, lastModified: dataChecked },
     { url: `${site.url}/suicide-scotland-statistics-and-support`, changeFrequency: "monthly", priority: 0.9, lastModified: dataChecked },
+    { url: `${site.url}/nhs-scotland-waiting-times`, changeFrequency: "monthly", priority: 0.95, lastModified: dataChecked },
+    { url: `${site.url}/nhs-patient-rights-scotland`, changeFrequency: "monthly", priority: 0.95, lastModified: dataChecked },
     { url: `${site.url}/modern-studies-teaching-resources`, changeFrequency: "monthly", priority: 0.8 },
     ...classroomLessons.map(({ slug }) => ({
       url: `${site.url}${classroomLessonPath(slug)}`,

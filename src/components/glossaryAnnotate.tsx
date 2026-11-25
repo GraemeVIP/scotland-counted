@@ -254,6 +254,17 @@ const AUTO_GLOSSARY_IDS = [
   "behavioural-activation",
   "shbg",
   "free-testosterone",
+  "health-board",
+  "treatment-time-guarantee",
+  "delayed-discharge",
+  "public-health-scotland",
+  "spso",
+  "pass",
+  "cnoris",
+  "outpatient",
+  "inpatient",
+  "endoscopy",
+  "subject-access-request",
 ] as const;
 
 const autoTerms = AUTO_GLOSSARY_IDS.flatMap((id) => {

@@ -55,6 +55,8 @@ const NAV_KEYWORDS: Record<string, string> = {
   "/winter-fuel-payment-scotland": "pension age winter payment heating",
   "/social-security-scotland-payment-dates": "when paid payment dates christmas bank holiday",
   "/scottish-child-payment": "scp child benefit kids",
+  "/nhs-scotland-waiting-times": "nhs hospital waiting times a&e 12 hours corridor cancer delayed discharge bed blocking cancelled operations health board",
+  "/nhs-patient-rights-scotland": "nhs rights complain complaint spso pass treatment time guarantee 12 weeks medical records second opinion health board",
 };
 
 const CORE: Item[] = [

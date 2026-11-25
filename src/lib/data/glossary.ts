@@ -1454,6 +1454,69 @@ export const terms: Term[] = [
     def: "The active part of your testosterone that is not locked to proteins, so your brain and body can actually use it.",
     tech: "UK BSSM guidelines advise checking free testosterone via SHBG when a man's total testosterone sits in the borderline 8 to 12 nmol/L range.",
   },
+  {
+    id: "health-board",
+    term: "Health Board",
+    def: "One of the 14 regional NHS bodies in Scotland that runs local hospitals, clinics and budgets for your area.",
+    tech: "Scotland has 14 territorial NHS Boards funded by the Scottish Government, separate from local councils.",
+  },
+  {
+    id: "treatment-time-guarantee",
+    term: "Treatment Time Guarantee",
+    def: "A rule in Scots law that says planned hospital surgery or day care should start within 12 weeks of you and your doctor agreeing to it.",
+    tech: "Set by the Patient Rights (Scotland) Act 2011. Health Boards must take all reasonable steps to meet it, though over half of ongoing waits now pass 12 weeks.",
+  },
+  {
+    id: "delayed-discharge",
+    term: "Delayed discharge",
+    def: "When a patient is medically fit to leave hospital, but stays stuck in a bed because no home care or care home place is ready.",
+    tech: "Also called bed blocking. Public Health Scotland counts every extra bed day lost each month across all 14 Health Boards.",
+  },
+  {
+    id: "public-health-scotland",
+    term: "Public Health Scotland",
+    def: "Scotland's official public health body. It collects and publishes the raw CSV numbers on A&E waits, waiting lists, cancer targets and cancelled operations.",
+    tech: "Open data files are published on opendata.nhs.scot under the Open Government Licence.",
+  },
+  {
+    id: "spso",
+    term: "SPSO",
+    def: "The Scottish Public Services Ombudsman. The free, independent final referee you can go to if your NHS Health Board fails to fix your complaint.",
+    tech: "The SPSO investigates Stage 2 complaints across NHS Scotland and can order apologies, service changes and learning reviews.",
+  },
+  {
+    id: "pass",
+    term: "PASS",
+    def: "The Patient Advice and Support Service. A free, independent Scottish service that helps you understand your NHS rights, write a complaint or attend meetings.",
+    tech: "Funded by the Scottish Government under the Patient Rights (Scotland) Act 2011 and delivered through Citizens Advice Scotland.",
+  },
+  {
+    id: "cnoris",
+    term: "CNORIS",
+    def: "The Clinical Negligence and Other Risks Indemnity Scheme. The NHS Scotland pool that pays out compensation when poor medical care harms a patient.",
+    tech: "Health Boards pay the first £25,000 of a claim and CNORIS covers costs above that threshold.",
+  },
+  {
+    id: "outpatient",
+    term: "Outpatient",
+    def: "A hospital clinic visit where you see a specialist and go home the same day without staying in a bed.",
+  },
+  {
+    id: "inpatient",
+    term: "Inpatient",
+    def: "Hospital care where you are admitted for an operation or treatment, either as a day case or staying overnight.",
+  },
+  {
+    id: "endoscopy",
+    term: "Endoscopy",
+    def: "A hospital test using a tiny camera on a thin tube to look inside your stomach or bowel, often used to check for cancer or ulcers.",
+  },
+  {
+    id: "subject-access-request",
+    term: "Subject Access Request",
+    def: "Your legal right under data protection law to ask your GP or Health Board for a free copy of your full medical records.",
+    tech: "Under UK GDPR, the NHS must normally send your records within one calendar month.",
+  },
 ];
 
 export const termsById: Record<string, Term> = Object.fromEntries(

@@ -1,0 +1,819 @@
+/* NHS Scotland waiting times & patient rights: page-local styles.
+   Colours come only from globals.css tokens so light and dark themes both work. */
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+  align-items: center;
+  gap: clamp(24px, 4vw, 56px);
+  max-width: 1120px;
+  margin: clamp(12px, 2vw, 22px) auto 0;
+  padding: clamp(24px, 4.4vw, 56px);
+  border-radius: var(--r-l);
+  border: 1px solid color-mix(in srgb, var(--hub-tax) 24%, var(--rule));
+  background:
+    radial-gradient(60% 90% at 100% 0%, color-mix(in srgb, var(--hub-tax) 18%, transparent), transparent 70%),
+    radial-gradient(55% 80% at 0% 100%, color-mix(in srgb, var(--bad) 8%, transparent), transparent 70%),
+    linear-gradient(160deg, color-mix(in srgb, var(--hub-tax) 8%, var(--surface)), var(--surface) 70%);
+  box-shadow: var(--shadow-2);
+}
+
+.heroRights {
+  border-color: color-mix(in srgb, var(--hub-benefits) 24%, var(--rule));
+  background:
+    radial-gradient(60% 90% at 100% 0%, color-mix(in srgb, var(--hub-benefits) 18%, transparent), transparent 70%),
+    radial-gradient(55% 80% at 0% 100%, color-mix(in srgb, var(--hub-tax) 8%, transparent), transparent 70%),
+    linear-gradient(160deg, color-mix(in srgb, var(--hub-benefits) 8%, var(--surface)), var(--surface) 70%);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px 6px 8px;
+  border-radius: var(--r-pill);
+  background: color-mix(in srgb, var(--hub-tax) 12%, var(--surface));
+  border: 1px solid color-mix(in srgb, var(--hub-tax) 24%, transparent);
+  color: var(--hub-tax);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.heroRights .eyebrow {
+  background: color-mix(in srgb, var(--hub-benefits) 12%, var(--surface));
+  border-color: color-mix(in srgb, var(--hub-benefits) 24%, transparent);
+  color: var(--hub-benefits);
+}
+
+.eyebrow svg {
+  width: 16px;
+  height: 16px;
+}
+
+@media (max-width: 520px) {
+  .eyebrowExtra {
+    display: none;
+  }
+}
+
+.heroTitle {
+  margin: 18px 0 18px;
+  max-width: 18ch;
+  font-size: clamp(32px, 3.8vw, 52px);
+}
+
+.heroLede {
+  max-width: 48ch;
+}
+
+.panelLabel {
+  margin: 0 0 12px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.stats {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 16px 20px;
+  border-radius: var(--r-m);
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  border: 1px solid color-mix(in srgb, var(--hub-tax) 16%, var(--rule));
+  box-shadow: var(--shadow-1);
+}
+
+.statAlert {
+  border-color: color-mix(in srgb, var(--bad) 32%, var(--rule));
+  background: color-mix(in srgb, var(--bad) 6%, var(--surface));
+}
+
+.statValue {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  white-space: nowrap;
+  font-size: clamp(30px, 3.1vw, 42px);
+  color: var(--hub-tax);
+}
+
+.statAlert .statValue {
+  color: var(--bad-text);
+}
+
+.heroRights .statValue {
+  color: var(--hub-benefits);
+}
+
+.heroRights .statAlert .statValue {
+  color: var(--bad-text);
+}
+
+.statLabel {
+  font-size: 15.5px;
+  line-height: 1.45;
+  color: var(--ink-2);
+}
+
+@media (max-width: 960px) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ---------- Dark cross-link banner ---------- */
+.banner {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 20px 28px;
+  padding: clamp(22px, 3.4vw, 36px);
+  border-radius: var(--r-l);
+  color: var(--deep-ink);
+  background:
+    radial-gradient(55% 140% at 0% 0%, color-mix(in srgb, var(--hub-tax-bar) 28%, transparent), transparent 62%),
+    radial-gradient(45% 120% at 100% 100%, color-mix(in srgb, var(--hub-benefits-bar) 26%, transparent), transparent 62%),
+    linear-gradient(120deg, var(--deep-2), var(--deep));
+  box-shadow: var(--shadow-3);
+}
+
+.bannerIcon {
+  display: grid;
+  place-items: center;
+  width: 68px;
+  height: 68px;
+  border-radius: 20px;
+  background: color-mix(in srgb, var(--hub-benefits-bar) 16%, transparent);
+  border: 1px solid color-mix(in srgb, var(--hub-benefits-bar) 40%, transparent);
+  color: var(--hub-benefits-bar);
+}
+
+.bannerIcon svg {
+  width: 34px;
+  height: 34px;
+}
+
+.bannerKicker {
+  margin: 0 0 6px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--hub-benefits-bar);
+}
+
+.bannerTitle {
+  margin: 0;
+  font-size: clamp(21px, 2.2vw, 27px);
+  font-weight: 680;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  color: var(--deep-ink);
+}
+
+.bannerBody {
+  margin: 8px 0 0;
+  max-width: 60ch;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--deep-muted);
+}
+
+.bannerBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 50px;
+  padding: 12px 24px;
+  border-radius: var(--r-pill);
+  background: var(--deep-ink);
+  color: var(--deep);
+  font-size: 16px;
+  font-weight: 650;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 10px 24px -12px rgba(0, 0, 0, 0.6);
+  transition: transform 0.18s var(--ease), background 0.18s var(--ease);
+}
+
+.bannerBtn:hover {
+  transform: translateY(-1px);
+  background: color-mix(in srgb, var(--deep-ink) 90%, var(--hub-benefits-bar));
+}
+
+.bannerBtn:focus-visible {
+  outline: 3px solid var(--hub-benefits-bar);
+  outline-offset: 3px;
+}
+
+@media (max-width: 860px) {
+  .banner {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+  .bannerBtn {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+}
+
+@media (max-width: 520px) {
+  .banner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .bannerIcon {
+    width: 54px;
+    height: 54px;
+  }
+  .bannerBtn {
+    justify-self: stretch;
+    white-space: normal;
+  }
+}
+
+/* ---------- Grids & Cards ---------- */
+.grid2,
+.grid3,
+.grid4 {
+  display: grid;
+  gap: 16px;
+  margin-top: 24px;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (min-width: 768px) {
+  .grid2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .grid3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .grid4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.card {
+  --c: var(--hub-tax);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+  border-radius: var(--r-m);
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  box-shadow: var(--shadow-1);
+}
+
+.cardAlert {
+  border-color: color-mix(in srgb, var(--bad) 26%, var(--rule));
+  background: color-mix(in srgb, var(--bad) 3%, var(--surface));
+}
+
+.iconChip {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 13px;
+  background: color-mix(in srgb, var(--c) 12%, var(--surface));
+  border: 1px solid color-mix(in srgb, var(--c) 22%, transparent);
+  color: var(--c);
+  flex-shrink: 0;
+}
+
+.iconChip svg {
+  width: 22px;
+  height: 22px;
+}
+
+.cardKicker {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c);
+}
+
+.bigFig {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: clamp(28px, 2.8vw, 38px);
+  font-weight: 740;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.05;
+  color: var(--ink);
+}
+
+.bigFigBad {
+  color: var(--bad-text);
+}
+
+.cardHeading {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 680;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+
+.cardText {
+  margin: 0;
+  font-size: 15.5px;
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+
+/* ---------- Interactive Explorer Frame ---------- */
+.explorer {
+  padding: clamp(22px, 3.2vw, 36px);
+  border-radius: var(--r-l);
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  box-shadow: var(--shadow-2);
+}
+
+.explorerTop {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.explorerTitle {
+  margin: 6px 0 0;
+  font-size: clamp(22px, 2.4vw, 30px);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+}
+
+.selectWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: min(100%, 300px);
+}
+
+.selectLabel {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.select {
+  appearance: none;
+  min-height: 46px;
+  padding: 10px 42px 10px 16px;
+  border-radius: var(--r-s);
+  border: 1.5px solid var(--rule-strong);
+  background:
+    var(--select-chevron) no-repeat right 14px center / 18px 18px,
+    var(--surface-2);
+  color: var(--ink);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.select:focus-visible {
+  outline: 3px solid var(--action);
+  outline-offset: 2px;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.chipBtn {
+  padding: 7px 14px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--rule-strong);
+  background: var(--surface-2);
+  color: var(--ink-2);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s var(--ease), color 0.15s var(--ease), border-color 0.15s var(--ease);
+}
+
+.chipBtn:hover {
+  border-color: var(--action);
+  color: var(--ink);
+}
+
+.chipBtnActive {
+  background: var(--action);
+  border-color: var(--action);
+  color: var(--action-ink);
+}
+
+.chipBtnActive:hover {
+  color: var(--action-ink);
+}
+
+.metricGrid {
+  display: grid;
+  gap: 14px;
+  margin-top: 22px;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (min-width: 640px) {
+  .metricGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 960px) {
+  .metricGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.metricTile {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 18px 20px;
+  border-radius: var(--r-m);
+  background: var(--surface-2);
+  border: 1px solid var(--rule);
+}
+
+.metricLabel {
+  margin: 0;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ink-3);
+}
+
+.metricVal {
+  margin: 0;
+  font-size: clamp(26px, 2.5vw, 34px);
+  font-weight: 740;
+  letter-spacing: -0.035em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.05;
+  color: var(--ink);
+}
+
+.metricValBad {
+  color: var(--bad-text);
+}
+
+.metricValWarn {
+  color: var(--warn-text);
+}
+
+.metricValGood {
+  color: var(--good-text);
+}
+
+.metricSub {
+  margin: 2px 0 0;
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--ink-2);
+}
+
+/* ---------- Progress / Bar visuals ---------- */
+.barTrack {
+  position: relative;
+  height: 10px;
+  width: 100%;
+  border-radius: var(--r-pill);
+  background: var(--paper-3);
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+.barFill {
+  height: 100%;
+  border-radius: var(--r-pill);
+  background: var(--action);
+}
+
+.barFillBad {
+  background: var(--bad);
+}
+
+.barFillWarn {
+  background: var(--warn);
+}
+
+.barFillGood {
+  background: var(--good);
+}
+
+.explorerFoot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--rule);
+}
+
+/* ---------- Buttons & Phone Text ---------- */
+.onlineBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 10px 20px;
+  border-radius: var(--r-pill);
+  background: var(--action);
+  color: var(--action-ink);
+  font-size: 15px;
+  font-weight: 650;
+  text-decoration: none;
+  transition: background 0.15s var(--ease), transform 0.15s var(--ease);
+}
+
+.onlineBtn:hover {
+  background: var(--action-hover);
+  transform: translateY(-1px);
+}
+
+.secondaryBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 10px 18px;
+  border-radius: var(--r-pill);
+  background: var(--surface-2);
+  border: 1px solid var(--rule-strong);
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.secondaryBtn:hover {
+  border-color: var(--action);
+  color: var(--action-text);
+}
+
+.phoneNote {
+  margin: 6px 0 0;
+  font-size: 14px;
+  color: var(--ink-3);
+}
+
+.phoneNote a {
+  color: var(--ink);
+  font-weight: 650;
+  text-decoration: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .phoneNote a {
+    pointer-events: none;
+  }
+}
+
+/* ---------- Ranked Hospital / Cancer Tables ---------- */
+.rankList {
+  display: grid;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.rankRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px 20px;
+  padding: 16px 20px;
+  border-radius: var(--r-m);
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  box-shadow: var(--shadow-1);
+}
+
+.rankName {
+  margin: 0;
+  font-size: 16.5px;
+  font-weight: 680;
+  color: var(--ink);
+}
+
+.rankMeta {
+  margin: 2px 0 0;
+  font-size: 14px;
+  color: var(--ink-3);
+}
+
+.rankStat {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.rankPct {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 740;
+  letter-spacing: -0.03em;
+  color: var(--bad-text);
+}
+
+.rankSub {
+  margin: 2px 0 0;
+  font-size: 13px;
+  color: var(--ink-3);
+}
+
+@media (max-width: 700px) {
+  .rankRow {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+  .rankBarWrap {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ---------- Rights Issue Picker ---------- */
+.issueGrid {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (min-width: 640px) {
+  .issueGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 960px) {
+  .issueGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.issueBtn {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  text-align: left;
+  padding: 16px;
+  border-radius: var(--r-m);
+  border: 1.5px solid var(--rule);
+  background: var(--surface-2);
+  color: var(--ink);
+  cursor: pointer;
+  transition: border-color 0.15s var(--ease), background 0.15s var(--ease);
+}
+
+.issueBtn:hover {
+  border-color: var(--action);
+}
+
+.issueBtnActive {
+  border-color: var(--action);
+  background: var(--action-tint);
+}
+
+.issueBtnTitle {
+  display: block;
+  font-size: 15.5px;
+  font-weight: 680;
+  line-height: 1.3;
+  color: var(--ink);
+}
+
+.issueBtnSub {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  line-height: 1.4;
+  color: var(--ink-2);
+}
+
+.planBox {
+  margin-top: 22px;
+  padding: clamp(20px, 3vw, 28px);
+  border-radius: var(--r-m);
+  background: color-mix(in srgb, var(--hub-benefits) 5%, var(--surface-2));
+  border: 1px solid color-mix(in srgb, var(--hub-benefits) 28%, var(--rule));
+}
+
+.planGrid {
+  display: grid;
+  gap: 18px;
+  margin-top: 16px;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (min-width: 768px) {
+  .planGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.stepList {
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+.stepItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 15.5px;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+
+.stepNum {
+  display: inline-grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: var(--r-pill);
+  background: var(--action);
+  color: var(--action-ink);
+  font-size: 13px;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ---------- Sources box ---------- */
+.sourceBox {
+  margin-top: 24px;
+  padding: 22px 24px;
+  border-radius: var(--r-m);
+  background: var(--surface-2);
+  border: 1px solid var(--rule);
+}
+
+.sourceList {
+  margin: 12px 0 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 8px;
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+
+.sourceList a {
+  color: var(--action-text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

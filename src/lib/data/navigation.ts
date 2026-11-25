@@ -258,6 +258,8 @@ export const HUBS: Hub[] = [
       {
         heading: "Local figures",
         items: [
+          { href: "/nhs-scotland-waiting-times", label: "NHS waiting times and data", tag: "New" },
+          { href: "/nhs-patient-rights-scotland", label: "NHS patient rights and complaints", tag: "New" },
           { href: "/simd-postcode-checker", label: "SIMD postcode checker", tag: "Tool" },
           { href: "/poverty-in-scotland", label: "Poverty in Scotland" },
           { href: "/unemployment-scotland", label: "Unemployment in Scotland" },
