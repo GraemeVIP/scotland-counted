@@ -74,9 +74,6 @@ export default function ContactForm() {
   const initialPage = params.get("page") ?? "";
 
   const [reasonId, setReasonId] = useState<ContactReasonId>(initialReason);
-  const [wantsReply, setWantsReply] = useState<boolean>(
-    initialReason === "charity-help" || initialReason === "press" || initialReason === "general"
-  );
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [organisation, setOrganisation] = useState("");
@@ -90,11 +87,11 @@ export default function ContactForm() {
   const [sent, setSent] = useState<{
     reference: string;
     reasonLabel: string;
-    wantsReply: boolean;
     email: string;
   } | null>(null);
 
   const messageRef = useRef<HTMLTextAreaElement>(null);
+  const nameRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
   const orgUid = useId();
   const pageUid = useId();
@@ -109,7 +106,6 @@ export default function ContactForm() {
     if (r) {
       const matched = getContactReason(r).id;
       setReasonId(matched);
-      setWantsReply(matched === "charity-help" || matched === "press" || matched === "general");
     }
     if (p) setPageUrl(p);
   }, [params]);
@@ -117,16 +113,13 @@ export default function ContactForm() {
   const activeReason = getContactReason(reasonId);
   const messageChars = message.trim().length;
   const hasMessage = messageChars >= 15;
-  const hasValidEmail = !wantsReply || /^\S+@\S+\.\S+$/.test(email.trim());
-  const doneSteps = 1 + (hasMessage ? 1 : 0) + (hasMessage && hasValidEmail ? 1 : 0);
+  const hasValidDetails = name.trim().length >= 2 && /^\S+@\S+\.\S+$/.test(email.trim());
+  const doneSteps = 1 + (hasMessage ? 1 : 0) + (hasValidDetails ? 1 : 0);
   const progressPct = Math.round((doneSteps / 3) * 100);
 
   function selectReason(id: ContactReasonId) {
     setReasonId(id);
     setError(null);
-    if (id === "charity-help" || id === "press") {
-      setWantsReply(true);
-    }
   }
 
   async function handleSubmit(event: FormEvent) {
@@ -134,6 +127,7 @@ export default function ContactForm() {
     setError(null);
 
     const trimmedMsg = message.trim();
+    const trimmedName = name.trim();
     const trimmedEmail = email.trim();
 
     if (trimmedMsg.length < 15) {
@@ -141,12 +135,17 @@ export default function ContactForm() {
       messageRef.current?.focus();
       return;
     }
-    if (wantsReply && !trimmedEmail) {
-      setError({ text: "Add your email address so we can reply, or choose No reply needed.", field: "email" });
+    if (trimmedName.length < 2) {
+      setError({ text: "Add your name so we know who we are speaking with.", field: "name" });
+      nameRef.current?.focus();
+      return;
+    }
+    if (!trimmedEmail) {
+      setError({ text: "Add your email address so we can reply.", field: "email" });
       emailRef.current?.focus();
       return;
     }
-    if (trimmedEmail && (trimmedEmail.length < 5 || !/^\S+@\S+\.\S+$/.test(trimmedEmail))) {
+    if (trimmedEmail.length < 5 || !/^\S+@\S+\.\S+$/.test(trimmedEmail)) {
       setError({ text: "Enter a valid email address.", field: "email" });
       emailRef.current?.focus();
       return;
@@ -159,8 +158,8 @@ export default function ContactForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           reason: reasonId,
-          wantsReply,
-          name,
+          wantsReply: true,
+          name: trimmedName,
           email: trimmedEmail,
           organisation,
           pageUrl,
@@ -180,16 +179,16 @@ export default function ContactForm() {
       if (!response.ok || !result?.success) {
         const msg = result?.error || "Your message could not be sent right now. Please try again shortly.";
         setError({ text: msg, field: result?.field });
+        if (result?.field === "name") nameRef.current?.focus();
         if (result?.field === "email") emailRef.current?.focus();
         if (result?.field === "message") messageRef.current?.focus();
         return;
       }
 
-      trackEvent("contact_submitted", { reason: reasonId, wants_reply: wantsReply ? "yes" : "no" });
+      trackEvent("contact_submitted", { reason: reasonId, wants_reply: "yes" });
       setSent({
         reference: result.reference ?? "SC-SENT",
         reasonLabel: result.reasonLabel ?? activeReason.label,
-        wantsReply,
         email: trimmedEmail,
       });
     } catch {
@@ -229,9 +228,7 @@ export default function ContactForm() {
 
         <h2 className="h3 mt-4 text-[var(--ink)]">Thank you. We have your message.</h2>
         <p className="mt-3 max-w-[54ch] text-[17px] leading-[1.6] text-[var(--ink-2)]">
-          {sent.wantsReply
-            ? `Your note has gone straight to the Scotland Counted desk. We will reply to ${sent.email}.`
-            : "Your note has gone straight to the Scotland Counted desk. You chose no reply, so we did not keep an email address."}
+          Your note has gone straight to the Scotland Counted desk. We will reply to {sent.email}.
         </p>
 
         <dl className="mt-6 grid gap-4 rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--paper)] p-4 sm:grid-cols-2">
@@ -453,91 +450,56 @@ export default function ContactForm() {
       </div>
 
       <div className="mt-8 border-t border-[var(--rule)] pt-7">
-        <p className="kicker text-[var(--action-text)]">3. Reply details</p>
+        <p className="kicker text-[var(--action-text)]">3. Your details</p>
+        <p className="mt-1.5 text-[15.5px] leading-[1.55] text-[var(--ink-2)]">
+          Add your name and email address so we can reply to your message.
+        </p>
 
-        <div
-          role="group"
-          aria-label="Reply preference"
-          className="mt-3 grid grid-cols-1 gap-2 rounded-[var(--r-s)] border border-[var(--rule-strong)] bg-[var(--paper)] p-1.5 sm:grid-cols-2"
-        >
-          <button
-            type="button"
-            aria-pressed={wantsReply}
-            onClick={() => {
-              setWantsReply(true);
-              setError(null);
-            }}
-            className={`ui min-h-11 rounded-[10px] px-4 py-2 text-[15px] font-[600] transition-colors cursor-pointer ${
-              wantsReply
-                ? "bg-[var(--action)] text-[var(--action-ink)]"
-                : "text-[var(--ink-2)] hover:text-[var(--ink)]"
-            }`}
-          >
-            Yes, send me a reply
-          </button>
-
-          <button
-            type="button"
-            aria-pressed={!wantsReply}
-            onClick={() => {
-              setWantsReply(false);
-              if (error?.field === "email") setError(null);
-            }}
-            className={`ui min-h-11 rounded-[10px] px-4 py-2 text-[15px] font-[600] transition-colors cursor-pointer ${
-              !wantsReply
-                ? "bg-[var(--action)] text-[var(--action-ink)]"
-                : "text-[var(--ink-2)] hover:text-[var(--ink)]"
-            }`}
-          >
-            No reply needed
-          </button>
-        </div>
-
-        {wantsReply ? (
-          <div className="mt-5 grid gap-4 sm:grid-cols-2">
-            <div>
-              <label htmlFor={nameUid} className="ui mb-2 block text-[15px] font-[580] text-[var(--ink)]">
-                Your name (optional)
-              </label>
-              <input
-                id={nameUid}
-                type="text"
-                autoComplete="name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                maxLength={80}
-                placeholder="First name or full name"
-                className={inputCls}
-              />
-            </div>
-
-            <div>
-              <label htmlFor={emailUid} className="ui mb-2 block text-[15px] font-[580] text-[var(--ink)]">
-                Email address
-              </label>
-              <input
-                ref={emailRef}
-                id={emailUid}
-                type="email"
-                required
-                autoComplete="email"
-                value={email}
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                  if (error?.field === "email") setError(null);
-                }}
-                maxLength={254}
-                placeholder="you@example.org.uk"
-                className={inputCls}
-                style={error?.field === "email" ? errorFieldStyle : undefined}
-              />
-            </div>
+        <div className="mt-4 grid gap-4 sm:grid-cols-2">
+          <div>
+            <label htmlFor={nameUid} className="ui mb-2 block text-[15px] font-[580] text-[var(--ink)]">
+              Your name
+            </label>
+            <input
+              ref={nameRef}
+              id={nameUid}
+              type="text"
+              required
+              autoComplete="name"
+              value={name}
+              onChange={(e) => {
+                setName(e.target.value);
+                if (error?.field === "name") setError(null);
+              }}
+              maxLength={80}
+              placeholder="First name or full name"
+              className={inputCls}
+              style={error?.field === "name" ? errorFieldStyle : undefined}
+            />
           </div>
-        ) : (
-          <p className="mt-4 rounded-[var(--r-s)] border border-[var(--rule)] bg-[var(--paper)] px-4 py-3 text-[15px] leading-[1.5] text-[var(--ink-2)]">
-            Your message goes through without an email address. We cannot write back to you.
-          </p>
-        )}
+
+          <div>
+            <label htmlFor={emailUid} className="ui mb-2 block text-[15px] font-[580] text-[var(--ink)]">
+              Email address
+            </label>
+            <input
+              ref={emailRef}
+              id={emailUid}
+              type="email"
+              required
+              autoComplete="email"
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+                if (error?.field === "email") setError(null);
+              }}
+              maxLength={254}
+              placeholder="you@example.org.uk"
+              className={inputCls}
+              style={error?.field === "email" ? errorFieldStyle : undefined}
+            />
+          </div>
+        </div>
       </div>
 
       {error && (

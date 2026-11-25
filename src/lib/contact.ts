@@ -136,7 +136,7 @@ export function validateContactInput(raw: Record<string, unknown>): ContactValid
     return { ok: false, error: "Choose what your message is about.", field: "reason" };
   }
 
-  const wantsReply = asBool(raw.wantsReply);
+  const wantsReply = raw.wantsReply === undefined ? true : asBool(raw.wantsReply);
   const name = cleanSingleLine(raw.name, 80);
   const email = cleanSingleLine(raw.email, 254).toLowerCase();
   const organisation = cleanSingleLine(raw.organisation, 120);
@@ -144,10 +144,13 @@ export function validateContactInput(raw: Record<string, unknown>): ContactValid
   const timeframe = cleanSingleLine(raw.timeframe, 80);
   const message = cleanText(raw.message, 4000);
 
-  if (wantsReply && !email) {
-    return { ok: false, error: "Add your email address so we can reply, or choose No reply needed.", field: "email" };
+  if (name.length < 2) {
+    return { ok: false, error: "Add your name so we know who we are speaking with.", field: "name" };
   }
-  if (email && (email.length < 5 || !/^\S+@\S+\.\S+$/.test(email))) {
+  if (!email) {
+    return { ok: false, error: "Add your email address so we can reply.", field: "email" };
+  }
+  if (email.length < 5 || !/^\S+@\S+\.\S+$/.test(email)) {
     return { ok: false, error: "Enter a valid email address.", field: "email" };
   }
   if (message.length < 15) {

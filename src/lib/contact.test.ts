@@ -9,22 +9,31 @@ describe("contact form validation", () => {
     assert.equal(getContactReason("unknown").id, "charity-help");
   });
 
-  it("requires an email when wantsReply is true", () => {
-    const res = validateContactInput({
+  it("requires both name and email", () => {
+    const noName = validateContactInput({
       reason: "charity-help",
-      wantsReply: true,
+      name: "",
+      email: "alex@example.org.uk",
+      message: "Can you help us with local child poverty numbers for a grant bid?",
+    });
+    assert.equal(noName.ok, false);
+    if (!noName.ok) assert.equal(noName.field, "name");
+
+    const noEmail = validateContactInput({
+      reason: "charity-help",
+      name: "Alex Smith",
       email: "",
       message: "Can you help us with local child poverty numbers for a grant bid?",
     });
-    assert.equal(res.ok, false);
-    if (!res.ok) assert.equal(res.field, "email");
+    assert.equal(noEmail.ok, false);
+    if (!noEmail.ok) assert.equal(noEmail.field, "email");
   });
 
-  it("allows anonymous tips and error reports when wantsReply is false", () => {
+  it("accepts a valid submission with name, email and message", () => {
     const res = validateContactInput({
       reason: "correction",
-      wantsReply: false,
-      email: "",
+      name: "Alex Smith",
+      email: "alex@example.org.uk",
       pageUrl: "https://scotlandcounted.org.uk/safest-place-to-live-in-scotland",
       message: "Highland also fell by 0.5% so three councils fell in total.",
     });
@@ -32,7 +41,8 @@ describe("contact form validation", () => {
     if (res.ok) {
       assert.equal(res.honeypot, false);
       assert.equal(res.data.reason, "correction");
-      assert.equal(res.data.email, "");
+      assert.equal(res.data.name, "Alex Smith");
+      assert.equal(res.data.email, "alex@example.org.uk");
     }
   });
 
@@ -47,13 +57,18 @@ describe("contact form validation", () => {
   });
 
   it("rejects very short messages and invalid emails", () => {
-    const shortMsg = validateContactInput({ reason: "general", wantsReply: false, message: "Hi" });
+    const shortMsg = validateContactInput({
+      reason: "general",
+      name: "Alex Smith",
+      email: "alex@example.org.uk",
+      message: "Hi",
+    });
     assert.equal(shortMsg.ok, false);
     if (!shortMsg.ok) assert.equal(shortMsg.field, "message");
 
     const badEmail = validateContactInput({
       reason: "press",
-      wantsReply: true,
+      name: "Alex Smith",
       email: "not-an-email",
       message: "Looking to quote your North Ayrshire crime chart tomorrow.",
     });
