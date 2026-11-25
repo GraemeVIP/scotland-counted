@@ -338,7 +338,7 @@ export default function MspExpensesScotlandInvestigation() {
         person={{ name: "Ross Greer", href: msp("regions/west-scotland/ross-greer"), p: "Greens", place: "West Scotland" }}
         kicker="November 2023 · a hotel he never stayed in"
         amount="£396"
-        headline="You paid for a hotel booking he cancelled."
+        headline="Public funds paid for a cancelled hotel booking."
         lines={[{ what: "28 Nov Arrival 2NTS; Non-refundable Cancellation fee - 27 Nov 2023", amount: "£396.00" }]}
       >
         <p>
@@ -560,7 +560,7 @@ export default function MspExpensesScotlandInvestigation() {
         person={{ name: "Lorna Slater", href: msp("constituencies/edinburgh-central"), p: "Greens", place: "Edinburgh Central" }}
         kicker="September and November 2023 · while she was a government minister"
         amount="£3,000"
-        headline="You paid for a minister's one to one speaking coach."
+        headline="Public funds paid for a minister's one to one speaking coach."
         lines={[
           { meta: "18 Sept 2023 · Pink Elephant Communications Ltd", what: "Pink Elephant Communication Skills 1-2-1", amount: "£1,500.00" },
           { meta: "2 Nov 2023 · Pink Elephant Communications Ltd", what: "Comm Skills October LS", amount: "£1,500.00" },

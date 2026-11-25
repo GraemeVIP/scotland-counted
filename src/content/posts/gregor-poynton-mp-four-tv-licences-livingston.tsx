@@ -89,7 +89,7 @@ export default function GregorPoyntonMpFourTvLicencesLivingston() {
         items={[
           <>
             A TV licence lasts a whole year. Livingston MP{" "}
-            <Link href={POYNTON.href}>Gregor Poynton</Link> billed you for <strong>four in 11 months</strong>{" "}
+            <Link href={POYNTON.href}>Gregor Poynton</Link> claimed <strong>four in 11 months</strong>{" "}
             (<strong>£688</strong>).
           </>,
           <>
@@ -354,7 +354,7 @@ export default function GregorPoyntonMpFourTvLicencesLivingston() {
         <p>
           Four TV licences is just one slice of the file. See{" "}
           <Link href="/blog/scottish-mps-tv-licence-expenses">all 29 MPs claiming TV licences</Link>,{" "}
-          <Link href="/blog/worst-scottish-mp-expenses">the worst Scottish MP expenses</Link> or{" "}
+          <Link href="/blog/worst-scottish-mp-expenses">standout Scottish MP expense claims</Link> or{" "}
           <Link href="/mp-expenses-scotland">every Scottish MP ranked</Link>.
         </p>
       </Aside>

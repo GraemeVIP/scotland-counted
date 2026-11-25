@@ -192,7 +192,7 @@ export function HubPanel({ hubId, onNavigate }: { hubId: HubId; onNavigate: () =
       id="hub-panel"
       role="region"
       aria-label={`${hub.label} menu`}
-      className="hidden xl:flex flex-col max-h-[calc(100dvh-var(--header-h)-24px)] max-w-[1320px] mx-auto mt-2.5 overflow-hidden rounded-[var(--r-l)] border border-[var(--rule)] bg-[var(--surface)] shadow-[0_30px_60px_-24px_rgba(2,20,60,0.45)]"
+      className="hidden xl:flex flex-col max-h-[calc(100dvh-var(--header-h)-24px)] max-w-[1400px] mx-auto mt-2.5 overflow-hidden rounded-[var(--r-l)] border border-[var(--rule)] bg-[var(--surface)] shadow-[0_30px_60px_-24px_rgba(2,20,60,0.45)]"
     >
       <div className="flex items-center gap-3.5 border-b border-[var(--rule)] px-7 py-4">
         <span aria-hidden="true" className="h-2.5 w-2.5 shrink-0 rounded-full" style={{ background: color }} />
@@ -249,12 +249,19 @@ export function HubPanel({ hubId, onNavigate }: { hubId: HubId; onNavigate: () =
             {item.label}
           </Link>
         ))}
-        <Link href={ABOUT[0].href} onClick={onNavigate} className="ui ml-auto text-[14.5px] font-[600] text-[var(--ink-2)]">
-          About us
-        </Link>
-        <Link href="/browse" onClick={onNavigate} className="ui text-[14.5px] font-[600] text-[var(--ink-2)]">
-          Every page on the site <span aria-hidden="true">→</span>
-        </Link>
+        <div className="ml-auto flex flex-wrap items-center gap-x-4 gap-y-1">
+          <Link href={ABOUT[0].href} onClick={onNavigate} className="ui text-[14.5px] font-[550] text-[var(--ink-2)] no-underline transition-colors hover:text-[var(--ink)]">
+            About us
+          </Link>
+          <span aria-hidden="true" className="h-3.5 w-px bg-[var(--rule-strong)]" />
+          <Link href="/contact" onClick={onNavigate} className="ui text-[14.5px] font-[550] text-[var(--ink-2)] no-underline transition-colors hover:text-[var(--ink)]">
+            Contact
+          </Link>
+          <span aria-hidden="true" className="h-3.5 w-px bg-[var(--rule-strong)]" />
+          <Link href="/browse" onClick={onNavigate} className="ui text-[14.5px] font-[600] text-[var(--ink)] no-underline transition-colors hover:text-[var(--action-text)]">
+            Every page on the site <span aria-hidden="true">→</span>
+          </Link>
+        </div>
       </div>
     </div>
   );
@@ -425,15 +432,27 @@ export function MobileMenu({
               className="ui flex min-h-14 items-center gap-3 px-4 text-[17px] font-[600] text-[var(--ink)] no-underline"
             >
               <span aria-hidden="true" className="h-2.5 w-2.5 shrink-0 rounded-full bg-[var(--ink)]" />
-              {EXPLAINERS.label}
+              <span className="flex-1">{EXPLAINERS.label}</span>
+              <span aria-hidden="true" className="text-[15px] text-[var(--muted)]">→</span>
             </Link>
+          </div>
+
+          <div className="grid grid-cols-2 gap-2.5">
             <Link
               href={ABOUT[0].href}
               onClick={onNavigate}
-              className="ui flex min-h-14 items-center gap-3 border-t border-[var(--rule)] px-4 text-[17px] font-[600] text-[var(--ink)] no-underline"
+              className="ui flex min-h-12 items-center justify-between rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] px-4 text-[15.5px] font-[600] text-[var(--ink)] no-underline transition-colors hover:border-[var(--brand)]"
             >
-              <span aria-hidden="true" className="h-2.5 w-2.5 shrink-0 rounded-full border-2 border-[var(--ink)]" />
-              {ABOUT[0].label}
+              <span>About us</span>
+              <span aria-hidden="true" className="text-[var(--muted)]">→</span>
+            </Link>
+            <Link
+              href="/contact"
+              onClick={onNavigate}
+              className="ui flex min-h-12 items-center justify-between rounded-[var(--r-m)] border border-[var(--rule)] bg-[var(--surface)] px-4 text-[15.5px] font-[600] text-[var(--ink)] no-underline transition-colors hover:border-[var(--brand)]"
+            >
+              <span>Contact</span>
+              <span aria-hidden="true" className="text-[var(--muted)]">→</span>
             </Link>
           </div>
 

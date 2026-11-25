@@ -181,7 +181,7 @@ export default function KilmarnockMp23437ElectricityBill() {
       <QuickTake
         items={[
           <>
-            You paid a <strong>£23,437</strong> energy bill for Kilmarnock MP{" "}
+            Public funds paid a <strong>£23,437</strong> energy bill for Kilmarnock MP{" "}
             <Link href={JONES.href}>Lillian Jones</Link>, in two claims dated the same day. It is
             the <strong>biggest energy bill of any UK MP</strong> since 2022.
           </>,
@@ -419,7 +419,7 @@ export default function KilmarnockMp23437ElectricityBill() {
       </P>
       <P>
         Business energy bills can spike with no fixed deal, an old debt, or heaters left on all winter.
-        The files never say which of those took place, or why you paid the bill.
+        The files never say which of those took place, or why the claim was so large.
       </P>
       <P>
         Kilmarnock people still have no answers to four plain questions:
@@ -490,7 +490,7 @@ export default function KilmarnockMp23437ElectricityBill() {
           <strong>£37,359 on London hotels for</strong>{" "}
           <Link href="/representatives/mps/glasgow-south-west#donations-and-interests">Dr Zubir Ahmed</Link>{" "}
           in one year. See{" "}
-          <Link href="/blog/worst-scottish-mp-expenses">the worst claims</Link> or compare{" "}
+          <Link href="/blog/worst-scottish-mp-expenses">standout MP expense claims</Link> or compare{" "}
           <Link href="/mp-expenses-scotland">all 57 Scottish MPs</Link>.
         </p>
       </Aside>

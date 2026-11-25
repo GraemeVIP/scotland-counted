@@ -263,7 +263,7 @@ export default function AngusMacdonaldMpSpeechCoachDrainsExpenses() {
 
       <ChartFrame
         kicker="His London flat · 2025/26"
-        title="What you paid for a second home he pays no rent on"
+        title="Public claims on a second home with no rent"
         caption="Source: IPSA files for Angus MacDonald MP, 2025/26 budget year (April 2025 to March 2026). These items add up to £6,075.80, his whole second home bill that year, with £0 rent."
       >
         <div className="space-y-4">

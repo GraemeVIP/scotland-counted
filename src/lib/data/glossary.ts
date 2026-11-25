@@ -1377,6 +1377,29 @@ export const terms: Term[] = [
     def: "Driving offences such as speeding, mobile phone use or driving without insurance. Often driven up by proactive police stops.",
     tech: "Counted under police recorded offences (Group 7) rather than the main Groups 1 to 5 recorded crime total.",
   },
+  {
+    id: "foi",
+    term: "FOI",
+    def: "Freedom of Information. A legal right to ask councils, the NHS or government for records they hold.",
+    tech: "Under the Freedom of Information (Scotland) Act 2002, Scottish public bodies normally have 20 working days to reply.",
+  },
+  {
+    id: "additional-support-needs",
+    term: "Additional support needs",
+    def: "Extra help a child needs to learn at school, for reasons such as disability, autism, dyslexia, mental health or family circumstances.",
+    tech: "Recorded in the Scottish Government annual pupil census. Around two in five Scottish pupils now have a recorded need.",
+  },
+  {
+    id: "asn",
+    term: "ASN",
+    def: "Short for additional support needs. Extra help a child needs to learn at school, from dyslexia support to complex medical care.",
+  },
+  {
+    id: "school-roll",
+    term: "School roll",
+    def: "The total number of pupils registered at council schools in an area.",
+    tech: "Taken from the Scottish Government September 2024 pupil census across primary, secondary and special schools.",
+  },
 ];
 
 export const termsById: Record<string, Term> = Object.fromEntries(

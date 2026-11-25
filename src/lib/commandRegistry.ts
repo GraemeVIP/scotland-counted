@@ -90,6 +90,12 @@ const CORE: Item[] = [
     keywords: "all pages site map browse contents",
   },
   {
+    label: "Contact Scotland Counted",
+    href: "/contact",
+    group: "Main pages",
+    keywords: "contact form email charity data help correction mistake press tip",
+  },
+  {
     label: "Take home pay calculator",
     href: "/take-home-pay-calculator-scotland",
     group: "Free tools",

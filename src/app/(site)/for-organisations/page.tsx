@@ -51,11 +51,16 @@ export default function Organisations() {
                 case, based on time and what the public data can show.
               </ExplainText>
             </p>
-            <Link href="/methods" className="btn btn-primary mt-5">
-              See how we check facts →
-            </Link>
+            <div className="mt-5 flex flex-wrap items-center gap-4">
+              <Link href="/contact?reason=charity-help" className="btn btn-primary">
+                Ask for data help →
+              </Link>
+              <Link href="/methods" className="ui text-[15.5px] font-[600]">
+                See how we check facts →
+              </Link>
+            </div>
             <p className="mt-3 text-[15px] leading-relaxed text-[var(--muted)]">
-              We do not charge fees or sell paid work. A contact form is on the way.
+              We do not charge fees or sell paid work. Tell us your council area, your question and when you need it.
             </p>
           </section>
         </div>

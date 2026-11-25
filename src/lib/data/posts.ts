@@ -188,29 +188,62 @@ export const posts: Post[] = [
     ],
   },
   {
-    slug: "north-ayrshire-school-taxi-spending",
-    title: "North Ayrshire spent £2.45 million on school taxis. What did it get for the money?",
-    seoTitle: "North Ayrshire Council’s £2.45m School Taxi Bill",
-    description: "North Ayrshire reported £2.45m in school taxi spending in 2024/25. See how it compares and which invoices and contract records would show value for money.",
-    standfirst: "School runs made up about 87% of North Ayrshire’s taxi bill in 2024/25. To see whether the council got a fair price, we need to see what it paid for each route.",
-    date: "2026-11-23",
+    slug: "scottish-councils-school-taxi-spending",
+    title: "£94 million on taxis: how Scottish council taxi bills tripled in ten years",
+    seoTitle: "Scottish Councils Spend £94m on Taxis: All 32 Councils Ranked",
+    description:
+      "Taxpayers paid at least £94.2m for Scottish council taxis in 2024/25, with 5 councils giving no figure. Search all 32 councils, check the rules, and see what is missing.",
+    standfirst:
+      "Taxpayers funded at least £94.2 million in Scottish council taxi bills in one year. That is over three times the bill ten years ago. North Lanarkshire beat Glasgow and Edinburgh. £10.2 million had nothing to do with school runs. And five councils gave no number at all.",
+    date: "2026-11-24",
+    updated: "2026-11-24",
+    checked: "2026-11-24",
     category: "politics-explained",
-    tags: ["North Ayrshire Council", "School transport", "School taxi spending", "Council spending"],
-    readingMinutes: 6,
+    tags: ["Scottish councils", "School transport", "School taxi spending", "Council spending", "Council tax"],
+    readingMinutes: 8,
     image: {
-      src: "/images/editorial/north-ayrshire-school-taxi-spending.webp",
-      alt: "Of North Ayrshire’s reported £2.83 million taxi bill in 2024/25, £2.45 million was for school runs and about £380,000 for other journeys",
-      caption: "Source figures were rounded in the published FOI reporting. The amount for other journeys is the difference between the two published figures.",
+      src: "/images/editorial/scottish-councils-school-taxis-2026.webp",
+      alt: "A line of Scottish private hire taxis and people carriers waiting outside a stone Scottish school gate on a misty morning",
+      caption:
+        "Across 27 Scottish councils, taxi bills reached £94.2 million in 2024/25, with five councils unable or unwilling to give a figure.",
+      aspect: "wide",
+      objectPosition: "center",
+    },
+    shareImage: {
+      src: "/images/share/scottish-councils-school-taxis-2026.jpg",
+      width: 1200,
+      height: 630,
+      type: "image/jpeg",
     },
     toc: [
-      { id: "comparison", label: "How North Ayrshire compares" },
-      { id: "contracts", label: "How the council buys journeys" },
-      { id: "five-questions", label: "Five questions about the bill" },
-      { id: "records", label: "The records needed" },
+      { id: "north-lanarkshire-shocker", label: "North Lanarkshire beats Glasgow" },
+      { id: "check-your-council", label: "Check your own council" },
+      { id: "postcode-lottery", label: "The postcode lottery" },
+      { id: "the-rules", label: "Who qualifies and who pays" },
+      { id: "excuses-tested", label: "What the data shows" },
+      { id: "non-school-taxis", label: "The £10.2m non-school bill" },
+      { id: "missing-councils", label: "The five missing councils" },
+      { id: "paper-trail", label: "Where the paper trail stops" },
+      { id: "five-questions", label: "Five questions for councillors" },
+      { id: "how-to-check", label: "How to check your council" },
     ],
     faq: [
-      { q: "How much did North Ayrshire Council spend on school taxis?", a: "A council FOI return reported by the Sunday Mail put North Ayrshire’s 2024/25 spending on taxis and private hire for school runs at about £2.45 million, out of a total taxi bill of £2.83 million." },
-      { q: "How much did North Ayrshire pay per route?", a: "The published total gives no route costs. The rates agreed with each provider, the journeys delivered and the matched invoice lines are needed to work that out." },
+      {
+        q: "How much did Scottish councils spend on taxis in 2024/25?",
+        a: "Across 27 councils, the taxi bill hit £94.24 million in 2024/25. Five councils gave no number, so the real total is likely past £100 million.",
+      },
+      {
+        q: "Which Scottish council spent the most on taxis?",
+        a: "North Lanarkshire spent £12.25 million, the most in Scotland. Edinburgh (£10.60m), Aberdeenshire (£9.34m) and Glasgow (£9.23m) came next. Per pupil, East Ayrshire was top at £256.",
+      },
+      {
+        q: "Does higher ASN explain why some councils spend so much more?",
+        a: "No. Across 25 councils, there is almost no link between ASN share and taxi spend per pupil. Glasgow has a 51.7% ASN rate and spends £210 per ASN pupil. East Ayrshire has 30.9% ASN and spends £827.",
+      },
+      {
+        q: "Which Scottish councils did not share their taxi bill?",
+        a: "Highland, Perth and Kinross, and Shetland said they do not log taxi spend on its own. Angus and Na h-Eileanan Siar did not reply. East Dunbartonshire and East Lothian gave a total with no school split.",
+      },
     ],
     sourceIds: [
       "school-taxi-foi-reporting-2024-25",
@@ -227,12 +260,12 @@ export const posts: Post[] = [
   {
     slug: "scottish-mps-flights-climate-expenses",
     title:
-      "You paid £868,378 for Scottish MPs to fly to London while MPs in the same city took the train",
+      "Scottish MPs claimed £868,378 for London flights while MPs in the same city took the train",
     seoTitle: "Scottish MPs Flight Expenses: £868,378 on Planes vs £150,170 Rail",
     description:
       "Scottish MPs billed £868,378 for London flights against £150,170 on trains in 2025/26, 85% of their London travel money on planes, even when MPs in the same city took the train.",
     standfirst:
-      "Christine Jardine told MPs she has consistently raised opposition to a bigger Heathrow, yet billed you £20,789 for London flights. Tracy Gilbert, in the same city, spent £529 on planes and £10,481 on trains. Across Scotland, 55 current MPs put £868,378 on planes and £150,170 on trains. That is 85% of their London travel money on planes.",
+      "Christine Jardine told MPs she has consistently raised opposition to a bigger Heathrow, while claiming £20,789 for London flights. Tracy Gilbert, in the same city, claimed £529 on planes and £10,481 on trains. Across Scotland, 55 current MPs put £868,378 on planes and £150,170 on trains. That is 85% of their London travel money on planes.",
     date: "2026-11-23",
     updated: "2026-11-23",
     checked: "2026-11-23",
@@ -283,7 +316,7 @@ export const posts: Post[] = [
   {
     slug: "zubir-ahmed-mp-london-hotels-glasgow",
     title:
-      "You paid £67,519 for Glasgow MP Dr Zubir Ahmed's London hotels and flats: the biggest MP hotel bill in the UK",
+      "Glasgow MP Dr Zubir Ahmed claimed £67,519 for London hotels and flats: the highest MP hotel bill in the UK",
     seoTitle: "Dr Zubir Ahmed MP Expenses: £67,519 UK #1 London Hotel Bill",
     description:
       "Taxpayers paid £67,519 for Glasgow South West MP Dr Zubir Ahmed's London hotels and short stay flats since July 2024, the highest total of all 650 UK MPs.",
@@ -313,7 +346,7 @@ export const posts: Post[] = [
       { id: "the-bills", label: "£67,519 across 25 London stays" },
       { id: "sitting-days", label: "295 nights for 152 sitting days" },
       { id: "scotland-rank", label: "Seven times any other Scottish MP" },
-      { id: "other-claims", label: "What else you paid for" },
+      { id: "other-claims", label: "Other claims in his office budget" },
     ],
     faq: [
       {
@@ -334,7 +367,7 @@ export const posts: Post[] = [
   {
     slug: "torcuil-crichton-mp-coaching-expenses-western-isles",
     title:
-      "You paid £2,400 for coaching for Western Isles MP Torcuil Crichton and his staff, from a coach who used to work at IPSA",
+      "Western Isles MP Torcuil Crichton claimed £2,400 for coaching from a former IPSA official",
     seoTitle: "Torcuil Crichton MP Expenses: £2,400 for an Ex IPSA Coach",
     description:
       "Taxpayers paid £2,400 for coaching for Western Isles MP Torcuil Crichton and his staff. The coach used to work at IPSA, which signed off every bill.",
@@ -363,7 +396,7 @@ export const posts: Post[] = [
     toc: [
       { id: "the-receipts", label: "What the 16 coaching bills show" },
       { id: "uk-list", label: "12 MPs, £16,800, and he is the only Scot" },
-      { id: "other-claims", label: "Everything else he billed you" },
+      { id: "other-claims", label: "His other IPSA claims" },
       { id: "why-ipsa-paid", label: "The revolving door, and why IPSA paid it" },
     ],
     faq: [
@@ -385,7 +418,7 @@ export const posts: Post[] = [
   {
     slug: "christine-jardine-mp-christmas-lunch-expenses",
     title:
-      "You paid £510 for Edinburgh West MP Christine Jardine's office Christmas lunch and team event, six days before Christmas",
+      "Edinburgh West MP Christine Jardine's office claimed £510 for a Christmas lunch and team event",
     seoTitle: "Christine Jardine MP Expenses: £510 Office Christmas Lunch",
     description:
       "Taxpayers paid £510 for Edinburgh West MP Christine Jardine's office Christmas lunch and team event. IPSA refused another MP's festive meal a year before.",
@@ -414,7 +447,7 @@ export const posts: Post[] = [
     toc: [
       { id: "christmas-lunch", label: "A Christmas lunch, billed as training" },
       { id: "uk-christmas", label: "One MP was refused. She was paid." },
-      { id: "other-claims", label: "Everything else she billed you" },
+      { id: "other-claims", label: "Her other IPSA claims" },
       { id: "who-stops-this", label: "Why IPSA paid it, and who stops this" },
     ],
     faq: [
@@ -436,12 +469,12 @@ export const posts: Post[] = [
   {
     slug: "gregor-poynton-mp-four-tv-licences-livingston",
     title:
-      "You paid £688 for four TV licences in 11 months for Livingston MP Gregor Poynton: more than any other MP in the UK",
+      "Livingston MP Gregor Poynton claimed £688 for four TV licences in 11 months: the most of any UK MP",
     seoTitle: "Gregor Poynton MP Expenses: 4 TV Licences in 11 Months",
     description:
       "Taxpayers paid for four TV licences in 11 months for Livingston MP Gregor Poynton. No other UK MP has billed four in a year. Plus £5,059 on taxis.",
     standfirst:
-      "A TV licence lasts a full year. Somehow Livingston's Labour MP billed taxpayers for four of them in 11 months. No other MP in the UK has put four on expenses in a year.",
+      "A TV licence lasts a full year. Livingston MP Gregor Poynton claimed four of them in 11 months through IPSA. No other MP in the UK has claimed four in a year.",
     date: "2026-11-22",
     updated: "2026-11-22",
     checked: "2026-11-22",
@@ -487,7 +520,7 @@ export const posts: Post[] = [
   {
     slug: "euan-stainbank-mp-billboard-expenses-falkirk",
     title:
-      "You paid £3,300 for a board advertising Falkirk MP Euan Stainbank: the biggest MP advertising board in the UK",
+      "Falkirk MP Euan Stainbank claimed £3,300 for a billboard advert: the largest MP ad board claim in the UK",
     seoTitle: "Euan Stainbank MP Expenses: £3,300 Board Advertising Himself",
     description:
       "Taxpayers paid £3,300 for a board advertising Falkirk MP Euan Stainbank for a year. It is the biggest advertising board claim of any of the 650 UK MPs.",
@@ -516,7 +549,7 @@ export const posts: Post[] = [
     toc: [
       { id: "the-billboard", label: "What the IPSA record shows" },
       { id: "uk-number-one", label: "The biggest advertising board of all 650 UK MPs" },
-      { id: "his-other-claims", label: "Everything else he billed you for" },
+      { id: "his-other-claims", label: "His other IPSA claims" },
       { id: "why-ipsa-paid", label: "Why IPSA said yes" },
     ],
     faq: [
@@ -538,7 +571,7 @@ export const posts: Post[] = [
   {
     slug: "chris-law-mp-3090-broadband-expenses-dundee",
     title:
-      "You paid £3,090 to set up home broadband for Dundee MP Chris Law: the biggest home broadband claim of any UK MP",
+      "Dundee MP Chris Law claimed £3,090 to set up home broadband: the largest home internet claim of any UK MP",
     seoTitle: "Chris Law MP Expenses: £3,090 Home 5G Broadband (UK #1)",
     description:
       "Taxpayers paid £3,090 to set up home 5G broadband for Dundee MP Chris Law. A typical MP setup claim is £90. He also tops the UK for parking.",
@@ -589,12 +622,12 @@ export const posts: Post[] = [
   {
     slug: "angus-macdonald-mp-speech-coach-drains-expenses",
     title:
-      "You paid £3,000 for Highland MP Angus MacDonald's speech lessons, and £546 to clean the drains at his second home",
+      "Highland MP Angus MacDonald claimed £3,000 for speech workshops and £546 for London drain cleaning",
     seoTitle: "Angus MacDonald MP Expenses: £3,000 Speech Coach + Drains",
     description:
       "Taxpayers paid £3,000 for a speech skills workshop for Highland MP Angus MacDonald, from his staff budget, plus £546 to clean drains at his London flat.",
     standfirst:
-      "Speaking in Parliament is the job description. Highland Lib Dem MP Angus MacDonald still took £3,000 from his staff pot for a speech workshop, then billed you £546 to clean his London drains.",
+      "Highland Lib Dem MP Angus MacDonald claimed £3,000 from his staff budget for a speech workshop, plus £546 to clear drains at his London second home.",
     date: "2026-11-22",
     updated: "2026-11-22",
     checked: "2026-11-22",
@@ -640,7 +673,7 @@ export const posts: Post[] = [
   {
     slug: "pamela-nash-mp-furniture-expenses-motherwell",
     title:
-      "You paid £3,182 for Motherwell MP Pamela Nash's IKEA and DFS furniture, most of it in the last days of the budget year",
+      "Motherwell MP Pamela Nash claimed £3,182 for IKEA and DFS furniture in the final days of the budget year",
     seoTitle:
       "Pamela Nash MP Expenses: £3,182 IKEA and DFS Furniture",
     description:
@@ -670,7 +703,7 @@ export const posts: Post[] = [
     toc: [
       { id: "the-receipts", label: "Seven bills in the last seven days" },
       { id: "end-of-year-rush", label: "The last week of March, when MPs go shopping" },
-      { id: "the-rest", label: "Everything else she billed you for" },
+      { id: "the-rest", label: "Her other IPSA claims" },
       { id: "why-ipsa-paid", label: "Why IPSA said yes" },
     ],
     faq: [
@@ -692,7 +725,7 @@ export const posts: Post[] = [
   {
     slug: "john-lamont-mp-iphone-expenses-borders",
     title:
-      "You paid for two iPhones for Borders MP John Lamont: £1,098 in 2022 and £1,248 in 2025",
+      "Borders MP John Lamont claimed two iPhones through IPSA: £1,098 in 2022 and £1,248 in 2025",
     seoTitle:
       "John Lamont MP Expenses: Two iPhones Paid by You (£2,346)",
     description:
@@ -744,7 +777,7 @@ export const posts: Post[] = [
   {
     slug: "graeme-downie-mp-dinner-expenses-dunfermline",
     title:
-      "You paid £963 for a business dinner in Dunfermline MP Graeme Downie's name, and he cost you more than any MP in the UK",
+      "Dunfermline MP Graeme Downie's £963 business dinner claim, and the UK's highest total MP expense bill",
     seoTitle:
       "Graeme Downie MP Expenses: £963 Dinner, UK's Biggest Bill",
     description:
@@ -863,12 +896,12 @@ export const posts: Post[] = [
   {
     slug: "energy-minister-michael-shanks-flights-rutherglen",
     title:
-      "You paid for the Energy Minister to fly to London. 92% of Michael Shanks's London travel money went on planes",
+      "Energy Minister Michael Shanks put 92% of his London travel claims on flights",
     seoTitle: "Michael Shanks MP Flights: Energy Minister Flies, Staff Take the Train",
     description:
       "Taxpayers paid £11,753 for Energy Minister Michael Shanks's London flights in 2025/26 and £955 for trains, while his staff mostly took the train. Kirsteen Sullivan spent £0 on trains.",
     standfirst:
-      "Michael Shanks is the UK's Energy Minister. In 2025/26 you paid £11,753 for his London flights and £955 for his trains. His own staff mostly took the train. Bathgate and Linlithgow MP Kirsteen Sullivan put £18,342 on planes and nothing on trains.",
+      "Michael Shanks is the UK's Energy Minister. In 2025/26 public funds paid £11,753 for his London flights and £955 for his trains. His own staff mostly took the train. Bathgate and Linlithgow MP Kirsteen Sullivan put £18,342 on planes and nothing on trains.",
     date: "2026-11-23",
     updated: "2026-11-23",
     checked: "2026-11-23",
@@ -963,12 +996,12 @@ export const posts: Post[] = [
   {
     slug: "msp-edinburgh-flats-commuter-belt",
     title:
-      "You paid £623,696 to rent Edinburgh flats for 36 MSPs. Some live just 50 miles away",
+      "Public funds paid £623,696 to rent Edinburgh flats for 36 MSPs, some living 50 miles away",
     seoTitle: "MSP Edinburgh Flats: 36 MSPs, £623,696 and the 90 Minute Rule",
     description:
       "Taxpayers rented Edinburgh flats for 36 MSPs in 2024/25 at £623,696. A 90 minute rule puts East Kilbride, 50 miles away, on the flat list while Glasgow gets hotels.",
     standfirst:
-      "You paid £623,696 in a year to rent Edinburgh flats for 36 MSPs. Holyrood only sits Tuesday to Thursday. Some of those MSPs live in East Kilbride, 50 miles away. Parliament's own sums show two hotel nights a week would cost less.",
+      "Public funds paid £623,696 in a year to rent Edinburgh flats for 36 MSPs. Holyrood sits Tuesday to Thursday. Some of those MSPs live in East Kilbride, 50 miles away. Parliament's own sums show two hotel nights a week would cost less.",
     date: "2026-11-23",
     updated: "2026-11-23",
     checked: "2026-11-23",
@@ -1103,7 +1136,7 @@ export const posts: Post[] = [
   {
     slug: "scottish-mps-london-homes-152-sitting-days",
     title:
-      "You paid £2.91 million to shuttle 55 Scottish MPs to London for 152 days: up to £3,007 for every day they speak",
+      "£2.91 million in London homes and travel for 55 Scottish MPs across 152 sitting days",
     seoTitle:
       "£2.91m to Shuttle Scottish MPs to London for 152 Open Days (Cost Per Day Spoken)",
     description:
@@ -1155,7 +1188,7 @@ export const posts: Post[] = [
   {
     slug: "kilmarnock-mp-23437-electricity-bill",
     title:
-      "You paid £23,437 for Kilmarnock MP Lillian Jones's energy in two claims on one day: the biggest energy bill of any UK MP since 2022",
+      "Kilmarnock MP Lillian Jones claimed £23,437 for energy in two claims on one day: the largest MP energy claim since 2022",
     seoTitle:
       "Kilmarnock MP Lillian Jones £23,437 Yu Energy Bill (UK #1 in IPSA)",
     description:

@@ -161,7 +161,7 @@ export default function ZubirAhmedMpLondonHotelsGlasgow() {
       <QuickTake
         items={[
           <>
-            Glasgow South West MP <Link href={AHMED.href}>Dr Zubir Ahmed</Link> has billed you{" "}
+            Glasgow South West MP <Link href={AHMED.href}>Dr Zubir Ahmed</Link> claimed{" "}
             <strong>£67,519</strong> for London hotels and short stay flats since July 2024.
           </>,
           <>
@@ -216,7 +216,7 @@ export default function ZubirAhmedMpLondonHotelsGlasgow() {
         night block booking. It works out at £172.86 a night for four full weeks.
       </P>
       <P>
-        In March 2025, you paid <strong>£3,230</strong> for a 29 night Airbnb stay. In April 2025,
+        In March 2025, public funds paid <strong>£3,230</strong> for a 29 night Airbnb stay. In April 2025,
         <strong>£3,490</strong> paid for 30 nights. In May 2025, <strong>£3,615</strong> paid for
         25 nights.
       </P>
@@ -304,7 +304,7 @@ export default function ZubirAhmedMpLondonHotelsGlasgow() {
       </ChartFrame>
 
       <P>
-        In those four months, the Commons sat on 60 days. You paid for{" "}
+        In those four months, the Commons sat on 60 days. Public funds covered{" "}
         <strong>123 London nights</strong> (£16,473). He spoke on 11 days and asked{" "}
         <strong>zero written questions</strong>.
       </P>
@@ -355,7 +355,7 @@ export default function ZubirAhmedMpLondonHotelsGlasgow() {
 
       {/* ------------------------------------------------------------ 4 */}
       <Finding n={4} id="other-claims">
-        What else you paid for in his office
+        Other claims in his office budget
       </Finding>
       <P>
         His Glasgow office bills also stood out. Every one below is a real item or job from

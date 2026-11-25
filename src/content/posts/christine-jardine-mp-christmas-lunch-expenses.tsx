@@ -134,7 +134,7 @@ export default function ChristineJardineMpChristmasLunchExpenses() {
         items={[
           <>
             Six days before Christmas 2025, Edinburgh West MP{" "}
-            <Link href={JARDINE.href}>Christine Jardine</Link> billed you <strong>£510</strong> for
+            <Link href={JARDINE.href}>Christine Jardine</Link> claimed <strong>£510</strong> for
             her office do.
           </>,
           <>
@@ -423,8 +423,8 @@ export default function ChristineJardineMpChristmasLunchExpenses() {
 
       <Aside title="Not just Edinburgh West">
         <p>
-          See the rest of Scotland&apos;s worst claims:{" "}
-          <Link href="/blog/worst-scottish-mp-expenses">the worst Scottish MP expenses</Link>,{" "}
+          See the rest of Scotland&apos;s standout claims:{" "}
+          <Link href="/blog/worst-scottish-mp-expenses">standout Scottish MP expense claims</Link>,{" "}
           <Link href="/blog/scottish-mps-tv-licence-expenses">all 29 MPs claiming TV licences</Link>{" "}
           and{" "}
           <Link href="/blog/kilmarnock-mp-23437-electricity-bill">a £23,437 power bill paid in one day</Link>.

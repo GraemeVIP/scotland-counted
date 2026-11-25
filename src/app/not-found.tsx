@@ -101,6 +101,12 @@ export default function NotFound() {
               {item.label}
             </Link>
           ))}
+          <Link
+            href="/contact"
+            className="ui text-[16px] font-[540] text-[var(--ink-2)] hover:text-[var(--brand)]"
+          >
+            Contact us
+          </Link>
         </nav>
 
         <p className="mt-8 text-[15.5px] leading-[1.6] text-[var(--ink-2)] max-w-[62ch]">

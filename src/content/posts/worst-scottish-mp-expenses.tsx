@@ -209,7 +209,7 @@ export default function WorstScottishMpExpenses() {
     <Prose>
       <Lead>
         A £23,437 power bill paid in one day. £3,090 to set up broadband. A Christmas lunch filed
-        as &ldquo;training&rdquo;, and four TV licences in 11 months. You paid for the lot. Here it
+        as &ldquo;training&rdquo;, and four TV licences in 11 months. IPSA paid every one from public funds. Here it
         is, claim by claim.
       </Lead>
 
@@ -354,7 +354,7 @@ export default function WorstScottishMpExpenses() {
         person={person("Christine Jardine", "edinburgh-west", "Lib Dem", "Edinburgh West")}
         kicker="19 December 2025 · six days before Christmas"
         amount="£510"
-        headline="You paid for her office Christmas lunch and team day."
+        headline="Public funds paid for her office Christmas lunch and team day."
         lines={[
           { what: "lunch staff team training Christmas", amount: "£250.80" },
           { what: "team building event", amount: "£259.31" },
@@ -772,7 +772,7 @@ export default function WorstScottishMpExpenses() {
           </li>
           <li>
             Who set up IPSA? <strong>MPs did</strong>, with a law they passed in 2009 after the last
-            expenses scandal.
+            expenses review.
           </li>
           <li>
             IPSA&apos;s own files show just <strong>91 repayments out of 20,879 claims</strong> by Scottish

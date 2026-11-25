@@ -62,8 +62,8 @@ export default function NorthAyrshireSpending() {
           North Ayrshire’s reported school run taxi and private hire bill for 2024/25. The route prices,
           invoices and journey counts are still needed to judge what the council got for its money.
         </p>
-        <Link className="mt-3 inline-block text-[16px] font-[600] underline underline-offset-4" href="/blog/north-ayrshire-school-taxi-spending">
-          Read the school taxi investigation
+        <Link className="mt-3 inline-block text-[16px] font-[600] underline underline-offset-4" href="/blog/scottish-councils-school-taxi-spending">
+          Read the nationwide council taxi investigation
         </Link>
       </article>
     </section>

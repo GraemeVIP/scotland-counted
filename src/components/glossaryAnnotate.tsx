@@ -241,6 +241,10 @@ const AUTO_GLOSSARY_IDS = [
   "common-assault",
   "housebreaking",
   "road-traffic-offences",
+  "foi",
+  "additional-support-needs",
+  "asn",
+  "school-roll",
 ] as const;
 
 const autoTerms = AUTO_GLOSSARY_IDS.flatMap((id) => {

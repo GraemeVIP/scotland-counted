@@ -131,7 +131,6 @@ export function salaryHubPath() {
 export const PAGE_PATHS: Record<string, string> = {
   "/poverty": "/poverty-in-scotland",
   "/salary-after-tax-scotland": "/take-home-pay-calculator-scotland",
-  "/contact": "/about",
   "/mp-register-of-interests-scotland": "/mp-expenses-scotland",
 };
 

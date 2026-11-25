@@ -316,7 +316,7 @@ export default function ScottishMpsLondonHomes152SittingDays() {
         person={{ name: "Douglas Alexander", href: mp("lothian-east"), p: "Labour", place: "Lothian East" }}
         kicker="20 October 2025 · Second home council tax"
         amount="£4,093"
-        headline="You paid the council tax on his second home."
+        headline="Public funds paid the council tax on his second home."
         lines={[
           { meta: "Accommodation · Council tax", what: "Council tax associated costs 2025 to 2026", amount: "£4,093.21" },
         ]}
@@ -346,7 +346,7 @@ export default function ScottishMpsLondonHomes152SittingDays() {
 
       <ChartFrame
         kicker="Ordinary MPs With No Minister, Whip or PPS Job · 2025/26"
-        title="What you paid for each day these MPs spoke in London"
+        title="Public cost for each day these MPs spoke in London"
         caption="Source: IPSA 2025/26 flat and travel bills (each MP's own bill) split by 2025/26 Hansard days spoken. Leaves out ministers, whips and PPS aides. Opposition spokespeople are included."
       >
         <RankList max={COST_PER_SPOKEN_DAY[0].perDay} rows={PER_DAY_ROWS.slice(0, 3)} />
@@ -467,7 +467,7 @@ export default function ScottishMpsLondonHomes152SittingDays() {
         Glasgow happens in Scotland, not in a £3,500 a month London flat.</strong>
       </P>
       <P>
-        The rest of us spent five years on Teams and Zoom. Westminster itself ran remote votes and
+        Many workplaces have used video calls since 2020. Westminster itself ran remote votes and
         video talks in 2020 and 2021. MPs voted from their local office in 30 seconds flat,
         without a plane or a hotel in sight.
       </P>

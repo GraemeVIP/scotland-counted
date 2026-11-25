@@ -246,7 +246,7 @@ export default function ScottishMpsFlightsClimateExpenses() {
       <QuickTake
         items={[
           <>
-            Across Scotland, 55 current MPs billed you <strong>£868,378</strong> for London flights
+            Across Scotland, 55 current MPs claimed <strong>£868,378</strong> for London flights
             and <strong>£150,170</strong> for trains in 2025/26. That&apos;s{" "}
             <strong>85% of their London travel money on planes</strong>.
           </>,
@@ -289,7 +289,7 @@ export default function ScottishMpsFlightsClimateExpenses() {
             &ldquo;I have consistently raised airport noise, opposition to the expansion of
             Heathrow&rdquo;
           </a>
-          . Her own flights over four years came to <strong>£71,282</strong>. You paid.
+          . Her own flights over four years came to <strong>£71,282</strong> from public funds.
         </p>
       </Spotlight>
 
@@ -298,7 +298,7 @@ export default function ScottishMpsFlightsClimateExpenses() {
         Same city, 40 times the flight bill
       </Finding>
       <P>
-        Ask MPs why they fly to London and you hear the same excuse. Trains take too long. Votes
+        Ask MPs why they fly to London and you hear the same reason. Trains take too long. Votes
         finish late. Flying is the only way to do the job.
       </P>
       <P>

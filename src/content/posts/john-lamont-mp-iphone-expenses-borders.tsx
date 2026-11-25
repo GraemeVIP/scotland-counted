@@ -128,7 +128,7 @@ export default function JohnLamontMpIphoneExpensesBorders() {
       <QuickTake
         items={[
           <>
-            Borders Tory MP <Link href={LAMONT.href}>John Lamont</Link> billed you for{" "}
+            Borders MP <Link href={LAMONT.href}>John Lamont</Link> claimed{" "}
             <strong>two iPhones</strong> in under three years: <strong>£1,098</strong> (2022) and{" "}
             <strong>£1,248</strong> (2025).
           </>,
@@ -192,7 +192,7 @@ export default function JohnLamontMpIphoneExpensesBorders() {
         <Link href={LAMONT.href}>John Lamont</Link>.
       </P>
       <P>
-        A claim dated 9 August 2022 billed you £1,098 for &ldquo;iPhone purchase - John
+        A claim dated 9 August 2022 was for £1,098 for &ldquo;iPhone purchase - John
         Lamont&rdquo;. Under three years on, you bought him a new one with a case for £1,248. On top came a £39.90 mic
         and £17 to £30 a month for his office phone plan.
       </P>

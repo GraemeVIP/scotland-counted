@@ -161,7 +161,7 @@ export default function ScottishMpsTvLicenceExpenses() {
             One TV licence covers one place for a whole year
           </p>
           <p className="mt-2 text-[28px] font-[720] leading-[1.15] sm:text-[34px]">
-            He billed you for <span className="text-[var(--bad-text)]">four</span> in 11 months.
+            He claimed <span className="text-[var(--bad-text)]">four</span> in 11 months.
           </p>
           <ol className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
             {[
@@ -247,7 +247,7 @@ export default function ScottishMpsTvLicenceExpenses() {
         person={{ name: "Dr Zubir Ahmed", href: mp("glasgow-south-west"), p: "Labour", place: "Glasgow South West" }}
         kicker="6 February 2025 · Richer Sounds"
         amount="£715"
-        headline="You paid for a £715 television for his office."
+        headline="Public funds paid for a £715 television for his office."
         lines={[
           { meta: "Office Costs · Equipment - purchase · Television", what: "WWW.RICHERSOUNDS.COM [200011726-1495]", amount: "£715.00" },
         ]}
@@ -273,7 +273,7 @@ export default function ScottishMpsTvLicenceExpenses() {
         person={{ name: "Dr Scott Arthur", href: mp("edinburgh-south-west"), p: "Labour", place: "Edinburgh South West" }}
         kicker="April and May 2025 · Currys"
         amount="£467"
-        headline="You paid for two TVs for his office, six weeks apart."
+        headline="Public funds paid for two TVs for his office, six weeks apart."
         lines={[
           { meta: "13 April 2025 · Television", what: "CURRYS ONLINE", amount: "£218.00" },
           { meta: "26 May 2025 · Television", what: "CURRYS ONLINE", amount: "£249.00" },
@@ -318,7 +318,7 @@ export default function ScottishMpsTvLicenceExpenses() {
         person={{ name: "Christine Jardine", href: mp("edinburgh-west"), p: "Lib Dem", place: "Edinburgh West" }}
         kicker="19 December 2025 · six days before Christmas"
         amount="£510"
-        headline="You paid for her office Christmas lunch and team day."
+        headline="Public funds paid for her office Christmas lunch and team day."
         lines={[
           { what: "lunch staff team training Christmas", amount: "£250.80" },
           { what: "team building event", amount: "£259.31" },
@@ -398,7 +398,7 @@ export default function ScottishMpsTvLicenceExpenses() {
         <p>
           Its own rules let MPs put a TV licence for a local office on expenses, so nobody gets
           told no. See <Link href="/mp-expenses-scotland">all 57 Scottish MPs ranked</Link> or{" "}
-          <Link href="/blog/worst-scottish-mp-expenses">the worst claims we found</Link>.
+          <Link href="/blog/worst-scottish-mp-expenses">the standout claims we found</Link>.
         </p>
       </Aside>
 

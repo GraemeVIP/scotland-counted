@@ -179,7 +179,7 @@ test("only evidence-led investigations are filed under the investigations catego
    */
   const INVESTIGATIONS = [
     "north-ayrshire-crime-fell-scotland",
-    "north-ayrshire-school-taxi-spending",
+    "scottish-councils-school-taxi-spending",
     "scottish-mp-msp-expenses-what-it-could-buy",
     "msp-expenses-scotland-investigation",
     "msp-edinburgh-flats-commuter-belt",

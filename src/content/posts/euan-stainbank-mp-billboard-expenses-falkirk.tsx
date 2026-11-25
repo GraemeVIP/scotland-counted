@@ -141,7 +141,7 @@ export default function EuanStainbankMpBillboardExpensesFalkirk() {
         items={[
           <>
             Four months after winning Falkirk, Labour MP{" "}
-            <Link href={STAINBANK.href}>Euan Stainbank</Link> billed you <strong>£3,300</strong>{" "}
+            <Link href={STAINBANK.href}>Euan Stainbank</Link> claimed <strong>£3,300</strong>{" "}
             for a big ad board.
           </>,
           <>
@@ -401,7 +401,7 @@ export default function EuanStainbankMpBillboardExpensesFalkirk() {
       <Aside title="Not the only MP advertising themselves on your money">
         <p>
           Some MPs send glossy leaflets through every door at your expense too. See{" "}
-          <Link href="/blog/worst-scottish-mp-expenses">the worst Scottish MP expenses</Link>,{" "}
+          <Link href="/blog/worst-scottish-mp-expenses">standout Scottish MP expense claims</Link>,{" "}
           <Link href="/blog/msp-expenses-scotland-investigation">Holyrood&apos;s March leaflet rush</Link>{" "}
           or compare <Link href="/mp-expenses-scotland">all 57 Scottish MPs</Link>.
         </p>

@@ -34,6 +34,7 @@ export default function AuthorBio({ className = "" }: { className?: string }) {
         <Link href="/about">About Scotland Counted</Link>
         <Link href="/methods">How every figure was counted</Link>
         <Link href="/corrections">Corrections</Link>
+        <Link href="/contact">Contact us</Link>
       </div>
     </aside>
   );

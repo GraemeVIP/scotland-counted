@@ -143,6 +143,12 @@ const nextConfig: NextConfig = {
         destination: "/council-tax-increase-scotland",
         statusCode: 301 as const,
       },
+      {
+        /* Expanded from North Ayrshire to all 32 Scottish councils (24 Nov 2026). */
+        source: "/blog/north-ayrshire-school-taxi-spending",
+        destination: "/blog/scottish-councils-school-taxi-spending",
+        statusCode: 301 as const,
+      },
     ];
   },
   async headers() {

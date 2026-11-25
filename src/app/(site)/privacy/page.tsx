@@ -87,7 +87,7 @@ export default function Privacy() {
               },
               {
                 t: "Using the contact form",
-                b: "Your message and the reason you picked are sent through Web3Forms to our inbox. Name and email are optional. Add an email address only if you want us to be able to reply.",
+                b: "Your message and the topic you picked are sent directly from our server to our inbox. Name and email are optional. Add an email address only if you want us to be able to reply.",
               },
               {
                 t: "Submitting an MSP review",
@@ -251,9 +251,8 @@ export default function Privacy() {
               <tbody>
                 {[
                   ["Vercel", "Hosts the site", "Standard server logs, which include IP addresses, for security and to keep the site running"],
-                  ["Web3Forms", "Delivers contact forms and sign ups to a real inbox", "What you typed into the relevant contact or sign up form"],
-                  ["Google Gmail", "Sends a new review alert and private moderation link to the moderator", "The MSP, rating, chosen display name and whether follow up permission was given. The full account and optional reviewer email are not included"],
-                  ["Resend", "May send the same limited new review alert if Gmail cannot send it", "The MSP, rating, chosen display name and whether follow up permission was given. The full account and optional reviewer email are not included"],
+                  ["Google Gmail", "Sends contact messages and new review alerts to our inbox", "For contact forms, what you submitted. For MSP reviews, only the MSP, rating, display name and whether follow up permission was given"],
+                  ["Resend", "Backup mail delivery if Gmail cannot send", "Same message fields as Gmail above when used as a fallback"],
                   ["Supabase", "Stores MSP reviews while they are moderated and publishes approved reviews", "The review fields you submit. If you opt into a possible follow up, your email remains in the private moderation queue and is excluded from the public review table"],
                   ...(GA4_ON ? [["Google Analytics", "Measures visits and existing tool actions", "Page paths, device details, approximate location, referral information and limited action events"]] : []),
                   ...(CLARITY_ON ? [["Microsoft Clarity", "Helps find usability problems", "Page interaction and session recordings with private form fields masked"]] : []),
@@ -289,8 +288,8 @@ export default function Privacy() {
                 be found without collecting anything new.
               </p>
               <p>
-                Scotland Counted does not run a mailing list or contact form and collects no
-                personal account details.
+                Scotland Counted does not run a mailing list and collects no personal account
+                details.
               </p>
             </div>
             <div className="space-y-4 text-[17px] leading-[1.6] text-[var(--ink-2)]">

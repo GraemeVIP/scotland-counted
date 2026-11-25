@@ -324,7 +324,7 @@ export default function TorcuilCrichtonMpCoachingExpensesWesternIsles() {
         straight through.
       </P>
       <P>
-        Since 2022, Scottish MPs have paid back just 91 out of 20,879 claims. You can see the worst
+        Since 2022, Scottish MPs have paid back just 91 out of 20,879 claims. You can see the standout
         of them in our{" "}
         <Link href="/blog/worst-scottish-mp-expenses">Scottish MP expenses roundup</Link>.
       </P>

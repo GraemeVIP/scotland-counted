@@ -19,7 +19,7 @@ import OperationBranchformSnpMoneyTimeline from "./operation-branchform-snp-mone
 import DrugDeathsScotlandDeprivation from "./drug-deaths-scotland-deprivation";
 import EastVsWestDunbartonshire from "./east-vs-west-dunbartonshire";
 import CrisisGrantAcceptanceRatesScotlandCouncils from "./crisis-grant-acceptance-rates-scotland-councils";
-import NorthAyrshireSchoolTaxiSpending from "./north-ayrshire-school-taxi-spending";
+import ScottishCouncilsSchoolTaxiSpending from "./scottish-councils-school-taxi-spending";
 import NorthAyrshireCrimeFellScotland from "./north-ayrshire-crime-fell-scotland";
 import GlasgowSexCrimeRiseMigrants from "./glasgow-sex-crime-rise-migrants";
 import BestPerformingCouncilsScotland from "./best-performing-councils-scotland";
@@ -86,7 +86,7 @@ import ScottishMpMspExpensesWhatItCouldBuy from "./scottish-mp-msp-expenses-what
  */
 export const postBodies: Record<string, ComponentType> = {
   "north-ayrshire-crime-fell-scotland": NorthAyrshireCrimeFellScotland,
-  "north-ayrshire-school-taxi-spending": NorthAyrshireSchoolTaxiSpending,
+  "scottish-councils-school-taxi-spending": ScottishCouncilsSchoolTaxiSpending,
   "scottish-mp-msp-expenses-what-it-could-buy": ScottishMpMspExpensesWhatItCouldBuy,
   "msp-expenses-scotland-investigation": MspExpensesScotlandInvestigation,
   "msp-edinburgh-flats-commuter-belt": MspEdinburghFlatsCommuterBelt,

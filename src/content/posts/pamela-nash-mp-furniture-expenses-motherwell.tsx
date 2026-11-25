@@ -127,7 +127,7 @@ export default function PamelaNashMpFurnitureExpensesMotherwell() {
       <QuickTake
         items={[
           <>
-            Motherwell MP <Link href={NASH.href}>Pamela Nash</Link> billed you{" "}
+            Motherwell MP <Link href={NASH.href}>Pamela Nash</Link> claimed{" "}
             <strong>£3,182</strong> at IKEA and DFS (£2,937 left after a £245 refund).
           </>,
           <>
@@ -425,7 +425,7 @@ export default function PamelaNashMpFurnitureExpensesMotherwell() {
           Compare Motherwell with Kilmarnock, where{" "}
           <Link href={mp("kilmarnock-and-loudoun")}>Lillian Jones</Link> ran up{" "}
           <Link href="/blog/kilmarnock-mp-23437-electricity-bill">a £23,437 power bill in one day</Link>.
-          See <Link href="/blog/worst-scottish-mp-expenses">the worst Scottish MP expenses</Link> or{" "}
+          See <Link href="/blog/worst-scottish-mp-expenses">standout Scottish MP expense claims</Link> or{" "}
           <Link href="/mp-expenses-scotland">all 57 Scottish MPs</Link>.
         </p>
       </Aside>

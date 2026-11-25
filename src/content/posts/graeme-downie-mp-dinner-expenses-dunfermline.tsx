@@ -162,7 +162,7 @@ export default function GraemeDownieMpDinnerExpensesDunfermline() {
       <QuickTake
         items={[
           <>
-            Dunfermline MP <Link href={DOWNIE.href}>Graeme Downie</Link> billed you{" "}
+            Dunfermline MP <Link href={DOWNIE.href}>Graeme Downie</Link> claimed{" "}
             <strong>£963</strong> for a Fife College dinner in his name. It is the biggest single
             food bill of all 650 UK MPs in five years.
           </>,

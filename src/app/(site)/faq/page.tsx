@@ -39,8 +39,8 @@ export default function FaqPage() {
             body="Every answer on Scotland Counted links straight back to official Scottish Government, ONS, DWP and council datasets."
             href="/methods"
             cta="Methods and sources"
-            secondaryHref="/about"
-            secondaryCta="About Scotland Counted"
+            secondaryHref="/contact"
+            secondaryCta="Contact us"
           />
         </ContentFrame>
       </Page>

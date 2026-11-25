@@ -239,11 +239,12 @@ export default function AboutPage() {
             ))}
           </div>
 
-          <div className="mt-12 grid gap-4 border-t border-[var(--rule)] pt-8 text-[16px] font-[580] sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid gap-4 border-t border-[var(--rule)] pt-8 text-[16px] font-[580] sm:grid-cols-2 lg:grid-cols-5">
             <Link href="/methods">How we count everything →</Link>
             <Link href="/data">Download the data →</Link>
             <Link href="/updates">What changed and when →</Link>
             <Link href="/corrections">Corrections log →</Link>
+            <Link href="/contact">Contact us →</Link>
           </div>
         </ContentFrame>
       </Page>

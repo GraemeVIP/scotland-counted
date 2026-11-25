@@ -22,7 +22,7 @@ function SearchButton() {
       type="button"
       onClick={() => window.dispatchEvent(new CustomEvent("open-command"))}
       aria-label="Find your area, or search the site"
-      className="group h-10 w-10 shrink-0 flex items-center justify-center rounded-[var(--r-pill)] border border-white/20 text-white transition-colors hover:bg-white/10"
+      className="group h-9 w-9 min-[1440px]:h-10 min-[1440px]:w-10 shrink-0 flex items-center justify-center rounded-[var(--r-pill)] border border-white/15 bg-white/[0.04] text-white/90 transition-colors hover:bg-white/12 hover:text-white"
     >
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" aria-hidden="true">
         <circle cx="11" cy="11" r="7" />
@@ -56,7 +56,7 @@ function ThemeToggle() {
       type="button"
       onClick={toggle}
       aria-label="Switch between light and dark"
-      className="w-10 h-10 shrink-0 inline-flex items-center justify-center rounded-[var(--r-pill)] border border-white/20 text-white transition-colors hover:bg-white/10"
+      className="h-9 w-9 min-[1440px]:h-10 min-[1440px]:w-10 shrink-0 inline-flex items-center justify-center rounded-[var(--r-pill)] border border-white/15 bg-white/[0.04] text-white/90 transition-colors hover:bg-white/12 hover:text-white"
     >
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
         <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" />
@@ -131,16 +131,18 @@ export function Header() {
     <>
     <header
       ref={headerRef}
-      className="sticky top-0 z-50 no-print px-3 pt-3 sm:px-5"
+      className="sticky top-0 z-50 no-print px-3 pt-3 sm:px-4 min-[1440px]:px-5"
     >
       <div
-        className={`max-w-[1320px] mx-auto flex items-center gap-2 sm:gap-3 h-[60px] rounded-[var(--r-pill)] pl-6 sm:pl-7 pr-2 text-white border border-white/12 transition-shadow ${
-          scrolled ? "shadow-[0_14px_40px_-14px_rgba(0,12,40,0.55)]" : "shadow-[0_10px_30px_-16px_rgba(0,12,40,0.45)]"
+        className={`max-w-[1400px] mx-auto flex items-center gap-2 min-[1440px]:gap-3 h-[56px] sm:h-[60px] rounded-[var(--r-pill)] pl-4 pr-2 sm:pl-5 sm:pr-2.5 min-[1440px]:pl-6 text-white border border-white/14 transition-shadow ${
+          scrolled
+            ? "shadow-[0_1px_0_rgba(255,255,255,0.08)_inset,0_16px_42px_-14px_rgba(0,12,40,0.6)]"
+            : "shadow-[0_1px_0_rgba(255,255,255,0.08)_inset,0_10px_30px_-16px_rgba(0,12,40,0.45)]"
         }`}
         style={{
-          background: "rgba(3, 18, 52, 0.8)",
-          WebkitBackdropFilter: "blur(18px) saturate(160%)",
-          backdropFilter: "blur(18px) saturate(160%)",
+          background: "rgba(3, 18, 52, 0.84)",
+          WebkitBackdropFilter: "blur(20px) saturate(165%)",
+          backdropFilter: "blur(20px) saturate(165%)",
         }}
       >
         <Link
@@ -149,10 +151,10 @@ export function Header() {
           onClick={() => setMenuPath(null)}
           aria-label="Scotland Counted home"
         >
-          <Wordmark height={30} priority />
+          <Wordmark height={28} priority />
         </Link>
 
-        <nav aria-label="Main" className="hidden xl:flex items-center gap-0.5 mx-auto">
+        <nav aria-label="Main" className="hidden xl:flex items-center gap-0.5 min-[1440px]:gap-1 mx-auto min-w-0">
           {HUBS.map((hub) => {
             const expanded = openHub === hub.id;
             const here = currentHub === hub.id;
@@ -163,13 +165,26 @@ export function Header() {
                 onClick={() => setPanel(expanded ? null : { path: pathname, hub: hub.id })}
                 aria-expanded={expanded}
                 aria-controls="hub-panel"
-                className={`ui inline-flex items-center gap-1 whitespace-nowrap text-[14px] font-[500] h-10 px-2 rounded-[var(--r-pill)] transition-colors ${
-                  expanded ? "bg-white/16 text-white" : here ? "text-white hover:bg-white/10" : "text-white/80 hover:text-white hover:bg-white/10"
+                className={`group ui inline-flex items-center gap-1 min-[1400px]:gap-1.5 whitespace-nowrap text-[12.5px] min-[1360px]:text-[13px] min-[1440px]:text-[13.5px] font-[520] h-9 px-1.5 min-[1360px]:px-2 min-[1440px]:px-2.5 rounded-[var(--r-pill)] transition-colors ${
+                  expanded
+                    ? "bg-white/16 text-white"
+                    : here
+                      ? "bg-white/10 text-white hover:bg-white/14"
+                      : "text-white/82 hover:text-white hover:bg-white/10"
                 }`}
               >
-                <span aria-hidden="true" className="h-[7px] w-[7px] rounded-full" style={{ background: hubBarColor(hub.id) }} />
+                <span aria-hidden="true" className="h-[6px] w-[6px] shrink-0 rounded-full" style={{ background: hubBarColor(hub.id) }} />
                 {hub.label}
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" aria-hidden="true" className={`transition-transform ${expanded ? "rotate-180" : ""}`}>
+                <svg
+                  width="9"
+                  height="9"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                  aria-hidden="true"
+                  className={`shrink-0 transition-transform ${expanded ? "rotate-180 opacity-100" : "opacity-60 group-hover:opacity-100"}`}
+                >
                   <path d="m5 8 7 7 7-7" />
                 </svg>
               </button>
@@ -185,48 +200,72 @@ export function Header() {
                 onClick={() => setPanel(expanded ? null : { path: pathname, hub: hub.id })}
                 aria-expanded={expanded}
                 aria-controls="hub-panel"
-                className={`ui inline-flex items-center gap-1.5 whitespace-nowrap text-[14px] font-[620] h-10 px-2 rounded-[var(--r-pill)] transition-colors ${
-                  expanded ? "bg-white/16 text-white" : here ? "text-white bg-white/12" : "text-white hover:bg-white/10"
+                className={`group ui inline-flex items-center gap-1 min-[1400px]:gap-1.5 whitespace-nowrap text-[12.5px] min-[1360px]:text-[13px] min-[1440px]:text-[13.5px] font-[620] h-9 px-2 min-[1360px]:px-2.5 min-[1440px]:px-3 rounded-[var(--r-pill)] border transition-colors ${
+                  expanded
+                    ? "bg-[#ff5757]/24 border-[#ff5757]/45 text-white"
+                    : here
+                      ? "bg-[#ff5757]/18 border-[#ff5757]/35 text-white"
+                      : "bg-[#ff5757]/10 border-[#ff5757]/22 text-white hover:bg-[#ff5757]/18 hover:border-[#ff5757]/35"
                 }`}
               >
-                <span aria-hidden="true" className="h-[7px] w-[7px] rounded-full" style={{ background: hubBarColor(hub.id) }} />
+                <span aria-hidden="true" className="h-[6px] w-[6px] shrink-0 rounded-full" style={{ background: hubBarColor(hub.id) }} />
                 {hub.label}
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" aria-hidden="true" className={`transition-transform ${expanded ? "rotate-180" : ""}`}>
+                <svg
+                  width="9"
+                  height="9"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                  aria-hidden="true"
+                  className={`shrink-0 transition-transform ${expanded ? "rotate-180 opacity-100" : "opacity-75 group-hover:opacity-100"}`}
+                >
                   <path d="m5 8 7 7 7-7" />
                 </svg>
               </button>
             );
           })()}
+
+          <span aria-hidden="true" className="mx-1 min-[1360px]:mx-1.5 min-[1440px]:mx-2 h-4 w-px shrink-0 bg-white/18" />
+
           <Link
             href="/about"
             aria-current={pathname === "/about" ? "page" : undefined}
-            className={`ui hidden min-[1500px]:inline-flex items-center gap-1 whitespace-nowrap text-[14px] font-[500] h-10 px-2 rounded-[var(--r-pill)] transition-colors ${
-              pathname === "/about" ? "text-white bg-white/12" : "text-white/80 hover:text-white hover:bg-white/10"
+            className={`ui inline-flex items-center whitespace-nowrap text-[12.5px] min-[1360px]:text-[13px] min-[1440px]:text-[13.5px] font-[500] h-9 px-2 min-[1440px]:px-3 rounded-[var(--r-pill)] transition-colors ${
+              pathname === "/about" ? "bg-white/14 text-white" : "text-white/75 hover:text-white hover:bg-white/10"
             }`}
           >
-            <span aria-hidden="true" className="h-[7px] w-[7px] rounded-full bg-white/85" />
             About
+          </Link>
+          <Link
+            href="/contact"
+            aria-current={pathname === "/contact" ? "page" : undefined}
+            className={`ui inline-flex items-center whitespace-nowrap text-[12.5px] min-[1360px]:text-[13px] min-[1440px]:text-[13.5px] font-[500] h-9 px-2 min-[1440px]:px-3 rounded-[var(--r-pill)] transition-colors ${
+              pathname === "/contact" ? "bg-white/14 text-white" : "text-white/75 hover:text-white hover:bg-white/10"
+            }`}
+          >
+            Contact
           </Link>
         </nav>
 
-        <div className="ml-auto xl:ml-0 flex items-center gap-1.5 sm:gap-2">
+        <div className="ml-auto xl:ml-0 shrink-0 flex items-center gap-1.5 min-[1440px]:gap-2">
           <SearchButton />
           <ThemeToggle />
           <Link
             href="/blog"
-            className="ui hidden sm:inline-flex items-center gap-1.5 whitespace-nowrap rounded-[var(--r-pill)] bg-white px-4 h-10 text-[14.5px] font-[580] text-[#00336f] shadow-[0_1px_0_rgba(255,255,255,0.6)_inset,0_6px_18px_-8px_rgba(0,0,0,0.45)] transition-transform hover:-translate-y-px"
+            className="ui hidden sm:inline-flex items-center gap-1.5 whitespace-nowrap rounded-[var(--r-pill)] bg-white px-3 min-[1440px]:px-4 h-9 min-[1440px]:h-10 text-[13px] min-[1440px]:text-[14px] font-[600] text-[#00336f] shadow-[0_1px_0_rgba(255,255,255,0.6)_inset,0_6px_18px_-8px_rgba(0,0,0,0.45)] transition-transform hover:-translate-y-px"
           >
             All guides <span aria-hidden="true">→</span>
           </Link>
           <button
             type="button"
-            className="xl:hidden w-10 h-10 shrink-0 inline-flex items-center justify-center rounded-[var(--r-pill)] border border-white/20 text-white transition-colors hover:bg-white/10"
+            className="xl:hidden h-9 w-9 sm:h-10 sm:w-10 shrink-0 inline-flex items-center justify-center rounded-[var(--r-pill)] border border-white/15 bg-white/[0.04] text-white transition-colors hover:bg-white/12"
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label="Menu"
             onClick={() => setMenuPath(open ? null : pathname)}
           >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
               {open ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 8h16M4 16h16" />}
             </svg>
           </button>

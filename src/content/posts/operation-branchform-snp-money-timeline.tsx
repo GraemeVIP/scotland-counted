@@ -346,7 +346,7 @@ export default function Post() {
         Following the money in Scottish politics? We also track{" "}
         <Link href="/mp-expenses-scotland">every Scottish MP&apos;s expenses, donations and free trips</Link>
         , from second home council tax to London hotels, and the{" "}
-        <Link href="/blog/worst-scottish-mp-expenses">worst Scottish MP expenses</Link> we found.
+        <Link href="/blog/worst-scottish-mp-expenses">standout Scottish MP expense claims</Link> we found.
       </P>
 
       <H2 id="updates">Bookmark this living record</H2>

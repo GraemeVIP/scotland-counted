@@ -144,7 +144,7 @@ export default function Methods() {
           body="Download the original extracts, open the source links and tell us if something does not match. Confirmed errors are fixed and recorded publicly."
           href="/data"
           cta="Download the data"
-          secondaryHref="/corrections"
+          secondaryHref="/contact?reason=correction"
           secondaryCta="Tell us about an error"
         />
 

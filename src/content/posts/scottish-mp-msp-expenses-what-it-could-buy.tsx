@@ -203,7 +203,7 @@ export default function ScottishMpMspExpensesWhatItCouldBuy() {
         }}
         kicker="17 July 2025 · one workshop"
         amount="£3,000"
-        headline="You paid for his speech lessons."
+        headline="Public funds paid for his speech workshop."
         lines={[
           {
             meta: "Comms & Media · paid from his staffing budget",
@@ -304,7 +304,7 @@ export default function ScottishMpMspExpensesWhatItCouldBuy() {
         }}
         kicker="November 2023 to March 2024 · £600 a day"
         amount="£11,400"
-        headline="You paid an ex Labour boss's firm to help with his bill."
+        headline="Public funds paid an ex Labour adviser's firm for office support."
         lines={[
           { meta: "Nov 2023 · Craigview Strategies Limited", what: "Consultancy costs associated with support for private members bill", amount: "£2,400.00" },
           { meta: "Dec 2023 · Craigview Strategies Limited", what: "Consultancy re: private members bill", amount: "£2,400.00" },
@@ -527,7 +527,7 @@ export default function ScottishMpMspExpensesWhatItCouldBuy() {
         items={[
           {
             key: "glasgow-rejected",
-            title: "The £2.80m zero excuse pot alone pays every rejected Crisis Grant in Glasgow, with £821,000 to spare",
+            title: "The £2.80m outside core costs equals every rejected Crisis Grant in Glasgow, with £821,000 left over",
             children: (
               <>
                 Glasgow turned down <strong>15,250 claims</strong> in 2025/26. At the £130 average
@@ -537,7 +537,7 @@ export default function ScottishMpMspExpensesWhatItCouldBuy() {
           },
           {
             key: "nurses-87",
-            title: "The £2.80m zero excuse pot alone pays 87 new NHS Scotland nurses each year",
+            title: "The £2.80m outside core costs equals 87 new NHS Scotland nurses each year",
             children: (
               <>
                 A newly qualified NHS Scotland nurse starts on <strong>£32,073</strong>. Cut just the
@@ -548,7 +548,7 @@ export default function ScottishMpMspExpensesWhatItCouldBuy() {
           },
           {
             key: "school-meals-1m",
-            title: "The £2.80m zero excuse pot alone buys 1.08 million hot school lunches each year",
+            title: "The £2.80m outside core costs equals 1.08 million hot school lunches each year",
             children: (
               <>
                 At £2.60 a meal, it buys <strong>1,078,441 hot school lunches</strong> for older

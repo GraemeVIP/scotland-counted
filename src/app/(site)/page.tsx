@@ -377,7 +377,8 @@ export default function Home() {
                 Audits, budgets, tax changes and official data releases land quietly through the
                 year. Every update and data refresh is logged in the{" "}
                 <Link href="/updates">public update log</Link> (with an RSS feed) alongside our{" "}
-                <Link href="/about">mission and standards</Link>.
+                <Link href="/about">mission and standards</Link>, or{" "}
+                <Link href="/contact">get in touch</Link>.
               </p>
             </div>
           </section>

@@ -150,7 +150,7 @@ export default function Post() {
       </P>
 
       <PostCTA
-        title="Inflation is not an excuse to ignore the price level"
+        title="Falling inflation does not mean lower prices"
         body="The site turns the official figures into a ready written question for the people who control wages, benefits and food policy. We find your MP and MSP automatically."
         href="/email-your-mp-and-msp"
         cta="Ask for an answer"

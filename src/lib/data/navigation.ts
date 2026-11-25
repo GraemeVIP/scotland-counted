@@ -425,6 +425,7 @@ export const EVIDENCE: NavItem[] = [
 export const ABOUT: NavItem[] = [
   { href: "/about", label: "About Scotland Counted" },
   { href: "/for-organisations", label: "For organisations" },
+  { href: "/contact", label: "Contact" },
   { href: "/privacy", label: "Privacy" },
 ];
 

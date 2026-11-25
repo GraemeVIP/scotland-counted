@@ -44,6 +44,11 @@ export default function Corrections() {
             revises a release or a transcription error is found, the page is updated and the change
             is logged publicly below with the date and original source.
           </p>
+          <p className="mt-4">
+            <Link href="/contact?reason=correction" className="ui font-[600]">
+              Spot an error? Report it on our contact page →
+            </Link>
+          </p>
         </Col>
 
         <section className="pt-12">

@@ -348,10 +348,10 @@ export default function Press() {
         <CTA
           title="Something here wrong? That outranks everything"
           body="A public correction beats a citation. If a figure does not match its source, report it and it will be fixed and logged the same day."
-          href="/corrections"
+          href="/contact?reason=correction"
           cta="Report an error"
-          secondaryHref="/methods"
-          secondaryCta="Methods and sources"
+          secondaryHref="/corrections"
+          secondaryCta="Corrections log"
         />
         </ContentFrame>
       </Page>

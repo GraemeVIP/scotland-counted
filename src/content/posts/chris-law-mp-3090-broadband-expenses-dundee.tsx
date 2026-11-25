@@ -364,7 +364,7 @@ export default function ChrisLawMp3090BroadbandExpensesDundee() {
           },
           {
             key: "who-paid",
-            title: "Who pocketed the £3,090?",
+            title: "Who received the £3,090?",
             children: <>No company or fitter is named anywhere in IPSA&apos;s log.</>,
           },
           {
@@ -380,7 +380,7 @@ export default function ChrisLawMp3090BroadbandExpensesDundee() {
           Across Scotland&apos;s 57 MPs we also found{" "}
           <Link href="/blog/kilmarnock-mp-23437-electricity-bill">a £23,437 power bill paid in one day</Link>{" "}
           and <Link href="/blog/scottish-mps-tv-licence-expenses">29 MPs claiming TV licences</Link>.
-          See <Link href="/blog/worst-scottish-mp-expenses">the worst claims</Link> or compare{" "}
+          See <Link href="/blog/worst-scottish-mp-expenses">standout MP expense claims</Link> or compare{" "}
           <Link href="/mp-expenses-scotland">all 57 Scottish MPs</Link>.
         </p>
       </Aside>
